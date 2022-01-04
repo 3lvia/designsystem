@@ -14,6 +14,7 @@ import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Pagination } from '@elvia/elvis-pagination/react';
 import { Box } from '@elvia/elvis-box/react';
 import { Modal } from '@elvia/elvis-modal/react';
+import { Icon } from '@elvia/elvis-icon/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 import { Card } from '@elvia/elvis-card/react';
 
@@ -244,6 +245,12 @@ function App() {
     <div className="App">
       <Accordion labelPosition="center" openLabel="open" closeLabel="close" content="TextContent"></Accordion>
       <h1>React preview</h1>
+      <h2>Elvia ICONS</h2>
+      <div className="testingIconSizes">
+        <Icon name="folderCreate" customSize="37px"></Icon>
+      </div>
+      <Icon name="addCircle" color="red"></Icon>
+      <Icon name="addCircle"></Icon>
       <Card
         header={'Title1'}
         borderColor={'red'}
@@ -265,13 +272,6 @@ function App() {
       ></Pagination>
       <Carousel elements={elements} valueOnChange={setSelectedState}></Carousel>
       <h2>Breadcrumbs</h2>
-      <Breadcrumb
-        breadcrumbs={[
-          <a href="https://elvia.no">2Elvia.no</a>,
-          <a href="https://www.elvia.no/nettleie">2Nettleie</a>,
-          <a href="https://www.elvia.no/nettleie/elvias-leveringsplikt">2Elvias leveringsplikt</a>,
-        ]}
-      ></Breadcrumb>
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <h2>Box</h2>
       <Box
@@ -656,7 +656,8 @@ function App() {
       <h2>Progressbar Error</h2>
       <div>
         <ProgressLinear isError></ProgressLinear>
-      </div>
+      </div>{' '}
+      */
     </div>
   );
 }

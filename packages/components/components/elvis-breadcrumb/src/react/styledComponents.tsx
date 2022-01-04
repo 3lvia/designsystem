@@ -35,7 +35,7 @@ export const EWCBreadcrumbDesktopWrapper = styled.span`
 
 type EWCBreadcrumbLinkTypes = {
   isClickable: boolean;
-  href?: any;
+  href: any;
   key: number | undefined;
 };
 
