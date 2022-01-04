@@ -23,7 +23,7 @@
     "@elvia/elvis-box": "*",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "12.1.2",
-    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/user-event": "^12.8.3",
     "express": "^4.17.1",
     "ignore-styles": "^5.0.1",
     "react": "^17.0.2",
