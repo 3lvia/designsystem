@@ -53,13 +53,16 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs, webcomponent }) =>
     }
   }, [webcomponent]);
 
-  const mapSlottedItems = (slots: Record<string, JSX.Element>, slotElements: string | any[]) => {
-    const newElements: JSX.Element[] = [];
+  const mapSlottedItems = (slots: Record<string, any>, slotElements: string | any[]) => {
+    const newElements = [];
     for (let i = 1; i < slotElements.length + 1; i++) {
       const title = Object.keys(slots).find((el) => {
         return el === 'breadcrumb-' + i;
       });
-      title && newElements.push(slots[title]);
+      title &&
+        newElements.push(
+          <div dangerouslySetInnerHTML={{ __html: title ? slots[title].innerHTML : '' }}></div>,
+        );
     }
     return newElements;
   };
@@ -118,10 +121,10 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs, webcomponent }) =>
                 isClickable={false}
                 data-testid="breadcrumb-desktop-last-link"
               >
-                {/* {breadcrumb.props.children} */}
-                hello2
+                {'dangerouslySetInnerHTML' in breadcrumb.props
+                  ? breadcrumb.props.dangerouslySetInnerHTML.__html
+                  : breadcrumb.props.children}
               </StyledBreadcrumb.EWCBreadcrumbLink>
-              // <h3>Hello2</h3>
             )}
           </>
         );
@@ -145,10 +148,11 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs, webcomponent }) =>
               // {...breadcrumb.props}
               data-testid="breadcrumb-desktop-multiple-links"
             >
-              {/* {breadcrumb.props.children} */}
-              Hello
+              {'dangerouslySetInnerHTML' in breadcrumb.props
+                ? breadcrumb.props.dangerouslySetInnerHTML.__html
+                : breadcrumb.props.children}
             </StyledBreadcrumb.EWCBreadcrumbLink>
-            // <h3>hello</h3>
+            // { breadcrumb }
           )}
           <StyledBreadcrumb.EWCBreadcrumbIconRight />
         </StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
