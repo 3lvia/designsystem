@@ -14,7 +14,7 @@
     "@elvia/elvis-dropdown": "^2.0.0",
     "@elvia/elvis-colors": "^1.1.0",
     "@elvia/elvis-typography": "^1.1.0",
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.1",
     "styled-components": "^5.3.3"
   }
 }
