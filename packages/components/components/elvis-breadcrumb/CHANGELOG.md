@@ -1,5 +1,12 @@
 # Elvia Breadcrumbs
 
+## 1.2.0 (04.01.21)
+
+### Feature
+
+- Added support for callback function that is called when a breadcrumb is clicked instead of routing to new
+  page.
+
 ## 1.1.4 (06.12.21)
 
 ### Patch

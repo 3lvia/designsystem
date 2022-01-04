@@ -8,9 +8,10 @@ interface BreadcrumbLink {
 
 interface BreadcrumbProps {
   breadcrumbs: BreadcrumbLink[];
+  breadcrumbsOnChange?: (value: number) => void;
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
+const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOnChange }) => {
   const [childrenLength, setChildrenLength] = useState<number>(0);
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
 
@@ -43,7 +44,10 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
         <StyledBreadcrumb.EWCBreadcrumbIconLeft />
         <StyledBreadcrumb.EWCBreadcrumbLink
           key={undefined}
-          href={breadcrumbs[childrenLength - 2].url}
+          href={!breadcrumbsOnChange ? breadcrumbs[childrenLength - 2].url : undefined}
+          onClick={() => {
+            breadcrumbsOnChange && breadcrumbsOnChange(childrenLength - 2);
+          }}
           isClickable={true}
         >
           {breadcrumbs[childrenLength - 2].title}
@@ -57,7 +61,10 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
       if (index == childrenLength - 1) {
         return (
           <StyledBreadcrumb.EWCBreadcrumbLink
-            href={breadcrumb.url}
+            href={!breadcrumbsOnChange ? breadcrumb.url : undefined}
+            onClick={() => {
+              breadcrumbsOnChange && breadcrumbsOnChange(index);
+            }}
             key={index}
             isClickable={false}
             data-testid="breadcrumb-desktop-last-link"
@@ -69,8 +76,11 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
       return (
         <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper key={index}>
           <StyledBreadcrumb.EWCBreadcrumbLink
+            href={!breadcrumbsOnChange ? breadcrumb.url : undefined}
+            onClick={() => {
+              breadcrumbsOnChange && breadcrumbsOnChange(index);
+            }}
             key={undefined}
-            href={breadcrumb.url}
             isClickable={true}
             data-testid="breadcrumb-desktop-multiple-links"
           >

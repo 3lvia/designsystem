@@ -50,6 +50,7 @@ export const EWCBreadcrumbLink = styled.a<EWCBreadcrumbLinkTypes>`
   color: ${colors.elviaGrey70};
   pointer: ${(props: { isClickable: boolean }) => (props.isClickable ? 'cursor' : 'pointer')};
   pointer-events: ${(props: { isClickable: boolean }) => (props.isClickable ? 'auto' : 'none')};
+  cursor: ${(props: { isClickable: boolean }) => (props.isClickable ? 'pointer' : 'default')};
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

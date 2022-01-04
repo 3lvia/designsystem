@@ -9,6 +9,12 @@ const breadcrumbData = {
       description:
         'The links that the breadcrumb consists of. Send in as array of objects with the key value pairs of {url: string, title: string}',
     },
+    breadcrumbsOnChange: {
+      isRequired: false,
+      type: '(value: number) => void',
+      description:
+        'Gets called every time a breadcrumb is clicked, instead of routing to the given url. Parameter value is the index of the clicked breadcrumb in breadcrumbs.',
+    },
   },
   package: 'npm install @elvia/elvis-breadcrumb',
   codeImportReact: `import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';`,
