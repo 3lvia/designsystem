@@ -18,10 +18,11 @@ export const carouselData = {
       description:
         'Decides if looping through the elements should be possible, hides the arrows at the if not.',
       default: 'false',
-      cegDisplayName: 'Dont loop',
+      cegDisplayName: 'Loop',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
+      cegDefault: true,
       cegDisplayGroup: 'Options',
     },
     useOnboardingCheckmark: {
@@ -35,7 +36,7 @@ export const carouselData = {
       cegFormType: 'checkbox',
       cegOption: 'true',
       cegDisplayGroup: 'Options',
-      cegDependency: [{ name: 'hideArrows', value: 'true' }],
+      cegDependency: [{ name: 'hideArrows', value: 'false' }],
     },
     onHide: {
       isRequired: false,

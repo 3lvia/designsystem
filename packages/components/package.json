@@ -13,12 +13,12 @@
     "test:coverage": "jest --coverage --colors"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/plugin-syntax-jsx": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
-    "@babel/preset-react": "^7.16.0",
-    "@babel/preset-typescript": "^7.16.0",
-    "@babel/register": "^7.16.0",
+    "@babel/core": "^7.16.7",
+    "@babel/plugin-syntax-jsx": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@babel/register": "^7.16.7",
     "@elvia/elvis-component-wrapper": "*",
     "@testing-library/jest-dom": "^5.15.1",
     "@types/jest": "^26.0.23",
@@ -50,9 +50,9 @@
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.16.0",
-    "@babel/plugin-transform-runtime": "^7.16.4",
-    "@babel/preset-typescript": "^7.16.0",
+    "@babel/plugin-transform-react-jsx": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
     "ajv": "^8.6.2",
     "babel-plugin-styled-components": "^1.13.3",
     "gulp-typescript": "^6.0.0-alpha.1",

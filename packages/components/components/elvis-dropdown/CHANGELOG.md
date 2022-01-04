@@ -1,5 +1,11 @@
 # Elvia Dropdown
 
+## 2.0.3 (03.01.22)
+
+### Patches
+
+- Added unit tests.
+
 ## 2.0.2 (30.11.21)
 
 ### Patches

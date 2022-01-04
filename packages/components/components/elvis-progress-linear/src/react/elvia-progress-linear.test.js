@@ -2,7 +2,7 @@ import ProgressLinear from './elvia-progress-linear.tsx';
 import React from 'react';
 import { mount } from 'enzyme';
 
-describe('Elvis Divider', () => {
+describe('Elvis Progress Linear', () => {
   let wrapper;
   let progressLinear;
 
