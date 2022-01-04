@@ -129,6 +129,17 @@ function App() {
       title: 'Elvias leveringsplikt',
     },
   ];
+  const breadcrumbsNoUrl = [
+    {
+      title: 'Elvia.no',
+    },
+    {
+      title: 'Nettleie',
+    },
+    {
+      title: 'Elvias leveringsplikt',
+    },
+  ];
 
   const JSXCarouselElement = () => (
     <div>
@@ -274,11 +285,11 @@ function App() {
       <Carousel elements={elements} valueOnChange={setSelectedState}></Carousel>
       <h2>Breadcrumbs</h2>
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <h3>Breadcrumb that logs url</h3>
+      <h3>Breadcrumb that logs</h3>
       <Breadcrumb
-        breadcrumbs={breadcrumbs}
+        breadcrumbs={breadcrumbsNoUrl}
         breadcrumbsOnChange={(e) => {
-          console.log(breadcrumbs[e].url);
+          console.log(breadcrumbsNoUrl[e].title);
         }}
       />
       <h2>Box</h2>

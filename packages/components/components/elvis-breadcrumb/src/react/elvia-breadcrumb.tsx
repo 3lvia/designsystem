@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as StyledBreadcrumb from './styledComponents';
 
 interface BreadcrumbLink {
-  url: string;
+  url?: string;
   title: string;
 }
 
@@ -44,7 +44,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
         <StyledBreadcrumb.EWCBreadcrumbIconLeft />
         <StyledBreadcrumb.EWCBreadcrumbLink
           key={undefined}
-          href={!breadcrumbsOnChange ? breadcrumbs[childrenLength - 2].url : undefined}
+          href={breadcrumbs[childrenLength - 2].url}
           onClick={() => {
             breadcrumbsOnChange && breadcrumbsOnChange(childrenLength - 2);
           }}
@@ -61,7 +61,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
       if (index == childrenLength - 1) {
         return (
           <StyledBreadcrumb.EWCBreadcrumbLink
-            href={!breadcrumbsOnChange ? breadcrumb.url : undefined}
+            href={breadcrumb.url}
             onClick={() => {
               breadcrumbsOnChange && breadcrumbsOnChange(index);
             }}
@@ -76,7 +76,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
       return (
         <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper key={index}>
           <StyledBreadcrumb.EWCBreadcrumbLink
-            href={!breadcrumbsOnChange ? breadcrumb.url : undefined}
+            href={breadcrumb.url}
             onClick={() => {
               breadcrumbsOnChange && breadcrumbsOnChange(index);
             }}
