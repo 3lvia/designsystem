@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@webcomponents/webcomponentsjs": "^2.4.4",
+    "@webcomponents/webcomponentsjs": "^2.6.0",
     "classnames": "^2.2.6",
     "react": "*",
     "react-dom": "*"
