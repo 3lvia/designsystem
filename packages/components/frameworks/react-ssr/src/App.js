@@ -267,9 +267,9 @@ function App() {
       <h2>Breadcrumbs</h2>
       <Breadcrumb
         breadcrumbs={[
-          <a href="https://elvia.no">Elvia.no</a>,
-          <a href="https://www.elvia.no/nettleie">Nettleie</a>,
-          <a href="https://www.elvia.no/nettleie/elvias-leveringsplikt">Elvias leveringsplikt</a>,
+          <a href="https://elvia.no">2Elvia.no</a>,
+          <a href="https://www.elvia.no/nettleie">2Nettleie</a>,
+          <a href="https://www.elvia.no/nettleie/elvias-leveringsplikt">2Elvias leveringsplikt</a>,
         ]}
       ></Breadcrumb>
       <Breadcrumb breadcrumbs={breadcrumbs} />
