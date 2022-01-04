@@ -21,7 +21,7 @@
     "@elvia/elvis-testing": "*",
     "@elvia/elvis-divider": "*",
     "@elvia/elvis-box": "*",
-    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "^12.1.10",
     "express": "^4.17.1",
