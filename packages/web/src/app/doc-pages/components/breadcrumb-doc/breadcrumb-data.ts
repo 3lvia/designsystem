@@ -13,7 +13,7 @@ const breadcrumbData = {
       isRequired: false,
       type: '(value: number) => void',
       description:
-        'Gets called every time a breadcrumb is clicked, instead of routing to the given url. Parameter value is the index of the clicked breadcrumb in breadcrumbs.',
+        'Gets called every time a breadcrumb is clicked. Parameter value is the index of the clicked breadcrumb in breadcrumbs.',
     },
   },
   package: 'npm install @elvia/elvis-breadcrumb',
