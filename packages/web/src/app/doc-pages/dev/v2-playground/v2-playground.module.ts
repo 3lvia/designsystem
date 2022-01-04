@@ -24,6 +24,7 @@ import '@elvia/elvis-box';
 import '@elvia/elvis-modal';
 import '@elvia/elvis-icon';
 import '@elvia/elvis-radio-filter';
+import '@elvia/elvis-card';
 
 @NgModule({
   imports: [

@@ -179,7 +179,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       checkboxGroups[checkboxGroupKey].forEach((checkbox) => {
         const formOption = {
           name: checkbox.cegDisplayName,
-          defaultValue: false,
+          defaultValue: checkbox.cegDefault ? checkbox.cegDefault : false,
           propName: checkbox.propName,
           propValue: checkbox.cegOption,
           dependency: checkbox.cegDependency,

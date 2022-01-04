@@ -16,6 +16,7 @@ import { Box } from '@elvia/elvis-box/react';
 import { Modal } from '@elvia/elvis-modal/react';
 import { Icon } from '@elvia/elvis-icon/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
+import { Card } from '@elvia/elvis-card/react';
 
 function App() {
   const deletableChipsList = [
@@ -250,6 +251,19 @@ function App() {
       </div>
       <Icon name="addCircle" color="red"></Icon>
       <Icon name="addCircle"></Icon>
+      <Card
+        header={'Title1'}
+        borderColor={'red'}
+        icon={<i class="e-icon e-icon--search-bold e-icon--md"></i>}
+        iconHover={<i class="e-icon e-icon--search-bold-color e-icon--md"></i>}
+        cornerIcon={<i class="e-icon e-icon--unlock e-icon--xs"></i>}
+      ></Card>
+      <Card
+        header={'Title2'}
+        borderColor={'blueBerry'}
+        icon={<i class="e-icon e-icon--search-bold e-icon--md"></i>}
+        cornerIcon={<i class="e-icon e-icon--unlock e-icon--xs"></i>}
+      ></Card>
       <h2>Pagination!</h2>
       <Pagination
         items={156}
