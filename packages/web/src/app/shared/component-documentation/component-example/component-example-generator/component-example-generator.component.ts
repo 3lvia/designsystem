@@ -2,6 +2,7 @@ import { AfterContentInit, Component, Input, OnDestroy, OnInit, ViewChild } from
 import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../example-code.service';
+import * as ElvisIcons from '@elvia/elvis-assets-icons';
 
 @Component({
   selector: 'app-component-example-generator',
@@ -37,6 +38,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   hasSideFilters = true;
   formGroupList = [];
   allCheckboxes = [];
+
+  iconsOptions = [];
+  selectedIcon;
+  defaultIcon;
 
   typeOptions = [];
   selectedType;
@@ -206,6 +211,15 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           this.typeOptions.push(newType);
         });
         this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault]);
+      } else if (formType === 'iconName') {
+        this.selectedIcon = this.iconsOptions[0];
+        this.defaultIcon = { value: 'addCircle', label: 'Add Circle' };
+        for (const icon in ElvisIcons) {
+          const labelName = icon.replace(/([A-Z])/g, ' $1');
+          const finalLabel = labelName.charAt(0).toUpperCase() + labelName.slice(1);
+          this.iconsOptions.push({ value: icon, label: finalLabel });
+        }
+        this.addToFormStates(propKey, this.iconsOptions[0].value);
       } else if (formType === 'background') {
         this.bgObj = {
           propName: propKey,
@@ -269,10 +283,16 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     this.cegService.updateCodeNative(this.codeNative);
   }
 
-  updateSelectedType(selected: { value: any; label: any }): void {
+  updateSelectedType(selected: { value: any; label: any }, icon?: boolean): void {
     this.selectedType = selected.label;
-    const newValue = selected.label.toLowerCase();
-    this.updateSelected('type', newValue, 'string');
+    let newValue;
+    if (!icon || icon === undefined) {
+      newValue = selected.label.toLowerCase();
+      this.updateSelected('type', newValue, 'string');
+    } else {
+      newValue = selected.value;
+      this.updateSelected('name', newValue, 'string');
+    }
   }
 
   updateSelectedTypeCustom(selected: { value: any; label: any }): void {

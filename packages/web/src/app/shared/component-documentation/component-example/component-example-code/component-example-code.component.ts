@@ -23,6 +23,8 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   @Input() isInverted = false;
   @Input() isJS = false;
   @Input() doDontComp = false;
+  @Input() noSubscriptions = false;
+
   codeNative = '';
   copyMessage = '';
   activeTab = 0;
@@ -108,17 +110,19 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
 
   getTabs(): any[] {
     const tabs = [];
-    if (this.codeAngular !== '') {
-      tabs.push('Angular');
-    }
-    if (this.codeReact !== '') {
-      tabs.push('React');
-    }
-    if (this.codeVue !== '' && this.codeVue !== undefined) {
-      tabs.push('Vue');
-    }
-    if (this.codeNative !== '') {
-      tabs.push('Native');
+    if (this.noSubscriptions === false) {
+      if (this.codeAngular !== '') {
+        tabs.push('Angular');
+      }
+      if (this.codeReact !== '') {
+        tabs.push('React');
+      }
+      if (this.codeVue !== '' && this.codeVue !== undefined) {
+        tabs.push('Vue');
+      }
+      if (this.codeNative !== '') {
+        tabs.push('Native');
+      }
     }
     if (this.codeTS !== '') {
       tabs.push('Typescript');

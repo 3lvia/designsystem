@@ -1,6 +1,9 @@
 <div class="ceg-container component-preview-animation" [ngClass]="{ 'inline-margins': inlineExample }">
   <!--Top filters-->
-  <div *ngIf="typeOptions.length !== 0 || bgOptions.length !== 0 || typesData" class="ceg-top-filters">
+  <div
+    *ngIf="typeOptions.length !== 0 || bgOptions.length !== 0 || iconsOptions.length !== 0 || typesData"
+    class="ceg-top-filters"
+  >
     <div *ngIf="typeOptions.length !== 0 && !typesData" class="ceg-dropdown">
       <elvia-dropdown
         [options]="typeOptions"
@@ -9,12 +12,12 @@
         (valueOnChange)="updateFormStates('type', $event); updateSelectedType($event.detail.value)"
       ></elvia-dropdown>
     </div>
-    <div *ngIf="typesData" class="ceg-dropdown">
+    <div *ngIf="iconsOptions.length !== 0 && !typesData" class="ceg-dropdown">
       <elvia-dropdown
-        [options]="typeOptions"
-        [defaultValue]="typeOptions[0]"
-        label="Type"
-        (valueOnChange)="updateFormStates('type', $event); updateSelectedTypeCustom($event.detail.value)"
+        [options]="iconsOptions"
+        [defaultValue]="defaultIcon"
+        label="Icon name"
+        (valueOnChange)="updateFormStates('name', $event); updateSelectedType($event.detail.value, true)"
       ></elvia-dropdown>
     </div>
     <div *ngIf="bgOptions.length !== 0" class="ceg-dropdown">

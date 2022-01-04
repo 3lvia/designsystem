@@ -316,4 +316,18 @@ module.exports = [
     useWrapper: false,
     reactTypescriptDeclaration: true,
   },
+  {
+    name: 'elvis-icon',
+    elementName: 'elvia-icon',
+    attributes: [
+      { name: 'name', type: 'string', propType: 'string' },
+      { name: 'color', type: 'string', propType: 'string | undefined' },
+      { name: 'size', type: 'string', propType: 'string | undefined' },
+      { name: 'customSize', type: 'string', propType: 'string | undefined' },
+    ],
+    reactName: 'Icon',
+    slotItems: false,
+    useWrapper: true,
+    reactTypescriptDeclaration: true,
+  },
 ];

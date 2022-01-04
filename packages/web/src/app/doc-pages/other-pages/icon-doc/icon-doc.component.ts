@@ -3,6 +3,7 @@ import { Icon } from 'src/app/shared/icon.interface';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
+import { elvisIconData } from './icon.data';
 
 @Component({
   selector: 'app-icon-doc',
@@ -13,8 +14,10 @@ export class IconDocComponent implements OnInit {
   @ViewChild('accordionIconsDesktop') accordionIconsDesktop: ElementRef;
   @ViewChild('accordionIconsMobile') accordionIconsMobile: ElementRef;
   @ViewChild('icons') icons: ElementRef;
-
   @Output() clickOutside: EventEmitter<any> = new EventEmitter();
+
+  componentData = elvisIconData;
+  noSubs = true;
 
   visibleIcons = [];
   allIcons = [];

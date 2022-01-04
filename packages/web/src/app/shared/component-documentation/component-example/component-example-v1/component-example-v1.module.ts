@@ -4,6 +4,7 @@ import { ComponentExampleV1Component } from './component-example-v1.component';
 import { ComponentExampleCodeModule } from '../component-example-code/component-example-code.module';
 import { IframeScreenModule } from '../../../iframe-screen/iframe-screen.module';
 import '@elvia/elvis-accordion';
+import '@elvia/elvis-tabs';
 
 @NgModule({
   imports: [CommonModule, ComponentExampleCodeModule, IframeScreenModule],

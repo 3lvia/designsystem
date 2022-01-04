@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IconDocComponent } from './icon-doc.component';
@@ -12,6 +12,10 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { RouterModule } from '@angular/router';
+import '@elvia/elvis-icon';
+import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
+import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
+import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 
 @NgModule({
   imports: [
@@ -27,7 +31,11 @@ import { RouterModule } from '@angular/router';
     ComponentSubsubsectionModule,
     CopyModule,
     RouterModule,
+    ComponentExampleGeneratorModule,
+    ComponentPropertiesTableModule,
+    ComponentInstallationModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [IconDocComponent, IconSearchPipe],
 })
 export class IconDocModule {}

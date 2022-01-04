@@ -4,12 +4,7 @@
   <div class="components-examples">
     <div class="example-wrapper">
       <h3>Accordion</h3>
-      <elvia-accordion
-        openLabel="Show"
-        closeLabel="Hide"
-        size="medium"
-        type="normal"
-      >
+      <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="normal">
         <div slot="content">Webcomponentent content for the Accordion component</div>
       </elvia-accordion>
     </div>
@@ -29,28 +24,19 @@
 
     <div class="example-wrapper">
       <h3>Carousel</h3>
-      <elvia-carousel
-        :hideArrows="true"
-        @value-on-change="carouselValue = $event.detail.value"
-      >
+      <elvia-carousel :hideArrows="true" @value-on-change="carouselValue = $event.detail.value">
         <div slot="title-1">
           <h4 class="e-title-sm">HAN-port</h4>
         </div>
-        <div slot="element-1">
-          hello
-        </div>
+        <div slot="element-1">hello</div>
         <div slot="title-2">
           <h4 class="e-title-sm">AMS-meter</h4>
         </div>
-        <div slot="element-2">
-          halla
-        </div>
+        <div slot="element-2">halla</div>
         <div slot="title-3">
           <h4 class="e-title-sm">YOYOYO</h4>
         </div>
-        <div slot="element-3">
-          hei
-        </div>
+        <div slot="element-3">hei</div>
       </elvia-carousel>
     </div>
 
@@ -79,16 +65,10 @@
     <div class="example-wrapper">
       <h3>Divider</h3>
       <elvia-divider></elvia-divider>
-      <elvia-divider
-        :isInverted="false"
-        :type="'title'"
-      >
+      <elvia-divider :isInverted="false" :type="'title'">
         <h2 slot="title">Title</h2>
       </elvia-divider>
-      <elvia-divider
-        :orientation="'vertical'"
-        :isInverted="false"
-      >
+      <elvia-divider :orientation="'vertical'" :isInverted="false">
         <h2 slot="title">Title</h2>
       </elvia-divider>
     </div>
@@ -97,7 +77,7 @@
       <h3>Dropdown</h3>
       <elvia-dropdown :defaultValue="defaultOption" :options="elviaOptions"></elvia-dropdown>
     </div>
-    
+
     <div class="example-wrapper">
       <h3>Modal</h3>
       <button class="e-btn" @click="isModalShowing1 = !isModalShowing1">Hello</button>
@@ -113,9 +93,7 @@
           </div>
         </div>
         <div slot="secondaryButton">
-          <button class="e-btn e-btn--secondary e-btn--lg" @click="isModalShowing1 = false">
-            Avbryt
-          </button>
+          <button class="e-btn e-btn--secondary e-btn--lg" @click="isModalShowing1 = false">Avbryt</button>
         </div>
         <div slot="primaryButton"><button class="e-btn e-btn--primary e-btn--lg">Lagre</button></div>
       </elvia-modal>
@@ -123,10 +101,7 @@
 
     <div class="example-wrapper">
       <h3>Pagination</h3>
-      <elvia-pagination
-        items="156"
-        :value="defaultPaginatioValue"
-      ></elvia-pagination>
+      <elvia-pagination items="156" :value="defaultPaginatioValue"></elvia-pagination>
     </div>
 
     <div class="example-wrapper">
@@ -141,20 +116,16 @@
 
     <div class="example-wrapper">
       <h3>Progressbar</h3>
-      <elvia-progress-linear
-        :value="50"
-        :isIndeterminate="false"
-        :isError="false"
-      ></elvia-progress-linear>
+      <elvia-progress-linear :value="50" :isIndeterminate="false" :isError="false"></elvia-progress-linear>
     </div>
 
     <div class="example-wrapper">
       <h3>Radio Filter</h3>
-      <elvia-radio-filter 
+      <elvia-radio-filter
         :items="[
-          { label: 'All', value: 'all'},
-          { label: 'Read', value: 'read'},
-          { label: 'Unread', value: 'unread'},
+          { label: 'All', value: 'all' },
+          { label: 'Read', value: 'read' },
+          { label: 'Unread', value: 'unread' },
         ]"
         :value="'read'"
         :name="'readRadioFilters'"
@@ -172,7 +143,6 @@
         @callback-name="value = $event.detail.value"
       ></elvia-tabs>
     </div>
-    
   </div>
 </template>
 
@@ -204,7 +174,7 @@ export default {
         {
           url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt',
           title: 'Elvias leveringsplikt',
-        }
+        },
       ],
       deletableChipsList: [
         { value: 2022, color: 'green' },
@@ -226,23 +196,22 @@ export default {
         {
           element: this.carouselParagraph,
         },
-      ]
+      ],
     };
   },
   methods: {
     onFromDateChange: (event) => {
-      console.log('hello: ', event)
+      console.log('hello: ', event);
     },
     handleOnDelete: (event) => {
       console.log(event.detail.value);
     },
     updateSelectedFilter: (event) => {
       console.log(event.detail.value);
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
-  @import './App.scss';
+@import './App.scss';
 </style>
-
