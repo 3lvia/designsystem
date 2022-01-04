@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "^2.6.0",
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.1",
     "react": "*",
     "react-dom": "*"
   }
