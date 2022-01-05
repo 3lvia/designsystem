@@ -42,7 +42,7 @@ const breadcrumbData = {
 ></elvia-breadcrumb>`,
   codeNativeHTML: `<elvia-breadcrumb id="example-elvia-breadcrumb">
 </elvia-breadcrumb>`,
-  codeNativeScript: ` const breadcrumb = document.getElementById('example-elvia-breadcrumb');
+  codeNativeScript: `  const breadcrumb = document.getElementById('example-elvia-breadcrumb');
   const breadcrumbs = [
     {
       url: 'https://design.elvia.io/',
@@ -57,7 +57,8 @@ const breadcrumbData = {
       title: 'Breadcrumbs',
     },
   ];
-  breadcrumb.setProps({breadcrumbs: breadcrumbs });`,
+  breadcrumb.setProps({breadcrumbs: breadcrumbs });
+  `,
 };
 
 export { breadcrumbData };
