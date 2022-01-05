@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { breadcrumbData } from './breadcrumb-data';
+import { breadcrumbEventCode } from './breadcrumb-event-code';
 
 @Component({
   selector: 'app-breadcrumb-doc',
@@ -11,6 +12,7 @@ export class BreadcrumbDocComponent {
   figmaUrl = getComponent('breadcrumb').figmaUrl;
   description = getComponent('breadcrumb').description;
   componentData = breadcrumbData;
+  breadcrumbEventCode = breadcrumbEventCode;
 
   exampleBreadcrumb = [
     {
