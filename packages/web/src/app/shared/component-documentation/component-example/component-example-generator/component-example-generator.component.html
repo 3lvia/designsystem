@@ -5,7 +5,7 @@
       typeOptions.length !== 0 ||
       bgOptions.length !== 0 ||
       iconsOptions.length !== 0 ||
-      typesData.length !== 0
+      (typesData && typesData.length !== 0)
     "
     class="ceg-top-filters"
   >
@@ -25,7 +25,7 @@
         (valueOnChange)="updateFormStates('name', $event); updateSelectedType($event.detail.value, true)"
       ></elvia-dropdown>
     </div>
-    <div *ngIf="typesData.length !== 0" class="ceg-dropdown">
+    <div *ngIf="typesData && typesData.length !== 0" class="ceg-dropdown">
       <elvia-dropdown
         [options]="typeOptions"
         [defaultValue]="typeOptions[0]"
