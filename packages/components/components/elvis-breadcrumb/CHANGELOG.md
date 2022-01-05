@@ -1,6 +1,6 @@
 # Elvia Breadcrumbs
 
-## 1.2.0 (04.01.21)
+## 1.2.0 (05.01.21)
 
 ### Feature
 
