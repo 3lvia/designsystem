@@ -27,7 +27,7 @@ const breadcrumbEventCode = {
   @breadcrumbs-on-change="handleOnChange($event)"
 ></elvia-breadcrumb>`,
   codeNativeHTML: `<elvia-breadcrumb id="example-elvia-breadcrumb-2"></elvia-breadcrumb>`,
-  codeNativeScript: ` const breadcrumb = document.getElementById('example-elvia-breadcrumb-2');
+  codeNativeScript: `  const breadcrumb = document.getElementById('example-elvia-breadcrumb-2');
   const breadcrumbs = [
     {title: 'Home'},
     {title: 'Components'},
