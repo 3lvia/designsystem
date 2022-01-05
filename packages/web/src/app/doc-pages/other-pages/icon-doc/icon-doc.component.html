@@ -23,7 +23,7 @@
             <div class="e-alert__title">{{ icon.pretty }}</div>
             <div class="e-alert__text">
               <div style="display: flex; flex-direction: row; justify-content: space-between">
-                <div class="e-text-info e-text-grey-70">
+                <div class="e-text-sm e-text-grey-70">
                   e-icon e-icon--{{ icon.title }} e-icon--sm
                   <span *ngIf="inverted">e-icon--inverted</span>
                 </div>
@@ -31,7 +31,7 @@
             </div>
           </div>
 
-          <div class="alert-buttons e-text-info e-text-grey-70">
+          <div class="alert-buttons e-text-sm e-text-grey-70">
             <div class="copy-text-container">
               <div
                 [ngClass]="{ hide: !copied }"
@@ -150,7 +150,7 @@
           </label>
         </div>
         <div class="dark-mode-toggle">
-          <span class="e-text-info">Inverted</span>
+          <span class="e-text-sm">Inverted</span>
           <label class="e-toggle">
             <input class="e-toggle__input" type="checkbox" (click)="invert()" [checked]="inverted" />
             <span class="e-toggle__slider"></span>
@@ -189,7 +189,7 @@
                       [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'"
                     ></i>
                   </div>
-                  <div class="e-text-info e-text-center" [style.color]="inverted ? 'white' : 'black'">
+                  <div class="e-text-sm e-text-center" [style.color]="inverted ? 'white' : 'black'">
                     {{ icon.pretty }}
                   </div>
                 </div>
@@ -211,7 +211,7 @@
                           [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'"
                         ></i>
                       </div>
-                      <div class="e-text-info e-text-center" [style.color]="inverted ? 'white' : 'black'">
+                      <div class="e-text-sm e-text-center" [style.color]="inverted ? 'white' : 'black'">
                         {{ icon.pretty }}
                       </div>
                     </div>

@@ -864,6 +864,7 @@
 			}
 		},
 		"e-table-footnote": {},
+		"e-text-mono": {},
 		"e-checkbox": {
 			"element": {
 				"e-checkbox__mark": {},
@@ -1681,6 +1682,7 @@
 		"e-table__cell--multiline-small": {},
 		"e-table__cell--multiline-sm": {},
 		"e-table-mobile--compact": {},
+		"e-text-mono": {},
 		"e-table__input": {},
 		"e-table-mobile__input": {},
 		"e-table__button": {},

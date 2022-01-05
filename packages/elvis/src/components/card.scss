@@ -67,6 +67,6 @@ $card-actions-button-spacing: 25px;
 
   &__content {
     display: block;
-    @include typography.typography('text-description');
+    @include typography.typography('text-md');
   }
 }

@@ -1,9 +1,9 @@
-@use "../variables/typography.scss";
-@use "../variables/colors";
-@use "../variables/shadows";
-@use "../utilities/icons.scss";
-@use "../utilities/breakpoints";
-@use "../utilities/helpers";
+@use '../variables/typography.scss';
+@use '../variables/colors';
+@use '../variables/shadows';
+@use '../utilities/icons.scss';
+@use '../utilities/breakpoints';
+@use '../utilities/helpers';
 
 $local-padding: 22px 30px 22px 22px; // -2px for border;
 $local-mobile-padding: 14px; // -2px for border;
@@ -52,7 +52,7 @@ $toast-max-width: 400px;
       margin-bottom: 2px;
     }
     .e-alert__text {
-      @include typography.typography('text-description');
+      @include typography.typography('text-md');
       font-size: 16px;
       line-height: 28px;
       max-width: 758px;

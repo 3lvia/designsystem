@@ -9,6 +9,11 @@ Available typography reflect the typography classes availabe at https://design.e
 Insert at top of your scss file :<br>
 
 - @use '@elvia/elvis-typography/src/elviaTypography.scss';
+- Remember to import the google fonts in your project if you are not using the @elvia/elvis package:
+  - @import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap');
+  - @import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap');
+  - @import
+    url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&display=swap');
 
 ## Maintaining
 

@@ -68,7 +68,7 @@ $grey10: colors.color('grey-10');
 
   td,
   th {
-    @include typography.typography('text-description');
+    @include typography.typography('text-md');
     text-align: left;
     padding: $table-padding;
     &.e-table__cell--multiline {
@@ -138,7 +138,7 @@ $grey10: colors.color('grey-10');
 
   th,
   td {
-    @include typography.typography('text-description');
+    @include typography.typography('text-md');
     line-height: 27px;
     padding: $table-padding;
     text-align: left;
@@ -195,6 +195,12 @@ $grey10: colors.color('grey-10');
 }
 
 // OPTIONS
+// Mono font for numbers
+.e-table .e-text-mono,
+.e-table-mobile .e-text-mono {
+  font-family: 'Red Hat Mono', Verdana, sans-serif !important;
+}
+
 // Input
 .e-table .e-table__input,
 .e-table-mobile td.e-table-mobile__input {

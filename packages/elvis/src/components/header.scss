@@ -590,7 +590,7 @@ $sidebar-mobile-z-index: -2;
     .e-header__sidebar__text {
       display: none;
       margin-left: 8px;
-      @include typography.typography('text-description');
+      @include typography.typography('text-md');
     }
     .e-header__sidebar__icon {
       position: relative;

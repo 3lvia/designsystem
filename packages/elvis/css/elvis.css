@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&display=swap");
 .e-icon {
   width: 32px;
   height: 32px;
@@ -6503,6 +6504,11 @@ input:focus {
   text-transform: unset;
   color: inherit;
 }
+.e-table .e-text-mono,
+.e-table-mobile .e-text-mono {
+  font-family: "Red Hat Mono", Verdana, sans-serif !important;
+}
+
 .e-table .e-table__input,
 .e-table-mobile td.e-table-mobile__input {
   padding: 6px;

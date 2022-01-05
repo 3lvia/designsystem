@@ -159,6 +159,16 @@
         </ng-container>
       </app-component-subsection>
 
+      <app-component-subsection [sectionTitle]="'Alignment'">
+        <ng-container ngProjectAs="sectionContent">
+          The first column should always be left aligned no matter the content of that column. By default all
+          content is aligned to the left. There are however helper classes available for aligning content to
+          the center or to the right. The table header should always follow the alignment of the column.
+          Besides the first column, any type of content can be center aligned or right aligned.
+          <app-component-example-v1 [codeHTML]="exampleAlignment"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
       <app-component-subsection [sectionTitle]="'Button'">
         <ng-container ngProjectAs="sectionContent">
           Use icon buttons when you need actions in your table.
@@ -241,6 +251,29 @@
           Use a footnote when you need to clarify information. Use an asterix (*) to connect the data to the
           description.
           <app-component-example-v1 [codeHTML]="exampleFootnote"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Long column'">
+        <ng-container ngProjectAs="sectionContent">
+          If the table requires scrolling the max-width for a column is 450px, the class
+          <span class="code-text">e-table__cell--multiline</span>
+          can then be added to ensure width of column and text wrap. Use
+          <span class="code-text">e-text-right</span>
+          to align numbers to the right. The class
+          <span class="code-text">e-table__cell--multiline-sm</span>
+          can be used when the column should have a max-width of 250px.
+          <app-component-example-v1 [codeHTML]="exampleLongColumn"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Numbers'">
+        <ng-container ngProjectAs="sectionContent">
+          Use the class
+          <span class="code-text">e-text-mono</span>
+          on the table cell, when comparing numbers in the table. Mono has equal width for each character,
+          making comparing numbers easier than with Red Hat Text or Red Hat Display.
+          <app-component-example-v1 [codeHTML]="exampleNumbers"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
@@ -332,34 +365,12 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Alignment'">
-        <ng-container ngProjectAs="sectionContent">
-          The first column should always be left aligned no matter the content of that column. By default all
-          content is aligned to the left. There are however helper classes available for aligning content to
-          the center or to the right. The table header should alway follow the alignment of the column.
-          Besides the first column, any type of content can be center aligned or right aligned.
-          <app-component-example-v1 [codeHTML]="exampleAlignment"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
   <app-component-section [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Long column'">
-        <ng-container ngProjectAs="sectionContent">
-          If the table requires scrolling the max-width for a column is 450px, the class
-          <span class="code-text">e-table__cell--multiline</span>
-          can then be added to ensure width of column and text wrap. Use
-          <span class="code-text">e-text-right</span>
-          to align numbers to the right. The class
-          <span class="code-text">e-table__cell--multiline-sm</span>
-          can be used when the column should have a max-width of 250px.
-          <app-component-example-v1 [codeHTML]="exampleLongColumn"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
       <app-component-subsection [sectionTitle]="'Accessibility'">
         <ng-container ngProjectAs="sectionContent">
           Here are some accessibility rules to be aware of when setting up tables.
