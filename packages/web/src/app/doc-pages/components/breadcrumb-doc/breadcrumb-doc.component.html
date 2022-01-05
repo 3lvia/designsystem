@@ -21,20 +21,13 @@
   <!-- USAGE -->
   <app-component-section [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Simple'">
+      <app-component-subsection [sectionTitle]="'Routing'">
         <ng-container ngProjectAs="sectionContent">
-          The default behaviour of the breadcrumb component is to make anchor tags with a given title and url
-          from the breadcrumbs prop. This works, however it does not provide support for using routing modules
-          to handle routing.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Callback'">
-        <ng-container ngProjectAs="sectionContent">
-          When clicking a breadcrumb, the callback function breadcrumbsOnChange is called if provided, and the
-          event breadcrumbsOnChange is dispatched. It is called with the index of the clicked breadcrumb as
-          its only parameter. This functionality, combined with not sending in a url to the breadcrumb, can be
-          used to handle routing outside of the breadcrumb component allowing the use of routing modules (e.g.
-          Angular RoutingModule or React Router).
+          To use routing with the breadcrumb module, the callback function breadcrumbsOnChange can be used.
+          Instead of passing in a url to the breadcrumbs prop, the breadcrumbsOnChange callback function is
+          provided with the index of the clicked breadcrumb. This functionality can be used to handle routing
+          outside of the breadcrumb component allowing the use of routing modules (e.g. Angular RoutingModule
+          or React Router).
           <app-component-example-generator
             [componentData]="breadcrumbEventCode"
             [inlineExample]="true"
