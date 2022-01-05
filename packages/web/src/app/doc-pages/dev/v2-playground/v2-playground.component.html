@@ -40,6 +40,11 @@
 
   <h2>Breadcrumbs</h2>
   <elvia-breadcrumb [breadcrumbs]="breadcrumbsTest"></elvia-breadcrumb>
+  <elvia-breadcrumb
+    [breadcrumbs]="breadcrumbsTestNoUrl"
+    (breadcrumbsOnChange)="breadcrumbsValue = $event.detail.value"
+  ></elvia-breadcrumb>
+  {{ breadcrumbsValue }}
 
   <h2>Carousel</h2>
   <div style="padding: 8px">

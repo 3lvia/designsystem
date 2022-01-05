@@ -9,9 +9,10 @@ interface BreadcrumbLink {
 interface BreadcrumbProps {
   breadcrumbs: BreadcrumbLink[];
   breadcrumbsOnChange?: (value: number) => void;
+  webcomponent: any;
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOnChange }) => {
+const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOnChange, webcomponent }) => {
   const [childrenLength, setChildrenLength] = useState<number>(0);
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
 
@@ -34,6 +35,15 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
     };
   });
 
+  const handleOnClick = (value: number) => {
+    if (!webcomponent && breadcrumbsOnChange) {
+      breadcrumbsOnChange(value);
+    } else {
+      webcomponent.setProps({ breadcrumbs: value }, true);
+      // breadcrumbsOnChange && breadcrumbsOnChange(value);
+    }
+  };
+
   if (childrenLength === 0) {
     return null;
   }
@@ -46,7 +56,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
           key={undefined}
           href={breadcrumbs[childrenLength - 2].url}
           onClick={() => {
-            breadcrumbsOnChange && breadcrumbsOnChange(childrenLength - 2);
+            handleOnClick(childrenLength - 2);
           }}
           isClickable={true}
         >
@@ -63,7 +73,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
           <StyledBreadcrumb.EWCBreadcrumbLink
             href={breadcrumb.url}
             onClick={() => {
-              breadcrumbsOnChange && breadcrumbsOnChange(index);
+              handleOnClick(index);
             }}
             key={index}
             isClickable={false}
@@ -78,7 +88,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
           <StyledBreadcrumb.EWCBreadcrumbLink
             href={breadcrumb.url}
             onClick={() => {
-              breadcrumbsOnChange && breadcrumbsOnChange(index);
+              handleOnClick(index);
             }}
             key={undefined}
             isClickable={true}

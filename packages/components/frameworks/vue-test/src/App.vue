@@ -20,6 +20,10 @@
     <div class="example-wrapper">
       <h3>Breadcrumb</h3>
       <elvia-breadcrumb :breadcrumbs="breadcrumbsTest"></elvia-breadcrumb>
+      <elvia-breadcrumb
+        :breadcrumbs="breadcrumbsTestNoUrl"
+        @breadcrumbs-on-change="breadcrumbsOnClick($event)"
+      ></elvia-breadcrumb>
     </div>
 
     <div class="example-wrapper">
@@ -176,6 +180,17 @@ export default {
           title: 'Elvias leveringsplikt',
         },
       ],
+      breadcrumbsTestNoUrl: [
+        {
+          title: 'Elvia.no',
+        },
+        {
+          title: 'Nettleie',
+        },
+        {
+          title: 'Elvias leveringsplikt',
+        },
+      ],
       deletableChipsList: [
         { value: 2022, color: 'green' },
         { value: 2023, color: 'red' },
@@ -207,6 +222,9 @@ export default {
       console.log(event.detail.value);
     },
     updateSelectedFilter: (event) => {
+      console.log(event.detail.value);
+    },
+    breadcrumbsOnClick: (event) => {
       console.log(event.detail.value);
     },
   },
