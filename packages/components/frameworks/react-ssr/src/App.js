@@ -129,6 +129,17 @@ function App() {
       title: 'Elvias leveringsplikt',
     },
   ];
+  const breadcrumbsNoUrl = [
+    {
+      title: 'Elvia.no',
+    },
+    {
+      title: 'Nettleie',
+    },
+    {
+      title: 'Elvias leveringsplikt',
+    },
+  ];
 
   const JSXCarouselElement = () => (
     <div>
@@ -251,12 +262,13 @@ function App() {
       </div>
       <Icon name="addCircle" color="red"></Icon>
       <Icon name="addCircle"></Icon>
+      <br />
       <Card
         header={'Title1'}
         borderColor={'red'}
         icon={<i class="e-icon e-icon--search-bold e-icon--md"></i>}
         iconHover={<i class="e-icon e-icon--search-bold-color e-icon--md"></i>}
-        cornerIcon={<i class="e-icon e-icon--unlock e-icon--xs"></i>}
+        cornerIcon={<Icon name="unlock" size="xs" />}
       ></Card>
       <Card
         header={'Title2'}
@@ -273,6 +285,13 @@ function App() {
       <Carousel elements={elements} valueOnChange={setSelectedState}></Carousel>
       <h2>Breadcrumbs</h2>
       <Breadcrumb breadcrumbs={breadcrumbs} />
+      <h3>Breadcrumb that logs</h3>
+      <Breadcrumb
+        breadcrumbs={breadcrumbsNoUrl}
+        breadcrumbsOnChange={(e) => {
+          console.log(breadcrumbsNoUrl[e].title);
+        }}
+      />
       <h2>Box</h2>
       <Box
         hasBorder={true}

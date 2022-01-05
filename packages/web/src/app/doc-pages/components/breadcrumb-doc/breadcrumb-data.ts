@@ -7,7 +7,13 @@ const breadcrumbData = {
       isRequired: true,
       type: 'Array<object>',
       description:
-        'The links that the breadcrumb consists of. Send in as array of objects with the key value pairs of {url: string, title: string}',
+        'The links that the breadcrumb consists of. Send in as array of objects with the key value pairs of {url: string, title: string}. Url can be omitted to stop the breadcrumb from rerouting by default.',
+    },
+    breadcrumbsOnChange: {
+      isRequired: false,
+      type: '(value: number) => void',
+      description:
+        'Gets called every time a breadcrumb is clicked. Parameter value is the index of the clicked breadcrumb in breadcrumbs.',
     },
   },
   package: 'npm install @elvia/elvis-breadcrumb',

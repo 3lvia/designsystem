@@ -130,6 +130,18 @@ export class v2PlaygroundComponent implements OnInit {
       title: 'Elvias leveringsplikt',
     },
   ];
+  breadcrumbsTestNoUrl = [
+    {
+      title: 'Elvia.no',
+    },
+    {
+      title: 'Nettleie',
+    },
+    {
+      title: 'Elvias leveringsplikt',
+    },
+  ];
+  breadcrumbsValue = undefined;
 
   nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:
