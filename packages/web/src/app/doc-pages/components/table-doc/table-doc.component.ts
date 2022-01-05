@@ -893,4 +893,15 @@ export class TableDocComponent {
 </div>
 <div class="e-table__footnote">*If you include a footnote to your table, it should look like this</div>
 `;
+
+  toggleAccordion(id: string): void {
+    const element = document.getElementById(id) as HTMLElement;
+    if (element) {
+      if (element.classList.contains('e-accordion__item--open')) {
+        element.classList.remove('e-accordion__item--open');
+      } else {
+        element.classList.add('e-accordion__item--open');
+      }
+    }
+  }
 }
