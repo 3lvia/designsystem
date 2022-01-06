@@ -1,5 +1,11 @@
 # Elvia Component Wrapper Changelog
 
+## 2.1.10 (06.01.22)
+
+### Bug fix
+
+- Small toString bug fix
+
 ## 2.1.9 (21.12.21)
 
 ### Bug fix
