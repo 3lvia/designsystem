@@ -70,7 +70,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     if (conditionalElementStyle.constructor.name === 'Array') {
       conditionalElementStyle.forEach((el: any) => {
         const propValue = this.getProps()[el.name.toLowerCase()];
-        if (propValue === el.value || (propValue && propValue.toString() === el.value.toString())) {
+        if (propValue === el.value || (propValue && propValue.toString() === el.value)) {
           this.style.cssText += el.style;
         }
       });
