@@ -195,6 +195,12 @@ $grey10: colors.color('grey-10');
 }
 
 // OPTIONS
+// Mono font for numbers
+.e-table .e-text-mono,
+.e-table-mobile .e-text-mono {
+  font-family: 'Red Hat Mono', Verdana, sans-serif !important;
+}
+
 // Input
 .e-table .e-table__input,
 .e-table-mobile td.e-table-mobile__input {

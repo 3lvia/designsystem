@@ -51,7 +51,7 @@ export class TableDocComponent {
       <tr>
         <th scope="col">Period</th>
         <th scope="col">Status</th>
-        <th scope="col" class="e-text-right">Amount</th>
+        <th scope="col" class="e-text-right">Amount (kr)</th>
         <th scope="col" class="e-text-right">Invoice no.</th>
       </tr>
     </thead>
@@ -59,32 +59,32 @@ export class TableDocComponent {
       <tr>
         <th scope="row">January 2020</th>
         <td>Sent</td>
-        <td class="e-text-right">567,98 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">567,98</td>
+        <td class="e-text-right e-text-mono">1023456</td>
       </tr>
       <tr>
         <th scope="row">February 2020</th>
         <td>Paid</td>
-        <td class="e-text-right">543,10 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">543,10</td>
+        <td class="e-text-right e-text-mono">1234057</td>
       </tr>
       <tr>
         <th scope="row">March 2020</th>
         <td>Paid</td>
-        <td class="e-text-right">568,98 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">568,98</td>
+        <td class="e-text-right e-text-mono">1234058</td>
       </tr>
       <tr>
         <th scope="row">April 2020</th>
         <td>Sent</td>
-        <td class="e-text-right">521,98 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">521,98</td>
+        <td class="e-text-right e-text-mono">1236059</td>
       </tr>
       <tr>
         <th scope="row">May 2020</th>
         <td>Paid</td>
-        <td class="e-text-right">556,98 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">556,98</td>
+        <td class="e-text-right e-text-mono">1234060</td>
       </tr>
     </tbody>
   </table>
@@ -109,12 +109,12 @@ export class TableDocComponent {
         <td class="e-table-mobile__cell">Sent</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Amount</th>
-        <td class="e-table-mobile__cell">567,98 kr</td>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">567,98</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
-        <td class="e-table-mobile__cell">123456</td>
+        <td class="e-table-mobile__cell e-text-mono">1023456</td>
       </tr>
     </tbody>
     <tbody>
@@ -127,12 +127,12 @@ export class TableDocComponent {
         <td class="e-table-mobile__cell">Paid</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Amount</th>
-        <td class="e-table-mobile__cell">543,10 kr</td>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">543,10</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
-        <td class="e-table-mobile__cell">123456</td>
+        <td class="e-table-mobile__cell e-text-mono">1234057</td>
       </tr>
     </tbody>
     <tbody>
@@ -145,12 +145,12 @@ export class TableDocComponent {
         <td class="e-table-mobile__cell">Paid</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Amount</th>
-        <td class="e-table-mobile__cell">568,98 kr</td>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">568,98</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
-        <td class="e-table-mobile__cell">123456</td>
+        <td class="e-table-mobile__cell e-text-mono">1234058</td>
       </tr>
     </tbody>
     <tbody>
@@ -163,12 +163,12 @@ export class TableDocComponent {
         <td class="e-table-mobile__cell">Sent</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Amount</th>
-        <td class="e-table-mobile__cell">521,98 kr</td>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">521,98</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
-        <td class="e-table-mobile__cell">123456</td>
+        <td class="e-table-mobile__cell e-text-mono">1234059</td>
       </tr>
     </tbody>
     <tbody>
@@ -181,12 +181,12 @@ export class TableDocComponent {
         <td class="e-table-mobile__cell">Paid</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Amount</th>
-        <td class="e-table-mobile__cell">556,98 kr</td>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">556,98</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
-        <td class="e-table-mobile__cell">123456</td>
+        <td class="e-table-mobile__cell e-text-mono">1234060</td>
       </tr>
     </tbody>
   </table>
@@ -199,7 +199,7 @@ export class TableDocComponent {
       <tr>
         <th scope="col">Period</th>
         <th scope="col">Status</th>
-        <th scope="col" class="e-text-right">Amount</th>
+        <th scope="col" class="e-text-right">Amount (kr)</th>
         <th scope="col" class="e-text-right">Invoice no.</th>
       </tr>
     </thead>
@@ -207,32 +207,32 @@ export class TableDocComponent {
       <tr>
         <th scope="row">January 2020</th>
         <td>Sent</td>
-        <td class="e-text-right">567,98 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">567,98</td>
+        <td class="e-text-right e-text-mono">1023456</td>
       </tr>
       <tr>
         <th scope="row">February 2020</th>
         <td>Paid</td>
-        <td class="e-text-right">543,10 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">543,10</td>
+        <td class="e-text-right e-text-mono">1023456</td>
       </tr>
       <tr>
         <th scope="row">March 2020</th>
         <td>Paid</td>
-        <td class="e-text-right">568,98 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">568,98</td>
+        <td class="e-text-right e-text-mono">1023456</td>
       </tr>
       <tr>
         <th scope="row">April 2020</th>
         <td>Sent</td>
-        <td class="e-text-right">521,98 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">521,98</td>
+        <td class="e-text-right e-text-mono">1023456</td>
       </tr>
       <tr>
         <th scope="row">May 2020</th>
         <td>Paid</td>
-        <td class="e-text-right">556,98 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">556,98</td>
+        <td class="e-text-right e-text-mono">1023456</td>
       </tr>
     </tbody>
   </table>
@@ -257,12 +257,12 @@ export class TableDocComponent {
         <td class="e-table-mobile__cell">Sent</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Amount</th>
-        <td class="e-table-mobile__cell">567,98 kr</td>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">567,98</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
-        <td class="e-table-mobile__cell">123456</td>
+        <td class="e-table-mobile__cell e-text-mono">1023456</td>
       </tr>
     </tbody>
     <tbody>
@@ -275,12 +275,12 @@ export class TableDocComponent {
         <td class="e-table-mobile__cell">Paid</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Amount</th>
-        <td class="e-table-mobile__cell">543,10 kr</td>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">543,10</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
-        <td class="e-table-mobile__cell">123456</td>
+        <td class="e-table-mobile__cell e-text-mono">1023456</td>
       </tr>
     </tbody>
     <tbody>
@@ -293,12 +293,12 @@ export class TableDocComponent {
         <td class="e-table-mobile__cell">Paid</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Amount</th>
-        <td class="e-table-mobile__cell">568,98 kr</td>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">568,98</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
-        <td class="e-table-mobile__cell">123456</td>
+        <td class="e-table-mobile__cell e-text-mono">1023456</td>
       </tr>
     </tbody>
     <tbody>
@@ -311,12 +311,12 @@ export class TableDocComponent {
         <td class="e-table-mobile__cell">Sent</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Amount</th>
-        <td class="e-table-mobile__cell">521,98 kr</td>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">521,98</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
-        <td class="e-table-mobile__cell">123456</td>
+        <td class="e-table-mobile__cell e-text-mono">1023456</td>
       </tr>
     </tbody>
     <tbody>
@@ -329,12 +329,12 @@ export class TableDocComponent {
         <td class="e-table-mobile__cell">Paid</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Amount</th>
-        <td class="e-table-mobile__cell">556,98 kr</td>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">556,98</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
-        <td class="e-table-mobile__cell">123456</td>
+        <td class="e-table-mobile__cell e-text-mono">1023456</td>
       </tr>
     </tbody>
   </table>
@@ -352,7 +352,7 @@ export class TableDocComponent {
     </thead>
     <tbody>
       <tr>
-        <td>243113222</td>
+        <td class="e-text-mono">203413222</td>
         <td class="e-table__input">
           <div class="e-input e-input--compact">
             <input id="normal" type="address1" placeholder="Address" />
@@ -361,7 +361,7 @@ export class TableDocComponent {
         <td>15.01.2021</td>
       </tr>
       <tr>
-        <td>243113222</td>
+        <td class="e-text-mono">203413222</td>
         <td class="e-table__input">
           <div class="e-input e-input--compact">
             <input id="normal" type="address1" placeholder="Address" />
@@ -370,7 +370,7 @@ export class TableDocComponent {
         <td>15.01.2021</td>
       </tr>
       <tr>
-        <td>243113222</td>
+        <td class="e-text-mono">203413222</td>
         <td class="e-table__input">
           <div class="e-input e-input--compact">
             <input id="normal" type="address1" placeholder="Address" />
@@ -393,7 +393,7 @@ export class TableDocComponent {
     </thead>
     <tbody>
       <tr>
-        <th class="e-table-mobile__cell" scope="col">243113222</th>
+        <th class="e-table-mobile__cell e-text-mono" scope="col">203413222</th>
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
@@ -411,7 +411,7 @@ export class TableDocComponent {
     </tbody>
     <tbody>
       <tr>
-        <th class="e-table-mobile__cell" scope="col">243113222</th>
+        <th class="e-table-mobile__cell e-text-mono" scope="col">203413222</th>
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
@@ -443,8 +443,8 @@ export class TableDocComponent {
     </thead>
     <tbody>
       <tr>
-        <td>243113222</td>
-        <td>Elviaveien 3, 1234 Oslo</td>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
         <td class="e-table__button">
           <button class="e-btn e-btn--icon">
@@ -456,8 +456,8 @@ export class TableDocComponent {
         </td>
       </tr>
       <tr>
-        <td>243113222</td>
-        <td>Elviaveien 3, 1234 Oslo</td>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
         <td class="e-table__button">
           <button class="e-btn e-btn--icon">
@@ -469,8 +469,8 @@ export class TableDocComponent {
         </td>
       </tr>
       <tr>
-        <td>243113222</td>
-        <td>Elviaveien 3, 1234 Oslo</td>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
         <td class="e-table__button">
           <button class="e-btn e-btn--icon">
@@ -496,12 +496,12 @@ export class TableDocComponent {
     </thead>
     <tbody>
       <tr>
-        <th class="e-table-mobile__cell" scope="col">243113222</th>
+        <th class="e-table-mobile__cell e-text-mono" scope="col">203413222</th>
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Address</th>
-        <td class="e-table-mobile__cell">Elviaveien 3, 1234 Oslo</td>
+        <td class="e-table-mobile__cell">Elviaveien 3, 1230 Oslo</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Created</th>
@@ -521,12 +521,12 @@ export class TableDocComponent {
     </tbody>
     <tbody>
       <tr>
-        <th class="e-table-mobile__cell" scope="col">243113222</th>
+        <th class="e-table-mobile__cell e-text-mono" scope="col">203413222</th>
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Address</th>
-        <td class="e-table-mobile__cell">Elviaveien 3, 1234 Oslo</td>
+        <td class="e-table-mobile__cell">Elviaveien 3, 1230 Oslo</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Created</th>
@@ -571,8 +571,8 @@ export class TableDocComponent {
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <td>243113222</td>
-        <td>Elviaveien 3, 1234 Oslo</td>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
       </tr>
       <tr class="e-table__checkbox">
@@ -582,8 +582,8 @@ export class TableDocComponent {
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <td>243113222</td>
-        <td>Elviaveien 3, 1234 Oslo</td>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
       </tr>
       <tr class="e-table__checkbox">
@@ -593,8 +593,8 @@ export class TableDocComponent {
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <td>243113222</td>
-        <td>Elviaveien 3, 1234 Oslo</td>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
       </tr>
     </tbody>
@@ -612,18 +612,18 @@ export class TableDocComponent {
     </thead>
     <tbody>
       <tr class="e-table-mobile__checkbox e-table-mobile__checkbox--selected">
-        <th class="e-table-mobile__cell" scope="col">
+        <th class="e-table-mobile__cell e-text-mono" scope="col">
           <label class="e-checkbox" for="checkbox-first-row-mb">
             <input type="checkbox" id="checkbox-first-row-mb" checked>
             <span class="e-checkbox__mark"></span>
           </label>
-          243113222
+          203413222
         </th>
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Address</th>
-        <td class="e-table-mobile__cell">Elviaveien 3, 1234 Oslo</td>
+        <td class="e-table-mobile__cell">Elviaveien 3, 1230 Oslo</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Created</th>
@@ -632,18 +632,18 @@ export class TableDocComponent {
     </tbody>
     <tbody>
       <tr class="e-table-mobile__checkbox">
-        <th class="e-table-mobile__cell" scope="col">
+        <th class="e-table-mobile__cell e-text-mono" scope="col">
           <label class="e-checkbox" for="checkbox-second-row-mb">
             <input type="checkbox" id="checkbox-second-row-mb">
             <span class="e-checkbox__mark"></span>
           </label>
-          243113222
+          203413222
         </th>
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Address</th>
-        <td class="e-table-mobile__cell">Elviaveien 3, 1234 Oslo</td>
+        <td class="e-table-mobile__cell">Elviaveien 3, 1230 Oslo</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Created</th>
@@ -666,8 +666,8 @@ export class TableDocComponent {
     </thead>
     <tbody>
       <tr class="e-table__select" [routerLink]="['/components/table']">
-        <td>243113222</td>
-        <td>Elviaveien 3, 1234 Oslo</td>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
         <td>
           <a class="e-link e-link--action">
@@ -679,8 +679,8 @@ export class TableDocComponent {
         </td>
       </tr>
       <tr class="e-table__select" [routerLink]="['/components/table']">
-        <td>243113222</td>
-        <td>Elviaveien 3, 1234 Oslo</td>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
         <td>
           <a class="e-link e-link--action">
@@ -692,8 +692,8 @@ export class TableDocComponent {
         </td>
       </tr>
       <tr class="e-table__select" [routerLink]="['/components/table']">
-        <td>243113222</td>
-        <td>Elviaveien 3, 1234 Oslo</td>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
         <td>
           <a class="e-link e-link--action">
@@ -719,7 +719,7 @@ export class TableDocComponent {
     </thead>
     <tbody>
       <tr class="e-table-mobile__select" [routerLink]="['/components/table']">
-        <th class="e-table-mobile__cell" scope="col">243113222</th>
+        <th class="e-table-mobile__cell e-text-mono" scope="col">203413222</th>
         <th class="e-table-mobile__cell" scope="col">
           <a class="e-link e-link--action">
             <span class="e-link__icon">
@@ -731,7 +731,7 @@ export class TableDocComponent {
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Address</th>
-        <td class="e-table-mobile__cell">Elviaveien 3, 1234 Oslo</td>
+        <td class="e-table-mobile__cell">Elviaveien 3, 1230 Oslo</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Created</th>
@@ -740,7 +740,7 @@ export class TableDocComponent {
     </tbody>
     <tbody>
       <tr class="e-table-mobile__select" [routerLink]="['/components/table']">
-        <th class="e-table-mobile__cell" scope="col">243113222</th>
+        <th class="e-table-mobile__cell e-text-mono" scope="col">203413222</th>
         <th class="e-table-mobile__cell" scope="col">
           <a class="e-link e-link--action">
             <span class="e-link__icon">
@@ -752,11 +752,45 @@ export class TableDocComponent {
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Address</th>
-        <td class="e-table-mobile__cell">Elviaveien 3, 1234 Oslo</td>
+        <td class="e-table-mobile__cell">Elviaveien 3, 1230 Oslo</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Created</th>
         <td class="e-table-mobile__cell">15.01.2021</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+  exampleNumbers = `<div class="e-table-container">
+  <table class="e-table">
+    <thead>
+      <tr>
+        <th scope="col">Amount (kr)</th>
+        <th scope="col" class="e-text-right">Invoice no.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="e-text-mono">567,98</td>
+        <td class="e-text-right e-text-mono">1304456</td>
+      </tr>
+      <tr>
+        <td class="e-text-mono">543,10</td>
+        <td class="e-text-right e-text-mono">3403457</td>
+      </tr>
+      <tr>
+        <td class="e-text-mono">568,98</td>
+        <td class="e-text-right e-text-mono">6734508</td>
+      </tr>
+      <tr>
+        <td class="e-text-mono">521,98</td>
+        <td class="e-text-right e-text-mono">1330459</td>
+      </tr>
+      <tr>
+        <td class="e-text-mono">556,98</td>
+        <td class="e-text-right e-text-mono">1234060</td>
       </tr>
     </tbody>
   </table>
@@ -769,7 +803,7 @@ export class TableDocComponent {
       <tr>
         <th scope="col">Period</th>
         <th scope="col">Status</th>
-        <th scope="col" class="e-text-right">Amount</th>
+        <th scope="col" class="e-text-right">Amount (kr)</th>
         <th scope="col" class="e-text-right">Invoice no.</th>
       </tr>
     </thead>
@@ -777,32 +811,32 @@ export class TableDocComponent {
       <tr>
         <th scope="row" class="e-table__cell--multiline">This cell exceeds 450px in width, so the class 'e-table__cell--multiline' should be added to break the lines.</th>
         <td>Sent</td>
-        <td class="e-text-right">567,98 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">567,98</td>
+        <td class="e-text-right e-text-mono">1023456</td>
       </tr>
       <tr>
         <th scope="row">February 2020</th>
         <td>Paid</td>
-        <td class="e-text-right">543,10 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">543,10</td>
+        <td class="e-text-right e-text-mono">1023456</td>
       </tr>
       <tr>
         <th scope="row">March 2020</th>
         <td>Paid</td>
-        <td class="e-text-right">568,98 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">568,98</td>
+        <td class="e-text-right e-text-mono">1023456</td>
       </tr>
       <tr>
         <th scope="row">April 2020</th>
         <td>Sent</td>
-        <td class="e-text-right">521,98 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">521,98</td>
+        <td class="e-text-right e-text-mono">1023456</td>
       </tr>
       <tr>
         <th scope="row">May 2020</th>
         <td>Paid</td>
-        <td class="e-text-right">556,98 kr</td>
-        <td class="e-text-right">123456</td>
+        <td class="e-text-right e-text-mono">556,98</td>
+        <td class="e-text-right e-text-mono">1023456</td>
       </tr>
     </tbody>
   </table>
@@ -840,18 +874,18 @@ export class TableDocComponent {
     </thead>
     <tbody>
       <tr>
-        <td>243113222</td>
-        <td>Elviaveien 3, 1234 Oslo</td>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
       </tr>
       <tr>
-        <td>243113222</td>
-        <td>Elviaveien 3, 1234 Oslo</td>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
       </tr>
       <tr>
-        <td>243113222</td>
-        <td>Elviaveien 3, 1234 Oslo</td>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
       </tr>
     </tbody>
@@ -859,4 +893,15 @@ export class TableDocComponent {
 </div>
 <div class="e-table__footnote">*If you include a footnote to your table, it should look like this</div>
 `;
+
+  toggleAccordion(id: string): void {
+    const element = document.getElementById(id) as HTMLElement;
+    if (element) {
+      if (element.classList.contains('e-accordion__item--open')) {
+        element.classList.remove('e-accordion__item--open');
+      } else {
+        element.classList.add('e-accordion__item--open');
+      }
+    }
+  }
 }
