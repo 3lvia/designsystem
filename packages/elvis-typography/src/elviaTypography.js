@@ -1,4 +1,4 @@
-export default {
+const ElviaTypography = {
   'title-lg': {
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '44px',
@@ -257,3 +257,13 @@ export default {
     color: 'inherit',
   },
 };
+
+export const getTypography = (typographyName) => {
+  if (!ElviaTypography[typographyName]) {
+    console.error(`Cannot get typography ${typographyName} from elvis-typography.`);
+  } else {
+    return ElviaTypography[typographyName];
+  }
+};
+
+export default ElviaTypography;

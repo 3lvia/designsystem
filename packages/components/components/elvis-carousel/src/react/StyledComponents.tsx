@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
-import ElviaTypography from '@elvia/elvis-typography';
+import { getTypography } from '@elvia/elvis-typography';
 
 const colors = {
   elviaCharge: getColor('elvia-charge'),
@@ -9,7 +9,7 @@ const colors = {
 };
 
 const typography = {
-  textMd: ElviaTypography['text-md'],
+  textMd: getTypography('text-md'),
 };
 
 const mobileMax = '767px';

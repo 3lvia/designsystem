@@ -1,5 +1,11 @@
 # Elvia Dropdown
 
+## 2.0.4 (07.01.22)
+
+### Patch
+
+- Updated tokens declarations
+
 ## 2.0.3 (03.01.22)
 
 ### Patches

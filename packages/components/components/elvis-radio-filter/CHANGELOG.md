@@ -1,6 +1,14 @@
 # Elvia Radio Filter Changelog
 
+## 1.1.4 (07.01.22)
+
+### Patch
+
+- Updated tokens declarations
+
 ## 1.1.3 (13.12.21)
+
+### Patch
 
 - Added unit tests for radio-filter
 
