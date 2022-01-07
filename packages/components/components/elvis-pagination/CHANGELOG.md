@@ -1,5 +1,16 @@
 # Elvia Pagination Changelog
 
+## 1.1.0 (07.01.22)
+
+### Feature
+
+- Added support for max limit on last number. The 'lastNumberLimit' prop hides last number to jump to if the
+  amount of items reaches the given limit.
+
+### Bug fix
+
+- Pagnination no longer shows two of the same numbers when items is less than option range.
+
 ## 1.0.7 (03.01.22)
 
 ### Patches

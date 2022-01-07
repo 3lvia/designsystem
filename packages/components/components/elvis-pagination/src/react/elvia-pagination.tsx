@@ -15,6 +15,7 @@ export interface SelectionNumber {
 export interface PaginationProps {
   value: SelectionNumber;
   numberOfElements: number;
+  lastNumberLimit?: number;
   dropdownMenuPos: string;
   isRightAligned?: boolean;
   dropdownItems: Array<DropdownOption>;
@@ -47,6 +48,7 @@ export const paginationOptions = [
 const Pagination: FC<PaginationProps> = ({
   value = { start: undefined, end: undefined },
   numberOfElements = 0,
+  lastNumberLimit,
   isRightAligned = false,
   dropdownMenuPos = 'bottom',
   dropdownItems = paginationOptions,
@@ -337,6 +339,15 @@ const Pagination: FC<PaginationProps> = ({
       );
     };
     const getLastNumber = () => {
+      if (numberOfElements <= parseInt(currentDisplayAmount.value)) {
+        return null;
+      }
+      if (lastNumberLimit !== undefined) {
+        if (lastNumberLimit <= numberOfElements && !(selectedNumber >= selectionNumbers.length - 3)) {
+          return null;
+        }
+      }
+
       return (
         <StyledPaginator.PaginatorNumber
           isFirst={false}
