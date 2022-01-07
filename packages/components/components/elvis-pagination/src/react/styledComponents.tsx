@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
-import ElviaTypography from '@elvia/elvis-typography';
+import { getTypography } from '@elvia/elvis-typography';
 
 const colors = {
   elviaCharge: getColor('elvia-charge'),
@@ -12,7 +12,7 @@ const colors = {
 };
 
 const typography = {
-  textSm: ElviaTypography['text-sm'],
+  textSm: getTypography('text-sm'),
 };
 
 type PaginationTypes = {

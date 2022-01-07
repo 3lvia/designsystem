@@ -4,7 +4,7 @@
 
 ### Patch
 
-- Bumped dependency
+- Updated tokens declarations
 
 ## 1.0.7 (16.12.21)
 

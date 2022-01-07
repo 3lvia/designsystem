@@ -15,7 +15,7 @@ declare module '@elvia/elvis-colors' {
    * @param {string} colorName Name of color in elvis-colors package.
    * @returns {string} Hex value of the contrast text color corresponding to the requested color.
    */
-  export function getContrastTest(colorName: string): string;
+  export function getContrastText(colorName: string): string;
 
   /**
    * Object containing all Elvia colors.
@@ -23,7 +23,12 @@ declare module '@elvia/elvis-colors' {
   const colors: {
     [category: string]: {
       [label: string]: {
-        [color: string]: { [property: 'color' | 'rgb' | 'contrastText' | 'alt-label']: string | string[] };
+        [color: string]: {
+          [property: 'color']: string;
+          [property: 'rgb']: string;
+          [property: 'contrastText']: string;
+          [property: 'alt-label']: string[];
+        };
       };
     };
   };

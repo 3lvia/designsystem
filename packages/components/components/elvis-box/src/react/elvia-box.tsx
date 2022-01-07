@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
-import ElviaTypography from '@elvia/elvis-typography';
+import { getTypography } from '@elvia/elvis-typography';
 
 export interface BoxProps {
   content: string | HTMLElement;
@@ -19,7 +19,7 @@ const colors = {
 };
 
 const typography = {
-  titleCaps: ElviaTypography['title-caps'],
+  titleCaps: getTypography('title-caps'),
 };
 
 const BoxArea = styled.div`
