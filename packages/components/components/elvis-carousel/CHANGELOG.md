@@ -1,5 +1,11 @@
 # Elvia Carousel Changelog
 
+## 1.0.8 (07.01.22)
+
+### Patch
+
+- Bumped dependency
+
 ## 1.0.7 (16.12.21)
 
 ### Patch

@@ -1,5 +1,11 @@
 # Elvia Modal Changelog
 
+## 1.3.7 (07.01.22)
+
+### Patch
+
+- Bumped dependency
+
 ## 1.3.6 (16.12.21)
 
 ### Patch
