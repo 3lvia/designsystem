@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-carousel",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^2.1.6",
-    "@elvia/elvis-colors": "^1.1.0",
-    "@elvia/elvis-typography": "^1.1.0",
+    "@elvia/elvis-colors": "^1.2.0",
+    "@elvia/elvis-typography": "^1.2.0",
     "styled-components": "^5.3.3"
   }
 }

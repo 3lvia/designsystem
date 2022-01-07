@@ -1,5 +1,11 @@
 # Elvia Divider Changelog
 
+## 1.1.6 (07.01.22)
+
+### Patch
+
+- Updated tokens declarations
+
 ## 1.1.5 (16.12.21)
 
 ### Patch

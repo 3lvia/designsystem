@@ -1,5 +1,11 @@
 # Elvia Accordion Changelog
 
+## 2.0.7 (07.01.22)
+
+### Patch
+
+- Updated tokens declarations
+
 ## 2.0.6 (02.12.21)
 
 ### Patch
