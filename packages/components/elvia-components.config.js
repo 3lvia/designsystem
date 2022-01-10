@@ -302,6 +302,7 @@ module.exports = [
     attributes: [
       { name: 'value', type: 'object', propType: 'object' },
       { name: 'numberOfElements', type: 'number', propType: 'number' },
+      { name: 'lastNumberLimit', type: 'number', propType: 'number' },
       { name: 'dropdownMenuPos', type: 'string', propType: 'string' },
       { name: 'dropdownItems', type: 'object', propType: 'object' },
       { name: 'isRightAligned', type: 'boolean', propType: 'boolean' },

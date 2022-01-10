@@ -254,7 +254,6 @@ function App() {
 
   return (
     <div className="App">
-      <Accordion labelPosition="center" openLabel="open" closeLabel="close" content="TextContent"></Accordion>
       <h1>React preview</h1>
       <h2>Elvia ICONS</h2>
       <div className="testingIconSizes">
@@ -278,7 +277,8 @@ function App() {
       ></Card>
       <h2>Pagination!</h2>
       <Pagination
-        items={156}
+        numberOfElements={100}
+        lastNumberLimit={99}
         valueOnChange={(event) => console.log(event)}
         dropdownMenuPos="top"
       ></Pagination>

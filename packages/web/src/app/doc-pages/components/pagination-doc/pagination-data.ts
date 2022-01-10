@@ -16,6 +16,12 @@ export const paginationData = {
       description: 'Total amount of rows/objects in a table that is display',
       default: 0,
     },
+    lastNumberLimit: {
+      isRequired: false,
+      type: 'number',
+      description:
+        'Hides the last number in pagination if numberOfElements is equal or exceeds the lastNumberLimit.',
+    },
     dropdownMenuPos: {
       isRequired: false,
       type: 'string',
