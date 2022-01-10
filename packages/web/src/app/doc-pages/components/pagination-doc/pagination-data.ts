@@ -19,7 +19,8 @@ export const paginationData = {
     lastNumberLimit: {
       isRequired: false,
       type: 'number',
-      description: 'Hides last number in pagination if numberOfElements exceeds lastNumberLimit.',
+      description:
+        'Hides the last number in pagination if numberOfElements is equal or exceeds the lastNumberLimit.',
     },
     dropdownMenuPos: {
       isRequired: false,

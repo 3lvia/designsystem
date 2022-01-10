@@ -255,12 +255,6 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-      <Pagination
-        numberOfElements={100}
-        lastNumberLimit={99}
-        valueOnChange={(event) => console.log(event)}
-        dropdownMenuPos="top"
-      ></Pagination>
       <h2>Elvia ICONS</h2>
       <div className="testingIconSizes">
         <Icon name="folderCreate" customSize="37px"></Icon>
@@ -283,7 +277,8 @@ function App() {
       ></Card>
       <h2>Pagination!</h2>
       <Pagination
-        items={156}
+        numberOfElements={100}
+        lastNumberLimit={99}
         valueOnChange={(event) => console.log(event)}
         dropdownMenuPos="top"
       ></Pagination>
