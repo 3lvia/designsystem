@@ -5,30 +5,20 @@ const fs = require('fs');
 
 const CONFIG = {
   space: process.env.CONTENTFUL_SPACE ? process.env.CONTENTFUL_SPACE : dotenv.parsed.CONTENTFUL_SPACE,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN ? process.env.CONTENTFUL_ACCESS_TOKEN : dotenv.parsed.CONTENTFUL_ACCESS_TOKEN,
-  previewAccessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
-}
-
-function createOptions(preview) {
-  const options = {
-    host: 'preview.contentful.com',
-    space: CONFIG.space,
-    accessToken: CONFIG.previewAccessToken
-  }
-  if(process.env.NODE_ENV === 'production' && !preview) {
-    options.host = 'cdn.contentful.com',
-    options.accessToken = CONFIG.accessToken
-  }
-  return options;
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+    ? process.env.CONTENTFUL_ACCESS_TOKEN
+    : dotenv.parsed.CONTENTFUL_ACCESS_TOKEN,
 };
 
-syncContentfulData(false);
+contentfulClient = contentful.createClient({
+  space: CONFIG.space,
+  accessToken: CONFIG.accessToken,
+});
+
+syncData();
 
 // Syncs all entries from contentful
-async function syncContentfulData(preview) {
-  const options = createOptions(preview);
-  const contentfulClient = contentful.createClient(options);
-
+async function syncData() {
   await cleanup();
   contentfulClient.getEntries({ locale: '*', limit: 1000 }).then((entries) => {
     entries.items.forEach((item) => {
@@ -36,7 +26,6 @@ async function syncContentfulData(preview) {
     });
   });
 }
-module.exports = { syncContentfulData };
 
 function createFileContentFromEntry(entry) {
   return `${JSON.stringify(entry)}`;

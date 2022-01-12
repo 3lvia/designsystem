@@ -329,10 +329,6 @@ const routes: Routes = [
         path: ':submenu/:page',
         component: CMSPageComponent,
       },
-      {
-        path: 'preview/:entryId',
-        component: CMSPageComponent,
-      },
     ],
   },
 ];
@@ -343,4 +339,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
