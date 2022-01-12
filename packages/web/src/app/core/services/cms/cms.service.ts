@@ -17,7 +17,7 @@ export class CMSService {
     private http: HttpClient,
     private cmsTransformService: CMSTransformService,
     private router: Router,
-  ) {}
+  ) { }
 
   listenContentLoadedFromCMS(): Observable<any> {
     return this.subjectAnchorsNew.asObservable();
@@ -34,6 +34,10 @@ export class CMSService {
     await this.getMenu(locale).then((menu) => {
       const localeKey = Object.keys(menu['pages'][0].entry.fields.pages)[locale];
       const subMenu = menu['pages'].find((subMenu) => subMenu.path === urlWithoutAnchor[1]);
+      if (urlWithoutAnchor[1] === 'preview' && urlWithoutAnchor[2]) {
+        pageId = urlWithoutAnchor[2];
+        return;
+      }
       if (!subMenu) {
         console.error('FOUND NO SUBMENU WITH THAT PATH');
       }
