@@ -1,16 +1,17 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
+import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 @Component({
   selector: 'app-cms-page',
   templateUrl: './cms-page.component.html',
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class CMSPageComponent implements OnInit, OnDestroy {
+export class CMSPageComponent implements OnInit, OnDestroy, AfterViewInit {
   routerSubscription: Subscription;
 
   cmsContent: any = {};
@@ -27,6 +28,7 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     private localizationService: LocalizationService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private copyService: CopyToClipboardService,
   ) {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
@@ -60,6 +62,13 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     this.routerSubscription && this.routerSubscription.unsubscribe();
   }
 
+  ngAfterViewInit(): void {
+    if (this.hasChecked && this.isCmsPage) {
+      const domElement = document.getElementById('A-picture-of-your-window');
+      console.log(domElement);
+    }
+  }
+
   async updateContent(locale: Locale): Promise<any> {
     if (!this.isCmsPage) {
       return;
@@ -71,6 +80,20 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
+
+    // console.log(docPage.content);
+
+    const domElements = document.querySelectorAll('.cms-section__title');
+    domElements.forEach((domElement) => {
+      console.log(domElement['id']);
+      console.log(domElement.children[0]);
+      domElement.children[0].addEventListener('click', () => console.log('clicked element'));
+    });
+
+    // document.addEventListener('click', () => {
+    //   console.log('click');
+    //   console.log(domElement?.firstElementChild.children[1]);
+    // });
   }
 
   checkIfPageExistsInProject(): void {
@@ -89,5 +112,26 @@ export class CMSPageComponent implements OnInit, OnDestroy {
       this.isCmsPage = true;
     }
     this.hasChecked = true;
+  }
+
+  copyAnchor(): void {
+    console.log('copyAnchor clicked!');
+    // const anchorTitleElement = document.getElementById(this.cmsContent.title.replaceAll(' ', '-'));
+    const anchorTitleElement = document.getElementById('A-picture-of-your-window');
+    console.log(anchorTitleElement);
+
+    anchorTitleElement.classList.add('anchor-copied');
+    setTimeout(() => {
+      anchorTitleElement.classList.remove('anchor-copied');
+    }, 800);
+    const modifiedAnchor = this.cmsContent.title.replace(' ', '-');
+    let anchorUrl = 'https://design.elvia.io';
+    if (this.router.url.includes('#')) {
+      anchorUrl =
+        anchorUrl + this.router.url.slice(0, this.router.url.lastIndexOf('#')) + '#' + modifiedAnchor;
+    } else {
+      anchorUrl = anchorUrl + this.router.url + '#' + modifiedAnchor;
+    }
+    this.copyService.copyToClipBoard(anchorUrl);
   }
 }
