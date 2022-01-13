@@ -8,7 +8,7 @@ const CONFIG = {
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
     ? process.env.CONTENTFUL_ACCESS_TOKEN
     : dotenv.parsed.CONTENTFUL_ACCESS_TOKEN,
-  previewAccessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
+  previewAccessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN : dotenv.parsed.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
 };
 
 contentfulClient = contentful.createClient({
@@ -17,10 +17,9 @@ contentfulClient = contentful.createClient({
   accessToken: process.env.NODE_ENV === 'production' ? CONFIG.accessToken : CONFIG.previewAccessToken,
 });
 
-syncContentfulData();
+syncContentfulEntries();
 
-// Syncs all entries from contentful
-async function syncContentfulData() {
+async function syncContentfulEntries() {
   await cleanup();
   contentfulClient.getEntries({ locale: '*', limit: 1000 }).then((entries) => {
     entries.items.forEach((item) => {
@@ -28,7 +27,6 @@ async function syncContentfulData() {
     });
   });
 }
-module.exports = { syncContentfulData };
 
 function createFileContentFromEntry(entry) {
   return `${JSON.stringify(entry)}`;
