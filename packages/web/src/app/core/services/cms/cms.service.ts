@@ -36,21 +36,22 @@ export class CMSService {
       const subMenu = menu['pages'].find((subMenu) => subMenu.path === urlWithoutAnchor[1]);
       if (urlWithoutAnchor[1] === 'preview' && urlWithoutAnchor[2]) {
         pageId = urlWithoutAnchor[2];
-        return;
-      }
-      if (!subMenu) {
-        console.error('FOUND NO SUBMENU WITH THAT PATH');
-      }
-      if (!urlWithoutAnchor[2] && subMenu.entry.fields.landingPage) {
-        pageId = subMenu.entry.fields.landingPage[localeKey].sys.id;
-      } else if (subMenu.entry.fields.pages) {
-        const docPage = subMenu.entry.fields.pages[localeKey].find(
-          (page) => page.fields.path[localeKey] === urlWithoutAnchor[2],
-        );
-        if (!docPage) {
-          console.error('FOUND NO PAGE WITH THAT PATH');
+        return pageId;
+      } else {
+        if (!subMenu) {
+          console.error('FOUND NO SUBMENU WITH THAT PATH');
         }
-        pageId = docPage.sys.id;
+        if (!urlWithoutAnchor[2] && subMenu.entry.fields.landingPage) {
+          pageId = subMenu.entry.fields.landingPage[localeKey].sys.id;
+        } else if (subMenu.entry.fields.pages) {
+          const docPage = subMenu.entry.fields.pages[localeKey].find(
+            (page) => page.fields.path[localeKey] === urlWithoutAnchor[2],
+          );
+          if (!docPage) {
+            console.error('FOUND NO PAGE WITH THAT PATH');
+          }
+          pageId = docPage.sys.id;
+        }
       }
     });
     return pageId;
