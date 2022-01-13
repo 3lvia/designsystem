@@ -8,17 +8,28 @@ const CONFIG = {
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
     ? process.env.CONTENTFUL_ACCESS_TOKEN
     : dotenv.parsed.CONTENTFUL_ACCESS_TOKEN,
+  previewAccessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
 };
 
-contentfulClient = contentful.createClient({
-  space: CONFIG.space,
-  accessToken: CONFIG.accessToken,
-});
+function createOptions(preview) {
+  const options = {
+    host: 'preview.contentful.com',
+    space: CONFIG.space,
+    accessToken: CONFIG.previewAccessToken,
+  };
+  if (process.env.NODE_ENV === 'production' && !preview) {
+    (options.host = 'cdn.contentful.com'), (options.accessToken = CONFIG.accessToken);
+  }
+  return options;
+}
 
-syncData();
+syncContentfulData(false);
 
 // Syncs all entries from contentful
-async function syncData() {
+async function syncContentfulData(preview) {
+  const options = createOptions(preview);
+  const contentfulClient = contentful.createClient(options);
+
   await cleanup();
   contentfulClient.getEntries({ locale: '*', limit: 1000 }).then((entries) => {
     entries.items.forEach((item) => {
@@ -26,6 +37,7 @@ async function syncData() {
     });
   });
 }
+module.exports = { syncContentfulData };
 
 function createFileContentFromEntry(entry) {
   return `${JSON.stringify(entry)}`;

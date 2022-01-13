@@ -329,6 +329,10 @@ const routes: Routes = [
         path: ':submenu/:page',
         component: CMSPageComponent,
       },
+      {
+        path: 'preview/:entryId',
+        component: CMSPageComponent,
+      },
     ],
   },
 ];
