@@ -122,7 +122,7 @@ export const ListOfDots = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px 24px;
+  padding: 24px;
 `;
 
 export const Dot = styled.button`
@@ -208,7 +208,7 @@ export const CheckButton = styled.button`
   border: none;
   background: transparent;
   display: flex;
-  padding: 24px 16px 24px 0px;
+  padding: 0px;
   cursor: pointer;
   &:hover {
     i {
