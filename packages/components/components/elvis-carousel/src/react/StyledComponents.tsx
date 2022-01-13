@@ -122,7 +122,7 @@ export const ListOfDots = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 24px;
+  padding: 0px 24px;
 `;
 
 export const Dot = styled.button`
