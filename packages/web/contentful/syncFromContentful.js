@@ -11,25 +11,16 @@ const CONFIG = {
   previewAccessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
 };
 
-function createOptions() {
-  const options = {
-    host: 'preview.contentful.com',
-    space: CONFIG.space,
-    accessToken: CONFIG.previewAccessToken,
-  };
-  if (process.env.NODE_ENV === 'production') {
-    (options.host = 'cdn.contentful.com'), (options.accessToken = CONFIG.accessToken);
-  }
-  return options;
-}
+contentfulClient = contentful.createClient({
+  host: process.env.NODE_ENV === 'production' ? 'cdn.contentful.com' : 'preview.contentful.com',
+  space: CONFIG.space,
+  accessToken: process.env.NODE_ENV === 'production' ? CONFIG.accessToken : CONFIG.previewAccessToken,
+});
 
 syncContentfulData();
 
 // Syncs all entries from contentful
 async function syncContentfulData() {
-  const options = createOptions();
-  const contentfulClient = contentful.createClient(options);
-
   await cleanup();
   contentfulClient.getEntries({ locale: '*', limit: 1000 }).then((entries) => {
     entries.items.forEach((item) => {
