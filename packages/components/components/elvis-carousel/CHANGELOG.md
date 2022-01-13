@@ -1,5 +1,11 @@
 # Elvia Carousel Changelog
 
+## 1.0.9 (13.01.22)
+
+### Patch
+
+- Removed padding on check button
+
 ## 1.0.8 (07.01.22)
 
 ### Patch

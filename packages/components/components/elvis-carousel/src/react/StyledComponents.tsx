@@ -208,7 +208,7 @@ export const CheckButton = styled.button`
   border: none;
   background: transparent;
   display: flex;
-  padding: 24px 16px 24px 0px;
+  padding: 0px;
   cursor: pointer;
   &:hover {
     i {
