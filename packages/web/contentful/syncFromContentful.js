@@ -11,23 +11,23 @@ const CONFIG = {
   previewAccessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
 };
 
-function createOptions(preview) {
+function createOptions() {
   const options = {
     host: 'preview.contentful.com',
     space: CONFIG.space,
     accessToken: CONFIG.previewAccessToken,
   };
-  if (process.env.NODE_ENV === 'production' && !preview) {
+  if (process.env.NODE_ENV === 'production') {
     (options.host = 'cdn.contentful.com'), (options.accessToken = CONFIG.accessToken);
   }
   return options;
 }
 
-syncContentfulData(false);
+syncContentfulData();
 
 // Syncs all entries from contentful
-async function syncContentfulData(preview) {
-  const options = createOptions(preview);
+async function syncContentfulData() {
+  const options = createOptions();
   const contentfulClient = contentful.createClient(options);
 
   await cleanup();
