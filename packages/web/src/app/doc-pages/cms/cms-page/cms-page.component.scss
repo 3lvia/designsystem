@@ -1,17 +1,21 @@
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 @import '../../../shared/overview-page/overview-page.component.scss';
 
+.doc-page-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  div {
+    display: flex;
+  }
+}
+
 .cms-img {
   max-width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-.cms-hr {
-  height: 1px;
-  border: none;
-  border-top: 1px solid black;
 }
 
 .brand {
