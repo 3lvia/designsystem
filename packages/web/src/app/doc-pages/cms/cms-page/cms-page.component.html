@@ -23,17 +23,19 @@
     <app-component-header>
       <ng-container ngProjectAs="headerTitle">
         <div class="doc-page-heading e-w-100">
-          <div>
+          <div class="doc-page-heading__title">
             <span>
               {{ cmsContent.title ? cmsContent.title : '' }}
             </span>
-            <span class="e-pl-16">
-              <a *ngIf="cmsContent.figmaUrl" href="{{ cmsContent.figmaUrl }}" target="_blank">
+            <span *ngIf="cmsContent.figmaUrl" class="e-pl-16">
+              <a href="{{ cmsContent.figmaUrl }}" target="_blank">
                 <img src="../../../../assets/icons/figma.svg" />
               </a>
             </span>
           </div>
-          <div *ngIf="lastUpdated" class="e-text-micro-light">Last updated {{ lastUpdated }}</div>
+          <div *ngIf="lastUpdated" class="doc-page-heading__date e-text-micro-light">
+            Last updated {{ lastUpdated }}
+          </div>
         </div>
       </ng-container>
       <ng-container ngProjectAs="headerDescription">

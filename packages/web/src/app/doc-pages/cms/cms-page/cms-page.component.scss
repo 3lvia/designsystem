@@ -5,9 +5,25 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  div {
+  align-items: flex-end;
+  margin-right: -16px;
+
+  &__title {
     display: flex;
+  }
+  &__date {
+    display: flex;
+    margin-bottom: 11px;
+  }
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+    &__title {
+      margin-bottom: 8px;
+    }
+    &__date {
+      margin-bottom: 0px;
+    }
   }
 }
 
