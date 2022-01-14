@@ -15,11 +15,11 @@ const typography = {
   textSm: getTypography('text-sm'),
 };
 
-type PaginatorTypes = {
+type PaginatorProps = {
   isRightAligned: boolean;
 };
 
-export const Paginator = styled.div<PaginatorTypes>`
+export const Paginator = styled.div<PaginatorProps>`
   display: flex;
   align-items: center;
   justify-content: ${(props: { isRightAligned: boolean }) => (props.isRightAligned ? 'flex-end' : 'start')};
@@ -53,10 +53,10 @@ export const PaginatorInfoDropdown = styled.div`
   margin: 0 8px;
 `;
 
-type InfoAmountTypes = {
+type InfoAmountProps = {
   isMobile: boolean;
 };
-export const PaginatorInfoAmount = styled.div<InfoAmountTypes>`
+export const PaginatorInfoAmount = styled.div<InfoAmountProps>`
   ${typography.textSm}
   font-style: normal;
   text-align: left;
@@ -167,11 +167,11 @@ export const PaginatorNumber = styled.button<PaginatorNumberProps>`
   }
 `;
 
-type PaginatorDotsTypes = {
+type PaginatorDotsProps = {
   noDots: boolean;
 };
 
-export const PaginatorDots = styled.div<PaginatorDotsTypes>`
+export const PaginatorDots = styled.div<PaginatorDotsProps>`
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 13px;
   font-style: normal;
