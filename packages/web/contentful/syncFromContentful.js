@@ -19,8 +19,8 @@ contentfulClient = contentful.createClient({
   accessToken: process.env.NODE_ENV === 'production' ? CONFIG.accessToken : CONFIG.previewAccessToken,
 });
 
-// syncContentfulEntries();
-getEntry('6agg697xYesUFEdPfooJe e');
+syncContentfulEntries();
+// getEntry('6agg697xYesUFEdPfooJe e');
 
 async function getEntry(id) {
   try {
