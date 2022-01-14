@@ -1,7 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Select, { components } from 'react-select';
 import toolbox from '@elvia/elvis-toolbox';
-import * as StyledDropdown from './styledComponents';
+import {
+  DropdownCheckbox,
+  DropdownCheckboxLabel,
+  DropdownCheckboxMark,
+  DropdownIndicatorIcon,
+  DropdownWrapper,
+  DropdownErrorMessageIcon,
+  DropdownErrorMessageText,
+  DropdownErrorMessageWrapper,
+  DropdownLabel,
+} from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
@@ -246,11 +256,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
       <components.DropdownIndicator {...props}>
-        <StyledDropdown.DropdownIndicatorIcon
-          isDisabled={isDisabled}
-          isCompact={isCompact}
-          menuIsOpen={menuIsOpen}
-        />
+        <DropdownIndicatorIcon isDisabled={isDisabled} isCompact={isCompact} menuIsOpen={menuIsOpen} />
       </components.DropdownIndicator>
     );
   };
@@ -265,26 +271,24 @@ const Dropdown: React.FC<DropdownProps> = ({
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
       <components.Option {...props}>
-        <StyledDropdown.DropdownCheckbox>
-          <StyledDropdown.DropdownCheckboxMark
+        <DropdownCheckbox>
+          <DropdownCheckboxMark
             id="ewc-dropdown-checkbox__mark"
             isSelected={props.isSelected}
             isCompact={isCompact}
           />
-          <StyledDropdown.DropdownCheckboxLabel isCompact={isCompact}>
-            {props.children}
-          </StyledDropdown.DropdownCheckboxLabel>
-        </StyledDropdown.DropdownCheckbox>
+          <DropdownCheckboxLabel isCompact={isCompact}>{props.children}</DropdownCheckboxLabel>
+        </DropdownCheckbox>
       </components.Option>
     );
   };
 
   const ElviaError = ({ ...props }) => {
     return (
-      <StyledDropdown.ErrorMessageWrapper {...props}>
-        <StyledDropdown.ErrorMessageIcon />
-        <StyledDropdown.ErrorMessageText>{errorMessage}</StyledDropdown.ErrorMessageText>
-      </StyledDropdown.ErrorMessageWrapper>
+      <DropdownErrorMessageWrapper {...props}>
+        <DropdownErrorMessageIcon />
+        <DropdownErrorMessageText>{errorMessage}</DropdownErrorMessageText>
+      </DropdownErrorMessageWrapper>
     );
   };
   // Object containing all components overriden in react-select by Elvis dropdown
@@ -342,15 +346,10 @@ const Dropdown: React.FC<DropdownProps> = ({
   }, [errorMessage]);
 
   return (
-    <StyledDropdown.DropdownWrapper isDisabled={isDisabled} ref={dropdownRef} data-testid="wrapper">
-      <StyledDropdown.DropdownLabel
-        aria-label={label}
-        isCompact={isCompact}
-        htmlFor={selectId}
-        data-testid="label"
-      >
+    <DropdownWrapper isDisabled={isDisabled} ref={dropdownRef} data-testid="wrapper">
+      <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
         {label}
-      </StyledDropdown.DropdownLabel>
+      </DropdownLabel>
       <Select
         blurInputOnSelect={!isMulti}
         classNamePrefix={'ewc-dropdown'}
@@ -382,7 +381,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       ></Select>
 
       {isError ? <ElviaError errorMessage={errorMessage} data-testid="error"></ElviaError> : null}
-    </StyledDropdown.DropdownWrapper>
+    </DropdownWrapper>
   );
 };
 

@@ -1,5 +1,11 @@
 # Elvia Dropdown
 
+## 2.0.5 (14.01.22)
+
+### Patch
+
+- Refactoring
+
 ## 2.0.4 (07.01.22)
 
 ### Patch

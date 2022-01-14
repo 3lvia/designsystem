@@ -1,5 +1,11 @@
 # Elvia Chip Changelog
 
+## 1.1.6 (14.01.22)
+
+### Patch
+
+- Refactoring
+
 ## 1.1.5 (07.01.22)
 
 ### Patch

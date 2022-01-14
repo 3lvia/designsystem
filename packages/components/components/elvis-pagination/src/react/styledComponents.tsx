@@ -15,11 +15,11 @@ const typography = {
   textSm: getTypography('text-sm'),
 };
 
-type PaginationTypes = {
+type PaginatorTypes = {
   isRightAligned: boolean;
 };
 
-export const Pagination = styled.div<PaginationTypes>`
+export const Paginator = styled.div<PaginatorTypes>`
   display: flex;
   align-items: center;
   justify-content: ${(props: { isRightAligned: boolean }) => (props.isRightAligned ? 'flex-end' : 'start')};
@@ -33,7 +33,7 @@ export const Pagination = styled.div<PaginationTypes>`
     align-items: start;
   }
 `;
-export const InfoContainer = styled.div`
+export const PaginatorInfoContainer = styled.div`
   display: flex;
   align-items: center;
 
@@ -42,13 +42,13 @@ export const InfoContainer = styled.div`
   }
 `;
 
-export const InfoText = styled.div`
+export const PaginatorInfoText = styled.div`
   ${typography.textSm}
   font-style: normal;
   letter-spacing: 0.2px;
   text-align: left;
 `;
-export const InfoDropdown = styled.div`
+export const PaginatorInfoDropdown = styled.div`
   width: 72px;
   margin: 0 8px;
 `;
@@ -56,24 +56,24 @@ export const InfoDropdown = styled.div`
 type InfoAmountTypes = {
   isMobile: boolean;
 };
-export const InfoAmount = styled.div<InfoAmountTypes>`
+export const PaginatorInfoAmount = styled.div<InfoAmountTypes>`
   ${typography.textSm}
   font-style: normal;
   text-align: left;
   white-space: nowrap;
   margin-right: ${(props: { isMobile: boolean }) => (props.isMobile ? '0px' : '24px')};
 `;
-export const SelectorArea = styled.div`
+export const PaginatorSelectorArea = styled.div`
   display: flex;
   align-items: center;
   user-select: none;
 `;
 
-type SelectorArrowBtnTypes = {
+type SelectorArrowBtnProps = {
   visible: boolean;
 };
 
-export const SelectorArrowBtn = styled.button<SelectorArrowBtnTypes>`
+export const PaginatorSelectorArrowBtn = styled.button<SelectorArrowBtnProps>`
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -96,7 +96,7 @@ export const SelectorArrowBtn = styled.button<SelectorArrowBtnTypes>`
     transform: scale(0.95);
   }
 `;
-export const SelectorArrowLeft = styled.div`
+export const PaginatorSelectorArrowLeft = styled.div`
   height: 16px;
   width: 16px;
   background-size: contain;
@@ -106,7 +106,7 @@ export const SelectorArrowLeft = styled.div`
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.22 11.453a.763.763 0 00-.162.243l.161-.243zm.005-.006L10.948.724a.766.766 0 011.083 1.084l-9.416 9.415h20.619a.766.766 0 110 1.532H2.615l9.416 9.416a.766.766 0 11-1.083 1.083L.224 12.531a.764.764 0 01-.166-.835' fill='black'/%3e%3c/svg%3e");
 `;
 
-export const SelectorRighArrow = styled.div`
+export const PaginatorSelectorRighArrow = styled.div`
   height: 16px;
   width: 16px;
   background-size: contain;
@@ -123,7 +123,7 @@ export const PaginatorNumbersArea = styled.div`
   user-select: none;
 `;
 
-type PaginatorNumberTypes = {
+type PaginatorNumberProps = {
   noShow: boolean;
   selected: boolean;
   isFirst: boolean;
@@ -133,7 +133,7 @@ type PaginatorNumberTypes = {
   children?: number;
 };
 
-export const PaginatorNumber = styled.button<PaginatorNumberTypes>`
+export const PaginatorNumber = styled.button<PaginatorNumberProps>`
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 13px;
   font-style: normal;

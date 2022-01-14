@@ -77,7 +77,7 @@ export const CarouselElementContainer = styled.div`
   }
 `;
 
-type CarouselElementTypes = {
+type CarouselElementProps = {
   onMouseDown: any;
   onMouseUp: any;
   onMouseLeave: any;
@@ -87,7 +87,7 @@ type CarouselElementTypes = {
   onTouchEnd: any;
 };
 
-export const CarouselElement = styled.div<CarouselElementTypes>`
+export const CarouselElement = styled.div<CarouselElementProps>`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -107,7 +107,7 @@ export const CarouselTitle = styled.div`
   }
 `;
 
-export const NavigationRow = styled.div`
+export const CarouselNavigationRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -118,14 +118,14 @@ export const NavigationRow = styled.div`
   }
 `;
 
-export const ListOfDots = styled.div`
+export const CarouselListOfDots = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0px 24px;
 `;
 
-export const Dot = styled.button`
+export const CarouselDot = styled.button`
   border: 1px solid
     ${(props: { isSelected: boolean }) => (props.isSelected ? colors.elviaCharge : colors.black)};
   height: ${(props: { isSelected: boolean }) => (props.isSelected ? '9px' : '8px')};
@@ -148,7 +148,7 @@ export const Dot = styled.button`
   }
 `;
 
-export const LeftCarouselButton = styled.button`
+export const CarouselLeftButton = styled.button`
   border: none;
   background: transparent;
   display: flex;
@@ -176,7 +176,7 @@ export const LeftCarouselButton = styled.button`
   }
 `;
 
-export const RightCarouselButton = styled.button`
+export const CarouselRightButton = styled.button`
   margin-left: 0;
   border: none;
   background: transparent;
@@ -203,7 +203,7 @@ export const RightCarouselButton = styled.button`
   }
 `;
 
-export const CheckButton = styled.button`
+export const CarouselCheckButton = styled.button`
   margin-left: 0;
   border: none;
   background: transparent;

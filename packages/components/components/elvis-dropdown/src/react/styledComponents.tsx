@@ -49,13 +49,13 @@ export const DropdownLabel = styled.label`
   text-align: left;
 `;
 
-type DropdownIndicatorIcon = {
+type DropdownIndicatorIconProps = {
   isDisabled: boolean;
   isCompact: boolean;
   menuIsOpen: boolean;
 };
 
-export const DropdownIndicatorIcon = styled.i<DropdownIndicatorIcon>`
+export const DropdownIndicatorIcon = styled.i<DropdownIndicatorIconProps>`
   background-image: ${(props: { isDisabled: boolean }) =>
     !props.isDisabled
       ? `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.389 5.869a1.328 1.328 0 011.878 0L12 15.6l9.733-9.732a1.328 1.328 0 011.878 1.878L13.443 17.915h-.001a2.04 2.04 0 01-2.885 0L.39 7.747a1.328 1.328 0 010-1.878z' fill='black'/%3e%3c/svg%3e")`
@@ -70,13 +70,13 @@ export const DropdownIndicatorIcon = styled.i<DropdownIndicatorIcon>`
   transition: 'transform 250ms';
 `;
 
-export const ErrorMessageWrapper = styled.div`
+export const DropdownErrorMessageWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: 4px;
 `;
-export const ErrorMessageIcon = styled.i`
+export const DropdownErrorMessageIcon = styled.i`
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='%23EE0701' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23EE0701'%3e%3cpath d='M12 23.999c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-22.5c-5.79 0-10.5 4.71-10.5 10.5s4.71 10.5 10.5 10.5 10.5-4.71 10.5-10.5-4.71-10.5-10.5-10.5z'/%3e%3cpath d='M16.5 17.249a.743.743 0 01-.53-.22L12 13.06l-3.97 3.97a.744.744 0 01-1.06 0 .752.752 0 010-1.061l3.97-3.97-3.97-3.97a.743.743 0 01-.22-.53c0-.2.078-.389.22-.53a.743.743 0 01.53-.22c.2 0 .389.078.53.22l3.97 3.97 3.97-3.97a.744.744 0 011.06 0c.142.141.22.33.22.53s-.078.389-.22.53l-3.97 3.97 3.97 3.97a.752.752 0 010 1.061.746.746 0 01-.53.219z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23EE0701'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
   height: 16px;
   width: 16px;
@@ -85,7 +85,7 @@ export const ErrorMessageIcon = styled.i`
   background-repeat: no-repeat;
   display: inline-block;
 `;
-export const ErrorMessageText = styled.span`
+export const DropdownErrorMessageText = styled.span`
   ${typography.textSm}
   font-style: normal;
   letter-spacing: 0px;
@@ -168,12 +168,12 @@ const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed:
   return '';
 };
 
-type DropdownCheckboxMark = {
+type DropdownCheckboxMarkProps = {
   isCompact: boolean;
   isSelected: boolean;
 };
 
-export const DropdownCheckboxMark = styled.span<DropdownCheckboxMark>`
+export const DropdownCheckboxMark = styled.span<DropdownCheckboxMarkProps>`
   box-sizing: border-box;
   min-width: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px' : '24px')};
   min-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px' : '24px')};
