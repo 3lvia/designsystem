@@ -1,5 +1,11 @@
 # Elvia Divider Changelog
 
+## 1.1.7 (14.01.22)
+
+### Patch
+
+- Refactoring
+
 ## 1.1.6 (07.01.22)
 
 ### Patch

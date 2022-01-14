@@ -1,5 +1,11 @@
 # Elvia Pagination Changelog
 
+## 1.1.1 (14.01.22)
+
+### Patch
+
+- Refactoring
+
 ## 1.1.0 (07.01.22)
 
 ### Feature
@@ -11,13 +17,11 @@
 
 - Pagnination no longer shows two of the same numbers when items is less than option range.
 
-
 ## 1.0.8 (07.01.22)
 
 ### Patch
 
 - Updated tokens declarations
-
 
 ## 1.0.7 (03.01.22)
 
