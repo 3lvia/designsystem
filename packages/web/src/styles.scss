@@ -198,6 +198,11 @@ p {
   font-style: normal;
   font-size: 16px;
   line-height: 32px;
+  display: flex;
+  flex-direction: row;
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+  }
 }
 .changelog-date {
   vertical-align: top;
@@ -205,13 +210,28 @@ p {
   padding-top: 48px;
   padding-right: 24px;
   width: 27%;
+  display: flex;
+  flex-direction: column;
+  .changelog-date-span {
+    margin-top: -24px;
+    color: var(--e-grey-80);
+  }
+  @include breakpoint-up(Mobile) {
+    width: 100%;
+    .changelog-date-span {
+      margin-top: -26px;
+    }
+  }
 }
-.changelog-dato {
-  color: var(--e-grey-80);
-}
+
 .changelog-content {
   padding-top: 48px;
   width: 75%;
+  @include breakpoint-up(Mobile) {
+    width: 100%;
+    padding-top: 0px;
+    margin-top: -20px;
+  }
 
   .changelog-section:not(:first-of-type) {
     margin-top: 32px;
@@ -233,6 +253,10 @@ p {
     margin-left: -33.7%;
     background: var(--e-grey-10);
     margin-top: 48px;
+    @include breakpoint-up(Mobile) {
+      width: 100%;
+      margin-left: 0px;
+    }
   }
 }
 
