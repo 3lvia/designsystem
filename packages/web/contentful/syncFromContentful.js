@@ -23,10 +23,21 @@ syncContentfulEntries();
 
 async function syncContentfulEntries() {
   await cleanup();
-  contentfulClient.getEntries({ locale: '*', limit: 1000 }).then((entries) => {
+  getContentfulEntries({ locale: '*', limit: 1000, skip: 0 });
+  // Max 8MB per contentfulClient.getEntries call, reduce limit if requests get too big.
+}
+
+function getContentfulEntries(query) {
+  contentfulClient.getEntries(query).then((entries) => {
     entries.items.forEach((item) => {
       fs.writeFileSync(`dist/entries/${item.sys.id}.json`, createFileContentFromEntry(item));
     });
+    // If there are more entries left to get from Contentful, recursively call getContentfulEntries
+    if (entries.total > query.limit + query.skip) {
+      console.log(`Recursive: ${entries.total}, ${query.limit}, ${query.skip}`);
+      query.skip = query.skip + query.limit;
+      getContentfulEntries(query);
+    }
   });
 }
 
