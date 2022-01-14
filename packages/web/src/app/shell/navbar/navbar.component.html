@@ -34,7 +34,11 @@
           </div>
         </div>
         <div
-          *ngIf="navbarItem.isMainPage && !navbarList[i + 1].isMainPage"
+          *ngIf="
+            navbarItem.isMainPage &&
+            navbarItem.isMainPage['en-GB'] &&
+            (!navbarList[i + 1].isMainPage || !navbarList[i + 1].isMainPage['en-GB'])
+          "
           style="height: 1px"
           class="e-mt-16 e-ml-16 e-mr-16 e-bg-grey-10"
         ></div>

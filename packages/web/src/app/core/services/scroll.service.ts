@@ -71,7 +71,11 @@ export class ScrollService {
         const elementTitle = elementTitles.item(i) as HTMLElement;
         const innerText = elementTitle.innerText;
         const fromTop = item.offsetTop;
-        const fullHeight = item.offsetHeight;
+        let fullHeight = item.offsetHeight;
+        if (i < elements.length - 1) {
+          const nexItem = elements.item(i + 1) as HTMLElement;
+          fullHeight = nexItem.offsetTop - item.offsetTop;
+        }
         const newElement = {
           title: innerText,
           top: fromTop - 60, // TODO: 60 is just a temp fix because sometimes the scroll goes past the anchor title
