@@ -34,19 +34,20 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
 
   return (
     <RadioFilterGroup role="radiogroup" data-testid="radio-filter-group">
-      {items?.map(({ label, value: optionsValue }) => (
-        <RadioFilterLabel key={optionsValue} isSelected={optionsValue === value}>
-          <RadioFilterInput
-            type="radio"
-            name={name}
-            aria-label={ariaLabel ? ariaLabel : label + ' filtrering valgt'}
-            aria-checked={optionsValue === value}
-            checked={optionsValue === value}
-            onChange={() => updateValue(optionsValue)}
-          ></RadioFilterInput>
-          <RadioFilterTitle>{label}</RadioFilterTitle>
-        </RadioFilterLabel>
-      ))}
+      {items &&
+        items.map(({ label, value: optionsValue }) => (
+          <RadioFilterLabel key={optionsValue} isSelected={optionsValue === value}>
+            <RadioFilterInput
+              type="radio"
+              name={name}
+              aria-label={ariaLabel ? ariaLabel : label + ' filtrering valgt'}
+              aria-checked={optionsValue === value}
+              checked={optionsValue === value}
+              onChange={() => updateValue(optionsValue)}
+            ></RadioFilterInput>
+            <RadioFilterTitle>{label}</RadioFilterTitle>
+          </RadioFilterLabel>
+        ))}
     </RadioFilterGroup>
   );
 };
