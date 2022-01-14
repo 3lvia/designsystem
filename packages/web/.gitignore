@@ -1,3 +1,4 @@
+.env
 contentful/.env
 contentful/!dist
 contentful/dist/entries/*.json
