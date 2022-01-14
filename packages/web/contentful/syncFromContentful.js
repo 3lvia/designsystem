@@ -8,7 +8,9 @@ const CONFIG = {
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
     ? process.env.CONTENTFUL_ACCESS_TOKEN
     : dotenv.parsed.CONTENTFUL_ACCESS_TOKEN,
-  previewAccessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
+  previewAccessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+    ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+    : dotenv.parsed.CONTENTFUL_ACCESS_TOKEN,
 };
 
 contentfulClient = contentful.createClient({
