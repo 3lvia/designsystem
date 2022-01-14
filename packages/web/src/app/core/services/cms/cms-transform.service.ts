@@ -13,18 +13,13 @@ export class CMSTransformService {
       [MARKS.BOLD]: (text) => `<b>${text}</b>`,
     },
     renderNode: {
-      [BLOCKS.HEADING_1]: (node, next) => `<h2 class="e-title-md e-mb-24">${next(node.content)}</h2>`, // We don't want want to use h1 tags for this purpose
-      [BLOCKS.HEADING_2]: (node, next) => `<h2 class="e-title-md e-mb-24">${next(node.content)}</h2>`,
-      [BLOCKS.HEADING_3]: (node, next) => `<h3 class="e-title-sm">${next(node.content)}</h3>`,
-      [BLOCKS.HEADING_6]: (node, next) => `<p class="e-text-lg">${next(node.content)}</p>`,
-      [BLOCKS.PARAGRAPH]: (node, next) => `<p>${next(node.content)}</p>`,
-      [BLOCKS.UL_LIST]: (node, next) => `${this.getList(next(node.content))}`,
-      [BLOCKS.OL_LIST]: (node, next) => `<ul class="e-list e-list--numbers">${next(node.content)}</ul>`,
-      [INLINES.HYPERLINK]: (node, next) =>
-        `<a class="e-link e-link--inline" href="${node.data.uri}">${next(node.content)}</a>`,
-      [BLOCKS.EMBEDDED_ASSET]: (node) =>
-        `<img class="cms-img" src="${node.data.target.fields.file[this.locale].url}"/>`,
-      [BLOCKS.HR]: () => `<hr class="cms-hr e-mb-24"></hr>`,
+      [BLOCKS.HEADING_1]: (node, next) => this.getHeading1(next(node.content)),
+      [BLOCKS.HEADING_2]: (node, next) => this.getHeading2(next(node.content)),
+      [BLOCKS.HEADING_3]: (node, next) => this.getHeading3(next(node.content)),
+      [BLOCKS.PARAGRAPH]: (node, next) => this.getParagraph(next(node.content)),
+      [BLOCKS.UL_LIST]: (node, next) => this.getList(next(node.content)),
+      [BLOCKS.OL_LIST]: (node, next) => this.getNumberedList(next(node.content)),
+      [BLOCKS.EMBEDDED_ASSET]: (node) => this.getEmbeddedAsset(node.data.target.fields.file[this.locale].url),
       [BLOCKS.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.locale, this.subMenu)}`,
       [INLINES.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.locale, this.subMenu)}`,
     },
@@ -117,6 +112,10 @@ export class CMSTransformService {
     }
   }
 
+  private getNumberedList(list: string): string {
+    return `<ul class="e-list e-list--numbers">${list}</ul>`;
+  }
+
   private getLink(data, locale, subMenu) {
     let fullPath = '';
     if (data.fields.page) {
@@ -207,6 +206,10 @@ export class CMSTransformService {
     return fullPath;
   }
 
+  private getEmbeddedAsset(asset: string): string {
+    return `<img class="cms-img" src="${asset}"/>`;
+  }
+
   private getSection(data, locale) {
     return `
       <div class="cms-section elvis-anchor">
@@ -245,6 +248,36 @@ export class CMSTransformService {
           ${documentToHtmlString(data.fields.content[locale], this.options)}
         </div>
       </div>`;
+  }
+
+  private getParagraph(paragraph: string): string {
+    return `<p class="cms-paragraph e-text-body">${paragraph}</p>`;
+  }
+
+  private getHeading1(heading: string): string {
+    return `<div class="cms-heading1 elvis-anchor">
+      <div class="cms-heading1__title">
+        <h2 class="e-title-md elvis-anchor-title">
+        ${heading}
+        </h2>
+      </div>
+    </div>`;
+  }
+
+  private getHeading2(heading: string): string {
+    return `<div class="cms-heading2 e-mt-72">
+      <h3 class="cms-heading2__title e-title-sm">
+        ${heading}
+      </h3>
+    </div>`;
+  }
+
+  private getHeading3(heading: string): string {
+    return `<div class="cms-heading3 e-mt-48">
+      <h4 class="cms-heading3__title e-title-xs">
+        ${heading}
+      </h4>
+    </div>`;
   }
 
   private getLandingPage(data, locale) {
