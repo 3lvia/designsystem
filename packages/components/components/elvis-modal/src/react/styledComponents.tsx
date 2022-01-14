@@ -183,29 +183,30 @@ export const Actions = styled.div`
     flex-direction: column;
     width: 100%;
     gap: 16px;
+
+    div button {
+      width: 100%;
+    }
   }
 
   button:not(:only-of-type) {
     width: 100%;
   }
+
   .webComponentBtn:not(:only-of-type) {
     width: 100%;
     button {
       width: inherit;
     }
   }
+
   :not(webComponentBtn) > button:only-of-type {
     width: 50%;
-    @media (max-width: ${mobileMax}) {
-      width: 100%;
-    }
   }
+
   div:only-child {
     width: 50%;
     button {
-      width: 100%;
-    }
-    @media (max-width: ${mobileMax}) {
       width: 100%;
     }
   }
