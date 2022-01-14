@@ -6,11 +6,38 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.15.0
+      </span>
+      <br>
+      <span>
+        January 14, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+           <div class="changelog-section-title">💥 New Features</div>
+            <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Added new modifier class for removing stripes in table body: <span class="code-text">e-table--no-stripes</span>.
+            </li>
+          </ul>
+        </div>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.14.1
       </span>
       <br>
       <span>
-        January 10, 2021
+        January 10, 2022
       </span>
     </td>
     <td class="changelog-content">
@@ -33,7 +60,7 @@
       </span>
       <br>
       <span>
-        January 06, 2021
+        January 06, 2022
       </span>
     </td>
     <td class="changelog-content">

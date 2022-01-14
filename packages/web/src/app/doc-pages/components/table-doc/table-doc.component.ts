@@ -894,6 +894,36 @@ export class TableDocComponent {
 <div class="e-table__footnote">*If you include a footnote to your table, it should look like this</div>
 `;
 
+  exampleNoStripes = `<div class="e-table-container">
+  <table class="e-table e-table--no-stripes">
+    <thead>
+      <tr>
+        <th scope="col">CaseID*</th>
+        <th scope="col">Address</th>
+        <th scope="col">Created</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
+        <td>15.01.2021</td>
+      </tr>
+      <tr>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
+        <td>15.01.2021</td>
+      </tr>
+      <tr>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
+        <td>15.01.2021</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
   toggleAccordion(id: string): void {
     const element = document.getElementById(id) as HTMLElement;
     if (element) {

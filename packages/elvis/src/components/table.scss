@@ -86,11 +86,16 @@ $grey10: colors.color('grey-10');
     }
   }
 
-  // Zebra table
   tbody {
-    &:not(.no-zebra) {
+    tr:nth-of-type(odd) {
+      background: colors.color('grey-05');
+    }
+  }
+
+  &.e-table--no-stripes {
+    tbody {
       tr:nth-of-type(odd) {
-        background: colors.color('grey-05');
+        background: colors.color('white');
       }
     }
   }
