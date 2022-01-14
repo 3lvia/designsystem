@@ -8,17 +8,20 @@ const CONFIG = {
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
     ? process.env.CONTENTFUL_ACCESS_TOKEN
     : dotenv.parsed.CONTENTFUL_ACCESS_TOKEN,
+  previewAccessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+    ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+    : dotenv.parsed.CONTENTFUL_ACCESS_TOKEN,
 };
 
 contentfulClient = contentful.createClient({
+  host: process.env.NODE_ENV === 'production' ? 'cdn.contentful.com' : 'preview.contentful.com',
   space: CONFIG.space,
-  accessToken: CONFIG.accessToken,
+  accessToken: process.env.NODE_ENV === 'production' ? CONFIG.accessToken : CONFIG.previewAccessToken,
 });
 
-syncData();
+syncContentfulEntries();
 
-// Syncs all entries from contentful
-async function syncData() {
+async function syncContentfulEntries() {
   await cleanup();
   contentfulClient.getEntries({ locale: '*', limit: 1000 }).then((entries) => {
     entries.items.forEach((item) => {
