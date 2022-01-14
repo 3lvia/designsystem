@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
@@ -11,7 +11,7 @@ import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class CMSPageComponent implements OnInit, OnDestroy, AfterViewInit {
+export class CMSPageComponent implements OnInit, OnDestroy {
   routerSubscription: Subscription;
 
   cmsContent: any = {};
@@ -46,6 +46,14 @@ export class CMSPageComponent implements OnInit, OnDestroy, AfterViewInit {
         } else {
           this.cmsService.contentLoadedFromCMS();
         }
+        // if (this.isCmsPage) {
+        //   const domElements = document.querySelectorAll('.cms-section__title, .cms-heading1__title');
+        //   domElements.forEach((domElement) => {
+        //     console.log(domElement['id']);
+        //     console.log(domElement.firstElementChild);
+        //     domElement.firstElementChild.addEventListener('click', () => console.log('clicked element'));
+        //   });
+        // }
       }
     });
   }
@@ -62,13 +70,6 @@ export class CMSPageComponent implements OnInit, OnDestroy, AfterViewInit {
     this.routerSubscription && this.routerSubscription.unsubscribe();
   }
 
-  ngAfterViewInit(): void {
-    if (this.hasChecked && this.isCmsPage) {
-      const domElement = document.getElementById('A-picture-of-your-window');
-      console.log(domElement);
-    }
-  }
-
   async updateContent(locale: Locale): Promise<any> {
     if (!this.isCmsPage) {
       return;
@@ -83,7 +84,7 @@ export class CMSPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
     // console.log(docPage.content);
 
-    const domElements = document.querySelectorAll('.cms-section__title');
+    const domElements = document.querySelectorAll('.cms-section__title, .cms-heading1__title');
     domElements.forEach((domElement) => {
       console.log(domElement['id']);
       console.log(domElement.children[0]);

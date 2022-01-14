@@ -275,10 +275,27 @@ export class CMSTransformService {
 
   private getHeading1(heading: string): string {
     return `<div class="cms-heading1 elvis-anchor">
-      <div class="cms-heading1__title">
-        <h2 class="e-title-md elvis-anchor-title">
-        ${heading}
-        </h2>
+      <div class="cms-heading1__title" id="${heading.replace(/ /g, '-')}">
+        <span class="e-tooltip" tabindex="0">
+            <span class="icons">
+              <img
+                class="cms-section__img normal-img"
+                alt="Copy anchor button"
+                src="assets/hyperlink-3.svg"
+              />
+              <img
+                class="cms-section__img green-img"
+                alt="Copy anchor button"
+                src="assets/hyperlink-3-green.svg"
+              />
+            </span>
+            <h2 class="e-title-md elvis-anchor-title e-mb-24 e-mt-0" style="display: flex">
+            ${heading}
+            <ng-content select="headerIcon"></ng-content>
+            </h2>
+
+            <span class="e-tooltip__content">Copied!</span>
+          </span>
       </div>
     </div>`;
   }
