@@ -46,6 +46,7 @@ $loading-dot-sm: 8px;
   font-weight: $button-font-weight;
   justify-content: center;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 
   // Removing default focus on firefox
   &::-moz-focus-inner {
