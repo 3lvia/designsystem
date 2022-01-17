@@ -19,7 +19,7 @@ export class FileUploadDocComponent {
   </div>
   <div class="e-fileupload__input">
     <input type="file" id="fileUploadTemplate">
-    <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i>Choose file</label>
+    <label for="fileUploadTemplate"> <i class="e-icon e-icon--upload"></i>Choose file</label>
   </div>
 </div>
 `;
@@ -33,7 +33,7 @@ export class FileUploadDocComponent {
   </div>
   <div class="e-fileupload__input">
     <input type="file" id="fileUploadTemplate">
-    <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i>Choose file</label>
+    <label for="fileUploadTemplate"> <i class="e-icon e-icon--upload"></i>Choose file</label>
   </div>
 </div>`;
 
