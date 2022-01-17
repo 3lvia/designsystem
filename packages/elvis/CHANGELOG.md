@@ -1,7 +1,6 @@
 <!-- ✂️ Breaking Changes -->
 <!-- 💥 New Features -->
 <!-- 🐝 Bug Fixes -->
-
 <table>
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
@@ -31,13 +30,63 @@
     </td>
   </tr>
   <tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
+        7.15.0
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        January 14, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+           <div class="changelog-section-title">💥 New Features</div>
+            <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Added new modifier class for removing stripes in table body: <span class="code-text">e-table--no-stripes</span>.
+            </li>
+          </ul>
+        </div>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
+        7.14.2
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        January 17, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🛠 Patch</div>
+          <ul class="e-list">
+            <li>
+              Using newest version of elvis-assets-icon package in elvis. 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
         7.14.1
       </span>
       <br>
-      <span>
-        January 10, 2021
+      <span class="changelog-date-span">
+        January 10, 2022
       </span>
     </td>
     <td class="changelog-content">
@@ -54,13 +103,13 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.14.0
       </span>
       <br>
-      <span>
-        January 06, 2021
+      <span class="changelog-date-span">
+        January 06, 2022
       </span>
     </td>
     <td class="changelog-content">
@@ -80,12 +129,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.13.6
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         December 22, 2021
       </span>
     </td>
@@ -106,12 +155,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.13.5
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         December 14, 2021
       </span>
     </td>
@@ -136,12 +185,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.13.4
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         November 18, 2021
       </span>
     </td>
@@ -163,12 +212,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.13.3
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         November 17, 2021
       </span>
     </td>
@@ -189,12 +238,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.13.2
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         November 10, 2021
       </span>
     </td>
@@ -215,12 +264,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.13.1
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         October 21, 2021
       </span>
     </td>
@@ -241,12 +290,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.13.0
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         October 18, 2021
       </span>
     </td>
@@ -267,12 +316,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.12.0
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         October 8, 2021
       </span>
     </td>
@@ -309,12 +358,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.11.2
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         October 7, 2021
       </span>
     </td>
@@ -335,12 +384,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.11.1
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         September 21, 2021
       </span>
     </td>
@@ -361,12 +410,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.11.0
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         September 9, 2021
       </span>
     </td>
@@ -387,12 +436,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.10.0
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         August 30, 2021
       </span>
     </td>
@@ -424,12 +473,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.9.4
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         August 25, 2021
       </span>
     </td>
@@ -450,12 +499,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.9.3
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         August 13, 2021
       </span>
     </td>
@@ -476,12 +525,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.9.1
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         June 16, 2021
       </span>
     </td>
@@ -502,12 +551,12 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.9.0
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         May 7, 2021
       </span>
     </td>
@@ -540,12 +589,12 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.8.4
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         June 4, 2021
       </span>
     </td>
@@ -566,12 +615,12 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.8.1
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         May 5, 2021
       </span>
     </td>
@@ -620,7 +669,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       7.7.1
     </span>
@@ -645,7 +694,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       7.7.0
     </span>
@@ -685,7 +734,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       7.6.1
     </span>
@@ -707,7 +756,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       7.6.0
     </span>
@@ -729,7 +778,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       7.4.0
     </span>
@@ -760,7 +809,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       7.3.0
     </span>
@@ -789,7 +838,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       7.2.0
     </span>
@@ -819,7 +868,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       7.1.0
     </span>
@@ -848,7 +897,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       7.0.0
     </span>
@@ -907,7 +956,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       6.3.0
     </span>
@@ -928,7 +977,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       6.2.0
     </span>
@@ -950,7 +999,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       6.1.0
     </span>
@@ -971,7 +1020,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       6.0.0
     </span>
@@ -992,7 +1041,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       5.1.0
     </span>
@@ -1013,7 +1062,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       5.0.0
     </span>
@@ -1038,7 +1087,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       4.7.0
     </span>
@@ -1064,7 +1113,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       4.6.0
     </span>
@@ -1087,7 +1136,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       4.5.0
     </span>
@@ -1110,7 +1159,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       4.0.0
     </span>
@@ -1151,7 +1200,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       3.0.0
     </span>
@@ -1224,7 +1273,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       2.0.0
     </span>
@@ -1287,7 +1336,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       1.0.0
     </span>
@@ -1319,7 +1368,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       0.11.0
     </span>
@@ -1359,7 +1408,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       0.10.0
     </span>
@@ -1397,7 +1446,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       0.7.0
     </span>
@@ -1421,7 +1470,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       0.6.0
     </span>
@@ -1440,7 +1489,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       0.5.0
     </span>
@@ -1462,7 +1511,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       0.4.0
     </span>
@@ -1484,7 +1533,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       0.3.0
     </span>
@@ -1506,7 +1555,7 @@
   </tr>
 
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
     <span class="e-title-sm">
       0.2.0
     </span>

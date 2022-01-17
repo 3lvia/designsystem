@@ -259,6 +259,21 @@
           </div>
         </div>
 
+        <div class="e-accordion__item" id="accordion-footnote">
+          <div class="e-accordion__label" (click)="toggleAccordion('accordion-footnote')">
+            <div class="e-accordion__title">Footnote</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            Use a footnote when you need to clarify information. Use an asterix (*) to connect the data to the
+            description.
+            <app-component-example-v1 [codeHTML]="exampleFootnote"></app-component-example-v1>
+          </div>
+        </div>
+
         <div class="e-accordion__item" id="accordion-input">
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-input')">
             <div class="e-accordion__title">Input</div>
@@ -287,21 +302,6 @@
           </div>
         </div>
 
-        <div class="e-accordion__item" id="accordion-footnote">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-footnote')">
-            <div class="e-accordion__title">Footnote</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
-            Use a footnote when you need to clarify information. Use an asterix (*) to connect the data to the
-            description.
-            <app-component-example-v1 [codeHTML]="exampleFootnote"></app-component-example-v1>
-          </div>
-        </div>
-
         <div class="e-accordion__item" id="accordion-longColumn">
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-longColumn')">
             <div class="e-accordion__title">Long column</div>
@@ -321,6 +321,25 @@
               can be used when the column should have a max-width of 250px.
             </div>
             <app-component-example-v1 [codeHTML]="exampleLongColumn"></app-component-example-v1>
+          </div>
+        </div>
+
+        <div class="e-accordion__item" id="accordion-noStripes">
+          <div class="e-accordion__label" (click)="toggleAccordion('accordion-noStripes')">
+            <div class="e-accordion__title">No stripes</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              Use the modifier class
+              <span class="code-text">e-table--no-stripes</span>
+              to remove the grey colored stripes on the table body.
+
+              <app-component-example-v1 [codeHTML]="exampleNoStripes"></app-component-example-v1>
+            </div>
           </div>
         </div>
 

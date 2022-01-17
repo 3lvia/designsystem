@@ -85,6 +85,7 @@ export class CMSService {
       isMainPage: isMainPage,
       docUrl: data.fields.path && data.fields.path[locale],
       fullPath: data.fields.path && subMenuRoute + data.fields.path[locale],
+      lastUpdated: data.sys.updatedAt,
     };
   }
 

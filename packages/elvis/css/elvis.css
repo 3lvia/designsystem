@@ -6382,8 +6382,11 @@ input:focus {
   width: 250px;
   height: auto;
 }
-.e-table tbody:not(.no-zebra) tr:nth-of-type(odd) {
+.e-table tbody tr:nth-of-type(odd) {
   background: #f4f4f4;
+}
+.e-table.e-table--no-stripes tbody tr:nth-of-type(odd) {
+  background: #fff;
 }
 .e-table.e-table--compact tr {
   height: 40px;
