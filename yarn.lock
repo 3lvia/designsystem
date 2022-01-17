@@ -2469,6 +2469,11 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz#d5e0706cf8c6acd8c6032f8d54070af261bbbb2f"
   integrity sha512-ws57AidsDvREKrZKYffXddNkyaF14iHNHm8VQnZH6t99E8gczjNN0GpvcGny0imC80yQ0tHz1xVUKk/KFQSUyA==
 
+"@elvia/elvis-assets-icons@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@elvia/elvis-assets-icons/-/elvis-assets-icons-1.3.0.tgz#d3917ebc673b593234341207f2a9cd6764b5a020"
+  integrity sha512-oX4uJqPgIqxbus6RHcDa/s7UjqW2SmXAG+wroToMpE/Fhe9Bz2fgLGChBW+P/dH+xTq/bDI2OL7iVg5enFVilQ==
+
 "@emotion/cache@^11.0.0", "@emotion/cache@^11.7.1":
   version "11.7.1"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-11.7.1.tgz#08d080e396a42e0037848214e8aa7bf879065539"
