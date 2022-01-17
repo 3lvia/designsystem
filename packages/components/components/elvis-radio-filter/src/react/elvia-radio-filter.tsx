@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import * as styledRadioFilter from './styledComponents';
+import { RadioFilterGroup, RadioFilterInput, RadioFilterLabel, RadioFilterTitle } from './styledComponents';
 
 export interface Option {
   label: string;
@@ -33,22 +33,22 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
   };
 
   return (
-    <styledRadioFilter.RadioFilterGroup role="radiogroup" data-testid="radio-filter-group">
+    <RadioFilterGroup role="radiogroup" data-testid="radio-filter-group">
       {items &&
         items.map(({ label, value: optionsValue }) => (
-          <styledRadioFilter.RadioFilterLabel key={optionsValue} isSelected={optionsValue === value}>
-            <styledRadioFilter.RadioFilterInput
+          <RadioFilterLabel key={optionsValue} isSelected={optionsValue === value}>
+            <RadioFilterInput
               type="radio"
               name={name}
               aria-label={ariaLabel ? ariaLabel : label + ' filtrering valgt'}
               aria-checked={optionsValue === value}
               checked={optionsValue === value}
               onChange={() => updateValue(optionsValue)}
-            ></styledRadioFilter.RadioFilterInput>
-            <styledRadioFilter.RadioFilterTitle>{label}</styledRadioFilter.RadioFilterTitle>
-          </styledRadioFilter.RadioFilterLabel>
+            ></RadioFilterInput>
+            <RadioFilterTitle>{label}</RadioFilterTitle>
+          </RadioFilterLabel>
         ))}
-    </styledRadioFilter.RadioFilterGroup>
+    </RadioFilterGroup>
   );
 };
 

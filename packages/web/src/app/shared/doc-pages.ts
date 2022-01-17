@@ -107,7 +107,7 @@ export const componentsDocPages: DocPage[] = [
     docUrl: Pages.Breadcrumb,
     absolutePath: '/components/' + Pages.Breadcrumb,
     status: DocPageStatus.Done,
-    imageUrl: 'assets/doc-page-icons/component-icons/Button.svg',
+    imageUrl: 'assets/doc-page-icons/component-icons/Breadcrumb.svg',
     figmaUrl: 'https://www.figma.com/file/JNbQmeFGfn7QOybUKbSvks/Breadcrumb?node-id=3%3A2',
     type: 'Component',
   },

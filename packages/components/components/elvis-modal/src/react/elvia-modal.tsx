@@ -1,5 +1,14 @@
 import React, { FC, useRef, useEffect } from 'react';
-import * as StyledModal from './styledComponents';
+import {
+  ModalCloseButton,
+  ModalContent,
+  ModalIllustration,
+  Modal,
+  ModalTitle,
+  ModalWrapper,
+  ModalText,
+  ModalActions,
+} from './styledComponents';
 import { useClickOutside } from './useClickOutside';
 import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
@@ -111,7 +120,7 @@ export const ModalComponent: FC<ModalProps> = ({
   }, [isShowing]);
 
   return (
-    <StyledModal.Modal
+    <Modal
       aria-modal
       tabIndex={-1}
       role="dialog"
@@ -119,41 +128,39 @@ export const ModalComponent: FC<ModalProps> = ({
       isShowing={isShowing}
       data-testid="modal-wrapper"
     >
-      <StyledModal.Wrapper
+      <ModalWrapper
         ref={modalWrapperRef}
         hasIllustration={hasIllustration}
         className={className}
         maxWidth={maxWidth}
       >
         {illustration && (
-          <StyledModal.Illustration data-testid="modal-illustration">{illustration}</StyledModal.Illustration>
+          <ModalIllustration data-testid="modal-illustration">{illustration}</ModalIllustration>
         )}
-        {!illustration && hasIllustration && (
-          <StyledModal.Illustration ref={modalIllustration}></StyledModal.Illustration>
-        )}
+        {!illustration && hasIllustration && <ModalIllustration ref={modalIllustration}></ModalIllustration>}
         {hasCloseBtn && (
-          <StyledModal.CloseButton
+          <ModalCloseButton
             hasIllustration={hasIllustration}
             onClick={() => handleOnHide()}
             aria-label="Lukk modal"
             data-testid="modal-close-btn"
           >
             <i className="ewc-icon"></i>
-          </StyledModal.CloseButton>
+          </ModalCloseButton>
         )}
 
-        <StyledModal.Content hasIllustration={hasIllustration}>
+        <ModalContent hasIllustration={hasIllustration}>
           {title && (
-            <StyledModal.Title hasIllustration={hasIllustration} data-testid="modal-title">
+            <ModalTitle hasIllustration={hasIllustration} data-testid="modal-title">
               {title}
-            </StyledModal.Title>
+            </ModalTitle>
           )}
 
-          {content && <StyledModal.Text data-testid="modal-content">{content}</StyledModal.Text>}
-          {!content && <StyledModal.Text ref={modalText}></StyledModal.Text>}
+          {content && <ModalText data-testid="modal-content">{content}</ModalText>}
+          {!content && <ModalText ref={modalText}></ModalText>}
 
           {(hasPrimaryButton || hasSecondaryButton) && (
-            <StyledModal.Actions>
+            <ModalActions>
               {secondaryButton && (
                 <>
                   <div data-testid="modal-secondary-btn">{secondaryButton}</div>
@@ -168,11 +175,11 @@ export const ModalComponent: FC<ModalProps> = ({
                 </>
               )}
               {webcomponent && <div className="webComponentBtn" ref={modalPrimaryBtn}></div>}
-            </StyledModal.Actions>
+            </ModalActions>
           )}
-        </StyledModal.Content>
-      </StyledModal.Wrapper>
-    </StyledModal.Modal>
+        </ModalContent>
+      </ModalWrapper>
+    </Modal>
   );
 };
 

@@ -1,5 +1,11 @@
 # Elvia Modal Changelog
 
+## 1.3.9 (14.01.22)
+
+### Patch
+
+- Refactoring
+
 ## 1.3.8 (14.01.22)
 
 ### Patch

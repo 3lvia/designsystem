@@ -33,13 +33,13 @@ const decideBorderOrientation = (type: DividerType, orientation: DividerOrientat
   return 'border-bottom';
 };
 
-type DividerArea = {
+type DividerAreaProps = {
   type: DividerType;
   isInverted: boolean;
   orientation: DividerOrientation;
 };
 
-export const DividerArea = styled.div<DividerArea>`
+export const DividerArea = styled.div<DividerAreaProps>`
   display: block;
   margin: 0;
   width: ${(props: { type: DividerType; orientation: DividerOrientation }) =>
@@ -77,12 +77,12 @@ export const DividerArea = styled.div<DividerArea>`
       }`};
 `;
 
-type DividerTitle = {
+type DividerTitleProps = {
   typography: DividerTypography;
   isInverted: boolean;
 };
 
-export const DividerTitle = styled.div<DividerTitle>`
+export const DividerTitle = styled.div<DividerTitleProps>`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 700;
   line-height: ${(props: { typography: DividerTypography }) =>

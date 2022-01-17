@@ -23,14 +23,14 @@ const setBackgroundColor = (color: ColorType, isSelected: boolean, type: string)
   }
 };
 
-type ChipComponent = {
+type ChipComponentProps = {
   color: ColorType;
   isSelected: boolean;
   chipType: string;
   disabled: boolean;
 };
 
-export const ChipComponent = styled.button<ChipComponent>`
+export const ChipComponent = styled.button<ChipComponentProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -49,12 +49,12 @@ export const ChipComponent = styled.button<ChipComponent>`
   }
 `;
 
-type ChipTitle = {
+type ChipTitleProps = {
   disabled: boolean;
   color: ColorType;
 };
 
-export const ChipTitle = styled.div<ChipTitle>`
+export const ChipTitle = styled.div<ChipTitleProps>`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
   text-transform: 'unset';
@@ -86,7 +86,7 @@ export const ChipTitle = styled.div<ChipTitle>`
   }
 `;
 
-const SpanIcon = styled.span`
+const ChipSpanIcon = styled.span`
   border: none;
   background: transparent;
   display: flex;
@@ -101,7 +101,7 @@ const SpanIcon = styled.span`
   }
 `;
 
-export const CheckmarkIcon = styled(SpanIcon)`
+export const ChipCheckmarkIcon = styled(ChipSpanIcon)`
   &.showCheckmarkIcon {
     visibility: visible;
   }
@@ -114,7 +114,7 @@ export const CheckmarkIcon = styled(SpanIcon)`
   }
 `;
 
-export const CloseIcon = styled(SpanIcon)`
+export const ChipCloseIcon = styled(ChipSpanIcon)`
   margin-left: 8px;
   background-size: contain;
   background-position: center;

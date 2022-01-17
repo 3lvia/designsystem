@@ -57,6 +57,14 @@
         [showIframeDesktop]="true"
       ></app-component-example-v1>
 
+      <app-component-subsection [sectionTitle]="'Side menu icons'">
+        <ng-container ngProjectAs="sectionContent">
+          When using icons in the sidebar of the header, you will need both a black-and-white and a
+          two-colored icon, for the active state. If you are using icons from the design system and a colored
+          version of the icons you have chosen does not exist, contact us and we will make it for you.
+        </ng-container>
+      </app-component-subsection>
+
       <app-component-subsection [sectionTitle]="'Top menu open'">
         <ng-container ngProjectAs="sectionContent">
           <app-component-example-v1
