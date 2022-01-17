@@ -5353,7 +5353,7 @@ input:focus {
   border-radius: 50%;
 }
 .e-list.e-list--strong {
-  font-weight: 700;
+  font-weight: 600;
   background: transparent;
 }
 .e-list.e-list--icons.e-list li::before {
