@@ -898,7 +898,7 @@ export class TableDocComponent {
   <table class="e-table e-table--no-stripes">
     <thead>
       <tr>
-        <th scope="col">CaseID*</th>
+        <th scope="col">CaseID</th>
         <th scope="col">Address</th>
         <th scope="col">Created</th>
       </tr>
