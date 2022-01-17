@@ -5,11 +5,38 @@
   <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">
+        7.15.1
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        January 17, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a> &
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/list#Overview">List</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Added import for Red Hat Text in font-weight 600 and updated link and list components to use this typography.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
         7.15.0
       </span>
       <br>
       <span class="changelog-date-span">
-        January 14, 2022
+        January 17, 2022
       </span>
     </td>
     <td class="changelog-content">
@@ -53,7 +80,7 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.14.1
       </span>
