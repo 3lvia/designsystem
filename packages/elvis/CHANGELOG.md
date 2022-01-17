@@ -6,11 +6,34 @@
   <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">
+        7.14.2
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        January 17, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🛠 Patch</div>
+          <ul class="e-list">
+            <li>
+              Using newest version of elvis-assets-icon package in elvis. 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
         7.14.1
       </span>
       <br>
       <span class="changelog-date-span">
-        January 10, 2021
+        January 10, 2022
       </span>
     </td>
     <td class="changelog-content">
@@ -33,7 +56,7 @@
       </span>
       <br>
       <span class="changelog-date-span">
-        January 06, 2021
+        January 06, 2022
       </span>
     </td>
     <td class="changelog-content">
