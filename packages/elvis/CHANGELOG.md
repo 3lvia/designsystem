@@ -8,7 +8,7 @@
         7.15.0
       </span>
       <br>
-      <span>
+      <span class="changelog-date-span">
         January 14, 2022
       </span>
     </td>
