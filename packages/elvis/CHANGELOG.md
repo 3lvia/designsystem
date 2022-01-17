@@ -80,7 +80,7 @@
     </td>
   </tr>
   <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
+    <td class="changelog-date">
       <span class="e-title-sm">
         7.14.1
       </span>
