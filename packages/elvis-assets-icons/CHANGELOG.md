@@ -5,7 +5,7 @@
 ### Breaking changes
 
 - Removed figma icon.
-- Renamed the icon "settings\_\_vertical" to "configurations"
+- Renamed the icon "settings" to "configurations"
 
 ### Patch
 
