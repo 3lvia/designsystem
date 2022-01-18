@@ -1,17 +1,18 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
+
 @Component({
   selector: 'app-cms-page',
   templateUrl: './cms-page.component.html',
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class CMSPageComponent implements OnInit, OnDestroy {
+export class CMSPageComponent implements OnDestroy {
   routerSubscription: Subscription;
 
   cmsContent: any = {};
@@ -22,6 +23,7 @@ export class CMSPageComponent implements OnInit, OnDestroy {
   isCmsPage = true;
   landingPage = false;
   hasChecked = false;
+  activeEventListeners = [];
 
   constructor(
     private cmsService: CMSService,
@@ -30,6 +32,7 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private copyService: CopyToClipboardService,
+    private elementRef: ElementRef,
   ) {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
@@ -47,24 +50,8 @@ export class CMSPageComponent implements OnInit, OnDestroy {
         } else {
           this.cmsService.contentLoadedFromCMS();
         }
-        // if (this.isCmsPage) {
-        //   const domElements = document.querySelectorAll('.cms-section__title, .cms-heading1__title');
-        //   domElements.forEach((domElement) => {
-        //     console.log(domElement['id']);
-        //     console.log(domElement.firstElementChild);
-        //     domElement.firstElementChild.addEventListener('click', () => console.log('clicked element'));
-        //   });
-        // }
       }
     });
-  }
-
-  ngOnInit(): void {
-    // this.checkIfPageExistsInProject();
-    // TODO: Not hardcode localization (0)
-    if (this.hasChecked && this.isCmsPage) {
-      this.updateContent(0);
-    }
   }
 
   ngOnDestroy(): void {
@@ -75,6 +62,13 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     if (!this.isCmsPage) {
       return;
     }
+
+    // Remove any currently active event listeners for copying link on header click
+    this.activeEventListeners.forEach((domElement) => {
+      domElement.removeEventListener('click', () => this.copyAnchor(domElement['id']));
+    });
+    this.activeEventListeners = [];
+
     const pageId = await this.cmsService.getPageSysId(locale);
     const docPage = await this.cmsService.getDocumentationPageByEntryId(pageId, locale);
     this.cmsContent = docPage;
@@ -86,19 +80,15 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
 
-    // console.log(docPage.content);
-
-    const domElements = document.querySelectorAll('.cms-section__title, .cms-heading1__title');
-    domElements.forEach((domElement) => {
-      console.log(domElement['id']);
-      console.log(domElement.children[0]);
-      domElement.children[0].addEventListener('click', () => console.log('clicked element'));
+    // Add event listeners for copying link on header click
+    setTimeout(() => {
+      this.elementRef.nativeElement
+        .querySelectorAll('.cms-section__title, .cms-heading1__title')
+        .forEach((domElement: Element) => {
+          domElement.addEventListener('click', () => this.copyAnchor(domElement['id']));
+          this.activeEventListeners.push(domElement);
+        });
     });
-
-    // document.addEventListener('click', () => {
-    //   console.log('click');
-    //   console.log(domElement?.firstElementChild.children[1]);
-    // });
   }
 
   checkIfPageExistsInProject(): void {
@@ -119,12 +109,8 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     this.hasChecked = true;
   }
 
-  copyAnchor(): void {
-    console.log('copyAnchor clicked!');
-    // const anchorTitleElement = document.getElementById(this.cmsContent.title.replaceAll(' ', '-'));
-    const anchorTitleElement = document.getElementById('A-picture-of-your-window');
-    console.log(anchorTitleElement);
-
+  copyAnchor(id: string): void {
+    const anchorTitleElement = document.getElementById(id);
     anchorTitleElement.classList.add('anchor-copied');
     setTimeout(() => {
       anchorTitleElement.classList.remove('anchor-copied');
