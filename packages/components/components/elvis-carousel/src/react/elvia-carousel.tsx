@@ -4,13 +4,13 @@ import {
   CarouselContainer,
   CarouselElement,
   CarouselTitle,
-  LeftCarouselButton,
-  ListOfDots,
-  Dot,
-  NavigationRow,
-  RightCarouselButton,
+  CarouselLeftButton,
+  CarouselListOfDots,
+  CarouselDot,
+  CarouselNavigationRow,
+  CarouselRightButton,
   CarouselElementContainer,
-  CheckButton,
+  CarouselCheckButton,
 } from './StyledComponents';
 
 type CarouselElement = {
@@ -18,7 +18,7 @@ type CarouselElement = {
   element: JSX.Element | string | HTMLElement;
 };
 
-export interface BaseCarouselProps {
+export interface CarouselProps {
   elements: CarouselElement[] | number;
   hideArrows?: boolean;
   onHide?: () => void;
@@ -28,8 +28,7 @@ export interface BaseCarouselProps {
   webcomponent?: any;
 }
 
-// don't know why it says it does not exist
-export const Carousel: FC<BaseCarouselProps> = ({
+export const Carousel: FC<CarouselProps> = ({
   elements,
   hideArrows = false,
   onHide,
@@ -187,8 +186,8 @@ export const Carousel: FC<BaseCarouselProps> = ({
           </CarouselElement>
         </CarouselElementContainer>
       )}
-      <NavigationRow>
-        <LeftCarouselButton
+      <CarouselNavigationRow>
+        <CarouselLeftButton
           aria-label={`Gå til forrige side`}
           aria-hidden={hideLeftArrow}
           hidden={hideLeftArrow}
@@ -196,10 +195,10 @@ export const Carousel: FC<BaseCarouselProps> = ({
           data-testid="carousel-left-arrow"
         >
           <i />
-        </LeftCarouselButton>
-        <ListOfDots data-testid="carousel-list-of-dots">
+        </CarouselLeftButton>
+        <CarouselListOfDots data-testid="carousel-list-of-dots">
           {Array.from(Array(lengthOfElements), (e, listIndex: number) => (
-            <Dot
+            <CarouselDot
               key={listIndex}
               isSelected={listIndex === index}
               tabIndex={0}
@@ -212,18 +211,18 @@ export const Carousel: FC<BaseCarouselProps> = ({
               }
             />
           ))}
-        </ListOfDots>
+        </CarouselListOfDots>
 
         {showOnboardingCheckmark ? (
-          <CheckButton
+          <CarouselCheckButton
             aria-label={'Fullfør og lukk.'}
             onClick={() => onHide && onHide()}
             data-testid="carousel-onboarding-checkmark"
           >
             <i />
-          </CheckButton>
+          </CarouselCheckButton>
         ) : (
-          <RightCarouselButton
+          <CarouselRightButton
             aria-label={`Gå til neste side`}
             aria-hidden={hideRightArrow}
             hidden={hideRightArrow}
@@ -231,9 +230,9 @@ export const Carousel: FC<BaseCarouselProps> = ({
             data-testid="carousel-right-arrow"
           >
             <i />
-          </RightCarouselButton>
+          </CarouselRightButton>
         )}
-      </NavigationRow>
+      </CarouselNavigationRow>
     </CarouselContainer>
   );
 };

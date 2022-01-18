@@ -7,8 +7,8 @@
       </a>
     </div>
     <div class="component-header__title">
-      <div class="title-text e-mb-32">
-        <h1 class="big-header e-mb-0">
+      <div class="title-text e-mb-32 e-w-100">
+        <h1 class="big-header e-mb-0 e-w-100">
           <ng-content select="headerTitle"></ng-content>
           <div class="e-pl-16">
             <a *ngIf="figmaUrl" href="{{ figmaUrl }}" target="_blank">
@@ -16,14 +16,6 @@
             </a>
           </div>
         </h1>
-        <div *ngIf="componentStatus != ''">
-          <span class="e-label e-label--green-apple" *ngIf="componentStatus === DocPageStatus.New">
-            {{ componentStatus }}
-          </span>
-          <span class="e-label e-label--red-tomato" *ngIf="componentStatus === DocPageStatus.Coming">
-            {{ componentStatus }}
-          </span>
-        </div>
         <div *ngIf="figmaOnly">
           <label class="e-label e-label--orange">Figma only</label>
         </div>

@@ -1,6 +1,19 @@
 import React, { FC, useState, useEffect } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
-import * as StyledPaginator from './styledComponents';
+import {
+  Paginator,
+  PaginatorNumber,
+  PaginatorInfoAmount,
+  PaginatorInfoContainer,
+  PaginatorInfoDropdown,
+  PaginatorInfoText,
+  PaginatorDots,
+  PaginatorNumbersArea,
+  PaginatorSelectorArea,
+  PaginatorSelectorArrowBtn,
+  PaginatorSelectorArrowLeft,
+  PaginatorSelectorRighArrow,
+} from './styledComponents';
 
 export interface DropdownOption {
   value: string;
@@ -129,9 +142,9 @@ const Pagination: FC<PaginationProps> = ({
     const isShowAll = false;
     const isMobile = windowWidth < 768;
 
-    const PaginatorNumber = (NumberInArray: number, indexNumber: number) => {
+    const paginatorNumber = (NumberInArray: number, indexNumber: number) => {
       return [
-        <StyledPaginator.PaginatorNumber
+        <PaginatorNumber
           isFirst={false}
           isLast={false}
           key={indexNumber}
@@ -140,7 +153,7 @@ const Pagination: FC<PaginationProps> = ({
           selected={activeNumber(NumberInArray)}
         >
           {NumberInArray}
-        </StyledPaginator.PaginatorNumber>,
+        </PaginatorNumber>,
       ];
     };
 
@@ -167,13 +180,13 @@ const Pagination: FC<PaginationProps> = ({
       indexNumber: number,
     ) => {
       if (centerNumbersWhenBetween1And5DisplayCheck(NumberInArray, SelectionArrayLenght, 6) && !mobile) {
-        return PaginatorNumber(NumberInArray, indexNumber);
+        return paginatorNumber(NumberInArray, indexNumber);
       } else if (
         centerNumbersWhenBetween1And5DisplayCheck(NumberInArray, SelectionArrayLenght, 4) &&
         mobile &&
         selectedNumber !== 4
       ) {
-        return PaginatorNumber(NumberInArray, indexNumber);
+        return paginatorNumber(NumberInArray, indexNumber);
       } else if (
         mobile &&
         selectedNumber === 4 &&
@@ -181,7 +194,7 @@ const Pagination: FC<PaginationProps> = ({
         NumberInArray <= selectedNumber + 1 &&
         NumberInArray < 6
       ) {
-        return PaginatorNumber(NumberInArray, indexNumber);
+        return paginatorNumber(NumberInArray, indexNumber);
       }
       return [];
     };
@@ -209,12 +222,12 @@ const Pagination: FC<PaginationProps> = ({
       indexNumber: number,
     ) => {
       if (centerNumbersWhenLeast5OrHigherDisplayCheck(NumberInArray, SelectionArrayLenght, 2) && !mobile) {
-        return PaginatorNumber(NumberInArray, indexNumber);
+        return paginatorNumber(NumberInArray, indexNumber);
       } else if (
         centerNumbersWhenLeast5OrHigherDisplayCheck(NumberInArray, SelectionArrayLenght, 1) &&
         mobile
       ) {
-        return PaginatorNumber(NumberInArray, indexNumber);
+        return paginatorNumber(NumberInArray, indexNumber);
       }
       return [];
     };
@@ -248,12 +261,12 @@ const Pagination: FC<PaginationProps> = ({
         getNumbersWhenInProximityOfLastNumberDisplayCheck(NumberInArray, SelectionArrayLenght, 5) &&
         !mobile
       ) {
-        return PaginatorNumber(NumberInArray, indexNumber);
+        return paginatorNumber(NumberInArray, indexNumber);
       } else if (
         getNumbersWhenInProximityOfLastNumberDisplayCheck(NumberInArray, SelectionArrayLenght, 3) &&
         mobile
       ) {
-        return PaginatorNumber(NumberInArray, indexNumber);
+        return paginatorNumber(NumberInArray, indexNumber);
       }
       return [];
     };
@@ -261,7 +274,7 @@ const Pagination: FC<PaginationProps> = ({
     // funtions that return jsx elements in form of visible numbers to the selectorArray
     const getFirstNumber = () => {
       return (
-        <StyledPaginator.PaginatorNumber
+        <PaginatorNumber
           isFirst={true}
           isLast={false}
           key={'firstPaginationNumber'}
@@ -270,7 +283,7 @@ const Pagination: FC<PaginationProps> = ({
           selected={activeNumber(1)}
         >
           {1}
-        </StyledPaginator.PaginatorNumber>
+        </PaginatorNumber>
       );
     };
 
@@ -285,9 +298,9 @@ const Pagination: FC<PaginationProps> = ({
         key = 'firstDotsMobile';
       }
       return (
-        <StyledPaginator.PaginatorDots key={key} noDots={noDots}>
+        <PaginatorDots key={key} noDots={noDots}>
           ...
-        </StyledPaginator.PaginatorDots>
+        </PaginatorDots>
       );
     };
 
@@ -313,13 +326,13 @@ const Pagination: FC<PaginationProps> = ({
       }
 
       return [
-        <StyledPaginator.PaginatorNumber
+        <PaginatorNumber
           isFirst={false}
           isLast={false}
           key={'noShowCenterumbers'}
           noShow={true}
           selected={false}
-        ></StyledPaginator.PaginatorNumber>,
+        ></PaginatorNumber>,
       ];
     };
     const getLastDots = () => {
@@ -333,9 +346,9 @@ const Pagination: FC<PaginationProps> = ({
         key = 'lastDotsMobile';
       }
       return (
-        <StyledPaginator.PaginatorDots key={key} noDots={noDots}>
+        <PaginatorDots key={key} noDots={noDots}>
           ...
-        </StyledPaginator.PaginatorDots>
+        </PaginatorDots>
       );
     };
     const getLastNumber = () => {
@@ -349,7 +362,7 @@ const Pagination: FC<PaginationProps> = ({
       }
 
       return (
-        <StyledPaginator.PaginatorNumber
+        <PaginatorNumber
           isFirst={false}
           isLast={true}
           key={'lastPaginationNumber'}
@@ -358,7 +371,7 @@ const Pagination: FC<PaginationProps> = ({
           selected={activeNumber(selectionNumbers.length)}
         >
           {selectionNumbers.length}
-        </StyledPaginator.PaginatorNumber>
+        </PaginatorNumber>
       );
     };
 
@@ -378,7 +391,7 @@ const Pagination: FC<PaginationProps> = ({
       visibleNumbers.push(lastDots, lastNumbers);
     }
 
-    return <StyledPaginator.PaginatorNumbersArea>{visibleNumbers}</StyledPaginator.PaginatorNumbersArea>;
+    return <PaginatorNumbersArea>{visibleNumbers}</PaginatorNumbersArea>;
   };
 
   const onDropdownChangeHandler = (selectionRange: DropdownOption) => {
@@ -441,10 +454,10 @@ const Pagination: FC<PaginationProps> = ({
   }, [value]);
 
   return (
-    <StyledPaginator.Pagination isRightAligned={isRightAligned} data-testid="pagination">
-      <StyledPaginator.InfoContainer>
-        <StyledPaginator.InfoText data-testid="info-text">{labelDisplaying}</StyledPaginator.InfoText>
-        <StyledPaginator.InfoDropdown>
+    <Paginator isRightAligned={isRightAligned} data-testid="pagination">
+      <PaginatorInfoContainer>
+        <PaginatorInfoText data-testid="info-text">{labelDisplaying}</PaginatorInfoText>
+        <PaginatorInfoDropdown>
           <Dropdown
             isCompact
             placeholder=""
@@ -454,29 +467,29 @@ const Pagination: FC<PaginationProps> = ({
             valueOnChange={(event: any) => onDropdownChangeHandler(event)}
             data-testid="dropdown"
           ></Dropdown>
-        </StyledPaginator.InfoDropdown>
-        <StyledPaginator.InfoAmount isMobile={windowWidth < 768} data-testid="info-amount">
+        </PaginatorInfoDropdown>
+        <PaginatorInfoAmount isMobile={windowWidth < 768} data-testid="info-amount">
           {labelOf} {numberOfElements} {label}
-        </StyledPaginator.InfoAmount>
-      </StyledPaginator.InfoContainer>
-      <StyledPaginator.SelectorArea>
-        <StyledPaginator.SelectorArrowBtn
+        </PaginatorInfoAmount>
+      </PaginatorInfoContainer>
+      <PaginatorSelectorArea>
+        <PaginatorSelectorArrowBtn
           visible={isLeftArrow()}
           onClick={updateSelectedPageLeft}
           data-testid="selector-arrow-btn-left"
         >
-          <StyledPaginator.SelectorArrowLeft />
-        </StyledPaginator.SelectorArrowBtn>
+          <PaginatorSelectorArrowLeft />
+        </PaginatorSelectorArrowBtn>
         {showPaginationMenu ? <Paginators data-testid="paginators" /> : null}
-        <StyledPaginator.SelectorArrowBtn
+        <PaginatorSelectorArrowBtn
           visible={isRightArrow()}
           onClick={updateSelectedPageRight}
           data-testid="selector-arrow-btn-right"
         >
-          <StyledPaginator.SelectorRighArrow />
-        </StyledPaginator.SelectorArrowBtn>
-      </StyledPaginator.SelectorArea>
-    </StyledPaginator.Pagination>
+          <PaginatorSelectorRighArrow />
+        </PaginatorSelectorArrowBtn>
+      </PaginatorSelectorArea>
+    </Paginator>
   );
 };
 

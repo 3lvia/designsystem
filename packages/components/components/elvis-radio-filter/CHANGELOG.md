@@ -1,5 +1,11 @@
 # Elvia Radio Filter Changelog
 
+## 1.1.5 (14.01.22)
+
+### Patch
+
+- Refactoring
+
 ## 1.1.4 (07.01.22)
 
 ### Patch

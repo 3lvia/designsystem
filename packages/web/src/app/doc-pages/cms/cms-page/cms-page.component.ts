@@ -18,6 +18,7 @@ export class CMSPageComponent implements OnInit, OnDestroy {
   showContentLoader = true;
   contentHTML: any = '';
   descriptionHTML: any = '';
+  lastUpdated;
   isCmsPage = true;
   landingPage = false;
   hasChecked = false;
@@ -79,6 +80,9 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     this.cmsContent = docPage;
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
+    const options = { day: 'numeric', month: 'numeric', year: 'numeric' };
+    this.lastUpdated = new Date(this.cmsContent.lastUpdated);
+    this.lastUpdated = this.lastUpdated.toLocaleDateString('nb-NO', options).replace('/', '.');
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
 

@@ -1,5 +1,11 @@
 # Elvia Breadcrumbs
 
+## 1.2.2 (14.01.22)
+
+### Patch
+
+- Refactoring
+
 ## 1.2.1 (07.01.22)
 
 ### Patch

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&display=swap");
 .e-icon {
   width: 32px;
@@ -3695,7 +3695,7 @@ input:focus {
   text-align: inherit;
   position: relative;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
 }
 .e-link__icon {
   display: inline-flex;
@@ -5353,7 +5353,7 @@ input:focus {
   border-radius: 50%;
 }
 .e-list.e-list--strong {
-  font-weight: 700;
+  font-weight: 600;
   background: transparent;
 }
 .e-list.e-list--icons.e-list li::before {
@@ -6382,8 +6382,11 @@ input:focus {
   width: 250px;
   height: auto;
 }
-.e-table tbody:not(.no-zebra) tr:nth-of-type(odd) {
+.e-table tbody tr:nth-of-type(odd) {
   background: #f4f4f4;
+}
+.e-table.e-table--no-stripes tbody tr:nth-of-type(odd) {
+  background: #fff;
 }
 .e-table.e-table--compact tr {
   height: 40px;

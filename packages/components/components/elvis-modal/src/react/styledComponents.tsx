@@ -56,12 +56,12 @@ export const Modal = styled.div`
   animation: ${fadeIn} 300ms ease-in;
 `;
 
-type WrapperType = {
+type WrapperProps = {
   hasIllustration: boolean;
   maxWidth?: string;
 };
 
-export const Wrapper = styled.div<WrapperType>`
+export const ModalWrapper = styled.div<WrapperProps>`
   position: relative;
   display: flex;
   flex-direction: ${(props: { hasIllustration: boolean }) =>
@@ -84,7 +84,7 @@ export const Wrapper = styled.div<WrapperType>`
   }
 `;
 
-export const Content = styled.div`
+export const ModalContent = styled.div`
   padding: ${(props: { hasIllustration: boolean }) =>
     props.hasIllustration ? modalDesktopWithIllustrationPadding : modalDesktopPadding};
   height: 100%;
@@ -102,7 +102,7 @@ export const Content = styled.div`
   }
 `;
 
-export const Illustration = styled.div`
+export const ModalIllustration = styled.div`
   background: ${colors.grey};
   display: flex;
   align-items: center;
@@ -142,7 +142,7 @@ export const Illustration = styled.div`
   }
 `;
 
-export const Title = styled.div`
+export const ModalTitle = styled.div`
   ${typography.titleMd}
   font-size: ${(props: { hasIllustration: boolean }) =>
     props.hasIllustration ? modalDesktopWithIllustrationTitleFontSize : titleFontSize};
@@ -159,7 +159,7 @@ export const Title = styled.div`
   }
 `;
 
-export const Text = styled.div`
+export const ModalText = styled.div`
   ${typography.textLg}
   position: relative;
   overflow-y: auto;
@@ -171,7 +171,7 @@ export const Text = styled.div`
   }
 `;
 
-export const Actions = styled.div`
+export const ModalActions = styled.div`
   display: flex;
   justify-content: flex-end;
   padding-top: 32px;
@@ -183,35 +183,36 @@ export const Actions = styled.div`
     flex-direction: column;
     width: 100%;
     gap: 16px;
+
+    div button {
+      width: 100%;
+    }
   }
 
   button:not(:only-of-type) {
     width: 100%;
   }
+
   .webComponentBtn:not(:only-of-type) {
     width: 100%;
     button {
       width: inherit;
     }
   }
+
   :not(webComponentBtn) > button:only-of-type {
     width: 50%;
-    @media (max-width: ${mobileMax}) {
-      width: 100%;
-    }
   }
+
   div:only-child {
     width: 50%;
     button {
       width: 100%;
     }
-    @media (max-width: ${mobileMax}) {
-      width: 100%;
-    }
   }
 `;
 
-export const CloseButton = styled.button`
+export const ModalCloseButton = styled.button`
   position: absolute;
   top: 24px;
   right: 24px;

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import * as StyledDivider from './styledComponents';
-import { DividerType, DividerTypography, DividerOrientation } from './elvia-divider.types';
+import { DividerOrientation, DividerType, DividerTypography } from './elvia-divider.types';
+import { DividerArea, DividerTitle } from './styledComponents';
 
 export interface DividerProps {
   type?: DividerType;
@@ -34,29 +34,16 @@ export const Divider: React.FC<DividerProps> = ({
   });
 
   return (
-    <StyledDivider.DividerArea
-      type={type}
-      isInverted={isInverted}
-      orientation={orientation}
-      data-testid="divider-area"
-    >
+    <DividerArea type={type} isInverted={isInverted} orientation={orientation} data-testid="divider-area">
       {title === '' && type === 'title' && (
-        <StyledDivider.DividerTitle
-          typography={typography}
-          isInverted={isInverted}
-          ref={dividerTitleRef}
-        ></StyledDivider.DividerTitle>
+        <DividerTitle typography={typography} isInverted={isInverted} ref={dividerTitleRef}></DividerTitle>
       )}
       {title !== '' && type === 'title' && (
-        <StyledDivider.DividerTitle
-          typography={typography}
-          isInverted={isInverted}
-          data-testid="divider-title"
-        >
+        <DividerTitle typography={typography} isInverted={isInverted} data-testid="divider-title">
           {title}
-        </StyledDivider.DividerTitle>
+        </DividerTitle>
       )}
-    </StyledDivider.DividerArea>
+    </DividerArea>
   );
 };
 

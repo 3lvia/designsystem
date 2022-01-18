@@ -22,14 +22,21 @@
   <div *ngIf="!landingPage">
     <app-component-header>
       <ng-container ngProjectAs="headerTitle">
-        <span>
-          {{ cmsContent.title ? cmsContent.title : '' }}
-        </span>
-        <span class="e-pl-16">
-          <a *ngIf="cmsContent.figmaUrl" href="{{ cmsContent.figmaUrl }}" target="_blank">
-            <img src="../../../../assets/icons/figma.svg" />
-          </a>
-        </span>
+        <div class="doc-page-heading e-w-100">
+          <div class="doc-page-heading__title">
+            <span>
+              {{ cmsContent.title ? cmsContent.title : '' }}
+            </span>
+            <span *ngIf="cmsContent.figmaUrl" class="e-pl-16">
+              <a href="{{ cmsContent.figmaUrl }}" target="_blank">
+                <img src="../../../../assets/icons/figma.svg" />
+              </a>
+            </span>
+          </div>
+          <div *ngIf="lastUpdated" class="doc-page-heading__date e-text-micro-light">
+            Last updated {{ lastUpdated }}
+          </div>
+        </div>
       </ng-container>
       <ng-container ngProjectAs="headerDescription">
         <div *ngIf="cmsContent.pageDescription" [innerHTML]="descriptionHTML"></div>

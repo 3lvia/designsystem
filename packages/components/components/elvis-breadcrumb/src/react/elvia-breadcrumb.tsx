@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import * as StyledBreadcrumb from './styledComponents';
+import {
+  BreadcrumbWrapper,
+  BreadcrumbDesktopWrapper,
+  BreadcrumbLink,
+  BreadcrumbIconRight,
+  BreadcrumbIconLeft,
+} from './styledComponents';
 
 interface BreadcrumbLink {
   url?: string;
@@ -49,9 +55,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
 
   const MobileBreadcrumb = () => {
     return (
-      <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
-        <StyledBreadcrumb.EWCBreadcrumbIconLeft />
-        <StyledBreadcrumb.EWCBreadcrumbLink
+      <BreadcrumbWrapper>
+        <BreadcrumbIconLeft />
+        <BreadcrumbLink
           key={undefined}
           href={breadcrumbs[childrenLength - 2].url}
           onClick={() => {
@@ -60,8 +66,8 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
           isClickable={true}
         >
           {breadcrumbs[childrenLength - 2].title}
-        </StyledBreadcrumb.EWCBreadcrumbLink>
-      </StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
+        </BreadcrumbLink>
+      </BreadcrumbWrapper>
     );
   };
 
@@ -69,7 +75,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
     const desktopBreadcrumbs = breadcrumbs.map((breadcrumb, index) => {
       if (index == childrenLength - 1) {
         return (
-          <StyledBreadcrumb.EWCBreadcrumbLink
+          <BreadcrumbLink
             href={breadcrumb.url}
             onClick={() => {
               handleOnClick(index);
@@ -79,12 +85,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
             data-testid="breadcrumb-desktop-last-link"
           >
             {breadcrumb.title}
-          </StyledBreadcrumb.EWCBreadcrumbLink>
+          </BreadcrumbLink>
         );
       }
       return (
-        <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper key={index}>
-          <StyledBreadcrumb.EWCBreadcrumbLink
+        <BreadcrumbDesktopWrapper key={index}>
+          <BreadcrumbLink
             href={breadcrumb.url}
             onClick={() => {
               handleOnClick(index);
@@ -94,9 +100,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
             data-testid="breadcrumb-desktop-multiple-links"
           >
             {breadcrumb.title}
-          </StyledBreadcrumb.EWCBreadcrumbLink>
-          <StyledBreadcrumb.EWCBreadcrumbIconRight />
-        </StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
+          </BreadcrumbLink>
+          <BreadcrumbIconRight />
+        </BreadcrumbDesktopWrapper>
       );
     });
 
@@ -108,7 +114,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
   } else {
     breadcrumb = DesktopBreadcrumb();
   }
-  return <StyledBreadcrumb.EWCBreadcrumbWrapper>{breadcrumb}</StyledBreadcrumb.EWCBreadcrumbWrapper>;
+  return <BreadcrumbWrapper>{breadcrumb}</BreadcrumbWrapper>;
 };
 
 export default Breadcrumb;

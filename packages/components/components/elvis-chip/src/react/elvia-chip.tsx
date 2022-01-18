@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
-import { CheckmarkIcon, ChipComponent, CloseIcon, ChipTitle } from './styledComponents';
+import { ChipCheckmarkIcon, ChipComponent, ChipCloseIcon, ChipTitle } from './styledComponents';
 import { ChipType, ColorType, onChangeValue } from './elvia-chip.types';
 
 import classnames from 'classnames';
@@ -72,14 +72,14 @@ export const Chip: FC<BaseChipProps> = ({
       data-testid="chip-button"
     >
       {type === 'choice' && (
-        <CheckmarkIcon
+        <ChipCheckmarkIcon
           disabled={disabled}
           className={classnames({
             ['showCheckmarkIcon']: isHovering || isSelected,
           })}
         >
           <i></i>
-        </CheckmarkIcon>
+        </ChipCheckmarkIcon>
       )}
       <ChipTitle
         color={color}
@@ -94,9 +94,9 @@ export const Chip: FC<BaseChipProps> = ({
         {value}
       </ChipTitle>
       {type === 'removable' && (
-        <CloseIcon disabled={disabled}>
+        <ChipCloseIcon disabled={disabled}>
           <i></i>
-        </CloseIcon>
+        </ChipCloseIcon>
       )}
     </ChipComponent>
   );
