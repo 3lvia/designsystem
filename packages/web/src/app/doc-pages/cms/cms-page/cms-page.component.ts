@@ -63,12 +63,6 @@ export class CMSPageComponent implements OnDestroy {
       return;
     }
 
-    // Remove any currently active event listeners for copying link on header click
-    this.activeEventListeners.forEach((domElement) => {
-      domElement.removeEventListener('click', () => this.copyAnchor(domElement['id']));
-    });
-    this.activeEventListeners = [];
-
     const pageId = await this.cmsService.getPageSysId(locale);
     const docPage = await this.cmsService.getDocumentationPageByEntryId(pageId, locale);
     this.cmsContent = docPage;
@@ -80,11 +74,19 @@ export class CMSPageComponent implements OnDestroy {
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
 
-    // Add event listeners for copying link on header click
+    this.updateClickEventListeners();
+  }
+
+  updateClickEventListeners(): void {
+    this.activeEventListeners.forEach((domElement) => {
+      domElement.removeEventListener('click', () => this.copyAnchor(domElement['id']));
+    });
+    this.activeEventListeners = [];
+
     setTimeout(() => {
       this.elementRef.nativeElement
         .querySelectorAll('.cms-section__title, .cms-heading1__title')
-        .forEach((domElement: Element) => {
+        .forEach((domElement) => {
           domElement.addEventListener('click', () => this.copyAnchor(domElement['id']));
           this.activeEventListeners.push(domElement);
         });
