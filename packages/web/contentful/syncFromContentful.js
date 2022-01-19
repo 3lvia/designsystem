@@ -1,4 +1,3 @@
-// const dotenv = require('dotenv').config();
 const dotenv = require('dotenv').config({ path: '../.env' });
 const contentful = require('contentful');
 const del = require('del');
