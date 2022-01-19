@@ -5,6 +5,7 @@ import { Locale, LocalizationService } from 'src/app/core/services/localization.
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-cms-page',
@@ -33,6 +34,7 @@ export class CMSPageComponent implements OnDestroy {
     private router: Router,
     private copyService: CopyToClipboardService,
     private elementRef: ElementRef,
+    private http: HttpClient
   ) {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
@@ -43,9 +45,14 @@ export class CMSPageComponent implements OnDestroy {
     const routerSub = this.router.events;
     this.routerSubscription = combineLatest([localizationSub, routerSub]).subscribe((value) => {
       if (value[1] instanceof NavigationEnd) {
+        const firstRoute = value[1].url.split('/')[1];
+        const secondRoute = value[1].url.split('/')[2];
         this.checkIfPageExistsInProject();
         if (this.hasChecked && this.isCmsPage) {
           this.updateContent(value[0]);
+          if (firstRoute === 'preview' && secondRoute) {
+            return this.http.get('.netlify/functions/services?id=' + secondRoute);
+          }
         } else {
           this.cmsService.contentLoadedFromCMS();
         }
