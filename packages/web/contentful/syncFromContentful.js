@@ -42,7 +42,6 @@ function getContentfulEntries(query) {
     }
   });
 }
-module.exports = { syncContentfulData };
 
 function createFileContentFromEntry(entry) {
   return `${JSON.stringify(entry)}`;
