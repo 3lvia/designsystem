@@ -115,7 +115,7 @@ export class CMSPageComponent implements OnDestroy {
     setTimeout(() => {
       anchorTitleElement.classList.remove('anchor-copied');
     }, 800);
-    const modifiedAnchor = this.cmsContent.title.replace(' ', '-');
+    const modifiedAnchor = id;
     let anchorUrl = 'https://design.elvia.io';
     if (this.router.url.includes('#')) {
       anchorUrl =

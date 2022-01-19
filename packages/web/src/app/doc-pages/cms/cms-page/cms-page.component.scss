@@ -99,8 +99,13 @@
         padding-right: 12px;
       }
     }
-    &.anchor-copied .icons .green-img,
     &.anchor-copied .e-tooltip .e-tooltip__content {
+      display: flex;
+      opacity: 1;
+      left: -24px;
+      margin-bottom: -4px;
+    }
+    &.anchor-copied .icons .green-img {
       display: flex;
       opacity: 1;
     }
