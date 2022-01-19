@@ -12,12 +12,7 @@ import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-<<<<<<< HEAD
-
-export class CMSPageComponent implements OnInit, OnDestroy {
-=======
 export class CMSPageComponent implements OnDestroy {
->>>>>>> 7c2bea9f72637a4fed74df764781ed8e7c770cd3
   routerSubscription: Subscription;
 
   cmsContent: any = {};
