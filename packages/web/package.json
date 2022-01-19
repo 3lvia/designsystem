@@ -8,7 +8,7 @@
     "build": "ng build",
     "build:production": "ng build --configuration production",
     "contentful": "cd contentful && node syncFromContentful.js",
-    "contentful-test": "cd contentful && node syncFromContentful.js test",
+    "contentful-preview": "cd contentful && node syncFromContentful.js test",
     "dev": "yarn run contentful & yarn run start",
     "test": "ng test",
     "e2e": "ng e2e",
