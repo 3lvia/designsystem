@@ -20,17 +20,6 @@ contentfulClient = contentful.createClient({
 });
 
 syncContentfulEntries();
-// getEntry('6agg697xYesUFEdPfooJe e');
-
-async function getEntry(id) {
-  try {
-    await contentfulClient.getEntry(id).then((entry) => {
-      console.log(entry);
-    });
-  } catch (err) {
-    console.log(error);
-  }
-}
 
 async function syncContentfulEntries() {
   await cleanup();
