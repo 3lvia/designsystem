@@ -62,6 +62,7 @@ export class CMSPageComponent implements OnDestroy {
     if (!this.isCmsPage) {
       return;
     }
+    this.removeClickEventListenersForCopyPath();
 
     const pageId = await this.cmsService.getPageSysId(locale);
     const docPage = await this.cmsService.getDocumentationPageByEntryId(pageId, locale);
@@ -74,15 +75,10 @@ export class CMSPageComponent implements OnDestroy {
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
 
-    this.updateClickEventListeners();
+    this.addClickEventListenersForCopyPath();
   }
 
-  updateClickEventListeners(): void {
-    this.activeEventListeners.forEach((domElement) => {
-      domElement.removeEventListener('click', () => this.copyAnchor(domElement['id']));
-    });
-    this.activeEventListeners = [];
-
+  addClickEventListenersForCopyPath(): void {
     setTimeout(() => {
       this.elementRef.nativeElement
         .querySelectorAll('.cms-section__title, .cms-heading1__title')
@@ -91,6 +87,13 @@ export class CMSPageComponent implements OnDestroy {
           this.activeEventListeners.push(domElement);
         });
     });
+  }
+
+  removeClickEventListenersForCopyPath(): void {
+    this.activeEventListeners.forEach((domElement) => {
+      domElement.removeEventListener('click', () => this.copyAnchor(domElement['id']));
+    });
+    this.activeEventListeners = [];
   }
 
   checkIfPageExistsInProject(): void {
