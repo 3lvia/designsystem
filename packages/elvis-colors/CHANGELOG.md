@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 1.2.1 (19.11.22)
+
+### Patch
+
+- Updated README to explain how to use the package in Typescript/Javascript.
+
 ## 1.2.0 (07.11.22)
 
 ### New feature

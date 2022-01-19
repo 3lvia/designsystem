@@ -1,17 +1,23 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
+import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
+
 @Component({
   selector: 'app-cms-page',
   templateUrl: './cms-page.component.html',
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
+<<<<<<< HEAD
 
 export class CMSPageComponent implements OnInit, OnDestroy {
+=======
+export class CMSPageComponent implements OnDestroy {
+>>>>>>> 7c2bea9f72637a4fed74df764781ed8e7c770cd3
   routerSubscription: Subscription;
 
   cmsContent: any = {};
@@ -22,6 +28,7 @@ export class CMSPageComponent implements OnInit, OnDestroy {
   isCmsPage = true;
   landingPage = false;
   hasChecked = false;
+  activeEventListeners = [];
 
   constructor(
     private cmsService: CMSService,
@@ -29,6 +36,8 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     private localizationService: LocalizationService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private copyService: CopyToClipboardService,
+    private elementRef: ElementRef,
   ) {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
@@ -49,14 +58,6 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit(): void {
-    // this.checkIfPageExistsInProject();
-    // TODO: Not hardcode localization (0)
-    if (this.hasChecked && this.isCmsPage) {
-      this.updateContent(0);
-    }
-  }
-
   ngOnDestroy(): void {
     this.routerSubscription && this.routerSubscription.unsubscribe();
   }
@@ -65,6 +66,8 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     if (!this.isCmsPage) {
       return;
     }
+    this.removeClickEventListenersForCopyPath();
+
     const pageId = await this.cmsService.getPageSysId(locale);
     const docPage = await this.cmsService.getDocumentationPageByEntryId(pageId, locale);
     this.cmsContent = docPage;
@@ -76,6 +79,25 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
 
+    this.addClickEventListenersForCopyPath();
+  }
+
+  addClickEventListenersForCopyPath(): void {
+    setTimeout(() => {
+      this.elementRef.nativeElement
+        .querySelectorAll('.cms-section__title, .cms-heading1__title')
+        .forEach((domElement) => {
+          domElement.addEventListener('click', () => this.copyAnchor(domElement['id']));
+          this.activeEventListeners.push(domElement);
+        });
+    });
+  }
+
+  removeClickEventListenersForCopyPath(): void {
+    this.activeEventListeners.forEach((domElement) => {
+      domElement.removeEventListener('click', () => this.copyAnchor(domElement['id']));
+    });
+    this.activeEventListeners = [];
   }
 
   checkIfPageExistsInProject(): void {
@@ -94,5 +116,22 @@ export class CMSPageComponent implements OnInit, OnDestroy {
       this.isCmsPage = true;
     }
     this.hasChecked = true;
+  }
+
+  copyAnchor(id: string): void {
+    const anchorTitleElement = document.getElementById(id);
+    anchorTitleElement.classList.add('anchor-copied');
+    setTimeout(() => {
+      anchorTitleElement.classList.remove('anchor-copied');
+    }, 800);
+    const modifiedAnchor = id;
+    let anchorUrl = 'https://design.elvia.io';
+    if (this.router.url.includes('#')) {
+      anchorUrl =
+        anchorUrl + this.router.url.slice(0, this.router.url.lastIndexOf('#')) + '#' + modifiedAnchor;
+    } else {
+      anchorUrl = anchorUrl + this.router.url + '#' + modifiedAnchor;
+    }
+    this.copyService.copyToClipBoard(anchorUrl);
   }
 }
