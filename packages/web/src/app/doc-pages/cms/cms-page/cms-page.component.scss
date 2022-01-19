@@ -91,16 +91,21 @@
     .icons {
       cursor: pointer;
       position: relative;
-      .component-section__img {
+      .cms-section__img {
         display: none;
         position: absolute;
-        top: 33px;
+        top: 9px;
         left: -36px;
         padding-right: 12px;
       }
     }
-    &.anchor-copied .icons .green-img,
     &.anchor-copied .e-tooltip .e-tooltip__content {
+      display: flex;
+      opacity: 1;
+      left: -24px;
+      margin-bottom: -4px;
+    }
+    &.anchor-copied .icons .green-img {
       display: flex;
       opacity: 1;
     }
