@@ -1,3 +1,5 @@
+import { getColor } from "@elvia/elvis-colors";
+
 document.addEventListener('DOMContentLoaded', function () {
   let DEBUG = false;
   if (window.location.href.indexOf('#debug') > -1) {
@@ -146,26 +148,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (classList.contains('e-icon--color-disabled')) {
-      fill = colors['grey-30'].color;
+      fill = getColor('grey-30');
     }
 
     if (classList.contains('e-icon--color-disabled-light')) {
-      fill = colors['grey-05'].color;
+      fill = getColor('grey-05');
     }
 
     if (classList.contains('e-icon--inverted-disabled-grey')) {
-      fill = colors['grey'].color;
+      fill = getColor('grey');
     }
     if (classList.contains('e-icon--inverted-disabled-grey-70')) {
-      fill = colors['grey-70'].color;
+      fill = getColor('grey-70');
     }
 
     if (JSON.stringify(classList).indexOf('e-icon--color-') > -1) {
       for (let i = 0; i < classList.length; i++) {
         let color = classList[i].replace('e-icon--color-', '');
-        if (colors[color]) {
-          fill = colors[color].color;
-        }
+        fill = getColor(color);
       }
     }
 
@@ -176,105 +176,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     return icon;
   }
-
-  colors = {
-    white: {
-      color: '#FFF',
-      contrastText: '#000',
-    },
-    black: {
-      color: '#000',
-      contrastText: '#fff',
-    },
-    grey: {
-      color: '#262626',
-      contrastText: '#fff',
-    },
-    'grey-90': {
-      color: '#3B3B3B',
-      contrastText: '#fff',
-    },
-    'grey-80': {
-      color: '#515151',
-      contrastText: '#fff',
-    },
-    'grey-70': {
-      color: '#676767',
-      contrastText: '#fff',
-    },
-    'grey-60': {
-      color: '#7C7C7C',
-      contrastText: '#000',
-    },
-    'grey-50': {
-      color: '#929292',
-      contrastText: '#000',
-    },
-    'grey-40': {
-      color: '#A8A8A8',
-      contrastText: '#000',
-    },
-    'grey-30': {
-      color: '#BDBDBD',
-      contrastText: '#000',
-    },
-    'grey-20': {
-      color: '#D3D3D3',
-      contrastText: '#000',
-    },
-    'grey-10': {
-      color: '#E9E9E9',
-      contrastText: '#000',
-    },
-    'grey-05': {
-      color: '#F4F4F4',
-      contrastText: '#000',
-    },
-    'grey-02': {
-      color: '#FAFAFA',
-      contrastText: '#000',
-    },
-    green: {
-      color: '#29D305',
-      contrastText: '#000',
-    },
-    yellow: {
-      color: '#FFFF00',
-      contrastText: '#000',
-    },
-    orange: {
-      color: '#FFA000',
-      contrastText: '#000',
-    },
-    red: {
-      color: '#EE0701',
-      contrastText: '#000',
-    },
-    'green-apple': {
-      color: '#21AC04',
-      contrastText: '#000',
-    },
-    'violet-grape': {
-      color: '#490192',
-      contrastText: '#fff',
-    },
-    'blue-berry': {
-      color: '#006DDB',
-      contrastText: '#fff',
-    },
-    'purple-plum': {
-      color: '#B66DFF',
-      contrastText: '#000',
-    },
-    'orange-mango': {
-      color: '#DB6D00',
-      contrastText: '#000',
-    },
-    'red-tomato': {
-      color: '#B90202',
-      contrastText: '#fff',
-    },
-  };
 
   //[[INJECT_ICONS]]
 
