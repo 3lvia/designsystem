@@ -333,6 +333,27 @@
           </p>
         </ng-container>
       </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Using Javascript library'">
+        <ng-container ngProjectAs="sectionContent">
+          <p>
+            All colors can be used through the Javascript library
+            <code class="code-text">@elvia/elvis-colors</code>
+            . The utility function
+            <code class="code-text">getColor()</code>
+            is provided to easily access a color hex value without having to manually traverse the underlying
+            colors object.
+          </p>
+          <p>
+            <app-do-dont [do]="true" [codeTS]="doCodeTS"></app-do-dont>
+            <app-do-dont [do]="false" [codeTS]="dontCodeTS"></app-do-dont>
+          </p>
+          <p>
+            Likewise, the function
+            <code class="code-text">getContrastText()</code>
+            is provided to get a contrast text color corresponding to the requested color.
+          </p>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 </div>
