@@ -17,7 +17,7 @@ export class CMSService {
     private http: HttpClient,
     private cmsTransformService: CMSTransformService,
     private router: Router,
-  ) {}
+  ) { }
 
   listenContentLoadedFromCMS(): Observable<any> {
     return this.subjectAnchorsNew.asObservable();

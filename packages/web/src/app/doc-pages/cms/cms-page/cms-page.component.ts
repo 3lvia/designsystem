@@ -10,6 +10,7 @@ import { combineLatest, Subscription } from 'rxjs';
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
+
 export class CMSPageComponent implements OnInit, OnDestroy {
   routerSubscription: Subscription;
 
@@ -32,7 +33,6 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
     }
-
     this.checkIfPageExistsInProject();
 
     const localizationSub = this.localizationService.listenLocalization();
@@ -75,6 +75,7 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     this.lastUpdated = this.lastUpdated.toLocaleDateString('nb-NO', options).replace('/', '.');
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
+
   }
 
   checkIfPageExistsInProject(): void {

@@ -1,4 +1,5 @@
-const dotenv = require('dotenv').config();
+// const dotenv = require('dotenv').config();
+const dotenv = require('dotenv').config({ path: '../.env' });
 const contentful = require('contentful');
 const del = require('del');
 const fs = require('fs');
@@ -16,7 +17,7 @@ const CONFIG = {
 contentfulClient = contentful.createClient({
   host: process.env.NODE_ENV === 'production' ? 'cdn.contentful.com' : 'preview.contentful.com',
   space: CONFIG.space,
-  accessToken: process.env.NODE_ENV === 'production' ? CONFIG.accessToken : CONFIG.previewAccessToken,
+  accessToken: process.env.NODE_ENV === 'production' && process.argv[2] === "test" ? CONFIG.accessToken : CONFIG.previewAccessToken,
 });
 
 syncContentfulEntries();
@@ -41,6 +42,7 @@ function getContentfulEntries(query) {
     }
   });
 }
+module.exports = { syncContentfulData };
 
 function createFileContentFromEntry(entry) {
   return `${JSON.stringify(entry)}`;
