@@ -51,11 +51,14 @@ export class CMSPageComponent implements OnDestroy {
         this.checkIfPageExistsInProject();
         if (this.hasChecked && this.isCmsPage) {
           if (firstRoute === 'preview' && secondRoute) {
-            this.findPage(secondRoute, value[0])
+            this.getDocPageByEntry(value[0], secondRoute)
+            console.log('Preview - From CMS')
           } else if (isDevMode) {
-            this.findPageIdAndFindPage(value[0])
+            this.getDocPageByEntry(value[0])
+            console.log('Dev - From CMS')
           } else {
             this.getDocPageFromList(value[0]);
+            console.log('Production - From list')
           }
         } else {
           this.cmsService.contentLoadedFromCMS();
@@ -68,6 +71,23 @@ export class CMSPageComponent implements OnDestroy {
     this.routerSubscription && this.routerSubscription.unsubscribe();
   }
 
+  async getDocPageFromList(locale: Locale): Promise<any> {
+    this.removeClickEventListenersForCopyPath();
+
+    const id = await this.cmsService.getPageSysId(locale);
+    const docPage = await this.cmsService.getDocumentationPageByEntryId(id, locale);
+    this.setInnerHTMLToCMSContent(docPage);
+  }
+
+  async getDocPageByEntry(locale: Locale, pageId?: string): Promise<any> {
+    this.removeClickEventListenersForCopyPath();
+
+    const id = pageId ? pageId : await this.cmsService.getPageSysId(locale);
+    const entry = await this.getEntryFromCMS(id);
+    const docPage = await this.cmsService.getDocumentationPageByEntry(entry, locale);
+    this.setInnerHTMLToCMSContent(docPage);
+  }
+
   getEntryFromCMS(pageId: string): Promise<any> {
     return this.http
       .get('https://deploy-preview-604--test-elvis-designsystem.netlify.app/.netlify/functions/services?id=' + pageId)
@@ -77,40 +97,7 @@ export class CMSPageComponent implements OnDestroy {
       });
   }
 
-  async getDocPageFromList(locale: Locale): Promise<any> {
-    if (!this.isCmsPage) {
-      return;
-    }
-    this.removeClickEventListenersForCopyPath();
-
-    const pageId = await this.cmsService.getPageSysId(locale);
-    const docPage = await this.cmsService.getDocumentationPageByEntryId(pageId, locale);
-
-    this.setCMSContent(docPage);
-  }
-
-  async getDocPageByEntry(entry: any, locale: Locale): Promise<any> {
-    if (!this.isCmsPage) {
-      return;
-    }
-    this.removeClickEventListenersForCopyPath();
-
-    const docPage = await this.cmsService.getDocumentationPageByEntry(entry, locale);
-
-    this.setCMSContent(docPage);
-  }
-
-  async findPage(pageId: string, locale: Locale): Promise<any> {
-    const entry = await this.getEntryFromCMS(pageId);
-    this.getDocPageByEntry(entry, locale);
-  }
-  async findPageIdAndFindPage(locale: Locale): Promise<any> {
-    const pageId = await this.cmsService.getPageSysId(locale);
-    const entry = await this.getEntryFromCMS(pageId);
-    this.getDocPageByEntry(entry, locale);
-  }
-
-  setCMSContent(docPage: any): void {
+  setInnerHTMLToCMSContent(docPage: any): void {
     this.cmsContent = docPage;
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);

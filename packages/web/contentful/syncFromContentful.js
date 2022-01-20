@@ -30,8 +30,6 @@ async function syncContentfulEntries() {
 }
 
 function getContentfulEntries(query) {
-  console.log(process.env.NODE_ENV === 'production');
-  console.log('Client: ', contentfulClient);
   contentfulClient.getEntries(query).then((entries) => {
     entries.items.forEach((item) => {
       fs.writeFileSync(`dist/entries/${item.sys.id}.json`, createFileContentFromEntry(item));
