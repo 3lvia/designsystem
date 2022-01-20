@@ -49,6 +49,7 @@ export class CMSPageComponent implements OnDestroy {
         const firstRoute = value[1].url.split('/')[1];
         const secondRoute = value[1].url.split('/')[2];
         this.checkIfPageExistsInProject();
+        console.log('DEVMODE: ', isDevMode);
         if (this.hasChecked && this.isCmsPage) {
           if (firstRoute === 'preview' && secondRoute) {
             this.getDocPageByEntry(value[0], secondRoute)
