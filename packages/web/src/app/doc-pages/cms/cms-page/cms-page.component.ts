@@ -6,6 +6,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { HttpClient } from '@angular/common/http';
+import { isDevMode } from '@angular/core';
 
 @Component({
   selector: 'app-cms-page',
@@ -50,14 +51,11 @@ export class CMSPageComponent implements OnDestroy {
         this.checkIfPageExistsInProject();
         if (this.hasChecked && this.isCmsPage) {
           if (firstRoute === 'preview' && secondRoute) {
-            this.http
-              .get('https://deploy-preview-604--test-elvis-designsystem.netlify.app/.netlify/functions/services?id=' + secondRoute)
-              .toPromise()
-              .then((entry: any) => {
-                this.findCMSContentByEntry(entry, value[0]);
-              });
+            this.findPage(secondRoute, value[0])
+          } else if (isDevMode) {
+            this.findPageIdAndFindPage(value[0])
           } else {
-            this.findCMSContentById(value[0]);
+            this.getDocPageFromList(value[0]);
           }
         } else {
           this.cmsService.contentLoadedFromCMS();
@@ -70,7 +68,16 @@ export class CMSPageComponent implements OnDestroy {
     this.routerSubscription && this.routerSubscription.unsubscribe();
   }
 
-  async findCMSContentById(locale: Locale): Promise<any> {
+  getEntryFromCMS(pageId: string): Promise<any> {
+    return this.http
+      .get('https://deploy-preview-604--test-elvis-designsystem.netlify.app/.netlify/functions/services?id=' + pageId)
+      .toPromise()
+      .then((entry: any) => {
+        return entry;
+      });
+  }
+
+  async getDocPageFromList(locale: Locale): Promise<any> {
     if (!this.isCmsPage) {
       return;
     }
@@ -82,7 +89,7 @@ export class CMSPageComponent implements OnDestroy {
     this.setCMSContent(docPage);
   }
 
-  async findCMSContentByEntry(entry: any, locale: Locale): Promise<any> {
+  async getDocPageByEntry(entry: any, locale: Locale): Promise<any> {
     if (!this.isCmsPage) {
       return;
     }
@@ -91,6 +98,16 @@ export class CMSPageComponent implements OnDestroy {
     const docPage = await this.cmsService.getDocumentationPageByEntry(entry, locale);
 
     this.setCMSContent(docPage);
+  }
+
+  async findPage(pageId: string, locale: Locale): Promise<any> {
+    const entry = await this.getEntryFromCMS(pageId);
+    this.getDocPageByEntry(entry, locale);
+  }
+  async findPageIdAndFindPage(locale: Locale): Promise<any> {
+    const pageId = await this.cmsService.getPageSysId(locale);
+    const entry = await this.getEntryFromCMS(pageId);
+    this.getDocPageByEntry(entry, locale);
   }
 
   setCMSContent(docPage: any): void {
