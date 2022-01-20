@@ -6,38 +6,29 @@ function installDeps(functionDir, cb) {
 
 exports.handler = async (event, context) => {
 
-	console.log(event)
-
-	console.log("request received")
-
-	console.log(process.env)
-
+	console.log("Request received")
+	console.log("Context: ", context)
+	console.log("Entry id: ", event.queryStringParameters.id)
 	const client = contentful.createClient({
 		host: 'preview.contentful.com',
 		space: process.env.CONTENTFUL_SPACE,
 		accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
 	})
 
-	console.log(client);
+	console.log('CLIENT: ', client);
+	const entry = await client.getEntry(event.queryStringParameters.id)
+		.then((entry) => {
 
-	client.getEntries()
-	.then((entry) => {
+				console.log(entry);
 
-			console.log(entry);
-		})
-	.catch(console.error)
+				return {
+					statusCode: 200, 
+					headers: {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true}, 
+					body: JSON.stringify(entry)
+				};
+			})
+		.catch(console.error)
 
-	client.getEntry(event.queryStringParameters.id)
-	.then((entry) => {
-
-			console.log(entry);
-
-			return {
-				statusCode: 200, 
-				headers: {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true}, 
-				body: JSON.stringify(entry)
-			};
-		})
-	.catch(console.error)
-
+	console.log('Entry: ', entry)
+	return entry;
 };
