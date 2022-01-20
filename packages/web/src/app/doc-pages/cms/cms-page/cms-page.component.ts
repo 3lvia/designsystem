@@ -1,4 +1,4 @@
-import { Component, ElementRef, enableProdMode, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
@@ -6,7 +6,6 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { HttpClient } from '@angular/common/http';
-import { isDevMode } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -42,9 +41,6 @@ export class CMSPageComponent implements OnDestroy {
       this.landingPage = true;
     }
     this.checkIfPageExistsInProject();
-    if (environment.production) {
-      enableProdMode();
-    }
 
     const localizationSub = this.localizationService.listenLocalization();
     const routerSub = this.router.events;
@@ -53,12 +49,12 @@ export class CMSPageComponent implements OnDestroy {
         const firstRoute = value[1].url.split('/')[1];
         const secondRoute = value[1].url.split('/')[2];
         this.checkIfPageExistsInProject();
-        console.log('DEVMODE: ', isDevMode);
+        console.log('In prod: ', environment.production);
         if (this.hasChecked && this.isCmsPage) {
           if (firstRoute === 'preview' && secondRoute) {
             this.getDocPageByEntry(value[0], secondRoute)
             console.log('Preview - From CMS')
-          } else if (isDevMode) {
+          } else if (!environment.production) {
             this.getDocPageByEntry(value[0])
             console.log('Dev - From CMS')
           } else {
