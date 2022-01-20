@@ -27,7 +27,6 @@ export class CMSTransformService {
 
   // eslint-disable-next-line
   getHTML(data, locale, subMenu?, model?): string {
-    console.log('Entry 5: ', data);
     this.subMenu = subMenu;
     this.locale = locale;
     if (data.nodeType === 'embedded-entry-block' || data.nodeType === 'embedded-entry-inline') {

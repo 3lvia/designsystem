@@ -3,8 +3,6 @@ const contentful = require('contentful');
 const del = require('del');
 const fs = require('fs');
 
-const myArgs = process.argv.slice(2);
-console.log(myArgs[0] !== "preview")
 const CONFIG = {
   space: process.env.CONTENTFUL_SPACE ? process.env.CONTENTFUL_SPACE : dotenv.parsed.CONTENTFUL_SPACE,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
@@ -18,7 +16,7 @@ const CONFIG = {
 contentfulClient = contentful.createClient({
   host: process.env.NODE_ENV === 'production' ? 'cdn.contentful.com' : 'preview.contentful.com',
   space: CONFIG.space,
-  accessToken: process.env.NODE_ENV === 'production' && myArgs[0] !== "preview" ? CONFIG.accessToken : CONFIG.previewAccessToken,
+  accessToken: process.env.NODE_ENV === 'production' ? CONFIG.accessToken : CONFIG.previewAccessToken,
 });
 
 syncContentfulEntries();

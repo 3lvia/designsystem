@@ -69,7 +69,7 @@ export class CMSService {
         return pageId;
       } else {
         if (!subMenu) {
-          console.error('FOUND NO SUBMENU WITH THAT PATH');
+          console.error('Submenu: Found no submenu with that path');
         }
         if (!urlWithoutAnchor[2] && subMenu.entry.fields.landingPage) {
           pageId = subMenu.entry.fields.landingPage[localeKey].sys.id;
@@ -78,7 +78,8 @@ export class CMSService {
             (page) => page.fields.path[localeKey] === urlWithoutAnchor[2],
           );
           if (!docPage) {
-            console.error('FOUND NO PAGE WITH THAT PATH');
+            console.error('DocumentationPage: Found no documentation page with that path');
+
           }
           pageId = docPage.sys.id;
         }
