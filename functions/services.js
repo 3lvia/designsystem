@@ -13,22 +13,24 @@ exports.handler = async (event, context) => {
 	console.log(process.env)
 
 	const client = contentful.createClient({
+		host: 'preview.contentful.com',
 		space: process.env.CONTENTFUL_SPACE,
-		accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
-		host: 'preview.contentful.com'
+		accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
 	})
+
+	console.log(client);
 
 	client.getEntry(event.queryStringParameters.id)
 	.then((entry) => {
 
-		console.log(entry);
+			console.log(entry);
 
-		return {
-			statusCode: 200, 
-			headers: {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true}, 
-			body: JSON.stringify(entry)
-		};
-	})
+			return {
+				statusCode: 200, 
+				headers: {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true}, 
+				body: JSON.stringify(entry)
+			};
+		})
 	.catch(console.error)
 
 };
