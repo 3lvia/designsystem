@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, enableProdMode, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
@@ -7,6 +7,7 @@ import { combineLatest, Subscription } from 'rxjs';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { HttpClient } from '@angular/common/http';
 import { isDevMode } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cms-page',
@@ -41,6 +42,9 @@ export class CMSPageComponent implements OnDestroy {
       this.landingPage = true;
     }
     this.checkIfPageExistsInProject();
+    if (environment.production) {
+      enableProdMode();
+    }
 
     const localizationSub = this.localizationService.listenLocalization();
     const routerSub = this.router.events;
