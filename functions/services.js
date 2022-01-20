@@ -20,6 +20,13 @@ exports.handler = async (event, context) => {
 
 	console.log(client);
 
+	client.getEntries()
+	.then((entry) => {
+
+			console.log(entry);
+		})
+	.catch(console.error)
+
 	client.getEntry(event.queryStringParameters.id)
 	.then((entry) => {
 
