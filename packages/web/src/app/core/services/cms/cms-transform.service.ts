@@ -27,6 +27,7 @@ export class CMSTransformService {
 
   // eslint-disable-next-line
   getHTML(data, locale, subMenu?, model?): string {
+    console.log('Entry 5: ', data);
     this.subMenu = subMenu;
     this.locale = locale;
     if (data.nodeType === 'embedded-entry-block' || data.nodeType === 'embedded-entry-inline') {
@@ -139,19 +140,17 @@ export class CMSTransformService {
         ${data.fields.newTab[locale] ? `target="_blank"` : ''}
       >
         ${data.fields.title[locale] ? `<span class="e-link__title">${data.fields.title[locale]}</span>` : ''}
-        ${
-          data.fields.action[locale]
-            ? `<span class="e-link__icon">
+        ${data.fields.action[locale]
+        ? `<span class="e-link__icon">
           <i class="e-icon e-icon--arrow_right_circle-color"></i>
           <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
         </span>`
-            : ''
-        }
-        ${
-          data.fields.newTab[locale]
-            ? `<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>`
-            : ''
-        }
+        : ''
+      }
+        ${data.fields.newTab[locale]
+        ? `<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>`
+        : ''
+      }
       </a>`;
   }
 
@@ -159,11 +158,10 @@ export class CMSTransformService {
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
     return `<div class="cms-image" 
       ${`style=' 
-        ${
-          data.fields.inlineText
-            ? 'display: block'
-            : `display: inline-block; width: ${data.fields.size[locale]}`
-        } 
+        ${data.fields.inlineText
+        ? 'display: block'
+        : `display: inline-block; width: ${data.fields.size[locale]}`
+      } 
       '`}
     >
       <img
@@ -177,10 +175,9 @@ export class CMSTransformService {
         '`}
         src="${srcUrl}"
       />
-      ${
-        data.fields.inlineText && data.fields.inlineText
-          ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`
-          : ''
+      ${data.fields.inlineText && data.fields.inlineText
+        ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`
+        : ''
       }
       <div style="clear: ${data.fields.alignment[locale]}"></div>
     </div>
@@ -213,9 +210,8 @@ export class CMSTransformService {
   private getSection(data, locale) {
     return `
       <div class="cms-section elvis-anchor">
-        <div class="cms-section__title" id="${
-          data.fields.title[locale] ? data.fields.title[locale].replaceAll(' ', '-') : ''
-        }">
+        <div class="cms-section__title" id="${data.fields.title[locale] ? data.fields.title[locale].replaceAll(' ', '-') : ''
+      }">
           <span class="e-tooltip" tabindex="0">
             <span class="icons">
               <img

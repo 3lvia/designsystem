@@ -54,6 +54,7 @@ export class CMSPageComponent implements OnDestroy {
               .get('https://deploy-preview-604--test-elvis-designsystem.netlify.app/.netlify/functions/services?id=' + secondRoute)
               .toPromise()
               .then((entry: any) => {
+                console.log('Entry 1: ', entry);
                 this.findCMSContentByEntry(entry, value[0]);
               });
           } else {
@@ -89,6 +90,7 @@ export class CMSPageComponent implements OnDestroy {
     this.removeClickEventListenersForCopyPath();
 
     const docPage = await this.cmsService.getDocumentationPageByEntry(entry, locale);
+
     this.setCMSContent(docPage);
   }
 

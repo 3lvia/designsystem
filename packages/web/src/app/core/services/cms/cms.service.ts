@@ -40,8 +40,6 @@ export class CMSService {
     const description = data.fields.pageDescription
       ? this.cmsTransformService.getHTML(data, locale, subMenu, 'pageDescription')
       : '';
-    console.log('Hei: ', data.fields.pageDescription)
-    console.log('Res: ', description);
     const content = data.fields.content
       ? this.cmsTransformService.getHTML(data, locale, subMenu, 'content')
       : '';
@@ -92,17 +90,12 @@ export class CMSService {
   async getDocumentationPageByEntryId(entryId: string, localization: Locale): Promise<any> {
     const subMenu = await this.getSubMenu(localization);
     const cmsData = await this.getEntry(entryId);
-    console.log(cmsData);
     return this.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
   async getDocumentationPageByEntry(cmsData: any, localization: Locale): Promise<any> {
     const subMenu = await this.getSubMenu(localization);
-    console.log(cmsData);
-    const transformedData = this.transformEntryToDocPage(cmsData, subMenu, localization);
-    console.log(transformedData);
-
-    return transformedData;
+    return this.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
   async getSubMenu(localization: Locale): Promise<any> {
