@@ -1,4 +1,4 @@
-const dotenv = require('dotenv').config({ path: '../.env' });
+const dotenv = require('dotenv').config();
 const contentful = require('contentful');
 const del = require('del');
 const fs = require('fs');
