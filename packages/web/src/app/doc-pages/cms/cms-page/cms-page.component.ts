@@ -49,12 +49,15 @@ export class CMSPageComponent implements OnDestroy {
         const secondRoute = value[1].url.split('/')[2];
         this.checkIfPageExistsInProject();
         if (this.hasChecked && this.isCmsPage) {
-          this.updateContent(value[0]);
           if (firstRoute === 'preview' && secondRoute) {
-            return this.http
-              .get('.netlify/functions/services?id=' + secondRoute)
+            this.http
+              .get('https://deploy-preview-604--test-elvis-designsystem.netlify.app/.netlify/functions/services?id=' + secondRoute)
               .toPromise()
-              .then((res) => console.log(res));
+              .then((entry: any) => {
+                this.findCMSContentByEntry(entry, value[0]);
+              });
+          } else {
+            this.findCMSContentById(value[0]);
           }
         } else {
           this.cmsService.contentLoadedFromCMS();
@@ -67,7 +70,7 @@ export class CMSPageComponent implements OnDestroy {
     this.routerSubscription && this.routerSubscription.unsubscribe();
   }
 
-  async updateContent(locale: Locale): Promise<any> {
+  async findCMSContentById(locale: Locale): Promise<any> {
     if (!this.isCmsPage) {
       return;
     }
@@ -75,6 +78,21 @@ export class CMSPageComponent implements OnDestroy {
 
     const pageId = await this.cmsService.getPageSysId(locale);
     const docPage = await this.cmsService.getDocumentationPageByEntryId(pageId, locale);
+
+    this.setCMSContent(docPage);
+  }
+
+  async findCMSContentByEntry(entry: any, locale: Locale): Promise<any> {
+    if (!this.isCmsPage) {
+      return;
+    }
+    this.removeClickEventListenersForCopyPath();
+
+    const docPage = await this.cmsService.getDocumentationPageByEntry(entry, locale);
+    this.setCMSContent(docPage);
+  }
+
+  setCMSContent(docPage: any): void {
     this.cmsContent = docPage;
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
@@ -83,7 +101,6 @@ export class CMSPageComponent implements OnDestroy {
     this.lastUpdated = this.lastUpdated.toLocaleDateString('nb-NO', options).replace('/', '.');
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
-
     this.addClickEventListenersForCopyPath();
   }
 
