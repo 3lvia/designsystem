@@ -34,7 +34,7 @@ export class CMSPageComponent implements OnDestroy {
     private router: Router,
     private copyService: CopyToClipboardService,
     private elementRef: ElementRef,
-    private http: HttpClient
+    private http: HttpClient,
   ) {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
@@ -51,7 +51,10 @@ export class CMSPageComponent implements OnDestroy {
         if (this.hasChecked && this.isCmsPage) {
           this.updateContent(value[0]);
           if (firstRoute === 'preview' && secondRoute) {
-            return this.http.get('.netlify/functions/services?id=' + secondRoute);
+            return this.http
+              .get('.netlify/functions/services?id=' + secondRoute)
+              .toPromise()
+              .then((res) => console.log(res));
           }
         } else {
           this.cmsService.contentLoadedFromCMS();

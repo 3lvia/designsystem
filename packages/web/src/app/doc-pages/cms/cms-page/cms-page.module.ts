@@ -18,8 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     DynamicModule,
     NavbarModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   declarations: [CMSPageComponent],
 })
-export class CMSPageModule { }
+export class CMSPageModule {}

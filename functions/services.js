@@ -5,6 +5,11 @@ function installDeps(functionDir, cb) {
 }
 
 exports.handler = async (event, context) => {
+
+	console.log(event)
+
+	console.log("request received")
+
 	const client = contentful.createClient({
 		space: process.env.CONTENTFUL_SPACE,
 		accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
@@ -12,6 +17,7 @@ exports.handler = async (event, context) => {
 	})
 
 	client.getEntry(event.queryStringParameters.id)
-	.then((entry) => console.log(entry))
+	.then((entry) => {return {statusCode: 200, body: 'Hello Magnus'}})
 	.catch(console.error)
+
 };
