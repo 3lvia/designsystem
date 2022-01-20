@@ -7,7 +7,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:production": "ng build --configuration production",
-    "contentful": "cd contentful && node syncFromContentful.js",
+    "contentful": "cd contentful && NODE_ENV=production node syncFromContentful.js",
     "dev": "yarn run contentful & yarn run start",
     "test": "ng test",
     "e2e": "ng e2e",
