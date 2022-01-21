@@ -27,6 +27,8 @@ export interface DatepickerProps {
   onOpen?: () => void;
   onClose?: () => void;
   webcomponent?: any;
+  initialFocusedDate?: Date;
+  placeholder?: string;
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -44,6 +46,8 @@ export const Datepicker: FC<DatepickerProps> = ({
   onOpen,
   onClose,
   webcomponent,
+  initialFocusedDate,
+  placeholder = 'dd.mm.yyyy',
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
   const [currErrorMessage, setCurrErrorMessage] = useState('');
@@ -53,7 +57,6 @@ export const Datepicker: FC<DatepickerProps> = ({
   const datepickerRef = useRef<HTMLDivElement>(null);
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const placeholderString = 'dd.mm.yyyy';
   // This is the unicode character U+00AD
   // Used to avoid date-fns from formatting date before date is valid
   const unicodeChar = '­';
@@ -338,7 +341,7 @@ export const Datepicker: FC<DatepickerProps> = ({
             variant="inline"
             autoOk={true}
             value={selectedDate}
-            placeholder={placeholderString}
+            placeholder={placeholder}
             format="dd.MM.yyyy"
             rifmFormatter={getDateFormat}
             disabled={isDisabled === true}
@@ -371,6 +374,7 @@ export const Datepicker: FC<DatepickerProps> = ({
               transformOrigin: { horizontal: 'left', vertical: 'top' },
               ref: datepickerPopoverRef,
             }}
+            initialFocusedDate={initialFocusedDate}
           />
         </MuiPickersUtilsProvider>
       </ThemeProvider>
