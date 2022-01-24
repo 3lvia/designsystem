@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { Locale } from '../localization.service';
+import { Router } from '@angular/router';
+import { Entry } from 'contentful';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +28,10 @@ export class CMSTransformService {
     },
   };
 
+  constructor(
+    private router: Router,
+  ) { }
+
   // eslint-disable-next-line
   getHTML(data, locale, subMenu?, model?): string {
     this.subMenu = subMenu;
@@ -37,6 +44,36 @@ export class CMSTransformService {
     } else if (model === 'pageDescription') {
       return documentToHtmlString(data.fields.pageDescription[locale], this.options);
     }
+  }
+
+  transformEntryToDocPage(data: Entry<any>, subMenu: string, localization: Locale): any {
+    let locale = 'en-GB';
+    if (localization === Locale['nb-NO']) {
+      locale = 'nb-NO';
+    }
+
+    let subMenuRoute = '';
+    if (this.router.url.split('/')[2]) {
+      subMenuRoute = this.router.url.split('/')[1] + '/';
+    }
+    const description = data.fields.pageDescription
+      ? this.getHTML(data, locale, subMenu, 'pageDescription')
+      : '';
+    const content = data.fields.content
+      ? this.getHTML(data, locale, subMenu, 'content')
+      : '';
+    const figmaUrl = data.fields.figmaUrl ? data.fields.figmaUrl[locale] : '';
+    const isMainPage = data.fields.isMainPage ? data.fields.isMainPage : '';
+    return {
+      title: data.fields.title[locale],
+      pageDescription: description,
+      figmaUrl: figmaUrl,
+      content: content,
+      isMainPage: isMainPage,
+      docUrl: data.fields.path && data.fields.path[locale],
+      fullPath: data.fields.path && subMenuRoute + data.fields.path[locale],
+      lastUpdated: data.sys.updatedAt,
+    };
   }
 
   private embeddedEntryBlock(node, locale, subMenu) {

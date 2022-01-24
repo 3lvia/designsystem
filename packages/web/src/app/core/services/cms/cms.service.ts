@@ -27,36 +27,6 @@ export class CMSService {
     this.subjectAnchorsNew.next();
   }
 
-  transformEntryToDocPage(data: any, subMenu: string, localization: Locale): any {
-    let locale = 'en-GB';
-    if (localization === Locale['nb-NO']) {
-      locale = 'nb-NO';
-    }
-
-    let subMenuRoute = '';
-    if (this.router.url.split('/')[2]) {
-      subMenuRoute = this.router.url.split('/')[1] + '/';
-    }
-    const description = data.fields.pageDescription
-      ? this.cmsTransformService.getHTML(data, locale, subMenu, 'pageDescription')
-      : '';
-    const content = data.fields.content
-      ? this.cmsTransformService.getHTML(data, locale, subMenu, 'content')
-      : '';
-    const figmaUrl = data.fields.figmaUrl ? data.fields.figmaUrl[locale] : '';
-    const isMainPage = data.fields.isMainPage ? data.fields.isMainPage : '';
-    return {
-      title: data.fields.title[locale],
-      pageDescription: description,
-      figmaUrl: figmaUrl,
-      content: content,
-      isMainPage: isMainPage,
-      docUrl: data.fields.path && data.fields.path[locale],
-      fullPath: data.fields.path && subMenuRoute + data.fields.path[locale],
-      lastUpdated: data.sys.updatedAt,
-    };
-  }
-
   async getPageSysId(locale: number): Promise<string> {
     const urlFull = this.router.url.split('#')[0];
     const urlWithoutAnchor = urlFull.split('/');
@@ -91,12 +61,12 @@ export class CMSService {
   async getDocumentationPageByEntryId(entryId: string, localization: Locale): Promise<any> {
     const subMenu = await this.getSubMenu(localization);
     const cmsData = await this.getEntry(entryId);
-    return this.transformEntryToDocPage(cmsData, subMenu, localization);
+    return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
   async getDocumentationPageByEntry(cmsData: any, localization: Locale): Promise<any> {
     const subMenu = await this.getSubMenu(localization);
-    return this.transformEntryToDocPage(cmsData, subMenu, localization);
+    return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
   async getSubMenu(localization: Locale): Promise<any> {

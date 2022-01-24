@@ -7,6 +7,7 @@ import { combineLatest, Subscription } from 'rxjs';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Entry } from 'contentful';
 
 @Component({
   selector: 'app-cms-page',
