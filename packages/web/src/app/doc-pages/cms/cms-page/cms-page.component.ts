@@ -7,7 +7,6 @@ import { combineLatest, Subscription } from 'rxjs';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Entry } from 'contentful';
 
 @Component({
   selector: 'app-cms-page',
@@ -52,9 +51,9 @@ export class CMSPageComponent implements OnDestroy {
         this.checkIfPageExistsInProject();
         if (this.hasChecked && this.isCmsPage) {
           if (firstRoute === 'preview' && secondRoute) {
-            this.getDocPageFromCMS(value[0], secondRoute)
+            this.getDocPageFromCMS(value[0], secondRoute);
           } else if (!environment.production) {
-            this.getDocPageFromCMS(value[0])
+            this.getDocPageFromCMS(value[0]);
           } else {
             this.getDocPageFromPreGeneratedList(value[0]);
           }
@@ -88,13 +87,14 @@ export class CMSPageComponent implements OnDestroy {
 
   getEntryFromCMS(pageId: string): Promise<any> {
     return this.http
-      .get('https://deploy-preview-604--elvis-designsystem.netlify.app/.netlify/functions/services?id=' + pageId)
+      .get('https://elvis-designsystem.netlify.app/.netlify/functions/services?id=' + pageId)
       .toPromise()
       .then((entry: any) => {
         return entry;
       });
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   setInnerHTMLToCMSContent(docPage: any): void {
     this.cmsContent = docPage;
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);

@@ -17,7 +17,7 @@ export class CMSService {
     private http: HttpClient,
     private cmsTransformService: CMSTransformService,
     private router: Router,
-  ) { }
+  ) {}
 
   listenContentLoadedFromCMS(): Observable<any> {
     return this.subjectAnchorsNew.asObservable();
@@ -49,7 +49,6 @@ export class CMSService {
           );
           if (!docPage) {
             console.error('DocumentationPage: Found no documentation page with that path');
-
           }
           pageId = docPage.sys.id;
         }
@@ -64,6 +63,7 @@ export class CMSService {
     return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async getTransformedDocPageByEntry(cmsData: any, localization: Locale): Promise<any> {
     const subMenu = await this.getSubMenu(localization);
     return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
