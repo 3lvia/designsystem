@@ -49,17 +49,13 @@ export class CMSPageComponent implements OnDestroy {
         const firstRoute = value[1].url.split('/')[1];
         const secondRoute = value[1].url.split('/')[2];
         this.checkIfPageExistsInProject();
-        console.log('In prod: ', environment.production);
         if (this.hasChecked && this.isCmsPage) {
           if (firstRoute === 'preview' && secondRoute) {
             this.getDocPageByEntry(value[0], secondRoute)
-            console.log('Preview - From CMS')
           } else if (!environment.production) {
             this.getDocPageByEntry(value[0])
-            console.log('Dev - From CMS')
           } else {
             this.getDocPageFromList(value[0]);
-            console.log('Production - From list')
           }
         } else {
           this.cmsService.contentLoadedFromCMS();

@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
 		space: process.env.CONTENTFUL_SPACE,
 		accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
 	})
-	const entry = await client.getEntry(event.queryStringParameters.id, { locale: '*', skip: 0, include: 10 })
+	const entry = await client.getEntry(event.queryStringParameters.id, { locale: '*', include: 10 })
 		.then((entry) => {
 				return {
 					statusCode: 200, 
@@ -19,7 +19,5 @@ exports.handler = async (event, context) => {
 				};
 			})
 		.catch(console.error)
-
-	console.log('Entry: ', entry)
 	return entry;
 };
