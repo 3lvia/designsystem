@@ -58,13 +58,13 @@ export class CMSService {
     return pageId;
   }
 
-  async getDocumentationPageByEntryId(entryId: string, localization: Locale): Promise<any> {
+  async getTransformedDocPageByEntryId(entryId: string, localization: Locale): Promise<any> {
     const subMenu = await this.getSubMenu(localization);
     const cmsData = await this.getEntry(entryId);
     return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
-  async getDocumentationPageByEntry(cmsData: any, localization: Locale): Promise<any> {
+  async getTransformedDocPageByEntry(cmsData: any, localization: Locale): Promise<any> {
     const subMenu = await this.getSubMenu(localization);
     return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }

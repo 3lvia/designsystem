@@ -73,7 +73,7 @@ export class CMSPageComponent implements OnDestroy {
     this.removeClickEventListenersForCopyPath();
 
     const id = await this.cmsService.getPageSysId(locale);
-    const docPage = await this.cmsService.getDocumentationPageByEntryId(id, locale);
+    const docPage = await this.cmsService.getTransformedDocPageByEntryId(id, locale);
     this.setInnerHTMLToCMSContent(docPage);
   }
 
@@ -82,7 +82,7 @@ export class CMSPageComponent implements OnDestroy {
 
     const id = pageId ? pageId : await this.cmsService.getPageSysId(locale);
     const entry = await this.getEntryFromCMS(id);
-    const docPage = await this.cmsService.getDocumentationPageByEntry(entry, locale);
+    const docPage = await this.cmsService.getTransformedDocPageByEntry(entry, locale);
     this.setInnerHTMLToCMSContent(docPage);
   }
 
