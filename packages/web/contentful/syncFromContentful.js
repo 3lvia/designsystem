@@ -13,7 +13,6 @@ const CONFIG = {
     : dotenv.parsed.CONTENTFUL_ACCESS_TOKEN,
 };
 
-console.log('ENVIRONMENT: ', process.env.NODE_ENV)
 contentfulClient = contentful.createClient({
   host: process.env.NODE_ENV === 'production' ? 'cdn.contentful.com' : 'preview.contentful.com',
   space: CONFIG.space,
