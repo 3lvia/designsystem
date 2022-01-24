@@ -52,11 +52,11 @@ export class CMSPageComponent implements OnDestroy {
         this.checkIfPageExistsInProject();
         if (this.hasChecked && this.isCmsPage) {
           if (firstRoute === 'preview' && secondRoute) {
-            this.getDocPageByEntry(value[0], secondRoute)
+            this.getDocPageFromCMS(value[0], secondRoute)
           } else if (!environment.production) {
-            this.getDocPageByEntry(value[0])
+            this.getDocPageFromCMS(value[0])
           } else {
-            this.getDocPageFromList(value[0]);
+            this.getDocPageFromPreGeneratedList(value[0]);
           }
         } else {
           this.cmsService.contentLoadedFromCMS();
@@ -69,7 +69,7 @@ export class CMSPageComponent implements OnDestroy {
     this.routerSubscription && this.routerSubscription.unsubscribe();
   }
 
-  async getDocPageFromList(locale: Locale): Promise<any> {
+  async getDocPageFromPreGeneratedList(locale: Locale): Promise<any> {
     this.removeClickEventListenersForCopyPath();
 
     const id = await this.cmsService.getPageSysId(locale);
@@ -77,7 +77,7 @@ export class CMSPageComponent implements OnDestroy {
     this.setInnerHTMLToCMSContent(docPage);
   }
 
-  async getDocPageByEntry(locale: Locale, pageId?: string): Promise<any> {
+  async getDocPageFromCMS(locale: Locale, pageId?: string): Promise<any> {
     this.removeClickEventListenersForCopyPath();
 
     const id = pageId ? pageId : await this.cmsService.getPageSysId(locale);
