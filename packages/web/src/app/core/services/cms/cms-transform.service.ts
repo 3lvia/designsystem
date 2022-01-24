@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { Locale } from '../localization.service';
+import { Router } from '@angular/router';
+import { Entry } from 'contentful';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +28,10 @@ export class CMSTransformService {
     },
   };
 
+  constructor(
+    private router: Router,
+  ) { }
+
   // eslint-disable-next-line
   getHTML(data, locale, subMenu?, model?): string {
     this.subMenu = subMenu;
@@ -37,6 +44,36 @@ export class CMSTransformService {
     } else if (model === 'pageDescription') {
       return documentToHtmlString(data.fields.pageDescription[locale], this.options);
     }
+  }
+
+  transformEntryToDocPage(data: Entry<any>, subMenu: string, localization: Locale): any {
+    let locale = 'en-GB';
+    if (localization === Locale['nb-NO']) {
+      locale = 'nb-NO';
+    }
+
+    let subMenuRoute = '';
+    if (this.router.url.split('/')[2]) {
+      subMenuRoute = this.router.url.split('/')[1] + '/';
+    }
+    const description = data.fields.pageDescription
+      ? this.getHTML(data, locale, subMenu, 'pageDescription')
+      : '';
+    const content = data.fields.content
+      ? this.getHTML(data, locale, subMenu, 'content')
+      : '';
+    const figmaUrl = data.fields.figmaUrl ? data.fields.figmaUrl[locale] : '';
+    const isMainPage = data.fields.isMainPage ? data.fields.isMainPage : '';
+    return {
+      title: data.fields.title[locale],
+      pageDescription: description,
+      figmaUrl: figmaUrl,
+      content: content,
+      isMainPage: isMainPage,
+      docUrl: data.fields.path && data.fields.path[locale],
+      fullPath: data.fields.path && subMenuRoute + data.fields.path[locale],
+      lastUpdated: data.sys.updatedAt,
+    };
   }
 
   private embeddedEntryBlock(node, locale, subMenu) {
@@ -139,19 +176,17 @@ export class CMSTransformService {
         ${data.fields.newTab[locale] ? `target="_blank"` : ''}
       >
         ${data.fields.title[locale] ? `<span class="e-link__title">${data.fields.title[locale]}</span>` : ''}
-        ${
-          data.fields.action[locale]
-            ? `<span class="e-link__icon">
+        ${data.fields.action[locale]
+        ? `<span class="e-link__icon">
           <i class="e-icon e-icon--arrow_right_circle-color"></i>
           <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
         </span>`
-            : ''
-        }
-        ${
-          data.fields.newTab[locale]
-            ? `<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>`
-            : ''
-        }
+        : ''
+      }
+        ${data.fields.newTab[locale]
+        ? `<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>`
+        : ''
+      }
       </a>`;
   }
 
@@ -159,11 +194,10 @@ export class CMSTransformService {
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
     return `<div class="cms-image" 
       ${`style=' 
-        ${
-          data.fields.inlineText
-            ? 'display: block'
-            : `display: inline-block; width: ${data.fields.size[locale]}`
-        } 
+        ${data.fields.inlineText
+        ? 'display: block'
+        : `display: inline-block; width: ${data.fields.size[locale]}`
+      } 
       '`}
     >
       <img
@@ -177,10 +211,9 @@ export class CMSTransformService {
         '`}
         src="${srcUrl}"
       />
-      ${
-        data.fields.inlineText && data.fields.inlineText
-          ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`
-          : ''
+      ${data.fields.inlineText && data.fields.inlineText
+        ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`
+        : ''
       }
       <div style="clear: ${data.fields.alignment[locale]}"></div>
     </div>
@@ -213,9 +246,8 @@ export class CMSTransformService {
   private getSection(data, locale) {
     return `
       <div class="cms-section elvis-anchor">
-        <div class="cms-section__title" id="${
-          data.fields.title[locale] ? data.fields.title[locale].replaceAll(' ', '-') : ''
-        }">
+        <div class="cms-section__title" id="${data.fields.title[locale] ? data.fields.title[locale].replaceAll(' ', '-') : ''
+      }">
           <span class="e-tooltip" tabindex="0">
             <span class="icons">
               <img

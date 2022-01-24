@@ -5,6 +5,9 @@ import { Locale, LocalizationService } from 'src/app/core/services/localization.
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { Entry } from 'contentful';
 
 @Component({
   selector: 'app-cms-page',
@@ -33,20 +36,28 @@ export class CMSPageComponent implements OnDestroy {
     private router: Router,
     private copyService: CopyToClipboardService,
     private elementRef: ElementRef,
+    private http: HttpClient,
   ) {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
     }
-
     this.checkIfPageExistsInProject();
 
     const localizationSub = this.localizationService.listenLocalization();
     const routerSub = this.router.events;
     this.routerSubscription = combineLatest([localizationSub, routerSub]).subscribe((value) => {
       if (value[1] instanceof NavigationEnd) {
+        const firstRoute = value[1].url.split('/')[1];
+        const secondRoute = value[1].url.split('/')[2];
         this.checkIfPageExistsInProject();
         if (this.hasChecked && this.isCmsPage) {
-          this.updateContent(value[0]);
+          if (firstRoute === 'preview' && secondRoute) {
+            this.getDocPageFromCMS(value[0], secondRoute)
+          } else if (!environment.production) {
+            this.getDocPageFromCMS(value[0])
+          } else {
+            this.getDocPageFromPreGeneratedList(value[0]);
+          }
         } else {
           this.cmsService.contentLoadedFromCMS();
         }
@@ -58,14 +69,33 @@ export class CMSPageComponent implements OnDestroy {
     this.routerSubscription && this.routerSubscription.unsubscribe();
   }
 
-  async updateContent(locale: Locale): Promise<any> {
-    if (!this.isCmsPage) {
-      return;
-    }
+  async getDocPageFromPreGeneratedList(locale: Locale): Promise<any> {
     this.removeClickEventListenersForCopyPath();
 
-    const pageId = await this.cmsService.getPageSysId(locale);
-    const docPage = await this.cmsService.getDocumentationPageByEntryId(pageId, locale);
+    const id = await this.cmsService.getPageSysId(locale);
+    const docPage = await this.cmsService.getTransformedDocPageByEntryId(id, locale);
+    this.setInnerHTMLToCMSContent(docPage);
+  }
+
+  async getDocPageFromCMS(locale: Locale, pageId?: string): Promise<any> {
+    this.removeClickEventListenersForCopyPath();
+
+    const id = pageId ? pageId : await this.cmsService.getPageSysId(locale);
+    const entry = await this.getEntryFromCMS(id);
+    const docPage = await this.cmsService.getTransformedDocPageByEntry(entry, locale);
+    this.setInnerHTMLToCMSContent(docPage);
+  }
+
+  getEntryFromCMS(pageId: string): Promise<any> {
+    return this.http
+      .get('https://deploy-preview-604--elvis-designsystem.netlify.app/.netlify/functions/services?id=' + pageId)
+      .toPromise()
+      .then((entry: any) => {
+        return entry;
+      });
+  }
+
+  setInnerHTMLToCMSContent(docPage: any): void {
     this.cmsContent = docPage;
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
@@ -74,7 +104,6 @@ export class CMSPageComponent implements OnDestroy {
     this.lastUpdated = this.lastUpdated.toLocaleDateString('nb-NO', options).replace('/', '.');
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
-
     this.addClickEventListenersForCopyPath();
   }
 

@@ -17,7 +17,7 @@ export class CMSService {
     private http: HttpClient,
     private cmsTransformService: CMSTransformService,
     private router: Router,
-  ) {}
+  ) { }
 
   listenContentLoadedFromCMS(): Observable<any> {
     return this.subjectAnchorsNew.asObservable();
@@ -39,7 +39,7 @@ export class CMSService {
         return pageId;
       } else {
         if (!subMenu) {
-          console.error('FOUND NO SUBMENU WITH THAT PATH');
+          console.error('Submenu: Found no submenu with that path');
         }
         if (!urlWithoutAnchor[2] && subMenu.entry.fields.landingPage) {
           pageId = subMenu.entry.fields.landingPage[localeKey].sys.id;
@@ -48,7 +48,8 @@ export class CMSService {
             (page) => page.fields.path[localeKey] === urlWithoutAnchor[2],
           );
           if (!docPage) {
-            console.error('FOUND NO PAGE WITH THAT PATH');
+            console.error('DocumentationPage: Found no documentation page with that path');
+
           }
           pageId = docPage.sys.id;
         }
@@ -57,36 +58,15 @@ export class CMSService {
     return pageId;
   }
 
-  async getDocumentationPageByEntryId(entryId: string, localization: Locale): Promise<any> {
-    let locale = 'en-GB';
-    if (localization === Locale['nb-NO']) {
-      locale = 'nb-NO';
-    }
-
+  async getTransformedDocPageByEntryId(entryId: string, localization: Locale): Promise<any> {
     const subMenu = await this.getSubMenu(localization);
-    const data = await this.getEntry(entryId);
-    let subMenuRoute = '';
-    if (this.router.url.split('/')[2]) {
-      subMenuRoute = this.router.url.split('/')[1] + '/';
-    }
-    const description = data.fields.pageDescription
-      ? this.cmsTransformService.getHTML(data, locale, subMenu, 'pageDescription')
-      : '';
-    const content = data.fields.content
-      ? this.cmsTransformService.getHTML(data, locale, subMenu, 'content')
-      : '';
-    const figmaUrl = data.fields.figmaUrl ? data.fields.figmaUrl[locale] : '';
-    const isMainPage = data.fields.isMainPage ? data.fields.isMainPage : '';
-    return {
-      title: data.fields.title[locale],
-      pageDescription: description,
-      figmaUrl: figmaUrl,
-      content: content,
-      isMainPage: isMainPage,
-      docUrl: data.fields.path && data.fields.path[locale],
-      fullPath: data.fields.path && subMenuRoute + data.fields.path[locale],
-      lastUpdated: data.sys.updatedAt,
-    };
+    const cmsData = await this.getEntry(entryId);
+    return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
+  }
+
+  async getTransformedDocPageByEntry(cmsData: any, localization: Locale): Promise<any> {
+    const subMenu = await this.getSubMenu(localization);
+    return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
   async getSubMenu(localization: Locale): Promise<any> {
