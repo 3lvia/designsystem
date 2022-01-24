@@ -158,6 +158,7 @@ module.exports = [
       { name: 'maxDate', type: 'Date', propType: 'Date | undefined' },
       { name: 'initialFocusedDate', type: 'Date', propType: 'Date | undefined' },
       { name: 'placeholder', type: 'string', propType: 'string | undefined' },
+      { name: 'open', type: 'boolean', propType: 'boolean' },
 
     ],
     reactName: 'Datepicker',

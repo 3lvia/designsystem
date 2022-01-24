@@ -45,6 +45,7 @@ function App() {
   const [isPopoverShowing, setIsPopoverShowingState] = useState(false);
   const [progressValue, setProgressValue] = useState(0);
   const [selectedDate, setSelectedDate] = useState(dateCurr);
+  const [isDatepickerOpen, setIsDatePickerOpen] = useState(false);
 
   let minDate = new Date()
   minDate.setDate(minDate.getDate() - 5)
@@ -518,7 +519,11 @@ function App() {
           minDate={dateCurr}
           valueOnChange={(dateCurr) => console.log(dateCurr)}
         ></Datepicker>
-        <Datepicker maxDate={dateCurr}></Datepicker>
+        <Datepicker maxDate={dateCurr} open={isDatepickerOpen} onOpen={() => setIsDatePickerOpen(true)}
+        onClose={() => setIsDatePickerOpen(false)}></Datepicker>
+        <button onClick={() => setIsDatePickerOpen(true)}>
+        Open datepicker
+      </button>
         <Datepicker minDate={dateCurr}></Datepicker>
         <Datepicker isFullWidth id="datepicker1" customError="Error"></Datepicker>
         <Datepicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>

@@ -114,7 +114,14 @@ const datepickerData = {
     placeholder: {
       isRequired: false,
       type: 'string',
+      default: 'dd.mm.yyyy',
       description: 'A short hint displayed in the input before the user enters a value.',
+    },
+    open: {
+      isRequired: false,
+      type: 'boolean',
+      default: 'false',
+      description: 'Controlled picker open state',
     },
   },
   package: 'npm install @elvia/elvis-datepicker',

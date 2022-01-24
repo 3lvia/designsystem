@@ -29,6 +29,7 @@ export interface DatepickerProps {
   webcomponent?: any;
   initialFocusedDate?: Date;
   placeholder?: string;
+  open?: boolean;
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -48,12 +49,14 @@ export const Datepicker: FC<DatepickerProps> = ({
   webcomponent,
   initialFocusedDate,
   placeholder = 'dd.mm.yyyy',
+  open = false,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
   const [currErrorMessage, setCurrErrorMessage] = useState('');
   const [hasHadFocus, setHasHadFocus] = useState(false);
   const [hasFocus, setHasFocus] = useState(false);
   const [shouldHaveSelected, setShouldHaveSelected] = useState(true);
+  const [isOpen, setIsOpen] = useState(open);
   const datepickerRef = useRef<HTMLDivElement>(null);
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -80,6 +83,9 @@ export const Datepicker: FC<DatepickerProps> = ({
       },
     },
   });
+  useEffect(() => {
+    setIsOpen(open);
+  }, [open]);
 
   useEffect(() => {
     addOutlineFix(datepickerRef.current);
@@ -129,6 +135,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   const handleOpenDatepicker = () => {
     updateFocusState();
     updateInputWithSelectedDate();
+    setIsOpen(true);
     if (!webcomponent && onOpen) {
       onOpen();
     } else if (webcomponent) {
@@ -137,6 +144,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   const handleCloseDatepicker = () => {
+    setIsOpen(false);
     if (!webcomponent && onClose) {
       onClose();
     } else if (webcomponent) {
@@ -350,6 +358,7 @@ export const Datepicker: FC<DatepickerProps> = ({
             maxDate={maxDate}
             onChange={handleDateChange}
             onFocus={onFocus}
+            open={isOpen}
             onOpen={handleOpenDatepicker}
             onClose={handleCloseDatepicker}
             keyboardIcon={getCalIcon()}
