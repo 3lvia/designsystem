@@ -40,9 +40,15 @@ async function validateElviaComponentsConfig() {
                 elementStyle: { type: "string" },
                 conditionalElementStyle: {
                     type: "array",
-                    propertyNames: {
-                        pattern: "^[A-Za-z_][A-Za-z0-9_]*$"
-                    }
+                    items: {
+                        type: "object",
+                        additionalProperties: false,
+                        properties: {
+                            name: {type: "string", pattern: "^[A-Za-z_][A-Za-z0-9_]*$"}, 
+                            value: {type: "string", pattern: "^[A-Za-z_][A-Za-z0-9_]*$"},
+                            style: {type: "string"}
+                        },
+                    },
                 },
                 reactTypescriptDeclaration: { type: "boolean" }
             },
