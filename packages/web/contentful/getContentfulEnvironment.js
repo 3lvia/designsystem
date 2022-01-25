@@ -1,6 +1,10 @@
+/**
+ * This file is used to generate TS types for all Contentful models.
+ * It is used by contentful-typescript-codegen.
+ */
 const contentfulManagement = require('contentful-management');
 const dotenv = require('dotenv');
-dotenv.config({ path: './contentful/.env' });
+dotenv.config({ path: '.env' });
 
 const CONFIG = {
   space: process.env.CONTENTFUL_SPACE ? process.env.CONTENTFUL_SPACE : dotenv.parsed.CONTENTFUL_SPACE,
