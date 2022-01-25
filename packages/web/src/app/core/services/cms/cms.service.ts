@@ -4,6 +4,7 @@ import { CMSTransformService } from './cms-transform.service';
 import { Locale } from '../localization.service';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { IDocumentationPage } from 'contentful/__generated__/types';
 
 @Injectable({
   providedIn: 'root',
@@ -63,8 +64,7 @@ export class CMSService {
     return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  async getTransformedDocPageByEntry(cmsData: any, localization: Locale): Promise<any> {
+  async getTransformedDocPageByEntry(cmsData: IDocumentationPage, localization: Locale): Promise<any> {
     const subMenu = await this.getSubMenu(localization);
     return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }

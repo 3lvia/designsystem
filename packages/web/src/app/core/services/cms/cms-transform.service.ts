@@ -3,7 +3,7 @@ import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { Locale } from '../localization.service';
 import { Router } from '@angular/router';
-import { Entry } from 'contentful';
+import { IDocumentationPage } from 'contentful/__generated__/types';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class CMSTransformService {
   private subMenu;
   private options = {
     renderMark: {
-      [MARKS.BOLD]: (text) => `<b>${text}</b>`,
+      [MARKS.BOLD]: (text: string) => `<b>${text}</b>`,
     },
     renderNode: {
       [BLOCKS.HEADING_1]: (node, next) => this.getHeading1(next(node.content)),
@@ -31,7 +31,7 @@ export class CMSTransformService {
   constructor(private router: Router) {}
 
   // eslint-disable-next-line
-  getHTML(data, locale, subMenu?, model?): string {
+  getHTML(data, locale: string, subMenu?, model?): string {
     this.subMenu = subMenu;
     this.locale = locale;
     if (data.nodeType === 'embedded-entry-block' || data.nodeType === 'embedded-entry-inline') {
@@ -44,7 +44,7 @@ export class CMSTransformService {
     }
   }
 
-  transformEntryToDocPage(data: Entry<any>, subMenu: string, localization: Locale): any {
+  transformEntryToDocPage(data: IDocumentationPage, subMenu: string, localization: Locale): any {
     let locale = 'en-GB';
     if (localization === Locale['nb-NO']) {
       locale = 'nb-NO';
@@ -220,7 +220,7 @@ export class CMSTransformService {
     `;
   }
 
-  private getFullPath(subPath, subMenu) {
+  private getFullPath(subPath: string, subMenu) {
     let fullPath = '';
     subMenu.forEach((element) => {
       if (element.path === subPath) {
@@ -243,7 +243,7 @@ export class CMSTransformService {
     return `<img class="cms-img" src="${asset}"/>`;
   }
 
-  private getSection(data, locale) {
+  private getSection(data, locale: string) {
     return `
       <div class="cms-section elvis-anchor">
         <div class="cms-section__title" id="${
