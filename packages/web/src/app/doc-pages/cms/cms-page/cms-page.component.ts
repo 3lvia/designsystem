@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
@@ -18,10 +18,10 @@ import { TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
 export class CMSPageComponent implements OnDestroy {
   routerSubscription: Subscription;
 
-  cmsContent: TransformedDocPage;
+  cmsContent: any = {};
   showContentLoader = true;
-  contentHTML: SafeHtml = '';
-  descriptionHTML: SafeHtml = '';
+  contentHTML: any = '';
+  descriptionHTML: any = '';
   lastUpdated;
   isCmsPage = true;
   landingPage = false;
