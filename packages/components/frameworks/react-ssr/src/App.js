@@ -516,7 +516,8 @@ function App() {
       >
         <Datepicker
           isRequired
-          minDate={dateCurr}
+          maxDate={maxDate}
+          hasSelectDateOnOpen={false}
           valueOnChange={(dateCurr) => console.log(dateCurr)}
         ></Datepicker>
         <Datepicker maxDate={dateCurr} open={isDatepickerOpen} onOpen={() => setIsDatePickerOpen(true)}
@@ -528,7 +529,7 @@ function App() {
         <Datepicker isFullWidth id="datepicker1" customError="Error"></Datepicker>
         <Datepicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
         <div style={{display: 'flex'}}>
-        <Datepicker minDate={minDate} maxDate={maxDate} initialFocusedDate={maxDate} isCompact={true} hasSelectDateOnOpen={false} valueOnChange={(date) => {
+        <Datepicker minDate={minDate} maxDate={maxDate}  isCompact={true} hasSelectDateOnOpen={false} valueOnChange={(date) => {
           console.log("selected date",date)
           setSelectedDate(date)
         }}>

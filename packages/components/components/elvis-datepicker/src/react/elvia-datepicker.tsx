@@ -27,7 +27,6 @@ export interface DatepickerProps {
   onOpen?: () => void;
   onClose?: () => void;
   webcomponent?: any;
-  initialFocusedDate?: Date;
   placeholder?: string;
   open?: boolean;
 }
@@ -47,11 +46,11 @@ export const Datepicker: FC<DatepickerProps> = ({
   onOpen,
   onClose,
   webcomponent,
-  initialFocusedDate,
   placeholder = 'dd.mm.åååå',
   open = false,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
+  const [initialFocusedDate, setInitialFocusedDate] = useState<Date | null>(null);
   const [currErrorMessage, setCurrErrorMessage] = useState('');
   const [hasHadFocus, setHasHadFocus] = useState(false);
   const [hasFocus, setHasFocus] = useState(false);
@@ -93,6 +92,15 @@ export const Datepicker: FC<DatepickerProps> = ({
     return () => {
       removeOutlineFix(datepickerRef.current);
     };
+  }, []);
+
+  useEffect(() => {
+    if (hasSelectDateOnOpen) return;
+    if (maxDate) {
+      setInitialFocusedDate(maxDate);
+    } else if (minDate) {
+      setInitialFocusedDate(minDate);
+    }
   }, []);
 
   // Needed for webcomponent -> To update the default value
@@ -383,7 +391,7 @@ export const Datepicker: FC<DatepickerProps> = ({
               transformOrigin: { horizontal: 'left', vertical: 'top' },
               ref: datepickerPopoverRef,
             }}
-            initialFocusedDate={initialFocusedDate}
+            initialFocusedDate={initialFocusedDate && initialFocusedDate}
           />
         </MuiPickersUtilsProvider>
       </ThemeProvider>

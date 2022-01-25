@@ -106,11 +106,6 @@ const datepickerData = {
       type: '() => void',
       description: 'Callback for every time the modal is being closed.',
     },
-    initialFocusedDate: {
-      isRequired: false,
-      type: 'Date',
-      description: 'Date that will be initially highlighted if null was passed.',
-    },
     placeholder: {
       isRequired: false,
       type: 'string',

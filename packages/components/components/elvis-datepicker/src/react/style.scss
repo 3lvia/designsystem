@@ -31,6 +31,7 @@ $datepicker-max-width: 448px;
 
 .ewc-datepicker {
   position: relative;
+  width: 163px;
   max-width: $datepicker-max-width;
 
   // Removing mui label and helpertext
@@ -172,6 +173,7 @@ $datepicker-max-width: 448px;
 
   // COMPACT INPUT
   &.ewc-datepicker--compact {
+    width: 133px;
     // LABEL
     .ewc-datepicker__label {
       font-family: $red-hat-text;
