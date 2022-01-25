@@ -1,12 +1,13 @@
 import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
 
 @Component({
   selector: 'app-cms-page',
@@ -17,10 +18,10 @@ import { environment } from 'src/environments/environment';
 export class CMSPageComponent implements OnDestroy {
   routerSubscription: Subscription;
 
-  cmsContent: any = {};
+  cmsContent: TransformedDocPage;
   showContentLoader = true;
-  contentHTML: any = '';
-  descriptionHTML: any = '';
+  contentHTML: SafeHtml = '';
+  descriptionHTML: SafeHtml = '';
   lastUpdated;
   isCmsPage = true;
   landingPage = false;
@@ -95,7 +96,7 @@ export class CMSPageComponent implements OnDestroy {
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  setInnerHTMLToCMSContent(docPage: any): void {
+  setInnerHTMLToCMSContent(docPage: TransformedDocPage): void {
     this.cmsContent = docPage;
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
