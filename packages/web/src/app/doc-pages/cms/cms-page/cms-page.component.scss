@@ -1,6 +1,22 @@
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 @import '../../../shared/overview-page/overview-page.component.scss';
 
+$pageSectionMarginTop: 104px;
+$pageSectionMarginBottom: 64px;
+$pageIndentedMargin: 72px;
+
+.doc-page-description {
+  * {
+    font-family: 'Red Hat Text', Verdana, sans-serif;
+    font-size: 24px;
+    line-height: 39px;
+    font-weight: 400;
+    font-style: unset;
+    letter-spacing: unset;
+    text-transform: unset;
+    color: inherit;
+  }
+}
 .doc-page-heading {
   display: flex;
   flex-direction: row;
@@ -56,14 +72,14 @@
 
 .cms-section,
 .cms-heading1 {
-  margin-top: 104px;
+  margin-top: $pageSectionMarginTop;
   @include breakpoint-up(Mobile) {
-    margin-top: 72px;
+    margin-top: $pageSectionMarginBottom;
   }
 
   &__content {
-    margin-top: 72px;
-    margin-left: 72px;
+    margin-top: $pageSectionMarginBottom;
+    margin-left: $pageIndentedMargin;
     @include breakpoint-up(Tablet) {
       margin-top: 56px;
       margin-left: 0;
@@ -116,7 +132,7 @@
 }
 
 .cms-subsubsection {
-  margin-left: 72px;
+  margin-left: $pageIndentedMargin;
   @include breakpoint-up(Tablet) {
     margin-left: 0;
   }
@@ -146,14 +162,37 @@
 }
 
 .cms-heading1 {
-  margin-bottom: 72px;
+  margin-bottom: $pageSectionMarginBottom;
+  @include breakpoint-up(Tablet) {
+    margin-bottom: 56px;
+  }
+  @include breakpoint-up(Mobile) {
+    margin-bottom: 48px;
+  }
   ~ *:not(.cms-section, .cms-heading1) {
-    margin-left: 72px;
+    margin-left: $pageIndentedMargin;
+    @include breakpoint-up(Tablet) {
+      margin-left: 0;
+    }
   }
 }
-.cms-heading2,
-.cms-heading3 {
+.cms-heading2 {
   margin-bottom: -24px;
+  &__title {
+    margin-top: 48px;
+    @include breakpoint-up(Mobile) {
+      margin-top: 40px;
+    }
+  }
+}
+.cms-heading3 {
+  margin-bottom: -32px;
+  &__title {
+    margin-top: 40px;
+    @include breakpoint-up(Mobile) {
+      margin-top: 32px;
+    }
+  }
 }
 
 .component-header__description {
@@ -225,5 +264,11 @@
   .cms-image-inline + p {
     display: inline;
     vertical-align: middle;
+  }
+
+  &.cms-image-small {
+    @include breakpoint-up(Mobile) {
+      width: 50% !important;
+    }
   }
 }

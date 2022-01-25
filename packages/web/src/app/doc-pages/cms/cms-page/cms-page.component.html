@@ -39,7 +39,11 @@
         </div>
       </ng-container>
       <ng-container ngProjectAs="headerDescription">
-        <div *ngIf="cmsContent.pageDescription" [innerHTML]="descriptionHTML"></div>
+        <div
+          *ngIf="cmsContent.pageDescription"
+          [innerHTML]="descriptionHTML"
+          class="doc-page-description"
+        ></div>
       </ng-container>
     </app-component-header>
     <div class="subpages-content-loader page-body" *ngIf="showContentLoader">
