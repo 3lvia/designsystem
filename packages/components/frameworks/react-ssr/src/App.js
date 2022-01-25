@@ -528,7 +528,7 @@ function App() {
         <Datepicker isFullWidth id="datepicker1" customError="Error"></Datepicker>
         <Datepicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
         <div style={{display: 'flex'}}>
-        <Datepicker placeholder={"dd.mm.åååå"} minDate={minDate} maxDate={maxDate} initialFocusedDate={maxDate} isCompact={true} hasSelectDateOnOpen={false} valueOnChange={(date) => {
+        <Datepicker minDate={minDate} maxDate={maxDate} initialFocusedDate={maxDate} isCompact={true} hasSelectDateOnOpen={false} valueOnChange={(date) => {
           console.log("selected date",date)
           setSelectedDate(date)
         }}>

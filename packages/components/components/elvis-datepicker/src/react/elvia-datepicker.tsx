@@ -48,7 +48,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   onClose,
   webcomponent,
   initialFocusedDate,
-  placeholder = 'dd.mm.yyyy',
+  placeholder = 'dd.mm.åååå',
   open = false,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);

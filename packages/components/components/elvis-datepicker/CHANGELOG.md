@@ -1,5 +1,10 @@
 # Elvia Date picker Changelog
 
+## 2.1.1 (25.01.22)
+
+- Remove fixed width
+- New props: initialFocusedDate, placeholder and open
+
 ## 2.1.0 (22.12.21)
 
 - Fullwidth prop fix
