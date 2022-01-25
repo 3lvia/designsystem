@@ -1,5 +1,9 @@
 # Elvia Date picker Changelog
 
+## 2.1.1 (26.01.21)
+
+- Updated dependencies
+
 ## 2.1.0 (22.12.21)
 
 - Fullwidth prop fix

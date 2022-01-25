@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-accordion",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "",
   "main": "web_component.js",
   "scripts": {
@@ -10,8 +10,13 @@
   "license": "MIT",
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^2.1.6",
-    "@elvia/elvis-toolbox": "^1.2.0",
+    "@elvia/elvis-toolbox": "^1.2.1",
     "@elvia/elvis-colors": "^1.2.0",
     "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "react-is": "^16.8.0"
   }
 }

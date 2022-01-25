@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-chip",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -11,6 +11,12 @@
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^2.1.6",
     "@elvia/elvis-colors": "^1.2.0",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "classnames": "^2.3.1"
+  },
+  "devDependencies": {
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0",
+    "react-is": ">= 16.8.0"
   }
 }

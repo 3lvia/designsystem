@@ -1,5 +1,9 @@
 # Elvia Pagination Changelog
 
+## 1.1.2 (26.01.21)
+
+- Updated dependencies
+
 ## 1.1.1 (14.01.22)
 
 ### Patch

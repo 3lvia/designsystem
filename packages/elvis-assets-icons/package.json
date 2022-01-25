@@ -13,6 +13,7 @@
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-svgo": "^2.1.1",
-    "sharp": "^0.26.2"
+    "sharp": "^0.26.2",
+    "del": "^6.0.0"
   }
 }

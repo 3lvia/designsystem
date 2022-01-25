@@ -1,5 +1,9 @@
 # Elvia Box Changelog
 
+## 1.1.11 (26.01.21)
+
+- Updated dependencies
+
 ## 1.1.10 (14.01.22)
 
 ### Patch

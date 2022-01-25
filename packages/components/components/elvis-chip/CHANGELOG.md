@@ -1,5 +1,9 @@
 # Elvia Chip Changelog
 
+## 1.1.7 (26.01.21)
+
+- Updated dependencies
+
 ## 1.1.6 (14.01.22)
 
 ### Patch
