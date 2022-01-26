@@ -3,7 +3,7 @@ export interface TransformedDocPage {
   pageDescription: string;
   figmaUrl: string;
   content: string;
-  isMainPage: string;
+  isMainPage: boolean | string;
   docUrl: string;
   fullPath: string;
   lastUpdated: string;
