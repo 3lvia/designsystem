@@ -156,6 +156,9 @@ module.exports = [
       { name: 'customError', type: 'string', propType: 'string | undefined' },
       { name: 'minDate', type: 'Date', propType: 'Date | undefined' },
       { name: 'maxDate', type: 'Date', propType: 'Date | undefined' },
+      { name: 'placeholder', type: 'string', propType: 'string | undefined' },
+      { name: 'isOpen', type: 'boolean', propType: 'boolean' },
+
     ],
     reactName: 'Datepicker',
     elementStyle: 'display: block; max-width: 448px;',

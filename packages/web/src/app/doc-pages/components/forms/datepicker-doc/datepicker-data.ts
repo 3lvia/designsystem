@@ -106,6 +106,18 @@ const datepickerData = {
       type: '() => void',
       description: 'Callback for every time the modal is being closed.',
     },
+    placeholder: {
+      isRequired: false,
+      type: 'string',
+      default: 'dd.mm.yyyy',
+      description: 'A short hint displayed in the input before the user enters a value.',
+    },
+    isOpen: {
+      isRequired: false,
+      type: 'boolean',
+      default: 'false',
+      description: 'Controlled picker open state',
+    },
   },
   package: 'npm install @elvia/elvis-datepicker',
   codeImportReact: `import { Datepicker } from '@elvia/elvis-datepicker/react';`,
