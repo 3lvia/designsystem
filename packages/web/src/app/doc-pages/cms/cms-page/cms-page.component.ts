@@ -7,6 +7,7 @@ import { combineLatest, Subscription } from 'rxjs';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
 
 @Component({
   selector: 'app-cms-page',
@@ -95,7 +96,7 @@ export class CMSPageComponent implements OnDestroy {
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  setInnerHTMLToCMSContent(docPage: any): void {
+  setInnerHTMLToCMSContent(docPage: TransformedDocPage): void {
     this.cmsContent = docPage;
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
