@@ -3,8 +3,7 @@
  * It is used by contentful-typescript-codegen.
  */
 const contentfulManagement = require('contentful-management');
-const dotenv = require('dotenv');
-dotenv.config({ path: '.env' });
+const dotenv = require('dotenv').config();
 
 const CONFIG = {
   space: process.env.CONTENTFUL_SPACE ? process.env.CONTENTFUL_SPACE : dotenv.parsed.CONTENTFUL_SPACE,

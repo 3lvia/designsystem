@@ -126,7 +126,7 @@ export interface IImage extends Entry<IImageFields> {
 }
 
 export interface IInternalLinkFields {
-  /** Title */
+  /** Name */
   title: string;
 
   /** Url internal page */
