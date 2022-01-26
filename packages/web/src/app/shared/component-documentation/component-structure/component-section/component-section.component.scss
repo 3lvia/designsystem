@@ -1,13 +1,13 @@
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 .component-section {
-  margin-top: 104px;
+  margin-top: 72px;
   @include breakpoint-up(Mobile) {
-    margin-top: 72px;
+    margin-top: 64px;
   }
 
   &__content {
-    margin-top: 72px;
+    margin-top: 64px;
     margin-left: 72px;
     @include breakpoint-up(Tablet) {
       margin-top: 56px;

@@ -44,6 +44,13 @@ function App() {
   const [isModalShowing, setIsModalShowingState] = useState(false);
   const [isPopoverShowing, setIsPopoverShowingState] = useState(false);
   const [progressValue, setProgressValue] = useState(0);
+  const [selectedDate, setSelectedDate] = useState(dateCurr);
+  const [isDatepickerOpen, setIsDatepickerOpen] = useState(false);
+
+  let minDate = new Date()
+  minDate.setDate(minDate.getDate() - 5)
+  let maxDate = new Date()
+  maxDate.setDate(maxDate.getDate() -1)
 
   function increaseProgress() {
     setProgressValue((prevProgValue) => prevProgValue + 10);
@@ -509,14 +516,26 @@ function App() {
       >
         <Datepicker
           isRequired
-          minDate={dateCurr}
+          maxDate={maxDate}
+          hasSelectDateOnOpen={false}
           valueOnChange={(dateCurr) => console.log(dateCurr)}
         ></Datepicker>
-        <Datepicker maxDate={dateCurr}></Datepicker>
+        <Datepicker maxDate={dateCurr} isOpen={isDatepickerOpen} onClose={() => setIsDatepickerOpen(false)}></Datepicker>
+        <button onClick={() => setIsDatepickerOpen(true)}>
+        Open datepicker
+      </button>
         <Datepicker minDate={dateCurr}></Datepicker>
         <Datepicker isFullWidth id="datepicker1" customError="Error"></Datepicker>
         <Datepicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
-        <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
+        <div style={{display: 'flex'}}>
+        <Datepicker minDate={minDate} maxDate={maxDate}  isCompact={true} hasSelectDateOnOpen={false} valueOnChange={(date) => {
+          console.log("selected date",date)
+          setSelectedDate(date)
+        }}>
+          </Datepicker>
+            Valgt dato: 
+                  {selectedDate?.toLocaleDateString() }
+          </div>
       </div>
       <div style={{ margin: '40px 0' }}>
         <TestingComponent></TestingComponent>

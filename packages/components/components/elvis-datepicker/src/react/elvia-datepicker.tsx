@@ -27,6 +27,8 @@ export interface DatepickerProps {
   onOpen?: () => void;
   onClose?: () => void;
   webcomponent?: any;
+  placeholder?: string;
+  isOpen?: boolean;
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -44,16 +46,19 @@ export const Datepicker: FC<DatepickerProps> = ({
   onOpen,
   onClose,
   webcomponent,
+  placeholder = 'dd.mm.åååå',
+  isOpen = false,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
+  const [initialFocusedDate, setInitialFocusedDate] = useState<Date | null>(null);
   const [currErrorMessage, setCurrErrorMessage] = useState('');
   const [hasHadFocus, setHasHadFocus] = useState(false);
   const [hasFocus, setHasFocus] = useState(false);
   const [shouldHaveSelected, setShouldHaveSelected] = useState(true);
+  const [isDatepickerOpen, setIsDatepickerOpen] = useState(isOpen);
   const datepickerRef = useRef<HTMLDivElement>(null);
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const placeholderString = 'dd.mm.yyyy';
   // This is the unicode character U+00AD
   // Used to avoid date-fns from formatting date before date is valid
   const unicodeChar = '­';
@@ -77,6 +82,9 @@ export const Datepicker: FC<DatepickerProps> = ({
       },
     },
   });
+  useEffect(() => {
+    setIsDatepickerOpen(isOpen);
+  }, [isOpen]);
 
   useEffect(() => {
     addOutlineFix(datepickerRef.current);
@@ -84,6 +92,15 @@ export const Datepicker: FC<DatepickerProps> = ({
     return () => {
       removeOutlineFix(datepickerRef.current);
     };
+  }, []);
+
+  useEffect(() => {
+    if (hasSelectDateOnOpen) return;
+    if (maxDate) {
+      setInitialFocusedDate(maxDate);
+    } else if (minDate) {
+      setInitialFocusedDate(minDate);
+    }
   }, []);
 
   // Needed for webcomponent -> To update the default value
@@ -126,6 +143,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   const handleOpenDatepicker = () => {
     updateFocusState();
     updateInputWithSelectedDate();
+    setIsDatepickerOpen(true);
     if (!webcomponent && onOpen) {
       onOpen();
     } else if (webcomponent) {
@@ -134,6 +152,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   const handleCloseDatepicker = () => {
+    setIsDatepickerOpen(false);
     if (!webcomponent && onClose) {
       onClose();
     } else if (webcomponent) {
@@ -338,7 +357,7 @@ export const Datepicker: FC<DatepickerProps> = ({
             variant="inline"
             autoOk={true}
             value={selectedDate}
-            placeholder={placeholderString}
+            placeholder={placeholder}
             format="dd.MM.yyyy"
             rifmFormatter={getDateFormat}
             disabled={isDisabled === true}
@@ -347,6 +366,7 @@ export const Datepicker: FC<DatepickerProps> = ({
             maxDate={maxDate}
             onChange={handleDateChange}
             onFocus={onFocus}
+            open={isDatepickerOpen}
             onOpen={handleOpenDatepicker}
             onClose={handleCloseDatepicker}
             keyboardIcon={getCalIcon()}
@@ -371,6 +391,7 @@ export const Datepicker: FC<DatepickerProps> = ({
               transformOrigin: { horizontal: 'left', vertical: 'top' },
               ref: datepickerPopoverRef,
             }}
+            initialFocusedDate={initialFocusedDate}
           />
         </MuiPickersUtilsProvider>
       </ThemeProvider>

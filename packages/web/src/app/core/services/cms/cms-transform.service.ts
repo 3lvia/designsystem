@@ -1,9 +1,21 @@
 import { Injectable } from '@angular/core';
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { documentToHtmlString, Options } from '@contentful/rich-text-html-renderer';
 import { Locale } from '../localization.service';
 import { Router } from '@angular/router';
-import { Entry } from 'contentful';
+import {
+  ICenteredContent,
+  IDocumentationPage,
+  IImage,
+  IInternalLink,
+  ILandingPage,
+  ILandingPageWithCards,
+  IOverviewCard,
+  ISection,
+  ISubsection,
+  ISubsubsection,
+} from 'contentful/__generated__/types';
+import { TransformedDocPage } from './cms.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,14 +23,14 @@ import { Entry } from 'contentful';
 export class CMSTransformService {
   private locale = 'en-GB'; // Fallback
   private subMenu;
-  private options = {
+  private options: Options = {
     renderMark: {
       [MARKS.BOLD]: (text) => `<b>${text}</b>`,
     },
     renderNode: {
       [BLOCKS.HEADING_1]: (node, next) => this.getHeading1(next(node.content)),
       [BLOCKS.HEADING_2]: (node, next) => this.getHeading2(next(node.content)),
-      [BLOCKS.HEADING_3]: (node, next) => this.getHeading3(next(node.content)),
+      [BLOCKS.HEADING_5]: (node, next) => this.getHeading3(next(node.content)),
       [BLOCKS.PARAGRAPH]: (node, next) => this.getParagraph(next(node.content)),
       [BLOCKS.UL_LIST]: (node, next) => this.getList(next(node.content)),
       [BLOCKS.OL_LIST]: (node, next) => this.getNumberedList(next(node.content)),
@@ -31,7 +43,7 @@ export class CMSTransformService {
   constructor(private router: Router) {}
 
   // eslint-disable-next-line
-  getHTML(data, locale, subMenu?, model?): string {
+  getHTML(data, locale: string, subMenu?, model?: string): string {
     this.subMenu = subMenu;
     this.locale = locale;
     if (data.nodeType === 'embedded-entry-block' || data.nodeType === 'embedded-entry-inline') {
@@ -44,7 +56,12 @@ export class CMSTransformService {
     }
   }
 
-  transformEntryToDocPage(data: Entry<any>, subMenu: string, localization: Locale): any {
+  transformEntryToDocPage(
+    data: IDocumentationPage,
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    subMenu,
+    localization: Locale,
+  ): TransformedDocPage {
     let locale = 'en-GB';
     if (localization === Locale['nb-NO']) {
       locale = 'nb-NO';
@@ -72,7 +89,7 @@ export class CMSTransformService {
     };
   }
 
-  private embeddedEntryBlock(node, locale, subMenu) {
+  private embeddedEntryBlock(node, locale: string, subMenu) {
     const type = this.getEntryType(node);
     const data = node.data.target;
     if (type === 'section') {
@@ -110,14 +127,14 @@ export class CMSTransformService {
     return node.data.target.sys.contentType.sys.id;
   }
 
-  private getCenteredContent(data, locale) {
+  private getCenteredContent(data: ICenteredContent, locale: string) {
     return `
       <div class="cms-centered-content">
         ${documentToHtmlString(data.fields.content[locale], this.options)}
       </div>`;
   }
 
-  private getList(content) {
+  private getList(content: string) {
     const liRegex = /(?:<li>)(.*?)(?=<\/li>)/g;
     const imgRegex = /(?:<img)(.*?)(?=\/>)/g;
     if (!content.match(liRegex)) {
@@ -149,7 +166,7 @@ export class CMSTransformService {
     return `<ul class="e-list e-list--numbers">${list}</ul>`;
   }
 
-  private getLink(data, locale, subMenu) {
+  private getLink(data: IInternalLink, locale: string, subMenu) {
     let fullPath = '';
     if (data.fields.page) {
       const subPath = data.fields.page[locale].fields.path[locale];
@@ -188,15 +205,22 @@ export class CMSTransformService {
       </a>`;
   }
 
-  private getImage(data, locale) {
+  private getImage(data: IImage, locale: string) {
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
-    return `<div class="cms-image" 
+    return `<div
       ${`style=' 
+        ${data.fields.inlineText ? 'display: block' : `display: inline-block;`}
         ${
-          data.fields.inlineText
-            ? 'display: block'
-            : `display: inline-block; width: ${data.fields.size[locale]}`
-        } 
+          data.fields.size[locale] === 'original'
+            ? `width: unset`
+            : data.fields.size[locale] === '100%'
+            ? `width: calc(${data.fields.size[locale]} - 64px)`
+            : `width: ${data.fields.size[locale]}`
+        }
+      '`}
+      ${`class='
+        cms-image
+        ${data.fields.size[locale] === '25%' ? `cms-image-small` : `cms-image-normal`}
       '`}
     >
       <img
@@ -220,7 +244,7 @@ export class CMSTransformService {
     `;
   }
 
-  private getFullPath(subPath, subMenu) {
+  private getFullPath(subPath: string, subMenu) {
     let fullPath = '';
     subMenu.forEach((element) => {
       if (element.path === subPath) {
@@ -243,7 +267,7 @@ export class CMSTransformService {
     return `<img class="cms-img" src="${asset}"/>`;
   }
 
-  private getSection(data, locale) {
+  private getSection(data: ISection, locale: string) {
     return `
       <div class="cms-section elvis-anchor">
         <div class="cms-section__title" id="${
@@ -275,7 +299,8 @@ export class CMSTransformService {
         </div>
       </div>`;
   }
-  private getSubsection(data, locale) {
+
+  private getSubsection(data: ISubsection, locale: string) {
     return `
       <div class="cms-subsection e-my-72">
         <div class="cms-subsection__title">
@@ -288,7 +313,8 @@ export class CMSTransformService {
         </div>
       </div>`;
   }
-  private getSubsubsection(data, locale) {
+
+  private getSubsubsection(data: ISubsubsection, locale: string) {
     return `
       <div class="cms-subsubsection e-my-48">
         <div class="cms-subsubsection__title">
@@ -334,7 +360,7 @@ export class CMSTransformService {
   }
 
   private getHeading2(heading: string): string {
-    return `<div class="cms-heading2 e-mt-72">
+    return `<div class="cms-heading2">
       <h3 class="cms-heading2__title e-title-sm">
         ${heading}
       </h3>
@@ -342,14 +368,14 @@ export class CMSTransformService {
   }
 
   private getHeading3(heading: string): string {
-    return `<div class="cms-heading3 e-mt-48">
+    return `<div class="cms-heading3">
       <h4 class="cms-heading3__title e-title-xs">
         ${heading}
       </h4>
     </div>`;
   }
 
-  private getLandingPage(data, locale) {
+  private getLandingPage(data: ILandingPage, locale: string) {
     const srcUrl = 'https:' + data.fields.overviewImage[locale].fields.file[locale].url;
     return `
       <div class="cms-landing-page">
@@ -360,8 +386,8 @@ export class CMSTransformService {
       </div>`;
   }
 
-  private getLandingPageWithCards(data, locale, subMenu) {
-    const cardList = [...data.fields.overviewCard[locale]];
+  private getLandingPageWithCards(data: ILandingPageWithCards, locale: string, subMenu) {
+    const cardList: IOverviewCard[] = [...data.fields.overviewCard[locale]];
     let returnString = '';
     cardList.forEach((card) => {
       let fullPath = '';
