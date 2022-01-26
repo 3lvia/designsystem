@@ -1,8 +1,9 @@
 # Elvia Date picker Changelog
 
-## 2.2.2 (26.01.21)
+## 2.2.3 (26.01.21)
 
 - Updated dependencies
+
 ## 2.2.1 (26.01.22)
 
 - Remove fixed width
