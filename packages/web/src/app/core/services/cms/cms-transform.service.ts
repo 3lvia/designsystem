@@ -30,7 +30,7 @@ export class CMSTransformService {
     renderNode: {
       [BLOCKS.HEADING_1]: (node, next) => this.getHeading1(next(node.content)),
       [BLOCKS.HEADING_2]: (node, next) => this.getHeading2(next(node.content)),
-      [BLOCKS.HEADING_3]: (node, next) => this.getHeading3(next(node.content)),
+      [BLOCKS.HEADING_5]: (node, next) => this.getHeading3(next(node.content)),
       [BLOCKS.PARAGRAPH]: (node, next) => this.getParagraph(next(node.content)),
       [BLOCKS.UL_LIST]: (node, next) => this.getList(next(node.content)),
       [BLOCKS.OL_LIST]: (node, next) => this.getNumberedList(next(node.content)),
@@ -207,13 +207,20 @@ export class CMSTransformService {
 
   private getImage(data: IImage, locale: string) {
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
-    return `<div class="cms-image" 
+    return `<div
       ${`style=' 
+        ${data.fields.inlineText ? 'display: block' : `display: inline-block;`}
         ${
-          data.fields.inlineText
-            ? 'display: block'
-            : `display: inline-block; width: ${data.fields.size[locale]}`
-        } 
+          data.fields.size[locale] === 'original'
+            ? `width: unset`
+            : data.fields.size[locale] === '100%'
+            ? `width: calc(${data.fields.size[locale]} - 64px)`
+            : `width: ${data.fields.size[locale]}`
+        }
+      '`}
+      ${`class='
+        cms-image
+        ${data.fields.size[locale] === '25%' ? `cms-image-small` : `cms-image-normal`}
       '`}
     >
       <img
@@ -353,7 +360,7 @@ export class CMSTransformService {
   }
 
   private getHeading2(heading: string): string {
-    return `<div class="cms-heading2 e-mt-72">
+    return `<div class="cms-heading2">
       <h3 class="cms-heading2__title e-title-sm">
         ${heading}
       </h3>
@@ -361,7 +368,7 @@ export class CMSTransformService {
   }
 
   private getHeading3(heading: string): string {
-    return `<div class="cms-heading3 e-mt-48">
+    return `<div class="cms-heading3">
       <h4 class="cms-heading3__title e-title-xs">
         ${heading}
       </h4>
