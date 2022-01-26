@@ -1,5 +1,9 @@
 # Elvia Tabs Changelog
 
+## 1.1.5 (26.01.21)
+
+- Updated dependencies
+
 ## 1.1.4 (06.12.21)
 
 - Added unit tests for tabs
@@ -18,20 +22,3 @@
 
 - Add a general fade
 - Remove margin when scroll is used
-
-### Breaking changes
-
-- Breaking change
-  - Easy fix
-- Breaking change
-  - Easy fix
-
-### New features
-
-- New feature
-- New feature
-
-### Bug fixes
-
-- Bug fix
-- Bug fix

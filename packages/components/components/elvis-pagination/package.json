@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-pagination",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -10,11 +10,19 @@
   },
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^2.1.6",
-    "@elvia/elvis-toolbox": "^1.2.0",
     "@elvia/elvis-dropdown": "^2.0.0",
     "@elvia/elvis-colors": "^1.2.0",
     "@elvia/elvis-typography": "^1.2.0",
-    "classnames": "^2.3.1",
     "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0",
+    "react-is": ">= 16.8.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0",
+    "react-is": ">= 16.8.0"
   }
 }

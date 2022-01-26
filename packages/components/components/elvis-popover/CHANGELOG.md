@@ -1,5 +1,9 @@
 # Elvia Popover Changelog
 
+## 4.2.4 (26.01.21)
+
+- Updated dependencies
+
 ## 4.2.3 (10.12.21)
 
 ### Patch
