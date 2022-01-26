@@ -2474,19 +2474,6 @@
   resolved "https://registry.yarnpkg.com/@elvia/elvis-assets-icons/-/elvis-assets-icons-1.3.0.tgz#d3917ebc673b593234341207f2a9cd6764b5a020"
   integrity sha512-oX4uJqPgIqxbus6RHcDa/s7UjqW2SmXAG+wroToMpE/Fhe9Bz2fgLGChBW+P/dH+xTq/bDI2OL7iVg5enFVilQ==
 
-"@elvia/elvis-datepicker@*":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@elvia/elvis-datepicker/-/elvis-datepicker-2.1.0.tgz#b3b37860e0ec55607c13212f6d5b20e8c4c8fd03"
-  integrity sha512-pYc50c7G5K4Yn9bBkWeD0nhWuXgVsHa5cvSzljg8BKGjxxT46EJBwhjP1KzETtYNdJ0VKSR5I5v7umhO3VGuIg==
-  dependencies:
-    "@date-io/date-fns" "^1.3.13"
-    "@elvia/elvis-component-wrapper" "^2.1.6"
-    "@elvia/elvis-toolbox" "^1.2.0"
-    "@material-ui/core" "4.12.3"
-    "@material-ui/pickers" "3.3.10"
-    classnames "^2.2.6"
-    date-fns "^2.27.0"
-
 "@emotion/cache@^11.0.0", "@emotion/cache@^11.7.1":
   version "11.7.1"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-11.7.1.tgz#08d080e396a42e0037848214e8aa7bf879065539"
@@ -6951,7 +6938,7 @@ classlist.js@^1.1.20150312:
   resolved "https://registry.yarnpkg.com/classlist.js/-/classlist.js-1.1.20150312.tgz#1d70842f7022f08d9ac086ce69e5b250f2c57789"
   integrity sha1-HXCEL3Ai8I2awIbOaeWyUPLFd4k=
 
-classnames@^2.2.6, classnames@^2.3.1:
+classnames@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==

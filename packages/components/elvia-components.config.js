@@ -157,7 +157,7 @@ module.exports = [
       { name: 'minDate', type: 'Date', propType: 'Date | undefined' },
       { name: 'maxDate', type: 'Date', propType: 'Date | undefined' },
       { name: 'placeholder', type: 'string', propType: 'string | undefined' },
-      { name: 'open', type: 'boolean', propType: 'boolean' },
+      { name: 'isOpen', type: 'boolean', propType: 'boolean' },
 
     ],
     reactName: 'Datepicker',

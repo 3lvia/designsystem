@@ -28,7 +28,7 @@ export interface DatepickerProps {
   onClose?: () => void;
   webcomponent?: any;
   placeholder?: string;
-  open?: boolean;
+  isOpen?: boolean;
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -47,7 +47,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   onClose,
   webcomponent,
   placeholder = 'dd.mm.åååå',
-  open = false,
+  isOpen = false,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
   const [initialFocusedDate, setInitialFocusedDate] = useState<Date | null>(null);
@@ -55,7 +55,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   const [hasHadFocus, setHasHadFocus] = useState(false);
   const [hasFocus, setHasFocus] = useState(false);
   const [shouldHaveSelected, setShouldHaveSelected] = useState(true);
-  const [isOpen, setIsOpen] = useState(open);
+  const [isDatepickerOpen, setIsDatepickerOpen] = useState(isOpen);
   const datepickerRef = useRef<HTMLDivElement>(null);
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -83,8 +83,8 @@ export const Datepicker: FC<DatepickerProps> = ({
     },
   });
   useEffect(() => {
-    setIsOpen(open);
-  }, [open]);
+    setIsDatepickerOpen(isOpen);
+  }, [isOpen]);
 
   useEffect(() => {
     addOutlineFix(datepickerRef.current);
@@ -143,7 +143,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   const handleOpenDatepicker = () => {
     updateFocusState();
     updateInputWithSelectedDate();
-    setIsOpen(true);
+    setIsDatepickerOpen(true);
     if (!webcomponent && onOpen) {
       onOpen();
     } else if (webcomponent) {
@@ -152,7 +152,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   const handleCloseDatepicker = () => {
-    setIsOpen(false);
+    setIsDatepickerOpen(false);
     if (!webcomponent && onClose) {
       onClose();
     } else if (webcomponent) {
@@ -366,7 +366,7 @@ export const Datepicker: FC<DatepickerProps> = ({
             maxDate={maxDate}
             onChange={handleDateChange}
             onFocus={onFocus}
-            open={isOpen}
+            open={isDatepickerOpen}
             onOpen={handleOpenDatepicker}
             onClose={handleCloseDatepicker}
             keyboardIcon={getCalIcon()}
