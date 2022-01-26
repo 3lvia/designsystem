@@ -1,6 +1,6 @@
 # Elvia Modal Changelog
 
-## 1.3.10-beta.3 (25.01.22)
+## 1.3.10 (25.01.22)
 
 ### Patch
 
