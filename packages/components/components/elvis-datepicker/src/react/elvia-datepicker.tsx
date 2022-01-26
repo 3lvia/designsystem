@@ -391,7 +391,7 @@ export const Datepicker: FC<DatepickerProps> = ({
               transformOrigin: { horizontal: 'left', vertical: 'top' },
               ref: datepickerPopoverRef,
             }}
-            initialFocusedDate={initialFocusedDate && initialFocusedDate}
+            initialFocusedDate={initialFocusedDate}
           />
         </MuiPickersUtilsProvider>
       </ThemeProvider>

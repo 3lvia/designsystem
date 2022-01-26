@@ -1,6 +1,6 @@
 # Elvia Date picker Changelog
 
-## 2.2.0 (26.01.22)
+## 2.2.1 (26.01.22)
 
 - Remove fixed width
 - New props: placeholder and isOpen
