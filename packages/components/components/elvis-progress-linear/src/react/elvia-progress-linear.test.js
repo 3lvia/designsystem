@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 
 describe('Elvis Progress Linear', () => {
   let wrapper;
+  let progressWrapper;
   let progressLinear;
 
   describe('Default', () => {
@@ -47,6 +48,23 @@ describe('Elvis Progress Linear', () => {
     });
     it('should have class ewc-progress-linear--error', function (done) {
       expect(progressLinear.getDOMNode()).toHaveClass('ewc-progress-linear--error');
+      done();
+    });
+  });
+  describe('className and style passed to wrapper', () => {
+    beforeEach(() => {
+      wrapper = mount(
+        <ProgressLinear value="48" className="test-class" style={{ margin: '24px' }}></ProgressLinear>,
+      );
+      progressWrapper = wrapper.find({ 'data-testid': 'progress-wrapper' }).at(0);
+    });
+    it('should have class ewc-progress-linear', function (done) {
+      expect(progressWrapper.getDOMNode()).toHaveClass('ewc-progress-linear');
+      done();
+    });
+    it('should have className and style', function (done) {
+      expect(progressWrapper.getDOMNode()).toHaveStyle('margin: 24px');
+      expect(progressWrapper.getDOMNode()).toHaveClass('test-class');
       done();
     });
   });

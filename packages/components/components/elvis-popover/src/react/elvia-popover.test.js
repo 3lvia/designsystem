@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 
 describe('Elvis Popover', () => {
   let wrapper;
+  let popoverWrapper;
   let popoverTrigger;
   let popoverContainer;
   let popoverCloseBtn;
@@ -83,6 +84,28 @@ describe('Elvis Popover', () => {
     });
     it('should not have close btn', function (done) {
       expect(popoverCloseBtn.exists()).toBeFalsy();
+      done();
+    });
+  });
+  describe('className and style passed to wrapper', () => {
+    beforeEach(() => {
+      wrapper = mount(
+        <Popover
+          trigger={<button>Trigger</button>}
+          header="Header"
+          content="Content"
+          className="test-class"
+          style={{ margin: '24px' }}
+        />,
+      );
+      popoverWrapper = wrapper.find({ 'data-testid': 'popover-wrapper' }).at(0);
+    });
+    afterEach(() => {
+      wrapper.unmount();
+    });
+    it('should have className and style', function (done) {
+      expect(popoverWrapper.at(0).getDOMNode()).toHaveStyle('margin: 24px');
+      expect(popoverWrapper.at(0).getDOMNode()).toHaveClass('test-class');
       done();
     });
   });

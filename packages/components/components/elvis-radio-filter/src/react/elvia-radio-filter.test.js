@@ -43,4 +43,18 @@ describe('Elvis RadioFilter', () => {
       done();
     });
   });
+  describe('className and style passed to wrapper', () => {
+    beforeEach(() => {
+      wrapper = mount(<RadioFilter items={items} className="test-class" style={{ margin: '24px' }} />);
+      radioFilterElements = wrapper.find({ 'data-testid': 'radio-filter-group' }).at(0);
+    });
+    afterEach(() => {
+      wrapper.unmount();
+    });
+    it('should have className and style', function (done) {
+      expect(radioFilterElements.getDOMNode()).toHaveStyle('margin: 24px');
+      expect(radioFilterElements.getDOMNode()).toHaveClass('test-class');
+      done();
+    });
+  });
 });

@@ -8,6 +8,8 @@ export interface DividerProps {
   typography?: DividerTypography;
   isInverted?: boolean;
   orientation?: DividerOrientation;
+  className?: string;
+  style?: { [style: string]: string };
   webcomponent: any;
 }
 
@@ -17,6 +19,8 @@ export const Divider: React.FC<DividerProps> = ({
   title = '',
   isInverted = false,
   orientation = 'horizontal',
+  className,
+  style,
   webcomponent,
 }) => {
   const dividerTitleRef = useRef<HTMLDivElement>(null);
@@ -34,7 +38,14 @@ export const Divider: React.FC<DividerProps> = ({
   });
 
   return (
-    <DividerArea type={type} isInverted={isInverted} orientation={orientation} data-testid="divider-area">
+    <DividerArea
+      type={type}
+      isInverted={isInverted}
+      orientation={orientation}
+      className={`${className ? className : ''}`}
+      style={style}
+      data-testid="divider-area"
+    >
       {title === '' && type === 'title' && (
         <DividerTitle typography={typography} isInverted={isInverted} ref={dividerTitleRef}></DividerTitle>
       )}

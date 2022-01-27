@@ -36,6 +36,8 @@ export interface PaginationProps {
   label: string;
   labelOf: string;
   valueOnChange?: (value: SelectionNumber) => void;
+  className?: string;
+  style?: { [style: string]: string };
   webcomponent?: any;
 }
 
@@ -69,6 +71,8 @@ const Pagination: FC<PaginationProps> = ({
   labelDisplaying = 'Viser',
   labelOf = 'av',
   valueOnChange,
+  className,
+  style,
   webcomponent,
 }) => {
   const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[0]);
@@ -454,7 +458,12 @@ const Pagination: FC<PaginationProps> = ({
   }, [value]);
 
   return (
-    <Paginator isRightAligned={isRightAligned} data-testid="pagination">
+    <Paginator
+      isRightAligned={isRightAligned}
+      className={`${className ? className : ''}`}
+      style={style}
+      data-testid="pagination"
+    >
       <PaginatorInfoContainer>
         <PaginatorInfoText data-testid="info-text">{labelDisplaying}</PaginatorInfoText>
         <PaginatorInfoDropdown>

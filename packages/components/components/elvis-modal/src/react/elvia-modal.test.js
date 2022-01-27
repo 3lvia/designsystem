@@ -17,7 +17,7 @@ describe('Elvis Modal', () => {
       wrapper = mount(
         <Modal title="Title" content="Content" primaryButton={<button>Primary</button>}></Modal>,
       );
-      modalWrapper = wrapper.find({ 'data-testid': 'modal-wrapper' }).at(0);
+      modalWrapper = wrapper.find({ 'data-testid': 'modal-container' }).at(0);
       modalPrimaryBtn = wrapper.find({ 'data-testid': 'modal-primary-btn' }).at(0);
       modalSecondaryBtn = wrapper.find({ 'data-testid': 'modal-secondary-btn' }).at(0);
       modalTitle = wrapper.find({ 'data-testid': 'modal-title' }).at(0);
@@ -67,7 +67,7 @@ describe('Elvis Modal', () => {
           isShowing
         ></Modal>,
       );
-      modalWrapper = wrapper.find({ 'data-testid': 'modal-wrapper' }).at(0);
+      modalWrapper = wrapper.find({ 'data-testid': 'modal-container' }).at(0);
       modalSecondaryBtn = wrapper.find({ 'data-testid': 'modal-secondary-btn' }).at(0);
       modalIllustration = wrapper.find({ 'data-testid': 'modal-illustration' }).at(0);
       modalCloseBtn = wrapper.find({ 'data-testid': 'modal-close-btn' }).at(0);
@@ -86,6 +86,25 @@ describe('Elvis Modal', () => {
     });
     it('should have close btn', function (done) {
       expect(modalCloseBtn.exists()).toBeTruthy();
+      done();
+    });
+  });
+  describe('className and style passed to wrapper', () => {
+    beforeEach(() => {
+      wrapper = mount(
+        <Modal
+          title="Title"
+          content="Content"
+          primaryButton={<button>Primary</button>}
+          className="test-class"
+          style={{ margin: '24px' }}
+        ></Modal>,
+      );
+      modalWrapper = wrapper.find({ 'data-testid': 'modal-wrapper' }).at(0);
+    });
+    it('should have className and style', function (done) {
+      expect(modalWrapper.getDOMNode()).toHaveStyle('margin: 24px');
+      expect(modalWrapper.getDOMNode()).toHaveClass('test-class');
       done();
     });
   });

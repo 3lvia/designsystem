@@ -22,6 +22,7 @@ export interface ModalProps {
   primaryButton?: HTMLElement;
   secondaryButton?: HTMLElement;
   className?: string;
+  style?: { [style: string]: string };
   hasCloseBtn?: boolean;
   hasLockBodyScroll?: boolean;
   disableClose?: boolean;
@@ -38,6 +39,7 @@ export const ModalComponent: FC<ModalProps> = ({
   primaryButton,
   secondaryButton,
   className,
+  style,
   hasCloseBtn = false,
   hasLockBodyScroll = true,
   disableClose = false,
@@ -126,13 +128,15 @@ export const ModalComponent: FC<ModalProps> = ({
       role="dialog"
       aria-label={title}
       isShowing={isShowing}
-      data-testid="modal-wrapper"
+      data-testid="modal-container"
     >
       <ModalWrapper
         ref={modalWrapperRef}
         hasIllustration={hasIllustration}
         className={className}
+        style={style}
         maxWidth={maxWidth}
+        data-testid="modal-wrapper"
       >
         {illustration && (
           <ModalIllustration data-testid="modal-illustration">{illustration}</ModalIllustration>

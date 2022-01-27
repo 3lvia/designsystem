@@ -34,6 +34,8 @@ export interface DropdownProps {
   placeholder?: string;
   valueOnChange?: (selectedOptions: DropdownOption | Array<DropdownOption> | undefined) => void;
   value?: DropdownOption | Array<DropdownOption> | undefined;
+  className?: string;
+  style?: { [style: string]: string };
   webcomponent?: any;
 }
 
@@ -64,6 +66,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   value,
   valueOnChange,
+  className,
+  style,
   webcomponent,
 }) => {
   const [currentVal, setCurrentVal] = useState(defaultValue);
@@ -346,7 +350,13 @@ const Dropdown: React.FC<DropdownProps> = ({
   }, [errorMessage]);
 
   return (
-    <DropdownWrapper isDisabled={isDisabled} ref={dropdownRef} data-testid="wrapper">
+    <DropdownWrapper
+      isDisabled={isDisabled}
+      ref={dropdownRef}
+      className={`${className ? className : ''}`}
+      style={style}
+      data-testid="wrapper"
+    >
       <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
         {label}
       </DropdownLabel>

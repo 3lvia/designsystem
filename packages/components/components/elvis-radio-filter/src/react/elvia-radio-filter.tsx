@@ -12,6 +12,8 @@ export interface BaseRadioFilterProps {
   value: string;
   ariaLabel?: string;
   valueOnChange?: (value: string) => void;
+  className?: string;
+  style?: { [style: string]: string };
   webcomponent?: any;
 }
 
@@ -21,6 +23,8 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
   items,
   value,
   valueOnChange,
+  className,
+  style,
   webcomponent,
 }) => {
   const updateValue = (value: string) => {
@@ -33,7 +37,12 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
   };
 
   return (
-    <RadioFilterGroup role="radiogroup" data-testid="radio-filter-group">
+    <RadioFilterGroup
+      role="radiogroup"
+      className={`${className ? className : ''}`}
+      style={style}
+      data-testid="radio-filter-group"
+    >
       {items &&
         items.map(({ label, value: optionsValue }) => (
           <RadioFilterLabel key={optionsValue} isSelected={optionsValue === value}>

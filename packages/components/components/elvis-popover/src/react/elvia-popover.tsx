@@ -12,6 +12,8 @@ export interface PopoverProps {
   hasCloseBtn?: boolean;
   isShowing?: boolean;
   isShowingOnChange?: (isShowing: boolean) => void;
+  className?: string;
+  style?: { [style: string]: string };
   webcomponent: any;
 }
 
@@ -24,6 +26,8 @@ const Popover: FC<PopoverProps> = ({
   hasCloseBtn = true,
   isShowing = false,
   isShowingOnChange,
+  className,
+  style,
   webcomponent,
 }) => {
   const [popoverVisibility, setPopoverVisibility] = useState(isShowing);
@@ -331,7 +335,12 @@ const Popover: FC<PopoverProps> = ({
   });
 
   return (
-    <div ref={popoverRef}>
+    <div
+      className={`${className ? className : ''}`}
+      style={style}
+      ref={popoverRef}
+      data-testid="popover-wrapper"
+    >
       <div ref={popoverClasscontainerRef} className={popoverClasses} data-testid="popover-container">
         <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
           {trigger && (

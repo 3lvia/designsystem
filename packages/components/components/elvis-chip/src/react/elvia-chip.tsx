@@ -13,6 +13,8 @@ export interface BaseChipProps {
   value: string;
   onDelete?: (event: string) => void;
   valueOnChange?: (event: onChangeValue) => void;
+  className?: string;
+  style?: { [style: string]: string };
   webcomponent?: any;
 }
 
@@ -25,6 +27,8 @@ export const Chip: FC<BaseChipProps> = ({
   value,
   onDelete,
   valueOnChange,
+  className,
+  style,
   webcomponent,
 }) => {
   const [isSelected, setIsSelected] = useState(selected);
@@ -69,6 +73,8 @@ export const Chip: FC<BaseChipProps> = ({
       onMouseLeave={setHover(false)}
       chipType={type}
       isSelected={isSelected}
+      className={`${className ? className : ''}`}
+      style={style}
       data-testid="chip-button"
     >
       {type === 'choice' && (

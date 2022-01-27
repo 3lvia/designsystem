@@ -144,4 +144,19 @@ describe('Elvis Chip', () => {
       done();
     });
   });
+  describe('className and style passed to wrapper', () => {
+    beforeEach(() => {
+      wrapper = mount(<Chip value="chip value" className="test-class" style={{ margin: '24px' }}></Chip>);
+      chipButton = wrapper.find({ 'data-testid': 'chip-button' }).at(0);
+    });
+    afterEach(() => {
+      wrapper.unmount();
+    });
+
+    it('should have className and style', function (done) {
+      expect(chipButton.getDOMNode()).toHaveStyle('margin: 24px');
+      expect(chipButton.getDOMNode()).toHaveClass('test-class');
+      done();
+    });
+  });
 });

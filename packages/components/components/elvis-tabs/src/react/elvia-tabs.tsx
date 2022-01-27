@@ -7,10 +7,20 @@ export interface TabsProps {
   value: number;
   isInverted: boolean;
   valueOnChange?: (value: number) => void;
+  className?: string;
+  style?: { [style: string]: string };
   webcomponent?: any;
 }
 
-const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webcomponent }) => {
+const Tabs: FC<TabsProps> = ({
+  items,
+  value = 0,
+  isInverted,
+  valueOnChange,
+  className,
+  style,
+  webcomponent,
+}) => {
   const [currValue, setCurrValue] = useState(value);
   const [isOnRightEnd, setIsOnRightEnd] = useState(true);
   const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
@@ -116,7 +126,12 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
   });
 
   return (
-    <div className={tabsClasses} ref={tabsRef} data-testid="tabs-container">
+    <div
+      className={tabsClasses + (className ? ' ' + className : '')}
+      style={style}
+      ref={tabsRef}
+      data-testid="tabs-container"
+    >
       <div
         className={arrowLeftClasses}
         onClick={() => {
