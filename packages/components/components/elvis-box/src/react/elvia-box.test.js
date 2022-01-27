@@ -12,17 +12,18 @@ const htmlCode = <div>Html content</div>;
 
 describe('Elvis Box', () => {
   let wrapper;
-  let boxtitle;
+  let boxArea;
+  let boxTitle;
   let boxContent;
   let boxColoredLineWithContent;
 
   describe('Title = Hello', () => {
     beforeEach(() => {
       wrapper = mount(<Box title="Hello Box"></Box>);
-      boxtitle = wrapper.find({ 'data-testid': 'box-title' }).at(0);
+      boxTitle = wrapper.find({ 'data-testid': 'box-title' }).at(0);
     });
     it('should have title containing "Hello Box"', function (done) {
-      expect(boxtitle.text()).toBe('Hello Box');
+      expect(boxTitle.text()).toBe('Hello Box');
       done();
     });
   });
@@ -58,6 +59,17 @@ describe('Elvis Box', () => {
     });
     it('should show box content with a grey border', function (done) {
       expect(boxContent.getDOMNode()).toHaveStyle(`border: 1px solid ${colors.grey10}`);
+      done();
+    });
+  });
+  describe('className and style props', () => {
+    beforeEach(() => {
+      wrapper = mount(<Box className={'test-class'} style={{ margin: '24px' }}></Box>);
+      boxArea = wrapper.find({ 'data-testid': 'box-area' }).at(0);
+    });
+    it('should have className and style from props', function (done) {
+      expect(boxArea.getDOMNode()).toHaveStyle(`margin: 24px`);
+      expect(boxArea.getDOMNode()).toHaveClass('test-class');
       done();
     });
   });

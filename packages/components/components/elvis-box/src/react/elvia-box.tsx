@@ -1,14 +1,24 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { CSSProperties, FC, useEffect, useRef } from 'react';
 import { BoxArea, BoxColoredLine, BoxTitle, BoxContent } from './styledComponents';
 export interface BoxProps {
   content: string | HTMLElement;
   title?: string;
   isColored?: boolean;
   hasBorder?: boolean;
+  className?: string;
+  style?: { [style: string]: CSSProperties };
   webcomponent: any;
 }
 
-const Box: FC<BoxProps> = ({ content, title, isColored = false, hasBorder = false, webcomponent }) => {
+const Box: FC<BoxProps> = ({
+  content,
+  title,
+  isColored = false,
+  hasBorder = false,
+  className,
+  style,
+  webcomponent,
+}) => {
   const boxContent = useRef<HTMLDivElement>(null);
   const boxTitle = useRef<HTMLDivElement>(null);
 
@@ -29,7 +39,7 @@ const Box: FC<BoxProps> = ({ content, title, isColored = false, hasBorder = fals
   }, [webcomponent]);
 
   return (
-    <BoxArea>
+    <BoxArea className={`${className && className}`} style={style} data-testid="box-area">
       {title && <BoxTitle data-testid="box-title">{title}</BoxTitle>}
       {!title && <BoxTitle ref={boxTitle}></BoxTitle>}
       {content && (
