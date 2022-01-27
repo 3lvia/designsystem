@@ -15,10 +15,18 @@ interface BreadcrumbLink {
 interface BreadcrumbProps {
   breadcrumbs: BreadcrumbLink[];
   breadcrumbsOnChange?: (value: number) => void;
+  className?: string;
+  style?: { [style: string]: string };
   webcomponent: any;
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOnChange, webcomponent }) => {
+const Breadcrumb: React.FC<BreadcrumbProps> = ({
+  breadcrumbs = [],
+  breadcrumbsOnChange,
+  className,
+  style,
+  webcomponent,
+}) => {
   const [childrenLength, setChildrenLength] = useState<number>(0);
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
 
@@ -114,7 +122,15 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
   } else {
     breadcrumb = DesktopBreadcrumb();
   }
-  return <BreadcrumbWrapper>{breadcrumb}</BreadcrumbWrapper>;
+  return (
+    <BreadcrumbWrapper
+      className={`${className ? className : ''}`}
+      style={style}
+      data-testid="breadcrumb-wrapper"
+    >
+      {breadcrumb}
+    </BreadcrumbWrapper>
+  );
 };
 
 export default Breadcrumb;

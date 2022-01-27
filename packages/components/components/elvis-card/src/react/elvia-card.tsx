@@ -34,6 +34,8 @@ export interface CardProps {
   maxDescriptionLines: number;
   label?: string;
   cornerIcon?: string | HTMLElement;
+  className?: string;
+  style?: { [style: string]: string };
   webcomponent: any;
 }
 
@@ -56,6 +58,8 @@ const Card: FC<CardProps> = ({
   maxDescriptionLines = 5,
   label,
   cornerIcon,
+  className,
+  style,
   webcomponent,
 }) => {
   if (type === 'detail') shape = 'square';
@@ -120,6 +124,8 @@ const Card: FC<CardProps> = ({
       data-testid="card-area"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
+      className={`${className ? className : ''}`}
+      style={style}
     >
       {shape === 'square' && type === 'simple' && borderColor && (
         <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>

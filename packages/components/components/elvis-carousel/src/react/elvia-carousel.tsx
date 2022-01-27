@@ -25,6 +25,8 @@ export interface CarouselProps {
   useOnboardingCheckmark?: boolean;
   value?: number;
   valueOnChange?: (value: number) => void;
+  className?: string;
+  style?: { [style: string]: string };
   webcomponent?: any;
 }
 
@@ -35,6 +37,8 @@ export const Carousel: FC<CarouselProps> = ({
   useOnboardingCheckmark,
   value = 0,
   valueOnChange,
+  className,
+  style,
   webcomponent,
 }) => {
   const [carouselElements, setCarouselElements] = useState<CarouselElement[] | number>();
@@ -160,7 +164,12 @@ export const Carousel: FC<CarouselProps> = ({
   });
 
   return (
-    <CarouselContainer slideDirection={slideDirection}>
+    <CarouselContainer
+      slideDirection={slideDirection}
+      className={`${className ? className : ''}`}
+      style={style}
+      data-testid="carousel-container"
+    >
       {typeof carouselElements === 'object' && (
         <CarouselElementContainer className={classNameContainer}>
           {typeof carouselElements[index].title === 'string' && (

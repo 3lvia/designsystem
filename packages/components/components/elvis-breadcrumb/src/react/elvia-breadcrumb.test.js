@@ -22,6 +22,7 @@ describe('Elvis Breadcrumb', () => {
   let breadcrumbDekstopMultipleLinksOne;
   let breadcrumbDekstopMultipleLinksTwo;
   let breadcrumbDekstopMultipleLinksThree;
+  let breadcrumbWrapper;
 
   describe('Have links', () => {
     beforeEach(() => {
@@ -52,6 +53,23 @@ describe('Elvis Breadcrumb', () => {
     });
     it('Third link should redirect to "https://www.elvia.no/nettleie/elvias-leveringsplikt"', function (done) {
       expect(breadcrumbDekstopMultipleLinksThree).toBe('https://www.elvia.no/nettleie/elvias-leveringsplikt');
+      done();
+    });
+  });
+  describe('className and style passed to wrapper', () => {
+    beforeEach(() => {
+      wrapper = mount(
+        <Breadcrumb
+          breadcrumbs={breadcumbsLinksTest}
+          className="test-class"
+          style={{ margin: '24px' }}
+        ></Breadcrumb>,
+      );
+      breadcrumbWrapper = wrapper.find({ 'data-testid': 'breadcrumb-wrapper' }).at(0);
+    });
+    it('should have className and style', function (done) {
+      expect(breadcrumbWrapper.getDOMNode()).toHaveStyle('margin: 24px');
+      expect(breadcrumbWrapper.getDOMNode()).toHaveClass('test-class');
       done();
     });
   });

@@ -21,9 +21,14 @@ describe('Elvis Box', () => {
     beforeEach(() => {
       wrapper = mount(<Box title="Hello Box"></Box>);
       boxTitle = wrapper.find({ 'data-testid': 'box-title' }).at(0);
+      boxArea = wrapper.find({ 'data-testid': 'box-area' }).at(0);
     });
     it('should have title containing "Hello Box"', function (done) {
       expect(boxTitle.text()).toBe('Hello Box');
+      done();
+    });
+    it('should not have className undefined', function (done) {
+      expect(boxArea.getDOMNode()).not.toHaveClass('undefined');
       done();
     });
   });
@@ -62,7 +67,7 @@ describe('Elvis Box', () => {
       done();
     });
   });
-  describe('className and style props', () => {
+  describe('className and style passed to wrapper', () => {
     beforeEach(() => {
       wrapper = mount(<Box className={'test-class'} style={{ margin: '24px' }}></Box>);
       boxArea = wrapper.find({ 'data-testid': 'box-area' }).at(0);
