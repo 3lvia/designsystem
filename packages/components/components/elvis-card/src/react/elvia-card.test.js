@@ -338,14 +338,14 @@ describe('Elvis Card', () => {
     });
   });
 
-  describe('className and style passed to wrapper', () => {
+  describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       wrapper = mount(
         <Card
           label={'Label'}
           description={'Description'}
           className="test-class"
-          style={{ margin: '24px' }}
+          inlineStyle={{ margin: '24px' }}
         ></Card>,
       );
       cardArea = wrapper.find({ 'data-testid': 'card-area' });
@@ -355,7 +355,7 @@ describe('Elvis Card', () => {
       wrapper.unmount();
     });
 
-    it('should have className and style', function (done) {
+    it('should have className and inlineStyle', function (done) {
       expect(cardArea.at(0).getDOMNode()).toHaveStyle('margin: 24px');
       expect(cardArea.at(0).getDOMNode()).toHaveClass('test-class');
       done();

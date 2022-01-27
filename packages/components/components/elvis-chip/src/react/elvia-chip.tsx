@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect, CSSProperties } from 'react';
 import { ChipCheckmarkIcon, ChipComponent, ChipCloseIcon, ChipTitle } from './styledComponents';
 import { ChipType, ColorType, onChangeValue } from './elvia-chip.types';
 
@@ -14,7 +14,7 @@ export interface BaseChipProps {
   onDelete?: (event: string) => void;
   valueOnChange?: (event: onChangeValue) => void;
   className?: string;
-  style?: { [style: string]: string };
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: any;
 }
 
@@ -28,7 +28,7 @@ export const Chip: FC<BaseChipProps> = ({
   onDelete,
   valueOnChange,
   className,
-  style,
+  inlineStyle,
   webcomponent,
 }) => {
   const [isSelected, setIsSelected] = useState(selected);
@@ -74,7 +74,7 @@ export const Chip: FC<BaseChipProps> = ({
       chipType={type}
       isSelected={isSelected}
       className={`${className ? className : ''}`}
-      style={style}
+      style={inlineStyle}
       data-testid="chip-button"
     >
       {type === 'choice' && (

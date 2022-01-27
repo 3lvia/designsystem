@@ -106,15 +106,19 @@ describe('Elvis Pagination', () => {
       done();
     });
   });
-  describe('className and style passed to wrapper', () => {
+  describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       wrapper = mount(
-        <Pagination numberOfElements={100} className="test-class" style={{ margin: '24px' }}></Pagination>,
+        <Pagination
+          numberOfElements={100}
+          className="test-class"
+          inlineStyle={{ margin: '24px' }}
+        ></Pagination>,
       );
       paginator = wrapper.find({ 'data-testid': 'pagination' });
     });
 
-    it('should have className and style', function (done) {
+    it('should have className and inlineStyle', function (done) {
       expect(paginator.at(0).getDOMNode()).toHaveStyle(`margin: 24px`);
       expect(paginator.at(0).getDOMNode()).toHaveClass(`test-class`);
       done();

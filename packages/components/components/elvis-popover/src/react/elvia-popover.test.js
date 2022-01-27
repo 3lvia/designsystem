@@ -87,7 +87,7 @@ describe('Elvis Popover', () => {
       done();
     });
   });
-  describe('className and style passed to wrapper', () => {
+  describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       wrapper = mount(
         <Popover
@@ -95,7 +95,7 @@ describe('Elvis Popover', () => {
           header="Header"
           content="Content"
           className="test-class"
-          style={{ margin: '24px' }}
+          inlineStyle={{ margin: '24px' }}
         />,
       );
       popoverWrapper = wrapper.find({ 'data-testid': 'popover-wrapper' }).at(0);
@@ -103,7 +103,7 @@ describe('Elvis Popover', () => {
     afterEach(() => {
       wrapper.unmount();
     });
-    it('should have className and style', function (done) {
+    it('should have className and inlineStyle', function (done) {
       expect(popoverWrapper.at(0).getDOMNode()).toHaveStyle('margin: 24px');
       expect(popoverWrapper.at(0).getDOMNode()).toHaveClass('test-class');
       done();

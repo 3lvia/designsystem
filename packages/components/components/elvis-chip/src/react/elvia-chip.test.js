@@ -144,16 +144,18 @@ describe('Elvis Chip', () => {
       done();
     });
   });
-  describe('className and style passed to wrapper', () => {
+  describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      wrapper = mount(<Chip value="chip value" className="test-class" style={{ margin: '24px' }}></Chip>);
+      wrapper = mount(
+        <Chip value="chip value" className="test-class" inlineStyle={{ margin: '24px' }}></Chip>,
+      );
       chipButton = wrapper.find({ 'data-testid': 'chip-button' }).at(0);
     });
     afterEach(() => {
       wrapper.unmount();
     });
 
-    it('should have className and style', function (done) {
+    it('should have className and inlineStyle', function (done) {
       expect(chipButton.getDOMNode()).toHaveStyle('margin: 24px');
       expect(chipButton.getDOMNode()).toHaveClass('test-class');
       done();

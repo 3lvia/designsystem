@@ -51,10 +51,10 @@ describe('Elvis Progress Linear', () => {
       done();
     });
   });
-  describe('className and style passed to wrapper', () => {
+  describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       wrapper = mount(
-        <ProgressLinear value="48" className="test-class" style={{ margin: '24px' }}></ProgressLinear>,
+        <ProgressLinear value="48" className="test-class" inlineStyle={{ margin: '24px' }}></ProgressLinear>,
       );
       progressWrapper = wrapper.find({ 'data-testid': 'progress-wrapper' }).at(0);
     });
@@ -62,7 +62,7 @@ describe('Elvis Progress Linear', () => {
       expect(progressWrapper.getDOMNode()).toHaveClass('ewc-progress-linear');
       done();
     });
-    it('should have className and style', function (done) {
+    it('should have className and inlineStyle', function (done) {
       expect(progressWrapper.getDOMNode()).toHaveStyle('margin: 24px');
       expect(progressWrapper.getDOMNode()).toHaveClass('test-class');
       done();

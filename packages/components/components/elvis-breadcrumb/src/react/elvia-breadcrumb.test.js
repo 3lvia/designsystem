@@ -56,18 +56,18 @@ describe('Elvis Breadcrumb', () => {
       done();
     });
   });
-  describe('className and style passed to wrapper', () => {
+  describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       wrapper = mount(
         <Breadcrumb
           breadcrumbs={breadcumbsLinksTest}
           className="test-class"
-          style={{ margin: '24px' }}
+          inlineStyle={{ margin: '24px' }}
         ></Breadcrumb>,
       );
       breadcrumbWrapper = wrapper.find({ 'data-testid': 'breadcrumb-wrapper' }).at(0);
     });
-    it('should have className and style', function (done) {
+    it('should have className and inlineStyle', function (done) {
       expect(breadcrumbWrapper.getDOMNode()).toHaveStyle('margin: 24px');
       expect(breadcrumbWrapper.getDOMNode()).toHaveClass('test-class');
       done();

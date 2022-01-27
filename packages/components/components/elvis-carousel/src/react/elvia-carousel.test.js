@@ -158,16 +158,18 @@ describe('Elvis Carousel', () => {
       done();
     });
   });
-  describe('className and style passed to wrapper', () => {
+  describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      wrapper = mount(<Carousel elements={elements} className="test-class" style={{ margin: '24px' }} />);
+      wrapper = mount(
+        <Carousel elements={elements} className="test-class" inlineStyle={{ margin: '24px' }} />,
+      );
       carouselContainer = wrapper.find({ 'data-testid': 'carousel-container' }).at(0);
     });
     afterEach(() => {
       wrapper.unmount();
       jest.useRealTimers();
     });
-    it('should have className and style', function (done) {
+    it('should have className and inlineStyle', function (done) {
       expect(carouselContainer.getDOMNode()).toHaveClass('test-class');
       expect(carouselContainer.getDOMNode()).toHaveStyle('margin: 24px');
 

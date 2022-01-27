@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect } from 'react';
+import React, { FC, useState, useRef, useEffect, CSSProperties } from 'react';
 import classnames from 'classnames';
 import {
   CarouselContainer,
@@ -26,7 +26,7 @@ export interface CarouselProps {
   value?: number;
   valueOnChange?: (value: number) => void;
   className?: string;
-  style?: { [style: string]: string };
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: any;
 }
 
@@ -38,7 +38,7 @@ export const Carousel: FC<CarouselProps> = ({
   value = 0,
   valueOnChange,
   className,
-  style,
+  inlineStyle,
   webcomponent,
 }) => {
   const [carouselElements, setCarouselElements] = useState<CarouselElement[] | number>();
@@ -167,7 +167,7 @@ export const Carousel: FC<CarouselProps> = ({
     <CarouselContainer
       slideDirection={slideDirection}
       className={`${className ? className : ''}`}
-      style={style}
+      style={inlineStyle}
       data-testid="carousel-container"
     >
       {typeof carouselElements === 'object' && (

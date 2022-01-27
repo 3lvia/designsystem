@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import * as elvisIcons from '@elvia/elvis-assets-icons';
 
 export type IconSizes = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
@@ -8,8 +8,17 @@ interface IconProps {
   color?: string;
   size?: IconSizes;
   customSize?: string;
+  className?: string;
+  inlineStyle?: { [style: string]: CSSProperties };
 }
-export const Icon: React.FC<IconProps> = ({ name, color, size = 'sm', customSize }) => {
+export const Icon: React.FC<IconProps> = ({
+  name,
+  color,
+  size = 'sm',
+  customSize,
+  className,
+  inlineStyle,
+}) => {
   const getIcon = (icon: string, size: IconSizes, color?: string, customSize?: string): string => {
     let newIcon = undefined;
 
@@ -77,7 +86,14 @@ export const Icon: React.FC<IconProps> = ({ name, color, size = 'sm', customSize
 
   const displayIcon = getIcon(name, size, color, customSize);
 
-  return <i dangerouslySetInnerHTML={{ __html: displayIcon }} aria-hidden="true" />;
+  return (
+    <i
+      dangerouslySetInnerHTML={{ __html: displayIcon }}
+      aria-hidden="true"
+      style={inlineStyle}
+      className={className ? className : ''}
+    />
+  );
 };
 
 export default Icon;

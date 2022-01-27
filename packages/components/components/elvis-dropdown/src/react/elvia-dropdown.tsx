@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, CSSProperties } from 'react';
 import Select, { components } from 'react-select';
 import toolbox from '@elvia/elvis-toolbox';
 import {
@@ -35,7 +35,7 @@ export interface DropdownProps {
   valueOnChange?: (selectedOptions: DropdownOption | Array<DropdownOption> | undefined) => void;
   value?: DropdownOption | Array<DropdownOption> | undefined;
   className?: string;
-  style?: { [style: string]: string };
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: any;
 }
 
@@ -67,7 +67,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   value,
   valueOnChange,
   className,
-  style,
+  inlineStyle,
   webcomponent,
 }) => {
   const [currentVal, setCurrentVal] = useState(defaultValue);
@@ -354,7 +354,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       isDisabled={isDisabled}
       ref={dropdownRef}
       className={`${className ? className : ''}`}
-      style={style}
+      style={inlineStyle}
       data-testid="wrapper"
     >
       <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">

@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect } from 'react';
+import React, { FC, useState, useRef, useEffect, CSSProperties } from 'react';
 import './style.scss';
 import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
@@ -29,6 +29,8 @@ export interface DatepickerProps {
   webcomponent?: any;
   placeholder?: string;
   isOpen?: boolean;
+  className?: string;
+  inlineStyle?: { [style: string]: CSSProperties };
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -48,6 +50,8 @@ export const Datepicker: FC<DatepickerProps> = ({
   webcomponent,
   placeholder = 'dd.mm.åååå',
   isOpen = false,
+  className,
+  inlineStyle,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
   const [initialFocusedDate, setInitialFocusedDate] = useState<Date | null>(null);
@@ -344,7 +348,12 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   return (
-    <div className={datePickerClasses} ref={datepickerRef} data-testid="datepicker-wrapper">
+    <div
+      className={datePickerClasses + (className ? ' ' + className : '')}
+      ref={datepickerRef}
+      style={inlineStyle}
+      data-testid="datepicker-wrapper"
+    >
       {label !== '' && (
         <label className="ewc-datepicker__label" aria-label={label} data-testid="datepicker-label">
           {label}

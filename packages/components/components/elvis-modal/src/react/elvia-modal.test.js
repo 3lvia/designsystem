@@ -89,7 +89,7 @@ describe('Elvis Modal', () => {
       done();
     });
   });
-  describe('className and style passed to wrapper', () => {
+  describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       wrapper = mount(
         <Modal
@@ -97,12 +97,12 @@ describe('Elvis Modal', () => {
           content="Content"
           primaryButton={<button>Primary</button>}
           className="test-class"
-          style={{ margin: '24px' }}
+          inlineStyle={{ margin: '24px' }}
         ></Modal>,
       );
       modalWrapper = wrapper.find({ 'data-testid': 'modal-wrapper' }).at(0);
     });
-    it('should have className and style', function (done) {
+    it('should have className and inlineStyle', function (done) {
       expect(modalWrapper.getDOMNode()).toHaveStyle('margin: 24px');
       expect(modalWrapper.getDOMNode()).toHaveClass('test-class');
       done();

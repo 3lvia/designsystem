@@ -39,7 +39,7 @@
   ></elvia-pagination>
 
   <h2>Breadcrumbs</h2>
-  <elvia-breadcrumb [breadcrumbs]="breadcrumbsTest"></elvia-breadcrumb>
+  <elvia-breadcrumb [breadcrumbs]="breadcrumbsTest" inlineStyle='{"margin": "50px"}'></elvia-breadcrumb>
   <elvia-breadcrumb
     [breadcrumbs]="breadcrumbsTestNoUrl"
     (breadcrumbsOnChange)="breadcrumbsValue = $event.detail.value"

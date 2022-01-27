@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect, useState } from 'react';
+import React, { FC, useRef, useEffect, useState, CSSProperties } from 'react';
 import { getColor } from '@elvia/elvis-colors';
 import { arrowLongRight } from '@elvia/elvis-assets-icons';
 import { CardType, CardShape, BorderColor } from './elvia-card.types';
@@ -35,7 +35,7 @@ export interface CardProps {
   label?: string;
   cornerIcon?: string | HTMLElement;
   className?: string;
-  style?: { [style: string]: string };
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent: any;
 }
 
@@ -59,7 +59,7 @@ const Card: FC<CardProps> = ({
   label,
   cornerIcon,
   className,
-  style,
+  inlineStyle,
   webcomponent,
 }) => {
   if (type === 'detail') shape = 'square';
@@ -125,7 +125,7 @@ const Card: FC<CardProps> = ({
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       className={`${className ? className : ''}`}
-      style={style}
+      style={inlineStyle}
     >
       {shape === 'square' && type === 'simple' && borderColor && (
         <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>

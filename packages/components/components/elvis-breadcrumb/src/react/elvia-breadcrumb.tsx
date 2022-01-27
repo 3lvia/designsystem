@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, CSSProperties } from 'react';
 import {
   BreadcrumbWrapper,
   BreadcrumbDesktopWrapper,
@@ -16,7 +16,7 @@ interface BreadcrumbProps {
   breadcrumbs: BreadcrumbLink[];
   breadcrumbsOnChange?: (value: number) => void;
   className?: string;
-  style?: { [style: string]: string };
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent: any;
 }
 
@@ -24,7 +24,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   breadcrumbs = [],
   breadcrumbsOnChange,
   className,
-  style,
+  inlineStyle,
   webcomponent,
 }) => {
   const [childrenLength, setChildrenLength] = useState<number>(0);
@@ -125,7 +125,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   return (
     <BreadcrumbWrapper
       className={`${className ? className : ''}`}
-      style={style}
+      style={inlineStyle}
       data-testid="breadcrumb-wrapper"
     >
       {breadcrumb}

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { CSSProperties, FC, useEffect, useRef } from 'react';
 import { BoxArea, BoxColoredLine, BoxTitle, BoxContent } from './styledComponents';
 export interface BoxProps {
   content: string | HTMLElement;
@@ -6,7 +6,7 @@ export interface BoxProps {
   isColored?: boolean;
   hasBorder?: boolean;
   className?: string;
-  style?: { [style: string]: string };
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent: any;
 }
 
@@ -16,7 +16,7 @@ const Box: FC<BoxProps> = ({
   isColored = false,
   hasBorder = false,
   className,
-  style,
+  inlineStyle,
   webcomponent,
 }) => {
   const boxContent = useRef<HTMLDivElement>(null);
@@ -39,7 +39,7 @@ const Box: FC<BoxProps> = ({
   }, [webcomponent]);
 
   return (
-    <BoxArea className={`${className ? className : ''}`} style={style} data-testid="box-area">
+    <BoxArea className={`${className ? className : ''}`} style={inlineStyle} data-testid="box-area">
       {title && <BoxTitle data-testid="box-title">{title}</BoxTitle>}
       {!title && <BoxTitle ref={boxTitle}></BoxTitle>}
       {content && (

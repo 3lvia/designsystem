@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, useRef } from 'react';
+import React, { FC, useEffect, useState, useRef, CSSProperties } from 'react';
 import classNames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
 import './style.scss';
@@ -8,7 +8,7 @@ export interface TabsProps {
   isInverted: boolean;
   valueOnChange?: (value: number) => void;
   className?: string;
-  style?: { [style: string]: string };
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: any;
 }
 
@@ -18,7 +18,7 @@ const Tabs: FC<TabsProps> = ({
   isInverted,
   valueOnChange,
   className,
-  style,
+  inlineStyle,
   webcomponent,
 }) => {
   const [currValue, setCurrValue] = useState(value);
@@ -128,7 +128,7 @@ const Tabs: FC<TabsProps> = ({
   return (
     <div
       className={tabsClasses + (className ? ' ' + className : '')}
-      style={style}
+      style={inlineStyle}
       ref={tabsRef}
       data-testid="tabs-container"
     >

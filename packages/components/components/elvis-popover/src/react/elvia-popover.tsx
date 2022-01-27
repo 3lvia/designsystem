@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useRef, useCallback } from 'react';
+import React, { FC, useState, useEffect, useRef, useCallback, CSSProperties } from 'react';
 import './style.scss';
 import classnames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
@@ -13,7 +13,7 @@ export interface PopoverProps {
   isShowing?: boolean;
   isShowingOnChange?: (isShowing: boolean) => void;
   className?: string;
-  style?: { [style: string]: string };
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent: any;
 }
 
@@ -27,7 +27,7 @@ const Popover: FC<PopoverProps> = ({
   isShowing = false,
   isShowingOnChange,
   className,
-  style,
+  inlineStyle,
   webcomponent,
 }) => {
   const [popoverVisibility, setPopoverVisibility] = useState(isShowing);
@@ -337,7 +337,7 @@ const Popover: FC<PopoverProps> = ({
   return (
     <div
       className={`${className ? className : ''}`}
-      style={style}
+      style={inlineStyle}
       ref={popoverRef}
       data-testid="popover-wrapper"
     >

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { CSSProperties, FC } from 'react';
 import { RadioFilterGroup, RadioFilterInput, RadioFilterLabel, RadioFilterTitle } from './styledComponents';
 
 export interface Option {
@@ -13,7 +13,7 @@ export interface BaseRadioFilterProps {
   ariaLabel?: string;
   valueOnChange?: (value: string) => void;
   className?: string;
-  style?: { [style: string]: string };
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: any;
 }
 
@@ -24,7 +24,7 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
   value,
   valueOnChange,
   className,
-  style,
+  inlineStyle,
   webcomponent,
 }) => {
   const updateValue = (value: string) => {
@@ -40,7 +40,7 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
     <RadioFilterGroup
       role="radiogroup"
       className={`${className ? className : ''}`}
-      style={style}
+      style={inlineStyle}
       data-testid="radio-filter-group"
     >
       {items &&

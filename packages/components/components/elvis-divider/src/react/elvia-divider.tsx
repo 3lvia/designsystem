@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { CSSProperties, useEffect, useRef } from 'react';
 import { DividerOrientation, DividerType, DividerTypography } from './elvia-divider.types';
 import { DividerArea, DividerTitle } from './styledComponents';
 
@@ -9,7 +9,7 @@ export interface DividerProps {
   isInverted?: boolean;
   orientation?: DividerOrientation;
   className?: string;
-  style?: { [style: string]: string };
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent: any;
 }
 
@@ -20,7 +20,7 @@ export const Divider: React.FC<DividerProps> = ({
   isInverted = false,
   orientation = 'horizontal',
   className,
-  style,
+  inlineStyle,
   webcomponent,
 }) => {
   const dividerTitleRef = useRef<HTMLDivElement>(null);
@@ -43,7 +43,7 @@ export const Divider: React.FC<DividerProps> = ({
       isInverted={isInverted}
       orientation={orientation}
       className={`${className ? className : ''}`}
-      style={style}
+      style={inlineStyle}
       data-testid="divider-area"
     >
       {title === '' && type === 'title' && (
