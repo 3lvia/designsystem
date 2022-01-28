@@ -39,22 +39,24 @@ const Box: FC<BoxProps> = ({
   }, [webcomponent]);
 
   return (
-    <BoxArea className={`${className ? className : ''}`} style={inlineStyle} data-testid="box-area">
-      {title && <BoxTitle data-testid="box-title">{title}</BoxTitle>}
-      {!title && <BoxTitle ref={boxTitle}></BoxTitle>}
-      {content && (
-        <BoxContent hasBorder={hasBorder} data-testid="box-content">
-          {isColored && <BoxColoredLine data-testid="box-colored-line"></BoxColoredLine>}
-          {content}
-        </BoxContent>
-      )}
-      {!content && (
-        <BoxContent hasBorder={hasBorder} data-testid="box-no-content">
-          {isColored && <BoxColoredLine></BoxColoredLine>}
-          <div ref={boxContent}></div>
-        </BoxContent>
-      )}
-    </BoxArea>
+    <div className={`${className ? className : ''}`} style={inlineStyle}>
+      <BoxArea data-testid="box-area">
+        {title && <BoxTitle data-testid="box-title">{title}</BoxTitle>}
+        {!title && <BoxTitle ref={boxTitle}></BoxTitle>}
+        {content && (
+          <BoxContent hasBorder={hasBorder} data-testid="box-content">
+            {isColored && <BoxColoredLine data-testid="box-colored-line"></BoxColoredLine>}
+            {content}
+          </BoxContent>
+        )}
+        {!content && (
+          <BoxContent hasBorder={hasBorder} data-testid="box-no-content">
+            {isColored && <BoxColoredLine></BoxColoredLine>}
+            <div ref={boxContent}></div>
+          </BoxContent>
+        )}
+      </BoxArea>
+    </div>
   );
 };
 

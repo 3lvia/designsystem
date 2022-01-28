@@ -38,23 +38,18 @@ export const Divider: React.FC<DividerProps> = ({
   });
 
   return (
-    <DividerArea
-      type={type}
-      isInverted={isInverted}
-      orientation={orientation}
-      className={`${className ? className : ''}`}
-      style={inlineStyle}
-      data-testid="divider-area"
-    >
-      {title === '' && type === 'title' && (
-        <DividerTitle typography={typography} isInverted={isInverted} ref={dividerTitleRef}></DividerTitle>
-      )}
-      {title !== '' && type === 'title' && (
-        <DividerTitle typography={typography} isInverted={isInverted} data-testid="divider-title">
-          {title}
-        </DividerTitle>
-      )}
-    </DividerArea>
+    <div className={`${className ? className : ''}`} style={inlineStyle}>
+      <DividerArea type={type} isInverted={isInverted} orientation={orientation} data-testid="divider-area">
+        {title === '' && type === 'title' && (
+          <DividerTitle typography={typography} isInverted={isInverted} ref={dividerTitleRef}></DividerTitle>
+        )}
+        {title !== '' && type === 'title' && (
+          <DividerTitle typography={typography} isInverted={isInverted} data-testid="divider-title">
+            {title}
+          </DividerTitle>
+        )}
+      </DividerArea>
+    </div>
   );
 };
 
