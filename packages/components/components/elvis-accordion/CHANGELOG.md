@@ -1,5 +1,9 @@
 # Elvia Accordion Changelog
 
+## 2.0.9 (26.01.21)
+
+- Updated dependencies
+
 ## 2.0.8 (14.01.22)
 
 ### Patch

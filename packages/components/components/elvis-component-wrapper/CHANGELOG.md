@@ -1,5 +1,9 @@
 # Elvia Component Wrapper Changelog
 
+## 2.1.11 (26.01.21)
+
+- Updated dependencies
+
 ## 2.1.10 (06.01.22)
 
 ### Bug fix

@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-loader",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -12,6 +12,7 @@
     "@webcomponents/webcomponentsjs": "^2.6.0",
     "classnames": "^2.3.1",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "semver": "^7.3.5"
   }
 }

@@ -1,5 +1,9 @@
 # Elvia Dropdown
 
+## 2.0.6 (26.01.21)
+
+- Updated dependencies
+
 ## 2.0.5 (14.01.22)
 
 ### Patch

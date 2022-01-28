@@ -128,9 +128,7 @@ export class CMSPageComponent implements OnDestroy {
 
   checkIfPageExistsInProject(): void {
     const currentPathWithoutAnchor = this.router.url.split('#')[0];
-    if (currentPathWithoutAnchor === '/components') {
-      this.isCmsPage = false;
-    } else if (currentPathWithoutAnchor.split('/')[2]) {
+    if (currentPathWithoutAnchor.split('/')[2]) {
       this.router.config[0].children.forEach((subRoute) => {
         if (subRoute.path === currentPathWithoutAnchor.split('/')[1]) {
           this.isCmsPage = !subRoute.children.some(
