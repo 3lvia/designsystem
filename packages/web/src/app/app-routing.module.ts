@@ -15,7 +15,6 @@ import { ToggleDocComponent } from './doc-pages/components/forms/toggle-doc/togg
 import { InputDocComponent } from './doc-pages/components/forms/input-doc/input-doc.component';
 import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
 import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
-import { OverviewComponent } from './doc-pages/components/overview-comp/overview-comp.component';
 import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.component';
 import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
 import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
@@ -146,14 +145,6 @@ const routes: Routes = [
         path: 'components',
         component: CMSPageComponent,
         children: [
-          {
-            path: '',
-            component: OverviewComponent,
-          },
-          {
-            path: Pages.OverviewComp,
-            component: OverviewComponent,
-          },
           {
             path: Pages.Accordion,
             component: AccordionDocComponent,
