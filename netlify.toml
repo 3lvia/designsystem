@@ -1,2 +1,5 @@
 [build]
     functions = "functions"
+
+[context.deploy-preview]
+    ignore = git log -1 --pretty=%B | grep -i -e dependabot -e renovate
