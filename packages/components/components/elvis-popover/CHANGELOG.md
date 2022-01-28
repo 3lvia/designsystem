@@ -1,6 +1,10 @@
 # Elvia Popover Changelog
 
-## 4.2.4 (26.01.21)
+## 4.2.5 (28.01.22)
+
+- Added aria-label for close button
+
+## 4.2.4 (26.01.22)
 
 - Updated dependencies
 

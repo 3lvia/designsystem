@@ -352,6 +352,7 @@ const Popover: FC<PopoverProps> = ({
                     className="ewc-btn ewc-btn--icon ewc-btn--sm"
                     onClick={() => setPopoverVisibility(false)}
                     data-testid="popover-close-btn"
+                    aria-label="Lukk"
                   >
                     <span className="ewc-btn__icon">
                       <i

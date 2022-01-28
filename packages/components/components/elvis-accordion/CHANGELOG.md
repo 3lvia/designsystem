@@ -1,6 +1,14 @@
 # Elvia Accordion Changelog
 
-## 2.0.9 (26.01.21)
+## 2.0.10 (28.01.22)
+
+### Patch
+
+- Added aria-label for open/close button
+
+## 2.0.9 (26.01.22)
+
+### Patch
 
 - Updated dependencies
 

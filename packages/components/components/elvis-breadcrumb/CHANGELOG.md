@@ -1,6 +1,12 @@
 # Elvia Breadcrumbs
 
-## 1.2.3 (26.01.21)
+## 1.2.4 (28.01.22)
+
+### Patch
+
+- Added aria properties to breadcrumb component
+
+## 1.2.3 (26.01.22)
 
 - Updated dependencies
 
