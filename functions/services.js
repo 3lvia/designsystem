@@ -1,4 +1,5 @@
 const contentful = require('contentful')
+const safeJsonStringify = require('safe-json-stringify');
 
 function installDeps(functionDir, cb) {
 	cp.exec("npm i", {cwd: functionDir}, cb)
@@ -15,7 +16,7 @@ exports.handler = async (event, context) => {
 				return {
 					statusCode: 200, 
 					headers: {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true}, 
-					body: JSON.stringify(entry)
+					body: safeJsonStringify(entry)
 				};
 			})
 		.catch(console.error)
