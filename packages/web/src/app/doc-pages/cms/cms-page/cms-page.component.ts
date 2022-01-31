@@ -88,9 +88,7 @@ export class CMSPageComponent implements OnDestroy {
 
   getEntryFromCMS(pageId: string): Promise<any> {
     return this.http
-      .get(
-        'https://deploy-preview-622--elvis-designsystem.netlify.app/.netlify/functions/services?id=' + pageId,
-      )
+      .get('https://elvis-designsystem.netlify.app/.netlify/functions/services?id=' + pageId)
       .toPromise()
       .then((entry: any) => {
         return entry;
