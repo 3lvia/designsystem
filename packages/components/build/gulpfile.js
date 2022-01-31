@@ -203,6 +203,22 @@ gulp.task(
 );
 
 
+gulp.task(
+    'production',
+    gulp.series(
+        validate.validateElviaComponentsConfig,
+        buildToolboxComponentToJS,
+        TSX_to_JS,
+        reactTypescriptDeclarations,
+        buildWebComponentsMagically,
+        buildElviaComponentToJS,
+        function (done) {
+            done();
+            console.log('Successfully built Elvia Components!');
+        },
+    ),
+);
+
 gulp.task('watch', function () {
     gulp.watch(
         ['../components/*/src/**/*', '../elvia-components.config.js', './validateConfig.js'], { ignoreInitial: false },
