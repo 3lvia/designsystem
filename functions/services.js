@@ -8,10 +8,9 @@ exports.handler = async (event, context) => {
 	const client = contentful.createClient({
 		host: 'preview.contentful.com',
 		space: process.env.CONTENTFUL_SPACE,
-		accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
-		resolveLinks: false
+		accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
 	})
-	const entry = await client.getEntry(event.queryStringParameters.id, { locale: '*', include: 10 })
+	const entry = await client.getEntry(event.queryStringParameters.id, { locale: '*', include: 2 })
 		.then((entry) => {
 				return {
 					statusCode: 200, 
