@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-popover",
-  "version": "4.2.4",
+  "version": "4.2.5",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "^2.1.6",
+    "@elvia/elvis-component-wrapper": "^2.1.11",
     "@elvia/elvis-toolbox": "^1.2.1",
     "classnames": "^2.3.1"
   }

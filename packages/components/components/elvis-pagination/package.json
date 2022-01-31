@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-pagination",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "^2.1.6",
+    "@elvia/elvis-component-wrapper": "^2.1.11",
     "@elvia/elvis-dropdown": "^2.0.0",
     "@elvia/elvis-colors": "^1.2.0",
     "@elvia/elvis-typography": "^1.2.0",

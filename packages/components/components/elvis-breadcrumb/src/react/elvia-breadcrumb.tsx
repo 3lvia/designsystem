@@ -83,6 +83,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
             key={index}
             isClickable={false}
             data-testid="breadcrumb-desktop-last-link"
+            aria-current="location"
           >
             {breadcrumb.title}
           </BreadcrumbLink>
@@ -114,7 +115,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
   } else {
     breadcrumb = DesktopBreadcrumb();
   }
-  return <BreadcrumbWrapper>{breadcrumb}</BreadcrumbWrapper>;
+  return <BreadcrumbWrapper aria-label="Breadcrumbs">{breadcrumb}</BreadcrumbWrapper>;
 };
 
 export default Breadcrumb;

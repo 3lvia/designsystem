@@ -477,6 +477,7 @@ const Pagination: FC<PaginationProps> = ({
           visible={isLeftArrow()}
           onClick={updateSelectedPageLeft}
           data-testid="selector-arrow-btn-left"
+          aria-label="Forrige side"
         >
           <PaginatorSelectorArrowLeft />
         </PaginatorSelectorArrowBtn>
@@ -485,6 +486,7 @@ const Pagination: FC<PaginationProps> = ({
           visible={isRightArrow()}
           onClick={updateSelectedPageRight}
           data-testid="selector-arrow-btn-right"
+          aria-label="Neste side"
         >
           <PaginatorSelectorRighArrow />
         </PaginatorSelectorArrowBtn>
