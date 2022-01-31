@@ -1,10 +1,6 @@
 const contentful = require('contentful')
 const safeJsonStringify = require('safe-json-stringify');
 
-function installDeps(functionDir, cb) {
-	cp.exec("npm i", {cwd: functionDir}, cb)
-}
-
 exports.handler = async (event, context) => {
 	const client = contentful.createClient({
 		host: 'preview.contentful.com',
