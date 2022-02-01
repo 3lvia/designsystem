@@ -56,7 +56,7 @@ describe('Elvis Progress Linear', () => {
       wrapper = mount(
         <ProgressLinear value="48" className="test-class" inlineStyle={{ margin: '24px' }}></ProgressLinear>,
       );
-      progressWrapper = wrapper.find({ 'data-testid': 'progress-wrapper' }).at(0).closest('div').at(0);
+      progressWrapper = wrapper.find({ 'data-testid': 'progress-wrapper' }).at(0);
     });
     it('should have className and inlineStyle', function (done) {
       expect(progressWrapper.getDOMNode()).toHaveStyle('margin: 24px');
