@@ -31,6 +31,10 @@ $pageIndentedMargin: 72px;
     letter-spacing: unset;
     text-transform: unset;
     color: inherit;
+    @include breakpoint-up(Mobile) {
+      font-size: 22px;
+      line-height: 36px;
+    }
     .e-text-img .e-text-body {
       @extend %image-typo;
     }
