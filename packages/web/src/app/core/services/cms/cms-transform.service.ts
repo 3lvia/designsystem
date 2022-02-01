@@ -219,7 +219,6 @@ export class CMSTransformService {
 
   private getImage(data: IImage, locale: string) {
     let altText;
-    console.log(data.fields);
     const description = data.fields.description ? data.fields.description[locale] : undefined;
     if (data.fields.altText) {
       altText = data.fields.altText[locale];
@@ -258,7 +257,7 @@ export class CMSTransformService {
             } 
           '`}
           src="${srcUrl}"
-          alt="${altText && altText}"
+          alt="${altText}"
         />
         <div 
           ${`class=' 
