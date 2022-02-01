@@ -2,6 +2,7 @@ const dotenv = require('dotenv').config();
 const contentful = require('contentful');
 const del = require('del');
 const fs = require('fs');
+const safeJsonStringify = require('safe-json-stringify');
 
 const CONFIG = {
   space: process.env.CONTENTFUL_SPACE ? process.env.CONTENTFUL_SPACE : dotenv.parsed.CONTENTFUL_SPACE,
@@ -43,7 +44,7 @@ function getContentfulEntries(query) {
 }
 
 function createFileContentFromEntry(entry) {
-  return `${JSON.stringify(entry)}`;
+  return `${safeJsonStringify(entry)}`;
 }
 
 function cleanup() {
