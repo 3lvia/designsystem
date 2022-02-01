@@ -24,12 +24,10 @@ const ProgressLinear: FC<ProgressbarProps> = ({
   });
 
   return (
-    <div
-      className={'ewc-progress-linear' + (className ? ' ' + className : '')}
-      style={inlineStyle}
-      data-testid="progress-wrapper"
-    >
-      <div className={classes} style={{ width: `${value}%` }} data-testid="progress-linear"></div>
+    <div className={className ? className : ''} style={inlineStyle} data-testid="progress-wrapper">
+      <div className={'ewc-progress-linear'}>
+        <div className={classes} style={{ width: `${value}%` }} data-testid="progress-linear"></div>
+      </div>
     </div>
   );
 };

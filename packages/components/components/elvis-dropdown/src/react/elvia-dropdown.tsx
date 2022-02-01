@@ -350,48 +350,44 @@ const Dropdown: React.FC<DropdownProps> = ({
   }, [errorMessage]);
 
   return (
-    <DropdownWrapper
-      isDisabled={isDisabled}
-      ref={dropdownRef}
-      className={`${className ? className : ''}`}
-      style={inlineStyle}
-      data-testid="wrapper"
-    >
-      <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
-        {label}
-      </DropdownLabel>
-      <Select
-        blurInputOnSelect={!isMulti}
-        classNamePrefix={'ewc-dropdown'}
-        closeMenuOnSelect={!isMulti}
-        components={overrideComponents}
-        hasValue={false}
-        hideSelectedOptions={false}
-        inputId={selectId}
-        isDisabled={isDisabled}
-        isMulti={isMulti}
-        isSearchable={false}
-        menuIsOpen={menuIsOpen}
-        menuPlacement={menuPosition}
-        noOptionsMessage={() => noOptionsMessage}
-        onChange={onChangeHandler}
-        onKeyDown={(event) => {
-          if (event.code === 'Enter' && !menuIsOpen) {
-            setMenuIsOpen(true);
-          }
-        }}
-        onMenuClose={() => setMenuIsOpen(false)}
-        onMenuOpen={() => setMenuIsOpen(true)}
-        options={options}
-        placeholder={placeholder}
-        value={currentVal}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        //@ts-ignore
-        styles={customElviaStyles}
-      ></Select>
+    <div className={`${className ? className : ''}`} style={inlineStyle}>
+      <DropdownWrapper isDisabled={isDisabled} ref={dropdownRef} data-testid="wrapper">
+        <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
+          {label}
+        </DropdownLabel>
+        <Select
+          blurInputOnSelect={!isMulti}
+          classNamePrefix={'ewc-dropdown'}
+          closeMenuOnSelect={!isMulti}
+          components={overrideComponents}
+          hasValue={false}
+          hideSelectedOptions={false}
+          inputId={selectId}
+          isDisabled={isDisabled}
+          isMulti={isMulti}
+          isSearchable={false}
+          menuIsOpen={menuIsOpen}
+          menuPlacement={menuPosition}
+          noOptionsMessage={() => noOptionsMessage}
+          onChange={onChangeHandler}
+          onKeyDown={(event) => {
+            if (event.code === 'Enter' && !menuIsOpen) {
+              setMenuIsOpen(true);
+            }
+          }}
+          onMenuClose={() => setMenuIsOpen(false)}
+          onMenuOpen={() => setMenuIsOpen(true)}
+          options={options}
+          placeholder={placeholder}
+          value={currentVal}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          //@ts-ignore
+          styles={customElviaStyles}
+        ></Select>
 
-      {isError ? <ElviaError errorMessage={errorMessage} data-testid="error"></ElviaError> : null}
-    </DropdownWrapper>
+        {isError ? <ElviaError errorMessage={errorMessage} data-testid="error"></ElviaError> : null}
+      </DropdownWrapper>
+    </div>
   );
 };
 

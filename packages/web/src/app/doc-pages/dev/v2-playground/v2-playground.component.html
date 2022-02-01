@@ -36,6 +36,7 @@
     (valueOnChange)="defaultPaginatioValue = $event.detail.value"
     [isRightAligned]="true"
     dropdownMenuPos="top"
+    inlineStyle='{"margin":"24px"}'
   ></elvia-pagination>
 
   <h2>Breadcrumbs</h2>
@@ -364,7 +365,7 @@
 
       <h2>DatePicker</h2>
       <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
-        <elvia-datepicker [value]="date1"></elvia-datepicker>
+        <elvia-datepicker [value]="date1" inlineStyle='{"margin":"24px"}'></elvia-datepicker>
       </div>
 
       <h2>Accordion</h2>
@@ -489,6 +490,7 @@
         [isIndeterminate]="indeterminate"
         [value]="progressValue"
         [isError]="progressError"
+        inlineStyle='{"margin":"24px"}'
       ></elvia-progress-linear>
       <div style="margin-bottom: 32px; display: flex">
         <div style="display: flex; width: 100%; justify-content: space-between">
