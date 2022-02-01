@@ -70,7 +70,7 @@ describe('Elvis Box', () => {
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       wrapper = mount(<Box className={'test-class'} inlineStyle={{ margin: '24px' }}></Box>);
-      boxArea = wrapper.find({ 'data-testid': 'box-area' }).at(0);
+      boxArea = wrapper.find({ 'data-testid': 'box-area' }).at(0).closest('div').at(0);
     });
     it('should have className and inlineStyle from props', function (done) {
       expect(boxArea.getDOMNode()).toHaveStyle(`margin: 24px`);
