@@ -1,6 +1,6 @@
 # Elvia Date picker Changelog
 
-## 2.2.3 (26.01.21)
+## 2.2.4 (31.01.21)
 
 - Updated dependencies
 

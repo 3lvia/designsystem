@@ -91,6 +91,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
             key={index}
             isClickable={false}
             data-testid="breadcrumb-desktop-last-link"
+            aria-current="location"
           >
             {breadcrumb.title}
           </BreadcrumbLink>
@@ -127,6 +128,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
       className={`${className ? className : ''}`}
       style={inlineStyle}
       data-testid="breadcrumb-wrapper"
+      aria-label="Breadcrumbs"
     >
       {breadcrumb}
     </BreadcrumbWrapper>

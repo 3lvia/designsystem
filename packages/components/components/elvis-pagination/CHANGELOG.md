@@ -1,6 +1,12 @@
 # Elvia Pagination Changelog
 
-## 1.1.2 (26.01.21)
+## 1.1.2 (28.01.22)
+
+### Patch
+
+- Added aria-labels to pagination arrow buttons
+
+## 1.1.2 (26.01.22)
 
 - Updated dependencies
 

@@ -86,6 +86,7 @@ const Accordion: FC<AccordionProps> = ({
             size={size}
             onClick={() => setContentOpen((contentOpen) => !contentOpen)}
             data-testid="accordion-button-label"
+            aria-label={contentOpen ? 'Lukk' : 'Åpne'}
           >
             {!contentOpen ? openLabel : closeLabel}
             <i></i>

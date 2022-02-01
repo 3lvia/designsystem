@@ -19,7 +19,7 @@
     ]
   },
   "scripts": {
-    "build:web": "yarn && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run build && cd ../web && yarn run contentful:production && yarn run build:production && cd ../components/frameworks/react-ssr && yarn run production",
+    "build:web": "yarn && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run build:production && cd ../web && yarn run contentful:production && yarn run build:production && cd ../components/frameworks/react-ssr && yarn run production",
     "prettier-elvis": "yarn prettier --write \"packages/elvis/**/*.js\"",
     "prettier-doc": "yarn prettier --write \"packages/web/src/**/*.ts\"",
     "prettier-comp": "yarn prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
@@ -79,6 +79,8 @@
     "zone.js": "~0.10.3",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0",
-    "react-is": ">= 16.8.0"
+    "react-is": ">= 16.8.0",
+    "prop-types": "^15.6.0",
+    "@date-io/core": "^1.3.6"
   }
 }
