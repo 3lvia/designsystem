@@ -27,6 +27,10 @@ $pageIndentedMargin: 72px;
     letter-spacing: unset;
     text-transform: unset;
     color: inherit;
+    @include breakpoint-up(Mobile) {
+      font-size: 16px !important;
+      line-height: 26px !important;
+    }
     .e-text-img .e-text-body {
       @extend %image-typo;
     }
@@ -297,10 +301,6 @@ $pageIndentedMargin: 72px;
     display: none;
 
     @extend %image-typo;
-    @include breakpoint-up(Mobile) {
-      font-size: 16px !important;
-      line-height: 26px !important;
-    }
 
     &.cms-image-desc-show {
       display: block;
