@@ -278,3 +278,18 @@ $pageIndentedMargin: 72px;
     }
   }
 }
+
+.cms-quote-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .cms-quote-text {
+    margin-left: 40px;
+    font-style: italic !important;
+
+    @include breakpoint-up(Mobile) {
+      margin-left: 31px;
+    }
+  }
+}
