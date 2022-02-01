@@ -34,6 +34,7 @@ export class CMSTransformService {
       [BLOCKS.PARAGRAPH]: (node, next) => this.getParagraph(next(node.content)),
       [BLOCKS.UL_LIST]: (node, next) => this.getList(next(node.content)),
       [BLOCKS.OL_LIST]: (node, next) => this.getNumberedList(next(node.content)),
+      [BLOCKS.QUOTE]: (node, next) => this.getQuote(next(node.content)),
       [BLOCKS.EMBEDDED_ASSET]: (node) => this.getEmbeddedAsset(node.data.target.fields.file[this.locale].url),
       [BLOCKS.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.locale, this.subMenu)}`,
       [INLINES.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.locale, this.subMenu)}`,
@@ -164,6 +165,17 @@ export class CMSTransformService {
 
   private getNumberedList(list: string): string {
     return `<ul class="e-list e-list--numbers">${list}</ul>`;
+  }
+
+  private getQuote(quote: string): string {
+    return ` <div class="cms-quote-container">
+    <div>
+      <i class="e-icon e-icon--quotation-color e-icon--lg"></i>
+    </div>
+    <div class="cms-quote-text e-text-quote">
+      ${quote}
+    </div>
+  </div>`;
   }
 
   private getLink(data: IInternalLink, locale: string, subMenu) {
