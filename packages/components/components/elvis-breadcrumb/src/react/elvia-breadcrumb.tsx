@@ -44,7 +44,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
   const handleOnClick = (value: number) => {
     if (!webcomponent && breadcrumbsOnChange) {
       breadcrumbsOnChange(value);
-    } else {
+    } else if (webcomponent) {
       webcomponent.setProps({ breadcrumbs: value }, true);
     }
   };

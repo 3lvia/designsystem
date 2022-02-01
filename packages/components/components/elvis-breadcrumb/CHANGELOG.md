@@ -1,5 +1,11 @@
 # Elvia Breadcrumbs
 
+## 1.2.5 (28.01.22)
+
+### Patch
+
+- Patch for react bug
+
 ## 1.2.4 (28.01.22)
 
 ### Patch
