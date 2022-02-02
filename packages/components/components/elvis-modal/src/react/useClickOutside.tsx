@@ -18,7 +18,7 @@ export function useClickOutside(ref: React.RefObject<HTMLElement>, handler: Hand
     }
 
     const listener = (event: PossibleEvent) => {
-      if (!ref.current || ref.current?.parentNode !== event.target) {
+      if (!ref.current || (ref.current && ref.current.parentNode !== event.target)) {
         return;
       }
       handler(event);
