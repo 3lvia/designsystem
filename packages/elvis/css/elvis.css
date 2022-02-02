@@ -6210,6 +6210,11 @@ input:focus {
 .e-stepper.e-stepper--forced .e-stepper__step.e-stepper__step--active ~ .e-stepper__step .e-stepper__step-title, .e-stepper.e-stepper--forced .e-stepper__step.e-stepper__step--active-done ~ .e-stepper__step .e-stepper__step-title {
   cursor: not-allowed;
 }
+.e-stepper .e-stepper__step-number:hover,
+.e-stepper .e-stepper__step-number--hover {
+  color: #000;
+  border-color: #29d305;
+}
 .e-stepper .e-stepper__step.e-stepper__step--active .e-stepper__step-number {
   color: #000;
   border-color: #29d305;

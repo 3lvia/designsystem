@@ -797,7 +797,11 @@
 						"e-stepper__step--error": {}
 					}
 				},
-				"e-stepper__step-number": {},
+				"e-stepper__step-number": {
+					"modifier": {
+						"e-stepper__step-number--hover": {}
+					}
+				},
 				"e-stepper__step-line": {},
 				"e-stepper__step-lines": {},
 				"e-stepper__title": {},
@@ -1670,6 +1674,7 @@
 		"e-stepper__step--active": {},
 		"e-stepper--forced": {},
 		"e-stepper__step--active-done": {},
+		"e-stepper__step-number--hover": {},
 		"e-stepper__step--done": {},
 		"e-stepper__step--error": {},
 		"e-table-mobile": {},

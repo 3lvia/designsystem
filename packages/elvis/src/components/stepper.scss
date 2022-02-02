@@ -1,5 +1,5 @@
 @use '../variables/colors';
-@use "../utilities/helpers";
+@use '../utilities/helpers';
 
 .e-stepper {
   display: inline-flex;
@@ -160,6 +160,12 @@
         }
       }
     }
+  }
+
+  .e-stepper__step-number:hover,
+  .e-stepper__step-number--hover {
+    color: colors.color('font-color');
+    border-color: colors.color('elvia-charge');
   }
 
   .e-stepper__step.e-stepper__step--active {
