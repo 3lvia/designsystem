@@ -42,6 +42,7 @@ function App() {
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
   const [isModalShowing, setIsModalShowingState] = useState(false);
+  const [isModal2Showing, setIsModal2ShowingState] = useState(false);
   const [isPopoverShowing, setIsPopoverShowingState] = useState(false);
   const [progressValue, setProgressValue] = useState(0);
   const [selectedDate, setSelectedDate] = useState(dateCurr);
@@ -398,6 +399,32 @@ function App() {
               Body text comes here and can go over several lines. It looks like this when it is two lines.
             </div>
           </>
+        }
+      ></Modal>
+      <button onClick={() => setIsModal2ShowingState(true)}>Show modal containing datepicker</button>
+      <Modal
+        isShowing={isModal2Showing}
+        className="test"
+        hasCloseBtn
+        onHide={() => setIsModal2ShowingState(false)}
+        title="Title of content"
+        primaryButton={
+          <button onClick={() => setIsModal2ShowingState(false)} className="e-btn e-btn--primary e-btn--lg">
+            Primary action
+          </button>
+        }
+        secondaryButton={
+          <button onClick={() => setIsModal2ShowingState(false)} className="e-btn e-btn--secondary e-btn--lg">
+            Cancel
+          </button>
+        }
+        content={
+          <Datepicker
+          isRequired
+          maxDate={maxDate}
+          hasSelectDateOnOpen={false}
+          valueOnChange={(dateCurr) => console.log("dateCurr",dateCurr)}
+        ></Datepicker>
         }
       ></Modal>
       <div>

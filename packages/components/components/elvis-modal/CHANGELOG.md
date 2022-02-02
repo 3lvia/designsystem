@@ -1,5 +1,9 @@
 # Elvia Modal Changelog
 
+## 1.3.11 (02.02.22)
+
+- changes in useClickOutside listener
+
 ## 1.3.10 (25.01.22)
 
 ### Patch
