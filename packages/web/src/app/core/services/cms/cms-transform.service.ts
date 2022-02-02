@@ -218,6 +218,13 @@ export class CMSTransformService {
   }
 
   private getImage(data: IImage, locale: string) {
+    let altText;
+    const description = data.fields.description ? data.fields.description[locale] : undefined;
+    if (data.fields.altText) {
+      altText = data.fields.altText[locale];
+    } else {
+      console.error(`Image: Image '${data.fields.name[locale]}' is missing alt text.`);
+    }
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
     return `<div
       ${`style=' 
@@ -235,17 +242,33 @@ export class CMSTransformService {
         ${data.fields.size[locale] === '25%' ? `cms-image-small` : `cms-image-normal`}
       '`}
     >
-      <img
-        ${`class=' 
-          ${data.fields.inlineText ? 'cms-image-inline' : ''} 
-          align-${data.fields.alignment[locale]}
-          ${data.fields.size[locale] === 'original' ? 'original-margin' : ''} 
-        '`}
-        ${`style=' 
-          ${data.fields.inlineText ? `display: inline; width: ${data.fields.size[locale]}` : 'width: 100%'} 
-        '`}
-        src="${srcUrl}"
-      />
+      <div>
+        <img
+          ${`class='
+            ${data.fields.inlineText ? 'cms-image-inline' : ''} 
+            align-${data.fields.alignment[locale]}
+            ${data.fields.size[locale] === 'original' ? 'original-margin' : ''} 
+          '`}
+          ${`style=' 
+            ${
+              data.fields.inlineText
+                ? `display: inline; width: ${data.fields.size[locale]}`
+                : 'max-width: 100%'
+            } 
+          '`}
+          src="${srcUrl}"
+          alt="${altText}"
+        />
+        <div 
+          ${`class=' 
+            ${description !== undefined && 'cms-image-desc-show'} 
+            cms-image-desc
+            e-text-img'
+          `}
+        >
+          ${documentToHtmlString(description, this.options)}
+        </div>
+      </div>
       ${
         data.fields.inlineText && data.fields.inlineText
           ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`

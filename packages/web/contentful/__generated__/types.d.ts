@@ -69,31 +69,12 @@ export interface IDocumentationPage extends Entry<IDocumentationPageFields> {
   };
 }
 
-export interface IIconListFields {
-  /** list */
-  list?: Document | undefined;
-}
-
-export interface IIconList extends Entry<IIconListFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'iconList';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
-    };
-  };
-}
-
 export interface IImageFields {
   /** Name */
-  name?: string | undefined;
+  name: string;
+
+  /** Alt text */
+  altText?: string | undefined;
 
   /** Size */
   size: 'original' | '25%' | '50%' | '75%' | '100%';
@@ -103,6 +84,9 @@ export interface IImageFields {
 
   /** Image */
   image: Asset;
+
+  /** Description */
+  description?: Document | undefined;
 
   /** Inline text */
   inlineText?: Document | undefined;
@@ -224,7 +208,6 @@ export interface ILandingPageWithCards extends Entry<ILandingPageWithCardsFields
   };
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ILocalizationStringsFields {}
 
 /** A list of localized strings */
@@ -417,35 +400,9 @@ export interface ISubsubsection extends Entry<ISubsubsectionFields> {
   };
 }
 
-export interface ITabelTestFields {
-  /** title */
-  title?: string | undefined;
-
-  /** html */
-  html?: Document | undefined;
-}
-
-export interface ITabelTest extends Entry<ITabelTestFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'tabelTest';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
-    };
-  };
-}
-
 export type CONTENT_TYPE =
   | 'centeredContent'
   | 'documentationPage'
-  | 'iconList'
   | 'image'
   | 'internalLink'
   | 'landingPage'
@@ -456,8 +413,7 @@ export type CONTENT_TYPE =
   | 'section'
   | 'subMenu'
   | 'subsection'
-  | 'subsubsection'
-  | 'tabelTest';
+  | 'subsubsection';
 
 export type LOCALE_CODE = 'en-GB' | 'nb-NO';
 

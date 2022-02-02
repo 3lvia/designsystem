@@ -4,6 +4,7 @@ node_modules
 assets
 coverage
 build
+packages/web/contentful/*
 packages/web/src/assets/*
 packages/elvis/.internal/classlist.json
 packages/elvis/css/*.js
