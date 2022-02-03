@@ -99,9 +99,6 @@ export class CMSTransformService {
     if (type === 'subsection') {
       return this.getSubsection(data, locale);
     }
-    if (type === 'subsubsection') {
-      return this.getSubsubsection(data, locale);
-    }
     if (type === 'landingPage') {
       return this.getLandingPage(data, locale);
     }
@@ -341,20 +338,6 @@ export class CMSTransformService {
           </h3>
         </div>
         <div class="cms-subsection__content e-text-body e-my-0">
-          ${documentToHtmlString(data.fields.content[locale], this.options)}
-        </div>
-      </div>`;
-  }
-
-  private getSubsubsection(data: ISubsubsection, locale: string) {
-    return `
-      <div class="cms-subsubsection e-my-48">
-        <div class="cms-subsubsection__title">
-          <h4 class="e-title-xs e-mt-0 e-mb-8" style="display: flex">
-            ${data.fields.title ? data.fields.title[locale] : ''}
-          </h4>
-        </div>
-        <div class="cms-subsubsection__content e-text-body e-my-0">
           ${documentToHtmlString(data.fields.content[locale], this.options)}
         </div>
       </div>`;
