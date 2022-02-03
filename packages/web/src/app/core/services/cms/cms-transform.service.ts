@@ -138,21 +138,18 @@ export class CMSTransformService {
   private getList(content: string) {
     const liRegex = /(?:<li>)(.*?)(?=<\/li>)/g;
     const imgRegex = /(?:<img)(.*?)(?=\/>)/g;
-    if (!content.match(liRegex)) {
-      console.error('List: Formatting of lists content is not correct, make sure there are no line breaks.');
-    }
     const formattedContent = content.replace(/(\r\n|\n|\r)/gm, "");
     let liStrings = [...formattedContent.match(liRegex)];
     const bulletIcons = liStrings.map((i) => {
       const imageUrl = i.match(imgRegex) && i.match(imgRegex)[0].replace('<img', '');
-      const str = '<img style="position: absolute; margin-right: 8px; margin-left: -48px;"' + imageUrl + '/>';
+      const str = `<img style="position: absolute; margin-right: 8px; margin-left: -48px;"' + ${imageUrl}/>`;
       return str.replace('class="cms-img', '');
     });
     liStrings = liStrings.map((li) => {
       return li.replace(imgRegex, '').replace('/>', '');
     });
     if (bulletIcons[0].includes('src=')) {
-      let returnString = `<ol class="e-list e-list--icons e-text-lg">`;
+      let returnString = '<ol class="e-list e-list--icons e-text-lg">';
       for (let liIndex = 0; liIndex <= liStrings.length - 1; liIndex++) {
         returnString += `<li><span class="e-list__icon">${bulletIcons[liIndex]}</span>`;
         returnString += `<span>${liStrings[liIndex]}</span></li>`;
