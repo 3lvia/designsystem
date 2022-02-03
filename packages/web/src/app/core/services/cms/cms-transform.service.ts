@@ -178,6 +178,19 @@ export class CMSTransformService {
   </div>`;
   }
 
+  private getLinkPath(data: IInternalLink, locale: string, subMenu, paragraphTitle): string {
+    let linkPath = '';
+    if (data.fields.page) {
+      const subPath = data.fields.page[locale].fields.path[locale];
+      linkPath = this.getFullPath(subPath, subMenu) + '#' + paragraphTitle;
+    } else if (data.fields.urlNewTab) {
+      linkPath = data.fields.urlNewTab[locale];
+    } else {
+      console.error('Link: Missing either page reference or url.');
+    }
+    return linkPath;
+  }
+
   private getLink(data: IInternalLink, locale: string, subMenu, inlineEntry: boolean) {
     const linkText = data.fields.title[locale];
     const type = data.fields.type ? data.fields.type[locale] : '';
@@ -185,21 +198,11 @@ export class CMSTransformService {
     const isExternal = data.fields.urlNewTab !== undefined && data.fields.page === undefined;
     const isAction = type === 'Action' && !isExternal;
     const paragraphTitle = data.fields.paragraph ? data.fields.paragraph[locale] : '';
-    let fullPath = '';
-    if (data.fields.page && data.fields.urlNewTab) {
-      console.error(`Link: Double url, use either page 'Url design.elvia.io (internal)' or 'Url new tab / external'.`);
-    } else if (data.fields.page) {
-      const subPath = data.fields.page[locale].fields.path[locale];
-      fullPath = this.getFullPath(subPath, subMenu) + '#' + paragraphTitle;
-    } else if (data.fields.urlNewTab) {
-      fullPath = data.fields.urlNewTab[locale];
-    } else {
-      console.error('Link: Missing either page reference or url.');
-    }
+    const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle)
     return `
       ${!isInline ? `<p>` : ``}
         <a 
-          href="${fullPath}" 
+          href="${linkPath}" 
           ${`class='e-link e-link--lg
             ${isInline ? `e-link--inline` : ''} 
             ${isAction && !isInline ? `e-link--action` : ''} 
@@ -229,7 +232,9 @@ export class CMSTransformService {
     const imgAlignment = data.fields.alignment[locale];
     const description = data.fields.description ? data.fields.description[locale] : undefined;
     let altText;
-    if (data.fields.altText) {
+    if (!data.fields.name) {
+      console.error(`Image: A image on your page is missing title.`);
+    } else if (data.fields.altText) {
       altText = data.fields.altText[locale];
     } else {
       console.error(`Image: Image '${data.fields.name[locale]}' is missing alt text.`);
