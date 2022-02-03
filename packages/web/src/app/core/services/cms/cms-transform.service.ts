@@ -48,7 +48,7 @@ export class CMSTransformService {
     this.subMenu = subMenu;
     this.locale = locale;
     if (data.nodeType === 'embedded-entry-block' || data.nodeType === 'embedded-entry-inline') {
-      return this.embeddedEntryBlock(data, locale, this.subMenu);
+      return this.embeddedEntryBlock(data, locale, this.subMenu, data.nodeType === 'embedded-entry-inline');
     }
     if (model === 'content') {
       return documentToHtmlString(data.fields.content[locale], this.options);
@@ -90,7 +90,7 @@ export class CMSTransformService {
     };
   }
 
-  private embeddedEntryBlock(node, locale: string, subMenu) {
+  private embeddedEntryBlock(node, locale: string, subMenu, inlineEntry: boolean) {
     const type = this.getEntryType(node);
     const data = node.data.target;
     if (type === 'section') {
@@ -112,7 +112,7 @@ export class CMSTransformService {
       return this.getCenteredContent(data, locale);
     }
     if (type === 'internalLink') {
-      return this.getLink(data, locale, subMenu);
+      return this.getLink(data, locale, subMenu, inlineEntry);
     }
     if (type === 'image') {
       return this.getImage(data, locale);
@@ -178,41 +178,49 @@ export class CMSTransformService {
   </div>`;
   }
 
-  private getLink(data: IInternalLink, locale: string, subMenu) {
+  private getLink(data: IInternalLink, locale: string, subMenu, inlineEntry: boolean) {
+    const linkText = data.fields.title[locale];
+    const type = data.fields.type ? data.fields.type[locale] : '';
+    const isInline = inlineEntry;
+    const isExternal = data.fields.urlNewTab !== undefined && data.fields.page === undefined;
+    const isAction = type === 'Action' && !isExternal;
+    const paragraphTitle = data.fields.paragraph ? data.fields.paragraph[locale] : '';
     let fullPath = '';
-    if (data.fields.page) {
+    if (data.fields.page && data.fields.urlNewTab) {
+      console.error(`Link: Double url, use either page 'Url design.elvia.io (internal)' or 'Url new tab / external'.`);
+    } else if (data.fields.page) {
       const subPath = data.fields.page[locale].fields.path[locale];
-      fullPath = this.getFullPath(subPath, subMenu);
+      fullPath = this.getFullPath(subPath, subMenu) + '#' + paragraphTitle;
     } else if (data.fields.urlNewTab) {
       fullPath = data.fields.urlNewTab[locale];
     } else {
       console.error('Link: Missing either page reference or url.');
     }
     return `
-      <a 
-        href="${fullPath}" 
-        ${`class='e-link
-          ${data.fields.inline[locale] ? `e-link--inline` : ''} 
-          ${data.fields.action[locale] ? `e-link--action` : ''} 
-          ${data.fields.newTab[locale] ? `e-link--new-tab` : ''}
-          ${data.fields.size[locale] === 'Large' ? `e-link--lg` : ''}
-          ${data.fields.size[locale] === 'Small' ? `e-link--sm` : ''}
-        '`}
-        ${data.fields.newTab[locale] ? `target="_blank"` : ''}
-      >
-        ${data.fields.title[locale] ? `<span class="e-link__title">${data.fields.title[locale]}</span>` : ''}
-        ${data.fields.action[locale]
+      ${!isInline ? `<p>` : ``}
+        <a 
+          href="${fullPath}" 
+          ${`class='e-link e-link--lg
+            ${isInline ? `e-link--inline` : ''} 
+            ${isAction && !isInline ? `e-link--action` : ''} 
+            ${isExternal ? `e-link--new-tab` : ''} 
+          '`}
+          ${isExternal ? `target="_blank"` : ''}
+        >
+          <span class="e-link__title">${linkText}</span>
+          ${isAction && !isInline
         ? `<span class="e-link__icon">
-          <i class="e-icon e-icon--arrow_right_circle-color"></i>
-          <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
-        </span>`
+            <i class="e-icon e-icon--arrow_right_circle-color"></i>
+            <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+          </span>`
         : ''
       }
-        ${data.fields.newTab[locale]
+          ${isExternal
         ? `<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>`
         : ''
       }
-      </a>`;
+        </a>
+      ${!isInline ? `</p>` : ``}`;
   }
 
   private getImage(data: IImage, locale: string) {
