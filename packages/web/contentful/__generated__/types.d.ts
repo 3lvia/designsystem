@@ -74,7 +74,7 @@ export interface IImageFields {
   name: string;
 
   /** Alt text */
-  altText: string;
+  altText?: string | undefined;
 
   /** Size */
   size: 'original' | '25%' | '50%' | '75%' | '100%';
@@ -88,7 +88,7 @@ export interface IImageFields {
   /** Description */
   description?: Document | undefined;
 
-  /** Content next to image */
+  /** Inline text */
   inlineText?: Document | undefined;
 }
 
@@ -110,19 +110,13 @@ export interface IImage extends Entry<IImageFields> {
 }
 
 export interface IInternalLinkFields {
-  /** Link text */
+  /** Name */
   title: string;
 
-  /** Type */
-  type: 'Standard' | 'Action';
-
-  /** Url design.elvia.io (internal) */
+  /** Url internal page */
   page?: IDocumentationPage | undefined;
 
-  /** Name of paragraph on design.elvia.io */
-  paragraph?: string | undefined;
-
-  /** Url new tab / external */
+  /** Url new tab */
   urlNewTab?: string | undefined;
 
   /** Size */

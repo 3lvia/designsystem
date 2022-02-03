@@ -41,14 +41,14 @@ export class CMSTransformService {
     },
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   // eslint-disable-next-line
   getHTML(data, locale: string, subMenu?, model?: string): string {
     this.subMenu = subMenu;
     this.locale = locale;
     if (data.nodeType === 'embedded-entry-block' || data.nodeType === 'embedded-entry-inline') {
-      return this.embeddedEntryBlock(data, locale, this.subMenu, data.nodeType === 'embedded-entry-inline');
+      return this.embeddedEntryBlock(data, locale, this.subMenu);
     }
     if (model === 'content') {
       return documentToHtmlString(data.fields.content[locale], this.options);
@@ -90,7 +90,7 @@ export class CMSTransformService {
     };
   }
 
-  private embeddedEntryBlock(node, locale: string, subMenu, inlineEntry: boolean) {
+  private embeddedEntryBlock(node, locale: string, subMenu) {
     const type = this.getEntryType(node);
     const data = node.data.target;
     if (type === 'section') {
@@ -112,7 +112,7 @@ export class CMSTransformService {
       return this.getCenteredContent(data, locale);
     }
     if (type === 'internalLink') {
-      return this.getLink(data, locale, subMenu, inlineEntry);
+      return this.getLink(data, locale, subMenu);
     }
     if (type === 'image') {
       return this.getImage(data, locale);
@@ -178,103 +178,103 @@ export class CMSTransformService {
   </div>`;
   }
 
-  private getLinkPath(data: IInternalLink, locale: string, subMenu, paragraphTitle): string {
-    let linkPath = '';
+  private getLink(data: IInternalLink, locale: string, subMenu) {
+    let fullPath = '';
     if (data.fields.page) {
       const subPath = data.fields.page[locale].fields.path[locale];
-      linkPath = this.getFullPath(subPath, subMenu) + '#' + paragraphTitle;
+      fullPath = this.getFullPath(subPath, subMenu);
     } else if (data.fields.urlNewTab) {
-      linkPath = data.fields.urlNewTab[locale];
+      fullPath = data.fields.urlNewTab[locale];
     } else {
       console.error('Link: Missing either page reference or url.');
     }
-    return linkPath;
-  }
-
-  private getLink(data: IInternalLink, locale: string, subMenu, inlineEntry: boolean) {
-    const linkText = data.fields.title[locale];
-    const type = data.fields.type ? data.fields.type[locale] : '';
-    const isInline = inlineEntry;
-    const isExternal = data.fields.urlNewTab !== undefined && data.fields.page === undefined;
-    const isAction = type === 'Action' && !isExternal;
-    const paragraphTitle = data.fields.paragraph ? data.fields.paragraph[locale] : '';
-    const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle)
     return `
-      ${!isInline ? '<p>' : ''}
-        <a 
-          href="${linkPath}" 
-          class='e-link e-link--lg
-            ${isInline ? 'e-link--inline' : ''} 
-            ${isAction && !isInline ? 'e-link--action' : ''} 
-            ${isExternal ? 'e-link--new-tab' : ''} 
-          '
-          ${isExternal ? 'target="_blank"' : ''}
-        >
-          <span class="e-link__title">${linkText}</span>
-          ${isAction && !isInline
-        ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
-        : ''
-      }
-          ${isExternal
-        ? '<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>'
-        : ''
-      }
-        </a>
-      ${!isInline ? '</p>' : ''}`;
+      <a 
+        href="${fullPath}" 
+        ${`class='e-link
+          ${data.fields.inline[locale] ? `e-link--inline` : ''} 
+          ${data.fields.action[locale] ? `e-link--action` : ''} 
+          ${data.fields.newTab[locale] ? `e-link--new-tab` : ''}
+          ${data.fields.size[locale] === 'Large' ? `e-link--lg` : ''}
+          ${data.fields.size[locale] === 'Small' ? `e-link--sm` : ''}
+        '`}
+        ${data.fields.newTab[locale] ? `target="_blank"` : ''}
+      >
+        ${data.fields.title[locale] ? `<span class="e-link__title">${data.fields.title[locale]}</span>` : ''}
+        ${
+          data.fields.action[locale]
+            ? `<span class="e-link__icon">
+          <i class="e-icon e-icon--arrow_right_circle-color"></i>
+          <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+        </span>`
+            : ''
+        }
+        ${
+          data.fields.newTab[locale]
+            ? `<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>`
+            : ''
+        }
+      </a>`;
   }
 
   private getImage(data: IImage, locale: string) {
-    const hasInlineText = data.fields.inlineText !== undefined;
-    const imgSize = data.fields.size[locale];
-    const imgAlignment = data.fields.alignment[locale];
-    const description = data.fields.description ? data.fields.description[locale] : undefined;
     let altText;
-    if (!data.fields.name) {
-      console.error(`Image: A image on your page is missing title.`);
-    } else if (data.fields.altText) {
+    const description = data.fields.description ? data.fields.description[locale] : undefined;
+    if (data.fields.altText) {
       altText = data.fields.altText[locale];
     } else {
-      console.error(`Image: Image ${data.fields.name[locale]} is missing alt text.`);
+      console.error(`Image: Image '${data.fields.name[locale]}' is missing alt text.`);
     }
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
     return `<div
-      style=' 
-        ${hasInlineText ? 'display: block' : 'display: inline-block;'}
-        ${imgSize === 'original' ? 'width: unset' : imgSize === '100%'
-        ? 'width: calc(' + imgSize + '- 64px)'
-        : 'width: ' + imgSize
-      }
-      '
-      class='
+      ${`style=' 
+        ${data.fields.inlineText ? 'display: block' : `display: inline-block;`}
+        ${
+          data.fields.size[locale] === 'original'
+            ? `width: unset`
+            : data.fields.size[locale] === '100%'
+            ? `width: calc(${data.fields.size[locale]} - 64px)`
+            : `width: ${data.fields.size[locale]}`
+        }
+      '`}
+      ${`class='
         cms-image
-        ${imgSize === '25%' ? 'cms-image-small' : 'cms-image-normal'}
-      '
+        ${data.fields.size[locale] === '25%' ? `cms-image-small` : `cms-image-normal`}
+      '`}
     >
       <div>
         <img
-          class='
-            ${hasInlineText ? 'cms-image-inline' : ''} 
-            align-${imgAlignment}
-            ${imgSize === 'original' ? 'original-margin' : ''} 
-          '
-          style='${hasInlineText ? `display: inline; width: ${imgSize}` : 'max-width: 100%'}'
+          ${`class='
+            ${data.fields.inlineText ? 'cms-image-inline' : ''} 
+            align-${data.fields.alignment[locale]}
+            ${data.fields.size[locale] === 'original' ? 'original-margin' : ''} 
+          '`}
+          ${`style=' 
+            ${
+              data.fields.inlineText
+                ? `display: inline; width: ${data.fields.size[locale]}`
+                : 'max-width: 100%'
+            } 
+          '`}
           src="${srcUrl}"
-          ${altText !== 'decorative' && altText !== '"decorative"' ? 'alt="' + altText + '"' : ''}
+          alt="${altText}"
         />
         <div 
-          class=' 
+          ${`class=' 
             ${description !== undefined && 'cms-image-desc-show'} 
             cms-image-desc
             e-text-img'
+          `}
         >
           ${documentToHtmlString(description, this.options)}
         </div>
       </div>
-      ${hasInlineText
-        ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`
-        : ''
+      ${
+        data.fields.inlineText && data.fields.inlineText
+          ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`
+          : ''
       }
-      <div style="clear: ${imgAlignment}"></div>
+      <div style="clear: ${data.fields.alignment[locale]}"></div>
     </div>
     `;
   }
@@ -305,8 +305,9 @@ export class CMSTransformService {
   private getSection(data: ISection, locale: string) {
     return `
       <div class="cms-section elvis-anchor">
-        <div class="cms-section__title" id="${data.fields.title[locale] ? data.fields.title[locale].replaceAll(' ', '-') : ''
-      }">
+        <div class="cms-section__title" id="${
+          data.fields.title[locale] ? data.fields.title[locale].replaceAll(' ', '-') : ''
+        }">
           <span class="e-tooltip" tabindex="0">
             <span class="icons">
               <img
