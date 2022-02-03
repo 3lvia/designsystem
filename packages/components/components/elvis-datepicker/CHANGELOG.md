@@ -1,5 +1,11 @@
 # Elvia Date picker Changelog
 
+## 2.3.0 (03.02.22)
+
+### New feature
+
+- Added inlineStyle and className props
+
 ## 2.2.4 (31.01.21)
 
 - Updated dependencies

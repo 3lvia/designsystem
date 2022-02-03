@@ -1,5 +1,11 @@
 # Elvia Dropdown
 
+## 2.1.0 (03.02.22)
+
+### New feature
+
+- Added inlineStyle and className props
+
 ## 2.0.6 (26.01.21)
 
 - Updated dependencies

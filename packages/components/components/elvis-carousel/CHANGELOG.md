@@ -1,5 +1,11 @@
 # Elvia Carousel Changelog
 
+## 1.1.0 (03.02.22)
+
+### New feature
+
+- Added inlineStyle and className props
+
 ## 1.0.11 (26.01.21)
 
 - Updated dependencies

@@ -1,5 +1,11 @@
 # Elvia Breadcrumbs
 
+## 1.3.0 (03.02.22)
+
+### New feature
+
+- Added inlineStyle and className props
+
 ## 1.2.5 (28.01.22)
 
 ### Patch

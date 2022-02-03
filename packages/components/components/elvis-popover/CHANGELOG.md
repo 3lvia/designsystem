@@ -1,5 +1,11 @@
 # Elvia Popover Changelog
 
+## 4.3.0 (03.02.22)
+
+### New feature
+
+- Added inlineStyle and className props
+
 ## 4.2.5 (28.01.22)
 
 - Added aria-label for close button

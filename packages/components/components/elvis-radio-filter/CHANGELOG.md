@@ -1,5 +1,11 @@
 # Elvia Radio Filter Changelog
 
+## 1.2.0 (03.02.22)
+
+### New feature
+
+- Added inlineStyle and className props
+
 ## 1.1.5 (14.01.22)
 
 ### Patch

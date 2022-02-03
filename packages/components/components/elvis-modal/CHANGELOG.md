@@ -1,5 +1,11 @@
 # Elvia Modal Changelog
 
+## 1.4.0 (03.02.22)
+
+### New feature
+
+- Added inlineStyle and className props
+
 ## 1.3.11 (02.02.22)
 
 - changes in useClickOutside listener
