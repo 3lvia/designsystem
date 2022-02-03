@@ -138,18 +138,20 @@ export class CMSTransformService {
   private getList(content: string) {
     const liRegex = /(?:<li>)(.*?)(?=<\/li>)/g;
     const imgRegex = /(?:<img)(.*?)(?=\/>)/g;
-    const formattedContent = content.replace(/(\r\n|\n|\r)/gm, "");
-    let liStrings = [...formattedContent.match(liRegex)];
+    if (!content.match(liRegex)) {
+      console.error('List: Formatting of lists content is not correct, make sure there are no line breaks.');
+    }
+    let liStrings = [...content.match(liRegex)];
     const bulletIcons = liStrings.map((i) => {
       const imageUrl = i.match(imgRegex) && i.match(imgRegex)[0].replace('<img', '');
-      const str = `<img style="position: absolute; margin-right: 8px; margin-left: -48px;"' + ${imageUrl}/>`;
+      const str = '<img style="position: absolute; margin-right: 8px; margin-left: -48px;"' + imageUrl + '/>';
       return str.replace('class="cms-img', '');
     });
     liStrings = liStrings.map((li) => {
-      return li.replace(imgRegex, '').replace('/>', '');
+      return li.replace(imgRegex, '').replace('<img/>', '').replace('<li>/>', '<li>');
     });
     if (bulletIcons[0].includes('src=')) {
-      let returnString = '<ol class="e-list e-list--icons e-text-lg">';
+      let returnString = `<ol class="e-list e-list--icons">`;
       for (let liIndex = 0; liIndex <= liStrings.length - 1; liIndex++) {
         returnString += `<li><span class="e-list__icon">${bulletIcons[liIndex]}</span>`;
         returnString += `<span>${liStrings[liIndex]}</span></li>`;
@@ -195,7 +197,7 @@ export class CMSTransformService {
     const isInline = inlineEntry;
     const isExternal = data.fields.urlNewTab !== undefined && data.fields.page === undefined;
     const isAction = type === 'Action' && !isExternal;
-    const paragraphTitle = data.fields.paragraph ? data.fields.paragraph[locale].replaceAll(' ', '-') : '';
+    const paragraphTitle = data.fields.paragraph ? data.fields.paragraph[locale] : '';
     const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle)
     return `
       ${!isInline ? '<p>' : ''}
