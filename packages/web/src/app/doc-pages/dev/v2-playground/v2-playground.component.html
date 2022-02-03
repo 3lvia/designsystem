@@ -36,11 +36,10 @@
     (valueOnChange)="defaultPaginatioValue = $event.detail.value"
     [isRightAligned]="true"
     dropdownMenuPos="top"
-    inlineStyle='{"margin":"24px"}'
   ></elvia-pagination>
 
   <h2>Breadcrumbs</h2>
-  <elvia-breadcrumb [breadcrumbs]="breadcrumbsTest" inlineStyle='{"margin": "50px"}'></elvia-breadcrumb>
+  <elvia-breadcrumb [breadcrumbs]="breadcrumbsTest"></elvia-breadcrumb>
   <elvia-breadcrumb
     [breadcrumbs]="breadcrumbsTestNoUrl"
     (breadcrumbsOnChange)="breadcrumbsValue = $event.detail.value"
@@ -217,7 +216,7 @@
 
     <h2>Box</h2>
     <div style="padding: 8px">
-      <elvia-box [hasBorder]="true" inlineStyle='{"margin":"24px"}'>
+      <elvia-box [hasBorder]="true">
         <h2 slot="title">Title</h2>
         <div slot="content">Webcomponentent content for the box component</div>
       </elvia-box>
@@ -325,7 +324,7 @@
       <elvia-divider></elvia-divider>
     </div>
     <div style="padding: 8px">
-      <elvia-divider type="title" typography="caps" inlineStyle='{"margin":"24px"}'>
+      <elvia-divider type="title" typography="caps">
         <h3 slot="title">Titleee</h3>
       </elvia-divider>
     </div>
@@ -365,7 +364,7 @@
 
       <h2>DatePicker</h2>
       <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
-        <elvia-datepicker [value]="date1" inlineStyle='{"margin":"24px"}'></elvia-datepicker>
+        <elvia-datepicker [value]="date1"></elvia-datepicker>
       </div>
 
       <h2>Accordion</h2>
@@ -490,7 +489,6 @@
         [isIndeterminate]="indeterminate"
         [value]="progressValue"
         [isError]="progressError"
-        inlineStyle='{"margin":"24px"}'
       ></elvia-progress-linear>
       <div style="margin-bottom: 32px; display: flex">
         <div style="display: flex; width: 100%; justify-content: space-between">

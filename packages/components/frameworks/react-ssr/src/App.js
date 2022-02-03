@@ -306,7 +306,6 @@ function App() {
         isColored={true}
         title={<h1>Title for the box component</h1>}
         content={<div>Heisann dette er en box component sendt med som node i react</div>}
-        inlineStyle={{ margin: '24px' }}
       ></Box>
       <h2>Modal</h2>
       <button onClick={() => setIsModalShowingState(true)}>Show modal</button>
@@ -421,11 +420,11 @@ function App() {
         }
         content={
           <Datepicker
-          isRequired
-          maxDate={maxDate}
-          hasSelectDateOnOpen={false}
-          valueOnChange={(dateCurr) => console.log("dateCurr",dateCurr)}
-        ></Datepicker>
+            isRequired
+            maxDate={maxDate}
+            hasSelectDateOnOpen={false}
+            valueOnChange={(dateCurr) => console.log('dateCurr', dateCurr)}
+          ></Datepicker>
         }
       ></Modal>
       <div>
@@ -581,12 +580,7 @@ function App() {
         <Divider />
       </div>
       <div style={{ marginBottom: '16px', padding: '8px' }}>
-        <Divider
-          title={<h2>Dette er en</h2>}
-          type="title"
-          typography="caps"
-          inlineStyle={{ margin: '24px' }}
-        />
+        <Divider title={<h2>Dette er en</h2>} type="title" typography="caps" />
       </div>
       <div style={{ marginBottom: '16px', padding: '8px' }}>
         <Divider type="curved" />
