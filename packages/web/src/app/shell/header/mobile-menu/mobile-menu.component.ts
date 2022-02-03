@@ -14,7 +14,7 @@ export class MobileMenuComponent implements OnDestroy {
   mainMenu: any;
   devMode = false;
 
-  private onDestroy = new Subject();
+  private onDestroy = new Subject<void>();
 
   private onDestroy$ = this.onDestroy.asObservable();
 

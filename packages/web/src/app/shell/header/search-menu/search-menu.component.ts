@@ -25,7 +25,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   maxTotalCharacters = 0;
   charactersBeforeEllipses = 0;
 
-  private onDestroy = new Subject();
+  private onDestroy = new Subject<void>();
 
   private onDestroy$ = this.onDestroy.asObservable();
 
