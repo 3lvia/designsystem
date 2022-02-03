@@ -1,8 +1,5 @@
 const contentful = require('contentful')
-
-function installDeps(functionDir, cb) {
-	cp.exec("npm i", {cwd: functionDir}, cb)
-}
+const safeJsonStringify = require('safe-json-stringify');
 
 exports.handler = async (event, context) => {
 	const client = contentful.createClient({
@@ -15,7 +12,7 @@ exports.handler = async (event, context) => {
 				return {
 					statusCode: 200, 
 					headers: {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true}, 
-					body: JSON.stringify(entry)
+					body: safeJsonStringify(entry)
 				};
 			})
 		.catch(console.error)

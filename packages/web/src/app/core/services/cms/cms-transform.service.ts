@@ -34,6 +34,7 @@ export class CMSTransformService {
       [BLOCKS.PARAGRAPH]: (node, next) => this.getParagraph(next(node.content)),
       [BLOCKS.UL_LIST]: (node, next) => this.getList(next(node.content)),
       [BLOCKS.OL_LIST]: (node, next) => this.getNumberedList(next(node.content)),
+      [BLOCKS.QUOTE]: (node, next) => this.getQuote(next(node.content)),
       [BLOCKS.EMBEDDED_ASSET]: (node) => this.getEmbeddedAsset(node.data.target.fields.file[this.locale].url),
       [BLOCKS.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.locale, this.subMenu)}`,
       [INLINES.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.locale, this.subMenu)}`,
@@ -166,6 +167,17 @@ export class CMSTransformService {
     return `<ul class="e-list e-list--numbers">${list}</ul>`;
   }
 
+  private getQuote(quote: string): string {
+    return ` <div class="cms-quote-container">
+    <div>
+      <i class="e-icon e-icon--quotation-color e-icon--lg"></i>
+    </div>
+    <div class="cms-quote-text e-text-quote">
+      ${quote}
+    </div>
+  </div>`;
+  }
+
   private getLink(data: IInternalLink, locale: string, subMenu) {
     let fullPath = '';
     if (data.fields.page) {
@@ -206,6 +218,13 @@ export class CMSTransformService {
   }
 
   private getImage(data: IImage, locale: string) {
+    let altText;
+    const description = data.fields.description ? data.fields.description[locale] : undefined;
+    if (data.fields.altText) {
+      altText = data.fields.altText[locale];
+    } else {
+      console.error(`Image: Image '${data.fields.name[locale]}' is missing alt text.`);
+    }
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
     return `<div
       ${`style=' 
@@ -223,17 +242,33 @@ export class CMSTransformService {
         ${data.fields.size[locale] === '25%' ? `cms-image-small` : `cms-image-normal`}
       '`}
     >
-      <img
-        ${`class=' 
-          ${data.fields.inlineText ? 'cms-image-inline' : ''} 
-          align-${data.fields.alignment[locale]}
-          ${data.fields.size[locale] === 'original' ? 'original-margin' : ''} 
-        '`}
-        ${`style=' 
-          ${data.fields.inlineText ? `display: inline; width: ${data.fields.size[locale]}` : 'width: 100%'} 
-        '`}
-        src="${srcUrl}"
-      />
+      <div>
+        <img
+          ${`class='
+            ${data.fields.inlineText ? 'cms-image-inline' : ''} 
+            align-${data.fields.alignment[locale]}
+            ${data.fields.size[locale] === 'original' ? 'original-margin' : ''} 
+          '`}
+          ${`style=' 
+            ${
+              data.fields.inlineText
+                ? `display: inline; width: ${data.fields.size[locale]}`
+                : 'max-width: 100%'
+            } 
+          '`}
+          src="${srcUrl}"
+          alt="${altText}"
+        />
+        <div 
+          ${`class=' 
+            ${description !== undefined && 'cms-image-desc-show'} 
+            cms-image-desc
+            e-text-img'
+          `}
+        >
+          ${documentToHtmlString(description, this.options)}
+        </div>
+      </div>
       ${
         data.fields.inlineText && data.fields.inlineText
           ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`

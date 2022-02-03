@@ -5,6 +5,22 @@ $pageSectionMarginTop: 104px;
 $pageSectionMarginBottom: 64px;
 $pageIndentedMargin: 72px;
 
+%image-typo {
+  font-family: 'Red Hat Text', Verdana, sans-serif !important;
+  font-size: 18px !important;
+  text-align: center !important;
+  line-height: 29px !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+  letter-spacing: unset !important;
+  text-transform: unset !important;
+  color: inherit !important;
+  @include breakpoint-up(Mobile) {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+}
+
 .doc-page-description {
   * {
     font-family: 'Red Hat Text', Verdana, sans-serif;
@@ -15,6 +31,13 @@ $pageIndentedMargin: 72px;
     letter-spacing: unset;
     text-transform: unset;
     color: inherit;
+    @include breakpoint-up(Mobile) {
+      font-size: 22px;
+      line-height: 36px;
+    }
+    .e-text-img .e-text-body {
+      @extend %image-typo;
+    }
   }
 }
 .doc-page-heading {
@@ -183,7 +206,9 @@ $pageIndentedMargin: 72px;
   }
 }
 .cms-heading2 {
-  margin-bottom: -24px;
+  + p {
+    margin-top: -8px;
+  }
   &__title {
     margin-top: 48px;
     @include breakpoint-up(Mobile) {
@@ -192,7 +217,9 @@ $pageIndentedMargin: 72px;
   }
 }
 .cms-heading3 {
-  margin-bottom: -32px;
+  + p {
+    margin-top: -16px;
+  }
   &__title {
     margin-top: 40px;
     @include breakpoint-up(Mobile) {
@@ -229,10 +256,12 @@ $pageIndentedMargin: 72px;
 }
 
 .cms-image {
+  img {
+    margin-bottom: 16px;
+  }
   .cms-image-inline {
     display: inline-flex;
     vertical-align: middle;
-    margin-bottom: 8px;
     &.align-left {
       padding-right: 32px;
       &.original-margin {
@@ -272,9 +301,34 @@ $pageIndentedMargin: 72px;
     vertical-align: middle;
   }
 
+  .cms-image-desc {
+    display: none;
+
+    @extend %image-typo;
+
+    &.cms-image-desc-show {
+      display: block;
+    }
+  }
+
   &.cms-image-small {
     @include breakpoint-up(Mobile) {
       width: 50% !important;
+    }
+  }
+}
+
+.cms-quote-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .cms-quote-text {
+    margin-left: 40px;
+    font-style: italic !important;
+
+    @include breakpoint-up(Mobile) {
+      margin-left: 31px;
     }
   }
 }

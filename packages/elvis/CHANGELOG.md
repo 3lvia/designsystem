@@ -2,6 +2,29 @@
 <!-- 💥 New Features -->
 <!-- 🐝 Bug Fixes -->
 <table>
+ <tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
+        7.15.4
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        February 2, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🛠 Patch</div>
+          <ul class="e-list">
+            <li>
+              Stepper hover state added.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
   <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">
@@ -9,7 +32,7 @@
       </span>
       <br>
       <span class="changelog-date-span">
-        January 26, 2021
+        January 26, 2022
       </span>
     </td>
     <td class="changelog-content">
@@ -32,7 +55,7 @@
       </span>
       <br>
       <span class="changelog-date-span">
-        January 24, 2021
+        January 24, 2022
       </span>
     </td>
     <td class="changelog-content">
@@ -55,7 +78,7 @@
       </span>
       <br>
       <span class="changelog-date-span">
-        January 17, 2021
+        January 17, 2022
       </span>
     </td>
     <td class="changelog-content">
