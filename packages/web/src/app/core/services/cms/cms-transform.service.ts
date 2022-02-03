@@ -41,7 +41,7 @@ export class CMSTransformService {
     },
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   // eslint-disable-next-line
   getHTML(data, locale: string, subMenu?, model?: string): string {
@@ -201,19 +201,17 @@ export class CMSTransformService {
         ${data.fields.newTab[locale] ? `target="_blank"` : ''}
       >
         ${data.fields.title[locale] ? `<span class="e-link__title">${data.fields.title[locale]}</span>` : ''}
-        ${
-          data.fields.action[locale]
-            ? `<span class="e-link__icon">
+        ${data.fields.action[locale]
+        ? `<span class="e-link__icon">
           <i class="e-icon e-icon--arrow_right_circle-color"></i>
           <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
         </span>`
-            : ''
-        }
-        ${
-          data.fields.newTab[locale]
-            ? `<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>`
-            : ''
-        }
+        : ''
+      }
+        ${data.fields.newTab[locale]
+        ? `<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>`
+        : ''
+      }
       </a>`;
   }
 
@@ -229,13 +227,12 @@ export class CMSTransformService {
     return `<div
       ${`style=' 
         ${data.fields.inlineText ? 'display: block' : `display: inline-block;`}
-        ${
-          data.fields.size[locale] === 'original'
-            ? `width: unset`
-            : data.fields.size[locale] === '100%'
-            ? `width: calc(${data.fields.size[locale]} - 64px)`
-            : `width: ${data.fields.size[locale]}`
-        }
+        ${data.fields.size[locale] === 'original'
+        ? `width: unset`
+        : data.fields.size[locale] === '100%'
+          ? `width: calc(${data.fields.size[locale]} - 64px)`
+          : `width: ${data.fields.size[locale]}`
+      }
       '`}
       ${`class='
         cms-image
@@ -250,14 +247,13 @@ export class CMSTransformService {
             ${data.fields.size[locale] === 'original' ? 'original-margin' : ''} 
           '`}
           ${`style=' 
-            ${
-              data.fields.inlineText
-                ? `display: inline; width: ${data.fields.size[locale]}`
-                : 'max-width: 100%'
-            } 
+            ${data.fields.inlineText
+        ? `display: inline; width: ${data.fields.size[locale]}`
+        : 'max-width: 100%'
+      } 
           '`}
           src="${srcUrl}"
-          alt="${altText}"
+          ${altText !== 'decorative' && altText !== '"decorative"' ? `alt="${altText}"` : ``}
         />
         <div 
           ${`class=' 
@@ -269,10 +265,9 @@ export class CMSTransformService {
           ${documentToHtmlString(description, this.options)}
         </div>
       </div>
-      ${
-        data.fields.inlineText && data.fields.inlineText
-          ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`
-          : ''
+      ${data.fields.inlineText && data.fields.inlineText
+        ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`
+        : ''
       }
       <div style="clear: ${data.fields.alignment[locale]}"></div>
     </div>
@@ -305,9 +300,8 @@ export class CMSTransformService {
   private getSection(data: ISection, locale: string) {
     return `
       <div class="cms-section elvis-anchor">
-        <div class="cms-section__title" id="${
-          data.fields.title[locale] ? data.fields.title[locale].replaceAll(' ', '-') : ''
-        }">
+        <div class="cms-section__title" id="${data.fields.title[locale] ? data.fields.title[locale].replaceAll(' ', '-') : ''
+      }">
           <span class="e-tooltip" tabindex="0">
             <span class="icons">
               <img
