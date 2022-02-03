@@ -93,15 +93,6 @@ export class CMSTransformService {
   private embeddedEntryBlock(node, locale: string, subMenu, inlineEntry: boolean) {
     const type = this.getEntryType(node);
     const data = node.data.target;
-    if (type === 'section') {
-      return this.getSection(data, locale);
-    }
-    if (type === 'subsection') {
-      return this.getSubsection(data, locale);
-    }
-    if (type === 'subsubsection') {
-      return this.getSubsubsection(data, locale);
-    }
     if (type === 'landingPage') {
       return this.getLandingPage(data, locale);
     }
@@ -298,66 +289,6 @@ export class CMSTransformService {
 
   private getEmbeddedAsset(asset: string): string {
     return `<img class="cms-img" src="${asset}"/>`;
-  }
-
-  private getSection(data: ISection, locale: string) {
-    return `
-      <div class="cms-section elvis-anchor">
-        <div class="cms-section__title" id="${data.fields.title[locale] ? data.fields.title[locale].replaceAll(' ', '-') : ''
-      }">
-          <span class="e-tooltip" tabindex="0">
-            <span class="icons">
-              <img
-                class="cms-section__img normal-img"
-                alt="Copy anchor button"
-                src="assets/hyperlink-3.svg"
-              />
-              <img
-                class="cms-section__img green-img"
-                alt="Copy anchor button"
-                src="assets/hyperlink-3-green.svg"
-              />
-            </span>
-            <h2 class="e-title-md elvis-anchor-title e-mb-24 e-mt-0" style="display: flex">
-            ${data.fields.title ? data.fields.title[locale] : ''}
-            <ng-content select="headerIcon"></ng-content>
-            </h2>
-
-            <span class="e-tooltip__content">Copied!</span>
-          </span>
-        </div>
-        <div class="cms-section__content e-text-body">
-            ${documentToHtmlString(data.fields.content[locale], this.options)}
-        </div>
-      </div>`;
-  }
-
-  private getSubsection(data: ISubsection, locale: string) {
-    return `
-      <div class="cms-subsection e-my-72">
-        <div class="cms-subsection__title">
-          <h3 class="e-title-sm e-mt-0 e-mb-16" style="display: flex">
-            ${data.fields.title ? data.fields.title[locale] : ''}
-          </h3>
-        </div>
-        <div class="cms-subsection__content e-text-body e-my-0">
-          ${documentToHtmlString(data.fields.content[locale], this.options)}
-        </div>
-      </div>`;
-  }
-
-  private getSubsubsection(data: ISubsubsection, locale: string) {
-    return `
-      <div class="cms-subsubsection e-my-48">
-        <div class="cms-subsubsection__title">
-          <h4 class="e-title-xs e-mt-0 e-mb-8" style="display: flex">
-            ${data.fields.title ? data.fields.title[locale] : ''}
-          </h4>
-        </div>
-        <div class="cms-subsubsection__content e-text-body e-my-0">
-          ${documentToHtmlString(data.fields.content[locale], this.options)}
-        </div>
-      </div>`;
   }
 
   private getParagraph(paragraph: string): string {

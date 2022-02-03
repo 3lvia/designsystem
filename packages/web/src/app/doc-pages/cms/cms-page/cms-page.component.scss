@@ -99,7 +99,7 @@ $pageIndentedMargin: 72px;
   text-align: center;
 }
 
-.cms-section,
+// .cms-section,
 .cms-heading1 {
   margin-top: $pageSectionMarginTop;
   @include breakpoint-up(Mobile) {
@@ -157,36 +157,6 @@ $pageIndentedMargin: 72px;
     &.anchor-copied .icons .normal-img {
       display: none;
     }
-  }
-}
-
-.cms-subsubsection {
-  margin-left: $pageIndentedMargin;
-  @include breakpoint-up(Tablet) {
-    margin-left: 0;
-  }
-  @include breakpoint-up(Mobile) {
-    margin-top: 48px;
-  }
-}
-
-.cms-section,
-.cms-subsection,
-.cms-subsubsection {
-  p {
-    margin: 0px;
-  }
-  p + p {
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-
-  li p {
-    & + p {
-      margin: 0px;
-    }
-    margin-top: 24px;
-    margin-bottom: 8px;
   }
 }
 
