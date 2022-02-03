@@ -200,30 +200,27 @@ export class CMSTransformService {
     const paragraphTitle = data.fields.paragraph ? data.fields.paragraph[locale] : '';
     const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle)
     return `
-      ${!isInline ? `<p>` : ``}
+      ${!isInline ? '<p>' : ''}
         <a 
           href="${linkPath}" 
-          ${`class='e-link e-link--lg
-            ${isInline ? `e-link--inline` : ''} 
-            ${isAction && !isInline ? `e-link--action` : ''} 
-            ${isExternal ? `e-link--new-tab` : ''} 
-          '`}
-          ${isExternal ? `target="_blank"` : ''}
+          class='e-link e-link--lg
+            ${isInline ? 'e-link--inline' : ''} 
+            ${isAction && !isInline ? 'e-link--action' : ''} 
+            ${isExternal ? 'e-link--new-tab' : ''} 
+          '
+          ${isExternal ? 'target="_blank"' : ''}
         >
           <span class="e-link__title">${linkText}</span>
           ${isAction && !isInline
-        ? `<span class="e-link__icon">
-            <i class="e-icon e-icon--arrow_right_circle-color"></i>
-            <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
-          </span>`
+        ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
         : ''
       }
           ${isExternal
-        ? `<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>`
+        ? '<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>'
         : ''
       }
         </a>
-      ${!isInline ? `</p>` : ``}`;
+      ${!isInline ? '</p>' : ''}`;
   }
 
   private getImage(data: IImage, locale: string) {
