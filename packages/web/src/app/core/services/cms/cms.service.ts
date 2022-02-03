@@ -13,7 +13,7 @@ import { TransformedDocPage } from './cms.interface';
 export class CMSService {
   private entries = {};
   private entriesToSync = [];
-  private subjectAnchorsNew = new Subject<any>();
+  private subjectAnchorsNew = new Subject<void>();
 
   constructor(
     private http: HttpClient,

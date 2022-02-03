@@ -45,7 +45,7 @@
     height: calc(100% - 3.7vw);
     padding: 16px 48px 0;
     @include breakpoint-up(Mobile) {
-      height: calc(100% - 3.7vw) + 25;
+      height: calc((100% - 3.7vw) + 25px);
       padding: 8px 24px 0;
     }
   }
