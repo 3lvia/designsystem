@@ -234,46 +234,38 @@ export class CMSTransformService {
     } else if (data.fields.altText) {
       altText = data.fields.altText[locale];
     } else {
-      console.error(`Image: Image '${data.fields.name[locale]}' is missing alt text.`);
+      console.error(`Image: Image ${data.fields.name[locale]} is missing alt text.`);
     }
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
     return `<div
-      ${`style=' 
-        ${hasInlineText ? 'display: block' : `display: inline-block;`}
-        ${imgSize === 'original'
-        ? `width: unset`
-        : imgSize === '100%'
-          ? `width: calc(${imgSize} - 64px)`
-          : `width: ${imgSize}`
+      style=' 
+        ${hasInlineText ? 'display: block' : 'display: inline-block;'}
+        ${imgSize === 'original' ? 'width: unset' : imgSize === '100%'
+        ? 'width: calc(' + imgSize + '- 64px)'
+        : 'width: ' + imgSize
       }
-      '`}
-      ${`class='
+      '
+      class='
         cms-image
-        ${imgSize === '25%' ? `cms-image-small` : `cms-image-normal`}
-      '`}
+        ${imgSize === '25%' ? 'cms-image-small' : 'cms-image-normal'}
+      '
     >
       <div>
         <img
-          ${`class='
+          class='
             ${hasInlineText ? 'cms-image-inline' : ''} 
             align-${imgAlignment}
             ${imgSize === 'original' ? 'original-margin' : ''} 
-          '`}
-          ${`style=' 
-            ${hasInlineText
-        ? `display: inline; width: ${imgSize}`
-        : 'max-width: 100%'
-      } 
-          '`}
+          '
+          style='${hasInlineText ? `display: inline; width: ${imgSize}` : 'max-width: 100%'}'
           src="${srcUrl}"
-          ${altText !== 'decorative' && altText !== '"decorative"' ? `alt="${altText}"` : ``}
+          ${altText !== 'decorative' && altText !== '"decorative"' ? 'alt="' + altText + '"' : ''}
         />
         <div 
-          ${`class=' 
+          class=' 
             ${description !== undefined && 'cms-image-desc-show'} 
             cms-image-desc
             e-text-img'
-          `}
         >
           ${documentToHtmlString(description, this.options)}
         </div>
