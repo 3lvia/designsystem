@@ -224,8 +224,11 @@ export class CMSTransformService {
   }
 
   private getImage(data: IImage, locale: string) {
-    let altText;
+    const hasInlineText = data.fields.inlineText !== undefined;
+    const imgSize = data.fields.size[locale];
+    const imgAlignment = data.fields.alignment[locale];
     const description = data.fields.description ? data.fields.description[locale] : undefined;
+    let altText;
     if (data.fields.altText) {
       altText = data.fields.altText[locale];
     } else {
@@ -234,29 +237,29 @@ export class CMSTransformService {
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
     return `<div
       ${`style=' 
-        ${data.fields.inlineText ? 'display: block' : `display: inline-block;`}
-        ${data.fields.size[locale] === 'original'
+        ${hasInlineText ? 'display: block' : `display: inline-block;`}
+        ${imgSize === 'original'
         ? `width: unset`
-        : data.fields.size[locale] === '100%'
-          ? `width: calc(${data.fields.size[locale]} - 64px)`
-          : `width: ${data.fields.size[locale]}`
+        : imgSize === '100%'
+          ? `width: calc(${imgSize} - 64px)`
+          : `width: ${imgSize}`
       }
       '`}
       ${`class='
         cms-image
-        ${data.fields.size[locale] === '25%' ? `cms-image-small` : `cms-image-normal`}
+        ${imgSize === '25%' ? `cms-image-small` : `cms-image-normal`}
       '`}
     >
       <div>
         <img
           ${`class='
-            ${data.fields.inlineText ? 'cms-image-inline' : ''} 
-            align-${data.fields.alignment[locale]}
-            ${data.fields.size[locale] === 'original' ? 'original-margin' : ''} 
+            ${hasInlineText ? 'cms-image-inline' : ''} 
+            align-${imgAlignment}
+            ${imgSize === 'original' ? 'original-margin' : ''} 
           '`}
           ${`style=' 
-            ${data.fields.inlineText
-        ? `display: inline; width: ${data.fields.size[locale]}`
+            ${hasInlineText
+        ? `display: inline; width: ${imgSize}`
         : 'max-width: 100%'
       } 
           '`}
@@ -273,11 +276,11 @@ export class CMSTransformService {
           ${documentToHtmlString(description, this.options)}
         </div>
       </div>
-      ${data.fields.inlineText && data.fields.inlineText
+      ${hasInlineText
         ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`
         : ''
       }
-      <div style="clear: ${data.fields.alignment[locale]}"></div>
+      <div style="clear: ${imgAlignment}"></div>
     </div>
     `;
   }
