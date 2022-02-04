@@ -11,9 +11,6 @@ import {
   ILandingPage,
   ILandingPageWithCards,
   IOverviewCard,
-  ISection,
-  ISubsection,
-  ISubsubsection,
 } from 'contentful/__generated__/types';
 import { TransformedDocPage } from './cms.interface';
 

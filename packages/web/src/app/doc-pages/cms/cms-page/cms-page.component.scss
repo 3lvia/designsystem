@@ -101,8 +101,19 @@ $pageIndentedMargin: 72px;
 
 .cms-heading1 {
   margin-top: $pageSectionMarginTop;
+  margin-bottom: $pageSectionMarginBottom;
+  @include breakpoint-up(Tablet) {
+    margin-bottom: 56px;
+  }
   @include breakpoint-up(Mobile) {
+    margin-bottom: 48px;
     margin-top: $pageSectionMarginBottom;
+  }
+  ~ *:not(.cms-section, .cms-heading1) {
+    margin-left: $pageIndentedMargin;
+    @include breakpoint-up(Tablet) {
+      margin-left: 0;
+    }
   }
 
   &__content {
@@ -159,21 +170,6 @@ $pageIndentedMargin: 72px;
   }
 }
 
-.cms-heading1 {
-  margin-bottom: $pageSectionMarginBottom;
-  @include breakpoint-up(Tablet) {
-    margin-bottom: 56px;
-  }
-  @include breakpoint-up(Mobile) {
-    margin-bottom: 48px;
-  }
-  ~ *:not(.cms-section, .cms-heading1) {
-    margin-left: $pageIndentedMargin;
-    @include breakpoint-up(Tablet) {
-      margin-left: 0;
-    }
-  }
-}
 .cms-heading2 {
   + p {
     margin-top: -8px;
