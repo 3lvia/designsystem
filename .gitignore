@@ -54,3 +54,6 @@ Thumbs.db
 
 # Angular cache
 packages/web/.angular/*
+
+# Yarn
+.yarn/*
