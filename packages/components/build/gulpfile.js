@@ -209,7 +209,6 @@ gulp.task(
         validate.validateElviaComponentsConfig,
         buildToolboxComponentToJS,
         TSX_to_JS,
-        reactTypescriptDeclarations,
         buildWebComponentsMagically,
         buildElviaComponentToJS,
         function (done) {
