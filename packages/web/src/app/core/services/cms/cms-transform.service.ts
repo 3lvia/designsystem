@@ -116,6 +116,21 @@ export class CMSTransformService {
     return node.data.target.sys.contentType.sys.id;
   }
 
+  // Centered content?
+  // List
+  // Numbered list
+  // Quote
+  // Link
+  // Image
+  private showErrorMessage(model: string, errorMessage: string): void {
+    console.error(`${model}: ${errorMessage}`)
+    // console.error('Link: ' + subPath + ' is not an existing page that can be referenced.');
+  }
+  private showWarningMessage(model: string, warningMessage: string): void {
+    console.warn(`${model}: ${warningMessage}`)
+    // console.error('Link: ' + subPath + ' is not an existing page that can be referenced.');
+  }
+
   private getCenteredContent(data: ICenteredContent, locale: string) {
     return `
       <div class="cms-centered-content">
@@ -162,6 +177,25 @@ export class CMSTransformService {
       ${quote}
     </div>
   </div>`;
+  }
+
+  private getFullPath(subPath: string, subMenu) {
+    let fullPath = '';
+    subMenu.forEach((element) => {
+      if (element.path === subPath) {
+        fullPath = subPath;
+      } else {
+        element.entry.fields.pages[this.locale].forEach((subElement) => {
+          if (subElement.fields.path[this.locale] === subPath) {
+            fullPath = element.path + '/' + subPath;
+          }
+        });
+      }
+    });
+    if (fullPath === '') {
+      console.error('Link: ' + subPath + ' is not an existing page that can be referenced.');
+    }
+    return fullPath;
   }
 
   private getLinkPath(data: IInternalLink, locale: string, subMenu, paragraphTitle): string {
@@ -263,25 +297,6 @@ export class CMSTransformService {
       <div style="clear: ${imgAlignment}"></div>
     </div>
     `;
-  }
-
-  private getFullPath(subPath: string, subMenu) {
-    let fullPath = '';
-    subMenu.forEach((element) => {
-      if (element.path === subPath) {
-        fullPath = subPath;
-      } else {
-        element.entry.fields.pages[this.locale].forEach((subElement) => {
-          if (subElement.fields.path[this.locale] === subPath) {
-            fullPath = element.path + '/' + subPath;
-          }
-        });
-      }
-    });
-    if (fullPath === '') {
-      console.error('Link: ' + subPath + ' is not an existing page that can be referenced.');
-    }
-    return fullPath;
   }
 
   private getEmbeddedAsset(asset: string): string {
