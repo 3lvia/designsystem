@@ -209,6 +209,7 @@ gulp.task(
         validate.validateElviaComponentsConfig,
         buildToolboxComponentToJS,
         TSX_to_JS,
+        // reactTypescriptDeclarations, //Currently disabled until we can make it take shorter time, remember to build before publish
         buildWebComponentsMagically,
         buildElviaComponentToJS,
         function (done) {
