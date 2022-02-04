@@ -45,7 +45,6 @@
     "@types/lodash.debounce": "^4.0.6",
     "classlist.js": "^1.1.20150312",
     "contentful": "^8.5.8",
-    "css-vars-ponyfill": "^2.4.7",
     "dotenv": "^10.0.0",
     "glob": "^7.1.6",
     "ng-dynamic-component": "^10.0.0",
