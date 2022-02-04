@@ -99,11 +99,21 @@ $pageIndentedMargin: 72px;
   text-align: center;
 }
 
-.cms-section,
 .cms-heading1 {
   margin-top: $pageSectionMarginTop;
+  margin-bottom: $pageSectionMarginBottom;
+  @include breakpoint-up(Tablet) {
+    margin-bottom: 56px;
+  }
   @include breakpoint-up(Mobile) {
+    margin-bottom: 48px;
     margin-top: $pageSectionMarginBottom;
+  }
+  ~ *:not(.cms-section, .cms-heading1) {
+    margin-left: $pageIndentedMargin;
+    @include breakpoint-up(Tablet) {
+      margin-left: 0;
+    }
   }
 
   &__content {
@@ -160,51 +170,6 @@ $pageIndentedMargin: 72px;
   }
 }
 
-.cms-subsubsection {
-  margin-left: $pageIndentedMargin;
-  @include breakpoint-up(Tablet) {
-    margin-left: 0;
-  }
-  @include breakpoint-up(Mobile) {
-    margin-top: 48px;
-  }
-}
-
-.cms-section,
-.cms-subsection,
-.cms-subsubsection {
-  p {
-    margin: 0px;
-  }
-  p + p {
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-
-  li p {
-    & + p {
-      margin: 0px;
-    }
-    margin-top: 24px;
-    margin-bottom: 8px;
-  }
-}
-
-.cms-heading1 {
-  margin-bottom: $pageSectionMarginBottom;
-  @include breakpoint-up(Tablet) {
-    margin-bottom: 56px;
-  }
-  @include breakpoint-up(Mobile) {
-    margin-bottom: 48px;
-  }
-  ~ *:not(.cms-section, .cms-heading1) {
-    margin-left: $pageIndentedMargin;
-    @include breakpoint-up(Tablet) {
-      margin-left: 0;
-    }
-  }
-}
 .cms-heading2 {
   + p {
     margin-top: -8px;
