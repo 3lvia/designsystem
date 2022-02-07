@@ -1,5 +1,11 @@
 # Elvia Divider Changelog
 
+## 1.2.0 (07.02.22)
+
+### New feature
+
+- Added inlineStyle and className props
+
 ## 1.1.7 (14.01.22)
 
 ### Patch

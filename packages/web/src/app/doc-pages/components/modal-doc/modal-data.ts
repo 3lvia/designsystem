@@ -71,6 +71,11 @@ const modalData = {
       type: 'string | undefined',
       description: 'Overwrite the max width of the modal (e.g. "100px", "90%").',
     },
+    inlineStyle: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css style that can be added to the modal.',
+    },
   },
   package: 'npm install @elvia/elvis-modal',
   codeImportReact: `import { Modal } from '@elvia/elvis-modal/react';`,

@@ -69,6 +69,16 @@ const popoverData = {
       cegFormType: 'radio',
       cegOptions: ['left', 'center', 'right'],
     },
+    className: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css classes that can be added to the popover.',
+    },
+    inlineStyle: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css style that can be added to the popover.',
+    },
   },
   package: 'npm install @elvia/elvis-popover',
   codeImportReact: `import { Popover } from '@elvia/elvis-popover/react';`,

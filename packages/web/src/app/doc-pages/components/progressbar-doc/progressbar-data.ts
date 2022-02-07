@@ -40,6 +40,16 @@ export const progressbarData = {
       cegOption: 'true',
       cegDisplayGroup: 'State',
     },
+    className: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css classes that can be added to the progressbar.',
+    },
+    inlineStyle: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css style that can be added to the progressbar.',
+    },
   },
   codeImportReact: `import { ProgressLinear } from '@elvia/elvis-progress-linear/react';`,
   codeImportWebComponent: `import '@elvia/elvis-progress-linear';`,

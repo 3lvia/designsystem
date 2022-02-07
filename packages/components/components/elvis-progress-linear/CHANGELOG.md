@@ -1,5 +1,11 @@
 # Elvia Progress-linear Changelog
 
+## 1.2.0 (07.02.22)
+
+### New feature
+
+- Added inlineStyle and className props
+
 ## 1.1.2 (09.12.21)
 
 - Added unit tests for progress-linear

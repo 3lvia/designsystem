@@ -337,4 +337,28 @@ describe('Elvis Card', () => {
       done();
     });
   });
+
+  describe('className and inlineStyle passed to wrapper', () => {
+    beforeEach(() => {
+      wrapper = mount(
+        <Card
+          label={'Label'}
+          description={'Description'}
+          className="test-class"
+          inlineStyle={{ margin: '24px' }}
+        ></Card>,
+      );
+      cardArea = wrapper.find({ 'data-testid': 'card-area' });
+    });
+
+    afterEach(() => {
+      wrapper.unmount();
+    });
+
+    it('should have className and inlineStyle', function (done) {
+      expect(cardArea.at(0).getDOMNode()).toHaveStyle('margin: 24px');
+      expect(cardArea.at(0).getDOMNode()).toHaveClass('test-class');
+      done();
+    });
+  });
 });
