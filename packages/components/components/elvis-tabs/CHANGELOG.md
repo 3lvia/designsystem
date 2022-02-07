@@ -1,6 +1,6 @@
 # Elvia Tabs Changelog
 
-## 1.2.0 (03.02.22)
+## 1.2.0 (07.02.22)
 
 ### New feature
 

@@ -1,6 +1,6 @@
 # Elvia Carousel Changelog
 
-## 1.1.0 (03.02.22)
+## 1.1.0 (07.02.22)
 
 ### New feature
 

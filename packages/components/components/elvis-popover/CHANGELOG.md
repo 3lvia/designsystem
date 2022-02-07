@@ -1,6 +1,6 @@
 # Elvia Popover Changelog
 
-## 4.3.0 (03.02.22)
+## 4.3.0 (07.02.22)
 
 ### New feature
 

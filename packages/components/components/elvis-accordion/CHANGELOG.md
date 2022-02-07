@@ -1,6 +1,6 @@
 # Elvia Accordion Changelog
 
-## 2.1.0 (03.02.22)
+## 2.1.0 (07.02.22)
 
 ### New feature
 
