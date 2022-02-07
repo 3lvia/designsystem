@@ -310,7 +310,7 @@ $pageIndentedMargin: 72px;
   align-items: center;
 
   .error-image {
-    width: 250px;
+    width: 260px;
     @include breakpoint-up(Tablet) {
       width: 200px;
     }
