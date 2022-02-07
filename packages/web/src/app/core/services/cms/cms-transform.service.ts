@@ -19,6 +19,7 @@ import { TransformedDocPage } from './cms.interface';
   providedIn: 'root',
 })
 export class CMSTransformService {
+  private errorMessages = [];
   private locale = 'en-GB'; // Fallback
   private subMenu;
   private options: Options = {
@@ -42,11 +43,12 @@ export class CMSTransformService {
   constructor(private router: Router) { }
 
   showErrorMessage(model: string, errorMessage: string): void {
-    console.error(`Contentful - ${model}: ${errorMessage} \n   The field is required for the content to load.`)
-    // Display empty state - something went wrong
-  }
-  showWarningMessage(model: string, warningMessage: string): void {
-    console.warn(`Contentful - ${model}: ${warningMessage}`)
+    console.error(`Contentful - ${model}: ${errorMessage} \n   This field is required for the content to load.`);
+    const newError = {
+      name: model,
+      message: `${errorMessage} \n   This field is required for the content to load.`
+    }
+    this.errorMessages.push(newError);
   }
 
   // eslint-disable-next-line
@@ -79,7 +81,6 @@ export class CMSTransformService {
     }
     if (!data.fields.path) {
       this.showErrorMessage('Documentation page', 'The page is missing a path.');
-      return;
     }
 
     const description = data.fields.pageDescription
@@ -97,6 +98,7 @@ export class CMSTransformService {
       docUrl: data.fields.path && data.fields.path[locale],
       fullPath: data.fields.path && subMenuRoute + data.fields.path[locale],
       lastUpdated: data.sys.updatedAt,
+      errorMessages: this.errorMessages,
     };
   }
 
@@ -260,7 +262,7 @@ export class CMSTransformService {
       this.showErrorMessage('Image', `${data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'} is missing the image asset.`);
     }
     if (!data.fields.altText) {
-      this.showWarningMessage('Image', `${data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'} is missing alt text.`);
+      this.showErrorMessage('Image', `${data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'} is missing alt text.`);
     }
     if (!data.fields.name || !data.fields.image) {
       return;

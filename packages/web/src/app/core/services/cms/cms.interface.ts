@@ -7,4 +7,5 @@ export interface TransformedDocPage {
   docUrl: string;
   fullPath: string;
   lastUpdated: string;
+  errorMessages: string[];
 }

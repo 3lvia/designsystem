@@ -27,6 +27,7 @@ export class CMSPageComponent implements OnDestroy {
   landingPage = false;
   hasChecked = false;
   activeEventListeners = [];
+  errorMessages = [];
 
   constructor(
     private cmsService: CMSService,
@@ -97,6 +98,9 @@ export class CMSPageComponent implements OnDestroy {
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   setInnerHTMLToCMSContent(docPage: TransformedDocPage): void {
+    if (docPage.errorMessages.length > 0) {
+      this.errorMessages = docPage.errorMessages;
+    }
     this.cmsContent = docPage;
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
