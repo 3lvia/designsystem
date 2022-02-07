@@ -468,4 +468,187 @@
       </div>
     </ng-container>
   </app-component-section>
+
+  <!--FOR CONTENT CREATORS-->
+  <app-component-section [sectionTitle]="'For content creators'">
+    <ng-container ngProjectAs="sectionContent">
+      If you are responsible for Elvia branding material or want to add or edit design tools, you might want
+      to have access to our CMS.
+      <a
+        class="e-link e-link--inline e-link--new-tab"
+        href="https://app.contentful.com/spaces/zez3t3t1iiwd"
+        target="_blank"
+      >
+        Contenful
+      </a>
+      is a content management system that the design system is using to make it easier for non-developers to
+      edit content on design.elvia.io. If you think you should have access to edit content on design.elvia.io
+      or you need help to edit something,
+      <a class="e-link e-link--inline" [routerLink]="['/about/contact']">contact us!</a>
+      .
+
+      <div class="e-accordion e-accordion--group">
+        <!--Useful terms-->
+        <div class="e-accordion__item" id="useful-terms">
+          <div class="e-accordion__label" (click)="toggleAccordion('useful-terms')">
+            <div class="e-accordion__title">Useful terms</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              <ul class="e-list">
+                <li>
+                  <strong>CMS</strong>
+                  - Content management system, a system that lets people edit content easily.
+                </li>
+                <li>
+                  <strong>Contentful</strong>
+                  - The CMS the design system have choosen to use.
+                </li>
+                <li>
+                  <strong>Other</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!--Logging in-->
+        <div class="e-accordion__item" id="logging-in">
+          <div class="e-accordion__label" (click)="toggleAccordion('logging-in')">
+            <div class="e-accordion__title">Sign in</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              <div>
+                You need an Elvia account to log in to Contentful. If you have received access use SSO in the
+                bottom of the page to sign in.
+              </div>
+              <div class="e-mt-16">
+                <img
+                  width="100%"
+                  src="./../../../../assets/get-started-content/login.png"
+                  alt="Login button in Contentful"
+                />
+              </div>
+              <div class="e-mt-24">
+                Next you will be asked to fill in SSO name, this field should be 'Elvia'. After that proceed
+                to sign in a normal.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Contentful structure-->
+        <div class="e-accordion__item" id="cotentful-structure">
+          <div class="e-accordion__label" (click)="toggleAccordion('cotentful-structure')">
+            <div class="e-accordion__title">Contentful structure</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              Contentful is structured up of different content types. In the content tab you can find all the
+              content that is relevant for you to edit. Every page on design.elvia.io translates to a
+              'documentationPage' in Contentful. These documentationPages are the bases for adding or editing
+              content.
+            </div>
+            <div class="e-mt-24">
+              <h3 class="e-title-xs">Sorting</h3>
+              <img
+                width="100%"
+                src="./../../../../assets/get-started-content/sorting.png"
+                alt="Example of sorting in Contentful"
+              />
+            </div>
+            <div class="e-mt-24">
+              <h3 class="e-title-xs">Editing</h3>
+              Using contentful options Adding entries help-texts - image Existing content (Empty page)
+            </div>
+            <div class="e-mt-24">
+              <h3 class="e-title-xs">Publishing & previews</h3>
+              - Preview - Trigger bygg - Publisere flere ting
+            </div>
+            <div class="e-mt-24"></div>
+          </div>
+        </div>
+
+        <!--Types-->
+        <div class="e-accordion__item" id="contentful-types">
+          <div class="e-accordion__label" (click)="toggleAccordion('contentful-types')">
+            <div class="e-accordion__title">All types to care about</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <ul class="e-list">
+              <li>
+                <strong>DocumentationPage</strong>
+                - ...
+              </li>
+              <li>
+                <strong>Image</strong>
+                - ...
+              </li>
+              <li>
+                <strong>Icon lists</strong>
+                - ...
+              </li>
+              <li>
+                <strong>Links</strong>
+                - ...
+              </li>
+              <li>
+                <strong>CenteredContent</strong>
+                - ...
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!--Errors-->
+        <div class="e-accordion__item" id="contentful-errors">
+          <div class="e-accordion__label" (click)="toggleAccordion('contentful-errors')">
+            <div class="e-accordion__title">Errors</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              When getting an error in Contentful the error message should be displayed like in the image
+              below:
+            </div>
+            <div class="e-mt-16">
+              <img
+                width="100%"
+                src="./../../../../assets/get-started-content/error.png"
+                alt="Example Contentful error on design.elvia.io"
+              />
+            </div>
+            <div class="e-mt-24">
+              All errors will be listed here and each error tells you what type of content that has been made
+              incorrectly and what specifically has to be corrected for the page to work.
+            </div>
+            <div class="e-mt-24">
+              If the content is stuck on loading the page, not displaying any error or you don't understand
+              the error message please contact us.
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </app-component-section>
 </div>
