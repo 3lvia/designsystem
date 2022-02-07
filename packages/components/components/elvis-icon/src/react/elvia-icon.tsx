@@ -87,12 +87,9 @@ export const Icon: React.FC<IconProps> = ({
   const displayIcon = getIcon(name, size, color, customSize);
 
   return (
-    <i
-      dangerouslySetInnerHTML={{ __html: displayIcon }}
-      aria-hidden="true"
-      style={inlineStyle}
-      className={className ? className : ''}
-    />
+    <div style={inlineStyle} className={className ? className : ''}>
+      <i dangerouslySetInnerHTML={{ __html: displayIcon }} aria-hidden="true" />{' '}
+    </div>
   );
 };
 
