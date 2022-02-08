@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import {
   ICenteredContent,
   IDocumentationPage,
+  IDownloadContent,
   IImage,
   IInternalLink,
   ILandingPage,
@@ -104,6 +105,9 @@ export class CMSTransformService {
     }
     if (type === 'image') {
       return this.getImage(data, locale);
+    }
+    if (type === 'downloadContent') {
+      return this.getDownloadContent(data, locale);
     }
     return documentToHtmlString(data.fields.content, this.options);
   }
@@ -282,6 +286,45 @@ export class CMSTransformService {
       console.error('Link: ' + subPath + ' is not an existing page that can be referenced.');
     }
     return fullPath;
+  }
+
+
+  private getDownloadContent(data: IDownloadContent, locale: string): string {
+    const assetName = data.fields.name[locale];
+    const displayImage = 'https:' + data.fields.displayImage[locale].fields.file[locale].url;
+    const asset = 'https:' + data.fields.downloadableContent[locale].fields.file[locale].url;
+    const fileType = asset.split(".").pop();
+    fetch(asset)
+      .then(response => response.blob())
+      .then(blob => {
+        const blobURL = URL.createObjectURL(blob);
+        const link = document.getElementById('link-ide') as HTMLAnchorElement;
+        link.href = blobURL;
+        link.download = assetName;
+      });
+
+    return `<div class="cms-download-content">
+      <div class="cms-display-image">
+        <img
+          class="cms-section__img normal-img"
+          src="${displayImage}"
+        />
+      </div>
+      <div class="cms-downloadable-asset">
+        <a role="button" id="link-ide">
+          <button class="e-btn e-btn--tertiary e-btn--md">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--download"></i>
+            </span>
+            <span class="e-btn__title">${fileType}</span>
+          </button>
+        </a>
+      </div>
+    </div>`;
+  }
+
+  private getGrid(): string {
+    return ``;
   }
 
   private getEmbeddedAsset(asset: string): string {
