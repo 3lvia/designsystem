@@ -170,6 +170,23 @@
           <app-component-example-v1 [codeHTML]="alignmentOfText"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Javascript library'">
+        <ng-container ngProjectAs="sectionContent">
+          <p>
+            All typographies can also be used through the Javascript library
+            <code class="code-text">@elvia/elvis-typography</code>
+            . The utility function
+            <code class="code-text">getTypography()</code>
+            is provided to easily access a typography's attributes without having to manually traverse the
+            underlying typography object.
+          </p>
+          <p>
+            <app-do-dont [do]="true" [codeTS]="doCodeTS"></app-do-dont>
+            <app-do-dont [do]="false" [codeTS]="dontCodeTS"></app-do-dont>
+          </p>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 </div>

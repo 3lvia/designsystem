@@ -58,6 +58,10 @@ export class TypographyDocComponent implements OnInit {
   <span class="e-text-micro-light">Text Micro Light</span>
 </p>
 `;
+  doCodeTS = `import { getTypography } from '@elvia/elvis-typography';
+const typography = getTypography('text-md');`;
+  dontCodeTS = `import typographies from '@elvia/elvis-typography';
+const typography = typographies['text-md'];`;
 
   ngOnInit(): void {
     this.fillTypography();
