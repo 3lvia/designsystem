@@ -2,7 +2,7 @@
  * elvis-typography package containing typographies to use in Elvia's design profile.
  * Typographies are provided as objects containing css properties.
  *
- * @version 1.2.0
+ * @version 1.2.1
  */
 declare module '@elvia/elvis-typography' {
   /**
