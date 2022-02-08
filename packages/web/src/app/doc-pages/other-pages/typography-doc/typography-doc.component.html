@@ -141,7 +141,7 @@
   <app-component-section [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
       All typography can be used through a set of classes. The classes sets multiple attributes, like
-      font-size, line-height and font-weight.
+      font-size, line-height and font-weight. These are all available when using Elvis.
 
       <app-component-subsection [sectionTitle]="'Code examples'">
         <ng-container ngProjectAs="sectionContent">
@@ -171,10 +171,34 @@
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Javascript library'">
+      <app-component-subsection [sectionTitle]="'Without Elvis'">
         <ng-container ngProjectAs="sectionContent">
           <p>
-            All typographies can also be used through the Javascript library
+            To use the css typography classes without using Elvis, you need to import the
+            <code class="code-text">@elvia/elvis-typography</code>
+            package itself.
+          </p>
+          <app-component-example-code
+            [codeCSS]="exampleCss"
+            [noSubscriptions]="'true'"
+          ></app-component-example-code>
+          <p>
+            It is important to remember to also import the fonts themselves, as this is not done automatically
+            by
+            <code class="code-text">@elvia/elvis-typography</code>
+            . To do this, you can add the following to your CSS file:
+          </p>
+          <app-component-example-code
+            [codeCSS]="exampleImportFonts"
+            [noSubscriptions]="'true'"
+          ></app-component-example-code>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Using Javascript package'">
+        <ng-container ngProjectAs="sectionContent">
+          <p>
+            All typographies can also be used through the Javascript package
             <code class="code-text">@elvia/elvis-typography</code>
             . The utility function
             <code class="code-text">getTypography()</code>
@@ -185,6 +209,16 @@
             <app-do-dont [do]="true" [codeTS]="doCodeTS"></app-do-dont>
             <app-do-dont [do]="false" [codeTS]="dontCodeTS"></app-do-dont>
           </p>
+          <p>
+            This typography object holds the different attributes of the typography, such as font family or
+            font weight. They can be accessed individually (e.g.
+            <code class="code-text">typography.fontFamily</code>
+            ) or used together. For instance, to use a typography with styled-components you can simply do:
+          </p>
+          <app-component-example-code
+            [codeTS]="exampleStyledComponents"
+            [noSubscriptions]="'true'"
+          ></app-component-example-code>
         </ng-container>
       </app-component-subsection>
     </ng-container>
