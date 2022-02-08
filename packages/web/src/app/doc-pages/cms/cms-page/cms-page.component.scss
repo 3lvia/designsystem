@@ -220,6 +220,18 @@ $pageIndentedMargin: 72px;
   }
 }
 
+.cms-image-align-center {
+  display: flex;
+  justify-content: center;
+}
+.cms-image-align-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.cms-image-align-left {
+  display: flex;
+  justify-content: flex-start;
+}
 .cms-image {
   img {
     margin-bottom: 16px;

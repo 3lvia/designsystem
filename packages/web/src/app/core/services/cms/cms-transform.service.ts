@@ -223,7 +223,8 @@ export class CMSTransformService {
       console.error(`Image: Image ${data.fields.name[locale]} is missing alt text.`);
     }
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
-    return `<div
+    return `<div class='${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
+    <div
       style=' 
         ${hasInlineText ? 'display: block' : 'display: inline-block;'}
         ${imgSize === 'original' ? 'width: unset' : imgSize === '100%'
@@ -261,6 +262,7 @@ export class CMSTransformService {
         : ''
       }
       <div style="clear: ${imgAlignment}"></div>
+    </div>
     </div>
     `;
   }

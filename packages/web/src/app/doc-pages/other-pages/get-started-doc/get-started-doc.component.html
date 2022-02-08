@@ -479,13 +479,12 @@
         href="https://app.contentful.com/spaces/zez3t3t1iiwd"
         target="_blank"
       >
-        Contenful
+        Contentful
       </a>
       is a content management system that the design system is using to make it easier for non-developers to
-      edit content on design.elvia.io. If you think you should have access to edit content on design.elvia.io
-      or you need help to edit something,
-      <a class="e-link e-link--inline" [routerLink]="['/about/contact']">contact us!</a>
-      .
+      edit content on design.elvia.io.
+      <a class="e-link e-link--inline" [routerLink]="['/about/contact']">Contact us</a>
+      if you think you should have access to edit content on design.elvia.io or you need help with anything.
 
       <div class="e-accordion e-accordion--group">
         <!--Useful terms-->
@@ -506,10 +505,15 @@
                 </li>
                 <li>
                   <strong>Contentful</strong>
-                  - The CMS the design system have choosen to use.
+                  - The CMS the design system have chosen to use.
                 </li>
                 <li>
-                  <strong>Other</strong>
+                  <strong>Preview</strong>
+                  - A way to view content that has not been published yet.
+                </li>
+                <li>
+                  <strong>Entry</strong>
+                  - Entries are different types of models that can be used on a page, e.g. image or link.
                 </li>
               </ul>
             </div>
@@ -531,9 +535,9 @@
                 You need an Elvia account to log in to Contentful. If you have received access use SSO in the
                 bottom of the page to sign in.
               </div>
-              <div class="e-mt-16">
+              <div class="e-mt-24 e-text-center">
                 <img
-                  width="100%"
+                  width="60%"
                   src="./../../../../assets/get-started-content/login.png"
                   alt="Login button in Contentful"
                 />
@@ -561,31 +565,65 @@
               content that is relevant for you to edit. Every page on design.elvia.io translates to a
               'documentationPage' in Contentful. These documentationPages are the bases for adding or editing
               content.
+              <div class="e-mt-24">
+                <img
+                  width="100%"
+                  src="./../../../../assets/get-started-content/content-tab.png"
+                  alt="Tab for content in Contentful"
+                />
+              </div>
             </div>
             <div class="e-mt-24">
               <h3 class="e-title-xs">Sorting</h3>
-              <img
-                width="100%"
-                src="./../../../../assets/get-started-content/sorting.png"
-                alt="Example of sorting in Contentful"
-              />
+              You can easily sort and search through all the content in Contentful in the 'Content section'.
+              You can choose content type or other sortable features from the dropdown inside the search-field
+              as well as in the sidebar.
+              <div class="e-mt-24">
+                <img
+                  width="60%"
+                  src="./../../../../assets/get-started-content/sorting.png"
+                  alt="Example of sorting in Contentful"
+                />
+              </div>
             </div>
             <div class="e-mt-24">
               <h3 class="e-title-xs">Editing</h3>
-              Using contentful options Adding entries help-texts - image Existing content (Empty page)
+              When editing a documentationPage you will mostly work inside the content field. In this field
+              you can use the Contentful options at the top to make headings, bold text, lists and quotes
+              among some things.
+              <div class="e-mt-24">
+                <img
+                  width="100%"
+                  src="./../../../../assets/get-started-content/error.png"
+                  alt="Example Contentful error on design.elvia.io"
+                />
+              </div>
+              <div class="e-mt-24">
+                You can also add / embed entries at the top right of the field. Entries are models we have
+                made to make it possible to customize the content more. When adding an image or link you
+                should always add them by using these models. If you want the entry to be inline with the text
+                you should choose "inline entry".
+              </div>
+              <div class="e-mt-24">
+                <img
+                  width="100%"
+                  src="./../../../../assets/get-started-content/error.png"
+                  alt="Example Contentful error on design.elvia.io"
+                />
+              </div>
+              <div class="e-mt-24">
+                All fields that needs to be filled out are required and will be bordered red if they are not
+                filled. Some fields also have help-texts below them to help explain what the specific field
+                does.
+              </div>
             </div>
-            <div class="e-mt-24">
-              <h3 class="e-title-xs">Publishing & previews</h3>
-              - Preview - Trigger bygg - Publisere flere ting
-            </div>
-            <div class="e-mt-24"></div>
           </div>
         </div>
 
         <!--Types-->
         <div class="e-accordion__item" id="contentful-types">
           <div class="e-accordion__label" (click)="toggleAccordion('contentful-types')">
-            <div class="e-accordion__title">All types to care about</div>
+            <div class="e-accordion__title">Useful models and how to's</div>
             <div class="e-accordion__icon">
               <i class="e-icon e-icon--expand_circle-color"></i>
               <i class="e-icon e-icon--expand_circle-filled-color"></i>
@@ -602,10 +640,6 @@
                 - ...
               </li>
               <li>
-                <strong>Icon lists</strong>
-                - ...
-              </li>
-              <li>
                 <strong>Links</strong>
                 - ...
               </li>
@@ -613,7 +647,48 @@
                 <strong>CenteredContent</strong>
                 - ...
               </li>
+              <li>
+                <strong>Icon list</strong>
+                - To make a icons list ...
+              </li>
+              <li>
+                <strong>Empty content</strong>
+                - ...
+              </li>
             </ul>
+          </div>
+        </div>
+
+        <!--Publish-->
+        <div class="e-accordion__item" id="contentful-publish">
+          <div class="e-accordion__label" (click)="toggleAccordion('contentful-publish')">
+            <div class="e-accordion__title">Publishing & previews</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              <h3 class="e-title-xs">Previews</h3>
+              Using contentful options Adding entries help-texts - image Existing content (Empty page)
+            </div>
+            <div class="e-mt-24">
+              <h3 class="e-title-xs">Publish</h3>
+              Publish only once all the content is fully ready. You can easily send preview-links to other
+              people for them to review your changes before publishing to ensure that everything is correct.
+              You will not be able to publish your content if you have errors, but you should always check the
+              documentationPage preview before publishing anyways.
+              <div class="e-mt-24">
+                Publishing anything will also trigger a new build and deploy of the design system website.
+                This means that you should only publish once something is completely finished so that the
+                build does not have to be triggered all the time.
+              </div>
+              <div class="e-mt-24">
+                You can also publish multiple things at the same time by e.g. sorting on a content type and
+                then marking all the checkboxes before pushing the
+              </div>
+            </div>
           </div>
         </div>
 
@@ -628,10 +703,10 @@
           </div>
           <div class="e-accordion__content">
             <div>
-              When getting an error in Contentful the error message should be displayed like in the image
+              When getting an error in Contentful the error-message should be displayed like in the image
               below:
             </div>
-            <div class="e-mt-16">
+            <div class="e-mt-24">
               <img
                 width="100%"
                 src="./../../../../assets/get-started-content/error.png"
