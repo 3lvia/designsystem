@@ -109,7 +109,7 @@ const datepickerData = {
     placeholder: {
       isRequired: false,
       type: 'string',
-      default: 'dd.mm.yyyy',
+      default: 'dd.mm.åååå',
       description: 'A short hint displayed in the input before the user enters a value.',
     },
     isOpen: {
@@ -117,6 +117,16 @@ const datepickerData = {
       type: 'boolean',
       default: 'false',
       description: 'Controlled picker open state',
+    },
+    className: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css classes that can be added to the datepicker.',
+    },
+    inlineStyle: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css style that can be added to the datepicker.',
     },
   },
   package: 'npm install @elvia/elvis-datepicker',

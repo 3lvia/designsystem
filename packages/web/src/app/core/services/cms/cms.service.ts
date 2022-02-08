@@ -41,7 +41,10 @@ export class CMSService {
         return pageId;
       } else {
         if (!subMenu) {
-          console.error('Submenu: Found no submenu with that path');
+          this.cmsTransformService.showErrorMessage(
+            'Submenu',
+            `Found no submenu with the path: ${urlWithoutAnchor[1]}`,
+          );
           this.router.navigate(['not-found']);
         }
         if (!urlWithoutAnchor[2] && subMenu.entry.fields.landingPage) {
@@ -51,7 +54,10 @@ export class CMSService {
             (page) => page.fields.path[localeKey] === urlWithoutAnchor[2],
           );
           if (!docPage) {
-            console.error('DocumentationPage: Found no documentation page with that path');
+            this.cmsTransformService.showErrorMessage(
+              'Documentation page',
+              `Found no documentation page with the path: ${urlWithoutAnchor[2]}`,
+            );
             this.router.navigate(['not-found']);
           }
           pageId = docPage.sys.id;

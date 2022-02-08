@@ -7,4 +7,10 @@ export interface TransformedDocPage {
   docUrl: string;
   fullPath: string;
   lastUpdated: string;
+  errorMessages: CMSDocPageError[];
+}
+
+export interface CMSDocPageError {
+  name: string;
+  message: string;
 }

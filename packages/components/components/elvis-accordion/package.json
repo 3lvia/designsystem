@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-accordion",
-  "version": "2.0.10",
+  "version": "2.1.0",
   "description": "",
   "main": "web_component.js",
   "scripts": {

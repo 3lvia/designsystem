@@ -107,6 +107,16 @@ const cardData = {
       cegSlot: '<i class="e-icon e-icon--lock e-icon--xs"></i>',
       cegDependency: [{ name: 'type', value: 'detail' }],
     },
+    className: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css classes that can be added to the card.',
+    },
+    inlineStyle: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css style that can be added to the card.',
+    },
   },
   package: 'npm install @elvia/elvis-card',
   codeImportReact: `import { Card } from '@elvia/elvis-card/react';`,

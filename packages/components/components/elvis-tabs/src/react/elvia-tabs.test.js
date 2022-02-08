@@ -64,4 +64,23 @@ describe('Elvis Tabs', () => {
       done();
     });
   });
+  describe('className and inlineStyle passed to wrapper', () => {
+    let tabsContainer;
+    beforeEach(() => {
+      wrapper = mount(<Tabs items={items} className="test-class" inlineStyle={{ margin: '24px' }}></Tabs>);
+      tabsContainer = wrapper.find({ 'data-testid': 'tabs-container' });
+    });
+    afterEach(() => {
+      wrapper.unmount();
+    });
+    it('should have class ewc-tabs', function (done) {
+      expect(tabsContainer.getDOMNode()).toHaveClass('ewc-tabs');
+      done();
+    });
+    it('should have className and inlineStyle', function (done) {
+      expect(tabsContainer.getDOMNode()).toHaveStyle('margin: 24px');
+      expect(tabsContainer.getDOMNode()).toHaveClass('test-class');
+      done();
+    });
+  });
 });
