@@ -13,13 +13,13 @@ import {
   IOverviewCard,
   ISubMenu,
 } from 'contentful/__generated__/types';
-import { TransformedDocPage } from './cms.interface';
+import { CMSDocPageError, TransformedDocPage } from './cms.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CMSTransformService {
-  private errorMessages = [];
+  private errorMessages: CMSDocPageError[] = [];
   private locale = 'en-GB'; // Fallback
   private subMenu;
   private options: Options = {
