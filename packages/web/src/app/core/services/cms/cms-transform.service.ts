@@ -40,14 +40,16 @@ export class CMSTransformService {
     },
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   showErrorMessage(model: string, errorMessage: string): void {
-    console.error(`Contentful - ${model}: ${errorMessage} \n   This field is required for the content to load.`);
+    console.error(
+      `Contentful - ${model}: ${errorMessage} \n   This field is required for the content to load.`,
+    );
     const newError = {
       name: model,
-      message: `${errorMessage} \n   This field is required for the content to load.`
-    }
+      message: `${errorMessage} \n   This field is required for the content to load.`,
+    };
     this.errorMessages.push(newError);
   }
 
@@ -141,7 +143,7 @@ export class CMSTransformService {
   private getList(content: string) {
     const liRegex = /(?:<li>)(.*?)(?=<\/li>)/g;
     const imgRegex = /(?:<img)(.*?)(?=\/>)/g;
-    const formattedContent = content.replace(/(\r\n|\n|\r)/gm, "");
+    const formattedContent = content.replace(/(\r\n|\n|\r)/gm, '');
     let liStrings = [...formattedContent.match(liRegex)];
     const bulletIcons = liStrings.map((i) => {
       const imageUrl = i.match(imgRegex) && i.match(imgRegex)[0].replace('<img', '');
@@ -210,7 +212,12 @@ export class CMSTransformService {
     } else if (data.fields.urlNewTab) {
       linkPath = data.fields.urlNewTab[locale];
     } else {
-      this.showErrorMessage('Link', `${data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'An link on your page'} has no url, add either Url design.elvia.io or Url new tab / external.`);
+      this.showErrorMessage(
+        'Link',
+        `${
+          data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'An link on your page'
+        } has no url, add either Url design.elvia.io or Url new tab / external.`,
+      );
       return undefined;
     }
     return linkPath;
@@ -218,7 +225,7 @@ export class CMSTransformService {
 
   private getLink(data: IInternalLink, locale: string, subMenu, inlineEntry: boolean) {
     const paragraphTitle = data.fields.paragraph ? data.fields.paragraph[locale].replaceAll(' ', '-') : '';
-    const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle)
+    const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle);
     if (!data.fields.title) {
       this.showErrorMessage('Link', 'An link on your page is missing link text.');
     }
@@ -242,27 +249,38 @@ export class CMSTransformService {
           ${isExternal ? 'target="_blank"' : ''}
         >
           <span class="e-link__title">${linkText}</span>
-          ${isAction && !isInline
-        ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
-        : ''
-      }
-          ${isExternal
-        ? '<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>'
-        : ''
-      }
+          ${
+            isAction && !isInline
+              ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
+              : ''
+          }
+          ${isExternal ? '<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>' : ''}
         </a>
       ${!isInline ? '</p>' : ''}`;
   }
 
   private getImage(data: IImage, locale: string) {
     if (!data.fields.name) {
-      this.showErrorMessage('Image', 'An image on your page is missing title, this will make sorting / finding entries in Contentful harder and messy.');
+      this.showErrorMessage(
+        'Image',
+        'An image on your page is missing title, this will make sorting / finding entries in Contentful harder and messy.',
+      );
     }
     if (!data.fields.image) {
-      this.showErrorMessage('Image', `${data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'} is missing the image asset.`);
+      this.showErrorMessage(
+        'Image',
+        `${
+          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+        } is missing the image asset.`,
+      );
     }
     if (!data.fields.altText) {
-      this.showErrorMessage('Image', `${data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'} is missing alt text.`);
+      this.showErrorMessage(
+        'Image',
+        `${
+          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+        } is missing alt text.`,
+      );
     }
     if (!data.fields.name || !data.fields.image) {
       return;
@@ -276,10 +294,13 @@ export class CMSTransformService {
     return `<div
       style=' 
         ${hasInlineText ? 'display: block' : 'display: inline-block;'}
-        ${imgSize === 'original' ? 'width: unset' : imgSize === '100%'
-        ? 'width: calc(' + imgSize + '- 64px)'
-        : 'width: ' + imgSize
-      }
+        ${
+          imgSize === 'original'
+            ? 'width: unset'
+            : imgSize === '100%'
+            ? 'width: calc(' + imgSize + '- 64px)'
+            : 'width: ' + imgSize
+        }
       '
       class='
         cms-image
@@ -306,10 +327,7 @@ export class CMSTransformService {
           ${documentToHtmlString(description, this.options)}
         </div>
       </div>
-      ${hasInlineText
-        ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`
-        : ''
-      }
+      ${hasInlineText ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}` : ''}
       <div style="clear: ${imgAlignment}"></div>
     </div>
     `;
@@ -389,7 +407,10 @@ export class CMSTransformService {
           this.showErrorMessage('LandingPage', `${subPath} is not an existing page that can be referenced.`);
         }
       } else {
-        this.showErrorMessage('LandingPage', `The card "${card.fields.title}" is missing page url reference.`);
+        this.showErrorMessage(
+          'LandingPage',
+          `The card "${card.fields.title}" is missing page url reference.`,
+        );
       }
       const iconUrl = 'https:' + card.fields.pageIcon[locale].fields.file[locale].url;
       const cardTitle = card.fields.title[locale];
