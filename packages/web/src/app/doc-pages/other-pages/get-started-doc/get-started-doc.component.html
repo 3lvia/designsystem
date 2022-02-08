@@ -587,29 +587,45 @@
               </div>
             </div>
             <div class="e-mt-24">
-              <h3 class="e-title-xs">Editing</h3>
+              <h3 class="e-title-xs">Editing options</h3>
               When editing a documentationPage you will mostly work inside the content field. In this field
               you can use the Contentful options at the top to make headings, bold text, lists and quotes
               among some things.
               <div class="e-mt-24">
                 <img
                   width="100%"
-                  src="./../../../../assets/get-started-content/error.png"
-                  alt="Example Contentful error on design.elvia.io"
+                  src="./../../../../assets/get-started-content/contentful-options.png"
+                  alt="Example of option-bar in Contentful"
                 />
               </div>
+            </div>
+            <div class="e-mt-24">
+              <h3 class="e-title-xs">Adding entries</h3>
               <div class="e-mt-24">
                 You can also add / embed entries at the top right of the field. Entries are models we have
                 made to make it possible to customize the content more. When adding an image or link you
                 should always add them by using these models. If you want the entry to be inline with the text
-                you should choose "inline entry".
-              </div>
-              <div class="e-mt-24">
-                <img
-                  width="100%"
-                  src="./../../../../assets/get-started-content/error.png"
-                  alt="Example Contentful error on design.elvia.io"
-                />
+                you should choose "inline entry", inline images are done in a custom way that can be read
+                about in the "Useful models and how to's".
+                <div class="e-mt-24">
+                  <img
+                    width="100%"
+                    src="./../../../../assets/get-started-content/entries.png"
+                    alt="Example of how to add entries in Contentful"
+                  />
+                </div>
+                <div class="e-mt-24">
+                  When you are adding entries you can choose to either use an existing entry and search
+                  through what already exists, but mostly you will add new entries. Adding a new entry is done
+                  by clicking the "Create new entry" button in the top right corner of the "Add entry" popup.
+                </div>
+                <div class="e-mt-24">
+                  <img
+                    width="100%"
+                    src="./../../../../assets/get-started-content/new-entry.png"
+                    alt="Example of how to add a new entry in Contentful"
+                  />
+                </div>
               </div>
               <div class="e-mt-24">
                 All fields that needs to be filled out are required and will be bordered red if they are not
@@ -630,30 +646,48 @@
             </div>
           </div>
           <div class="e-accordion__content">
+            These are some of the models and options you can use to edit content in Contentful. If you want to
+            see examples of how to do something you can easily sort content by type in the lift sidebar when
+            you are on the "content" tab.
             <ul class="e-list">
               <li>
                 <strong>DocumentationPage</strong>
-                - ...
+                - The documentation pages should serve as the base for all content on a page. These pages can
+                be previewed with all content, even if that content also is just in draft. The page needs a
+                title, path and content and should usually also have a description.
               </li>
               <li>
                 <strong>Image</strong>
-                - ...
+                - Images should be added through the image entry model and the image require a name, alt-text
+                and an asset / media. If you want the image to be placed next to text you should put that text
+                in the "Content next to image" and then chose the correct alignment in the "Alignment" field.
               </li>
               <li>
                 <strong>Links</strong>
-                - ...
+                - All links should be created through the link entry model. Links have to have a link-text and
+                either an url to an existing page on design.eliva.io or an url to an external page. When
+                linking to pages on design.elvia.io always use the "Url design.elvia.io (internal)" field.
               </li>
               <li>
                 <strong>CenteredContent</strong>
-                - ...
+                - You can center any content by using the centeredContent model in Contentful and then add the
+                content that should be centered there.
+              </li>
+              <li>
+                <strong>List</strong>
+                - Make lists through the Contentful option-bar at the top of the content field.
               </li>
               <li>
                 <strong>Icon list</strong>
-                - To make a icons list ...
-              </li>
-              <li>
-                <strong>Empty content</strong>
-                - ...
+                - To make a icons list can be made by starting each bullet point with an inline image. The
+                image should an icon and the size is 32px X 32px.
+                <div class="e-mt-16">
+                  <img
+                    width="100%"
+                    src="./../../../../assets/get-started-content/icon-list.png"
+                    alt="Example of how to make an icon list"
+                  />
+                </div>
               </li>
             </ul>
           </div>
@@ -671,7 +705,19 @@
           <div class="e-accordion__content">
             <div>
               <h3 class="e-title-xs">Previews</h3>
-              Using contentful options Adding entries help-texts - image Existing content (Empty page)
+              When testing your content you have the "preview" option available in the right sidebar. This
+              will open a link in a new tab showing how the content will look after you publish it. It will
+              also display error-messages if your content is incorrect. It is therefore important to always
+              check the preview before publishing to make sure the content is correct. The preview button is
+              only clickable on documentationPages, but all content on that page will be visible in the
+              preview, even if it's not published yet.
+              <div class="e-mt-24">
+                <img
+                  width="100%"
+                  src="./../../../../assets/get-started-content/preview.png"
+                  alt="Contentful example showing how to preview content"
+                />
+              </div>
             </div>
             <div class="e-mt-24">
               <h3 class="e-title-xs">Publish</h3>
@@ -680,13 +726,58 @@
               You will not be able to publish your content if you have errors, but you should always check the
               documentationPage preview before publishing anyways.
               <div class="e-mt-24">
+                <img
+                  width="100%"
+                  src="./../../../../assets/get-started-content/publish.png"
+                  alt="Contentful example showing how to publish content"
+                />
+              </div>
+              <div class="e-mt-24">
                 Publishing anything will also trigger a new build and deploy of the design system website.
                 This means that you should only publish once something is completely finished so that the
                 build does not have to be triggered all the time.
               </div>
               <div class="e-mt-24">
-                You can also publish multiple things at the same time by e.g. sorting on a content type and
-                then marking all the checkboxes before pushing the
+                You can also publish multiple things at the same time by e.g. sorting on a content type on the
+                "content" tab page and then marking all the checkboxes before pushing the "Publish" or
+                "Republish" button.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Delete-->
+        <div class="e-accordion__item" id="contentful-delete">
+          <div class="e-accordion__label" (click)="toggleAccordion('contentful-delete')">
+            <div class="e-accordion__title">Deleting entries</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              Any entry can be deleted as long as you are sure the entry is not used anywhere in Contentful.
+              If you want to be sure that you are not deleting an entry that is being used, look at the right
+              sidebar under links. If you are creating an entry by mistake, you should delete it so that there
+              is not a lot of unused entries floating around.
+              <div class="e-mt-24">
+                <img
+                  width="100%"
+                  src="./../../../../assets/get-started-content/references.png"
+                  alt="Contentful example showing how to check for references through sidebar of an entry"
+                />
+              </div>
+              <div class="e-mt-24">
+                You can also hover over the link symbol in the top left corner next to the title of your entry
+                to see references.
+              </div>
+              <div class="e-mt-24">
+                <img
+                  width="100%"
+                  src="./../../../../assets/get-started-content/check-references.png"
+                  alt="Contentful example showing how to check for references of an entry"
+                />
               </div>
             </div>
           </div>
