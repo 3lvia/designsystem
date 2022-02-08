@@ -167,12 +167,4 @@ $text-line-height: 32px;
     }
     position: relative;
   }
-  .bottom-blur {
-    position: sticky;
-    bottom: 0px;
-    width: 100%;
-    height: 45px;
-    background-color: transparent;
-    box-shadow: inset 0px -25px 45px 0px var(--e-white);
-  }
 }
