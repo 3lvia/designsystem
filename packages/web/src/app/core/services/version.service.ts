@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import naturalCompare from 'natural-compare-lite';
 
 @Injectable({
   providedIn: 'root',
@@ -22,11 +23,7 @@ export class VersionService {
           (file) => file.filename.indexOf('elvis.min.css') > -1 || file.filename.indexOf('elvis.js') > -1,
         );
         const elvisSorted = elvis.sort((fileA, fileB) => {
-          if (fileA.filename > fileB.filename) {
-            return -1;
-          } else {
-            return 1;
-          }
+          return naturalCompare(fileB.filename, fileA.filename);
         });
         this.cdnVersion = elvisSorted[0].filename.split('/')[1].split('-')[1];
         const scriptFile = elvisSorted.find(
