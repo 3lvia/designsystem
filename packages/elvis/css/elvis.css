@@ -8143,6 +8143,14 @@ input:focus {
   --e-border-medium: 1px solid #bdbdbd;
 }
 
+.e-br-4 {
+  border-radius: 4px;
+}
+
+.e-br-8 {
+  border-radius: 8px;
+}
+
 /*!
  * Bootstrap Grid v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

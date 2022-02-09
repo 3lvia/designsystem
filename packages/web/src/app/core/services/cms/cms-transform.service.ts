@@ -7,6 +7,7 @@ import {
   ICenteredContent,
   IDocumentationPage,
   IDownloadContent,
+  IGrid,
   IImage,
   IInternalLink,
   ILandingPage,
@@ -121,10 +122,13 @@ export class CMSTransformService {
       return this.getLink(data, locale, subMenu, inlineEntry);
     }
     if (type === 'image') {
-      return this.getImage(data, locale);
+      return this.getImage(data, locale, false);
     }
     if (type === 'downloadContent') {
-      return this.getDownloadContent(data, locale);
+      return this.getDownloadContent(data, locale, false);
+    }
+    if (type === 'grid') {
+      return this.getGrid(data, locale);
     }
     return documentToHtmlString(data.fields.content, this.options);
   }
@@ -263,7 +267,7 @@ export class CMSTransformService {
       ${!isInline ? '</p>' : ''}`;
   }
 
-  private getImage(data: IImage, locale: string) {
+  private getImage(data: IImage, locale: string, borderRadius: boolean) {
     if (!data.fields.name) {
       this.showErrorMessage(
         'Image',
@@ -315,6 +319,7 @@ export class CMSTransformService {
       <div>
         <img
           class='
+            ${borderRadius ? 'e-br-8' : ''}
             ${hasInlineText ? 'cms-image-inline' : ''} 
             align-${imgAlignment}
             ${imgSize === 'original' ? 'original-margin' : ''} 
@@ -339,7 +344,7 @@ export class CMSTransformService {
     `;
   }
 
-  private getDownloadContent(data: IDownloadContent, locale: string): string {
+  private getDownloadContent(data: IDownloadContent, locale: string, centered: boolean): string {
     const assetName = data.fields.name[locale];
     const displayImage = 'https:' + data.fields.displayImage[locale].fields.file[locale].url;
     const asset = 'https:' + data.fields.downloadableContent[locale].fields.file[locale].url;
@@ -360,7 +365,7 @@ export class CMSTransformService {
           src="${displayImage}"
         />
       </div>
-      <div class="cms-downloadable-asset">
+      <div class="cms-downloadable-asset ${centered ? 'centered' : ''}">
         <a role="button" id="link-ide">
           <button class="e-btn e-btn--tertiary e-btn--md">
             <span class="e-btn__icon">
@@ -373,8 +378,34 @@ export class CMSTransformService {
     </div>`;
   }
 
-  private getGrid(): string {
-    return ``;
+  private getGrid(data: IGrid, locale: string): string {
+    console.log(data);
+    const elements = data.fields.gridElements[locale];
+    console.log(elements);
+    let returnString = '';
+    console.log(elements.find((el) => el.sys.contentType.sys.id === 'image'));
+    if (
+      elements.find((el) => el.sys.contentType.sys.id === 'image') &&
+      elements.find((el) => el.sys.contentType.sys.id === 'downloadContent')
+    ) {
+      console.error('You have to choose between images or downloadContent, both are not allowed');
+      return;
+    }
+    if (elements[0].sys.contentType.sys.id === 'downloadContent') {
+      elements.forEach((element) => {
+        returnString +=
+          '<div class="col-sm-6 col-md-4">' + this.getDownloadContent(element, locale, true) + '</div>';
+      });
+    } else if (elements[0].sys.contentType.sys.id === 'image') {
+      elements.forEach((element) => {
+        returnString += '<div class="col-sm-6 col-md-4">' + this.getImage(element, locale, true) + '</div>';
+      });
+    }
+    return `<div class="e-grid">
+    <div class="row e-grid-gutters-int e-grid-gutters-vertical">
+      ${returnString}
+    </div>
+  </div>`;
   }
 
   private getEmbeddedAsset(asset: string): string {

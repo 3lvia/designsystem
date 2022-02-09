@@ -328,6 +328,9 @@ $pageIndentedMargin: 72px;
     display: flex;
     justify-content: flex-end;
     margin-top: 8px;
+    &.centered {
+      justify-content: center;
+    }
   }
 }
 

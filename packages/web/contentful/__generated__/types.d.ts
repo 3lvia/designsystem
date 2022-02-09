@@ -99,6 +99,31 @@ export interface IDownloadContent extends Entry<IDownloadContentFields> {
   };
 }
 
+export interface IGridFields {
+  /** Name */
+  name?: string | undefined;
+
+  /** Grid elements */
+  gridElements?: Entry<{ [fieldId: string]: unknown }>[] | undefined;
+}
+
+export interface IGrid extends Entry<IGridFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: 'grid';
+        linkType: 'ContentType';
+        type: 'Link';
+      };
+    };
+  };
+}
+
 export interface IImageFields {
   /** Name */
   name: string;
@@ -368,6 +393,7 @@ export type CONTENT_TYPE =
   | 'centeredContent'
   | 'documentationPage'
   | 'downloadContent'
+  | 'grid'
   | 'image'
   | 'internalLink'
   | 'landingPage'
