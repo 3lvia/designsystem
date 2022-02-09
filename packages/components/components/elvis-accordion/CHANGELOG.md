@@ -1,5 +1,11 @@
 # Elvia Accordion Changelog
 
+## 2.1.0 (07.02.22)
+
+### New feature
+
+- Added inlineStyle and className props
+
 ## 2.0.10 (28.01.22)
 
 ### Patch

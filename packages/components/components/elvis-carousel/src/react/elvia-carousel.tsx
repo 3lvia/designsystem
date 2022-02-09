@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect } from 'react';
+import React, { FC, useState, useRef, useEffect, CSSProperties } from 'react';
 import classnames from 'classnames';
 import {
   CarouselContainer,
@@ -25,6 +25,8 @@ export interface CarouselProps {
   useOnboardingCheckmark?: boolean;
   value?: number;
   valueOnChange?: (value: number) => void;
+  className?: string;
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: any;
 }
 
@@ -35,6 +37,8 @@ export const Carousel: FC<CarouselProps> = ({
   useOnboardingCheckmark,
   value = 0,
   valueOnChange,
+  className,
+  inlineStyle,
   webcomponent,
 }) => {
   const [carouselElements, setCarouselElements] = useState<CarouselElement[] | number>();
@@ -160,7 +164,12 @@ export const Carousel: FC<CarouselProps> = ({
   });
 
   return (
-    <CarouselContainer slideDirection={slideDirection}>
+    <CarouselContainer
+      slideDirection={slideDirection}
+      className={`${className ? className : ''}`}
+      style={inlineStyle}
+      data-testid="carousel-container"
+    >
       {typeof carouselElements === 'object' && (
         <CarouselElementContainer className={classNameContainer}>
           {typeof carouselElements[index].title === 'string' && (

@@ -34,6 +34,16 @@ const radioFilterData = {
       description:
         'Gets called every time a new filter is selected and returns the value of the selected filter. To make radio-filters to work it is necessary to update value when this callback function is triggered.',
     },
+    className: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css classes that can be added to the radio filter.',
+    },
+    inlineStyle: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css style that can be added to the radio filter.',
+    },
   },
   package: 'npm install @elvia/elvis-radio-filter',
   codeImportReact: `import { RadioFilter } from '@elvia/elvis-radio-filter/react';`,

@@ -10,6 +10,7 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentExampleCodeModule } from 'src/app/shared/component-documentation/component-example/component-example-code/component-example-code.module';
 import { FontWeightPipe } from './fontWeight.pipe';
+import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { FontWeightPipe } from './fontWeight.pipe';
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
     ComponentExampleCodeModule,
+    DoDontModule,
   ],
   declarations: [TypographyDocComponent, FontWeightPipe],
 })

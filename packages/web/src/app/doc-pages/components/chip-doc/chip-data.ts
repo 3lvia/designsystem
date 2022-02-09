@@ -63,6 +63,16 @@ export const chipData = {
       description:
         'Gets called if an item is clicked and it should be deleted. Required on removable type and not necessary on any of the other types.',
     },
+    className: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css classes that can be added to the chip.',
+    },
+    inlineStyle: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css style that can be added to the chip.',
+    },
   },
   package: 'npm install @elvia/elvis-chip',
   codeImportReact: `import { Chip } from '@elvia/elvis-chip/react';`,

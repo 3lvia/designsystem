@@ -37,6 +37,16 @@ const boxData = {
       cegDefault: 'false',
       cegOption: 'true',
     },
+    className: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css classes that can be added to the box.',
+    },
+    inlineStyle: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css style that can be added to the box.',
+    },
   },
   package: 'npm install @elvia/elvis-box',
   codeImportReact: `import { Box } from '@elvia/elvis-box/react';`,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, CSSProperties } from 'react';
 import Select, { components } from 'react-select';
 import toolbox from '@elvia/elvis-toolbox';
 import {
@@ -34,6 +34,8 @@ export interface DropdownProps {
   placeholder?: string;
   valueOnChange?: (selectedOptions: DropdownOption | Array<DropdownOption> | undefined) => void;
   value?: DropdownOption | Array<DropdownOption> | undefined;
+  className?: string;
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: any;
 }
 
@@ -64,6 +66,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   value,
   valueOnChange,
+  className,
+  inlineStyle,
   webcomponent,
 }) => {
   const [currentVal, setCurrentVal] = useState(defaultValue);
@@ -346,42 +350,44 @@ const Dropdown: React.FC<DropdownProps> = ({
   }, [errorMessage]);
 
   return (
-    <DropdownWrapper isDisabled={isDisabled} ref={dropdownRef} data-testid="wrapper">
-      <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
-        {label}
-      </DropdownLabel>
-      <Select
-        blurInputOnSelect={!isMulti}
-        classNamePrefix={'ewc-dropdown'}
-        closeMenuOnSelect={!isMulti}
-        components={overrideComponents}
-        hasValue={false}
-        hideSelectedOptions={false}
-        inputId={selectId}
-        isDisabled={isDisabled}
-        isMulti={isMulti}
-        isSearchable={false}
-        menuIsOpen={menuIsOpen}
-        menuPlacement={menuPosition}
-        noOptionsMessage={() => noOptionsMessage}
-        onChange={onChangeHandler}
-        onKeyDown={(event) => {
-          if (event.code === 'Enter' && !menuIsOpen) {
-            setMenuIsOpen(true);
-          }
-        }}
-        onMenuClose={() => setMenuIsOpen(false)}
-        onMenuOpen={() => setMenuIsOpen(true)}
-        options={options}
-        placeholder={placeholder}
-        value={currentVal}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        //@ts-ignore
-        styles={customElviaStyles}
-      ></Select>
+    <div className={`${className ? className : ''}`} style={inlineStyle}>
+      <DropdownWrapper isDisabled={isDisabled} ref={dropdownRef} data-testid="wrapper">
+        <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
+          {label}
+        </DropdownLabel>
+        <Select
+          blurInputOnSelect={!isMulti}
+          classNamePrefix={'ewc-dropdown'}
+          closeMenuOnSelect={!isMulti}
+          components={overrideComponents}
+          hasValue={false}
+          hideSelectedOptions={false}
+          inputId={selectId}
+          isDisabled={isDisabled}
+          isMulti={isMulti}
+          isSearchable={false}
+          menuIsOpen={menuIsOpen}
+          menuPlacement={menuPosition}
+          noOptionsMessage={() => noOptionsMessage}
+          onChange={onChangeHandler}
+          onKeyDown={(event) => {
+            if (event.code === 'Enter' && !menuIsOpen) {
+              setMenuIsOpen(true);
+            }
+          }}
+          onMenuClose={() => setMenuIsOpen(false)}
+          onMenuOpen={() => setMenuIsOpen(true)}
+          options={options}
+          placeholder={placeholder}
+          value={currentVal}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          //@ts-ignore
+          styles={customElviaStyles}
+        ></Select>
 
-      {isError ? <ElviaError errorMessage={errorMessage} data-testid="error"></ElviaError> : null}
-    </DropdownWrapper>
+        {isError ? <ElviaError errorMessage={errorMessage} data-testid="error"></ElviaError> : null}
+      </DropdownWrapper>
+    </div>
   );
 };
 

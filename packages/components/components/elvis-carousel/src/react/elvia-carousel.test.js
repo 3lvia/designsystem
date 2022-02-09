@@ -5,6 +5,7 @@ import { act } from 'react-dom/test-utils';
 
 describe('Elvis Carousel', () => {
   let wrapper;
+  let carouselContainer;
   let carouselListOfDots;
   let carouselListOfDotsNodes;
   let carouselElementTitle;
@@ -154,6 +155,24 @@ describe('Elvis Carousel', () => {
       });
       expect(carouselRightArrow.getDOMNode()).toHaveAttribute('hidden');
       expect(carouselLeftArrow.getDOMNode()).not.toHaveAttribute('hidden');
+      done();
+    });
+  });
+  describe('className and inlineStyle passed to wrapper', () => {
+    beforeEach(() => {
+      wrapper = mount(
+        <Carousel elements={elements} className="test-class" inlineStyle={{ margin: '24px' }} />,
+      );
+      carouselContainer = wrapper.find({ 'data-testid': 'carousel-container' }).at(0);
+    });
+    afterEach(() => {
+      wrapper.unmount();
+      jest.useRealTimers();
+    });
+    it('should have className and inlineStyle', function (done) {
+      expect(carouselContainer.getDOMNode()).toHaveClass('test-class');
+      expect(carouselContainer.getDOMNode()).toHaveStyle('margin: 24px');
+
       done();
     });
   });

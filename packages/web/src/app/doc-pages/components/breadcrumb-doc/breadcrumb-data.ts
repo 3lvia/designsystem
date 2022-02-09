@@ -15,6 +15,16 @@ const breadcrumbData = {
       description:
         'Gets called every time a breadcrumb is clicked. Parameter value is the index of the clicked breadcrumb in breadcrumbs.',
     },
+    className: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css classes that can be added to the breadcrumb.',
+    },
+    inlineStyle: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css style that can be added to the breadcrumb.',
+    },
   },
   package: 'npm install @elvia/elvis-breadcrumb',
   codeImportReact: `import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';`,
