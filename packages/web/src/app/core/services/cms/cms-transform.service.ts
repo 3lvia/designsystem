@@ -44,13 +44,13 @@ export class CMSTransformService {
 
   constructor(private router: Router) { }
 
-  showErrorMessage(model: string, errorMessage: string): void {
+  showErrorMessage(model: string, errorMessage: string, requiredText?: boolean): void {
     console.error(
       `Contentful - ${model}: ${errorMessage} \n   This field is required for the content to load.`,
     );
     const newError = {
       name: model,
-      message: `${errorMessage} \n   This field is required for the content to load.`,
+      message: errorMessage + (requiredText ? '\n   This field is required for the content to load.' : ''),
     };
     this.errorMessages.push(newError);
   }
@@ -374,7 +374,7 @@ export class CMSTransformService {
       .then((response) => response.blob())
       .then((blob) => {
         const blobURL = URL.createObjectURL(blob);
-        const link = document.getElementById('link-ide') as HTMLAnchorElement;
+        const link = document.getElementById('download-content-' + assetName) as HTMLAnchorElement;
         link.href = blobURL;
         link.download = assetName;
       });
@@ -387,7 +387,7 @@ export class CMSTransformService {
         />
       </div>
       <div class="cms-downloadable-asset ${centered ? 'centered' : ''}">
-        <a role="button" id="link-ide">
+        <a role="button" id="download-content-${assetName}">
           <button class="e-btn e-btn--tertiary e-btn--md">
             <span class="e-btn__icon">
               <i class="e-icon e-icon--download"></i>
@@ -406,10 +406,18 @@ export class CMSTransformService {
       elements.find((el) => el.sys.contentType.sys.id === 'image') &&
       elements.find((el) => el.sys.contentType.sys.id === 'downloadContent')
     ) {
-      this.showErrorMessage('Grid', 'You have to choose between images or download content, both are not allowed');
+      this.showErrorMessage('Grid', 'You have to choose between images or download content, both are not allowed', false);
       return;
     }
     if (elements[0].sys.contentType.sys.id === 'downloadContent') {
+      const nameArray = [];
+      elements.forEach(element => {
+        nameArray.push(element.fields.name[locale])
+      });
+      if (new Set(nameArray).size !== nameArray.length) {
+        this.showErrorMessage('Grid', `You have multiple download content entries with the same name. All grid elements needs to have unique download content names.`, false);
+        return;
+      }
       elements.forEach((element) => {
         returnString +=
           '<div class="col-sm-6 col-md-4">' + this.getDownloadContent(element, locale, true) + '</div>';
