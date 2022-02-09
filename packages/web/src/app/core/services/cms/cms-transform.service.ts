@@ -314,7 +314,7 @@ export class CMSTransformService {
     });
     returnStringWhen = returnStringWhen.replace('<li></li>', '');
     returnStringWhenNot = returnStringWhenNot.replace('<li></li>', '');
-    return `<div class="when">
+    return `<div class="when e-my-24">
     <div class="when-to-use">
       <div class="e-title-caps" style="display: flex; flex-direction: row">
         <div class="e-mr-8">
@@ -367,7 +367,7 @@ export class CMSTransformService {
     }
   }
 
-  private getImage(data: IImage, locale: string, borderRadius: boolean) {
+  private getImage(data: IImage, locale: string, inGrid: boolean) {
     this.checkImageErrors(data, locale);
     if (!data.fields.name || !data.fields.image || !data.fields.altText) {
       return;
@@ -378,7 +378,7 @@ export class CMSTransformService {
     const description = data.fields.description ? data.fields.description[locale] : undefined;
     const altText = data.fields.altText ? data.fields.altText[locale] : undefined;
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
-    return `<div class='${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
+    return `<div class='${inGrid ? '' : 'e-my-24'} ${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
     <div
       style=' 
         ${hasInlineText ? 'display: block' : 'display: inline-block;'}
@@ -397,7 +397,7 @@ export class CMSTransformService {
       <div>
         <img
           class='
-            ${borderRadius ? 'e-br-8' : ''}
+            ${inGrid ? 'e-br-8' : ''}
             ${hasInlineText ? 'cms-image-inline' : ''} 
             align-${imgAlignment}
             ${imgSize === 'original' ? 'original-margin' : ''} 
@@ -445,7 +445,7 @@ export class CMSTransformService {
     }
   }
 
-  private getDownloadContent(data: IDownloadContent, locale: string, centered: boolean): string {
+  private getDownloadContent(data: IDownloadContent, locale: string, inGrid: boolean): string {
     this.checkDownloadContentErrors(data, locale);
     if (!data.fields.name || !data.fields.displayImage || !data.fields.downloadableContent) {
       return;
@@ -463,14 +463,14 @@ export class CMSTransformService {
         link.download = assetName;
       });
 
-    return `<div class="cms-download-content">
+    return `<div class="cms-download-content ${inGrid ? '' : 'e-my-24'}">
       <div class="cms-display-image">
         <img
           class="cms-section__img normal-img"
           src="${displayImage}"
         />
       </div>
-      <div class="cms-downloadable-asset ${centered ? 'centered' : ''}">
+      <div class="cms-downloadable-asset ${inGrid ? 'centered' : ''}">
         <a role="button" id="download-content-${assetName}">
           <button class="e-btn e-btn--tertiary e-btn--md">
             <span class="e-btn__icon">
@@ -511,7 +511,7 @@ export class CMSTransformService {
         returnString += '<div class="col-sm-6 col-md-4">' + this.getImage(element, locale, true) + '</div>';
       });
     }
-    return `<div class="e-grid">
+    return `<div class="e-grid" style="margin-top: 12px; margin-bottom: 12px">
     <div class="row e-grid-gutters-int e-grid-gutters-vertical">
       ${returnString}
     </div>
