@@ -137,7 +137,6 @@ export class CMSTransformService {
     if (!node || !node.data || !node.data.target || !node.data.target.sys || !node.data.target.sys.id) {
       return;
     }
-
     return node.data.target.sys.contentType.sys.id;
   }
 
