@@ -1,4 +1,4 @@
-@use "../variables/borders";
+@use '../variables/borders';
 
 // Making border classes for all border-sizes
 .e-border {
@@ -25,4 +25,11 @@
 // Making CSS-variables for shadow-variables
 :root {
   --e-border-medium: #{borders.$border-medium};
+}
+
+.e-br-4 {
+  border-radius: 4px;
+}
+.e-br-8 {
+  border-radius: 8px;
 }

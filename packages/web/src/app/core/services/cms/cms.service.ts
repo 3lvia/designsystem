@@ -149,7 +149,16 @@ export class CMSService {
     }
     const keys = Object.keys(node);
     keys.forEach((key) => {
-      if (key === 'fields' || key === 'content' || key === 'data' || key === 'target' || key === 'sys') {
+      if (
+        key === 'fields' ||
+        key === 'content' ||
+        key === 'data' ||
+        key === 'target' ||
+        key === 'sys' ||
+        key === 'sys' ||
+        key === 'sys' ||
+        key === 'sys'
+      ) {
         this.findEntriesWithinNode(node[key]);
       }
     });

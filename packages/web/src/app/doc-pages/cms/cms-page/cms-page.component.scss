@@ -316,6 +316,24 @@ $pageIndentedMargin: 72px;
   }
 }
 
+.cms-download-content {
+  display: flex;
+  flex-direction: column;
+  .cms-display-image,
+  .cms-display-image img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  .cms-downloadable-asset {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+    &.centered {
+      justify-content: center;
+    }
+  }
+}
+
 .cms-error {
   display: flex;
   flex-direction: column;
