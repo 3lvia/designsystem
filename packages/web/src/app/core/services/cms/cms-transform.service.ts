@@ -11,13 +11,15 @@ import {
   ILandingPage,
   ILandingPageWithCards,
   IOverviewCard,
+  ISubMenu,
 } from 'contentful/__generated__/types';
-import { TransformedDocPage } from './cms.interface';
+import { CMSDocPageError, TransformedDocPage } from './cms.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CMSTransformService {
+  private errorMessages: CMSDocPageError[] = [];
   private locale = 'en-GB'; // Fallback
   private subMenu;
   private options: Options = {
@@ -38,7 +40,18 @@ export class CMSTransformService {
     },
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
+
+  showErrorMessage(model: string, errorMessage: string): void {
+    console.error(
+      `Contentful - ${model}: ${errorMessage} \n   This field is required for the content to load.`,
+    );
+    const newError = {
+      name: model,
+      message: `${errorMessage} \n   This field is required for the content to load.`,
+    };
+    this.errorMessages.push(newError);
+  }
 
   // eslint-disable-next-line
   getHTML(data, locale: string, subMenu?, model?: string): string {
@@ -56,8 +69,7 @@ export class CMSTransformService {
 
   transformEntryToDocPage(
     data: IDocumentationPage,
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-    subMenu,
+    subMenu: ISubMenu,
     localization: Locale,
   ): TransformedDocPage {
     let locale = 'en-GB';
@@ -69,6 +81,10 @@ export class CMSTransformService {
     if (this.router.url.split('/')[2]) {
       subMenuRoute = this.router.url.split('/')[1] + '/';
     }
+    if (!data.fields.path) {
+      this.showErrorMessage('Documentation page', 'The page is missing a path.');
+    }
+
     const description = data.fields.pageDescription
       ? this.getHTML(data, locale, subMenu, 'pageDescription')
       : '';
@@ -84,6 +100,7 @@ export class CMSTransformService {
       docUrl: data.fields.path && data.fields.path[locale],
       fullPath: data.fields.path && subMenuRoute + data.fields.path[locale],
       lastUpdated: data.sys.updatedAt,
+      errorMessages: this.errorMessages,
     };
   }
 
@@ -125,11 +142,11 @@ export class CMSTransformService {
   private getList(content: string) {
     const liRegex = /(?:<li>)(.*?)(?=<\/li>)/g;
     const imgRegex = /(?:<img)(.*?)(?=\/>)/g;
-    const formattedContent = content.replace(/(\r\n|\n|\r)/gm, "");
+    const formattedContent = content.replace(/(\r\n|\n|\r)/gm, '');
     let liStrings = [...formattedContent.match(liRegex)];
     const bulletIcons = liStrings.map((i) => {
       const imageUrl = i.match(imgRegex) && i.match(imgRegex)[0].replace('<img', '');
-      const str = `<img style="position: absolute; margin-right: 8px; margin-left: -48px;"' + ${imageUrl}/>`;
+      const str = `<img style="position: absolute; margin-right: 8px; margin-left: -48px; width:32px; height: 32px;"' + ${imageUrl}/>`;
       return str.replace('class="cms-img', '');
     });
     liStrings = liStrings.map((li) => {
@@ -153,7 +170,7 @@ export class CMSTransformService {
   }
 
   private getQuote(quote: string): string {
-    return ` <div class="cms-quote-container">
+    return `<div class="cms-quote-container">
     <div>
       <i class="e-icon e-icon--quotation-color e-icon--lg"></i>
     </div>
@@ -163,27 +180,62 @@ export class CMSTransformService {
   </div>`;
   }
 
+  private getFullPath(subPath: string, subMenu) {
+    let fullPath = '';
+    subMenu.forEach((element) => {
+      if (element.path === subPath) {
+        fullPath = subPath;
+      } else {
+        element.entry.fields.pages[this.locale].forEach((subElement) => {
+          if (subElement.fields.path[this.locale] === subPath) {
+            fullPath = element.path + '/' + subPath;
+          }
+        });
+      }
+    });
+    if (fullPath === '') {
+      return undefined;
+    }
+    return fullPath;
+  }
+
   private getLinkPath(data: IInternalLink, locale: string, subMenu, paragraphTitle): string {
     let linkPath = '';
     if (data.fields.page) {
       const subPath = data.fields.page[locale].fields.path[locale];
       linkPath = this.getFullPath(subPath, subMenu) + '#' + paragraphTitle;
+      if (!linkPath) {
+        this.showErrorMessage('Link', `${subPath} is not an existing page that can be referenced.`);
+        return undefined;
+      }
     } else if (data.fields.urlNewTab) {
       linkPath = data.fields.urlNewTab[locale];
     } else {
-      console.error('Link: Missing either page reference or url.');
+      this.showErrorMessage(
+        'Link',
+        `${
+          data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'An link on your page'
+        } has no url, add either Url design.elvia.io or Url new tab / external.`,
+      );
+      return undefined;
     }
     return linkPath;
   }
 
   private getLink(data: IInternalLink, locale: string, subMenu, inlineEntry: boolean) {
+    const paragraphTitle = data.fields.paragraph ? data.fields.paragraph[locale].replaceAll(' ', '-') : '';
+    const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle);
+    if (!data.fields.title) {
+      this.showErrorMessage('Link', 'An link on your page is missing link text.');
+    }
+    if (!data.fields.title || !linkPath) {
+      return;
+    }
     const linkText = data.fields.title[locale];
     const type = data.fields.type ? data.fields.type[locale] : '';
     const isInline = inlineEntry;
     const isExternal = data.fields.urlNewTab !== undefined && data.fields.page === undefined;
     const isAction = type === 'Action' && !isExternal;
-    const paragraphTitle = data.fields.paragraph ? data.fields.paragraph[locale].replaceAll(' ', '-') : '';
-    const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle)
     return `
       ${!isInline ? '<p>' : ''}
         <a 
@@ -196,39 +248,58 @@ export class CMSTransformService {
           ${isExternal ? 'target="_blank"' : ''}
         >
           <span class="e-link__title">${linkText}</span>
-          ${isAction && !isInline
-        ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
-        : ''
-      }
-          ${isExternal
-        ? '<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>'
-        : ''
-      }
+          ${
+            isAction && !isInline
+              ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
+              : ''
+          }
+          ${isExternal ? '<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>' : ''}
         </a>
       ${!isInline ? '</p>' : ''}`;
   }
 
   private getImage(data: IImage, locale: string) {
+    if (!data.fields.name) {
+      this.showErrorMessage(
+        'Image',
+        'An image on your page is missing title, this will make sorting / finding entries in Contentful harder and messy.',
+      );
+    }
+    if (!data.fields.image) {
+      this.showErrorMessage(
+        'Image',
+        `${
+          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+        } is missing the image asset.`,
+      );
+    }
+    if (!data.fields.altText) {
+      this.showErrorMessage(
+        'Image',
+        `${
+          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+        } is missing alt text.`,
+      );
+    }
+    if (!data.fields.name || !data.fields.image) {
+      return;
+    }
     const hasInlineText = data.fields.inlineText !== undefined;
     const imgSize = data.fields.size[locale];
     const imgAlignment = data.fields.alignment[locale];
     const description = data.fields.description ? data.fields.description[locale] : undefined;
-    let altText;
-    if (!data.fields.name) {
-      console.error(`Image: A image on your page is missing title.`);
-    } else if (data.fields.altText) {
-      altText = data.fields.altText[locale];
-    } else {
-      console.error(`Image: Image ${data.fields.name[locale]} is missing alt text.`);
-    }
+    const altText = data.fields.altText ? data.fields.altText[locale] : undefined;
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
     return `<div
       style=' 
         ${hasInlineText ? 'display: block' : 'display: inline-block;'}
-        ${imgSize === 'original' ? 'width: unset' : imgSize === '100%'
-        ? 'width: calc(' + imgSize + '- 64px)'
-        : 'width: ' + imgSize
-      }
+        ${
+          imgSize === 'original'
+            ? 'width: unset'
+            : imgSize === '100%'
+            ? 'width: calc(' + imgSize + '- 64px)'
+            : 'width: ' + imgSize
+        }
       '
       class='
         cms-image
@@ -255,32 +326,10 @@ export class CMSTransformService {
           ${documentToHtmlString(description, this.options)}
         </div>
       </div>
-      ${hasInlineText
-        ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`
-        : ''
-      }
+      ${hasInlineText ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}` : ''}
       <div style="clear: ${imgAlignment}"></div>
     </div>
     `;
-  }
-
-  private getFullPath(subPath: string, subMenu) {
-    let fullPath = '';
-    subMenu.forEach((element) => {
-      if (element.path === subPath) {
-        fullPath = subPath;
-      } else {
-        element.entry.fields.pages[this.locale].forEach((subElement) => {
-          if (subElement.fields.path[this.locale] === subPath) {
-            fullPath = element.path + '/' + subPath;
-          }
-        });
-      }
-    });
-    if (fullPath === '') {
-      console.error('Link: ' + subPath + ' is not an existing page that can be referenced.');
-    }
-    return fullPath;
   }
 
   private getEmbeddedAsset(asset: string): string {
@@ -353,8 +402,14 @@ export class CMSTransformService {
       if (card.fields.pageUrl) {
         const subPath = card.fields.pageUrl[locale].fields.path[locale];
         fullPath = this.getFullPath(subPath, subMenu);
+        if (!fullPath) {
+          this.showErrorMessage('LandingPage', `${subPath} is not an existing page that can be referenced.`);
+        }
       } else {
-        console.error('Link: Missing either page reference or url.');
+        this.showErrorMessage(
+          'LandingPage',
+          `The card "${card.fields.title}" is missing page url reference.`,
+        );
       }
       const iconUrl = 'https:' + card.fields.pageIcon[locale].fields.file[locale].url;
       const cardTitle = card.fields.title[locale];

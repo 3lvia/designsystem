@@ -1,6 +1,6 @@
 <!--PAGES FROM CMS-->
 <div *ngIf="isCmsPage">
-  <div *ngIf="landingPage">
+  <div *ngIf="landingPage && errorMessages.length === 0">
     <div class="overview-page-title-container" *ngIf="showContentLoader">
       <div class="overview-page-title-size" style="display: block">
         <div>
@@ -19,7 +19,7 @@
     <div class="content" *ngIf="cmsContent.content" [innerHTML]="contentHTML"></div>
   </div>
 
-  <div *ngIf="!landingPage">
+  <div *ngIf="!landingPage && errorMessages.length === 0">
     <app-component-header>
       <ng-container ngProjectAs="headerTitle">
         <div class="doc-page-heading e-w-100">
@@ -61,6 +61,31 @@
       </div>
     </div>
     <div class="page-body cms-page-content" *ngIf="cmsContent.content" [innerHTML]="contentHTML"></div>
+  </div>
+
+  <div class="cms-error" *ngIf="errorMessages.length > 0">
+    <div>
+      <img
+        class="error-image"
+        src="./../../../../assets/empty-states/SomethingWentWrong-OnWhite.svg"
+        alt="Something went wrong illustration"
+      />
+    </div>
+    <div class="e-title-md error-message-title">
+      <div style="text-align: center">
+        Some content is incorrect
+        <span class="e-text-green">.</span>
+      </div>
+    </div>
+    <div class="e-text-lg e-mt-40 error-message">
+      <div>Let's try to fix it! We got these errors:</div>
+      <ul class="e-list e-mt-16">
+        <li *ngFor="let error of errorMessages">
+          <strong>{{ error.name }} -</strong>
+          {{ error.message }}
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 

@@ -58,6 +58,19 @@ export class TypographyDocComponent implements OnInit {
   <span class="e-text-micro-light">Text Micro Light</span>
 </p>
 `;
+  exampleCss = `@use '@elvia/elvis-typography/src/elviaTypography.scss';`;
+  exampleImportFonts = `@import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&display=swap");`;
+  doCodeTS = `import { getTypography } from '@elvia/elvis-typography';
+const typography = getTypography('text-md');`;
+  dontCodeTS = `import typographies from '@elvia/elvis-typography';
+const typography = typographies['text-md'];`;
+  exampleStyledComponents = `import styled from 'styled-components';
+import { getTypography } from '@elvia/elvis-typography';
+
+const typography = getTypography('text-md');
+const MediumParagraph = styled.p'\${typography}';`;
 
   ngOnInit(): void {
     this.fillTypography();

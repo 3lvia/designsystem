@@ -74,6 +74,16 @@ export const paginationData = {
       type: '(value: object) => CustomEvent',
       description: `Gets called every time a selection range is updated and return a value object with start and end key value pairs`,
     },
+    className: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css classes that can be added to the pagination.',
+    },
+    inlineStyle: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css style that can be added to the pagination.',
+    },
   },
   package: 'npm install @elvia/elvis-pagination',
   codeImportReact: `import { Pagination } from '@elvia/elvis-pagination/react';`,

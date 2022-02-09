@@ -420,11 +420,11 @@ function App() {
         }
         content={
           <Datepicker
-          isRequired
-          maxDate={maxDate}
-          hasSelectDateOnOpen={false}
-          valueOnChange={(dateCurr) => console.log("dateCurr",dateCurr)}
-        ></Datepicker>
+            isRequired
+            maxDate={maxDate}
+            hasSelectDateOnOpen={false}
+            valueOnChange={(dateCurr) => console.log('dateCurr', dateCurr)}
+          ></Datepicker>
         }
       ></Modal>
       <div>

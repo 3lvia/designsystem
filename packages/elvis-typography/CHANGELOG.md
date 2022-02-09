@@ -1,6 +1,12 @@
 # Elvia Typography Changelog
 
-## 1.2.0 (07.11.22)
+## 1.2.1 (08.02.22)
+
+### Patch
+
+- Updated README to document how to use package in Javascript/Typescript.
+
+## 1.2.0 (07.11.21)
 
 ### New feature
 

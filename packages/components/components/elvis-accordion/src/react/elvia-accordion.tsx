@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
 import toolbox from '@elvia/elvis-toolbox';
 import { AccordionLabelPosition, AccordionSize, AccordionType } from './elvia-accordion.types';
 import { AccordionArea, AccordionButtonArea, AccordionButton, AccordionContent } from './styledComponents';
@@ -10,6 +10,8 @@ export interface AccordionProps {
   labelPosition: AccordionLabelPosition;
   size: AccordionSize;
   type: AccordionType;
+  className?: string;
+  inlineStyle?: { [style: string]: CSSProperties };
 }
 
 const Accordion: FC<AccordionProps> = ({
@@ -19,6 +21,8 @@ const Accordion: FC<AccordionProps> = ({
   labelPosition = 'center',
   size = 'medium',
   type = 'normal',
+  className,
+  inlineStyle,
 }) => {
   const [contentOpen, setContentOpen] = useState(false);
 
@@ -57,7 +61,12 @@ const Accordion: FC<AccordionProps> = ({
 
   return (
     <span ref={accordionRef}>
-      <AccordionArea aria-expanded={contentOpen}>
+      <AccordionArea
+        aria-expanded={contentOpen}
+        className={`${className ? className : ''}`}
+        style={inlineStyle}
+        data-testid="accordion-area"
+      >
         {type === 'overflow' ? (
           <AccordionContent
             isContentOpen={contentOpen}

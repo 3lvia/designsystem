@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useRef, useCallback } from 'react';
+import React, { FC, useState, useEffect, useRef, useCallback, CSSProperties } from 'react';
 import './style.scss';
 import classnames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
@@ -12,6 +12,8 @@ export interface PopoverProps {
   hasCloseBtn?: boolean;
   isShowing?: boolean;
   isShowingOnChange?: (isShowing: boolean) => void;
+  className?: string;
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent: any;
 }
 
@@ -24,6 +26,8 @@ const Popover: FC<PopoverProps> = ({
   hasCloseBtn = true,
   isShowing = false,
   isShowingOnChange,
+  className,
+  inlineStyle,
   webcomponent,
 }) => {
   const [popoverVisibility, setPopoverVisibility] = useState(isShowing);
@@ -331,7 +335,12 @@ const Popover: FC<PopoverProps> = ({
   });
 
   return (
-    <div ref={popoverRef}>
+    <div
+      className={`${className ? className : ''}`}
+      style={inlineStyle}
+      ref={popoverRef}
+      data-testid="popover-wrapper"
+    >
       <div ref={popoverClasscontainerRef} className={popoverClasses} data-testid="popover-container">
         <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
           {trigger && (

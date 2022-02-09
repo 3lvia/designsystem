@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, CSSProperties } from 'react';
 import {
   BreadcrumbWrapper,
   BreadcrumbDesktopWrapper,
@@ -15,10 +15,18 @@ interface BreadcrumbLink {
 interface BreadcrumbProps {
   breadcrumbs: BreadcrumbLink[];
   breadcrumbsOnChange?: (value: number) => void;
+  className?: string;
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent: any;
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOnChange, webcomponent }) => {
+const Breadcrumb: React.FC<BreadcrumbProps> = ({
+  breadcrumbs = [],
+  breadcrumbsOnChange,
+  className,
+  inlineStyle,
+  webcomponent,
+}) => {
   const [childrenLength, setChildrenLength] = useState<number>(0);
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
 
@@ -115,7 +123,16 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], breadcrumbsOn
   } else {
     breadcrumb = DesktopBreadcrumb();
   }
-  return <BreadcrumbWrapper aria-label="Breadcrumbs">{breadcrumb}</BreadcrumbWrapper>;
+  return (
+    <BreadcrumbWrapper
+      className={`${className ? className : ''}`}
+      style={inlineStyle}
+      data-testid="breadcrumb-wrapper"
+      aria-label="Breadcrumbs"
+    >
+      {breadcrumb}
+    </BreadcrumbWrapper>
+  );
 };
 
 export default Breadcrumb;

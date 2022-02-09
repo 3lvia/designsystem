@@ -76,4 +76,16 @@ describe('Elvis Dropdown', () => {
       done();
     });
   });
+
+  describe('className and inlineStyle passed to wrapper', () => {
+    beforeEach(() => {
+      wrapper = mount(<Dropdown className="test-class" inlineStyle={{ margin: '24px' }}></Dropdown>);
+      dropdownWrapper = wrapper.find({ 'data-testid': 'wrapper' }).at(0).closest('div').at(0);
+    });
+    it('should have className and inlineStyle', function (done) {
+      expect(dropdownWrapper.getDOMNode()).toHaveStyle('margin: 24px');
+      expect(dropdownWrapper.getDOMNode()).toHaveClass('test-class');
+      done();
+    });
+  });
 });

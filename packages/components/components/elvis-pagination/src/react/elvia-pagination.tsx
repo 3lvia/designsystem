@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect, CSSProperties } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import {
   Paginator,
@@ -36,6 +36,8 @@ export interface PaginationProps {
   label: string;
   labelOf: string;
   valueOnChange?: (value: SelectionNumber) => void;
+  className?: string;
+  inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: any;
 }
 
@@ -69,6 +71,8 @@ const Pagination: FC<PaginationProps> = ({
   labelDisplaying = 'Viser',
   labelOf = 'av',
   valueOnChange,
+  className,
+  inlineStyle,
   webcomponent,
 }) => {
   const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[0]);
@@ -454,7 +458,12 @@ const Pagination: FC<PaginationProps> = ({
   }, [value]);
 
   return (
-    <Paginator isRightAligned={isRightAligned} data-testid="pagination">
+    <Paginator
+      isRightAligned={isRightAligned}
+      className={`${className ? className : ''}`}
+      style={inlineStyle}
+      data-testid="pagination"
+    >
       <PaginatorInfoContainer>
         <PaginatorInfoText data-testid="info-text">{labelDisplaying}</PaginatorInfoText>
         <PaginatorInfoDropdown>

@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 
 describe('Elvis Accordion', () => {
   let wrapper;
+  let accordionArea;
   let accordionButton;
   let accordionContentNormal;
   let accordionContentOverflow;
@@ -77,6 +78,24 @@ describe('Elvis Accordion', () => {
     it('should show content if opened', function (done) {
       accordionButton.simulate('click');
       expect(accordionContentOverflow.getDOMNode()).toHaveStyle('opacity: 1');
+      done();
+    });
+  });
+
+  describe('className and inlineStyle passed to wrapper', () => {
+    beforeEach(() => {
+      wrapper = mount(
+        <Accordion content="TextContent" className="test-class" inlineStyle={{ margin: '24px' }}></Accordion>,
+      );
+      accordionArea = wrapper.find({ 'data-testid': 'accordion-area' }).at(0);
+    });
+    afterEach(() => {
+      wrapper.unmount();
+    });
+
+    it('should have className and inlineStyle', function (done) {
+      expect(accordionArea.getDOMNode()).toHaveStyle('margin: 24px');
+      expect(accordionArea.getDOMNode()).toHaveClass('test-class');
       done();
     });
   });

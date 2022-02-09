@@ -53,6 +53,16 @@ const accordionData = {
       cegFormType: 'radio',
       cegOptions: ['small', 'medium', 'large'],
     },
+    className: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css classes that can be added to the accordion.',
+    },
+    inlineStyle: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css style that can be added to the accordion.',
+    },
   },
   package: 'npm install @elvia/elvis-accordion',
   codeImportReact: `import { Accordion } from '@elvia/elvis-accordion/react';`,

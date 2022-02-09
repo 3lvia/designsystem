@@ -57,6 +57,16 @@ export const dividerData = {
       cegOptions: ['horizontal', 'vertical'],
       cegDependency: [{ name: 'type', value: 'simple' }],
     },
+    className: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css classes that can be added to the divider.',
+    },
+    inlineStyle: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css style that can be added to the divider.',
+    },
   },
   codeImportReact: `import { Divider } from '@elvia/elvis-divider/react';`,
   codeImportWebComponent: `import '@elvia/elvis-divider';`,
