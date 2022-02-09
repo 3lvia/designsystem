@@ -18,6 +18,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/elvia-designsystem",
+            "allowedCommonJsDependencies": ["hoist-non-react-statics", "@elvia/elvis-toolbox"],
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
