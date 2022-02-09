@@ -18,6 +18,14 @@ package you don't have to do this, because they are already imported there.
 - @import
   url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&display=swap');
 
+## Usage Typescript/Javascript
+
+To use this package you can import the function getTypography(). It takes the name of the requested typography
+as input, and returns the typography's attributes if it exists. <br>
+
+- import { getTypography } from '@elvia/elvis-typography';
+- const typography = getTypography('text-md');
+
 ## Maintaining
 
 Remember to update all three elviaTypography files (js, json and scss), when adding a new typography or
