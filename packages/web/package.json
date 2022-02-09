@@ -49,7 +49,7 @@
     "glob": "^7.1.6",
     "natural-compare-lite": "^1.4.0",
     "ng-dynamic-component": "^10.0.0",
-    "ngx-markdown": "^12.0.1",
+    "ngx-markdown": "^13.1.0",
     "prettier": "^2.0.5",
     "prismjs": "^1.24.1",
     "rxjs": "^6.5.5",
