@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-datepicker",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "description": "",
   "main": "web_component.js",
   "scripts": {

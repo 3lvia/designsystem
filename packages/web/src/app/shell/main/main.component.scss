@@ -123,4 +123,9 @@
   .landing-page {
     max-width: 70rem;
   }
+
+  &.not-found {
+    background-color: var(--e-grey-90);
+    border-color: var(--e-grey-90);
+  }
 }

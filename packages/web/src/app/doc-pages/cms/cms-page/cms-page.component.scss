@@ -315,3 +315,30 @@ $pageIndentedMargin: 72px;
     margin: 0px;
   }
 }
+
+.cms-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .error-image {
+    width: 260px;
+    @include breakpoint-up(Tablet) {
+      width: 200px;
+    }
+  }
+
+  .error-message-title {
+    margin-top: 62px;
+  }
+
+  .error-message {
+    width: 75%;
+    @include breakpoint-up(Tablet) {
+      width: 85%;
+    }
+    @include breakpoint-up(Mobile) {
+      width: 100%;
+    }
+  }
+}

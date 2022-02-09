@@ -84,6 +84,16 @@ export const dropdownData = {
       type: '(options: Array<object>) => CustomEvent',
       description: `Gets called every time an option(s) is selected and return an array of selected objects`,
     },
+    className: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css classes that can be added to the dropdown.',
+    },
+    inlineStyle: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css style that can be added to the dropdown.',
+    },
   },
   package: 'npm install @elvia/elvis-dropdown',
   codeImportReact: `import { Dropdown } from '@elvia/elvis-dropdown/react';`,

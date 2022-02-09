@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect } from 'react';
+import React, { FC, useRef, useEffect, CSSProperties } from 'react';
 import {
   ModalCloseButton,
   ModalContent,
@@ -22,6 +22,7 @@ export interface ModalProps {
   primaryButton?: HTMLElement;
   secondaryButton?: HTMLElement;
   className?: string;
+  inlineStyle?: { [style: string]: CSSProperties };
   hasCloseBtn?: boolean;
   hasLockBodyScroll?: boolean;
   disableClose?: boolean;
@@ -38,6 +39,7 @@ export const ModalComponent: FC<ModalProps> = ({
   primaryButton,
   secondaryButton,
   className,
+  inlineStyle,
   hasCloseBtn = false,
   hasLockBodyScroll = true,
   disableClose = false,
@@ -126,13 +128,15 @@ export const ModalComponent: FC<ModalProps> = ({
       role="dialog"
       aria-label={title}
       isShowing={isShowing}
-      data-testid="modal-wrapper"
+      data-testid="modal-container"
     >
       <ModalWrapper
         ref={modalWrapperRef}
         hasIllustration={hasIllustration}
         className={className}
+        style={inlineStyle}
         maxWidth={maxWidth}
+        data-testid="modal-wrapper"
       >
         {illustration && (
           <ModalIllustration data-testid="modal-illustration">{illustration}</ModalIllustration>

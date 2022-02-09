@@ -117,4 +117,13 @@ describe('Elvis Divider', () => {
       done();
     });
   });
+  describe('className and inlineStyle passed to wrapper', () => {
+    it('should have className and inlineStyle', function (done) {
+      wrapper = mount(<Divider className="test-class" inlineStyle={{ margin: '24px' }}></Divider>);
+      dividerArea = wrapper.find({ 'data-testid': 'divider-area' }).at(0).closest('div').at(0);
+      expect(dividerArea.getDOMNode()).toHaveStyle(`margin: 24px`);
+      expect(dividerArea.getDOMNode()).toHaveClass(`test-class`);
+      done();
+    });
+  });
 });

@@ -175,4 +175,21 @@ describe('Elvis Datepicker', () => {
       done();
     });
   });
+  describe('className and inlineStyle passed to wrapper', () => {
+    beforeEach(() => {
+      wrapper = mount(
+        <Datepicker maxDate={maxDate} className="test-class" inlineStyle={{ margin: '24px' }}></Datepicker>,
+      );
+      datepickerWrapper = wrapper.find({ 'data-testid': 'datepicker-wrapper' }).at(0);
+    });
+    afterEach(() => {
+      wrapper.unmount();
+    });
+    it('should have className and inlineStyle', function (done) {
+      expect(datepickerWrapper.getDOMNode()).toHaveStyle('margin: 24px');
+      expect(datepickerWrapper.getDOMNode()).toHaveClass('ewc-datepicker');
+      expect(datepickerWrapper.getDOMNode()).toHaveClass('test-class');
+      done();
+    });
+  });
 });

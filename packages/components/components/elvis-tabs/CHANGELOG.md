@@ -1,5 +1,11 @@
 # Elvia Tabs Changelog
 
+## 1.2.0 (07.02.22)
+
+### New feature
+
+- Added inlineStyle and className props
+
 ## 1.1.5 (26.01.21)
 
 - Updated dependencies
