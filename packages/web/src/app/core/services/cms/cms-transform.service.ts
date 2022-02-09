@@ -291,7 +291,8 @@ export class CMSTransformService {
     const description = data.fields.description ? data.fields.description[locale] : undefined;
     const altText = data.fields.altText ? data.fields.altText[locale] : undefined;
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
-    return `<div
+    return `<div class='${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
+    <div
       style=' 
         ${hasInlineText ? 'display: block' : 'display: inline-block;'}
         ${
@@ -329,6 +330,7 @@ export class CMSTransformService {
       </div>
       ${hasInlineText ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}` : ''}
       <div style="clear: ${imgAlignment}"></div>
+    </div>
     </div>
     `;
   }
