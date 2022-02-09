@@ -12,6 +12,7 @@ import {
   ILandingPageWithCards,
   IOverviewCard,
   ISubMenu,
+  IWhenToUse,
 } from 'contentful/__generated__/types';
 import { CMSDocPageError, TransformedDocPage } from './cms.interface';
 
@@ -119,6 +120,9 @@ export class CMSTransformService {
     if (type === 'internalLink') {
       return this.getLink(data, locale, subMenu, inlineEntry);
     }
+    if (type === 'whenToUse') {
+      return this.getWhenToUse(data, locale);
+    }
     if (type === 'image') {
       return this.getImage(data, locale);
     }
@@ -223,7 +227,7 @@ export class CMSTransformService {
     return linkPath;
   }
 
-  private getLink(data: IInternalLink, locale: string, subMenu, inlineEntry: boolean) {
+  private getLink(data: IInternalLink, locale: string, subMenu, inlineEntry: boolean): string {
     const paragraphTitle = data.fields.paragraph ? data.fields.paragraph[locale].replaceAll(' ', '-') : '';
     const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle);
     if (!data.fields.title) {
@@ -259,7 +263,85 @@ export class CMSTransformService {
       ${!isInline ? '</p>' : ''}`;
   }
 
-  private getImage(data: IImage, locale: string) {
+  private checkWhenToUseErrors(data: IWhenToUse, locale: string) {
+    if (!data.fields.name) {
+      this.showErrorMessage(
+        'When & when not to use',
+        'The "When & when not to use" entry on your page is missing a title, this will make sorting / finding entries in Contentful harder and messy.',
+      );
+    }
+    if (!data.fields.whenToUse) {
+      this.showErrorMessage(
+        'When & when not to use',
+        `${
+          data.fields.name
+            ? 'The entry "' + data.fields.name[locale] + '"'
+            : 'An "When & when not to use" entry on your page'
+        } is missing the "when to use" field.`,
+      );
+    }
+    if (!data.fields.whenNotToUse) {
+      this.showErrorMessage(
+        'When & when not to use',
+        `${
+          data.fields.name
+            ? 'The entry "' + data.fields.name[locale] + '"'
+            : 'An "When & when not to use" entry on your page'
+        } is missing the "when not to use" field.`,
+      );
+    }
+  }
+
+  private getWhenToUse(data: IWhenToUse, locale: string): string {
+    this.checkWhenToUseErrors(data, locale);
+    if (!data.fields.name || !data.fields.whenToUse || !data.fields.whenNotToUse) {
+      return;
+    }
+    let returnStringWhen = '';
+    let returnStringWhenNot = '';
+    const whensList = documentToHtmlString(data.fields.whenToUse[locale], this.options).split('<p');
+    const whenNotsList = documentToHtmlString(data.fields.whenNotToUse[locale]).split('<p');
+    whensList.forEach((when) => {
+      returnStringWhen += `<li>${when
+        .replace('class="cms-paragraph e-text-body">', '')
+        .replace('</p>', '')}</li>`;
+    });
+    whenNotsList.forEach((whenNot) => {
+      returnStringWhenNot += `<li>${whenNot.replace('>', '').replace('</p>', '')}</li>`;
+    });
+    returnStringWhen = returnStringWhen.replace('<li></li>', '');
+    returnStringWhenNot = returnStringWhenNot.replace('<li></li>', '');
+    return `<div class="when">
+    <div class="when-to-use">
+      <div class="e-title-caps" style="display: flex; flex-direction: row">
+        <div class="e-mr-8">
+          <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-green"></i>
+        </div>
+        <div>When to use:</div>
+      </div>
+      <span class="e-text-description">
+        <ul>
+          ${returnStringWhen}
+        </ul>
+      </span>
+    </div>
+    <div class="when-not-to-use">
+      <div class="e-title-caps" style="display: flex; flex-direction: row">
+        <div class="e-mr-8">
+          <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-red"></i>
+        </div>
+        <div>When not to use:</div>
+      </div>
+      <span class="e-text-description">
+        <ul>
+          ${returnStringWhenNot}
+        </ul>
+      </span>
+    </div>
+  </div>`;
+  }
+
+  private getImage(data: IImage, locale: string): string {
     if (!data.fields.name) {
       this.showErrorMessage(
         'Image',
