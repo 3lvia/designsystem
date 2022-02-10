@@ -2,7 +2,40 @@
 <!-- 💥 New Features -->
 <!-- 🐝 Bug Fixes -->
 <table>
- <tr class="changelog-row">
+  <tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
+        8.0.0
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        February 10, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
+          <div>Components: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/components/segmented-control#Size">Segmented Control</a> &
+            <a class="e-link e-link--inline" href="https://design.elvia.io/brand/typography#Overview">Typography</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Segmented controls are now in three sizes: <br />
+              Small -> Medium <br />
+              Medium -> Large <br />
+              New Small size (smaller than the previous)
+            </li>
+            <li>
+              Title xs on mobiles has been updated font-size from 18px -> 16px. This is done so that the difference between title sm and xs i more distinct.         
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.16.0
@@ -28,7 +61,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
- <tr class="changelog-row">
+  <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.15.4

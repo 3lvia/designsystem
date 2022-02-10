@@ -970,6 +970,7 @@
 				"e-segmented-controls__title": {}
 			},
 			"modifier": {
+				"e-segmented-controls--lg": {},
 				"e-segmented-controls--sm": {}
 			}
 		},
@@ -1771,6 +1772,7 @@
 		"e-segmented-controls": {},
 		"e-segmented-controls---focus": {},
 		"e-segmented-controls__title": {},
+		"e-segmented-controls--lg": {},
 		"e-segmented-controls--sm": {},
 		"e-border-none": {},
 		"e-border": {},

@@ -631,6 +631,11 @@ body {
   text-transform: unset;
   color: inherit;
 }
+@media (max-width: 767px) {
+  .e-alert.e-alert--global .e-alert__content .e-alert__title {
+    font-size: 16px;
+  }
+}
 .e-alert.e-alert--global.e-alert--warn {
   border-color: #ffa000;
 }
@@ -2338,6 +2343,11 @@ input:focus {
   line-height: 24px;
   margin-bottom: 16px;
 }
+@media (max-width: 767px) {
+  .e-card__title {
+    font-size: 16px;
+  }
+}
 .e-card__title.e-card__title--above {
   font-family: Red Hat Text, Verdana, sans-serif;
   font-size: 14px;
@@ -2986,6 +2996,11 @@ input:focus {
   color: inherit;
   color: #fff;
   border: 2px solid #fff;
+}
+@media (max-width: 767px) {
+  .e-header__top-bar-desktop__app .e-header__top-bar-desktop__app-menu-item .e-header__top-bar-desktop__app-circle {
+    font-size: 16px;
+  }
 }
 .e-header__top-bar-desktop__app .e-header__top-bar-desktop__app-menu-item.e-header__top-bar-desktop__app-menu-item--active .e-header__top-bar-desktop__app-circle {
   background: #000;
@@ -3888,6 +3903,11 @@ input:focus {
   color: #000;
   box-sizing: border-box;
   cursor: pointer;
+}
+@media (max-width: 767px) {
+  .e-link.e-link--jumbo {
+    font-size: 16px;
+  }
 }
 .e-link.e-link--jumbo > .e-link__title:first-child {
   padding-left: 16px;
@@ -6355,6 +6375,11 @@ input:focus {
   text-transform: unset;
   color: inherit;
 }
+@media (max-width: 767px) {
+  .e-table thead th {
+    font-size: 16px;
+  }
+}
 .e-table thead th,
 .e-table thead td {
   text-align: left;
@@ -6435,6 +6460,11 @@ input:focus {
   letter-spacing: unset;
   text-transform: unset;
   color: inherit;
+}
+@media (max-width: 767px) {
+  .e-table-mobile thead th {
+    font-size: 16px;
+  }
 }
 .e-table-mobile th,
 .e-table-mobile td {
@@ -8047,7 +8077,7 @@ input:focus {
 .e-segmented-controls > label {
   cursor: pointer;
   float: left;
-  height: 46px;
+  height: 38px;
   transition-property: none;
   transition-duration: inherit;
   transition-timing-function: inherit;
@@ -8057,11 +8087,14 @@ input:focus {
   display: flex;
   align-items: center;
   height: 100%;
-  font-family: "Red Hat Text", Verdana, sans-serif;
-  font-style: normal;
+  font-family: Red Hat Text, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 145%;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: inherit;
 }
 .e-segmented-controls > label:before, .e-segmented-controls > label:after {
   position: absolute;
@@ -8107,19 +8140,29 @@ input:focus {
   width: 33.3333333333%;
   border-radius: 36px;
 }
+.e-segmented-controls.e-segmented-controls--lg > label {
+  height: 46px;
+}
+.e-segmented-controls.e-segmented-controls--lg > label .e-segmented-controls__title {
+  font-family: "Red Hat Text", Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 145%;
+}
 .e-segmented-controls.e-segmented-controls--sm > label {
-  height: 38px;
+  height: 30px;
 }
 .e-segmented-controls.e-segmented-controls--sm > label .e-segmented-controls__title {
-  font-family: Red Hat Text, Verdana, sans-serif;
+  font-family: "Red Hat Display", Verdana, sans-serif;
   font-size: 14px;
-  line-height: 22px;
+  font-style: normal;
   font-weight: 400;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: inherit;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: center;
 }
+
 .e-border-none {
   border: none;
 }
@@ -12573,6 +12616,12 @@ THE SOFTWARE.
   text-transform: unset;
   color: inherit;
 }
+@media (max-width: 767px) {
+  .e-title-xs {
+    font-size: 16px;
+  }
+}
+
 .e-text-caps {
   font-family: Red Hat Text, Verdana, sans-serif;
   font-size: 14px;

@@ -39,6 +39,12 @@
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Large'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="exampleLarge"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
       <app-component-subsection [sectionTitle]="'Medium'">
         <ng-container ngProjectAs="sectionContent">
           <app-component-example-v1 [codeHTML]="exampleMedium"></app-component-example-v1>

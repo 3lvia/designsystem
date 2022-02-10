@@ -1,5 +1,12 @@
 # Elvia Typography Changelog
 
+## 2.0.0 (08.02.22)
+
+### Major
+
+- Title xs on mobiles has been updated font-size from 18px -> 16px. This is done so that the difference
+  between title sm and xs i more distinct.
+
 ## 1.2.1 (08.02.22)
 
 ### Patch

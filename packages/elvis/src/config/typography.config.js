@@ -49,6 +49,7 @@ module.exports = [
     properties: [
       { key: 'family', value: 'Red Hat Display' },
       { key: 'size', value: '18px' },
+      { key: 'size-m', value: '16px' },
       { key: 'weight', value: '700' },
       { key: 'height', value: '22px' },
       { key: 'letter-spacing', value: 'unset' },

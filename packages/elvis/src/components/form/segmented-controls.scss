@@ -6,8 +6,9 @@
 $control-count: 3;
 $transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 $transition-duration: 0.35s;
-$segmented-controls-height: 46px;
-$segmented-controls-height-sm: 38px;
+$segmented-controls-height-lg: 46px;
+$segmented-controls-height: 38px;
+$segmented-controls-height-sm: 30px;
 $segmented-controls-border: 1px solid colors.color('elvia-off');
 
 .e-segmented-controls {
@@ -100,11 +101,7 @@ $segmented-controls-border: 1px solid colors.color('elvia-off');
       align-items: center;
       height: 100%;
 
-      font-family: 'Red Hat Text', Verdana, sans-serif;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 145%;
+      @include typography.typography('text-sm');
     }
 
     &:before,
@@ -156,12 +153,32 @@ $segmented-controls-border: 1px solid colors.color('elvia-off');
     }
   }
 
+  &.e-segmented-controls--lg {
+    > label {
+      height: $segmented-controls-height-lg;
+
+      .e-segmented-controls__title {
+        font-family: 'Red Hat Text', Verdana, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 145%;
+      }
+    }
+  }
+
   &.e-segmented-controls--sm {
     > label {
       height: $segmented-controls-height-sm;
 
       .e-segmented-controls__title {
-        @include typography.typography('text-sm');
+        font-family: 'Red Hat Display', Verdana, sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0px;
+        text-align: center;
       }
     }
   }

@@ -59,6 +59,19 @@ export class SegmentedControlsDocComponent {
 </div>
 `;
 
+  exampleLarge =
+    `<div class="e-segmented-controls e-segmented-controls--lg">
+  <input type="radio" name="sclg-1-1" id="sclg-1-1" checked>
+  <input type="radio" name="sclg-1-1" id="sclg-1-2">
+  <label for="sclg-1-1" data-value="Option 1"><span class="e-segmented-controls__title">` +
+    exampleContents.words.views['eng-GBR'][0] +
+    `</span></label>
+  <label for="sclg-1-2" data-value="Option 2"><span class="e-segmented-controls__title">` +
+    exampleContents.words.views['eng-GBR'][1] +
+    `</span></label>
+</div>
+`;
+
   exampleMedium =
     `<div class="e-segmented-controls">
   <input type="radio" name="scmd-1-1" id="scmd-1-1" checked>
