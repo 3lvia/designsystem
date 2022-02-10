@@ -513,7 +513,13 @@
                 </li>
                 <li>
                   <strong>Entry</strong>
-                  - Entries are different types of models that can be used on a page, e.g. image or link.
+                  - Entries are different types of models that can be used on a page, e.g. images or links.
+                </li>
+                <li>
+                  <strong>Models</strong>
+                  - Models are small code bundles we have made to enable us to add the different parts of a
+                  website the way we want it to look like. These models are what you use to add entries, e.g.
+                  images or links.
                 </li>
               </ul>
             </div>
@@ -561,10 +567,10 @@
           </div>
           <div class="e-accordion__content">
             <div>
-              Contentful is structured up of different content types. In the content tab you can find all the
-              content that is relevant for you to edit. Every page on design.elvia.io translates to a
-              'documentationPage' in Contentful. These documentationPages are the bases for adding or editing
-              content.
+              The contentful structure is made up of different content types. In the content tab you can find
+              all the content that is relevant for you to edit. Every page on design.elvia.io is called a
+              'documentation page' in Contentful. These documentation pages are the bases for adding or
+              editing content.
               <div class="e-mt-24">
                 <img
                   width="100%"
@@ -575,9 +581,9 @@
             </div>
             <div class="e-mt-24">
               <h3 class="e-title-xs">Sorting</h3>
-              You can easily sort and search through all the content in Contentful in the 'Content section'.
-              You can choose content type or other sortable features from the dropdown inside the search-field
-              as well as in the sidebar.
+              You can easily sort and search through all the content in Contentful in the 'Content section'
+              (see image above) . You can choose to sort by content type or other sortable features from the
+              dropdown inside the search-field as well as from the sidebar.
               <div class="e-mt-24">
                 <img
                   width="60%"
@@ -605,8 +611,8 @@
                 You can also add / embed entries at the top right of the field. Entries are models we have
                 made to make it possible to customize the content more. When adding an image or link you
                 should always add them by using these models. If you want the entry to be inline with the text
-                you should choose "inline entry". Inline images are done in a custom way that can be read
-                about in the "Useful models and how to's" section.
+                you should choose "inline entry." Inline images are added in a different way that can be read
+                about below in the "Useful models and how to's".
                 <div class="e-mt-24">
                   <img
                     width="100%"
@@ -615,9 +621,10 @@
                   />
                 </div>
                 <div class="e-mt-24">
-                  When you are adding entries you can choose to use an existing entry and search through what
-                  already exists, but mostly you will add new entries. Adding a new entry is done by clicking
-                  the "Create new entry" button in the top right corner of the "Add entry" popup.
+                  When you are adding entries you can choose to either use an existing entry and search
+                  through what has already been added, but mostly you will be adding new entries. Adding a new
+                  entry is done by clicking the "Create new entry" button in the top right corner of the "Add
+                  entry" popup.
                 </div>
                 <div class="e-mt-24">
                   <img
@@ -628,9 +635,9 @@
                 </div>
               </div>
               <div class="e-mt-24">
-                All fields that are required will be bordered red if they are not filled. Some fields also
-                have help-texts below them to help explain what the specific field does and what should be in
-                the field.
+                Some fields are required and will show a red border around it if they are not filled in. Some
+                fields also have help-texts below them to help explain what the specific field does or how it
+                should be filled in.
               </div>
             </div>
           </div>
@@ -651,7 +658,7 @@
             you are on the "content" tab.
             <ul class="e-list">
               <li>
-                <strong>DocumentationPage</strong>
+                <strong>Documentation page</strong>
                 - The documentation pages should serve as the base for all content on a page. These pages can
                 be previewed with all content, even if that content also is just in draft. The page needs a
                 title, path and content and should usually also have a description.
@@ -669,9 +676,9 @@
                 linking to pages on design.elvia.io always use the "Url design.elvia.io (internal)" field.
               </li>
               <li>
-                <strong>CenteredContent</strong>
-                - You can center any content by using the centeredContent model in Contentful and then add the
-                content that should be centered there.
+                <strong>Centered content</strong>
+                - You can center any content by using the centered content model in Contentful and then add
+                the content that should be centered there.
               </li>
               <li>
                 <strong>List</strong>
@@ -688,6 +695,18 @@
                     alt="Example of how to make an icon list"
                   />
                 </div>
+              </li>
+              <li>
+                <strong>Download content</strong>
+                - If you want to offer downloadable files or images on design.elvia.io, e.g. illustrations or
+                logos, you can use this model. For images use SVG format preferably. Each download content
+                entry you make will get its own button for downloading.
+              </li>
+              <li>
+                <strong>Grid</strong>
+                - The grid model can be used to place download content or images in a grid view (multiple next
+                to each other). Make sure to choose either download content or image and not both in the same
+                grid.
               </li>
             </ul>
           </div>
@@ -709,7 +728,7 @@
               will open a link in a new tab showing how the content will look after you publish it. It will
               also display error-messages if your content is incorrect. It is therefore important to always
               check the preview before publishing to make sure the content is correct. The preview button is
-              only clickable on documentationPages, but all content on that page will be visible in the
+              only clickable on documentation pages, but all content on that page will be visible in the
               preview, even if it's not published yet.
               <div class="e-mt-24">
                 <img
@@ -721,10 +740,12 @@
             </div>
             <div class="e-mt-24">
               <h3 class="e-title-xs">Publish</h3>
-              Publish only once all the content is fully ready. You can easily send preview-links to other
-              people for them to review your changes before publishing to ensure that everything is correct.
-              You will not be able to publish your content if you have errors, but you should always check the
-              documentationPage preview before publishing anyways.
+              Publish only once all the content is fully ready. Most of the time you should be working with
+              your content in draft without publishing it and use the preview until you are happy with the
+              page and are ready to publish. You can easily send preview-links to other people for them to
+              review your changes before publishing, to ensure that everything is correct. You will not be
+              able to publish your content if you have errors, but you should always check the documentation
+              page preview before publishing anyways.
               <div class="e-mt-24">
                 <img
                   width="100%"
@@ -758,9 +779,9 @@
           <div class="e-accordion__content">
             <div>
               Any entry can be deleted as long as you are sure the entry is not used anywhere in Contentful.
-              If you want to be sure that you are not deleting an entry that is being used, look at the right
-              sidebar under links. If you are creating an entry by mistake, you should delete it so that there
-              is not a lot of unused entries floating around.
+              If you are creating an entry by mistake, you should delete it so that there is not a lot of
+              unused entries floating around. If you want to be sure that you are not deleting an entry that
+              is being used, look at the right sidebar under links.
               <div class="e-mt-24">
                 <img
                   width="100%"

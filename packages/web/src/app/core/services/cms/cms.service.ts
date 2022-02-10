@@ -19,7 +19,7 @@ export class CMSService {
     private http: HttpClient,
     private cmsTransformService: CMSTransformService,
     private router: Router,
-  ) {}
+  ) { }
 
   listenContentLoadedFromCMS(): Observable<any> {
     return this.subjectAnchorsNew.asObservable();
@@ -149,7 +149,13 @@ export class CMSService {
     }
     const keys = Object.keys(node);
     keys.forEach((key) => {
-      if (key === 'fields' || key === 'content' || key === 'data' || key === 'target' || key === 'sys') {
+      if (
+        key === 'fields' ||
+        key === 'content' ||
+        key === 'data' ||
+        key === 'target' ||
+        key === 'sys'
+      ) {
         this.findEntriesWithinNode(node[key]);
       }
     });
