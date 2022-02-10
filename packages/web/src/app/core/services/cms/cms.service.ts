@@ -4,8 +4,8 @@ import { CMSTransformService } from './cms-transform.service';
 import { Locale } from '../localization.service';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import { IDocumentationPage } from 'contentful/__generated__/types';
-import { TransformedDocPage } from './cms.interface';
+import { IDocumentationPage, IMainMenu, ISubMenu } from 'contentful/__generated__/types';
+import { CMSMenu, CMSSubMenu, TransformedDocPage } from './cms.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +19,7 @@ export class CMSService {
     private http: HttpClient,
     private cmsTransformService: CMSTransformService,
     private router: Router,
-  ) { }
+  ) {}
 
   listenContentLoadedFromCMS(): Observable<any> {
     return this.subjectAnchorsNew.asObservable();
@@ -75,7 +75,7 @@ export class CMSService {
     return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
-  async getSubMenu(localization: Locale): Promise<any> {
+  async getSubMenu(localization: Locale): Promise<CMSSubMenu[]> {
     const mainMenu = await this.getMenu(localization);
     return mainMenu.pages;
   }
@@ -90,7 +90,7 @@ export class CMSService {
           return;
         }
         const localeKey = Object.keys(element.entry.fields.pages)[localization];
-        const cmsPages = element.entry.fields.pages[localeKey];
+        const cmsPages: IDocumentationPage[] = element.entry.fields.pages[localeKey];
         cmsPages.forEach((element) => {
           const navbarItem = {
             title: element.fields.title[localeKey],
@@ -105,19 +105,20 @@ export class CMSService {
     return subMenuList;
   }
 
-  async getMenu(localization: Locale): Promise<any> {
+  async getMenu(localization: Locale): Promise<CMSMenu> {
     let locale = 'en-GB';
     if (localization === Locale['nb-NO']) {
       locale = 'nb-NO';
     }
-    const entryMenu = await this.getEntry('4ufFZKPEou3mf9Tg05WZT3');
-    const menu = {};
-    menu['title'] = entryMenu.fields.title['en-GB'];
-    menu['pages'] = [];
-    const subMenuEntries = entryMenu.fields.submenus['en-GB'];
+    const entryMenu: IMainMenu = await this.getEntry('4ufFZKPEou3mf9Tg05WZT3');
+    const menu: CMSMenu = {
+      title: entryMenu.fields.title['en-GB'],
+      pages: [],
+    };
+    const subMenuEntries: ISubMenu[] = entryMenu.fields.submenus['en-GB'];
     for (let i = 0; i < subMenuEntries.length; i++) {
       const subEntry = await this.getEntry(subMenuEntries[i].sys.id);
-      const subMenu = {
+      const subMenu: CMSSubMenu = {
         title: subMenuEntries[i].fields.title[locale],
         entry_id: subMenuEntries[i].sys.id,
         entry: subEntry,
@@ -149,13 +150,7 @@ export class CMSService {
     }
     const keys = Object.keys(node);
     keys.forEach((key) => {
-      if (
-        key === 'fields' ||
-        key === 'content' ||
-        key === 'data' ||
-        key === 'target' ||
-        key === 'sys'
-      ) {
+      if (key === 'fields' || key === 'content' || key === 'data' || key === 'target' || key === 'sys') {
         this.findEntriesWithinNode(node[key]);
       }
     });

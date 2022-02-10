@@ -4,6 +4,7 @@ import { documentToHtmlString, Options } from '@contentful/rich-text-html-render
 import { Locale } from '../localization.service';
 import { Router } from '@angular/router';
 import {
+  CONTENT_TYPE,
   ICenteredContent,
   IDocumentationPage,
   IDownloadContent,
@@ -13,10 +14,9 @@ import {
   ILandingPage,
   ILandingPageWithCards,
   IOverviewCard,
-  ISubMenu,
   IWhenToUse,
 } from 'contentful/__generated__/types';
-import { CMSDocPageError, TransformedDocPage } from './cms.interface';
+import { CMSDocPageError, CMSSubMenu, TransformedDocPage } from './cms.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +24,7 @@ import { CMSDocPageError, TransformedDocPage } from './cms.interface';
 export class CMSTransformService {
   private errorMessages: CMSDocPageError[] = [];
   private locale = 'en-GB'; // Fallback
-  private subMenu;
+  private subMenu: CMSSubMenu[];
   private options: Options = {
     renderMark: {
       [MARKS.BOLD]: (text) => `<b>${text}</b>`,
@@ -43,7 +43,7 @@ export class CMSTransformService {
     },
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   showErrorMessage(model: string, errorMessage: string, requiredText?: boolean): void {
     console.error(
@@ -57,7 +57,7 @@ export class CMSTransformService {
   }
 
   // eslint-disable-next-line
-  getHTML(data, locale: string, subMenu?, model?: string): string {
+  getHTML(data, locale: string, subMenu?: CMSSubMenu[], model?: string): string {
     this.subMenu = subMenu;
     this.locale = locale;
     if (data.nodeType === 'embedded-entry-block' || data.nodeType === 'embedded-entry-inline') {
@@ -72,7 +72,7 @@ export class CMSTransformService {
 
   transformEntryToDocPage(
     data: IDocumentationPage,
-    subMenu: ISubMenu,
+    subMenu: CMSSubMenu[],
     localization: Locale,
   ): TransformedDocPage {
     let locale = 'en-GB';
@@ -107,7 +107,7 @@ export class CMSTransformService {
     };
   }
 
-  private embeddedEntryBlock(node, locale: string, subMenu, inlineEntry: boolean) {
+  private embeddedEntryBlock(node, locale: string, subMenu: CMSSubMenu[], inlineEntry: boolean) {
     const type = this.getEntryType(node);
     const data = node.data.target;
     if (type === 'landingPage') {
@@ -137,7 +137,7 @@ export class CMSTransformService {
     return documentToHtmlString(data.fields.content, this.options);
   }
 
-  private getEntryType(node) {
+  private getEntryType(node): CONTENT_TYPE {
     if (!node || !node.data || !node.data.target || !node.data.target.sys || !node.data.target.sys.id) {
       return;
     }
@@ -192,13 +192,13 @@ export class CMSTransformService {
   </div>`;
   }
 
-  private getFullPath(subPath: string, subMenu) {
+  private getFullPath(subPath: string, subMenu: CMSSubMenu[]) {
     let fullPath = '';
     subMenu.forEach((element) => {
       if (element.path === subPath) {
         fullPath = subPath;
       } else {
-        element.entry.fields.pages[this.locale].forEach((subElement) => {
+        element.entry.fields.pages[this.locale].forEach((subElement: IDocumentationPage) => {
           if (subElement.fields.path[this.locale] === subPath) {
             fullPath = element.path + '/' + subPath;
           }
@@ -211,10 +211,15 @@ export class CMSTransformService {
     return fullPath;
   }
 
-  private getLinkPath(data: IInternalLink, locale: string, subMenu, paragraphTitle): string {
+  private getLinkPath(
+    data: IInternalLink,
+    locale: string,
+    subMenu: CMSSubMenu[],
+    paragraphTitle: string,
+  ): string {
     let linkPath = '';
     if (data.fields.page) {
-      const subPath = data.fields.page[locale].fields.path[locale];
+      const subPath: string = data.fields.page[locale].fields.path[locale];
       linkPath = this.getFullPath(subPath, subMenu) + '#' + paragraphTitle;
       if (!linkPath) {
         this.showErrorMessage('Link', `${subPath} is not an existing page that can be referenced.`);
@@ -225,7 +230,8 @@ export class CMSTransformService {
     } else {
       this.showErrorMessage(
         'Link',
-        `${data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'An link on your page'
+        `${
+          data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'An link on your page'
         } has no url, add either Url design.elvia.io or Url new tab / external.`,
       );
       return undefined;
@@ -233,8 +239,10 @@ export class CMSTransformService {
     return linkPath;
   }
 
-  private getLink(data: IInternalLink, locale: string, subMenu, inlineEntry: boolean): string {
-    const paragraphTitle = data.fields.paragraph ? data.fields.paragraph[locale].replaceAll(' ', '-') : '';
+  private getLink(data: IInternalLink, locale: string, subMenu: CMSSubMenu[], inlineEntry: boolean): string {
+    const paragraphTitle: string = data.fields.paragraph
+      ? data.fields.paragraph[locale].replaceAll(' ', '-')
+      : '';
     const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle);
     if (!data.fields.title) {
       this.showErrorMessage('Link', 'An link on your page is missing link text.');
@@ -259,10 +267,11 @@ export class CMSTransformService {
           ${isExternal ? 'target="_blank"' : ''}
         >
           <span class="e-link__title">${linkText}</span>
-          ${isAction && !isInline
-        ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
-        : ''
-      }
+          ${
+            isAction && !isInline
+              ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
+              : ''
+          }
           ${isExternal ? '<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>' : ''}
         </a>
       ${!isInline ? '</p>' : ''}`;
@@ -278,18 +287,20 @@ export class CMSTransformService {
     if (!data.fields.whenToUse) {
       this.showErrorMessage(
         'When & when not to use',
-        `${data.fields.name
-          ? 'The entry "' + data.fields.name[locale] + '"'
-          : 'An "When & when not to use" entry on your page'
+        `${
+          data.fields.name
+            ? 'The entry "' + data.fields.name[locale] + '"'
+            : 'An "When & when not to use" entry on your page'
         } is missing the "when to use" field.`,
       );
     }
     if (!data.fields.whenNotToUse) {
       this.showErrorMessage(
         'When & when not to use',
-        `${data.fields.name
-          ? 'The entry "' + data.fields.name[locale] + '"'
-          : 'An "When & when not to use" entry on your page'
+        `${
+          data.fields.name
+            ? 'The entry "' + data.fields.name[locale] + '"'
+            : 'An "When & when not to use" entry on your page'
         } is missing the "when not to use" field.`,
       );
     }
@@ -354,14 +365,16 @@ export class CMSTransformService {
     if (!data.fields.image) {
       this.showErrorMessage(
         'Image',
-        `${data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+        `${
+          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
         } is missing the image asset.`,
       );
     }
     if (!data.fields.altText) {
       this.showErrorMessage(
         'Image',
-        `${data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+        `${
+          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
         } is missing alt text.`,
       );
     }
@@ -373,21 +386,28 @@ export class CMSTransformService {
       return;
     }
     const hasInlineText = data.fields.inlineText !== undefined;
-    const imgSize = data.fields.size[locale];
-    const imgAlignment = data.fields.alignment[locale];
-    const description = data.fields.description ? data.fields.description[locale] : undefined;
-    const altText = data.fields.altText ? data.fields.altText[locale] : undefined;
+    const imgSize: IImage['fields']['size'] = data.fields.size[locale];
+    const imgAlignment: IImage['fields']['alignment'] = data.fields.alignment[locale];
+    const description: IImage['fields']['description'] = data.fields.description
+      ? data.fields.description[locale]
+      : undefined;
+    const altText: IImage['fields']['altText'] = data.fields.altText
+      ? data.fields.altText[locale]
+      : undefined;
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
-    return `<div class='${inGrid ? '' : 'e-my-24'} ${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
+    return `<div class='${inGrid ? '' : 'e-my-24'} ${
+      imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''
+    }'>
     <div
       style=' 
         ${hasInlineText ? 'display: block' : 'display: inline-block;'}
-        ${imgSize === 'original'
-        ? 'width: unset'
-        : imgSize === '100%'
-          ? 'width: calc(' + imgSize + '- 64px)'
-          : 'width: ' + imgSize
-      }
+        ${
+          imgSize === 'original'
+            ? 'width: unset'
+            : imgSize === '100%'
+            ? 'width: calc(' + imgSize + '- 64px)'
+            : 'width: ' + imgSize
+        }
       '
       class='
         cms-image
@@ -432,14 +452,20 @@ export class CMSTransformService {
     if (!data.fields.displayImage) {
       this.showErrorMessage(
         'Download content',
-        `${data.fields.name ? 'The "Display image" "' + data.fields.name[locale] + '"' : 'An "Display image" on your page'
+        `${
+          data.fields.name
+            ? 'The "Display image" "' + data.fields.name[locale] + '"'
+            : 'An "Display image" on your page'
         } is missing display image.`,
       );
     }
     if (!data.fields.downloadableContent) {
       this.showErrorMessage(
         'Download content',
-        `${data.fields.name ? 'The "Download content" "' + data.fields.name[locale] + '"' : 'An "Download content" on your page'
+        `${
+          data.fields.name
+            ? 'The "Download content" "' + data.fields.name[locale] + '"'
+            : 'An "Download content" on your page'
         } is missing download content.`,
       );
     }
@@ -450,7 +476,7 @@ export class CMSTransformService {
     if (!data.fields.name || !data.fields.displayImage || !data.fields.downloadableContent) {
       return;
     }
-    const assetName = data.fields.name[locale];
+    const assetName: IDownloadContent['fields']['name'] = data.fields.name[locale];
     const displayImage = 'https:' + data.fields.displayImage[locale].fields.file[locale].url;
     const asset = 'https:' + data.fields.downloadableContent[locale].fields.file[locale].url;
     const fileType = asset.split('.').pop();
@@ -484,30 +510,38 @@ export class CMSTransformService {
   }
 
   private getGrid(data: IGrid, locale: string): string {
-    const elements = data.fields.gridElements[locale];
+    const elements: IGrid['fields']['gridElements'] = data.fields.gridElements[locale];
     let returnString = '';
     if (
       elements.find((el) => el.sys.contentType.sys.id === 'image') &&
       elements.find((el) => el.sys.contentType.sys.id === 'downloadContent')
     ) {
-      this.showErrorMessage('Grid', 'You have to choose between images or download content, both are not allowed', false);
+      this.showErrorMessage(
+        'Grid',
+        'You have to choose between images or download content, both are not allowed',
+        false,
+      );
       return;
     }
     if (elements[0].sys.contentType.sys.id === 'downloadContent') {
       const nameArray = [];
-      elements.forEach(element => {
-        nameArray.push(element.fields.name[locale])
+      elements.forEach((element) => {
+        nameArray.push(element.fields.name[locale]);
       });
       if (new Set(nameArray).size !== nameArray.length) {
-        this.showErrorMessage('Grid', `You have multiple download content entries with the same name. All grid elements needs to have unique download content names.`, false);
+        this.showErrorMessage(
+          'Grid',
+          `You have multiple download content entries with the same name. All grid elements needs to have unique download content names.`,
+          false,
+        );
         return;
       }
-      elements.forEach((element) => {
+      elements.forEach((element: IDownloadContent) => {
         returnString +=
           '<div class="col-sm-6 col-md-4">' + this.getDownloadContent(element, locale, true) + '</div>';
       });
     } else if (elements[0].sys.contentType.sys.id === 'image') {
-      elements.forEach((element) => {
+      elements.forEach((element: IImage) => {
         returnString += '<div class="col-sm-6 col-md-4">' + this.getImage(element, locale, true) + '</div>';
       });
     }
@@ -580,7 +614,7 @@ export class CMSTransformService {
       </div>`;
   }
 
-  private getLandingPageWithCards(data: ILandingPageWithCards, locale: string, subMenu) {
+  private getLandingPageWithCards(data: ILandingPageWithCards, locale: string, subMenu: CMSSubMenu[]) {
     const cardList: IOverviewCard[] = [...data.fields.overviewCard[locale]];
     let returnString = '';
     cardList.forEach((card) => {
