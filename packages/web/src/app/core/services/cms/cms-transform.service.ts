@@ -14,6 +14,7 @@ import {
   ILandingPageWithCards,
   IOverviewCard,
   ISubMenu,
+  IWhenToUse,
 } from 'contentful/__generated__/types';
 import { CMSDocPageError, TransformedDocPage } from './cms.interface';
 
@@ -120,6 +121,9 @@ export class CMSTransformService {
     }
     if (type === 'internalLink') {
       return this.getLink(data, locale, subMenu, inlineEntry);
+    }
+    if (type === 'whenToUse') {
+      return this.getWhenToUse(data, locale);
     }
     if (type === 'image') {
       return this.getImage(data, locale, false);
@@ -229,7 +233,7 @@ export class CMSTransformService {
     return linkPath;
   }
 
-  private getLink(data: IInternalLink, locale: string, subMenu, inlineEntry: boolean) {
+  private getLink(data: IInternalLink, locale: string, subMenu, inlineEntry: boolean): string {
     const paragraphTitle = data.fields.paragraph ? data.fields.paragraph[locale].replaceAll(' ', '-') : '';
     const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle);
     if (!data.fields.title) {
@@ -264,7 +268,83 @@ export class CMSTransformService {
       ${!isInline ? '</p>' : ''}`;
   }
 
-  private getImage(data: IImage, locale: string, borderRadius: boolean) {
+  private checkWhenToUseErrors(data: IWhenToUse, locale: string) {
+    if (!data.fields.name) {
+      this.showErrorMessage(
+        'When & when not to use',
+        'The "When & when not to use" entry on your page is missing a title, this will make sorting / finding entries in Contentful harder and messy.',
+      );
+    }
+    if (!data.fields.whenToUse) {
+      this.showErrorMessage(
+        'When & when not to use',
+        `${data.fields.name
+          ? 'The entry "' + data.fields.name[locale] + '"'
+          : 'An "When & when not to use" entry on your page'
+        } is missing the "when to use" field.`,
+      );
+    }
+    if (!data.fields.whenNotToUse) {
+      this.showErrorMessage(
+        'When & when not to use',
+        `${data.fields.name
+          ? 'The entry "' + data.fields.name[locale] + '"'
+          : 'An "When & when not to use" entry on your page'
+        } is missing the "when not to use" field.`,
+      );
+    }
+  }
+
+  private getWhenToUse(data: IWhenToUse, locale: string): string {
+    this.checkWhenToUseErrors(data, locale);
+    if (!data.fields.name || !data.fields.whenToUse || !data.fields.whenNotToUse) {
+      return;
+    }
+    let returnStringWhen = '';
+    let returnStringWhenNot = '';
+    const whensList = documentToHtmlString(data.fields.whenToUse[locale], this.options).split('<p');
+    const whenNotsList = documentToHtmlString(data.fields.whenNotToUse[locale]).split('<p');
+    whensList.forEach((when) => {
+      returnStringWhen += `<li>${when
+        .replace('class="cms-paragraph e-text-body">', '')
+        .replace('</p>', '')}</li>`;
+    });
+    whenNotsList.forEach((whenNot) => {
+      returnStringWhenNot += `<li>${whenNot.replace('>', '').replace('</p>', '')}</li>`;
+    });
+    returnStringWhen = returnStringWhen.replace('<li></li>', '');
+    returnStringWhenNot = returnStringWhenNot.replace('<li></li>', '');
+    return `<div class="when e-my-24">
+    <div class="when-to-use">
+      <div class="e-title-caps" style="display: flex; flex-direction: row">
+        <div class="e-mr-8">
+          <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-green"></i>
+        </div>
+        <div>When to use:</div>
+      </div>
+      <span class="e-text-description">
+        <ul>
+          ${returnStringWhen}
+        </ul>
+      </span>
+    </div>
+    <div class="when-not-to-use">
+      <div class="e-title-caps" style="display: flex; flex-direction: row">
+        <div class="e-mr-8">
+          <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-red"></i>
+        </div>
+        <div>When not to use:</div>
+      </div>
+      <span class="e-text-description">
+        <ul>
+          ${returnStringWhenNot}
+        </ul>
+      </span>
+    </div>
+  </div>`;
+  }
+
+  private checkImageErrors(data: IImage, locale: string) {
     if (!data.fields.name) {
       this.showErrorMessage(
         'Image',
@@ -285,7 +365,11 @@ export class CMSTransformService {
         } is missing alt text.`,
       );
     }
-    if (!data.fields.name || !data.fields.image) {
+  }
+
+  private getImage(data: IImage, locale: string, inGrid: boolean) {
+    this.checkImageErrors(data, locale);
+    if (!data.fields.name || !data.fields.image || !data.fields.altText) {
       return;
     }
     const hasInlineText = data.fields.inlineText !== undefined;
@@ -294,7 +378,7 @@ export class CMSTransformService {
     const description = data.fields.description ? data.fields.description[locale] : undefined;
     const altText = data.fields.altText ? data.fields.altText[locale] : undefined;
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
-    return `<div class='${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
+    return `<div class='${inGrid ? '' : 'e-my-24'} ${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
     <div
       style=' 
         ${hasInlineText ? 'display: block' : 'display: inline-block;'}
@@ -313,7 +397,7 @@ export class CMSTransformService {
       <div>
         <img
           class='
-            ${borderRadius ? 'e-br-8' : ''}
+            ${inGrid ? 'e-br-8' : ''}
             ${hasInlineText ? 'cms-image-inline' : ''} 
             align-${imgAlignment}
             ${imgSize === 'original' ? 'original-margin' : ''} 
@@ -338,7 +422,7 @@ export class CMSTransformService {
     `;
   }
 
-  private downloadContentErrors(data: IDownloadContent, locale: string) {
+  private checkDownloadContentErrors(data: IDownloadContent, locale: string) {
     if (!data.fields.name) {
       this.showErrorMessage(
         'Download content',
@@ -361,8 +445,8 @@ export class CMSTransformService {
     }
   }
 
-  private getDownloadContent(data: IDownloadContent, locale: string, centered: boolean): string {
-    this.downloadContentErrors(data, locale);
+  private getDownloadContent(data: IDownloadContent, locale: string, inGrid: boolean): string {
+    this.checkDownloadContentErrors(data, locale);
     if (!data.fields.name || !data.fields.displayImage || !data.fields.downloadableContent) {
       return;
     }
@@ -379,14 +463,14 @@ export class CMSTransformService {
         link.download = assetName;
       });
 
-    return `<div class="cms-download-content">
+    return `<div class="cms-download-content ${inGrid ? '' : 'e-my-24'}">
       <div class="cms-display-image">
         <img
           class="cms-section__img normal-img"
           src="${displayImage}"
         />
       </div>
-      <div class="cms-downloadable-asset ${centered ? 'centered' : ''}">
+      <div class="cms-downloadable-asset ${inGrid ? 'centered' : ''}">
         <a role="button" id="download-content-${assetName}">
           <button class="e-btn e-btn--tertiary e-btn--md">
             <span class="e-btn__icon">
@@ -427,7 +511,7 @@ export class CMSTransformService {
         returnString += '<div class="col-sm-6 col-md-4">' + this.getImage(element, locale, true) + '</div>';
       });
     }
-    return `<div class="e-grid">
+    return `<div class="e-grid" style="margin-top: 12px; margin-bottom: 12px">
     <div class="row e-grid-gutters-int e-grid-gutters-vertical">
       ${returnString}
     </div>

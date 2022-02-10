@@ -104,7 +104,7 @@ export interface IGridFields {
   name?: string | undefined;
 
   /** Grid elements */
-  gridElements?: Entry<{ [fieldId: string]: unknown }>[] | undefined;
+  gridElements: (IDownloadContent | IImage)[];
 }
 
 export interface IGrid extends Entry<IGridFields> {
@@ -349,7 +349,7 @@ export interface ISubMenuFields {
   path: string;
 }
 
-/** SubMenues are the elements in the header that contains all documentation pages. SubMenues should be added to the MainMenu */
+/** Sub menues are the elements in the header that contains all documentation pages. SubMenues should be added to the MainMenu */
 
 export interface ISubMenu extends Entry<ISubMenuFields> {
   sys: {
@@ -389,6 +389,36 @@ export interface ISubsection extends Entry<ISubsectionFields> {
   };
 }
 
+export interface IWhenToUseFields {
+  /** Name */
+  name: string;
+
+  /** When to use */
+  whenToUse: Document;
+
+  /** When not to use */
+  whenNotToUse: Document;
+}
+
+/** Bullet lists of when and when not to use a component. */
+
+export interface IWhenToUse extends Entry<IWhenToUseFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: 'whenToUse';
+        linkType: 'ContentType';
+        type: 'Link';
+      };
+    };
+  };
+}
+
 export type CONTENT_TYPE =
   | 'centeredContent'
   | 'documentationPage'
@@ -402,7 +432,8 @@ export type CONTENT_TYPE =
   | 'overviewCard'
   | 'section'
   | 'subMenu'
-  | 'subsection';
+  | 'subsection'
+  | 'whenToUse';
 
 export type LOCALE_CODE = 'en-GB' | 'nb-NO';
 

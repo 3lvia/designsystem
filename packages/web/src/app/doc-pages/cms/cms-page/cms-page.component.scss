@@ -233,9 +233,6 @@ $pageIndentedMargin: 72px;
   justify-content: flex-start;
 }
 .cms-image {
-  img {
-    margin-bottom: 16px;
-  }
   .cms-image-inline {
     display: inline-flex;
     vertical-align: middle;
@@ -357,6 +354,37 @@ $pageIndentedMargin: 72px;
     }
     @include breakpoint-up(Mobile) {
       width: 100%;
+    }
+  }
+}
+
+.when {
+  display: flex;
+  flex-direction: row;
+  .when-to-use,
+  .when-not-to-use {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  .when-to-use {
+    padding-right: 8px;
+  }
+  .when-not-to-use {
+    padding-left: 8px;
+  }
+  ul {
+    padding-left: 22px;
+  }
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+    .when-to-use,
+    .when-not-to-use {
+      width: 100%;
+      padding: 0;
+    }
+    .when-not-to-use {
+      margin-top: 24px;
     }
   }
 }
