@@ -19,7 +19,7 @@ export class CMSService {
     private http: HttpClient,
     private cmsTransformService: CMSTransformService,
     private router: Router,
-  ) {}
+  ) { }
 
   listenContentLoadedFromCMS(): Observable<any> {
     return this.subjectAnchorsNew.asObservable();
@@ -154,9 +154,6 @@ export class CMSService {
         key === 'content' ||
         key === 'data' ||
         key === 'target' ||
-        key === 'sys' ||
-        key === 'sys' ||
-        key === 'sys' ||
         key === 'sys'
       ) {
         this.findEntriesWithinNode(node[key]);
