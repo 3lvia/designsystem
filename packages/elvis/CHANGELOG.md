@@ -24,7 +24,8 @@
               Segmented controls are now in three sizes: <br />
               Small -> Medium <br />
               Medium -> Large <br />
-              New Small size (smaller than the previous)
+              New Small size (smaller than the previous) <br />
+              <strong>How to fix</strong>: Check where you are using segmented controls and update the sizes to the correct new size. If you have no specified size add <span class="code-text">e-segmented-controls--lg</span> and if you have the small size specified (<span class="code-text">e-segmented-controls--sm</span>) just remove the specification to receive medium size instead.
             </li>
             <li>
               Title xs on mobiles has been updated font-size from 18px -> 16px. This is done so that the difference between title sm and xs i more distinct.         
