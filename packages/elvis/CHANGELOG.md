@@ -5,6 +5,32 @@
  <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">
+        7.16.0
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        February 9, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+          <div>Page: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/tools/utility-classes#Overview">Utility classes</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Border radius utility classes are now available as <span class="code-text">e-br-4</span> and <span class="code-text">e-br-8</span>.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+ <tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
         7.15.4
       </span>
       <br>
@@ -15,6 +41,9 @@
     <td class="changelog-content">
       <div class="changelog-section">
         <div class="changelog-section-title">🛠 Patch</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/stepper#Overview">Stepper</a> 
+          </div>
           <ul class="e-list">
             <li>
               Stepper hover state added.

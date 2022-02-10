@@ -8,7 +8,7 @@ export interface ICenteredContentFields {
   title?: string | undefined;
 
   /** Content */
-  content?: Document | undefined;
+  content: Document;
 }
 
 /** For centering content inside a section */
@@ -62,6 +62,61 @@ export interface IDocumentationPage extends Entry<IDocumentationPageFields> {
     contentType: {
       sys: {
         id: 'documentationPage';
+        linkType: 'ContentType';
+        type: 'Link';
+      };
+    };
+  };
+}
+
+export interface IDownloadContentFields {
+  /** Name */
+  name: string;
+
+  /** Display image */
+  displayImage: Asset;
+
+  /** Downloadable content */
+  downloadableContent: Asset;
+}
+
+/** Upload files that will be displayed and downloadable */
+
+export interface IDownloadContent extends Entry<IDownloadContentFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: 'downloadContent';
+        linkType: 'ContentType';
+        type: 'Link';
+      };
+    };
+  };
+}
+
+export interface IGridFields {
+  /** Name */
+  name?: string | undefined;
+
+  /** Grid elements */
+  gridElements?: Entry<{ [fieldId: string]: unknown }>[] | undefined;
+}
+
+export interface IGrid extends Entry<IGridFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: 'grid';
         linkType: 'ContentType';
         type: 'Link';
       };
@@ -124,18 +179,6 @@ export interface IInternalLinkFields {
 
   /** Url new tab / external */
   urlNewTab?: string | undefined;
-
-  /** Size */
-  size?: 'Large' | 'Medium' | 'Small' | undefined;
-
-  /** Inline */
-  inline?: boolean | undefined;
-
-  /** New tab */
-  newTab?: boolean | undefined;
-
-  /** Action */
-  action?: boolean | undefined;
 }
 
 /** Use for all links */
@@ -214,27 +257,6 @@ export interface ILandingPageWithCards extends Entry<ILandingPageWithCardsFields
   };
 }
 
-export interface ILocalizationStringsFields {}
-
-/** A list of localized strings */
-
-export interface ILocalizationStrings extends Entry<ILocalizationStringsFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'localizationStrings';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
-    };
-  };
-}
-
 export interface IMainMenuFields {
   /** Title */
   title?: string | undefined;
@@ -292,13 +314,7 @@ export interface IOverviewCard extends Entry<IOverviewCardFields> {
   };
 }
 
-export interface ISectionFields {
-  /** title */
-  title: string;
-
-  /** content */
-  content: Document;
-}
+export interface ISectionFields {}
 
 /** Section - should always be inside a documentationPage */
 
@@ -320,14 +336,14 @@ export interface ISection extends Entry<ISectionFields> {
 }
 
 export interface ISubMenuFields {
+  /** Title */
+  title: string;
+
   /** landing-page */
   landingPage?: IDocumentationPage | undefined;
 
   /** Pages */
   pages?: IDocumentationPage[] | undefined;
-
-  /** Title */
-  title: string;
 
   /** Path */
   path: string;
@@ -352,13 +368,7 @@ export interface ISubMenu extends Entry<ISubMenuFields> {
   };
 }
 
-export interface ISubsectionFields {
-  /** Title */
-  title?: string | undefined;
-
-  /** Content */
-  content: Document;
-}
+export interface ISubsectionFields {}
 
 /** Sub-section, should always be inside a section */
 
@@ -379,47 +389,20 @@ export interface ISubsection extends Entry<ISubsectionFields> {
   };
 }
 
-export interface ISubsubsectionFields {
-  /** Title */
-  title?: string | undefined;
-
-  /** Content */
-  content: Document;
-}
-
-/** Sub-sub-section, should always be inside a sub-section */
-
-export interface ISubsubsection extends Entry<ISubsubsectionFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'subsubsection';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
-    };
-  };
-}
-
 export type CONTENT_TYPE =
   | 'centeredContent'
   | 'documentationPage'
+  | 'downloadContent'
+  | 'grid'
   | 'image'
   | 'internalLink'
   | 'landingPage'
   | 'landingPageWithCards'
-  | 'localizationStrings'
   | 'mainMenu'
   | 'overviewCard'
   | 'section'
   | 'subMenu'
-  | 'subsection'
-  | 'subsubsection';
+  | 'subsection';
 
 export type LOCALE_CODE = 'en-GB' | 'nb-NO';
 

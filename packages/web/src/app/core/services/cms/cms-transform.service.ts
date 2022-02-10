@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import {
   ICenteredContent,
   IDocumentationPage,
+  IDownloadContent,
+  IGrid,
   IImage,
   IInternalLink,
   ILandingPage,
@@ -40,15 +42,15 @@ export class CMSTransformService {
     },
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  showErrorMessage(model: string, errorMessage: string): void {
+  showErrorMessage(model: string, errorMessage: string, requiredText?: boolean): void {
     console.error(
       `Contentful - ${model}: ${errorMessage} \n   This field is required for the content to load.`,
     );
     const newError = {
       name: model,
-      message: `${errorMessage} \n   This field is required for the content to load.`,
+      message: errorMessage + (requiredText ? '\n   This field is required for the content to load.' : ''),
     };
     this.errorMessages.push(newError);
   }
@@ -120,7 +122,13 @@ export class CMSTransformService {
       return this.getLink(data, locale, subMenu, inlineEntry);
     }
     if (type === 'image') {
-      return this.getImage(data, locale);
+      return this.getImage(data, locale, false);
+    }
+    if (type === 'downloadContent') {
+      return this.getDownloadContent(data, locale, false);
+    }
+    if (type === 'grid') {
+      return this.getGrid(data, locale);
     }
     return documentToHtmlString(data.fields.content, this.options);
   }
@@ -213,8 +221,7 @@ export class CMSTransformService {
     } else {
       this.showErrorMessage(
         'Link',
-        `${
-          data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'An link on your page'
+        `${data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'An link on your page'
         } has no url, add either Url design.elvia.io or Url new tab / external.`,
       );
       return undefined;
@@ -248,17 +255,16 @@ export class CMSTransformService {
           ${isExternal ? 'target="_blank"' : ''}
         >
           <span class="e-link__title">${linkText}</span>
-          ${
-            isAction && !isInline
-              ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
-              : ''
-          }
+          ${isAction && !isInline
+        ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
+        : ''
+      }
           ${isExternal ? '<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>' : ''}
         </a>
       ${!isInline ? '</p>' : ''}`;
   }
 
-  private getImage(data: IImage, locale: string) {
+  private getImage(data: IImage, locale: string, borderRadius: boolean) {
     if (!data.fields.name) {
       this.showErrorMessage(
         'Image',
@@ -268,16 +274,14 @@ export class CMSTransformService {
     if (!data.fields.image) {
       this.showErrorMessage(
         'Image',
-        `${
-          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+        `${data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
         } is missing the image asset.`,
       );
     }
     if (!data.fields.altText) {
       this.showErrorMessage(
         'Image',
-        `${
-          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+        `${data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
         } is missing alt text.`,
       );
     }
@@ -290,16 +294,16 @@ export class CMSTransformService {
     const description = data.fields.description ? data.fields.description[locale] : undefined;
     const altText = data.fields.altText ? data.fields.altText[locale] : undefined;
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
-    return `<div
+    return `<div class='${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
+    <div
       style=' 
         ${hasInlineText ? 'display: block' : 'display: inline-block;'}
-        ${
-          imgSize === 'original'
-            ? 'width: unset'
-            : imgSize === '100%'
-            ? 'width: calc(' + imgSize + '- 64px)'
-            : 'width: ' + imgSize
-        }
+        ${imgSize === 'original'
+        ? 'width: unset'
+        : imgSize === '100%'
+          ? 'width: calc(' + imgSize + '- 64px)'
+          : 'width: ' + imgSize
+      }
       '
       class='
         cms-image
@@ -309,6 +313,7 @@ export class CMSTransformService {
       <div>
         <img
           class='
+            ${borderRadius ? 'e-br-8' : ''}
             ${hasInlineText ? 'cms-image-inline' : ''} 
             align-${imgAlignment}
             ${imgSize === 'original' ? 'original-margin' : ''} 
@@ -329,7 +334,104 @@ export class CMSTransformService {
       ${hasInlineText ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}` : ''}
       <div style="clear: ${imgAlignment}"></div>
     </div>
+    </div>
     `;
+  }
+
+  private downloadContentErrors(data: IDownloadContent, locale: string) {
+    if (!data.fields.name) {
+      this.showErrorMessage(
+        'Download content',
+        'An "Download content" on your page is missing name, this will make sorting / finding entries in Contentful harder and messy.',
+      );
+    }
+    if (!data.fields.displayImage) {
+      this.showErrorMessage(
+        'Download content',
+        `${data.fields.name ? 'The "Display image" "' + data.fields.name[locale] + '"' : 'An "Display image" on your page'
+        } is missing display image.`,
+      );
+    }
+    if (!data.fields.downloadableContent) {
+      this.showErrorMessage(
+        'Download content',
+        `${data.fields.name ? 'The "Download content" "' + data.fields.name[locale] + '"' : 'An "Download content" on your page'
+        } is missing download content.`,
+      );
+    }
+  }
+
+  private getDownloadContent(data: IDownloadContent, locale: string, centered: boolean): string {
+    this.downloadContentErrors(data, locale);
+    if (!data.fields.name || !data.fields.displayImage || !data.fields.downloadableContent) {
+      return;
+    }
+    const assetName = data.fields.name[locale];
+    const displayImage = 'https:' + data.fields.displayImage[locale].fields.file[locale].url;
+    const asset = 'https:' + data.fields.downloadableContent[locale].fields.file[locale].url;
+    const fileType = asset.split('.').pop();
+    fetch(asset)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const blobURL = URL.createObjectURL(blob);
+        const link = document.getElementById('download-content-' + assetName) as HTMLAnchorElement;
+        link.href = blobURL;
+        link.download = assetName;
+      });
+
+    return `<div class="cms-download-content">
+      <div class="cms-display-image">
+        <img
+          class="cms-section__img normal-img"
+          src="${displayImage}"
+        />
+      </div>
+      <div class="cms-downloadable-asset ${centered ? 'centered' : ''}">
+        <a role="button" id="download-content-${assetName}">
+          <button class="e-btn e-btn--tertiary e-btn--md">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--download"></i>
+            </span>
+            <span class="e-btn__title">${fileType}</span>
+          </button>
+        </a>
+      </div>
+    </div>`;
+  }
+
+  private getGrid(data: IGrid, locale: string): string {
+    const elements = data.fields.gridElements[locale];
+    let returnString = '';
+    if (
+      elements.find((el) => el.sys.contentType.sys.id === 'image') &&
+      elements.find((el) => el.sys.contentType.sys.id === 'downloadContent')
+    ) {
+      this.showErrorMessage('Grid', 'You have to choose between images or download content, both are not allowed', false);
+      return;
+    }
+    if (elements[0].sys.contentType.sys.id === 'downloadContent') {
+      const nameArray = [];
+      elements.forEach(element => {
+        nameArray.push(element.fields.name[locale])
+      });
+      if (new Set(nameArray).size !== nameArray.length) {
+        this.showErrorMessage('Grid', `You have multiple download content entries with the same name. All grid elements needs to have unique download content names.`, false);
+        return;
+      }
+      elements.forEach((element) => {
+        returnString +=
+          '<div class="col-sm-6 col-md-4">' + this.getDownloadContent(element, locale, true) + '</div>';
+      });
+    } else if (elements[0].sys.contentType.sys.id === 'image') {
+      elements.forEach((element) => {
+        returnString += '<div class="col-sm-6 col-md-4">' + this.getImage(element, locale, true) + '</div>';
+      });
+    }
+    return `<div class="e-grid">
+    <div class="row e-grid-gutters-int e-grid-gutters-vertical">
+      ${returnString}
+    </div>
+  </div>`;
   }
 
   private getEmbeddedAsset(asset: string): string {
