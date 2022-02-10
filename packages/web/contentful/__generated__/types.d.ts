@@ -104,11 +104,7 @@ export interface IGridFields {
   name?: string | undefined;
 
   /** Grid elements */
-<<<<<<< HEAD
   gridElements: (IDownloadContent | IImage)[];
-=======
-  gridElements?: Entry<{ [fieldId: string]: unknown }>[] | undefined;
->>>>>>> 2f19f5677e28b842599e0324a03b76ace1e373b3
 }
 
 export interface IGrid extends Entry<IGridFields> {
@@ -393,7 +389,6 @@ export interface ISubsection extends Entry<ISubsectionFields> {
   };
 }
 
-<<<<<<< HEAD
 export interface IWhenToUseFields {
   /** Name */
   name: string;
@@ -424,8 +419,6 @@ export interface IWhenToUse extends Entry<IWhenToUseFields> {
   };
 }
 
-=======
->>>>>>> 2f19f5677e28b842599e0324a03b76ace1e373b3
 export type CONTENT_TYPE =
   | 'centeredContent'
   | 'documentationPage'
@@ -439,12 +432,8 @@ export type CONTENT_TYPE =
   | 'overviewCard'
   | 'section'
   | 'subMenu'
-<<<<<<< HEAD
   | 'subsection'
   | 'whenToUse';
-=======
-  | 'subsection';
->>>>>>> 2f19f5677e28b842599e0324a03b76ace1e373b3
 
 export type LOCALE_CODE = 'en-GB' | 'nb-NO';
 
