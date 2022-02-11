@@ -529,10 +529,10 @@ export class CMSTransformService {
       elements.forEach((element: IDownloadContent) => {
         if (background === 'Dark') {
           returnString +=
-            '<div class="col-sm-6 col-md-4">' + this.getDownloadContent(element, locale, true, true) + '</div>';
+            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end;">' + this.getDownloadContent(element, locale, true, true) + '</div>';
         } else {
           returnString +=
-            '<div class="col-sm-6 col-md-4">' + this.getDownloadContent(element, locale, true, false) + '</div>';
+            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end;">' + this.getDownloadContent(element, locale, true, false) + '</div>';
         }
       });
     } else if (elements[0].sys.contentType.sys.id === 'image') {
