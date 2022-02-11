@@ -1,119 +1,124 @@
 @use '../../variables/colors';
 @use '../../variables/animation';
 @use '../../utilities/outline';
-@use "../../utilities/breakpoints";
-@use "../../utilities/helpers";
+@use '../../utilities/breakpoints';
+@use '../../utilities/helpers';
 
 $toggle-border-radius: 50px;
 
 $toggle-height: 16px;
 $toggle-width: 32px;
 $toggle-slider-size: 10px;
-$toggle-slider-padding: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
+$toggle-slider-margin: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
 
-$toggle-negative-height: 14px;
-$toggle-negative-width: 30px;
-$toggle-negative-slider-padding: calc((#{$toggle-negative-height} - #{$toggle-slider-size}) / 2);
+$toggle-inverted-height: 14px;
+$toggle-inverted-width: 30px;
+$toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-slider-size} + 2px) / 2);
 
 .e-toggle {
-  position: relative;
-  display: inline-block;
-  height: $toggle-height;
-  width: $toggle-width;
-  background-color: colors.color('grey');
-  border-radius: $toggle-border-radius;
-  cursor: pointer;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
 
-  // Larger click surface
-  &:after {
-    content: '';
-    padding: 20px;
-    position: absolute;
-    left: -4px;
-    top: -12px;
-    border-radius: 50%;
+  &__label {
+    font-family: 'Red Hat Text', Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    font-style: unset;
+    letter-spacing: unset;
+    text-transform: unset;
+    color: inherit;
+
+    margin-right: 8px;
   }
 
-  // hide initial input
-  & input {
-    opacity: 0;
-    width: 0;
+  input {
+    width: calc($toggle-width - 2px);
     height: 0;
+    outline: none;
+  }
+  &__input {
+    position: relative;
+
+    // Background
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: $toggle-height;
+      width: $toggle-width;
+      background: colors.color('black');
+      border-radius: $toggle-border-radius;
+      cursor: pointer;
+    }
+    // Switch
+    &::after {
+      content: '';
+      position: absolute;
+      left: $toggle-slider-margin;
+      top: $toggle-slider-margin;
+      height: $toggle-slider-size;
+      width: $toggle-slider-size;
+      background: colors.color('white');
+      border-radius: 50%;
+      transition: 0.1s;
+      cursor: pointer;
+    }
   }
 
-  &__slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: 0.15s;
-    border-radius: $toggle-border-radius;
-  }
-  &__slider::before {
-    position: absolute;
-    content: '';
-    height: $toggle-slider-size;
-    width: $toggle-slider-size;
-    left: $toggle-slider-padding;
-    bottom: $toggle-slider-padding;
-    background-color: colors.color('elvia-on');
-    transition: 0.1s;
-    border-radius: 50%;
-  }
-
-  input:checked + .e-toggle__slider {
-    background-color: colors.color('grey');
-  }
-
-  input:checked + .e-toggle__slider::before {
-    background-color: colors.color('elvia-charge');
+  // Checked
+  input:checked.e-toggle__input::after {
+    background: colors.color('elvia-charge');
     @include helpers.transform(translateX(16px));
   }
 
-  &.e-toggle---focus input + .e-toggle__slider {
+  // Focus
+  &.e-toggle---focus input.e-toggle__input::before {
     @include outline.e-outline-pseudoclass();
   }
-  input:focus + .e-toggle__slider {
+  input:focus.e-toggle__input::before {
     @include outline.e-outline();
   }
 
-  &.e-toggle--inverted {
-    border: 1px solid colors.color('elvia-on');
-    box-sizing: content-box;
-
-    height: $toggle-negative-height;
-    width: $toggle-negative-width;
-    .e-toggle__slider::before {
-      left: $toggle-negative-slider-padding;
-      bottom: $toggle-negative-slider-padding;
+  // Disabled
+  &.e-toggle---disabled,
+  input:disabled {
+    &.e-toggle__input::before {
+      background-color: colors.color('disabled');
+      cursor: not-allowed;
     }
-
-    &.e-toggle---disabled,
-    &:disabled {
-      background-color: colors.color('grey');
-      border: 1px solid colors.color('grey-70');
-      .e-toggle__slider::before,
-      input:checked + .e-toggle__slider::before {
-        background-color: colors.color('grey-70');
-      }
-      input:checked + .e-toggle__slider {
-        background-color: colors.color('grey');
-      }
+    &.e-toggle__input::after {
+      background-color: colors.color('grey-10');
+      cursor: not-allowed;
     }
   }
 
-  &.e-toggle---disabled,
-  &:disabled {
-    cursor: not-allowed;
-    background-color: colors.color('disabled');
-    .e-toggle__slider::before,
-    input:checked + .e-toggle__slider::before {
-      background-color: colors.color('grey-10');
+  // Inverted
+  &.e-toggle--inverted {
+    .e-toggle__label {
+      color: colors.color('white');
     }
-    input:checked + .e-toggle__slider {
-      background-color: colors.color('disabled');
+
+    .e-toggle__input::before {
+      height: $toggle-inverted-height;
+      width: $toggle-inverted-width;
+      border: 1px solid colors.color('elvia-on');
+      box-sizing: content-box;
+    }
+    .e-toggle__input::after {
+      left: $toggle-inverted-slider-padding;
+    }
+
+    &.e-toggle---disabled,
+    input:disabled {
+      &.e-toggle__input::before {
+        background-color: colors.color('grey');
+        border: 1px solid colors.color('grey-70');
+      }
+      &.e-toggle__input::after {
+        background-color: colors.color('grey-70');
+      }
     }
   }
 }

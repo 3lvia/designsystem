@@ -10,10 +10,10 @@
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <label class="e-toggle">
-      <input class="e-toggle__input" type="checkbox" />
-      <span class="e-toggle__slider"></span>
-    </label>
+    <div class="e-toggle" role="switch">
+      <label class="e-toggle__label" for="toggle-1">Toggle</label>
+      <input class="e-toggle__input" type="checkbox" id="toggle-1" />
+    </div>
     <div class="e-w-100">
       <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
     </div>
