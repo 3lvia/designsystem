@@ -4,6 +4,7 @@ import { documentToHtmlString, Options } from '@contentful/rich-text-html-render
 import { Locale } from '../localization.service';
 import { Router } from '@angular/router';
 import {
+  CONTENT_TYPE,
   ICenteredContent,
   IDocumentationPage,
   IDownloadContent,
@@ -13,10 +14,9 @@ import {
   ILandingPage,
   ILandingPageWithCards,
   IOverviewCard,
-  ISubMenu,
   IWhenToUse,
 } from 'contentful/__generated__/types';
-import { CMSDocPageError, TransformedDocPage } from './cms.interface';
+import { CMSDocPageError, CMSSubMenu, TransformedDocPage } from './cms.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +24,7 @@ import { CMSDocPageError, TransformedDocPage } from './cms.interface';
 export class CMSTransformService {
   private errorMessages: CMSDocPageError[] = [];
   private locale = 'en-GB'; // Fallback
-  private subMenu;
+  private subMenu: CMSSubMenu[];
   private options: Options = {
     renderMark: {
       [MARKS.BOLD]: (text) => `<b>${text}</b>`,
@@ -57,7 +57,7 @@ export class CMSTransformService {
   }
 
   // eslint-disable-next-line
-  getHTML(data, locale: string, subMenu?, model?: string): string {
+  getHTML(data, locale: string, subMenu?: CMSSubMenu[], model?: string): string {
     this.subMenu = subMenu;
     this.locale = locale;
     if (data.nodeType === 'embedded-entry-block' || data.nodeType === 'embedded-entry-inline') {
@@ -72,7 +72,7 @@ export class CMSTransformService {
 
   transformEntryToDocPage(
     data: IDocumentationPage,
-    subMenu: ISubMenu,
+    subMenu: CMSSubMenu[],
     localization: Locale,
   ): TransformedDocPage {
     let locale = 'en-GB';
@@ -107,7 +107,7 @@ export class CMSTransformService {
     };
   }
 
-  private embeddedEntryBlock(node, locale: string, subMenu, inlineEntry: boolean) {
+  private embeddedEntryBlock(node, locale: string, subMenu: CMSSubMenu[], inlineEntry: boolean) {
     const type = this.getEntryType(node);
     const data = node.data.target;
     if (type === 'landingPage') {
@@ -129,7 +129,7 @@ export class CMSTransformService {
       return this.getImage(data, locale, false);
     }
     if (type === 'downloadContent') {
-      return this.getDownloadContent(data, locale, false);
+      return this.getDownloadContent(data, locale, false, false);
     }
     if (type === 'grid') {
       return this.getGrid(data, locale);
@@ -137,7 +137,7 @@ export class CMSTransformService {
     return documentToHtmlString(data.fields.content, this.options);
   }
 
-  private getEntryType(node) {
+  private getEntryType(node): CONTENT_TYPE {
     if (!node || !node.data || !node.data.target || !node.data.target.sys || !node.data.target.sys.id) {
       return;
     }
@@ -162,13 +162,12 @@ export class CMSTransformService {
       return str.replace('class="cms-img', '');
     });
     liStrings = liStrings.map((li) => {
-      return li.replace(imgRegex, '').replace('/>', '');
+      return li.replace(imgRegex, '').replace('<li>', '').replace('/>', '');
     });
     if (bulletIcons[0].includes('src=')) {
       let returnString = '<ol class="e-list e-list--icons e-text-lg">';
       for (let liIndex = 0; liIndex <= liStrings.length - 1; liIndex++) {
-        returnString += `<li><span class="e-list__icon">${bulletIcons[liIndex]}</span>`;
-        returnString += `<span>${liStrings[liIndex]}</span></li>`;
+        returnString += `<li><span class="e-list__icon">${bulletIcons[liIndex]}</span><span>${liStrings[liIndex]}</span></li>`;
       }
       returnString = returnString + `</ol>`;
       return returnString;
@@ -192,13 +191,13 @@ export class CMSTransformService {
   </div>`;
   }
 
-  private getFullPath(subPath: string, subMenu) {
+  private getFullPath(subPath: string, subMenu: CMSSubMenu[]) {
     let fullPath = '';
     subMenu.forEach((element) => {
       if (element.path === subPath) {
         fullPath = subPath;
       } else {
-        element.entry.fields.pages[this.locale].forEach((subElement) => {
+        element.entry.fields.pages[this.locale].forEach((subElement: IDocumentationPage) => {
           if (subElement.fields.path[this.locale] === subPath) {
             fullPath = element.path + '/' + subPath;
           }
@@ -211,10 +210,15 @@ export class CMSTransformService {
     return fullPath;
   }
 
-  private getLinkPath(data: IInternalLink, locale: string, subMenu, paragraphTitle): string {
+  private getLinkPath(
+    data: IInternalLink,
+    locale: string,
+    subMenu: CMSSubMenu[],
+    paragraphTitle: string,
+  ): string {
     let linkPath = '';
     if (data.fields.page) {
-      const subPath = data.fields.page[locale].fields.path[locale];
+      const subPath: string = data.fields.page[locale].fields.path[locale];
       linkPath = this.getFullPath(subPath, subMenu) + '#' + paragraphTitle;
       if (!linkPath) {
         this.showErrorMessage('Link', `${subPath} is not an existing page that can be referenced.`);
@@ -233,8 +237,10 @@ export class CMSTransformService {
     return linkPath;
   }
 
-  private getLink(data: IInternalLink, locale: string, subMenu, inlineEntry: boolean): string {
-    const paragraphTitle = data.fields.paragraph ? data.fields.paragraph[locale].replaceAll(' ', '-') : '';
+  private getLink(data: IInternalLink, locale: string, subMenu: CMSSubMenu[], inlineEntry: boolean): string {
+    const paragraphTitle: string = data.fields.paragraph
+      ? data.fields.paragraph[locale].replaceAll(' ', '-')
+      : '';
     const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle);
     if (!data.fields.title) {
       this.showErrorMessage('Link', 'An link on your page is missing link text.');
@@ -373,12 +379,17 @@ export class CMSTransformService {
       return;
     }
     const hasInlineText = data.fields.inlineText !== undefined;
-    const imgSize = data.fields.size[locale];
-    const imgAlignment = data.fields.alignment[locale];
-    const description = data.fields.description ? data.fields.description[locale] : undefined;
-    const altText = data.fields.altText ? data.fields.altText[locale] : undefined;
+    const imgSize: IImage['fields']['size'] = data.fields.size[locale];
+    const imgAlignment: IImage['fields']['alignment'] = data.fields.alignment[locale];
+    const description: IImage['fields']['description'] = data.fields.description
+      ? data.fields.description[locale]
+      : undefined;
+    const altText: IImage['fields']['altText'] = data.fields.altText
+      ? data.fields.altText[locale]
+      : undefined;
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
-    return `<div class='${inGrid ? '' : 'e-my-24'} ${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
+    return `<div class='${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''
+      }'>
     <div
       style=' 
         ${hasInlineText ? 'display: block' : 'display: inline-block;'}
@@ -432,25 +443,29 @@ export class CMSTransformService {
     if (!data.fields.displayImage) {
       this.showErrorMessage(
         'Download content',
-        `${data.fields.name ? 'The "Display image" "' + data.fields.name[locale] + '"' : 'An "Display image" on your page'
+        `${data.fields.name
+          ? 'The "Display image" "' + data.fields.name[locale] + '"'
+          : 'An "Display image" on your page'
         } is missing display image.`,
       );
     }
     if (!data.fields.downloadableContent) {
       this.showErrorMessage(
         'Download content',
-        `${data.fields.name ? 'The "Download content" "' + data.fields.name[locale] + '"' : 'An "Download content" on your page'
+        `${data.fields.name
+          ? 'The "Download content" "' + data.fields.name[locale] + '"'
+          : 'An "Download content" on your page'
         } is missing download content.`,
       );
     }
   }
 
-  private getDownloadContent(data: IDownloadContent, locale: string, inGrid: boolean): string {
+  private getDownloadContent(data: IDownloadContent, locale: string, inGrid: boolean, inverted: boolean): string {
     this.checkDownloadContentErrors(data, locale);
     if (!data.fields.name || !data.fields.displayImage || !data.fields.downloadableContent) {
       return;
     }
-    const assetName = data.fields.name[locale];
+    const assetName: IDownloadContent['fields']['name'] = data.fields.name[locale];
     const displayImage = 'https:' + data.fields.displayImage[locale].fields.file[locale].url;
     const asset = 'https:' + data.fields.downloadableContent[locale].fields.file[locale].url;
     const fileType = asset.split('.').pop();
@@ -472,9 +487,9 @@ export class CMSTransformService {
       </div>
       <div class="cms-downloadable-asset ${inGrid ? 'centered' : ''}">
         <a role="button" id="download-content-${assetName}">
-          <button class="e-btn e-btn--tertiary e-btn--md">
+          <button class="e-btn e-btn--tertiary e-btn--md ${inverted ? 'e-btn--inverted' : ''}">
             <span class="e-btn__icon">
-              <i class="e-icon e-icon--download"></i>
+              <i class="e-icon e-icon--download ${inverted ? 'e-icon--inverted' : ''}"></i>
             </span>
             <span class="e-btn__title">${fileType}</span>
           </button>
@@ -484,35 +499,49 @@ export class CMSTransformService {
   }
 
   private getGrid(data: IGrid, locale: string): string {
-    const elements = data.fields.gridElements[locale];
+    const elements: IGrid['fields']['gridElements'] = data.fields.gridElements[locale];
+    const background: IGrid['fields']['background'] = data.fields.background[locale];
     let returnString = '';
     if (
       elements.find((el) => el.sys.contentType.sys.id === 'image') &&
       elements.find((el) => el.sys.contentType.sys.id === 'downloadContent')
     ) {
-      this.showErrorMessage('Grid', 'You have to choose between images or download content, both are not allowed', false);
+      this.showErrorMessage(
+        'Grid',
+        'You have to choose between images or download content, both are not allowed',
+        false,
+      );
       return;
     }
     if (elements[0].sys.contentType.sys.id === 'downloadContent') {
       const nameArray = [];
-      elements.forEach(element => {
-        nameArray.push(element.fields.name[locale])
+      elements.forEach((element) => {
+        nameArray.push(element.fields.name[locale]);
       });
       if (new Set(nameArray).size !== nameArray.length) {
-        this.showErrorMessage('Grid', `You have multiple download content entries with the same name. All grid elements needs to have unique download content names.`, false);
+        this.showErrorMessage(
+          'Grid',
+          `You have multiple download content entries with the same name. All grid elements needs to have unique download content names.`,
+          false,
+        );
         return;
       }
-      elements.forEach((element) => {
-        returnString +=
-          '<div class="col-sm-6 col-md-4">' + this.getDownloadContent(element, locale, true) + '</div>';
+      elements.forEach((element: IDownloadContent) => {
+        if (background === 'Dark') {
+          returnString +=
+            '<div class="col-sm-6 col-md-4">' + this.getDownloadContent(element, locale, true, true) + '</div>';
+        } else {
+          returnString +=
+            '<div class="col-sm-6 col-md-4">' + this.getDownloadContent(element, locale, true, false) + '</div>';
+        }
       });
     } else if (elements[0].sys.contentType.sys.id === 'image') {
-      elements.forEach((element) => {
+      elements.forEach((element: IImage) => {
         returnString += '<div class="col-sm-6 col-md-4">' + this.getImage(element, locale, true) + '</div>';
       });
     }
-    return `<div class="e-grid" style="margin-top: 12px; margin-bottom: 12px">
-    <div class="row e-grid-gutters-int e-grid-gutters-vertical">
+    return `<div class="e-grid e-px-24 e-br-8 ${background === 'Dark' ? 'e-bg-grey' : background === 'Grey' ? 'e-bg-grey-10' : ''} " style="margin-top: 12px; margin-bottom: 12px">
+    <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       ${returnString}
     </div>
   </div>`;
@@ -580,7 +609,7 @@ export class CMSTransformService {
       </div>`;
   }
 
-  private getLandingPageWithCards(data: ILandingPageWithCards, locale: string, subMenu) {
+  private getLandingPageWithCards(data: ILandingPageWithCards, locale: string, subMenu: CMSSubMenu[]) {
     const cardList: IOverviewCard[] = [...data.fields.overviewCard[locale]];
     let returnString = '';
     cardList.forEach((card) => {

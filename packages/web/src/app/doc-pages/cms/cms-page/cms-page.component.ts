@@ -7,7 +7,8 @@ import { combineLatest, Subscription } from 'rxjs';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
+import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
+import { IDocumentationPage } from 'contentful/__generated__/types';
 
 @Component({
   selector: 'app-cms-page',
@@ -18,7 +19,7 @@ import { TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
 export class CMSPageComponent implements OnDestroy {
   routerSubscription: Subscription;
 
-  cmsContent: any = {};
+  cmsContent: TransformedDocPage = {} as TransformedDocPage;
   showContentLoader = true;
   contentHTML: any = '';
   descriptionHTML: any = '';
@@ -27,7 +28,7 @@ export class CMSPageComponent implements OnDestroy {
   landingPage = false;
   hasChecked = false;
   activeEventListeners = [];
-  errorMessages = [];
+  errorMessages: CMSDocPageError[] = [];
 
   constructor(
     private cmsService: CMSService,
@@ -87,7 +88,7 @@ export class CMSPageComponent implements OnDestroy {
     this.setInnerHTMLToCMSContent(docPage);
   }
 
-  getEntryFromCMS(pageId: string): Promise<any> {
+  async getEntryFromCMS(pageId: string): Promise<IDocumentationPage> {
     return this.http
       .get('https://elvis-designsystem.netlify.app/.netlify/functions/services?id=' + pageId)
       .toPromise()
@@ -104,7 +105,7 @@ export class CMSPageComponent implements OnDestroy {
     this.cmsContent = docPage;
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
-    const options = { day: 'numeric', month: 'numeric', year: 'numeric' };
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
     this.lastUpdated = new Date(this.cmsContent.lastUpdated);
     this.lastUpdated = this.lastUpdated.toLocaleDateString('nb-NO', options).replace('/', '.');
     this.showContentLoader = false;
@@ -116,7 +117,7 @@ export class CMSPageComponent implements OnDestroy {
     setTimeout(() => {
       this.elementRef.nativeElement
         .querySelectorAll('.cms-section__title, .cms-heading1__title')
-        .forEach((domElement) => {
+        .forEach((domElement: HTMLElement) => {
           domElement.addEventListener('click', () => this.copyAnchor(domElement['id']));
           this.activeEventListeners.push(domElement);
         });
@@ -124,7 +125,7 @@ export class CMSPageComponent implements OnDestroy {
   }
 
   removeClickEventListenersForCopyPath(): void {
-    this.activeEventListeners.forEach((domElement) => {
+    this.activeEventListeners.forEach((domElement: HTMLElement) => {
       domElement.removeEventListener('click', () => this.copyAnchor(domElement['id']));
     });
     this.activeEventListeners = [];
