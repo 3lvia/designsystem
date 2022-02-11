@@ -1,5 +1,11 @@
 # Elvia Icon Changelog
 
+## 1.1.1 (11.02.22)
+
+### Bug fix
+
+- Fixed bug causing misalignment and sizing of DOM elements
+
 ## 1.1.0 (07.02.22)
 
 ### New feature
