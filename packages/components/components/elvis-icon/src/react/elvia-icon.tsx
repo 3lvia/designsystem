@@ -88,7 +88,7 @@ export const Icon: React.FC<IconProps> = ({
 
   return (
     <div style={inlineStyle} className={className ? className : ''}>
-      <i dangerouslySetInnerHTML={{ __html: displayIcon }} aria-hidden="true" />{' '}
+      <i dangerouslySetInnerHTML={{ __html: displayIcon }} aria-hidden="true" style={{ display: 'flex' }} />
     </div>
   );
 };
