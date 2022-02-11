@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
+import { Icon } from '@elvia/elvis-icon/react';
 import {
   Paginator,
   PaginatorNumber,
@@ -11,8 +12,6 @@ import {
   PaginatorNumbersArea,
   PaginatorSelectorArea,
   PaginatorSelectorArrowBtn,
-  PaginatorSelectorArrowLeft,
-  PaginatorSelectorRighArrow,
 } from './styledComponents';
 
 export interface DropdownOption {
@@ -488,7 +487,7 @@ const Pagination: FC<PaginationProps> = ({
           data-testid="selector-arrow-btn-left"
           aria-label="Forrige side"
         >
-          <PaginatorSelectorArrowLeft />
+          <Icon name="arrowLongLeft" size="xs" />
         </PaginatorSelectorArrowBtn>
         {showPaginationMenu ? <Paginators data-testid="paginators" /> : null}
         <PaginatorSelectorArrowBtn
@@ -497,7 +496,7 @@ const Pagination: FC<PaginationProps> = ({
           data-testid="selector-arrow-btn-right"
           aria-label="Neste side"
         >
-          <PaginatorSelectorRighArrow />
+          <Icon name="arrowLongRight" size="xs" />
         </PaginatorSelectorArrowBtn>
       </PaginatorSelectorArea>
     </Paginator>

@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useRef, CSSProperties } from 'react';
 import Select, { components } from 'react-select';
 import toolbox from '@elvia/elvis-toolbox';
+import { Icon } from '@elvia/elvis-icon/react';
 import {
   DropdownCheckbox,
   DropdownCheckboxLabel,
   DropdownCheckboxMark,
-  DropdownIndicatorIcon,
+  // DropdownIndicatorIcon,
   DropdownWrapper,
-  DropdownErrorMessageIcon,
+  // DropdownErrorMessageIcon,
   DropdownErrorMessageText,
   DropdownErrorMessageWrapper,
   DropdownLabel,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
+import { getColor } from '@elvia/elvis-colors';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 export interface DropdownOption {
@@ -260,7 +262,11 @@ const Dropdown: React.FC<DropdownProps> = ({
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
       <components.DropdownIndicator {...props}>
-        <DropdownIndicatorIcon isDisabled={isDisabled} isCompact={isCompact} menuIsOpen={menuIsOpen} />
+        <Icon
+          name={`${menuIsOpen ? 'arrowUpBold' : 'arrowDownBold'}`}
+          color={`${isDisabled ? getColor('grey-30') : getColor('black')}`}
+          customSize={`${isCompact ? '16px' : '20px'}`}
+        />
       </components.DropdownIndicator>
     );
   };
@@ -290,7 +296,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const ElviaError = ({ ...props }) => {
     return (
       <DropdownErrorMessageWrapper {...props}>
-        <DropdownErrorMessageIcon />
+        <Icon name="removeCircle" color={getColor('red')} size="xs" />
         <DropdownErrorMessageText>{errorMessage}</DropdownErrorMessageText>
       </DropdownErrorMessageWrapper>
     );

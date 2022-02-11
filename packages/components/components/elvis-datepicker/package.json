@@ -13,6 +13,8 @@
     "@date-io/core": "^1.3.6",
     "@elvia/elvis-component-wrapper": "^2.1.6",
     "@elvia/elvis-toolbox": "^1.2.1",
+    "@elvia/elvis-icon": "^1.1.1",
+    "@elvia/elvis-colors": "^1.2.1",
     "@material-ui/core": "4.12.3",
     "@material-ui/pickers": "3.3.10",
     "classnames": "^2.3.1",

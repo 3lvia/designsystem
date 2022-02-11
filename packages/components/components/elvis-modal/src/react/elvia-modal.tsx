@@ -9,6 +9,8 @@ import {
   ModalText,
   ModalActions,
 } from './styledComponents';
+import { Icon } from '@elvia/elvis-icon/react';
+import { getColor } from '@elvia/elvis-colors';
 import { useClickOutside } from './useClickOutside';
 import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
@@ -149,7 +151,7 @@ export const ModalComponent: FC<ModalProps> = ({
             aria-label="Lukk modal"
             data-testid="modal-close-btn"
           >
-            <i className="ewc-icon"></i>
+            <Icon name="close" color={getColor('white')} className="ewc-close-icon" />
           </ModalCloseButton>
         )}
 

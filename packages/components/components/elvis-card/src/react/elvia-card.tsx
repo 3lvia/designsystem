@@ -1,6 +1,5 @@
 import React, { FC, useRef, useEffect, useState, CSSProperties } from 'react';
-import { getColor } from '@elvia/elvis-colors';
-import { arrowLongRight } from '@elvia/elvis-assets-icons';
+import { Icon } from '@elvia/elvis-icon/react';
 import { CardType, CardShape, BorderColor } from './elvia-card.types';
 import {
   CardArea,
@@ -38,10 +37,6 @@ export interface CardProps {
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent: any;
 }
-
-const colors = {
-  elviaBlack: getColor('black'),
-};
 
 const Card: FC<CardProps> = ({
   icon,
@@ -162,10 +157,7 @@ const Card: FC<CardProps> = ({
       </CardContent>
       {type === 'detail' && (
         <CardHoverArrow data-testid="card-detail-hover-arrow">
-          <i
-            dangerouslySetInnerHTML={{ __html: arrowLongRight.getIcon(colors.elviaBlack) }}
-            aria-hidden="true"
-          ></i>
+          <Icon name="arrowLongRight" />
         </CardHoverArrow>
       )}
       {type === 'detail' && cornerIcon && (
