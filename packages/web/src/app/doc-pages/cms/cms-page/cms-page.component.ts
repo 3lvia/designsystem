@@ -105,7 +105,7 @@ export class CMSPageComponent implements OnDestroy {
     this.cmsContent = docPage;
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
-    const options = { day: 'numeric', month: 'numeric', year: 'numeric' };
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
     this.lastUpdated = new Date(this.cmsContent.lastUpdated);
     this.lastUpdated = this.lastUpdated.toLocaleDateString('nb-NO', options).replace('/', '.');
     this.showContentLoader = false;
