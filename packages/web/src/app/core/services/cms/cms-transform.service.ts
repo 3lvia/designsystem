@@ -486,7 +486,7 @@ export class CMSTransformService {
         />
       </div>
       <div class="cms-downloadable-asset ${inGrid ? 'centered' : ''}">
-        <a role="button" id="download-content-${assetName}">
+        <a role="button" id="download-content-${assetName}" href="">
           <button class="e-btn e-btn--tertiary e-btn--md ${inverted ? 'e-btn--inverted' : ''}">
             <span class="e-btn__icon">
               <i class="e-icon e-icon--download ${inverted ? 'e-icon--inverted' : ''}"></i>
