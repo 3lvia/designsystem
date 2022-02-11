@@ -486,7 +486,7 @@ export class CMSTransformService {
         />
       </div>
       <div class="cms-downloadable-asset ${inGrid ? 'centered' : ''}">
-        <a role="button" id="download-content-${assetName}" href="">
+        <a role="button" id="download-content-${assetName}">
           <button class="e-btn e-btn--tertiary e-btn--md ${inverted ? 'e-btn--inverted' : ''}">
             <span class="e-btn__icon">
               <i class="e-icon e-icon--download ${inverted ? 'e-icon--inverted' : ''}"></i>
@@ -529,10 +529,10 @@ export class CMSTransformService {
       elements.forEach((element: IDownloadContent) => {
         if (background === 'Dark') {
           returnString +=
-            '<div class="col-sm-6 col-md-4">' + this.getDownloadContent(element, locale, true, true) + '</div>';
+            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end;">' + this.getDownloadContent(element, locale, true, true) + '</div>';
         } else {
           returnString +=
-            '<div class="col-sm-6 col-md-4">' + this.getDownloadContent(element, locale, true, false) + '</div>';
+            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end;">' + this.getDownloadContent(element, locale, true, false) + '</div>';
         }
       });
     } else if (elements[0].sys.contentType.sys.id === 'image') {
