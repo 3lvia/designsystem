@@ -13,10 +13,9 @@ import {
   ILandingPage,
   ILandingPageWithCards,
   IOverviewCard,
-  ISubMenu,
   IWhenToUse,
 } from 'contentful/__generated__/types';
-import { CMSDocPageError, TransformedDocPage } from './cms.interface';
+import { CMSDocPageError, CMSSubMenu, TransformedDocPage } from './cms.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -72,7 +71,7 @@ export class CMSTransformService {
 
   transformEntryToDocPage(
     data: IDocumentationPage,
-    subMenu: ISubMenu,
+    subMenu: CMSSubMenu[],
     localization: Locale,
   ): TransformedDocPage {
     let locale = 'en-GB';
