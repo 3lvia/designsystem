@@ -1,11 +1,5 @@
 import React, { useState, useEffect, CSSProperties } from 'react';
-import {
-  BreadcrumbWrapper,
-  BreadcrumbDesktopWrapper,
-  BreadcrumbLink,
-  // BreadcrumbIconRight,
-  // BreadcrumbIconLeft,
-} from './styledComponents';
+import { BreadcrumbWrapper, BreadcrumbDesktopWrapper, BreadcrumbLink } from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 
 interface BreadcrumbLink {
@@ -65,7 +59,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   const MobileBreadcrumb = () => {
     return (
       <BreadcrumbWrapper>
-        {/* <BreadcrumbIconLeft /> */}
         <Icon
           name="arrowLeftBold"
           size="xxs"
@@ -118,7 +111,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
           >
             {breadcrumb.title}
           </BreadcrumbLink>
-          {/* <BreadcrumbIconRight /> */}
           <Icon
             name="arrowRightBold"
             size="xxs"
