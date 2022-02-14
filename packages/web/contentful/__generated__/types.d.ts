@@ -103,6 +103,9 @@ export interface IGridFields {
   /** Name */
   name?: string | undefined;
 
+  /** Background */
+  background: 'White' | 'Grey' | 'Dark';
+
   /** Grid elements */
   gridElements: (IDownloadContent | IImage)[];
 }

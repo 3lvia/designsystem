@@ -129,7 +129,7 @@ export class CMSTransformService {
       return this.getImage(data, locale, false);
     }
     if (type === 'downloadContent') {
-      return this.getDownloadContent(data, locale, false);
+      return this.getDownloadContent(data, locale, false, false);
     }
     if (type === 'grid') {
       return this.getGrid(data, locale);
@@ -162,13 +162,12 @@ export class CMSTransformService {
       return str.replace('class="cms-img', '');
     });
     liStrings = liStrings.map((li) => {
-      return li.replace(imgRegex, '').replace('/>', '');
+      return li.replace(imgRegex, '').replace('<li>', '').replace('/>', '');
     });
     if (bulletIcons[0].includes('src=')) {
       let returnString = '<ol class="e-list e-list--icons e-text-lg">';
       for (let liIndex = 0; liIndex <= liStrings.length - 1; liIndex++) {
-        returnString += `<li><span class="e-list__icon">${bulletIcons[liIndex]}</span>`;
-        returnString += `<span>${liStrings[liIndex]}</span></li>`;
+        returnString += `<li><span class="e-list__icon">${bulletIcons[liIndex]}</span><span>${liStrings[liIndex]}</span></li>`;
       }
       returnString = returnString + `</ol>`;
       return returnString;
@@ -395,9 +394,7 @@ export class CMSTransformService {
       ? data.fields.altText[locale]
       : undefined;
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
-    return `<div class='${inGrid ? '' : 'e-my-24'} ${
-      imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''
-    }'>
+    return `<div class='${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
     <div
       style=' 
         ${hasInlineText ? 'display: block' : 'display: inline-block;'}
@@ -471,7 +468,12 @@ export class CMSTransformService {
     }
   }
 
-  private getDownloadContent(data: IDownloadContent, locale: string, inGrid: boolean): string {
+  private getDownloadContent(
+    data: IDownloadContent,
+    locale: string,
+    inGrid: boolean,
+    inverted: boolean,
+  ): string {
     this.checkDownloadContentErrors(data, locale);
     if (!data.fields.name || !data.fields.displayImage || !data.fields.downloadableContent) {
       return;
@@ -498,9 +500,9 @@ export class CMSTransformService {
       </div>
       <div class="cms-downloadable-asset ${inGrid ? 'centered' : ''}">
         <a role="button" id="download-content-${assetName}">
-          <button class="e-btn e-btn--tertiary e-btn--md">
+          <button class="e-btn e-btn--tertiary e-btn--md ${inverted ? 'e-btn--inverted' : ''}">
             <span class="e-btn__icon">
-              <i class="e-icon e-icon--download"></i>
+              <i class="e-icon e-icon--download ${inverted ? 'e-icon--inverted' : ''}"></i>
             </span>
             <span class="e-btn__title">${fileType}</span>
           </button>
@@ -511,6 +513,7 @@ export class CMSTransformService {
 
   private getGrid(data: IGrid, locale: string): string {
     const elements: IGrid['fields']['gridElements'] = data.fields.gridElements[locale];
+    const background: IGrid['fields']['background'] = data.fields.background[locale];
     let returnString = '';
     if (
       elements.find((el) => el.sys.contentType.sys.id === 'image') &&
@@ -537,16 +540,27 @@ export class CMSTransformService {
         return;
       }
       elements.forEach((element: IDownloadContent) => {
-        returnString +=
-          '<div class="col-sm-6 col-md-4">' + this.getDownloadContent(element, locale, true) + '</div>';
+        if (background === 'Dark') {
+          returnString +=
+            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end;">' +
+            this.getDownloadContent(element, locale, true, true) +
+            '</div>';
+        } else {
+          returnString +=
+            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end;">' +
+            this.getDownloadContent(element, locale, true, false) +
+            '</div>';
+        }
       });
     } else if (elements[0].sys.contentType.sys.id === 'image') {
       elements.forEach((element: IImage) => {
         returnString += '<div class="col-sm-6 col-md-4">' + this.getImage(element, locale, true) + '</div>';
       });
     }
-    return `<div class="e-grid" style="margin-top: 12px; margin-bottom: 12px">
-    <div class="row e-grid-gutters-int e-grid-gutters-vertical">
+    return `<div class="e-grid e-px-24 e-br-8 ${
+      background === 'Dark' ? 'e-bg-grey' : background === 'Grey' ? 'e-bg-grey-10' : ''
+    } " style="margin-top: 12px; margin-bottom: 12px">
+    <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       ${returnString}
     </div>
   </div>`;
