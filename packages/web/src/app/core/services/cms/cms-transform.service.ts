@@ -43,7 +43,7 @@ export class CMSTransformService {
     },
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   showErrorMessage(model: string, errorMessage: string, requiredText?: boolean): void {
     console.error(
@@ -229,7 +229,8 @@ export class CMSTransformService {
     } else {
       this.showErrorMessage(
         'Link',
-        `${data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'An link on your page'
+        `${
+          data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'An link on your page'
         } has no url, add either Url design.elvia.io or Url new tab / external.`,
       );
       return undefined;
@@ -265,10 +266,11 @@ export class CMSTransformService {
           ${isExternal ? 'target="_blank"' : ''}
         >
           <span class="e-link__title">${linkText}</span>
-          ${isAction && !isInline
-        ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
-        : ''
-      }
+          ${
+            isAction && !isInline
+              ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
+              : ''
+          }
           ${isExternal ? '<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>' : ''}
         </a>
       ${!isInline ? '</p>' : ''}`;
@@ -284,18 +286,20 @@ export class CMSTransformService {
     if (!data.fields.whenToUse) {
       this.showErrorMessage(
         'When & when not to use',
-        `${data.fields.name
-          ? 'The entry "' + data.fields.name[locale] + '"'
-          : 'An "When & when not to use" entry on your page'
+        `${
+          data.fields.name
+            ? 'The entry "' + data.fields.name[locale] + '"'
+            : 'An "When & when not to use" entry on your page'
         } is missing the "when to use" field.`,
       );
     }
     if (!data.fields.whenNotToUse) {
       this.showErrorMessage(
         'When & when not to use',
-        `${data.fields.name
-          ? 'The entry "' + data.fields.name[locale] + '"'
-          : 'An "When & when not to use" entry on your page'
+        `${
+          data.fields.name
+            ? 'The entry "' + data.fields.name[locale] + '"'
+            : 'An "When & when not to use" entry on your page'
         } is missing the "when not to use" field.`,
       );
     }
@@ -360,14 +364,16 @@ export class CMSTransformService {
     if (!data.fields.image) {
       this.showErrorMessage(
         'Image',
-        `${data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+        `${
+          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
         } is missing the image asset.`,
       );
     }
     if (!data.fields.altText) {
       this.showErrorMessage(
         'Image',
-        `${data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+        `${
+          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
         } is missing alt text.`,
       );
     }
@@ -388,17 +394,17 @@ export class CMSTransformService {
       ? data.fields.altText[locale]
       : undefined;
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
-    return `<div class='${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''
-      }'>
+    return `<div class='${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
     <div
       style=' 
         ${hasInlineText ? 'display: block' : 'display: inline-block;'}
-        ${imgSize === 'original'
-        ? 'width: unset'
-        : imgSize === '100%'
-          ? 'width: calc(' + imgSize + '- 64px)'
-          : 'width: ' + imgSize
-      }
+        ${
+          imgSize === 'original'
+            ? 'width: unset'
+            : imgSize === '100%'
+            ? 'width: calc(' + imgSize + '- 64px)'
+            : 'width: ' + imgSize
+        }
       '
       class='
         cms-image
@@ -443,24 +449,31 @@ export class CMSTransformService {
     if (!data.fields.displayImage) {
       this.showErrorMessage(
         'Download content',
-        `${data.fields.name
-          ? 'The "Display image" "' + data.fields.name[locale] + '"'
-          : 'An "Display image" on your page'
+        `${
+          data.fields.name
+            ? 'The "Display image" "' + data.fields.name[locale] + '"'
+            : 'An "Display image" on your page'
         } is missing display image.`,
       );
     }
     if (!data.fields.downloadableContent) {
       this.showErrorMessage(
         'Download content',
-        `${data.fields.name
-          ? 'The "Download content" "' + data.fields.name[locale] + '"'
-          : 'An "Download content" on your page'
+        `${
+          data.fields.name
+            ? 'The "Download content" "' + data.fields.name[locale] + '"'
+            : 'An "Download content" on your page'
         } is missing download content.`,
       );
     }
   }
 
-  private getDownloadContent(data: IDownloadContent, locale: string, inGrid: boolean, inverted: boolean): string {
+  private getDownloadContent(
+    data: IDownloadContent,
+    locale: string,
+    inGrid: boolean,
+    inverted: boolean,
+  ): string {
     this.checkDownloadContentErrors(data, locale);
     if (!data.fields.name || !data.fields.displayImage || !data.fields.downloadableContent) {
       return;
@@ -529,10 +542,14 @@ export class CMSTransformService {
       elements.forEach((element: IDownloadContent) => {
         if (background === 'Dark') {
           returnString +=
-            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end;">' + this.getDownloadContent(element, locale, true, true) + '</div>';
+            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end;">' +
+            this.getDownloadContent(element, locale, true, true) +
+            '</div>';
         } else {
           returnString +=
-            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end;">' + this.getDownloadContent(element, locale, true, false) + '</div>';
+            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end;">' +
+            this.getDownloadContent(element, locale, true, false) +
+            '</div>';
         }
       });
     } else if (elements[0].sys.contentType.sys.id === 'image') {
@@ -540,7 +557,9 @@ export class CMSTransformService {
         returnString += '<div class="col-sm-6 col-md-4">' + this.getImage(element, locale, true) + '</div>';
       });
     }
-    return `<div class="e-grid e-px-24 e-br-8 ${background === 'Dark' ? 'e-bg-grey' : background === 'Grey' ? 'e-bg-grey-10' : ''} " style="margin-top: 12px; margin-bottom: 12px">
+    return `<div class="e-grid e-px-24 e-br-8 ${
+      background === 'Dark' ? 'e-bg-grey' : background === 'Grey' ? 'e-bg-grey-10' : ''
+    } " style="margin-top: 12px; margin-bottom: 12px">
     <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       ${returnString}
     </div>
