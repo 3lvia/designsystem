@@ -1,3 +1,5 @@
+import { ISubMenu } from 'contentful/__generated__/types';
+
 export interface TransformedDocPage {
   title: string;
   pageDescription: string;
@@ -13,4 +15,16 @@ export interface TransformedDocPage {
 export interface CMSDocPageError {
   name: string;
   message: string;
+}
+
+export interface CMSSubMenu {
+  title: string;
+  entry_id: string;
+  entry: ISubMenu;
+  path: string;
+}
+
+export interface CMSMenu {
+  title: string;
+  pages: CMSSubMenu[];
 }
