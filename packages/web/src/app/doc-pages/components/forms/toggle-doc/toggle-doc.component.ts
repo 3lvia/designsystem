@@ -13,45 +13,52 @@ export class ToggleDocComponent {
   does = ['Single state that is either on or off.'];
   donts = ['Never use a switch in place of a button (actions).'];
 
-  exampleOverview = `<div class="e-toggle" role="switch">
-  <label class="e-toggle__label" for="toggle-1">Toggle</label>
-  <input class="e-toggle__input" type="checkbox" id="toggle-1" />
-</div>
+  exampleOverview = `<label class="e-toggle" role="switch">Label
+  <input class="e-toggle__input" type="checkbox" />
+</label>
 `;
 
-  example1 = `<div class="e-toggle" role="switch">
-  <label class="e-toggle__label" for="toggle-2">Off</label>
-  <input class="e-toggle__input" type="checkbox" id="toggle-2" />
-</div>
-<div class="e-toggle e-mt-16" role="switch">
-  <label class="e-toggle__label" for="toggle-3">On</label>
-  <input class="e-toggle__input" type="checkbox" id="toggle-3" checked />
-</div>
-<div class="e-toggle e-mt-16" role="switch">
-  <label class="e-toggle__label" for="toggle-4">Disabled off</label>
-  <input class="e-toggle__input" type="checkbox" id="toggle-4" disabled />
-</div>
-<div class="e-toggle e-mt-16" role="switch">
-  <label class="e-toggle__label" for="toggle-5">Disabled on</label>
-  <input class="e-toggle__input" type="checkbox" id="toggle-5" checked disabled />
-</div>
+  example1 = `<div class="e-title-caps">Off</div>
+<label class="e-toggle" role="switch">
+  Label
+  <input class="e-toggle__input" type="checkbox" />
+</label>
+<div class="e-title-caps e-mt-24 e-mb-8">On</div>
+<label class="e-toggle" role="switch">
+  Label
+  <input class="e-toggle__input" type="checkbox" checked />
+</label>
+<div class="e-title-caps e-mt-24 e-mb-8">Disabled off</div>
+<label class="e-toggle" role="switch">
+  Label
+  <input class="e-toggle__input" type="checkbox" disabled />
+</label>
+<div class="e-title-caps e-mt-24 e-mb-8">Disabled on</div>
+<label class="e-toggle" role="switch">
+  Label
+  <input class="e-toggle__input" type="checkbox" checked disabled />
+</label>
 `;
 
-  exampleInverted = `<div class="e-toggle e-toggle--inverted" role="switch">
-  <label class="e-toggle__label" for="toggle-2">Off</label>
-  <input class="e-toggle__input" type="checkbox" id="toggle-2" />
-</div>
-<div class="e-toggle e-toggle--inverted e-mt-16" role="switch">
-  <label class="e-toggle__label" for="toggle-3">On</label>
-  <input class="e-toggle__input" type="checkbox" id="toggle-3" checked />
-</div>
-<div class="e-toggle e-toggle--inverted e-mt-16" role="switch">
-  <label class="e-toggle__label" for="toggle-4">Disabled off</label>
-  <input class="e-toggle__input" type="checkbox" id="toggle-4" disabled />
-</div>
-<div class="e-toggle e-toggle--inverted e-mt-16" role="switch">
-  <label class="e-toggle__label" for="toggle-5">Disabled on</label>
-  <input class="e-toggle__input" type="checkbox" id="toggle-5" checked disabled />
-</div>
+  exampleInverted = `<div class="e-title-caps">Off</div>
+<label class="e-toggle e-toggle--inverted" role="switch">
+  Label
+  <input class="e-toggle__input" type="checkbox" />
+</label>
+<div class="e-title-caps e-mt-24 e-mb-8">On</div>
+<label class="e-toggle e-toggle--inverted" role="switch">
+  Label
+  <input class="e-toggle__input" type="checkbox" checked />
+</label>
+<div class="e-title-caps e-mt-24 e-mb-8">Disabled off</div>
+<label class="e-toggle e-toggle--inverted" role="switch">
+  Label
+  <input class="e-toggle__input" type="checkbox" disabled />
+</label>
+<div class="e-title-caps e-mt-24 e-mb-8">Disabled on</div>
+<label class="e-toggle e-toggle--inverted" role="switch">
+  Label
+  <input class="e-toggle__input" type="checkbox" checked disabled />
+</label>
 `;
 }

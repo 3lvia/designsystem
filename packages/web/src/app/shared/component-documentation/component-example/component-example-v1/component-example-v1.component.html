@@ -16,10 +16,9 @@
         ></elvia-tabs>
       </div>
       <div class="dark-mode-toggle e-mb-24" *ngIf="codeInverted != ''">
-        <span>Inverted</span>
-        <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': isInverted }">
-          <input class="e-toggle__input" type="checkbox" (click)="toggleInverted()" [checked]="isInverted" />
-          <span class="e-toggle__slider"></span>
+        <label class="e-toggle" role="switch" [ngClass]="{ 'e-toggle--inverted': isInverted }">
+          Inverted
+          <input class="e-toggle__input" type="checkbox" (change)="toggleInverted()" [checked]="isInverted" />
         </label>
       </div>
     </div>

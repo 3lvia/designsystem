@@ -10,10 +10,10 @@
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-toggle" role="switch">
-      <label class="e-toggle__label" for="toggle-1">Toggle</label>
-      <input class="e-toggle__input" type="checkbox" id="toggle-1" />
-    </div>
+    <label class="e-toggle" role="switch">
+      Label
+      <input class="e-toggle__input" type="checkbox" />
+    </label>
     <div class="e-w-100">
       <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
     </div>
@@ -36,6 +36,13 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+
+      <app-component-subsection [sectionTitle]="'Use label'">
+        <ng-container ngProjectAs="sectionContent">
+          You should always have a label next to the toggle to tell the user what they are turning on/off. Use
+          the label in the component or add typography yourself.
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

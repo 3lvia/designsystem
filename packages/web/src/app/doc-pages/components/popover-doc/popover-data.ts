@@ -12,7 +12,7 @@ const popoverData = {
       cegDisplayName: 'Header',
       cegType: 'string',
       cegFormType: 'toggle',
-      cegDefault: 'true',
+      cegDefault: true,
       cegOption: exampleContents.texts.md['eng-GBR'].title,
     },
     hasCloseBtn: {
@@ -23,7 +23,7 @@ const popoverData = {
       cegDisplayName: 'Close button',
       cegType: 'boolean',
       cegFormType: 'toggle',
-      cegDefault: 'true',
+      cegDefault: true,
       cegOption: 'false',
     },
     isShowing: {

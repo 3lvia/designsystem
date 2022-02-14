@@ -143,17 +143,15 @@
           </div>
         </div>
         <div class="dark-mode-toggle mobile">
-          <span class="e-text-description">Inverted</span>
-          <label class="e-toggle">
-            <input class="e-toggle__input" type="checkbox" (click)="invert()" [checked]="inverted" />
-            <span class="e-toggle__slider"></span>
+          <label class="e-toggle" role="switch">
+            Inverted
+            <input class="e-toggle__input" type="checkbox" [checked]="inverted" (change)="invert()" />
           </label>
         </div>
         <div class="dark-mode-toggle">
-          <span class="e-text-info">Inverted</span>
-          <label class="e-toggle">
-            <input class="e-toggle__input" type="checkbox" (click)="invert()" [checked]="inverted" />
-            <span class="e-toggle__slider"></span>
+          <label class="e-toggle" role="switch">
+            Inverted
+            <input class="e-toggle__input" type="checkbox" [checked]="inverted" (change)="invert()" />
           </label>
         </div>
       </div>

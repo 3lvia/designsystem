@@ -34,7 +34,7 @@ const boxData = {
       cegDisplayName: 'Colored',
       cegType: 'boolean',
       cegFormType: 'toggle',
-      cegDefault: 'false',
+      cegDefault: false,
       cegOption: 'true',
     },
     className: {

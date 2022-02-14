@@ -43,7 +43,7 @@ export class CMSTransformService {
     },
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   showErrorMessage(model: string, errorMessage: string, requiredText?: boolean): void {
     console.error(
@@ -225,7 +225,8 @@ export class CMSTransformService {
     } else {
       this.showErrorMessage(
         'Link',
-        `${data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'An link on your page'
+        `${
+          data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'An link on your page'
         } has no url, add either Url design.elvia.io or Url new tab / external.`,
       );
       return undefined;
@@ -259,10 +260,11 @@ export class CMSTransformService {
           ${isExternal ? 'target="_blank"' : ''}
         >
           <span class="e-link__title">${linkText}</span>
-          ${isAction && !isInline
-        ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
-        : ''
-      }
+          ${
+            isAction && !isInline
+              ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color"></i><i class="e-icon e-icon--arrow_right_circle-filled-color"></i></span>'
+              : ''
+          }
           ${isExternal ? '<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>' : ''}
         </a>
       ${!isInline ? '</p>' : ''}`;
@@ -278,18 +280,20 @@ export class CMSTransformService {
     if (!data.fields.whenToUse) {
       this.showErrorMessage(
         'When & when not to use',
-        `${data.fields.name
-          ? 'The entry "' + data.fields.name[locale] + '"'
-          : 'An "When & when not to use" entry on your page'
+        `${
+          data.fields.name
+            ? 'The entry "' + data.fields.name[locale] + '"'
+            : 'An "When & when not to use" entry on your page'
         } is missing the "when to use" field.`,
       );
     }
     if (!data.fields.whenNotToUse) {
       this.showErrorMessage(
         'When & when not to use',
-        `${data.fields.name
-          ? 'The entry "' + data.fields.name[locale] + '"'
-          : 'An "When & when not to use" entry on your page'
+        `${
+          data.fields.name
+            ? 'The entry "' + data.fields.name[locale] + '"'
+            : 'An "When & when not to use" entry on your page'
         } is missing the "when not to use" field.`,
       );
     }
@@ -354,14 +358,16 @@ export class CMSTransformService {
     if (!data.fields.image) {
       this.showErrorMessage(
         'Image',
-        `${data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+        `${
+          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
         } is missing the image asset.`,
       );
     }
     if (!data.fields.altText) {
       this.showErrorMessage(
         'Image',
-        `${data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+        `${
+          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
         } is missing alt text.`,
       );
     }
@@ -378,16 +384,19 @@ export class CMSTransformService {
     const description = data.fields.description ? data.fields.description[locale] : undefined;
     const altText = data.fields.altText ? data.fields.altText[locale] : undefined;
     const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
-    return `<div class='${inGrid ? '' : 'e-my-24'} ${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
+    return `<div class='${inGrid ? '' : 'e-my-24'} ${
+      imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''
+    }'>
     <div
       style=' 
         ${hasInlineText ? 'display: block' : 'display: inline-block;'}
-        ${imgSize === 'original'
-        ? 'width: unset'
-        : imgSize === '100%'
-          ? 'width: calc(' + imgSize + '- 64px)'
-          : 'width: ' + imgSize
-      }
+        ${
+          imgSize === 'original'
+            ? 'width: unset'
+            : imgSize === '100%'
+            ? 'width: calc(' + imgSize + '- 64px)'
+            : 'width: ' + imgSize
+        }
       '
       class='
         cms-image
@@ -432,14 +441,20 @@ export class CMSTransformService {
     if (!data.fields.displayImage) {
       this.showErrorMessage(
         'Download content',
-        `${data.fields.name ? 'The "Display image" "' + data.fields.name[locale] + '"' : 'An "Display image" on your page'
+        `${
+          data.fields.name
+            ? 'The "Display image" "' + data.fields.name[locale] + '"'
+            : 'An "Display image" on your page'
         } is missing display image.`,
       );
     }
     if (!data.fields.downloadableContent) {
       this.showErrorMessage(
         'Download content',
-        `${data.fields.name ? 'The "Download content" "' + data.fields.name[locale] + '"' : 'An "Download content" on your page'
+        `${
+          data.fields.name
+            ? 'The "Download content" "' + data.fields.name[locale] + '"'
+            : 'An "Download content" on your page'
         } is missing download content.`,
       );
     }
@@ -490,16 +505,24 @@ export class CMSTransformService {
       elements.find((el) => el.sys.contentType.sys.id === 'image') &&
       elements.find((el) => el.sys.contentType.sys.id === 'downloadContent')
     ) {
-      this.showErrorMessage('Grid', 'You have to choose between images or download content, both are not allowed', false);
+      this.showErrorMessage(
+        'Grid',
+        'You have to choose between images or download content, both are not allowed',
+        false,
+      );
       return;
     }
     if (elements[0].sys.contentType.sys.id === 'downloadContent') {
       const nameArray = [];
-      elements.forEach(element => {
-        nameArray.push(element.fields.name[locale])
+      elements.forEach((element) => {
+        nameArray.push(element.fields.name[locale]);
       });
       if (new Set(nameArray).size !== nameArray.length) {
-        this.showErrorMessage('Grid', `You have multiple download content entries with the same name. All grid elements needs to have unique download content names.`, false);
+        this.showErrorMessage(
+          'Grid',
+          `You have multiple download content entries with the same name. All grid elements needs to have unique download content names.`,
+          false,
+        );
         return;
       }
       elements.forEach((element) => {

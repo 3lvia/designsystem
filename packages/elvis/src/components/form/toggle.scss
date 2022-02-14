@@ -16,29 +16,39 @@ $toggle-inverted-width: 30px;
 $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-slider-size} + 2px) / 2);
 
 .e-toggle {
+  position: relative;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  cursor: pointer;
 
-  &__label {
-    font-family: 'Red Hat Text', Verdana, sans-serif;
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: 400;
-    font-style: unset;
-    letter-spacing: unset;
-    text-transform: unset;
-    color: inherit;
+  // Label
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: inherit;
 
-    margin-right: 8px;
+  // Larger touch-target
+  &::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
   }
 
-  input {
-    width: calc($toggle-width - 2px);
-    height: 0;
-    outline: none;
-  }
   &__input {
     position: relative;
+    width: $toggle-width;
+    height: $toggle-height;
+    margin: 0 0 0 8px;
+    outline: none;
+    cursor: pointer;
 
     // Background
     &::before {
@@ -68,16 +78,17 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   }
 
   // Checked
+  &.e-toggle---checked .e-toggle__input::after,
   input:checked.e-toggle__input::after {
     background: colors.color('elvia-charge');
     @include helpers.transform(translateX(16px));
   }
 
   // Focus
-  &.e-toggle---focus input.e-toggle__input::before {
+  &.e-toggle---focus input.e-toggle__input {
     @include outline.e-outline-pseudoclass();
   }
-  input:focus.e-toggle__input::before {
+  input:focus.e-toggle__input {
     @include outline.e-outline();
   }
 
@@ -96,9 +107,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
 
   // Inverted
   &.e-toggle--inverted {
-    .e-toggle__label {
-      color: colors.color('white');
-    }
+    color: colors.color('white');
 
     .e-toggle__input::before {
       height: $toggle-inverted-height;

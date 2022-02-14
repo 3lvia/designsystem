@@ -16,8 +16,9 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking Changes</div>
           <div>Components: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/components/segmented-control#Size">Segmented Control</a> &
-            <a class="e-link e-link--inline" href="https://design.elvia.io/brand/typography#Overview">Typography</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/components/segmented-control#Size">Segmented Control</a>,
+            <a class="e-link e-link--inline" href="https://design.elvia.io/brand/typography#Overview">Typography</a> &
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/toggle#Overview">Toggle</a>
           </div>
           <ul class="e-list">
             <li>
@@ -28,7 +29,12 @@
               <strong>How to fix</strong>: Check where you are using segmented controls and update the sizes to the correct new size. If you have no specified size add <span class="code-text">e-segmented-controls--lg</span> and if you have the small size specified (<span class="code-text">e-segmented-controls--sm</span>) just remove the specification to receive medium size instead.
             </li>
             <li>
-              Title xs on mobiles has been updated font-size from 18px -> 16px. This is done so that the difference between title sm and xs i more distinct.         
+              Title xs on mobiles has been updated font-size from 18px -> 16px. This is done so that the difference between title sm and xs i more distinct. 
+              <strong>How to fix</strong>: You should not have to change anything here, just be aware that title-xs is smaller.
+            </li>
+            <li>
+              Toggle has updated structure and now includes label and role. This is done for better accessibility.
+              <strong>How to fix</strong>: Replace the old structure for all your toggles with the structure in the <a class="e-link e-link--inline" href="https://design.elvia.io/components/toggle#Overview">examples</a>.
             </li>
           </ul>
         </div>

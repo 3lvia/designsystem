@@ -9,72 +9,37 @@
   <body>
     <div class="e-title-sm e-mt-16">Toggle</div>
     <div class="e-title-xs e-my-16">States</div>
-    <div>
-      <div class="e-title-caps">Off</div>
-      <label class="e-toggle">
-        <input class="e-toggle__input" type="checkbox" />
-        <span class="e-toggle__slider"></span>
-      </label>
+    <div class="e-toggle" role="switch">
+      <label class="e-toggle__label" for="toggle-2">Off</label>
+      <input class="e-toggle__input" type="checkbox" id="toggle-2" />
     </div>
-    <div class="e-mt-16">
-      <div class="e-title-caps">On</div>
-      <label class="e-toggle">
-        <input class="e-toggle__input" type="checkbox" checked />
-        <span class="e-toggle__slider"></span>
-      </label>
+    <div class="e-toggle e-mt-16" role="switch">
+      <label class="e-toggle__label" for="toggle-3">On</label>
+      <input class="e-toggle__input" type="checkbox" id="toggle-3" checked />
     </div>
-    <div class="e-mt-16">
-      <div class="e-title-caps">Disabled off</div>
-      <label class="e-toggle e-toggle---disabled">
-        <input class="e-toggle__input" type="checkbox" disabled />
-        <span class="e-toggle__slider"></span>
-      </label>
+    <div class="e-toggle e-mt-16" role="switch">
+      <label class="e-toggle__label" for="toggle-4">Disabled off</label>
+      <input class="e-toggle__input" type="checkbox" id="toggle-4" disabled />
     </div>
-    <div class="e-mt-16">
-      <div class="e-title-caps">Disabled on</div>
-      <label class="e-toggle e-toggle---disabled">
-        <input class="e-toggle__input" type="checkbox" checked disabled />
-        <span class="e-toggle__slider"></span>
-      </label>
+    <div class="e-toggle e-mt-16" role="switch">
+      <label class="e-toggle__label" for="toggle-5">Disabled on</label>
+      <input class="e-toggle__input" type="checkbox" id="toggle-5" checked disabled />
     </div>
-    <div class="e-mt-16">
-      <div class="e-title-caps">Focus</div>
-      <label class="e-toggle e-toggle---focus">
-        <input class="e-toggle__input" type="checkbox" />
-        <span class="e-toggle__slider"></span>
-      </label>
+    <div class="e-toggle e-toggle--inverted" role="switch">
+      <label class="e-toggle__label" for="toggle-2">Off</label>
+      <input class="e-toggle__input" type="checkbox" id="toggle-2" />
     </div>
-
-    <div class="e-title-xs e-my-16">Inverted</div>
-    <div style="background-color: #262626">
-      <div>
-        <div class="e-title-caps e-text-white">Off</div>
-        <label class="e-toggle e-toggle--inverted">
-          <input class="e-toggle__input" type="checkbox" />
-          <span class="e-toggle__slider"></span>
-        </label>
-      </div>
-      <div class="e-mt-16">
-        <div class="e-title-caps e-text-white">On</div>
-        <label class="e-toggle e-toggle--inverted">
-          <input class="e-toggle__input" type="checkbox" checked />
-          <span class="e-toggle__slider"></span>
-        </label>
-      </div>
-      <div class="e-mt-16">
-        <div class="e-title-caps e-text-white">Disabled off</div>
-        <label class="e-toggle e-toggle---disabled e-toggle--inverted">
-          <input class="e-toggle__input" type="checkbox" disabled />
-          <span class="e-toggle__slider"></span>
-        </label>
-      </div>
-      <div class="e-mt-16">
-        <div class="e-title-caps e-text-white">Disabled on</div>
-        <label class="e-toggle e-toggle---disabled e-toggle--inverted">
-          <input class="e-toggle__input" type="checkbox" checked disabled />
-          <span class="e-toggle__slider"></span>
-        </label>
-      </div>
+    <div class="e-toggle e-toggle--inverted e-mt-16" role="switch">
+      <label class="e-toggle__label" for="toggle-3">On</label>
+      <input class="e-toggle__input" type="checkbox" id="toggle-3" checked />
+    </div>
+    <div class="e-toggle e-toggle--inverted e-mt-16" role="switch">
+      <label class="e-toggle__label" for="toggle-4">Disabled off</label>
+      <input class="e-toggle__input" type="checkbox" id="toggle-4" disabled />
+    </div>
+    <div class="e-toggle e-toggle--inverted e-mt-16" role="switch">
+      <label class="e-toggle__label" for="toggle-5">Disabled on</label>
+      <input class="e-toggle__input" type="checkbox" id="toggle-5" checked disabled />
     </div>
   </body>
 </html>
