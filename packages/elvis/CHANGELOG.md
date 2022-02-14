@@ -9,7 +9,7 @@
       </span>
       <br>
       <span class="changelog-date-span">
-        February 10, 2022
+        February 14, 2022
       </span>
     </td>
     <td class="changelog-content">
