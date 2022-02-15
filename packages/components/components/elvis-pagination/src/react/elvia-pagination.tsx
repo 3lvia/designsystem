@@ -79,7 +79,6 @@ const Pagination: FC<PaginationProps> = ({
 }) => {
   const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[dropdownItemsIndexValue]);
   const [showPaginationMenu, setShowPaginationMenu] = useState(true);
-  const [currentValue, setCurrentValue] = useState(value);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [selectedNumber, setSelectedNumber] = useState(1);
 
@@ -431,7 +430,6 @@ const Pagination: FC<PaginationProps> = ({
     }
 
     const newValue = { start: startRange, end: endRange };
-    setCurrentValue(newValue);
 
     if (!webcomponent && valueOnChange) {
       valueOnChange(newValue);
@@ -451,9 +449,6 @@ const Pagination: FC<PaginationProps> = ({
 
   // set rangevalue and return in valueOnChange function
   useEffect(() => {
-    if (currentValue.start === undefined || currentValue.end === undefined) {
-      updateValue(selectedNumber);
-    }
     if (value.start != undefined || value.end != undefined) {
       valueRangeToSelectedNumber(value);
     }

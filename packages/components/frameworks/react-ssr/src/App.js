@@ -263,7 +263,13 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-      <h2>Elvia ICONS</h2>
+      <Pagination
+        numberOfElements={100}
+        lastNumberLimit={99}
+        valueOnChange={(event) => console.log(event)}
+        dropdownMenuPos="top"
+      ></Pagination>
+      {/* <h2>Elvia ICONS</h2>
       <div className="testingIconSizes">
         <Icon name="folderCreate" customSize="37px"></Icon>
       </div>
@@ -289,7 +295,6 @@ function App() {
         lastNumberLimit={99}
         valueOnChange={(event) => console.log(event)}
         dropdownMenuPos="top"
-        dropdownItemsIndexValue={3}
       ></Pagination>
       <Carousel elements={elements} valueOnChange={setSelectedState}></Carousel>
       <h2>Breadcrumbs</h2>
@@ -729,7 +734,7 @@ function App() {
       <h2>Progressbar Error</h2>
       <div>
         <ProgressLinear isError></ProgressLinear>
-      </div>{' '}
+      </div>{' '} */}
       */
     </div>
   );
