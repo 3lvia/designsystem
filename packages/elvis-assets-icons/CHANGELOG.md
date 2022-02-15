@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 2.0.1 (15.02.22)
+
+### Patch
+
+- Updated all icons to fix a bug.
+
 ## 2.0.0 (17.01.22)
 
 ### Breaking changes

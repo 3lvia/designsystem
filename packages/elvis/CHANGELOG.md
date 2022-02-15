@@ -5,6 +5,29 @@
  <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">
+        7.16.1
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        February 15, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🛠 Patch</div>
+          <ul class="e-list">
+            <li>
+              Updated icons package.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+ <tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
         7.16.0
       </span>
       <br>

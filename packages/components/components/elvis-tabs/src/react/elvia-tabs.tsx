@@ -112,11 +112,9 @@ const Tabs: FC<TabsProps> = ({
     ['ewc-tabs--inverted']: isInverted,
   });
   const arrowLeftClasses = classNames('ewc-tabs__arrow', 'ewc-tabs__arrow--left', {
-    ['ewc-tabs__arrow--hide']: isOnLeftEnd,
     ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
   });
   const arrowRightClasses = classNames('ewc-tabs__arrow', 'ewc-tabs__arrow--right', {
-    ['ewc-tabs__arrow--hide']: isOnRightEnd,
     ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
   });
   const itemsClasses = classNames('ewc-tabs__items', {
@@ -143,10 +141,13 @@ const Tabs: FC<TabsProps> = ({
           name="arrowLeftBold"
           size="xxs"
           color={isInverted ? 'white' : undefined}
-          className="ewc-tabs__icon"
+          inlineStyle={{
+            position: 'absolute',
+            top: '11px',
+            visibility: isOnLeftEnd ? 'hidden' : 'visible',
+          }}
         />
       </div>
-
       <div className={itemsClasses}>
         <div className="ewc-tabs__items-scroll" ref={itemsRef} role="tablist">
           {items &&
@@ -170,7 +171,6 @@ const Tabs: FC<TabsProps> = ({
             ))}
         </div>
       </div>
-
       <div
         className={arrowRightClasses}
         onClick={() => {
@@ -180,10 +180,13 @@ const Tabs: FC<TabsProps> = ({
         <Icon
           name="arrowRightBold"
           size="xxs"
-          // color={isInverted ? 'white' : undefined}
-          className="ewc-tabs__icon"
+          color={isInverted ? 'white' : undefined}
+          inlineStyle={{
+            position: 'absolute',
+            top: '11px',
+            visibility: isOnRightEnd ? 'hidden' : 'visible',
+          }}
         />
-        {/* <div className="ewc-tabs__icon">Hei</div> */}
       </div>
     </div>
   );

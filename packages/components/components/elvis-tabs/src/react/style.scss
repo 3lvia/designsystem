@@ -45,14 +45,6 @@ $tabs-height: 44px;
     -ms-user-select: none;
     user-select: none;
 
-    .ewc-tabs__icon {
-      display: inline-block;
-      position: absolute;
-      top: 11px;
-      width: 8px;
-      height: 8px;
-    }
-
     // IE specific
     @media screen and (-ms-high-contrast: none) {
       margin-top: -20px;
@@ -71,9 +63,6 @@ $tabs-height: 44px;
       padding: 16px 8px 16px 28px;
     }
 
-    &.ewc-tabs__arrow--hide {
-      visibility: hidden;
-    }
     &.ewc-tabs__arrow--remove {
       display: none;
     }
