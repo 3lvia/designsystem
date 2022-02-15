@@ -540,3 +540,8 @@ $datepicker-max-width: 448px;
     transition: none;
   }
 }
+
+.e-form-field__label--optional::after {
+  content: ' (valgfri)';
+  font-weight: 400;
+}

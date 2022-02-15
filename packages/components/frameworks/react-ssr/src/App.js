@@ -548,6 +548,7 @@ function App() {
           valueOnChange={(dateCurr) => console.log(dateCurr)}
         ></Datepicker>
         <Datepicker
+          hasOptionalText
           maxDate={dateCurr}
           isOpen={isDatepickerOpen}
           onClose={() => setIsDatepickerOpen(false)}
