@@ -1,5 +1,11 @@
 # Elvia Tabs Changelog
 
+## 1.2.1 (15.02.22)
+
+### Patch
+
+- Now using elvis-icon package for internal icons.
+
 ## 1.2.0 (07.02.22)
 
 ### New feature
