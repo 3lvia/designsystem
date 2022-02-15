@@ -3,6 +3,7 @@
 
   <div class="components-examples">
     <div class="example-wrapper">
+      <!--Test the component here. When done add it to the list alphabetically-->
       <h3>Test your component here</h3>
       <!--Normal version-->
       <div class="e-bg-white"></div>
@@ -10,6 +11,7 @@
       <div class="e-bg-grey"></div>
     </div>
 
+    <!--Accordion-->
     <div class="example-wrapper">
       <h3>Accordion</h3>
       <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="normal">
@@ -17,6 +19,7 @@
       </elvia-accordion>
     </div>
 
+    <!--Box-->
     <div class="example-wrapper">
       <h3>Box</h3>
       <elvia-box :hasBorder="true">
@@ -25,6 +28,7 @@
       </elvia-box>
     </div>
 
+    <!--Breadcrumb-->
     <div class="example-wrapper">
       <h3>Breadcrumb</h3>
       <elvia-breadcrumb
@@ -33,6 +37,7 @@
       ></elvia-breadcrumb>
     </div>
 
+    <!--Carousel-->
     <div class="example-wrapper">
       <h3>Carousel</h3>
       <elvia-carousel :hideArrows="true" @value-on-change="logValue('Carousel', $event.detail.value)">
@@ -51,6 +56,7 @@
       </elvia-carousel>
     </div>
 
+    <!--Chip-->
     <div class="example-wrapper">
       <h3>Chip</h3>
       <div v-for="chip in deletableChipsList" :key="chip.value">
@@ -64,6 +70,7 @@
       </div>
     </div>
 
+    <!--Datepicker-->
     <div class="example-wrapper">
       <h3>Datepicker</h3>
       <elvia-datepicker
@@ -73,6 +80,7 @@
       ></elvia-datepicker>
     </div>
 
+    <!--Divider-->
     <div class="example-wrapper">
       <h3>Divider</h3>
       <elvia-divider></elvia-divider>
@@ -81,17 +89,20 @@
       </elvia-divider>
     </div>
 
+    <!--Dropdown-->
     <div class="example-wrapper">
       <h3>Dropdown</h3>
       <elvia-dropdown :defaultValue="dropdownDefaultOption" :options="dropdownOptions"></elvia-dropdown>
     </div>
 
+    <!--Ikon-->
     <div class="example-wrapper">
       <h3>Icon</h3>
       <elvia-icon name="arrowLeftBold"></elvia-icon>
       <elvia-icon name="arrowRightBold"></elvia-icon>
     </div>
 
+    <!--Modal-->
     <div class="example-wrapper">
       <h3>Modal</h3>
       <button class="e-btn" @click="isModalShowing = !isModalShowing">Hello</button>
@@ -113,6 +124,7 @@
       </elvia-modal>
     </div>
 
+    <!--Pagination-->
     <div class="example-wrapper">
       <h3>Pagination</h3>
       <elvia-pagination
@@ -122,6 +134,7 @@
       ></elvia-pagination>
     </div>
 
+    <!--Popover-->
     <div class="example-wrapper">
       <h3>Popover</h3>
       <elvia-popover header="BankID" posX="right">
@@ -132,11 +145,13 @@
       </elvia-popover>
     </div>
 
+    <!--Progress linear-->
     <div class="example-wrapper">
-      <h3>Progressbar</h3>
+      <h3>Progress linear</h3>
       <elvia-progress-linear :value="50" :isIndeterminate="false" :isError="false"></elvia-progress-linear>
     </div>
 
+    <!--Radio filter-->
     <div class="example-wrapper">
       <h3>Radio Filter</h3>
       <elvia-radio-filter
@@ -152,6 +167,7 @@
       ></elvia-radio-filter>
     </div>
 
+    <!--Tabs-->
     <div class="example-wrapper">
       <h3>Tabs</h3>
       <elvia-tabs

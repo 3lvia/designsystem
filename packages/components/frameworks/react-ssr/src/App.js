@@ -84,13 +84,13 @@ function App() {
       <div className="components-examples">
         {/* CURRENTLY TESTING */}
         <div className="example-wrapper">
+          {/* Test the component here. When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
           <div className="e-bg-white"></div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>
-        {/* ALL COMPONENTS */}
         {/* ACCORDION */}
         <div className="example-wrapper">
           <h3>Accordion</h3>
