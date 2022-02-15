@@ -3,6 +3,14 @@
 
   <div class="components-examples">
     <div class="example-wrapper">
+      <h3>Test your component here</h3>
+      <!--Normal version-->
+      <div class="e-bg-white"></div>
+      <!--Inverted version-->
+      <div class="e-bg-grey"></div>
+    </div>
+
+    <div class="example-wrapper">
       <h3>Accordion</h3>
       <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="normal">
         <div slot="content">Webcomponentent content for the Accordion component</div>
@@ -19,16 +27,15 @@
 
     <div class="example-wrapper">
       <h3>Breadcrumb</h3>
-      <elvia-breadcrumb :breadcrumbs="breadcrumbsTest"></elvia-breadcrumb>
       <elvia-breadcrumb
         :breadcrumbs="breadcrumbsTestNoUrl"
-        @breadcrumbs-on-change="breadcrumbsOnClick($event)"
+        @breadcrumbs-on-change="logValue('Breadcrumb', $event.detail.value)"
       ></elvia-breadcrumb>
     </div>
 
     <div class="example-wrapper">
       <h3>Carousel</h3>
-      <elvia-carousel :hideArrows="true" @value-on-change="carouselValue = $event.detail.value">
+      <elvia-carousel :hideArrows="true" @value-on-change="logValue('Carousel', $event.detail.value)">
         <div slot="title-1">
           <h4 class="e-title-sm">HAN-port</h4>
         </div>
@@ -52,7 +59,7 @@
           :color="chip.color"
           :ariaLabel="'Fjern filtrering for ' + chip.value"
           :disabled="chip.disabled"
-          @on-delete="handleOnDelete($event)"
+          @on-delete="logValue('Chip', $event.detail.value)"
         ></elvia-chip>
       </div>
     </div>
@@ -62,7 +69,7 @@
       <elvia-datepicker
         :isCompact="true"
         label="Fra dato"
-        @value-on-change="onFromDateChange($event)"
+        @value-on-change="logValue('Datepicker', $event.detail.value)"
       ></elvia-datepicker>
     </div>
 
@@ -72,24 +79,27 @@
       <elvia-divider :isInverted="false" :type="'title'">
         <h2 slot="title">Title</h2>
       </elvia-divider>
-      <elvia-divider :orientation="'vertical'" :isInverted="false">
-        <h2 slot="title">Title</h2>
-      </elvia-divider>
     </div>
 
     <div class="example-wrapper">
       <h3>Dropdown</h3>
-      <elvia-dropdown :defaultValue="defaultOption" :options="elviaOptions"></elvia-dropdown>
+      <elvia-dropdown :defaultValue="dropdownDefaultOption" :options="dropdownOptions"></elvia-dropdown>
+    </div>
+
+    <div class="example-wrapper">
+      <h3>Icon</h3>
+      <elvia-icon name="arrowLeftBold"></elvia-icon>
+      <elvia-icon name="arrowRightBold"></elvia-icon>
     </div>
 
     <div class="example-wrapper">
       <h3>Modal</h3>
-      <button class="e-btn" @click="isModalShowing1 = !isModalShowing1">Hello</button>
+      <button class="e-btn" @click="isModalShowing = !isModalShowing">Hello</button>
       <elvia-modal
-        :isShowing="isModalShowing1"
+        :isShowing="isModalShowing"
         :title="'Redigere bidragsytere'"
         :hasCloseBtn="true"
-        @on-hide="isModalShowing1 = !isModalShowing1"
+        @on-hide="isModalShowing = !isModalShowing"
       >
         <div slot="content">
           <div class="date-container">
@@ -97,7 +107,7 @@
           </div>
         </div>
         <div slot="secondaryButton">
-          <button class="e-btn e-btn--secondary e-btn--lg" @click="isModalShowing1 = false">Avbryt</button>
+          <button class="e-btn e-btn--secondary e-btn--lg" @click="isModalShowing = false">Avbryt</button>
         </div>
         <div slot="primaryButton"><button class="e-btn e-btn--primary e-btn--lg">Lagre</button></div>
       </elvia-modal>
@@ -105,7 +115,11 @@
 
     <div class="example-wrapper">
       <h3>Pagination</h3>
-      <elvia-pagination items="156" :value="defaultPaginatioValue"></elvia-pagination>
+      <elvia-pagination
+        :numberOfElements="156"
+        :value="defaultPaginationValue"
+        @value-on-change="logValue('Pagination', $event.detail.value)"
+      ></elvia-pagination>
     </div>
 
     <div class="example-wrapper">
@@ -134,7 +148,7 @@
         :value="'read'"
         :name="'readRadioFilters'"
         :ariaLabel="'{value} filtrering valgt'"
-        @value-on-change="updateSelectedFilter($event)"
+        @value-on-change="logValue('Radio filter', $event.detail.value)"
       ></elvia-radio-filter>
     </div>
 
@@ -144,7 +158,7 @@
         :items="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
         :value="1"
         :isInverted="false"
-        @callback-name="value = $event.detail.value"
+        @value-on-change="logValue('Tabs', $event.detail.value)"
       ></elvia-tabs>
     </div>
   </div>
@@ -155,77 +169,47 @@ export default {
   name: 'App',
   data: function () {
     return {
-      isModalShowing1: false,
-      isModalShowing: false,
-      defaultPaginatioValue: { start: 1, end: 10 },
-      defaultOption: { value: '675', label: 'Mast - Råte' },
-      elviaOptions: [
-        { value: '675', label: 'Mast - Råte' },
-        { value: '676', label: 'Mast - Hakkespettskade' },
-        { value: '677', label: 'Mast - Annen skade/ fremmedlegemer' },
-        { value: '678', label: 'Mast - Stag' },
-      ],
-      testObject: '{"value":"John", "label":"hello there"}',
+      // Breadcrumb
       breadcrumbsTest: [
-        {
-          url: 'https://elvia.no',
-          title: 'Elvia.no',
-        },
-        {
-          url: 'https://www.elvia.no/nettleie',
-          title: 'Nettleie',
-        },
-        {
-          url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt',
-          title: 'Elvias leveringsplikt',
-        },
+        { url: 'https://elvia.no', title: 'Elvia.no' },
+        { url: 'https://www.elvia.no/nettleie', title: 'Nettleie' },
+        { url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt', title: 'Elvias leveringsplikt' },
       ],
       breadcrumbsTestNoUrl: [
-        {
-          title: 'Elvia.no',
-        },
-        {
-          title: 'Nettleie',
-        },
-        {
-          title: 'Elvias leveringsplikt',
-        },
+        { title: 'Elvia.no' },
+        { title: 'Nettleie' },
+        { title: 'Elvias leveringsplikt' },
       ],
+      // Carousel
+      elements: [
+        { element: this.carouselParagraph },
+        { title: 'Hei til ny tariff!', element: this.carouselParagraph },
+        { title: 'Strømbruddsvarsel', element: this.carouselParagraph },
+        { element: this.carouselParagraph },
+      ],
+      // Chips
       deletableChipsList: [
         { value: 2022, color: 'green' },
         { value: 2023, color: 'red' },
         { value: 2024, color: 'blue' },
       ],
-      elements: [
-        {
-          element: this.carouselParagraph,
-        },
-        {
-          title: 'Hei til ny tariff!',
-          element: this.carouselParagraph,
-        },
-        {
-          title: 'Strømbruddsvarsel',
-          element: this.carouselParagraph,
-        },
-        {
-          element: this.carouselParagraph,
-        },
+      // Dropdown
+      dropdownDefaultOption: { value: '675', label: 'Mast - Råte' },
+      dropdownOptions: [
+        { value: '675', label: 'Mast - Råte' },
+        { value: '676', label: 'Mast - Hakkespettskade' },
+        { value: '677', label: 'Mast - Annen skade/ fremmedlegemer' },
+        { value: '678', label: 'Mast - Stag' },
       ],
+      // Modal
+      isModalShowing: false,
+      // Pagination
+      defaultPaginationValue: { start: 1, end: 10 },
     };
   },
   methods: {
-    onFromDateChange: (event) => {
-      console.log('hello: ', event);
-    },
-    handleOnDelete: (event) => {
-      console.log(event.detail.value);
-    },
-    updateSelectedFilter: (event) => {
-      console.log(event.detail.value);
-    },
-    breadcrumbsOnClick: (event) => {
-      console.log(event.detail.value);
+    logValue(component, value) {
+      console.log(component, ': ', value);
     },
   },
 };
