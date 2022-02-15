@@ -1,9 +1,10 @@
 # Elvis-assets-icon
 
-## 2.0.1 (15.02.22)
+## 2.1.0 (15.02.22)
 
-### Patch
+### New feature
 
+- Added new icons "layers", "sorting-2-bold", "select_area", "pin-filled_color", and "check_circle-color".
 - Updated all icons to fix a bug.
 
 ## 2.0.0 (17.01.22)

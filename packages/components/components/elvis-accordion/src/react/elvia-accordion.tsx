@@ -2,6 +2,7 @@ import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
 import toolbox from '@elvia/elvis-toolbox';
 import { AccordionLabelPosition, AccordionSize, AccordionType } from './elvia-accordion.types';
 import { AccordionArea, AccordionButtonArea, AccordionButton, AccordionContent } from './styledComponents';
+import { Icon } from '@elvia/elvis-icon/react';
 
 export interface AccordionProps {
   content: string | HTMLElement;
@@ -25,6 +26,7 @@ const Accordion: FC<AccordionProps> = ({
   inlineStyle,
 }) => {
   const [contentOpen, setContentOpen] = useState(false);
+  const [isHoveringButton, setIsHoveringButton] = useState(false);
 
   const accordionRef = useRef<HTMLSpanElement>(null);
   const accordionText = useRef<HTMLDivElement>(null);
@@ -85,11 +87,16 @@ const Accordion: FC<AccordionProps> = ({
             closeLabel={closeLabel ? closeLabel : ''}
             size={size}
             onClick={() => setContentOpen((contentOpen) => !contentOpen)}
+            onMouseEnter={() => setIsHoveringButton(true)}
+            onMouseLeave={() => setIsHoveringButton(false)}
             data-testid="accordion-button-label"
             aria-label={contentOpen ? 'Lukk' : 'Åpne'}
           >
             {!contentOpen ? openLabel : closeLabel}
-            <i></i>
+            <Icon
+              name={isHoveringButton ? 'expandCircleFilledColor' : 'expandCircleColor'}
+              size={size === 'small' ? 'xs' : 'sm'}
+            />
           </AccordionButton>
         </AccordionButtonArea>
         {type === 'normal' ? (

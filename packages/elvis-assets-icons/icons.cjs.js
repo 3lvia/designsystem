@@ -1401,6 +1401,31 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
+    exports.checkCircleColor = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 24.997c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-22.5c-5.79 0-10.5 4.71-10.5 10.5s4.71 10.5 10.5 10.5 10.5-4.71 10.5-10.5-4.71-10.5-10.5-10.5z" fill="#29D305"/><path fill-rule="evenodd" clip-rule="evenodd" d="M6.53 12.307a.75.75 0 011.061 0l3.005 3.002 6.54-6.534a.75.75 0 011.062 1.06l-7.072 7.063a.75.75 0 01-1.06 0L6.53 13.366a.748.748 0 010-1.06z" fill="#000"/></svg>'
+          let iconName = 'check_circle-color'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
     exports.checkCircleFilled = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 24.997c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M6.47 12.306a.75.75 0 011.06 0l3.006 3.002 6.54-6.534a.75.75 0 011.06 1.06l-7.07 7.063a.75.75 0 01-1.06 0L6.47 13.365a.748.748 0 010-1.06z" fill="#fff"/></svg>'
@@ -3426,6 +3451,31 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
+    exports.layers = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.545 1.81L1.803 6.358a.103.103 0 000 .177l9.74 4.512a1.165 1.165 0 00.912 0L22.197 6.5a.103.103 0 00.035-.143.103.103 0 00-.035-.034l-9.74-4.512a1.165 1.165 0 00-.912 0zM10.853.243a2.88 2.88 0 012.313.009l9.771 4.526a1.816 1.816 0 01.002 3.269l-9.77 4.56c-.008.002-.015.006-.022.009a2.88 2.88 0 01-2.294 0l-.019-.009-9.771-4.525a1.817 1.817 0 01-.002-3.269l9.77-4.56a.836.836 0 01.022-.01z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M23.921 12.241c.198.43.01.94-.42 1.138l-10.457 4.817-.003.001a2.572 2.572 0 01-2.134 0l-.004-.002L.497 13.378a.857.857 0 01.72-1.556l10.402 4.815.002.001a.857.857 0 00.708 0h.001l10.454-4.817a.857.857 0 011.137.42z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M23.921 17.813c.198.43.01.939-.42 1.137l-10.457 4.817-.003.001a2.572 2.572 0 01-2.134 0l-.004-.002L.497 18.95a.857.857 0 01.72-1.555l10.402 4.815h.001a.857.857 0 00.709 0h.001l10.454-4.816a.857.857 0 011.137.42z" fill="#000"/></svg>'
+          let iconName = 'layers'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
     exports.lighting = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.132 3.092a3.75 3.75 0 011.487-.037 3.87 3.87 0 013.101 3.862v.652a8.99 8.99 0 015.266 7.317c.003.025.004.05.004.074v.07a1.49 1.49 0 01-1.504 1.47H4.49c-.016 0-.033 0-.049-.002a1.49 1.49 0 01-1.39-1.59l.002-.02A8.99 8.99 0 018.26 7.573v-.79a3.491 3.491 0 01.01-.657 3.75 3.75 0 012.862-3.034zm1.2 1.436a2.25 2.25 0 00-2.578 1.818 1.99 1.99 0 00.003.336.752.752 0 01.003.068v1.32a.75.75 0 01-.478.699A7.49 7.49 0 004.55 15h14.94v-.002a7.49 7.49 0 00-4.787-6.227.75.75 0 01-.483-.701V6.895a2.37 2.37 0 00-1.887-2.367z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11.96 0a.75.75 0 01.75.75v3a.75.75 0 01-1.5 0v-3a.75.75 0 01.75-.75zM14.97 15a.75.75 0 01.75.75 3.75 3.75 0 01-7.5 0h1.5a2.25 2.25 0 004.5 0 .75.75 0 01.75-.75zM11.96 21a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5a.75.75 0 01.75-.75zM16.794 19.626a.75.75 0 011.04.208l1.5 2.25a.75.75 0 11-1.248.832l-1.5-2.25a.75.75 0 01.208-1.04zM7.126 19.626a.75.75 0 01.208 1.04l-1.5 2.25a.75.75 0 11-1.248-.832l1.5-2.25a.75.75 0 011.04-.208z" fill="#000"/></svg>'
@@ -4405,6 +4455,31 @@
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a8.25 8.25 0 00-8.25 8.25c0 .997.361 2.278.87 3.614.518 1.358 1.222 2.857 1.975 4.321 1.508 2.928 3.24 5.766 4.155 7.145a1.5 1.5 0 002.5 0c.914-1.379 2.647-4.217 4.155-7.145.753-1.463 1.457-2.963 1.975-4.321.509-1.336.87-2.617.87-3.614A8.25 8.25 0 0012 0z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 5.25a3 3 0 100 6 3 3 0 000-6zm-4.5 3a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0z" fill="#fff"/></svg>'
           let iconName = 'pin-filled'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
+    exports.pinFilledColor = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4935_63196)" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 3.75a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm-3 4.5a3 3 0 116 0 3 3 0 01-6 0z" fill="#000"/><path d="M6.166 2.416A8.25 8.25 0 0120.25 8.25c0 .997-.361 2.278-.87 3.614-.518 1.358-1.222 2.857-1.975 4.321-1.508 2.928-3.24 5.766-4.155 7.145a1.5 1.5 0 01-2.5 0c-.914-1.379-2.647-4.217-4.155-7.145-.753-1.463-1.457-2.963-1.975-4.321-.509-1.336-.87-2.617-.87-3.614a8.25 8.25 0 012.416-5.834zm1.061 1.061A6.75 6.75 0 0118.75 8.25c0 .706-.273 1.77-.772 3.08-.49 1.287-1.167 2.732-1.907 4.169-1.48 2.874-3.184 5.665-4.071 7.001-.887-1.336-2.591-4.127-4.071-7.001-.74-1.438-1.417-2.883-1.907-4.17-.499-1.308-.772-2.373-.772-3.079a6.75 6.75 0 011.977-4.773z" fill="#000"/><path d="M12 1.5a6.75 6.75 0 00-6.75 6.75c0 .706.273 1.77.772 3.08.49 1.287 1.167 2.732 1.907 4.169 1.48 2.874 3.184 5.665 4.071 7.001.887-1.336 2.591-4.127 4.071-7.001.74-1.438 1.417-2.883 1.907-4.17.499-1.308.772-2.373.772-3.079A6.75 6.75 0 0012 1.5zm0 2.25a4.5 4.5 0 100 9 4.5 4.5 0 000-9z" fill="#29D305"/></g><defs><clipPath id="clip0_4935_63196"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>'
+          let iconName = 'pin-filled-color'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
@@ -5601,6 +5676,31 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
+    exports.selectArea = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4907_19484)" fill-rule="evenodd" clip-rule="evenodd" fill="#000"><path d="M3.751 1.497a2.25 2.25 0 00-2.25 2.25.75.75 0 01-1.5 0 3.75 3.75 0 013.75-3.75.75.75 0 010 1.5zM.751 16.497a.75.75 0 01.75.75 2.25 2.25 0 002.25 2.25.75.75 0 010 1.5 3.75 3.75 0 01-3.75-3.75.75.75 0 01.75-.75zM16.501.747a.75.75 0 01.75-.75 3.75 3.75 0 013.75 3.75.75.75 0 01-1.5 0 2.25 2.25 0 00-2.25-2.25.75.75 0 01-.75-.75zM20.251 7.497a.75.75 0 01.75.75v4.5a.75.75 0 11-1.5 0v-4.5a.75.75 0 01.75-.75zM.751 7.497a.75.75 0 01.75.75v4.5a.75.75 0 11-1.5 0v-4.5a.75.75 0 01.75-.75zM7.501.747a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75zM7.501 20.247a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75zM14.235 14.232a.75.75 0 01.793-.172l8.486 3.182a.75.75 0 01.032 1.391l-3.437 1.473-1.473 3.436a.75.75 0 01-1.391-.032l-3.182-8.485a.75.75 0 01.172-.793zm1.812 1.812l1.946 5.19.856-1.995a.75.75 0 01.394-.393l1.995-.856-5.191-1.946z"/></g><defs><clipPath id="clip0_4907_19484"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>'
+          let iconName = 'select_area'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
     exports.settingsVertical = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 5.265a.75.75 0 00-1.5 0v5.345a3.001 3.001 0 00-1.371 5.026 3 3 0 001.371.783v2.346a.75.75 0 101.5 0v-2.346a3.01 3.01 0 001.744-1.238A3 3 0 0016.5 10.61V5.265zm-.75 6.75a1.5 1.5 0 100 2.999 1.5 1.5 0 000-3zM9 10.42a3 3 0 10-1.5 0v8.345a.75.75 0 101.5 0v-8.346zm-.751-1.405a1.5 1.5 0 110-3 1.5 1.5 0 01.001 3h-.001z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 0A2.25 2.25 0 000 2.25v19.5A2.25 2.25 0 002.25 24h19.5A2.25 2.25 0 0024 21.75V2.25A2.25 2.25 0 0021.75 0H2.25zM1.5 2.25a.75.75 0 01.75-.75h19.5a.75.75 0 01.75.75v19.5a.75.75 0 01-.75.75H2.25a.75.75 0 01-.75-.75V2.25z" fill="#000"/></svg>'
@@ -5805,6 +5905,31 @@
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.449.307c.409-.41 1.072-.41 1.481 0l4.762 4.762a1.048 1.048 0 01-1.481 1.481L18.19 2.53l-4.022 4.02a1.048 1.048 0 01-1.481-1.481L17.449.307z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M18.19 0c.578 0 1.047.469 1.047 1.048v21.904a1.048 1.048 0 11-2.095 0V1.048C17.142.469 17.61 0 18.189 0zM6.55 23.693c-.409.41-1.072.41-1.481 0L.307 18.931a1.048 1.048 0 011.481-1.481l4.021 4.02 4.022-4.02a1.048 1.048 0 011.481 1.481L6.55 23.693z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M5.81 24a1.048 1.048 0 01-1.048-1.048V1.048a1.048 1.048 0 012.095 0v21.904c0 .579-.469 1.048-1.048 1.048z" fill="#000"/></svg>'
           let iconName = 'sorting-bold'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
+    exports.sorting2Bold = {
+      getIcon: function(color) {
+          let icon = '<svg width="25" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.069.307c.409-.41 1.072-.41 1.481 0l4.762 4.762A1.048 1.048 0 019.831 6.55L5.81 2.53 1.788 6.55A1.048 1.048 0 01.307 5.07L5.069.307z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M5.805 0c.579 0 1.048.469 1.048 1.048v21.904a1.048 1.048 0 11-2.095 0V1.048C4.758.469 5.227 0 5.805 0zM19.166 23.693c-.41.41-1.073.41-1.482 0l-4.762-4.762a1.048 1.048 0 111.482-1.481l4.02 4.02 4.022-4.02a1.048 1.048 0 111.481 1.481l-4.761 4.762z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M18.429 24a1.048 1.048 0 01-1.048-1.048V1.048a1.048 1.048 0 012.096 0v21.904c0 .579-.47 1.048-1.048 1.048z" fill="#000"/></svg>'
+          let iconName = 'sorting-2-bold'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
