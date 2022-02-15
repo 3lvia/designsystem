@@ -51,6 +51,12 @@ export const paginationData = {
         },
       ]`,
     },
+    dropdownItemsIndexValue: {
+      isRequired: false,
+      type: 'number',
+      description: `Set the default value of the dropdownItems`,
+      default: '0',
+    },
     labelDisplaying: {
       isRequired: false,
       type: 'string',

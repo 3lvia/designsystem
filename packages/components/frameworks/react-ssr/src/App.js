@@ -47,6 +47,14 @@ function App() {
   const [progressValue, setProgressValue] = useState(0);
   const [selectedDate, setSelectedDate] = useState(dateCurr);
   const [isDatepickerOpen, setIsDatepickerOpen] = useState(false);
+  const [paginationDropdownMenu, setPaginationDropdownMenu] = useState(0);
+
+  function increasePaginationDropdownValue() {
+    setPaginationDropdownMenu((prevProgValue) => prevProgValue + 1);
+  }
+  function decreasePaginationDropdownValue() {
+    setPaginationDropdownMenu((prevProgValue) => prevProgValue - 1);
+  }
 
   let minDate = new Date();
   minDate.setDate(minDate.getDate() - 5);
@@ -263,13 +271,7 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-      <Pagination
-        numberOfElements={100}
-        lastNumberLimit={99}
-        valueOnChange={(event) => console.log(event)}
-        dropdownMenuPos="top"
-      ></Pagination>
-      {/* <h2>Elvia ICONS</h2>
+      <h2>Elvia ICONS</h2>
       <div className="testingIconSizes">
         <Icon name="folderCreate" customSize="37px"></Icon>
       </div>
@@ -290,12 +292,16 @@ function App() {
         cornerIcon={<i class="e-icon e-icon--unlock e-icon--xs"></i>}
       ></Card>
       <h2>Pagination!</h2>
+      <button onClick={() => increasePaginationDropdownValue()}>ØK</button>
+      <button onClick={() => decreasePaginationDropdownValue()}>Minsk</button>
       <Pagination
         numberOfElements={100}
         lastNumberLimit={99}
         valueOnChange={(event) => console.log(event)}
         dropdownMenuPos="top"
+        dropdownItemsIndexValue={paginationDropdownMenu}
       ></Pagination>
+      {paginationDropdownMenu}
       <Carousel elements={elements} valueOnChange={setSelectedState}></Carousel>
       <h2>Breadcrumbs</h2>
       <Breadcrumb breadcrumbs={breadcrumbs} />
@@ -734,7 +740,7 @@ function App() {
       <h2>Progressbar Error</h2>
       <div>
         <ProgressLinear isError></ProgressLinear>
-      </div>{' '} */}
+      </div>{' '}
       */
     </div>
   );
