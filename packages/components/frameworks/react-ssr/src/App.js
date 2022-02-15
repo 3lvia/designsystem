@@ -289,6 +289,7 @@ function App() {
         lastNumberLimit={99}
         valueOnChange={(event) => console.log(event)}
         dropdownMenuPos="top"
+        dropdownItemsIndexValue={3}
       ></Pagination>
       <Carousel elements={elements} valueOnChange={setSelectedState}></Carousel>
       <h2>Breadcrumbs</h2>

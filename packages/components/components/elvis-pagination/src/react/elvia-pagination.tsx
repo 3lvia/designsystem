@@ -32,6 +32,7 @@ export interface PaginationProps {
   dropdownMenuPos: string;
   isRightAligned?: boolean;
   dropdownItems: Array<DropdownOption>;
+  dropdownItemsIndexValue: number;
   labelDisplaying: string;
   label: string;
   labelOf: string;
@@ -67,6 +68,7 @@ const Pagination: FC<PaginationProps> = ({
   isRightAligned = false,
   dropdownMenuPos = 'bottom',
   dropdownItems = paginationOptions,
+  dropdownItemsIndexValue = 0,
   label = 'elementer',
   labelDisplaying = 'Viser',
   labelOf = 'av',
@@ -75,7 +77,7 @@ const Pagination: FC<PaginationProps> = ({
   inlineStyle,
   webcomponent,
 }) => {
-  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[0]);
+  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[dropdownItemsIndexValue]);
   const [showPaginationMenu, setShowPaginationMenu] = useState(true);
   const [currentValue, setCurrentValue] = useState(value);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -90,7 +92,7 @@ const Pagination: FC<PaginationProps> = ({
   }, [numberOfElements]);
 
   useEffect(() => {
-    setCurrentDisplayAmount(dropdownItems[0]);
+    setCurrentDisplayAmount(dropdownItems[dropdownItemsIndexValue]);
   }, [dropdownItems]);
 
   useEffect(() => {
