@@ -10,7 +10,7 @@
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-segmented-controls">
+    <div class="e-segmented-controls" style="width: 300px">
       <input type="radio" name="so-1-1" id="so-1-1" checked />
       <input type="radio" name="so-1-1" id="so-1-2" />
       <label for="so-1-1" data-value="Option 1">
@@ -63,6 +63,18 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Width'">
+        <ng-container ngProjectAs="sectionContent">
+          Add specific width depending on how many options and how long each option is. The padding should be
+          about equal to the padding in the examples above.
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

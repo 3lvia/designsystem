@@ -8093,14 +8093,11 @@ input:focus {
   display: flex;
   align-items: center;
   height: 100%;
-  font-family: Red Hat Text, Verdana, sans-serif;
+  font-family: "Red Hat Display", Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 500;
   font-size: 14px;
   line-height: 22px;
-  font-weight: 400;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: inherit;
 }
 .e-segmented-controls > label:before, .e-segmented-controls > label:after {
   position: absolute;
@@ -8150,23 +8147,11 @@ input:focus {
   height: 46px;
 }
 .e-segmented-controls.e-segmented-controls--lg > label .e-segmented-controls__title {
-  font-family: "Red Hat Text", Verdana, sans-serif;
-  font-style: normal;
-  font-weight: 400;
   font-size: 16px;
-  line-height: 145%;
 }
 .e-segmented-controls.e-segmented-controls--sm > label {
   height: 30px;
-}
-.e-segmented-controls.e-segmented-controls--sm > label .e-segmented-controls__title {
-  font-family: "Red Hat Display", Verdana, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
-  letter-spacing: 0px;
-  text-align: center;
+  width: 100%;
 }
 
 .e-border-none {
