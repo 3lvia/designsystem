@@ -192,7 +192,6 @@ $greys: (
 );
 
 $just-colors: map-merge($signal-colors, $data-colors);
-$label-colors: map-merge($just-colors, $primary-colors);
 $grey-primary: map-merge($greys, $primary-colors);
 $colors: map-merge($just-colors, $grey-primary);
 
