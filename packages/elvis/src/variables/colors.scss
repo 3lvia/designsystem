@@ -1,6 +1,6 @@
-@use "sass:list";
-@use "sass:map";
-@use "sass:meta";
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
 @function color-map($name, $color-set: $colors) {
   $color-map: null;
 
@@ -192,6 +192,7 @@ $greys: (
 );
 
 $just-colors: map-merge($signal-colors, $data-colors);
+$label-colors: map-merge($just-colors, $primary-colors);
 $grey-primary: map-merge($greys, $primary-colors);
 $colors: map-merge($just-colors, $grey-primary);
 
