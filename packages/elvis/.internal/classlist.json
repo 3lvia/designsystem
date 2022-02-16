@@ -905,9 +905,10 @@
 		},
 		"e-toggle": {
 			"element": {
-				"e-toggle__slider": {}
+				"e-toggle__input": {}
 			},
 			"psuedo": {
+				"e-toggle---checked": {},
 				"e-toggle---focus": {},
 				"e-toggle---disabled": {}
 			},
@@ -973,6 +974,7 @@
 				"e-segmented-controls__title": {}
 			},
 			"modifier": {
+				"e-segmented-controls--lg": {},
 				"e-segmented-controls--sm": {}
 			}
 		},
@@ -1720,10 +1722,11 @@
 		"e-tooltip__content--left": {},
 		"e-tooltip__content--right": {},
 		"e-toggle": {},
-		"e-toggle__slider": {},
+		"e-toggle__input": {},
+		"e-toggle---checked": {},
 		"e-toggle---focus": {},
-		"e-toggle--inverted": {},
 		"e-toggle---disabled": {},
+		"e-toggle--inverted": {},
 		"e-checkbox__mark": {},
 		"e-checkbox__label": {},
 		"e-checkbox--sm": {},
@@ -1777,6 +1780,7 @@
 		"e-segmented-controls": {},
 		"e-segmented-controls---focus": {},
 		"e-segmented-controls__title": {},
+		"e-segmented-controls--lg": {},
 		"e-segmented-controls--sm": {},
 		"e-border-none": {},
 		"e-border": {},
