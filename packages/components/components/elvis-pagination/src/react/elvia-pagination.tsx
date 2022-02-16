@@ -32,7 +32,7 @@ export interface PaginationProps {
   dropdownMenuPos: string;
   isRightAligned?: boolean;
   dropdownItems: Array<DropdownOption>;
-  dropdownItemsIndexValue: number;
+  dropdownItemsDefaultIndex: number;
   labelDisplaying: string;
   label: string;
   labelOf: string;
@@ -68,7 +68,7 @@ const Pagination: FC<PaginationProps> = ({
   isRightAligned = false,
   dropdownMenuPos = 'bottom',
   dropdownItems = paginationOptions,
-  dropdownItemsIndexValue = 0,
+  dropdownItemsDefaultIndex = 0,
   label = 'elementer',
   labelDisplaying = 'Viser',
   labelOf = 'av',
@@ -77,7 +77,7 @@ const Pagination: FC<PaginationProps> = ({
   inlineStyle,
   webcomponent,
 }) => {
-  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[dropdownItemsIndexValue]);
+  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[dropdownItemsDefaultIndex]);
   const [showPaginationMenu, setShowPaginationMenu] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [selectedNumber, setSelectedNumber] = useState(1);
@@ -91,8 +91,8 @@ const Pagination: FC<PaginationProps> = ({
   }, [numberOfElements]);
 
   useEffect(() => {
-    setCurrentDisplayAmount(dropdownItems[dropdownItemsIndexValue]);
-  }, [dropdownItems, dropdownItemsIndexValue]);
+    setCurrentDisplayAmount(dropdownItems[dropdownItemsDefaultIndex]);
+  }, [dropdownItems, dropdownItemsDefaultIndex]);
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);

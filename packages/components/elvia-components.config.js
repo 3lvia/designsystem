@@ -335,7 +335,7 @@ module.exports = [
       { name: 'numberOfElements', type: 'number', propType: 'number' },
       { name: 'lastNumberLimit', type: 'number', propType: 'number | undefined' },
       { name: 'dropdownMenuPos', type: 'string', propType: 'string' },
-      { name: 'dropdownItemsIndexValue', type: 'number', propType: 'number' },
+      { name: 'dropdownItemsDefaultIndex', type: 'number', propType: 'number' },
       { name: 'isRightAligned', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'dropdownItems', type: 'object', propType: 'object' },
       { name: 'labelDisplaying', type: 'string', propType: 'string' },
