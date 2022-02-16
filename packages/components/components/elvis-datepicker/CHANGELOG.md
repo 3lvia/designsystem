@@ -1,5 +1,11 @@
 # Elvia Date picker Changelog
 
+## 2.4.0 (15.02.22)
+
+### New feature
+
+- Added hasOptionalText prop
+
 ## 2.3.0 (07.02.22)
 
 ### New feature

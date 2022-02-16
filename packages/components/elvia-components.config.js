@@ -175,6 +175,7 @@ module.exports = [
       { name: 'isOpen', type: 'boolean', propType: 'boolean' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
+      { name: 'hasOptionalText', type: 'boolean', propType: 'boolean | undefined' },
     ],
     reactName: 'Datepicker',
     elementStyle: 'display: block; max-width: 448px;',
