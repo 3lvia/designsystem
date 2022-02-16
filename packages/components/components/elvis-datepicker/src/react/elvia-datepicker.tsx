@@ -32,6 +32,7 @@ export interface DatepickerProps {
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   hasOptionalText?: boolean;
+  showValidation?: boolean;
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -54,6 +55,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   className,
   inlineStyle,
   hasOptionalText,
+  showValidation,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
   const [initialFocusedDate, setInitialFocusedDate] = useState<Date | null>(null);
@@ -69,9 +71,13 @@ export const Datepicker: FC<DatepickerProps> = ({
   // Used to avoid date-fns from formatting date before date is valid
   const unicodeChar = '­';
 
+  const showError =
+    (showValidation && currErrorMessage !== '') ||
+    (!hasFocus && (customError || (currErrorMessage !== '' && hasHadFocus)));
+
   // Styling
   const datePickerClasses = classnames('ewc-datepicker', {
-    ['ewc-datepicker--error']: !hasFocus && (customError || (currErrorMessage !== '' && hasHadFocus)),
+    ['ewc-datepicker--error']: showError,
     ['ewc-datepicker--compact']: isCompact !== false,
     ['ewc-datepicker--unselected']: value === null,
     ['ewc-datepicker--full-width']: isFullWidth,
@@ -170,9 +176,10 @@ export const Datepicker: FC<DatepickerProps> = ({
     if (customError) {
       return;
     }
-    if (date === null && !isRequired) {
-      setCurrErrorMessage('');
-    } else if (!isValid(date)) {
+
+    setCurrErrorMessage('');
+
+    if (!isValid(date)) {
       if (date === null && isRequired) {
         setCurrErrorMessage('Velg en dato');
       } else if (date !== null) {
@@ -182,8 +189,6 @@ export const Datepicker: FC<DatepickerProps> = ({
       setCurrErrorMessage(`Kan ikke være før ${format(minDate, 'dd.MM.yyyy')}`);
     } else if (date && maxDate && isAfter(date.setHours(0, 0, 0, 0), maxDate.setHours(0, 0, 0, 0))) {
       setCurrErrorMessage(`Kan ikke være etter ${format(maxDate, 'dd.MM.yyyy')}`);
-    } else {
-      setCurrErrorMessage('');
     }
   };
 
@@ -413,7 +418,7 @@ export const Datepicker: FC<DatepickerProps> = ({
         </MuiPickersUtilsProvider>
       </ThemeProvider>
 
-      {!hasFocus && (customError || (currErrorMessage !== '' && hasHadFocus)) && (
+      {showError && (
         <div className="ewc-datepicker__error">
           <i
             className="ewc-datepicker__icon ewc-datepicker__icon--error"
