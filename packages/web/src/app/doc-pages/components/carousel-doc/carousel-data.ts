@@ -71,7 +71,6 @@ export const carouselData = {
   codeImportReact: `import { Carousel } from '@elvia/elvis-carousel/react';`,
   codeImportWebComponent: `import '@elvia/elvis-carousel';`,
   codeReact: `<Carousel
->
   elements={[
     { 
       title: <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>, 

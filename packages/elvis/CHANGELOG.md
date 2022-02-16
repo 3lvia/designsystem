@@ -5,6 +5,32 @@
  <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">
+        7.17.0
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        February 15, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+          <div>Page: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/label#Overview">Label</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Added primary colors(black, white and grey) as possible label colors.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+ <tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
         7.16.0
       </span>
       <br>
