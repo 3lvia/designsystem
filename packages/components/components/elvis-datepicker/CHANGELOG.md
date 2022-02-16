@@ -1,10 +1,22 @@
 # Elvia Date picker Changelog
 
-## 2.3.1 (15.02.22)
+## 2.5.1 (15.02.22)
 
 ### Patch
 
 - Now using elvis-icon package for internal icons.
+
+## 2.5.0 (16.02.22)
+
+### New feature
+
+- Added showValidation prop to trigger showing errors if datepicker has not been in focus
+
+## 2.4.0 (15.02.22)
+
+### New feature
+
+- Added hasOptionalText prop
 
 ## 2.3.0 (07.02.22)
 

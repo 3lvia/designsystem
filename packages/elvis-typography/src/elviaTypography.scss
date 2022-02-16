@@ -59,6 +59,12 @@
   text-transform: unset;
   color: inherit;
 }
+@media (max-width: 767px) {
+  .e-title-xs {
+    font-size: 16px;
+  }
+}
+
 .e-text-caps {
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 14px;

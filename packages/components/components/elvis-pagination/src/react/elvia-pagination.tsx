@@ -31,6 +31,7 @@ export interface PaginationProps {
   dropdownMenuPos: string;
   isRightAligned?: boolean;
   dropdownItems: Array<DropdownOption>;
+  dropdownItemsDefaultIndex: number;
   labelDisplaying: string;
   label: string;
   labelOf: string;
@@ -66,6 +67,7 @@ const Pagination: FC<PaginationProps> = ({
   isRightAligned = false,
   dropdownMenuPos = 'bottom',
   dropdownItems = paginationOptions,
+  dropdownItemsDefaultIndex = 0,
   label = 'elementer',
   labelDisplaying = 'Viser',
   labelOf = 'av',
@@ -74,9 +76,8 @@ const Pagination: FC<PaginationProps> = ({
   inlineStyle,
   webcomponent,
 }) => {
-  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[0]);
+  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[dropdownItemsDefaultIndex]);
   const [showPaginationMenu, setShowPaginationMenu] = useState(true);
-  const [currentValue, setCurrentValue] = useState(value);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [selectedNumber, setSelectedNumber] = useState(1);
 
@@ -89,8 +90,8 @@ const Pagination: FC<PaginationProps> = ({
   }, [numberOfElements]);
 
   useEffect(() => {
-    setCurrentDisplayAmount(dropdownItems[0]);
-  }, [dropdownItems]);
+    setCurrentDisplayAmount(dropdownItems[dropdownItemsDefaultIndex]);
+  }, [dropdownItems, dropdownItemsDefaultIndex]);
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
@@ -428,7 +429,6 @@ const Pagination: FC<PaginationProps> = ({
     }
 
     const newValue = { start: startRange, end: endRange };
-    setCurrentValue(newValue);
 
     if (!webcomponent && valueOnChange) {
       valueOnChange(newValue);
@@ -448,9 +448,6 @@ const Pagination: FC<PaginationProps> = ({
 
   // set rangevalue and return in valueOnChange function
   useEffect(() => {
-    if (currentValue.start === undefined || currentValue.end === undefined) {
-      updateValue(selectedNumber);
-    }
     if (value.start != undefined || value.end != undefined) {
       valueRangeToSelectedNumber(value);
     }

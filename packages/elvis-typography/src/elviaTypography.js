@@ -41,6 +41,7 @@ const ElviaTypography = {
   'title-xs': {
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '18px',
+    fontSizeMobile: '16px',
     fontWeight: '700',
     lineHeight: '22px',
     letterSpacing: 'unset',

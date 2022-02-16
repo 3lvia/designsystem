@@ -1,10 +1,16 @@
 # Elvia Pagination Changelog
 
-## 1.2.1 (15.02.22)
+## 1.3.1 (15.02.22)
 
 ### Patch
 
 - Now using elvis-icon package for internal icons.
+
+## 1.3.0 (15.02.22)
+
+### New feature
+
+- Added prop to set defualt value in pagination dropdown
 
 ## 1.2.0 (07.02.22)
 

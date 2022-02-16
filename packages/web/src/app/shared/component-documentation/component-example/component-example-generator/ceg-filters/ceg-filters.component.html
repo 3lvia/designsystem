@@ -37,25 +37,15 @@
         'ceg-filter-margin': i !== formGroupList.length - 1
       }"
     >
-      <label class="e-form-field__label">{{ formGroup.label }}</label>
-      <label
-        class="e-toggle"
-        (change)="onInputValueChange(formGroup, $event, undefined); updateToggleCheckboxProp(formGroup)"
-      >
+      <label class="e-toggle" role="switch">
+        {{ formGroup.label }}
         <input
-          *ngIf="formGroup.defaultValue === 'true'"
-          class="e-toggle__input"
-          type="checkbox"
-          checked
-          id="{{ formGroup.propName }}-{{ desktop }}"
-        />
-        <input
-          *ngIf="formGroup.defaultValue === 'false'"
           class="e-toggle__input"
           type="checkbox"
           id="{{ formGroup.propName }}-{{ desktop }}"
+          [checked]="formGroup.defaultValue"
+          (change)="onInputValueChange(formGroup, $event, undefined); updateToggleCheckboxProp(formGroup)"
         />
-        <span class="e-toggle__slider"></span>
       </label>
     </div>
 
