@@ -1,5 +1,11 @@
 # Elvia Pagination Changelog
 
+## 1.3.0 (15.02.22)
+
+### New feature
+
+- Added prop to set defualt value in pagination dropdown
+
 ## 1.2.0 (07.02.22)
 
 ### New feature
