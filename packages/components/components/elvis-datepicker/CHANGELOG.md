@@ -1,5 +1,11 @@
 # Elvia Date picker Changelog
 
+## 2.5.0 (16.02.22)
+
+### New feature
+
+- Added showValidation prop to trigger showing errors if datepicker has not been in focus
+
 ## 2.4.0 (15.02.22)
 
 ### New feature
