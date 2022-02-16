@@ -9,6 +9,7 @@ import '@elvia/elvis-chip';
 import '@elvia/elvis-datepicker';
 import '@elvia/elvis-divider';
 import '@elvia/elvis-dropdown';
+import '@elvia/elvis-icon';
 import '@elvia/elvis-modal';
 import '@elvia/elvis-pagination';
 import '@elvia/elvis-popover';

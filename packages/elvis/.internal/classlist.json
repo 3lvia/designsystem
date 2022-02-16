@@ -364,6 +364,9 @@
 		"e-grid": {},
 		"e-label": {
 			"modifier": {
+				"e-label--grey": {},
+				"e-label--black": {},
+				"e-label--white": {},
 				"e-label--red-tomato": {},
 				"e-label--orange-mango": {},
 				"e-label--purple-plum": {},
@@ -1280,6 +1283,9 @@
 		"e-header__sidebar__item--active": {},
 		"e-header__sidebar--open": {},
 		"e-label": {},
+		"e-label--grey": {},
+		"e-label--black": {},
+		"e-label--white": {},
 		"e-label--red-tomato": {},
 		"e-label--orange-mango": {},
 		"e-label--purple-plum": {},

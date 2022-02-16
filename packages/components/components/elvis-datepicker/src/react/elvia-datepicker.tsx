@@ -31,6 +31,7 @@ export interface DatepickerProps {
   isOpen?: boolean;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
+  hasOptionalText?: boolean;
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -52,6 +53,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   isOpen = false,
   className,
   inlineStyle,
+  hasOptionalText,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
   const [initialFocusedDate, setInitialFocusedDate] = useState<Date | null>(null);
@@ -355,7 +357,13 @@ export const Datepicker: FC<DatepickerProps> = ({
       data-testid="datepicker-wrapper"
     >
       {label !== '' && (
-        <label className="ewc-datepicker__label" aria-label={label} data-testid="datepicker-label">
+        <label
+          className={classnames('ewc-datepicker__label', {
+            'e-form-field__label--optional': hasOptionalText && !isRequired,
+          })}
+          aria-label={label}
+          data-testid="datepicker-label"
+        >
           {label}
         </label>
       )}
