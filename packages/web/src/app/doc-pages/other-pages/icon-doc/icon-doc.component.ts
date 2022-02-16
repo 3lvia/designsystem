@@ -96,7 +96,6 @@ export class IconDocComponent implements OnInit {
   }
 
   invert(): void {
-    console.log('Clicked');
     this.inverted = !this.inverted;
   }
 

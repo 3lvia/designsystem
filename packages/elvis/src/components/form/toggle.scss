@@ -45,8 +45,8 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   &__input {
     position: relative;
     width: $toggle-width;
-    height: $toggle-height;
-    margin: 0 0 0 8px;
+    height: 0;
+    margin: -16px 0 0 8px;
     outline: none;
     cursor: pointer;
 
