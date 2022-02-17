@@ -15,7 +15,7 @@
         [ngClass]="{
           'page-body': !isHomePage,
           'not-landing-page': !isLandingPage,
-          'overview-content': !isNotFound
+          'overview-content': !isHomePage && !isNotFound
         }"
       >
         <div class="feedback-link" *ngIf="!isLandingPage">
