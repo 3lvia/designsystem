@@ -423,11 +423,13 @@ export class CMSTransformService {
           src="${srcUrl}"
           ${altText !== 'decorative' && altText !== '"decorative"' ? 'alt="' + altText + '"' : ''}
         />
+        ${hasInlineText ? '' : '<br class="containerDivNewLine" />'} 
         <div 
           class=' 
             ${description !== undefined && 'cms-image-desc-show'} 
             cms-image-desc
             e-text-img'
+          style='text-align: ${imgAlignment} !important'
         >
           ${documentToHtmlString(description, this.options)}
         </div>
@@ -479,6 +481,9 @@ export class CMSTransformService {
       return;
     }
     const assetName: IDownloadContent['fields']['name'] = data.fields.name[locale];
+    const displayTitle: IDownloadContent['fields']['displayTitle'] = data.fields.displayTitle
+      ? data.fields.displayTitle[locale]
+      : undefined;
     const displayImage = 'https:' + data.fields.displayImage[locale].fields.file[locale].url;
     const asset = 'https:' + data.fields.downloadableContent[locale].fields.file[locale].url;
     const fileType = asset.split('.').pop();
@@ -498,6 +503,13 @@ export class CMSTransformService {
           src="${displayImage}"
         />
       </div>
+      ${
+        displayTitle !== undefined
+          ? `<div class="e-title-caps e-mt-16 ${inGrid ? 'e-text-center' : 'e-text-right'}">` +
+            displayTitle +
+            '</div>'
+          : ''
+      }
       <div class="cms-downloadable-asset ${inGrid ? 'centered' : ''}">
         <a role="button" id="download-content-${assetName}">
           <button class="e-btn e-btn--tertiary e-btn--md ${inverted ? 'e-btn--inverted' : ''}">
@@ -542,12 +554,12 @@ export class CMSTransformService {
       elements.forEach((element: IDownloadContent) => {
         if (background === 'Dark') {
           returnString +=
-            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end;">' +
+            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end; justify-content: center">' +
             this.getDownloadContent(element, locale, true, true) +
             '</div>';
         } else {
           returnString +=
-            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end;">' +
+            '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end; justify-content: center">' +
             this.getDownloadContent(element, locale, true, false) +
             '</div>';
         }
