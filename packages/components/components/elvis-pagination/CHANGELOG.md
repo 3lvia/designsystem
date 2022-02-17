@@ -1,5 +1,11 @@
 # Elvia Pagination Changelog
 
+## 1.4.0 (15.02.22)
+
+### New feature
+
+- Added prop to listen to changes in dropdown value in pagination component.
+
 ## 1.3.0 (15.02.22)
 
 ### New feature
