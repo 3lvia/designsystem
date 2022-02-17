@@ -5,6 +5,32 @@
   <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">
+        8.0.1
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        February 17, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🛠 Patch</div>
+        <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/components/segmented-control#Size">Segmented Control</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Migrated the deprecated divider symbol to math.div for Sass. 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
         8.0.0
       </span>
       <br>
