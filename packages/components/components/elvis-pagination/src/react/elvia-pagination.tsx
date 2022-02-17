@@ -33,6 +33,7 @@ export interface PaginationProps {
   isRightAligned?: boolean;
   dropdownItems: Array<DropdownOption>;
   dropdownItemsDefaultIndex: number;
+  dropdownItemsDefaultIndexOnChange?: (value: number) => void;
   labelDisplaying: string;
   label: string;
   labelOf: string;
@@ -69,6 +70,7 @@ const Pagination: FC<PaginationProps> = ({
   dropdownMenuPos = 'bottom',
   dropdownItems = paginationOptions,
   dropdownItemsDefaultIndex = 0,
+  dropdownItemsDefaultIndexOnChange,
   label = 'elementer',
   labelDisplaying = 'Viser',
   labelOf = 'av',
@@ -413,6 +415,15 @@ const Pagination: FC<PaginationProps> = ({
     if (!isSelectedInRange) {
       setSelectedNumber(selectionNumbers.length);
     }
+    if (selectionRange !== currentDisplayAmount) {
+      const selectedIndex = dropdownItems.indexOf(selectionRange);
+      if (!webcomponent && dropdownItemsDefaultIndexOnChange) {
+        dropdownItemsDefaultIndexOnChange(selectedIndex);
+      } else if (webcomponent) {
+        // True -> Prevents rerender
+        webcomponent.setProps({ dropdownItemsDefaultIndex: selectedIndex }, true);
+      }
+    }
   };
 
   // set rangevalue and return in valueOnChange function
@@ -426,6 +437,8 @@ const Pagination: FC<PaginationProps> = ({
     let endRange;
     endRange = startRange + parseInt(currentDisplayAmount.value) - 1;
     if (value === selectionNumbers.length) {
+      endRange = numberOfElements;
+    } else if (endRange > numberOfElements) {
       endRange = numberOfElements;
     }
 
