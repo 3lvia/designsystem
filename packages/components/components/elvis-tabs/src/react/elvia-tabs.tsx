@@ -169,7 +169,6 @@ const Tabs: FC<TabsProps> = ({
                   value={currValue}
                   aria-label={item}
                   aria-checked={currValue == i}
-                  onChange={() => updateValue(i)}
                   defaultChecked={currValue == i}
                 ></input>
                 <label className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>

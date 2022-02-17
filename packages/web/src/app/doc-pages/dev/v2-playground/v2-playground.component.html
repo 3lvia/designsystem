@@ -5,7 +5,13 @@
     <!--Test the component here. When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <elvia-tabs
+        [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
+        [value]="1"
+        (valueOnChange)="logValue('Tabs', $event.detail.value)"
+      ></elvia-tabs>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -34,10 +40,7 @@
   <!--Breadcrumb-->
   <div class="example-wrapper">
     <h3>Breadcrumbs</h3>
-    <elvia-breadcrumb
-      [breadcrumbs]="breadcrumbsTestNoUrl"
-      (breadcrumbsOnChange)="logValue('Breadcrumb', $event.detail.value)"
-    ></elvia-breadcrumb>
+    <elvia-breadcrumb [breadcrumbs]="breadcrumbsTestNoUrl"></elvia-breadcrumb>
   </div>
 
   <!--Card-->
@@ -138,10 +141,7 @@
   <!--Datepicker-->
   <div class="example-wrapper">
     <h3>DatePicker</h3>
-    <elvia-datepicker
-      [value]="date"
-      (valueOnChange)="logValue('Datepicker', $event.detail.value)"
-    ></elvia-datepicker>
+    <elvia-datepicker [value]="date"></elvia-datepicker>
   </div>
 
   <!--Divider-->
@@ -166,7 +166,6 @@
       label="testing something"
       [defaultValue]="dropdownDefOptions"
       [options]="dropdownOptions"
-      (valueOnChange)="logValue('Dropdown', $event.detail.value)"
     ></elvia-dropdown>
   </div>
 
@@ -205,7 +204,6 @@
     <elvia-pagination
       numberOfElements="156"
       [value]="defaultPaginationValue"
-      (valueOnChange)="logValue('Pagination', $event.detail.value)"
       [isRightAligned]="true"
       dropdownMenuPos="top"
     ></elvia-pagination>
@@ -214,13 +212,7 @@
   <!--Popover-->
   <div class="example-wrapper">
     <h2>Popover</h2>
-    <elvia-popover
-      header="BankID"
-      posX="right"
-      width="200"
-      [isShowing]="isPopoverShowing"
-      (isShowingOnChange)="logValue('Popover', $event.detail.value)"
-    >
+    <elvia-popover header="BankID" posX="right" width="200" [isShowing]="isPopoverShowing">
       <button slot="trigger" class="e-btn">Show popover</button>
       <div slot="content">
         Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
@@ -249,7 +241,7 @@
 
   <!--Radio filter-->
   <div class="example-wrapper">
-    <h2>Tabs</h2>
+    <h2>Radio filter</h2>
     <elvia-radio-filter
       [items]="[
         { label: 'All', value: 'all' },
@@ -259,17 +251,12 @@
       [value]="'read'"
       [name]="'readRadioFilters'"
       [ariaLabel]="'{value} filtrering valgt'"
-      (valueOnChange)="logValue('Radio filter', $event.detail.value)"
     ></elvia-radio-filter>
   </div>
 
   <!--Tabs-->
   <div class="example-wrapper">
     <h2>Tabs</h2>
-    <elvia-tabs
-      [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
-      [value]="1"
-      (valueOnChange)="logValue('Tabs', $event.detail.value)"
-    ></elvia-tabs>
+    <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1"></elvia-tabs>
   </div>
 </div>

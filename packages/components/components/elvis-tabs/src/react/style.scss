@@ -5,15 +5,19 @@ $grey-80: #515151;
 $grey-90: #3b3b3b;
 $hover-blue: #0064fa;
 $icon-btn-width: 24px;
-$tabs-height: 44px;
-
+$tabs-line-height: 20px;
+$tabs-label-padding-bottom: 8px;
+$tabs-underline-height: 4px;
+$tabs-focus-padding: 4px;
+$tabs-height: $tabs-line-height + $tabs-label-padding-bottom + $tabs-underline-height;
+$tabs-height-with-focus: calc($tabs-height + ($tabs-focus-padding * 2));
 
 %underline {
   content: '';
   position: absolute;
-  height: 3px;
+  height: 4px;
   bottom: 0px;
-  top: 28px;
+  top: $tabs-line-height + $tabs-label-padding-bottom;
   left: 0px;
   border-radius: 50px;
 }
@@ -29,7 +33,7 @@ $tabs-height: 44px;
   align-items: center;
   overflow: hidden;
   position: relative;
-  height: $tabs-height;
+  height: $tabs-height-with-focus;
   &,
   * {
     box-sizing: border-box;
@@ -38,7 +42,7 @@ $tabs-height: 44px;
   &__arrow {
     position: absolute;
     width: 8px;
-    height: $tabs-height - (16px * 2);
+    height: $tabs-height-with-focus - (16px * 2);
     z-index: 10;
     transition: visibility 0.5s ease-in;
     box-sizing: content-box;
@@ -96,7 +100,7 @@ $tabs-height: 44px;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    height: $tabs-height;
+    // height: $tabs-height;
 
     &.right-arrow-fade {
       -webkit-mask: linear-gradient(to left, transparent 0%, $black-fade);
@@ -105,12 +109,18 @@ $tabs-height: 44px;
 
     &.left-arrow-fade {
       -webkit-mask: linear-gradient(to right, $transparent-left-fade, $black-fade);
-      mask: linear-gradient(to right,  $transparent-left-fade, $black-fade);
+      mask: linear-gradient(to right, $transparent-left-fade, $black-fade);
     }
-    
+
     &.both-arrows-fade {
-      -webkit-mask: linear-gradient(to right,  $transparent-left-fade, $black-fade, black 90%, transparent 100%);
-      mask: linear-gradient(to right,  $transparent-left-fade, $black-fade, black 90%, transparent 100%);
+      -webkit-mask: linear-gradient(
+        to right,
+        $transparent-left-fade,
+        $black-fade,
+        black 90%,
+        transparent 100%
+      );
+      mask: linear-gradient(to right, $transparent-left-fade, $black-fade, black 90%, transparent 100%);
     }
 
     &.ewc-tabs--scrolling {
@@ -124,8 +134,8 @@ $tabs-height: 44px;
     white-space: nowrap;
     width: 100%;
     overflow-x: auto;
-    padding: 4px;
-    height: $tabs-height;
+    padding: $tabs-focus-padding;
+    height: $tabs-height-with-focus;
     -ms-overflow-style: none;
     scrollbar-width: none;
     &::-webkit-scrollbar {
@@ -134,6 +144,7 @@ $tabs-height: 44px;
   }
 
   &__item {
+    // height: $tabs-height;
     &:not(:last-of-type) {
       margin-right: 24px;
       @media screen and (max-width: 767px) {
@@ -156,17 +167,17 @@ $tabs-height: 44px;
       font-style: normal;
       font-weight: normal;
       font-size: 14px;
-      line-height: 21px;
+      line-height: $tabs-line-height;
       letter-spacing: 0.8px;
       text-transform: uppercase;
       color: $grey-80;
 
-      display: inline-block;
+      display: block;
       position: relative;
       border: none;
       padding: 0px 8px;
-      padding-bottom: 11px;
       background: transparent;
+      height: $tabs-height;
 
       // Underline
       &::before {
