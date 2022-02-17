@@ -144,7 +144,23 @@ export class CMSTransformService {
     return node.data.target.sys.contentType.sys.id;
   }
 
+  private getCenteredContentErrors(data: ICenteredContent, locale: string) {
+    if (!data.fields.content) {
+      this.showErrorMessage(
+        'Centered content',
+        `${
+          data.fields.title
+            ? 'The "Centered content" "' + data.fields.title[locale] + '"'
+            : 'An "Centered content" on your page'
+        } is missing content.`,
+      );
+    }
+  }
   private getCenteredContent(data: ICenteredContent, locale: string) {
+    this.getCenteredContentErrors(data, locale);
+    if (!data.fields.content) {
+      return;
+    }
     return `
       <div class="cms-centered-content">
         ${documentToHtmlString(data.fields.content[locale], this.options)}
@@ -237,7 +253,6 @@ export class CMSTransformService {
     }
     return linkPath;
   }
-
   private getLink(data: IInternalLink, locale: string, subMenu: CMSSubMenu[], inlineEntry: boolean): string {
     const paragraphTitle: string = data.fields.paragraph
       ? data.fields.paragraph[locale].replaceAll(' ', '-')
@@ -276,7 +291,7 @@ export class CMSTransformService {
       ${!isInline ? '</p>' : ''}`;
   }
 
-  private checkWhenToUseErrors(data: IWhenToUse, locale: string) {
+  private getWhenToUseErrors(data: IWhenToUse, locale: string) {
     if (!data.fields.name) {
       this.showErrorMessage(
         'When & when not to use',
@@ -304,9 +319,8 @@ export class CMSTransformService {
       );
     }
   }
-
   private getWhenToUse(data: IWhenToUse, locale: string): string {
-    this.checkWhenToUseErrors(data, locale);
+    this.getWhenToUseErrors(data, locale);
     if (!data.fields.name || !data.fields.whenToUse || !data.fields.whenNotToUse) {
       return;
     }
@@ -354,7 +368,7 @@ export class CMSTransformService {
   </div>`;
   }
 
-  private checkImageErrors(data: IImage, locale: string) {
+  private getImageErrors(data: IImage, locale: string) {
     if (!data.fields.name) {
       this.showErrorMessage(
         'Image',
@@ -378,9 +392,8 @@ export class CMSTransformService {
       );
     }
   }
-
   private getImage(data: IImage, locale: string, inGrid: boolean) {
-    this.checkImageErrors(data, locale);
+    this.getImageErrors(data, locale);
     if (!data.fields.name || !data.fields.image || !data.fields.altText) {
       return;
     }
@@ -441,7 +454,7 @@ export class CMSTransformService {
     `;
   }
 
-  private checkDownloadContentErrors(data: IDownloadContent, locale: string) {
+  private getDownloadContentErrors(data: IDownloadContent, locale: string) {
     if (!data.fields.name) {
       this.showErrorMessage(
         'Download content',
@@ -469,14 +482,13 @@ export class CMSTransformService {
       );
     }
   }
-
   private getDownloadContent(
     data: IDownloadContent,
     locale: string,
     inGrid: boolean,
     inverted: boolean,
   ): string {
-    this.checkDownloadContentErrors(data, locale);
+    this.getDownloadContentErrors(data, locale);
     if (!data.fields.name || !data.fields.displayImage || !data.fields.downloadableContent) {
       return;
     }
@@ -497,7 +509,7 @@ export class CMSTransformService {
       });
 
     return `<div class="cms-download-content ${inGrid ? '' : 'e-my-24'}">
-      <div class="cms-display-image">
+      <div class="cms-display-image e-mb-24">
         <img
           class="cms-section__img normal-img"
           src="${displayImage}"
@@ -505,14 +517,14 @@ export class CMSTransformService {
       </div>
       ${
         displayTitle !== undefined
-          ? `<div class="e-title-caps e-mt-16 ${inGrid ? 'e-text-center' : 'e-text-right'}">` +
+          ? `<div class="e-title-caps e-mb-16 ${inGrid ? 'e-text-center' : 'e-text-right'}">` +
             displayTitle +
             '</div>'
           : ''
       }
       <div class="cms-downloadable-asset ${inGrid ? 'centered' : ''}">
         <a role="button" id="download-content-${assetName}">
-          <button class="e-btn e-btn--tertiary e-btn--md ${inverted ? 'e-btn--inverted' : ''}">
+          <button class="e-btn e-btn--tertiary ${inverted ? 'e-btn--inverted' : ''}">
             <span class="e-btn__icon">
               <i class="e-icon e-icon--download ${inverted ? 'e-icon--inverted' : ''}"></i>
             </span>
@@ -523,7 +535,27 @@ export class CMSTransformService {
     </div>`;
   }
 
+  private getGridErrors(data: IGrid, locale: string) {
+    if (!data.fields.name) {
+      this.showErrorMessage(
+        'Grid',
+        'An "Grid" on your page is missing name, this will make sorting / finding entries in Contentful harder and messy.',
+      );
+    }
+    if (!data.fields.gridElements) {
+      this.showErrorMessage(
+        'Grid',
+        `${
+          data.fields.name ? 'The "Grid" "' + data.fields.name[locale] + '"' : 'An "Grid" on your page'
+        } is missing grid elements.`,
+      );
+    }
+  }
   private getGrid(data: IGrid, locale: string): string {
+    this.getGridErrors(data, locale);
+    if (!data.fields.name || !data.fields.gridElements) {
+      return;
+    }
     const elements: IGrid['fields']['gridElements'] = data.fields.gridElements[locale];
     const background: IGrid['fields']['background'] = data.fields.background[locale];
     let returnString = '';
