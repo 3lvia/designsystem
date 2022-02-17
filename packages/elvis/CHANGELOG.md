@@ -22,6 +22,9 @@
             <li>
               Migrated the deprecated divider symbol to math.div for Sass. 
             </li>
+            <li>
+              Updated Bootstrap to v4.6.1.
+            </li>
           </ul>
         </div>
       </div>
