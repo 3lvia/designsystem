@@ -32,8 +32,8 @@ export interface PaginationProps {
   dropdownMenuPos: string;
   isRightAligned?: boolean;
   dropdownItems: Array<DropdownOption>;
-  dropdownItemsDefaultIndex: number;
-  dropdownItemsDefaultIndexOnChange?: (value: number) => void;
+  selectedDropdownItemIndex: number;
+  selectedDropdownItemIndexOnChange?: (value: number) => void;
   labelDisplaying: string;
   label: string;
   labelOf: string;
@@ -69,8 +69,8 @@ const Pagination: FC<PaginationProps> = ({
   isRightAligned = false,
   dropdownMenuPos = 'bottom',
   dropdownItems = paginationOptions,
-  dropdownItemsDefaultIndex = 0,
-  dropdownItemsDefaultIndexOnChange,
+  selectedDropdownItemIndex = 0,
+  selectedDropdownItemIndexOnChange,
   label = 'elementer',
   labelDisplaying = 'Viser',
   labelOf = 'av',
@@ -79,7 +79,7 @@ const Pagination: FC<PaginationProps> = ({
   inlineStyle,
   webcomponent,
 }) => {
-  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[dropdownItemsDefaultIndex]);
+  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[selectedDropdownItemIndex]);
   const [showPaginationMenu, setShowPaginationMenu] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [selectedNumber, setSelectedNumber] = useState(1);
@@ -93,8 +93,8 @@ const Pagination: FC<PaginationProps> = ({
   }, [numberOfElements]);
 
   useEffect(() => {
-    setCurrentDisplayAmount(dropdownItems[dropdownItemsDefaultIndex]);
-  }, [dropdownItems, dropdownItemsDefaultIndex]);
+    setCurrentDisplayAmount(dropdownItems[selectedDropdownItemIndex]);
+  }, [dropdownItems, selectedDropdownItemIndex]);
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
@@ -417,11 +417,11 @@ const Pagination: FC<PaginationProps> = ({
     }
     if (selectionRange !== currentDisplayAmount) {
       const selectedIndex = dropdownItems.indexOf(selectionRange);
-      if (!webcomponent && dropdownItemsDefaultIndexOnChange) {
-        dropdownItemsDefaultIndexOnChange(selectedIndex);
+      if (!webcomponent && selectedDropdownItemIndexOnChange) {
+        selectedDropdownItemIndexOnChange(selectedIndex);
       } else if (webcomponent) {
         // True -> Prevents rerender
-        webcomponent.setProps({ dropdownItemsDefaultIndex: selectedIndex }, true);
+        webcomponent.setProps({ selectedDropdownItemIndex: selectedIndex }, true);
       }
     }
   };

@@ -1,10 +1,14 @@
 # Elvia Pagination Changelog
 
-## 1.4.0 (15.02.22)
+## 2.0.0 (15.02.22)
 
-### New feature
+### Major
 
-- Added prop to listen to changes in dropdown value in pagination component.
+- Pagination prop "dropdownItemsDefaultIndex" has been renamed to "selectedDropdownItemIndex". We have also
+  added a callback function for this value called "selectedDropdownItemIndexOnChange", that gets called
+  everytime a value change occurs in the dropdown used within the pagination. Just replace prop name
+  "dropdownItemsDefaultIndex" with the new name "selectedDropdownItemIndex" to fix any issues with the
+  pagination.
 
 ## 1.3.0 (15.02.22)
 
