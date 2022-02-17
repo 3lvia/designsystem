@@ -438,8 +438,6 @@ const Pagination: FC<PaginationProps> = ({
     endRange = startRange + parseInt(currentDisplayAmount.value) - 1;
     if (value === selectionNumbers.length) {
       endRange = numberOfElements;
-    } else if (endRange > numberOfElements) {
-      endRange = numberOfElements;
     }
 
     const newValue = { start: startRange, end: endRange };
