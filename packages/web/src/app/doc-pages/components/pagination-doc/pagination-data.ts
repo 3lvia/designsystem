@@ -51,11 +51,16 @@ export const paginationData = {
         },
       ]`,
     },
-    dropdownItemsDefaultIndex: {
+    selectedDropdownItemIndex: {
       isRequired: false,
       type: 'number',
       description: `Set the default value of the dropdown in the paginator by passing the index number of the dropdownItems object you  want as a default value.`,
       default: '0',
+    },
+    selectedDropdownItemIndexOnChange: {
+      isRequired: false,
+      type: '(value: number) => CustomEvent',
+      description: `Gets called every time a new value in the pagination dropdown is chosen, returns the index of the chosen value from the available dropdownItems`,
     },
     labelDisplaying: {
       isRequired: false,

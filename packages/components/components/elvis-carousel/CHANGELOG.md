@@ -1,6 +1,6 @@
 # Elvia Carousel Changelog
 
-## 1.1.1 (15.02.22)
+## 1.1.1 (18.02.22)
 
 ### Patch
 

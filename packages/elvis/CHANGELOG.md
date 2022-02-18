@@ -5,11 +5,11 @@
 <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">
-        8.0.1
+        8.0.3
       </span>
       <br>
       <span class="changelog-date-span">
-        February 15, 2022
+        February 18, 2022
       </span>
     </td>
     <td class="changelog-content">
@@ -18,6 +18,32 @@
           <ul class="e-list">
             <li>
               Updated icons package.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
+        8.0.2
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        February 18, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🛠 Patch</div>
+        <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/components/alert">Alert</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Small update inside local alert.
             </li>
           </ul>
         </div>
@@ -39,7 +65,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🛠 Patch</div>
         <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/components/segmented-control#Size">Segmented Control</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/components/segmented-control">Segmented Control</a>
           </div>
           <ul class="e-list">
             <li>

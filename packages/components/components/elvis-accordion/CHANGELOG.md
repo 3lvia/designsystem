@@ -1,6 +1,6 @@
 # Elvia Accordion Changelog
 
-## 2.1.1 (15.02.22)
+## 2.1.1 (18.02.22)
 
 ### Patch
 
