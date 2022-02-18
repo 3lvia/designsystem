@@ -145,11 +145,6 @@ $green: #29d305;
   background: none;
   color: black;
 
-  &.ewc-btn--sm:not(.ewc-btn--circled) .ewc-btn__icon {
-    width: 16px;
-    height: 16px;
-  }
-
   &.ewc-btn---hover,
   &:hover:not(:disabled),
   &.ewc-btn---active,
