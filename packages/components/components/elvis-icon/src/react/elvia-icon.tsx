@@ -3,7 +3,7 @@ import * as elvisIcons from '@elvia/elvis-assets-icons';
 
 export type IconSizes = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
-interface IconProps {
+export interface IconProps {
   name: string;
   color?: string;
   size?: IconSizes;

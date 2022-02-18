@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-tabs",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -12,6 +12,7 @@
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^2.1.6",
     "@elvia/elvis-toolbox": "^1.2.1",
+    "@elvia/elvis-icon": "^1.1.1",
     "classnames": "^2.3.1"
   }
 }

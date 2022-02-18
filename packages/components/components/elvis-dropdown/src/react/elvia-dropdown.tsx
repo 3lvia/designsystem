@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef, CSSProperties } from 'react';
 import Select, { components } from 'react-select';
 import toolbox from '@elvia/elvis-toolbox';
+import { Icon } from '@elvia/elvis-icon/react';
 import {
   DropdownCheckbox,
   DropdownCheckboxLabel,
   DropdownCheckboxMark,
-  DropdownIndicatorIcon,
   DropdownWrapper,
-  DropdownErrorMessageIcon,
   DropdownErrorMessageText,
   DropdownErrorMessageWrapper,
   DropdownLabel,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
+import { getColor } from '@elvia/elvis-colors';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 export interface DropdownOption {
@@ -220,7 +220,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       fontStyle: 'normal',
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: '22px',
-      color: isDisabled ? '#BDBDBD' : '#676767',
+      color: isDisabled ? getColor('disabled') : getColor('grey-70'),
       margin: '0px',
       display: 'block',
       overflowX: 'hidden',
@@ -244,7 +244,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     valueContainer: (provided: any) => ({
       ...provided,
       display: 'flex',
-      color: isDisabled ? '#676767' : '#000',
+      color: isDisabled ? getColor('grey-70') : '#000',
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
       fontStyle: 'normal',
@@ -260,7 +260,11 @@ const Dropdown: React.FC<DropdownProps> = ({
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
       <components.DropdownIndicator {...props}>
-        <DropdownIndicatorIcon isDisabled={isDisabled} isCompact={isCompact} menuIsOpen={menuIsOpen} />
+        <Icon
+          name={menuIsOpen ? 'arrowUpBold' : 'arrowDownBold'}
+          color={isDisabled ? getColor('disabled') : undefined}
+          customSize={isCompact ? '16px' : '20px'}
+        />
       </components.DropdownIndicator>
     );
   };
@@ -290,7 +294,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const ElviaError = ({ ...props }) => {
     return (
       <DropdownErrorMessageWrapper {...props}>
-        <DropdownErrorMessageIcon />
+        <Icon name="removeCircle" color={getColor('red')} size="xs" />
         <DropdownErrorMessageText>{errorMessage}</DropdownErrorMessageText>
       </DropdownErrorMessageWrapper>
     );

@@ -1,8 +1,10 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
-import { ChipCheckmarkIcon, ChipComponent, ChipCloseIcon, ChipTitle } from './styledComponents';
+import { ChipComponent, ChipTitle } from './styledComponents';
 import { ChipType, ColorType, onChangeValue } from './elvia-chip.types';
+import { Icon } from '@elvia/elvis-icon/react';
 
 import classnames from 'classnames';
+import { getColor } from '@elvia/elvis-colors';
 
 export interface BaseChipProps {
   ariaLabel?: string;
@@ -78,14 +80,15 @@ export const Chip: FC<BaseChipProps> = ({
       data-testid="chip-button"
     >
       {type === 'choice' && (
-        <ChipCheckmarkIcon
-          disabled={disabled}
-          className={classnames({
-            ['showCheckmarkIcon']: isHovering || isSelected,
-          })}
-        >
-          <i></i>
-        </ChipCheckmarkIcon>
+        <Icon
+          name="check"
+          customSize="12px"
+          inlineStyle={{
+            paddingRight: '8px',
+            visibility: isHovering || isSelected ? 'visible' : 'hidden',
+            opacity: disabled ? '0.3' : '1',
+          }}
+        />
       )}
       <ChipTitle
         color={color}
@@ -100,9 +103,12 @@ export const Chip: FC<BaseChipProps> = ({
         {value}
       </ChipTitle>
       {type === 'removable' && (
-        <ChipCloseIcon disabled={disabled}>
-          <i></i>
-        </ChipCloseIcon>
+        <Icon
+          name="close"
+          size="xxs"
+          inlineStyle={{ marginLeft: '8px' }}
+          color={disabled ? getColor('disabled') : undefined}
+        />
       )}
     </ChipComponent>
   );

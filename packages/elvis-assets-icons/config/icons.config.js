@@ -163,6 +163,11 @@ module.exports = [
   { name: 'check-bold', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'check_circle', terms: [], thirdparty: { name: ['streamline'] } },
   {
+    name: 'check_circle-color',
+    terms: ['approved', 'done', 'finished', 'complete', 'accepted', 'confirm'],
+    thirdparty: { name: ['streamline'], duplicate: ['check_circle'] },
+  },
+  {
     name: 'check_circle-filled',
     terms: [],
     thirdparty: { name: ['streamline'], duplicate: ['check_circle'] },
@@ -350,6 +355,7 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['invoice'] },
   },
   { name: 'laptop-color', terms: ['computer', 'screen', 'pc', 'mac'] },
+  { name: 'layers', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'lighting', terms: ['light', 'power'] },
   { name: 'list', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'list_color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['list'] } },
@@ -428,6 +434,11 @@ module.exports = [
   },
   {
     name: 'pin-filled',
+    terms: ['place', 'location', 'locate', 'position', 'area', 'map'],
+    thirdparty: { name: ['streamline'], duplicate: ['pin'] },
+  },
+  {
+    name: 'pin-filled-color',
     terms: ['place', 'location', 'locate', 'position', 'area', 'map'],
     thirdparty: { name: ['streamline'], duplicate: ['pin'] },
   },
@@ -574,6 +585,11 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['renewable_energy'] },
   },
   {
+    name: 'select_area',
+    terms: ['cursor', 'mark'],
+    thirdparty: { name: ['streamline'] },
+  },
+  {
     name: 'settings_vertical',
     terms: ['toggle', 'edit', 'adjust', 'switch'],
     thirdparty: { name: ['streamline'] },
@@ -608,6 +624,7 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
   },
   { name: 'sorting-bold', terms: ['sort', 'sorting', 'order'], thirdparty: { name: ['streamline'] } },
+  { name: 'sorting-2-bold', terms: ['sort', 'sorting', 'order', 'ascending'] },
   {
     name: 'star-filled',
     terms: ['favorite', 'favourite'],

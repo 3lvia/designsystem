@@ -12,6 +12,7 @@ import {
   CarouselElementContainer,
   CarouselCheckButton,
 } from './StyledComponents';
+import { Icon } from '@elvia/elvis-icon/react';
 
 type CarouselElement = {
   title?: JSX.Element | string | HTMLElement;
@@ -48,6 +49,8 @@ export const Carousel: FC<CarouselProps> = ({
   const [startX, setStartX] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
   const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('left');
+  const [isHoveringRightButton, setIsHoveringRightButton] = useState(false);
+  const [isHoveringLeftButton, setIsHoveringLeftButton] = useState(false);
 
   const itemsRef = useRef<HTMLDivElement>(null);
 
@@ -201,9 +204,14 @@ export const Carousel: FC<CarouselProps> = ({
           aria-hidden={hideLeftArrow}
           hidden={hideLeftArrow}
           onClick={() => handleButtonClick(index, 'left')}
+          onMouseEnter={() => setIsHoveringLeftButton(true)}
+          onMouseLeave={() => setIsHoveringLeftButton(false)}
           data-testid="carousel-left-arrow"
         >
-          <i />
+          <Icon
+            name={isHoveringLeftButton ? 'arrowLeftCircleFilledColor' : 'arrowLeftCircleColor'}
+            size="md"
+          />
         </CarouselLeftButton>
         <CarouselListOfDots data-testid="carousel-list-of-dots">
           {Array.from(Array(lengthOfElements), (e, listIndex: number) => (
@@ -226,9 +234,11 @@ export const Carousel: FC<CarouselProps> = ({
           <CarouselCheckButton
             aria-label={'Fullfør og lukk.'}
             onClick={() => onHide && onHide()}
+            onMouseEnter={() => setIsHoveringRightButton(true)}
+            onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-onboarding-checkmark"
           >
-            <i />
+            <Icon name={isHoveringRightButton ? 'checkCircleFilledColor' : 'checkCircleColor'} size="md" />
           </CarouselCheckButton>
         ) : (
           <CarouselRightButton
@@ -236,9 +246,14 @@ export const Carousel: FC<CarouselProps> = ({
             aria-hidden={hideRightArrow}
             hidden={hideRightArrow}
             onClick={() => handleButtonClick(index, 'right')}
+            onMouseEnter={() => setIsHoveringRightButton(true)}
+            onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-right-arrow"
           >
-            <i />
+            <Icon
+              name={isHoveringRightButton ? 'arrowRightCircleFilledColor' : 'arrowRightCircleColor'}
+              size="md"
+            />
           </CarouselRightButton>
         )}
       </CarouselNavigationRow>

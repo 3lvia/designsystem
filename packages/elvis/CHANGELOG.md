@@ -2,6 +2,29 @@
 <!-- 💥 New Features -->
 <!-- 🐝 Bug Fixes -->
 <table>
+<tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
+        8.0.3
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        February 18, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🛠 Patch</div>
+          <ul class="e-list">
+            <li>
+              Updated icons package.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
   <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">

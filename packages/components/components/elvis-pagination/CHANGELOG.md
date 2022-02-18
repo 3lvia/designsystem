@@ -1,6 +1,12 @@
 # Elvia Pagination Changelog
 
-## 2.0.0 (15.02.22)
+## 2.0.1 (18.02.22)
+
+### Patch
+
+- Now using elvis-icon package for internal icons.
+
+## 2.0.0 (18.02.22)
 
 ### Major
 
