@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect, CSSProperties } from 'react';
+import React, { FC, useRef, useEffect, CSSProperties, useState } from 'react';
 import {
   ModalCloseButton,
   ModalContent,
@@ -54,6 +54,8 @@ export const ModalComponent: FC<ModalProps> = ({
   const modalIllustration = useRef<HTMLDivElement>(null);
   const modalPrimaryBtn = useRef<HTMLDivElement>(null);
   const modalSecondaryBtn = useRef<HTMLDivElement>(null);
+
+  const [isHoveringCloseButton, setIsHoveringCloseButton] = useState(false);
 
   const hasIllustration = !!illustration || (webcomponent && !!webcomponent.getSlot('illustration'));
   const hasPrimaryButton = !!primaryButton || (webcomponent && !!webcomponent.getSlot('primaryButton'));
@@ -146,12 +148,17 @@ export const ModalComponent: FC<ModalProps> = ({
         {!illustration && hasIllustration && <ModalIllustration ref={modalIllustration}></ModalIllustration>}
         {hasCloseBtn && (
           <ModalCloseButton
-            hasIllustration={hasIllustration}
             onClick={() => handleOnHide()}
+            onMouseEnter={() => setIsHoveringCloseButton(true)}
+            onMouseLeave={() => setIsHoveringCloseButton(false)}
             aria-label="Lukk modal"
             data-testid="modal-close-btn"
           >
-            <Icon name="close" color={getColor('white')} className="ewc-close-icon" />
+            <Icon
+              name="close"
+              color={getColor('white')}
+              inlineStyle={{ filter: isHoveringCloseButton && hasIllustration ? 'invert(1)' : undefined }}
+            />
           </ModalCloseButton>
         )}
 

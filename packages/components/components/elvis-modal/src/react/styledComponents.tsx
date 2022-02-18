@@ -235,9 +235,5 @@ export const ModalCloseButton = styled.button`
   :hover {
     background-color: ${colors.elviaCharge};
     border-color: ${colors.elviaCharge};
-
-    .ewc-close-icon {
-      filter: ${(props: { hasIllustration: boolean }) => props.hasIllustration && 'invert(1)'};
-    }
   }
 `;

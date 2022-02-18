@@ -250,7 +250,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     return (
       <Icon
         name="calendar"
-        color={`${isDisabled ? getColor('grey-30') : getColor('black')}`}
+        color={isDisabled ? getColor('disabled') : undefined}
         size={`${isCompact ? 'xs' : 'sm'}`}
       />
     );

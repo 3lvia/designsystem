@@ -220,7 +220,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       fontStyle: 'normal',
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: '22px',
-      color: isDisabled ? '#BDBDBD' : '#676767',
+      color: isDisabled ? getColor('disabled') : getColor('grey-70'),
       margin: '0px',
       display: 'block',
       overflowX: 'hidden',
@@ -244,7 +244,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     valueContainer: (provided: any) => ({
       ...provided,
       display: 'flex',
-      color: isDisabled ? '#676767' : '#000',
+      color: isDisabled ? getColor('grey-70') : '#000',
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
       fontStyle: 'normal',
@@ -261,9 +261,9 @@ const Dropdown: React.FC<DropdownProps> = ({
       //@ts-ignore
       <components.DropdownIndicator {...props}>
         <Icon
-          name={`${menuIsOpen ? 'arrowUpBold' : 'arrowDownBold'}`}
-          color={`${isDisabled ? getColor('grey-30') : getColor('black')}`}
-          customSize={`${isCompact ? '16px' : '20px'}`}
+          name={menuIsOpen ? 'arrowUpBold' : 'arrowDownBold'}
+          color={isDisabled ? getColor('disabled') : undefined}
+          customSize={isCompact ? '16px' : '20px'}
         />
       </components.DropdownIndicator>
     );
