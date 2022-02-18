@@ -156,7 +156,7 @@ export const ModalComponent: FC<ModalProps> = ({
           >
             <Icon
               name="close"
-              color={getColor('white')}
+              color={hasIllustration ? getColor('white') : undefined}
               inlineStyle={{ filter: isHoveringCloseButton && hasIllustration ? 'invert(1)' : undefined }}
             />
           </ModalCloseButton>
