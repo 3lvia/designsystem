@@ -1,5 +1,11 @@
 # Elvia Divider Changelog
 
+## 1.2.1 (18.02.22)
+
+### Bug fix
+
+- Added height: 100% to wrapper to fix vertical divider
+
 ## 1.2.0 (07.02.22)
 
 ### New feature
