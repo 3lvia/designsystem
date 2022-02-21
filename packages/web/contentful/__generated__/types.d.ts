@@ -73,6 +73,9 @@ export interface IDownloadContentFields {
   /** Name */
   name: string;
 
+  /** Display title */
+  displayTitle?: string | undefined;
+
   /** Display image */
   displayImage: Asset;
 

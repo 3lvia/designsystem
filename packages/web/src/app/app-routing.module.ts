@@ -49,7 +49,6 @@ import { ChangelogComponent } from './doc-pages/other-pages/changelog/changelog.
 import { ColorDocComponent } from './doc-pages/other-pages/color-doc/color-doc.component';
 import { IconDocComponent } from './doc-pages/other-pages/icon-doc/icon-doc.component';
 import { LayoutDocComponent } from './doc-pages/other-pages/layout-doc/layout-doc.component';
-import { LogoDocComponent } from './doc-pages/other-pages/logo-doc/logo-doc.component';
 import { TypographyDocComponent } from './doc-pages/other-pages/typography-doc/typography-doc.component';
 import { GetStartedDocComponent } from './doc-pages/other-pages/get-started-doc/get-started-doc.component';
 import { ContactComponent } from './doc-pages/other-pages/contact/contact.component';
@@ -118,10 +117,6 @@ const routes: Routes = [
           {
             path: 'layout',
             component: LayoutDocComponent,
-          },
-          {
-            path: 'logo',
-            component: LogoDocComponent,
           },
           {
             path: 'typography',

@@ -10,7 +10,6 @@ import { GetStartedDesignersModule } from './get-started-designers/get-started-d
 import { GetStartedDocModule } from './get-started-doc/get-started-doc.module';
 import { IconDocModule } from './icon-doc/icon-doc.module';
 import { LayoutDocModule } from './layout-doc/layout-doc.module';
-import { LogoDocModule } from './logo-doc/logo-doc.module';
 import { NewProjectModule } from './new-project/new-project.module';
 import { PatternsDocModule } from './patterns-doc/patterns-doc.module';
 import { TheConceptModule } from './the-concept/the-concept.module';
@@ -25,7 +24,6 @@ import { UtilitiesDocModule } from './utilities-doc/utilities-doc.module';
     ColorDocModule,
     IconDocModule,
     TypographyDocModule,
-    LogoDocModule,
     ToneOfVoiceModule,
     TheConceptModule,
     LayoutDocModule,
