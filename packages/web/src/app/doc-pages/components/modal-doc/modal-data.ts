@@ -47,6 +47,11 @@ const modalData = {
       description:
         'Show close icon button inside the modal in the top right corner. Should only be used inside a multi-page modal.',
       default: 'true',
+      cegDisplayName: 'Close button',
+      cegType: 'boolean',
+      cegFormType: 'toggle',
+      cegDefault: false,
+      cegOption: 'true',
     },
     hasLockBodyScroll: {
       isRequired: false,
