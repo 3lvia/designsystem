@@ -394,3 +394,13 @@ $pageIndentedMargin: 72px;
     }
   }
 }
+
+.e-grid {
+  .cms-download-content .cms-display-image {
+    text-align: center;
+    img {
+      max-width: 100%;
+      width: auto;
+    }
+  }
+}
