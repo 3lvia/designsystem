@@ -1,5 +1,12 @@
 # Elvis-assets-icon
 
+## 2.2.0 (23.02.22)
+
+### New feature
+
+- Now supports setting colors from elvis-colors. If the color value that is sent in is not 'inverted' or
+  starts with a '#' (i.e. is a hex value) the color will be fetched from elvis-colors.
+
 ## 2.1.0 (15.02.22)
 
 ### New feature
