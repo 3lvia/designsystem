@@ -10,7 +10,7 @@ exports.addCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -36,7 +36,7 @@ exports.addCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -62,7 +62,7 @@ exports.addCircleFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -88,7 +88,7 @@ exports.addCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -114,7 +114,7 @@ exports.addPowermeter = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -140,7 +140,7 @@ exports.addPowermeterColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -166,7 +166,7 @@ exports.agreementsColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -192,7 +192,7 @@ exports.analyticsBars = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -218,7 +218,7 @@ exports.arrowCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -244,7 +244,7 @@ exports.arrowRightCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -270,7 +270,7 @@ exports.arrowCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -296,7 +296,7 @@ exports.arrowRightCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -322,7 +322,7 @@ exports.arrowRightCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -348,7 +348,7 @@ exports.arrowLeftCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -374,7 +374,7 @@ exports.arrowLeftCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -400,7 +400,7 @@ exports.arrowLeftCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -426,7 +426,7 @@ exports.arrowDown = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -452,7 +452,7 @@ exports.arrowDownBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -478,7 +478,7 @@ exports.arrowExternal = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -504,7 +504,7 @@ exports.arrowExternalBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -530,7 +530,7 @@ exports.arrowLeft = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -556,7 +556,7 @@ exports.arrowLeftBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -582,7 +582,7 @@ exports.arrowLongLeft = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -608,7 +608,7 @@ exports.arrowLongLeftBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -634,7 +634,7 @@ exports.arrowLongRight = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -660,7 +660,7 @@ exports.arrowLong = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -686,7 +686,7 @@ exports.arrowLongRightBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -712,7 +712,7 @@ exports.arrowLongBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -738,7 +738,7 @@ exports.arrowRight = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -764,7 +764,7 @@ exports.arrowRightBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -790,7 +790,7 @@ exports.arrowUp = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -816,7 +816,7 @@ exports.arrowUpBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -842,7 +842,7 @@ exports.attendance = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -868,7 +868,7 @@ exports.attachment = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -894,7 +894,7 @@ exports.attachmentColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -920,7 +920,7 @@ exports.bin = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -946,7 +946,7 @@ exports.bookmark = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -972,7 +972,7 @@ exports.bookmarkFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -998,7 +998,7 @@ exports.bookshelf = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1024,7 +1024,7 @@ exports.box = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1050,7 +1050,7 @@ exports.businessColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1076,7 +1076,7 @@ exports.cabin = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1102,7 +1102,7 @@ exports.cable = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1128,7 +1128,7 @@ exports.calendar = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1154,7 +1154,7 @@ exports.calendarClockColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1180,7 +1180,7 @@ exports.calendarColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1206,7 +1206,7 @@ exports.call = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1232,7 +1232,7 @@ exports.carChargerColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1258,7 +1258,7 @@ exports.chainsaw = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1284,7 +1284,7 @@ exports.chat = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1310,7 +1310,7 @@ exports.chargingBattery = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1336,7 +1336,7 @@ exports.charge = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1362,7 +1362,7 @@ exports.chargingBatteryColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1388,7 +1388,7 @@ exports.check = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1414,7 +1414,7 @@ exports.checkBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1440,7 +1440,7 @@ exports.checkCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1466,7 +1466,7 @@ exports.checkCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1492,7 +1492,7 @@ exports.checkCircleFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1518,7 +1518,7 @@ exports.checkCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1544,7 +1544,7 @@ exports.checkShield = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1570,7 +1570,7 @@ exports.checklistColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1596,7 +1596,7 @@ exports.clock = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1622,7 +1622,7 @@ exports.close = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1648,7 +1648,7 @@ exports.closeBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1674,7 +1674,7 @@ exports.closeMenu = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1700,7 +1700,7 @@ exports.cloudUpload = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1726,7 +1726,7 @@ exports.cog = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1752,7 +1752,7 @@ exports.cookie = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1778,7 +1778,7 @@ exports.costCutColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1804,7 +1804,7 @@ exports.collapseCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1830,7 +1830,7 @@ exports.collapseCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1856,7 +1856,7 @@ exports.configurations = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1882,7 +1882,7 @@ exports.copy = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1908,7 +1908,7 @@ exports.crane = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1934,7 +1934,7 @@ exports.creditCard = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1960,7 +1960,7 @@ exports.cutElectricityPillar = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1986,7 +1986,7 @@ exports.cutElectricityPillarColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2012,7 +2012,7 @@ exports.dangerElectricityColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2038,7 +2038,7 @@ exports.dashboard = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2064,7 +2064,7 @@ exports.dashboardColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2090,7 +2090,7 @@ exports.designProcessColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2116,7 +2116,7 @@ exports.diggingColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2142,7 +2142,7 @@ exports.download = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2168,7 +2168,7 @@ exports.dragHandle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2194,7 +2194,7 @@ exports.edit = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2220,7 +2220,7 @@ exports.electricCabinet = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2246,7 +2246,7 @@ exports.electricCabinetColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2272,7 +2272,7 @@ exports.electricCarColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2298,7 +2298,7 @@ exports.electricHome = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2324,7 +2324,7 @@ exports.electricHomeColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2350,7 +2350,7 @@ exports.electricalSystem = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2376,7 +2376,7 @@ exports.electricalSystemColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2402,7 +2402,7 @@ exports.electricityPillar = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2428,7 +2428,7 @@ exports.electricitySafety = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2454,7 +2454,7 @@ exports.electricitySafetyColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2480,7 +2480,7 @@ exports.electricityTower = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2506,7 +2506,7 @@ exports.elsmartColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2532,7 +2532,7 @@ exports.expandCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2558,7 +2558,7 @@ exports.expandCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2584,7 +2584,7 @@ exports.extensionCord = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2610,7 +2610,7 @@ exports.facebook = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2636,7 +2636,7 @@ exports.feedback = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2662,7 +2662,7 @@ exports.filter = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2688,7 +2688,7 @@ exports.filterFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2714,7 +2714,7 @@ exports.flag = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2740,7 +2740,7 @@ exports.flagBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2766,7 +2766,7 @@ exports.flagBoldColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2792,7 +2792,7 @@ exports.flagColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2818,7 +2818,7 @@ exports.folder = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2844,7 +2844,7 @@ exports.folderCreate = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2870,7 +2870,7 @@ exports.folderOpen = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2896,7 +2896,7 @@ exports.formCheckColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2922,7 +2922,7 @@ exports.form = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2948,7 +2948,7 @@ exports.formColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2974,7 +2974,7 @@ exports.fullBattery = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3000,7 +3000,7 @@ exports.fullBatteryColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3026,7 +3026,7 @@ exports.freshchatColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3052,7 +3052,7 @@ exports.graphBar = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3078,7 +3078,7 @@ exports.graphBarColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3104,7 +3104,7 @@ exports.graphUp = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3130,7 +3130,7 @@ exports.groundFault = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3156,7 +3156,7 @@ exports.groundFaultColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3182,7 +3182,7 @@ exports.hammerWrenchColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3208,7 +3208,7 @@ exports.han = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3234,7 +3234,7 @@ exports.hanColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3260,7 +3260,7 @@ exports.heating = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3286,7 +3286,7 @@ exports.home = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3312,7 +3312,7 @@ exports.homeColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3338,7 +3338,7 @@ exports.houseRebuildingColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3364,7 +3364,7 @@ exports.image = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3390,7 +3390,7 @@ exports.imageAddColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3416,7 +3416,7 @@ exports.informationCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3442,7 +3442,7 @@ exports.informationCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3468,7 +3468,7 @@ exports.informationCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3494,7 +3494,7 @@ exports.installatorwebColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3520,7 +3520,7 @@ exports.invoice = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3546,7 +3546,7 @@ exports.invoiceColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3572,7 +3572,7 @@ exports.laptopColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3598,7 +3598,7 @@ exports.layers = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3624,7 +3624,7 @@ exports.lighting = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3650,7 +3650,7 @@ exports.list = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3676,7 +3676,7 @@ exports.listColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3702,7 +3702,7 @@ exports.listBulletsBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3728,7 +3728,7 @@ exports.loading = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3754,7 +3754,7 @@ exports.lock = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3780,7 +3780,7 @@ exports.lockHierarchy = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3806,7 +3806,7 @@ exports.logout = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3832,7 +3832,7 @@ exports.mail = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3858,7 +3858,7 @@ exports.mailErrorColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3884,7 +3884,7 @@ exports.mailMonitorColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3910,7 +3910,7 @@ exports.mailSendColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3936,7 +3936,7 @@ exports.mapPinColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3962,7 +3962,7 @@ exports.media = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3988,7 +3988,7 @@ exports.menu = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4014,7 +4014,7 @@ exports.menuBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4040,7 +4040,7 @@ exports.minus = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4066,7 +4066,7 @@ exports.minusBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4092,7 +4092,7 @@ exports.moneyColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4118,7 +4118,7 @@ exports.moreMenu = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4144,7 +4144,7 @@ exports.moveCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4170,7 +4170,7 @@ exports.moveTruckColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4196,7 +4196,7 @@ exports.newTabBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4222,7 +4222,7 @@ exports.noteApprovedColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4248,7 +4248,7 @@ exports.noteCheckColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4274,7 +4274,7 @@ exports.notificationBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4300,7 +4300,7 @@ exports.openMenu = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4326,7 +4326,7 @@ exports.paperPlaneSpeedColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4352,7 +4352,7 @@ exports.paperPlane = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4378,7 +4378,7 @@ exports.pauseCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4404,7 +4404,7 @@ exports.pauseCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4430,7 +4430,7 @@ exports.phone = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4456,7 +4456,7 @@ exports.phoneComment = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4482,7 +4482,7 @@ exports.phoneCommentColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4508,7 +4508,7 @@ exports.phoneImage = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4534,7 +4534,7 @@ exports.pdfDocument = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4560,7 +4560,7 @@ exports.pieChart = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4586,7 +4586,7 @@ exports.pin = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4612,7 +4612,7 @@ exports.pinColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4638,7 +4638,7 @@ exports.pinFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4664,7 +4664,7 @@ exports.pinFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4690,7 +4690,7 @@ exports.playCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4716,7 +4716,7 @@ exports.playCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4742,7 +4742,7 @@ exports.plus = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4768,7 +4768,7 @@ exports.plusBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4794,7 +4794,7 @@ exports.positionBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4820,7 +4820,7 @@ exports.positionBoldColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4846,7 +4846,7 @@ exports.positionOffBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4872,7 +4872,7 @@ exports.power = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4898,7 +4898,7 @@ exports.power2 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4924,7 +4924,7 @@ exports.powerOutage = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4950,7 +4950,7 @@ exports.powerOutage2 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4976,7 +4976,7 @@ exports.powerOutage2Color = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5002,7 +5002,7 @@ exports.powerOutageColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5028,7 +5028,7 @@ exports.powerOutageMap = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5054,7 +5054,7 @@ exports.powerOutageOrangeColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5080,7 +5080,7 @@ exports.powerService = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5106,7 +5106,7 @@ exports.powerServiceColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5132,7 +5132,7 @@ exports.powerColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5158,7 +5158,7 @@ exports.powerline = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5184,7 +5184,7 @@ exports.powerlineColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5210,7 +5210,7 @@ exports.powermeterAms = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5236,7 +5236,7 @@ exports.powermeterAmsColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5262,7 +5262,7 @@ exports.powermeterOld = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5288,7 +5288,7 @@ exports.powermeterColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5314,7 +5314,7 @@ exports.profile = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5340,7 +5340,7 @@ exports.profile2 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5366,7 +5366,7 @@ exports.profile2Color = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5392,7 +5392,7 @@ exports.profileBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5418,7 +5418,7 @@ exports.questionCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5444,7 +5444,7 @@ exports.questionCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5470,7 +5470,7 @@ exports.questionCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5496,7 +5496,7 @@ exports.quotationColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5522,7 +5522,7 @@ exports.refresh = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5548,7 +5548,7 @@ exports.removeCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5574,7 +5574,7 @@ exports.removeCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5600,7 +5600,7 @@ exports.removeCircleFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5626,7 +5626,7 @@ exports.removeCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5652,7 +5652,7 @@ exports.renewableEnergy = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5678,7 +5678,7 @@ exports.renewableEnergyColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5704,7 +5704,7 @@ exports.reset = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5730,7 +5730,7 @@ exports.rotateRight = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5756,7 +5756,7 @@ exports.rssBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5782,7 +5782,7 @@ exports.search = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5808,7 +5808,7 @@ exports.searchColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5834,7 +5834,7 @@ exports.searchBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5860,7 +5860,7 @@ exports.searchBoldColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5886,7 +5886,7 @@ exports.season = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5912,7 +5912,7 @@ exports.selectArea = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5938,7 +5938,7 @@ exports.settingsVertical = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5964,7 +5964,7 @@ exports.shovel = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5990,7 +5990,7 @@ exports.smartCity = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6016,7 +6016,7 @@ exports.smartCityColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6042,7 +6042,7 @@ exports.solarPanel = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6068,7 +6068,7 @@ exports.solarPanelColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6094,7 +6094,7 @@ exports.sortingAscendingBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6120,7 +6120,7 @@ exports.sortingDescendingBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6146,7 +6146,7 @@ exports.sortingBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6172,7 +6172,7 @@ exports.sorting2Bold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6198,7 +6198,7 @@ exports.starFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6224,7 +6224,7 @@ exports.star = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6250,7 +6250,7 @@ exports.step1 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6276,7 +6276,7 @@ exports.step2 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6302,7 +6302,7 @@ exports.step3 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6328,7 +6328,7 @@ exports.step4 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6354,7 +6354,7 @@ exports.step5 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6380,7 +6380,7 @@ exports.stove = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6406,7 +6406,7 @@ exports.subtractCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6432,7 +6432,7 @@ exports.subtractCircleFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6458,7 +6458,7 @@ exports.subtractCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6484,7 +6484,7 @@ exports.support = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6510,7 +6510,7 @@ exports.sync = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6536,7 +6536,7 @@ exports.tagAdd = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6562,7 +6562,7 @@ exports.tag = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6588,7 +6588,7 @@ exports.thirdParty = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6614,7 +6614,7 @@ exports.thumbnail = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6640,7 +6640,7 @@ exports.touchFingerColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6666,7 +6666,7 @@ exports.treeFalling = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6692,7 +6692,7 @@ exports.treePowerline = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6718,7 +6718,7 @@ exports.treePowerlineColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6744,7 +6744,7 @@ exports.unlock = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6770,7 +6770,7 @@ exports.upload = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6796,7 +6796,7 @@ exports.userTestingColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6822,7 +6822,7 @@ exports.users = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6848,7 +6848,7 @@ exports.viewOff = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6874,7 +6874,7 @@ exports.viewOn = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6900,7 +6900,7 @@ exports.warningCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6926,7 +6926,7 @@ exports.warningCircleFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6952,7 +6952,7 @@ exports.warningElectricityColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6978,7 +6978,7 @@ exports.warningTriangle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7004,7 +7004,7 @@ exports.warningCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7030,7 +7030,7 @@ exports.waterHeater = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7056,7 +7056,7 @@ exports.washingMachine = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7082,7 +7082,7 @@ exports.webLibraryColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7108,7 +7108,7 @@ exports.worker = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7134,7 +7134,7 @@ exports.workUnderLineColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7160,7 +7160,7 @@ exports.workerColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7186,7 +7186,7 @@ exports.wrench = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7212,7 +7212,7 @@ exports.zoomIn = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7238,7 +7238,7 @@ exports.zoomOut = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
