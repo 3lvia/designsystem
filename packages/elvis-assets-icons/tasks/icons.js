@@ -80,7 +80,7 @@ export const ${createCamelCase(iconsToInclude[i].name)} = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added

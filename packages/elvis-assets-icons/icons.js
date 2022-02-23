@@ -12,7 +12,7 @@ export const addCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -40,7 +40,7 @@ export const addCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -68,7 +68,7 @@ export const addCircleFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -96,7 +96,7 @@ export const addCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -124,7 +124,7 @@ export const addPowermeter = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -152,7 +152,7 @@ export const addPowermeterColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -180,7 +180,7 @@ export const agreementsColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -208,7 +208,7 @@ export const analyticsBars = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -236,7 +236,7 @@ export const arrowCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -264,7 +264,7 @@ export const arrowRightCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -292,7 +292,7 @@ export const arrowCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -320,7 +320,7 @@ export const arrowRightCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -348,7 +348,7 @@ export const arrowRightCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -376,7 +376,7 @@ export const arrowLeftCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -404,7 +404,7 @@ export const arrowLeftCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -432,7 +432,7 @@ export const arrowLeftCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -460,7 +460,7 @@ export const arrowDown = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -488,7 +488,7 @@ export const arrowDownBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -516,7 +516,7 @@ export const arrowExternal = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -544,7 +544,7 @@ export const arrowExternalBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -572,7 +572,7 @@ export const arrowLeft = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -600,7 +600,7 @@ export const arrowLeftBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -628,7 +628,7 @@ export const arrowLongLeft = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -656,7 +656,7 @@ export const arrowLongLeftBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -684,7 +684,7 @@ export const arrowLongRight = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -712,7 +712,7 @@ export const arrowLong = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -740,7 +740,7 @@ export const arrowLongRightBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -768,7 +768,7 @@ export const arrowLongBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -796,7 +796,7 @@ export const arrowRight = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -824,7 +824,7 @@ export const arrowRightBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -852,7 +852,7 @@ export const arrowUp = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -880,7 +880,7 @@ export const arrowUpBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -908,7 +908,7 @@ export const attendance = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -936,7 +936,7 @@ export const attachment = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -964,7 +964,7 @@ export const attachmentColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -992,7 +992,7 @@ export const bin = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1020,7 +1020,7 @@ export const bookmark = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1048,7 +1048,7 @@ export const bookmarkFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1076,7 +1076,7 @@ export const bookshelf = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1104,7 +1104,7 @@ export const box = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1132,7 +1132,7 @@ export const businessColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1160,7 +1160,7 @@ export const cabin = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1188,7 +1188,7 @@ export const cable = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1216,7 +1216,7 @@ export const calendar = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1244,7 +1244,7 @@ export const calendarClockColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1272,7 +1272,7 @@ export const calendarColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1300,7 +1300,7 @@ export const call = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1328,7 +1328,7 @@ export const carChargerColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1356,7 +1356,7 @@ export const chainsaw = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1384,7 +1384,7 @@ export const chat = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1412,7 +1412,7 @@ export const chargingBattery = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1440,7 +1440,7 @@ export const charge = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1468,7 +1468,7 @@ export const chargingBatteryColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1496,7 +1496,7 @@ export const check = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1524,7 +1524,7 @@ export const checkBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1552,7 +1552,7 @@ export const checkCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1580,7 +1580,7 @@ export const checkCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1608,7 +1608,7 @@ export const checkCircleFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1636,7 +1636,7 @@ export const checkCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1664,7 +1664,7 @@ export const checkShield = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1692,7 +1692,7 @@ export const checklistColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1720,7 +1720,7 @@ export const clock = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1748,7 +1748,7 @@ export const close = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1776,7 +1776,7 @@ export const closeBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1804,7 +1804,7 @@ export const closeMenu = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1832,7 +1832,7 @@ export const cloudUpload = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1860,7 +1860,7 @@ export const cog = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1888,7 +1888,7 @@ export const cookie = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1916,7 +1916,7 @@ export const costCutColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1944,7 +1944,7 @@ export const collapseCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -1972,7 +1972,7 @@ export const collapseCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2000,7 +2000,7 @@ export const configurations = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2028,7 +2028,7 @@ export const copy = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2056,7 +2056,7 @@ export const crane = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2084,7 +2084,7 @@ export const creditCard = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2112,7 +2112,7 @@ export const cutElectricityPillar = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2140,7 +2140,7 @@ export const cutElectricityPillarColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2168,7 +2168,7 @@ export const dangerElectricityColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2196,7 +2196,7 @@ export const dashboard = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2224,7 +2224,7 @@ export const dashboardColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2252,7 +2252,7 @@ export const designProcessColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2280,7 +2280,7 @@ export const diggingColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2308,7 +2308,7 @@ export const download = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2336,7 +2336,7 @@ export const dragHandle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2364,7 +2364,7 @@ export const edit = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2392,7 +2392,7 @@ export const electricCabinet = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2420,7 +2420,7 @@ export const electricCabinetColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2448,7 +2448,7 @@ export const electricCarColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2476,7 +2476,7 @@ export const electricHome = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2504,7 +2504,7 @@ export const electricHomeColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2532,7 +2532,7 @@ export const electricalSystem = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2560,7 +2560,7 @@ export const electricalSystemColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2588,7 +2588,7 @@ export const electricityPillar = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2616,7 +2616,7 @@ export const electricitySafety = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2644,7 +2644,7 @@ export const electricitySafetyColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2672,7 +2672,7 @@ export const electricityTower = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2700,7 +2700,7 @@ export const elsmartColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2728,7 +2728,7 @@ export const expandCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2756,7 +2756,7 @@ export const expandCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2784,7 +2784,7 @@ export const extensionCord = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2812,7 +2812,7 @@ export const facebook = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2840,7 +2840,7 @@ export const feedback = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2868,7 +2868,7 @@ export const filter = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2896,7 +2896,7 @@ export const filterFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2924,7 +2924,7 @@ export const flag = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2952,7 +2952,7 @@ export const flagBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -2980,7 +2980,7 @@ export const flagBoldColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3008,7 +3008,7 @@ export const flagColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3036,7 +3036,7 @@ export const folder = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3064,7 +3064,7 @@ export const folderCreate = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3092,7 +3092,7 @@ export const folderOpen = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3120,7 +3120,7 @@ export const formCheckColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3148,7 +3148,7 @@ export const form = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3176,7 +3176,7 @@ export const formColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3204,7 +3204,7 @@ export const fullBattery = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3232,7 +3232,7 @@ export const fullBatteryColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3260,7 +3260,7 @@ export const freshchatColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3288,7 +3288,7 @@ export const graphBar = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3316,7 +3316,7 @@ export const graphBarColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3344,7 +3344,7 @@ export const graphUp = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3372,7 +3372,7 @@ export const groundFault = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3400,7 +3400,7 @@ export const groundFaultColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3428,7 +3428,7 @@ export const hammerWrenchColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3456,7 +3456,7 @@ export const han = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3484,7 +3484,7 @@ export const hanColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3512,7 +3512,7 @@ export const heating = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3540,7 +3540,7 @@ export const home = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3568,7 +3568,7 @@ export const homeColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3596,7 +3596,7 @@ export const houseRebuildingColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3624,7 +3624,7 @@ export const image = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3652,7 +3652,7 @@ export const imageAddColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3680,7 +3680,7 @@ export const informationCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3708,7 +3708,7 @@ export const informationCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3736,7 +3736,7 @@ export const informationCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3764,7 +3764,7 @@ export const installatorwebColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3792,7 +3792,7 @@ export const invoice = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3820,7 +3820,7 @@ export const invoiceColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3848,7 +3848,7 @@ export const laptopColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3876,7 +3876,7 @@ export const layers = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3904,7 +3904,7 @@ export const lighting = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3932,7 +3932,7 @@ export const list = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3960,7 +3960,7 @@ export const listColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -3988,7 +3988,7 @@ export const listBulletsBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4016,7 +4016,7 @@ export const loading = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4044,7 +4044,7 @@ export const lock = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4072,7 +4072,7 @@ export const lockHierarchy = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4100,7 +4100,7 @@ export const logout = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4128,7 +4128,7 @@ export const mail = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4156,7 +4156,7 @@ export const mailErrorColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4184,7 +4184,7 @@ export const mailMonitorColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4212,7 +4212,7 @@ export const mailSendColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4240,7 +4240,7 @@ export const mapPinColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4268,7 +4268,7 @@ export const media = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4296,7 +4296,7 @@ export const menu = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4324,7 +4324,7 @@ export const menuBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4352,7 +4352,7 @@ export const minus = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4380,7 +4380,7 @@ export const minusBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4408,7 +4408,7 @@ export const moneyColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4436,7 +4436,7 @@ export const moreMenu = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4464,7 +4464,7 @@ export const moveCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4492,7 +4492,7 @@ export const moveTruckColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4520,7 +4520,7 @@ export const newTabBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4548,7 +4548,7 @@ export const noteApprovedColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4576,7 +4576,7 @@ export const noteCheckColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4604,7 +4604,7 @@ export const notificationBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4632,7 +4632,7 @@ export const openMenu = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4660,7 +4660,7 @@ export const paperPlaneSpeedColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4688,7 +4688,7 @@ export const paperPlane = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4716,7 +4716,7 @@ export const pauseCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4744,7 +4744,7 @@ export const pauseCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4772,7 +4772,7 @@ export const phone = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4800,7 +4800,7 @@ export const phoneComment = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4828,7 +4828,7 @@ export const phoneCommentColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4856,7 +4856,7 @@ export const phoneImage = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4884,7 +4884,7 @@ export const pdfDocument = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4912,7 +4912,7 @@ export const pieChart = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4940,7 +4940,7 @@ export const pin = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4968,7 +4968,7 @@ export const pinColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -4996,7 +4996,7 @@ export const pinFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5024,7 +5024,7 @@ export const pinFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5052,7 +5052,7 @@ export const playCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5080,7 +5080,7 @@ export const playCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5108,7 +5108,7 @@ export const plus = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5136,7 +5136,7 @@ export const plusBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5164,7 +5164,7 @@ export const positionBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5192,7 +5192,7 @@ export const positionBoldColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5220,7 +5220,7 @@ export const positionOffBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5248,7 +5248,7 @@ export const power = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5276,7 +5276,7 @@ export const power2 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5304,7 +5304,7 @@ export const powerOutage = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5332,7 +5332,7 @@ export const powerOutage2 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5360,7 +5360,7 @@ export const powerOutage2Color = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5388,7 +5388,7 @@ export const powerOutageColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5416,7 +5416,7 @@ export const powerOutageMap = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5444,7 +5444,7 @@ export const powerOutageOrangeColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5472,7 +5472,7 @@ export const powerService = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5500,7 +5500,7 @@ export const powerServiceColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5528,7 +5528,7 @@ export const powerColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5556,7 +5556,7 @@ export const powerline = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5584,7 +5584,7 @@ export const powerlineColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5612,7 +5612,7 @@ export const powermeterAms = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5640,7 +5640,7 @@ export const powermeterAmsColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5668,7 +5668,7 @@ export const powermeterOld = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5696,7 +5696,7 @@ export const powermeterColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5724,7 +5724,7 @@ export const profile = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5752,7 +5752,7 @@ export const profile2 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5780,7 +5780,7 @@ export const profile2Color = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5808,7 +5808,7 @@ export const profileBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5836,7 +5836,7 @@ export const questionCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5864,7 +5864,7 @@ export const questionCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5892,7 +5892,7 @@ export const questionCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5920,7 +5920,7 @@ export const quotationColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5948,7 +5948,7 @@ export const refresh = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -5976,7 +5976,7 @@ export const removeCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6004,7 +6004,7 @@ export const removeCircleColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6032,7 +6032,7 @@ export const removeCircleFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6060,7 +6060,7 @@ export const removeCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6088,7 +6088,7 @@ export const renewableEnergy = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6116,7 +6116,7 @@ export const renewableEnergyColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6144,7 +6144,7 @@ export const reset = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6172,7 +6172,7 @@ export const rotateRight = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6200,7 +6200,7 @@ export const rssBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6228,7 +6228,7 @@ export const search = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6256,7 +6256,7 @@ export const searchColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6284,7 +6284,7 @@ export const searchBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6312,7 +6312,7 @@ export const searchBoldColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6340,7 +6340,7 @@ export const season = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6368,7 +6368,7 @@ export const selectArea = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6396,7 +6396,7 @@ export const settingsVertical = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6424,7 +6424,7 @@ export const shovel = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6452,7 +6452,7 @@ export const smartCity = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6480,7 +6480,7 @@ export const smartCityColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6508,7 +6508,7 @@ export const solarPanel = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6536,7 +6536,7 @@ export const solarPanelColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6564,7 +6564,7 @@ export const sortingAscendingBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6592,7 +6592,7 @@ export const sortingDescendingBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6620,7 +6620,7 @@ export const sortingBold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6648,7 +6648,7 @@ export const sorting2Bold = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6676,7 +6676,7 @@ export const starFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6704,7 +6704,7 @@ export const star = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6732,7 +6732,7 @@ export const step1 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6760,7 +6760,7 @@ export const step2 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6788,7 +6788,7 @@ export const step3 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6816,7 +6816,7 @@ export const step4 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6844,7 +6844,7 @@ export const step5 = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6872,7 +6872,7 @@ export const stove = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6900,7 +6900,7 @@ export const subtractCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6928,7 +6928,7 @@ export const subtractCircleFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6956,7 +6956,7 @@ export const subtractCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -6984,7 +6984,7 @@ export const support = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7012,7 +7012,7 @@ export const sync = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7040,7 +7040,7 @@ export const tagAdd = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7068,7 +7068,7 @@ export const tag = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7096,7 +7096,7 @@ export const thirdParty = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7124,7 +7124,7 @@ export const thumbnail = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7152,7 +7152,7 @@ export const touchFingerColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7180,7 +7180,7 @@ export const treeFalling = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7208,7 +7208,7 @@ export const treePowerline = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7236,7 +7236,7 @@ export const treePowerlineColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7264,7 +7264,7 @@ export const unlock = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7292,7 +7292,7 @@ export const upload = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7320,7 +7320,7 @@ export const userTestingColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7348,7 +7348,7 @@ export const users = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7376,7 +7376,7 @@ export const viewOff = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7404,7 +7404,7 @@ export const viewOn = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7432,7 +7432,7 @@ export const warningCircle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7460,7 +7460,7 @@ export const warningCircleFilled = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7488,7 +7488,7 @@ export const warningElectricityColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7516,7 +7516,7 @@ export const warningTriangle = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7544,7 +7544,7 @@ export const warningCircleFilledColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7572,7 +7572,7 @@ export const waterHeater = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7600,7 +7600,7 @@ export const washingMachine = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7628,7 +7628,7 @@ export const webLibraryColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7656,7 +7656,7 @@ export const worker = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7684,7 +7684,7 @@ export const workUnderLineColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7712,7 +7712,7 @@ export const workerColor = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7740,7 +7740,7 @@ export const wrench = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7768,7 +7768,7 @@ export const zoomIn = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
@@ -7796,7 +7796,7 @@ export const zoomOut = {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
         icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
