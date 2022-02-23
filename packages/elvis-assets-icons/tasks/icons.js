@@ -60,7 +60,7 @@ import { getColor } from '@elvia/elvis-colors';
 `;
   let iconTypes = `declare type Icon = {
   getIcon: (color: string) => string;
-}`;
+};`;
   let iconNameType = `
 export declare type IconName =`;
 
