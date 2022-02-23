@@ -59,7 +59,7 @@ async function createIconModule() {
 import { getColor } from '@elvia/elvis-colors';
 `;
   let iconTypes = `declare type Icon = {
-    getIcon: (color: string) => string;
+  getIcon: (color: string) => string;
 }`;
   let iconNameType = `
 export declare type IconName = `;
@@ -75,19 +75,19 @@ export const ${createCamelCase(iconsToInclude[i].name)} = {
     let icon = 
       '${fileContent}';
     let iconName = '${iconName}';
-    icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+    icon = icon.replace('<svg ', '<svg viewBox="0 0 24 24" aria-hidden="true" ');
     if (!color) {
       return icon;
     }
     if (color === 'inverted') {
-      if (iconName.indexOf("-color") > -1 && !(iconName.indexOf("-color-") > -1)) {
-        icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+      if (iconName.indexOf('-color') > -1 && !(iconName.indexOf('-color-') > -1)) {
+        icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
       }
       // -full-color check can be removed when new icons have been added
-      if (iconName.indexOf("-filled-color") > -1 || iconName.indexOf("-full-color") > -1) {
-        icon = icon.replace(/fill="#000"/g, "fillBlack'");
+      if (iconName.indexOf('-filled-color') > -1 || iconName.indexOf('-full-color') > -1) {
+        icon = icon.replace(/fill="#000"/g, 'fillBlack');
       }
-      icon = icon.replace(/fill="#fff"/g, "fillBlack");
+      icon = icon.replace(/fill="#fff"/g, 'fillBlack');
       icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
       icon = icon.replace(/fillBlack/g, "fill='black'");
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
@@ -96,19 +96,19 @@ export const ${createCamelCase(iconsToInclude[i].name)} = {
       return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
     }
     return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
-  }
-}`;
+  },
+};`;
     iconTypes =
       iconTypes +
       `
 export declare const ${createCamelCase(iconsToInclude[i].name)}: Icon;`;
-    iconNameType = iconNameType + `"${createCamelCase(iconsToInclude[i].name)}" | `;
+    iconNameType = iconNameType + `\n  | '${createCamelCase(iconsToInclude[i].name)}'`;
   }
   // const template = fs.readFileSync('./src/templates/icons.template.js').toString();
   // const newContent = template.replace('//[[INJECT_ICONS]]', jsModule);
 
-  fs.writeFileSync('./icons.js', jsModule);
-  fs.writeFileSync('./icons.d.ts', iconTypes + iconNameType.substring(0, iconNameType.length - 3) + ';');
+  fs.writeFileSync('./icons.js', jsModule + '\n');
+  fs.writeFileSync('./icons.d.ts', iconTypes + iconNameType + ';\n');
   return true;
 }
 
