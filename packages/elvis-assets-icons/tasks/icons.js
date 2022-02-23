@@ -62,7 +62,7 @@ import { getColor } from '@elvia/elvis-colors';
   getIcon: (color: string) => string;
 }`;
   let iconNameType = `
-export declare type IconName = `;
+export declare type IconName =`;
 
   for (let i = 0; i < iconsToInclude.length; i++) {
     const fileContent = fs.readFileSync(iconsToInclude[i].path).toString();
@@ -72,7 +72,7 @@ export declare type IconName = `;
       `
 export const ${createCamelCase(iconsToInclude[i].name)} = {
   getIcon: function (color) {
-    let icon = 
+    let icon =
       '${fileContent}';
     let iconName = '${iconName}';
     icon = icon.replace('<svg ', '<svg viewBox="0 0 24 24" aria-hidden="true" ');

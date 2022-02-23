@@ -280,7 +280,7 @@ export declare const workerColor: Icon;
 export declare const wrench: Icon;
 export declare const zoomIn: Icon;
 export declare const zoomOut: Icon;
-export declare type IconName = 
+export declare type IconName =
   | 'addCircle'
   | 'addCircleColor'
   | 'addCircleFilled'
