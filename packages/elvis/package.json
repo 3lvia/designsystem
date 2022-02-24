@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis",
-  "version": "8.0.0",
+  "version": "8.0.3",
   "description": "Elvia design system",
   "license": "ISC",
   "author": "",
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",
-    "bootstrap": "4.5.3"
+    "bootstrap": "4.6.1"
   },
   "devDependencies": {
     "doiuse": "^4.4.0",

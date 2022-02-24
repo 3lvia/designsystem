@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
+import { Icon } from '@elvia/elvis-icon/react';
 import {
   Paginator,
   PaginatorNumber,
@@ -11,8 +12,6 @@ import {
   PaginatorNumbersArea,
   PaginatorSelectorArea,
   PaginatorSelectorArrowBtn,
-  PaginatorSelectorArrowLeft,
-  PaginatorSelectorRighArrow,
 } from './styledComponents';
 
 export interface DropdownOption {
@@ -32,7 +31,8 @@ export interface PaginationProps {
   dropdownMenuPos: string;
   isRightAligned?: boolean;
   dropdownItems: Array<DropdownOption>;
-  dropdownItemsDefaultIndex: number;
+  selectedDropdownItemIndex: number;
+  selectedDropdownItemIndexOnChange?: (value: number) => void;
   labelDisplaying: string;
   label: string;
   labelOf: string;
@@ -68,7 +68,8 @@ const Pagination: FC<PaginationProps> = ({
   isRightAligned = false,
   dropdownMenuPos = 'bottom',
   dropdownItems = paginationOptions,
-  dropdownItemsDefaultIndex = 0,
+  selectedDropdownItemIndex = 0,
+  selectedDropdownItemIndexOnChange,
   label = 'elementer',
   labelDisplaying = 'Viser',
   labelOf = 'av',
@@ -77,7 +78,7 @@ const Pagination: FC<PaginationProps> = ({
   inlineStyle,
   webcomponent,
 }) => {
-  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[dropdownItemsDefaultIndex]);
+  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[selectedDropdownItemIndex]);
   const [showPaginationMenu, setShowPaginationMenu] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [selectedNumber, setSelectedNumber] = useState(1);
@@ -91,8 +92,8 @@ const Pagination: FC<PaginationProps> = ({
   }, [numberOfElements]);
 
   useEffect(() => {
-    setCurrentDisplayAmount(dropdownItems[dropdownItemsDefaultIndex]);
-  }, [dropdownItems, dropdownItemsDefaultIndex]);
+    setCurrentDisplayAmount(dropdownItems[selectedDropdownItemIndex]);
+  }, [dropdownItems, selectedDropdownItemIndex]);
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
@@ -413,6 +414,15 @@ const Pagination: FC<PaginationProps> = ({
     if (!isSelectedInRange) {
       setSelectedNumber(selectionNumbers.length);
     }
+    if (selectionRange !== currentDisplayAmount) {
+      const selectedIndex = dropdownItems.indexOf(selectionRange);
+      if (!webcomponent && selectedDropdownItemIndexOnChange) {
+        selectedDropdownItemIndexOnChange(selectedIndex);
+      } else if (webcomponent) {
+        // True -> Prevents rerender
+        webcomponent.setProps({ selectedDropdownItemIndex: selectedIndex }, true);
+      }
+    }
   };
 
   // set rangevalue and return in valueOnChange function
@@ -485,7 +495,7 @@ const Pagination: FC<PaginationProps> = ({
           data-testid="selector-arrow-btn-left"
           aria-label="Forrige side"
         >
-          <PaginatorSelectorArrowLeft />
+          <Icon name="arrowLongLeft" size="xs" />
         </PaginatorSelectorArrowBtn>
         {showPaginationMenu ? <Paginators data-testid="paginators" /> : null}
         <PaginatorSelectorArrowBtn
@@ -494,7 +504,7 @@ const Pagination: FC<PaginationProps> = ({
           data-testid="selector-arrow-btn-right"
           aria-label="Neste side"
         >
-          <PaginatorSelectorRighArrow />
+          <Icon name="arrowLongRight" size="xs" />
         </PaginatorSelectorArrowBtn>
       </PaginatorSelectorArea>
     </Paginator>

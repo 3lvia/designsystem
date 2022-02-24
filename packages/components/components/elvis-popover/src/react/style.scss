@@ -111,10 +111,6 @@ $green: #29d305;
   &.ewc-popover--hide .ewc-popover__backdrop {
     opacity: 0;
     display: none;
-    .ewc-btn .ewc-btn__icon i {
-      opacity: 0;
-      display: none;
-    }
   }
 
   &.ewc-popover--text-only .ewc-popover__content {
@@ -149,88 +145,10 @@ $green: #29d305;
   background: none;
   color: black;
 
-  .ewc-btn__icon {
-    width: 24px;
-    height: 24px;
-    i {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      visibility: visible;
-    }
-  }
-
-  &.ewc-btn--lg .ewc-btn__icon {
-    width: 32px;
-    height: 32px;
-  }
-  &.ewc-btn--sm:not(.ewc-btn--circled) .ewc-btn__icon {
-    width: 16px;
-    height: 16px;
-  }
-
-  &.ewc-btn--circled {
-    padding: 0;
-
-    // Hiding hover ikon
-    .ewc-btn__icon i[class*='filled-color'] {
-      visibility: hidden;
-    }
-
-    &.ewc-btn---hover,
-    &:hover:not(:disabled),
-    &.ewc-btn---active,
-    &:active:not(:disabled) {
-      background: transparent;
-      // Showing hover ikon
-      .ewc-btn__icon i:not([class$='filled-color']),
-      .ewc-btn__icon i:not([class$='disabled']) {
-        visibility: hidden;
-      }
-      .ewc-btn__icon i[class*='filled-color'] {
-        visibility: visible;
-      }
-    }
-    &.ewc-btn---active,
-    &:active:not(:disabled) {
-      transform: scale(0.93);
-    }
-  }
-
   &.ewc-btn---hover,
   &:hover:not(:disabled),
   &.ewc-btn---active,
   &:active:not(:disabled) {
     background: $green;
-    .ewc-btn__icon i[class$='inverted'] {
-      visibility: visible;
-    }
-  }
-  &.ewc-btn---active,
-  &:active:not(:disabled) {
-    transform: scale(0.95);
-  }
-  &.ewc-btn---focus,
-  &:focus:not(:disabled) {
-    outline: 2px solid #0064fa;
-    outline-offset: 2px;
-  }
-  &.ewc-btn---disabled,
-  &:disabled {
-    cursor: not-allowed;
-  }
-}
-
-// --- ICONS ---
-.ewc-icon {
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  i {
-    width: 16px;
-    height: 16px;
   }
 }

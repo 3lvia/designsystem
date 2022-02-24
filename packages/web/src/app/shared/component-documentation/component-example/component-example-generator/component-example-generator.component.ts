@@ -110,8 +110,20 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   initializeSideFilterFormGroups(): void {
     const props = this.componentData.attributes;
-    Object.keys(props).forEach((propKey) => {
+    let index = 0;
+    let checkboxIndex = undefined;
+    const filteringAttributeKeys = Object.keys(this.componentData.attributes).filter((propKey) => {
+      return (
+        props[propKey].cegFormType &&
+        props[propKey].cegFormType !== 'type' &&
+        props[propKey].cegFormType !== 'background'
+      );
+    });
+    filteringAttributeKeys.forEach((propKey) => {
       const prop = props[propKey];
+      if (!prop.cegFormType) {
+        return;
+      }
       const formType = prop.cegFormType;
       if (formType === 'radio') {
         const formGroupOptions = [];
@@ -121,7 +133,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
             name: option,
             defaultValue: prop.cegDefault === option,
           };
-          formGroupOptions.push(formOption);
+          formGroupOptions.splice(index, 0, formOption);
         });
         const formGroupObject = {
           label: prop.cegDisplayName,
@@ -139,6 +151,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           ...prop,
         };
         this.allCheckboxes.push(checkboxObject);
+        if (checkboxIndex === undefined) {
+          checkboxIndex = index;
+        }
       } else if (formType === 'toggle') {
         const formGroupObject = {
           label: prop.cegDisplayName,
@@ -168,12 +183,14 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         };
         this.formGroupList.push(formGroupObject);
       }
+      index++;
     });
-    this.initializeCheckboxFormGroups();
+    this.initializeCheckboxFormGroups(checkboxIndex);
   }
 
-  initializeCheckboxFormGroups(): void {
+  initializeCheckboxFormGroups(checkboxIndex: number): void {
     const checkboxGroups = this.sortCheckboxesByGroup(this.allCheckboxes);
+    const checkboxList = [];
     Object.keys(checkboxGroups).forEach((checkboxGroupKey) => {
       const formGroupOptions = [];
       checkboxGroups[checkboxGroupKey].forEach((checkbox) => {
@@ -193,8 +210,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         formType: 'checkbox',
         formGroupOptions,
       };
-      this.formGroupList.push(checkboxFormGroupObject);
+      checkboxList.push(checkboxFormGroupObject);
     });
+    this.formGroupList.splice(checkboxIndex, 0, ...checkboxList);
   }
 
   initializeTopFilters(): void {
