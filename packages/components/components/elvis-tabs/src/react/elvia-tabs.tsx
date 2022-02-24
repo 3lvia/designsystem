@@ -64,15 +64,13 @@ const Tabs: FC<TabsProps> = ({
     updateArrowVisibility();
 
     // Listen for key-events to update focused element
-    if (!itemsRef.current) {
-      return;
+    if (itemsRef.current) {
+      itemsRef.current.addEventListener('keydown', updateFocusedElement);
     }
-    itemsRef.current.addEventListener('keydown', updateFocusedElement);
     return () => {
-      if (!itemsRef.current) {
-        return;
+      if (itemsRef.current) {
+        itemsRef.current.removeEventListener('keydown', updateFocusedElement);
       }
-      itemsRef.current.removeEventListener('keydown', updateFocusedElement);
     };
   });
 
