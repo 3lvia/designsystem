@@ -1,5 +1,28 @@
 # Elvia Pagination Changelog
 
+## 2.0.2 (18.02.22)
+
+### Patch
+
+- Fixed issue where wrong selection number is calculated when the pagination component is initiated with
+  different selectedDropdownItemIndex value than default.
+
+## 2.0.1 (18.02.22)
+
+### Patch
+
+- Now using elvis-icon package for internal icons.
+
+## 2.0.0 (18.02.22)
+
+### Major
+
+- Pagination prop "dropdownItemsDefaultIndex" has been renamed to "selectedDropdownItemIndex". We have also
+  added a callback function for this value called "selectedDropdownItemIndexOnChange", that gets called
+  everytime a value change occurs in the dropdown used within the pagination. Just replace prop name
+  "dropdownItemsDefaultIndex" with the new name "selectedDropdownItemIndex" to fix any issues with the
+  pagination.
+
 ## 1.3.0 (15.02.22)
 
 ### New feature

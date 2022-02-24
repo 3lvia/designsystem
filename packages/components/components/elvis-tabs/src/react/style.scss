@@ -50,17 +50,6 @@ $tabs-height-with-focus: calc($tabs-height + ($tabs-focus-padding * 2));
     -ms-user-select: none;
     user-select: none;
 
-    .ewc-tabs__icon {
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: inline-block;
-      position: absolute;
-      top: 11px;
-      width: 8px;
-      height: 8px;
-    }
-
     // IE specific
     @media screen and (-ms-high-contrast: none) {
       margin-top: -20px;
@@ -79,12 +68,6 @@ $tabs-height-with-focus: calc($tabs-height + ($tabs-focus-padding * 2));
       padding: 16px 8px 16px 28px;
     }
 
-    &.ewc-tabs__arrow--hide {
-      visibility: hidden;
-      .ewc-tabs__icon {
-        visibility: hidden;
-      }
-    }
     &.ewc-tabs__arrow--remove {
       display: none;
     }

@@ -77,11 +77,31 @@ const datepickerData = {
       cegOption: 'false',
       cegDisplayGroup: 'Options',
     },
+    hasOptionalText: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'An optional prop that adds the text "(valgfri)" behind the label, once set to true, to signalize that the input is optional to fill.',
+      default: 'true',
+      cegDisplayName: '"(valgfri)"',
+      cegType: 'boolean',
+      cegFormType: 'toggle',
+      cegDefault: false,
+      cegOption: 'true',
+      cegDependency: [{ name: 'isRequired', value: 'false' }],
+    },
+    showValidation: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Shows validations when sent in as true, e.g. "Velg en dato" error when date is required. Otherwise this will only be triggered after the input has had focus.',
+      default: 'false',
+    },
     customError: {
       isRequired: false,
       type: 'string',
       description:
-        'Optional prop for adding an error-message. This prop will overwrite built-in error-messages.',
+        'Optional prop for adding an error-message. This prop will overwrite built-in error-messages and is always visible when sent in.',
       cegDisplayName: 'Error',
     },
     minDate: {

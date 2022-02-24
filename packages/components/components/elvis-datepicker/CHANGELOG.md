@@ -1,5 +1,11 @@
 # Elvia Date picker Changelog
 
+## 2.5.1 (18.02.22)
+
+### Patch
+
+- Now using elvis-icon package for internal icons.
+
 ## 2.5.0 (16.02.22)
 
 ### New feature

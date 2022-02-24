@@ -8,6 +8,12 @@
   the enter or space keys are hit.
 - Added prop for aria-label: ariaLabel. Should usually be present to describe the tablist.
 
+## 1.2.1 (18.02.22)
+
+### Patch
+
+- Now using elvis-icon package for internal icons.
+
 ## 1.2.0 (07.02.22)
 
 ### New feature

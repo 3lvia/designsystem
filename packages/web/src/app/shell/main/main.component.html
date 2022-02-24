@@ -11,7 +11,13 @@
           <span class="e-ml-8 feedback-text">Give feedback</span>
         </div>
       </div>
-      <div [ngClass]="{ 'page-body overview-content': !isHomePage, 'not-landing-page': !isLandingPage }">
+      <div
+        [ngClass]="{
+          'page-body': !isHomePage,
+          'not-landing-page': !isLandingPage,
+          'overview-content': !isHomePage && !isNotFound
+        }"
+      >
         <div class="feedback-link" *ngIf="!isLandingPage">
           <div class="link" (click)="scrollToFeedback()">
             <img src="./../../../assets/feedback/smiley.svg" alt="Feedback emoji" />

@@ -942,20 +942,10 @@ body {
 .e-alert.e-alert--toast.e-alert--info {
   border-color: #262626;
 }
-.e-alert.e-alert--no-title .e-alert__icon {
-  align-items: center;
-}
-.e-alert.e-alert--no-title.e-alert--local .e-alert__icon, .e-alert.e-alert--no-title:not(.e-alert--global):not(.e-alert--toast) .e-alert__icon {
-  margin-top: 0px;
-}
 @media (max-width: 767px) {
   .e-alert.e-alert--no-title.e-alert--global {
     padding: 14px;
   }
-}
-.e-alert.e-alert--no-title .e-alert__icon,
-.e-alert.e-alert--no-title .e-alert__text {
-  margin-top: 0;
 }
 .e-alert.e-alert--actions .e-alert__icon {
   margin-top: 0px;

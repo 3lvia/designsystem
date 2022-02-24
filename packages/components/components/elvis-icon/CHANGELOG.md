@@ -1,5 +1,11 @@
 # Elvia Icon Changelog
 
+## 1.1.2 (11.02.22)
+
+### Patch
+
+- Updated major version dependency of elvis-assets-icon.
+
 ## 1.1.1 (11.02.22)
 
 ### Bug fix

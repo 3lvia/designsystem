@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-popover",
-  "version": "4.3.0",
+  "version": "4.3.1",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -11,6 +11,7 @@
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^2.1.11",
     "@elvia/elvis-toolbox": "^1.2.1",
+    "@elvia/elvis-icon": "^1.1.1",
     "classnames": "^2.3.1"
   }
 }
