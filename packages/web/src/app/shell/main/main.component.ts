@@ -11,6 +11,7 @@ export class MainComponent {
   bgClass = '';
   isLandingPage = false;
   isHomePage = false;
+  isNotFound = false;
 
   constructor(
     private router: Router,
@@ -26,8 +27,10 @@ export class MainComponent {
         // set bgClass property with the value of the current route
         if (eventUrl === '/not-found') {
           this.bgClass = 'not-found';
+          this.isNotFound = true;
         } else {
           this.bgClass = '';
+          this.isNotFound = false;
         }
         if (eventUrl === '/' || eventUrl === '/home') {
           this.isHomePage = true;
