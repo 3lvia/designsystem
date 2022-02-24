@@ -451,9 +451,13 @@ const Pagination: FC<PaginationProps> = ({
 
   const valueRangeToSelectedNumber = (value: SelectionNumber) => {
     if (value.start != undefined || value.end != undefined) {
-      const currentDropdownDisplayVal = parseInt(currentDisplayAmount.value);
-      const endNum = value.end;
-      setSelectedNumber(Math.ceil(endNum / currentDropdownDisplayVal));
+      const valueGap = value.end - value.start + 1;
+
+      if (numberOfElements === value.end) {
+        setSelectedNumber(selectionNumbers.length);
+      } else {
+        setSelectedNumber(Math.ceil(value.end / valueGap));
+      }
     }
   };
 
