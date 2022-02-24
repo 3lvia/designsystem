@@ -111,6 +111,7 @@ module.exports = [
     attributes: [
       { name: 'items', type: 'object', propType: 'object' },
       { name: 'value', type: 'number', propType: 'number' },
+      { name: 'ariaLabel', type: 'string', propType: 'string' },
       { name: 'isInverted', type: 'boolean', propType: 'boolean' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },

@@ -7,6 +7,7 @@ export interface TabsProps {
   value: number;
   isInverted: boolean;
   hasManualActivation: boolean;
+  ariaLabel: string;
   valueOnChange?: (value: number) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
@@ -18,6 +19,7 @@ const Tabs: FC<TabsProps> = ({
   value = 0,
   isInverted,
   hasManualActivation = false,
+  ariaLabel,
   valueOnChange,
   className,
   inlineStyle,
@@ -29,7 +31,6 @@ const Tabs: FC<TabsProps> = ({
   const [tabInFocus, setTabInFocus] = useState(value);
   const tabsRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
-  const tabGroup = Math.random();
   const lengthToScroll = 140;
   const scrollSteps = 12;
 
@@ -52,16 +53,17 @@ const Tabs: FC<TabsProps> = ({
       toolbox.outlineListener(tabsRef.current, true);
 
       window.removeEventListener('resize', throttledResizeCount);
-      if (!itemsRef.current) {
-        return;
+      if (itemsRef.current) {
+        itemsRef.current.removeEventListener('scroll', throttledScrollCount);
       }
-      itemsRef.current.removeEventListener('scroll', throttledScrollCount);
     };
   }, []);
 
   useEffect(() => {
     // Update scroll position on init
     updateArrowVisibility();
+
+    // Listen for key-events to update focused element
     if (!itemsRef.current) {
       return;
     }
@@ -125,12 +127,12 @@ const Tabs: FC<TabsProps> = ({
           newTabToFocus = tabsCollection.length - 1;
         }
       }
-      if (!hasManualActivation) {
-        updateValue(newTabToFocus);
-      }
       setTabInFocus(newTabToFocus);
       tabsCollection[newTabToFocus].setAttribute('tabIndex', '0');
       (tabsCollection[newTabToFocus] as HTMLElement).focus();
+      if (!hasManualActivation) {
+        updateValue(newTabToFocus);
+      }
     }
   };
 
@@ -201,25 +203,22 @@ const Tabs: FC<TabsProps> = ({
       </div>
 
       <div className={itemsClasses}>
-        <div className="ewc-tabs__items-scroll" ref={itemsRef} role="tablist">
+        <div className="ewc-tabs__items-scroll" ref={itemsRef} role="tablist" aria-label={ariaLabel}>
           {items &&
             items.map((item, i) => (
               <button
                 role="tab"
-                name={'ewc-tab-group-' + tabGroup}
                 id={'ewc-tab-id-' + i}
-                value={currValue}
-                aria-label={item}
-                aria-selected={currValue === i}
-                aria-controls={'simple-tabpanel-' + currValue}
-                tabIndex={currValue === i ? 0 : -1}
                 key={i}
+                aria-selected={currValue === i}
+                aria-controls={item}
+                tabIndex={currValue === i ? 0 : -1}
                 className="ewc-tabs__item"
                 onClick={() => updateValue(i)}
               >
-                <label className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>
+                <span className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>
                   {item}
-                </label>
+                </span>
               </button>
             ))}
         </div>

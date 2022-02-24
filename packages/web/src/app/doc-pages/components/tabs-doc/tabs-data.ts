@@ -17,6 +17,11 @@ export const tabsData = {
       description: 'Index of selected tab.',
       default: '0',
     },
+    ariaLabel: {
+      isRequired: false,
+      type: 'string',
+      description: 'Aria label that describes the tablist. Aria label should be added for accessibility.',
+    },
     isInverted: {
       isRequired: false,
       type: 'boolean',
@@ -58,6 +63,7 @@ export const tabsData = {
     `', '` +
     exampleContents.words.random['eng-GBR'][2] +
     `'}
+  ariaLabel={'Simple tablist example'}
   valueOnChange={(event) => handleOnChange(event)}
 ></Tabs>`,
   codeAngular:
@@ -70,6 +76,7 @@ export const tabsData = {
     `', '` +
     exampleContents.words.random['eng-GBR'][2] +
     `']" 
+  [ariaLabel]="'Simple tablist example'"
   (valueOnChange)="handleOnChange(event.detail.value)"
 ></elvia-tabs>`,
   codeVue:
@@ -82,6 +89,7 @@ export const tabsData = {
     `', '` +
     exampleContents.words.random['eng-GBR'][2] +
     `']" 
+  :ariaLabel="'Simple tablist example'"
   @value-on-change="handleOnChange(event.detail.value)"
 ></elvia-tabs>`,
   codeNativeHTML: `<elvia-tabs 
@@ -94,6 +102,7 @@ export const tabsData = {
   )}, ${JSON.stringify(exampleContents.words.random['eng-GBR'][2])}]
   tabs.setProps({items: items})
   tabs.setProps({value: 0 });
+  tabs.setProps({ariaLabel: 'Simple tablist example' });
   tabs.addEventListener('valueOnChange', (event) => {
     console.log('Do what you want with selected tab: ', event.detail.value)
   });

@@ -93,6 +93,7 @@ function App() {
               value={2}
               valueOnChange={(event) => logValue('Tabs', event)}
               hasManualActivation
+              ariaLabel={'Simple tablist example'}
             ></Tabs>
           </div>
           {/* Inverted version */}

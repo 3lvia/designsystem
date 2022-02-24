@@ -9,6 +9,7 @@
       <div class="e-bg-white">
         <elvia-tabs
           :hasManualActivation="true"
+          :ariaLabel="'Simple tablist example'"
           :items="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
           :value="1"
           @value-on-change="logValue('Tabs', $event.detail.value)"
