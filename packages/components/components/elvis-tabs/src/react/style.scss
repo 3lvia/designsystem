@@ -100,7 +100,6 @@ $tabs-height-with-focus: calc($tabs-height + ($tabs-focus-padding * 2));
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    // height: $tabs-height;
 
     &.right-arrow-fade {
       -webkit-mask: linear-gradient(to left, transparent 0%, $black-fade);
@@ -144,21 +143,17 @@ $tabs-height-with-focus: calc($tabs-height + ($tabs-focus-padding * 2));
   }
 
   &__item {
-    // height: $tabs-height;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    &:focus ~ label {
+      outline: 2px solid $hover-blue;
+      outline-offset: 2px;
+    }
     &:not(:last-of-type) {
       margin-right: 24px;
       @media screen and (max-width: 767px) {
         margin-right: 16px;
-      }
-    }
-
-    // Hiding radiobutton and adding focus
-    input {
-      position: absolute;
-      opacity: 0;
-      &:focus ~ label {
-        outline: 2px solid $hover-blue;
-        outline-offset: 2px;
       }
     }
 

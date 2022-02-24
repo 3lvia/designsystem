@@ -3,14 +3,14 @@
 
   <div class="components-examples">
     <div class="example-wrapper">
-      <!--Test the component here. When done add it to the list alphabetically-->
+      <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
       <h3>Test your component here</h3>
       <!--Normal version-->
       <div class="e-bg-white">
         <elvia-tabs
+          :hasManualActivation="true"
           :items="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
           :value="1"
-          :isInverted="false"
           @value-on-change="logValue('Tabs', $event.detail.value)"
         ></elvia-tabs>
       </div>

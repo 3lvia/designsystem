@@ -1,5 +1,12 @@
 # Elvia Tabs Changelog
 
+## 1.3.0 (24.02.22)
+
+### New feature
+
+- Added prop for manual activation of tabs. When using keyboard-navigation tabs will only be activated when
+  the enter or space keys are hit.
+
 ## 1.2.0 (07.02.22)
 
 ### New feature

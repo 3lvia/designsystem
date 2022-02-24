@@ -114,6 +114,7 @@ module.exports = [
       { name: 'isInverted', type: 'boolean', propType: 'boolean' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
+      { name: 'hasManualActivation', type: 'boolean', propType: 'boolean' },
     ],
     reactName: 'Tabs',
     elementStyle: `display: grid; overflow: hidden;`,

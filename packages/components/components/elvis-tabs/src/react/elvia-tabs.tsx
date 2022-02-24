@@ -6,6 +6,7 @@ export interface TabsProps {
   items: string[];
   value: number;
   isInverted: boolean;
+  hasManualActivation: boolean;
   valueOnChange?: (value: number) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
@@ -16,6 +17,7 @@ const Tabs: FC<TabsProps> = ({
   items,
   value = 0,
   isInverted,
+  hasManualActivation = false,
   valueOnChange,
   className,
   inlineStyle,
@@ -24,6 +26,7 @@ const Tabs: FC<TabsProps> = ({
   const [currValue, setCurrValue] = useState(value);
   const [isOnRightEnd, setIsOnRightEnd] = useState(true);
   const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
+  const [tabInFocus, setTabInFocus] = useState(value);
   const tabsRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
   const tabGroup = Math.random();
@@ -49,19 +52,31 @@ const Tabs: FC<TabsProps> = ({
       toolbox.outlineListener(tabsRef.current, true);
 
       window.removeEventListener('resize', throttledResizeCount);
-      if (itemsRef.current) {
-        itemsRef.current.removeEventListener('scroll', throttledScrollCount);
+      if (!itemsRef.current) {
+        return;
       }
+      itemsRef.current.removeEventListener('scroll', throttledScrollCount);
     };
   }, []);
 
   useEffect(() => {
     // Update scroll position on init
     updateArrowVisibility();
+    if (!itemsRef.current) {
+      return;
+    }
+    itemsRef.current.addEventListener('keydown', updateFocusedElement);
+    return () => {
+      if (!itemsRef.current) {
+        return;
+      }
+      itemsRef.current.removeEventListener('keydown', updateFocusedElement);
+    };
   });
 
   useEffect(() => {
     setCurrValue(value);
+    setTabInFocus(value);
   }, [value]);
 
   const updateValue = (value: number) => {
@@ -87,6 +102,35 @@ const Tabs: FC<TabsProps> = ({
       const isOnLeft = itemsRef.current.scrollLeft <= 0;
       setIsOnRightEnd(isOnRight);
       setIsOnLeftEnd(isOnLeft);
+    }
+  };
+
+  const updateFocusedElement = (e: KeyboardEvent) => {
+    if (!itemsRef.current) {
+      return;
+    }
+    const tabs = itemsRef.current;
+    const tabsCollection = tabs.children as HTMLCollection;
+    let newTabToFocus = 0;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      tabsCollection[tabInFocus].setAttribute('tabIndex', '-1');
+      if (e.key === 'ArrowRight') {
+        newTabToFocus = tabInFocus + 1;
+        if (tabInFocus >= tabsCollection.length - 1) {
+          newTabToFocus = 0;
+        }
+      } else if (e.key === 'ArrowLeft') {
+        newTabToFocus = tabInFocus - 1;
+        if (tabInFocus - 1 < 0) {
+          newTabToFocus = tabsCollection.length - 1;
+        }
+      }
+      if (!hasManualActivation) {
+        updateValue(newTabToFocus);
+      }
+      setTabInFocus(newTabToFocus);
+      tabsCollection[newTabToFocus].setAttribute('tabIndex', '0');
+      (tabsCollection[newTabToFocus] as HTMLElement).focus();
     }
   };
 
@@ -160,21 +204,23 @@ const Tabs: FC<TabsProps> = ({
         <div className="ewc-tabs__items-scroll" ref={itemsRef} role="tablist">
           {items &&
             items.map((item, i) => (
-              <div key={i} className="ewc-tabs__item" onClick={() => updateValue(i)}>
-                <input
-                  type="radio"
-                  role="tab"
-                  name={'ewc-tab-group-' + tabGroup}
-                  id={'ewc-tab-id-' + i}
-                  value={currValue}
-                  aria-label={item}
-                  aria-checked={currValue == i}
-                  defaultChecked={currValue == i}
-                ></input>
+              <button
+                role="tab"
+                name={'ewc-tab-group-' + tabGroup}
+                id={'ewc-tab-id-' + i}
+                value={currValue}
+                aria-label={item}
+                aria-selected={currValue === i}
+                aria-controls={'simple-tabpanel-' + currValue}
+                tabIndex={currValue === i ? 0 : -1}
+                key={i}
+                className="ewc-tabs__item"
+                onClick={() => updateValue(i)}
+              >
                 <label className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>
                   {item}
                 </label>
-              </div>
+              </button>
             ))}
         </div>
       </div>

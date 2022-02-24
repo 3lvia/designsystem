@@ -27,6 +27,18 @@ export const tabsData = {
       cegFormType: 'background',
       cegOptions: ['White', 'Dark grey'],
     },
+    hasManualActivation: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Activates the tab when user hits either space, enter or a mouse click. Manual activation is usually necessary when panels cannot be displayed instantly.',
+      default: 'false',
+      cegDisplayName: 'Manual activation',
+      cegType: 'boolean',
+      cegFormType: 'toggle',
+      cegDefault: false,
+      cegOption: 'true',
+    },
     valueOnChange: {
       isRequired: false,
       type: '(value: number) => CustomEvent',
