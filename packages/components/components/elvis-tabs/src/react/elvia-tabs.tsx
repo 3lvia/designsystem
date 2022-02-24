@@ -110,8 +110,7 @@ const Tabs: FC<TabsProps> = ({
     if (!itemsRef.current) {
       return;
     }
-    const tabs = itemsRef.current;
-    const tabsCollection = tabs.children as HTMLCollection;
+    const tabsCollection = itemsRef.current.children as HTMLCollection;
     let newTabToFocus = 0;
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
       tabsCollection[tabInFocus].setAttribute('tabIndex', '-1');

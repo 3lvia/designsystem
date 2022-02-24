@@ -129,7 +129,7 @@ $tabs-height-with-focus: calc($tabs-height + ($tabs-focus-padding * 2));
     border: 0;
     padding: 0;
     background: transparent;
-    &:focus ~ label {
+    &:focus {
       outline: 2px solid $hover-blue;
       outline-offset: 2px;
     }
