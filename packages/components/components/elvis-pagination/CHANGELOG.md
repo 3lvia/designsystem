@@ -1,5 +1,12 @@
 # Elvia Pagination Changelog
 
+## 2.0.2 (18.02.22)
+
+### Patch
+
+- Fixed issue where wrong selection number is calculated when the pagination component is initiated with
+  different selectedDropdownItemIndex value than default.
+
 ## 2.0.1 (18.02.22)
 
 ### Patch
