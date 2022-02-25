@@ -17,6 +17,11 @@ export const tabsData = {
       description: 'Index of selected tab.',
       default: '0',
     },
+    ariaLabel: {
+      isRequired: false,
+      type: 'string',
+      description: 'Aria label that describes the tablist. Aria label should be added for accessibility.',
+    },
     isInverted: {
       isRequired: false,
       type: 'boolean',
@@ -26,6 +31,19 @@ export const tabsData = {
       cegType: 'boolean',
       cegFormType: 'background',
       cegOptions: ['White', 'Dark grey'],
+    },
+    hasManualActivation: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Activates the tab when user hits either space, enter or a mouse click. Manual activation is usually necessary when panels cannot be displayed instantly.',
+      default: 'false',
+      cegDisplayName: 'Activate tab manually',
+      cegType: 'boolean',
+      cegFormType: 'toggle',
+      cegDefault: false,
+      cegOption: 'true',
+      cegDisplayGroup: 'Keyboard',
     },
     valueOnChange: {
       isRequired: false,
@@ -46,6 +64,7 @@ export const tabsData = {
     `', '` +
     exampleContents.words.random['eng-GBR'][2] +
     `'}
+  ariaLabel={'Simple tablist example'}
   valueOnChange={(event) => handleOnChange(event)}
 ></Tabs>`,
   codeAngular:
@@ -58,6 +77,7 @@ export const tabsData = {
     `', '` +
     exampleContents.words.random['eng-GBR'][2] +
     `']" 
+  [ariaLabel]="'Simple tablist example'"
   (valueOnChange)="handleOnChange(event.detail.value)"
 ></elvia-tabs>`,
   codeVue:
@@ -70,6 +90,7 @@ export const tabsData = {
     `', '` +
     exampleContents.words.random['eng-GBR'][2] +
     `']" 
+  :ariaLabel="'Simple tablist example'"
   @value-on-change="handleOnChange(event.detail.value)"
 ></elvia-tabs>`,
   codeNativeHTML: `<elvia-tabs 
@@ -82,6 +103,7 @@ export const tabsData = {
   )}, ${JSON.stringify(exampleContents.words.random['eng-GBR'][2])}]
   tabs.setProps({items: items})
   tabs.setProps({value: 0 });
+  tabs.setProps({ariaLabel: 'Simple tablist example' });
   tabs.addEventListener('valueOnChange', (event) => {
     console.log('Do what you want with selected tab: ', event.detail.value)
   });

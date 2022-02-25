@@ -84,10 +84,18 @@ function App() {
       <div className="components-examples">
         {/* CURRENTLY TESTING */}
         <div className="example-wrapper">
-          {/* Test the component here. When done add it to the list alphabetically */}
+          {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white"></div>
+          <div className="e-bg-white">
+            <Tabs
+              items={tabsItems}
+              value={2}
+              valueOnChange={(event) => logValue('Tabs', event)}
+              hasManualActivation
+              ariaLabel={'Simple tablist example'}
+            ></Tabs>
+          </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>
@@ -116,10 +124,7 @@ function App() {
         {/* BREADCRUMB */}
         <div className="example-wrapper">
           <h3>Breadcrumb</h3>
-          <Breadcrumb
-            breadcrumbs={breadcrumbsNoUrl}
-            breadcrumbsOnChange={(event) => logValue('Breadcrumb', breadcrumbsNoUrl[event].title)}
-          />
+          <Breadcrumb breadcrumbs={breadcrumbsNoUrl} />
         </div>
         {/* CARD */}
         <div className="example-wrapper">
@@ -141,7 +146,6 @@ function App() {
               { title: <h3 className="e-title-sm">AMS-meter</h3>, element: 'Hei' },
               { title: <h3 className="e-title-sm">About login</h3>, element: <p>Halla</p> },
             ]}
-            valueOnChange={(event) => logValue('Carousel', event)}
           ></Carousel>
         </div>
         {/* CHIP */}
@@ -159,12 +163,7 @@ function App() {
         {/* DATEPICKER */}
         <div className="example-wrapper">
           <h3>Datepicker</h3>
-          <Datepicker
-            isRequired
-            maxDate={maxDate}
-            hasSelectDateOnOpen={false}
-            valueOnChange={(event) => logValue('Datepicker', event)}
-          ></Datepicker>
+          <Datepicker isRequired maxDate={maxDate} hasSelectDateOnOpen={false}></Datepicker>
         </div>
         {/* DIVIDER */}
         <div className="example-wrapper">
@@ -178,7 +177,6 @@ function App() {
             options={dropdownOptions}
             defaultValue={defaultDropdownOptions}
             label="test"
-            valueOnChange={(event) => logValue('Dropdown', event)}
             isMulti
           ></Dropdown>
         </div>
@@ -205,21 +203,14 @@ function App() {
         {/* PAGINATION */}
         <div className="example-wrapper">
           <h3>Pagination</h3>
-          <Pagination
-            numberOfElements={100}
-            lastNumberLimit={99}
-            valueOnChange={(event) => logValue('Pagination', event)}
-            dropdownMenuPos="top"
-          ></Pagination>
+          <Pagination numberOfElements={100} lastNumberLimit={99} dropdownMenuPos="top"></Pagination>
         </div>
         {/* POPOVER */}
         <div className="example-wrapper">
           <h3>Popover</h3>
           <Popover
             header="BankID"
-            content={
-              <Tabs items={tabsItems} value={2} valueOnChange={(event) => logValue('Tabs', event)}></Tabs>
-            }
+            content={<Tabs items={tabsItems} value={2}></Tabs>}
             trigger={<button className="e-btn">Show popover</button>}
             posX="right"
             isShowing={isPopoverShowing}

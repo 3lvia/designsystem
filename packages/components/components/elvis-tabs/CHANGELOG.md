@@ -1,5 +1,13 @@
 # Elvia Tabs Changelog
 
+## 1.3.0 (25.02.22)
+
+### New feature
+
+- Added prop for manual activation of tabs. When using keyboard-navigation tabs will only be activated when
+  the enter or space keys are hit.
+- Added prop for aria-label: ariaLabel. Should usually be present to describe the tablist.
+
 ## 1.2.1 (18.02.22)
 
 ### Patch

@@ -7,6 +7,8 @@ export interface TabsProps {
   items: string[];
   value: number;
   isInverted: boolean;
+  hasManualActivation: boolean;
+  ariaLabel: string;
   valueOnChange?: (value: number) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
@@ -17,6 +19,8 @@ const Tabs: FC<TabsProps> = ({
   items,
   value = 0,
   isInverted,
+  hasManualActivation = false,
+  ariaLabel,
   valueOnChange,
   className,
   inlineStyle,
@@ -25,9 +29,9 @@ const Tabs: FC<TabsProps> = ({
   const [currValue, setCurrValue] = useState(value);
   const [isOnRightEnd, setIsOnRightEnd] = useState(true);
   const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
+  const [tabInFocus, setTabInFocus] = useState(value);
   const tabsRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
-  const tabGroup = Math.random();
   const lengthToScroll = 140;
   const scrollSteps = 12;
 
@@ -59,10 +63,21 @@ const Tabs: FC<TabsProps> = ({
   useEffect(() => {
     // Update scroll position on init
     updateArrowVisibility();
+
+    // Listen for key-events to update focused element
+    if (itemsRef.current) {
+      itemsRef.current.addEventListener('keydown', updateFocusedElement);
+    }
+    return () => {
+      if (itemsRef.current) {
+        itemsRef.current.removeEventListener('keydown', updateFocusedElement);
+      }
+    };
   });
 
   useEffect(() => {
     setCurrValue(value);
+    setTabInFocus(value);
   }, [value]);
 
   const updateValue = (value: number) => {
@@ -88,6 +103,34 @@ const Tabs: FC<TabsProps> = ({
       const isOnLeft = itemsRef.current.scrollLeft <= 0;
       setIsOnRightEnd(isOnRight);
       setIsOnLeftEnd(isOnLeft);
+    }
+  };
+
+  const updateFocusedElement = (e: KeyboardEvent) => {
+    if (!itemsRef.current) {
+      return;
+    }
+    const tabsCollection = itemsRef.current.children as HTMLCollection;
+    let newTabToFocus = 0;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      tabsCollection[tabInFocus].setAttribute('tabIndex', '-1');
+      if (e.key === 'ArrowRight') {
+        newTabToFocus = tabInFocus + 1;
+        if (newTabToFocus >= tabsCollection.length) {
+          newTabToFocus = 0;
+        }
+      } else if (e.key === 'ArrowLeft') {
+        newTabToFocus = tabInFocus - 1;
+        if (newTabToFocus < 0) {
+          newTabToFocus = tabsCollection.length - 1;
+        }
+      }
+      setTabInFocus(newTabToFocus);
+      tabsCollection[newTabToFocus].setAttribute('tabIndex', '0');
+      (tabsCollection[newTabToFocus] as HTMLElement).focus();
+      if (!hasManualActivation) {
+        updateValue(newTabToFocus);
+      }
     }
   };
 
@@ -149,25 +192,23 @@ const Tabs: FC<TabsProps> = ({
         />
       </div>
       <div className={itemsClasses}>
-        <div className="ewc-tabs__items-scroll" ref={itemsRef} role="tablist">
+        <div className="ewc-tabs__items-scroll" ref={itemsRef} role="tablist" aria-label={ariaLabel}>
           {items &&
             items.map((item, i) => (
-              <div key={i} className="ewc-tabs__item" onClick={() => updateValue(i)}>
-                <input
-                  type="radio"
-                  role="tab"
-                  name={'ewc-tab-group-' + tabGroup}
-                  id={'ewc-tab-id-' + i}
-                  value={currValue}
-                  aria-label={item}
-                  aria-checked={currValue == i}
-                  onChange={() => updateValue(i)}
-                  defaultChecked={currValue == i}
-                ></input>
-                <label className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>
+              <button
+                role="tab"
+                id={'ewc-tab-id-' + i}
+                key={i}
+                aria-selected={currValue === i}
+                aria-controls={item}
+                tabIndex={currValue === i ? 0 : -1}
+                className="ewc-tabs__item"
+                onClick={() => updateValue(i)}
+              >
+                <span className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>
                   {item}
-                </label>
-              </div>
+                </span>
+              </button>
             ))}
         </div>
       </div>

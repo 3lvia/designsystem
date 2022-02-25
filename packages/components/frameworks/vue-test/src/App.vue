@@ -3,10 +3,18 @@
 
   <div class="components-examples">
     <div class="example-wrapper">
-      <!--Test the component here. When done add it to the list alphabetically-->
+      <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
       <h3>Test your component here</h3>
       <!--Normal version-->
-      <div class="e-bg-white"></div>
+      <div class="e-bg-white">
+        <elvia-tabs
+          :hasManualActivation="true"
+          :ariaLabel="'Simple tablist example'"
+          :items="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
+          :value="1"
+          @value-on-change="logValue('Tabs', $event.detail.value)"
+        ></elvia-tabs>
+      </div>
       <!--Inverted version-->
       <div class="e-bg-grey"></div>
     </div>
@@ -31,16 +39,13 @@
     <!--Breadcrumb-->
     <div class="example-wrapper">
       <h3>Breadcrumb</h3>
-      <elvia-breadcrumb
-        :breadcrumbs="breadcrumbsTestNoUrl"
-        @breadcrumbs-on-change="logValue('Breadcrumb', $event.detail.value)"
-      ></elvia-breadcrumb>
+      <elvia-breadcrumb :breadcrumbs="breadcrumbsTestNoUrl"></elvia-breadcrumb>
     </div>
 
     <!--Carousel-->
     <div class="example-wrapper">
       <h3>Carousel</h3>
-      <elvia-carousel :hideArrows="true" @value-on-change="logValue('Carousel', $event.detail.value)">
+      <elvia-carousel>
         <div slot="title-1">
           <h4 class="e-title-sm">HAN-port</h4>
         </div>
@@ -65,7 +70,6 @@
           :color="chip.color"
           :ariaLabel="'Fjern filtrering for ' + chip.value"
           :disabled="chip.disabled"
-          @on-delete="logValue('Chip', $event.detail.value)"
         ></elvia-chip>
       </div>
     </div>
@@ -73,11 +77,7 @@
     <!--Datepicker-->
     <div class="example-wrapper">
       <h3>Datepicker</h3>
-      <elvia-datepicker
-        :isCompact="true"
-        label="Fra dato"
-        @value-on-change="logValue('Datepicker', $event.detail.value)"
-      ></elvia-datepicker>
+      <elvia-datepicker :isCompact="true" label="Fra dato"></elvia-datepicker>
     </div>
 
     <!--Divider-->
@@ -127,11 +127,7 @@
     <!--Pagination-->
     <div class="example-wrapper">
       <h3>Pagination</h3>
-      <elvia-pagination
-        :numberOfElements="156"
-        :value="defaultPaginationValue"
-        @value-on-change="logValue('Pagination', $event.detail.value)"
-      ></elvia-pagination>
+      <elvia-pagination :numberOfElements="156" :value="defaultPaginationValue"></elvia-pagination>
     </div>
 
     <!--Popover-->
@@ -163,7 +159,6 @@
         :value="'read'"
         :name="'readRadioFilters'"
         :ariaLabel="'{value} filtrering valgt'"
-        @value-on-change="logValue('Radio filter', $event.detail.value)"
       ></elvia-radio-filter>
     </div>
 
@@ -174,7 +169,6 @@
         :items="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
         :value="1"
         :isInverted="false"
-        @value-on-change="logValue('Tabs', $event.detail.value)"
       ></elvia-tabs>
     </div>
   </div>

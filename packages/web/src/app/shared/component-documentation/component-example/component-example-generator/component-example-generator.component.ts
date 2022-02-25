@@ -164,6 +164,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           propName: propKey,
           propSlot: prop.cegSlot,
           dependency: prop.cegDependency,
+          displayGroup: prop.cegDisplayGroup,
         };
         this.formGroupList.push(formGroupObject);
       } else if (formType === 'counter') {

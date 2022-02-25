@@ -29,6 +29,22 @@
     </ng-container>
   </app-component-section>
 
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Accessibility'">
+        <ng-container ngProjectAs="sectionContent">
+          The tabs in the tabs-component should have corresponding content / tab-panels, where each element
+          should have the attributes listed below:
+          <ul class="e-list">
+            <li><span class="code-text">role="tabpanel"</span></li>
+            <li><span class="code-text">aria-labelledby="insertIdOfTab"</span></li>
+          </ul>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--INSTALLATION-->
   <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
