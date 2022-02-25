@@ -6,6 +6,15 @@
   "e-table__sort-header": {
     "version": "7.5.0"
   },
+  "e-table__sort-icon--inactive": {
+    "version": "8.0.4"
+  },
+  "e-table__sort-icon--up": {
+    "version": "8.0.4"
+  },
+  "e-table__sort-icon": {
+    "version": "8.0.4"
+  },
   "e-btn--icon.e-btn--danger": {
     "version": "7.8.0"
   },
