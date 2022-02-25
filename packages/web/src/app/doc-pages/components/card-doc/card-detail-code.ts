@@ -5,7 +5,7 @@ const cardDetailCode = {
   codeReact:
     `<Card 
   type={"detail"}
-  icon={<i class="e-icon e-icon--electricity_safety e-icon--md"></i>}
+  icon={<i className="e-icon e-icon--electricity_safety e-icon--md"></i>}
   header={"` +
     exampleContents.texts.lg['eng-GBR'].title +
     `"}

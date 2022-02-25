@@ -73,7 +73,7 @@ export const carouselData = {
   codeReact: `<Carousel
   elements={[
     { 
-      title: <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>, 
+      title: <h3 className="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>, 
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el1.jpeg"
@@ -81,7 +81,7 @@ export const carouselData = {
       />
     },
     { 
-      title: <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>, 
+      title: <h3 className="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>, 
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el2.jpeg"
@@ -89,7 +89,7 @@ export const carouselData = {
       />
     },
     { 
-      title: <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>, 
+      title: <h3 className="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>, 
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el3.jpeg"

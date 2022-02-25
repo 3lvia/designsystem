@@ -1,8 +1,8 @@
 const cardSimpleCode = {
   type: 'simple',
   codeReact: `<Card 
-  icon={<i class="e-icon e-icon--electricity_safety e-icon--md"></i>}
   header={"Safety"}
+  icon={<i className="e-icon e-icon--electricity_safety e-icon--md"></i>}
 ></Card>
 `,
   codeAngular: `<elvia-card

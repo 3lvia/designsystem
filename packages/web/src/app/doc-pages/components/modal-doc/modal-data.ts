@@ -73,7 +73,7 @@ const modalData = {
     },
     maxWidth: {
       isRequired: false,
-      type: 'string | undefined',
+      type: 'string',
       description: 'Overwrite the max width of the modal (e.g. "100px", "90%").',
     },
     inlineStyle: {
@@ -85,7 +85,7 @@ const modalData = {
   package: 'npm install @elvia/elvis-modal',
   codeImportReact: `import { Modal } from '@elvia/elvis-modal/react';`,
   codeImportWebComponent: `import '@elvia/elvis-modal';`,
-  codeReact: `<button onClick={() => setIsModalShowingState(true)} class="e-btn">Åpne modal</button>
+  codeReact: `<button onClick={() => setIsModalShowingState(true)} className="e-btn">Åpne modal</button>
 <Modal
   isShowing={isModalShowing}
   onHide={() => setIsModalShowingState(false)}
