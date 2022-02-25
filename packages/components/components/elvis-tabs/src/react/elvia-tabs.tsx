@@ -116,12 +116,12 @@ const Tabs: FC<TabsProps> = ({
       tabsCollection[tabInFocus].setAttribute('tabIndex', '-1');
       if (e.key === 'ArrowRight') {
         newTabToFocus = tabInFocus + 1;
-        if (tabInFocus >= tabsCollection.length - 1) {
+        if (newTabToFocus >= tabsCollection.length) {
           newTabToFocus = 0;
         }
       } else if (e.key === 'ArrowLeft') {
         newTabToFocus = tabInFocus - 1;
-        if (tabInFocus - 1 < 0) {
+        if (newTabToFocus < 0) {
           newTabToFocus = tabsCollection.length - 1;
         }
       }
