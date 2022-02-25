@@ -186,11 +186,6 @@ $datepicker-max-width: 448px;
       z-index: 1;
     }
 
-    // Full width
-    &.ewc-datepicker--full-width {
-      width: 100%;
-    }
-
     // INPUT
     .MuiInputBase-root {
       height: 34px;
@@ -223,6 +218,10 @@ $datepicker-max-width: 448px;
         }
       }
     }
+  }
+  // Full width
+  &.ewc-datepicker--full-width {
+    width: 100%;
   }
 }
 
