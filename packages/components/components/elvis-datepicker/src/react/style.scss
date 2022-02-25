@@ -166,11 +166,6 @@ $datepicker-max-width: 448px;
     }
   }
 
-  // Full width
-  &.ewc-datepicker--full-width {
-    width: 100%;
-  }
-
   // COMPACT INPUT
   &.ewc-datepicker--compact {
     width: 133px;
@@ -223,6 +218,10 @@ $datepicker-max-width: 448px;
         }
       }
     }
+  }
+  // Full width
+  &.ewc-datepicker--full-width {
+    width: 100%;
   }
 }
 
