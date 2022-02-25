@@ -10,6 +10,7 @@ export interface CegFormGroup {
   counterMin?: number;
   counterStepValue?: number;
   counterType?: string;
+  formGroupObject?: string;
   dependency?: CegFormDependency[];
 }
 export interface CegFormGroupOption {

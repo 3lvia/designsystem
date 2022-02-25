@@ -38,11 +38,12 @@ export const tabsData = {
       description:
         'Activates the tab when user hits either space, enter or a mouse click. Manual activation is usually necessary when panels cannot be displayed instantly.',
       default: 'false',
-      cegDisplayName: 'Manual activation',
+      cegDisplayName: 'Activate tab manually',
       cegType: 'boolean',
       cegFormType: 'toggle',
       cegDefault: false,
       cegOption: 'true',
+      cegDisplayGroup: 'Keyboard',
     },
     valueOnChange: {
       isRequired: false,
