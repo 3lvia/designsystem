@@ -1,6 +1,6 @@
 const modalDangerCode = {
   type: 'danger',
-  codeReact: `<button onClick={() => setIsModalShowingState(true)} class="e-btn">Åpne modal</button>
+  codeReact: `<button onClick={() => setIsModalShowingState(true)} className="e-btn">Åpne modal</button>
 <Modal
   isShowing={isModalShowing}
   onHide={() => setIsModalShowingState(false)}

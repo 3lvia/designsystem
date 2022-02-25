@@ -94,10 +94,10 @@ const popoverData = {
   posY={"top"}
   isShowingOnChange={(event) => showingChanges(event)}
   trigger={
-    <button class="e-btn e-btn--icon e-btn--circled">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--information_circle"></i>
-        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+    <button className="e-btn e-btn--icon e-btn--circled">
+      <span className="e-btn__icon">
+        <i className="e-icon e-icon--information_circle"></i>
+        <i className="e-icon e-icon e-icon--information_circle-filled-color"></i>
       </span>
     </button>
   }

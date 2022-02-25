@@ -169,10 +169,12 @@ export class ExampleCodeService {
   ): string {
     const propType = 'html';
     if (language === 'react') {
-      return stringToReplace.replace(
-        this.getNewPropRegex(elementName),
-        this.getNewString(elementName, attribute, newValue, language, propType),
-      );
+      return stringToReplace
+        .replace(
+          this.getNewPropRegex(elementName),
+          this.getNewString(elementName, attribute, newValue, language, propType),
+        )
+        .replace('class=', 'className=');
     } else {
       return stringToReplace.replace(
         this.getNewSlotRegex(elementName),

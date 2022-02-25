@@ -4,7 +4,7 @@ const cardLinkCode = {
   elementNameR: 'Card',
   codeReact: `<Link to="/home">
   <Card 
-    icon={<i slot="icon" class="e-icon e-icon--home e-icon--sm"></i>}
+    icon={<i slot="icon" className="e-icon e-icon--home e-icon--sm"></i>}
     header={"Home"}
   ></Card>
 </Link>`,

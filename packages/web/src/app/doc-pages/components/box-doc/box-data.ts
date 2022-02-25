@@ -55,7 +55,7 @@ const boxData = {
   title={<h1>Customer relations</h1>}
   content={<div>
     <elvia-tabs [items]="['AMS-meter', 'Electric car', 'HAN-port']"></elvia-tabs>
-    <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
+    <div className="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
   </div>}
 ></Box>`,
   codeAngular: `<elvia-box 
