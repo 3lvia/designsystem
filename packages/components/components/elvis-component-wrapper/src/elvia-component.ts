@@ -44,12 +44,19 @@ export class ElvisComponentWrapper extends HTMLElement {
     if (this.webComponent.getComponentData().slotItems === true) {
       this.storeAllSlots();
     }
-    if (this.webComponent.getComponentData().useWrapper) {
-      this.mountPoint = document.createElement('span');
+    const spanChildren = this.querySelectorAll('span');
+    const hasWrapperElement =
+      spanChildren[0] && spanChildren[0].getAttribute('name') === 'elvia-wrapper-element';
+    if (this.webComponent.getComponentData().useWrapper && !hasWrapperElement) {
+      const wrapperElement = document.createElement('span');
+      wrapperElement.setAttribute('name', 'elvia-wrapper-element');
+      this.mountPoint = wrapperElement;
       this.appendChild(this.mountPoint);
     }
     this.renderReactDOM();
-    this.attachStyle();
+    if (this.querySelectorAll('style').length === 0) {
+      this.attachStyle();
+    }
   }
 
   attributeChangedCallback(): void {
