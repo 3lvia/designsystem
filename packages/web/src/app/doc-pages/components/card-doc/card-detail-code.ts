@@ -5,7 +5,6 @@ const cardDetailCode = {
   codeReact:
     `<Card 
   type={"detail"}
-  icon={<i className="e-icon e-icon--electricity_safety e-icon--md"></i>}
   header={"` +
     exampleContents.texts.lg['eng-GBR'].title +
     `"}
@@ -24,7 +23,6 @@ const cardDetailCode = {
     exampleContents.texts.lg['eng-GBR'].description +
     `'"
 >
-  <i slot="icon" class="e-icon e-icon--electricity_safety e-icon--md"></i>
 </elvia-card>
 `,
   codeVue:
@@ -37,7 +35,6 @@ const cardDetailCode = {
     exampleContents.texts.lg['eng-GBR'].description +
     `'"
 >
-  <i slot="icon" class="e-icon e-icon--electricity_safety e-icon--md"></i>
 </elvia-card>`,
   codeNativeHTML:
     `<elvia-card
@@ -49,7 +46,6 @@ const cardDetailCode = {
     exampleContents.texts.lg['eng-GBR'].description +
     `"
 >
-  <i slot="icon" class="e-icon e-icon--electricity_safety e-icon--md"></i>
 </elvia-card>
 `,
   codeNativeScript: `  const card = document.getElementById('example-elvia-card');
