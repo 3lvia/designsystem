@@ -1,6 +1,6 @@
 # Elvia Component Wrapper Changelog
 
-## 2.1.11 (25.02.22)
+## 2.1.12 (25.02.22)
 
 ### Bug fix
 
