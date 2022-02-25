@@ -1,6 +1,12 @@
 # Elvia Component Wrapper Changelog
 
-## 2.1.11 (26.01.21)
+## 2.1.12 (25.02.22)
+
+### Bug fix
+
+- Web components inside web components rerender bug fix.
+
+## 2.1.11 (26.01.22)
 
 - Updated dependencies
 
