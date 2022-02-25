@@ -1,5 +1,11 @@
 # Elvia Date picker Changelog
 
+## 2.5.2 (18.02.22)
+
+### Patch
+
+- Setting both 'isCompact' and 'isFullWidth' now gives compact and full width (i.e. width: 100%).
+
 ## 2.5.1 (18.02.22)
 
 ### Patch
