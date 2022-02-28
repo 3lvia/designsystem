@@ -5,6 +5,29 @@
 <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">
+        8.0.4
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        February 25, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🛠 Patch</div>
+          <ul class="e-list">
+            <li>
+              Updated list  of deprecated elvis classes.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+<tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
         8.0.3
       </span>
       <br>
