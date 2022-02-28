@@ -1,5 +1,11 @@
 # Elvia Popover Changelog
 
+## 4.3.2 (28.02.22)
+
+### Bug fix
+
+- Web components inside web components rerender bug fix.
+
 ## 4.3.1 (18.02.22)
 
 ### Patch
