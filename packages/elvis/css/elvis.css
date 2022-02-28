@@ -6928,6 +6928,9 @@ input:focus {
   outline-offset: 2px;
 }
 .e-toggle input:focus.e-toggle__input {
+  outline: none;
+}
+.e-toggle input:focus.e-toggle__input::before {
   outline: 2px solid #0064fa;
   outline-offset: 2px;
 }
