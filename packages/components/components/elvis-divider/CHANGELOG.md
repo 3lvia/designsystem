@@ -1,5 +1,11 @@
 # Elvia Divider Changelog
 
+## 1.2.2 (28.02.22)
+
+### Bug fix
+
+- Web components inside web components rerender bug fix.
+
 ## 1.2.1 (18.02.22)
 
 ### Bug fix
