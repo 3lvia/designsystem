@@ -1,6 +1,6 @@
 # Elvia Divider Changelog
 
-## 1.2.2 (28.02.22)
+## 1.2.3 (28.02.22)
 
 ### Bug fix
 
