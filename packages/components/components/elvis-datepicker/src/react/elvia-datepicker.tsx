@@ -185,11 +185,12 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   const setCurrErrorMessageAndTriggerErrorOnChangeEvent = (error: string) => {
-    setCurrErrorMessage(error);
     // If error is unchanged, don't dispatch event
     if (error === currErrorMessage) {
       return;
     }
+    setCurrErrorMessage(error);
+
     if (!webcomponent && errorOnChange) {
       errorOnChange(error);
     } else if (webcomponent) {
