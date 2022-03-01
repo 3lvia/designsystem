@@ -88,13 +88,11 @@ function App() {
           <h3>Test your component here</h3>
           {/* Normal version */}
           <div className="e-bg-white">
-            <Tabs
-              items={tabsItems}
-              value={2}
-              valueOnChange={(event) => logValue('Tabs', event)}
-              hasManualActivation
-              ariaLabel={'Simple tablist example'}
-            ></Tabs>
+            <Datepicker
+              isRequired
+              errorOnChange={(error) => console.log('Datepicker error: ', error)}
+              hasClearButton
+            ></Datepicker>
           </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>

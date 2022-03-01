@@ -315,6 +315,31 @@ $datepicker-max-width: 448px;
         @extend %ewc-outline;
       }
     }
+    &-clear {
+      background: none;
+      color: inherit;
+      border: none;
+      padding: 0;
+
+      display: flex;
+      align-items: center;
+      position: absolute;
+      z-index: 1;
+      right: 24px;
+      bottom: 22px;
+
+      border-bottom: 2.5px solid transparent;
+      border-radius: 0;
+      cursor: pointer;
+
+      font-family: $red-hat-display;
+      font-size: 14px;
+      line-height: 115%;
+      font-weight: 500;
+    }
+    &-clear:hover {
+      border-color: $green;
+    }
   }
 
   // YEAR SELECTION VIEW

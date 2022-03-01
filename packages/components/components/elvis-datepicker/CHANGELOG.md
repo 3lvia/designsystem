@@ -1,5 +1,14 @@
 # Elvia Date picker Changelog
 
+## 2.6.0 (01.03.22)
+
+### New features
+
+- Several new props: isErrorState, hasValidation, hasClearButton, clearButtonText, errorOnChange.
+- If hasClearButton is true, a button to clear the selected date is added inside the datepicker.
+- The function errorOnChange is called every time the internal error of the datepicker is updated. This can be
+  used for external error validation in conjunction with isErrorState and hasValidation.
+
 ## 2.5.2 (25.02.22)
 
 ### Patch

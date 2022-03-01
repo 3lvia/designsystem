@@ -35,6 +35,11 @@ export interface DatepickerProps {
   inlineStyle?: { [style: string]: CSSProperties };
   hasOptionalText?: boolean;
   showValidation?: boolean;
+  hasClearButton?: boolean;
+  clearButtonText: string;
+  isErrorState?: boolean;
+  errorOnChange?: (error: string) => void;
+  hasValidation: boolean;
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -58,6 +63,11 @@ export const Datepicker: FC<DatepickerProps> = ({
   inlineStyle,
   hasOptionalText,
   showValidation,
+  hasClearButton,
+  clearButtonText = 'Nullstill',
+  isErrorState,
+  hasValidation = true,
+  errorOnChange,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
   const [initialFocusedDate, setInitialFocusedDate] = useState<Date | null>(null);
@@ -79,7 +89,7 @@ export const Datepicker: FC<DatepickerProps> = ({
 
   // Styling
   const datePickerClasses = classnames('ewc-datepicker', {
-    ['ewc-datepicker--error']: showError,
+    ['ewc-datepicker--error']: showError || isErrorState,
     ['ewc-datepicker--compact']: isCompact !== false,
     ['ewc-datepicker--unselected']: value === null,
     ['ewc-datepicker--full-width']: isFullWidth,
@@ -125,7 +135,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   }, [selectedDate]);
 
   const handleDateChange = (date: Date | null) => {
-    validateDate(date);
+    hasValidation && validateDate(date);
     setSelectedDate(date);
 
     // Updating for any changes in the state of the date field
@@ -174,23 +184,36 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
+  const setCurrErrorMessageAndTriggerErrorOnChangeEvent = (error: string) => {
+    setCurrErrorMessage(error);
+    // If error is unchanged, don't dispatch event
+    if (error === currErrorMessage) {
+      return;
+    }
+    if (!webcomponent && errorOnChange) {
+      errorOnChange(error);
+    } else if (webcomponent) {
+      webcomponent.setProps({ error: error }, true);
+    }
+  };
+
   const validateDate = (date: Date | null) => {
     if (customError) {
       return;
     }
 
-    setCurrErrorMessage('');
-
     if (!isValid(date)) {
       if (date === null && isRequired) {
-        setCurrErrorMessage('Velg en dato');
+        setCurrErrorMessageAndTriggerErrorOnChangeEvent('Velg en dato');
       } else if (date !== null) {
-        setCurrErrorMessage('Bruk dd.mm.åååå');
+        setCurrErrorMessageAndTriggerErrorOnChangeEvent('Bruk dd.mm.åååå');
       }
     } else if (date && minDate && isBefore(date.setHours(0, 0, 0, 0), minDate.setHours(0, 0, 0, 0))) {
-      setCurrErrorMessage(`Kan ikke være før ${format(minDate, 'dd.MM.yyyy')}`);
+      setCurrErrorMessageAndTriggerErrorOnChangeEvent(`Kan ikke være før ${format(minDate, 'dd.MM.yyyy')}`);
     } else if (date && maxDate && isAfter(date.setHours(0, 0, 0, 0), maxDate.setHours(0, 0, 0, 0))) {
-      setCurrErrorMessage(`Kan ikke være etter ${format(maxDate, 'dd.MM.yyyy')}`);
+      setCurrErrorMessageAndTriggerErrorOnChangeEvent(`Kan ikke være etter ${format(maxDate, 'dd.MM.yyyy')}`);
+    } else {
+      setCurrErrorMessageAndTriggerErrorOnChangeEvent('');
     }
   };
 
@@ -294,6 +317,19 @@ export const Datepicker: FC<DatepickerProps> = ({
           <div className="ewc-datepicker__toolbar-year">{format(date, 'yyyy', { locale: nbLocale })}</div>
           <Icon name="arrowDownBold" size="xs" className={dropdownIconClasses} />
         </button>
+        {hasClearButton && (
+          <button
+            aria-label="Nullstill datovelger"
+            className="ewc-datepicker__toolbar-clear"
+            onClick={() => {
+              handleDateChange(null);
+              setShouldHaveSelected(false);
+            }}
+          >
+            <Icon name="reset" size="xs" inlineStyle={{ paddingRight: '8px' }} />
+            {clearButtonText}
+          </button>
+        )}
       </div>
     );
   };
