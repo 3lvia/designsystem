@@ -4,8 +4,13 @@ import classnames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 
+export interface PopoverListItem {
+  label: string;
+  id: string;
+}
 export interface PopoverProps {
   header?: string;
+  list?: PopoverListItem[];
   content?: string | HTMLElement;
   posX?: 'left' | 'right' | 'center';
   posY?: 'top' | 'bottom';
@@ -20,6 +25,7 @@ export interface PopoverProps {
 
 const Popover: FC<PopoverProps> = ({
   header,
+  list,
   content,
   posX = 'center',
   posY = 'top',
@@ -111,6 +117,7 @@ const Popover: FC<PopoverProps> = ({
 
   useEffect(() => {
     setPopoverVisibility(isShowing);
+    console.log(list);
   }, [isShowing]);
 
   // Toggling popover state
@@ -356,29 +363,42 @@ const Popover: FC<PopoverProps> = ({
         <div className="ewc-popover__fixed-content-area" ref={popoverFixedAreaRef}>
           <div className="ewc-popover__contentContainer">
             <div className="ewc-popover__content" ref={popoverContentRef}>
-              {hasCloseBtn == true && (
-                <div className="ewc-popover__close">
-                  <button
-                    className="ewc-btn ewc-btn--icon ewc-btn--sm"
-                    onClick={() => setPopoverVisibility(false)}
-                    data-testid="popover-close-btn"
-                    aria-label="Lukk"
-                  >
-                    <Icon name="closeBold" size="xs" />
-                  </button>
+              {!list && (
+                <div>
+                  {hasCloseBtn == true && (
+                    <div className="ewc-popover__close">
+                      <button
+                        className="ewc-btn ewc-btn--icon ewc-btn--sm"
+                        onClick={() => setPopoverVisibility(false)}
+                        data-testid="popover-close-btn"
+                        aria-label="Lukk"
+                      >
+                        <Icon name="closeBold" size="xs" />
+                      </button>
+                    </div>
+                  )}
+                  {header && (
+                    <div className="ewc-popover__header" data-testid="popover-header">
+                      {header}
+                    </div>
+                  )}
+                  {content && (
+                    <div className="ewc-popover__text" data-testid="popover-text">
+                      {content}
+                    </div>
+                  )}
+                  {!content && <div className="ewc-popover__text" ref={popoverText} />}
                 </div>
               )}
-              {header && (
-                <div className="ewc-popover__header" data-testid="popover-header">
-                  {header}
+              {list && (
+                <div className="ewc-popover__list">
+                  {list.map((listItem) => {
+                    <button key={listItem.id} className="ewc-popover__list-item">
+                      {listItem.label}
+                    </button>;
+                  })}
                 </div>
               )}
-              {content && (
-                <div className="ewc-popover__text" data-testid="popover-text">
-                  {content}
-                </div>
-              )}
-              {!content && <div className="ewc-popover__text" ref={popoverText} />}
             </div>
           </div>
         </div>

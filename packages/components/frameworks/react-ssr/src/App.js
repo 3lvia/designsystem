@@ -88,13 +88,22 @@ function App() {
           <h3>Test your component here</h3>
           {/* Normal version */}
           <div className="e-bg-white">
-            <Tabs
-              items={tabsItems}
-              value={2}
-              valueOnChange={(event) => logValue('Tabs', event)}
-              hasManualActivation
-              ariaLabel={'Simple tablist example'}
-            ></Tabs>
+            <Popover
+              header="BankID"
+              trigger={
+                <button slot="trigger" className="e-btn e-btn--icon">
+                  <Icon name="moreMenu"></Icon>
+                </button>
+              }
+              posX="right"
+              posY="bottom"
+              isShowing={isPopoverShowing}
+              isShowingOnChange={(value) => setIsPopoverShowingState(value)}
+              list={[
+                { label: 'Label1', id: 'id2' },
+                { label: 'Label', id: 'id2' },
+              ]}
+            ></Popover>
           </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
@@ -208,14 +217,14 @@ function App() {
         {/* POPOVER */}
         <div className="example-wrapper">
           <h3>Popover</h3>
-          <Popover
+          {/* <Popover
             header="BankID"
             content={<Tabs items={tabsItems} value={2}></Tabs>}
             trigger={<button className="e-btn">Show popover</button>}
             posX="right"
             isShowing={isPopoverShowing}
             isShowingOnChange={(value) => setIsPopoverShowingState(value)}
-          ></Popover>
+          ></Popover> */}
         </div>
         {/* PROGRESS LINEAR */}
         <div className="example-wrapper">

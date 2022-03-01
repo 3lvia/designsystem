@@ -128,6 +128,7 @@ module.exports = [
     elementName: 'elvia-popover',
     attributes: [
       { name: 'header', type: 'string', propType: 'string | undefined' },
+      { name: 'list', type: 'object', propType: 'object' },
       { name: 'content', type: 'string', propType: 'string | HTMLElement | undefined' },
       { name: 'posX', type: 'string', propType: 'string | undefined' },
       { name: 'posY', type: 'string', propType: 'string | undefined' },

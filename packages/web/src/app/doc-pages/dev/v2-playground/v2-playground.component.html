@@ -6,13 +6,29 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <elvia-tabs
+      <elvia-popover
+        header="BankID"
+        posX="right"
+        width="200"
+        [isShowing]="isPopoverShowing"
+        [list]="[
+          { label: 'Label', id: 'id2' },
+          { label: 'Label', id: 'id2' }
+        ]"
+      >
+        <button slot="trigger" class="e-btn e-btn--icon"><elvia-icon name="moreMenu"></elvia-icon></button>
+        <div slot="content">
+          Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
+          <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
+        </div>
+      </elvia-popover>
+      <!-- <elvia-tabs
         [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
         [value]="1"
         [hasManualActivation]="true"
         [ariaLabel]="'Simple tablist example'"
         (valueOnChange)="logValue('Tabs', $event.detail.value)"
-      ></elvia-tabs>
+      ></elvia-tabs> -->
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
