@@ -9,7 +9,7 @@
       </span>
       <br>
       <span class="changelog-date-span">
-        February 25, 2022
+        February 28, 2022
       </span>
     </td>
     <td class="changelog-content">
@@ -18,6 +18,16 @@
           <ul class="e-list">
             <li>
               Updated list  of deprecated elvis classes.
+            </li>
+          </ul>
+        </div>
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+        <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/toggle">Toggle</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Fixed focus outline on Toggle.
             </li>
           </ul>
         </div>
@@ -62,7 +72,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🛠 Patch</div>
         <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/components/alert">Alert</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/alert">Alert</a>
           </div>
           <ul class="e-list">
             <li>
@@ -88,7 +98,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🛠 Patch</div>
         <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/components/segmented-control">Segmented Control</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/segmented-control">Segmented Control</a>
           </div>
           <ul class="e-list">
             <li>
@@ -117,9 +127,9 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking Changes</div>
           <div>Components: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/components/segmented-control#Size">Segmented Control</a>,
-            <a class="e-link e-link--inline" href="https://design.elvia.io/brand/typography#Overview">Typography</a> &
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/toggle#Overview">Toggle</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/segmented-control#Size">Segmented Control</a>,
+            <a class="e-link e-link--inline" href="https://design.elvia.io/brand/typography">Typography</a> &
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/toggle">Toggle</a>
           </div>
           <ul class="e-list">
             <li>
