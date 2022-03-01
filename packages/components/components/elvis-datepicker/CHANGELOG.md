@@ -4,8 +4,9 @@
 
 ### New features
 
-- Several new props: isErrorState, hasValidation, hasClearButton, clearButtonText, errorOnChange.
-- If hasClearButton is true, a button to clear the selected date is added inside the datepicker.
+- Several new props: isErrorState, hasValidation, clearButtonText, errorOnChange.
+- A button to clear the selected date has been added inside the datepicker, and its text can be changed
+  through the clearButtonText prop.
 - The function errorOnChange is called every time the internal error of the datepicker is updated. This can be
   used for external error validation in conjunction with isErrorState and hasValidation.
 

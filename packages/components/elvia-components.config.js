@@ -179,7 +179,7 @@ module.exports = [
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
       { name: 'hasOptionalText', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'showValidation', type: 'boolean', propType: 'boolean | undefined' },
-      { name: 'hasClearButton', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'clearButtonText', type: 'string', propType: 'string' },
       { name: 'isErrorState', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasValidation', type: 'boolean', propType: 'boolean' },
       { name: 'error', type: 'string', propType: 'string | undefined' },

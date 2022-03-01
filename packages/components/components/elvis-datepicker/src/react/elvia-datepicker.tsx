@@ -35,11 +35,10 @@ export interface DatepickerProps {
   inlineStyle?: { [style: string]: CSSProperties };
   hasOptionalText?: boolean;
   showValidation?: boolean;
-  hasClearButton?: boolean;
-  clearButtonText: string;
   isErrorState?: boolean;
   errorOnChange?: (error: string) => void;
   hasValidation: boolean;
+  clearButtonText: string;
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -63,7 +62,6 @@ export const Datepicker: FC<DatepickerProps> = ({
   inlineStyle,
   hasOptionalText,
   showValidation,
-  hasClearButton,
   clearButtonText = 'Nullstill',
   isErrorState,
   hasValidation = true,
@@ -318,7 +316,7 @@ export const Datepicker: FC<DatepickerProps> = ({
           <div className="ewc-datepicker__toolbar-year">{format(date, 'yyyy', { locale: nbLocale })}</div>
           <Icon name="arrowDownBold" size="xs" className={dropdownIconClasses} />
         </button>
-        {hasClearButton && (
+        {openView === 'date' && (
           <button
             aria-label="Nullstill datovelger"
             className="ewc-datepicker__toolbar-clear"
