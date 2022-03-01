@@ -9,6 +9,7 @@
   through the clearButtonText prop.
 - The function errorOnChange is called every time the internal error of the datepicker is updated. This can be
   used for external error validation in conjunction with isErrorState and hasValidation.
+- The datepicker input field is now given a green active state when the datepicker is open.
 
 ## 2.5.2 (25.02.22)
 

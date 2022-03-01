@@ -102,6 +102,9 @@ export const Datepicker: FC<DatepickerProps> = ({
           zIndex: 99999,
         },
       },
+      MuiInputBase: {
+        className: isDatepickerOpen ? 'Mui-focused' : undefined,
+      },
     },
   });
   useEffect(() => {
