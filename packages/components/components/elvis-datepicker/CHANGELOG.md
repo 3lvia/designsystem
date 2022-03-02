@@ -1,5 +1,12 @@
 # Elvia Date picker Changelog
 
+## 2.7.0 (02.03.22)
+
+### New features
+
+- New prop: showValidationState. If set to false, no internal validation will be shown on the datepicker. The
+  prop customError has higher priority and will still set the datepicker as error state if it is provided.
+
 ## 2.6.0 (02.03.22)
 
 ### New features
