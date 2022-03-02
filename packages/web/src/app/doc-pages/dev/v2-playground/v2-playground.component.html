@@ -11,6 +11,7 @@
         posX="right"
         width="200"
         [isShowing]="isPopoverShowing"
+        (onListItemSelect)="logValue('Popover', $event.detail.value)"
         [list]="[
           { label: 'Label', id: 'id2' },
           { label: 'Label', id: 'id2' }
@@ -22,13 +23,6 @@
           <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
         </div>
       </elvia-popover>
-      <!-- <elvia-tabs
-        [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
-        [value]="1"
-        [hasManualActivation]="true"
-        [ariaLabel]="'Simple tablist example'"
-        (valueOnChange)="logValue('Tabs', $event.detail.value)"
-      ></elvia-tabs> -->
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>

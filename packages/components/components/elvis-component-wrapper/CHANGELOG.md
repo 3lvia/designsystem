@@ -1,5 +1,11 @@
 # Elvia Component Wrapper Changelog
 
+## 2.1.14 (02.03.22)
+
+### Bug fix
+
+- Update so that triggerEvent can send data
+
 ## 2.1.13 (25.02.22)
 
 ### Bug fix
