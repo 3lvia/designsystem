@@ -81,7 +81,4 @@ export class v2PlaygroundComponent {
     const values = [...this.deletableChipsList];
     this.deletableChipsList = values.filter((value) => value.value !== event);
   };
-  datepickerOnError = (error: string): void => {
-    console.log('Datepicker error: ', error);
-  };
 }
