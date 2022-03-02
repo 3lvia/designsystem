@@ -474,36 +474,6 @@ export const docPagesNotFromCMS: DocPage[] = [
     imageUrl: 'assets/doc-page-icons/pages-icons/the design system.svg',
   },
   {
-    title: 'For developers',
-    // tslint:disable-next-line: max-line-length
-    description:
-      'Guidance on how to use, and implementation of Elvia Designsystem. Elvis helps designers and developers create software with a consistent look and feel and saves time by allowing us to reuse components and design elements across multiple systems and sketches.',
-    docUrl: Pages.NewProject,
-    status: DocPageStatus.New,
-    absolutePath: '/get-started/' + Pages.NewProject,
-    imageUrl: 'assets/doc-page-icons/pages-icons/for developers.svg',
-  },
-  {
-    title: 'For designers',
-    // tslint:disable-next-line: max-line-length
-    description:
-      'As a designer, there’s a few resources to gather before getting started with the design system in Elvia. First thing to do is to make sure you have access to the Figma library.',
-    docUrl: Pages.GetStartedDesigners,
-    status: DocPageStatus.New,
-    absolutePath: '/get-started/' + Pages.GetStartedDesigners,
-    imageUrl: 'assets/doc-page-icons/pages-icons/for designers.svg',
-  },
-  {
-    title: 'The design system',
-    // tslint:disable-next-line: max-line-length
-    description:
-      'Elvia’s design system - or Elvis, for short - is a scalable system of visual language, components and design assets which enables us to work together towards an ultimate brand experience.',
-    docUrl: Pages.TheDesignSystem,
-    status: DocPageStatus.New,
-    absolutePath: '/about/' + Pages.TheDesignSystem,
-    imageUrl: 'assets/doc-page-icons/pages-icons/the design system.svg',
-  },
-  {
     title: 'Contact',
     // tslint:disable-next-line: max-line-length
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
@@ -581,28 +551,6 @@ export const docPagesNotFromCMS: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=0%3A1',
   },
   {
-    title: 'Logo',
-    // tslint:disable-next-line: max-line-length
-    description:
-      'Elvia can be described as the power source in your home. Just like our services, our logo acts as the power source that the consumer can turn on and off when needed.',
-    docUrl: Pages.Logo,
-    absolutePath: '/brand/' + Pages.Logo,
-    status: DocPageStatus.Done,
-    imageUrl: 'assets/doc-page-icons/pages-icons/Logo.svg',
-    figmaUrl: 'https://www.figma.com/file/SDUCEPhQu0q602oh2uhvKZ/Logo?node-id=0%3A1',
-  },
-  {
-    title: 'Shadow',
-    // tslint:disable-next-line: max-line-length
-    description:
-      'Shadow is used to make an element stand out from the surface to create depth. Choosing a shadow is up to each scenario - but the shadow should be "experienced" and should not be prominent.',
-    docUrl: Pages.Shadow,
-    absolutePath: '/brand/' + Pages.Shadow,
-    status: DocPageStatus.Done,
-    imageUrl: 'assets/doc-page-icons/pages-icons/Shadow.svg',
-    figmaUrl: 'https://www.figma.com/file/E2yRkpqSSuRnq8RDXO4Mly/Shadow?node-id=1%3A10',
-  },
-  {
     title: 'Layout',
     figmaUrl: 'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8936%3A67993',
     docUrl: 'layout',
@@ -619,45 +567,6 @@ export const docPagesNotFromCMS: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography?node-id=0%3A1',
   },
   {
-    title: 'Accessibility',
-    description: 'Accessibility in Elvia Designsystem',
-    docUrl: Pages.Accessibility,
-    absolutePath: '/tools/' + Pages.Accessibility,
-    imageUrl: 'assets/doc-page-icons/pages-icons/accessibility.svg',
-  },
-  {
-    title: 'Design Process',
-    description: 'Designprocess',
-    docUrl: 'design-process',
-    absolutePath: '/tools/design-process',
-    imageUrl: 'assets/doc-page-icons/pages-icons/designProcess.svg',
-  },
-  // JUST TO BE INCLUDED IN SEARCH BEFORE WE EXTEND SEARCH
-  {
-    title: 'Focus',
-    description:
-      'Keyboard accessibility is one of the most important aspects of web accessibility. A keyboard user typically uses the Tab key to navigate through interactive elements on a web page. Focus adds an additional outline around the element.',
-    absolutePath: '/tools/' + Pages.Accessibility,
-    fragmentPath: 'Keyboard',
-    status: DocPageStatus.Ignore,
-  },
-  {
-    title: 'Patterns',
-    // tslint:disable-next-line:max-line-length
-    description:
-      'Patterns are best practice solutions to solve common user situations. These solutions will ensure that we have the same user flow and consistent experience across applications.',
-    docUrl: Pages.Patterns,
-    absolutePath: '/tools/' + Pages.Patterns,
-    imageUrl: 'assets/tools/patternsIllustration.svg',
-  },
-  {
-    title: 'User Feedback',
-    description: 'Some feedback to the user',
-    docUrl: Pages.UserFeedback,
-    absolutePath: '/tools/' + Pages.UserFeedback,
-    imageUrl: 'assets/doc-page-icons/pages-icons/userFeedback.svg',
-  },
-  {
     title: 'Utility Classes',
     // tslint:disable-next-line: max-line-length
     description:
@@ -665,10 +574,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     docUrl: Pages.Utilities,
     absolutePath: '/tools/' + Pages.Utilities,
     status: DocPageStatus.Done,
-    // Update Icons
     imageUrl: 'assets/doc-page-icons/pages-icons/utilityClasses.svg',
-    // No figma page ready yet
-    // figmaUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography?node-id=0%3A1',
   },
   {
     title: "What's new?",
