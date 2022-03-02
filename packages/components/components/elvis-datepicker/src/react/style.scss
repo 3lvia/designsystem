@@ -99,6 +99,7 @@ $datepicker-max-width: 448px;
       &::placeholder {
         opacity: 1;
         color: $text-placeholder;
+        user-select: none;
       }
     }
 
