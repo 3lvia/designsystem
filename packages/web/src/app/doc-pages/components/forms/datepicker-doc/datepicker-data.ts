@@ -97,6 +97,13 @@ const datepickerData = {
         'Shows validations when sent in as true, e.g. "Velg en dato" error when date is required. Otherwise this will only be triggered after the input has had focus.',
       default: 'false',
     },
+    showValidationState: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Shows validation text under datepicker if there is an error with the chosen date. NB: customError has higher priority.',
+      default: 'true',
+    },
     customError: {
       isRequired: false,
       type: 'string',

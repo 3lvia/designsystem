@@ -35,6 +35,7 @@ export interface DatepickerProps {
   inlineStyle?: { [style: string]: CSSProperties };
   hasOptionalText?: boolean;
   showValidation?: boolean;
+  showValidationState: boolean;
   isErrorState?: boolean;
   errorOnChange?: (error: string) => void;
   hasValidation: boolean;
@@ -62,6 +63,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   inlineStyle,
   hasOptionalText,
   showValidation,
+  showValidationState = true,
   clearButtonText = 'Nullstill',
   isErrorState,
   hasValidation = true,
@@ -82,12 +84,13 @@ export const Datepicker: FC<DatepickerProps> = ({
   const unicodeChar = '­';
 
   const showError =
-    (showValidation && currErrorMessage !== '') ||
-    (!hasFocus && (customError || (currErrorMessage !== '' && hasHadFocus)));
+    (showValidationState || customError) &&
+    ((showValidation && currErrorMessage !== '') ||
+      (!hasFocus && (customError || (currErrorMessage !== '' && hasHadFocus))));
 
   // Styling
   const datePickerClasses = classnames('ewc-datepicker', {
-    ['ewc-datepicker--error']: showError || isErrorState,
+    ['ewc-datepicker--error']: showError || (isErrorState && !hasFocus),
     ['ewc-datepicker--compact']: isCompact !== false,
     ['ewc-datepicker--unselected']: value === null,
     ['ewc-datepicker--full-width']: isFullWidth,
