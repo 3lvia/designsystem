@@ -328,7 +328,7 @@ export const Datepicker: FC<DatepickerProps> = ({
               setShouldHaveSelected(false);
             }}
           >
-            <Icon name="reset" size="xs" inlineStyle={{ paddingRight: '8px' }} />
+            <Icon name="reset" size="xs" inlineStyle={{ marginRight: '8px' }} />
             {clearButtonText}
           </button>
         )}
