@@ -1,1 +1,1 @@
-export { default as Carousel } from './dist/react/js/elvia-carousel';
+export { default as Carousel } from './dist/react/js/elvia-carousel.js';

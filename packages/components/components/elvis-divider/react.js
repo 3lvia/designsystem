@@ -1,1 +1,1 @@
-export { default as Divider } from './dist/react/js/elvia-divider';
+export { default as Divider } from './dist/react/js/elvia-divider.js';

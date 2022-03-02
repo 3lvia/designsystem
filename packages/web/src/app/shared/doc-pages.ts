@@ -430,7 +430,7 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Toggle',
     description:
-      'Toggle button allows the user to switch between to states (on/off) and have always a default state.',
+      'Toggle button allows the user to switch between to states (on/off) and have always a default state. Toggle takes effect immediately.',
     docUrl: Pages.Toggle,
     absolutePath: '/components/' + Pages.Toggle,
     status: DocPageStatus.New,

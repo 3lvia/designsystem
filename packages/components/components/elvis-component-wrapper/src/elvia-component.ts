@@ -123,11 +123,13 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  protected triggerEvent(callbackName: string, newProps?: any): void {
-    if (newProps) {
+  protected triggerEvent(callbackName: string, newProps?: any, multipleProps?: boolean): void {
+    if (newProps && multipleProps) {
       Object.keys(newProps).forEach((key) => {
         this.onEvent(callbackName, key);
       });
+    } else if (newProps && !multipleProps) {
+      this.onEvent(callbackName, newProps);
     } else {
       this.onEvent(callbackName);
     }
@@ -192,12 +194,14 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   // Dispatches event
-  private dispatchNewEvent(callbackName: string, propName?: string) {
+  private dispatchNewEvent(callbackName: string, eventData?: string) {
+    const propExists = eventData && typeof eventData === 'string' && this._data[eventData.toLowerCase()];
+    const data = propExists ? this._data[eventData.toLowerCase()] : eventData;
     this.dispatchEvent(
       new CustomEvent(callbackName, {
         bubbles: false,
         composed: true,
-        detail: { value: propName ? this._data[propName.toLowerCase()] : null },
+        detail: { value: data },
       }),
     );
   }
