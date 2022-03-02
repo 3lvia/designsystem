@@ -87,15 +87,7 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white">
-            <Tabs
-              items={tabsItems}
-              value={2}
-              valueOnChange={(event) => logValue('Tabs', event)}
-              hasManualActivation
-              ariaLabel={'Simple tablist example'}
-            ></Tabs>
-          </div>
+          <div className="e-bg-white"></div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>

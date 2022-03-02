@@ -192,4 +192,17 @@ describe('Elvis Datepicker', () => {
       done();
     });
   });
+  describe('Error state from prop', () => {
+    beforeEach(() => {
+      wrapper = mount(<Datepicker isErrorState></Datepicker>);
+      datepickerWrapper = wrapper.find({ 'data-testid': 'datepicker-wrapper' }).at(0);
+    });
+    afterEach(() => {
+      wrapper.unmount();
+    });
+    it('should have error state', function (done) {
+      expect(datepickerWrapper.getDOMNode()).toHaveClass('ewc-datepicker--error');
+      done();
+    });
+  });
 });
