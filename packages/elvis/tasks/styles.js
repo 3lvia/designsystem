@@ -37,7 +37,7 @@ function browserSupport() {
     postcss([
       doiuse({
         browsers: [
-          '>1%, last 2 versions, Firefox ESR, not dead, IE 11, not IE 10, not op_mini all, not op_mob > 0',
+          '>1%, last 2 versions, Firefox ESR, not dead, not IE 11, not IE 10, not op_mini all, not op_mob > 0',
         ],
         ignore: [
           'css-unset-value',
@@ -49,6 +49,8 @@ function browserSupport() {
           'user-select-none',
           'css3-cursors',
           'css-appearance',
+          'css-resize',
+          'intrinsic-width',
         ], // Optional things to ignore
         ignoreFiles: [],
       }),
