@@ -1468,6 +1468,34 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz#d5e0706cf8c6acd8c6032f8d54070af261bbbb2f"
   integrity sha512-ws57AidsDvREKrZKYffXddNkyaF14iHNHm8VQnZH6t99E8gczjNN0GpvcGny0imC80yQ0tHz1xVUKk/KFQSUyA==
 
+"@elvia/elvis-component-wrapper@*", "@elvia/elvis-component-wrapper@^2.1.11", "@elvia/elvis-component-wrapper@^2.1.13", "@elvia/elvis-component-wrapper@^2.1.6":
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/@elvia/elvis-component-wrapper/-/elvis-component-wrapper-2.1.13.tgz#76967236c7951d0af8c1c13dd415672e3d9d10b8"
+  integrity sha512-x6repgZ9VtrdlhoJ4RueDLFeC+apbbllrmO+r00ftLit5Y0lSlmcs2kwwSFbkT6q1Q9IEGKwUkxAFybzLJHS4Q==
+  dependencies:
+    "@elvia/elvis-toolbox" "^1.2.1"
+    lodash.isequal "^4.5.0"
+    react "*"
+    react-dom "*"
+
+"@elvia/elvis-component-wrapper@^2.1.14":
+  version "2.1.14-beta.1"
+  dependencies:
+    "@elvia/elvis-toolbox" "^1.2.1"
+    lodash.isequal "^4.5.0"
+    react "*"
+    react-dom "*"
+
+"@elvia/elvis-popover@*":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@elvia/elvis-popover/-/elvis-popover-4.3.3.tgz#de5ed7f73baec0245d33f5fdb4d6cf628bcfee40"
+  integrity sha512-mVRbpzq6b3dsBFvAG+ztKTXyqxbg+f1mYUkM/GcjmOl5pSKWX0haL2e4275NPvBdfiLi6a1ePHcf9pa5BK+MYA==
+  dependencies:
+    "@elvia/elvis-component-wrapper" "^2.1.13"
+    "@elvia/elvis-icon" "^1.1.1"
+    "@elvia/elvis-toolbox" "^1.2.1"
+    classnames "^2.3.1"
+
 "@elvia/elvis-typography@^1.2.0":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@elvia/elvis-typography/-/elvis-typography-1.2.1.tgz#01f238de7a9ef73402352c9eb461c8d780e2853d"

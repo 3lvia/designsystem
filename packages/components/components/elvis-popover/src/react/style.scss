@@ -111,11 +111,16 @@ $grey-05: #f4f4f4;
       min-width: 216px;
       background: white;
       border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
       &-item {
         background: white;
-        padding: 16px 10px;
+        padding: 10px 16px;
         border: none;
+        display: flex;
+        align-items: center;
 
         //styleName: TEXT/Medium;
         font-family: 'Red Hat Text', Verdana, sans-serif;
@@ -165,6 +170,10 @@ $grey-05: #f4f4f4;
     top: 100%;
     bottom: auto;
     margin-top: 16px;
+  }
+
+  &.ewc-popover--list .ewc-popover__content {
+    padding: 0;
   }
 }
 

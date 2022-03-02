@@ -8,23 +8,13 @@
       <!--Normal version-->
       <div class="e-bg-white">
         <elvia-popover
-          header="BankID"
           posX="right"
           posY="bottom"
-          :list="[
-            { label: 'Label', id: 'id2' },
-            { label: 'Label', id: 'id2' },
-          ]"
+          :list="list"
+          @onListItemSelect="logValue('Popover', $event.detail.value)"
         >
           <button slot="trigger" class="e-btn e-btn--icon"><elvia-icon name="moreMenu"></elvia-icon></button>
         </elvia-popover>
-        <!-- <elvia-tabs
-          :hasManualActivation="true"
-          :ariaLabel="'Simple tablist example'"
-          :items="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
-          :value="1"
-          @value-on-change="logValue('Tabs', $event.detail.value)"
-        ></elvia-tabs> -->
       </div>
       <!--Inverted version-->
       <div class="e-bg-grey"></div>
@@ -226,6 +216,11 @@ export default {
       isModalShowing: false,
       // Pagination
       defaultPaginationValue: { start: 1, end: 10 },
+      // Popover
+      list: [
+        { label: 'Rediger', id: 'id1', icon: 'edit' },
+        { label: 'Slett', id: 'id2', icon: 'bin' },
+      ],
     };
   },
   methods: {

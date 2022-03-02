@@ -99,9 +99,11 @@ function App() {
               posY="bottom"
               isShowing={isPopoverShowing}
               isShowingOnChange={(value) => setIsPopoverShowingState(value)}
+              onListItemSelect={(value) => logValue('Popover', value)}
               list={[
-                { label: 'Label1', id: 'id2' },
-                { label: 'Label', id: 'id2' },
+                { label: 'Rediger', id: 'id1', icon: 'edit' },
+                { label: 'Slett', id: 'id2', icon: 'bin' },
+                { label: 'Last ned', id: 'id3', icon: 'download' },
               ]}
             ></Popover>
           </div>

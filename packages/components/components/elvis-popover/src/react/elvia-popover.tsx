@@ -7,6 +7,7 @@ import { Icon } from '@elvia/elvis-icon/react';
 export interface PopoverListItem {
   label: string;
   id: string;
+  icon?: string;
 }
 export interface PopoverProps {
   header?: string;
@@ -18,6 +19,7 @@ export interface PopoverProps {
   hasCloseBtn?: boolean;
   isShowing?: boolean;
   isShowingOnChange?: (isShowing: boolean) => void;
+  onListItemSelect?: (listItem: PopoverListItem) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent: any;
@@ -33,6 +35,7 @@ const Popover: FC<PopoverProps> = ({
   hasCloseBtn = true,
   isShowing = false,
   isShowingOnChange,
+  onListItemSelect,
   className,
   inlineStyle,
   webcomponent,
@@ -117,7 +120,6 @@ const Popover: FC<PopoverProps> = ({
 
   useEffect(() => {
     setPopoverVisibility(isShowing);
-    console.log(list);
   }, [isShowing]);
 
   // Toggling popover state
@@ -286,6 +288,15 @@ const Popover: FC<PopoverProps> = ({
     }
   };
 
+  const selectAction = (listItem: PopoverListItem) => {
+    if (!webcomponent && onListItemSelect) {
+      onListItemSelect(listItem);
+    } else if (webcomponent) {
+      webcomponent.triggerEvent('onListItemSelect', listItem);
+    }
+    setPopoverVisibility(false);
+  };
+
   // Updates isShowing prop
   // Updates position when popover is opened and when window is resized
   // Positions a fixed area that covers trigger element and works as position anchor for content element
@@ -340,6 +351,7 @@ const Popover: FC<PopoverProps> = ({
     ['ewc-popover--hide']: !popoverVisibility,
     ['ewc-popover--text-only']: typeof content === 'string',
     ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
+    ['ewc-popover--list']: list,
   });
 
   return (
@@ -393,9 +405,16 @@ const Popover: FC<PopoverProps> = ({
               {list && (
                 <div className="ewc-popover__list">
                   {list.map((listItem) => {
-                    <button key={listItem.id} className="ewc-popover__list-item">
-                      {listItem.label}
-                    </button>;
+                    return (
+                      <button
+                        key={listItem.id}
+                        className="ewc-popover__list-item"
+                        onClick={() => selectAction(listItem)}
+                      >
+                        {listItem.icon && <Icon name={listItem.icon} size="xs" className="e-mr-16"></Icon>}
+                        <div>{listItem.label}</div>
+                      </button>
+                    );
                   })}
                 </div>
               )}
