@@ -182,7 +182,6 @@ module.exports = [
       { name: 'clearButtonText', type: 'string', propType: 'string' },
       { name: 'isErrorState', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasValidation', type: 'boolean', propType: 'boolean' },
-      { name: 'error', type: 'string', propType: 'string | undefined' },
     ],
     reactName: 'Datepicker',
     elementStyle: 'display: block; max-width: 448px;',

@@ -1,6 +1,6 @@
 # Elvia Date picker Changelog
 
-## 2.6.0 (01.03.22)
+## 2.6.0 (02.03.22)
 
 ### New features
 

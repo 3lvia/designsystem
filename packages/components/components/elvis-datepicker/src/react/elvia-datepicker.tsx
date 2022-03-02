@@ -190,12 +190,15 @@ export const Datepicker: FC<DatepickerProps> = ({
     if (error === currErrorMessage) {
       return;
     }
+    if (!hasHadFocus) {
+      return;
+    }
     setCurrErrorMessage(error);
 
     if (!webcomponent && errorOnChange) {
       errorOnChange(error);
     } else if (webcomponent) {
-      webcomponent.setProps({ error: error }, true);
+      webcomponent.triggerEvent('errorOnChange', error);
     }
   };
 
