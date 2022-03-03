@@ -2,7 +2,33 @@
 <!-- 💥 New Features -->
 <!-- 🐝 Bug Fixes -->
 <table>
-<tr class="changelog-row">
+  <tr class="changelog-row">
+    <td class="changelog-date">
+      <span class="e-title-sm">
+        8.1.0
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        March 03, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+       <div class="changelog-section-title">💥 New Features</div>
+          <div>Page: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icons</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Added icons: thumbnail-color and adjust
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">
         8.0.4
@@ -35,7 +61,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
-<tr class="changelog-row">
+  <tr class="changelog-row">
     <td class="changelog-date">
       <span class="e-title-sm">
         8.0.3

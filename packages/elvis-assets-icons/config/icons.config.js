@@ -39,6 +39,11 @@ module.exports = [
     terms: [],
     thirdparty: { name: ['streamline'], duplicate: ['add_powermeter'] },
   },
+  {
+    name: 'adjust',
+    terms: ['expand', 'drag', 'rearrange'],
+    thirdparty: { name: ['streamline'] },
+  },
   { name: 'agreements-color', terms: [], thirdparty: { name: ['streamline'] } },
   {
     name: 'analytics_bars',
@@ -661,7 +666,12 @@ module.exports = [
   { name: 'tag_add', deprecated: '7.5.0', newIconName: 'add_circle' },
   { name: 'tag', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'third_party', terms: ['network'], streamlineIcons: ['user-network'] },
-  { name: 'thumbnail', terms: ['grid'], thirdparty: { name: ['streamline'] } },
+  { name: 'thumbnail', terms: ['grid', 'app'], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'thumbnail-color',
+    terms: ['grid', 'app'],
+    thirdparty: { name: ['streamline'], duplicate: ['thumbnail'] },
+  },
   { name: 'touch_finger-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'tree_falling', terms: ['electricity'], thirdparty: { name: ['streamline'] } },
   { name: 'tree_powerline', terms: ['electricity'], thirdparty: { name: ['streamline'] } },
