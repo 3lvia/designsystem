@@ -156,6 +156,32 @@ exports.addPowermeterColor = {
     return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
   },
 };
+exports.adjust = {
+  getIcon: function (color) {
+    let icon =
+      '<svg width="25" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M.002 11.998a.75.75 0 01.75-.75h8.25a.75.75 0 010 1.5H.752a.75.75 0 01-.75-.75zM14.252 11.998a.75.75 0 01.75-.75h8.25a.75.75 0 010 1.5h-8.25a.75.75 0 01-.75-.75z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M5.032 7.718a.75.75 0 010 1.06l-3.22 3.22 3.22 3.22a.75.75 0 01-1.06 1.06l-3.75-3.75a.75.75 0 010-1.06l3.75-3.75a.75.75 0 011.06 0zM18.972 7.718a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l3.22-3.22-3.22-3.22a.75.75 0 010-1.06zM12.002 6.748a.75.75 0 01.75.75v9a.75.75 0 11-1.5 0v-9a.75.75 0 01.75-.75z" fill="#000"/></svg>';
+    let iconName = 'adjust';
+    icon = icon.replace('<svg ', '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+    if (!color) {
+      return icon;
+    }
+    if (color === 'inverted') {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
+        icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
+      }
+      // -full-color check can be removed when new icons have been added
+      if (iconName.indexOf('-filled-color') > -1 || iconName.indexOf('-full-color') > -1) {
+        icon = icon.replace(/fill="#000"/g, "fillBlack'");
+      }
+      icon = icon.replace(/fill="#fff"/g, 'fillBlack');
+      icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+      icon = icon.replace(/fillBlack/g, "fill='black'");
+      icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+      return icon;
+    }
+    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+  },
+};
 exports.agreementsColor = {
   getIcon: function (color) {
     let icon =
@@ -6609,6 +6635,32 @@ exports.thumbnail = {
     let icon =
       '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 0A2.25 2.25 0 000 2.25v6a2.25 2.25 0 002.25 2.25h6a2.25 2.25 0 002.25-2.25v-6A2.25 2.25 0 008.25 0h-6zM1.5 2.25a.75.75 0 01.75-.75h6a.75.75 0 01.75.75v6a.75.75 0 01-.75.75h-6a.75.75 0 01-.75-.75v-6zM2.25 13.5A2.25 2.25 0 000 15.75v6A2.25 2.25 0 002.25 24h6a2.25 2.25 0 002.25-2.25v-6a2.25 2.25 0 00-2.25-2.25h-6zm-.75 2.25a.75.75 0 01.75-.75h6a.75.75 0 01.75.75v6a.75.75 0 01-.75.75h-6a.75.75 0 01-.75-.75v-6zM13.5 2.25A2.25 2.25 0 0115.75 0h6A2.25 2.25 0 0124 2.25v6a2.25 2.25 0 01-2.25 2.25h-6a2.25 2.25 0 01-2.25-2.25v-6zm2.25-.75a.75.75 0 00-.75.75v6c0 .414.336.75.75.75h6a.75.75 0 00.75-.75v-6a.75.75 0 00-.75-.75h-6zM15.75 13.5a2.25 2.25 0 00-2.25 2.25v6A2.25 2.25 0 0015.75 24h6A2.25 2.25 0 0024 21.75v-6a2.25 2.25 0 00-2.25-2.25h-6zM15 15.75a.75.75 0 01.75-.75h6a.75.75 0 01.75.75v6a.75.75 0 01-.75.75h-6a.75.75 0 01-.75-.75v-6z" fill="#000"/></svg>';
     let iconName = 'thumbnail';
+    icon = icon.replace('<svg ', '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+    if (!color) {
+      return icon;
+    }
+    if (color === 'inverted') {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
+        icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
+      }
+      // -full-color check can be removed when new icons have been added
+      if (iconName.indexOf('-filled-color') > -1 || iconName.indexOf('-full-color') > -1) {
+        icon = icon.replace(/fill="#000"/g, "fillBlack'");
+      }
+      icon = icon.replace(/fill="#fff"/g, 'fillBlack');
+      icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+      icon = icon.replace(/fillBlack/g, "fill='black'");
+      icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+      return icon;
+    }
+    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+  },
+};
+exports.thumbnailColor = {
+  getIcon: function (color) {
+    let icon =
+      '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 0A2.25 2.25 0 000 2.25v6a2.25 2.25 0 002.25 2.25h6a2.25 2.25 0 002.25-2.25v-6A2.25 2.25 0 008.25 0h-6zM1.5 2.25a.75.75 0 01.75-.75h6a.75.75 0 01.75.75v6a.75.75 0 01-.75.75h-6a.75.75 0 01-.75-.75v-6z" fill="#29D305"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 13.5A2.25 2.25 0 000 15.75v6A2.25 2.25 0 002.25 24h6a2.25 2.25 0 002.25-2.25v-6a2.25 2.25 0 00-2.25-2.25h-6zm-.75 2.25a.75.75 0 01.75-.75h6a.75.75 0 01.75.75v6a.75.75 0 01-.75.75h-6a.75.75 0 01-.75-.75v-6zM13.5 2.25A2.25 2.25 0 0115.75 0h6A2.25 2.25 0 0124 2.25v6a2.25 2.25 0 01-2.25 2.25h-6a2.25 2.25 0 01-2.25-2.25v-6zm2.25-.75a.75.75 0 00-.75.75v6c0 .414.336.75.75.75h6a.75.75 0 00.75-.75v-6a.75.75 0 00-.75-.75h-6zM15.75 13.5a2.25 2.25 0 00-2.25 2.25v6A2.25 2.25 0 0015.75 24h6A2.25 2.25 0 0024 21.75v-6a2.25 2.25 0 00-2.25-2.25h-6zM15 15.75a.75.75 0 01.75-.75h6a.75.75 0 01.75.75v6a.75.75 0 01-.75.75h-6a.75.75 0 01-.75-.75v-6z" fill="#000"/></svg>';
+    let iconName = 'thumbnail-color';
     icon = icon.replace('<svg ', '<svg viewBox="0 0 24 24" aria-hidden="true" ');
     if (!color) {
       return icon;

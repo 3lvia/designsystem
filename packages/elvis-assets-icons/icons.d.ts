@@ -7,6 +7,7 @@ export declare const addCircleFilled: Icon;
 export declare const addCircleFilledColor: Icon;
 export declare const addPowermeter: Icon;
 export declare const addPowermeterColor: Icon;
+export declare const adjust: Icon;
 export declare const agreementsColor: Icon;
 export declare const analyticsBars: Icon;
 export declare const arrowCircleColor: Icon;
@@ -256,6 +257,7 @@ export declare const tagAdd: Icon;
 export declare const tag: Icon;
 export declare const thirdParty: Icon;
 export declare const thumbnail: Icon;
+export declare const thumbnailColor: Icon;
 export declare const touchFingerColor: Icon;
 export declare const treeFalling: Icon;
 export declare const treePowerline: Icon;
@@ -287,6 +289,7 @@ export declare type IconName =
   | 'addCircleFilledColor'
   | 'addPowermeter'
   | 'addPowermeterColor'
+  | 'adjust'
   | 'agreementsColor'
   | 'analyticsBars'
   | 'arrowCircleColor'
@@ -536,6 +539,7 @@ export declare type IconName =
   | 'tag'
   | 'thirdParty'
   | 'thumbnail'
+  | 'thumbnailColor'
   | 'touchFingerColor'
   | 'treeFalling'
   | 'treePowerline'

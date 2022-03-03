@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 2.2.0 (03.03.22)
+
+### New feature
+
+- Thumbnail-color and adjust icons
+
 ## 2.2.0 (23.02.22)
 
 ### New feature
