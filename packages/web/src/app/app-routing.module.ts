@@ -26,7 +26,7 @@ import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-do
 import { DatepickerDocComponent } from './doc-pages/components/forms/datepicker-doc/datepicker-doc.component';
 import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
 import { AlertMessagesComponent } from './doc-pages/components/alert-messages/alert-messages.component';
-import { DevStartComponent } from './doc-pages/dev/dev-start/dev-start.component';
+import { DevStartComponent } from './dev/dev-start/dev-start.component';
 import { PaginationDocComponent } from './doc-pages/components/pagination-doc/pagination-doc.component';
 import { HeaderDocComponent } from './doc-pages/components/header-doc/header-doc.component';
 import { DropdownDocComponent } from './doc-pages/components/dropdown-doc/dropdown-doc.component';
@@ -35,13 +35,12 @@ import { AccordionDocComponent } from './doc-pages/components/accordion-doc/acco
 import { StepperDocComponent } from './doc-pages/components/stepper-doc/stepper-doc.component';
 import { ContentLoaderDocComponent } from './doc-pages/components/content-loader-doc/content-loader-doc.component';
 import { RadioFilterDocComponent } from './doc-pages/components/radio-filter-doc/radio-filter-doc.component';
-import { TheDesignSystemDocComponent } from './doc-pages/other-pages/the-design-system-doc/the-design-system-doc.component';
 import { ChipDocComponent } from './doc-pages/components/chip-doc/chip-doc.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
 import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.component';
 import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-doc/timepicker-doc.component';
-import { v2PlaygroundComponent } from './doc-pages/dev/v2-playground/v2-playground.component';
+import { v2PlaygroundComponent } from './dev/v2-playground/v2-playground.component';
 import { BreadcrumbDocComponent } from './doc-pages/components/breadcrumb-doc/breadcrumb-doc.component';
 import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { BoxDocComponent } from './doc-pages/components/box-doc/box-doc.component';
@@ -55,6 +54,7 @@ import { ContactComponent } from './doc-pages/other-pages/contact/contact.compon
 import { ContributeComponent } from './doc-pages/other-pages/contribute/contribute.component';
 import { FaqDocComponent } from './doc-pages/other-pages/faq-doc/faq-doc.component';
 import { UtilitiesDocComponent } from './doc-pages/other-pages/utilities-doc/utilities-doc.component';
+import { TheDesignSystemDocComponent } from './doc-pages/other-pages/the-design-system-doc/the-design-system-doc.component';
 
 const routes: Routes = [
   {

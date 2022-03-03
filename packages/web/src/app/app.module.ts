@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorModule } from './shared/error/error.module';
 import { CMSPageModule } from './doc-pages/cms/cms-page/cms-page.module';
 import { MobileHeaderModule } from './shell/header/mobile-menu/mobile-menu.module';
-import { devModule } from './doc-pages/dev/dev.module';
+import { devModule } from './dev/dev.module';
 import { OtherPagesModule } from './doc-pages/other-pages/other-pages.module';
 
 @NgModule({
