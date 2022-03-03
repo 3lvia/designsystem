@@ -1,5 +1,11 @@
 # Elvia Carousel Changelog
 
+## 1.1.2 (03.03.22)
+
+### Patch
+
+- Now using correct type for webcomponent wrapper for better internal IntelliSense.
+
 ## 1.1.1 (18.02.22)
 
 ### Patch

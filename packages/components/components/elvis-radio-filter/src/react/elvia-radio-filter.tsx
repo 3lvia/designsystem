@@ -1,3 +1,4 @@
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 import React, { CSSProperties, FC } from 'react';
 import { RadioFilterGroup, RadioFilterInput, RadioFilterLabel, RadioFilterTitle } from './styledComponents';
 
@@ -14,7 +15,7 @@ export interface BaseRadioFilterProps {
   valueOnChange?: (value: string) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
-  webcomponent?: any;
+  webcomponent?: ElvisComponentWrapper;
 }
 
 export const RadioFilter: FC<BaseRadioFilterProps> = ({

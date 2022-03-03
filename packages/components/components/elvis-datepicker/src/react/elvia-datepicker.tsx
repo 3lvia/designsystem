@@ -13,6 +13,7 @@ import isValid from 'date-fns/isValid';
 import isSameDay from 'date-fns/isSameDay';
 import isAfter from 'date-fns/isAfter';
 import isBefore from 'date-fns/isBefore';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 export interface DatepickerProps {
   value?: Date | null;
@@ -28,7 +29,7 @@ export interface DatepickerProps {
   valueOnChange?: (value: Date | null) => void;
   onOpen?: () => void;
   onClose?: () => void;
-  webcomponent?: any;
+  webcomponent?: ElvisComponentWrapper;
   placeholder?: string;
   isOpen?: boolean;
   className?: string;

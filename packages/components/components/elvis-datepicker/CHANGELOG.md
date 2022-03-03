@@ -1,5 +1,11 @@
 # Elvia Date picker Changelog
 
+## 2.7.1 (03.03.22)
+
+### Patch
+
+- Now using correct type for webcomponent wrapper for better internal IntelliSense.
+
 ## 2.7.0 (02.03.22)
 
 ### New features

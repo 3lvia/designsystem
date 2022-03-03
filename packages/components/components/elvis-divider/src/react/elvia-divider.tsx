@@ -1,3 +1,4 @@
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 import React, { CSSProperties, useEffect, useRef } from 'react';
 import { DividerOrientation, DividerType, DividerTypography } from './elvia-divider.types';
 import { DividerArea, DividerTitle } from './styledComponents';
@@ -10,7 +11,7 @@ export interface DividerProps {
   orientation?: DividerOrientation;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
-  webcomponent: any;
+  webcomponent?: ElvisComponentWrapper;
 }
 
 export const Divider: React.FC<DividerProps> = ({

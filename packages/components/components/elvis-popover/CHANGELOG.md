@@ -1,5 +1,11 @@
 # Elvia Popover Changelog
 
+## 4.3.4 (03.03.22)
+
+### Patch
+
+- Now using correct type for webcomponent wrapper for better internal IntelliSense.
+
 ## 4.3.3 (28.02.22)
 
 ### Bug fix

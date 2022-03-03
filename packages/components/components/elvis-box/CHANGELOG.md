@@ -1,5 +1,11 @@
 # Elvia Box Changelog
 
+## 1.2.1 (03.03.22)
+
+### Patch
+
+- Now using correct type for webcomponent wrapper for better internal IntelliSense.
+
 ## 1.2.0 (07.02.22)
 
 ### New feature

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, CSSProperties } from 'react';
 import { BreadcrumbWrapper, BreadcrumbDesktopWrapper, BreadcrumbLink } from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 interface BreadcrumbLink {
   url?: string;
@@ -12,7 +13,7 @@ interface BreadcrumbProps {
   breadcrumbsOnChange?: (value: number) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
-  webcomponent: any;
+  webcomponent?: ElvisComponentWrapper;
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({

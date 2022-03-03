@@ -13,6 +13,7 @@ import {
   CarouselCheckButton,
 } from './StyledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 type CarouselElement = {
   title?: JSX.Element | string | HTMLElement;
@@ -28,7 +29,7 @@ export interface CarouselProps {
   valueOnChange?: (value: number) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
-  webcomponent?: any;
+  webcomponent?: ElvisComponentWrapper;
 }
 
 export const Carousel: FC<CarouselProps> = ({

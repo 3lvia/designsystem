@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as isEqual from 'lodash.isequal';
+import isEqual from 'lodash.isequal';
 import toolbox from '@elvia/elvis-toolbox';
 
 export class ElvisComponentWrapper extends HTMLElement {
@@ -31,11 +31,20 @@ export class ElvisComponentWrapper extends HTMLElement {
     return this._data;
   }
 
-  getSlot(str: string): any {
-    return this._slots[str];
+  /**
+   * Get the value of a slot of the webcomponent.
+   * @param slotName Name of slot.
+   * @returns Value of slot.
+   */
+  getSlot(slotName: string): any {
+    return this._slots[slotName];
   }
 
-  getAllSlots(): any {
+  /**
+   * Get all slots of the webcomponent.
+   * @returns An object containing all the slots of the webcomponent.
+   */
+  getAllSlots(): { [slotName: string]: any } {
     return this._slots;
   }
 
@@ -65,6 +74,44 @@ export class ElvisComponentWrapper extends HTMLElement {
       this.storeAllSlots();
     }
     this.throttleRenderReactDOM();
+  }
+
+  /**
+   * Set prop values on webcomponent and dispatch onChange-event for each updated prop.
+   *
+   * @param newProps Object containing props to update.
+   * @param preventRerender Set to true to avoid rerendering webcomponent.
+   *
+   * @example
+   * webcomponent.setProps({propName: newValue}, true);
+   * webcomponent.setProps({value: {id: myId, state: currentState}}, true);
+   */
+  setProps(newProps: { [propName: string]: any }, preventRerender?: boolean): void {
+    Object.keys(newProps).forEach((key) => {
+      if (!isEqual(this._data[key], newProps[key])) {
+        this._data[key.toLowerCase()] = newProps[key];
+        this.addConditionalStyle();
+        this.onChangeEvent(this.mapNameToRealName(key));
+      }
+    });
+
+    if (!preventRerender) {
+      this.throttleRenderReactDOM();
+    }
+  }
+
+  /**
+   * Trigger an event on webcomponent, optionally with a value.
+   * @param callbackName Name of event.
+   * @param eventData Either a value of any type, or the name of a prop as a string. NB: if a string is passed and it corresponds to the name of a prop, the prop value will be sent with the event instead of the string.
+   *
+   * @example
+   * webcomponent.triggerEvent('onOpen');
+   * webcomponent.triggerEvent('onDelete', deletedValue);
+   */
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  triggerEvent(callbackName: string, eventData?: any): void {
+    this.onEvent(callbackName, eventData);
   }
 
   protected addConditionalStyle(): void {
@@ -105,34 +152,6 @@ export class ElvisComponentWrapper extends HTMLElement {
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;
     this.appendChild(styleTag);
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  protected setProps(newProps: any, preventRerender?: boolean): void {
-    Object.keys(newProps).forEach((key) => {
-      if (!isEqual(this._data[key], newProps[key])) {
-        this._data[key.toLowerCase()] = newProps[key];
-        this.addConditionalStyle();
-        this.onChangeEvent(this.mapNameToRealName(key));
-      }
-    });
-
-    if (!preventRerender) {
-      this.throttleRenderReactDOM();
-    }
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  protected triggerEvent(callbackName: string, newProps?: any, multipleProps?: boolean): void {
-    if (newProps && multipleProps) {
-      Object.keys(newProps).forEach((key) => {
-        this.onEvent(callbackName, key);
-      });
-    } else if (newProps && !multipleProps) {
-      this.onEvent(callbackName, newProps);
-    } else {
-      this.onEvent(callbackName);
-    }
   }
 
   protected createReactData(): Record<string, any> {
@@ -194,7 +213,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   // Dispatches event
-  private dispatchNewEvent(callbackName: string, eventData?: string) {
+  private dispatchNewEvent(callbackName: string, eventData?: any) {
     const propExists = eventData && typeof eventData === 'string' && this._data[eventData.toLowerCase()];
     const data = propExists ? this._data[eventData.toLowerCase()] : eventData;
     this.dispatchEvent(
@@ -207,10 +226,10 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   // Any type of event
-  private onEvent(callbackName: string, propName?: string) {
+  private onEvent(callbackName: string, data?: any) {
     const kebabCaseCallbackName = callbackName.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
-    this.dispatchNewEvent(callbackName, propName);
-    this.dispatchNewEvent(kebabCaseCallbackName, propName);
+    this.dispatchNewEvent(callbackName, data);
+    this.dispatchNewEvent(kebabCaseCallbackName, data);
   }
 
   // 'OnChange' events

@@ -13,6 +13,7 @@ import {
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import { getColor } from '@elvia/elvis-colors';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 export interface DropdownOption {
@@ -36,7 +37,7 @@ export interface DropdownProps {
   value?: DropdownOption | Array<DropdownOption> | undefined;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
-  webcomponent?: any;
+  webcomponent?: ElvisComponentWrapper;
 }
 
 // Custom ValueContainer for Elvia Dropdown, defined outside of Dropdown due to focus issues with react-select package.

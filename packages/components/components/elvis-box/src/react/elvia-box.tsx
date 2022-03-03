@@ -1,3 +1,4 @@
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 import React, { CSSProperties, FC, useEffect, useRef } from 'react';
 import { BoxArea, BoxColoredLine, BoxTitle, BoxContent } from './styledComponents';
 export interface BoxProps {
@@ -7,7 +8,7 @@ export interface BoxProps {
   hasBorder?: boolean;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
-  webcomponent: any;
+  webcomponent?: ElvisComponentWrapper;
 }
 
 const Box: FC<BoxProps> = ({

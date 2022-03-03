@@ -1,5 +1,11 @@
 # Elvia Modal Changelog
 
+## 1.4.2 (03.03.22)
+
+### Patch
+
+- Now using correct type for webcomponent wrapper for better internal IntelliSense.
+
 ## 1.4.1 (18.02.22)
 
 ### Patch

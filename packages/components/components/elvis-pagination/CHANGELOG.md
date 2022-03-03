@@ -1,5 +1,11 @@
 # Elvia Pagination Changelog
 
+## 2.0.3 (03.03.22)
+
+### Patch
+
+- Now using correct type for webcomponent wrapper for better internal IntelliSense.
+
 ## 2.0.2 (18.02.22)
 
 ### Patch
