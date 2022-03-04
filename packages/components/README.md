@@ -36,7 +36,7 @@ Read about the
 > NOTE! The web project will not work properly before the
 > [setup in main project](https://github.com/3lvia/designsystem/blob/master/README.md) has been done.
 
-### Rules
+#### Rules
 
 - Follow
   [naming conventions](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/309464209/Navnekonvensjoner) for
@@ -52,7 +52,7 @@ Read about the
 - If a package, published to NPM, has errors making the component stop working, follow the
   [deprecating packages guide](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/71257653542/NPM+-+Deprecating+pakker).
 
-### Good to know
+#### Good to know
 
 - `@elvia/elvis-COMPONENT-NAME` is the name of the component, but the DOM element will be
   `<elvia-COMPONENT-NAME>`
