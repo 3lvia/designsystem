@@ -14,6 +14,12 @@ const boxData = {
       isRequired: false,
       type: `string | HTMLElement`,
       description: `Title for the box (slot in webcomponent)`,
+      cegDisplayName: 'Title',
+      cegType: 'boolean',
+      cegFormType: 'toggle',
+      cegDefault: false,
+      cegOption: 'true',
+      cegSlot: '<h1>Customer relations</h1>',
     },
     hasBorder: {
       isRequired: false,
@@ -52,7 +58,6 @@ const boxData = {
   codeImportReact: `import { Box } from '@elvia/elvis-box/react';`,
   codeImportWebComponent: `import '@elvia/elvis-box';`,
   codeReact: `<Box
-  title={<h1>Customer relations</h1>}
   content={<div>
     <elvia-tabs [items]="['AMS-meter', 'Electric car', 'HAN-port']"></elvia-tabs>
     <div className="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
@@ -60,9 +65,6 @@ const boxData = {
 ></Box>`,
   codeAngular: `<elvia-box 
 >
-  <h1 slot="title">
-    Customer relations
-  </h1>
   <div slot="content">
     <elvia-tabs [items]="['AMS-meter', 'Electric car', 'HAN-port']"></elvia-tabs>
     <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
@@ -70,9 +72,6 @@ const boxData = {
 </elvia-box>`,
   codeVue: `<elvia-box 
 >
-  <h1 slot="title">
-    Customer relations
-  </h1>
   <div slot="content">
     <elvia-tabs :items="['AMS-meter', 'Electric car', 'HAN-port']"></elvia-tabs>
     <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
@@ -80,9 +79,6 @@ const boxData = {
 </elvia-box>`,
   codeNativeHTML: `<elvia-box 
 >
-  <h1 slot="title">
-    Customer relations
-  </h1>
   <div slot="content">
     <elvia-tabs items='["AMS-meter", "Electric car", "HAN-port"]'></elvia-tabs>
     <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>

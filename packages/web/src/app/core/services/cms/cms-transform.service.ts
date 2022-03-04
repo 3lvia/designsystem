@@ -602,7 +602,7 @@ export class CMSTransformService {
       });
     }
     return `<div class="e-grid e-px-24 e-br-8 ${
-      background === 'Dark' ? 'e-bg-grey' : background === 'Grey' ? 'e-bg-grey-10' : ''
+      background === 'Dark' ? 'e-bg-grey' : background === 'Grey' ? 'e-bg-grey-05' : ''
     } " style="margin-top: 12px; margin-bottom: 12px">
     <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       ${returnString}

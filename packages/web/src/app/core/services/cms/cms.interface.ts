@@ -28,3 +28,10 @@ export interface CMSMenu {
   title: string;
   pages: CMSSubMenu[];
 }
+
+export interface CMSNavbarItem {
+  title: string;
+  isMainPage: boolean;
+  docUrl: string;
+  fullPath: string;
+}

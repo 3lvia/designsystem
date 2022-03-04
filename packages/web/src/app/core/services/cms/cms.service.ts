@@ -5,7 +5,7 @@ import { Locale } from '../localization.service';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { IDocumentationPage, IMainMenu, ISubMenu } from 'contentful/__generated__/types';
-import { CMSMenu, CMSSubMenu, TransformedDocPage } from './cms.interface';
+import { CMSMenu, CMSNavbarItem, CMSSubMenu, TransformedDocPage } from './cms.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -80,10 +80,10 @@ export class CMSService {
     return mainMenu.pages;
   }
 
-  async getSubMenuList(localization: Locale): Promise<any> {
+  async getSubMenuList(localization: Locale): Promise<CMSNavbarItem[]> {
     const mainMenu = await this.getMenu(localization);
     const subMenuRoute = this.router.url.split('/')[1];
-    const subMenuList = [];
+    const subMenuList: CMSNavbarItem[] = [];
     mainMenu.pages.forEach((element) => {
       if (element.path === subMenuRoute) {
         if (element.entry.fields.pages === undefined || element.entry.fields.pages === null) {
@@ -92,7 +92,7 @@ export class CMSService {
         const localeKey = Object.keys(element.entry.fields.pages)[localization];
         const cmsPages: IDocumentationPage[] = element.entry.fields.pages[localeKey];
         cmsPages.forEach((element) => {
-          const navbarItem = {
+          const navbarItem: CMSNavbarItem = {
             title: element.fields.title[localeKey],
             isMainPage: element.fields.isMainPage,
             docUrl: element.fields.path[localeKey],

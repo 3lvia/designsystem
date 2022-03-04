@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { combineLatest, fromEvent, Subscription } from 'rxjs';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { CMSNavbarItem } from 'src/app/core/services/cms/cms.interface';
 
 @Component({
   selector: 'app-navbar',
@@ -180,7 +181,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     }
   }
 
-  markNewActiveNavbarItem(navbarItem: Record<string, unknown>): void {
+  markNewActiveNavbarItem(navbarItem: CMSNavbarItem): void {
     this.clickedNavbarItem = navbarItem;
   }
 

@@ -19,6 +19,15 @@
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
     </ng-container>
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Loop'">
+        <ng-container ngProjectAs="sectionContent">
+          You can choose whether you want it to loop or not. In the last step, the right button then switches
+          to a confirmation button. This can be used in a dialog for example, and the dialog will then close
+          when clicking confirm button.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
