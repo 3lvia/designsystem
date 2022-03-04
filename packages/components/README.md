@@ -51,7 +51,8 @@ Read about the
 
 ### Good to know
 
-- @elvia/elvis-COMPONENT-NAME is the name of the component, but the DOM element will be <elvia-COMPONENT-NAME>
+- `@elvia/elvis-COMPONENT-NAME` is the name of the component, but the DOM element will be
+  `<elvia-COMPONENT-NAME>`
 - Custom elements do not support anything but strings as attributes as according to the custom elements
   specifications. Custom HTML elements do however support setting it as properties. This is what angular does
   in the background with the `[value]=""` instead of `value=""` syntax. For native JS uses we solve this with
