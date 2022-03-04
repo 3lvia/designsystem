@@ -53,12 +53,12 @@ const accordionData = {
       cegFormType: 'radio',
       cegOptions: ['small', 'medium', 'large'],
     },
-    ariaLabelOpen: {
+    openAriaLabel: {
       isRequired: false,
       type: `string`,
       description: `Aria-label for the button opening the accordion.`,
     },
-    ariaLabelClose: {
+    closeAriaLabel: {
       isRequired: false,
       type: `string`,
       description: `Aria-label for the button closing the accordion. `,

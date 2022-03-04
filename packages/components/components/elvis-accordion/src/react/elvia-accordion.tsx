@@ -8,8 +8,8 @@ export interface AccordionProps {
   content: string | HTMLElement;
   openLabel?: string;
   closeLabel?: string;
-  ariaLabelOpen?: string;
-  ariaLabelClose?: string;
+  openAriaLabel?: string;
+  closeAriaLabel?: string;
   labelPosition: AccordionLabelPosition;
   size: AccordionSize;
   type: AccordionType;
@@ -21,8 +21,8 @@ const Accordion: FC<AccordionProps> = ({
   content,
   openLabel,
   closeLabel,
-  ariaLabelOpen,
-  ariaLabelClose,
+  openAriaLabel,
+  closeAriaLabel,
   labelPosition = 'center',
   size = 'medium',
   type = 'normal',
@@ -67,9 +67,9 @@ const Accordion: FC<AccordionProps> = ({
 
   const decideButtonAriaLabel = (): string => {
     if (contentOpen) {
-      return ariaLabelClose ? ariaLabelClose : closeLabel ? closeLabel : 'Lukk';
+      return closeAriaLabel ? closeAriaLabel : closeLabel ? closeLabel : 'Lukk';
     } else {
-      return ariaLabelOpen ? ariaLabelOpen : openLabel ? openLabel : 'Åpne';
+      return openAriaLabel ? openAriaLabel : openLabel ? openLabel : 'Åpne';
     }
   };
 
