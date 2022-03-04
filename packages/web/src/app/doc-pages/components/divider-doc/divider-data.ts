@@ -9,7 +9,6 @@ export const dividerData = {
       type: '"simple" | "title" | "curved"',
       description: 'A curved version of the divider, which follow the Elvia curve formula.',
       default: '"simple"',
-      cegDisplayName: 'Types',
       cegDefault: 0,
       cegType: 'string',
       cegFormType: 'type',

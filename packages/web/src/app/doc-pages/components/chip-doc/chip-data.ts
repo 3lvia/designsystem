@@ -8,7 +8,6 @@ export const chipData = {
       type: 'removable | legend | choice',
       description: 'Which type of chip should be displayed',
       default: '"removable"',
-      cegDisplayName: 'Types',
       cegDefault: 0,
       cegType: 'string',
       cegFormType: 'type',

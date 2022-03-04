@@ -175,13 +175,16 @@ information on how to use it.
 
 1. **Update version**: When doing updates remember to alway update the version for that component
    `packages/components/components/your-component/package.json`.
-2. **Document** the changes in the `CHANGELOG.md` file for that component.
-3. **Review** Review the
+2. **Document**: the changes in the `CHANGELOG.md` file for that component.
+3. **Review**: Review the
    [review process doc](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/10427498683/Review+prosess) to
    make sure all points have been adressed.
-4. **Pull request**: Create a pull request with all the changes at the
+4. **Commit & push**: to your branch. Husky should run scripts before you are able to commit or push to ensure
+   everything is built and all tests are running. If you are doing just documentation updates skip these
+   scripts with `--no-verify`.
+5. **Pull request**: Create a pull request with all the changes at the
    [Design system Github repo](https://github.com/3lvia/designsystem/pulls).
-5. **Merge branch**: When the branch has been approved from one other member of the team, merge the changes
+6. **Merge branch**: When the branch has been approved from one other member of the team, merge the changes
    into master.
-6. **Publish to NPM**: by navigating to `packages/components/components/your-component` in master (after
+7. **Publish to NPM**: by navigating to `packages/components/components/your-component` in master (after
    pulling the updates) and use the command `npm publish --otp=<code>`.

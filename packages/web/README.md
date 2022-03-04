@@ -1,6 +1,7 @@
 # Web (design.elvia.io)
 
-Design.elvia.io is meant to be the main source of information for all users of Elvia design system.
+[Design.elvia.io](https://design.elvia.io/) is meant to be the main source of information for all users of
+Elvia design system.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a7c263fb-8570-458d-8d9e-4fb84fbb2f8e/deploy-status)](https://app.netlify.com/sites/elvis-designsystem/deploys)
 
@@ -21,6 +22,12 @@ and deployed at [Elvia's Netlify](https://app.netlify.com/sites/elvis-designsyst
 - The project can also be ran in the `packages/web` folder with `yarn start`.
   > NOTE: Remeber to set your environment variables to be able to access the Contentful data.
   > [Set up is described here](https://github.com/3lvia/designsystem#setup).
+
+### Documenting components
+
+The web project is meant to serve the documentation for all the components. Read about developing and
+documenting [components](https://github.com/3lvia/designsystem/blob/master/packages/components/README.md) and
+[the CSS library](https://github.com/3lvia/designsystem/blob/master/packages/elvis/README.md).
 
 ### CMS (Contentful)
 

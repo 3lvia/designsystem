@@ -33,6 +33,7 @@ const componentData = {
     },
     /* If the property is supposed to show up in the CEG (typically type, background, state options etc.) 
 			you will need to add additional attributes. 
+			There are multiple ways to show your props in the CEG, choose between them below.
 			*/
 
     // TYPE - Displayed as dropdown on top of the CEG
@@ -42,10 +43,9 @@ const componentData = {
       description: 'Types of accordion',
       default: '"normal"',
 
-      cegDisplayName: 'Types', // Displayname should always be present and is what will label the prop in the CEG
-      cegDefault: 0, //
-      cegType: 'string', //
-      cegFormType: 'type', //
+      cegDefault: 0, // Default index from the options array
+      cegType: 'string', // The type of the values sent in with the attribute
+      cegFormType: 'type', // Name of the type of content (how to show it in the CEG)
       cegOptions: ['normal', 'overflow'], // Option in the dropdown and the value sent in with the attribute in the code.
     },
     // BACKGROUND - Displayed as dropdown on top of the CEG
@@ -55,7 +55,7 @@ const componentData = {
       description: 'Decides if tabs should be inverted',
       default: 'false',
 
-      cegDefault: 0,
+      cegDefault: 0, // Default index from the options array
       cegType: 'boolean',
       cegFormType: 'background',
       cegOptions: ['White', 'Dark grey'], // Option in the dropdown
@@ -73,16 +73,17 @@ const componentData = {
       cegOptions: ['none', 'green'], // Represent each radio button and the value sent in with the attribute in the code.
     },
     // CHECKBOX - Often used when you have optional props that can be turned on and off simultaneously.
-    useOnboardingCheckmark: {
+    useCheckmark: {
       isRequired: false,
       type: 'boolean',
       description: 'Whether a checkmark button should be used for the last element.',
       default: 'false',
 
-      cegDisplayName: 'Confirm button',
+      cegDisplayName: 'Confirm button', // Checkbox label
       cegType: 'boolean',
       cegFormType: 'checkbox',
-      cegOption: 'true',
+      cegDefault: true, // Wether the checkbox should be checked from start in the CEG
+      cegOption: 'true', // The value that will be sent in with the prop e.g. <comp useCheckmark='true'></comp>
       cegDisplayGroup: 'Options', // Add displayGroup to group your checkboxes together under the same label
     },
     // TOGGLE - Should be used when the prop turnes something visible on and off (e.g. heading or )
@@ -92,13 +93,14 @@ const componentData = {
       description: 'Green line on top of box.',
       default: 'false',
 
-      cegDisplayName: 'Colored',
+      cegDisplayName: 'Colored', // Toggle label
       cegType: 'boolean',
       cegFormType: 'toggle',
-      cegDefault: false,
+      cegDefault: false, // Wether the toggle should be 'on' from start in the CEG
       cegOption: 'true',
     },
-    // DEPENDENCIES
+
+    // Dependencies can be added to control when the prop should be able to be used in the CEG.
     dependencyExample: {
       isRequired: false,
       type: 'green | blue-berry | red | orange',

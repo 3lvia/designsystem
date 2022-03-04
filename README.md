@@ -72,11 +72,13 @@ as you follow their license.
 - **[Styled components](https://styled-components.com/)**,
   **[classnames](https://www.npmjs.com/package/classnames)** and **SCSS** for styling our components.
 - We use **[Percy](https://percy.io/)** for visual regression testing for our CSS library.
-- We use **Contentful** as content management system for a lot of our documentation.
-- We use SonarCloud for automatic code quality checks.
 - We use **Figma** for sketching the components. The
   [Elvia figma](https://www.figma.com/files/880078299274452916/project/5995782/%F0%9F%92%9A-Designsystemet?fuid=911220117114249697)
   has all the sketches for our components.
+- We use **Contentful** as content management system for a lot of our documentation.
+- We use SonarCloud for automatic code quality checks.
+- We use [husky](https://www.npmjs.com/package/husky) to run build, tests and linting before committing or
+  pushing.
 
 ### Setup
 

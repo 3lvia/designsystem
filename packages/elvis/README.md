@@ -64,11 +64,14 @@ information on how to use them.
 
 1. **Update version**: When doing updates to Elvis remember to alway update the version in
    `packages/elvis/package.json`.
-2. **Document** the changes / removal or new classes in the `CHANGELOG.md` file as well as at the correct
+2. **Document**: the changes / removal or new classes in the `CHANGELOG.md` file as well as at the correct
    documentation-page. E.g. `packages/web/src/app/doc-pages/components/button-doc`
-3. **Pull request**: Create a pull request with all the changes at the
+3. **Commit & push**: to your branch. Husky should run scripts before you are able to commit or push to ensure
+   everything is built and all tests are running. If you are doing just documentation updates skip these
+   scripts with `--no-verify`.
+4. **Pull request**: Create a pull request with all the changes at the
    [Design system Github repo](https://github.com/3lvia/designsystem/pulls).
-4. **Merge branch**: When the branch has been approved from one other member of the team, merge the changes
+5. **Merge branch**: When the branch has been approved from one other member of the team, merge the changes
    into master.
-5. **Publish to NPM**: by navigating to `packages/elvis` in master (after pulling the updates) and use the
+6. **Publish to NPM**: by navigating to `packages/elvis` in master (after pulling the updates) and use the
    command `npm publish --otp=<code>`.
