@@ -9,7 +9,7 @@ const modalInfoCode = {
     <button
       onClick={() => setIsModalShowingState(false)}
       className="e-btn e-btn--primary e-btn--lg">
-      Primary action
+      Primary
     </button>
   }
   content={
@@ -26,7 +26,7 @@ const modalInfoCode = {
   <div slot="content">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
   </div>
-  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
+  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
 </elvia-modal>`,
   codeVue: `<button @click="isModalShowing = true" class="e-btn">Åpne modal</button>
 <elvia-modal
@@ -37,7 +37,7 @@ const modalInfoCode = {
   <div slot="content">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
   </div>
-  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
+  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
 </elvia-modal>`,
   codeNativeHTML: `<button id="example-modal-button" class="e-btn">Åpne modal</button>
 <elvia-modal
@@ -46,7 +46,7 @@ const modalInfoCode = {
   <div slot="content">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
   </div>
-  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
+  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
 </elvia-modal>
 `,
   codeNativeScript: ``,

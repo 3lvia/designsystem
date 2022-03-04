@@ -13,7 +13,12 @@
   <app-component-subsection [sectionTitle]="'Primary Colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
-        <div class="display-card" *ngFor="let item of primaryColors" [ngClass]="item.lg ? 'primary' : ''">
+        <div
+          class="display-card"
+          style="min-width: 200px"
+          *ngFor="let item of primaryColors"
+          [ngClass]="item.lg ? 'primary' : ''"
+        >
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
               <div
@@ -30,6 +35,12 @@
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-title-caps">Name</div>
+              <div class="sub-content">
+                {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
+              </div>
+            </div>
+            <div class="display-card-sub-title e-text-info">
               <div class="sub-title e-title-caps">Hex</div>
               <div class="sub-content">{{ item.hex }}</div>
             </div>
@@ -38,6 +49,7 @@
               <div class="sub-content">{{ item.rgba }}</div>
             </div>
             <div
+              *ngIf="item.contrastBlack !== '' || item.contrastWhite !== ''"
               class="display-card-sub-title e-text-info"
               style="
                 display: flex;
@@ -46,19 +58,48 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-title-caps e-text-black">wcag</div>
-              <div class="sub-content e-text-info">
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
-                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
-                  <span *ngIf="item.contrastWhite === ''">White</span>
-                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
+              <div class="sub-title e-title-caps e-text-black">Contrast</div>
+              <div
+                class="sub-content e-text-info"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                "
+              >
+                <div *ngIf="item.contrastBlack !== ''">
+                  <i class="e-icon e-icon--check_circle-filled-color e-icon--xs"></i>
+                  Black ({{ item.contrastBlack }})
                 </div>
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
-                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
-                  <span *ngIf="item.contrastBlack === ''">Black</span>
-                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
+                <div *ngIf="item.contrastWhite !== ''">
+                  <i class="e-icon e-icon--check_circle-filled-color e-icon--xs"></i>
+                  White ({{ item.contrastWhite }})
+                </div>
+              </div>
+            </div>
+            <div
+              *ngIf="item.labels"
+              class="display-card-sub-title e-text-info"
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+              "
+            >
+              <div class="sub-title e-title-caps e-text-black">Label</div>
+              <div
+                class="sub-content e-text-info"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                "
+              >
+                <div *ngFor="let label of item.labels; last as isLast">
+                  <span class="e-label" [ngClass]="!isLast ? 'e-mb-8' : ''">{{ label }}</span>
                 </div>
               </div>
             </div>
@@ -72,7 +113,7 @@
   <app-component-subsection [sectionTitle]="'Signal colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
-        <div class="display-card" *ngFor="let item of signalColors">
+        <div class="display-card" style="min-width: 200px" *ngFor="let item of signalColors">
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
               <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
@@ -82,6 +123,12 @@
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-title-caps">Name</div>
+              <div class="sub-content">
+                {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
+              </div>
+            </div>
+            <div class="display-card-sub-title e-text-info">
               <div class="sub-title e-title-caps">Hex</div>
               <div class="sub-content">{{ item.hex }}</div>
             </div>
@@ -90,6 +137,7 @@
               <div class="sub-content">{{ item.rgba }}</div>
             </div>
             <div
+              *ngIf="item.contrastBlack !== '' || item.contrastWhite !== ''"
               class="display-card-sub-title e-text-info"
               style="
                 display: flex;
@@ -98,19 +146,48 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-title-caps e-text-black">wcag</div>
-              <div class="sub-content e-text-info">
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
-                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
-                  <span *ngIf="item.contrastWhite === ''">White</span>
-                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
+              <div class="sub-title e-title-caps e-text-black">Contrast</div>
+              <div
+                class="sub-content e-text-info"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                "
+              >
+                <div *ngIf="item.contrastBlack !== ''">
+                  <i class="e-icon e-icon--check_circle-filled-color e-icon--xs"></i>
+                  Black ({{ item.contrastBlack }})
                 </div>
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
-                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
-                  <span *ngIf="item.contrastBlack === ''">Black</span>
-                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
+                <div *ngIf="item.contrastWhite !== ''">
+                  <i class="e-icon e-icon--check_circle-filled-color e-icon--xs"></i>
+                  White ({{ item.contrastWhite }})
+                </div>
+              </div>
+            </div>
+            <div
+              *ngIf="item.labels"
+              class="display-card-sub-title e-text-info"
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+              "
+            >
+              <div class="sub-title e-title-caps e-text-black">Label</div>
+              <div
+                class="sub-content e-text-info"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                "
+              >
+                <div *ngFor="let label of item.labels; last as isLast">
+                  <span class="e-label" [ngClass]="!isLast ? 'e-mb-8' : ''">{{ label }}</span>
                 </div>
               </div>
             </div>
@@ -124,7 +201,7 @@
   <app-component-subsection [sectionTitle]="'Data colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
-        <div class="display-card" *ngFor="let item of dataColors">
+        <div class="display-card" style="min-width: 200px" *ngFor="let item of dataColors">
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
               <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
@@ -136,6 +213,12 @@
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-title-caps">Name</div>
+              <div class="sub-content">
+                {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
+              </div>
+            </div>
+            <div class="display-card-sub-title e-text-info">
               <div class="sub-title e-title-caps">Hex</div>
               <div class="sub-content">{{ item.hex }}</div>
             </div>
@@ -144,6 +227,7 @@
               <div class="sub-content">{{ item.rgba }}</div>
             </div>
             <div
+              *ngIf="item.contrastBlack !== '' || item.contrastWhite !== ''"
               class="display-card-sub-title e-text-info"
               style="
                 display: flex;
@@ -152,19 +236,48 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-title-caps e-text-black">wcag</div>
-              <div class="sub-content e-text-info">
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
-                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
-                  <span *ngIf="item.contrastWhite === ''">White</span>
-                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
+              <div class="sub-title e-title-caps e-text-black">Contrast</div>
+              <div
+                class="sub-content e-text-info"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                "
+              >
+                <div *ngIf="item.contrastBlack !== ''">
+                  <i class="e-icon e-icon--check_circle-filled-color e-icon--xs"></i>
+                  Black ({{ item.contrastBlack }})
                 </div>
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
-                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
-                  <span *ngIf="item.contrastBlack === ''">Black</span>
-                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
+                <div *ngIf="item.contrastWhite !== ''">
+                  <i class="e-icon e-icon--check_circle-filled-color e-icon--xs"></i>
+                  White ({{ item.contrastWhite }})
+                </div>
+              </div>
+            </div>
+            <div
+              *ngIf="item.labels"
+              class="display-card-sub-title e-text-info"
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+              "
+            >
+              <div class="sub-title e-title-caps e-text-black">Label</div>
+              <div
+                class="sub-content e-text-info"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                "
+              >
+                <div *ngFor="let label of item.labels; last as isLast">
+                  <span class="e-label" [ngClass]="!isLast ? 'e-mb-8' : ''">{{ label }}</span>
                 </div>
               </div>
             </div>
@@ -178,7 +291,7 @@
   <app-component-subsection [sectionTitle]="'Greys'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
-        <div class="display-card" *ngFor="let item of greysColors">
+        <div class="display-card" style="min-width: 200px" *ngFor="let item of greysColors">
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
               <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
@@ -188,6 +301,12 @@
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-title-caps">Name</div>
+              <div class="sub-content">
+                {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
+              </div>
+            </div>
+            <div class="display-card-sub-title e-text-info">
               <div class="sub-title e-title-caps">Hex</div>
               <div class="sub-content">{{ item.hex }}</div>
             </div>
@@ -196,6 +315,7 @@
               <div class="sub-content">{{ item.rgba }}</div>
             </div>
             <div
+              *ngIf="item.contrastBlack !== '' || item.contrastWhite !== ''"
               class="display-card-sub-title e-text-info"
               style="
                 display: flex;
@@ -204,19 +324,48 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-title-caps e-text-black">wcag</div>
-              <div class="sub-content e-text-info">
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
-                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
-                  <span *ngIf="item.contrastWhite === ''">White</span>
-                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
+              <div class="sub-title e-title-caps e-text-black">Contrast</div>
+              <div
+                class="sub-content e-text-info"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                "
+              >
+                <div *ngIf="item.contrastBlack !== ''">
+                  <i class="e-icon e-icon--check_circle-filled-color e-icon--xs"></i>
+                  Black ({{ item.contrastBlack }})
                 </div>
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
-                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
-                  <span *ngIf="item.contrastBlack === ''">Black</span>
-                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
+                <div *ngIf="item.contrastWhite !== ''">
+                  <i class="e-icon e-icon--check_circle-filled-color e-icon--xs"></i>
+                  White ({{ item.contrastWhite }})
+                </div>
+              </div>
+            </div>
+            <div
+              *ngIf="item.labels"
+              class="display-card-sub-title e-text-info"
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+              "
+            >
+              <div class="sub-title e-title-caps e-text-black">Label</div>
+              <div
+                class="sub-content e-text-info"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                "
+              >
+                <div *ngFor="let label of item.labels; last as isLast">
+                  <span class="e-label" [ngClass]="!isLast ? 'e-mb-8' : ''">{{ label }}</span>
                 </div>
               </div>
             </div>

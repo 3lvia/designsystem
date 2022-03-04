@@ -9,7 +9,7 @@ const modalActionsCode = {
     <button
       onClick={() => setIsModalShowingState(false)}
       className="e-btn e-btn--primary e-btn--lg">
-      Primary action
+      Primary
     </button>
   }
   secondaryButton={
@@ -36,7 +36,7 @@ const modalActionsCode = {
   <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg" (click)="isModalShowing = false">
     Cancel
   </button>
-  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
+  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
 </elvia-modal>`,
   codeVue: `<button @click="isModalShowing = true" class="e-btn">Åpne modal</button>
 <elvia-modal
@@ -50,7 +50,7 @@ const modalActionsCode = {
   <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg" @click="isModalShowing = false">
     Cancel
   </button>
-  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
+  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
 </elvia-modal>`,
   codeNativeHTML: `<button id="example-modal-button" class="e-btn">Åpne modal</button>
 <elvia-modal
@@ -62,7 +62,7 @@ const modalActionsCode = {
   <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg">
     Cancel
   </button>
-  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
+  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
 </elvia-modal>
 `,
   codeNativeScript: ``,
