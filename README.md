@@ -1,48 +1,101 @@
-# Elvia design system (Elvis)
+# Elvia design system
 
 ![Decorative image of the designsystem](https://design.elvia.io/assets/HomeIllustration.png)
 
-</br> </br>
-
-## 📚 [How to use](https://design.elvia.io/)</br></br>
-
-## 💻 Working on the designsystem
-
-- [Confluence: Development / Architecture](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/309562041/Utvikling+og+arkitektur)
-- We use Yarn, NPM will probably not work as expected
-- We use a monorepo structure with Yarn workspaces
-- We use Percy for visual regression testing
-
-### Set up development environment
-
-1. Copy `contentful/.env.template` -> `contentful/.env`
-2. Follow instructions inside of .env file
-3. Run `yarn` at `/` </br> </br>
-4. Run `yarn contentful` at `packages/web`
-
-### Elvis (CSS library)
-
-**/packages/elvis**
-
-[![npm version](https://badge.fury.io/js/%40elvia%2Felvis.svg)](https://badge.fury.io/js/%40elvia%2Felvis)
-
-Build Elvis: `yarn run build`
-
-> [!NOTE] Remember to update the documentation and the Percy tests when developing components </br> </br>
-
-### Components (React & Web Components)
-
-**/packages/components**
-
-Develop & Build `yarn build` or `yarn watch` (to build every time changes are saved)
-
-Test how components would work for our users by running `yarn start` at `/packages/web` and/or `yarn start` at
-`/packages/components/frameworks/react-ssr` </br> </br>
-
-### Web (Design.elvia.io)
-
-**/packages/web**
+Read our documentation at: [Design.elvia.io](https://design.elvia.io/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a7c263fb-8570-458d-8d9e-4fb84fbb2f8e/deploy-status)](https://app.netlify.com/sites/elvis-designsystem/deploys)
 
-Angular app hosted on Netlify. This is the main documentation for the design system.
+Elvia’s design system is a scalable system of visual language, components and design assets which enables us
+to work together towards an ultimate brand experience.
+
+## ✨ Features
+
+- 🌈 Style guide and CSS library (Elvis) with lots of classes and utilities
+- 📦 Components built in TypeScript and React (Supported in all JavaScript frameworks)
+- 💚 Branding guide for Elvia branding guidelines
+- 🛠 Design and development tools
+- 📑 Useful patterns of
+
+## ✅ Environment support
+
+- Chrome latest
+- Safari latest
+- Firefox latest
+- Edge
+
+## 📚 How to use
+
+Read our [get started guide](https://design.elvia.io/about/get-started) at design.elvia.io to get started
+using our CSS library and components.
+
+### CSS library (Elvis)
+
+**CSS library usage example:**
+
+```html
+<button class="e-btn">Button</button>
+```
+
+### Components
+
+**Component usage example:**
+
+```html
+<elvia-progress-linear [value]="20"></elvia-progress-linear>
+```
+
+### Using icons
+
+Our icon library is based on Streamline icons. The icons that are from Streamline is not made accessible under
+the same license as this npm package. Those icons are still the property of Webablys LLC. Elvia has bought a
+license for the use of these icons in the organization. They can also be used in open source projects as long
+as you follow their license.
+
+[Streamline license information](https://help.streamlineicons.com/license-premium)
+
+## 💻 Development
+
+- [Design system Architecture](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/64486539701/Designsystem+v2).
+  Find more information about the CSS library and Components library in the Confluence folder
+  [Development / Architecture](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/309562041/Utvikling+og+arkitektur).
+
+### Technology
+
+- We use **Yarn**, NPM will probably not work as expected.
+- We use a monorepo structure with **Yarn workspaces**.
+- We use **Angular** for the main documentation page and **Netlify** to host the site.
+- We use **React** to build our components and wrap them as
+  **[Custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)** to
+  make them accessible for multiple JavaScript frameworks.
+- We use **Jest** for unit testing of our components.
+- **[Styled components](https://styled-components.com/)**,
+  **[classnames](https://www.npmjs.com/package/classnames)** and **SCSS** for styling our components.
+- We use **[Percy](https://percy.io/)** for visual regression testing for our CSS library.
+- We use **Contentful** as content management system for a lot of our documentation.
+- We use SonarCloud for automatic code quality checks.
+- We use **Figma** for sketching the components. The
+  [Elvia figma](https://www.figma.com/files/880078299274452916/project/5995782/%F0%9F%92%9A-Designsystemet?fuid=911220117114249697)
+  has all the sketches for our components.
+
+### Setup
+
+Setup for development environment: 0. Clone repository, checkout new branch from master, and run `yarn`.
+
+1. Navigate to `packages/web/contentful` and follow the instructions in the `.env.template` file.
+2. Run `yarn start` at root to run the main project (documentation page).
+
+### Start developing
+
+To start developing components and styling follow the guides below:
+
+- To start development for the CSS library Elvis follow the
+  [Elvis README guide](https://github.com/3lvia/designsystem/blob/master/packages/elvis/README.md).
+- To start development for Components (JavaScript) follow the
+  [Components README guide](https://github.com/3lvia/designsystem/blob/master/packages/components/README.md).
+
+## 🤝 Contribute
+
+Feedback from everyone in Elvia is welcomed and developers and designers are urged to contribute where they
+can. Read more about how to request component features and contribute
+[here](https://design.elvia.io/about/contribute).
