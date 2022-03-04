@@ -1,5 +1,13 @@
 # Elvia Accordion Changelog
 
+## 2.2.0 (04.03.22)
+
+### New feature
+
+- Added two new props: openAriaLabel and closeAriaLabel. By default the button to open/close the accordion
+  will now have an aria-label corresponding to the openLabel/closeLabel props, however this can be overwritten
+  with the new props. If no label is provided the aria-labels default to "Åpne" and "Lukk".
+
 ## 2.1.2 (04.03.22)
 
 ### Patch

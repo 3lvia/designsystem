@@ -24,12 +24,12 @@ const accordionData = {
     openLabel: {
       isRequired: false,
       type: `string`,
-      description: `Label for opening the accordion`,
+      description: `Label for opening the accordion. Will also set the aria-label of the button opening the accordion. NB: the prop ariaLabelOpen has higher priority and will overwrite the aria-label.`,
     },
     closeLabel: {
       isRequired: false,
       type: `string`,
-      description: `Label for closing the accordion`,
+      description: `Label for closing the accordion. Will also set the aria-label of the button closing the accordion. NB: the prop ariaLabelClose has higher priority and will overwrite the aria-label.`,
     },
     labelPosition: {
       isRequired: false,
@@ -52,6 +52,16 @@ const accordionData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['small', 'medium', 'large'],
+    },
+    openAriaLabel: {
+      isRequired: false,
+      type: `string`,
+      description: `Aria-label for the button opening the accordion.`,
+    },
+    closeAriaLabel: {
+      isRequired: false,
+      type: `string`,
+      description: `Aria-label for the button closing the accordion. `,
     },
     className: {
       isRequired: false,
