@@ -10,10 +10,6 @@ export class InputDocComponent {
   @ViewChild('validationExample') validationExample: ElementRef;
 
   showPassword = false;
-
-  headerDoes = 'A input should be used';
-  headerDonts = 'A label should not be used';
-
   figmaUrl = getComponent('input').figmaUrl;
   description = getComponent('input').description;
 
@@ -25,7 +21,7 @@ export class InputDocComponent {
   ];
 
   overviewExample = `<div class="e-form-field">
-  <label class="e-form-field__label" for="normal">Text field</label>
+  <label class="e-form-field__label" for="normal">Label</label>
   <div class="e-input">
     <input id="normal" type="text" placeholder="Placeholder text" />
   </div>
@@ -50,7 +46,7 @@ export class InputDocComponent {
 `;
 
   example1 = `<div class="e-form-field">
-  <label class="e-form-field__label" for="normal">Normal input field </label>
+  <label class="e-form-field__label" for="normal">Label</label>
   <div class="e-input">
     <input id="normal" type="text" placeholder="Placeholder text">
   </div>
@@ -58,7 +54,7 @@ export class InputDocComponent {
 `;
 
   example2 = `<div class="e-form-field e-form-field--combined">
-  <label class="e-form-field__label" for="phone">Phone</label>
+  <label class="e-form-field__label" for="phone">Label</label>
   <div class="e-form-field__input">
     <div id="phone" class="e-input e-input--small">
       <input type="text" value="+47">
@@ -71,13 +67,13 @@ export class InputDocComponent {
 
 <div class="e-inlined-field e-mt-24">
   <div class="e-form-field e-form-field--medium">
-    <label class="e-form-field__label" for="zip">Zip code</label>
+    <label class="e-form-field__label" for="zip">Label</label>
     <div class="e-input">
       <input id="zip" type="text" placeholder="Zip code">
     </div>
   </div>
   <div class="e-form-field">
-    <label class="e-form-field__label" for="city">City</label>
+    <label class="e-form-field__label" for="city">Label</label>
     <div class="e-input">
       <input id="city" type="text" placeholder="City">
     </div>
@@ -117,7 +113,7 @@ showMockPassword() {
 }`;
 
   example5 = `<div class="e-form-field">
-  <label class="e-form-field__label e-form-field__label--optional" for="textarea">Textarea</label>
+  <label class="e-form-field__label e-form-field__label--optional" for="textarea">Label</label>
   <div class="e-input">
     <textarea id="textarea" placeholder="Placeholder text" type="text"></textarea>
   </div>
@@ -125,7 +121,7 @@ showMockPassword() {
 `;
 
   exampleIcon = ` <div class="e-form-field">
-  <label class="e-form-field__label" for="iconExample">Input field with icon</label>
+  <label class="e-form-field__label" for="iconExample">Label</label>
   <div class="e-input">
     <button class="e-btn e-btn--icon">
       <span class="e-btn__icon">
