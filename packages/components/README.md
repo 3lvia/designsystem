@@ -33,6 +33,9 @@ Read about the
 
 ### Create a new Elvia component
 
+> NOTE! The web project will not work properly before the
+> [setup in main project](https://github.com/3lvia/designsystem/blob/master/README.md) has been done.
+
 ### Rules
 
 - Follow
@@ -73,14 +76,17 @@ Read about the
 - Pull latest version from master, and branch from master. Branch name format is
   `LEGO-[task-number]-[name-of-task]` if you are working from the team Atom backlog.
 - Make sure you have the latest packages by running `yarn`.
+- Make sure you have done the
+  [main project setup](https://github.com/3lvia/designsystem/blob/master/README.md).
 
-#### Step 1 - Copy an existing component
+#### Step 1 - Create the component
 
 `packages/components/components/elvis-divider`
 
 - Copy a existing component under the /components catalog, for instance `elvis-divider`
 - Rename all occurrences of `divider` to `component-name`, e.g. `elvis-divider` -> `elvis-dropdown`. Every
   file has something that needs to be renamed.
+- Create the component following the rules and tips above.
 
 #### Step 2 - Add entry to config
 
@@ -165,7 +171,7 @@ The component should be documented in the `packages/web` folder so that users of
 information on how to use it.
 
 - Navigate to `packages/web/src/app/doc-pages/components` and find the component you want to add documentation
-  to or create a new module (like the ones existing allready).
+  to or create a new module (like the ones existing all ready).
 - The `your-component-data.ts` file should contain all the metadata for your component. Read about how to add
   the data in the `packages/web/src/app/doc-pages/component-data.template.ts` file.
 
