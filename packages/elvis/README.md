@@ -29,12 +29,12 @@ Read about the
   [Elvia figma](https://www.figma.com/files/880078299274452916/project/5995782/%F0%9F%92%9A-Designsystemet?fuid=911220117114249697)
   to get sketches of how the component should be styled and work.
 
-### Running project
+### Create or change CSS library
 
 > NOTE! The web project will not work properly before the
 > [setup in main project](https://github.com/3lvia/designsystem/blob/master/README.md) has been done.
 
-### Rules
+#### Rules
 
 - Follow the
   [naming conventions](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/309464209/Navnekonvensjoner#Klasser)
@@ -45,13 +45,13 @@ Read about the
   [versioning guidelines](<https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/10421994468/Retningslinjer+for+versjonering#Stilbiblitoeket-(Elvis)>)
   for publishing to NPM.
 
-### Step 0 - Before you begin
+#### Step 0 - Before you begin
 
 1. Make sure you have done the
    [main project setup](https://github.com/3lvia/designsystem/blob/master/README.md).
 2. Navigate to `packages/elvis`
 
-### Step 1 - Running project
+#### Step 1 - Running project
 
 1. Run `yarn build` to build the classes
 2. Run `yarn watch` to watch for changes while developing
@@ -59,13 +59,13 @@ Read about the
    time and using the classes in the doc-pages in `packages/web`. E.g.
    `packages/web/src/app/doc-pages/components/button-doc`
 
-### Step 2 - Create the classes / component
+#### Step 2 - Create the classes / component
 
 1. In `packages/elvis/src` choose between the `components`, `utilities` and `variables` folders depending on
    what you are creating.
 2. Create your classes, utilities or variables with the rules explained over in mind.
 
-### Step 3 - Document the classes
+#### Step 3 - Document the classes
 
 The classes should be documented in the `packages/web` folder so that users of the design system can find
 information on how to use them.
@@ -73,7 +73,7 @@ information on how to use them.
 - Navigate to `packages/web/src/app/doc-pages/components` and find the component you want to add documentation
   to or create a new module (like the ones existing all ready).
 
-### Step 4 - Pull request and publish
+#### Step 4 - Pull request and publish
 
 > NOTE! You will need to set up two-factor authentication with NPM to publish your changes.
 > [Elvia NPM](https://www.npmjs.com/org/elvia).
