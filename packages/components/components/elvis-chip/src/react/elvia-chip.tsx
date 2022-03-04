@@ -5,6 +5,7 @@ import { Icon } from '@elvia/elvis-icon/react';
 
 import classnames from 'classnames';
 import { getColor } from '@elvia/elvis-colors';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 export interface BaseChipProps {
   ariaLabel?: string;
@@ -17,7 +18,7 @@ export interface BaseChipProps {
   valueOnChange?: (event: onChangeValue) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
-  webcomponent?: any;
+  webcomponent?: ElvisComponentWrapper;
 }
 
 export const Chip: FC<BaseChipProps> = ({
@@ -48,7 +49,7 @@ export const Chip: FC<BaseChipProps> = ({
     if (!webcomponent) {
       onDelete && onDelete(value);
     } else if (webcomponent) {
-      webcomponent.triggerEvent('onDelete', { value: value });
+      webcomponent.triggerEvent('onDelete', value);
     }
   };
 

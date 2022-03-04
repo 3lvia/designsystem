@@ -1,5 +1,18 @@
 # Elvia Component Wrapper Changelog
 
+## 2.2.0 (03.03.22)
+
+### New features
+
+- Changed some protected functions to public so the ElvisComponentWrapper class can now be used as a
+  Typescript type for IntelliSense.
+- Added JSDoc documentation to commonly used public functions.
+
+### Bug fix
+
+- Fixed a bug in the triggerEvent()-function that caused an old way of triggering events to not function
+  properly.
+
 ## 2.1.14 (02.03.22)
 
 ### Bug fix

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import './style.scss';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 export interface TabsProps {
   items: string[];
   value: number;
@@ -12,7 +13,7 @@ export interface TabsProps {
   valueOnChange?: (value: number) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
-  webcomponent?: any;
+  webcomponent?: ElvisComponentWrapper;
 }
 
 const Tabs: FC<TabsProps> = ({

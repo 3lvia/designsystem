@@ -1,5 +1,11 @@
 # Elvia Breadcrumbs
 
+## 1.3.2 (04.03.22)
+
+### Patch
+
+- Now using correct type for webcomponent wrapper for better internal IntelliSense.
+
 ## 1.3.1 (18.02.22)
 
 ### Patch

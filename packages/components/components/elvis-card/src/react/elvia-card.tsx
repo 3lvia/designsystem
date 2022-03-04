@@ -13,6 +13,7 @@ import {
   CardHoverArrow,
   CardCornerIcon,
 } from './styledComponents';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 const globalMinWidthSimple = 112;
 const globalMinWidthDetail = 250;
@@ -35,7 +36,7 @@ export interface CardProps {
   cornerIcon?: string | HTMLElement;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
-  webcomponent: any;
+  webcomponent?: ElvisComponentWrapper;
 }
 
 const Card: FC<CardProps> = ({

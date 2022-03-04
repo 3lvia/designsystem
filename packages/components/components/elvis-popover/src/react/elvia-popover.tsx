@@ -3,6 +3,7 @@ import './style.scss';
 import classnames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 export interface PopoverProps {
   header?: string;
@@ -15,7 +16,7 @@ export interface PopoverProps {
   isShowingOnChange?: (isShowing: boolean) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
-  webcomponent: any;
+  webcomponent?: ElvisComponentWrapper;
 }
 
 const Popover: FC<PopoverProps> = ({

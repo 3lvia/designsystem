@@ -13,6 +13,7 @@ import {
   PaginatorSelectorArea,
   PaginatorSelectorArrowBtn,
 } from './styledComponents';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 export interface DropdownOption {
   value: string;
@@ -39,7 +40,7 @@ export interface PaginationProps {
   valueOnChange?: (value: SelectionNumber) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
-  webcomponent?: any;
+  webcomponent?: ElvisComponentWrapper;
 }
 
 export const paginationOptions = [

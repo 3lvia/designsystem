@@ -1,5 +1,11 @@
 # Elvia Dropdown
 
+## 2.1.2 (04.03.22)
+
+### Patch
+
+- Now using correct type for webcomponent wrapper for better internal IntelliSense.
+
 ## 2.1.1 (18.02.22)
 
 ### Patch

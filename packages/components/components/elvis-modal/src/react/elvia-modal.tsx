@@ -15,6 +15,7 @@ import { useClickOutside } from './useClickOutside';
 import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
 import { useFocusTrap } from './useFocusTrap';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 export interface ModalProps {
   isShowing: boolean;
@@ -30,7 +31,7 @@ export interface ModalProps {
   disableClose?: boolean;
   maxWidth?: string;
   onHide: () => void;
-  webcomponent?: any;
+  webcomponent: ElvisComponentWrapper;
 }
 
 export const ModalComponent: FC<ModalProps> = ({

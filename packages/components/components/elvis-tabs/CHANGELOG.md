@@ -1,5 +1,11 @@
 # Elvia Tabs Changelog
 
+## 1.3.1 (04.03.22)
+
+### Patch
+
+- Now using correct type for webcomponent wrapper for better internal IntelliSense.
+
 ## 1.3.0 (25.02.22)
 
 ### New feature
