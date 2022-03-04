@@ -1,6 +1,6 @@
 # Elvia Chip Changelog
 
-## 1.2.2 (03.03.22)
+## 1.2.2 (04.03.22)
 
 ### Patch
 

@@ -1,6 +1,6 @@
 # Elvia Modal Changelog
 
-## 1.4.2 (03.03.22)
+## 1.4.2 (04.03.22)
 
 ### Patch
 

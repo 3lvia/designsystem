@@ -1,6 +1,6 @@
 # Elvia Tabs Changelog
 
-## 1.3.1 (03.03.22)
+## 1.3.1 (04.03.22)
 
 ### Patch
 

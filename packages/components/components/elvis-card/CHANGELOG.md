@@ -1,6 +1,6 @@
 # Elvia Card Changelog
 
-## 1.1.2 (03.03.22)
+## 1.1.2 (04.03.22)
 
 ### Patch
 

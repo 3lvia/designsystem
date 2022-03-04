@@ -1,6 +1,6 @@
 # Elvia Pagination Changelog
 
-## 2.0.3 (03.03.22)
+## 2.0.3 (04.03.22)
 
 ### Patch
 
