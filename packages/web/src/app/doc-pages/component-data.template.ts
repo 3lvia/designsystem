@@ -100,6 +100,20 @@ const componentData = {
       cegOption: 'true',
     },
 
+    // Slots - Show and hide slot-attributes
+    hasTitle: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Green line on top of box.',
+      default: 'false',
+
+      cegDisplayName: 'Colored',
+      cegType: 'boolean',
+      cegFormType: 'toggle',
+      cegDefault: false,
+      cegSlot: '<h1>Customer relations</h1>', // Replaces 'cegOption' if it is a slot and not a normal prop in the custom element.
+    },
+
     // Dependencies can be added to control when the prop should be able to be used in the CEG.
     dependencyExample: {
       isRequired: false,
