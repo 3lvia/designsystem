@@ -28,7 +28,7 @@ $green: #29d305;
   }
   &:not(.ewc-popover--hide) {
     .ewc-popover__trigger {
-      z-index: 100;
+      z-index: 110;
     }
   }
 
@@ -43,7 +43,7 @@ $green: #29d305;
 
   &__fixed-content-area {
     position: fixed;
-    z-index: 100;
+    z-index: 101;
 
     .ewc-popover__contentContainer {
       height: 100%;
@@ -72,7 +72,7 @@ $green: #29d305;
     width: max-content;
     left: 50%;
     opacity: 1;
-    z-index: 101;
+    z-index: 110;
     pointer-events: all;
     padding: $popover-padding;
     background-color: white;

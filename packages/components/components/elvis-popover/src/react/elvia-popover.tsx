@@ -284,12 +284,10 @@ const Popover: FC<PopoverProps> = ({
   // Updates position when popover is opened and when window is resized
   // Positions a fixed area that covers trigger element and works as position anchor for content element
   useEffect(() => {
-    if (isShowing !== popoverVisibility) {
-      if (!webcomponent && isShowingOnChange) {
-        isShowingOnChange(popoverVisibility);
-      } else if (webcomponent) {
-        webcomponent.setProps({ isShowing: popoverVisibility }, true);
-      }
+    if (!webcomponent && isShowingOnChange) {
+      isShowingOnChange(popoverVisibility);
+    } else if (webcomponent) {
+      webcomponent.setProps({ isShowing: popoverVisibility }, true);
     }
 
     // Remove fixed area styles if popover is closed
