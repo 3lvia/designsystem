@@ -107,6 +107,8 @@ To start developing components and styling follow the guides below:
   [Elvis README guide](https://github.com/3lvia/designsystem/blob/master/packages/elvis/README.md).
 - To start development for Components (JavaScript) follow the
   [Components README guide](https://github.com/3lvia/designsystem/blob/master/packages/components/README.md).
+- Read more about working on our documentation page here:
+  [Web (design.elvia.io)](https://github.com/3lvia/designsystem/blob/master/packages/web/README.md).
 - Our CDN which publish all our NPM packages to [Elvia CDN](https://cdn.elvia.io/) can be read more about
   here: [CDN resources](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/64471957894/CDN+-+Ressurser).
 
