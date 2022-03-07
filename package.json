@@ -25,7 +25,6 @@
     "prettier-comp": "yarn prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
     "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
     "lint-all": "yarn run prettier-elvis && yarn run prettier-doc && yarn run prettier-comp && yarn run eslint",
-    "percy": "cd packages/elvis; yarn run percy",
     "component-tests": "cd packages/components; yarn test && echo SUCCESS",
     "test:staged": "cd packages/components; jest --bail --findRelatedTests"
   },
@@ -61,7 +60,6 @@
     "prettier": "^2.0.5"
   },
   "devDependencies": {
-    "@percy/script": "^1.1.0",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "codelyzer": "^6.0.2",
     "eslint": "^7.17.0",
