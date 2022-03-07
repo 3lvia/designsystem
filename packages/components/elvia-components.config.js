@@ -1,7 +1,9 @@
 /*
+Include all props / attributes for the component here.
+*** Callback functions does not need to be included in this config as they are triggered manually through elvis-component-wrapper.
+
 ###### Validation ######
 This file is validated by validateConfig.js when building components
-
 
 ###### Contents  ######
 name: string - Package name has to start with "elvis-"
