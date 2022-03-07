@@ -129,10 +129,13 @@ one test project for each framework; Angular, Vue and React. When running `yarn 
 
 1. Run `yarn watch` in `packages/components` so that the projects are updated everytime a change is saved.
 2. Run dev servers:
-   - **React**: Go to `/frameworks/react-ssr` and run `yarn start`,
-   - **Vue**: Go to `/frameworks/vue-test` and run `yarn start`.
-   - **Angular**: Go to root and run `yarn start`. In the title of the page there should be a "DEV" where you
-     can preview the v2 components. The code is at path `../web/src/app/dev/v2-playground`.
+   - **React**: Run `yarn start:react` from root or go to `projects/components/frameworks/react-ssr` and run
+     `yarn start`,
+   - **Vue**: Run `yarn start:vue` from root or go to `projects/components/frameworks/vue-test` and run
+     `yarn start`.
+   - **Angular**: Run `yarn start:web` from root or go to `/projects/web` and run `yarn start`. In the title
+     of the page there should be a "DEV" where you can preview the v2 components. The code is at path
+     `../web/src/app/dev/v2-playground`.
 
 #### Step 5 - Import your new component to the projects
 
