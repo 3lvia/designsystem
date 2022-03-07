@@ -194,7 +194,10 @@ information on how to use it.
    scripts with `--no-verify`.
 5. **Pull request**: Create a pull request with all the changes at the
    [Design system Github repo](https://github.com/3lvia/designsystem/pulls).
-6. **Merge branch**: When the branch has been approved from one other member of the team, merge the changes
+6. **Preview**: Netlify will generate a preview link when the pull request is created. The link can be used to
+   send a preview of the changes e.g. to designers or other developers. Find the link at the bottom of the
+   checkpoint-list in the pull request.
+7. **Merge branch**: When the branch has been approved from one other member of the team, merge the changes
    into master.
-7. **Publish to NPM**: by navigating to `packages/components/components/your-component` in master (after
+8. **Publish to NPM**: by navigating to `packages/components/components/your-component` in master (after
    pulling the updates) and use the command `npm publish --otp=<code>`.
