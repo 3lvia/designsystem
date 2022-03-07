@@ -512,9 +512,9 @@
             All colors can be used through the Javascript package
             <code class="code-text">@elvia/elvis-colors</code>
             . The utility function
-            <code class="code-text">getColor()</code>
+            <code class="code-text">getColor(colorName)</code>
             is provided to easily access a color hex value without having to manually traverse the underlying
-            colors object.
+            colors object. The colors can be accessed through their names and labels.
           </p>
           <p>
             <app-do-dont [do]="true" [codeTS]="doCodeTS"></app-do-dont>
@@ -522,7 +522,7 @@
           </p>
           <p>
             Likewise, the function
-            <code class="code-text">getContrastText()</code>
+            <code class="code-text">getContrastText(colorName)</code>
             is provided to get a contrast text color corresponding to the requested color.
           </p>
         </ng-container>
