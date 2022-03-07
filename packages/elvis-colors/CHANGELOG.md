@@ -1,12 +1,18 @@
 # Elvia Colors Changelog
 
-## 1.2.1 (19.11.22)
+## 1.2.2 (07.03.22)
+
+### Patch
+
+- Updated color alt-labels to correspond with the Colors documentation on design.elvia.io.
+
+## 1.2.1 (19.01.22)
 
 ### Patch
 
 - Updated README to explain how to use the package in Typescript/Javascript.
 
-## 1.2.0 (07.11.22)
+## 1.2.0 (07.01.22)
 
 ### New feature
 

@@ -5,7 +5,7 @@ const colors = {
     white: {
       color: '#fff',
       contrastText: '#000',
-      'alt-labels': ['elvis-on', 'elvia-on', 'font-color-light'],
+      'alt-labels': ['elvis-on', 'elvia-on', 'font-color-light', 'elvia-inverted'],
     },
     black: {
       color: '#000',
@@ -15,6 +15,7 @@ const colors = {
     grey: {
       color: '#262626',
       contrastText: '#fff',
+      'alt-labels': ['elvia-dark'],
     },
     green: {
       color: '#29d305',
@@ -32,11 +33,13 @@ const colors = {
       color: '#ffa000',
       rgb: 'rgb(255, 160, 0)',
       contrastText: '#000',
+      'alt-labels': ['warning'],
     },
     red: {
       color: '#ee0701',
       rgb: 'rgb(255, 0, 0)',
       contrastText: '#000',
+      'alt-labels': ['error'],
     },
   },
   'data-colors': {
@@ -79,11 +82,12 @@ const colors = {
     'grey-80': {
       color: '#515151',
       contrastText: '#fff',
-      'alt-labels': ['font-grey'],
+      'alt-labels': ['font-grey', 'text-light'],
     },
     'grey-70': {
       color: '#676767',
       contrastText: '#fff',
+      'alt-labels': ['placeholder'],
     },
     'grey-60': {
       color: '#7c7c7c',
@@ -100,7 +104,7 @@ const colors = {
     'grey-30': {
       color: '#bdbdbd',
       contrastText: '#000',
-      'alt-labels': ['disabled'],
+      'alt-labels': ['disabled', 'light-inverted'],
     },
     'grey-20': {
       color: '#d3d3d3',
