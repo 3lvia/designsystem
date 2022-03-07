@@ -54,7 +54,7 @@ export class InputDocComponent {
 `;
 
   example2 = `<div class="e-form-field e-form-field--combined">
-  <label class="e-form-field__label" for="phone">Label</label>
+  <label class="e-form-field__label" for="phone">Phone</label>
   <div class="e-form-field__input">
     <div id="phone" class="e-input e-input--small">
       <input type="text" value="+47">
@@ -67,13 +67,14 @@ export class InputDocComponent {
 
 <div class="e-inlined-field e-mt-24">
   <div class="e-form-field e-form-field--medium">
-    <label class="e-form-field__label" for="zip">Label</label>
+    <label class="e-form-field__label" for="zip">Zip code
+    </label>
     <div class="e-input">
       <input id="zip" type="text" placeholder="Zip code">
     </div>
   </div>
   <div class="e-form-field">
-    <label class="e-form-field__label" for="city">Label</label>
+    <label class="e-form-field__label" for="city">City</label>
     <div class="e-input">
       <input id="city" type="text" placeholder="City">
     </div>
@@ -121,7 +122,7 @@ showMockPassword() {
 `;
 
   exampleIcon = ` <div class="e-form-field">
-  <label class="e-form-field__label" for="iconExample">Label</label>
+  <label class="e-form-field__label" for="iconExample">Password</label>
   <div class="e-input">
     <button class="e-btn e-btn--icon">
       <span class="e-btn__icon">
