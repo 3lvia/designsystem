@@ -22,7 +22,6 @@ const modalData = {
       cegType: 'boolean',
       cegFormType: 'toggle',
       cegDefault: false,
-      cegOption: 'true',
       cegSlot: '<img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>',
       cegDependency: [{ name: 'type', value: ['actions', 'info'] }],
     },
