@@ -13,21 +13,22 @@ to work together towards an ultimate brand experience.
 
 - 🌈 Style guide and CSS library (Elvis) with lots of classes and utilities
 - 📦 Components built in TypeScript and React (Supported in all JavaScript frameworks)
-- 💚 Branding guide for Elvia branding guidelines
+- 💚 Elvia’s brand guide
 - 🛠 Design and development tools
-- 📑 Useful patterns of
+- 📑 Patterns to solve common user flow to ensure consistent experience across applications
 
 ## ✅ Environment support
 
 - Chrome latest
 - Safari latest
 - Firefox latest
-- Edge
+- Edge latest
 
 ## 📚 How to use
 
 Read our [get started guide](https://design.elvia.io/about/get-started) at design.elvia.io to get started
-using our CSS library and components.
+using our CSS library and components. The CSS library and the components can be used through both NPM packages
+and CDN.
 
 ### CSS library (Elvis)
 
@@ -80,12 +81,22 @@ as you follow their license.
 - We use [husky](https://www.npmjs.com/package/husky) to run build, tests and linting before committing or
   pushing.
 
+### How we work
+
+Read more about how we work inside the team e.g. with our backlog in Jira, or our component flow (creating new
+components from start to finish) in this Confluence folder:
+[Team Atom - Workflow](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/64486736397/Arbeidsflyt).
+
 ### Setup
 
-Setup for development environment: 0. Clone repository, checkout new branch from master, and run `yarn`.
+Setup for development environment:
 
+0. Clone repository, checkout new branch from master, and run `yarn`.
 1. Navigate to `packages/web/contentful` and follow the instructions in the `.env.template` file.
-2. Run `yarn start` at root to run the main project (documentation page).
+2. Running projects:
+   1. Run `yarn start:web` at root to run the main documentation page (design.elvia.io).
+   2. Run `yarn start:react` at root to run the react test-project (testing components).
+   3. Run `yarn start:vue` at root to run the vue test-project (testing components).
 
 ### Start developing
 
@@ -95,6 +106,8 @@ To start developing components and styling follow the guides below:
   [Elvis README guide](https://github.com/3lvia/designsystem/blob/master/packages/elvis/README.md).
 - To start development for Components (JavaScript) follow the
   [Components README guide](https://github.com/3lvia/designsystem/blob/master/packages/components/README.md).
+- Our CDN which publish all our NPM packages to [Elvia CDN](https://cdn.elvia.io/) can be read more about
+  here: [CDN resources](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/64471957894/CDN+-+Ressurser).
 
 ## 🤝 Contribute
 

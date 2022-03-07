@@ -64,7 +64,7 @@ Read about the
 - **Styling** the components:
   - We don't use Elvis CSS library inside our components to minimize the size of each component. This means
     that when needing classes from Elvis to style e.g. a button, you need to copy the styling you need
-    driectly from the Elvis library.
+    directly from the Elvis library.
   - We use our token packages for easy access to colors, typography and icons. These packages are locates at
     `packages/elvis-assets-icons`, `packages/elvis-colors` and `packages/elvis-typography`.
 - **Figma**: Use the
@@ -93,7 +93,7 @@ Read about the
 `packages/components/elvia-components.config.js`
 
 The build system uses a file called `elvia-components.config.js` to build the custom element according to
-specifications. The file explains how to add the props and the meaning of the each feild.
+specifications. The file explains how to add the props and the meaning of the each field.
 
 **Divider in config example**
 
@@ -124,7 +124,7 @@ one test project for each framework; Angular, Vue and React. When running `yarn 
 
 > IMPORTANT! Start running watch of components before running the Angular, Vue and React apps (dev servers).
 > Otherwise you will get errors because the components deletes everything in the dist folder before building
-> the components againg when running watch. If this happens, restart the local dev servers (Angular, Vue and
+> the components again when running watch. If this happens, restart the local dev servers (Angular, Vue and
 > React).
 
 1. Run `yarn watch` in `packages/components` so that the projects are updated everytime a change is saved.

@@ -33,7 +33,12 @@ documenting [components](https://github.com/3lvia/designsystem/blob/master/packa
 
 `packages/web/src/app/`
 
-- The CMS services for retriving and transforming data from contentful is located at `core/services/cms`
+- Data from Contentful is retrieved automatically for all existing pages, but if there are structure changes
+  (new pages, pages deleted or moved) the dev-environment may need to be updated manually by running
+  `yarn contentful` from `packages/web`.
+- If the models have changed, the Contetnful types may need to be updated by running `yarn contentful:types`.
+  Sometimes you might need to refresh your code IDE to access the new types in the code.
+- The CMS services for retrieving and transforming data from Contentful is located at `core/services/cms`
 - The shell page wrapping all Contentful information pages are located at `doc-pages/cms`
 - In the **[design.elvia.io Contentful](https://app.contentful.com/spaces/zez3t3t1iiwd/content_types)**
   content types can be updated and added. These types represent what the users of Contentful (mainly designers
@@ -49,4 +54,5 @@ version of an component you need.
 
 - Find the code for the CEG at `shared/component-documentation/component-example`.
 - The CEG uses data from each component located at that components doc-folder. E.g.
-  `doc-pages/components/accordion-doc/accordion-data.ts`.
+  `doc-pages/components/box-doc/box-data.ts`.
+- Template for how to add data in these files are located at `component-data.template.ts`.

@@ -1,6 +1,6 @@
 /* The data from this file in each component is used to display information to the user
-through the CEG, an installation guide and a properties table. 
-These modules should always be imported and added in the html:
+through the CEG (component example generator), an installation guide and a properties table. 
+These modules should always be imported for the component module and added in the html:
 - ComponentExampleGeneratorModule
 - ComponentPropertiesTableModule
 - ComponentInstallationModule
@@ -15,12 +15,12 @@ const componentData = {
   elementNameW: 'elvia-component', // Component name for the DOM (Custom element)
   elementNameR: 'Component', // Component name for the DOM (React)
   /* All attributes should be added to this list. 
-    Some attributes will need more information depending on wether they should be displayed in the CEG or not.
+    Some attributes will need more information depending on whether they should be displayed in the CEG or not.
     However 3 attributes are required for all components: 'isRequired', 'type' and 'description'.
     */
   attributes: {
+    // 'content' = The actual name of the prop that can be sent into the component
     content: {
-      // The actual name of the prop that can be sent into the component
       isRequired: true, // Tells the user if the prop attributes needs to be present when using the component
       type: 'string | HTMLElement', // Tells the user in what format they should add the prop
       description: 'Text, images, tables or any other content (use slot in webcomponent if not just text)', // Should describe what purpose the prop has in the component
@@ -82,7 +82,7 @@ const componentData = {
       cegDisplayName: 'Confirm button', // Checkbox label
       cegType: 'boolean',
       cegFormType: 'checkbox',
-      cegDefault: true, // Wether the checkbox should be checked from start in the CEG
+      cegDefault: true, // Whether the checkbox should be checked from start in the CEG
       cegOption: 'true', // The value that will be sent in with the prop e.g. <comp useCheckmark='true'></comp>
       cegDisplayGroup: 'Options', // Add displayGroup to group your checkboxes together under the same label
     },
@@ -96,7 +96,7 @@ const componentData = {
       cegDisplayName: 'Colored', // Toggle label
       cegType: 'boolean',
       cegFormType: 'toggle',
-      cegDefault: false, // Wether the toggle should be 'on' from start in the CEG
+      cegDefault: false, // Whether the toggle should be 'on' from start in the CEG
       cegOption: 'true',
     },
 

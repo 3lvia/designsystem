@@ -45,6 +45,12 @@ Read about the
   [versioning guidelines](<https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/10421994468/Retningslinjer+for+versjonering#Stilbiblitoeket-(Elvis)>)
   for publishing to NPM.
 
+#### Good to know
+
+- **Figma**: Use the
+  [Elvia figma](https://www.figma.com/files/880078299274452916/project/5995782/%F0%9F%92%9A-Designsystemet?fuid=911220117114249697)
+  to get sketches of how the component should be styled and work.
+
 #### Step 0 - Before you begin
 
 1. Make sure you have done the
