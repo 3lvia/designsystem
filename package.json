@@ -20,6 +20,7 @@
   },
   "scripts": {
     "start:web": "cd packages/web && yarn contentful && yarn start",
+    "start:components": "cd packages/components && yarn watch",
     "start:react": "cd packages/components/frameworks/react-ssr && yarn start",
     "start:vue": "cd packages/components/frameworks/vue-test && yarn start",
     "build:web": "yarn --ignore-optional && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run build:production && cd ../web && yarn run contentful:production && yarn run build:production && cd ../components/frameworks/react-ssr && yarn run production",
