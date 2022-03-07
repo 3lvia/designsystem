@@ -41,8 +41,8 @@ Read about the
 - Follow
   [naming conventions](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/309464209/Navnekonvensjoner) for
   all props.
-- Write Jest unit tests for the component. The tests should primarly test the properties that can be sent into
-  the component.
+- Write Jest unit tests for the component. The tests should primarily test the properties that can be sent
+  into the component.
 - When adding a new component make sure all points in the
   [review process doc](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/10427498683/Review+prosess) has
   been addressed.
@@ -120,14 +120,14 @@ specifications. The file explains how to add the props and the meaning of the ea
 
 Test the component by running the build and dev tools and adding the component to the test projects. We have
 one test project for each framework; Angular, Vue and React. When running `yarn watch` in
-`packages/components` the projects should be updated everytime a change has been saved.
+`packages/components` the projects should be updated every time a change has been saved.
 
 > IMPORTANT! Start running watch of components before running the Angular, Vue and React apps (dev servers).
 > Otherwise you will get errors because the components deletes everything in the dist folder before building
 > the components again when running watch. If this happens, restart the local dev servers (Angular, Vue and
 > React).
 
-1. Run `yarn watch` in `packages/components` so that the projects are updated everytime a change is saved.
+1. Run `yarn watch` in `packages/components` so that the projects are updated every time a change is saved.
 2. Run dev servers:
    - **React**: Run `yarn start:react` from root or go to `projects/components/frameworks/react-ssr` and run
      `yarn start`,
@@ -188,7 +188,7 @@ information on how to use it.
 2. **Document**: the changes in the `CHANGELOG.md` file for that component.
 3. **Review**: Review the
    [review process doc](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/10427498683/Review+prosess) to
-   make sure all points have been adressed.
+   make sure all points have been addressed.
 4. **Commit & push**: to your branch. Husky should run scripts before you are able to commit or push to ensure
    everything is built and all tests are running. If you are doing just documentation updates skip these
    scripts with `--no-verify`.

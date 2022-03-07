@@ -1,6 +1,6 @@
 # Elvia design system
 
-![Decorative image of the designsystem](https://design.elvia.io/assets/HomeIllustration.png)
+![Decorative image of the design system](https://design.elvia.io/assets/HomeIllustration.png)
 
 Read our documentation at: [Design.elvia.io](https://design.elvia.io/)
 

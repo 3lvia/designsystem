@@ -20,7 +20,7 @@ and deployed at [Elvia's Netlify](https://app.netlify.com/sites/elvis-designsyst
 - The project can be ran from root with `yarn start`. Read more about
   [running the main project here](https://github.com/3lvia/designsystem#setup).
 - The project can also be ran in the `packages/web` folder with `yarn start`.
-  > NOTE: Remeber to set your environment variables to be able to access the Contentful data.
+  > NOTE: Remember to set your environment variables to be able to access the Contentful data.
   > [Set up is described here](https://github.com/3lvia/designsystem#setup).
 
 ### Documenting components
@@ -36,7 +36,7 @@ documenting [components](https://github.com/3lvia/designsystem/blob/master/packa
 - Data from Contentful is retrieved automatically for all existing pages, but if there are structure changes
   (new pages, pages deleted or moved) the dev-environment may need to be updated manually by running
   `yarn contentful` from `packages/web`.
-- If the models have changed, the Contetnful types may need to be updated by running `yarn contentful:types`.
+- If the models have changed, the Contentful types may need to be updated by running `yarn contentful:types`.
   Sometimes you might need to refresh your code IDE to access the new types in the code.
 - The CMS services for retrieving and transforming data from Contentful is located at `core/services/cms`
 - The shell page wrapping all Contentful information pages are located at `doc-pages/cms`
@@ -49,7 +49,7 @@ documenting [components](https://github.com/3lvia/designsystem/blob/master/packa
 `packages/web/src/app/`
 
 The CEG component is responsible for everything connected to the code examples we show at the top of each
-component page, where you can filter on type and many different options to be able to see and retrive the
+component page, where you can filter on type and many different options to be able to see and retrieve the
 version of an component you need.
 
 - Find the code for the CEG at `shared/component-documentation/component-example`.
