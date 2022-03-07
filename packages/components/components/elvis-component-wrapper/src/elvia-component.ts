@@ -214,7 +214,8 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   // Dispatches event
   private dispatchNewEvent(callbackName: string, eventData?: any) {
-    const propExists = eventData && typeof eventData === 'string' && this._data[eventData.toLowerCase()];
+    const propExists =
+      eventData && typeof eventData === 'string' && this._data[eventData.toLowerCase()] !== undefined;
     const data = propExists ? this._data[eventData.toLowerCase()] : eventData;
     this.dispatchEvent(
       new CustomEvent(callbackName, {

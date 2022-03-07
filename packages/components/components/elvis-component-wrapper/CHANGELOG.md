@@ -1,5 +1,12 @@
 # Elvia Component Wrapper Changelog
 
+## 2.2.1 (07.03.22)
+
+### Bug fix
+
+- Fixed a bug when dispatching onChange-events where if the changing prop existed but had a falsy value the
+  name of the prop would be dispatched instead of the value.
+
 ## 2.2.0 (03.03.22)
 
 ### New features

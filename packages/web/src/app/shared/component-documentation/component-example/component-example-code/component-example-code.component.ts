@@ -40,7 +40,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   codeReactSub: Subscription;
   codeVueSub: Subscription;
   codeNativeSub: Subscription;
-  tabs = [];
+  tabs: string[] = [];
 
   constructor(
     private highlightService: HighlightService,
@@ -108,7 +108,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     this.changeTab(this.activeTab);
   }
 
-  getTabs(): any[] {
+  getTabs(): string[] {
     const tabs = [];
     if (this.noSubscriptions === false) {
       if (this.codeAngular !== '') {
