@@ -295,6 +295,8 @@ module.exports = [
     attributes: [
       { name: 'header', type: 'string', propType: 'string | undefined' },
       { name: 'content', type: 'string', propType: 'string | HTMLElement | undefined' },
+      { name: 'type', type: 'string', propType: 'string' },
+      { name: 'hasDivider', type: 'boolean', propType: 'boolean' },
       { name: 'posX', type: 'string', propType: 'string | undefined' },
       { name: 'posY', type: 'string', propType: 'string | undefined' },
       { name: 'trigger', type: 'string', propType: 'HTMLElement | undefined' },

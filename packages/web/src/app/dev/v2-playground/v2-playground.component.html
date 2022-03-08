@@ -5,7 +5,45 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <elvia-popover header="BankID" type="list" hasDivider posX="right">
+        <button slot="trigger" className="e-btn">Show popover</button>
+        <!-- <div slot="content"> -->
+        <div slot="content" className="ewc-popover__list">
+          <div className="ewc-popover__list-group">
+            <h1>Title 1</h1>
+            <button>
+              <elvia-icon name="edit" size="xs"></elvia-icon>
+              <span>Rediger</span>
+            </button>
+            <button>
+              <elvia-icon name="bin" size="xs"></elvia-icon>
+              <span>Slett</span>
+            </button>
+            <a>
+              <elvia-icon name="download" size="xs"></elvia-icon>
+              <span>Last ned</span>
+            </a>
+          </div>
+          <div className="ewc-popover__list-group">
+            <h1>Title 2</h1>
+            <button>
+              <elvia-icon name="edit" size="xs"></elvia-icon>
+              <span>Rediger</span>
+            </button>
+            <button>
+              <elvia-icon name="bin" size="xs"></elvia-icon>
+              <span>Slett</span>
+            </button>
+            <a>
+              <elvia-icon name="download" size="xs"></elvia-icon>
+              <span>Last ned</span>
+            </a>
+          </div>
+        </div>
+        <!-- </div> -->
+      </elvia-popover>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>

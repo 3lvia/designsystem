@@ -8,6 +8,8 @@ import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-
 export interface PopoverProps {
   header?: string;
   content?: string | HTMLElement;
+  type?: 'informative' | 'list';
+  hasDivider?: boolean;
   posX?: 'left' | 'right' | 'center';
   posY?: 'top' | 'bottom';
   trigger?: HTMLElement;
@@ -22,6 +24,8 @@ export interface PopoverProps {
 const Popover: FC<PopoverProps> = ({
   header,
   content,
+  type = 'informative',
+  hasDivider = false,
   posX = 'center',
   posY = 'top',
   trigger,
@@ -332,8 +336,11 @@ const Popover: FC<PopoverProps> = ({
     ['ewc-popover--hide']: !popoverVisibility,
     ['ewc-popover--text-only']: typeof content === 'string',
     ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
+    ['ewc-popover--list']: type === 'list',
+    ['ewc-popover--list-divider']: type === 'list' && hasDivider,
   });
 
+  console.log('Type: ', type);
   return (
     <div
       className={`${className ? className : ''}`}
@@ -355,29 +362,49 @@ const Popover: FC<PopoverProps> = ({
         <div className="ewc-popover__fixed-content-area" ref={popoverFixedAreaRef}>
           <div className="ewc-popover__contentContainer">
             <div className="ewc-popover__content" ref={popoverContentRef}>
-              {hasCloseBtn == true && (
-                <div className="ewc-popover__close">
-                  <button
-                    className="ewc-btn ewc-btn--icon ewc-btn--sm"
-                    onClick={() => setPopoverVisibility(false)}
-                    data-testid="popover-close-btn"
-                    aria-label="Lukk"
-                  >
-                    <Icon name="closeBold" size="xs" />
-                  </button>
+              {type === 'informative' && (
+                <div className="ewc-popover__content-area">
+                  {hasCloseBtn == true && (
+                    <div className="ewc-popover__close">
+                      <button
+                        className="ewc-btn ewc-btn--icon ewc-btn--sm"
+                        onClick={() => setPopoverVisibility(false)}
+                        data-testid="popover-close-btn"
+                        aria-label="Lukk"
+                      >
+                        <Icon name="closeBold" size="xs" />
+                      </button>
+                    </div>
+                  )}
+                  {header && (
+                    <div className="ewc-popover__header" data-testid="popover-header">
+                      {header}
+                    </div>
+                  )}
                 </div>
               )}
-              {header && (
-                <div className="ewc-popover__header" data-testid="popover-header">
-                  {header}
-                </div>
-              )}
-              {content && (
+              {content && type === 'informative' && (
                 <div className="ewc-popover__text" data-testid="popover-text">
                   {content}
                 </div>
               )}
-              {!content && <div className="ewc-popover__text" ref={popoverText} />}
+              {!content && type === 'informative' && <div className="ewc-popover__text" ref={popoverText} />}
+              {content && type === 'list' && (
+                <div
+                  className="ewc-popover__text"
+                  data-testid="popover-text"
+                  onClick={() => setPopoverVisibility(false)}
+                >
+                  {content}
+                </div>
+              )}
+              {!content && type === 'list' && (
+                <div
+                  className="ewc-popover__text"
+                  onClick={() => setPopoverVisibility(false)}
+                  ref={popoverText}
+                />
+              )}
             </div>
           </div>
         </div>

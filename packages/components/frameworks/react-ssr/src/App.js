@@ -87,7 +87,49 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white"></div>
+          <div className="e-bg-white">
+            <Popover
+              header="BankID"
+              type="list"
+              hasDivider
+              content={
+                <div className="ewc-popover__list">
+                  <div className="ewc-popover__list-group">
+                    <h1>Title 1</h1>
+                    <button>
+                      <Icon name={'edit'} size={'xs'}></Icon>
+                      <span>Rediger</span>
+                    </button>
+                    <button>
+                      <Icon name={'bin'} size={'xs'}></Icon>
+                      <span>Slett</span>
+                    </button>
+                    <a>
+                      <Icon name={'download'} size={'xs'}></Icon>
+                      <span>Last ned</span>
+                    </a>
+                  </div>
+                  <div className="ewc-popover__list-group">
+                    <h1>Title 2</h1>
+                    <button>
+                      <Icon name={'edit'} size={'xs'}></Icon>
+                      <span>Rediger</span>
+                    </button>
+                    <button>
+                      <Icon name={'bin'} size={'xs'}></Icon>
+                      <span>Slett</span>
+                    </button>
+                    <a>
+                      <Icon name={'download'} size={'xs'}></Icon>
+                      <span>Last ned</span>
+                    </a>
+                  </div>
+                </div>
+              }
+              trigger={<button className="e-btn">Show popover</button>}
+              posX="right"
+            ></Popover>
+          </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>
@@ -200,14 +242,14 @@ function App() {
         {/* POPOVER */}
         <div className="example-wrapper">
           <h3>Popover</h3>
-          <Popover
+          {/* <Popover
             header="BankID"
             content={<Tabs items={tabsItems} value={2}></Tabs>}
             trigger={<button className="e-btn">Show popover</button>}
             posX="right"
             isShowing={isPopoverShowing}
             isShowingOnChange={(value) => setIsPopoverShowingState(value)}
-          ></Popover>
+          ></Popover> */}
         </div>
         {/* PROGRESS LINEAR */}
         <div className="example-wrapper">
