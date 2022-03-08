@@ -35,7 +35,6 @@
   "devDependencies": {
     "@testing-library/dom": ">=7.21.4",
     "@vue/cli-service": "^5.0.1",
-    "eslint-config-react-app": "^7.0.0",
     "eslint-plugin-react": "^7.27.0",
     "webpack": "^4.0.0 || ^5.0.0",
     "webpack-dev-server": "3.11.2"
@@ -49,12 +48,6 @@
     "production": "yarn build && mv ./build ../../../web/dist/elvia-designsystem/react-preview"
   },
   "homepage": "./",
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
