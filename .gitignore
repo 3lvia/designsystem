@@ -54,3 +54,12 @@ Thumbs.db
 
 # Angular cache
 packages/web/.angular/*
+
+# Yarn 2
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
