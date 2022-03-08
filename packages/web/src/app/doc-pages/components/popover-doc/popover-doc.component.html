@@ -11,15 +11,14 @@
   <!--CEG-->
   <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
-  <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'">
+  <!--TYPE-->
+  <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use
-        [whens]="does"
-        [whenNots]="donts"
-      ></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Structure'">
+      <app-component-subsection [sectionTitle]="'Informative'">
         <ng-container ngProjectAs="sectionContent">
+          In informative popover we offer popover as a shell with options like close button, title and text.
+          Then you can add the content you need within the area - like text and inputs for example. Popover
+          closes after clicking outside the popover, “X” or ESC KEY.
           <div
             class="e-content-loader e-mb-32 e-w-100 responsive-height"
             *ngIf="!loadedPopoverStructure"
@@ -53,6 +52,50 @@
           </div>
         </ng-container>
       </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'List'">
+        <ng-container ngProjectAs="sectionContent">
+          A list of actions in a popover that often are used together with a more-menu icon button. This can
+          be used when the space is limited or when you want to group actions. Popover closes immediately
+          after selecting action or clicking outside.
+          <img
+            src="./../../../../assets/popover/Popover list example.svg"
+            class="usage-image-desktop e-mb-32 e-w-100 responsive-height"
+          />
+          <div class="usage-image-mobile e-w-100">
+            <app-component-subsubsection [sectionTitle]="'Title'">
+              <ng-container ngProjectAs="sectionContent">
+                The title should be short and clear. The title is optional.
+              </ng-container>
+            </app-component-subsubsection>
+            <app-component-subsubsection [sectionTitle]="'Content'">
+              <ng-container ngProjectAs="sectionContent">
+                You can have different type of content like text, buttons, input etc. The content will have
+                100% width, unless the content only consists of text, then the max-width is 450px.
+              </ng-container>
+            </app-component-subsubsection>
+            <app-component-subsubsection [sectionTitle]="'Trigger'">
+              <ng-container ngProjectAs="sectionContent">The trigger can be any kind of button.</ng-container>
+            </app-component-subsubsection>
+            <app-component-subsubsection [sectionTitle]="'Close button'">
+              <ng-container ngProjectAs="sectionContent">
+                The popover will close if you click outside, ESC key, or the button connected to it. The close
+                button is optional and can be removed in special cases like in a menu list.
+              </ng-container>
+            </app-component-subsubsection>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      Popover displays additional information or operations without leaving the page. It is triggered by a
+      button and layered on top of all other content. Only one popover can be open at the same time.
+
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
 
       <app-component-subsection [sectionTitle]="'Responsive'">
         <ng-container ngProjectAs="sectionContent">

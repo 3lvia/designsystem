@@ -5,6 +5,16 @@ const popoverData = {
   elementNameW: 'elvia-popover',
   elementNameR: 'Popover',
   attributes: {
+    type: {
+      isRequired: false,
+      type: '“informative” | “list”',
+      description: 'Types of popover. List will give you an action list when sending in buttons or links.',
+      default: '"informative"',
+      cegDefault: 0,
+      cegType: 'string',
+      cegFormType: 'type',
+      cegOptions: ['informative', 'list'],
+    },
     header: {
       isRequired: false,
       type: 'string',
@@ -25,6 +35,18 @@ const popoverData = {
       cegFormType: 'toggle',
       cegDefault: true,
       cegOption: 'false',
+    },
+    hasDivider: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Determines if the close button in the upper right corner should be visible',
+      default: 'true',
+      cegDisplayName: 'Divider',
+      cegType: 'boolean',
+      cegFormType: 'toggle',
+      cegDefault: true,
+      cegOption: 'false',
+      cegDependency: { name: 'type', value: 'list' },
     },
     isShowing: {
       isRequired: false,
