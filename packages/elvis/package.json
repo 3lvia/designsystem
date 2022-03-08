@@ -31,5 +31,8 @@
     "resolve": "^1.20.0",
     "sass": "^1.33.0",
     "yargs-parser": ">=13.1.2"
+  },
+  "installConfig": {
+    "hoistingLimits": "workspaces"
   }
 }
