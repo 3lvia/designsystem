@@ -1,5 +1,12 @@
 # Elvia Popover Changelog
 
+## 4.3.5 (08.03.22)
+
+### Patch
+
+- isShowingOnChange bug fix (should send event on both open and close)
+- Backdrop z-index fix
+
 ## 4.3.4 (04.03.22)
 
 ### Patch
