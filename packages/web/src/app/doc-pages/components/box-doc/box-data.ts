@@ -18,7 +18,6 @@ const boxData = {
       cegType: 'boolean',
       cegFormType: 'toggle',
       cegDefault: false,
-      cegOption: 'true',
       cegSlot: '<h1>Customer relations</h1>',
     },
     hasBorder: {
