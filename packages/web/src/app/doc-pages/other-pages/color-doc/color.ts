@@ -3,7 +3,7 @@ import { Color } from './color.interface';
 export const primaryColors: Color[] = [
   {
     title: 'white',
-    labels: ['elvia-on'],
+    labels: ['elvia-on', 'inverted'],
     hex: '#FFFFFF',
     rgba: '255 / 255 / 255',
     contrastBlack: 'AAA',
@@ -21,7 +21,7 @@ export const primaryColors: Color[] = [
   },
   {
     title: 'black',
-    labels: ['elvia-off', 'font-color'],
+    labels: ['elvia-off', 'text'],
     hex: '#000000',
     rgba: '0 / 0 / 0',
     contrastWhite: 'AAA',
@@ -30,6 +30,7 @@ export const primaryColors: Color[] = [
   },
   {
     title: 'grey',
+    labels: ['dark'],
     hex: '#262626',
     rgba: '38 / 38 / 38',
     contrastWhite: 'AAA',
@@ -47,6 +48,7 @@ export const signalColors: Color[] = [
   },
   {
     title: 'orange',
+    labels: ['warning'],
     hex: '#FFA000',
     rgba: '255 / 160 / 0',
     contrastBlack: 'AAA',
@@ -54,6 +56,7 @@ export const signalColors: Color[] = [
   },
   {
     title: 'red',
+    labels: ['error'],
     hex: '#EE0701',
     rgba: '238 / 7 / 1',
     contrastBlack: 'AA',
@@ -146,7 +149,7 @@ export const greysColors: Color[] = [
     rgba: '38/38/38/0.3',
     contrastBlack: 'AAA',
     contrastWhite: '',
-    labels: ['disabled'],
+    labels: ['disabled', 'light-inverted'],
   },
   {
     title: 'grey-40',
@@ -171,6 +174,7 @@ export const greysColors: Color[] = [
   },
   {
     title: 'grey-70',
+    labels: ['placeholder'],
     hex: '#676767',
     rgba: '38/38/38/0.7',
     contrastWhite: 'AA',
@@ -178,11 +182,11 @@ export const greysColors: Color[] = [
   },
   {
     title: 'grey-80',
+    labels: ['text-light'],
     hex: '#515151',
     rgba: '38/38/38/0.8',
     contrastWhite: 'AAA',
     contrastBlack: '',
-    labels: ['font-grey'],
   },
   {
     title: 'grey-90',

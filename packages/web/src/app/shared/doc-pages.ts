@@ -278,7 +278,7 @@ export const componentsDocPages: DocPage[] = [
     title: 'List',
     // tslint:disable-next-line: max-line-length
     description:
-      'Lists are related content grouped vertically. We have different types of lists to suit different needs; bullet, numbered and icon. Lists should usually inherit the typography from the text surrounding the list.',
+      'Lists are related content grouped vertically. We have different types of lists to suit different needs; bullet, numbered and icon. Lists should usually inherit the typography from the text surrounding the list. See <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/patterns/groups">patterns</a> for list or group design patterns.',
     docUrl: Pages.List,
     absolutePath: '/components/' + Pages.List,
     status: DocPageStatus.Done,
@@ -346,7 +346,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
   },
   {
-    title: 'Radiobutton',
+    title: 'Radio button',
     // tslint:disable-next-line: max-line-length
     description:
       'Radio buttons should be used if the user can only choose one option. One option is always selected by default. The options should be listed in a logical order and have between two and five options in total.',
