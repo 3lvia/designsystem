@@ -13,6 +13,7 @@ export class ContactComponent {
   loadedImgFri = false;
   loadedImgMar = false;
   loadedImgHil = false;
+  loadedImgKri = false;
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   hideContentLoader(evt: any, name: string): void {
@@ -31,6 +32,9 @@ export class ContactComponent {
       }
       if (name === 'hil') {
         this.loadedImgHil = true;
+      }
+      if (name === 'kri') {
+        this.loadedImgKri = true;
       }
     }
   }
