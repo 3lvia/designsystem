@@ -1,6 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">Input - Text fields</ng-container>
+  <ng-container ngProjectAs="headerTitle">Text field</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -11,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
     <div class="e-form-field">
-      <label class="e-form-field__label" for="normal">Text field</label>
+      <label class="e-form-field__label" for="normal">Label</label>
       <div class="e-input">
         <input id="normal" type="text" placeholder="Placeholder text" />
       </div>
@@ -98,7 +98,7 @@
           messages.
           <div class="exampleContainer e-mt-24">
             <div class="e-form-field">
-              <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
+              <label class="e-form-field__label" for="invalid">Label</label>
               <div class="e-input e-input---invalid">
                 <button class="e-btn e-btn--icon" (click)="showMockPassword()">
                   <span class="e-btn__icon">

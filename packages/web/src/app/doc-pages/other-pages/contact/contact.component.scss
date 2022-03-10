@@ -16,6 +16,9 @@
         margin-bottom: 72px;
       }
     }
+    &.fride {
+      margin-top: -110px;
+    }
     &.trygve {
       margin-top: -270px;
     }
@@ -28,6 +31,7 @@
     &.hilde {
       margin-top: -100px;
     }
+    &.fride,
     &.trygve,
     &.viljar,
     &.martin,
@@ -93,7 +97,12 @@
         align-items: center;
       }
     }
-
+    &.kristin {
+      left: 7%;
+      @include breakpoint-up(Mobile) {
+        left: 0px;
+      }
+    }
     &.viljar {
       right: 7%;
       @media (max-width: 1300px) {
