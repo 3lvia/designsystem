@@ -9933,6 +9933,18 @@ gulp-replace@^1.0.0:
     replacestream "^4.0.3"
     yargs-parser ">=5.0.0-security.0"
 
+gulp-sass@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/gulp-sass/-/gulp-sass-5.1.0.tgz#bb3d9094f39a260f62a8d0a6797b95ab826f9663"
+  integrity sha512-7VT0uaF+VZCmkNBglfe1b34bxn/AfcssquLKVDYnCDJ3xNBaW7cUuI3p3BQmoKcoKFrs9jdzUxyb+u+NGfL4OQ==
+  dependencies:
+    lodash.clonedeep "^4.5.0"
+    picocolors "^1.0.0"
+    plugin-error "^1.0.1"
+    replace-ext "^2.0.0"
+    strip-ansi "^6.0.1"
+    vinyl-sourcemaps-apply "^0.2.1"
+
 gulp-svgo@^2.1.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/gulp-svgo/-/gulp-svgo-2.2.1.tgz#a89e3a8d2c3288b6cd5f1e074da53fe5bde3c591"
@@ -13058,6 +13070,11 @@ lodash._reinterpolate@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
   integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
+
+lodash.clonedeep@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
+  integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
 
 lodash.debounce@^4.0.8:
   version "4.0.8"
@@ -17282,6 +17299,11 @@ replace-ext@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/replace-ext/-/replace-ext-1.0.1.tgz#2d6d996d04a15855d967443631dd5f77825b016a"
   integrity sha512-yD5BHCe7quCgBph4rMQ+0KkIRKwWCrHDOX1p1Gp6HwjPM5kVoCdKGNhN7ydqqsX6lJEnQDKZ/tFMiEdQ1dvPEw==
+
+replace-ext@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/replace-ext/-/replace-ext-2.0.0.tgz#9471c213d22e1bcc26717cd6e50881d88f812b06"
+  integrity sha512-UszKE5KVK6JvyD92nzMn9cDapSk6w/CaFZ96CnmDMUqH9oowfxF/ZjRITD25H4DnOQClLA4/j7jLGXXLVKxAug==
 
 replace-homedir@^1.0.0:
   version "1.0.0"
