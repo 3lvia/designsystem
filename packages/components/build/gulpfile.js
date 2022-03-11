@@ -28,7 +28,7 @@ function reloadComponentConfig() {
 }
 
 function setGetList(attributes) {
-  list = '';
+  let list = '';
   attributes.forEach((attr) => {
     const lowercase = attr.name.toLowerCase();
 
@@ -116,8 +116,8 @@ function buildWebComponentsMagically() {
         }),
       )
       .pipe(
-        rename(function (path) {
-          path.basename = component.elementName;
+        rename(function (filePath) {
+          filePath.basename = component.elementName;
         }),
       )
       .pipe(
@@ -205,7 +205,7 @@ function buildToolboxComponentToJS() {
 }
 
 async function runTests() {
-  return await exec('yarn run test');
+  return exec('yarn run test');
 }
 
 // TODO: Find a way to do cleanup that does not trigger rebuild
