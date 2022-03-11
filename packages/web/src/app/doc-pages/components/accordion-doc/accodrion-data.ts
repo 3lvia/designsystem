@@ -136,6 +136,7 @@ const accordionData = {
   accordion.setProps({openLabel: 'Show' });
   accordion.setProps({closeLabel: 'Hide'});
 `,
+  changelog: '',
 };
 
 export { accordionData };

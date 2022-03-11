@@ -29,6 +29,11 @@
               "src/_redirects",
               {
                 "glob": "CHANGELOG.md",
+                "input": "../components/components/elvis-box",
+                "output": "./assets/components/changelog"
+              },
+              {
+                "glob": "CHANGELOG.md",
                 "input": "../elvis",
                 "output": "./assets/elvis"
               },
