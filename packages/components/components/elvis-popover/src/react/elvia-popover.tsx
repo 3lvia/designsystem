@@ -360,6 +360,7 @@ const Popover: FC<PopoverProps> = ({
                   <button
                     className="ewc-btn ewc-btn--icon ewc-btn--sm"
                     onClick={() => setPopoverVisibility(false)}
+                    type="button"
                     data-testid="popover-close-btn"
                     aria-label="Lukk"
                   >
