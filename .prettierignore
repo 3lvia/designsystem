@@ -2,8 +2,7 @@ dist
 e2e
 node_modules
 coverage
-!packages/compoents/build/gulpfile.js
-packages/compoents/build
+packages/components/build/template/*
 packages/web/src/assets/*
 packages/elvis/.internal/classlist.json
 packages/elvis/css/*.css
