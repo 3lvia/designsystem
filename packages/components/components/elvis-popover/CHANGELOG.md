@@ -1,5 +1,11 @@
 # Elvia Popover Changelog
 
+## 4.3.6 (11.03.22)
+
+### Patch
+
+- Close button now has type button (to avoid submitting forms).
+
 ## 4.3.5 (08.03.22)
 
 ### Patch
