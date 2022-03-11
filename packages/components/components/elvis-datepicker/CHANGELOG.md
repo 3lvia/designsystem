@@ -1,5 +1,11 @@
 # Elvia Date picker Changelog
 
+## 2.7.2 (11.03.22)
+
+### Patch
+
+- Now building .scss files to .css for React users.
+
 ## 2.7.1 (04.03.22)
 
 ### Patch

@@ -1,5 +1,11 @@
 # Elvia Tabs Changelog
 
+## 1.3.2 (11.03.22)
+
+### Patch
+
+- Now building .scss files to .css for React users.
+
 ## 1.3.1 (04.03.22)
 
 ### Patch
