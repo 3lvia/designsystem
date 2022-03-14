@@ -32,7 +32,7 @@ export class CMSService {
   /**
    * Get the Contentful ID of the Contentful entry corresponding to the current path.
    *
-   * If the page is not found, the client is rerouted to 'not-found' and an empty string is returned.
+   * If the page corresponding to the current path is not found, the client is rerouted to 'not-found' and an empty string is returned.
    * @param locale Current locale (see localization.service.ts).
    * @returns Contentful ID of the current page.
    */

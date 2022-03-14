@@ -268,6 +268,7 @@ export class CMSTransformService {
     }
     return linkPath;
   }
+
   private getLink(data: IInternalLink, locale: string, subMenu: CMSSubMenu[], inlineEntry: boolean): string {
     const paragraphTitle: string = data.fields.paragraph
       ? data.fields.paragraph[locale].replaceAll(' ', '-')
@@ -334,6 +335,7 @@ export class CMSTransformService {
       );
     }
   }
+
   private getWhenToUse(data: IWhenToUse, locale: string): string {
     this.getWhenToUseErrors(data, locale);
     if (!data.fields.name || !data.fields.whenToUse || !data.fields.whenNotToUse) {
@@ -407,6 +409,7 @@ export class CMSTransformService {
       );
     }
   }
+
   private getImage(data: IImage, locale: string, inGrid: boolean) {
     this.getImageErrors(data, locale);
     if (!data.fields.name || !data.fields.image || !data.fields.altText) {
@@ -497,6 +500,7 @@ export class CMSTransformService {
       );
     }
   }
+
   private getDownloadContent(
     data: IDownloadContent,
     locale: string,
@@ -566,6 +570,7 @@ export class CMSTransformService {
       );
     }
   }
+
   private getGrid(data: IGrid, locale: string): string {
     this.getGridErrors(data, locale);
     if (!data.fields.name || !data.fields.gridElements) {
