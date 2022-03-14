@@ -1,6 +1,6 @@
 # Elvia Progress-linear Changelog
 
-## 1.2.1 (11.03.22)
+## 1.2.1 (14.03.22)
 
 ### Patch
 
