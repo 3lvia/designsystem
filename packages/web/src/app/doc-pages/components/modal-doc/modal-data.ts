@@ -58,6 +58,12 @@ const modalData = {
       description: 'Locks the body of your page so that you cant scroll while the modal is open.',
       default: 'true',
     },
+    hasPadding: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'If the modal should have padding around the content',
+      default: 'true',
+    },
     disableClose: {
       isRequired: false,
       type: 'boolean',
