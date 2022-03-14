@@ -15,9 +15,16 @@ import {
   ILandingPageWithCards,
   IOverviewCard,
   IWhenToUse,
-} from 'contentful/__generated__/types';
+} from 'contentful/types';
 import { CMSDocPageError, CMSSubMenu, TransformedDocPage } from './cms.interface';
 
+/**
+ * This class transforms an entry from Contentful to an object containing all the needed information to be shown on design.elvia.io by the Angular cms-page.component.
+ *
+ * The function transformEntryToDocPage is the main entrypoint.
+ *
+ * Interfaces for all the Contentful models are available in packages/web/contentful/types.d.ts.
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -70,6 +77,14 @@ export class CMSTransformService {
     }
   }
 
+  /**
+   * Transforms a documentation page entry from Contentful to an object containing all the needed information to be shown on design.elvia.io by the Angular cms-page.component.
+   *
+   * @param data Documentation page entry.
+   * @param subMenu
+   * @param localization Current localization (see localization.service.ts).
+   * @returns Object containing transformed documentation page.
+   */
   transformEntryToDocPage(
     data: IDocumentationPage,
     subMenu: CMSSubMenu[],
@@ -151,7 +166,7 @@ export class CMSTransformService {
         `${
           data.fields.title
             ? 'The "Centered content" "' + data.fields.title[locale] + '"'
-            : 'An "Centered content" on your page'
+            : 'A "Centered content" on your page'
         } is missing content.`,
       );
     }
@@ -246,7 +261,7 @@ export class CMSTransformService {
       this.showErrorMessage(
         'Link',
         `${
-          data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'An link on your page'
+          data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'A link on your page'
         } has no url, add either Url design.elvia.io or Url new tab / external.`,
       );
       return undefined;
@@ -259,7 +274,7 @@ export class CMSTransformService {
       : '';
     const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle);
     if (!data.fields.title) {
-      this.showErrorMessage('Link', 'An link on your page is missing link text.');
+      this.showErrorMessage('Link', 'A link on your page is missing link text.');
     }
     if (!data.fields.title || !linkPath) {
       return;
@@ -304,7 +319,7 @@ export class CMSTransformService {
         `${
           data.fields.name
             ? 'The entry "' + data.fields.name[locale] + '"'
-            : 'An "When & when not to use" entry on your page'
+            : 'A "When & when not to use" entry on your page'
         } is missing the "when to use" field.`,
       );
     }
@@ -314,7 +329,7 @@ export class CMSTransformService {
         `${
           data.fields.name
             ? 'The entry "' + data.fields.name[locale] + '"'
-            : 'An "When & when not to use" entry on your page'
+            : 'A "When & when not to use" entry on your page'
         } is missing the "when not to use" field.`,
       );
     }
@@ -458,7 +473,7 @@ export class CMSTransformService {
     if (!data.fields.name) {
       this.showErrorMessage(
         'Download content',
-        'An "Download content" on your page is missing name, this will make sorting / finding entries in Contentful harder and messy.',
+        'A "Download content" on your page is missing name, this will make sorting / finding entries in Contentful harder and messy.',
       );
     }
     if (!data.fields.displayImage) {
@@ -467,7 +482,7 @@ export class CMSTransformService {
         `${
           data.fields.name
             ? 'The "Display image" "' + data.fields.name[locale] + '"'
-            : 'An "Display image" on your page'
+            : 'A "Display image" on your page'
         } is missing display image.`,
       );
     }
@@ -477,7 +492,7 @@ export class CMSTransformService {
         `${
           data.fields.name
             ? 'The "Download content" "' + data.fields.name[locale] + '"'
-            : 'An "Download content" on your page'
+            : 'A "Download content" on your page'
         } is missing download content.`,
       );
     }
@@ -539,14 +554,14 @@ export class CMSTransformService {
     if (!data.fields.name) {
       this.showErrorMessage(
         'Grid',
-        'An "Grid" on your page is missing name, this will make sorting / finding entries in Contentful harder and messy.',
+        'A "Grid" on your page is missing name, this will make sorting / finding entries in Contentful harder and messy.',
       );
     }
     if (!data.fields.gridElements) {
       this.showErrorMessage(
         'Grid',
         `${
-          data.fields.name ? 'The "Grid" "' + data.fields.name[locale] + '"' : 'An "Grid" on your page'
+          data.fields.name ? 'The "Grid" "' + data.fields.name[locale] + '"' : 'A "Grid" on your page'
         } is missing grid elements.`,
       );
     }
