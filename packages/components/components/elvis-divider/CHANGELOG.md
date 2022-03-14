@@ -1,5 +1,11 @@
 # Elvia Divider Changelog
 
+## 1.2.5 (09.03.22)
+
+### Patch
+
+- Fixed peerDependencies.
+
 ## 1.2.4 (04.03.22)
 
 ### Patch
