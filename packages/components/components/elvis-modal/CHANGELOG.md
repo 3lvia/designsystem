@@ -1,6 +1,6 @@
 # Elvia Modal Changelog
 
-## 1.4.4 (14.03.22)
+## 1.4.3 (14.03.22)
 
 ### New feature
 
