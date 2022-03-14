@@ -2196,6 +2196,10 @@ __metadata:
     "@elvia/elvis-icon": ^1.1.1
     "@elvia/elvis-typography": ^1.2.0
     styled-components: ^5.3.3
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-is: ">=16.8.0"
   languageName: unknown
   linkType: soft
 
@@ -2294,6 +2298,7 @@ __metadata:
     gulp-header: ^2.0.9
     gulp-rename: ^2.0.0
     gulp-replace: ^1.0.0
+    gulp-sass: ^5.1.0
     gulp-tap: ^2.0.0
     gulp-typescript: ^6.0.0-alpha.1
     jest: ^27.0.1
@@ -2346,6 +2351,10 @@ __metadata:
     "@elvia/elvis-colors": ^1.2.0
     "@elvia/elvis-component-wrapper": ^2.2.0
     styled-components: ^5.3.3
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-is: ">=16.8.0"
   languageName: unknown
   linkType: soft
 
@@ -2461,6 +2470,10 @@ __metadata:
     "@elvia/elvis-colors": ^1.2.0
     "@elvia/elvis-component-wrapper": ^2.2.0
     styled-components: ^5.3.3
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-is: ">=16.8.0"
   languageName: unknown
   linkType: soft
 
@@ -2483,6 +2496,10 @@ __metadata:
     "@material-ui/core": ^4.12.3
     "@material-ui/icons": ^4.11.2
     styled-components: ^5.3.3
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-is: ">=16.8.0"
   languageName: unknown
   linkType: soft
 
@@ -13939,6 +13956,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gulp-sass@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "gulp-sass@npm:5.1.0"
+  dependencies:
+    lodash.clonedeep: ^4.5.0
+    picocolors: ^1.0.0
+    plugin-error: ^1.0.1
+    replace-ext: ^2.0.0
+    strip-ansi: ^6.0.1
+    vinyl-sourcemaps-apply: ^0.2.1
+  checksum: 9aba052c76e808321f9ecf70885806a389e73b87005c3c4f47beba7050ef280d06402f1ac19105b32407170b6fdef5c9e26ed0560074dd5a949197b50e82604d
+  languageName: node
+  linkType: hard
+
 "gulp-svgo@npm:^2.1.1":
   version: 2.2.1
   resolution: "gulp-svgo@npm:2.2.1"
@@ -17529,6 +17560,13 @@ __metadata:
   version: 3.0.0
   resolution: "lodash._reinterpolate@npm:3.0.0"
   checksum: 06d2d5f33169604fa5e9f27b6067ed9fb85d51a84202a656901e5ffb63b426781a601508466f039c720af111b0c685d12f1a5c14ff8df5d5f27e491e562784b2
+  languageName: node
+  linkType: hard
+
+"lodash.clonedeep@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.clonedeep@npm:4.5.0"
+  checksum: 92c46f094b064e876a23c97f57f81fbffd5d760bf2d8a1c61d85db6d1e488c66b0384c943abee4f6af7debf5ad4e4282e74ff83177c9e63d8ff081a4837c3489
   languageName: node
   linkType: hard
 
@@ -22645,6 +22683,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-ssr@workspace:packages/components/frameworks/react-ssr"
   dependencies:
+    "@babel/core": ^7.16.7
     "@babel/preset-env": ^7.16.7
     "@babel/preset-react": ^7.16.7
     "@babel/register": ^7.16.7
@@ -22668,6 +22707,7 @@ __metadata:
     "@testing-library/react": 12.1.2
     "@testing-library/user-event": ^12.1.10
     "@vue/cli-service": ^5.0.1
+    eslint: ^7.1.0
     eslint-plugin-react: ^7.27.0
     express: ^4.17.1
     ignore-styles: ^5.0.1
@@ -23152,6 +23192,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"replace-ext@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "replace-ext@npm:2.0.0"
+  checksum: ed640ac90d24cce4be977642847d138908d430049cc097633be33b072143515cc7d29699675a0c35f6dc3c3c73cb529ed352d59649cf15931740eb31ae083c1e
+  languageName: node
+  linkType: hard
+
 "replace-homedir@npm:^1.0.0":
   version: 1.0.0
   resolution: "replace-homedir@npm:1.0.0"
@@ -23564,7 +23611,6 @@ __metadata:
     husky: ^4.2.5
     lint-staged: ^10.2.7
     prettier: ^2.0.5
-    prop-types: ^15.6.0
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
     react-is: ">= 16.8.0"
