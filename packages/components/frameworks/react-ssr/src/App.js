@@ -96,6 +96,23 @@ function App() {
               hasPadding={false}
               onHide={() => setIsModal1ShowingState(false)}
               title="Title of content"
+              primaryButton={
+                <button className="e-btn" onClick={() => console.log('success')} style={{ width: '100%' }}>
+                  <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }}>
+                    <Icon name="unlock" size="xs" color="inverted" />
+                    Lukk HAN-port
+                  </div>
+                </button>
+              }
+              secondaryButton={
+                <button
+                  className="e-btn e-btn--secondary"
+                  style={{ width: '100%' }}
+                  onClick={() => setIsModal1ShowingState(false)}
+                >
+                  Avbryt
+                </button>
+              }
               content={<div>Body text comes here and can go over several lines.</div>}
             ></Modal>
           </div>
