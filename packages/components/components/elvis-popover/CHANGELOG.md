@@ -1,5 +1,11 @@
 # Elvia Popover Changelog
 
+## 4.3.7 (14.03.22)
+
+### Patch
+
+-Now building .scss files to .css for React users.
+
 ## 4.3.6 (11.03.22)
 
 ### Patch
