@@ -1459,6 +1459,19 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz#d5e0706cf8c6acd8c6032f8d54070af261bbbb2f"
   integrity sha512-ws57AidsDvREKrZKYffXddNkyaF14iHNHm8VQnZH6t99E8gczjNN0GpvcGny0imC80yQ0tHz1xVUKk/KFQSUyA==
 
+"@elvia/elvis-modal@*":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@elvia/elvis-modal/-/elvis-modal-1.4.2.tgz#9f7886405153edbcd57f7e2d96377a3ef574fb08"
+  integrity sha512-fFW9S4IWN2LCiE5FtDRqeZBncN1zEZ/UQxUsS9y3dbpMO6TNsym7t8O/asTTej45xdX3I+oM8tRTS6iczWf9OQ==
+  dependencies:
+    "@elvia/elvis-colors" "^1.2.1"
+    "@elvia/elvis-component-wrapper" "^2.2.0"
+    "@elvia/elvis-icon" "^1.1.1"
+    "@elvia/elvis-typography" "^1.2.0"
+    "@material-ui/core" "^4.12.3"
+    "@material-ui/icons" "^4.11.2"
+    styled-components "^5.3.3"
+
 "@elvia/elvis-typography@^1.2.0":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@elvia/elvis-typography/-/elvis-typography-1.2.1.tgz#01f238de7a9ef73402352c9eb461c8d780e2853d"
