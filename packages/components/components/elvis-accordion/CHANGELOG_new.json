@@ -1,0 +1,150 @@
+[
+{
+"date": "04.03.22",
+"version": "2.2.0 ",
+"changelog":
+[
+{
+"type": "new_feature",
+},
+]
+},
+{
+"date": "04.03.22",
+"version": "2.1.2 ",
+"changelog":
+[
+{
+"type": "patch",
+},
+]
+},
+{
+"date": "18.02.22",
+"version": "2.1.1 ",
+"changelog":
+[
+{
+"type": "patch",
+},
+]
+},
+{
+"date": "07.02.22",
+"version": "2.1.0 ",
+"changelog":
+[
+{
+"type": "new_feature",
+},
+]
+},
+{
+"date": "28.01.22",
+"version": "2.0.10 ",
+"changelog":
+[
+{
+"type": "patch",
+},
+]
+},
+{
+"date": "26.01.22",
+"version": "2.0.9 ",
+"changelog":
+[
+{
+"type": "patch",
+},
+]
+},
+{
+"date": "14.01.22",
+"version": "2.0.8 ",
+"changelog":
+[
+{
+"type": "patch",
+},
+]
+},
+{
+"date": "07.01.22",
+"version": "2.0.7 ",
+"changelog":
+[
+{
+"type": "patch",
+},
+]
+},
+{
+"date": "02.12.21",
+"version": "2.0.6 ",
+"changelog":
+[
+{
+"type": "patch",
+},
+]
+},
+{
+"date": "30.11.21",
+"version": "2.0.5 ",
+"changelog":
+[
+{
+"type": "patch",
+},
+]
+},
+{
+"date": "30.11.21",
+"version": "2.0.4 ",
+"changelog":
+[
+{
+"type": "bug_fix",
+},
+]
+},
+{
+"date": "17.11.21",
+"version": "2.0.3 ",
+"changelog":
+[
+{
+"type": "bug_fix",
+},
+]
+},
+{
+"date": "06.09.21",
+"version": "2.0.2 ",
+"changelog":
+[
+{
+"type": "bug_fix",
+},
+]
+},
+{
+"date": "06.09.21",
+"version": "2.0.0 ",
+"changelog":
+[
+{
+"type": "breaking_changes",
+},
+]
+},
+{
+"date": "09.04.21",
+"version": "1.0.0 ",
+"changelog":
+[
+{
+"type": "new_feature",
+}
+]
