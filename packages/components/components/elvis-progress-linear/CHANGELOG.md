@@ -22,7 +22,7 @@
 
 ## 1.0.0
 
-First stable version :tada:
+- First stable version :tada:
 
 ### Breaking changes
 

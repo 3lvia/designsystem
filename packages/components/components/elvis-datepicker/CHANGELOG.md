@@ -120,8 +120,8 @@
 
 ### Bug fixes
 
-Updated red validation color to new elvia red (#EE0701)
+- Updated red validation color to new elvia red (#EE0701)
 
 ## 1.0.0 (07.05.21)
 
-First version of datepicker.
+- First version of datepicker.

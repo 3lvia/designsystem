@@ -1,0 +1,162 @@
+[
+  {
+    "date": "07.03.22",
+    "version": "2.2.1 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": [
+          "Fixed a bug when dispatching onChange-events where if the changing prop existed but had a falsy value the  name of the prop would be dispatched instead of the value."
+        ]
+      }
+    ]
+  },
+  {
+    "date": "03.03.22",
+    "version": "2.2.0 ",
+    "changelog": [
+      {
+        "type": "new_feature",
+        "changes": [
+          "Changed some protected functions to public so the ElvisComponentWrapper class can now be used as a  Typescript type for IntelliSense.",
+          "Added JSDoc documentation to commonly used public functions."
+        ]
+      },
+      {
+        "type": "bug_fix",
+        "changes": [
+          "Fixed a bug in the triggerEvent()-function that caused an old way of triggering events to not function  properly."
+        ]
+      }
+    ]
+  },
+  {
+    "date": "02.03.22",
+    "version": "2.1.14 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Update so that triggerEvent can send data"]
+      }
+    ]
+  },
+  {
+    "date": "25.02.22",
+    "version": "2.1.13 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Web components inside web components rerender bug fix."]
+      }
+    ]
+  },
+  {
+    "date": "26.01.22",
+    "version": "2.1.11 ",
+    "changelog": [
+      {
+        "changes": ["Updated dependencies"]
+      }
+    ]
+  },
+  {
+    "date": "06.01.22",
+    "version": "2.1.10 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Small toString bug fix"]
+      }
+    ]
+  },
+  {
+    "date": "21.12.21",
+    "version": "2.1.9 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Conditional element style fix"]
+      }
+    ]
+  },
+  {
+    "date": "16.12.21",
+    "version": "2.1.8 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["New config for some components to support slotting"]
+      }
+    ]
+  },
+  {
+    "date": "22.11.21",
+    "version": "2.1.7 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Support for kebab-case events that will work in Vue 3"]
+      }
+    ]
+  },
+  {
+    "date": "22.11.21",
+    "version": "2.1.6 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Support for old conditional element style in wrapper"]
+      }
+    ]
+  },
+  {
+    "date": "22.11.21",
+    "version": "2.1.5 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Now allowing props to have value null"]
+      }
+    ]
+  },
+  {
+    "date": "17.11.21",
+    "version": "2.1.4 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Improved conditional elements type function"]
+      }
+    ]
+  },
+  {
+    "date": "07.09.21",
+    "version": "2.1.2 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Bug fix for listening to slot-updates"]
+      }
+    ]
+  },
+  {
+    "date": "20.08.21",
+    "version": "2.1.1 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Bug fix for converting string props into correct type"]
+      }
+    ]
+  },
+  {
+    "date": "17.08.21",
+    "version": "2.1.0 ",
+    "changelog": [
+      {
+        "type": "new_feature",
+        "changes": ["TriggerEvent function is now able to dispatch events with extra values also"]
+      }
+    ]
+  }
+]

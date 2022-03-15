@@ -1,0 +1,190 @@
+[
+  {
+    "date": "04.03.22",
+    "version": "2.1.2 ",
+    "changelog": [
+      {
+        "type": "patch",
+        "changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
+      }
+    ]
+  },
+  {
+    "date": "18.02.22",
+    "version": "2.1.1 ",
+    "changelog": [
+      {
+        "type": "patch",
+        "changes": ["Now using elvis-icon package for internal icons."]
+      }
+    ]
+  },
+  {
+    "date": "07.02.22",
+    "version": "2.1.0 ",
+    "changelog": [
+      {
+        "type": "new_feature",
+        "changes": ["Added inlineStyle and className props"]
+      }
+    ]
+  },
+  {
+    "date": "26.01.21",
+    "version": "2.0.6 ",
+    "changelog": [
+      {
+        "changes": ["Updated dependencies"]
+      }
+    ]
+  },
+  {
+    "date": "14.01.22",
+    "version": "2.0.5 ",
+    "changelog": [
+      {
+        "type": "patch",
+        "changes": ["Refactoring"]
+      }
+    ]
+  },
+  {
+    "date": "07.01.22",
+    "version": "2.0.4 ",
+    "changelog": [
+      {
+        "type": "patch",
+        "changes": ["Updated tokens declarations"]
+      }
+    ]
+  },
+  {
+    "date": "03.01.22",
+    "version": "2.0.3 ",
+    "changelog": [
+      {
+        "type": "patch",
+        "changes": ["Added unit tests."]
+      }
+    ]
+  },
+  {
+    "date": "30.11.21",
+    "version": "2.0.2 ",
+    "changelog": [
+      {
+        "type": "patch",
+        "changes": [
+          "Now using elvis-colors package for colors.",
+          "Now using elvis-typography package for typography."
+        ]
+      }
+    ]
+  },
+  {
+    "date": "30.11.21",
+    "version": "2.0.1 ",
+    "changelog": [
+      {
+        "changes": ["Web component wrapper fix"]
+      }
+    ]
+  },
+  {
+    "date": "29.11.21",
+    "version": "2.0.0 ",
+    "changelog": [
+      {
+        "type": "breaking_changes",
+        "changes": [
+          "Fix so that width of the dropdown field is 100% up to max-width always, to be consistent with other  input-components. Can possibly break alignment where it is used."
+        ]
+      },
+      {
+        "type": "patch",
+        "changes": [
+          "Placeholder now has no defined default value",
+          "Max-width updated to 448px, to match other input-components max-width"
+        ]
+      }
+    ]
+  },
+  {
+    "date": "28.09.21",
+    "version": "1.0.8 ",
+    "changelog": [
+      {
+        "type": "patch",
+        "changes": ["Added type declaration support for dropdown komponent"]
+      }
+    ]
+  },
+  {
+    "date": "28.09.21",
+    "version": "1.0.7 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Adjusted max width of placeholders and single value in dropdown."]
+      }
+    ]
+  },
+  {
+    "date": "09.09.21",
+    "version": "1.0.6 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Fix for width-bug inside a flex-container."]
+      }
+    ]
+  },
+  {
+    "date": "10.08.21",
+    "version": "1.0.5 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Updated styled component version to fix warning about different versions."]
+      }
+    ]
+  },
+  {
+    "date": "08.06.21",
+    "version": "1.0.4 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Updated red validation color to new elvia red (#EE0701)"]
+      }
+    ]
+  },
+  {
+    "date": "28.05.21",
+    "version": "1.0.2 ",
+    "changelog": [
+      {
+        "type": "bug_fix",
+        "changes": ["Fixed icon bug in dropdown"]
+      }
+    ]
+  },
+  {
+    "date": "28.05.21",
+    "version": "1.0.0 ",
+    "changelog": [
+      {
+        "changes": ["First stable version :tada:"]
+      },
+      {
+        "type": "breaking_changes"
+      },
+      {
+        "type": "new_feature"
+      },
+      {
+        "type": "bug_fix"
+      }
+    ]
+  }
+]

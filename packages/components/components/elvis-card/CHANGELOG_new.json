@@ -1,0 +1,52 @@
+[
+  {
+    "date": "04.03.22",
+    "version": "1.1.2 ",
+    "changelog": [
+      {
+        "type": "patch",
+        "changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
+      }
+    ]
+  },
+  {
+    "date": "18.02.22",
+    "version": "1.1.1 ",
+    "changelog": [
+      {
+        "type": "patch",
+        "changes": ["Now using elvis-icon package for internal icons."]
+      }
+    ]
+  },
+  {
+    "date": "07.02.22",
+    "version": "1.1.0 ",
+    "changelog": [
+      {
+        "type": "new_feature",
+        "changes": ["Added inlineStyle and className props"]
+      }
+    ]
+  },
+  {
+    "date": "07.01.22",
+    "version": "1.0.1 ",
+    "changelog": [
+      {
+        "type": "new_feature",
+        "changes": ["Updated elvis-typography use method"]
+      }
+    ]
+  },
+  {
+    "date": "03.01.22",
+    "version": "1.0.0 ",
+    "changelog": [
+      {
+        "type": "new_feature",
+        "changes": ["Card component released"]
+      }
+    ]
+  }
+]
