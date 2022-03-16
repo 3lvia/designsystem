@@ -87,7 +87,14 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white"></div>
+          <div className="e-bg-white">
+            <h3>Datepicker</h3>
+            <Datepicker
+              isRequired
+              hasSelectDateOnOpen={false}
+              disableDate={(day) => day.getDay() === 0 || day.getDay() === 6}
+            ></Datepicker>
+          </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>

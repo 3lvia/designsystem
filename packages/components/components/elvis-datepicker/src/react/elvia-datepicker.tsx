@@ -41,6 +41,7 @@ export interface DatepickerProps {
   errorOnChange?: (error: string) => void;
   hasValidation: boolean;
   clearButtonText: string;
+  disableDate?: (day: Date) => boolean;
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -69,6 +70,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   isErrorState,
   hasValidation = true,
   errorOnChange,
+  disableDate,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
   const [initialFocusedDate, setInitialFocusedDate] = useState<Date | null>(null);
@@ -384,6 +386,13 @@ export const Datepicker: FC<DatepickerProps> = ({
     return res;
   };
 
+  const disableDateWrapper = () => {
+    if (webcomponent) {
+      return webcomponent.getProps()['disabledate'];
+    }
+    return disableDate;
+  };
+
   return (
     <div
       className={datePickerClasses + (className ? ' ' + className : '')}
@@ -444,6 +453,7 @@ export const Datepicker: FC<DatepickerProps> = ({
               ref: datepickerPopoverRef,
             }}
             initialFocusedDate={initialFocusedDate}
+            shouldDisableDate={disableDateWrapper()}
           />
         </MuiPickersUtilsProvider>
       </ThemeProvider>

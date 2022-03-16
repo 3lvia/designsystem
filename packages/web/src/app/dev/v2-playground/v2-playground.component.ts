@@ -68,6 +68,9 @@ export class v2PlaygroundComponent {
     { label: 'Kiwi', isDisabled: true },
   ];
 
+  // Datepicker
+  disableDate = (day: Date): boolean => day.getDay() === 0 || day.getDay() === 6;
+
   logValue = (component: string, value: Event): void => {
     console.log(component, ': ', value);
   };
