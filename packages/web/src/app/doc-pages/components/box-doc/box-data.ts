@@ -58,7 +58,7 @@ const boxData = {
   codeImportWebComponent: `import '@elvia/elvis-box';`,
   codeReact: `<Box
   content={<div>
-    <elvia-tabs [items]="['AMS-meter', 'Electric car', 'HAN-port']"></elvia-tabs>
+    <Tabs items={['AMS-meter', 'Electric car', 'HAN-port']}></Tabs>
     <div className="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
   </div>}
 ></Box>`,
