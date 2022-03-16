@@ -54,7 +54,6 @@ function App() {
 
   // Modal
   const [isModalShowing, setIsModalShowingState] = useState(false);
-  const [isModal1Showing, setIsModal1ShowingState] = useState(false);
 
   // Popover
   const [isPopoverShowing, setIsPopoverShowingState] = useState(false);
