@@ -2379,7 +2379,7 @@ __metadata:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
     react-is: ">= 16.8.0"
-    react-select: 4.2.1
+    react-select: 5.2.2
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
@@ -2579,7 +2579,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/cache@npm:^11.0.0, @emotion/cache@npm:^11.7.1":
+"@emotion/cache@npm:^11.4.0, @emotion/cache@npm:^11.7.1":
   version: 11.7.1
   resolution: "@emotion/cache@npm:11.7.1"
   dependencies:
@@ -4304,7 +4304,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-transition-group@npm:*, @types/react-transition-group@npm:^4.2.0":
+"@types/react-transition-group@npm:*, @types/react-transition-group@npm:^4.2.0, @types/react-transition-group@npm:^4.4.0":
   version: 4.4.4
   resolution: "@types/react-transition-group@npm:4.4.4"
   dependencies:
@@ -22217,7 +22217,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.0, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.0, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -22590,17 +22590,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-input-autosize@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "react-input-autosize@npm:3.0.0"
-  dependencies:
-    prop-types: ^15.5.8
-  peerDependencies:
-    react: ^16.3.0 || ^17.0.0
-  checksum: cc3309ddc87446ade742c7d0e88ef089dd8b6981f21506a2bb27daf01a8803ac697f64157c4ffc7e81dfcf3892b54a4072dbc3652fd9addcf6d22dd0b87ab723
-  languageName: node
-  linkType: hard
-
 "react-is@npm:>= 16.8.0, react-is@npm:^16.12.0 || ^17.0.0, react-is@npm:^16.8.0 || ^17.0.0, react-is@npm:^17.0.0, react-is@npm:^17.0.1, react-is@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
@@ -22689,21 +22678,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-select@npm:4.2.1":
-  version: 4.2.1
-  resolution: "react-select@npm:4.2.1"
+"react-select@npm:5.2.2":
+  version: 5.2.2
+  resolution: "react-select@npm:5.2.2"
   dependencies:
     "@babel/runtime": ^7.12.0
-    "@emotion/cache": ^11.0.0
+    "@emotion/cache": ^11.4.0
     "@emotion/react": ^11.1.1
+    "@types/react-transition-group": ^4.4.0
     memoize-one: ^5.0.0
     prop-types: ^15.6.0
-    react-input-autosize: ^3.0.0
     react-transition-group: ^4.3.0
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
-  checksum: 1ae0917ad562da8a3b1f6e73108bce736ccf3f45a521b033fb3ba9de4a7e3b045ab165e2a258fe4879b4b9f3a9c2ba5dc7c102742685049ae36ca9b857da33d2
+  checksum: 02cf76a31df6d957b15e8664957ece85afb0e9538f0686f77e8dd7cdc47cb59b71e295cd373912f2dd641724f140a1f701c91e7e7f89bb7e845a04bf5d6c67ad
   languageName: node
   linkType: hard
 

@@ -92,6 +92,7 @@ function App() {
             options={dropdownOptions}
             defaultValue={defaultDropdownOptions}
             label="test"
+            isSearchable
             isMulti
           ></Dropdown>
           {/* Normal version */}
