@@ -1,7 +1,6 @@
 {
   "name": "@elvia/elvis-assets-trademark",
   "version": "1.0.2",
-
   "description": "Trademarked logos etc, for use in Elvia applications only.",
   "main": "index.js",
   "scripts": {
@@ -10,4 +9,3 @@
   "author": "",
   "license": "SEE LICENSE IN LICENSE file"
 }
-
