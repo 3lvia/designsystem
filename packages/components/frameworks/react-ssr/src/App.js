@@ -86,36 +86,6 @@ function App() {
         {/* CURRENTLY TESTING */}
         <div className="example-wrapper">
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
-          <div className="example-wrapper">
-            <h3>Modal</h3>
-            <button className="e-btn" onClick={() => setIsModal1ShowingState(true)}>
-              Show modal
-            </button>
-            <Modal
-              isShowing={isModal1Showing}
-              hasPadding={false}
-              onHide={() => setIsModal1ShowingState(false)}
-              title="Title of content"
-              primaryButton={
-                <button className="e-btn" onClick={() => console.log('success')} style={{ width: '100%' }}>
-                  <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }}>
-                    <Icon name="unlock" size="xs" color="inverted" />
-                    Lukk HAN-port
-                  </div>
-                </button>
-              }
-              secondaryButton={
-                <button
-                  className="e-btn e-btn--secondary"
-                  style={{ width: '100%' }}
-                  onClick={() => setIsModal1ShowingState(false)}
-                >
-                  Avbryt
-                </button>
-              }
-              content={<div>Body text comes here and can go over several lines.</div>}
-            ></Modal>
-          </div>
           <h3>Test your component here</h3>
           {/* Normal version */}
           <div className="e-bg-white"></div>
