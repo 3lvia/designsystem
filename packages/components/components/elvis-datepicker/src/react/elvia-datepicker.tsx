@@ -118,6 +118,14 @@ export const Datepicker: FC<DatepickerProps> = ({
   }, [isOpen]);
 
   useEffect(() => {
+    hasValidation && validateDate(selectedDate);
+  }, [minDate]);
+
+  useEffect(() => {
+    hasValidation && validateDate(selectedDate);
+  }, [maxDate]);
+
+  useEffect(() => {
     addOutlineFix(datepickerRef.current);
 
     return () => {
