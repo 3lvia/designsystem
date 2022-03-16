@@ -28,6 +28,7 @@ export interface ModalProps {
   inlineStyle?: { [style: string]: CSSProperties };
   hasCloseBtn?: boolean;
   hasLockBodyScroll?: boolean;
+  hasPadding?: boolean;
   disableClose?: boolean;
   maxWidth?: string;
   onHide: () => void;
@@ -45,6 +46,7 @@ export const ModalComponent: FC<ModalProps> = ({
   inlineStyle,
   hasCloseBtn = false,
   hasLockBodyScroll = true,
+  hasPadding = true,
   disableClose = false,
   maxWidth,
   onHide,
@@ -163,7 +165,7 @@ export const ModalComponent: FC<ModalProps> = ({
           </ModalCloseButton>
         )}
 
-        <ModalContent hasIllustration={hasIllustration}>
+        <ModalContent hasIllustration={hasIllustration} hasPadding={hasPadding}>
           {title && (
             <ModalTitle hasIllustration={hasIllustration} data-testid="modal-title">
               {title}

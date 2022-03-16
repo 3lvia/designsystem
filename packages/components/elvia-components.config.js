@@ -257,6 +257,7 @@ module.exports = [
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
       { name: 'hasCloseBtn', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasLockBodyScroll', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'hasPadding', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'disableClose', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'maxWidth', type: 'string', propType: 'string | undefined' },
     ],
