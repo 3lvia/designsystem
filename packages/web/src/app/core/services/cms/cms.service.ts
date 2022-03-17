@@ -14,7 +14,7 @@ export class CMSService {
   private entries = {};
   private entriesToSync = [];
   private subjectAnchorsNew = new Subject<void>();
-  private menu: CMSMenu;
+  private menu = new Map<Locale, CMSMenu>();
 
   constructor(
     private http: HttpClient,
@@ -129,8 +129,8 @@ export class CMSService {
 
   async getMenu(localization: Locale): Promise<CMSMenu> {
     // Cache menu to avoid slow loading.
-    if (this.menu) {
-      return this.menu;
+    if (this.menu.has(localization)) {
+      return this.menu.get(localization);
     }
     let locale = 'en-GB';
     if (localization === Locale['nb-NO']) {
@@ -152,7 +152,7 @@ export class CMSService {
       };
       menu['pages'].push(subMenu);
     }
-    this.menu = menu;
+    this.menu.set(localization, menu);
     return menu;
   }
 
