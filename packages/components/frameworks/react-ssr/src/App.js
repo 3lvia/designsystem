@@ -40,7 +40,6 @@ function App() {
   minDate.setDate(minDate.getDate() - 5);
   let maxDate = new Date();
   maxDate.setDate(maxDate.getDate() - 1);
-  const [datepickerMinDate, setDatepickerMinDate] = useState(new Date());
 
   // Dropdown
   const defaultDropdownOptions = [
@@ -88,24 +87,7 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white">
-            <h3>Datepicker</h3>
-            <Datepicker
-              isRequired
-              hasSelectDateOnOpen={false}
-              disableDate={(day) => day.getDay() === 0 || day.getDay() === 6}
-              minDate={datepickerMinDate}
-            ></Datepicker>
-            <button
-              className="e-btn"
-              onClick={() => {
-                setDatepickerMinDate(new Date(datepickerMinDate.setMonth(datepickerMinDate.getMonth() + 1)));
-                console.log(datepickerMinDate);
-              }}
-            >
-              Increase minDate by one month
-            </button>
-          </div>
+          <div className="e-bg-white"></div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>

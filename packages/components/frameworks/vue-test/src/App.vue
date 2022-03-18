@@ -6,14 +6,7 @@
       <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
       <h3>Test your component here</h3>
       <!--Normal version-->
-      <div class="e-bg-white">
-        <h3>Datepicker</h3>
-        <elvia-datepicker
-          :isCompact="false"
-          label="Fra dato"
-          :disableDate="(day) => day.getDay() === 0 || day.getDay() === 6"
-        ></elvia-datepicker>
-      </div>
+      <div class="e-bg-white"></div>
       <!--Inverted version-->
       <div class="e-bg-grey"></div>
     </div>
@@ -74,7 +67,14 @@
     </div>
 
     <!--Datepicker-->
-    <div class="example-wrapper"></div>
+    <div class="example-wrapper">
+      <h3>Datepicker</h3>
+      <elvia-datepicker
+        :isCompact="false"
+        label="Fra dato"
+        :disableDate="(day) => day.getDay() === 0 || day.getDay() === 6"
+      ></elvia-datepicker>
+    </div>
 
     <!--Divider-->
     <div class="example-wrapper">
