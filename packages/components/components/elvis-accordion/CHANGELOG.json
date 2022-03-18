@@ -1,162 +1,165 @@
-[
-  {
-    "date": "04.03.22",
-    "version": "2.2.0 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": [
-          "Added two new props: openAriaLabel and closeAriaLabel. By default the button to open/close the accordion  will now have an aria-label corresponding to the openLabel/closeLabel props, however this can be overwritten  with the new props. If no label is provided the aria-labels default to \"Åpne\" and \"Lukk\"."
-        ]
-      }
-    ]
-  },
-  {
-    "date": "04.03.22",
-    "version": "2.1.2 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
-      }
-    ]
-  },
-  {
-    "date": "18.02.22",
-    "version": "2.1.1 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Now using elvis-icon package for internal icons."]
-      }
-    ]
-  },
-  {
-    "date": "07.02.22",
-    "version": "2.1.0 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": ["Added inlineStyle and className props"]
-      }
-    ]
-  },
-  {
-    "date": "28.01.22",
-    "version": "2.0.10 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Added aria-label for open/close button"]
-      }
-    ]
-  },
-  {
-    "date": "26.01.22",
-    "version": "2.0.9 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Updated dependencies"]
-      }
-    ]
-  },
-  {
-    "date": "14.01.22",
-    "version": "2.0.8 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Refactoring"]
-      }
-    ]
-  },
-  {
-    "date": "07.01.22",
-    "version": "2.0.7 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Updated tokens declarations"]
-      }
-    ]
-  },
-  {
-    "date": "02.12.21",
-    "version": "2.0.6 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Updated and added more tests"]
-      }
-    ]
-  },
-  {
-    "date": "30.11.21",
-    "version": "2.0.5 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Now using elvis-colors package for colors."]
-      }
-    ]
-  },
-  {
-    "date": "30.11.21",
-    "version": "2.0.4 ",
-    "changelog": [
-      {
-        "changes": ["Web component wrapper fix"]
-      },
-      {
-        "type": "bug_fix",
-        "changes": ["Improved type safety."]
-      }
-    ]
-  },
-  {
-    "date": "17.11.21",
-    "version": "2.0.3 ",
-    "changelog": [
-      {
-        "type": "bug_fix",
-        "changes": ["Improved type safety."]
-      }
-    ]
-  },
-  {
-    "date": "06.09.21",
-    "version": "2.0.2 ",
-    "changelog": [
-      {
-        "type": "bug_fix",
-        "changes": [
-          "Defined color for accordion button, and set background to transparent to fix error on IOS15."
-        ]
-      }
-    ]
-  },
-  {
-    "date": "06.09.21",
-    "version": "2.0.0 ",
-    "changelog": [
-      {
-        "type": "breaking_changes",
-        "changes": [
-          "Bug fixes for displaying of content in the accordion. This may change some of the accordion content layout.",
-          "The web component accordion will now take up 100% width, this was the default in React. This might be  breaking for some projects."
-        ]
-      }
-    ]
-  },
-  {
-    "date": "09.04.21",
-    "version": "1.0.0 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": ["First version of Accordion"]
-      }
-    ]
-  }
-]
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "04.03.22",
+      "version": "2.2.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added two new props: openAriaLabel and closeAriaLabel. By default the button to open/close the accordion will now have an aria-label corresponding to the openLabel/closeLabel props, however this can be overwritten with the new props. If no label is provided the aria-labels default to \"Åpne\" and \"Lukk\"."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "04.03.22",
+      "version": "2.1.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
+        }
+      ]
+    },
+    {
+      "date": "18.02.22",
+      "version": "2.1.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using elvis-icon package for internal icons."]
+        }
+      ]
+    },
+    {
+      "date": "07.02.22",
+      "version": "2.1.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added inlineStyle and className props"]
+        }
+      ]
+    },
+    {
+      "date": "28.01.22",
+      "version": "2.0.10 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added aria-label for open/close button"]
+        }
+      ]
+    },
+    {
+      "date": "26.01.22",
+      "version": "2.0.9 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated dependencies"]
+        }
+      ]
+    },
+    {
+      "date": "14.01.22",
+      "version": "2.0.8 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Refactoring"]
+        }
+      ]
+    },
+    {
+      "date": "07.01.22",
+      "version": "2.0.7 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated tokens declarations"]
+        }
+      ]
+    },
+    {
+      "date": "02.12.21",
+      "version": "2.0.6 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated and added more tests"]
+        }
+      ]
+    },
+    {
+      "date": "30.11.21",
+      "version": "2.0.5 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using elvis-colors package for colors."]
+        }
+      ]
+    },
+    {
+      "date": "30.11.21",
+      "version": "2.0.4 ",
+      "changelog": [
+        {
+          "changes": ["Web component wrapper fix"]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Improved type safety."]
+        }
+      ]
+    },
+    {
+      "date": "17.11.21",
+      "version": "2.0.3 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Improved type safety."]
+        }
+      ]
+    },
+    {
+      "date": "06.09.21",
+      "version": "2.0.2 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Defined color for accordion button, and set background to transparent to fix error on IOS15."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "06.09.21",
+      "version": "2.0.0 ",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Bug fixes for displaying of content in the accordion. This may change some of the accordion content layout.",
+            "The web component accordion will now take up 100% width, this was the default in React. This might be breaking for some projects."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "09.04.21",
+      "version": "1.0.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of Accordion"]
+        }
+      ]
+    }
+  ]
+}

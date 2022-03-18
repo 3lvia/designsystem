@@ -1,210 +1,213 @@
-[
-  {
-    "date": "08.03.22",
-    "version": "4.3.5 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": [
-          "isShowingOnChange bug fix (should send event on both open and close)",
-          "Backdrop z-index fix"
-        ]
-      }
-    ]
-  },
-  {
-    "date": "04.03.22",
-    "version": "4.3.4 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
-      }
-    ]
-  },
-  {
-    "date": "28.02.22",
-    "version": "4.3.3 ",
-    "changelog": [
-      {
-        "type": "bug_fix",
-        "changes": ["Web components inside web components rerender bug fix."]
-      }
-    ]
-  },
-  {
-    "date": "18.02.22",
-    "version": "4.3.1 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Now using elvis-icon package for internal icons."]
-      }
-    ]
-  },
-  {
-    "date": "07.02.22",
-    "version": "4.3.0 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": ["Added inlineStyle and className props"]
-      }
-    ]
-  },
-  {
-    "date": "28.01.22",
-    "version": "4.2.5 ",
-    "changelog": [
-      {
-        "changes": ["Added aria-label for close button"]
-      }
-    ]
-  },
-  {
-    "date": "26.01.22",
-    "version": "4.2.4 ",
-    "changelog": [
-      {
-        "changes": ["Updated dependencies"]
-      }
-    ]
-  },
-  {
-    "date": "10.12.21",
-    "version": "4.2.3 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Added unit tests for popover"]
-      }
-    ]
-  },
-  {
-    "date": "30.11.21",
-    "version": "4.2.2 ",
-    "changelog": [
-      {
-        "changes": ["Web component wrapper fix"]
-      }
-    ]
-  },
-  {
-    "date": "18.11.21",
-    "version": "4.2.1 ",
-    "changelog": [
-      {
-        "type": "bug_fix",
-        "changes": ["Changed z-index"]
-      }
-    ]
-  },
-  {
-    "date": "03.11.21",
-    "version": "4.2.0 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": ["Added type declaration (for react)"]
-      }
-    ]
-  },
-  {
-    "date": "16.09.21",
-    "version": "4.1.3 ",
-    "changelog": [
-      {
-        "type": "bug_fix",
-        "changes": [
-          "Use display: none instead of visibility: hidden to remove white space created by the popover in application  due to SSR."
-        ]
-      }
-    ]
-  },
-  {
-    "date": "9.08.21",
-    "version": "4.1.2 ",
-    "changelog": [
-      {
-        "type": "bug_fix",
-        "changes": ["Bug-fix for slotting"]
-      }
-    ]
-  },
-  {
-    "date": "5.08.21",
-    "version": "4.1.0 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": ["Added functionality for controlling opening and closing of the popover."]
-      }
-    ]
-  },
-  {
-    "date": "4.0.1",
-    "version": "4.0.1",
-    "changelog": [
-      {
-        "type": "bug_fix",
-        "changes": ["Fixed right margin on popover content if scrollbar is visible."]
-      }
-    ]
-  },
-  {
-    "date": "15.04.21",
-    "version": "4.0.0 ",
-    "changelog": [
-      {
-        "changes": [
-          "Popover now uses a fixed position enabling popovers to be used in containers with overflow attributes like  auto or hidden. Due to the size of the changes and risk for complications we decided to version this update  as a major. No changes are required for existing popovers to function."
-        ]
-      }
-    ]
-  },
-  {
-    "date": "15.04.21",
-    "version": "3.0.0 ",
-    "changelog": [
-      {
-        "type": "bug_fix",
-        "changes": [
-          "Trigger now only takes up the space of it's content and the popover is now displayed as block and not  inline-block!"
-        ]
-      }
-    ]
-  },
-  {
-    "date": "09.04.21",
-    "version": "2.0.3 ",
-    "changelog": [
-      {
-        "type": "bug_fix",
-        "changes": [
-          "Fix so that clicks inside and outside the popover works as expected in all scenarios.",
-          "Outline bug fix."
-        ]
-      }
-    ]
-  },
-  {
-    "date": "04.03.21",
-    "version": "2.0.0 ",
-    "changelog": [
-      {
-        "type": "bug_fix",
-        "changes": ["Popover safari box-sizing bug", "Popover without shadow dom"]
-      }
-    ]
-  },
-  {
-    "date": "03.02.21",
-    "version": "1.0.0 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": ["First version of popover"]
-      }
-    ]
-  }
-]
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "08.03.22",
+      "version": "4.3.5 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "isShowingOnChange bug fix (should send event on both open and close)",
+            "Backdrop z-index fix"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "04.03.22",
+      "version": "4.3.4 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
+        }
+      ]
+    },
+    {
+      "date": "28.02.22",
+      "version": "4.3.3 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Web components inside web components rerender bug fix."]
+        }
+      ]
+    },
+    {
+      "date": "18.02.22",
+      "version": "4.3.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using elvis-icon package for internal icons."]
+        }
+      ]
+    },
+    {
+      "date": "07.02.22",
+      "version": "4.3.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added inlineStyle and className props"]
+        }
+      ]
+    },
+    {
+      "date": "28.01.22",
+      "version": "4.2.5 ",
+      "changelog": [
+        {
+          "changes": ["Added aria-label for close button"]
+        }
+      ]
+    },
+    {
+      "date": "26.01.22",
+      "version": "4.2.4 ",
+      "changelog": [
+        {
+          "changes": ["Updated dependencies"]
+        }
+      ]
+    },
+    {
+      "date": "10.12.21",
+      "version": "4.2.3 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added unit tests for popover"]
+        }
+      ]
+    },
+    {
+      "date": "30.11.21",
+      "version": "4.2.2 ",
+      "changelog": [
+        {
+          "changes": ["Web component wrapper fix"]
+        }
+      ]
+    },
+    {
+      "date": "18.11.21",
+      "version": "4.2.1 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Changed z-index"]
+        }
+      ]
+    },
+    {
+      "date": "03.11.21",
+      "version": "4.2.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added type declaration (for react)"]
+        }
+      ]
+    },
+    {
+      "date": "16.09.21",
+      "version": "4.1.3 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Use display: none instead of visibility: hidden to remove white space created by the popover in application due to SSR."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "9.08.21",
+      "version": "4.1.2 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Bug-fix for slotting"]
+        }
+      ]
+    },
+    {
+      "date": "5.08.21",
+      "version": "4.1.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added functionality for controlling opening and closing of the popover."]
+        }
+      ]
+    },
+    {
+      "date": "4.0.1",
+      "version": "4.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed right margin on popover content if scrollbar is visible."]
+        }
+      ]
+    },
+    {
+      "date": "15.04.21",
+      "version": "4.0.0 ",
+      "changelog": [
+        {
+          "changes": [
+            "Popover now uses a fixed position enabling popovers to be used in containers with overflow attributes like auto or hidden. Due to the size of the changes and risk for complications we decided to version this update as a major. No changes are required for existing popovers to function."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "15.04.21",
+      "version": "3.0.0 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Trigger now only takes up the space of it's content and the popover is now displayed as block and not inline-block!"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "09.04.21",
+      "version": "2.0.3 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fix so that clicks inside and outside the popover works as expected in all scenarios.",
+            "Outline bug fix."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "04.03.21",
+      "version": "2.0.0 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Popover safari box-sizing bug", "Popover without shadow dom"]
+        }
+      ]
+    },
+    {
+      "date": "03.02.21",
+      "version": "1.0.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of popover"]
+        }
+      ]
+    }
+  ]
+}

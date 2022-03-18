@@ -1,138 +1,142 @@
+{
+"$schema": "../../changelogSchema.json",
+"content":
 [
-  {
-    "date": "04.03.22",
-    "version": "1.2.4 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
-      }
-    ]
-  },
-  {
-    "date": "28.02.22",
-    "version": "1.2.3 ",
-    "changelog": [
-      {
-        "type": "bug_fix",
-        "changes": ["Web components inside web components rerender bug fix."]
-      }
-    ]
-  },
-  {
-    "date": "18.02.22",
-    "version": "1.2.1 ",
-    "changelog": [
-      {
-        "type": "bug_fix",
-        "changes": ["Added height: 100% to wrapper to fix vertical divider"]
-      }
-    ]
-  },
-  {
-    "date": "07.02.22",
-    "version": "1.2.0 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": ["Added inlineStyle and className props"]
-      }
-    ]
-  },
-  {
-    "date": "14.01.22",
-    "version": "1.1.7 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Refactoring"]
-      }
-    ]
-  },
-  {
-    "date": "07.01.22",
-    "version": "1.1.6 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Updated tokens declarations"]
-      }
-    ]
-  },
-  {
-    "date": "16.12.21",
-    "version": "1.1.5 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Fix for slotting"]
-      }
-    ]
-  },
-  {
-    "date": "03.12.21",
-    "version": "1.1.3 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Added unit tests for divider"]
-      }
-    ]
-  },
-  {
-    "date": "30.11.21",
-    "version": "1.1.2 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Now using elvis-colors package for colors."]
-      }
-    ]
-  },
-  {
-    "date": "30.11.21",
-    "version": "1.1.1 ",
-    "changelog": [
-      {
-        "changes": ["Web component wrapper fix"]
-      }
-    ]
-  },
-  {
-    "date": "17.11.21",
-    "version": "1.1.0 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": ["Added vertical divider"]
-      }
-    ]
-  },
-  {
-    "date": "07.10.21",
-    "version": "1.0.5 ",
-    "changelog": [
-      {
-        "changes": ["Updated inverted divider color from grey-80 to grey-90."]
-      }
-    ]
-  },
-  {
-    "date": "22.09.21",
-    "version": "1.0.4 ",
-    "changelog": [
-      {
-        "changes": ["Fix for bug that made title divider not display titles correctly."]
-      }
-    ]
-  },
-  {
-    "date": "13.11.05",
-    "version": "0.0.1-alpha ",
-    "changelog": [
-      {
-        "changes": ["First version of the divider."]
-      }
-    ]
-  }
+{
+"date": "04.03.22",
+"version": "1.2.4 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
+}
 ]
+},
+{
+"date": "28.02.22",
+"version": "1.2.3 ",
+"changelog": [
+{
+"type": "bug_fix",
+"changes": ["Web components inside web components rerender bug fix."]
+}
+]
+},
+{
+"date": "18.02.22",
+"version": "1.2.1 ",
+"changelog": [
+{
+"type": "bug_fix",
+"changes": ["Added height: 100% to wrapper to fix vertical divider"]
+}
+]
+},
+{
+"date": "07.02.22",
+"version": "1.2.0 ",
+"changelog": [
+{
+"type": "new_feature",
+"changes": ["Added inlineStyle and className props"]
+}
+]
+},
+{
+"date": "14.01.22",
+"version": "1.1.7 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Refactoring"]
+}
+]
+},
+{
+"date": "07.01.22",
+"version": "1.1.6 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Updated tokens declarations"]
+}
+]
+},
+{
+"date": "16.12.21",
+"version": "1.1.5 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Fix for slotting"]
+}
+]
+},
+{
+"date": "03.12.21",
+"version": "1.1.3 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Added unit tests for divider"]
+}
+]
+},
+{
+"date": "30.11.21",
+"version": "1.1.2 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Now using elvis-colors package for colors."]
+}
+]
+},
+{
+"date": "30.11.21",
+"version": "1.1.1 ",
+"changelog": [
+{
+"changes": ["Web component wrapper fix"]
+}
+]
+},
+{
+"date": "17.11.21",
+"version": "1.1.0 ",
+"changelog": [
+{
+"type": "new_feature",
+"changes": ["Added vertical divider"]
+}
+]
+},
+{
+"date": "07.10.21",
+"version": "1.0.5 ",
+"changelog": [
+{
+"changes": ["Updated inverted divider color from grey-80 to grey-90."]
+}
+]
+},
+{
+"date": "22.09.21",
+"version": "1.0.4 ",
+"changelog": [
+{
+"changes": ["Fix for bug that made title divider not display titles correctly."]
+}
+]
+},
+{
+"date": "13.11.05",
+"version": "0.0.1-alpha ",
+"changelog": [
+{
+"changes": ["First version of the divider."]
+}
+]
+}
+]
+}

@@ -1,58 +1,62 @@
+{
+"$schema": "../../changelogSchema.json",
+"content":
 [
-  {
-    "date": "07.02.22",
-    "version": "1.2.0 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": ["Added inlineStyle and className props"]
-      }
-    ]
-  },
-  {
-    "date": "09.12.21",
-    "version": "1.1.2 ",
-    "changelog": [
-      {
-        "changes": ["Added unit tests for progress-linear"]
-      }
-    ]
-  },
-  {
-    "date": "30.11.21",
-    "version": "1.1.1 ",
-    "changelog": [
-      {
-        "changes": ["Web component wrapper fix"]
-      }
-    ]
-  },
-  {
-    "date": "03.11.21",
-    "version": "1.1.0 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": ["Added type declaration (for react)"]
-      }
-    ]
-  },
-  {
-    "date": "1.0.0",
-    "version": "1.0.0",
-    "changelog": [
-      {
-        "changes": ["First stable version :tada:"]
-      },
-      {
-        "type": "breaking_changes"
-      },
-      {
-        "type": "new_feature"
-      },
-      {
-        "type": "bug_fix"
-      }
-    ]
-  }
+{
+"date": "07.02.22",
+"version": "1.2.0 ",
+"changelog": [
+{
+"type": "new_feature",
+"changes": ["Added inlineStyle and className props"]
+}
 ]
+},
+{
+"date": "09.12.21",
+"version": "1.1.2 ",
+"changelog": [
+{
+"changes": ["Added unit tests for progress-linear"]
+}
+]
+},
+{
+"date": "30.11.21",
+"version": "1.1.1 ",
+"changelog": [
+{
+"changes": ["Web component wrapper fix"]
+}
+]
+},
+{
+"date": "03.11.21",
+"version": "1.1.0 ",
+"changelog": [
+{
+"type": "new_feature",
+"changes": ["Added type declaration (for react)"]
+}
+]
+},
+{
+"date": "1.0.0",
+"version": "1.0.0",
+"changelog": [
+{
+"changes": ["First stable version :tada:"]
+},
+{
+"type": "breaking_changes"
+},
+{
+"type": "new_feature"
+},
+{
+"type": "bug_fix"
+}
+]
+}
+]
+}

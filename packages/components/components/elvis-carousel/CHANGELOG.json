@@ -1,143 +1,147 @@
+{
+"$schema": "../../changelogSchema.json",
+"content":
 [
-  {
-    "date": "04.03.22",
-    "version": "1.1.2 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
-      }
-    ]
-  },
-  {
-    "date": "18.02.22",
-    "version": "1.1.1 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Now using elvis-icon package for internal icons."]
-      }
-    ]
-  },
-  {
-    "date": "07.02.22",
-    "version": "1.1.0 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": ["Added inlineStyle and className props"]
-      }
-    ]
-  },
-  {
-    "date": "26.01.21",
-    "version": "1.0.11 ",
-    "changelog": [
-      {
-        "changes": ["Updated dependencies"]
-      }
-    ]
-  },
-  {
-    "date": "14.01.22",
-    "version": "1.0.10 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Refactoring"]
-      }
-    ]
-  },
-  {
-    "date": "13.01.22",
-    "version": "1.0.9 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Removed padding on check button"]
-      }
-    ]
-  },
-  {
-    "date": "07.01.22",
-    "version": "1.0.8 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Updated tokens declarations"]
-      }
-    ]
-  },
-  {
-    "date": "16.12.21",
-    "version": "1.0.7 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Fix for slotting"]
-      }
-    ]
-  },
-  {
-    "date": "14.12.21",
-    "version": "1.0.5 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Added unit tests for carousel"]
-      }
-    ]
-  },
-  {
-    "date": "30.11.21",
-    "version": "1.0.4 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": [
-          "Now using elvis-colors package for colors.",
-          "Now using elvis-typography package for typography."
-        ]
-      }
-    ]
-  },
-  {
-    "date": "30.11.21",
-    "version": "1.0.3 ",
-    "changelog": [
-      {
-        "changes": ["Web component wrapper fix"]
-      }
-    ]
-  },
-  {
-    "date": "25.10.21",
-    "version": "1.0.2 ",
-    "changelog": [
-      {
-        "type": "patch",
-        "changes": ["Added type declaration for Carousel(react only)"]
-      }
-    ]
-  },
-  {
-    "date": "11.10.21",
-    "version": "1.0.1 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": ["Refactoring of carousel component"]
-      }
-    ]
-  },
-  {
-    "date": "01.10.21",
-    "version": "1.0.0 ",
-    "changelog": [
-      {
-        "type": "new_feature",
-        "changes": ["First version of the Carousel component"]
-      }
-    ]
-  }
+{
+"date": "04.03.22",
+"version": "1.1.2 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
+}
 ]
+},
+{
+"date": "18.02.22",
+"version": "1.1.1 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Now using elvis-icon package for internal icons."]
+}
+]
+},
+{
+"date": "07.02.22",
+"version": "1.1.0 ",
+"changelog": [
+{
+"type": "new_feature",
+"changes": ["Added inlineStyle and className props"]
+}
+]
+},
+{
+"date": "26.01.21",
+"version": "1.0.11 ",
+"changelog": [
+{
+"changes": ["Updated dependencies"]
+}
+]
+},
+{
+"date": "14.01.22",
+"version": "1.0.10 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Refactoring"]
+}
+]
+},
+{
+"date": "13.01.22",
+"version": "1.0.9 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Removed padding on check button"]
+}
+]
+},
+{
+"date": "07.01.22",
+"version": "1.0.8 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Updated tokens declarations"]
+}
+]
+},
+{
+"date": "16.12.21",
+"version": "1.0.7 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Fix for slotting"]
+}
+]
+},
+{
+"date": "14.12.21",
+"version": "1.0.5 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Added unit tests for carousel"]
+}
+]
+},
+{
+"date": "30.11.21",
+"version": "1.0.4 ",
+"changelog": [
+{
+"type": "patch",
+"changes": [
+"Now using elvis-colors package for colors.",
+"Now using elvis-typography package for typography."
+]
+}
+]
+},
+{
+"date": "30.11.21",
+"version": "1.0.3 ",
+"changelog": [
+{
+"changes": ["Web component wrapper fix"]
+}
+]
+},
+{
+"date": "25.10.21",
+"version": "1.0.2 ",
+"changelog": [
+{
+"type": "patch",
+"changes": ["Added type declaration for Carousel(react only)"]
+}
+]
+},
+{
+"date": "11.10.21",
+"version": "1.0.1 ",
+"changelog": [
+{
+"type": "new_feature",
+"changes": ["Refactoring of carousel component"]
+}
+]
+},
+{
+"date": "01.10.21",
+"version": "1.0.0 ",
+"changelog": [
+{
+"type": "new_feature",
+"changes": ["First version of the Carousel component"]
+}
+]
+}
+]
+}

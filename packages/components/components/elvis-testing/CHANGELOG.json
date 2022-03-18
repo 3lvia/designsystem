@@ -1,20 +1,24 @@
+{
+"$schema": "../../changelogSchema.json",
+"content":
 [
-  {
-    "date": "13.11.20",
-    "version": "1.0.0 ",
-    "changelog": [
-      {
-        "type": "breaking_changes",
-        "changes": ["Breaking change  - Easy fix", "Breaking change  - Easy fix"]
-      },
-      {
-        "type": "new_feature",
-        "changes": ["New feature", "New feature"]
-      },
-      {
-        "type": "bug_fix",
-        "changes": ["Bug fix", "Bug fix"]
-      }
-    ]
-  }
+{
+"date": "13.11.20",
+"version": "1.0.0 ",
+"changelog": [
+{
+"type": "breaking_changes",
+"changes": ["Breaking change - Easy fix", "Breaking change - Easy fix"]
+},
+{
+"type": "new_feature",
+"changes": ["New feature", "New feature"]
+},
+{
+"type": "bug_fix",
+"changes": ["Bug fix", "Bug fix"]
+}
 ]
+}
+]
+}
