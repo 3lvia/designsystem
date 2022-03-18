@@ -24,12 +24,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && ./scripts/pre-commit.sh",
+      "pre-commit": "lint-staged",
       "pre-push": "./scripts/pre-push.sh"
     }
   },
   "lint-staged": {
     "packages/elvis/**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
+      "./scripts/elvis-pre-commit.sh",
       "yarn run prettier-elvis",
       "git add"
     ],
