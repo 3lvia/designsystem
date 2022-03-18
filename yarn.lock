@@ -10971,6 +10971,9 @@ __metadata:
     object-path: ">=0.11.5"
     prettier: ^2.0.5
     prismjs: ^1.24.1
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    react-is: ^17.0.2
     rxjs: ^6.5.5
     sass: ^1.33.0
     stylelint: ^10.0.1 || ^11.0.0 || ^12.0.0 || ^13.0.0
@@ -22754,6 +22757,7 @@ __metadata:
     react: ^17.0.2
     react-app-polyfill: ^2.0.0
     react-dom: ^17.0.2
+    react-is: ^17.0.2
     react-scripts: 5.0.0
     web-vitals: ^1.0.1
     webpack: ^4.0.0 || ^5.0.0
@@ -27271,11 +27275,16 @@ __metadata:
     ansi-html-community: ^0.0.8
     babel-eslint: ^10.1.0
     core-js: ^3.20.2
+    css-loader: ^4.3.0
     eslint: ^6.7.2
     eslint-plugin-vue: ^7.0.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    react-is: ^17.0.2
     sass-loader: ^10.0.2
     vue: ^3.0.0
     vue-loader: 15.9.8
+    webpack: ^5.12.0
   languageName: unknown
   linkType: soft
 
