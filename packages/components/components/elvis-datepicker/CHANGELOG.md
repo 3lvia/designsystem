@@ -1,5 +1,16 @@
 # Elvia Date picker Changelog
 
+## 2.8.0 (18.03.22)
+
+### New feature
+
+- Added disableDate prop that allows disabling specific dates by sending in a function of the shape
+  `(day: Date) => boolean` that is true for dates that should be disabled.
+
+### Patch
+
+- Now listening to changes on minDate and maxDate-props and updating validation when either changes.
+
 ## 2.7.2 (14.03.22)
 
 ### Patch

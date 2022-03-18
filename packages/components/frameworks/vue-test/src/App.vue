@@ -6,15 +6,7 @@
       <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
       <h3>Test your component here</h3>
       <!--Normal version-->
-      <div class="e-bg-white">
-        <elvia-tabs
-          :hasManualActivation="true"
-          :ariaLabel="'Simple tablist example'"
-          :items="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
-          :value="1"
-          @value-on-change="logValue('Tabs', $event.detail.value)"
-        ></elvia-tabs>
-      </div>
+      <div class="e-bg-white"></div>
       <!--Inverted version-->
       <div class="e-bg-grey"></div>
     </div>
@@ -30,8 +22,8 @@
     <!--Box-->
     <div class="example-wrapper">
       <h3>Box</h3>
-      <elvia-box :hasBorder="true">
-        <div slot="title">Title</div>
+      <elvia-box :hasBorder="true" :isColored="true">
+        <div slot="title"><h1>Title for the box component</h1></div>
         <div slot="content">Webcomponentent content for the Box component</div>
       </elvia-box>
     </div>
@@ -77,7 +69,11 @@
     <!--Datepicker-->
     <div class="example-wrapper">
       <h3>Datepicker</h3>
-      <elvia-datepicker :isCompact="true" label="Fra dato"></elvia-datepicker>
+      <elvia-datepicker
+        :isCompact="false"
+        label="Fra dato"
+        :disableDate="(day) => day.getDay() === 0 || day.getDay() === 6"
+      ></elvia-datepicker>
     </div>
 
     <!--Divider-->
