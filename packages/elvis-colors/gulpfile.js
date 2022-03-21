@@ -56,10 +56,12 @@ const generateElviaColorsScssFile = async () => {
   let content = [];
   for (const categoryLabel in colors) {
     for (const colorLabel in colors[categoryLabel]) {
+      // Each color is added with its color hex value.
       content.push(`$${renameToScssName(colorLabel)}: ${colors[categoryLabel][colorLabel]['color']};`);
       if (colors[categoryLabel][colorLabel]['alt-labels']) {
         for (const altLabelIndex in colors[categoryLabel][colorLabel]['alt-labels']) {
           const altLabel = colors[categoryLabel][colorLabel]['alt-labels'][altLabelIndex];
+          // Alt-labels are added as references to their parent color.
           const newContent = `$${renameToScssName(altLabel)}: $${renameToScssName(colorLabel)};`;
           // Make sure the color isn't already in the array.
           if (content.indexOf(newContent) === -1) {
