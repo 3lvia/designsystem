@@ -37,10 +37,8 @@ const makeCapitalizedCamelCase = (name) => {
  */
 const renameToScssName = (name) => {
   let returnName = 'Elvia';
-  if (name.startsWith('elvis')) {
-    returnName = returnName + makeCapitalizedCamelCase(name.substring(name.indexOf('elvis') + 5));
-  } else if (name.startsWith('elvia')) {
-    returnName = returnName + makeCapitalizedCamelCase(name.substring(name.indexOf('elvia') + 5));
+  if (name.startsWith('elvis') || name.startsWith('elvia')) {
+    returnName = returnName + makeCapitalizedCamelCase(name.substring(5));
   } else {
     returnName = returnName + makeCapitalizedCamelCase(name);
   }
