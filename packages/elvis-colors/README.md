@@ -42,5 +42,5 @@ requested color.
 
 ## Maintaining
 
-Remember to update all three elviaColor files (js, json and scss), when adding a new color or updating an
-existing color.
+The json and scss-files are generated from the colors object in the js file. When making changes, remember to
+run `yarn build` afterwards.
