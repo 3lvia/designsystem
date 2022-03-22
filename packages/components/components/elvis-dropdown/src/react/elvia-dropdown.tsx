@@ -171,7 +171,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       ...provided,
       background: '#ffffff',
       margin: '0px',
-      color: state.isDisabled ? getColor('grey-70') : '#000',
+      color: state.isDisabled ? getColor('disabled') : '#000',
     }),
 
     multiValueLabel: (provided: any, state: any) => ({
@@ -181,7 +181,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       fontStyle: 'normal',
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: '22px',
-      color: state.isDisabled ? getColor('grey-70') : '#000',
+      color: state.isDisabled ? getColor('disabled') : '#000',
       paddingTop: '0px',
       paddingBottom: '0px',
       paddingLeft: '0px',
@@ -238,7 +238,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       fontStyle: 'normal',
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: '22px',
-      color: state.isDisabled ? getColor('grey-70') : '#000',
+      color: state.isDisabled ? getColor('disabled') : '#000',
       margin: '0px',
       maxWidth: 'calc(100% - 12px)',
     }),
@@ -246,7 +246,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     valueContainer: (provided: any, state: any) => ({
       ...provided,
       display: 'flex',
-      color: state.isDisabled ? getColor('grey-70') : '#000',
+      color: state.isDisabled ? getColor('disabled') : '#000',
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
       fontStyle: 'normal',
