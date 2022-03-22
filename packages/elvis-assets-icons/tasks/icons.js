@@ -64,13 +64,13 @@ import { getColor } from '@elvia/elvis-colors';
   let iconNameType = `
 export declare type IconName =`;
 
-  for (let i = 0; i < iconsToInclude.length; i++) {
-    const fileContent = fs.readFileSync(iconsToInclude[i].path).toString();
-    const iconName = path.basename(iconsToInclude[i].path, '.svg');
+  for (const icon of iconsToInclude) {
+    const fileContent = fs.readFileSync(icon.path).toString();
+    const iconName = path.basename(icon.path, '.svg');
     jsModule =
       jsModule +
       `
-export const ${createCamelCase(iconsToInclude[i].name)} = {
+export const ${createCamelCase(icon.name)} = {
   getIcon: function (color) {
     let icon =
       '${fileContent}';
@@ -101,8 +101,8 @@ export const ${createCamelCase(iconsToInclude[i].name)} = {
     iconTypes =
       iconTypes +
       `
-export declare const ${createCamelCase(iconsToInclude[i].name)}: Icon;`;
-    iconNameType = iconNameType + `\n  | '${createCamelCase(iconsToInclude[i].name)}'`;
+export declare const ${createCamelCase(icon.name)}: Icon;`;
+    iconNameType = iconNameType + `\n  | '${createCamelCase(icon.name)}'`;
   }
   // const template = fs.readFileSync('./src/templates/icons.template.js').toString();
   // const newContent = template.replace('//[[INJECT_ICONS]]', jsModule);
@@ -134,13 +134,13 @@ async function createCommonJSIconModule() {
   let iconTypes = ``;
   let iconNameType = ``;
 
-  for (let i = 0; i < iconsToInclude.length; i++) {
-    const fileContent = fs.readFileSync(iconsToInclude[i].path).toString();
-    const iconName = path.basename(iconsToInclude[i].path, '.svg');
+  for (const icon of iconsToInclude) {
+    const fileContent = fs.readFileSync(icon.path).toString();
+    const iconName = path.basename(icon.path, '.svg');
     jsModule =
       jsModule +
       `
-    exports.${createCamelCase(iconsToInclude[i].name)} = {
+    exports.${createCamelCase(icon.name)} = {
       getIcon: function(color) {
           let icon = '${fileContent}'
           let iconName = '${iconName}'
@@ -170,8 +170,8 @@ async function createCommonJSIconModule() {
     iconTypes =
       iconTypes +
       `
-exports.${createCamelCase(iconsToInclude[i].name)}: Icon;`;
-    iconNameType = iconNameType + `"${createCamelCase(iconsToInclude[i].name)}" | `;
+exports.${createCamelCase(icon.name)}: Icon;`;
+    iconNameType = iconNameType + `"${createCamelCase(icon.name)}" | `;
   }
 
   fs.writeFileSync('./icons.cjs.js', jsModule);
