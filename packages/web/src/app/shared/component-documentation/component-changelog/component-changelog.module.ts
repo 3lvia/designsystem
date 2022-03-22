@@ -1,13 +1,14 @@
-import { Input, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Input, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentChangelogComponent } from './component-changelog.component';
-import { CopyModule } from '../../copy/copy.module';
-import { MarkdownModule } from 'ngx-markdown';
+import { ChangelogTypePipe } from './component-changelog-pipe';
+import '@elvia/elvis-accordion';
 
 @NgModule({
-  imports: [CommonModule, CopyModule, MarkdownModule.forRoot()],
-  declarations: [ComponentChangelogComponent],
-  exports: [ComponentChangelogComponent],
+  imports: [CommonModule],
+  declarations: [ComponentChangelogComponent, ChangelogTypePipe],
+  exports: [ComponentChangelogComponent, ChangelogTypePipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentChangelogModule {
   @Input() componentData;

@@ -33,7 +33,7 @@
                 "output": "./assets/changelog"
               },
               {
-                "glob": "**/CHANGELOG_new.md",
+                "glob": "**/CHANGELOG.json",
                 "input": "../components/components/",
                 "output": "./assets/changelog"
               },

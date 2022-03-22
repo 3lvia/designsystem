@@ -1,4 +1,6 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import changelogJson from 'dist/elvia-designsystem/assets/changelog/elvis-accordion/CHANGELOG.json';
+const { content } = changelogJson;
 
 const accordionData = {
   name: 'elvis-accordion',
@@ -136,7 +138,7 @@ const accordionData = {
   accordion.setProps({openLabel: 'Show' });
   accordion.setProps({closeLabel: 'Hide'});
 `,
-  changelog: '',
+  changelog: content,
 };
 
 export { accordionData };

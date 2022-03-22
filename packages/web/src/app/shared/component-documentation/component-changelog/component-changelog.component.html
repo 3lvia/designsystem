@@ -1,4 +1,28 @@
-<!--BODY-->
-<div class="page-body">
-  <div class="documentation-section-animation e-mt-24" markdown [src]="changelogSrc"></div>
-</div>
+<elvia-accordion
+  type="overflow"
+  [openLabel]="'Show all'"
+  [closeLabel]="'Hide all'"
+  [labelPosition]="'right'"
+  [size]="'small'"
+>
+  <div slot="content">
+    <table>
+      <tr class="changelog-row" *ngFor="let el of componentData.changelog">
+        <td class="changelog-date">
+          <span class="e-title-sm">{{ el.version }}</span>
+          <br />
+          <span class="changelog-date-span">{{ el.date }}</span>
+        </td>
+        <td class="changelog-content">
+          <div class="changelog-section" *ngFor="let changelog of el.changelog">
+            <div class="changelog-section-title">{{ changelog.type | ChangelogTypePipe }}</div>
+            <ul class="e-list">
+              <li *ngFor="let change of changelog.changes">{{ change }}</li>
+            </ul>
+          </div>
+          <div class="changelog-divider"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</elvia-accordion>
