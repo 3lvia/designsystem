@@ -226,6 +226,7 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   // Any type of event
   private onEvent(callbackName: string, data?: any) {
+    // Kebab case events for Vue support
     const kebabCaseCallbackName = callbackName.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
     this.dispatchNewEvent(callbackName, data, false);
     this.dispatchNewEvent(kebabCaseCallbackName, data, false);
@@ -241,6 +242,7 @@ export class ElvisComponentWrapper extends HTMLElement {
       return;
     }
     const callbackName = propName + 'OnChange';
+    // Kebab case events for Vue support
     const kebabCaseCallbackName = callbackName.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
     this.dispatchNewEvent(callbackName, propName, true);
     this.dispatchNewEvent(kebabCaseCallbackName, propName, true);
