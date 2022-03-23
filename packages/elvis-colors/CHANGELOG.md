@@ -1,6 +1,6 @@
 # Elvia Colors Changelog
 
-## 1.2.3 (21.03.22)
+## 1.2.3 (23.03.22)
 
 ### Patch
 
