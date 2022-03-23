@@ -1,5 +1,11 @@
 # Elvia Card Changelog
 
+## 1.1.3 (09.03.22)
+
+### Patch
+
+- Fixed peerDependencies.
+
 ## 1.1.2 (04.03.22)
 
 ### Patch

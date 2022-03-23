@@ -1,5 +1,11 @@
 # Elvia Progress-linear Changelog
 
+## 1.2.1 (14.03.22)
+
+### Patch
+
+- Now building .scss files to .css for React users.
+
 ## 1.2.0 (07.02.22)
 
 ### New feature

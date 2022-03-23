@@ -84,9 +84,24 @@ export const ModalWrapper = styled.div<WrapperProps>`
   }
 `;
 
-export const ModalContent = styled.div`
-  padding: ${(props: { hasIllustration: boolean }) =>
-    props.hasIllustration ? modalDesktopWithIllustrationPadding : modalDesktopPadding};
+const decideContentPadding = (hasIllustration: boolean, hasPadding: boolean, padding: string): string => {
+  if (!hasPadding) {
+    return '0px';
+  } else if (hasIllustration) {
+    return modalDesktopWithIllustrationPadding;
+  } else {
+    return padding;
+  }
+};
+
+type ModalContentProps = {
+  hasIllustration: boolean;
+  hasPadding: boolean;
+};
+
+export const ModalContent = styled.div<ModalContentProps>`
+  padding: ${(props: { hasIllustration: boolean; hasPadding: boolean }) =>
+    decideContentPadding(props.hasIllustration, props.hasPadding, modalDesktopPadding)};
   height: 100%;
   width: ${(props: { hasIllustration: boolean }) => (props.hasIllustration ? '620px' : 'auto')};
   display: flex;
@@ -94,7 +109,8 @@ export const ModalContent = styled.div`
   z-index: 1;
 
   @media (max-width: ${mobileMax}) {
-    padding: ${modalMobilePadding};
+    padding: ${(props: { hasPadding: boolean }) =>
+      decideContentPadding(false, props.hasPadding, modalMobilePadding)};
     padding-top: ${(props: { hasIllustration: boolean }) => props.hasIllustration && '24px'};
     width: 100%;
     height: ${(props: { hasIllustration: boolean }) =>

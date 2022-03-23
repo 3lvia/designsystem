@@ -1,5 +1,11 @@
 # Elvia Radio Filter Changelog
 
+## 1.2.2 (09.03.22)
+
+### Patch
+
+- Fixed peerDependencies.
+
 ## 1.2.1 (04.03.22)
 
 ### Patch

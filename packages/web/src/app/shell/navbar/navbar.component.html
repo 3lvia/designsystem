@@ -1,6 +1,9 @@
 <div class="wrapper">
   <div class="navbar" id="side-navbar">
-    <ul class="navbar-list">
+    <div *ngIf="!isLoaded">
+      <span class="e-content-loader" style="height: 50vh; width: 100%"></span>
+    </div>
+    <ul class="navbar-list" *ngIf="isLoaded">
       <li class="navbar-item" *ngFor="let navbarItem of navbarList; let i = index">
         <a
           [routerLink]="['/' + this.subMenuRoute + '/' + navbarItem.docUrl]"

@@ -1,5 +1,11 @@
 # Elvia Modal Changelog
 
+## 1.4.3 (14.03.22)
+
+### New feature
+
+- Added hasPadding prop
+
 ## 1.4.2 (04.03.22)
 
 ### Patch
