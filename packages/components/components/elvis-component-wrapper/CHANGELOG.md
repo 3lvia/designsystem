@@ -1,5 +1,11 @@
 # Elvia Component Wrapper Changelog
 
+## 2.2.2 (23.03.22)
+
+### Bug fix
+
+- Fixed a bug where event dispatching with falsy value caused unexpected behaviour in some environments.
+
 ## 2.2.1 (07.03.22)
 
 ### Bug fix
