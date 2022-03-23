@@ -2255,6 +2255,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
+    gulp: ^4.0.2
+    gulp-prettier: ^4.0.0
     lodash.kebabcase: ^4.1.1
   languageName: unknown
   linkType: soft
