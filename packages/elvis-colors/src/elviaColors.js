@@ -26,7 +26,7 @@ const colors = {
   'signal-colors': {
     yellow: {
       color: '#ffff00',
-      rgb: 'rgb(255, 255, 0',
+      rgb: 'rgb(255, 255, 0)',
       contrastText: '#000',
     },
     orange: {

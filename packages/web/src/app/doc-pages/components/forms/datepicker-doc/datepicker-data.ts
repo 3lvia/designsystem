@@ -178,6 +178,11 @@ const datepickerData = {
       default: 'Nullstill',
       description: 'Text to display in clear button.',
     },
+    disableDate: {
+      isRequired: false,
+      type: '(day: Date) => boolean',
+      description: 'Function that sets dates as disabled. Return true to disable a date.',
+    },
   },
   package: 'npm install @elvia/elvis-datepicker',
   codeImportReact: `import { Datepicker } from '@elvia/elvis-datepicker/react';`,

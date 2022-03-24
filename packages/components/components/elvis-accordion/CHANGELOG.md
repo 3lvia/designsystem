@@ -1,5 +1,12 @@
 # Elvia Accordion Changelog
 
+## 2.2.1 (23.03.22)
+
+### Big fix
+
+- Fixed an issue causing problems for events in non-React environments for props with falsy values. This
+  update bumps the dependency on @elvia/elvis-component-wrapper.
+
 ## 2.2.0 (04.03.22)
 
 ### New feature

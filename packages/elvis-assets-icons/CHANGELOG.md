@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 2.3.1 (22.03.22)
+
+### Patch
+
+- Fixed CommonJS template not including elvis-colors support.
+
 ## 2.3.0 (03.03.22)
 
 ### New feature
