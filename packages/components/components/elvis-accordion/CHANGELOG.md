@@ -1,5 +1,12 @@
 # Elvia Accordion Changelog
 
+## 2.3.0 (24.03.22)
+
+### New feature
+
+- Added new property "overflowHeight" allowing users to decide how much content to diplay before opening the
+  accordion.
+
 ## 2.2.1 (23.03.22)
 
 ### Big fix
