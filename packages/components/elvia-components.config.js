@@ -55,6 +55,7 @@ module.exports = [
       { name: 'type', type: 'string', propType: 'string' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
+      { name: 'overflowHeight', type: 'number', propType: 'number | undefined' },
     ],
     reactName: 'Accordion',
     useWrapper: true,

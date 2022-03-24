@@ -13,6 +13,7 @@ export interface AccordionProps {
   labelPosition: AccordionLabelPosition;
   size: AccordionSize;
   type: AccordionType;
+  overflowHeight?: number;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
 }
@@ -26,6 +27,7 @@ const Accordion: FC<AccordionProps> = ({
   labelPosition = 'center',
   size = 'medium',
   type = 'normal',
+  overflowHeight,
   className,
   inlineStyle,
 }) => {
@@ -83,6 +85,7 @@ const Accordion: FC<AccordionProps> = ({
       >
         {type === 'overflow' ? (
           <AccordionContent
+            overflowHeight={overflowHeight}
             isContentOpen={contentOpen}
             type={type}
             size={size}
@@ -116,6 +119,7 @@ const Accordion: FC<AccordionProps> = ({
             isContentOpen={contentOpen}
             type={type}
             size={size}
+            overflowHeight={overflowHeight}
             data-testid="accordion-content-normal"
           >
             {content && <div>{content}</div>}
