@@ -15,6 +15,12 @@ const accordionData = {
       cegFormType: 'type',
       cegOptions: ['normal', 'overflow'],
     },
+    overflowHeight: {
+      isRequired: false,
+      type: 'number',
+      description:
+        'How much content (in pixels) to display before opening the accordion. Only affects accordion with type "overflow".',
+    },
     content: {
       isRequired: true,
       type: 'string | HTMLElement',
