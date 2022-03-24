@@ -1,5 +1,12 @@
 # Elvia Icon Changelog
 
+## 1.1.3 (23.03.22)
+
+### Big fix
+
+- Fixed an issue causing problems for events in non-React environments for props with falsy values. This
+  update bumps the dependency on @elvia/elvis-component-wrapper.
+
 ## 1.1.2 (11.02.22)
 
 ### Patch

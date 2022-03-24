@@ -222,6 +222,11 @@ p {
     margin-top: -32px;
     color: var(--e-grey-80);
   }
+  @-moz-document url-prefix() {
+    .changelog-date-span {
+      margin-top: 0;
+    }
+  }
   @include breakpoint-up(Mobile) {
     width: 100%;
     .changelog-date-span {

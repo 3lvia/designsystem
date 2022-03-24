@@ -1,5 +1,18 @@
 # Elvia Tabs Changelog
 
+## 1.3.3 (23.03.22)
+
+### Big fix
+
+- Fixed an issue causing problems for events in non-React environments for props with falsy values. This
+  update bumps the dependency on @elvia/elvis-component-wrapper.
+
+## 1.3.2 (14.03.22)
+
+### Patch
+
+- Now building .scss files to .css for React users.
+
 ## 1.3.1 (04.03.22)
 
 ### Patch

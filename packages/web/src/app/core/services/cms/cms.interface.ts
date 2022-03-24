@@ -1,4 +1,4 @@
-import { ISubMenu } from 'contentful/__generated__/types';
+import { ISubMenu } from 'contentful/types';
 
 export interface TransformedDocPage {
   title: string;

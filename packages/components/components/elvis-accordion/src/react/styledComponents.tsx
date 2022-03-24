@@ -101,7 +101,11 @@ const decideContentMarginTop = (contentOpen: boolean, type: AccordionType, size:
   return '0';
 };
 
-const decideContentMaxHeight = (contentOpen: boolean, type: AccordionType): string => {
+const decideContentMaxHeight = (
+  contentOpen: boolean,
+  type: AccordionType,
+  overflowHeight?: number,
+): string => {
   if (type === 'normal') {
     if (contentOpen) {
       return '10000px';
@@ -113,7 +117,7 @@ const decideContentMaxHeight = (contentOpen: boolean, type: AccordionType): stri
     if (contentOpen) {
       return '10000px';
     } else {
-      return 'calc(2em * 1.2)';
+      return overflowHeight ? `${overflowHeight}px` : 'calc(2em * 1.2)';
     }
   }
 
@@ -149,6 +153,7 @@ type AccordionContentProps = {
   isContentOpen: boolean;
   type: AccordionType;
   size: AccordionSize;
+  overflowHeight?: number;
 };
 
 export const AccordionContent = styled.div<AccordionContentProps>`
@@ -161,8 +166,8 @@ export const AccordionContent = styled.div<AccordionContentProps>`
     decideContentMarginTop(props.isContentOpen, props.type, props.size)};
   pointer-events: ${(props: { isContentOpen: boolean }) => (props.isContentOpen ? 'auto' : 'none')};
   height: auto;
-  max-height: ${(props: { isContentOpen: boolean; type: AccordionType }) =>
-    decideContentMaxHeight(props.isContentOpen, props.type)};
+  max-height: ${(props: { isContentOpen: boolean; type: AccordionType; overflowHeight?: number }) =>
+    decideContentMaxHeight(props.isContentOpen, props.type, props.overflowHeight)};
   opacity: ${(props: { isContentOpen: boolean; type: AccordionType }) =>
     decideContentOpacity(props.isContentOpen, props.type)};
   overflow-y: ${(props: { isContentOpen: boolean; type: AccordionType }) =>

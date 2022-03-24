@@ -1,5 +1,24 @@
 # Elvia Popover Changelog
 
+## 4.3.8 (23.03.22)
+
+### Big fix
+
+- Fixed an issue causing problems for events in non-React environments for props with falsy values. This
+  update bumps the dependency on @elvia/elvis-component-wrapper.
+
+## 4.3.7 (14.03.22)
+
+### Patch
+
+-Now building .scss files to .css for React users.
+
+## 4.3.6 (11.03.22)
+
+### Patch
+
+- Close button now has type button (to avoid submitting forms).
+
 ## 4.3.5 (08.03.22)
 
 ### Patch

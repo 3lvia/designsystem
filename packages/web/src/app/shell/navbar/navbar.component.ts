@@ -25,6 +25,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   scrollEventTimeout;
   startedScrollSub = false;
   isLandingPage = false;
+  isLoaded = false;
 
   navbarList: any[];
   activeNavbarItem: any;
@@ -148,6 +149,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   }
 
   async updateNavbarList(locale: Locale): Promise<any> {
+    this.isLoaded = false;
     const routeWithoutAnchor = this.router.url.split('#')[0];
     this.navbarList = [];
     const content = await this.cmsService.getSubMenuList(locale);
@@ -161,6 +163,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
         }
       }
     });
+    this.isLoaded = true;
   }
 
   setNewActiveNavbarItem(): void {

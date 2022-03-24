@@ -4,8 +4,8 @@ import isEqual from 'lodash.isequal';
 import toolbox from '@elvia/elvis-toolbox';
 
 export class ElvisComponentWrapper extends HTMLElement {
-  protected _data: any;
-  protected _slots: any;
+  protected _data: { [propName: string]: any };
+  protected _slots: { [slotName: string]: any };
   protected reactComponent: any;
   protected webComponent: any;
   protected cssStyle: string;
@@ -23,11 +23,11 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.throttleRenderReactDOM = toolbox.throttle(this.renderReactDOM, 50, { trailing: true });
   }
 
-  get data(): any {
+  get data(): { [propName: string]: any } {
     return this._data;
   }
 
-  getProps(): any {
+  getProps(): { [propName: string]: any } {
     return this._data;
   }
 
@@ -213,10 +213,8 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   // Dispatches event
-  private dispatchNewEvent(callbackName: string, eventData?: any) {
-    const propExists =
-      eventData && typeof eventData === 'string' && this._data[eventData.toLowerCase()] !== undefined;
-    const data = propExists ? this._data[eventData.toLowerCase()] : eventData;
+  private dispatchNewEvent(callbackName: string, eventData?: any, isProp?: boolean) {
+    const data = isProp ? this._data[eventData.toLowerCase()] : eventData;
     this.dispatchEvent(
       new CustomEvent(callbackName, {
         bubbles: false,
@@ -228,9 +226,10 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   // Any type of event
   private onEvent(callbackName: string, data?: any) {
+    // Kebab case events for Vue support
     const kebabCaseCallbackName = callbackName.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
-    this.dispatchNewEvent(callbackName, data);
-    this.dispatchNewEvent(kebabCaseCallbackName, data);
+    this.dispatchNewEvent(callbackName, data, false);
+    this.dispatchNewEvent(kebabCaseCallbackName, data, false);
   }
 
   // 'OnChange' events
@@ -243,9 +242,10 @@ export class ElvisComponentWrapper extends HTMLElement {
       return;
     }
     const callbackName = propName + 'OnChange';
+    // Kebab case events for Vue support
     const kebabCaseCallbackName = callbackName.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
-    this.dispatchNewEvent(callbackName, propName);
-    this.dispatchNewEvent(kebabCaseCallbackName, propName);
+    this.dispatchNewEvent(callbackName, propName, true);
+    this.dispatchNewEvent(kebabCaseCallbackName, propName, true);
   }
 
   private storeAllSlots(): void {

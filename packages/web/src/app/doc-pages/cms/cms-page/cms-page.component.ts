@@ -5,10 +5,9 @@ import { Locale, LocalizationService } from 'src/app/core/services/localization.
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
-import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
-import { IDocumentationPage } from 'contentful/__generated__/types';
+import { IDocumentationPage } from 'contentful/types';
 
 @Component({
   selector: 'app-cms-page',
@@ -38,7 +37,6 @@ export class CMSPageComponent implements OnDestroy {
     private router: Router,
     private copyService: CopyToClipboardService,
     private elementRef: ElementRef,
-    private http: HttpClient,
   ) {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
@@ -71,6 +69,12 @@ export class CMSPageComponent implements OnDestroy {
     this.routerSubscription && this.routerSubscription.unsubscribe();
   }
 
+  /**
+   * Display the documentation page corresponding to the current path.
+   * This function __will__ use the locally cached entries.
+   *
+   * @param locale Current locale (see localization.service.ts).
+   */
   async getDocPageFromPreGeneratedList(locale: Locale): Promise<any> {
     this.removeClickEventListenersForCopyPath();
 
@@ -79,25 +83,29 @@ export class CMSPageComponent implements OnDestroy {
     this.setInnerHTMLToCMSContent(docPage);
   }
 
+  /**
+   * Display the documentation page corresponding to the given pageId or path.
+   * This function __will not__ use the locally cached entries.
+   *
+   * @param locale Current locale (see localization.service.ts).
+   * @param pageId Contentful ID of the requested page. If no ID is provided, it will be found based on the current path.
+   */
   async getDocPageFromCMS(locale: Locale, pageId?: string): Promise<any> {
     this.removeClickEventListenersForCopyPath();
 
     const id = pageId ? pageId : await this.cmsService.getPageSysId(locale);
-    const entry = await this.getEntryFromCMS(id);
+    const entry: IDocumentationPage = await this.cmsService.getEntryFromCMS(id);
     const docPage = await this.cmsService.getTransformedDocPageByEntry(entry, locale);
     this.setInnerHTMLToCMSContent(docPage);
   }
 
-  async getEntryFromCMS(pageId: string): Promise<IDocumentationPage> {
-    return this.http
-      .get('https://elvis-designsystem.netlify.app/.netlify/functions/services?id=' + pageId)
-      .toPromise()
-      .then((entry: any) => {
-        return entry;
-      });
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  /**
+   * Inject the current page's transformed HTML to be displayed.
+   *
+   * If there are any errors in the transformed documentation page they will be shown.
+   * These errors typically come from how content is implemented in Contentful.
+   * @param docPage
+   */
   setInnerHTMLToCMSContent(docPage: TransformedDocPage): void {
     if (docPage.errorMessages.length > 0) {
       this.errorMessages = docPage.errorMessages;
@@ -113,6 +121,9 @@ export class CMSPageComponent implements OnDestroy {
     this.addClickEventListenersForCopyPath();
   }
 
+  /**
+   * This function adds event listeners to all the titles. The event listeners add "copy path on click"-functionality.
+   */
   addClickEventListenersForCopyPath(): void {
     setTimeout(() => {
       this.elementRef.nativeElement
@@ -124,6 +135,9 @@ export class CMSPageComponent implements OnDestroy {
     });
   }
 
+  /**
+   * This function removes event listeners from all the titles. The event listeners add "copy path on click"-functionality.
+   */
   removeClickEventListenersForCopyPath(): void {
     this.activeEventListeners.forEach((domElement: HTMLElement) => {
       domElement.removeEventListener('click', () => this.copyAnchor(domElement['id']));
@@ -147,6 +161,10 @@ export class CMSPageComponent implements OnDestroy {
     this.hasChecked = true;
   }
 
+  /**
+   * Perform the "copy path on click"-action on a title.
+   * @param id HTML-id of a title element.
+   */
   copyAnchor(id: string): void {
     const anchorTitleElement = document.getElementById(id);
     anchorTitleElement.classList.add('anchor-copied');

@@ -1,5 +1,18 @@
 # Elvia Radio Filter Changelog
 
+## 1.2.3 (23.03.22)
+
+### Big fix
+
+- Fixed an issue causing problems for events in non-React environments for props with falsy values. This
+  update bumps the dependency on @elvia/elvis-component-wrapper.
+
+## 1.2.2 (09.03.22)
+
+### Patch
+
+- Fixed peerDependencies.
+
 ## 1.2.1 (04.03.22)
 
 ### Patch
