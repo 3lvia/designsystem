@@ -34,6 +34,8 @@ export type AttributeTypeCEG = {
    * Selects the default option from the cegOptions array.
    *
    * Can either be the index of the default value, or the default value itself.
+   *
+   * For cegFormType = 'checkbox' | 'toggle' it should be a boolean indicating whether it is selected by default.
    */
   cegDefault?: number | string | boolean;
   /**
