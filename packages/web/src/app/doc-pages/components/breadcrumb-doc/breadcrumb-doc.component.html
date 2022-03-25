@@ -15,10 +15,24 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+      <app-component-subsection [sectionTitle]="'How it works'">
+        <ng-container ngProjectAs="sectionContent">
+          The breadcrumb should start with home (landing page) and end with the current page. All pages
+          besides the current page are a link. The breadcrumb is hidden until you have two levels (no
+          breadcrumb are visible on the homepage). On mobile you only get the closest parent.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Breadcrumb vs backlink'">
+        <ng-container ngProjectAs="sectionContent">
+          Breadcrumb is a great way to reveal the user’s location and makes it easier to navigate and find
+          what they are looking for. But it’s not necessary to use breadcrumbs for single-level pages with no
+          more than one parent category. Backlink can then be used to navigate the user back to home.
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
-  <!-- USAGE -->
+  <!--IMPLEMENTATION-->
   <app-component-section [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Routing'">
