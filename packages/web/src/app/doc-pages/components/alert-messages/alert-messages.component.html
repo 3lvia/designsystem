@@ -32,30 +32,6 @@
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
-      <div class="alert-type-container">
-        <div class="alert-type-item">
-          <div class="e-title-caps">Global</div>
-          <div class="type-images">
-            <img src="./../../../../assets/alert/global.svg" />
-            <img src="./../../../../assets/alert/global-mobile.svg" />
-          </div>
-        </div>
-        <div class="alert-type-item">
-          <div class="e-title-caps">Local</div>
-          <div class="type-images">
-            <img src="./../../../../assets/alert/local.svg" />
-            <img src="./../../../../assets/alert/local-mobile.svg" />
-          </div>
-        </div>
-        <div class="alert-type-item">
-          <div class="e-title-caps">Toast</div>
-          <div class="type-images">
-            <img src="./../../../../assets/alert/toast.svg" class="e-mr-n8" />
-            <img src="./../../../../assets/alert/toast-mobile.svg" class="e-mr-n8" />
-          </div>
-        </div>
-      </div>
-
       <app-component-subsection [sectionTitle]="'Global Alert'">
         <ng-container ngProjectAs="sectionContent">
           Global alert is in most cases initiated by the application or system, but can also be used when an
@@ -186,92 +162,170 @@
     </ng-container>
   </app-component-section>
 
-  <!--STATUSES-->
-  <app-component-section [sectionTitle]="'Status'">
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      The status of an alert helps to communicate the information and the severity of the alert. Each status
-      consists of a defined color and an icon. It is important to use the correct status of the alert to
-      provide a consistent and universal user experience.
-      <div class="alert-status e-mt-80">
-        <div class="alert-icons">
-          <div class="e-bg-red e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
-          <div><i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xl"></i></div>
-        </div>
-        <div>
-          <div class="title e-title-caps">
-            error
-            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
-              e-alert--error
-            </span>
+      <app-component-subsection [sectionTitle]="'Status'">
+        <ng-container ngProjectAs="sectionContent">
+          The status of an alert helps to communicate the information and the severity of the alert. Each
+          status consists of a defined color and an icon. It is important to use the correct status of the
+          alert to provide a consistent and universal user experience.
+          <div class="alert-status e-mt-80">
+            <div class="alert-icons">
+              <div class="e-bg-red e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
+              <div><i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xl"></i></div>
+            </div>
+            <div>
+              <div class="title e-title-caps">
+                error
+                <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
+                  e-alert--error
+                </span>
+              </div>
+              <div class="e-mt-8">
+                Notify when something goes wrong or the user is denied completing their task. Explain why and
+                what to do. Example: Error, missing fields and invalid entry. This status can be used with
+                <b>local</b>
+                and
+                <b>global alerts.</b>
+              </div>
+            </div>
           </div>
-          <div class="e-mt-8">
-            Notify when something goes wrong or the user is denied completing their task. Explain why and what
-            to do. Example: Error, missing fields and invalid entry. This status can be used with
-            <b>local</b>
-            and
-            <b>global alerts.</b>
+          <div class="alert-status">
+            <div class="alert-icons">
+              <div class="e-bg-orange e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
+              <div><i class="e-icon e-icon--warning_circle e-icon--color-orange e-icon--xl"></i></div>
+            </div>
+            <div>
+              <div class="title e-title-caps">
+                warning
+                <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
+                  e-alert--warn
+                </span>
+              </div>
+              <div class="e-mt-8">
+                Help users to avoid error situations and to give attention to something undesirable that may
+                occur. Explain why and what to do. This status can be used with
+                <b>local</b>
+                and
+                <b>global alerts.</b>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="alert-status">
-        <div class="alert-icons">
-          <div class="e-bg-orange e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
-          <div><i class="e-icon e-icon--warning_circle e-icon--color-orange e-icon--xl"></i></div>
-        </div>
-        <div>
-          <div class="title e-title-caps">
-            warning
-            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
-              e-alert--warn
-            </span>
+          <div class="alert-status">
+            <div class="alert-icons">
+              <div class="e-bg-green e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
+              <div><i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xl"></i></div>
+            </div>
+            <div>
+              <div class="title e-title-caps">
+                positive
+                <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
+                  e-alert--toast
+                </span>
+              </div>
+              <div class="e-mt-8">
+                Provide a positive response to user actions, like a confirmation that an action is fully
+                completed. Example: save, edit and submit. This status can only be used with the
+                <b>toast alerts.</b>
+              </div>
+            </div>
           </div>
-          <div class="e-mt-8">
-            Help users to avoid error situations and to give attention to something undesirable that may
-            occur. Explain why and what to do. This status can be used with
-            <b>local</b>
-            and
-            <b>global alerts.</b>
+          <div class="alert-status">
+            <div class="alert-icons">
+              <div class="e-bg-grey e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
+              <div><i class="e-icon e-icon--information_circle e-icon--color-grey e-icon--xl"></i></div>
+            </div>
+            <div>
+              <div class="title e-title-caps">
+                informative
+                <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
+                  e-alert--info
+                </span>
+              </div>
+              <div class="e-mt-8">
+                Inform users to understand minor contextual changes, and are not typically in response to a
+                user action. Like a helpful tip or a suggestion. This status can be used with
+                <b>all alerts.</b>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="alert-status">
-        <div class="alert-icons">
-          <div class="e-bg-green e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
-          <div><i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xl"></i></div>
-        </div>
-        <div>
-          <div class="title e-title-caps">
-            positive
-            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
-              e-alert--toast
-            </span>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Types'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="alert-type-container">
+            <div class="alert-type-item">
+              <div class="e-title-caps">Global</div>
+              <div class="type-images">
+                <img src="./../../../../assets/alert/global.svg" />
+                <img src="./../../../../assets/alert/global-mobile.svg" />
+              </div>
+            </div>
+            <div class="alert-type-item">
+              <div class="e-title-caps">Local</div>
+              <div class="type-images">
+                <img src="./../../../../assets/alert/local.svg" />
+                <img src="./../../../../assets/alert/local-mobile.svg" />
+              </div>
+            </div>
+            <div class="alert-type-item">
+              <div class="e-title-caps">Toast</div>
+              <div class="type-images">
+                <img src="./../../../../assets/alert/toast.svg" class="e-mr-n8" />
+                <img src="./../../../../assets/alert/toast-mobile.svg" class="e-mr-n8" />
+              </div>
+            </div>
           </div>
-          <div class="e-mt-8">
-            Provide a positive response to user actions, like a confirmation that an action is fully
-            completed. Example: save, edit and submit. This status can only be used with the
-            <b>toast alerts.</b>
+
+          <div class="e-table-container e-mt-40">
+            <table class="e-table">
+              <thead>
+                <tr>
+                  <th scope="col">Type</th>
+                  <th scope="col">When to use</th>
+                  <th scope="col">Urgency</th>
+                  <th scope="col">Skins</th>
+                  <th scope="col">Position / Location</th>
+                  <th scope="col">Duration</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th><b>Global</b></th>
+                  <td>System or product level alerts and not specific to an user action.</td>
+                  <td>High</td>
+                  <td>Informative, negative, warning</td>
+                  <td>Full-width strip above the header. Visible on the entire application.</td>
+                  <td>Permanent or closable</td>
+                </tr>
+                <tr>
+                  <th><b>Local</b></th>
+                  <td>
+                    Related to the content of the page. Correct a problem. It can be in response to an user
+                    operation.
+                  </td>
+                  <td>Medium</td>
+                  <td>Informative, negative, warning</td>
+                  <td>Next to where the action occurred. Only visible on the current page.</td>
+                  <td>Permanent</td>
+                </tr>
+                <tr>
+                  <th><b>Toast</b></th>
+                  <td>Specific to an user operation. Informational - brief feedback about an operation.</td>
+                  <td>Low</td>
+                  <td>Informative and positive</td>
+                  <td>
+                    Above all content - top right corner (Mobile: Bottom center) Only visible on the current
+                    page.
+                  </td>
+                  <td>Disappears after some seconds</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
-      </div>
-      <div class="alert-status">
-        <div class="alert-icons">
-          <div class="e-bg-grey e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
-          <div><i class="e-icon e-icon--information_circle e-icon--color-grey e-icon--xl"></i></div>
-        </div>
-        <div>
-          <div class="title e-title-caps">
-            informative
-            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
-              e-alert--info
-            </span>
-          </div>
-          <div class="e-mt-8">
-            Inform users to understand minor contextual changes, and are not typically in response to a user
-            action. Like a helpful tip or a suggestion. This status can be used with
-            <b>all alerts.</b>
-          </div>
-        </div>
-      </div>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
