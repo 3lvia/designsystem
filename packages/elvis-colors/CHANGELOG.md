@@ -1,5 +1,16 @@
 # Elvia Colors Changelog
 
+## 1.2.3 (23.03.22)
+
+### Patch
+
+- Now building the elviaColors.json and elviaColors.scss files from the elviaColors.js colors object using
+  gulp.
+
+### Bug fixes
+
+- Fixed the RGB value on signal color yellow.
+
 ## 1.2.2 (08.03.22)
 
 ### Patch

@@ -156,20 +156,21 @@ const Dropdown: React.FC<DropdownProps> = ({
       zIndex: 10,
     }),
 
-    multiValue: (provided: any) => ({
+    multiValue: (provided: any, state: any) => ({
       ...provided,
       background: '#ffffff',
       margin: '0px',
+      color: state.isDisabled ? getColor('disabled') : '#000',
     }),
 
-    multiValueLabel: (provided: any) => ({
+    multiValueLabel: (provided: any, state: any) => ({
       ...provided,
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
       fontStyle: 'normal',
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: '22px',
-      color: '#000',
+      color: state.isDisabled ? getColor('disabled') : '#000',
       paddingTop: '0px',
       paddingBottom: '0px',
       paddingLeft: '0px',
@@ -226,15 +227,17 @@ const Dropdown: React.FC<DropdownProps> = ({
       fontStyle: 'normal',
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: '22px',
+      // check disabled color, solution: create function to determine color in singlevalue
       color: menuIsOpen && isSearchable ? getColor('grey-70') : '#000',
+      // color: state.isDisabled ? getColor('disabled') : '#000',
       margin: '0px',
       maxWidth: 'calc(100% - 12px)',
     }),
 
-    valueContainer: (provided: any) => ({
+    valueContainer: (provided: any, state: any) => ({
       ...provided,
       display: 'flex',
-      color: isDisabled ? getColor('grey-70') : '#000',
+      color: state.isDisabled ? getColor('disabled') : '#000',
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
       fontStyle: 'normal',

@@ -51,8 +51,7 @@
         "@typescript-eslint/member-delimiter-style": "error",
         "@typescript-eslint/member-ordering": "error",
         "@typescript-eslint/type-annotation-spacing": "error",
-        "react/prop-types": "off",
-        "react/jsx-key": "off"
+        "react/prop-types": "off"
       }
     }
   ]

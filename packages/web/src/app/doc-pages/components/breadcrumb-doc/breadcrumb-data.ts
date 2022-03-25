@@ -1,4 +1,6 @@
-const breadcrumbData = {
+import ComponentData from '../component-data.interface';
+
+const breadcrumbData: ComponentData = {
   name: 'elvis-breadcrumb',
   elementNameW: 'elvia-breadcrumb',
   elementNameR: 'Breadcrumb',

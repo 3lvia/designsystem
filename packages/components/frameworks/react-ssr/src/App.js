@@ -93,7 +93,6 @@ function App() {
             defaultValue={defaultDropdownOptions}
             label="test"
             isSearchable
-            isMulti
           ></Dropdown>
           {/* Normal version */}
           <div className="e-bg-white"></div>
@@ -104,12 +103,15 @@ function App() {
         <div className="example-wrapper">
           <h3>Accordion</h3>
           <Accordion
-            type={'normal'}
+            type={'overflow'}
             openLabel={'Show'}
             closeLabel={'Hide'}
+            overflowHeight={100}
             labelPosition={'center'}
             size={'medium'}
-            content={'It is not only outdoors that you should watch for dangerous conditions.'}
+            content={
+              'It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. '
+            }
           ></Accordion>
         </div>
         {/* BOX */}
