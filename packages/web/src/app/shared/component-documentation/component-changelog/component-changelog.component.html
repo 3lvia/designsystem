@@ -1,5 +1,6 @@
 <elvia-accordion
   type="overflow"
+  overflowHeight="500"
   [openLabel]="'Show all'"
   [closeLabel]="'Hide all'"
   [labelPosition]="'right'"
@@ -7,6 +8,11 @@
 >
   <div slot="content">
     <table>
+      <caption class="sr-only">Component changes</caption>
+      <tr class="sr-only">
+        <th class="changelog-date py-0" scope="col">Date and version</th>
+        <th class="changelog-content py-0" scope="col">Changes</th>
+      </tr>
       <tr class="changelog-row" *ngFor="let el of componentData.changelog">
         <td class="changelog-date">
           <span class="e-title-sm">{{ el.version }}</span>
