@@ -4,11 +4,11 @@
 export interface AttributeTypeCommon {
   /**
    * Indicates whether a prop is required for the component.
-   * An asterisk will be shown in the propertiest table if set to true.
+   * An asterisk will be shown in the properties table if set to true.
    */
   isRequired: boolean;
   /**
-   * The accepted type(s) of the prop, as a string in typescript format.
+   * The accepted type(s) of the prop, as a string in typescript format. Will be shown in the properties table.
    *
    * @example
    * 'string'
