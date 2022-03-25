@@ -1,5 +1,5 @@
 import { exampleContents } from 'src/app/shared/example-contents';
-import changelogJson from 'dist/elvia-designsystem/assets/changelog/elvis-accordion/CHANGELOG.json';
+import changelogJson from 'src/assets/changelogs/elvis-accordion/CHANGELOG.json';
 const { content } = changelogJson;
 
 const accordionData = {
