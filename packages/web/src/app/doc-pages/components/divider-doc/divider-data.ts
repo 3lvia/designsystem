@@ -1,4 +1,6 @@
-export const dividerData = {
+import ComponentData from '../component-data.interface';
+
+export const dividerData: ComponentData = {
   name: 'elvis-divider',
   elementNameW: 'elvia-divider',
   elementNameR: 'Divider',

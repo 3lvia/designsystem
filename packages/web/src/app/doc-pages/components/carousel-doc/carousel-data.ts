@@ -1,6 +1,7 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import ComponentData from '../component-data.interface';
 
-export const carouselData = {
+export const carouselData: ComponentData = {
   name: 'elvis-carousel',
   elementNameW: 'elvia-carousel',
   elementNameR: 'Carousel',

@@ -1,4 +1,6 @@
-export const progressbarData = {
+import ComponentData from '../component-data.interface';
+
+export const progressbarData: ComponentData = {
   name: 'elvis-progress-linear',
   elementNameW: 'elvia-progress-linear',
   elementNameR: 'ProgressLinear',

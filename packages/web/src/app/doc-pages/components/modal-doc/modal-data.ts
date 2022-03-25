@@ -1,4 +1,6 @@
-const modalData = {
+import ComponentData from '../component-data.interface';
+
+const modalData: ComponentData = {
   name: 'elvis-modal',
   elementNameW: 'elvia-modal',
   elementNameR: 'Modal',

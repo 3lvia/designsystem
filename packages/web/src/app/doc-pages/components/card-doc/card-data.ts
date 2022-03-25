@@ -1,4 +1,6 @@
-const cardData = {
+import ComponentData from '../component-data.interface';
+
+const cardData: ComponentData = {
   name: 'elvis-card',
   elementNameW: 'elvia-card',
   elementNameR: 'Card',

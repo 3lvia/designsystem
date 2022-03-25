@@ -1,4 +1,6 @@
-const datepickerData = {
+import ComponentData from '../../component-data.interface';
+
+const datepickerData: ComponentData = {
   name: 'elvis-datepicker',
   elementNameW: 'elvia-datepicker',
   elementNameR: 'Datepicker',

@@ -1,4 +1,6 @@
-export const dropdownData = {
+import ComponentData from '../component-data.interface';
+
+export const dropdownData: ComponentData = {
   name: 'elvis-dropdown',
   elementNameW: 'elvia-dropdown',
   elementNameR: 'Dropdown',

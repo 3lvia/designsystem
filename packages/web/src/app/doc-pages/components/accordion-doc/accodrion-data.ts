@@ -1,6 +1,7 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import ComponentData from '../component-data.interface';
 
-const accordionData = {
+const accordionData: ComponentData = {
   name: 'elvis-accordion',
   elementNameW: 'elvia-accordion',
   elementNameR: 'Accordion',
