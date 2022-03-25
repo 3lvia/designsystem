@@ -302,6 +302,11 @@ const Dropdown: React.FC<DropdownProps> = ({
     );
   };
 
+  interface ElviaMultiValueProps {
+    getValue: any;
+    index: any;
+  }
+
   const ElviaMultiValue = ({ getValue, index }: ElviaMultiValueProps) => {
     if (menuIsOpen) {
       return null;
@@ -315,17 +320,18 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   // Object containing all components overriden in react-select by Elvis dropdown
-  const overrideComponents = (isSearchable: boolean) => {
+  const overrideComponents = () => {
     if (isSearchable && !isMulti) {
-      return {
+      const elviaComponentsSearchAndNotMulti = {
         DropdownIndicator: ElviaDropdownIndicator,
         Option: ElviaOption,
         IndicatorSeparator: () => null,
         ClearIndicator: () => null,
         MultiValueRemove: () => null,
       };
+      return elviaComponentsSearchAndNotMulti;
     } else if (isSearchable && isMulti) {
-      return {
+      const elviaComponentsSearchAndMulti = {
         DropdownIndicator: ElviaDropdownIndicator,
         Option: ElviaOption,
         MultiValue: ElviaMultiValue,
@@ -333,8 +339,9 @@ const Dropdown: React.FC<DropdownProps> = ({
         ClearIndicator: () => null,
         MultiValueRemove: () => null,
       };
+      return elviaComponentsSearchAndMulti;
     } else if (!isSearchable && isMulti) {
-      return {
+      const elviaComponentsNotSearchAndMulti = {
         DropdownIndicator: ElviaDropdownIndicator,
         Option: ElviaOption,
 
@@ -344,8 +351,10 @@ const Dropdown: React.FC<DropdownProps> = ({
         ClearIndicator: () => null,
         MultiValueRemove: () => null,
       };
+
+      return elviaComponentsNotSearchAndMulti;
     } else {
-      return {
+      const elviaComponentsDefault = {
         DropdownIndicator: ElviaDropdownIndicator,
         Option: ElviaOption,
         ValueContainer: ElviaValueContainer,
@@ -354,6 +363,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         ClearIndicator: () => null,
         MultiValueRemove: () => null,
       };
+      return elviaComponentsDefault;
     }
   };
 
@@ -411,7 +421,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           blurInputOnSelect={!isMulti}
           classNamePrefix={'ewc-dropdown'}
           closeMenuOnSelect={!isMulti}
-          components={overrideComponents(isSearchable)}
+          components={overrideComponents()}
           hasValue={false}
           hideSelectedOptions={false}
           inputId={selectId}
