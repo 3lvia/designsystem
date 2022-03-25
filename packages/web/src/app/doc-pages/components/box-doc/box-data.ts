@@ -84,6 +84,7 @@ const boxData: ComponentData = {
     <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
   </div>
 </elvia-box>`,
+  codeNativeScript: ``,
 };
 
 export { boxData };

@@ -126,9 +126,40 @@ export type AttributeTypeCEG = {
 export type AttributeType = AttributeTypeCommon & AttributeTypeCEG;
 
 /**
+ * These types are essental for the CEG to function.
+ * Three examples of the component should exist, one for each framework.
+ *
+ * The codeNativeHTML and codeNativeScript are used to display the component in the CEG.
+ *
+ * It is also possible to use separate codes for each type of the component. See Card or Modal for examples.
+ */
+export interface ComponentDataCode {
+  /**
+   * The code required to show the component in React.
+   */
+  codeReact: string;
+  /**
+   * The code required to show the component in Angular.
+   */
+  codeAngular: string;
+  /**
+   * The code required to show the component in Vue.
+   */
+  codeVue: string;
+  /**
+   * The HTML code required to show the component in native HTML. This is the code that is actually used to display the component in the CEG.
+   */
+  codeNativeHTML: string;
+  /**
+   * The script code required to show the component in native HTML. This is the code that is actually used to display the component in the CEG.
+   */
+  codeNativeScript: string;
+}
+
+/**
  * Interface for component data for documentation pages.
  */
-export default interface ComponentData {
+type ComponentData = {
   /**
    * Component name (package name). Prefixed with 'elvis'.
    * @example 'elvis-component'
@@ -170,12 +201,8 @@ export default interface ComponentData {
    */
   codeImportWebComponent: string;
 
-  codeReact?: string;
-  codeAngular?: string;
-  codeVue?: string;
-  codeNativeHTML?: string;
-  codeNativeScript?: string;
-
   does?: string[];
   donts?: string[];
-}
+} & ComponentDataCode;
+
+export default ComponentData;

@@ -198,6 +198,7 @@ export const carouselData: ComponentData = {
     />
   </div>
 </elvia-carousel>`,
+  codeNativeScript: ``,
   does: [
     'Many items to display and the user only needs to focus on a few at once',
     'Collection of related items',

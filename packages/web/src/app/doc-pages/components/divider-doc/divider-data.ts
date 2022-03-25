@@ -87,4 +87,5 @@ export const dividerData: ComponentData = {
   <h2 slot="title">Title</h2>
 </elvia-divider>
 `,
+  codeNativeScript: ``,
 };

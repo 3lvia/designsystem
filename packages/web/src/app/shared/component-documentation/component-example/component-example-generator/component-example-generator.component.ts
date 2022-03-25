@@ -174,7 +174,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           formType: formType,
           type: prop.cegType,
           defaultValue: prop.cegDefault,
-          // propValue: prop.cegPropValue,
           propName: propKey,
           propSlot: prop.cegSlot,
           counterMax: prop.cegCounterMax,

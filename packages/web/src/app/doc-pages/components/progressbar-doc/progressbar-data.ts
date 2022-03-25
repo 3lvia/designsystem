@@ -67,4 +67,5 @@ export const progressbarData: ComponentData = {
   codeNativeHTML: `<elvia-progress-linear
   value="20"
 ></elvia-progress-linear>`,
+  codeNativeScript: ``,
 };
