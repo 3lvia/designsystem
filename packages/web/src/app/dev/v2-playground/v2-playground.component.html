@@ -5,7 +5,22 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <elvia-box [hasBorder]="true">
+        <h2 slot="title">Box title</h2>
+        <div slot="content">
+          <elvia-dropdown
+            [isMulti]="true"
+            [isCompact]="false"
+            [isDisabled]="false"
+            label="testing something"
+            [defaultValue]="dropdownDefOptions"
+            [options]="dropdownOptions"
+          ></elvia-dropdown>
+          <elvia-datepicker [value]="date"></elvia-datepicker>
+        </div>
+      </elvia-box>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -135,7 +150,7 @@
   <!--Datepicker-->
   <div class="example-wrapper">
     <h3>DatePicker</h3>
-    <elvia-datepicker [value]="date"></elvia-datepicker>
+    <!-- <elvia-datepicker [value]="date"></elvia-datepicker> -->
   </div>
 
   <!--Divider-->
