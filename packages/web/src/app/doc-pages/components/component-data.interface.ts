@@ -54,7 +54,7 @@ export type AttributeTypeCEG = {
    * 'toggle' should be used when the prop turns something visible on or off (e.g. heading).
    *
    * 'counter' should be used to show a counter that can be adjusted.
-   * Also requires the props 'cegCounterMax', 'cegCounterMin', 'cegStepValue', and 'cegCounterType'.
+   * Also requires 'cegCounterMax', 'cegCounterMin', 'cegStepValue', and 'cegCounterType'.
    * See the component Progressbar for an example.
    *
    * 'iconName' is only used for the icon documentation.
