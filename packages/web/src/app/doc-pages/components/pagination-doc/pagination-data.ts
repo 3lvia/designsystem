@@ -1,4 +1,6 @@
-export const paginationData = {
+import ComponentData from '../component-data.interface';
+
+export const paginationData: ComponentData = {
   name: 'elvis-pagination',
   elementNameW: 'elvia-pagination',
   elementNameR: 'Pagination',

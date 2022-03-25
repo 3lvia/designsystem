@@ -1,4 +1,6 @@
-export const chipData = {
+import ComponentData from '../component-data.interface';
+
+export const chipData: ComponentData = {
   name: 'elvis-chip',
   elementNameW: 'elvia-chip',
   elementNameR: 'Chip',

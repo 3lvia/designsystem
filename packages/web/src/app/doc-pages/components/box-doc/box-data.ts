@@ -1,6 +1,7 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import ComponentData from '../component-data.interface';
 
-const boxData = {
+const boxData: ComponentData = {
   name: 'elvis-box',
   elementNameW: 'elvia-box',
   elementNameR: 'Box',
@@ -83,6 +84,7 @@ const boxData = {
     <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
   </div>
 </elvia-box>`,
+  codeNativeScript: ``,
 };
 
 export { boxData };

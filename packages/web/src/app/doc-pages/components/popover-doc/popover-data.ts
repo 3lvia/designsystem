@@ -1,6 +1,7 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import ComponentData from '../component-data.interface';
 
-const popoverData = {
+const popoverData: ComponentData = {
   name: 'elvis-popover',
   elementNameW: 'elvia-popover',
   elementNameR: 'Popover',

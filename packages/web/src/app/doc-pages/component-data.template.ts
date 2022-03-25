@@ -8,9 +8,10 @@ These modules should always be imported for the component module and added in th
 
 // Use the exampleContents file if you want some fictional data in your component
 import { exampleContents } from 'src/app/shared/example-contents';
+import ComponentData from './components/component-data.interface';
 
 // Define the componentData
-const componentData = {
+const componentData: ComponentData = {
   name: 'elvis-component', // Component name (package name)
   elementNameW: 'elvia-component', // Component name for the DOM (Custom element)
   elementNameR: 'Component', // Component name for the DOM (React)
