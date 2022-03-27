@@ -359,7 +359,7 @@ module.exports = [
     reactName: 'Tabs',
     elementStyle: `display: grid; overflow: hidden;`,
     slotItems: false,
-    useWrapper: false,
+    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
