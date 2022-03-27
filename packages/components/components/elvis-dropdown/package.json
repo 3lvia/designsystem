@@ -14,7 +14,6 @@
     "@elvia/elvis-icon": "^1.1.1",
     "@elvia/elvis-toolbox": "^1.2.1",
     "@elvia/elvis-typography": "^1.2.0",
-    "@types/react-select": "4.0.2",
     "lodash.uniqueid": "4.0.1",
     "react-select": "5.2.2",
     "styled-components": "^5.3.3"

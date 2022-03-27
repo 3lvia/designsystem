@@ -52,6 +52,18 @@ export const dropdownData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'Options',
     },
+    isSearchable: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Set the dropdown to accept text input that filters possible options based an the search term.',
+      default: 'false',
+      cegDisplayName: 'isSearchable',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Options',
+    },
     label: {
       isRequired: false,
       type: 'string',
