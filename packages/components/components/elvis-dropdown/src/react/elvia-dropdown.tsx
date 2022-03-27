@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useRef, CSSProperties } from 'react';
-import Select, { components, MultiValueProps, PlaceholderProps } from 'react-select';
+import Select, {
+  components,
+  DropdownIndicatorProps,
+  MultiValueProps,
+  OptionProps,
+  PlaceholderProps,
+} from 'react-select';
 import toolbox from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import {
@@ -255,7 +261,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   // Custom components for Elvia dropdown
-  const ElviaDropdownIndicator = ({ ...props }) => {
+  const ElviaDropdownIndicator = (props: DropdownIndicatorProps) => {
     return (
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
@@ -269,7 +275,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     );
   };
 
-  const ElviaOption = ({ ...props }) => {
+  const ElviaOption = (props: OptionProps) => {
     if (!isMulti) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
@@ -305,7 +311,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     label: string;
   }
 
-  const ElviaMultiValue = (props: MultiValueProps) => {
+  const ElviaMultiValue = (props: MultiValueProps): any => {
     if (menuIsOpen && isSearchable) {
       return null;
     }

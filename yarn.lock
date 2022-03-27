@@ -2376,7 +2376,6 @@ __metadata:
     "@elvia/elvis-icon": ^1.1.1
     "@elvia/elvis-toolbox": ^1.2.1
     "@elvia/elvis-typography": ^1.2.0
-    "@types/react-select": 4.0.2
     lodash.uniqueid: 4.0.1
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -4286,7 +4285,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:*, @types/react-dom@npm:^17.0.13":
+"@types/react-dom@npm:^17.0.13":
   version: 17.0.13
   resolution: "@types/react-dom@npm:17.0.13"
   dependencies:
@@ -4295,18 +4294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-select@npm:4.0.2":
-  version: 4.0.2
-  resolution: "@types/react-select@npm:4.0.2"
-  dependencies:
-    "@types/react": "*"
-    "@types/react-dom": "*"
-    "@types/react-transition-group": "*"
-  checksum: 9ed15b4d67a4e71b3b5f508484f151bbe4e2b98f19a08732d76e18a471e78eca4015a795295d8c87b35b661639e1fb6dba5381be4a7070e129f7e058df351e1c
-  languageName: node
-  linkType: hard
-
-"@types/react-transition-group@npm:*, @types/react-transition-group@npm:^4.2.0, @types/react-transition-group@npm:^4.4.0":
+"@types/react-transition-group@npm:^4.2.0, @types/react-transition-group@npm:^4.4.0":
   version: 4.4.4
   resolution: "@types/react-transition-group@npm:4.4.4"
   dependencies:
