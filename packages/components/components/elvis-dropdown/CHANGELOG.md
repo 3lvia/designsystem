@@ -4,7 +4,7 @@
 
 ### New feature
 
-- Added new prop 'isSearchable', allows user to enter text input and filter options based on search term.
+- Added new prop 'isSearchable', allows user to enter text and filter options based on search term.
 
 ## 2.1.4 (23.03.22)
 
