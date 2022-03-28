@@ -61,10 +61,28 @@ export class LinkDocComponent {
 </a>
 `;
 
+  exampleActionInverted = `<a class="e-link e-link--action e-link--inverted" href="https://design.elvia.io/components/link#Overview">
+  <span class="e-link__title">Action link</span>
+  <span class="e-link__icon">
+    <i class="e-icon e-icon--arrow_right_circle-color e-icon--inverted"></i>
+    <i class="e-icon e-icon--arrow_right_circle-filled-color e-icon--inverted"></i>
+  </span>  
+</a>
+`;
+
   exampleBack = `<a class="e-link e-link--back" href="https://design.elvia.io/components/link#Overview">
   <span class="e-link__icon">
     <i class="e-icon e-icon--arrow_left_circle-color"></i>
     <i class="e-icon e-icon--arrow_left_circle-filled-color"></i>
+  </span>  
+  <span class="e-link__title">Back link</span>
+</a>
+`;
+
+  exampleBackInverted = `<a class="e-link e-link--back e-link--inverted" href="https://design.elvia.io/components/link#Overview">
+  <span class="e-link__icon">
+    <i class="e-icon e-icon--arrow_left_circle-color e-icon--inverted"></i>
+    <i class="e-icon e-icon--arrow_left_circle-filled-color e-icon--inverted"></i>
   </span>  
   <span class="e-link__title">Back link</span>
 </a>

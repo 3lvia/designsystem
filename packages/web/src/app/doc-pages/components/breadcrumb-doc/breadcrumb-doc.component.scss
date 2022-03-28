@@ -13,6 +13,12 @@
   }
 }
 
+.breadcrumb-levels {
+  width: 50%;
+  @include breakpoint-up(Mobile) {
+    width: 75%;
+  }
+}
 .ceg-container {
   display: flex;
   flex-direction: column;

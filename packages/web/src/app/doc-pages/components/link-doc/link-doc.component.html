@@ -55,7 +55,10 @@
         <ng-container ngProjectAs="sectionContent">
           Action link are mostly used when you link to another page to do an action. It can also be used when
           you have a link alone and want it to take more attention than a regular link.
-          <app-component-example-v1 [codeHTML]="exampleAction"></app-component-example-v1>
+          <app-component-example-v1
+            [codeHTML]="exampleAction"
+            [codeInverted]="exampleActionInverted"
+          ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
@@ -64,14 +67,10 @@
           Back link are used to navigate the user to a previous page or take the user to the start page. Back
           links have a green arrow next to it to make it stand out more and to clarify that you will be sent
           back.
-          <app-component-example-v1 [codeHTML]="exampleBack"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Links with button style'">
-        <ng-container ngProjectAs="sectionContent">
-          The e-btn class can also be used on anchor tags to make links appear like buttons.
-          <app-component-example-v1 [codeHTML]="example8" [donts]="dontsExample8"></app-component-example-v1>
+          <app-component-example-v1
+            [codeHTML]="exampleBack"
+            [codeInverted]="exampleBackInverted"
+          ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
@@ -92,6 +91,9 @@
   <!--SIZES-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
+      We have three different sizes: small, medium, and large. Make sure the aspect ratio harmonizes with the
+      rest of the content. An example, If you use small body text and small title or/and compact components -
+      use small link.
       <app-component-example-v1 [codeHTML]="exampleSizes"></app-component-example-v1>
     </ng-container>
   </app-component-section>
@@ -114,22 +116,34 @@
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Button vs link'">
+      <app-component-subsection [sectionTitle]="'Which component should I use?'">
         <ng-container ngProjectAs="sectionContent">
           Link takes you to another place while button does something. Don’t use button for navigational
           actions.
 
-          <app-component-subsubsection [sectionTitle]="'Use Button'">
+          <app-component-subsubsection [sectionTitle]="'Link or button?'">
             <ng-container ngProjectAs="sectionContent">
-              Actions where users affect the website’s back-end or front-end
-            </ng-container>
-          </app-component-subsubsection>
+              Link takes you to another place while button does something. Don’t use button for navigational
+              actions.
 
-          <app-component-subsubsection [sectionTitle]="'Use Link'">
-            <ng-container ngProjectAs="sectionContent">
-              Actions where users won’t affect the website at all.
+              <h4 class="e-title-caps e-mt-40">Use Button</h4>
+              Actions where users affect the website’s back-end or front-end
+              <h4 class="e-title-caps e-mt-40">Use link</h4>
+              Actions where users won’t affect the website at all
             </ng-container>
           </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Links with button style'">
+        <ng-container ngProjectAs="sectionContent">
+          The e-btn class can also be used on anchor tags to make links appear like buttons.
+          <app-component-example-v1 [codeHTML]="example8" [donts]="dontsExample8"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
