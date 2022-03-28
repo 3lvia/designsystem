@@ -36,4 +36,39 @@ export class DropdownDocComponent {
       label: 'Option 3',
     },
   ];
+  exampleOptionsIcons = [
+    {
+      value: '1',
+      label: 'Option 1',
+      icon: 'addCircleColor',
+    },
+    {
+      value: '2',
+      label: 'Option 2',
+      icon: 'electricCarColor',
+    },
+    {
+      value: '3',
+      label: 'Option 3',
+      icon: 'treeFalling',
+    },
+  ];
+
+  exampleOptionsIconsDisplayTS = `exampleOptionsIcons = [
+  {
+    value: '1',
+    label: 'Option 1',
+    icon: 'addCircleColor',
+  },
+  {
+    value: '2',
+    label: 'Option 2',
+    icon: 'electricCarColor',
+  },
+  {
+    value: '3',
+    label: 'Option 3',
+    icon: 'treeFalling',
+  },
+];`;
 }

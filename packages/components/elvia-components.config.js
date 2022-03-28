@@ -217,6 +217,7 @@ module.exports = [
       { name: 'isDisabled', type: 'boolean', propType: 'boolean' },
       { name: 'isMulti', type: 'boolean', propType: 'boolean' },
       { name: 'isSearchable', type: 'boolean', propType: 'boolean' },
+      { name: 'iconPosition', type: 'string', propType: 'string | undefined' },
       { name: 'label', type: 'string', propType: 'string | undefined' },
       { name: 'menuPosition', type: 'string', propType: 'string | undefined' },
       { name: 'noOptionsMessage', type: 'string', propType: 'string | undefined' },

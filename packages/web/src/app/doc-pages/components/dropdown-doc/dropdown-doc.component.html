@@ -54,6 +54,28 @@
           </div>
         </ng-container>
       </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Icons'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="e-mb-8">
+            Add the icon in camelcase to the options object to display an icon in the dropdown options. All
+            Elvia icons are available, and are displayed here:
+            <a class="e-link e-link--inline" href="http://localhost:4200/brand/icon#Overview">Elvia Icons</a>
+          </div>
+          <div style="width: 250px">
+            <elvia-dropdown
+              [options]="exampleOptionsIcons"
+              placeholder="Placeholder"
+              label="Label"
+            ></elvia-dropdown>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-example-code
+        [codeTS]="exampleOptionsIconsDisplayTS"
+        [noSubscriptions]="'true'"
+      ></app-component-example-code>
     </ng-container>
   </app-component-section>
 

@@ -10,6 +10,7 @@ import { ComponentInstallationModule } from 'src/app/shared/component-documentat
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { RouterModule } from '@angular/router';
+import { ComponentExampleCodeModule } from 'src/app/shared/component-documentation/component-example/component-example-code/component-example-code.module';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router';
     WhenToUseModule,
     RouterModule,
     ComponentExampleGeneratorModule,
+    ComponentExampleCodeModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [DropdownDocComponent],

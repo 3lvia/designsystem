@@ -42,14 +42,14 @@ function App() {
   maxDate.setDate(maxDate.getDate() - 1);
 
   // Dropdown
-  const defaultDropdownOptions = [
-    { value: 'norge', label: 'Norge' },
-    { value: 'sverige', label: 'Sverige' },
-  ];
+  const defaultDropdownOptions = [{ value: 'norge', label: 'Norge' }];
   const dropdownOptions = [
     { value: 'norge', label: 'Norge' },
     { value: 'sverige', label: 'Sverige' },
     { value: 'danmark', label: 'Danmark' },
+    { value: 'test', label: 'addCircle', icon: 'addCircle' },
+    { value: 'support', label: 'support', icon: 'support' },
+    { value: 'renewableEnergyColor', label: 'renewableEnergyColor', icon: 'renewableEnergyColor' },
   ];
 
   // Modal

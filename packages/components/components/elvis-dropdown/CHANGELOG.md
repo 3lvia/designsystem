@@ -1,5 +1,11 @@
 # Elvia Dropdown
 
+## 2.3.0 (28.03.22)
+
+### New feature
+
+- Now possible to add icons to options in dropdown, and decide position of icons (left/right of label text).
+
 ## 2.2.0 (28.03.22)
 
 ### New feature

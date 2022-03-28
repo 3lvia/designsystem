@@ -22,9 +22,11 @@ import { getColor } from '@elvia/elvis-colors';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
+export type DropdownIconPosition = 'left' | 'right';
 export interface DropdownOption {
   value: string;
   label: string;
+  icon?: string;
 }
 
 export interface DropdownProps {
@@ -34,6 +36,7 @@ export interface DropdownProps {
   isDisabled: boolean;
   isMulti: boolean;
   isSearchable: boolean;
+  iconPosition?: DropdownIconPosition;
   label?: string;
   menuPosition?: DropdownMenuPosition;
   noOptionsMessage?: string;
@@ -53,6 +56,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   isDisabled,
   isMulti,
   isSearchable = false,
+  iconPosition = 'left',
   label,
   menuPosition = 'auto',
   noOptionsMessage = 'Ingen tilgjengelige valg',
@@ -194,7 +198,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     option: (provided: any, state: any) => ({
       ...provided,
       display: 'flex',
-      alignContent: 'center',
+      alignItems: 'center',
       backgroundColor: decideOptionBg(state.isFocused, state.isSelected, state.isMulti),
       color: '#000000',
       height: isCompact ? '36px' : '48px',
@@ -204,6 +208,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       border: '1px solid transparent',
       cursor: 'pointer',
       overflowX: 'hidden',
+      overflowY: 'hidden',
       textOverflow: 'ellipsis',
       '&:hover': {
         backgroundColor: decideOptionHoverBg(state.isSelected, state.isMulti),
@@ -279,7 +284,29 @@ const Dropdown: React.FC<DropdownProps> = ({
     if (!isMulti) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
-      return <components.Option {...props}>{props.children}</components.Option>;
+      return (
+        <components.Option {...props}>
+          {(props.data as DropdownOption).icon && iconPosition === 'left' ? (
+            <Icon
+              inlineStyle={{ marginRight: '16px' }}
+              name={(props.data as DropdownOption).icon}
+              size={isCompact ? 'xs' : 'sm'}
+            />
+          ) : (
+            ''
+          )}
+          {props.children}
+          {(props.data as DropdownOption).icon && iconPosition === 'right' ? (
+            <Icon
+              inlineStyle={{ marginLeft: '16px' }}
+              name={(props.data as DropdownOption).icon}
+              size={isCompact ? 'xs' : 'sm'}
+            />
+          ) : (
+            ''
+          )}
+        </components.Option>
+      );
     }
     return (
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -306,19 +333,13 @@ const Dropdown: React.FC<DropdownProps> = ({
     );
   };
 
-  interface ElvisDropdownOption {
-    value: string;
-    label: string;
-  }
-
   const ElviaMultiValue = (props: MultiValueProps): any => {
     if (menuIsOpen && isSearchable) {
       return null;
     }
     if (props.getValue().length === 1) {
-      return (props.getValue()[0] as ElvisDropdownOption).label;
+      return (props.getValue()[0] as DropdownOption).label;
     }
-
     return !props.index && `${props.getValue().length} valgte`;
   };
 

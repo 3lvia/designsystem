@@ -9,7 +9,7 @@ export const dropdownData: ComponentData = {
       isRequired: false,
       type: 'object',
       description:
-        'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string}',
+        'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string, icon?:string} (icon is optional) ',
       cegDisplayName: 'defaultValue',
       default: 'undefined',
     },
@@ -85,7 +85,7 @@ export const dropdownData: ComponentData = {
       isRequired: true,
       type: 'Array<object>',
       description:
-        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string} ',
+        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?:string} (icon is optional) ',
       cegDisplayName: 'Options',
     },
     placeholder: {
@@ -116,7 +116,7 @@ export const dropdownData: ComponentData = {
   options={[
     { value: '1', label: 'Option 1' },
     { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3' }
+    { value: '3', label: 'Option 3',  icon: 'step3' }
   ]} 
   label={"Label"}
   placeholder={"Placeholder"}
@@ -127,7 +127,7 @@ export const dropdownData: ComponentData = {
   [options]="[
     { value: '1', label: 'Option 1' },
     { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3' }
+    { value: '3', label: 'Option 3', icon: 'step3' }
   ]"
   [label]="'Label'"
   [placeholder]="'Placeholder'"
@@ -138,7 +138,7 @@ export const dropdownData: ComponentData = {
   :options="[
     { value: '1', label: 'Option 1' },
     { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3' }
+    { value: '3', label: 'Option 3', icon: 'step3' }
   ]"
   :label="'Label'"
   :placeholder="'Placeholder'"
@@ -153,7 +153,7 @@ export const dropdownData: ComponentData = {
   const options = [
     { value: "1", label: "Option 1" },
     { value: "2", label: "Option 2" },
-    { value: "3", label: "Option 3" }
+    { value: "3", label: "Option 3",  icon: 'step3' }
   ];
   dropdown.setProps({label: 'Label' });
   dropdown.setProps({placeholder: 'Placeholder' });
