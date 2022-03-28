@@ -306,17 +306,12 @@ const Dropdown: React.FC<DropdownProps> = ({
     );
   };
 
-  interface ElvisDropdownOption {
-    value: string;
-    label: string;
-  }
-
   const ElviaMultiValue = (props: MultiValueProps): any => {
     if (menuIsOpen && isSearchable) {
       return null;
     }
     if (props.getValue().length === 1) {
-      return (props.getValue()[0] as ElvisDropdownOption).label;
+      return (props.getValue()[0] as DropdownOption).label;
     }
 
     return !props.index && `${props.getValue().length} valgte`;
