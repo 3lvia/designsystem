@@ -38,7 +38,6 @@ export enum Pages {
   Radiobutton = 'radiobutton',
   SegmentedControl = 'segmented-control',
   Search = 'search',
-  Select = 'select',
   Stepper = 'stepper',
   Table = 'table',
   Tabs = 'tabs',

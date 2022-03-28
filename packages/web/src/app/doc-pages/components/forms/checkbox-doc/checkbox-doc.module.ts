@@ -8,6 +8,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
     WhenToUseModule,
+    RouterModule,
   ],
   declarations: [CheckboxDocComponent],
 })
