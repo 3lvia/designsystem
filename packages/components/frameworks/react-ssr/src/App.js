@@ -86,14 +86,6 @@ function App() {
         <div className="example-wrapper">
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
-
-          <h3>Dropdown</h3>
-          <Dropdown
-            options={dropdownOptions}
-            defaultValue={defaultDropdownOptions}
-            label="test"
-            isSearchable
-          ></Dropdown>
           {/* Normal version */}
           <div className="e-bg-white"></div>
           {/* Inverted version */}
