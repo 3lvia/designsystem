@@ -44,7 +44,7 @@ export const tabsData: ComponentData = {
       cegFormType: 'toggle',
       cegDefault: false,
       cegOption: 'true',
-      cegDisplayGroup: 'Keyboard',
+      cegDisplayGroup: 'Keyboard navigation',
     },
     valueOnChange: {
       isRequired: false,

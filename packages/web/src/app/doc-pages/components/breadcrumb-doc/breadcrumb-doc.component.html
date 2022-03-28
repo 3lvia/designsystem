@@ -15,11 +15,19 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'How it works'">
+      <app-component-subsection [sectionTitle]="'Levels'">
         <ng-container ngProjectAs="sectionContent">
           The breadcrumb should start with home (landing page) and end with the current page. All pages
           besides the current page are a link. The breadcrumb is hidden until you have two levels (no
-          breadcrumb are visible on the homepage). On mobile you only get the closest parent.
+          breadcrumb are visible on the homepage).
+          <div class="breadcrumb-levels">
+            <img class="e-mt-16" src="./../../../../assets/breadcrumb/levels.svg" />
+          </div>
+
+          <div class="e-mt-40">On mobile you only get the closest parent.</div>
+          <div class="breadcrumb-levels">
+            <img class="e-mt-16" src="./../../../../assets/breadcrumb/levels-mobile.svg" />
+          </div>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Breadcrumb vs backlink'">
