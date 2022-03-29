@@ -106,11 +106,11 @@ const Dropdown: React.FC<DropdownProps> = ({
     return '#F4F4F4';
   };
 
-  const decideSingleValueColor = (isMenuOpen: boolean, isSearchable: boolean, isDisabled: boolean) => {
-    if (isDisabled) {
+  const decideSingleValueColor = (isMenuOpen: boolean, searchable: boolean, disabled: boolean) => {
+    if (disabled) {
       return getColor('disabled');
     }
-    if (isMenuOpen && isSearchable) {
+    if (isMenuOpen && searchable) {
       return getColor('grey-70');
     }
     return '#000';
