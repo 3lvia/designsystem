@@ -17,13 +17,6 @@
     alignedTop="true"
   ></app-component-example-generator>
 
-  <!--CHANGELOG-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [componentData]="componentData"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
@@ -115,6 +108,13 @@
           <app-component-properties [componentName]="'e-accordion'"></app-component-properties>
         </ng-container>
       </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--CHANGELOG-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [componentData]="componentData"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>

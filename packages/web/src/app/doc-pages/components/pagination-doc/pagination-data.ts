@@ -1,3 +1,5 @@
+import changelogJson from 'src/assets/changelogs/elvis-pagination/CHANGELOG.json';
+
 export const paginationData = {
   name: 'elvis-pagination',
   elementNameW: 'elvia-pagination',
@@ -122,4 +124,5 @@ export const paginationData = {
       console.log('Current selection range of paginator is : ', event.detail.value)
     });
   `,
+  changelog: changelogJson.content,
 };

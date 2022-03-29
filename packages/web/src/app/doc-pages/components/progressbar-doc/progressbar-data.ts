@@ -1,3 +1,5 @@
+import changelogJson from 'src/assets/changelogs/elvis-progress-linear/CHANGELOG.json';
+
 export const progressbarData = {
   name: 'elvis-progress-linear',
   elementNameW: 'elvia-progress-linear',
@@ -65,4 +67,5 @@ export const progressbarData = {
   codeNativeHTML: `<elvia-progress-linear
   value="20"
 ></elvia-progress-linear>`,
+  changelog: changelogJson.content,
 };

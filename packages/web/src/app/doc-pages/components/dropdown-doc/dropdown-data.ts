@@ -1,3 +1,5 @@
+import changelogJson from 'src/assets/changelogs/elvis-dropdown/CHANGELOG.json';
+
 export const dropdownData = {
   name: 'elvis-dropdown',
   elementNameW: 'elvia-dropdown',
@@ -148,6 +150,8 @@ export const dropdownData = {
     console.log('Do what you want with selected elements: ', event.detail.value);
   });
 `,
+  changelog: changelogJson.content,
+
   does: [
     'Use sparingly: use dropdowns only when the user have 5-15 options and you have limited space to display it all open.',
   ],

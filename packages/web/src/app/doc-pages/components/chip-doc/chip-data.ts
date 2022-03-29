@@ -1,3 +1,5 @@
+import changelogJson from 'src/assets/changelogs/elvis-chip/CHANGELOG.json';
+
 export const chipData = {
   name: 'elvis-chip',
   elementNameW: 'elvia-chip',
@@ -114,6 +116,7 @@ export const chipData = {
     chip.remove();
   });
 `,
+  changelog: changelogJson.content,
   does: [
     'To provide an overview of selected options and allows you to easily remove them',
     'Use together with an inputfield',

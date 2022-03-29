@@ -10,6 +10,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -24,6 +25,7 @@ import { RouterModule } from '@angular/router';
     ComponentInstallationModule,
     ComponentExampleGeneratorModule,
     ComponentPropertiesTableModule,
+    ComponentChangelogModule,
     RouterModule,
   ],
   declarations: [CardDocComponent],

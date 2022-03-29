@@ -1,4 +1,5 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import changelogJson from 'src/assets/changelogs/elvis-popover/CHANGELOG.json';
 
 const popoverData = {
   name: 'elvis-popover',
@@ -163,6 +164,7 @@ const popoverData = {
     console.log('Do what you want when visibility changes: ', event.detail.value);
   });
 `,
+  changelog: changelogJson.content,
 };
 
 export { popoverData };

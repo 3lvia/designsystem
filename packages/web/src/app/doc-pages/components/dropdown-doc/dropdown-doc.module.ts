@@ -8,6 +8,7 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { RouterModule } from '@angular/router';
 
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router';
     WhenToUseModule,
     RouterModule,
     ComponentExampleGeneratorModule,
+    ComponentChangelogModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [DropdownDocComponent],

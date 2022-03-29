@@ -1,3 +1,5 @@
+import changelogJson from 'src/assets/changelogs/elvis-datepicker/CHANGELOG.json';
+
 const datepickerData = {
   name: 'elvis-datepicker',
   elementNameW: 'elvia-datepicker',
@@ -208,6 +210,7 @@ const datepickerData = {
     console.log('Do what you want with date: ', event.detail.value)
   });
 `,
+  changelog: changelogJson.content,
 };
 
 export { datepickerData };

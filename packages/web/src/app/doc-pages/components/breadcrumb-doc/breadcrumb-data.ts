@@ -1,3 +1,6 @@
+import changelogJson from 'src/assets/changelogs/elvis-breadcrumb/CHANGELOG.json';
+const { content } = changelogJson;
+
 const breadcrumbData = {
   name: 'elvis-breadcrumb',
   elementNameW: 'elvia-breadcrumb',
@@ -69,6 +72,7 @@ const breadcrumbData = {
   ];
   breadcrumb.setProps({breadcrumbs: breadcrumbs });
   `,
+  changelog: content,
 };
 
 export { breadcrumbData };

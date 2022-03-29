@@ -1,3 +1,5 @@
+import changelogJson from 'src/assets/changelogs/elvis-modal/CHANGELOG.json';
+
 const modalData = {
   name: 'elvis-modal',
   elementNameW: 'elvia-modal',
@@ -172,6 +174,7 @@ const modalData = {
     isModalShowing = !isModalShowing;
   });
 `,
+  changelog: changelogJson.content,
 };
 
 export { modalData };
