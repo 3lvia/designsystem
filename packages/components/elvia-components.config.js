@@ -325,7 +325,7 @@ module.exports = [
     reactName: 'ProgressLinear',
     elementStyle: `width: 100%;`,
     slotItems: false,
-    useWrapper: false,
+    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
