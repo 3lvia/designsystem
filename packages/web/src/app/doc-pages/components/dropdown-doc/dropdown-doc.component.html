@@ -54,6 +54,18 @@
           </div>
         </ng-container>
       </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'IsSearchable'">
+        <ng-container ngProjectAs="sectionContent">
+          <div style="width: 250px">
+            <elvia-dropdown
+              [options]="exampleOptions"
+              placeholder="Placeholder"
+              label="Label"
+              [isSearchable]="isSearchable"
+            ></elvia-dropdown>
+          </div>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

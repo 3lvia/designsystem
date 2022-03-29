@@ -167,6 +167,6 @@ export const dropdownData: ComponentData = {
   ],
   donts: [
     'Fewer than 5 options (consider radio filter or radio buttons)',
-    'More than 15 options(consider autocomplete)',
+    'More than 15 options (consider autocomplete)',
   ],
 };
