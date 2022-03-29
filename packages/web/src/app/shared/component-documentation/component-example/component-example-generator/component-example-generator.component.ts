@@ -16,6 +16,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() delayInnerHtml = false;
   @Input() componentData: ComponentData;
   @Input() typesData;
+  @Input() typePropExists = false;
   @Input() width = 100;
   @Input() hasPreview = true;
   @Input() inlineExample = false;
@@ -260,6 +261,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         const newType = { value: index, label: label };
         this.typeOptions.push(newType);
       });
+      console.log(this.typeOptions);
     }
   }
 
@@ -295,7 +297,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   }
 
   // CEG code-view updates
-  updateProps(): void {
+  updateExampleCode(): void {
     this.cegService.updateCodeReact(this.codeReact);
     this.cegService.updateCodeAngular(this.codeAngular);
     this.cegService.updateCodeVue(this.codeVue);
@@ -309,8 +311,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       newValue = selected.label.toLowerCase();
       this.updateSelected('type', newValue, 'string');
     } else {
-      newValue = selected.value;
-      this.updateSelected('name', newValue, 'string');
+      this.updateSelected('name', selected.value, 'string');
     }
   }
 
@@ -324,11 +325,15 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         this.codeNative = element.codeNativeHTML;
       }
     });
+    if (this.typePropExists) {
+      console.log(selected.label);
+      this.updateSelected('type', selected.label.toLowerCase(), 'string', false);
+    }
     this.enableFilters = false;
     setTimeout(() => {
       this.enableFilters = true;
       setTimeout(() => {
-        this.updateProps();
+        this.updateExampleCode();
       }, 100);
     }, 100);
   }
@@ -342,7 +347,8 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
   }
 
-  updateSelected(attr: string, newValue: string, cegType: string): void {
+  updateSelected(attr: string, newValue: string, cegType: string, updateExampleCode?: boolean): void {
+    const updateCode = updateExampleCode ? updateExampleCode : true;
     const elNameR = this.componentData.elementNameR;
     const elNameW = this.componentData.elementNameW;
     if (this.codeAngular.includes(attr)) {
@@ -370,6 +376,8 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         elNameW,
       );
     }
-    this.updateProps();
+    if (updateCode) {
+      this.updateExampleCode();
+    }
   }
 }

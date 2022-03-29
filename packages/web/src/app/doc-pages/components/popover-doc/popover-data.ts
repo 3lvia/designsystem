@@ -6,16 +6,16 @@ const popoverData: ComponentData = {
   elementNameW: 'elvia-popover',
   elementNameR: 'Popover',
   attributes: {
-    type: {
-      isRequired: false,
-      type: '“informative” | “list”',
-      description: 'Types of popover. List will give you an action list when sending in buttons or links.',
-      default: '"informative"',
-      cegDefault: 0,
-      cegType: 'string',
-      cegFormType: 'type',
-      cegOptions: ['informative', 'list'],
-    },
+    // type: {
+    //   isRequired: false,
+    //   type: '“informative” | “list”',
+    //   description: 'Types of popover. List will give you an action list when sending in buttons or links.',
+    //   default: '"informative"',
+    //   cegDefault: 0,
+    //   cegType: 'string',
+    //   cegFormType: 'type',
+    //   cegOptions: ['informative', 'list'],
+    // },
     header: {
       isRequired: false,
       type: 'string',
@@ -40,13 +40,14 @@ const popoverData: ComponentData = {
     hasDivider: {
       isRequired: false,
       type: 'boolean',
-      description: 'Determines if the close button in the upper right corner should be visible',
+      description:
+        'With type list you can add a divider to group content. The divider will appear between each "ewc-popover__list-group" element section.',
       default: 'true',
       cegDisplayName: 'Divider',
       cegType: 'boolean',
       cegFormType: 'toggle',
-      cegDefault: true,
-      cegOption: 'false',
+      cegDefault: false,
+      cegOption: 'true',
       cegDependency: [{ name: 'type', value: 'list' }],
     },
     isShowing: {
@@ -106,86 +107,12 @@ const popoverData: ComponentData = {
   package: 'npm install @elvia/elvis-popover',
   codeImportReact: `import { Popover } from '@elvia/elvis-popover/react';`,
   codeImportWebComponent: `import '@elvia/elvis-popover';`,
-  codeReact:
-    `<Popover
-  header={"` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `"}
-  content={"` +
-    exampleContents.texts.md['eng-GBR'].description +
-    `"}
-  posY={"top"}
-  isShowingOnChange={(event) => showingChanges(event)}
-  trigger={
-    <button className="e-btn e-btn--icon e-btn--circled">
-      <span className="e-btn__icon">
-        <i className="e-icon e-icon--information_circle"></i>
-        <i className="e-icon e-icon e-icon--information_circle-filled-color"></i>
-      </span>
-    </button>
-  }
-></Popover>
-`,
-  codeAngular:
-    `<elvia-popover 
-  [header]="'` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `'"
-  [content]="'` +
-    exampleContents.texts.md['eng-GBR'].description +
-    `'"
-  [posY]="'top'"
-  (isShowingOnChange)="showingChanges($event.detail.value)"
->
-  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
-    <span class="e-btn__icon">
-      <i class="e-icon e-icon--information_circle"></i>
-      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-    </span>
-  </button>
-</elvia-popover>
-`,
-  codeVue:
-    `<elvia-popover 
-  :header="'` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `'"
-  :content="'` +
-    exampleContents.texts.md['eng-GBR'].description +
-    `'"
-  :posY="'top'"
-  @is-showing-on-change="showingChanges($event.detail.value)"
->
-  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
-    <span class="e-btn__icon">
-      <i class="e-icon e-icon--information_circle"></i>
-      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-    </span>
-  </button>
-</elvia-popover>
-`,
-  codeNativeHTML:
-    `<elvia-popover 
-  id="example-elvia-popover"
-  header="` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `"
-  posY="top"
->
-  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
-    <span class="e-btn__icon">
-      <i class="e-icon e-icon--information_circle"></i>
-      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-    </span>
-  </button>
-</elvia-popover>
-`,
-  codeNativeScript: `  const popover = document.getElementById('example-elvia-popover');
-  popover.setProps({content: ${JSON.stringify(exampleContents.texts.md['eng-GBR'].description)}});
-  popover.addEventListener('isShowingOnChange', (event) => {
-    console.log('Do what you want when visibility changes: ', event.detail.value);
-  });
-`,
+  // Not used here, as there are separate files with code for each component type.
+  codeReact: ``,
+  codeAngular: ``,
+  codeVue: ``,
+  codeNativeHTML: ``,
+  codeNativeScript: ``,
 };
 
 export { popoverData };

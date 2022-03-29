@@ -9,6 +9,7 @@ export interface PopoverProps {
   header?: string;
   content?: string | HTMLElement;
   type?: 'informative' | 'list';
+  variant?: 'normal' | 'selection';
   hasDivider?: boolean;
   posX?: 'left' | 'right' | 'center';
   posY?: 'top' | 'bottom';
@@ -16,6 +17,7 @@ export interface PopoverProps {
   hasCloseBtn?: boolean;
   isShowing?: boolean;
   isShowingOnChange?: (isShowing: boolean) => void;
+  hideOnClickInsideList: boolean;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
@@ -25,6 +27,7 @@ const Popover: FC<PopoverProps> = ({
   header,
   content,
   type = 'informative',
+  variant = 'normal',
   hasDivider = false,
   posX = 'center',
   posY = 'top',
@@ -32,6 +35,7 @@ const Popover: FC<PopoverProps> = ({
   hasCloseBtn = true,
   isShowing = false,
   isShowingOnChange,
+  hideOnClickInsideList = true,
   className,
   inlineStyle,
   webcomponent,
@@ -338,9 +342,9 @@ const Popover: FC<PopoverProps> = ({
     ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
     ['ewc-popover--list']: type === 'list',
     ['ewc-popover--list-divider']: type === 'list' && hasDivider,
+    ['ewc-popover--list-selection']: variant === 'selection',
   });
 
-  console.log('Type: ', type);
   return (
     <div
       className={`${className ? className : ''}`}
@@ -394,7 +398,7 @@ const Popover: FC<PopoverProps> = ({
                 <div
                   className="ewc-popover__text"
                   data-testid="popover-text"
-                  onClick={() => setPopoverVisibility(false)}
+                  onClick={() => hideOnClickInsideList && setPopoverVisibility(false)}
                 >
                   {content}
                 </div>
@@ -402,7 +406,7 @@ const Popover: FC<PopoverProps> = ({
               {!content && type === 'list' && (
                 <div
                   className="ewc-popover__text"
-                  onClick={() => setPopoverVisibility(false)}
+                  onClick={() => hideOnClickInsideList && setPopoverVisibility(false)}
                   ref={popoverText}
                 />
               )}

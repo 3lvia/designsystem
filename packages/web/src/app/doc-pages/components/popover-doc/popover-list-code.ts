@@ -1,0 +1,118 @@
+import { exampleContents } from 'src/app/shared/example-contents';
+
+const popoverListCode = {
+  type: 'list',
+  codeReact:
+    `<Popover
+  header={"` +
+    exampleContents.texts.md['eng-GBR'].title +
+    `"}
+  content={"` +
+    exampleContents.texts.md['eng-GBR'].description +
+    `"}
+  posY={"top"}
+  isShowingOnChange={(event) => showingChanges(event)}
+  trigger={
+    <button className="e-btn e-btn--icon e-btn--circled">
+      <span className="e-btn__icon">
+        <i className="e-icon e-icon--information_circle"></i>
+        <i className="e-icon e-icon e-icon--information_circle-filled-color"></i>
+      </span>
+    </button>
+  }
+></Popover>
+`,
+  codeAngular:
+    `<elvia-popover 
+  [header]="'` +
+    exampleContents.texts.md['eng-GBR'].title +
+    `'"
+  [content]="'` +
+    exampleContents.texts.md['eng-GBR'].description +
+    `'"
+  [posY]="'top'"
+  (isShowingOnChange)="showingChanges($event.detail.value)"
+>
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+    </span>
+  </button>
+</elvia-popover>
+`,
+  codeVue:
+    `<elvia-popover 
+  :header="'` +
+    exampleContents.texts.md['eng-GBR'].title +
+    `'"
+  :content="'` +
+    exampleContents.texts.md['eng-GBR'].description +
+    `'"
+  :posY="'top'"
+  @is-showing-on-change="showingChanges($event.detail.value)"
+>
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+    </span>
+  </button>
+</elvia-popover>
+`,
+  codeNativeHTML:
+    `<elvia-popover 
+  id="example-elvia-popover"
+  header="` +
+    exampleContents.texts.md['eng-GBR'].title +
+    `"
+  posY="top"
+>
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+    </span>
+  </button>
+  <div slot="content" className="ewc-popover__list">
+	<div className="ewc-popover__list-group">
+		<h1>Title 1</h1>
+		<button className="ewc-popover__list-item--selected">
+			<elvia-icon name="edit" size="xs"></elvia-icon>
+			<span>Rediger</span>
+		</button>
+		<button>
+			<elvia-icon name="bin" size="xs"></elvia-icon>
+			<span>Slett</span>
+		</button>
+		<a>
+			<elvia-icon name="download" size="xs"></elvia-icon>
+			<span>Last ned</span>
+		</a>
+	</div>
+	<div className="ewc-popover__list-group">
+		<h1>Title 2</h1>
+		<button>
+			<elvia-icon name="edit" size="xs"></elvia-icon>
+			<span>Rediger</span>
+		</button>
+		<button>
+			<elvia-icon name="bin" size="xs"></elvia-icon>
+			<span>Slett</span>
+		</button>
+		<a>
+			<elvia-icon name="download" size="xs"></elvia-icon>
+			<span>Last ned</span>
+		</a>
+	</div>
+	</div>
+</elvia-popover>
+`,
+  codeNativeScript: `  const popover = document.getElementById('example-elvia-popover');
+  popover.addEventListener('isShowingOnChange', (event) => {
+    console.log('Do what you want when visibility changes: ', event.detail.value);
+  });
+`,
+};
+
+export { popoverListCode };

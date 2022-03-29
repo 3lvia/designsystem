@@ -9,7 +9,11 @@
 <!--BODY-->
 <div class="page-body e-mt-72">
   <!--CEG-->
-  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+  <app-component-example-generator
+    [componentData]="componentData"
+    [typesData]="typesData"
+    [typePropExists]="true"
+  ></app-component-example-generator>
 
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
@@ -25,7 +29,7 @@
           ></div>
           <img
             src="./../../../../assets/popover/Group 2791.svg"
-            class="usage-image-desktop e-mb-32 e-w-100 responsive-height"
+            class="usage-image-desktop e-w-100 responsive-height"
             (load)="hideContentLoader($event)"
           />
           <div class="usage-image-mobile e-w-100">
@@ -50,6 +54,18 @@
               </ng-container>
             </app-component-subsubsection>
           </div>
+
+          <app-component-subsubsection [sectionTitle]="'Text'">
+            <ng-container ngProjectAs="sectionContent">
+              Recommended width for text popover are 450px. This is measured with the line length and number
+              of characters - to get a good readability.
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Custom content'">
+            <ng-container ngProjectAs="sectionContent">
+              Insert input, selection controls, buttons etc.
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
 
@@ -60,7 +76,7 @@
           after selecting action or clicking outside.
           <img
             src="./../../../../assets/popover/Popover list example.svg"
-            class="usage-image-desktop e-mb-32 e-w-100 responsive-height"
+            class="usage-image-desktop e-w-100 e-mt-40"
           />
           <div class="usage-image-mobile e-w-100">
             <app-component-subsubsection [sectionTitle]="'Title'">
@@ -84,6 +100,27 @@
               </ng-container>
             </app-component-subsubsection>
           </div>
+
+          <app-component-subsubsection [sectionTitle]="'Icon'">
+            <ng-container ngProjectAs="sectionContent">
+              Use icons to help users easily recognize known actions.
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Title'">
+            <ng-container ngProjectAs="sectionContent">
+              Different actions can be separated by titles and provide more context to the actions.
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Divider'">
+            <ng-container ngProjectAs="sectionContent">
+              Similar actions can be grouped by a divider.
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Selection'">
+            <ng-container ngProjectAs="sectionContent">
+              Always one alternative selected, works likes a radio button.
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -92,15 +129,19 @@
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      Popover displays additional information or operations without leaving the page. It is triggered by a
-      button and layered on top of all other content. Only one popover can be open at the same time.
-
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
 
       <app-component-subsection [sectionTitle]="'Responsive'">
         <ng-container ngProjectAs="sectionContent">
           The popover include responsive functionality and is suited for all devices. However you should keep
           in mind that it can be overwhelming on mobile if the popover has a lot of content.
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Position'">
+        <ng-container ngProjectAs="sectionContent">
+          Popover can be positioned above and below the clickable trigger and aligned in the center, left or
+          right.
         </ng-container>
       </app-component-subsection>
     </ng-container>
