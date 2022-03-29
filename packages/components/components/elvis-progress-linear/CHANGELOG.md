@@ -4,7 +4,6 @@
 
 ### Bug fix
 
--
 - Fixed an issue causing the progress-linear to sometimes lose its style when used as a web component inside
   an elvis-box.
 
