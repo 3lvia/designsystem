@@ -1,6 +1,5 @@
 import { exampleContents } from 'src/app/shared/example-contents';
 import changelogJson from 'src/assets/changelogs/elvis-box/CHANGELOG.json';
-const { content } = changelogJson;
 
 const boxData = {
   name: 'elvis-box',
@@ -85,7 +84,7 @@ const boxData = {
     <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
   </div>
 </elvia-box>`,
-  changelog: content,
+  changelog: changelogJson.content,
 };
 
 export { boxData };
