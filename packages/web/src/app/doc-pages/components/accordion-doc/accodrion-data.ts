@@ -1,6 +1,7 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import ComponentData from '../component-data.interface';
 
-const accordionData = {
+const accordionData: ComponentData = {
   name: 'elvis-accordion',
   elementNameW: 'elvia-accordion',
   elementNameR: 'Accordion',
@@ -14,6 +15,12 @@ const accordionData = {
       cegType: 'string',
       cegFormType: 'type',
       cegOptions: ['normal', 'overflow'],
+    },
+    overflowHeight: {
+      isRequired: false,
+      type: 'number',
+      description:
+        'How much content (in pixels) to display before opening the accordion. Only affects accordion with type "overflow".',
     },
     content: {
       isRequired: true,

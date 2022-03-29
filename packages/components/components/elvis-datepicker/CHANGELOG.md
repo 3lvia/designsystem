@@ -1,5 +1,19 @@
 # Elvia Date picker Changelog
 
+## 2.8.2 (27.03.22)
+
+### Bug fix
+
+- Fixed an issue causing the datepicker to sometimes lose its style when used as a web component inside an
+  elvis-box.
+
+## 2.8.1 (23.03.22)
+
+### Bug fix
+
+- Fixed an issue causing problems for events in non-React environments for props with falsy values. This
+  update bumps the dependency on @elvia/elvis-component-wrapper.
+
 ## 2.8.0 (18.03.22)
 
 ### New feature

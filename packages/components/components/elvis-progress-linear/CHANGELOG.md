@@ -1,5 +1,19 @@
 # Elvia Progress-linear Changelog
 
+## 1.2.3 (28.03.22)
+
+### Bug fix
+
+- Fixed an issue causing the progress-linear to sometimes lose its style when used as a web component inside
+  an elvis-box.
+
+## 1.2.2 (23.03.22)
+
+### Bug fix
+
+- Fixed an issue causing problems for events in non-React environments for props with falsy values. This
+  update bumps the dependency on @elvia/elvis-component-wrapper.
+
 ## 1.2.1 (14.03.22)
 
 ### Patch

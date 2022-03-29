@@ -1,6 +1,7 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import ComponentData from '../component-data.interface';
 
-const popoverData = {
+const popoverData: ComponentData = {
   name: 'elvis-popover',
   elementNameW: 'elvia-popover',
   elementNameR: 'Popover',
@@ -46,7 +47,7 @@ const popoverData = {
       cegFormType: 'toggle',
       cegDefault: true,
       cegOption: 'false',
-      cegDependency: { name: 'type', value: 'list' },
+      cegDependency: [{ name: 'type', value: 'list' }],
     },
     isShowing: {
       isRequired: false,

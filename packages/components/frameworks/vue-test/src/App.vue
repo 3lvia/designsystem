@@ -53,8 +53,14 @@
     <!--Accordion-->
     <div class="example-wrapper">
       <h3>Accordion</h3>
-      <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="normal">
-        <div slot="content">Webcomponentent content for the Accordion component</div>
+      <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="overflow" :overflowHeight="10">
+        <div slot="content">
+          Webcomponentent content for the Accordion componenWebcomponentent content for the Accordion
+          componenWebcomponentent content for the Accordion componenWebcomponentent content for the Accordion
+          componenWebcomponentent content for the Accordion componenWebcomponentent content for the Accordion
+          componenWebcomponentent content for the Accordion componenWebcomponentent content for the Accordion
+          component
+        </div>
       </elvia-accordion>
     </div>
 

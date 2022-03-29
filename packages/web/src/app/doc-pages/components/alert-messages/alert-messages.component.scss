@@ -1,5 +1,11 @@
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
+.alert-type-container-desktop {
+  display: none;
+  @include breakpoint-up(MaxDesktop) {
+    display: block;
+  }
+}
 .alert-type-container {
   display: flex;
   justify-content: space-between;
@@ -7,6 +13,9 @@
   @include breakpoint-up(MinDesktop) {
     flex-direction: column;
     justify-content: flex-start;
+  }
+  @include breakpoint-up(MaxDesktop) {
+    display: none;
   }
 
   .alert-type-item {

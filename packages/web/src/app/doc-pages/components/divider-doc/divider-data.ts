@@ -1,4 +1,6 @@
-export const dividerData = {
+import ComponentData from '../component-data.interface';
+
+export const dividerData: ComponentData = {
   name: 'elvis-divider',
   elementNameW: 'elvia-divider',
   elementNameR: 'Divider',
@@ -85,4 +87,5 @@ export const dividerData = {
   <h2 slot="title">Title</h2>
 </elvia-divider>
 `,
+  codeNativeScript: ``,
 };

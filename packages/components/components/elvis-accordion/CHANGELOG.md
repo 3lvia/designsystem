@@ -1,5 +1,19 @@
 # Elvia Accordion Changelog
 
+## 2.3.0 (24.03.22)
+
+### New feature
+
+- Added new property "overflowHeight" allowing users to decide how much content to diplay before opening the
+  accordion.
+
+## 2.2.1 (23.03.22)
+
+### Big fix
+
+- Fixed an issue causing problems for events in non-React environments for props with falsy values. This
+  update bumps the dependency on @elvia/elvis-component-wrapper.
+
 ## 2.2.0 (04.03.22)
 
 ### New feature

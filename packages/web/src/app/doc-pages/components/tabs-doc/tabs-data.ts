@@ -1,6 +1,7 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import ComponentData from '../component-data.interface';
 
-export const tabsData = {
+export const tabsData: ComponentData = {
   name: 'elvis-tabs',
   elementNameW: 'elvia-tabs',
   elementNameR: 'Tabs',
@@ -43,7 +44,7 @@ export const tabsData = {
       cegFormType: 'toggle',
       cegDefault: false,
       cegOption: 'true',
-      cegDisplayGroup: 'Keyboard',
+      cegDisplayGroup: 'Keyboard navigation',
     },
     valueOnChange: {
       isRequired: false,

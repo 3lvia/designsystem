@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../example-code.service';
 import * as ElvisIcons from '@elvia/elvis-assets-icons';
+import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 
 @Component({
   selector: 'app-component-example-generator',
@@ -13,7 +14,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @ViewChild('cegFrame') cegFrame;
   @ViewChild('cegContent') cegContent;
   @Input() delayInnerHtml = false;
-  @Input() componentData;
+  @Input() componentData: ComponentData;
   @Input() typesData;
   @Input() width = 100;
   @Input() hasPreview = true;
@@ -173,7 +174,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           formType: formType,
           type: prop.cegType,
           defaultValue: prop.cegDefault,
-          propValue: prop.cegPropValue,
           propName: propKey,
           propSlot: prop.cegSlot,
           counterMax: prop.cegCounterMax,
@@ -229,7 +229,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           const newType = { value: index, label: label };
           this.typeOptions.push(newType);
         });
-        this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault]);
+        this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault as number]);
       } else if (formType === 'iconName') {
         this.selectedIcon = this.iconsOptions[0];
         this.defaultIcon = { value: 'addCircle', label: 'Add Circle' };
@@ -250,7 +250,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           const type = { value: index, label: option };
           this.bgOptions.push(type);
         });
-        this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault]);
+        this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault as number]);
       }
     });
 

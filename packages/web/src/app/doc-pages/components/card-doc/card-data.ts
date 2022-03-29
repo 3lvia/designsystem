@@ -1,4 +1,6 @@
-const cardData = {
+import ComponentData from '../component-data.interface';
+
+const cardData: ComponentData = {
   name: 'elvis-card',
   elementNameW: 'elvia-card',
   elementNameR: 'Card',
@@ -119,6 +121,13 @@ const cardData = {
   package: 'npm install @elvia/elvis-card',
   codeImportReact: `import { Card } from '@elvia/elvis-card/react';`,
   codeImportWebComponent: `import '@elvia/elvis-card';`,
+
+  // Not used here, as there are separate files with code for each component type.
+  codeReact: ``,
+  codeAngular: ``,
+  codeVue: ``,
+  codeNativeHTML: ``,
+  codeNativeScript: ``,
 };
 
 export { cardData };
