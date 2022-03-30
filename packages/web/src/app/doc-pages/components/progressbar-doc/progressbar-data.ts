@@ -42,6 +42,13 @@ export const progressbarData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'State',
     },
+    ariaValueText: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Use ariaValueText to better communicate to the user how far along the progressbar has come. E.g. "8% (34 minutes) remaining"',
+      default: '"Progress is currently at {value}%."',
+    },
     className: {
       isRequired: false,
       type: 'string',

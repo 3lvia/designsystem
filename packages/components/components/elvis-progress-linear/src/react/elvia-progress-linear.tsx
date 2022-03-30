@@ -7,6 +7,7 @@ export interface ProgressbarProps {
   isIndeterminate: boolean;
   isError: boolean;
   className?: string;
+  ariaValueText: string;
   inlineStyle?: { [style: string]: CSSProperties };
 }
 
@@ -14,6 +15,7 @@ const ProgressLinear: FC<ProgressbarProps> = ({
   value = 0,
   isIndeterminate,
   isError,
+  ariaValueText,
   className,
   inlineStyle,
 }) => {
@@ -24,7 +26,15 @@ const ProgressLinear: FC<ProgressbarProps> = ({
   });
 
   return (
-    <div className={className ? className : ''} style={inlineStyle} data-testid="progress-wrapper">
+    <div
+      className={className ? className : ''}
+      style={inlineStyle}
+      data-testid="progress-wrapper"
+      aria-valuenow={value}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuetext={ariaValueText ? ariaValueText : 'Progress is currently at ' + value + '%.'}
+    >
       <div className={'ewc-progress-linear'}>
         <div className={classes} style={{ width: `${value}%` }} data-testid="progress-linear"></div>
       </div>
