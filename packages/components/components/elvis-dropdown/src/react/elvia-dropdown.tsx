@@ -191,6 +191,13 @@ const Dropdown: React.FC<DropdownProps> = ({
       paddingLeft: '0px',
     }),
 
+    noOptionsMessage: (provided: any) => ({
+      ...provided,
+      fontFamily: 'Red Hat Text',
+      color: getColor('grey-70'),
+      textAlign: 'left',
+    }),
+
     option: (provided: any, state: any) => ({
       ...provided,
       display: 'flex',
