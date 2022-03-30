@@ -58,7 +58,7 @@ export const dropdownData: ComponentData = {
       description:
         'Set the dropdown to accept text input that filters possible options based an the search term.',
       default: 'false',
-      cegDisplayName: 'Typing',
+      cegDisplayName: 'Searchable',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
