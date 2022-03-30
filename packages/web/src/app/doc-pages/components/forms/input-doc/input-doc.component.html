@@ -95,7 +95,10 @@
         <ng-container ngProjectAs="sectionContent">
           By default, all fields must be required. Validation is based on the field being filled out.
           Validation takes place along the way, and the user must also be presented with guidance or error
-          messages.
+          messages. Read more about
+          <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
+            input validation and behaviors here.
+          </a>
           <div class="exampleContainer e-mt-24">
             <div class="e-form-field">
               <label class="e-form-field__label" for="invalid">Label</label>
@@ -120,6 +123,13 @@
             [codeHTML]="example4"
             [codeTS]="example4TS"
           ></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Patterns'">
+        <ng-container ngProjectAs="sectionContent">
+          Read more about how to use different forms and patterns in forms
+          <a class="e-link e-link--inline" [routerLink]="['/patterns/forms']">here</a>
+          .
         </ng-container>
       </app-component-subsection>
     </ng-container>
