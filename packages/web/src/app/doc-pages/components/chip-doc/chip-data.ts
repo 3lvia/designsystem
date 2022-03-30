@@ -1,6 +1,7 @@
 import changelogJson from 'src/assets/changelogs/elvis-chip/CHANGELOG.json';
+import ComponentData from '../component-data.interface';
 
-export const chipData = {
+export const chipData: ComponentData = {
   name: 'elvis-chip',
   elementNameW: 'elvia-chip',
   elementNameR: 'Chip',

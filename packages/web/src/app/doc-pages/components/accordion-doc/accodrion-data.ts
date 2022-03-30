@@ -1,7 +1,8 @@
 import { exampleContents } from 'src/app/shared/example-contents';
 import changelogJson from 'src/assets/changelogs/elvis-accordion/CHANGELOG.json';
+import ComponentData from '../component-data.interface';
 
-const accordionData = {
+const accordionData: ComponentData = {
   name: 'elvis-accordion',
   elementNameW: 'elvia-accordion',
   elementNameR: 'Accordion',

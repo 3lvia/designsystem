@@ -1,6 +1,7 @@
 import changelogJson from 'src/assets/changelogs/elvis-pagination/CHANGELOG.json';
+import ComponentData from '../component-data.interface';
 
-export const paginationData = {
+export const paginationData: ComponentData = {
   name: 'elvis-pagination',
   elementNameW: 'elvia-pagination',
   elementNameR: 'Pagination',

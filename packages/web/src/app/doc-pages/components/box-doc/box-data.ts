@@ -1,7 +1,8 @@
 import { exampleContents } from 'src/app/shared/example-contents';
 import changelogJson from 'src/assets/changelogs/elvis-box/CHANGELOG.json';
+import ComponentData from '../component-data.interface';
 
-const boxData = {
+const boxData: ComponentData = {
   name: 'elvis-box',
   elementNameW: 'elvia-box',
   elementNameR: 'Box',
@@ -85,6 +86,7 @@ const boxData = {
   </div>
 </elvia-box>`,
   changelog: changelogJson.content,
+  codeNativeScript: ``,
 };
 
 export { boxData };

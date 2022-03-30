@@ -181,7 +181,7 @@ module.exports = [
     reactName: 'Datepicker',
     elementStyle: 'display: block; max-width: 448px;',
     conditionalElementStyle: [{ name: 'isFullWidth', value: 'true', style: `width: 100%` }],
-    useWrapper: false,
+    useWrapper: true,
     slotItems: false,
     reactTypescriptDeclaration: true,
   },
@@ -359,7 +359,7 @@ module.exports = [
     reactName: 'Tabs',
     elementStyle: `display: grid; overflow: hidden;`,
     slotItems: false,
-    useWrapper: false,
+    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {

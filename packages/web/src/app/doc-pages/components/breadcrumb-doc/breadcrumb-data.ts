@@ -1,6 +1,7 @@
 import changelogJson from 'src/assets/changelogs/elvis-breadcrumb/CHANGELOG.json';
+import ComponentData from '../component-data.interface';
 
-const breadcrumbData = {
+const breadcrumbData: ComponentData = {
   name: 'elvis-breadcrumb',
   elementNameW: 'elvia-breadcrumb',
   elementNameR: 'Breadcrumb',

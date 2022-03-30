@@ -1,7 +1,8 @@
 import { exampleContents } from 'src/app/shared/example-contents';
 import changelogJson from 'src/assets/changelogs/elvis-carousel/CHANGELOG.json';
+import ComponentData from '../component-data.interface';
 
-export const carouselData = {
+export const carouselData: ComponentData = {
   name: 'elvis-carousel',
   elementNameW: 'elvia-carousel',
   elementNameR: 'Carousel',
@@ -198,6 +199,7 @@ export const carouselData = {
     />
   </div>
 </elvia-carousel>`,
+  codeNativeScript: ``,
   does: [
     'Many items to display and the user only needs to focus on a few at once',
     'Collection of related items',

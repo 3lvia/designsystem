@@ -1,6 +1,7 @@
 import changelogJson from 'src/assets/changelogs/elvis-modal/CHANGELOG.json';
+import ComponentData from '../component-data.interface';
 
-const modalData = {
+const modalData: ComponentData = {
   name: 'elvis-modal',
   elementNameW: 'elvia-modal',
   elementNameR: 'Modal',

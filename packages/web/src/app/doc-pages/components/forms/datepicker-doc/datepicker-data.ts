@@ -1,6 +1,7 @@
 import changelogJson from 'src/assets/changelogs/elvis-datepicker/CHANGELOG.json';
+import ComponentData from '../../component-data.interface';
 
-const datepickerData = {
+const datepickerData: ComponentData = {
   name: 'elvis-datepicker',
   elementNameW: 'elvia-datepicker',
   elementNameR: 'Datepicker',
