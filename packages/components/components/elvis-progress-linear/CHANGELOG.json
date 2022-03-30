@@ -66,15 +66,6 @@
       "changelog": [
         {
           "changes": ["First stable version :tada:"]
-        },
-        {
-          "type": "breaking_changes"
-        },
-        {
-          "type": "new_feature"
-        },
-        {
-          "type": "bug_fix"
         }
       ]
     }
