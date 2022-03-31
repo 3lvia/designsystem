@@ -2,10 +2,33 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "31.03.22",
+      "version": "1.2.4 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Accessibility fixes"]
+        }
+      ]
+    },
+    {
+      "date": "28.03.22",
+      "version": "1.2.3 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue causing the progress-linear to sometimes lose its style when used as a web component inside  an elvis-box."
+          ]
+        }
+      ]
+    },
+    {
       "date": "23.03.22",
       "version": "1.2.2 ",
       "changelog": [
         {
+          "type": "bug_fix",
           "changes": [
             "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
           ]

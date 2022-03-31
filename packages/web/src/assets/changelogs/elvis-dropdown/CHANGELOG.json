@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.03.22",
+      "version": "2.2.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added new prop 'isSearchable', allows user to enter text and filter options based on search term."
+          ]
+        }
+      ]
+    },
+    {
       "date": "23.03.22",
       "version": "2.1.4 ",
       "changelog": [

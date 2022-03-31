@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "31.03.22",
+      "version": "2.2.3 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed React version dependency."]
+        }
+      ]
+    },
+    {
       "date": "23.03.22",
       "version": "2.2.2 ",
       "changelog": [

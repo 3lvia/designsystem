@@ -17,7 +17,7 @@
 
 ### Patch
 
-Selected values now have correct font color if disabled.
+- Selected values now have correct font color if disabled.
 
 ## 2.1.2 (04.03.22)
 
