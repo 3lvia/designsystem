@@ -1,5 +1,11 @@
 # Elvia Component Wrapper Changelog
 
+## 2.2.3 (31.03.22)
+
+### Bug fix
+
+- Fixed React version dependency.
+
 ## 2.2.2 (23.03.22)
 
 ### Bug fix
