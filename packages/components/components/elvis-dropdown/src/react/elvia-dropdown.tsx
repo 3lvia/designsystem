@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useRef, CSSProperties } from 'react';
-import Select, { components } from 'react-select';
+import Select, {
+  components,
+  DropdownIndicatorProps,
+  MultiValueProps,
+  OptionProps,
+  PlaceholderProps,
+} from 'react-select';
 import toolbox from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import {
@@ -20,7 +26,6 @@ export interface DropdownOption {
   value: string;
   label: string;
 }
-7;
 
 export interface DropdownProps {
   defaultValue?: DropdownOption | Array<DropdownOption> | undefined;
@@ -28,6 +33,7 @@ export interface DropdownProps {
   isCompact: boolean;
   isDisabled: boolean;
   isMulti: boolean;
+  isSearchable: boolean;
   label?: string;
   menuPosition?: DropdownMenuPosition;
   noOptionsMessage?: string;
@@ -40,25 +46,13 @@ export interface DropdownProps {
   webcomponent?: ElvisComponentWrapper;
 }
 
-// Custom ValueContainer for Elvia Dropdown, defined outside of Dropdown due to focus issues with react-select package.
-// Enables multiselect with checkboxes in a dropdown.
-const ElviaValueContainer = ({ ...props }) => {
-  const optionsCount = props.children[0].length;
-  const selectedOptions = [...props.children];
-  if (optionsCount >= 2) {
-    selectedOptions[0] = `${optionsCount} valgte`;
-  }
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-ignore
-  return <components.ValueContainer {...props}>{selectedOptions}</components.ValueContainer>;
-};
-
 const Dropdown: React.FC<DropdownProps> = ({
   defaultValue = undefined,
   errorMessage = '',
   isCompact,
   isDisabled,
   isMulti,
+  isSearchable = false,
   label,
   menuPosition = 'auto',
   noOptionsMessage = 'Ingen tilgjengelige valg',
@@ -110,6 +104,16 @@ const Dropdown: React.FC<DropdownProps> = ({
       return '#E9E9E9';
     }
     return '#F4F4F4';
+  };
+
+  const decideSingleValueColor = (isMenuOpen: boolean, searchable: boolean, disabled: boolean) => {
+    if (disabled) {
+      return getColor('disabled');
+    }
+    if (isMenuOpen && searchable) {
+      return getColor('grey-70');
+    }
+    return '#000';
   };
 
   // Custom styling for dropdown using emotion from react-select package.
@@ -187,6 +191,13 @@ const Dropdown: React.FC<DropdownProps> = ({
       paddingLeft: '0px',
     }),
 
+    noOptionsMessage: (provided: any) => ({
+      ...provided,
+      fontFamily: 'Red Hat Text',
+      color: getColor('grey-70'),
+      textAlign: 'left',
+    }),
+
     option: (provided: any, state: any) => ({
       ...provided,
       display: 'flex',
@@ -231,14 +242,14 @@ const Dropdown: React.FC<DropdownProps> = ({
       maxWidth: 'calc(100% - 12px)',
     }),
 
-    singleValue: (provided: any, state: any) => ({
+    singleValue: (provided: any) => ({
       ...provided,
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
       fontStyle: 'normal',
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: '22px',
-      color: state.isDisabled ? getColor('disabled') : '#000',
+      color: decideSingleValueColor(menuIsOpen, isSearchable, isDisabled),
       margin: '0px',
       maxWidth: 'calc(100% - 12px)',
     }),
@@ -257,7 +268,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   // Custom components for Elvia dropdown
-  const ElviaDropdownIndicator = ({ ...props }) => {
+  const ElviaDropdownIndicator = (props: DropdownIndicatorProps) => {
     return (
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
@@ -271,7 +282,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     );
   };
 
-  const ElviaOption = ({ ...props }) => {
+  const ElviaOption = (props: OptionProps) => {
     if (!isMulti) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
@@ -301,14 +312,34 @@ const Dropdown: React.FC<DropdownProps> = ({
       </DropdownErrorMessageWrapper>
     );
   };
+
+  const ElviaMultiValue = (props: MultiValueProps): any => {
+    if (menuIsOpen && isSearchable) {
+      return null;
+    }
+    if (props.getValue().length === 1) {
+      return (props.getValue()[0] as DropdownOption).label;
+    }
+
+    return !props.index && `${props.getValue().length} valgte`;
+  };
+
+  const ElviaPlaceholder = (props: PlaceholderProps) => {
+    if (menuIsOpen && isSearchable) {
+      return null;
+    }
+    return <components.Placeholder {...props}>{props.children}</components.Placeholder>;
+  };
+
   // Object containing all components overriden in react-select by Elvis dropdown
   const overrideComponents = {
     DropdownIndicator: ElviaDropdownIndicator,
     Option: ElviaOption,
-    ValueContainer: ElviaValueContainer,
     IndicatorSeparator: () => null,
     ClearIndicator: () => null,
+    MultiValue: ElviaMultiValue,
     MultiValueRemove: () => null,
+    Placeholder: ElviaPlaceholder,
   };
 
   // handle focus on dropdown, running on first render only (on mount)
@@ -371,7 +402,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           inputId={selectId}
           isDisabled={isDisabled}
           isMulti={isMulti}
-          isSearchable={false}
+          isSearchable={isSearchable}
           menuIsOpen={menuIsOpen}
           menuPlacement={menuPosition}
           noOptionsMessage={() => noOptionsMessage}

@@ -12,7 +12,7 @@ const typography = {
   textSm: getTypography('text-sm'),
 };
 
-export const BreadcrumbWrapper = styled.div`
+export const BreadcrumbWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: flex-start;

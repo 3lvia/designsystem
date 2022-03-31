@@ -108,6 +108,14 @@ export class HeaderComponent {
     const element = document.querySelectorAll(el);
     if (!element[0].classList.contains(elClass)) {
       element[0].classList.add(elClass);
+      window.addEventListener('click', (e: MouseEvent) => {
+        const clickableAreaClass = '.' + elClass.split('--open')[0];
+        const openedElement = document.querySelectorAll(clickableAreaClass)[0];
+        if (!openedElement.contains(e.target as Node)) {
+          element[0].classList.remove(elClass);
+          window.removeAllListeners();
+        }
+      });
     } else {
       element[0].classList.remove(elClass);
     }

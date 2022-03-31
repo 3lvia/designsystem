@@ -18,7 +18,6 @@ export const CarouselContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
 
   @keyframes exitLeft {
     0% {
@@ -52,6 +51,10 @@ export const CarouselContainer = styled.div`
   .enter-animation {
     animation: fadeInOpacity 0.5s ease-in;
   }
+`;
+
+export const CarouselElements = styled.div`
+  overflow: hidden;
 `;
 
 export const CarouselElementContainer = styled.div`

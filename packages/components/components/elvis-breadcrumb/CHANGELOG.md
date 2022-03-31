@@ -1,5 +1,11 @@
 # Elvia Breadcrumbs
 
+## 1.3.4 (31.03.22)
+
+### Big fix
+
+- Small accessibility fixes
+
 ## 1.3.3 (23.03.22)
 
 ### Big fix

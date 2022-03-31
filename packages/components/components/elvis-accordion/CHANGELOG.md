@@ -1,5 +1,11 @@
 # Elvia Accordion Changelog
 
+## 2.3.2 (31.03.22)
+
+### New feature
+
+- Fixed React version dependency.
+
 ## 2.3.0 (24.03.22)
 
 ### New feature
