@@ -156,7 +156,7 @@ export interface ComponentDataCode {
   codeNativeScript: string;
 }
 /**
- * Definition for an object/update in the changelog
+ * Definition for an object/a single update in the changelog
  */
 type ComponentChangelog = {
   date: string;
@@ -168,7 +168,7 @@ type ComponentChangelog = {
  * Each segment in the changelog for a spesific update.
  */
 type ComponentChangelogChange = {
-  type?: string; // TODO: Should be required, but old changelogs doesnt always implement this
+  type?: string; // TODO: Should be required, but old changelogs dont always implement this
   changes: Array<string>;
 };
 /**
