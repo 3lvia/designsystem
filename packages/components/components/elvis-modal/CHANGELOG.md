@@ -1,0 +1,133 @@
+# Elvia Modal Changelog
+
+## 1.4.4 (23.03.22)
+
+### Big fix
+
+- Fixed an issue causing problems for events in non-React environments for props with falsy values. This
+  update bumps the dependency on @elvia/elvis-component-wrapper.
+
+## 1.4.3 (14.03.22)
+
+### New feature
+
+- Added hasPadding prop
+
+## 1.4.2 (04.03.22)
+
+### Patch
+
+- Now using correct type for webcomponent wrapper for better internal IntelliSense.
+
+## 1.4.1 (18.02.22)
+
+### Patch
+
+- Now using elvis-icon package for internal icons.
+
+## 1.4.0 (07.02.22)
+
+### New feature
+
+- Added inlineStyle and className props
+
+## 1.3.11 (02.02.22)
+
+- changes in useClickOutside listener
+
+## 1.3.10 (25.01.22)
+
+### Patch
+
+- Updated dependencies
+
+## 1.3.9 (14.01.22)
+
+### Patch
+
+- Refactoring
+
+## 1.3.8 (14.01.22)
+
+### Patch
+
+- Set width of modal buttons on mobile to be 100%
+
+## 1.3.7 (07.01.22)
+
+### Patch
+
+- Updated tokens declarations
+
+## 1.3.6 (16.12.21)
+
+### Patch
+
+- Fix for slotting
+
+## 1.3.4 (10.12.21)
+
+### Patch
+
+- Added unit tests for modal
+
+## 1.3.3 (30.11.21)
+
+### Patch
+
+- Now using new version of elvis-colors.
+
+## 1.3.2 (30.11.21)
+
+### Patches
+
+- Web component wrapper fix
+
+## 1.3.1 (24.11.21)
+
+### Bug fix
+
+- Fix to enable new prop maxWidth for webcomponents.
+
+## 1.3.0 (23.11.21)
+
+### New feature
+
+- Added optional prop that can overwrite the max-width of the modal.
+
+## 1.2.2 (12.11.21)
+
+### Bug fix
+
+- Fixed escape keypress opening modal.
+
+## 1.2.0 (05.11.21)
+
+### New features
+
+- Added prop for disabling closing of modal, should only be used in special cases where closing the modal was
+  not intended.
+
+## 1.1.0 (03.11.21)
+
+### New features
+
+- Added type declaration (for react)
+
+## 1.0.1 (19.10.21)
+
+### New features
+
+- Dependency missing fix
+
+## 1.0.0 (19.10.21)
+
+### New features
+
+- First version of Modal works as webcomponent also
+
+## 0.0.1-beta (13.11.20)
+
+### New features
+
+- First version of Modal that should work for React
