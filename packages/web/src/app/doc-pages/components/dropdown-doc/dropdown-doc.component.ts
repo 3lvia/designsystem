@@ -17,23 +17,32 @@ export class DropdownDocComponent {
   description = getComponent('dropdown').description;
 
   isCompact = true;
-  isMulti = true;
   isDisabled = true;
+  isMulti = true;
+  isSearchable = true;
 
   isSelected;
 
   exampleOptions = [
     {
-      value: '1',
-      label: 'Option 1',
+      value: 'Norge',
+      label: 'Norge',
     },
     {
-      value: '2',
-      label: 'Option 2',
+      value: 'Sverige',
+      label: 'Sverige',
     },
     {
-      value: '3',
-      label: 'Option 3',
+      value: 'Danmark',
+      label: 'Danmark',
+    },
+    {
+      value: 'Finland',
+      label: 'Finland',
+    },
+    {
+      value: 'Island',
+      label: 'Island',
     },
   ];
 }

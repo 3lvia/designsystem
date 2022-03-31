@@ -13,47 +13,9 @@
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Normal'">
-        <ng-container ngProjectAs="sectionContent">
-          <div style="width: 250px">
-            <elvia-dropdown
-              [options]="exampleOptions"
-              placeholder="Placeholder"
-              label="Label"
-            ></elvia-dropdown>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Compact'">
-        <ng-container ngProjectAs="sectionContent">
-          <div style="width: 250px">
-            <elvia-dropdown
-              [options]="exampleOptions"
-              placeholder="Placeholder"
-              label="Label"
-              [isCompact]="isCompact"
-            ></elvia-dropdown>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
-  <!--OPTIONS-->
-  <app-component-section [sectionTitle]="'Options'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Multiselect'">
-        <ng-container ngProjectAs="sectionContent">
-          <div style="width: 250px">
-            <elvia-dropdown
-              [options]="exampleOptions"
-              placeholder="Placeholder"
-              label="Label"
-              [isMulti]="isMulti"
-            ></elvia-dropdown>
-          </div>
-        </ng-container>
-      </app-component-subsection>
+      There are two different sizes of dropdown; normal and compact. Much like compact text fields, the
+      compact dropdown is a version of the text field that’s primarily designed for internal systems, and
+      shouldn’t be mixed with the other input style.
     </ng-container>
   </app-component-section>
 
