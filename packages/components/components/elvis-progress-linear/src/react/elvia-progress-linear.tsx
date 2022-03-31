@@ -33,7 +33,7 @@ const ProgressLinear: FC<ProgressbarProps> = ({
       aria-valuenow={value}
       aria-valuemin={0}
       aria-valuemax={100}
-      aria-valuetext={ariaValueText ? ariaValueText : 'Progress is currently at ' + value + '%.'}
+      aria-valuetext={ariaValueText ? ariaValueText : 'Progresjonen er nå på ' + value + '%.'}
     >
       <div className={'ewc-progress-linear'}>
         <div className={classes} style={{ width: `${value}%` }} data-testid="progress-linear"></div>
