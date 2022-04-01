@@ -133,9 +133,9 @@ export const ModalComponent: FC<ModalProps> = ({
       aria-modal
       tabIndex={-1}
       role="dialog"
-      aria-label={title}
       isShowing={isShowing}
       data-testid="modal-container"
+      aria-labelledby="modal-dialog-label"
     >
       <ModalWrapper
         ref={modalWrapperRef}
@@ -167,7 +167,7 @@ export const ModalComponent: FC<ModalProps> = ({
 
         <ModalContent hasIllustration={hasIllustration} hasPadding={hasPadding}>
           {title && (
-            <ModalTitle hasIllustration={hasIllustration} data-testid="modal-title">
+            <ModalTitle hasIllustration={hasIllustration} data-testid="modal-title" id="modal-dialog-label">
               {title}
             </ModalTitle>
           )}
