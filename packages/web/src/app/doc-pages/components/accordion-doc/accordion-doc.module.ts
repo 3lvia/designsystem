@@ -13,6 +13,7 @@ import { ComponentPropertiesTableModule } from 'src/app/shared/component-documen
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { ComponentInstallationModule } from 'src/app/shared/component-documentat
     ComponentExampleGeneratorModule,
     ComponentSubsubsectionModule,
     ComponentInstallationModule,
+    ComponentChangelogModule,
   ],
   declarations: [AccordionDocComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

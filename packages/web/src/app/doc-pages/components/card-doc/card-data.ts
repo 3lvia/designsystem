@@ -1,3 +1,4 @@
+import changelogJson from 'src/assets/changelogs/elvis-card/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const cardData: ComponentData = {
@@ -121,6 +122,7 @@ const cardData: ComponentData = {
   package: 'npm install @elvia/elvis-card',
   codeImportReact: `import { Card } from '@elvia/elvis-card/react';`,
   codeImportWebComponent: `import '@elvia/elvis-card';`,
+  changelog: changelogJson.content,
 
   // Not used here, as there are separate files with code for each component type.
   codeReact: ``,

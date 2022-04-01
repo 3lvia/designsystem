@@ -1,3 +1,4 @@
+import changelogJson from 'src/assets/changelogs/elvis-pagination/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const paginationData: ComponentData = {
@@ -124,4 +125,5 @@ export const paginationData: ComponentData = {
       console.log('Current selection range of paginator is : ', event.detail.value)
     });
   `,
+  changelog: changelogJson.content,
 };

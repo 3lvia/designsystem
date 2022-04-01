@@ -1,4 +1,5 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import changelogJson from 'src/assets/changelogs/elvis-carousel/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const carouselData: ComponentData = {
@@ -207,4 +208,5 @@ export const carouselData: ComponentData = {
     'Should not be use on non-visual items such as links or paragraphs',
     'More than 5 frames - It’s unlikely users will engage with more than that (Use a list instead)',
   ],
+  changelog: changelogJson.content,
 };

@@ -1,0 +1,227 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "23.03.22",
+      "version": "1.4.4 ",
+      "changelog": [
+        {
+          "changes": [
+            "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "14.03.22",
+      "version": "1.4.3 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added hasPadding prop"]
+        }
+      ]
+    },
+    {
+      "date": "04.03.22",
+      "version": "1.4.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
+        }
+      ]
+    },
+    {
+      "date": "18.02.22",
+      "version": "1.4.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using elvis-icon package for internal icons."]
+        }
+      ]
+    },
+    {
+      "date": "07.02.22",
+      "version": "1.4.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added inlineStyle and className props"]
+        }
+      ]
+    },
+    {
+      "date": "02.02.22",
+      "version": "1.3.11 ",
+      "changelog": [
+        {
+          "changes": ["changes in useClickOutside listener"]
+        }
+      ]
+    },
+    {
+      "date": "25.01.22",
+      "version": "1.3.10 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated dependencies"]
+        }
+      ]
+    },
+    {
+      "date": "14.01.22",
+      "version": "1.3.9 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Refactoring"]
+        }
+      ]
+    },
+    {
+      "date": "14.01.22",
+      "version": "1.3.8 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Set width of modal buttons on mobile to be 100%"]
+        }
+      ]
+    },
+    {
+      "date": "07.01.22",
+      "version": "1.3.7 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated tokens declarations"]
+        }
+      ]
+    },
+    {
+      "date": "16.12.21",
+      "version": "1.3.6 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fix for slotting"]
+        }
+      ]
+    },
+    {
+      "date": "10.12.21",
+      "version": "1.3.4 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added unit tests for modal"]
+        }
+      ]
+    },
+    {
+      "date": "30.11.21",
+      "version": "1.3.3 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using new version of elvis-colors."]
+        }
+      ]
+    },
+    {
+      "date": "30.11.21",
+      "version": "1.3.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Web component wrapper fix"]
+        }
+      ]
+    },
+    {
+      "date": "24.11.21",
+      "version": "1.3.1 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix to enable new prop maxWidth for webcomponents."]
+        }
+      ]
+    },
+    {
+      "date": "23.11.21",
+      "version": "1.3.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added optional prop that can overwrite the max-width of the modal."]
+        }
+      ]
+    },
+    {
+      "date": "12.11.21",
+      "version": "1.2.2 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed escape keypress opening modal."]
+        }
+      ]
+    },
+    {
+      "date": "05.11.21",
+      "version": "1.2.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added prop for disabling closing of modal, should only be used in special cases where closing the modal was  not intended."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "03.11.21",
+      "version": "1.1.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added type declaration (for react)"]
+        }
+      ]
+    },
+    {
+      "date": "19.10.21",
+      "version": "1.0.1 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Dependency missing fix"]
+        }
+      ]
+    },
+    {
+      "date": "19.10.21",
+      "version": "1.0.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of Modal works as webcomponent also"]
+        }
+      ]
+    },
+    {
+      "date": "13.11.20",
+      "version": "0.0.1-beta ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of Modal that should work for React"]
+        }
+      ]
+    }
+  ]
+}

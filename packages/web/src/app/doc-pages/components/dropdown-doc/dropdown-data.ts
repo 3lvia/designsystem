@@ -1,3 +1,4 @@
+import changelogJson from 'src/assets/changelogs/elvis-dropdown/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const dropdownData: ComponentData = {
@@ -170,6 +171,8 @@ export const dropdownData: ComponentData = {
     console.log('Do what you want with selected elements: ', event.detail.value);
   });
 `,
+  changelog: changelogJson.content,
+
   does: [
     'Use sparingly: use dropdowns only when the user have 5-15 options and you have limited space to display it all open.',
   ],

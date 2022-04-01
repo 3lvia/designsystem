@@ -1,0 +1,64 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "23.03.22",
+      "version": "1.1.3 ",
+      "changelog": [
+        {
+          "changes": [
+            "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "11.02.22",
+      "version": "1.1.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated major version dependency of elvis-assets-icon."]
+        }
+      ]
+    },
+    {
+      "date": "11.02.22",
+      "version": "1.1.1 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed bug causing misalignment and sizing of DOM elements"]
+        }
+      ]
+    },
+    {
+      "date": "07.02.22",
+      "version": "1.1.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added inlineStyle and className props"]
+        }
+      ]
+    },
+    {
+      "date": "04.01.22",
+      "version": "1.0.1 ",
+      "changelog": [
+        {
+          "changes": ["Bump to make npm package public"]
+        }
+      ]
+    },
+    {
+      "date": "04.01.22",
+      "version": "1.0.0 ",
+      "changelog": [
+        {
+          "changes": ["First version of the icon component."]
+        }
+      ]
+    }
+  ]
+}
