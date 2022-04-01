@@ -144,7 +144,7 @@ const Pagination: FC<PaginationProps> = ({
   };
 
   // Visible numbers in paginator
-  const Paginators = (): JSX.Element => {
+  const PaginatorNumbers = (): JSX.Element => {
     const visibleNumbers = [];
     const isShowAll = false;
     const isMobile = windowWidth < 768;
@@ -158,6 +158,8 @@ const Pagination: FC<PaginationProps> = ({
           noShow={false}
           onClick={() => setSelectedNumber(NumberInArray)}
           selected={activeNumber(NumberInArray)}
+          aria-label={NumberInArray === selectedNumber ? 'Valgt side' : 'Velg side ' + NumberInArray}
+          aria-current={NumberInArray === selectedNumber}
         >
           {NumberInArray}
         </PaginatorNumber>,
@@ -278,7 +280,7 @@ const Pagination: FC<PaginationProps> = ({
       return [];
     };
 
-    // funtions that return jsx elements in form of visible numbers to the selectorArray
+    // functions that return jsx elements in form of visible numbers to the selectorArray
     const getFirstNumber = () => {
       return (
         <PaginatorNumber
@@ -288,6 +290,8 @@ const Pagination: FC<PaginationProps> = ({
           noShow={false}
           onClick={() => setSelectedNumber(1)}
           selected={activeNumber(1)}
+          aria-label={'Velg side ' + 1}
+          aria-current={1 === selectedNumber}
         >
           {1}
         </PaginatorNumber>
@@ -376,6 +380,8 @@ const Pagination: FC<PaginationProps> = ({
           noShow={false}
           onClick={() => setSelectedNumber(selectionNumbers.length)}
           selected={activeNumber(selectionNumbers.length)}
+          aria-label={'Velg side ' + selectionNumbers.length}
+          aria-current={selectionNumbers.length === selectedNumber}
         >
           {selectionNumbers.length}
         </PaginatorNumber>
@@ -493,7 +499,7 @@ const Pagination: FC<PaginationProps> = ({
           {labelOf} {numberOfElements} {label}
         </PaginatorInfoAmount>
       </PaginatorInfoContainer>
-      <PaginatorSelectorArea>
+      <PaginatorSelectorArea role="navigation">
         <PaginatorSelectorArrowBtn
           visible={isLeftArrow()}
           onClick={updateSelectedPageLeft}
@@ -502,7 +508,7 @@ const Pagination: FC<PaginationProps> = ({
         >
           <Icon name="arrowLongLeft" size="xs" />
         </PaginatorSelectorArrowBtn>
-        {showPaginationMenu ? <Paginators data-testid="paginators" /> : null}
+        {showPaginationMenu ? <PaginatorNumbers data-testid="paginators" /> : null}
         <PaginatorSelectorArrowBtn
           visible={isRightArrow()}
           onClick={updateSelectedPageRight}

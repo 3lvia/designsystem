@@ -63,7 +63,7 @@ export const PaginatorInfoAmount = styled.div<InfoAmountProps>`
   white-space: nowrap;
   margin-right: ${(props: { isMobile: boolean }) => (props.isMobile ? '0px' : '24px')};
 `;
-export const PaginatorSelectorArea = styled.div`
+export const PaginatorSelectorArea = styled.nav`
   display: flex;
   align-items: center;
   user-select: none;
