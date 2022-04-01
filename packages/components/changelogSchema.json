@@ -31,12 +31,6 @@
         "required": ["date", "version", "changelog"]
       }
     },
-
-    "synopsis": {
-      "type": "string",
-      "description": "Brief overview of the episode. No spoilers",
-      "minLength": 10
-    }
   },
   "required": ["content"]
 }
