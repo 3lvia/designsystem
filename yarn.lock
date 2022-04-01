@@ -188,7 +188,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/animations@npm:^13.2.4":
+"@angular/animations@npm:^13.3.1":
   version: 13.3.1
   resolution: "@angular/animations@npm:13.3.1"
   dependencies:
@@ -245,7 +245,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/common@npm:^13.2.4":
+"@angular/common@npm:^13.3.1":
   version: 13.3.1
   resolution: "@angular/common@npm:13.3.1"
   dependencies:
@@ -257,7 +257,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler-cli@npm:^13.2.4":
+"@angular/compiler-cli@npm:^13.3.1":
   version: 13.3.1
   resolution: "@angular/compiler-cli@npm:13.3.1"
   dependencies:
@@ -291,7 +291,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler@npm:^13.2.4":
+"@angular/compiler@npm:^13.3.1":
   version: 13.3.1
   resolution: "@angular/compiler@npm:13.3.1"
   dependencies:
@@ -311,7 +311,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/core@npm:^13.2.4":
+"@angular/core@npm:^13.3.1":
   version: 13.3.1
   resolution: "@angular/core@npm:13.3.1"
   dependencies:
@@ -323,7 +323,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/forms@npm:^13.2.4":
+"@angular/forms@npm:^13.3.1":
   version: 13.3.1
   resolution: "@angular/forms@npm:13.3.1"
   dependencies:
@@ -337,7 +337,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/language-service@npm:^13.2.4":
+"@angular/language-service@npm:^13.3.1":
   version: 13.3.1
   resolution: "@angular/language-service@npm:13.3.1"
   checksum: f3c1596c4ab9c4c49b7c65d1374102e3eaf4da1c52bc1866a70cb54b6d9bf9c9ae3ba36ce48ca39fa650978115370644e87a19e5140bacde5cf24b23b3fcf534
@@ -361,7 +361,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/platform-browser-dynamic@npm:^13.2.4":
+"@angular/platform-browser-dynamic@npm:^13.3.1":
   version: 13.3.1
   resolution: "@angular/platform-browser-dynamic@npm:13.3.1"
   dependencies:
@@ -375,7 +375,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/platform-browser@npm:^13.2.4":
+"@angular/platform-browser@npm:^13.3.1":
   version: 13.3.1
   resolution: "@angular/platform-browser@npm:13.3.1"
   dependencies:
@@ -391,7 +391,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/router@npm:^13.2.4":
+"@angular/router@npm:^13.3.1":
   version: 13.3.1
   resolution: "@angular/router@npm:13.3.1"
   dependencies:
@@ -10942,19 +10942,19 @@ __metadata:
   resolution: "elvia-designsystem@workspace:packages/web"
   dependencies:
     "@angular-devkit/build-angular": ^13.2.5
-    "@angular/animations": ^13.2.4
+    "@angular/animations": ^13.3.1
     "@angular/cdk": ^13.2.1
     "@angular/cli": ^13.2.5
-    "@angular/common": ^13.2.4
-    "@angular/compiler": ^13.2.4
-    "@angular/compiler-cli": ^13.2.4
-    "@angular/core": ^13.2.4
-    "@angular/forms": ^13.2.4
-    "@angular/language-service": ^13.2.4
+    "@angular/common": ^13.3.1
+    "@angular/compiler": ^13.3.1
+    "@angular/compiler-cli": ^13.3.1
+    "@angular/core": ^13.3.1
+    "@angular/forms": ^13.3.1
+    "@angular/language-service": ^13.3.1
     "@angular/material": ^13.2.1
-    "@angular/platform-browser": ^13.2.4
-    "@angular/platform-browser-dynamic": ^13.2.4
-    "@angular/router": ^13.2.4
+    "@angular/platform-browser": ^13.3.1
+    "@angular/platform-browser-dynamic": ^13.3.1
+    "@angular/router": ^13.3.1
     "@contentful/rich-text-html-renderer": ^15.11.1
     "@contentful/rich-text-types": ^15.11.1
     "@elvia/elvis": "*"
@@ -11015,7 +11015,7 @@ __metadata:
     typescript: ~4.5.5
     webpack: ^5.12.0
     webpack-subresource-integrity: ">=1.5.1"
-    zone.js: ~0.11.4
+    zone.js: ~0.11.5
   languageName: unknown
   linkType: soft
 
@@ -23682,7 +23682,7 @@ __metadata:
     safe-json-stringify: ^1.2.0
     tslint: ~6.1.0
     typescript: ~4.0.2
-    zone.js: ~0.11.4
+    zone.js: ~0.11.5
   languageName: unknown
   linkType: soft
 
@@ -28686,7 +28686,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zone.js@npm:~0.11.4":
+"zone.js@npm:~0.11.5":
   version: 0.11.5
   resolution: "zone.js@npm:0.11.5"
   dependencies:
