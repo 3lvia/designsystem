@@ -1,5 +1,11 @@
 # Elvia Date picker Changelog
 
+## 2.8.3 (01.04.22)
+
+### Patch
+
+- Added more aria tags for better accessibility.
+
 ## 2.8.2 (27.03.22)
 
 ### Bug fix
@@ -54,14 +60,14 @@
 - The function errorOnChange is called every time the internal error of the datepicker is updated. This can be
   used for external error validation in conjunction with isErrorState and hasValidation.
 
-### Bug fixes
+### Patch
 
 - The datepicker input field is now given a green active state when the datepicker is open.
 - The input placeholder is no longer possible to select.
 
 ## 2.5.2 (25.02.22)
 
-### Patch
+### Bug fix
 
 - Setting both 'isCompact' and 'isFullWidth' now gives compact and full width (i.e. width: 100%).
 
@@ -119,13 +125,13 @@
 
 ## 1.2.3 (17.11.21)
 
-### Bug fix
+### Patch
 
 - Reformated config file
 
 ## 1.2.2 (11.11.21)
 
-### Bug fix
+### Patch
 
 - Changed max width to match other input elements
 
@@ -149,10 +155,10 @@
 
 ## 1.0.2 (08.06.21)
 
-### Bug fixes
+### Patch
 
-Updated red validation color to new elvia red (#EE0701)
+- Updated red validation color to new elvia red (#EE0701)
 
 ## 1.0.0 (07.05.21)
 
-First version of datepicker.
+- First version of datepicker.
