@@ -13,6 +13,9 @@ export class ChangelogTypePipe implements PipeTransform {
       case 'breaking_changes':
         return '✂️ Breaking Changes';
       default:
+        console.warn(
+          `"type": "${value}" in changelog is invalid. Should be "new_feature", "bug_fix", "patch" or "breaking_changes"`,
+        );
         return '';
     }
   }
