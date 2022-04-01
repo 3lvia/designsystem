@@ -25,8 +25,14 @@ const radioFilterData = {
     ariaLabel: {
       isRequired: false,
       type: 'string',
-      description: 'Arialabel of radiogroup',
+      description: 'Arialabel for each filter button.',
       default: '{value} filtrering valgt',
+    },
+    groupAriaLabel: {
+      isRequired: false,
+      type: 'string',
+      description: 'Arialabel for the whole radio filter group',
+      default: 'Filtrerings knapper',
     },
     valueOnChange: {
       isRequired: true,
