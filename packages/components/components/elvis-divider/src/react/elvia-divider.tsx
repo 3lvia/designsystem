@@ -40,7 +40,13 @@ export const Divider: React.FC<DividerProps> = ({
 
   return (
     <div className={`${className ? className : ''}`} style={{ height: '100%', ...inlineStyle }}>
-      <DividerArea type={type} isInverted={isInverted} orientation={orientation} data-testid="divider-area">
+      <DividerArea
+        type={type}
+        isInverted={isInverted}
+        orientation={orientation}
+        data-testid="divider-area"
+        role="separator"
+      >
         {title === '' && type === 'title' && (
           <DividerTitle typography={typography} isInverted={isInverted} ref={dividerTitleRef}></DividerTitle>
         )}
