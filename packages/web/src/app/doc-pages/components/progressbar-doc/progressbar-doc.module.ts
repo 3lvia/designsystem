@@ -12,6 +12,7 @@ import { ComponentPropertiesTableModule } from 'src/app/shared/component-documen
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { RouterModule } from '@angular/router';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { ComponentInstallationModule } from 'src/app/shared/component-documentat
     ComponentPropertiesTableModule,
     ComponentExampleGeneratorModule,
     ComponentInstallationModule,
+    ComponentChangelogModule,
   ],
   declarations: [ProgressbarDocComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

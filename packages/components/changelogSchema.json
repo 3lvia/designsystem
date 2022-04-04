@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "ChangelogTemplate",
+  "properties": {
+    "content": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "changelog": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["new_feature", "patch", "bug_fix", "breaking_changes"]
+                },
+                "changes": { "type": "array" }
+              },
+              "required": ["type", "changes"]
+            }
+          }
+        },
+        "required": ["date", "version", "changelog"]
+      }
+    },
+  },
+  "required": ["content"]
+}

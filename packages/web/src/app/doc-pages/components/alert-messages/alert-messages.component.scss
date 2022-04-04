@@ -6,6 +6,18 @@
     display: block;
   }
 }
+.e-table-mobile {
+  display: none;
+  @include breakpoint-up(Mobile) {
+    display: block;
+  }
+}
+.e-table-container {
+  display: block;
+  @include breakpoint-up(Mobile) {
+    display: none;
+  }
+}
 .alert-type-container {
   display: flex;
   justify-content: space-between;

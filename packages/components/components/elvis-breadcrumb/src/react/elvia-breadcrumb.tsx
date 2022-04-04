@@ -93,7 +93,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
             key={index}
             isClickable={false}
             data-testid="breadcrumb-desktop-last-link"
-            aria-current="location"
+            aria-current="page"
           >
             {breadcrumb.title}
           </BreadcrumbLink>

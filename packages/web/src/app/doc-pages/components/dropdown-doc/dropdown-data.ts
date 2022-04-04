@@ -1,3 +1,4 @@
+import changelogJson from 'src/assets/changelogs/elvis-dropdown/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const dropdownData: ComponentData = {
@@ -47,6 +48,18 @@ export const dropdownData: ComponentData = {
       description: 'Set the dropdown to accept multiple values',
       default: 'false',
       cegDisplayName: 'Multiselect',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Options',
+    },
+    isSearchable: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Set the dropdown to accept text input that filters possible options based an the search term.',
+      default: 'false',
+      cegDisplayName: 'Searchable',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
@@ -102,9 +115,11 @@ export const dropdownData: ComponentData = {
   codeImportWebComponent: `import '@elvia/elvis-dropdown';`,
   codeReact: `<Dropdown 
   options={[
-    { value: '1', label: 'Option 1' },
-    { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3' }
+    { value: 'Norge', label: 'Norge' },
+    { value: 'Sverige', label: 'Sverige' },
+    { value: 'Danmark', label: 'Danmark' },
+    { value: 'Finland', label: 'Finland' },
+    { value: 'Island', label: 'Island' }
   ]} 
   label={"Label"}
   placeholder={"Placeholder"}
@@ -113,9 +128,11 @@ export const dropdownData: ComponentData = {
 `,
   codeAngular: `<elvia-dropdown
   [options]="[
-    { value: '1', label: 'Option 1' },
-    { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3' }
+    { value: 'Norge', label: 'Norge' },
+    { value: 'Sverige', label: 'Sverige' },
+    { value: 'Danmark', label: 'Danmark' },
+    { value: 'Finland', label: 'Finland' },
+    { value: 'Island', label: 'Island' }
   ]"
   [label]="'Label'"
   [placeholder]="'Placeholder'"
@@ -124,9 +141,11 @@ export const dropdownData: ComponentData = {
 `,
   codeVue: `<elvia-dropdown
   :options="[
-    { value: '1', label: 'Option 1' },
-    { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3' }
+    { value: 'Norge', label: 'Norge' },
+    { value: 'Sverige', label: 'Sverige' },
+    { value: 'Danmark', label: 'Danmark' },
+    { value: 'Finland', label: 'Finland' },
+    { value: 'Island', label: 'Island' }
   ]"
   :label="'Label'"
   :placeholder="'Placeholder'"
@@ -139,9 +158,11 @@ export const dropdownData: ComponentData = {
 `,
   codeNativeScript: `  const dropdown = document.getElementById('example-elvia-dropdown');
   const options = [
-    { value: "1", label: "Option 1" },
-    { value: "2", label: "Option 2" },
-    { value: "3", label: "Option 3" }
+    { value: 'Norge', label: 'Norge' },
+    { value: 'Sverige', label: 'Sverige' },
+    { value: 'Danmark', label: 'Danmark' },
+    { value: 'Finland', label: 'Finland' },
+    { value: 'Island', label: 'Island' }
   ];
   dropdown.setProps({label: 'Label' });
   dropdown.setProps({placeholder: 'Placeholder' });
@@ -150,11 +171,13 @@ export const dropdownData: ComponentData = {
     console.log('Do what you want with selected elements: ', event.detail.value);
   });
 `,
+  changelog: changelogJson.content,
+
   does: [
     'Use sparingly: use dropdowns only when the user have 5-15 options and you have limited space to display it all open.',
   ],
   donts: [
     'Fewer than 5 options (consider radio filter or radio buttons)',
-    'More than 15 options(consider autocomplete)',
+    'More than 15 options (consider autocomplete)',
   ],
 };

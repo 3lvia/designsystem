@@ -28,6 +28,11 @@
               "src/assets",
               "src/_redirects",
               {
+                "glob": "**/CHANGELOG.json",
+                "input": "../components/components/",
+                "output": "./assets/changelog"
+              },
+              {
                 "glob": "CHANGELOG.md",
                 "input": "../elvis",
                 "output": "./assets/elvis"

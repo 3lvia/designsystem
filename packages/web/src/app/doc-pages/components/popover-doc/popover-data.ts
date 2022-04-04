@@ -1,4 +1,5 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import changelogJson from 'src/assets/changelogs/elvis-popover/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const popoverData: ComponentData = {
@@ -178,6 +179,7 @@ popover.addEventListener('isShowingOnChange', (event) => {
   console.log('Do what you want when visibility changes: ', event.detail.value);
 });
 `,
+  changelog: changelogJson.content,
 };
 
 export { popoverData };

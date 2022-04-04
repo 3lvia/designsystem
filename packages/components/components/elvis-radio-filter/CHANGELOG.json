@@ -1,0 +1,134 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "23.03.22",
+      "version": "1.2.3 ",
+      "changelog": [
+        {
+          "changes": [
+            "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "09.03.22",
+      "version": "1.2.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fixed peerDependencies."]
+        }
+      ]
+    },
+    {
+      "date": "04.03.22",
+      "version": "1.2.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
+        }
+      ]
+    },
+    {
+      "date": "07.02.22",
+      "version": "1.2.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added inlineStyle and className props"]
+        }
+      ]
+    },
+    {
+      "date": "14.01.22",
+      "version": "1.1.5 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Refactoring"]
+        }
+      ]
+    },
+    {
+      "date": "07.01.22",
+      "version": "1.1.4 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated tokens declarations"]
+        }
+      ]
+    },
+    {
+      "date": "13.12.21",
+      "version": "1.1.3 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added unit tests for radio-filter"]
+        }
+      ]
+    },
+    {
+      "date": "30.11.21",
+      "version": "1.1.2 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Now using elvis-colors package for colors."]
+        }
+      ]
+    },
+    {
+      "date": "30.11.21",
+      "version": "1.1.1 ",
+      "changelog": [
+        {
+          "changes": ["Web component wrapper fix"]
+        }
+      ]
+    },
+    {
+      "date": "03.11.21",
+      "version": "1.1.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added type declaration (for react)"]
+        }
+      ]
+    },
+    {
+      "date": "24.09.21",
+      "version": "1.0.2 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Updated aria-label if not supplied."]
+        }
+      ]
+    },
+    {
+      "date": "22.09.21",
+      "version": "1.0.1 ",
+      "changelog": [
+        {
+          "changes": ["Add value prop to Option so label is the value displayed"]
+        }
+      ]
+    },
+    {
+      "date": "13.09.21",
+      "version": "1.0.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of the Radio Filter component"]
+        }
+      ]
+    }
+  ]
+}

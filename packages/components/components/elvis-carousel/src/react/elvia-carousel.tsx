@@ -2,6 +2,8 @@ import React, { FC, useState, useRef, useEffect, CSSProperties } from 'react';
 import classnames from 'classnames';
 import {
   CarouselContainer,
+  CarouselElements,
+  CarouselElementContainer,
   CarouselElement,
   CarouselTitle,
   CarouselLeftButton,
@@ -9,7 +11,6 @@ import {
   CarouselDot,
   CarouselNavigationRow,
   CarouselRightButton,
-  CarouselElementContainer,
   CarouselCheckButton,
 } from './StyledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
@@ -174,31 +175,33 @@ export const Carousel: FC<CarouselProps> = ({
       style={inlineStyle}
       data-testid="carousel-container"
     >
-      {typeof carouselElements === 'object' && (
-        <CarouselElementContainer className={classNameContainer}>
-          {typeof carouselElements[index].title === 'string' && (
-            <CarouselTitle data-testid="carousel-element-title">
-              <h2 className="e-title-sm">{carouselElements[index].title}</h2>
-            </CarouselTitle>
-          )}
-          {typeof carouselElements[index].title === 'object' && (
-            <CarouselTitle>{carouselElements[index].title}</CarouselTitle>
-          )}
-          <CarouselElement
-            ref={itemsRef}
-            onMouseDown={(e: MouseEvent) => handleMouseDown(e)}
-            onMouseUp={() => setIsDown(false)}
-            onMouseLeave={() => setIsDown(false)}
-            onMouseMove={(e: MouseEvent) => handleMouseMove(e)}
-            onTouchStart={(e: TouchEvent) => handleMouseDown(e)}
-            onTouchMove={(e: TouchEvent) => handleMouseMove(e)}
-            onTouchEnd={() => setIsDown(false)}
-            data-testid="carousel-element"
-          >
-            {carouselElements[index].element}
-          </CarouselElement>
-        </CarouselElementContainer>
-      )}
+      <CarouselElements>
+        {typeof carouselElements === 'object' && (
+          <CarouselElementContainer className={classNameContainer}>
+            {typeof carouselElements[index].title === 'string' && (
+              <CarouselTitle data-testid="carousel-element-title">
+                <h2 className="e-title-sm">{carouselElements[index].title}</h2>
+              </CarouselTitle>
+            )}
+            {typeof carouselElements[index].title === 'object' && (
+              <CarouselTitle>{carouselElements[index].title}</CarouselTitle>
+            )}
+            <CarouselElement
+              ref={itemsRef}
+              onMouseDown={(e: MouseEvent) => handleMouseDown(e)}
+              onMouseUp={() => setIsDown(false)}
+              onMouseLeave={() => setIsDown(false)}
+              onMouseMove={(e: MouseEvent) => handleMouseMove(e)}
+              onTouchStart={(e: TouchEvent) => handleMouseDown(e)}
+              onTouchMove={(e: TouchEvent) => handleMouseMove(e)}
+              onTouchEnd={() => setIsDown(false)}
+              data-testid="carousel-element"
+            >
+              {carouselElements[index].element}
+            </CarouselElement>
+          </CarouselElementContainer>
+        )}
+      </CarouselElements>
       <CarouselNavigationRow>
         <CarouselLeftButton
           aria-label={`Gå til forrige side`}

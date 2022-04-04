@@ -19,7 +19,7 @@
         <ng-container ngProjectAs="sectionContent">
           The breadcrumb should start with home (landing page) and end with the current page. All pages
           besides the current page are a link. The breadcrumb is hidden until you have two levels (no
-          breadcrumb are visible on the homepage).
+          breadcrumbs are visible on the homepage).
           <div class="breadcrumb-levels">
             <img
               alt="breadcrumb-levels on desktop"
@@ -40,8 +40,8 @@
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Breadcrumb vs backlink'">
         <ng-container ngProjectAs="sectionContent">
-          Breadcrumb is a great way to reveal the user’s location and makes it easier to navigate and find
-          what they are looking for. But it’s not necessary to use breadcrumbs for single-level pages with no
+          Breadcrumb is a great way to reveal the user's location and makes it easier to navigate and find
+          what they are looking for. But it's not necessary to use breadcrumbs for single-level pages with no
           more than one parent category. Backlink can then be used to navigate the user back to home.
         </ng-container>
       </app-component-subsection>
@@ -78,6 +78,13 @@
   <app-component-section [sectionTitle]="'Properties'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
+  <!--CHANGELOG-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [componentData]="componentData"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>
