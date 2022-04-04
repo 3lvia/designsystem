@@ -9,6 +9,7 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { RouterModule } from '@angular/router';
     ComponentPropertiesTableModule,
     ComponentExampleGeneratorModule,
     ComponentInstallationModule,
+    ComponentChangelogModule,
     RouterModule,
   ],
   declarations: [DividerDocComponent],

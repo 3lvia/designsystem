@@ -1,3 +1,4 @@
+import changelogJson from 'src/assets/changelogs/elvis-breadcrumb/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const breadcrumbData: ComponentData = {
@@ -71,6 +72,7 @@ const breadcrumbData: ComponentData = {
   ];
   breadcrumb.setProps({breadcrumbs: breadcrumbs });
   `,
+  changelog: changelogJson.content,
 };
 
 export { breadcrumbData };

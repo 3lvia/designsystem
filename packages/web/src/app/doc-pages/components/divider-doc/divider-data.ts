@@ -1,3 +1,4 @@
+import changelogJson from 'src/assets/changelogs/elvis-divider/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const dividerData: ComponentData = {
@@ -87,5 +88,6 @@ export const dividerData: ComponentData = {
   <h2 slot="title">Title</h2>
 </elvia-divider>
 `,
+  changelog: changelogJson.content,
   codeNativeScript: ``,
 };

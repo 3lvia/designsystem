@@ -1,0 +1,136 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "23.03.22",
+      "version": "1.2.2 ",
+      "changelog": [
+        {
+          "changes": [
+            "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "04.03.22",
+      "version": "1.2.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
+        }
+      ]
+    },
+    {
+      "date": "07.02.22",
+      "version": "1.2.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added inlineStyle and className props"]
+        }
+      ]
+    },
+    {
+      "date": "26.01.21",
+      "version": "1.1.11 ",
+      "changelog": [
+        {
+          "changes": ["Updated dependencies"]
+        }
+      ]
+    },
+    {
+      "date": "14.01.22",
+      "version": "1.1.10 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Refactoring"]
+        }
+      ]
+    },
+    {
+      "date": "07.01.22",
+      "version": "1.1.9 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated tokens declarations"]
+        }
+      ]
+    },
+    {
+      "date": "16.12.21",
+      "version": "1.1.8 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fix for slotting"]
+        }
+      ]
+    },
+    {
+      "date": "03.12.21",
+      "version": "1.1.6 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added unit tests for box"]
+        }
+      ]
+    },
+    {
+      "date": "30.11.21",
+      "version": "1.1.5 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using elvis-colors package for colors.",
+            "Now using elvis-typography package for typography."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "30.11.21",
+      "version": "1.1.4 ",
+      "changelog": [
+        {
+          "changes": ["Web component wrapper fix"]
+        }
+      ]
+    },
+    {
+      "date": "03.11.21",
+      "version": "1.1.0 ",
+      "changelog": [
+        {
+          "changes": ["Added type declaration (for react)"]
+        }
+      ]
+    },
+    {
+      "date": "07.10.21",
+      "version": "1.0.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of box. Padding on title bug fix."]
+        }
+      ]
+    },
+    {
+      "date": "29.06.21",
+      "version": "0.0.1-alpha ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of Box"]
+        }
+      ]
+    }
+  ]
+}

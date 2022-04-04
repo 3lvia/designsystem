@@ -278,49 +278,49 @@
               <li>
                 <app-copy [message]="'e-icon--xxl'">
                   <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--xxl</span>
+                    <span class="e-text-lg-strong">e-icon--xxl - 56px</span>
                   </ng-container>
                 </app-copy>
               </li>
               <li>
                 <app-copy [message]="'e-icon--xl'">
                   <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--xl</span>
+                    <span class="e-text-lg-strong">e-icon--xl - 48px</span>
                   </ng-container>
                 </app-copy>
               </li>
               <li>
                 <app-copy [message]="'e-icon--lg'">
                   <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--lg</span>
+                    <span class="e-text-lg-strong">e-icon--lg - 40px</span>
                   </ng-container>
                 </app-copy>
               </li>
               <li>
                 <app-copy [message]="'e-icon--md'">
                   <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--md</span>
+                    <span class="e-text-lg-strong">e-icon--md - 32px</span>
                   </ng-container>
                 </app-copy>
               </li>
               <li>
                 <app-copy [message]="'e-icon--sm'">
                   <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--sm</span>
+                    <span class="e-text-lg-strong">e-icon--sm - 24px</span>
                   </ng-container>
                 </app-copy>
               </li>
               <li>
                 <app-copy [message]="'e-icon--xs'">
                   <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--xs</span>
+                    <span class="e-text-lg-strong">e-icon--xs - 16px</span>
                   </ng-container>
                 </app-copy>
               </li>
               <li>
                 <app-copy [message]="'e-icon--xxs'">
                   <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--xxs</span>
+                    <span class="e-text-lg-strong">e-icon--xxs - 8px</span>
                   </ng-container>
                 </app-copy>
               </li>
@@ -529,6 +529,13 @@
               <app-component-properties-table
                 [componentData]="componentData"
               ></app-component-properties-table>
+            </ng-container>
+          </app-component-section>
+
+          <!--CHANGELOG-->
+          <app-component-section [sectionTitle]="'Changelog'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-changelog [componentData]="componentData"></app-component-changelog>
             </ng-container>
           </app-component-section>
         </ng-container>

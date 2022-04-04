@@ -2,7 +2,7 @@
 <!-- 💥 New Features -->
 <!-- 🐝 Bug Fixes -->
 <table>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         8.1.1
@@ -25,10 +25,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         8.1.0
@@ -51,10 +50,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         8.0.4
@@ -84,10 +82,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         8.0.3
@@ -107,10 +104,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         8.0.2
@@ -133,10 +129,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         8.0.1
@@ -162,10 +157,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         8.0.0
@@ -202,10 +196,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.17.0
@@ -228,10 +221,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
- <tr class="changelog-row">
+ <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.16.0
@@ -254,10 +246,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.15.4
@@ -280,10 +271,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.15.3
@@ -303,10 +293,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.15.2
@@ -326,10 +315,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.15.1
@@ -353,10 +341,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.15.0
@@ -380,10 +367,9 @@
         </div>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.14.2
@@ -403,10 +389,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.14.1
@@ -426,10 +411,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.14.0
@@ -452,10 +436,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.13.6
@@ -478,10 +461,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.13.5
@@ -508,10 +490,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.13.4
@@ -535,10 +516,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.13.3
@@ -561,10 +541,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.13.2
@@ -587,10 +566,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.13.1
@@ -613,10 +591,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.13.0
@@ -639,10 +616,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.12.0
@@ -681,10 +657,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.11.2
@@ -707,10 +682,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.11.1
@@ -733,10 +707,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.11.0
@@ -759,10 +732,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.10.0
@@ -796,10 +768,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.9.4
@@ -822,10 +793,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.9.3
@@ -848,10 +818,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.9.1
@@ -874,10 +843,9 @@
           </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.9.0
@@ -911,11 +879,10 @@
           </li>
         </ul>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.8.4
@@ -937,11 +904,10 @@
           </li>
         </ul>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
         7.8.1
@@ -991,11 +957,10 @@
           </li>
         </ul>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       7.7.1
@@ -1016,11 +981,10 @@
           </li>
         </ul>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       7.7.0
@@ -1056,11 +1020,10 @@
           </li>
         </ul>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       7.6.1
@@ -1078,11 +1041,10 @@
         </div>
         Update to icons(from 32px to 24px), and font-size(18px to 20px) for large accordions. 
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       7.6.0
@@ -1100,11 +1062,10 @@
         </div>
         Tooltips now have left and right alignment classes
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       7.4.0
@@ -1131,11 +1092,10 @@
           </li>
         </ul>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       7.3.0
@@ -1160,11 +1120,10 @@
         </div>
         Normal sized checkboxes now has font-size 16px, instead of inheriting their font-size.
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       7.2.0
@@ -1190,11 +1149,10 @@
           <span class="code-text">&lt;/p&gt;</span>
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       7.1.0
@@ -1219,11 +1177,10 @@
         </div>
         Typography now has Verdana as fallback font.
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       7.0.0
@@ -1278,11 +1235,10 @@
         </div>
         New modifier class added for cards that only contain text: <span class="code-text">e-card--text-only</span>.
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       6.3.0
@@ -1299,11 +1255,10 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
         </div>
         Compact class for table-footnote, <span class="code-text">e-table__footnote--compact</span>, and smaller table-cell class, <span class="code-text">e-table__cell--multiline-small</span>, added.
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       6.2.0
@@ -1320,12 +1275,13 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icons#Overview">Icons</a>
         </div>
         Icons have been updated, some have been deprecated and new icons have been added.
-        <div class="changelog-divider"></div>
+
       </div>
     </td>
+
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       6.1.0
@@ -1342,11 +1298,10 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/divider#Overview">Divider</a>
         </div>
         Divider component has been added.
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       6.0.0
@@ -1363,11 +1318,10 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">Input</a>
         </div>
         Input with icons are now using icon buttons instead of just icons. Replace the icons with the button in the <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">input doc</a>. If you have been using the same structure in a date- or time-picker you may also need to replace this part with the button.
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       5.1.0
@@ -1384,11 +1338,10 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/brand/Typography#Overview">Typography</a>
         </div>
         Strong and light versions of body text have been added, as well as on special text called 'micro'. 
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       5.0.0
@@ -1409,11 +1362,10 @@
           How to fix:
           The changes only affect icon used to display a search bar. The only thing needed to fix this is to replace the <span class="code-text">e-icon--search-bold</span> icon with the new  <span class="code-text">e-icon--search-color</span>
         </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       4.7.0
@@ -1435,11 +1387,10 @@
         <div>
           New icons from figma has also been added to elvis and search icons had been updated!
         </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       4.6.0
@@ -1458,11 +1409,10 @@
         <div>
           Added alignment to typography.
         </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       4.5.0
@@ -1481,11 +1431,10 @@
         <div>
           The <span class="code-text changelog-code">e-btn--loading</span> modifier for <span class="code-text changelog-code">e-btn</span> has been updated, and can now also be applied to an icon button
         </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       4.0.0
@@ -1522,11 +1471,10 @@
             </li>
           </ul>
         </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       3.0.0
@@ -1595,11 +1543,10 @@
             </li>
           </ul>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       2.0.0
@@ -1658,11 +1605,10 @@
         </div>
         A class for adding footnotes to the table has been created: <span class="code-text changelog-code">e-table-footnote</span>.
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       1.0.0
@@ -1690,11 +1636,10 @@
         </div>
         A new smaller title has been added: <span class="code-text changelog-code">e-title-xs</span>.
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       0.11.0
@@ -1730,11 +1675,10 @@
         </div>
         New utility classes have been added.
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       0.10.0
@@ -1768,11 +1712,10 @@
         </div>
         New classes have been added for the internal-systems as well as classes for vertical gutters.
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       0.7.0
@@ -1792,11 +1735,10 @@
           If you are using our stylesheets directly and your sass-compiler do not support the use of @use you will have to migrate as well.
         </div>
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       0.6.0
@@ -1811,11 +1753,10 @@
         <div class="changelog-section-title">✂️ Breaking Changes</div>
         Switched from node-sass compiler to dart-sass compiler. Dart-sass is the primary implementation of Sass, which means it gets new features before any other implementation and at current time node-sass do not support the use of @use, which is the module system replacing @import. This might not affect you as a user.
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       0.5.0
@@ -1833,11 +1774,10 @@
         </div>
         Major renaming of icons. All icons now follow the correct and desired naming scheme for a maintainable library. Icon names have changed, so some references should be expected to now be broken
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       0.4.0
@@ -1855,11 +1795,10 @@
         </div>
         In this update icons are injected as background-images again on the 'i' tags with <span class="code-text changelog-code">e-icon</span> classes. We do not think this will have a large impact on how to use icons.
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       0.3.0
@@ -1877,11 +1816,10 @@
         </div>
         In this update we provided a solution for icons changing colors on hover. This affected buttons particularly. The structure of a button with icon was changed.
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 
-  <tr class="changelog-row">
+  <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
     <span class="e-title-sm">
       0.2.0
