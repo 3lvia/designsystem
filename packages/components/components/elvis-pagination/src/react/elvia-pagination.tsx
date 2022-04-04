@@ -143,6 +143,14 @@ const Pagination: FC<PaginationProps> = ({
     return false;
   };
 
+  const getAriaLabel = (NumberInArray: number, selectedNumber: number): string => {
+    if (NumberInArray === selectedNumber) {
+      return 'Valgt side';
+    } else {
+      return 'Velg side ' + NumberInArray;
+    }
+  };
+
   // Visible numbers in paginator
   const PaginatorNumbers = (): JSX.Element => {
     const visibleNumbers = [];
@@ -158,7 +166,7 @@ const Pagination: FC<PaginationProps> = ({
           noShow={false}
           onClick={() => setSelectedNumber(NumberInArray)}
           selected={activeNumber(NumberInArray)}
-          aria-label={NumberInArray === selectedNumber ? 'Valgt side' : 'Velg side ' + NumberInArray}
+          aria-label={getAriaLabel(NumberInArray, selectedNumber)}
           aria-current={NumberInArray === selectedNumber}
         >
           {NumberInArray}
