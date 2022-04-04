@@ -90,7 +90,7 @@ function App() {
           <div className="e-bg-white">
             <Popover
               type="list"
-              variant="selection"
+              selection
               header="BankID"
               hasDivider={true}
               posX="right"

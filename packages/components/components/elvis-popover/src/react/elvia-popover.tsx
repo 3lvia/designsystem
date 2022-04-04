@@ -9,7 +9,7 @@ export interface PopoverProps {
   header?: string;
   content?: string | HTMLElement;
   type?: 'informative' | 'list';
-  variant?: 'normal' | 'selection';
+  selection?: boolean;
   hasDivider?: boolean;
   posX?: 'left' | 'right' | 'center';
   posY?: 'top' | 'bottom';
@@ -27,7 +27,7 @@ const Popover: FC<PopoverProps> = ({
   header,
   content,
   type = 'informative',
-  variant = 'normal',
+  selection = false,
   hasDivider = false,
   posX = 'center',
   posY = 'top',
@@ -342,7 +342,7 @@ const Popover: FC<PopoverProps> = ({
     ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
     ['ewc-popover--list']: type === 'list',
     ['ewc-popover--list-divider']: type === 'list' && hasDivider,
-    ['ewc-popover--list-selection']: variant === 'selection',
+    ['ewc-popover--list-selection']: selection,
   });
 
   return (

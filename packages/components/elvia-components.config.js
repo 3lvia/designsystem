@@ -299,7 +299,7 @@ module.exports = [
       { name: 'header', type: 'string', propType: 'string | undefined' },
       { name: 'content', type: 'string', propType: 'string | HTMLElement | undefined' },
       { name: 'type', type: 'string', propType: 'string' },
-      { name: 'variant', type: 'string', propType: 'string' },
+      { name: 'selection', type: 'boolean', propType: 'boolean' },
       { name: 'hasDivider', type: 'boolean', propType: 'boolean' },
       { name: 'posX', type: 'string', propType: 'string | undefined' },
       { name: 'posY', type: 'string', propType: 'string | undefined' },
