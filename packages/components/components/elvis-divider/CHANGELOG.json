@@ -2,10 +2,21 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "04.04.22",
+      "version": "1.2.7 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added separator role for the dividers, for better accessibility."]
+        }
+      ]
+    },
+    {
       "date": "23.03.22",
       "version": "1.2.6 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": [
             "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
           ]
