@@ -1,3 +1,4 @@
+import changelogJson from 'src/assets/changelogs/elvis-progress-linear/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const progressbarData: ComponentData = {
@@ -74,5 +75,6 @@ export const progressbarData: ComponentData = {
   codeNativeHTML: `<elvia-progress-linear
   value="20"
 ></elvia-progress-linear>`,
+  changelog: changelogJson.content,
   codeNativeScript: ``,
 };

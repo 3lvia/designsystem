@@ -12,6 +12,7 @@ import { ComponentPropertiesTableModule } from 'src/app/shared/component-documen
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -29,6 +30,7 @@ import { RouterModule } from '@angular/router';
     ComponentInstallationModule,
     ComponentExampleGeneratorModule,
     WhenToUseModule,
+    ComponentChangelogModule,
   ],
   declarations: [ModalDocComponent],
 })

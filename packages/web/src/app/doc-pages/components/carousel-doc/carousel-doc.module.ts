@@ -9,6 +9,7 @@ import { ComponentPropertiesTableModule } from 'src/app/shared/component-documen
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     ComponentPropertiesTableModule,
     ComponentExampleGeneratorModule,
     ComponentInstallationModule,
+    ComponentChangelogModule,
     WhenToUseModule,
   ],
   declarations: [CarouselDocComponent],

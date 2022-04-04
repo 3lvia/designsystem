@@ -1,3 +1,4 @@
+import changelogJson from 'src/assets/changelogs/elvis-tabs/CHANGELOG.json';
 import { exampleContents } from 'src/app/shared/example-contents';
 import ComponentData from '../component-data.interface';
 
@@ -109,6 +110,7 @@ export const tabsData: ComponentData = {
     console.log('Do what you want with selected tab: ', event.detail.value)
   });
 `,
+  changelog: changelogJson.content,
   does: ['If you have sub-sections of a page and can not display everything at once'],
   donts: [
     'If the content can be displayed at once.',

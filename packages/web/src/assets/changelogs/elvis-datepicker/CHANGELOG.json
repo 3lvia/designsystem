@@ -1,0 +1,296 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "04.04.22",
+      "version": "2.8.3 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added more aria tags for better accessibility."]
+        }
+      ]
+    },
+    {
+      "date": "27.03.22",
+      "version": "2.8.2 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue causing the datepicker to sometimes lose its style when used as a web component inside an  elvis-box."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "23.03.22",
+      "version": "2.8.1 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "18.03.22",
+      "version": "2.8.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added disableDate prop that allows disabling specific dates by sending in a function of the shape  `(day: Date) => boolean` that is true for dates that should be disabled."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Now listening to changes on minDate and maxDate-props and updating validation when either changes."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "14.03.22",
+      "version": "2.7.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now building .scss files to .css for React users."]
+        }
+      ]
+    },
+    {
+      "date": "04.03.22",
+      "version": "2.7.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using correct type for webcomponent wrapper for better internal IntelliSense."]
+        }
+      ]
+    },
+    {
+      "date": "02.03.22",
+      "version": "2.7.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "New prop: showValidationState. If set to false, no internal validation will be shown on the datepicker. The  prop customError has higher priority and will still set the datepicker as error state if it is provided."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "02.03.22",
+      "version": "2.6.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Several new props: isErrorState, hasValidation, clearButtonText, errorOnChange.",
+            "A button to clear the selected date has been added inside the datepicker, and its text can be changed  through the clearButtonText prop.",
+            "The function errorOnChange is called every time the internal error of the datepicker is updated. This can be  used for external error validation in conjunction with isErrorState and hasValidation."
+          ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "The datepicker input field is now given a green active state when the datepicker is open.",
+            "The input placeholder is no longer possible to select."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "25.02.22",
+      "version": "2.5.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Setting both 'isCompact' and 'isFullWidth' now gives compact and full width (i.e. width: 100%)."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "18.02.22",
+      "version": "2.5.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using elvis-icon package for internal icons."]
+        }
+      ]
+    },
+    {
+      "date": "16.02.22",
+      "version": "2.5.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added showValidation prop to trigger showing errors if datepicker has not been in focus"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "15.02.22",
+      "version": "2.4.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added hasOptionalText prop"]
+        }
+      ]
+    },
+    {
+      "date": "07.02.22",
+      "version": "2.3.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added inlineStyle and className props"]
+        }
+      ]
+    },
+    {
+      "date": "31.01.21",
+      "version": "2.2.4 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated dependencies"]
+        }
+      ]
+    },
+    {
+      "date": "26.01.22",
+      "version": "2.2.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Remove fixed width", "New props: placeholder and isOpen"]
+        }
+      ]
+    },
+    {
+      "date": "22.12.21",
+      "version": "2.1.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Fullwidth prop fix", "New prop: hasSelectDateOnOpen"]
+        }
+      ]
+    },
+    {
+      "date": "08.12.21",
+      "version": "2.0.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added unit tests for datepicker"]
+        }
+      ]
+    },
+    {
+      "date": "30.11.21",
+      "version": "2.0.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Web component wrapper fix"]
+        }
+      ]
+    },
+    {
+      "date": "24.11.21",
+      "version": "2.0.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Now sending events when no date, or invalid date, is selected"]
+        }
+      ]
+    },
+    {
+      "date": "17.11.21",
+      "version": "1.2.3 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Reformated config file"]
+        }
+      ]
+    },
+    {
+      "date": "11.11.21",
+      "version": "1.2.2 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Changed max width to match other input elements"]
+        }
+      ]
+    },
+    {
+      "date": "08.11.21",
+      "version": "1.2.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added callback functions for both onOpen and onClose of datepicker"]
+        }
+      ]
+    },
+    {
+      "date": "05.11.21",
+      "version": "1.1.1 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Datepicker now has highest possible z-index so that it always lays on top of other components."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "03.11.21",
+      "version": "1.1.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added type declaration (for react)"]
+        }
+      ]
+    },
+    {
+      "date": "08.06.21",
+      "version": "1.0.2 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Updated red validation color to new elvia red (#EE0701)"]
+        }
+      ]
+    },
+    {
+      "date": "07.05.21",
+      "version": "1.0.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of datepicker."]
+        }
+      ]
+    }
+  ]
+}

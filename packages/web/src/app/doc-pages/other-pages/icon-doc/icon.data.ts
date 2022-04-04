@@ -1,3 +1,5 @@
+import changelogJson from 'src/assets/changelogs/elvis-icon/CHANGELOG.json';
+
 const elvisIconData = {
   name: 'elvia-icon',
   elementNameW: 'elvia-icon',
@@ -58,6 +60,7 @@ const elvisIconData = {
 `,
   codeNativeScript: `const elvisIcon = document.getElementById('example-elvia-icon');
 `,
+  changelog: changelogJson.content,
 };
 
 export { elvisIconData };
