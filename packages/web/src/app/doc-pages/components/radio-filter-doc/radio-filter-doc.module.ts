@@ -10,6 +10,7 @@ import { ComponentExampleGeneratorModule } from 'src/app/shared/component-docume
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
     ComponentExampleGeneratorModule,
     ComponentPropertiesTableModule,
     ComponentInstallationModule,
+    ComponentChangelogModule,
   ],
   declarations: [RadioFilterDocComponent],
 })

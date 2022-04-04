@@ -213,6 +213,12 @@ function cleanup() {
   return del(['../components/**/dist/**/*'], { force: true });
 }
 
+// Copies changelogs from component dictionary to web dictionary
+function copyChangelogs() {
+  const files = ['../components/**/CHANGELOG.json'];
+  return gulp.src(files, { base: '../components' }).pipe(gulp.dest('../../web/src/assets/changelogs'));
+}
+
 gulp.task(
   'cleanup',
   gulp.series(cleanup, function (done) {
@@ -226,6 +232,7 @@ gulp.task(
     validate.validateElviaComponentsConfig,
     buildToolboxComponentToJS,
     TSX_to_JS,
+    copyChangelogs,
     reactTypescriptDeclarations,
     buildWebComponentsMagically,
     buildElviaComponentToJS,
@@ -243,6 +250,7 @@ gulp.task(
     validate.validateElviaComponentsConfig,
     buildToolboxComponentToJS,
     TSX_to_JS,
+    copyChangelogs,
     // reactTypescriptDeclarations, -- Currently disabled until we can make it take shorter time, remember to build before publish
     buildWebComponentsMagically,
     buildElviaComponentToJS,
@@ -261,6 +269,7 @@ gulp.task('watch', function () {
       validate.validateElviaComponentsConfig,
       buildToolboxComponentToJS,
       TSX_to_JS,
+      copyChangelogs,
       buildWebComponentsMagically,
       buildElviaComponentToJS,
       function (done) {

@@ -1,4 +1,5 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import changelogJson from 'src/assets/changelogs/elvis-box/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const boxData: ComponentData = {
@@ -84,6 +85,7 @@ const boxData: ComponentData = {
     <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
   </div>
 </elvia-box>`,
+  changelog: changelogJson.content,
   codeNativeScript: ``,
 };
 

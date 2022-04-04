@@ -8,6 +8,7 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 
 // old modules for v1
@@ -24,6 +25,7 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-documentatio
     ComponentPropertiesTableModule,
     ComponentExampleGeneratorModule,
     ComponentInstallationModule,
+    ComponentChangelogModule,
     WhenToUseModule,
     // old modules remove later
     ComponentExampleV1Module,

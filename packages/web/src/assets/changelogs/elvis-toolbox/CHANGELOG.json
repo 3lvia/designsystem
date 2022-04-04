@@ -1,0 +1,14 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "26.01.22",
+      "version": "1.2.2 ",
+      "changelog": [
+        {
+          "changes": ["Updated dependencies."]
+        }
+      ]
+    }
+  ]
+}

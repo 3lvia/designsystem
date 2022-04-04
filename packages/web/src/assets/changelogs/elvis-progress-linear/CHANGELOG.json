@@ -1,0 +1,96 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "31.03.22",
+      "version": "1.2.4 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Accessibility fixes"]
+        }
+      ]
+    },
+    {
+      "date": "28.03.22",
+      "version": "1.2.3 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue causing the progress-linear to sometimes lose its style when used as a web component inside  an elvis-box."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "23.03.22",
+      "version": "1.2.2 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "14.03.22",
+      "version": "1.2.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now building .scss files to .css for React users."]
+        }
+      ]
+    },
+    {
+      "date": "07.02.22",
+      "version": "1.2.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added inlineStyle and className props"]
+        }
+      ]
+    },
+    {
+      "date": "09.12.21",
+      "version": "1.1.2 ",
+      "changelog": [
+        {
+          "changes": ["Added unit tests for progress-linear"]
+        }
+      ]
+    },
+    {
+      "date": "30.11.21",
+      "version": "1.1.1 ",
+      "changelog": [
+        {
+          "changes": ["Web component wrapper fix"]
+        }
+      ]
+    },
+    {
+      "date": "03.11.21",
+      "version": "1.1.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added type declaration (for react)"]
+        }
+      ]
+    },
+    {
+      "date": "1.0.0",
+      "version": "1.0.0",
+      "changelog": [
+        {
+          "changes": ["First stable version :tada:"]
+        }
+      ]
+    }
+  ]
+}

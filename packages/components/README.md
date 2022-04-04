@@ -178,14 +178,50 @@ information on how to use it.
 - The `your-component-data.ts` file should contain all the metadata for your component. Read about how to add
   the data in the `packages/web/src/app/doc-pages/component-data.template.ts` file.
 
-#### Step 7 - Pull request and publish
+#### Step 7 - Update changelog
+
+Remember to update `CHANGELOG.json` in `packages/components/components/elvis-my-component`. The format is
+checked with json-schema. When the component is built the changelog will be copied to assets in the
+web-project and the format will be verified again with typescript. Remember do define the change type with one
+of the following types:
+
+- new_feature
+- bug_fix
+- patch
+- breaking_changes
+
+Example of an update
+
+```
+ {
+      "date": "31.03.22",
+      "version": "2.3.2 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added new property to my-component",
+            "Added another new property to my-component"
+          ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Minor bug fix for my-component"
+          ]
+        }
+      ]
+    },
+```
+
+#### Step 8 - Pull request and publish
 
 > NOTE! You will need to set up two-factor authentication with NPM to publish your changes.
 > [Elvia NPM](https://www.npmjs.com/org/elvia).
 
 1. **Update version**: When doing updates remember to alway update the version for that component
    `packages/components/components/your-component/package.json`.
-2. **Document**: the changes in the `CHANGELOG.md` file for that component.
+2. **Document**: the changes in the `CHANGELOG.json` file for that component. See step 7 for more information.
 3. **Review**: Review the
    [review process doc](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/10427498683/Review+prosess) to
    make sure all points have been addressed.

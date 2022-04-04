@@ -1,3 +1,4 @@
+import changelogJson from 'src/assets/changelogs/elvis-modal/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const modalData: ComponentData = {
@@ -174,6 +175,7 @@ const modalData: ComponentData = {
     isModalShowing = !isModalShowing;
   });
 `,
+  changelog: changelogJson.content,
 };
 
 export { modalData };

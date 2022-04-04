@@ -204,10 +204,9 @@ p {
     flex-direction: column;
   }
 }
+
 .changelog-date {
   vertical-align: top;
-  padding-bottom: 48px;
-  padding-top: 48px;
   padding-right: 24px;
   width: 27%;
   display: flex;
@@ -230,12 +229,12 @@ p {
 }
 
 .changelog-content {
-  padding-top: 48px;
+  // padding-top: 48px;
   width: 75%;
   @include breakpoint-up(Mobile) {
     width: 100%;
-    padding-top: 0px;
-    margin-top: -20px;
+    //padding-top: 0px;
+    //margin-top: -20px;
   }
 
   .changelog-section:not(:first-of-type) {
@@ -252,17 +251,9 @@ p {
     font-size: 14px !important;
     line-height: 21px !important;
   }
-  .changelog-divider {
-    height: 1px;
-    width: 138.7%;
-    margin-left: -33.7%;
-    background: var(--e-grey-10);
-    margin-top: 48px;
-    @include breakpoint-up(Mobile) {
-      width: 100%;
-      margin-left: 0px;
-    }
-  }
+}
+.changelog-divider {
+  border-bottom: 1px solid var(--e-grey-10);
 }
 
 // Display examples
@@ -404,4 +395,19 @@ p {
 
 hr {
   border: 1px solid black;
+}
+
+// Visible on screenreader only. Used for accessibility.
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important; /* 2 */
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important; /* 3 */
 }
