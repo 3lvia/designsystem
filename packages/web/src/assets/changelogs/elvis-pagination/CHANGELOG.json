@@ -2,6 +2,15 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "04.04.22",
+      "version": "2.0.5 ",
+      "changelog": [
+        {
+          "changes": ["Small fixes for better accessibility."]
+        }
+      ]
+    },
+    {
       "date": "23.03.22",
       "version": "2.0.4 ",
       "changelog": [
