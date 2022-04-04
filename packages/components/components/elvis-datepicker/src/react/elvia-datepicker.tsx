@@ -447,7 +447,7 @@ export const Datepicker: FC<DatepickerProps> = ({
             }
             inputProps={{ ref: inputRef }}
             KeyboardButtonProps={{
-              'aria-label': 'Velg dato',
+              'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
             }}
             leftArrowButtonProps={{
               'aria-label': 'Vis forrige måned',
@@ -456,9 +456,14 @@ export const Datepicker: FC<DatepickerProps> = ({
               'aria-label': 'Vis neste måned',
             }}
             PopoverProps={{
+              'aria-modal': true,
+              'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
               anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
               transformOrigin: { horizontal: 'left', vertical: 'top' },
               ref: datepickerPopoverRef,
+            }}
+            InputAdornmentProps={{
+              'aria-required': isRequired,
             }}
             initialFocusedDate={initialFocusedDate}
             shouldDisableDate={disableDateWrapper()}
