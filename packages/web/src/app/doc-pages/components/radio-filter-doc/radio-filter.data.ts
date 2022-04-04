@@ -34,7 +34,7 @@ const radioFilterData = {
       isRequired: false,
       type: 'string',
       description: 'Arialabel for the whole radio filter group',
-      default: 'Filtrerings knapper',
+      default: 'Filtreringsknapper',
     },
     valueOnChange: {
       isRequired: true,

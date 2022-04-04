@@ -24,7 +24,7 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
   name,
   items,
   value,
-  groupAriaLabel = 'Filtrerings knapper',
+  groupAriaLabel = 'Filtreringsknapper',
   valueOnChange,
   className,
   inlineStyle,
