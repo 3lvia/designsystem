@@ -143,7 +143,7 @@ const Pagination: FC<PaginationProps> = ({
     return false;
   };
 
-  const getAriaLabel = (NumberInArray: number, selectedNumber: number): string => {
+  const getAriaLabel = (NumberInArray: number): string => {
     if (NumberInArray === selectedNumber) {
       return 'Valgt side';
     } else {
@@ -166,7 +166,7 @@ const Pagination: FC<PaginationProps> = ({
           noShow={false}
           onClick={() => setSelectedNumber(NumberInArray)}
           selected={activeNumber(NumberInArray)}
-          aria-label={getAriaLabel(NumberInArray, selectedNumber)}
+          aria-label={getAriaLabel(NumberInArray)}
           aria-current={NumberInArray === selectedNumber}
         >
           {NumberInArray}
