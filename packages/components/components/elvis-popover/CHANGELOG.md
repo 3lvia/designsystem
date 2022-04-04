@@ -1,5 +1,12 @@
 # Elvia Popover Changelog
 
+## 4.4.0-beta.1 (04.04.22)
+
+### Big fix
+
+- Added functionality for list type for popover. This version has not been tested properly yet, but should be
+  functional.
+
 ## 4.3.8 (23.03.22)
 
 ### Big fix
