@@ -84,6 +84,11 @@ const popoverData: ComponentData = {
       cegFormType: 'radio',
       cegOptions: ['left', 'center', 'right'],
     },
+    // hideOnClickInsideList: {
+    //   isRequired: true,
+    //   type: 'boolean',
+    //   description: 'If true, closes the popover whenever the user clicks anywhere inside the popover. Set to false if you want to control the closing yourself with isShowing property.',
+    // },
     className: {
       isRequired: false,
       type: 'string',
@@ -101,76 +106,76 @@ const popoverData: ComponentData = {
   // Not used here, as there are separate files with code for each component type.
   codeReact:
     `<Popover
-header={"` +
+  header={"` +
     exampleContents.texts.md['eng-GBR'].title +
     `"}
-content={"` +
+  content={"` +
     exampleContents.texts.md['eng-GBR'].description +
     `"}
-posY={"top"}
-isShowingOnChange={(event) => showingChanges(event)}
-trigger={
-  <button className="e-btn e-btn--icon e-btn--circled">
-    <span className="e-btn__icon">
-      <i className="e-icon e-icon--information_circle"></i>
-      <i className="e-icon e-icon e-icon--information_circle-filled-color"></i>
-    </span>
-  </button>
-}
+  posY={"top"}
+  isShowingOnChange={(event) => showingChanges(event)}
+  trigger={
+    <button className="e-btn e-btn--icon e-btn--circled">
+      <span className="e-btn__icon">
+        <i className="e-icon e-icon--information_circle"></i>
+        <i className="e-icon e-icon e-icon--information_circle-filled-color"></i>
+      </span>
+    </button>
+  }
 ></Popover>
 `,
   codeAngular:
     `<elvia-popover 
-[header]="'` +
+  [header]="'` +
     exampleContents.texts.md['eng-GBR'].title +
     `'"
-[content]="'` +
+  [content]="'` +
     exampleContents.texts.md['eng-GBR'].description +
     `'"
-[posY]="'top'"
-(isShowingOnChange)="showingChanges($event.detail.value)"
->
-<button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
-  <span class="e-btn__icon">
-    <i class="e-icon e-icon--information_circle"></i>
-    <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-  </span>
-</button>
+  [posY]="'top'"
+  (isShowingOnChange)="showingChanges($event.detail.value)"
+  >
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+    </span>
+  </button>
 </elvia-popover>
 `,
   codeVue:
     `<elvia-popover 
-:header="'` +
+  :header="'` +
     exampleContents.texts.md['eng-GBR'].title +
     `'"
-:content="'` +
+  :content="'` +
     exampleContents.texts.md['eng-GBR'].description +
     `'"
-:posY="'top'"
-@is-showing-on-change="showingChanges($event.detail.value)"
->
-<button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
-  <span class="e-btn__icon">
-    <i class="e-icon e-icon--information_circle"></i>
-    <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-  </span>
-</button>
+  :posY="'top'"
+  @is-showing-on-change="showingChanges($event.detail.value)"
+  >
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+    </span>
+  </button>
 </elvia-popover>
 `,
   codeNativeHTML:
     `<elvia-popover 
-id="example-elvia-popover"
-header="` +
+  id="example-elvia-popover"
+  header="` +
     exampleContents.texts.md['eng-GBR'].title +
     `"
-posY="top"
->
-<button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
-  <span class="e-btn__icon">
-    <i class="e-icon e-icon--information_circle"></i>
-    <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-  </span>
-</button>
+  posY="top"
+  >
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+    </span>
+  </button>
 </elvia-popover>
 `,
   codeNativeScript: `  const popover = document.getElementById('example-elvia-popover');

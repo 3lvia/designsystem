@@ -10,7 +10,7 @@
         <h3>Popover</h3>
         <elvia-popover
           type="list"
-          variant="selection"
+          :selection="true"
           header="BankID"
           :hasDivider="true"
           posX="right"
