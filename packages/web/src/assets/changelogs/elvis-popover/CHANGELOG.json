@@ -2,10 +2,23 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "04.04.22",
+      "version": "4.4.0-beta.1 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added functionality for list type for popover. This version has not been tested properly yet, but should be functional."
+          ]
+        }
+      ]
+    },
+    {
       "date": "23.03.22",
       "version": "4.3.8 ",
       "changelog": [
         {
+          "type": "bug_fix",
           "changes": [
             "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
           ]
