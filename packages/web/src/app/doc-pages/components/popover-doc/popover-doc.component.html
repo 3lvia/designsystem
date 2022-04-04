@@ -14,10 +14,7 @@
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use
-        [whens]="does"
-        [whenNots]="donts"
-      ></app-when-to-use>
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
       <app-component-subsection [sectionTitle]="'Structure'">
         <ng-container ngProjectAs="sectionContent">
           <div
@@ -74,6 +71,13 @@
   <app-component-section [sectionTitle]="'Properties'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
+  <!--CHANGELOG-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [componentData]="componentData"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>

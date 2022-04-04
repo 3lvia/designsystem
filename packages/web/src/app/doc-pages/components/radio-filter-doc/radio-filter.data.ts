@@ -1,3 +1,5 @@
+import changelogJson from 'src/assets/changelogs/elvis-radio-filter/CHANGELOG.json';
+
 const radioFilterData = {
   name: 'elvis-radio-filter',
   elementNameW: 'elvia-radio-filter',
@@ -110,6 +112,7 @@ const radioFilterData = {
     radioFilter.setProps({value: event.detail.value});
   });
 `,
+  changelog: changelogJson.content,
 };
 
 export { radioFilterData };

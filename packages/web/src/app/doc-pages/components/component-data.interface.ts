@@ -155,7 +155,22 @@ export interface ComponentDataCode {
    */
   codeNativeScript: string;
 }
+/**
+ * Definition for an object/a single update in the changelog
+ */
+type ComponentChangelog = {
+  date: string;
+  version: string;
+  changelog: Array<ComponentChangelogChange>;
+};
 
+/**
+ * Each segment in the changelog for a spesific update.
+ */
+type ComponentChangelogChange = {
+  type?: string; // TODO: Should be required, but old changelogs dont always implement this
+  changes: Array<string>;
+};
 /**
  * Interface for component data for documentation pages.
  */
@@ -183,6 +198,11 @@ type ComponentData = {
   attributes: {
     [attribute: string]: AttributeType;
   };
+
+  /**
+   * Changes for component
+   */
+  changelog?: Array<ComponentChangelog>;
 
   /**
    * Command to install the component from npm.
