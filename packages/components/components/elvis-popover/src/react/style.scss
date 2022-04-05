@@ -10,6 +10,10 @@ $grey-05: #f4f4f4;
 .ewc-no-outline * {
   outline: none !important;
 }
+%ewc-outline {
+  outline: 2px solid #0064fa;
+  outline-offset: 2px;
+}
 
 .ewc-popover {
   display: flex;
@@ -138,6 +142,7 @@ $grey-05: #f4f4f4;
     flex-direction: column;
     min-width: 216px;
     box-sizing: border-box;
+    border-radius: 8px;
 
     & > button,
     & > a,
@@ -160,13 +165,17 @@ $grey-05: #f4f4f4;
       letter-spacing: 0px;
       text-align: left;
       color: black;
+      text-decoration: none;
 
       i {
-        margin-right: 8px;
+        margin-right: 16px;
       }
 
       &:hover {
         background: $grey-05;
+      }
+      &:focus {
+        @extend %ewc-outline;
       }
     }
 
@@ -189,6 +198,18 @@ $grey-05: #f4f4f4;
 
         margin: 20px 16px 4px 16px;
       }
+    }
+    & > *:first-child,
+    .ewc-popover__list-group:first-of-type,
+    .ewc-popover__list-group:first-of-type > *:first-child {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    & > *:last-child,
+    .ewc-popover__list-group:last-of-type,
+    .ewc-popover__list-group:last-of-type > *:last-child {
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
     }
   }
   &.ewc-popover--list .ewc-popover__content {

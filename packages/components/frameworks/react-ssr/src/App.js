@@ -102,7 +102,7 @@ function App() {
                   <button>
                     <span>Dato eldste</span>
                   </button>
-                  <a>
+                  <a href="design.elvia.io">
                     <span>Relevans</span>
                   </a>
                 </div>
@@ -111,6 +111,7 @@ function App() {
             <Popover
               type="list"
               hasDivider={true}
+              trigger={<button className="e-btn">Show popover</button>}
               content={
                 <div className="ewc-popover__list">
                   <div className="ewc-popover__list-group">
@@ -123,7 +124,7 @@ function App() {
                       <Icon name={'bin'} size={'xs'}></Icon>
                       <span>Slett</span>
                     </button>
-                    <a>
+                    <a href="design.elvia.io">
                       <Icon name={'download'} size={'xs'}></Icon>
                       <span>Last ned</span>
                     </a>
@@ -138,15 +139,13 @@ function App() {
                       <Icon name={'bin'} size={'xs'}></Icon>
                       <span>Slett</span>
                     </button>
-                    <a>
+                    <a href="design.elvia.io">
                       <Icon name={'download'} size={'xs'}></Icon>
                       <span>Last ned</span>
                     </a>
                   </div>
                 </div>
               }
-              trigger={<button className="e-btn">Show popover</button>}
-              posX="right"
             ></Popover>
           </div>
           {/* Inverted version */}
