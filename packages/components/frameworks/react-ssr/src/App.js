@@ -90,33 +90,27 @@ function App() {
           <div className="e-bg-white">
             <Popover
               type="list"
-              selection
-              header="BankID"
-              hasDivider={true}
-              posX="right"
-              hideOnClickInsideList={false}
+              selectable={true}
+              disableAutoClose={true}
               trigger={<button className="e-btn">Show popover</button>}
               content={
-                <div>
-                  <div className="ewc-popover__list">
-                    <button>
-                      <Icon name="checkBold" size="xs"></Icon>
-                      <span>Dato nyeste</span>
-                    </button>
-                    <button>
-                      <span>Dato eldste</span>
-                    </button>
-                    <a>
-                      <span>Relevans</span>
-                    </a>
-                  </div>
+                <div className="ewc-popover__list">
+                  <button>
+                    <Icon name="checkBold" size="xs"></Icon>
+                    <span>Dato nyeste</span>
+                  </button>
+                  <button>
+                    <span>Dato eldste</span>
+                  </button>
+                  <a>
+                    <span>Relevans</span>
+                  </a>
                 </div>
               }
             ></Popover>
             <Popover
-              header="BankID"
               type="list"
-              hasDivider
+              hasDivider={true}
               content={
                 <div className="ewc-popover__list">
                   <div className="ewc-popover__list-group">

@@ -2462,19 +2462,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-popover@npm:*":
-  version: 4.3.8
-  resolution: "@elvia/elvis-popover@npm:4.3.8"
-  dependencies:
-    "@elvia/elvis-component-wrapper": ^2.2.2
-    "@elvia/elvis-icon": ^1.1.1
-    "@elvia/elvis-toolbox": ^1.2.1
-    classnames: ^2.3.1
-  checksum: fe95f47eff878644fe5be89b5f486c8f55ae57dc4cd6442ced3d11b4451f9fd3fa81fb16778b379cb28aead70c069c84a699366904d21e586d51452f24d9c87f
-  languageName: node
-  linkType: hard
-
-"@elvia/elvis-popover@workspace:packages/components/components/elvis-popover":
+"@elvia/elvis-popover@*, @elvia/elvis-popover@workspace:packages/components/components/elvis-popover":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-popover@workspace:packages/components/components/elvis-popover"
   dependencies:

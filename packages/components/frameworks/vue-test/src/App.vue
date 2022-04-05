@@ -8,14 +8,7 @@
       <!--Normal version-->
       <div class="e-bg-white">
         <h3>Popover</h3>
-        <elvia-popover
-          type="list"
-          :selection="true"
-          header="BankID"
-          :hasDivider="true"
-          posX="right"
-          :hideOnClickInsideList="false"
-        >
+        <elvia-popover type="list" :selectable="true" :disableAutoClose="true">
           <button slot="trigger" className="e-btn">Show popover</button>
           <div slot="content" className="ewc-popover__list">
             <button>
@@ -30,7 +23,7 @@
             </a>
           </div>
         </elvia-popover>
-        <elvia-popover type="list" header="BankID" :hasDivider="true" posX="right">
+        <elvia-popover type="list" :hasDivider="true">
           <button slot="trigger" className="e-btn">Show popover</button>
           <div slot="content" className="ewc-popover__list">
             <div className="ewc-popover__list-group">

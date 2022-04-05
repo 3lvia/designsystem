@@ -84,10 +84,11 @@ const popoverData: ComponentData = {
       cegFormType: 'radio',
       cegOptions: ['left', 'center', 'right'],
     },
-    // hideOnClickInsideList: {
-    //   isRequired: true,
+    // disableCloseOnClick: {
+    //   isRequired: false,
     //   type: 'boolean',
     //   description: 'If true, closes the popover whenever the user clicks anywhere inside the popover. Set to false if you want to control the closing yourself with isShowing property.',
+    //   default: 'false',
     // },
     className: {
       isRequired: false,

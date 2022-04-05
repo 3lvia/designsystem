@@ -199,7 +199,7 @@ $grey-05: #f4f4f4;
       border-bottom: 1px solid $grey-10;
     }
   }
-  &.ewc-popover--list.ewc-popover--list-selection .ewc-popover__content .ewc-popover__list {
+  &.ewc-popover--list.ewc-popover--list-selectable .ewc-popover__content .ewc-popover__list {
     & > button,
     & > a,
     .ewc-popover__list-group > button,
