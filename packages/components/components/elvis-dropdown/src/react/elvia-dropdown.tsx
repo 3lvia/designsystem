@@ -481,11 +481,29 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const updateValue = (event: any) => {
     if (!webcomponent && valueOnChange) {
-      valueOnChange(event);
+      valueOnChange(
+        event &&
+          // Do not include selectAllOption in dispatched event
+          event.filter(
+            (option: DropdownOption) =>
+              option.label !== selectAllOption.label && option.value !== selectAllOption.value,
+          ),
+      );
     }
     if (webcomponent) {
       // True -> Prevents rerender
-      webcomponent.setProps({ value: event }, true);
+      webcomponent.setProps(
+        {
+          value:
+            event &&
+            // Do not include selectAllOption in dispatched event
+            event.filter(
+              (option: DropdownOption) =>
+                option.label !== selectAllOption.label && option.value !== selectAllOption.value,
+            ),
+        },
+        true,
+      );
     }
     return;
   };
@@ -528,7 +546,8 @@ const Dropdown: React.FC<DropdownProps> = ({
           }}
           onMenuClose={() => setMenuIsOpen(false)}
           onMenuOpen={() => setMenuIsOpen(true)}
-          options={isMulti && hasSelectAll ? [selectAllOption, ...options] : options}
+          // options={[selectAllOption, ...options]}
+          options={options && isMulti && hasSelectAll ? [selectAllOption, ...options] : options}
           placeholder={placeholder}
           value={currentVal}
           styles={customElviaStyles}

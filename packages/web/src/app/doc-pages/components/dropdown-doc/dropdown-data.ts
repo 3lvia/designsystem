@@ -65,6 +65,18 @@ export const dropdownData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'Options',
     },
+    hasSelectAll: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Add a select all-button to the dropdown. Only available in multiselect dropdown.',
+      default: 'false',
+      cegDisplayName: 'Select all button',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Options',
+      cegDependency: [{ name: 'isMulti', value: 'true' }],
+    },
     label: {
       isRequired: false,
       type: 'string',
