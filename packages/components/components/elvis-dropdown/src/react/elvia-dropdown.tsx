@@ -55,7 +55,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   isDisabled,
   isMulti,
   isSearchable = false,
-  hasSelectAll,
+  hasSelectAll = false,
   label,
   menuPosition = 'auto',
   noOptionsMessage = 'Ingen tilgjengelige valg',
@@ -75,6 +75,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const selectId = uniqueId('ewc-dropdown-');
 
+  /** Default value for the select all-option. */
   const selectAllOption: DropdownOption = { label: 'Alle', value: '*' };
 
   // styling functions for react select
@@ -121,7 +122,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     return '#000';
   };
 
-  // Custom styling for dropdown using emotion from react-select package.
+  /** Custom styling for dropdown using emotion from react-select package. */
   const customElviaStyles: StylesConfig = {
     container: (provided) => ({
       ...provided,
@@ -366,7 +367,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     return <components.Placeholder {...props}>{props.children}</components.Placeholder>;
   };
 
-  // Object containing all components overriden in react-select by Elvis dropdown
+  /** Object containing all components overriden in react-select by Elvis dropdown */
   const overrideComponents = {
     DropdownIndicator: ElviaDropdownIndicator,
     Option: ElviaOption,
@@ -479,6 +480,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
   };
 
+  /** Call valueOnChange (React) or dispatch on change-event (webcomponent) */
   const updateValue = (event: any) => {
     if (!webcomponent && valueOnChange) {
       valueOnChange(
@@ -546,7 +548,6 @@ const Dropdown: React.FC<DropdownProps> = ({
           }}
           onMenuClose={() => setMenuIsOpen(false)}
           onMenuOpen={() => setMenuIsOpen(true)}
-          // options={[selectAllOption, ...options]}
           options={options && isMulti && hasSelectAll ? [selectAllOption, ...options] : options}
           placeholder={placeholder}
           value={currentVal}
