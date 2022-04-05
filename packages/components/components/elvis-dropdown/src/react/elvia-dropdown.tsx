@@ -5,6 +5,7 @@ import Select, {
   MultiValueProps,
   OptionProps,
   PlaceholderProps,
+  StylesConfig,
 } from 'react-select';
 import toolbox from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
@@ -34,6 +35,7 @@ export interface DropdownProps {
   isDisabled: boolean;
   isMulti: boolean;
   isSearchable: boolean;
+  hasSelectAll?: boolean;
   label?: string;
   menuPosition?: DropdownMenuPosition;
   noOptionsMessage?: string;
@@ -53,6 +55,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   isDisabled,
   isMulti,
   isSearchable = false,
+  hasSelectAll,
   label,
   menuPosition = 'auto',
   noOptionsMessage = 'Ingen tilgjengelige valg',
@@ -71,6 +74,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   const dropdownRef = useRef<HTMLSpanElement>(null);
 
   const selectId = uniqueId('ewc-dropdown-');
+
+  const selectAllOption: DropdownOption = { label: 'Alle', value: '*' };
 
   // styling functions for react select
   const decideControlBorder = (disabled: boolean, error: boolean) => {
@@ -117,8 +122,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   // Custom styling for dropdown using emotion from react-select package.
-  const customElviaStyles = {
-    container: (provided: any) => ({
+  const customElviaStyles: StylesConfig = {
+    container: (provided) => ({
       ...provided,
       maxWidth: '448px',
     }),
@@ -127,7 +132,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       boxSizing: 'border-box',
       display: 'flex',
       alignItems: 'center',
-      backgroundColor: '#FFFFFF',
+      backgroundColor: getColor('white'),
       borderRadius: '4px',
       border: decideControlBorder(isDisabled, isError),
       maxHeight: isCompact ? '34px' : '48px',
@@ -138,67 +143,67 @@ const Dropdown: React.FC<DropdownProps> = ({
       cursor: 'pointer',
       boxShadow: '0',
       '&:hover': {
-        border: '2px solid #29d305',
+        border: `2px solid ${getColor('elvia-charge')}`,
         padding: '0px',
       },
     }),
 
-    dropdownIndicator: (provided: any) => ({
+    dropdownIndicator: (provided) => ({
       ...provided,
       height: isCompact ? '16px' : '20px',
       width: isCompact ? '16px' : '20px',
       padding: '0px',
     }),
 
-    indicatorsContainer: (provided: any) => ({
+    indicatorsContainer: (provided) => ({
       ...provided,
       paddingTop: isCompact ? '7px' : '13px',
       paddingBottom: isCompact ? '7px' : '13px',
       paddingRight: isCompact ? '11px' : '15px',
     }),
 
-    menu: (provided: any) => ({
+    menu: (provided) => ({
       ...provided,
       boxShadow: '0px 0px 40px rgba(0, 0, 0, 0.06);',
       minWidth: '72px',
       zIndex: 100,
     }),
 
-    menuList: (provided: any) => ({
+    menuList: (provided) => ({
       ...provided,
       maxHeight: isCompact ? '181px' : '241px',
       padding: '0',
       zIndex: 10,
     }),
 
-    multiValue: (provided: any, state: any) => ({
+    multiValue: (provided, state) => ({
       ...provided,
-      background: '#ffffff',
+      background: getColor('white'),
       margin: '0px',
-      color: state.isDisabled ? getColor('disabled') : '#000',
+      color: state.isDisabled ? getColor('disabled') : getColor('black'),
     }),
 
-    multiValueLabel: (provided: any, state: any) => ({
+    multiValueLabel: (provided, state) => ({
       ...provided,
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
       fontStyle: 'normal',
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: '22px',
-      color: state.isDisabled ? getColor('disabled') : '#000',
+      color: state.isDisabled ? getColor('disabled') : getColor('black'),
       paddingTop: '0px',
       paddingBottom: '0px',
       paddingLeft: '0px',
     }),
 
-    noOptionsMessage: (provided: any) => ({
+    noOptionsMessage: (provided) => ({
       ...provided,
       fontFamily: 'Red Hat Text',
       color: getColor('grey-70'),
       textAlign: 'left',
     }),
 
-    option: (provided: any, state: any) => ({
+    option: (provided, state) => ({
       ...provided,
       display: 'flex',
       alignContent: 'center',
@@ -215,18 +220,33 @@ const Dropdown: React.FC<DropdownProps> = ({
       '&:hover': {
         backgroundColor: decideOptionHoverBg(state.isSelected, state.isMulti),
         '#ewc-dropdown-checkbox__mark': {
-          backgroundColor: '#29d305',
+          backgroundColor: getColor('elvia-charge'),
         },
       },
       '#ewc-dropdown-checkbox__mark': {
-        background: state.isFocused ? '#29d305' : state.isSelected ? '#29d305' : '#ffffff',
+        background: state.isFocused
+          ? getColor('elvia-charge')
+          : state.isSelected
+          ? getColor('elvia-charge')
+          : // "select all"-button should have green background if any options are selected
+          Array.isArray(currentVal) && currentVal.length > 0 && state.label === selectAllOption.label
+          ? getColor('elvia-charge')
+          : getColor('white'),
       },
       '.ewc-dropdown-checkbox .ewc-dropdown-checkbox__mark': {
-        background: state.isFocused ? '#29d305' : state.isSelected ? '#29d305' : '#ffffff',
+        background: state.isFocused
+          ? getColor('elvia-charge')
+          : state.isSelected
+          ? getColor('elvia-charge')
+          : // "select all"-button should have green background if any options are selected
+          Array.isArray(currentVal) && currentVal.length > 0 && state.label === selectAllOption.label
+          ? getColor('elvia-charge')
+          : getColor('white'),
       },
+      borderBottom: state.label === selectAllOption.label ? `1px solid ${getColor('grey-10')}` : '',
     }),
 
-    placeholder: (provided: any) => ({
+    placeholder: (provided) => ({
       ...provided,
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
@@ -242,7 +262,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       maxWidth: 'calc(100% - 12px)',
     }),
 
-    singleValue: (provided: any) => ({
+    singleValue: (provided) => ({
       ...provided,
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
@@ -254,7 +274,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       maxWidth: 'calc(100% - 12px)',
     }),
 
-    valueContainer: (provided: any, state: any) => ({
+    valueContainer: (provided, state) => ({
       ...provided,
       display: 'flex',
       color: state.isDisabled ? getColor('disabled') : '#000',
@@ -270,8 +290,6 @@ const Dropdown: React.FC<DropdownProps> = ({
   // Custom components for Elvia dropdown
   const ElviaDropdownIndicator = (props: DropdownIndicatorProps) => {
     return (
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
       <components.DropdownIndicator {...props}>
         <Icon
           name={menuIsOpen ? 'arrowUpBold' : 'arrowDownBold'}
@@ -284,19 +302,25 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const ElviaOption = (props: OptionProps) => {
     if (!isMulti) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
       return <components.Option {...props}>{props.children}</components.Option>;
     }
+    const isSelectAllWithPartialSelected =
+      hasSelectAll &&
+      props.children === selectAllOption.label &&
+      currentVal !== undefined &&
+      Array.isArray(currentVal) &&
+      currentVal.length > 0 &&
+      !props.isSelected;
     return (
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
       <components.Option {...props}>
         <DropdownCheckbox>
           <DropdownCheckboxMark
             id="ewc-dropdown-checkbox__mark"
             isSelected={props.isSelected}
             isCompact={isCompact}
+            isSelectAllWithPartialSelected={
+              isSelectAllWithPartialSelected ? isSelectAllWithPartialSelected : false
+            }
           />
           <DropdownCheckboxLabel isCompact={isCompact}>{props.children}</DropdownCheckboxLabel>
         </DropdownCheckbox>
@@ -321,6 +345,17 @@ const Dropdown: React.FC<DropdownProps> = ({
       return (props.getValue()[0] as DropdownOption).label;
     }
 
+    if (isMulti && hasSelectAll) {
+      const allSelected =
+        Array.isArray(currentVal) &&
+        currentVal.find(
+          (el: DropdownOption) => el.label === selectAllOption.label && el.value === selectAllOption.value,
+        ) !== undefined;
+
+      if (allSelected) {
+        return !props.index && `Alle`;
+      }
+    }
     return !props.index && `${props.getValue().length} valgte`;
   };
 
@@ -362,9 +397,86 @@ const Dropdown: React.FC<DropdownProps> = ({
     updateValue(defaultValue);
   }, [defaultValue]);
 
-  const onChangeHandler = (event: any) => {
-    setCurrentVal(event);
-    updateValue(event);
+  const onChangeHandler = (event: DropdownProps['value']) => {
+    // If there is no "select all"-button, this logic is simple
+    if (!hasSelectAll) {
+      setCurrentVal(event);
+      updateValue(event);
+    } else {
+      // Handle the logic for the "select all"-button in all different situations
+      if (
+        // selectAllOption is not currently selected, but becomes selected => select all
+        // currentVal is not an array, selectAllOption is not selected, and selectAllOption is in the new values from the event
+        (!Array.isArray(currentVal) &&
+          currentVal !== selectAllOption &&
+          Array.isArray(event) &&
+          event.includes(selectAllOption)) ||
+        // currentVal is an array that does not have selectAllOption in it, and selectAllOption is in the new values from the event
+        (Array.isArray(currentVal) &&
+          currentVal.find(
+            (option) => option.value === selectAllOption.value && option.label === selectAllOption.label,
+          ) === undefined &&
+          Array.isArray(event) &&
+          event.includes(selectAllOption))
+      ) {
+        setCurrentVal([selectAllOption, ...options]);
+        updateValue([selectAllOption, ...options]);
+      } else if (
+        // selectAllOption is selected, but becomes unselected => unselect all
+        // Check that selectAllOption is currently selected
+        Array.isArray(currentVal) &&
+        currentVal.find(
+          (option) => option.value === selectAllOption.value && option.label === selectAllOption.label,
+        ) &&
+        // Check that selectAllOption is no longer selected
+        Array.isArray(event) &&
+        event.find(
+          (option) => option.value === selectAllOption.value && option.label === selectAllOption.label,
+        ) === undefined
+      ) {
+        setCurrentVal([]);
+        updateValue([]);
+      } else if (
+        // selectAllOption is selected, but not all options are selected any more => unselect selectAllOption (will be marked with a line)
+        // Check that selectAllOption is selected
+        Array.isArray(currentVal) &&
+        currentVal.find(
+          (option) => option.value === selectAllOption.value && option.label === selectAllOption.label,
+        ) &&
+        // Check that not all elements in options are selected any more  (length + 1 because of selectAllOption being added)
+        Array.isArray(event) &&
+        event.length !== options.length + 1
+      ) {
+        setCurrentVal(
+          // Filter out selectAllOption from the selected options
+          event.filter(
+            (option) => option.value !== selectAllOption.value && option.label !== selectAllOption.label,
+          ),
+        );
+        updateValue(
+          // Filter out selectAllOption from the selected options
+          event.filter(
+            (option) => option.value !== selectAllOption.value && option.label !== selectAllOption.label,
+          ),
+        );
+      } else if (
+        // selectAllOption is not selected, but all options are selected => select selectAllOption
+        // Check that selectAllOption is not selected
+        Array.isArray(currentVal) &&
+        currentVal.find(
+          (option) => option.value === selectAllOption.value && option.label === selectAllOption.label,
+        ) === undefined &&
+        // Check that all options are selected
+        Array.isArray(event) &&
+        event.length == options.length
+      ) {
+        setCurrentVal([selectAllOption, ...event]);
+        updateValue([selectAllOption, ...event]);
+      } else {
+        setCurrentVal(event);
+        updateValue(event);
+      }
+    }
   };
 
   const updateValue = (event: any) => {
@@ -397,6 +509,8 @@ const Dropdown: React.FC<DropdownProps> = ({
           classNamePrefix={'ewc-dropdown'}
           closeMenuOnSelect={!isMulti}
           components={overrideComponents}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          //@ts-ignore
           hasValue={false}
           hideSelectedOptions={false}
           inputId={selectId}
@@ -414,11 +528,9 @@ const Dropdown: React.FC<DropdownProps> = ({
           }}
           onMenuClose={() => setMenuIsOpen(false)}
           onMenuOpen={() => setMenuIsOpen(true)}
-          options={options}
+          options={isMulti && hasSelectAll ? [selectAllOption, ...options] : options}
           placeholder={placeholder}
           value={currentVal}
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          //@ts-ignore
           styles={customElviaStyles}
         ></Select>
 
