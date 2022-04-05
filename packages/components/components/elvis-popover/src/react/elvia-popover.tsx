@@ -54,7 +54,6 @@ const Popover: FC<PopoverProps> = ({
   const popoverMargin = 16;
   const popoverPadding = 32;
 
-  console.log(selectable);
   // Running on first render only (on mount)
   useEffect(() => {
     // Start outline listener
