@@ -124,9 +124,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   /** Decide color of background of a checkbox inside a multiselect dropdown */
   const decideBackgroundColor = (isFocused: boolean, isSelected: boolean, label: string): string => {
-    if (isFocused) {
-      return getColor('elvia-charge');
-    } else if (isSelected) {
+    if (isFocused || isSelected) {
       return getColor('elvia-charge');
     } else if (
       // "select all"-option should have green background if any options are selected
