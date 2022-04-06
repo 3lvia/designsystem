@@ -112,6 +112,12 @@ To start developing components and styling follow the guides below:
 - Our CDN which publish all our NPM packages to [Elvia CDN](https://cdn.elvia.io/) can be read more about
   here: [CDN resources](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/64471957894/CDN+-+Ressurser).
 
+### Publish
+
+To publish all the packages to npm at once, you can use `yarn publish --otp <INSERT_OTP>` from root. It will
+publish all packages where the version number is updated from what is currently published and the package is
+not marked as private in the `package.json`.
+
 ## 🤝 Contribute
 
 Feedback from everyone in Elvia is welcomed and developers and designers are urged to contribute where they
