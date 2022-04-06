@@ -101,7 +101,7 @@ function App() {
               options={dropdownOptions}
               label="Dropdown with select all"
               isMulti
-              hasSelectAll
+              hasSelectAllOption
               // isCompact
             ></Dropdown>
             <div className="e-mb-32" />
@@ -109,7 +109,7 @@ function App() {
               options={dropdownOptionsLong}
               label="Compact dropdown"
               isMulti
-              hasSelectAll
+              hasSelectAllOption
               isCompact
             ></Dropdown>
           </div>

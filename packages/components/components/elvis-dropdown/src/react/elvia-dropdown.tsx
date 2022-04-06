@@ -35,7 +35,7 @@ export interface DropdownProps {
   isDisabled: boolean;
   isMulti: boolean;
   isSearchable: boolean;
-  hasSelectAll?: boolean;
+  hasSelectAllOption: boolean;
   label?: string;
   menuPosition?: DropdownMenuPosition;
   noOptionsMessage?: string;
@@ -55,7 +55,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   isDisabled,
   isMulti,
   isSearchable = false,
-  hasSelectAll = false,
+  hasSelectAllOption = false,
   label,
   menuPosition = 'auto',
   noOptionsMessage = 'Ingen tilgjengelige valg',
@@ -306,7 +306,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       return <components.Option {...props}>{props.children}</components.Option>;
     }
     const isSelectAllWithPartialSelected =
-      hasSelectAll &&
+      hasSelectAllOption &&
       props.children === selectAllOption.label &&
       currentVal !== undefined &&
       Array.isArray(currentVal) &&
@@ -346,7 +346,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       return (props.getValue()[0] as DropdownOption).label;
     }
 
-    if (isMulti && hasSelectAll) {
+    if (isMulti && hasSelectAllOption) {
       const allSelected =
         Array.isArray(currentVal) &&
         currentVal.find(
@@ -400,7 +400,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const onChangeHandler = (event: DropdownProps['value']) => {
     // If there is no "select all"-button, this logic is simple
-    if (!hasSelectAll) {
+    if (!hasSelectAllOption) {
       setCurrentVal(event);
       updateValue(event);
     } else {
@@ -481,28 +481,29 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   /** Call valueOnChange (React) or dispatch on change-event (webcomponent) */
-  const updateValue = (event: any) => {
+  const updateValue = (event: DropdownProps['value']) => {
     if (!webcomponent && valueOnChange) {
       valueOnChange(
-        event &&
-          // Do not include selectAllOption in dispatched event
-          event.filter(
-            (option: DropdownOption) =>
-              option.label !== selectAllOption.label && option.value !== selectAllOption.value,
-          ),
+        Array.isArray(event)
+          ? // Do not include selectAllOption in dispatched event if event is array
+            event.filter(
+              (option: DropdownOption) =>
+                option.label !== selectAllOption.label && option.value !== selectAllOption.value,
+            )
+          : event,
       );
     }
     if (webcomponent) {
       // True -> Prevents rerender
       webcomponent.setProps(
         {
-          value:
-            event &&
-            // Do not include selectAllOption in dispatched event
-            event.filter(
-              (option: DropdownOption) =>
-                option.label !== selectAllOption.label && option.value !== selectAllOption.value,
-            ),
+          value: Array.isArray(event)
+            ? // Do not include selectAllOption in dispatched event if event is array
+              event.filter(
+                (option: DropdownOption) =>
+                  option.label !== selectAllOption.label && option.value !== selectAllOption.value,
+              )
+            : event,
         },
         true,
       );
@@ -548,7 +549,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           }}
           onMenuClose={() => setMenuIsOpen(false)}
           onMenuOpen={() => setMenuIsOpen(true)}
-          options={options && isMulti && hasSelectAll ? [selectAllOption, ...options] : options}
+          options={options && isMulti && hasSelectAllOption ? [selectAllOption, ...options] : options}
           placeholder={placeholder}
           value={currentVal}
           styles={customElviaStyles}

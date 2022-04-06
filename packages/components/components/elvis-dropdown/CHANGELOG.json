@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added new prop 'hasSelectAll', which adds a select all-button to a multiselect dropdown. "
+            "Added new prop 'hasSelectAllOption', which adds a select all-button to a multiselect dropdown. "
           ]
         }
       ]
