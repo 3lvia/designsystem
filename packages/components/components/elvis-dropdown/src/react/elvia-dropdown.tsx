@@ -133,8 +133,9 @@ const Dropdown: React.FC<DropdownProps> = ({
       optionLabel === selectAllOption.label
     ) {
       return getColor('elvia-charge');
+    } else {
+      return getColor('white');
     }
-    return getColor('white');
   };
 
   /** Custom styling for dropdown using emotion from react-select package. */
@@ -309,7 +310,6 @@ const Dropdown: React.FC<DropdownProps> = ({
     const isSelectAllWithPartialSelected =
       hasSelectAllOption &&
       props.children === selectAllOption.label &&
-      currentVal !== undefined &&
       Array.isArray(currentVal) &&
       currentVal.length > 0 &&
       !props.isSelected;

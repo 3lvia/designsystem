@@ -85,6 +85,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
   isSelecteed: boolean,
   isSelectAllWithPartialSelected: boolean,
 ) => {
+  // Make compact line for "select all"-option when not everything is selected
   if (isCompact && isSelectAllWithPartialSelected) {
     return `
     background-color: ${colors.elviaCharge};
@@ -101,6 +102,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
       transform-origin: (left bottom);
       }`;
   }
+  // Make normal line for "select all"-option when not everything is selected
   if (!isCompact && isSelectAllWithPartialSelected) {
     return `
     background-color: ${colors.elviaCharge};
@@ -117,6 +119,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
       transform-origin: (left bottom);
       }`;
   }
+  // Make compact checkmark
   if (isCompact && isSelecteed) {
     return `
   background-color: ${colors.elviaCharge};
@@ -145,6 +148,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
     transform-origin: [left bottom];
   }`;
   }
+  // Make normal checkmark
   if (!isCompact && isSelecteed) {
     return `
   background-color: ${colors.elviaCharge};
