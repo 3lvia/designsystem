@@ -100,7 +100,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
       border-radius: 15px;
       transform: translateX(8px);
       transform-origin: (left bottom);
-      }`;
+    }`;
   }
   // Make normal line for "select all"-option when not everything is selected
   if (!isCompact && isSelectAllWithPartialSelected) {
@@ -117,65 +117,65 @@ const decideCheckMarkCompactAndSelectedStyle = (
       border-radius: 15px;
       transform: translateX(8px);
       transform-origin: (left bottom);
-      }`;
+    }`;
   }
   // Make compact checkmark
   if (isCompact && isSelecteed) {
     return `
-  background-color: ${colors.elviaCharge};
-  &::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -45%;
-  height: 39%;
-  width: 2px;
-  background-color: ${colors.elviaBlack};
-  border-radius: 15px;
-  transform: translateX(10px) rotate(-45deg);
-  transform-origin: [left bottom];
-  }
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 40%;
-    left: -45%;
-    height: 2px;
-    width: 80%;
-    background-color: ${colors.elviaBlack};
-    border-radius: 15px;
-    transform: translateX(10px) rotate(-55deg);
-    transform-origin: [left bottom];
-  }`;
+    background-color: ${colors.elviaCharge};
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -45%;
+      height: 39%;
+      width: 2px;
+      background-color: ${colors.elviaBlack};
+      border-radius: 15px;
+      transform: translateX(10px) rotate(-45deg);
+      transform-origin: [left bottom];
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 40%;
+      left: -45%;
+      height: 2px;
+      width: 80%;
+      background-color: ${colors.elviaBlack};
+      border-radius: 15px;
+      transform: translateX(10px) rotate(-55deg);
+      transform-origin: [left bottom];
+    }`;
   }
   // Make normal checkmark
   if (!isCompact && isSelecteed) {
     return `
-  background-color: ${colors.elviaCharge};
-&::before {
-  content: '';
-  position: absolute;
-  top: 55%;
-  left: -9%;
-  height: 30%;
-  width: 2px;
-  background-color: ${colors.elviaBlack};
-  border-radius: 15px;
-  transform: translateX(8px) rotate(-45deg);
-  transform-origin: (left bottom);
-  }
-&::after {
-  content: '';
-  position: absolute;
-  bottom: 15%;
-  left: -4%;
-  height: 2px;
-  width: 83%;
-  background-color: ${colors.elviaBlack};
-  border-radius: 15px;
-  transform: translateX(10px) rotate(-55deg);
-  transform-origin: left bottom;
-}`;
+    background-color: ${colors.elviaCharge};
+    &::before {
+      content: '';
+      position: absolute;
+      top: 55%;
+      left: -9%;
+      height: 30%;
+      width: 2px;
+      background-color: ${colors.elviaBlack};
+      border-radius: 15px;
+      transform: translateX(8px) rotate(-45deg);
+      transform-origin: (left bottom);
+      }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 15%;
+      left: -4%;
+      height: 2px;
+      width: 83%;
+      background-color: ${colors.elviaBlack};
+      border-radius: 15px;
+      transform: translateX(10px) rotate(-55deg);
+      transform-origin: left bottom;
+    }`;
   }
   return '';
 };

@@ -186,7 +186,7 @@ export const dropdownData: ComponentData = {
   changelog: changelogJson.content,
 
   does: [
-    'Use sparingly: use dropdowns only when the user have 5-15 options and you have limited space to display it all open.',
+    'Use dropdowns sparingly - only when the user has 5-15 options and you have limited space to display all options.',
   ],
   donts: [
     'Fewer than 5 options (consider radio filter or radio buttons)',

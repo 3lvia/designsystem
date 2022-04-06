@@ -123,14 +123,14 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   /** Decide color of background of a checkbox inside a multiselect dropdown */
-  const decideBackgroundColor = (isFocused: boolean, isSelected: boolean, optionLabel: string): string => {
-    if (isFocused || isSelected) {
+  const decideBackgroundColor = (focused: boolean, selected: boolean, currentOptionLabel: string): string => {
+    if (focused || selected) {
       return getColor('elvia-charge');
     } else if (
       // "select all"-option should have green background if any options are selected
       Array.isArray(currentVal) &&
       currentVal.length > 0 &&
-      optionLabel === selectAllOption.label
+      currentOptionLabel === selectAllOption.label
     ) {
       return getColor('elvia-charge');
     } else {
@@ -320,9 +320,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             id="ewc-dropdown-checkbox__mark"
             isSelected={props.isSelected}
             isCompact={isCompact}
-            isSelectAllWithPartialSelected={
-              isSelectAllWithPartialSelected ? isSelectAllWithPartialSelected : false
-            }
+            isSelectAllWithPartialSelected={isSelectAllWithPartialSelected}
           />
           <DropdownCheckboxLabel isCompact={isCompact}>{props.children}</DropdownCheckboxLabel>
         </DropdownCheckbox>
@@ -348,13 +346,13 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
 
     if (isMulti && hasSelectAllOption) {
-      const allSelected =
+      const allOptionsSelected =
         Array.isArray(currentVal) &&
         currentVal.find(
-          (el: DropdownOption) => el.label === selectAllOption.label && el.value === selectAllOption.value,
+          (option) => option.label === selectAllOption.label && option.value === selectAllOption.value,
         ) !== undefined;
 
-      if (allSelected) {
+      if (allOptionsSelected) {
         return !props.index && `Alle`;
       }
     }
