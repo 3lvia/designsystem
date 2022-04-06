@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 import { homeMenu } from 'src/app/shared/doc-pages';
+import changelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   halloweenMonth = 9;
   halloween = false;
   locale: string;
+  componentData = new Object({ changelog: changelogJson.content });
 
   constructor(localizationService: LocalizationService) {
     localizationService.listenLocalization().subscribe((locale) => {
@@ -31,6 +33,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(`DAta: `, this.componentData);
     this.findEndOfRow();
     this.holiday();
     (document as any).fonts.ready.then(() => {

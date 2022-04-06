@@ -966,7 +966,7 @@
       7.7.1
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       April 30, 2021
     </span>
     </td>
@@ -990,7 +990,7 @@
       7.7.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       April 15, 2021
     </span>
     </td>
@@ -1029,7 +1029,7 @@
       7.6.1
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       April 6, 2021
     </span>
     </td>
@@ -1039,7 +1039,11 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
         </div>
-        Update to icons(from 32px to 24px), and font-size(18px to 20px) for large accordions. 
+        <ul class="e-list">
+          <li>
+          Update to icons(from 32px to 24px), and font-size(18px to 20px) for large accordions. 
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1050,7 +1054,7 @@
       7.6.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       March 29, 2021
     </span>
     </td>
@@ -1060,7 +1064,11 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/tooltip#Overview">Tooltip</a>
         </div>
-        Tooltips now have left and right alignment classes
+        <ul class="e-list">
+          <li>
+          Tooltips now have left and right alignment classes
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1071,7 +1079,7 @@
       7.4.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       March 12, 2021
     </span>
     </td>
@@ -1101,7 +1109,7 @@
       7.3.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       March 11, 2021
     </span>
     </td>
@@ -1111,14 +1119,22 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/checkbox#Overview">Checkbox</a>
         </div>
-        Added documentation for nested checkboxes and added the new state indeterminate.
+        <ul class="e-list">
+          <li>
+          Added documentation for nested checkboxes and added the new state indeterminate.
+          </li>
+        </ul>
       </div>
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/checkbox#Overview">Checkbox</a>
         </div>
-        Normal sized checkboxes now has font-size 16px, instead of inheriting their font-size.
+        <ul class="e-list">
+          <li>
+          Normal sized checkboxes now has font-size 16px, instead of inheriting their font-size.
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1129,7 +1145,7 @@
       7.2.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       March 10, 2021
     </span>
     </td>
@@ -1139,15 +1155,19 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/brand/typography#Overview">Typography</a>
         </div>
-        Using <span class="code-text">b</span> and <span class="code-text">strong</span> elements inside our text-classes (not title classes), will now give <span class="code-text">font-weight: 500</span>, to make it easier to use bold versions of our typography in all types of applications. Example:
-        <div class="e-text-sm">
-          <span class="code-text">&lt;p class="e-text-sm"&gt;</span>
-            <div class="changelog-section-margin">
-              <div>Text styled as text sm.</div>
-              <b><span class="code-text">&lt;b&gt;</span>This text will have e-text-sm style, but with font-weight 500 <span class="code-text">&lt;/b&gt;</span></b>
+        <ul class="e-list">
+          <li>
+            Using <span class="code-text">b</span> and <span class="code-text">strong</span> elements inside our text-classes (not title classes), will now give <span class="code-text">font-weight: 500</span>, to make it easier to use bold versions of our typography in all types of applications. Example:
+            <div class="e-text-sm">
+              <span class="code-text">&lt;p class="e-text-sm"&gt;</span>
+                <div class="changelog-section-margin">
+                  <div>Text styled as text sm.</div>
+                  <b><span class="code-text">&lt;b&gt;</span>This text will have e-text-sm style, but with font-weight 500 <span class="code-text">&lt;/b&gt;</span></b>
+                </div>
+              <span class="code-text">&lt;/p&gt;</span>
             </div>
-          <span class="code-text">&lt;/p&gt;</span>
-        </div>
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1158,7 +1178,7 @@
       7.1.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       February 26, 2021
     </span>
     </td>
@@ -1168,14 +1188,22 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/content-loader#Overview">Content loader</a>
         </div>
-        Content loader for dark backgrounds added: <span class="code-text">e-content-loader--inverted</span>.
+        <ul class="e-list">
+          <li>
+          Content loader for dark backgrounds added: <span class="code-text">e-content-loader--inverted</span>.
+          </li>
+        </ul>
       </div>
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography#Overview">Typography</a>
         </div>
-        Typography now has Verdana as fallback font.
+        <ul class="e-list">
+          <li>
+          Typography now has Verdana as fallback font.
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1186,7 +1214,7 @@
       7.0.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       February 23, 2021
     </span>
     </td>
@@ -1210,7 +1238,9 @@
           The class <span class="code-text">e-search--global</span> has also been removed and is no longer supported in Elvis. 
           </li>
         </ul>
-        <div class="e-mt-8">
+      </div>
+      <div class="changelog-section">
+      <div class="e-mt-8">
           How to fix:
           <ul class="e-list">
           <li>
@@ -1228,12 +1258,16 @@
         </ul>
         </div>
       </div>
-      <div class="changelog-content">
+      <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/card#Overview">Card</a>
         </div>
-        New modifier class added for cards that only contain text: <span class="code-text">e-card--text-only</span>.
+        <ul class="e-list">
+          <li>
+          New modifier class added for cards that only contain text: <span class="code-text">e-card--text-only</span>.
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1244,7 +1278,7 @@
       6.3.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       February 10, 2021
     </span>
     </td>
@@ -1254,7 +1288,11 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
         </div>
-        Compact class for table-footnote, <span class="code-text">e-table__footnote--compact</span>, and smaller table-cell class, <span class="code-text">e-table__cell--multiline-small</span>, added.
+        <ul class="e-list">
+          <li>
+          Compact class for table-footnote, <span class="code-text">e-table__footnote--compact</span>, and smaller table-cell class, <span class="code-text">e-table__cell--multiline-small</span>, added.
+          </li>
+        </ul>
     </td>
   </tr>
 
@@ -1264,7 +1302,7 @@
       6.2.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       January 28, 2021
     </span>
     </td>
@@ -1274,8 +1312,11 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icons#Overview">Icons</a>
         </div>
-        Icons have been updated, some have been deprecated and new icons have been added.
-
+        <ul class="e-list">
+          <li>
+          Icons have been updated, some have been deprecated and new icons have been added.
+          </li>
+        </ul>
       </div>
     </td>
 
@@ -1287,7 +1328,7 @@
       6.1.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       January 21, 2021
     </span>
     </td>
@@ -1297,7 +1338,11 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/divider#Overview">Divider</a>
         </div>
-        Divider component has been added.
+        <ul class="e-list">
+          <li>
+          Divider component has been added.
+          </li>
+        </ul>
     </td>
   </tr>
 
@@ -1307,7 +1352,7 @@
       6.0.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       January 18, 2021
     </span>
     </td>
@@ -1317,7 +1362,11 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">Input</a>
         </div>
-        Input with icons are now using icon buttons instead of just icons. Replace the icons with the button in the <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">input doc</a>. If you have been using the same structure in a date- or time-picker you may also need to replace this part with the button.
+        <ul class="e-list">
+          <li>
+          Input with icons are now using icon buttons instead of just icons. Replace the icons with the button in the <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">input doc</a>. If you have been using the same structure in a date- or time-picker you may also need to replace this part with the button.
+          </li>
+        </ul>
     </td>
   </tr>
 
@@ -1327,7 +1376,7 @@
       5.1.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       January 13, 2021
     </span>
     </td>
@@ -1337,7 +1386,11 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/brand/Typography#Overview">Typography</a>
         </div>
-        Strong and light versions of body text have been added, as well as on special text called 'micro'. 
+        <ul class="e-list">
+          <li>
+          Strong and light versions of body text have been added, as well as on special text called 'micro'. 
+          </li>
+        </ul>
     </td>
   </tr>
 
@@ -1347,7 +1400,7 @@
       5.0.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       January 06, 2021
     </span>
     </td>
@@ -1357,11 +1410,15 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/search#Overview">Search</a>
         </div>
-        The search bar component has changed the default search icon. The size of the search and close icons has also been adjusted for both local and global search. 
-        <div class="e-mt-8">
-          How to fix:
-          The changes only affect icon used to display a search bar. The only thing needed to fix this is to replace the <span class="code-text">e-icon--search-bold</span> icon with the new  <span class="code-text">e-icon--search-color</span>
-        </div>
+        <ul class="e-list">
+          <li>
+            The search bar component has changed the default search icon. The size of the search and close icons has also been adjusted for both local and global search.
+            <div class="e-mt-8">
+              How to fix:
+              The changes only affect icon used to display a search bar. The only thing needed to fix this is to replace the <span class="code-text">e-icon--search-bold</span> icon with the new  <span class="code-text">e-icon--search-color</span>
+            </div>
+          </li>
+        </ul>
     </td>
   </tr>
 
@@ -1371,7 +1428,7 @@
       4.7.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       January 05, 2021
     </span>
     </td>
@@ -1381,12 +1438,14 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icons</a>
         </div>
-        <div>
-          New icon structure, enabling elvis to deprecate and rename old icons. Use of deprecated icons will also be warned in console with reference to in which version of elvis the icon was deprecated, and what new icon should be used instead. 
-        </div>
-        <div>
-          New icons from figma has also been added to elvis and search icons had been updated!
-        </div>
+        <ul class="e-list">
+          <li>
+              New icon structure, enabling elvis to deprecate and rename old icons. Use of deprecated icons will also be warned in console with reference to in which version of elvis the icon was deprecated, and what new icon should be used instead.
+            </li>
+            <li>
+              New icons from figma has also been added to elvis and search icons had been updated!
+            </li>
+        </ul>
     </td>
   </tr>
 
@@ -1396,7 +1455,7 @@
       4.6.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       December 22, 2020
     </span>
     </td>
@@ -1407,7 +1466,11 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography#Overview">Typography</a>
         </div>
         <div>
-          Added alignment to typography.
+          <ul class="e-list">
+            <li>
+            Added alignment to typography.
+            </li>
+          </ul>
         </div>
     </td>
   </tr>
@@ -1418,7 +1481,7 @@
       4.5.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       December 9, 2020
     </span>
     </td>
@@ -1429,7 +1492,11 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Icon Button</a>
         </div>
         <div>
-          The <span class="code-text changelog-code">e-btn--loading</span> modifier for <span class="code-text changelog-code">e-btn</span> has been updated, and can now also be applied to an icon button
+          <ul class="e-list">
+            <li>
+            The <span class="code-text changelog-code">e-btn--loading</span> modifier for <span class="code-text changelog-code">e-btn</span> has been updated, and can now also be applied to an icon button
+            </li>
+          </ul>
         </div>
     </td>
   </tr>
@@ -1440,7 +1507,7 @@
       4.0.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       November 19, 2020
     </span>
     </td>
@@ -1450,27 +1517,26 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Header</a>
         </div>
-        The header structure has changed so that the title is left aligned on desktop and tablet instead of center aligned. 
-        This require that the top menu grid changes a little and that the title is added to the first column as well.
-        <div class="e-mt-8">
-          How to fix:
-          The changes only affect the 'LOGO + APP' section.
-          <ul class="e-list">
-            <li>
-              The fastest way to fix it if to search for the section called 'LOGO + APP' under the 'TOP MENU ~ DESKTOP'. Change the first div with the 'col' classes to this:
-              <div class="code-text changelog-code">&lt;div class="col-xs-2 col-sm-3 col-md-7 col-lg-8"&gt;</div>
-              Then add these two lines at the bottom inside of the same div: 
-              <div class="code-text changelog-code">
-                &lt;span class="e-header__top-bar-desktop__line e-mx-32"&gt;&lt;/span&gt;
-                <br />
-                &lt;div class="e-header__top-bar-desktop__title">TITLE&lt;/div&gt;
-              </div>
-            </li>
-            <li>
-              The other way is to replace the entire 'LOGO + APP' section with the examples showed in the documentation, and then add the information back where you lost it.
-            </li>
-          </ul>
-        </div>
+        <ul class="e-list">
+          <li>
+            The header structure has changed so that the title is left aligned on desktop and tablet instead of center aligned.
+            This require that the top menu grid changes a little and that the title is added to the first column as well.
+         
+              How to fix:
+              The changes only affect the 'LOGO + APP' section.
+                  The fastest way to fix it if to search for the section called 'LOGO + APP' under the 'TOP MENU ~ DESKTOP'. Change the first div with the 'col' classes to this:
+                  <div class="code-text changelog-code">&lt;div class="col-xs-2 col-sm-3 col-md-7 col-lg-8"&gt;</div>
+                  Then add these two lines at the bottom inside of the same div:
+                  <div class="code-text changelog-code">
+                    &lt;span class="e-header__top-bar-desktop__line e-mx-32"&gt;&lt;/span&gt;
+                    <br />
+                    &lt;div class="e-header__top-bar-desktop__title">TITLE&lt;/div&gt;
+                  </div>
+               
+                  The other way is to replace the entire 'LOGO + APP' section with the examples showed in the documentation, and then add the information back where you lost it.
+         
+          </li>
+        </ul>
     </td>
   </tr>
 
@@ -1480,7 +1546,7 @@
       3.0.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       Oktober 20, 2020
     </span>
     </td>
@@ -1490,10 +1556,12 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover#Overview">Popover</a>
         </div>
-        The e-popover alignements classes for left and right positions have been renamed and refactored. 
+        <ul class="e-list">
+          <li>
+          The e-popover alignements classes for left and right positions have been renamed and refactored.
+          </li>
               <div class="e-mt-8">
             How to fix:
-            <ul class="e-list">
               <li>
                 <span class="code-text changelog-code">e-popover--top--left</span> -> <span class="code-text changelog-code">e-popover--left</span>
               </li>
@@ -1506,7 +1574,7 @@
               <li>
                 <span class="code-text changelog-code">e-popover--bottom--right</span> -> <span class="code-text changelog-code">e-popover--bottom e-popover--right</span>
               </li>
-            </ul>
+              </ul>
           </div>
         </div>
       <div class="changelog-section">
@@ -1515,20 +1583,19 @@
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover#Overview">Popover</a>
           </div>
           <div>
-            Classes for aligning 50% to the left or right from the middle.
-          </div>
             <ul class="e-list">
+              <li>
+              Classes for aligning 50% to the left or right from the middle.
+              </li>
             <li>
               <span class="code-text changelog-code">e-popover--left-50</span>
             </li>
             <li>
               <span class="code-text changelog-code">e-popover--right-50</span>
             </li>
-          </ul>
-          <div>
-            Classes for sizing popover smaller when is has limited space.
-          </div>
-            <ul class="e-list">
+            <li>
+              Classes for sizing popover smaller when is has limited space.
+            </li>
             <li>
               <span class="code-text changelog-code">e-popover--w-200</span>
             </li>
@@ -1552,49 +1619,38 @@
       2.0.0
     </span>
     <br>
-    <span>
+    <span class="changelog-date-span">
       September 30, 2020
     </span>
     </td>
     <td class="changelog-content">
-      <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
-        <div>Component: 
+        <div class="changelog-section">
+         <div class="changelog-section-title">✂️ Breaking Changes</div>
+          <div class="e-mt-24">
+           <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
+                        <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Header</a>
+                        <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
         </div>
-        The e-accordion__label has now been renamed to e-accordion__title. The e-accordion__label class is still available, but only in combination with the e-accordion--group modifier, and e-accordion__label is the container class for e-accordion__title and e-accordion__icon in a group accordion. 
-        <div class="e-mt-24">
-          <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Header</a>
-          </div>
-          <span class="code-text changelog-code">e-header</span> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile e.g. <span class="code-text changelog-code">e-header__top-bar-desktop__link</span>. 
-          <div class="e-mt-8">
-          How to fix:
-          The easiest way to fix an existing header is to search and replace the classes listed here with the new classes.
-          <ul class="e-list">
-            <li>
-              <span class="code-text changelog-code">e-top-bar</span> -> <span class="code-text changelog-code">e-header__top-bar</span>
-            </li>
-            <li>
-              <span class="code-text changelog-code">e-sidebar</span> -> <span class="code-text changelog-code">e-header__sidebar</span>
-            </li>
-            <li>
-              <span class="code-text changelog-code">top-bar__</span> -> <span class="code-text changelog-code">top-bar-desktop__</span>
-            </li>
-          </ul>
-        </div>
-        <div class="e-mt-24">
-          <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
-          </div>
-          The design and structure of tables have been updated. Tables with black headers have been removed and a wrapper class has been added.
-          <div class="e-mt-8">
-            How to fix:
-            Add an element with the <span class="code-text changelog-code">e-table-container</span> class outside the element with the <span class="code-text changelog-code">e-table</span> class.
             <ul class="e-list">
               <li>
-                <span class="code-text changelog-code">e-table</span> -> <span class="code-text changelog-code">e-table-container e-table</span>
-              </li>
+                The e-accordion__label has now been renamed to e-accordion__title. The e-accordion__label class is still available, but only in combination with the e-accordion--group modifier, and e-accordion__label is the container class for e-accordion__title and e-accordion__icon in a group accordion. 
+                </li>
+                <li>
+                <span class="code-text changelog-code">e-header</span> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile e.g. <span class="code-text changelog-code">e-header__top-bar-desktop__link</span>.
+                <div class="e-mt-8">
+                How to fix:
+                The easiest way to fix an existing header is to search and replace the classes listed here with the new classes.
+                    <span class="code-text changelog-code">e-top-bar</span> -> <span class="code-text changelog-code">e-header__top-bar</span>
+                    <span class="code-text changelog-code">e-sidebar</span> -> <span class="code-text changelog-code">e-header__sidebar</span>
+                    <span class="code-text changelog-code">top-bar__</span> -> <span class="code-text changelog-code">top-bar-desktop__</span>
+                </li>
+                <li>
+                    The design and structure of tables have been updated. Tables with black headers have been removed and a wrapper class has been added.
+                      How to fix:
+                      Add an element with the <span class="code-text changelog-code">e-table-container</span> class outside the element with the <span class="code-text changelog-code">e-table</span> class.
+                          <span class="code-text changelog-code">e-table</span> -> <span class="code-text changelog-code">e-table-container e-table</span>
+                </li>
             </ul>
           </div>
         </div>
@@ -1603,7 +1659,11 @@
            <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
         </div>
-        A class for adding footnotes to the table has been created: <span class="code-text changelog-code">e-table-footnote</span>.
+        <ul class="e-list">
+          <li>
+          A class for adding footnotes to the table has been created: <span class="code-text changelog-code">e-table-footnote</span>.
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1627,14 +1687,22 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Type">Jumbo link</a>,
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/modal#Overview">Modal</a>
         </div>
-        Some of the typography has new font-sizes and line-heights. The changes will affect the appearance of the typography where it is used and may need to be updated. Some components we offer have also changed typography which means some minor visual differences to these components. 
+        <ul class="e-list">
+          <li>
+            Some of the typography has new font-sizes and line-heights. The changes will affect the appearance of the typography where it is used and may need to be updated. Some components we offer have also changed typography which means some minor visual differences to these components.
+          </li>
+        </ul>
       </div>
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
            <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography#Overview">Typography</a>
         </div>
-        A new smaller title has been added: <span class="code-text changelog-code">e-title-xs</span>.
+        <ul class="e-list">
+          <li>
+          A new smaller title has been added: <span class="code-text changelog-code">e-title-xs</span>.
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1657,23 +1725,27 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/modal#Overview">Modal</a>,
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover#Overview">Popover</a>
         </div>
-        All <span class="code-text changelog-code">---visible</span> classes for modal and popover components are removed. New utility classes are added instead for showing and hiding elements. If you are using the modal or popover components you now have to use the new utility classes for hiding and showing. Theses components are by default now always visible.
-        <div class="e-mt-8">
-          How to fix:
-          Add the <span class="code-text changelog-code">e-none</span> or <span class="code-text changelog-code">e-invisble</span> utility classes to toggle the components.
-          <ul class="e-list">
-            <li>
-              <span class="code-text changelog-code">e-component---visible</span> -> <span class="code-text changelog-code">e-none</span> & <span class="code-text changelog-code">e-invisible</span>
-            </li>
-          </ul>
-        </div>
+        <ul class="e-list">
+          <li>
+            All <span class="code-text changelog-code">---visible</span> classes for modal and popover components are removed. New utility classes are added instead for showing and hiding elements. If you are using the modal or popover components you now have to use the new utility classes for hiding and showing. Theses components are by default now always visible.
+            <div class="e-mt-8">
+              How to fix:
+              Add the <span class="code-text changelog-code">e-none</span> or <span class="code-text changelog-code">e-invisble</span> utility classes to toggle the components. 
+                  <span class="code-text changelog-code">e-component---visible</span> -> <span class="code-text changelog-code">e-none</span> & <span class="code-text changelog-code">e-invisible</span>
+            </div>
+          </li>
+        </ul>
       </div>
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/brand/utilities">Utility classes</a>
         </div>
-        New utility classes have been added.
+        <ul class="e-list">
+          <li>
+          New utility classes have been added.
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1694,14 +1766,12 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/brand/grid#Overview">Grid</a>
         </div>
-        If you are using the grid-classes some might have to be updated to work as usual. The classes that have changed / been added:
         <ul class="e-list">
           <li>
-            <span class="code-text changelog-code">e-grid-margin</span> -> <span class="code-text changelog-code">e-grid-margin-ext</span> + <span class="code-text changelog-code">e-grid-margin-int</span>
-          </li>
-          <li>
-            <span class="code-text changelog-code">e-custom-gutters</span> -> <span class="code-text changelog-code">e-grid-gutters-ext</span> +
-            <span class="code-text changelog-code">e-grid-gutters-int</span> + <span class="code-text changelog-code">e-grid-gutters-vertical</span>
+            If you are using the grid-classes some might have to be updated to work as usual. The classes that have changed / been added:
+                <span class="code-text changelog-code">e-grid-margin</span> -> <span class="code-text changelog-code">e-grid-margin-ext</span> + <span class="code-text changelog-code">e-grid-margin-int</span>
+                <span class="code-text changelog-code">e-custom-gutters</span> -> <span class="code-text changelog-code">e-grid-gutters-ext</span> +
+                <span class="code-text changelog-code">e-grid-gutters-int</span> + <span class="code-text changelog-code">e-grid-gutters-vertical</span>@
           </li>
         </ul>
       </div>
@@ -1710,7 +1780,11 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/brand/grid#Overview">Grid</a>
         </div>
-        New classes have been added for the internal-systems as well as classes for vertical gutters.
+        <ul class="e-list">
+          <li>
+          New classes have been added for the internal-systems as well as classes for vertical gutters.
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1728,12 +1802,16 @@
     <td class="changelog-content">
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking Changes</div>
-        Switched from @import to @use. The @use rule is the primary replacement for @import, which will be deprecated in near future (2022 latest). @use is currently not supported by the node-sass compiler. Dart-sass is the primary implementation of Sass and do support the use of @use. Read more about the advantages of @use here: 
-        <a class="e-link e-link--inline" href="https://sass-lang.com/blog/the-module-system-is-launched">Sass module system</a>
-        <div class="e-mt-8">
-          How to fix:
-          If you are using our stylesheets directly and your sass-compiler do not support the use of @use you will have to migrate as well.
-        </div>
+        <ul class="e-list">
+          <li>
+            Switched from @import to @use. The @use rule is the primary replacement for @import, which will be deprecated in near future (2022 latest). @use is currently not supported by the node-sass compiler. Dart-sass is the primary implementation of Sass and do support the use of @use. Read more about the advantages of @use here:
+            <a class="e-link e-link--inline" href="https://sass-lang.com/blog/the-module-system-is-launched">Sass module system</a>
+            <div class="e-mt-8">
+              How to fix:
+              If you are using our stylesheets directly and your sass-compiler do not support the use of @use you will have to migrate as well.
+            </div>
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1751,7 +1829,11 @@
     <td class="changelog-content">
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking Changes</div>
-        Switched from node-sass compiler to dart-sass compiler. Dart-sass is the primary implementation of Sass, which means it gets new features before any other implementation and at current time node-sass do not support the use of @use, which is the module system replacing @import. This might not affect you as a user.
+        <ul class="e-list">
+          <li>
+          Switched from node-sass compiler to dart-sass compiler. Dart-sass is the primary implementation of Sass, which means it gets new features before any other implementation and at current time node-sass do not support the use of @use, which is the module system replacing @import. This might not affect you as a user.
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1772,7 +1854,11 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icons</a> 
         </div>
-        Major renaming of icons. All icons now follow the correct and desired naming scheme for a maintainable library. Icon names have changed, so some references should be expected to now be broken
+        <ul class="e-list">
+          <li>
+          Major renaming of icons. All icons now follow the correct and desired naming scheme for a maintainable library. Icon names have changed, so some references should be expected to now be broken
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1793,7 +1879,11 @@
         <div>Component: 
           <a class="e-link e-link--inline"  href="https://design.elvia.io/brand/icon#Overview">Icons</a> 
         </div>
-        In this update icons are injected as background-images again on the 'i' tags with <span class="code-text changelog-code">e-icon</span> classes. We do not think this will have a large impact on how to use icons.
+        <ul class="e-list">
+          <li>
+          In this update icons are injected as background-images again on the 'i' tags with <span class="code-text changelog-code">e-icon</span> classes. We do not think this will have a large impact on how to use icons.
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1814,7 +1904,11 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Buttons</a> 
         </div>
-        In this update we provided a solution for icons changing colors on hover. This affected buttons particularly. The structure of a button with icon was changed.
+        <ul class="e-list">
+          <li>
+          In this update we provided a solution for icons changing colors on hover. This affected buttons particularly. The structure of a button with icon was changed.
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
@@ -1835,7 +1929,11 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">Inputs</a> 
         </div>
-        In this update outline was changes to work on IE11 and Firefox. The input field structure had to be updated because of the outline changes.
+        <ul class="e-list">
+          <li>
+            In this update outline was changes to work on IE11 and Firefox. The input field structure had to be updated because of the outline changes.
+          </li>
+        </ul>
       </div>
     </td>
   </tr>
