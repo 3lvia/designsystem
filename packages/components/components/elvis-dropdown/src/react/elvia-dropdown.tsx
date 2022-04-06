@@ -122,6 +122,23 @@ const Dropdown: React.FC<DropdownProps> = ({
     return '#000';
   };
 
+  /** Decide color of background of a checkbox inside a multiselect dropdown */
+  const decideBackgroundColor = (isFocused: boolean, isSelected: boolean, label: string): string => {
+    if (isFocused) {
+      return getColor('elvia-charge');
+    } else if (isSelected) {
+      return getColor('elvia-charge');
+    } else if (
+      // "select all"-option should have green background if any options are selected
+      Array.isArray(currentVal) &&
+      currentVal.length > 0 &&
+      label === selectAllOption.label
+    ) {
+      return getColor('elvia-charge');
+    }
+    return getColor('white');
+  };
+
   /** Custom styling for dropdown using emotion from react-select package. */
   const customElviaStyles: StylesConfig = {
     container: (provided) => ({
@@ -225,24 +242,10 @@ const Dropdown: React.FC<DropdownProps> = ({
         },
       },
       '#ewc-dropdown-checkbox__mark': {
-        background: state.isFocused
-          ? getColor('elvia-charge')
-          : state.isSelected
-          ? getColor('elvia-charge')
-          : // "select all"-button should have green background if any options are selected
-          Array.isArray(currentVal) && currentVal.length > 0 && state.label === selectAllOption.label
-          ? getColor('elvia-charge')
-          : getColor('white'),
+        background: decideBackgroundColor(state.isFocused, state.isSelected, state.label),
       },
       '.ewc-dropdown-checkbox .ewc-dropdown-checkbox__mark': {
-        background: state.isFocused
-          ? getColor('elvia-charge')
-          : state.isSelected
-          ? getColor('elvia-charge')
-          : // "select all"-button should have green background if any options are selected
-          Array.isArray(currentVal) && currentVal.length > 0 && state.label === selectAllOption.label
-          ? getColor('elvia-charge')
-          : getColor('white'),
+        background: decideBackgroundColor(state.isFocused, state.isSelected, state.label),
       },
       borderBottom: state.label === selectAllOption.label ? `1px solid ${getColor('grey-10')}` : '',
     }),
