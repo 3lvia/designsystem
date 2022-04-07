@@ -51,14 +51,6 @@ function App() {
     { value: 'sverige', label: 'Sverige' },
     { value: 'danmark', label: 'Danmark' },
   ];
-  const dropdownOptionsLong = [
-    { value: 'norge', label: 'Norge' },
-    { value: 'sverige', label: 'Sverige' },
-    { value: 'danmark', label: 'Danmark' },
-    { value: 'finland', label: 'Finland' },
-    { value: 'england', label: 'England' },
-    { value: 'tyskland', label: 'Tyskland' },
-  ];
 
   // Modal
   const [isModalShowing, setIsModalShowingState] = useState(false);
@@ -95,24 +87,7 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white">
-            <h3>Dropdown</h3>
-            <Dropdown
-              options={dropdownOptions}
-              label="Dropdown with select all"
-              isMulti
-              hasSelectAllOption
-              // isCompact
-            ></Dropdown>
-            <div className="e-mb-32" />
-            <Dropdown
-              options={dropdownOptionsLong}
-              label="Compact dropdown"
-              isMulti
-              hasSelectAllOption
-              isCompact
-            ></Dropdown>
-          </div>
+          <div className="e-bg-white"></div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>
