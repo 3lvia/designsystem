@@ -2,8 +2,20 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.04.22",
+      "version": "2.8.5 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where sending null as minDate or maxDate to the datepicker caused unexpected behaviour. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "04.04.22",
-      "version": "2.8.3 ",
+      "version": "2.8.4 ",
       "changelog": [
         {
           "type": "patch",
