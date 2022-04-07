@@ -81,35 +81,35 @@ const Dropdown: React.FC<DropdownProps> = ({
   // styling functions for react select
   const decideControlBorder = (disabled: boolean, error: boolean) => {
     if (disabled) {
-      return '1px solid #BDBDBD';
+      return `1px solid ${getColor('disabled')}`;
     }
     if (error) {
-      return '2px solid #EE0701';
+      return `2px solid ${getColor('error')}`;
     }
-    return '1px solid #000000';
+    return `1px solid ${getColor('black')}`;
   };
 
   const decideOptionBg = (focused: boolean, selected: boolean, isMulti: boolean) => {
     if (focused && selected && isMulti) {
-      return '#F4F4F4';
+      return getColor('grey-05');
     }
     if (focused && !selected) {
-      return '#F4F4F4';
+      return getColor('grey-05');
     }
     if (selected && !isMulti) {
-      return '#E9E9E9';
+      return getColor('grey-10');
     }
-    return '#ffffff';
+    return getColor('white');
   };
 
   const decideOptionHoverBg = (selected: boolean, isMulti: boolean) => {
     if (selected && isMulti) {
-      return '#F4F4F4';
+      return getColor('grey-05');
     }
     if (selected && !isMulti) {
-      return '#E9E9E9';
+      return getColor('grey-10');
     }
-    return '#F4F4F4';
+    return getColor('grey-05');
   };
 
   const decideSingleValueColor = (isMenuOpen: boolean, searchable: boolean, disabled: boolean) => {
@@ -119,7 +119,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     if (isMenuOpen && searchable) {
       return getColor('grey-70');
     }
-    return '#000';
+    return getColor('black');
   };
 
   /** Decide color of background of a checkbox inside a multiselect dropdown */
@@ -225,7 +225,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       display: 'flex',
       alignContent: 'center',
       backgroundColor: decideOptionBg(state.isFocused, state.isSelected, state.isMulti),
-      color: '#000000',
+      color: getColor('black'),
       height: isCompact ? '36px' : '48px',
       paddingLeft: isCompact ? '9px' : '15px',
       fontSize: isCompact ? '14px' : '16px',
@@ -280,7 +280,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     valueContainer: (provided, state) => ({
       ...provided,
       display: 'flex',
-      color: state.isDisabled ? getColor('disabled') : '#000',
+      color: state.isDisabled ? getColor('disabled') : getColor('black'),
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
       fontStyle: 'normal',
@@ -397,9 +397,9 @@ const Dropdown: React.FC<DropdownProps> = ({
     updateValue(defaultValue);
   }, [defaultValue]);
 
-  const onChangeHandler = (event: DropdownProps['value']) => {
+  const onChangeHandler = (event: Parameters<NonNullable<DropdownProps['valueOnChange']>>[0]) => {
     // If there is no "select all"-button, this logic is simple
-    if (!hasSelectAllOption) {
+    if (!(hasSelectAllOption && isMulti)) {
       setCurrentVal(event);
       updateValue(event);
     } else {
@@ -480,7 +480,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   /** Call valueOnChange (React) or dispatch on change-event (webcomponent) */
-  const updateValue = (event: DropdownProps['value']) => {
+  const updateValue = (event: Parameters<NonNullable<DropdownProps['valueOnChange']>>[0]) => {
     if (!webcomponent && valueOnChange) {
       valueOnChange(
         Array.isArray(event)
