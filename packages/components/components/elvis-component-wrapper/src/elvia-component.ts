@@ -251,7 +251,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   private storeAllSlots(): void {
     this.querySelectorAll('[slot]').forEach((element) => {
       const slotName = element.getAttribute('slot');
-      if (!slotName) {
+      if (!slotName || element.parentElement !== this) {
         return;
       }
       this._slots[slotName] = element;

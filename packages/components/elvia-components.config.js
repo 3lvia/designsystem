@@ -59,7 +59,7 @@ module.exports = [
     ],
     reactName: 'Accordion',
     useWrapper: true,
-    slotItems: false,
+    slotItems: true,
     elementStyle: `width: 100%;`,
     reactTypescriptDeclaration: true,
   },
