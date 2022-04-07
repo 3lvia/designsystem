@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.04.22",
+      "version": "2.2.4 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Update slot logic to support components inside components better."]
+        }
+      ]
+    },
+    {
       "date": "31.03.22",
       "version": "2.2.3 ",
       "changelog": [
