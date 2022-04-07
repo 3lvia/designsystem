@@ -462,7 +462,6 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
     if (webcomponent) {
       // True -> Prevents rerender
-      // webcomponent.setProps({ value: eventToDispatch }, true);
       webcomponent.triggerEvent('valueOnChange', eventToDispatch);
     }
     return;
