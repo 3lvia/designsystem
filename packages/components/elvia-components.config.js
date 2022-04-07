@@ -223,7 +223,6 @@ module.exports = [
       { name: 'noOptionsMessage', type: 'string', propType: 'string | undefined' },
       { name: 'options', type: 'object', propType: 'object' },
       { name: 'placeholder', type: 'string', propType: 'string | undefined' },
-      { name: 'value', type: 'object', propType: 'object | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
     ],

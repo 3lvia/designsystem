@@ -80,6 +80,52 @@ export const DropdownCheckbox = styled.label`
   }
 `;
 
+const generateCheckmarkBeforeElement = (params: {
+  top: string;
+  left: string;
+  height: string;
+  width: string;
+  transform: string;
+  transformOrigin: string;
+}) => {
+  return `
+  &::before {
+    content: '';
+    position: absolute;
+    top: ${params.top};
+    left: ${params.left};
+    height: ${params.height};
+    width: ${params.width};
+    background-color: ${colors.elviaBlack};
+    border-radius: 15px;
+    transform: ${params.transform};
+    transform-origin: ${params.transformOrigin};
+  }`;
+};
+
+const generateCheckmarkAfterElement = (params: {
+  bottom: string;
+  left: string;
+  height: string;
+  width: string;
+  transform: string;
+  transformOrigin: string;
+}) => {
+  return `
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: ${params.bottom};
+    left: ${params.left};
+    height: ${params.height};
+    width: ${params.width};
+    background-color: ${colors.elviaBlack};
+    border-radius: 15px;
+    transform: ${params.transform};
+    transform-origin: ${params.transformOrigin};
+  }`;
+};
+
 const decideCheckMarkCompactAndSelectedStyle = (
   isCompact: boolean,
   isSelecteed: boolean,
@@ -89,93 +135,73 @@ const decideCheckMarkCompactAndSelectedStyle = (
   if (isCompact && isSelectAllWithPartialSelected) {
     return `
     background-color: ${colors.elviaCharge};
-    &::before {
-      content: '';
-      position: absolute;
-      top: calc(50% - 1px);
-      left: -24%;
-      height: 2px;
-      width: 40%;
-      background-color: ${colors.elviaBlack};
-      border-radius: 15px;
-      transform: translateX(8px);
-      transform-origin: (left bottom);
-    }`;
+    ${generateCheckmarkBeforeElement({
+      top: 'calc(50% - 1px)',
+      left: '-24%',
+      height: '2px',
+      width: '40%',
+      transform: 'translateX(8px)',
+      transformOrigin: '(left bottom)',
+    })}
+    `;
   }
   // Make normal line for "select all"-option when not everything is selected
   if (!isCompact && isSelectAllWithPartialSelected) {
     return `
     background-color: ${colors.elviaCharge};
-    &::before {
-      content: '';
-      position: absolute;
-      top: calc(50% - 1px);
-      left: -10%;
-      height: 2px;
-      width: 50%;
-      background-color: ${colors.elviaBlack};
-      border-radius: 15px;
-      transform: translateX(8px);
-      transform-origin: (left bottom);
-    }`;
+    ${generateCheckmarkBeforeElement({
+      top: 'calc(50% - 1px)',
+      left: '-10%',
+      height: '2px',
+      width: '50%',
+      transform: 'translateX(8px)',
+      transformOrigin: '(left bottom)',
+    })}
+    `;
   }
   // Make compact checkmark
   if (isCompact && isSelecteed) {
     return `
     background-color: ${colors.elviaCharge};
-    &::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: -45%;
-      height: 39%;
-      width: 2px;
-      background-color: ${colors.elviaBlack};
-      border-radius: 15px;
-      transform: translateX(10px) rotate(-45deg);
-      transform-origin: [left bottom];
-    }
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 40%;
-      left: -45%;
-      height: 2px;
-      width: 80%;
-      background-color: ${colors.elviaBlack};
-      border-radius: 15px;
-      transform: translateX(10px) rotate(-55deg);
-      transform-origin: [left bottom];
-    }`;
+    ${generateCheckmarkBeforeElement({
+      top: '50%',
+      left: '-45%',
+      height: '39%',
+      width: '2px',
+      transform: 'translateX(10px) rotate(-45deg)',
+      transformOrigin: '[left bottom]',
+    })}
+    ${generateCheckmarkAfterElement({
+      bottom: '40%',
+      left: '-45%',
+      height: '2px',
+      width: '80%',
+      transform: 'translateX(10px) rotate(-55deg)',
+      transformOrigin: '[left bottom]',
+    })}
+    `;
   }
   // Make normal checkmark
   if (!isCompact && isSelecteed) {
     return `
     background-color: ${colors.elviaCharge};
-    &::before {
-      content: '';
-      position: absolute;
-      top: 55%;
-      left: -9%;
-      height: 30%;
-      width: 2px;
-      background-color: ${colors.elviaBlack};
-      border-radius: 15px;
-      transform: translateX(8px) rotate(-45deg);
-      transform-origin: (left bottom);
-      }
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 15%;
-      left: -4%;
-      height: 2px;
-      width: 83%;
-      background-color: ${colors.elviaBlack};
-      border-radius: 15px;
-      transform: translateX(10px) rotate(-55deg);
-      transform-origin: left bottom;
-    }`;
+    ${generateCheckmarkBeforeElement({
+      top: '55%',
+      left: '-9%',
+      height: '30%',
+      width: '2px',
+      transform: 'translateX(8px) rotate(-45deg)',
+      transformOrigin: '(left bottom)',
+    })}
+    ${generateCheckmarkAfterElement({
+      bottom: '15%',
+      left: '-4%',
+      height: '2px',
+      width: '83%',
+      transform: 'translateX(10px) rotate(-55deg)',
+      transformOrigin: 'left bottom',
+    })}
+    `;
   }
   return '';
 };

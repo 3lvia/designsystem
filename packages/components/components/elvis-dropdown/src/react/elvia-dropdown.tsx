@@ -19,6 +19,7 @@ import {
   DropdownLabel,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
+import isEqual from 'lodash.isequal';
 import { getColor } from '@elvia/elvis-colors';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
@@ -42,7 +43,6 @@ export interface DropdownProps {
   options: DropdownOption[];
   placeholder?: string;
   valueOnChange?: (selectedOptions: DropdownOption | Array<DropdownOption> | undefined) => void;
-  value?: DropdownOption | Array<DropdownOption> | undefined;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
@@ -61,8 +61,6 @@ const Dropdown: React.FC<DropdownProps> = ({
   noOptionsMessage = 'Ingen tilgjengelige valg',
   options,
   placeholder = '',
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  value,
   valueOnChange,
   className,
   inlineStyle,
@@ -348,9 +346,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     if (isMulti && hasSelectAllOption) {
       const allOptionsSelected =
         Array.isArray(currentVal) &&
-        currentVal.find(
-          (option) => option.label === selectAllOption.label && option.value === selectAllOption.value,
-        ) !== undefined;
+        currentVal.find((option) => isEqual(option, selectAllOption)) !== undefined;
 
       if (allOptionsSelected) {
         return !props.index && `Alle`;
@@ -398,25 +394,15 @@ const Dropdown: React.FC<DropdownProps> = ({
   }, [defaultValue]);
 
   const onChangeHandler = (event: Parameters<NonNullable<DropdownProps['valueOnChange']>>[0]) => {
-    // If there is no "select all"-button, this logic is simple
-    if (!(hasSelectAllOption && isMulti)) {
-      setCurrentVal(event);
-      updateValue(event);
-    } else {
+    if (hasSelectAllOption && isMulti && Array.isArray(event)) {
       // Handle the logic for the "select all"-button in all different situations
       if (
         // selectAllOption is not currently selected, but becomes selected => select all
         // currentVal is not an array, selectAllOption is not selected, and selectAllOption is in the new values from the event
-        (!Array.isArray(currentVal) &&
-          currentVal !== selectAllOption &&
-          Array.isArray(event) &&
-          event.includes(selectAllOption)) ||
+        (!Array.isArray(currentVal) && currentVal !== selectAllOption && event.includes(selectAllOption)) ||
         // currentVal is an array that does not have selectAllOption in it, and selectAllOption is in the new values from the event
         (Array.isArray(currentVal) &&
-          currentVal.find(
-            (option) => option.value === selectAllOption.value && option.label === selectAllOption.label,
-          ) === undefined &&
-          Array.isArray(event) &&
+          !currentVal.find((option) => isEqual(option, selectAllOption)) &&
           event.includes(selectAllOption))
       ) {
         setCurrentVal([selectAllOption, ...options]);
@@ -425,49 +411,30 @@ const Dropdown: React.FC<DropdownProps> = ({
         // selectAllOption is selected, but becomes unselected => unselect all
         // Check that selectAllOption is currently selected
         Array.isArray(currentVal) &&
-        currentVal.find(
-          (option) => option.value === selectAllOption.value && option.label === selectAllOption.label,
-        ) &&
+        currentVal.find((option) => isEqual(option, selectAllOption)) &&
         // Check that selectAllOption is no longer selected
-        Array.isArray(event) &&
-        event.find(
-          (option) => option.value === selectAllOption.value && option.label === selectAllOption.label,
-        ) === undefined
+        !event.find((option) => isEqual(option, selectAllOption))
       ) {
         setCurrentVal([]);
         updateValue([]);
       } else if (
-        // selectAllOption is selected, but not all options are selected any more => unselect selectAllOption (will be marked with a line)
+        // selectAllOption is selected, but not all options are selected any more => unselect selectAllOption
         // Check that selectAllOption is selected
         Array.isArray(currentVal) &&
-        currentVal.find(
-          (option) => option.value === selectAllOption.value && option.label === selectAllOption.label,
-        ) &&
+        currentVal.find((option) => isEqual(option, selectAllOption)) &&
         // Check that not all elements in options are selected any more  (length + 1 because of selectAllOption being added)
-        Array.isArray(event) &&
         event.length !== options.length + 1
       ) {
-        setCurrentVal(
-          // Filter out selectAllOption from the selected options
-          event.filter(
-            (option) => option.value !== selectAllOption.value && option.label !== selectAllOption.label,
-          ),
-        );
-        updateValue(
-          // Filter out selectAllOption from the selected options
-          event.filter(
-            (option) => option.value !== selectAllOption.value && option.label !== selectAllOption.label,
-          ),
-        );
+        // Filter out selectAllOption from the selected options
+        const newSelectedValue = event.filter((option) => !isEqual(option, selectAllOption));
+        setCurrentVal(newSelectedValue);
+        updateValue(newSelectedValue);
       } else if (
         // selectAllOption is not selected, but all options are selected => select selectAllOption
         // Check that selectAllOption is not selected
         Array.isArray(currentVal) &&
-        currentVal.find(
-          (option) => option.value === selectAllOption.value && option.label === selectAllOption.label,
-        ) === undefined &&
+        !currentVal.find((option) => isEqual(option, selectAllOption)) &&
         // Check that all options are selected
-        Array.isArray(event) &&
         event.length == options.length
       ) {
         setCurrentVal([selectAllOption, ...event]);
@@ -476,36 +443,27 @@ const Dropdown: React.FC<DropdownProps> = ({
         setCurrentVal(event);
         updateValue(event);
       }
+    } else {
+      // If there is no "select all"-button, this logic is simple
+      setCurrentVal(event);
+      updateValue(event);
     }
   };
 
   /** Call valueOnChange (React) or dispatch on change-event (webcomponent) */
   const updateValue = (event: Parameters<NonNullable<DropdownProps['valueOnChange']>>[0]) => {
+    // Filter out selectAllOption from the dispatched selected options
+    const eventToDispatch =
+      hasSelectAllOption && Array.isArray(event)
+        ? event.filter((option) => !isEqual(option, selectAllOption))
+        : event;
     if (!webcomponent && valueOnChange) {
-      valueOnChange(
-        Array.isArray(event)
-          ? // Do not include selectAllOption in dispatched event if event is array
-            event.filter(
-              (option: DropdownOption) =>
-                option.label !== selectAllOption.label && option.value !== selectAllOption.value,
-            )
-          : event,
-      );
+      valueOnChange(eventToDispatch);
     }
     if (webcomponent) {
       // True -> Prevents rerender
-      webcomponent.setProps(
-        {
-          value: Array.isArray(event)
-            ? // Do not include selectAllOption in dispatched event if event is array
-              event.filter(
-                (option: DropdownOption) =>
-                  option.label !== selectAllOption.label && option.value !== selectAllOption.value,
-              )
-            : event,
-        },
-        true,
-      );
+      // webcomponent.setProps({ value: eventToDispatch }, true);
+      webcomponent.triggerEvent('valueOnChange', eventToDispatch);
     }
     return;
   };
