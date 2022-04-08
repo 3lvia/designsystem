@@ -132,7 +132,6 @@ const colors = {
 };
 
 exports.default = colors;
-// export default colors;
 
 const getColorObject = (colorName) => {
   // Iterate through every color category in colors
