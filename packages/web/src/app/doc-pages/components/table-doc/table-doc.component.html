@@ -259,20 +259,6 @@
           </div>
         </div>
 
-        <div class="e-accordion__item" id="row-headers">
-          <div class="e-accordion__label" (click)="toggleAccordion('row-headers')">
-            <div class="e-accordion__title">Row Headers</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
-            Row Headers
-            <app-component-example-v1 [codeHTML]="exampleRowHeaders"></app-component-example-v1>
-          </div>
-        </div>
-
         <div class="e-accordion__item" id="accordion-footnote">
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-footnote')">
             <div class="e-accordion__title">Footnote</div>
@@ -335,6 +321,36 @@
               can be used when the column should have a max-width of 250px.
             </div>
             <app-component-example-v1 [codeHTML]="exampleLongColumn"></app-component-example-v1>
+          </div>
+        </div>
+
+        <div class="e-accordion__item" id="accordion-sticky-header">
+          <div class="e-accordion__label" (click)="toggleAccordion('accordion-sticky-header')">
+            <div class="e-accordion__title">Sticky header</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              Sticky headers should primarly be used when there is a lot of information to scroll through, so
+              that the user can view the context at all times when scrolling. Optional sticky headers for both
+              horizontal and vertical scroll. You can choose to have either row headers sticky, column headers
+              sticky or both.
+            </div>
+            <app-component-subsubsection [sectionTitle]="'Desktop'">
+              <ng-container ngProjectAs="sectionContent">
+                <h5 class="e-title-caps">Row header</h5>
+                The first column will be sticky on the left side including the linked column header and the
+                right side will have a fade to make it clear the user can scroll.
+                <app-component-example-v1 [codeHTML]="exampleStickyHeader"></app-component-example-v1>
+
+                <h5 class="e-title-caps e-mt-40">Column header</h5>
+                <div>The column header will be sticky on top while scrolling vertically.</div>
+                <app-component-example-v1 [codeHTML]="exampleStickyHeaderColumns"></app-component-example-v1>
+              </ng-container>
+            </app-component-subsubsection>
           </div>
         </div>
 
@@ -493,8 +509,8 @@
           Here are some accessibility rules to be aware of when setting up tables.
           <app-component-subsubsection [sectionTitle]="'Headers for rows'">
             <ng-container ngProjectAs="sectionContent">
-              When the first cells for each row in a table can be seen as headers for the rows, the column
-              cell should be 'th' elements and not 'td' elements. Example:
+              When the first cells for each row in a table can be seen as headers for the rows. If this is the
+              case the first column should be 'th' elements and not 'td' elements. Example:
               <div>
                 <span class="code-text">&lt;th scope="row"&gt; January 2020 &lt;/th&gt;</span>
               </div>

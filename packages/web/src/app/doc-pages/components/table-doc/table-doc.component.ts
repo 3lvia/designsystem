@@ -45,6 +45,107 @@ export class TableDocComponent {
 </div>
 `;
 
+  exampleStickyHeader = `<div class="e-table-container" style="max-height: 250px">
+  <table class="e-table e-table--sticky-header" aria-label="Beskrivelse av tabellen">
+    <thead>
+      <tr>
+        <th scope="col">Column 1</th>
+        <th scope="col">Column 2</th>
+        <th scope="col">Column 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Row 1</th>
+        <td>Row 1</td>
+        <td>Row 1</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 2</th>
+        <td>Row 2</td>
+        <td>Row 2</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 3</th>
+        <td>Row 3</td>
+        <td>Row 3</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 4</th>
+        <td>Row 4</td>
+        <td>Row 4</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 5</th>
+        <td>Row 5</td>
+        <td>Row 5</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 6</th>
+        <td>Row 6</td>
+        <td>Row 6</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 7</th>
+        <td>Row 7</td>
+        <td>Row 7</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 8</th>
+        <td>Row 8</td>
+        <td>Row 8</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 9</th>
+        <td>Row 9</td>
+        <td>Row 9</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+  exampleStickyHeaderColumns = `<div class="e-table-container">
+  <table class="e-table e-table--sticky-column-header" aria-label="Beskrivelse av tabellen">
+    <thead>
+      <tr>
+        <th scope="col">Column 1</th>
+        <th scope="col">Column 2</th>
+        <th scope="col">Column 3</th>
+        <th scope="col">Column 4</th>
+        <th scope="col">Column 5</th>
+        <th scope="col">Column 6</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Row 1</th>
+        <td>Row 1</td>
+        <td>Row 1</td>
+        <td>Row 1</td>
+        <td>Row 1</td>
+        <td>Row 1</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 2</th>
+        <td>Row 2</td>
+        <td>Row 2</td>
+        <td>Row 2</td>
+        <td>Row 2</td>
+        <td>Row 2</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 3</th>
+        <td>Row 3</td>
+        <td>Row 3</td>
+        <td>Row 3</td>
+        <td>Row 3</td>
+        <td>Row 3</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
   exampleDesktop = `<div class="e-table-container">
   <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
@@ -857,36 +958,6 @@ export class TableDocComponent {
         <td class="e-text-left">Left</td>
         <td class="e-text-center">Center</td>
         <td class="e-text-right">Right</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-`;
-
-  exampleRowHeaders = `<div class="e-table-container">
-  <table class="e-table" aria-label="Beskrivelse av tabellen">
-    <thead>
-      <tr>
-        <th scope="col">CaseID</th>
-        <th scope="col">Address</th>
-        <th scope="col">Created</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row" class="e-text-mono">203413222</th>
-        <td>Elviaveien 3, 1230 Oslo</td>
-        <td>15.01.2021</td>
-      </tr>
-      <tr>
-        <th scope="row" class="e-text-mono">203413222</th>
-        <td>Elviaveien 3, 1230 Oslo</td>
-        <td>15.01.2021</td>
-      </tr>
-      <tr>
-        <th scope="row" class="e-text-mono">203413222</th>
-        <td>Elviaveien 3, 1230 Oslo</td>
-        <td>15.01.2021</td>
       </tr>
     </tbody>
   </table>

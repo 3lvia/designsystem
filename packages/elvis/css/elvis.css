@@ -6370,7 +6370,6 @@ input:focus {
   text-align: left;
   width: 100%;
   box-sizing: border-box;
-  background: #fff;
   white-space: nowrap;
   border-collapse: separate;
   border-spacing: 0;
@@ -6410,6 +6409,7 @@ input:focus {
   color: inherit;
   text-align: left;
   padding: 10px 16px;
+  background: #fff;
 }
 .e-table td.e-table__cell--multiline,
 .e-table th.e-table__cell--multiline {
@@ -6426,7 +6426,8 @@ input:focus {
   width: 250px;
   height: auto;
 }
-.e-table tbody tr:nth-of-type(odd) {
+.e-table tbody tr:nth-of-type(odd) th,
+.e-table tbody tr:nth-of-type(odd) td {
   background: #f4f4f4;
 }
 .e-table.e-table--no-stripes tbody tr:nth-of-type(odd) {
@@ -6448,6 +6449,19 @@ input:focus {
   padding: 9px 16px;
   line-height: 21px;
 }
+.e-table.e-table--sticky-header thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.e-table.e-table--sticky-column-header thead th:first-of-type,
+.e-table.e-table--sticky-column-header th[scope=row] {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  border-right: 1px solid #e9e9e9;
+}
+
 .e-table-mobile {
   display: table;
   table-layout: auto;

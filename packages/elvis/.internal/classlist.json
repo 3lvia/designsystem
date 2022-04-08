@@ -836,7 +836,9 @@
 		"e-table": {
 			"modifier": {
 				"e-table--compact": {},
-				"e-table--no-stripes": {}
+				"e-table--no-stripes": {},
+				"e-table--sticky-header": {},
+				"e-table--sticky-column-header": {}
 			},
 			"container": {
 				"e-table-container": {}
@@ -1698,6 +1700,8 @@
 		"e-table__cell--multiline-small": {},
 		"e-table__cell--multiline-sm": {},
 		"e-table--no-stripes": {},
+		"e-table--sticky-header": {},
+		"e-table--sticky-column-header": {},
 		"e-table-mobile--compact": {},
 		"e-text-mono": {},
 		"e-table__input": {},
