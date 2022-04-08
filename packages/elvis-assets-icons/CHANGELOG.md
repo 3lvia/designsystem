@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 2.3.2 (08.04.22)
+
+### Patch
+
+- Fixed CommonJS elvis-colors import method.
+
 ## 2.3.1 (22.03.22)
 
 ### Patch

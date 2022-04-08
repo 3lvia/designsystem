@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 1.3.1 (08.04.22)
+
+### Patch
+
+- Converted from ES module (ESM) to CommonJS (CJS).
+
 ## 1.3.0 (08.04.22)
 
 ### New feature
