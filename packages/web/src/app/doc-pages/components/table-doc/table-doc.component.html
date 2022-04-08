@@ -11,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
     <div class="e-table-container overview-example">
-      <table class="e-table">
+      <table class="e-table" aria-label="Beskrivelse av tabellen">
         <thead>
           <tr>
             <th scope="col">Column 1</th>
@@ -256,6 +256,20 @@
                 ></app-component-example-v1>
               </ng-container>
             </app-component-subsubsection>
+          </div>
+        </div>
+
+        <div class="e-accordion__item" id="row-headers">
+          <div class="e-accordion__label" (click)="toggleAccordion('row-headers')">
+            <div class="e-accordion__title">Row Headers</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            Row Headers
+            <app-component-example-v1 [codeHTML]="exampleRowHeaders"></app-component-example-v1>
           </div>
         </div>
 

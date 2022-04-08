@@ -16,7 +16,7 @@ export class TableDocComponent {
   ];
 
   exampleOverview = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">Column 1</th>
@@ -46,7 +46,7 @@ export class TableDocComponent {
 `;
 
   exampleDesktop = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">Period</th>
@@ -342,7 +342,7 @@ export class TableDocComponent {
 `;
 
   exampleInput = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">CaseID</th>
@@ -432,7 +432,7 @@ export class TableDocComponent {
 `;
 
   exampleButton = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">CaseID</th>
@@ -549,7 +549,7 @@ export class TableDocComponent {
 `;
 
   exampleCheckbox = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr class="e-table__checkbox">
         <th scope="col">
@@ -655,7 +655,7 @@ export class TableDocComponent {
 `;
 
   exampleSelect = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">CaseID</th>
@@ -764,7 +764,7 @@ export class TableDocComponent {
 `;
 
   exampleNumbers = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">Amount (kr)</th>
@@ -798,7 +798,7 @@ export class TableDocComponent {
 `;
 
   exampleLongColumn = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">Period</th>
@@ -844,7 +844,7 @@ export class TableDocComponent {
 `;
 
   exampleAlignment = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col" class="e-text-left">Left-aligned text</th>
@@ -863,8 +863,38 @@ export class TableDocComponent {
 </div>
 `;
 
+  exampleRowHeaders = `<div class="e-table-container">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
+    <thead>
+      <tr>
+        <th scope="col">CaseID</th>
+        <th scope="col">Address</th>
+        <th scope="col">Created</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="e-text-mono">203413222</th>
+        <td>Elviaveien 3, 1230 Oslo</td>
+        <td>15.01.2021</td>
+      </tr>
+      <tr>
+        <th scope="row" class="e-text-mono">203413222</th>
+        <td>Elviaveien 3, 1230 Oslo</td>
+        <td>15.01.2021</td>
+      </tr>
+      <tr>
+        <th scope="row" class="e-text-mono">203413222</th>
+        <td>Elviaveien 3, 1230 Oslo</td>
+        <td>15.01.2021</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
   exampleFootnote = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">CaseID*</th>
