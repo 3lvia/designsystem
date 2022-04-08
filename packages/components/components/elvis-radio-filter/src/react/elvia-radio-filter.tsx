@@ -12,6 +12,7 @@ export interface BaseRadioFilterProps {
   items: Option[];
   value: string;
   ariaLabel?: string;
+  groupAriaLabel?: string;
   valueOnChange?: (value: string) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
@@ -23,6 +24,7 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
   name,
   items,
   value,
+  groupAriaLabel = 'Filtreringsknapper',
   valueOnChange,
   className,
   inlineStyle,
@@ -43,6 +45,7 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
       className={`${className ? className : ''}`}
       style={inlineStyle}
       data-testid="radio-filter-group"
+      aria-label={groupAriaLabel}
     >
       {items &&
         items.map(({ label, value: optionsValue }) => (

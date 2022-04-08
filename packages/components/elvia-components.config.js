@@ -338,6 +338,7 @@ module.exports = [
       { name: 'items', type: 'object', propType: 'object' },
       { name: 'value', type: 'string', propType: 'string' },
       { name: 'ariaLabel', type: 'string', propType: 'string | undefined' },
+      { name: 'groupAriaLabel', type: 'string', propType: 'string | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
     ],
