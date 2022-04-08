@@ -1,4 +1,4 @@
-import kebabCase from 'lodash.kebabcase';
+const kebabCase = require('lodash.kebabcase');
 
 const colors = {
   'primary-colors': {
@@ -131,7 +131,8 @@ const colors = {
   },
 };
 
-export default colors;
+exports.default = colors;
+// export default colors;
 
 const getColorObject = (colorName) => {
   // Iterate through every color category in colors
@@ -156,10 +157,13 @@ const getColorObject = (colorName) => {
   console.error(`Cannot get color ${colorName} from elvis-colors.`);
 };
 
-export const getColor = (colorName) => {
+const getColor = (colorName) => {
   return getColorObject(colorName).color;
 };
 
-export const getContrastText = (colorName) => {
+const getContrastText = (colorName) => {
   return getColorObject(colorName).contrastText;
 };
+
+exports.getColor = getColor;
+exports.getContrastText = getContrastText;

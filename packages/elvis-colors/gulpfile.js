@@ -1,9 +1,9 @@
 'use strict';
 
-import fs from 'fs';
-import gulp from 'gulp';
-import prettier from 'gulp-prettier';
-import colors from './src/elviaColors.js';
+const fs = require('fs');
+const gulp = require('gulp');
+const prettier = require('gulp-prettier');
+const colors = require('./src/elviaColors')['default'];
 
 /**
  * Generates the elviaColors.json file from the colors object in elviaColors.js.
