@@ -2,6 +2,22 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.04.22",
+      "version": "2.3.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added new prop 'hasSelectAllOption', which adds a select all-option to a multiselect dropdown. "
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Now using elvis-colors package for all colors."]
+        }
+      ]
+    },
+    {
       "date": "28.03.22",
       "version": "2.2.0 ",
       "changelog": [
@@ -18,6 +34,7 @@
       "version": "2.1.4 ",
       "changelog": [
         {
+          "type": "bug_fix",
           "changes": [
             "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
           ]
@@ -60,7 +77,7 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added inlineStyle and className props"]
+          "changes": ["Added inlineStyle and className props."]
         }
       ]
     },
@@ -69,7 +86,8 @@
       "version": "2.0.6 ",
       "changelog": [
         {
-          "changes": ["Updated dependencies"]
+          "type": "patch",
+          "changes": ["Updated dependencies."]
         }
       ]
     },
@@ -79,7 +97,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Refactoring"]
+          "changes": ["Refactoring."]
         }
       ]
     },
@@ -89,7 +107,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Updated tokens declarations"]
+          "changes": ["Updated tokens declarations."]
         }
       ]
     },
@@ -121,7 +139,8 @@
       "version": "2.0.1 ",
       "changelog": [
         {
-          "changes": ["Web component wrapper fix"]
+          "type": "patch",
+          "changes": ["Web component wrapper fix."]
         }
       ]
     },
@@ -209,6 +228,7 @@
       "version": "1.0.0 ",
       "changelog": [
         {
+          "type": "new_feature",
           "changes": ["First stable version :tada:"]
         }
       ]

@@ -122,10 +122,10 @@ Test the component by running the build and dev tools and adding the component t
 one test project for each framework; Angular, Vue and React. When running `yarn watch` in
 `packages/components` the projects should be updated every time a change has been saved.
 
-> IMPORTANT! Start running watch of components before running the Angular, Vue and React apps (dev servers).
-> Otherwise you will get errors because the components deletes everything in the dist folder before building
-> the components again when running watch. If this happens, restart the local dev servers (Angular, Vue and
-> React).
+> NOTE! The first time you run the project you will need to run `yarn watch` or `yarn build` before starting
+> the Angular, Vue and React apps (dev servers). Otherwise you will get errors because the components deletes
+> everything in the dist folder before building the components again when running watch. If this happens,
+> restart the local dev servers (Angular, Vue and React).
 
 1. Run `yarn watch` in `packages/components` so that the projects are updated every time a change is saved.
 2. Run dev servers:
