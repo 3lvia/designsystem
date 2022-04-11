@@ -45,7 +45,7 @@ export class TableDocComponent {
 </div>
 `;
 
-  exampleStickyHeader = `<div class="e-table-container" style="max-height: 250px">
+  exampleStickyHeaderColumns = `<div class="e-table-container" style="max-height: 250px">
   <table class="e-table e-table--sticky-header" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
@@ -179,7 +179,7 @@ export class TableDocComponent {
 </div>
 `;
 
-  exampleStickyHeaderColumns = `<div class="e-table-container">
+  exampleStickyHeader = `<div class="e-table-container" style="max-width: 500px">
   <table class="e-table e-table--sticky-column-header" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
