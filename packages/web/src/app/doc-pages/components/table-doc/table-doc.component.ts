@@ -104,6 +104,81 @@ export class TableDocComponent {
   </table>
 </div>
 `;
+
+  exampleStickyHeaderMobile = `<div style="width: 305px; margin: 16px">
+  <div class="e-table-container" style="max-height: 250px">
+  <table class="e-table-mobile e-table-mobile--sticky-header">
+    <thead>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">Period</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">January 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Sent</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">567,98</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
+        <td class="e-table-mobile__cell e-text-mono">1023456</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Sent</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">567,98</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
+        <td class="e-table-mobile__cell e-text-mono">1023456</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">May 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Paid</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">556,98</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
+        <td class="e-table-mobile__cell e-text-mono">1234060</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Paid</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">556,98</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
+        <td class="e-table-mobile__cell e-text-mono">1234060</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+`;
+
   exampleStickyHeaderColumns = `<div class="e-table-container">
   <table class="e-table e-table--sticky-column-header" aria-label="Beskrivelse av tabellen">
     <thead>

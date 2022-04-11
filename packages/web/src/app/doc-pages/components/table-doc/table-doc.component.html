@@ -351,6 +351,14 @@
                 <app-component-example-v1 [codeHTML]="exampleStickyHeaderColumns"></app-component-example-v1>
               </ng-container>
             </app-component-subsubsection>
+            <app-component-subsubsection [sectionTitle]="'Mobile'">
+              <ng-container ngProjectAs="sectionContent">
+                When the row headers are sticky these headers should also be sticky on mobile. The row
+                currently displaying will follow on top until the next row is reached. Column headers will not
+                be sticky on mobile.
+                <app-component-example-v1 [codeHTML]="exampleStickyHeaderMobile"></app-component-example-v1>
+              </ng-container>
+            </app-component-subsubsection>
           </div>
         </div>
 
