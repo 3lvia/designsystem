@@ -747,8 +747,8 @@ export class TableDocComponent {
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <td class="e-text-mono">203413222</td>
-        <td>Elviaveien 3, 1230 Oslo</td>
+        <td class="e-text-mono">203413</td>
+        <td>Veien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
       </tr>
       <tr class="e-table__checkbox">
@@ -758,8 +758,8 @@ export class TableDocComponent {
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <td class="e-text-mono">203413222</td>
-        <td>Elviaveien 3, 1230 Oslo</td>
+        <td class="e-text-mono">203413</td>
+        <td>Veien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
       </tr>
       <tr class="e-table__checkbox">
@@ -769,8 +769,8 @@ export class TableDocComponent {
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <td class="e-text-mono">203413222</td>
-        <td>Elviaveien 3, 1230 Oslo</td>
+        <td class="e-text-mono">2034132</td>
+        <td>Veien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
       </tr>
     </tbody>

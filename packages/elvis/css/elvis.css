@@ -3720,6 +3720,7 @@ input:focus {
   box-sizing: border-box;
   border-bottom: 2px solid #000;
   cursor: pointer;
+  font-family: "Red Hat Display", Verdana, sans-serif;
   color: #000;
   text-align: inherit;
   position: relative;
@@ -6345,6 +6346,20 @@ input:focus {
   border-bottom: 1px solid #e9e9e9;
 }
 
+.e-table-mobile tr.e-table-mobile__checkbox.e-table-mobile__checkbox--selected, .e-table .e-table__checkbox.e-table__checkbox--selected {
+  position: relative;
+}
+.e-table-mobile tr.e-table-mobile__checkbox.e-table-mobile__checkbox--selected::after, .e-table .e-table__checkbox.e-table__checkbox--selected::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 4px;
+  right: 0;
+  top: 0;
+  background: #29d305;
+  border-radius: 4px 0 0 4px;
+}
+
 .e-table-container {
   width: 100%;
   overflow: auto;
@@ -6671,22 +6686,6 @@ input:focus {
 .e-table-mobile tr.e-table-mobile__checkbox th:first-of-type .e-checkbox,
 .e-table-mobile tr.e-table-mobile__checkbox td:first-of-type .e-checkbox {
   margin-right: 10px;
-}
-
-.e-table .e-table__checkbox.e-table__checkbox--selected th:last-of-type,
-.e-table-mobile tr.e-table-mobile__checkbox.e-table-mobile__checkbox--selected th:last-of-type {
-  position: relative;
-}
-.e-table .e-table__checkbox.e-table__checkbox--selected th:last-of-type::before,
-.e-table-mobile tr.e-table-mobile__checkbox.e-table-mobile__checkbox--selected th:last-of-type::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 4px;
-  right: 0;
-  top: 0;
-  background: #29d305;
-  border-radius: 4px 0 0 4px;
 }
 
 .e-table .e-table__select .e-link__icon {
