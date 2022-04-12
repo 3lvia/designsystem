@@ -27,6 +27,7 @@ export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 export interface DropdownOption {
   value: string;
   label: string;
+  icon?: string;
 }
 
 export interface DropdownProps {
@@ -221,10 +222,12 @@ const Dropdown: React.FC<DropdownProps> = ({
     option: (provided, state) => ({
       ...provided,
       display: 'flex',
-      alignContent: 'center',
+      alignItems: 'center',
       backgroundColor: decideOptionBg(state.isFocused, state.isSelected, state.isMulti),
       color: getColor('black'),
       height: isCompact ? '36px' : '48px',
+      paddingTop: '7px',
+      paddingBottom: '7px',
       paddingLeft: isCompact ? '9px' : '15px',
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: isCompact ? '18px' : '30px',
@@ -303,7 +306,28 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const ElviaOption = (props: OptionProps) => {
     if (!isMulti) {
-      return <components.Option {...props}>{props.children}</components.Option>;
+      // check if all options have icon data
+      let validIcons = true;
+      options.forEach((dropdownOption) => {
+        if (dropdownOption.icon === undefined) {
+          validIcons = false;
+        }
+      });
+
+      return (
+        <components.Option {...props}>
+          {(props.data as DropdownOption).icon && validIcons ? (
+            <Icon
+              inlineStyle={{ marginRight: '16px' }}
+              name={(props.data as DropdownOption).icon}
+              size={isCompact ? 'xs' : 'sm'}
+            />
+          ) : (
+            ''
+          )}
+          {props.children}
+        </components.Option>
+      );
     }
     const isSelectAllWithPartialSelected =
       hasSelectAllOption &&
