@@ -340,6 +340,8 @@ const Popover: FC<PopoverProps> = ({
       style={inlineStyle}
       ref={popoverRef}
       data-testid="popover-wrapper"
+      aria-modal="true"
+      role="dialog"
     >
       <div ref={popoverClasscontainerRef} className={popoverClasses} data-testid="popover-container">
         <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
