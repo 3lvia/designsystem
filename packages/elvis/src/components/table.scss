@@ -22,6 +22,20 @@ $grey10: colors.color('grey-10');
   }
 }
 
+%checkbox-selected-style {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    right: 0;
+    top: 0;
+    background: colors.color('green');
+    border-radius: 4px 0 0 4px;
+  }
+}
+
 .e-table-container {
   width: 100%;
   overflow: auto;
@@ -313,21 +327,11 @@ $grey10: colors.color('grey-10');
     }
   }
 }
-.e-table .e-table__checkbox.e-table__checkbox--selected,
+.e-table .e-table__checkbox.e-table__checkbox--selected {
+  @extend %checkbox-selected-style;
+}
 .e-table-mobile tr.e-table-mobile__checkbox.e-table-mobile__checkbox--selected {
-  th:last-of-type {
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      height: 100%;
-      width: 4px;
-      right: 0;
-      top: 0;
-      background: colors.color('green');
-      border-radius: 4px 0 0 4px;
-    }
-  }
+  @extend %checkbox-selected-style;
 }
 
 // Link

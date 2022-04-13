@@ -819,19 +819,19 @@
 			}
 		},
 		"e-table-mobile": {
-			"modifier": {
-				"e-table-mobile--compact": {},
-				"e-table-mobile--sticky-header": {}
-			},
 			"element": {
-				"e-table-mobile__input": {},
-				"e-table-mobile__button": {},
 				"e-table-mobile__checkbox": {
 					"modifier": {
 						"e-table-mobile__checkbox--selected": {}
 					}
 				},
+				"e-table-mobile__input": {},
+				"e-table-mobile__button": {},
 				"e-table-mobile__select": {}
+			},
+			"modifier": {
+				"e-table-mobile--compact": {},
+				"e-table-mobile--sticky-header": {}
 			}
 		},
 		"e-table": {
@@ -841,10 +841,12 @@
 				"e-table--sticky-header": {},
 				"e-table--sticky-column-header": {}
 			},
-			"container": {
-				"e-table-container": {}
-			},
 			"element": {
+				"e-table__checkbox": {
+					"modifier": {
+						"e-table__checkbox--selected": {}
+					}
+				},
 				"e-table__footnote": {
 					"modifier": {
 						"e-table__footnote--compact": {}
@@ -859,11 +861,6 @@
 				},
 				"e-table__input": {},
 				"e-table__button": {},
-				"e-table__checkbox": {
-					"modifier": {
-						"e-table__checkbox--selected": {}
-					}
-				},
 				"e-table__select": {},
 				"e-table__sort-header": {},
 				"e-table__sort-icon": {
@@ -872,6 +869,9 @@
 						"e-table__sort-icon--inactive": {}
 					}
 				}
+			},
+			"container": {
+				"e-table-container": {}
 			}
 		},
 		"e-table-footnote": {},
@@ -1693,6 +1693,10 @@
 		"e-table-mobile": {},
 		"e-table": {},
 		"e-table--compact": {},
+		"e-table-mobile__checkbox": {},
+		"e-table-mobile__checkbox--selected": {},
+		"e-table__checkbox": {},
+		"e-table__checkbox--selected": {},
 		"e-table-container": {},
 		"e-table-footnote": {},
 		"e-table__footnote": {},
@@ -1710,11 +1714,7 @@
 		"e-table-mobile__input": {},
 		"e-table__button": {},
 		"e-table-mobile__button": {},
-		"e-table__checkbox": {},
 		"e-checkbox": {},
-		"e-table-mobile__checkbox": {},
-		"e-table__checkbox--selected": {},
-		"e-table-mobile__checkbox--selected": {},
 		"e-table__select": {},
 		"e-table-mobile__select": {},
 		"e-table__sort-header": {},
