@@ -144,7 +144,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Chip,
     status: DocPageStatus.New,
     imageUrl: 'assets/doc-page-icons/component-icons/Chip.svg',
-    figmaUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-and-chips?node-id=136%3A1258',
+    figmaUrl: 'https://www.figma.com/file/dPti8DhGm7C2Rjx4IZSQFw/Chip?node-id=1%3A237',
     type: 'Component',
   },
   {
