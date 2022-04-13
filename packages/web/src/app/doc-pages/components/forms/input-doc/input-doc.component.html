@@ -41,7 +41,6 @@
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Textarea'">
         <ng-container ngProjectAs="sectionContent">
-          The e-form-field__label--optional class should be added to the label when the input is not required.
           <app-component-example-v1 [codeHTML]="example5"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
@@ -61,6 +60,13 @@
       <app-component-subsection [sectionTitle]="'Without label'">
         <ng-container ngProjectAs="sectionContent">
           <app-component-example-v1 [codeHTML]="exampleInputNoLabel"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Optional inputs'">
+        <ng-container ngProjectAs="sectionContent">
+          The e-form-field__label--optional class should be added to the label when the input is not required.
+          <app-component-example-v1 [codeHTML]="exampleOptional"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>

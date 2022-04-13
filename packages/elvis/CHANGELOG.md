@@ -5,6 +5,35 @@
   <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
+        8.2.1
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        April 13, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+       <div class="changelog-section-title">💥 New Features</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/link">Link</a> &
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/table">Table</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Defined Red Hat Display as typography in links which were missing.
+            </li>
+            <li>
+              Table bug fix. Selected checkboxes in tables now have a selected indicator on desktops also.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="changelog-row changelog-divider py-5">
+    <td class="changelog-date">
+      <span class="e-title-sm">
         8.2.0
       </span>
       <br>
