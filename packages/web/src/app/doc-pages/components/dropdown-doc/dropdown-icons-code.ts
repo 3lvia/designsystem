@@ -1,10 +1,11 @@
 const dropdownIconsCode = {
   codeReact: `<Dropdown 
   options={[
-    { value: 'renewableEnergy', label: 'Renewable Energy', icon: 'renewableEnergy' },
-    { value: 'checkCircle', label: 'Checkmark', icon: 'checkCircle' },
-    { value: 'Calendar', label: 'Calendar', icon: 'calendar' },
+    { value: 'renewableEnergy', label: 'Powerline', icon: 'powerline' },
+    { value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' },
+    { value: 'Calendar', label: 'Cable', icon: 'cable' },
   ]} 
+  defaultValue={{ value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' }}
   label={"Label"}
   placeholder={"Placeholder"}
   valueOnChange={(event) => updateSelectedList(event)}
@@ -12,10 +13,11 @@ const dropdownIconsCode = {
 `,
   codeAngular: `<elvia-dropdown
   [options]="[
-    { value: 'renewableEnergy', label: 'Renewable Energy', icon: 'renewableEnergy' },
-    { value: 'checkCircle', label: 'Checkmark', icon: 'checkCircle' },
-    { value: 'Calendar', label: 'Calendar', icon: 'calendar' },
+    { value: 'renewableEnergy', label: 'Powerline', icon: 'powerline' },
+    { value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' },
+    { value: 'Calendar', label: 'Cable', icon: 'cable' },
   ]"
+  [defaultValue]="{ value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' }"
   [label]="'Label'"
   [placeholder]="'Placeholder'"
   (valueOnChange)="updateSelectedList($event.detail.value)"
@@ -23,10 +25,11 @@ const dropdownIconsCode = {
 `,
   codeVue: `<elvia-dropdown
   :options="[
-    { value: 'renewableEnergy', label: 'Renewable Energy', icon: 'renewableEnergy' },
-    { value: 'checkCircle', label: 'Checkmark', icon: 'checkCircle' },
-    { value: 'Calendar', label: 'Calendar', icon: 'calendar' },
+    { value: 'renewableEnergy', label: 'Powerline', icon: 'powerline' },
+    { value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' },
+    { value: 'Calendar', label: 'Cable', icon: 'cable' },
   ]"
+  :defaultValue="{ value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' }"
   :label="'Label'"
   :placeholder="'Placeholder'"
   @value-on-change="updateSelectedList($event.detail.value)"
@@ -38,13 +41,14 @@ const dropdownIconsCode = {
 
   codeNativeScript: `  const dropdown = document.getElementById('example-elvia-dropdown-icons');
   const options = [
-    { value: 'renewableEnergy', label: 'Renewable Energy', icon: 'renewableEnergy' },
-    { value: 'checkCircle', label: 'Checkmark', icon: 'checkCircle' },
-    { value: 'Calendar', label: 'Calendar', icon: 'calendar' },
+    { value: 'renewableEnergy', label: 'Powerline', icon: 'powerline' },
+    { value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' },
+    { value: 'Calendar', label: 'Cable', icon: 'cable' },
   ];
   dropdown.setProps({label: 'Label' });
   dropdown.setProps({placeholder: 'Placeholder' });
   dropdown.setProps({options: options});
+  dropdown.setProps({defaultValue: options[1]});
   dropdown.addEventListener('valueOnChange', (event) => {
     console.log('Do what you want with selected elements: ', event.detail.value);
   });
