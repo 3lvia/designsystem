@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
+import { chipAccessibilityCode } from './chip-accessibility-code';
 import { chipData } from './chip-data';
 
 @Component({
@@ -13,6 +14,7 @@ export class ChipDocComponent {
   does = chipData.does;
   donts = chipData.donts;
   componentData = chipData;
+  chipAccessibilityCode = chipAccessibilityCode;
 
   filteredValues = { 2019: false, 2020: true, 2021: true, 2022: false, 2023: true, 2024: true };
   filteredKeys = Object.keys(this.filteredValues);
