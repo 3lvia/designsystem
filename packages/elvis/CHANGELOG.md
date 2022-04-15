@@ -5,6 +5,31 @@
   <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
+        8.3.0
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        April 19, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+       <div class="changelog-section-title">💥 New Features</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/tools/utility-classes">Utility classes</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Added multiple flex utility classes as well as some other classes like <span class="code-text">e-border-none</span>, height classes, and <span class="code-text">e-strip-fieldset</span>.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="changelog-row changelog-divider py-5">
+    <td class="changelog-date">
+      <span class="e-title-sm">
         8.2.1
       </span>
       <br>
