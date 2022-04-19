@@ -58,6 +58,7 @@
       "version": "1.1.7 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Updated dependencies"]
         }
       ]
@@ -107,6 +108,7 @@
       "version": "1.1.2 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Web component wrapper fix"]
         }
       ]
