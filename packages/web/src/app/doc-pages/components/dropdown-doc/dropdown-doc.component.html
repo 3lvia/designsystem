@@ -24,7 +24,9 @@
             Note that to display icons, all options need to have an icon attribute. Remember to pass icon
             names as camelcase, as under the hood we use the icon component to display icons within the
             dropdown component,
-            <a class="e-link e-link--inline" [routerLink]="['/brand/icon#Implementation']">click here</a>
+            <a class="e-link e-link--inline" [routerLink]="['/brand/icon']" [fragment]="'Implementation'">
+              click here
+            </a>
             for more information on the icon component
           </div>
           <app-component-example-generator
