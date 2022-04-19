@@ -5,9 +5,15 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  h3 {
+    margin: 0;
+  }
 
   @include breakpoint-up(Tablet) {
     flex-direction: column;
+    h3 {
+      margin-bottom: 24px;
+    }
   }
 }
 

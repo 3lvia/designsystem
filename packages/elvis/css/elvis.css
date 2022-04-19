@@ -8210,33 +8210,6 @@ input:focus {
 .e-border-none {
   border: none;
 }
-.e-border {
-  border: 1px solid #bdbdbd;
-}
-.e-border-t {
-  border-top: 1px solid #bdbdbd;
-}
-.e-border-b {
-  border-bottom: 1px solid #bdbdbd;
-}
-.e-border-l {
-  border-left: 1px solid #bdbdbd;
-}
-.e-border-r {
-  border-right: 1px solid #bdbdbd;
-}
-
-:root {
-  --e-border-medium: 1px solid #bdbdbd;
-}
-
-.e-br-4 {
-  border-radius: 4px;
-}
-
-.e-br-8 {
-  border-radius: 8px;
-}
 
 /*!
  * Bootstrap Grid v4.6.1 (https://getbootstrap.com/)
@@ -13109,6 +13082,11 @@ THE SOFTWARE.
   }
 }
 
+.e-hide {
+  height: 0;
+  overflow: hidden;
+}
+
 .e-uppercase {
   text-transform: uppercase !important;
 }
@@ -13135,4 +13113,74 @@ THE SOFTWARE.
 
 .e-w-25 {
   width: 25% !important;
+}
+
+.e-w-0 {
+  width: 0 !important;
+}
+
+.e-h-100 {
+  height: 100% !important;
+}
+
+.e-h-75 {
+  height: 75% !important;
+}
+
+.e-h-50 {
+  height: 50% !important;
+}
+
+.e-h-25 {
+  height: 25% !important;
+}
+
+.e-h-0 {
+  height: 0 !important;
+}
+
+.e-strip-fieldset {
+  border: none;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-block-start: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  padding-block-end: 0;
+}
+
+.e-flex {
+  display: flex;
+}
+
+.e-flex-direction-column {
+  flex-direction: column;
+}
+
+.e-flex-direction-row {
+  flex-direction: row;
+}
+
+.e-justify-content-center {
+  justify-content: center;
+}
+
+.e-justify-content-start {
+  justify-content: flex-start;
+}
+
+.e-justify-content-end {
+  justify-content: flex-end;
+}
+
+.e-align-items-center {
+  align-items: center;
+}
+
+.e-align-items-start {
+  align-items: flex-start;
+}
+
+.e-align-items-end {
+  align-items: flex-end;
 }
