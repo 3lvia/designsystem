@@ -14,13 +14,13 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-       <div class="changelog-section-title">🐝 Bug Fixe</div>
+       <div class="changelog-section-title">🐝 Bug Fix</div>
           <div>Component: 
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/table">Table</a>
           </div>
           <ul class="e-list">
             <li>
-              Table bug fix. Text in th cells in mobile  classe is now correctly top aligned.
+              Table bug fix that alignes text in the table cells on mobile correctly.
             </li>
           </ul>
         </div>
