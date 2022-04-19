@@ -185,6 +185,10 @@ $grey10: colors.color('grey-10');
     text-align: left;
   }
 
+  th[class*='e-table-mobile__cell'] {
+    vertical-align: text-top;
+  }
+
   tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) td,
   tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) th {
     border-bottom: 1px solid colors.color('grey-10');

@@ -6528,6 +6528,9 @@ input:focus {
   padding: 10px 16px;
   text-align: left;
 }
+.e-table-mobile th[class*=e-table-mobile__cell] {
+  vertical-align: text-top;
+}
 .e-table-mobile tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) td,
 .e-table-mobile tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) th {
   border-bottom: 1px solid #e9e9e9;
