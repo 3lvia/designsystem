@@ -14,6 +14,13 @@ export const dropdownData: ComponentData = {
       cegDisplayName: 'defaultValue',
       default: 'undefined',
     },
+    options: {
+      isRequired: true,
+      type: 'Array<object>',
+      description:
+        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?: string}',
+      cegDisplayName: 'Options',
+    },
     errorMessage: {
       isRequired: false,
       type: 'string',
@@ -93,13 +100,6 @@ export const dropdownData: ComponentData = {
       type: 'string',
       description: 'Text to display when there are no options',
       default: `'Ingen tilgjengelige valg'`,
-    },
-    options: {
-      isRequired: true,
-      type: 'Array<object>',
-      description:
-        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string} ',
-      cegDisplayName: 'Options',
     },
     placeholder: {
       isRequired: false,
