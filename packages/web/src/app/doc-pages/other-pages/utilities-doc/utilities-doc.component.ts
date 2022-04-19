@@ -119,7 +119,7 @@ export class UtilitiesDocComponent {
     {
       title: 'Focus',
       path: '/tools/accessibility',
-      fragment: 'Keyboard',
+      fragment: 'Keyboard-navigation',
       classes: [
         {
           className: 'e-outline',
