@@ -1,33 +1,62 @@
-<elvia-accordion
+<!-- <elvia-accordion
   type="overflow"
   overflowHeight="500"
   [openLabel]="'Show all'"
   [closeLabel]="'Hide'"
   [labelPosition]="'right'"
   [size]="'small'"
->
-  <div slot="content">
-    <table>
-      <caption class="sr-only">Component changes</caption>
-      <tr class="sr-only">
-        <th class="changelog-date py-0" scope="col">Date and version</th>
-        <th class="changelog-content py-0" scope="col">Changes</th>
-      </tr>
-      <tr class="changelog-row changelog-divider py-5" *ngFor="let el of componentData.changelog">
-        <td class="changelog-date">
-          <span class="e-title-sm">{{ el.version }}</span>
-          <br />
-          <span class="changelog-date-span">{{ el.date }}</span>
-        </td>
-        <td class="changelog-content">
-          <div class="changelog-section" *ngFor="let changelog of el.changelog">
-            <div class="changelog-section-title">{{ changelog.type | ChangelogTypePipe }}</div>
-            <ul class="e-list">
-              <li *ngFor="let change of changelog.changes">{{ change }}</li>
-            </ul>
+> -->
+<div slot="content">
+  <table>
+    <caption class="sr-only">Component changes</caption>
+    <tr class="sr-only">
+      <th class="changelog-date py-0" scope="col">Date and version</th>
+      <th class="changelog-content py-0" scope="col">Changes</th>
+    </tr>
+    <tr class="changelog-row changelog-divider py-5" *ngFor="let el of componentData.changelog">
+      <td class="changelog-date">
+        <span class="e-title-sm">{{ el.version }}</span>
+        <br />
+        <span class="changelog-date-span">{{ el.date }}</span>
+      </td>
+      <td class="changelog-content">
+        <div class="changelog-section" *ngFor="let changelog of el.changelog">
+          <div class="changelog-section-title">{{ changelog.type | ChangelogTypePipe }}</div>
+          <div *ngIf="changelog.components.length > 0">
+            Components:
+            <ng-container *ngFor="let component of changelog.components; let last = last; let first = first">
+              <span *ngIf="!last && !first">,</span>
+              <span *ngIf="last && !first">&</span>
+              <a class="e-link e-link--inline" [href]="component.url">
+                {{ component.displayName }}
+              </a>
+            </ng-container>
           </div>
-        </td>
-      </tr>
-    </table>
-  </div>
-</elvia-accordion>
+          <div *ngIf="changelog.pages.length > 0">
+            Pages:
+            <ng-container *ngFor="let component of changelog.pages; let last = last; let first = first">
+              <span *ngIf="!last && !first">,</span>
+              <span *ngIf="last && !first">&</span>
+              <a class="e-link e-link--inline" [href]="component.url">
+                {{ component.displayName }}
+              </a>
+            </ng-container>
+          </div>
+          <ul class="e-list">
+            <li *ngFor="let change of changelog.changes">
+              <p [innerHTML]="change.description">{{ change }}</p>
+              <ng-container *ngIf="change.fix">
+                <strong>How to fix</strong>
+                <p>{{ change.fix.description }}</p>
+                <ul>
+                  <li *ngFor="let fix of change.fix.changes">test</li>
+                </ul>
+              </ng-container>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<!-- </elvia-accordion> -->

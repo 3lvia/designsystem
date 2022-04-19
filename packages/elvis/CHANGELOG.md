@@ -183,15 +183,24 @@
               Small -> Medium <br />
               Medium -> Large <br />
               New Small size (smaller than the previous) <br />
-              <strong>How to fix</strong>: Check where you are using segmented controls and update the sizes to the correct new size. If you have no specified size add <span class="code-text">e-segmented-controls--lg</span> and if you have the small size specified (<span class="code-text">e-segmented-controls--sm</span>) just remove the specification to receive medium size instead.
+              <strong>How to fix</strong>: 
+              <div class="how-to-fix-description">
+                Check where you are using segmented controls and update the sizes to the correct new size. If you have no specified size add <span class="code-text">e-segmented-controls--lg</span> and if you have the small size specified (<span class="code-text">e-segmented-controls--sm</span>) just remove the specification to receive medium size instead.
+              </div>
             </li>
             <li>
               Title xs on mobiles has been updated font-size from 18px -> 16px. This is done so that the difference between title sm and xs i more distinct. 
-              <strong>How to fix</strong>: You should not have to change anything here, just be aware that title-xs is smaller.
+              <strong>How to fix</strong>: 
+              <div class="how-to-fix-description">
+                You should not have to change anything here, just be aware that title-xs is smaller.
+              </div>
             </li>
             <li>
               Toggle has updated structure and now includes label and role. This is done for better accessibility.
-              <strong>How to fix</strong>: Replace the old structure for all your toggles with the structure in the <a class="e-link e-link--inline" href="https://design.elvia.io/components/toggle#Overview">examples</a>.
+              <strong>How to fix</strong>:
+              <div class="how-to-fix-description">
+               Replace the old structure for all your toggles with the structure in the <a class="e-link e-link--inline" href="https://design.elvia.io/components/toggle#Overview">examples</a>.
+              </div>
             </li>
           </ul>
         </div>
@@ -1415,7 +1424,9 @@
             The search bar component has changed the default search icon. The size of the search and close icons has also been adjusted for both local and global search.
             <div class="e-mt-8">
               How to fix:
-              The changes only affect icon used to display a search bar. The only thing needed to fix this is to replace the <span class="code-text">e-icon--search-bold</span> icon with the new  <span class="code-text">e-icon--search-color</span>
+              <div class="how-to-fix-description">
+                The changes only affect icon used to display a search bar. The only thing needed to fix this is to replace the <span class="code-text">e-icon--search-bold</span> icon with the new  <span class="code-text">e-icon--search-color</span>
+              </div>
             </div>
           </li>
         </ul>
@@ -1523,17 +1534,19 @@
             This require that the top menu grid changes a little and that the title is added to the first column as well.
          
               How to fix:
-              The changes only affect the 'LOGO + APP' section.
-                  The fastest way to fix it if to search for the section called 'LOGO + APP' under the 'TOP MENU ~ DESKTOP'. Change the first div with the 'col' classes to this:
-                  <div class="code-text changelog-code">&lt;div class="col-xs-2 col-sm-3 col-md-7 col-lg-8"&gt;</div>
-                  Then add these two lines at the bottom inside of the same div:
-                  <div class="code-text changelog-code">
-                    &lt;span class="e-header__top-bar-desktop__line e-mx-32"&gt;&lt;/span&gt;
-                    <br />
-                    &lt;div class="e-header__top-bar-desktop__title">TITLE&lt;/div&gt;
-                  </div>
-               
-                  The other way is to replace the entire 'LOGO + APP' section with the examples showed in the documentation, and then add the information back where you lost it.
+              <div class="how-to-fix-description">
+                The changes only affect the 'LOGO + APP' section.
+                    The fastest way to fix it if to search for the section called 'LOGO + APP' under the 'TOP MENU ~ DESKTOP'. Change the first div with the 'col' classes to this:
+                    <div class="code-text changelog-code">&lt;div class="col-xs-2 col-sm-3 col-md-7 col-lg-8"&gt;</div>
+                    Then add these two lines at the bottom inside of the same div:
+                    <div class="code-text changelog-code">
+                      &lt;span class="e-header__top-bar-desktop__line e-mx-32"&gt;&lt;/span&gt;
+                      <br />
+                      &lt;div class="e-header__top-bar-desktop__title">TITLE&lt;/div&gt;
+                    </div>
+                
+                    The other way is to replace the entire 'LOGO + APP' section with the examples showed in the documentation, and then add the information back where you lost it.
+              </div>
          
           </li>
         </ul>
@@ -1640,7 +1653,9 @@
                 <span class="code-text changelog-code">e-header</span> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile e.g. <span class="code-text changelog-code">e-header__top-bar-desktop__link</span>.
                 <div class="e-mt-8">
                 How to fix:
+                <div class="how-to-fix-description">
                 The easiest way to fix an existing header is to search and replace the classes listed here with the new classes.
+                </div>
                     <span class="code-text changelog-code">e-top-bar</span> -> <span class="code-text changelog-code">e-header__top-bar</span>
                     <span class="code-text changelog-code">e-sidebar</span> -> <span class="code-text changelog-code">e-header__sidebar</span>
                     <span class="code-text changelog-code">top-bar__</span> -> <span class="code-text changelog-code">top-bar-desktop__</span>
@@ -1648,7 +1663,9 @@
                 <li>
                     The design and structure of tables have been updated. Tables with black headers have been removed and a wrapper class has been added.
                       How to fix:
-                      Add an element with the <span class="code-text changelog-code">e-table-container</span> class outside the element with the <span class="code-text changelog-code">e-table</span> class.
+                      <div class="how-to-fix-description">
+                        Add an element with the <span class="code-text changelog-code">e-table-container</span> class outside the element with the <span class="code-text changelog-code">e-table</span> class.
+                      </div>
                           <span class="code-text changelog-code">e-table</span> -> <span class="code-text changelog-code">e-table-container e-table</span>
                 </li>
             </ul>
@@ -1730,7 +1747,9 @@
             All <span class="code-text changelog-code">---visible</span> classes for modal and popover components are removed. New utility classes are added instead for showing and hiding elements. If you are using the modal or popover components you now have to use the new utility classes for hiding and showing. Theses components are by default now always visible.
             <div class="e-mt-8">
               How to fix:
-              Add the <span class="code-text changelog-code">e-none</span> or <span class="code-text changelog-code">e-invisble</span> utility classes to toggle the components. 
+              <div class="how-to-fix-description">
+                Add the <span class="code-text changelog-code">e-none</span> or <span class="code-text changelog-code">e-invisble</span> utility classes to toggle the components. 
+              </div>
                   <span class="code-text changelog-code">e-component---visible</span> -> <span class="code-text changelog-code">e-none</span> & <span class="code-text changelog-code">e-invisible</span>
             </div>
           </li>
@@ -1808,7 +1827,9 @@
             <a class="e-link e-link--inline" href="https://sass-lang.com/blog/the-module-system-is-launched">Sass module system</a>
             <div class="e-mt-8">
               How to fix:
+              <div class="how-to-fix-description">
               If you are using our stylesheets directly and your sass-compiler do not support the use of @use you will have to migrate as well.
+              </div>
             </div>
           </li>
         </ul>

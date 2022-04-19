@@ -7,7 +7,9 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Fixed a bug that caused toggle to not display correctly in Firefox browsers."],
+          "changes": [
+            { "description": "Fixed a bug that caused toggle to not display correctly in Firefox browsers." }
+          ],
           "components": [{ "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }],
           "pages": []
         }
@@ -19,9 +21,9 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added icons: thumbnail-color and adjust"],
+          "changes": [{ "description": "Added icons: thumbnail-color and adjust" }],
           "components": [],
-          "pages": ["Icons"]
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon#Overview" }]
         }
       ]
     },
@@ -31,13 +33,13 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Updated list of deprecated elvis classes."],
+          "changes": [{ "description": "Updated list  of deprecated elvis classes." }],
           "components": [],
           "pages": []
         },
         {
           "type": "bug_fix",
-          "changes": ["Fixed focus outline on Toggle."],
+          "changes": [{ "description": "Fixed focus outline on Toggle." }],
           "components": [{ "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }],
           "pages": []
         }
@@ -49,7 +51,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Updated icons package."],
+          "changes": [{ "description": "Updated icons package." }],
           "components": [],
           "pages": []
         }
@@ -61,7 +63,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Small update inside local alert."],
+          "changes": [{ "description": "Small update inside local alert." }],
           "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }],
           "pages": []
         }
@@ -74,8 +76,8 @@
         {
           "type": "patch",
           "changes": [
-            "Migrated the deprecated divider symbol to math.div for Sass.",
-            "Updated Bootstrap to v4.6.1. Used in the grid classes."
+            { "description": "Migrated the deprecated divider symbol to math.div for Sass." },
+            { "description": "Updated Bootstrap to v4.6.1. Used in the grid classes." }
           ],
           "components": [
             {
@@ -94,9 +96,27 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "Segmented controls are now in three sizes: <br />Small -> Medium <br />Medium -> Large <br />New Small size (smaller than the previous) <br /><strong>How to fix</strong>: Check where you are using segmented controls and update the sizes to the correct new size. If you have no specified size add <span class=\"code-text\">e-segmented-controls--lg</span> and if you have the small size specified (<span class=\"code-text\">e-segmented-controls--sm</span>) just remove the specification to receive medium size instead.",
-            "Title xs on mobiles has been updated font-size from 18px -> 16px. This is done so that the difference between title sm and xs i more distinct.<strong>How to fix</strong>: You should not have to change anything here, just be aware that title-xs is smaller.",
-            "Toggle has updated structure and now includes label and role. This is done for better accessibility.<strong>How to fix</strong>: Replace the old structure for all your toggles with the structure in the <a class=\"e-link e-link--inline\" href=\"https://design.elvia.io/components/toggle#Overview\">examples</a>."
+            {
+              "description": "Segmented controls are now in three sizes: <br />Small -> Medium <br />Medium -> Large <br />New Small size (smaller than the previous) <br /></div>",
+              "fix": {
+                "description": "Check where you are using segmented controls and update the sizes to the correct new size. If you have no specified size add <span class=\"code-text\">e-segmented-controls--lg</span> and if you have the small size specified (<span class=\"code-text\">e-segmented-controls--sm</span>) just remove the specification to receive medium size instead.",
+                "changes": []
+              }
+            },
+            {
+              "description": "Title xs on mobiles has been updated font-size from 18px -> 16px. This is done so that the difference between title sm and xs i more distinct.</div>",
+              "fix": {
+                "description": "You should not have to change anything here, just be aware that title-xs is smaller.",
+                "changes": []
+              }
+            },
+            {
+              "description": "Toggle has updated structure and now includes label and role. This is done for better accessibility.</div>",
+              "fix": {
+                "description": "Replace the old structure for all your toggles with the structure in the <a class=\"e-link e-link--inline\" href=\"https://design.elvia.io/components/toggle#Overview\">examples</a>.",
+                "changes": []
+              }
+            }
           ],
           "components": [
             {
@@ -105,7 +125,7 @@
             },
             { "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }
           ],
-          "pages": ["Typography"]
+          "pages": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
         }
       ]
     },
@@ -115,7 +135,9 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added primary colors(black, white and grey) as possible label colors."],
+          "changes": [
+            { "description": "Added primary colors(black, white and grey) as possible label colors." }
+          ],
           "components": [
             { "displayName": "Label", "url": "https://design.elvia.io/components/label#Overview" }
           ],
@@ -130,7 +152,9 @@
         {
           "type": "new_feature",
           "changes": [
-            "Border radius utility classes are now available as <span class=\"code-text\">e-br-4</span> and <span class=\"code-text\">e-br-8</span>."
+            {
+              "description": "Border radius utility classes are now available as <span class=\"code-text\">e-br-4</span> and <span class=\"code-text\">e-br-8</span>."
+            }
           ],
           "components": [],
           "pages": []
@@ -143,7 +167,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Stepper hover state added."],
+          "changes": [{ "description": "Stepper hover state added." }],
           "components": [
             { "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper#Overview" }
           ],
@@ -157,7 +181,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Updated devDependencies."],
+          "changes": [{ "description": "Updated devDependencies." }],
           "components": [],
           "pages": []
         }
@@ -169,7 +193,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Removed unused dependency."],
+          "changes": [{ "description": "Removed unused dependency." }],
           "components": [],
           "pages": []
         }
@@ -182,7 +206,9 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Added import for Red Hat Text in font-weight 600 and updated link and list components to use this typography."
+            {
+              "description": "Added import for Red Hat Text in font-weight 600 and updated link and list components to use this typography."
+            }
           ],
           "components": [
             { "displayName": "Link", "url": "https://design.elvia.io/components/link#Overview" },
@@ -199,7 +225,9 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added new modifier class for removing stripes in table body: <span class=\"code-text\">e-table--no-stripes</span>."
+            {
+              "description": "Added new modifier class for removing stripes in table body: <span class=\"code-text\">e-table--no-stripes</span>."
+            }
           ],
           "components": [
             { "displayName": "Table", "url": "https://design.elvia.io/components/table#Overview" }
@@ -214,7 +242,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Using newest version of elvis-assets-icon package in elvis."],
+          "changes": [{ "description": "Using newest version of elvis-assets-icon package in elvis." }],
           "components": [],
           "pages": []
         }
@@ -226,7 +254,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Added import for Red Hat Text in font-weight 700."],
+          "changes": [{ "description": "Added import for Red Hat Text in font-weight 700." }],
           "components": [],
           "pages": []
         }
@@ -239,7 +267,9 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added new typography class for comparing numbers in tables: <span class=\"code-text\">e-text-mono</span>."
+            {
+              "description": "Added new typography class for comparing numbers in tables: <span class=\"code-text\">e-text-mono</span>."
+            }
           ],
           "components": [
             { "displayName": "Table", "url": "https://design.elvia.io/components/table#Overview" }
@@ -254,7 +284,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Updated height for text-fields."],
+          "changes": [{ "description": "Updated height for text-fields." }],
           "components": [
             { "displayName": "Text fields", "url": "https://design.elvia.io/components/input#Overview" }
           ],
@@ -269,8 +299,10 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Deprecated e-card and e-link--card, replaced with card component.",
-            "Deprecated e-link--jumbo, replaced with <a class=\"e-link e-link--inline\" href=\"https://design.elvia.io/patterns/groups#Examples\">action group pattern</a>."
+            { "description": "Deprecated e-card and e-link--card, replaced with card component." },
+            {
+              "description": "Deprecated e-link--jumbo, replaced with  <a class=\"e-link e-link--inline\" href=\"https://design.elvia.io/patterns/groups#Examples\">action group pattern</a>."
+            }
           ],
           "components": [
             { "displayName": "Card", "url": "https://design.elvia.io/components/card#Overview" },
@@ -286,7 +318,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Updated several z-index values to be more consistent."],
+          "changes": [{ "description": "Updated several z-index values to be more consistent." }],
           "components": [
             { "displayName": "Tooltip", "url": "https://design.elvia.io/components/tooltip#Overview" },
             {
@@ -304,7 +336,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Increased header z-index."],
+          "changes": [{ "description": "Increased header z-index." }],
           "components": [],
           "pages": []
         }
@@ -316,7 +348,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Fixed small checkbox-mark misalignment."],
+          "changes": [{ "description": "Fixed small checkbox-mark misalignment." }],
           "components": [],
           "pages": []
         }
@@ -328,7 +360,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Lists inside lists will get the correct elvis style."],
+          "changes": [{ "description": "Lists inside lists will get the correct elvis style." }],
           "components": [],
           "pages": []
         }
@@ -339,7 +371,7 @@
       "date": "October 18, 2021",
       "changelog": [
         {
-          "changes": ["New icon 'season' and one updated icon."],
+          "changes": [{ "description": "New icon 'season' and one updated icon." }],
           "components": [],
           "pages": []
         }
@@ -352,11 +384,13 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Radiobutton error state added.",
-            "Small version of Segmented control added.",
-            "Documentation for using file upload with more examples.",
-            "Text micro light typography added.",
-            "The position-picker states 'normal' and 'picked' have been updated to be more user friendly and text color has been updated."
+            { "description": "Radiobutton error state added." },
+            { "description": "Small version of Segmented control added." },
+            { "description": "Documentation for using file upload with more examples." },
+            { "description": "Text micro light typography added." },
+            {
+              "description": "The position-picker states 'normal' and 'picked' have been updated to be more user friendly and text color has been updated."
+            }
           ],
           "components": [],
           "pages": []
@@ -369,7 +403,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Search paddings updated so that close button is not in the way."],
+          "changes": [{ "description": "Search paddings updated so that close button is not in the way." }],
           "components": [],
           "pages": []
         }
@@ -382,7 +416,9 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Bug fix for text content-loader so that height can be set directly on content-loader element."
+            {
+              "description": "Bug fix for text content-loader so that height can be set directly on content-loader element."
+            }
           ],
           "components": [],
           "pages": []
@@ -394,7 +430,7 @@
       "date": "September 9, 2021",
       "changelog": [
         {
-          "changes": ["New icons added and electricity icons updated."],
+          "changes": [{ "description": "New icons added and electricity icons updated." }],
           "components": [],
           "pages": []
         }
@@ -406,7 +442,9 @@
       "changelog": [
         {
           "changes": [
-            "Now possible to disable hover on icons when hovering accordion title, by using the new modifier <span class=\"code-text\">e-accordion__title--no-icon-hover</span>."
+            {
+              "description": "Now possible to disable hover on icons when hovering accordion title, by using the new modifier <span class=\"code-text\">e-accordion__title--no-icon-hover</span>."
+            }
           ],
           "components": [],
           "pages": []
@@ -414,7 +452,9 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Adjustment of z-index so it is now possible to use a datepicker inside a modal content area."
+            {
+              "description": "Adjustment of z-index so it is now possible to use a datepicker inside a modal content area."
+            }
           ],
           "components": [],
           "pages": []
@@ -427,7 +467,9 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Now possible to use a single accordion inside a group accordion content area."],
+          "changes": [
+            { "description": "Now possible to use a single accordion inside a group accordion content area." }
+          ],
           "components": [],
           "pages": []
         }
@@ -440,7 +482,9 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Deprecated pseudoclass \"e-fileupload---hover\", now using new modifier \"e-fileupload--dragover\"."
+            {
+              "description": "Deprecated pseudoclass \"e-fileupload---hover\", now using new modifier \"e-fileupload--dragover\"."
+            }
           ],
           "components": [],
           "pages": []
@@ -454,7 +498,9 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Update positioning of titles in cards with title above, now works together with popover compoent."
+            {
+              "description": "Update positioning of titles in cards with title above, now works together with popover compoent."
+            }
           ],
           "components": [
             { "displayName": "Card", "url": "https://design.elvia.io/components/card#Overview" }
@@ -469,15 +515,17 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added five new icons."],
+          "changes": [{ "description": "Added five new icons." }],
           "components": [],
-          "pages": ["Icon"]
+          "pages": [{ "displayName": "Icon", "url": "https://design.elvia.io/brand/icon#Overview" }]
         },
         {
           "type": "bug_fix",
-          "changes": ["Updated sortings icons, ascending is arrow up and descending is arrow down."],
+          "changes": [
+            { "description": "Updated sortings icons, ascending is arrow up and descending is arrow down." }
+          ],
           "components": [],
-          "pages": ["Icon"]
+          "pages": [{ "displayName": "Icon", "url": "https://design.elvia.io/brand/icon#Overview" }]
         }
       ]
     },
@@ -488,7 +536,9 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Deprecated radiobutton classes for invalid state, because a button should always be selected by default so the state is not necessary."
+            {
+              "description": "Deprecated radiobutton classes for invalid state, because a button should always be selected by default so the state is not necessary."
+            }
           ],
           "components": [
             { "displayName": "Radiobutton", "url": "https://design.elvia.io/components/radiobutton#Overview" }
@@ -504,9 +554,13 @@
         {
           "type": "new_feature",
           "changes": [
-            "Content loader has new modifier for grey backgrounds.",
-            "Red signal color has been updated, #FF0000 -> #EE0701, for better contrast and validation against both black and white.",
-            "The danger button hover color has been changed and documentation for more use cases has been updated. Disabled states have also been added to documentation."
+            { "description": "Content loader has new modifier for grey backgrounds." },
+            {
+              "description": "Red signal color has been updated, #FF0000 -> #EE0701, for better contrast and validation against both black and white."
+            },
+            {
+              "description": "The danger button hover color has been changed and documentation for more use cases has been updated. Disabled states have also been added to documentation."
+            }
           ],
           "components": [
             {
@@ -515,14 +569,18 @@
             },
             { "displayName": "Button", "url": "https://design.elvia.io/components/button#Overview" }
           ],
-          "pages": ["Color"]
+          "pages": [{ "displayName": "Color", "url": "https://design.elvia.io/brand/color#Overview" }]
         },
         {
           "type": "bug_fix",
           "changes": [
-            "Subtitles in tables on mobile have updated typography using the design system typographies.",
-            "Deprecated danger icon button, removed documentation, and fixed an hover bug for inverted icon button.",
-            "Group accordion have updated spacing between title and text."
+            {
+              "description": "Subtitles in tables on mobile have updated typography using the design system typographies."
+            },
+            {
+              "description": "Deprecated danger icon button, removed documentation, and fixed an hover bug for inverted icon button."
+            },
+            { "description": "Group accordion have updated spacing between title and text." }
           ],
           "components": [
             { "displayName": "Table", "url": "https://design.elvia.io/components/table#Overview" },
@@ -539,9 +597,9 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["New icons added."],
+          "changes": [{ "description": "New icons added." }],
           "components": [],
-          "pages": ["Icon"]
+          "pages": [{ "displayName": "Icon", "url": "https://design.elvia.io/brand/icon#Overview" }]
         }
       ]
     },
@@ -552,8 +610,10 @@
         {
           "type": "new_feature",
           "changes": [
-            "Documentation for different actions in tables have been added, like inputs, buttons, selects and links. Sorting for tables is also updated, with new icons and functionality, but old functionality will not break.",
-            "Compact inputs without labels are now possible to use."
+            {
+              "description": "Documentation for different actions in tables have been added, like inputs, buttons, selects and links. Sorting for tables is also updated, with new icons and functionality, but old functionality will not break."
+            },
+            { "description": "Compact inputs without labels are now possible to use." }
           ],
           "components": [
             { "displayName": "Table", "url": "https://design.elvia.io/components/table#Overview" },
@@ -564,7 +624,9 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Updated labels with nowrap, font-wight and font-family to avoid inheriting wrong style."
+            {
+              "description": "Updated labels with nowrap, font-wight and font-family to avoid inheriting wrong style."
+            }
           ],
           "components": [
             { "displayName": "Label", "url": "https://design.elvia.io/components/label#Overview" }
@@ -580,7 +642,9 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Update to icons(from 32px to 24px), and font-size(18px to 20px) for large accordions."
+            {
+              "description": "Update to icons(from 32px to 24px), and font-size(18px to 20px) for large accordions."
+            }
           ],
           "components": [
             { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion#Overview" }
@@ -595,7 +659,7 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Tooltips now have left and right alignment classes"],
+          "changes": [{ "description": "Tooltips now have left and right alignment classes" }],
           "components": [
             { "displayName": "Tooltip", "url": "https://design.elvia.io/components/tooltip#Overview" }
           ],
@@ -610,13 +674,17 @@
         {
           "type": "new_feature",
           "changes": [
-            "External links have been deprecated and replaced by New tab links. <span class=\"code-text\">e-link--external</span> will automatically work as <span class=\"code-text\">e-link--new-tab</span> instead.",
-            "External icons have also been deprecated in this context: <span class=\"code-text\">arrow_external</span> and <span class=\"code-text\">arrow_external-bold</span> now points to the new tab icon <span class=\"code-text\">new_tab-bold</span>."
+            {
+              "description": "External links have been deprecated and replaced by New tab links. <span class=\"code-text\">e-link--external</span> will automatically work as <span class=\"code-text\">e-link--new-tab</span> instead."
+            },
+            {
+              "description": "External icons have also been deprecated in this context: <span class=\"code-text\">arrow_external</span> and <span class=\"code-text\">arrow_external-bold</span> now points to the new tab icon <span class=\"code-text\">new_tab-bold</span>."
+            }
           ],
           "components": [
             { "displayName": "Link", "url": "https://design.elvia.io/components/link#Overview" }
           ],
-          "pages": ["Icon"]
+          "pages": [{ "displayName": "Icon", "url": "https://design.elvia.io/brand/icon#Overview" }]
         }
       ]
     },
@@ -626,7 +694,11 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added documentation for nested checkboxes and added the new state indeterminate."],
+          "changes": [
+            {
+              "description": "Added documentation for nested checkboxes and added the new state indeterminate."
+            }
+          ],
           "components": [
             { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox#Overview" }
           ],
@@ -635,7 +707,9 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Normal sized checkboxes now has font-size 16px, instead of inheriting their font-size."
+            {
+              "description": "Normal sized checkboxes now has font-size 16px, instead of inheriting their font-size."
+            }
           ],
           "components": [
             { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox#Overview" }
@@ -651,10 +725,14 @@
         {
           "type": "new_feature",
           "changes": [
-            "Using <span class=\"code-text\">b</span> and <span class=\"code-text\">strong</span> elements inside our text-classes (not title classes), will now give <span class=\"code-text\">font-weight: 500</span>, to make it easier to use bold versions of our typography in all types of applications. Example:<div class=\"e-text-sm\"><span class=\"code-text\">&lt;p class=\"e-text-sm\"&gt;</span><div class=\"changelog-section-margin\"><div>Text styled as text sm.</div><b><span class=\"code-text\">&lt;b&gt;</span>This text will have e-text-sm style, but with font-weight 500 <span class=\"code-text\">&lt;/b&gt;</span></b></div><span class=\"code-text\">&lt;/p&gt;</span></div>"
+            {
+              "description": "Using <span class=\"code-text\">b</span> and <span class=\"code-text\">strong</span> elements inside our text-classes (not title classes), will now give <span class=\"code-text\">font-weight: 500</span>, to make it easier to use bold versions of our typography in all types of applications. Example:<div class=\"e-text-sm\"><span class=\"code-text\">&lt;p class=\"e-text-sm\"&gt;</span><div class=\"changelog-section-margin\"><div>Text styled as text sm.</div><b><span class=\"code-text\">&lt;b&gt;</span>This text will have e-text-sm style, but with font-weight 500 <span class=\"code-text\">&lt;/b&gt;</span></b></div><span class=\"code-text\">&lt;/p&gt;</span></div>"
+            }
           ],
           "components": [],
-          "pages": ["Typography"]
+          "pages": [
+            { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography#Overview" }
+          ]
         }
       ]
     },
@@ -665,7 +743,9 @@
         {
           "type": "new_feature",
           "changes": [
-            "Content loader for dark backgrounds added: <span class=\"code-text\">e-content-loader--inverted</span>."
+            {
+              "description": "Content loader for dark backgrounds added: <span class=\"code-text\">e-content-loader--inverted</span>."
+            }
           ],
           "components": [
             {
@@ -677,7 +757,7 @@
         },
         {
           "type": "bug_fix",
-          "changes": ["Typography now has Verdana as fallback font."],
+          "changes": [{ "description": "Typography now has Verdana as fallback font." }],
           "components": [
             { "displayName": "Typography", "url": "https://design.elvia.io/components/typography#Overview" }
           ],
@@ -692,22 +772,38 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "Documentation on links is updated and usage of different links made clearer. Breaking changes are; Forward links should be replaced by action links, back links should be replaced and now uses the --back modifier, and jumbo links uses a new icon.",
-            "Typography now has no specified text-align except those with text-align center. All components now also include left-alignment inside the component itself.",
-            "<span class=\"code-text\">e-search--local</span> have been replaced by two new search variants; <span class=\"code-text\">e-search--instant</span> & <span class=\"code-text\">e-search--on-submit</span>.The class <span class=\"code-text\">e-search--global</span> has also been removed and is no longer supported in Elvis."
+            {
+              "description": "Documentation on links is updated and usage of different links made clearer. Breaking changes are; Forward links should be replaced by action links, back links should be replaced and now uses the --back modifier, and jumbo links uses a new icon."
+            },
+            {
+              "description": "Typography now has no specified text-align except those with text-align center. All components now also include left-alignment inside the component itself."
+            },
+            {
+              "description": "<span class=\"code-text\">e-search--local</span> have been replaced by two new search variants; <span class=\"code-text\">e-search--instant</span> & <span class=\"code-text\">e-search--on-submit</span>.The class <span class=\"code-text\">e-search--global</span> has also been removed and is no longer supported in Elvis."
+            }
           ],
           "components": [
             { "displayName": "Link", "url": "https://design.elvia.io/components/link#Overview" },
             { "displayName": "Search", "url": "https://design.elvia.io/components/search#Overview" }
           ],
-          "pages": ["Typography"]
+          "pages": [
+            { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography#Overview" }
+          ]
         },
         {
           "changes": [
-            "Jumbo links can be fixed by just changing <span class=\"code-text\">e-icon--arrow_right-bold</span> to <span class=\"code-text\">e-icon--arrow_long_right-bold</span>.",
-            "For back and forward links read the documentation with examples to replace these.",
-            "Typography should fix itself where there were problems with the previous change. Otherwise this change should not change any layout behavior.",
-            "Search classes must be replaced by the new classes, see documentation for examples."
+            {
+              "description": "Jumbo links can be fixed by just changing <span class=\"code-text\">e-icon--arrow_right-bold</span> to <span class=\"code-text\">e-icon--arrow_long_right-bold</span>."
+            },
+            {
+              "description": "For back and forward links read the documentation with examples to replace these."
+            },
+            {
+              "description": "Typography should fix itself where there were problems with the previous change. Otherwise this change should not change any layout behavior."
+            },
+            {
+              "description": "Search classes must be replaced by the new classes, see documentation for examples."
+            }
           ],
           "components": [],
           "pages": []
@@ -715,7 +811,9 @@
         {
           "type": "new_feature",
           "changes": [
-            "New modifier class added for cards that only contain text: <span class=\"code-text\">e-card--text-only</span>."
+            {
+              "description": "New modifier class added for cards that only contain text: <span class=\"code-text\">e-card--text-only</span>."
+            }
           ],
           "components": [
             { "displayName": "Card", "url": "https://design.elvia.io/components/card#Overview" }
@@ -731,7 +829,9 @@
         {
           "type": "new_feature",
           "changes": [
-            "Compact class for table-footnote, <span class=\"code-text\">e-table__footnote--compact</span>, and smaller table-cell class, <span class=\"code-text\">e-table__cell--multiline-small</span>, added."
+            {
+              "description": "Compact class for table-footnote, <span class=\"code-text\">e-table__footnote--compact</span>, and smaller table-cell class, <span class=\"code-text\">e-table__cell--multiline-small</span>, added."
+            }
           ],
           "components": [
             { "displayName": "Table", "url": "https://design.elvia.io/components/table#Overview" }
@@ -746,9 +846,13 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Icons have been updated, some have been deprecated and new icons have been added."],
+          "changes": [
+            {
+              "description": "Icons have been updated, some have been deprecated and new icons have been added."
+            }
+          ],
           "components": [],
-          "pages": ["Icons"]
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icons#Overview" }]
         }
       ]
     },
@@ -758,7 +862,7 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Divider component has been added."],
+          "changes": [{ "description": "Divider component has been added." }],
           "components": [
             { "displayName": "Divider", "url": "https://design.elvia.io/components/divider#Overview" }
           ],
@@ -773,7 +877,9 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "Input with icons are now using icon buttons instead of just icons. Replace the icons with the button in the <a class=\"e-link e-link--inline\" href=\"https://design.elvia.io/components/input#Overview\">input doc</a>. If you have been using the same structure in a date- or time-picker you may also need to replace this part with the button."
+            {
+              "description": "Input with icons are now using icon buttons instead of just icons. Replace the icons with the button in the <a class=\"e-link e-link--inline\" href=\"https://design.elvia.io/components/input#Overview\">input doc</a>. If you have been using the same structure in a date- or time-picker you may also need to replace this part with the button."
+            }
           ],
           "components": [
             { "displayName": "Input", "url": "https://design.elvia.io/components/input#Overview" }
@@ -789,10 +895,14 @@
         {
           "type": "new_feature",
           "changes": [
-            "Strong and light versions of body text have been added, as well as on special text called 'micro'."
+            {
+              "description": "Strong and light versions of body text have been added, as well as on special text called 'micro'."
+            }
           ],
           "components": [],
-          "pages": ["Typography"]
+          "pages": [
+            { "displayName": "Typography", "url": "https://design.elvia.io/brand/Typography#Overview" }
+          ]
         }
       ]
     },
@@ -803,7 +913,13 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "The search bar component has changed the default search icon. The size of the search and close icons has also been adjusted for both local and global search.<div class=\"e-mt-8\">How to fix:The changes only affect icon used to display a search bar. The only thing needed to fix this is to replace the <span class=\"code-text\">e-icon--search-bold</span> icon with the new <span class=\"code-text\">e-icon--search-color</span></div>"
+            {
+              "description": "The search bar component has changed the default search icon. The size of the search and close icons has also been adjusted for both local and global search.<div class=\"e-mt-8\"></div></div>",
+              "fix": {
+                "description": "The changes only affect icon used to display a search bar. The only thing needed to fix this is to replace the <span class=\"code-text\">e-icon--search-bold</span> icon with the new  <span class=\"code-text\">e-icon--search-color</span>",
+                "changes": []
+              }
+            }
           ],
           "components": [
             { "displayName": "Search", "url": "https://design.elvia.io/components/search#Overview" }
@@ -819,11 +935,15 @@
         {
           "type": "new_feature",
           "changes": [
-            "New icon structure, enabling elvis to deprecate and rename old icons. Use of deprecated icons will also be warned in console with reference to in which version of elvis the icon was deprecated, and what new icon should be used instead.",
-            "New icons from figma has also been added to elvis and search icons had been updated!"
+            {
+              "description": "New icon structure, enabling elvis to deprecate and rename old icons. Use of deprecated icons will also be warned in console with reference to in which version of elvis the icon was deprecated, and what new icon should be used instead."
+            },
+            {
+              "description": "New icons from figma has also been added to elvis and search icons had been updated!"
+            }
           ],
           "components": [],
-          "pages": ["Icons"]
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon#Overview" }]
         }
       ]
     },
@@ -833,7 +953,7 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added alignment to typography."],
+          "changes": [{ "description": "Added alignment to typography." }],
           "components": [
             { "displayName": "Typography", "url": "https://design.elvia.io/components/typography#Overview" }
           ],
@@ -848,7 +968,9 @@
         {
           "type": "new_feature",
           "changes": [
-            "The <span class=\"code-text changelog-code\">e-btn--loading</span> modifier for <span class=\"code-text changelog-code\">e-btn</span> has been updated, and can now also be applied to an icon button"
+            {
+              "description": "The <span class=\"code-text changelog-code\">e-btn--loading</span> modifier for <span class=\"code-text changelog-code\">e-btn</span> has been updated, and can now also be applied to an icon button"
+            }
           ],
           "components": [
             { "displayName": "Icon Button", "url": "https://design.elvia.io/components/header#Overview" }
@@ -864,7 +986,10 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "The header structure has changed so that the title is left aligned on desktop and tablet instead of center aligned.This require that the top menu grid changes a little and that the title is added to the first column as well.How to fix:The changes only affect the 'LOGO + APP' section.The fastest way to fix it if to search for the section called 'LOGO + APP' under the 'TOP MENU ~ DESKTOP'. Change the first div with the 'col' classes to this:<div class=\"code-text changelog-code\">&lt;div class=\"col-xs-2 col-sm-3 col-md-7 col-lg-8\"&gt;</div>Then add these two lines at the bottom inside of the same div:<div class=\"code-text changelog-code\">&lt;span class=\"e-header__top-bar-desktop__line e-mx-32\"&gt;&lt;/span&gt;<br />&lt;div class=\"e-header__top-bar-desktop__title\">TITLE&lt;/div&gt;</div>The other way is to replace the entire 'LOGO + APP' section with the examples showed in the documentation, and then add the information back where you lost it."
+            {
+              "description": "The header structure has changed so that the title is left aligned on desktop and tablet instead of center aligned.This require that the top menu grid changes a little and that the title is added to the first column as well.The fastest way to fix it if to search for the section called 'LOGO + APP' under the 'TOP MENU ~ DESKTOP'. Change the first div with the 'col' classes to this:<div class=\"code-text changelog-code\">&lt;div class=\"col-xs-2 col-sm-3 col-md-7 col-lg-8\"&gt;</div>Then add these two lines at the bottom inside of the same div:<div class=\"code-text changelog-code\">&lt;span class=\"e-header__top-bar-desktop__line e-mx-32\"&gt;&lt;/span&gt;<br />&lt;div class=\"e-header__top-bar-desktop__title\">TITLE&lt;/div&gt;</div>The other way is to replace the entire 'LOGO + APP' section with the examples showed in the documentation, and then add the information back where you lost it.</div>",
+              "fix": { "description": "The changes only affect the 'LOGO + APP' section.", "changes": [] }
+            }
           ],
           "components": [
             { "displayName": "Header", "url": "https://design.elvia.io/components/header#Overview" }
@@ -880,11 +1005,21 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "The e-popover alignements classes for left and right positions have been renamed and refactored.",
-            "<span class=\"code-text changelog-code\">e-popover--top--left</span> -> <span class=\"code-text changelog-code\">e-popover--left</span>",
-            "<span class=\"code-text changelog-code\">e-popover--bottom--left</span> -> <span class=\"code-text changelog-code\">e-popover--bottom e-popover--left</span>",
-            "<span class=\"code-text changelog-code\">e-popover--top--right</span> -> <span class=\"code-text changelog-code\">e-popover--right</span>",
-            "<span class=\"code-text changelog-code\">e-popover--bottom--right</span> -> <span class=\"code-text changelog-code\">e-popover--bottom e-popover--right</span>"
+            {
+              "description": "The e-popover alignements classes for left and right positions have been renamed and refactored."
+            },
+            {
+              "description": "<span class=\"code-text changelog-code\">e-popover--top--left</span> -> <span class=\"code-text changelog-code\">e-popover--left</span>"
+            },
+            {
+              "description": "<span class=\"code-text changelog-code\">e-popover--bottom--left</span> -> <span class=\"code-text changelog-code\">e-popover--bottom e-popover--left</span>"
+            },
+            {
+              "description": "<span class=\"code-text changelog-code\">e-popover--top--right</span> -> <span class=\"code-text changelog-code\">e-popover--right</span>"
+            },
+            {
+              "description": "<span class=\"code-text changelog-code\">e-popover--bottom--right</span> -> <span class=\"code-text changelog-code\">e-popover--bottom e-popover--right</span>"
+            }
           ],
           "components": [
             { "displayName": "Popover", "url": "https://design.elvia.io/components/popover#Overview" }
@@ -894,14 +1029,14 @@
         {
           "type": "new_feature",
           "changes": [
-            "Classes for aligning 50% to the left or right from the middle.",
-            "<span class=\"code-text changelog-code\">e-popover--left-50</span>",
-            "<span class=\"code-text changelog-code\">e-popover--right-50</span>",
-            "Classes for sizing popover smaller when is has limited space.",
-            "<span class=\"code-text changelog-code\">e-popover--w-200</span>",
-            "<span class=\"code-text changelog-code\">e-popover--w-220</span>",
-            "<span class=\"code-text changelog-code\">e-popover--w-240</span>",
-            "<span class=\"code-text changelog-code\">e-popover--w-260</span>"
+            { "description": "Classes for aligning 50% to the left or right from the middle." },
+            { "description": "<span class=\"code-text changelog-code\">e-popover--left-50</span>" },
+            { "description": "<span class=\"code-text changelog-code\">e-popover--right-50</span>" },
+            { "description": "Classes for sizing popover smaller when is has limited space." },
+            { "description": "<span class=\"code-text changelog-code\">e-popover--w-200</span>" },
+            { "description": "<span class=\"code-text changelog-code\">e-popover--w-220</span>" },
+            { "description": "<span class=\"code-text changelog-code\">e-popover--w-240</span>" },
+            { "description": "<span class=\"code-text changelog-code\">e-popover--w-260</span>" }
           ],
           "components": [
             { "displayName": "Popover", "url": "https://design.elvia.io/components/popover#Overview" }
@@ -917,9 +1052,23 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "The e-accordion__label has now been renamed to e-accordion__title. The e-accordion__label class is still available, but only in combination with the e-accordion--group modifier, and e-accordion__label is the container class for e-accordion__title and e-accordion__icon in a group accordion.",
-            "<span class=\"code-text changelog-code\">e-header</span> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile e.g. <span class=\"code-text changelog-code\">e-header__top-bar-desktop__link</span>.<div class=\"e-mt-8\">How to fix:The easiest way to fix an existing header is to search and replace the classes listed here with the new classes.<span class=\"code-text changelog-code\">e-top-bar</span> -> <span class=\"code-text changelog-code\">e-header__top-bar</span><span class=\"code-text changelog-code\">e-sidebar</span> -> <span class=\"code-text changelog-code\">e-header__sidebar</span><span class=\"code-text changelog-code\">top-bar__</span> -> <span class=\"code-text changelog-code\">top-bar-desktop__</span>",
-            "The design and structure of tables have been updated. Tables with black headers have been removed and a wrapper class has been added.How to fix:Add an element with the <span class=\"code-text changelog-code\">e-table-container</span> class outside the element with the <span class=\"code-text changelog-code\">e-table</span> class.<span class=\"code-text changelog-code\">e-table</span> -> <span class=\"code-text changelog-code\">e-table-container e-table</span>"
+            {
+              "description": "The e-accordion__label has now been renamed to e-accordion__title. The e-accordion__label class is still available, but only in combination with the e-accordion--group modifier, and e-accordion__label is the container class for e-accordion__title and e-accordion__icon in a group accordion."
+            },
+            {
+              "description": "<span class=\"code-text changelog-code\">e-header</span> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile e.g. <span class=\"code-text changelog-code\">e-header__top-bar-desktop__link</span>.<div class=\"e-mt-8\"></div><span class=\"code-text changelog-code\">e-top-bar</span> -> <span class=\"code-text changelog-code\">e-header__top-bar</span><span class=\"code-text changelog-code\">e-sidebar</span> -> <span class=\"code-text changelog-code\">e-header__sidebar</span><span class=\"code-text changelog-code\">top-bar__</span> -> <span class=\"code-text changelog-code\">top-bar-desktop__</span>",
+              "fix": {
+                "description": "The easiest way to fix an existing header is to search and replace the classes listed here with the new classes.",
+                "changes": []
+              }
+            },
+            {
+              "description": "The design and structure of tables have been updated. Tables with black headers have been removed and a wrapper class has been added.</div><span class=\"code-text changelog-code\">e-table</span> -> <span class=\"code-text changelog-code\">e-table-container e-table</span>",
+              "fix": {
+                "description": "Add an element with the <span class=\"code-text changelog-code\">e-table-container</span> class outside the element with the <span class=\"code-text changelog-code\">e-table</span> class.",
+                "changes": []
+              }
+            }
           ],
           "components": [
             { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion#Overview" },
@@ -931,7 +1080,9 @@
         {
           "type": "new_feature",
           "changes": [
-            "A class for adding footnotes to the table has been created: <span class=\"code-text changelog-code\">e-table-footnote</span>."
+            {
+              "description": "A class for adding footnotes to the table has been created: <span class=\"code-text changelog-code\">e-table-footnote</span>."
+            }
           ],
           "components": [
             { "displayName": "Table", "url": "https://design.elvia.io/components/table#Overview" }
@@ -947,7 +1098,9 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "Some of the typography has new font-sizes and line-heights. The changes will affect the appearance of the typography where it is used and may need to be updated. Some components we offer have also changed typography which means some minor visual differences to these components."
+            {
+              "description": "Some of the typography has new font-sizes and line-heights. The changes will affect the appearance of the typography where it is used and may need to be updated. Some components we offer have also changed typography which means some minor visual differences to these components."
+            }
           ],
           "components": [
             { "displayName": "Cards", "url": "https://design.elvia.io/components/card#Overview" },
@@ -960,7 +1113,9 @@
         {
           "type": "new_feature",
           "changes": [
-            "A new smaller title has been added: <span class=\"code-text changelog-code\">e-title-xs</span>."
+            {
+              "description": "A new smaller title has been added: <span class=\"code-text changelog-code\">e-title-xs</span>."
+            }
           ],
           "components": [
             { "displayName": "Typography", "url": "https://design.elvia.io/components/typography#Overview" }
@@ -976,7 +1131,13 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "All <span class=\"code-text changelog-code\">---visible</span> classes for modal and popover components are removed. New utility classes are added instead for showing and hiding elements. If you are using the modal or popover components you now have to use the new utility classes for hiding and showing. Theses components are by default now always visible.<div class=\"e-mt-8\">How to fix:Add the <span class=\"code-text changelog-code\">e-none</span> or <span class=\"code-text changelog-code\">e-invisble</span> utility classes to toggle the components.<span class=\"code-text changelog-code\">e-component---visible</span> -> <span class=\"code-text changelog-code\">e-none</span> & <span class=\"code-text changelog-code\">e-invisible</span></div>"
+            {
+              "description": "All <span class=\"code-text changelog-code\">---visible</span> classes for modal and popover components are removed. New utility classes are added instead for showing and hiding elements. If you are using the modal or popover components you now have to use the new utility classes for hiding and showing. Theses components are by default now always visible.<div class=\"e-mt-8\"></div><span class=\"code-text changelog-code\">e-component---visible</span> -> <span class=\"code-text changelog-code\">e-none</span> & <span class=\"code-text changelog-code\">e-invisible</span></div>",
+              "fix": {
+                "description": "Add the <span class=\"code-text changelog-code\">e-none</span> or <span class=\"code-text changelog-code\">e-invisble</span> utility classes to toggle the components.",
+                "changes": []
+              }
+            }
           ],
           "components": [
             { "displayName": "Modal", "url": "https://design.elvia.io/components/modal#Overview" },
@@ -986,9 +1147,9 @@
         },
         {
           "type": "new_feature",
-          "changes": ["New utility classes have been added."],
+          "changes": [{ "description": "New utility classes have been added." }],
           "components": [],
-          "pages": ["Utility classes"]
+          "pages": [{ "displayName": "Utility classes", "url": "https://design.elvia.io/brand/utilities" }]
         }
       ]
     },
@@ -999,18 +1160,22 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "If you are using the grid-classes some might have to be updated to work as usual. The classes that have changed / been added:<span class=\"code-text changelog-code\">e-grid-margin</span> -> <span class=\"code-text changelog-code\">e-grid-margin-ext</span> + <span class=\"code-text changelog-code\">e-grid-margin-int</span><span class=\"code-text changelog-code\">e-custom-gutters</span> -> <span class=\"code-text changelog-code\">e-grid-gutters-ext</span> +<span class=\"code-text changelog-code\">e-grid-gutters-int</span> + <span class=\"code-text changelog-code\">e-grid-gutters-vertical</span>@"
+            {
+              "description": "If you are using the grid-classes some might have to be updated to work as usual. The classes that have changed / been added:<span class=\"code-text changelog-code\">e-grid-margin</span> -> <span class=\"code-text changelog-code\">e-grid-margin-ext</span> + <span class=\"code-text changelog-code\">e-grid-margin-int</span><span class=\"code-text changelog-code\">e-custom-gutters</span> -> <span class=\"code-text changelog-code\">e-grid-gutters-ext</span> +<span class=\"code-text changelog-code\">e-grid-gutters-int</span> + <span class=\"code-text changelog-code\">e-grid-gutters-vertical</span>@"
+            }
           ],
           "components": [],
-          "pages": ["Grid"]
+          "pages": [{ "displayName": "Grid", "url": "https://design.elvia.io/brand/grid#Overview" }]
         },
         {
           "type": "new_feature",
           "changes": [
-            "New classes have been added for the internal-systems as well as classes for vertical gutters."
+            {
+              "description": "New classes have been added for the internal-systems as well as classes for vertical gutters."
+            }
           ],
           "components": [],
-          "pages": ["Grid"]
+          "pages": [{ "displayName": "Grid", "url": "https://design.elvia.io/brand/grid#Overview" }]
         }
       ]
     },
@@ -1021,7 +1186,13 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "Switched from @import to @use. The @use rule is the primary replacement for @import, which will be deprecated in near future (2022 latest). @use is currently not supported by the node-sass compiler. Dart-sass is the primary implementation of Sass and do support the use of @use. Read more about the advantages of @use here:<a class=\"e-link e-link--inline\" href=\"https://sass-lang.com/blog/the-module-system-is-launched\">Sass module system</a><div class=\"e-mt-8\">How to fix:If you are using our stylesheets directly and your sass-compiler do not support the use of @use you will have to migrate as well.</div>"
+            {
+              "description": "Switched from @import to @use. The @use rule is the primary replacement for @import, which will be deprecated in near future (2022 latest). @use is currently not supported by the node-sass compiler. Dart-sass is the primary implementation of Sass and do support the use of @use. Read more about the advantages of @use here:<a class=\"e-link e-link--inline\" href=\"https://sass-lang.com/blog/the-module-system-is-launched\">Sass module system</a><div class=\"e-mt-8\"></div></div>",
+              "fix": {
+                "description": "If you are using our stylesheets directly and your sass-compiler do not support the use of @use you will have to migrate as well.",
+                "changes": []
+              }
+            }
           ],
           "components": [],
           "pages": []
@@ -1035,7 +1206,9 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "Switched from node-sass compiler to dart-sass compiler. Dart-sass is the primary implementation of Sass, which means it gets new features before any other implementation and at current time node-sass do not support the use of @use, which is the module system replacing @import. This might not affect you as a user."
+            {
+              "description": "Switched from node-sass compiler to dart-sass compiler. Dart-sass is the primary implementation of Sass, which means it gets new features before any other implementation and at current time node-sass do not support the use of @use, which is the module system replacing @import. This might not affect you as a user."
+            }
           ],
           "components": [],
           "pages": []
@@ -1049,10 +1222,12 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "Major renaming of icons. All icons now follow the correct and desired naming scheme for a maintainable library. Icon names have changed, so some references should be expected to now be broken"
+            {
+              "description": "Major renaming of icons. All icons now follow the correct and desired naming scheme for a maintainable library. Icon names have changed, so some references should be expected to now be broken"
+            }
           ],
           "components": [],
-          "pages": ["Icons"]
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon#Overview" }]
         }
       ]
     },
@@ -1063,7 +1238,9 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "In this update icons are injected as background-images again on the 'i' tags with <span class=\"code-text changelog-code\">e-icon</span> classes. We do not think this will have a large impact on how to use icons."
+            {
+              "description": "In this update icons are injected as background-images again on the 'i' tags with <span class=\"code-text changelog-code\">e-icon</span> classes. We do not think this will have a large impact on how to use icons."
+            }
           ],
           "components": [],
           "pages": []
@@ -1077,7 +1254,9 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "In this update we provided a solution for icons changing colors on hover. This affected buttons particularly. The structure of a button with icon was changed."
+            {
+              "description": "In this update we provided a solution for icons changing colors on hover. This affected buttons particularly. The structure of a button with icon was changed."
+            }
           ],
           "components": [
             { "displayName": "Buttons", "url": "https://design.elvia.io/components/button#Overview" }
@@ -1093,7 +1272,9 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "In this update outline was changes to work on IE11 and Firefox. The input field structure had to be updated because of the outline changes."
+            {
+              "description": "In this update outline was changes to work on IE11 and Firefox. The input field structure had to be updated because of the outline changes."
+            }
           ],
           "components": [
             { "displayName": "Inputs", "url": "https://design.elvia.io/components/input#Overview" }
