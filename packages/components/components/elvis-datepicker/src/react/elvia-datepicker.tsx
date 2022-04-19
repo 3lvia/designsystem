@@ -431,8 +431,8 @@ export const Datepicker: FC<DatepickerProps> = ({
             rifmFormatter={getDateFormat}
             disabled={isDisabled === true}
             fullWidth={isFullWidth === true}
-            minDate={minDate}
-            maxDate={maxDate}
+            minDate={minDate ? minDate : undefined}
+            maxDate={maxDate ? maxDate : undefined}
             onChange={handleDateChange}
             onFocus={onFocus}
             open={isDatepickerOpen}

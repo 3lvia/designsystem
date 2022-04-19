@@ -273,7 +273,12 @@ gulp.task(
 
 gulp.task('watch', function () {
   gulp.watch(
-    ['../components/*/src/**/*', '../elvia-components.config.js', './validateConfig.js'],
+    [
+      '../components/*/src/**/*',
+      '../elvia-components.config.js',
+      './validateConfig.js',
+      '../components/*/CHANGELOG.json',
+    ],
     { ignoreInitial: false },
     gulp.series(
       validate.validateElviaComponentsConfig,

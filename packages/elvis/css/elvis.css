@@ -3720,6 +3720,7 @@ input:focus {
   box-sizing: border-box;
   border-bottom: 2px solid #000;
   cursor: pointer;
+  font-family: "Red Hat Display", Verdana, sans-serif;
   color: #000;
   text-align: inherit;
   position: relative;
@@ -6345,6 +6346,20 @@ input:focus {
   border-bottom: 1px solid #e9e9e9;
 }
 
+.e-table-mobile tr.e-table-mobile__checkbox.e-table-mobile__checkbox--selected, .e-table .e-table__checkbox.e-table__checkbox--selected {
+  position: relative;
+}
+.e-table-mobile tr.e-table-mobile__checkbox.e-table-mobile__checkbox--selected::after, .e-table .e-table__checkbox.e-table__checkbox--selected::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 4px;
+  right: 0;
+  top: 0;
+  background: #29d305;
+  border-radius: 4px 0 0 4px;
+}
+
 .e-table-container {
   width: 100%;
   overflow: auto;
@@ -6370,7 +6385,6 @@ input:focus {
   text-align: left;
   width: 100%;
   box-sizing: border-box;
-  background: #fff;
   white-space: nowrap;
   border-collapse: separate;
   border-spacing: 0;
@@ -6410,6 +6424,7 @@ input:focus {
   color: inherit;
   text-align: left;
   padding: 10px 16px;
+  background: #fff;
 }
 .e-table td.e-table__cell--multiline,
 .e-table th.e-table__cell--multiline {
@@ -6426,7 +6441,8 @@ input:focus {
   width: 250px;
   height: auto;
 }
-.e-table tbody tr:nth-of-type(odd) {
+.e-table tbody tr:nth-of-type(odd) th,
+.e-table tbody tr:nth-of-type(odd) td {
   background: #f4f4f4;
 }
 .e-table.e-table--no-stripes tbody tr:nth-of-type(odd) {
@@ -6448,6 +6464,23 @@ input:focus {
   padding: 9px 16px;
   line-height: 21px;
 }
+.e-table.e-table--sticky-header thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.e-table.e-table--sticky-column-header thead th:first-of-type,
+.e-table.e-table--sticky-column-header th[scope=row] {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  border-right: 1px solid #e9e9e9;
+}
+
+.e-table-container .e-table-mobile {
+  box-shadow: none;
+}
+
 .e-table-mobile {
   display: table;
   table-layout: auto;
@@ -6457,6 +6490,7 @@ input:focus {
   border-spacing: 0;
   box-shadow: 0 0 0 1px #e9e9e9;
   background: #fff;
+  position: relative;
 }
 .e-table-mobile thead tr {
   height: 56px;
@@ -6556,6 +6590,18 @@ input:focus {
   text-transform: unset;
   color: inherit;
 }
+.e-table-mobile.e-table-mobile--sticky-header {
+  overflow: auto;
+}
+.e-table-mobile.e-table-mobile--sticky-header tbody {
+  position: relative;
+}
+.e-table-mobile.e-table-mobile--sticky-header tbody tr:first-of-type {
+  position: sticky;
+  z-index: 10;
+  top: 0px;
+}
+
 .e-table .e-text-mono,
 .e-table-mobile .e-text-mono {
   font-family: "Red Hat Mono", Verdana, sans-serif !important;
@@ -6640,22 +6686,6 @@ input:focus {
 .e-table-mobile tr.e-table-mobile__checkbox th:first-of-type .e-checkbox,
 .e-table-mobile tr.e-table-mobile__checkbox td:first-of-type .e-checkbox {
   margin-right: 10px;
-}
-
-.e-table .e-table__checkbox.e-table__checkbox--selected th:last-of-type,
-.e-table-mobile tr.e-table-mobile__checkbox.e-table-mobile__checkbox--selected th:last-of-type {
-  position: relative;
-}
-.e-table .e-table__checkbox.e-table__checkbox--selected th:last-of-type::before,
-.e-table-mobile tr.e-table-mobile__checkbox.e-table-mobile__checkbox--selected th:last-of-type::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 4px;
-  right: 0;
-  top: 0;
-  background: #29d305;
-  border-radius: 4px 0 0 4px;
 }
 
 .e-table .e-table__select .e-link__icon {
