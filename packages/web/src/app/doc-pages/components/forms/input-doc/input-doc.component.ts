@@ -121,6 +121,14 @@ showMockPassword() {
 </div>
 `;
 
+  exampleOptional = `<div class="e-form-field">
+  <label class="e-form-field__label e-form-field__label--optional" for="normal">Label</label>
+  <div class="e-input">
+    <input id="normal" type="text" placeholder="Placeholder text" />
+  </div>
+</div>
+`;
+
   exampleIcon = ` <div class="e-form-field">
   <label class="e-form-field__label" for="iconExample">Password</label>
   <div class="e-input">
