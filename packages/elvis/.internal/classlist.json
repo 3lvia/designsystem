@@ -819,19 +819,19 @@
 			}
 		},
 		"e-table-mobile": {
-			"modifier": {
-				"e-table-mobile--compact": {},
-				"e-table-mobile--sticky-header": {}
-			},
 			"element": {
-				"e-table-mobile__input": {},
-				"e-table-mobile__button": {},
 				"e-table-mobile__checkbox": {
 					"modifier": {
 						"e-table-mobile__checkbox--selected": {}
 					}
 				},
+				"e-table-mobile__input": {},
+				"e-table-mobile__button": {},
 				"e-table-mobile__select": {}
+			},
+			"modifier": {
+				"e-table-mobile--compact": {},
+				"e-table-mobile--sticky-header": {}
 			}
 		},
 		"e-table": {
@@ -841,10 +841,12 @@
 				"e-table--sticky-header": {},
 				"e-table--sticky-column-header": {}
 			},
-			"container": {
-				"e-table-container": {}
-			},
 			"element": {
+				"e-table__checkbox": {
+					"modifier": {
+						"e-table__checkbox--selected": {}
+					}
+				},
 				"e-table__footnote": {
 					"modifier": {
 						"e-table__footnote--compact": {}
@@ -859,11 +861,6 @@
 				},
 				"e-table__input": {},
 				"e-table__button": {},
-				"e-table__checkbox": {
-					"modifier": {
-						"e-table__checkbox--selected": {}
-					}
-				},
 				"e-table__select": {},
 				"e-table__sort-header": {},
 				"e-table__sort-icon": {
@@ -872,6 +869,9 @@
 						"e-table__sort-icon--inactive": {}
 					}
 				}
+			},
+			"container": {
+				"e-table-container": {}
 			}
 		},
 		"e-table-footnote": {},
@@ -982,13 +982,6 @@
 			}
 		},
 		"e-border-none": {},
-		"e-border": {},
-		"e-border-t": {},
-		"e-border-b": {},
-		"e-border-l": {},
-		"e-border-r": {},
-		"e-br-4": {},
-		"e-br-8": {},
 		"e-grid-gutters-ext": {},
 		"e-grid-gutters-vertical": {},
 		"e-grid-gutters-int": {},
@@ -1037,13 +1030,30 @@
 		"e-invisible-lg": {},
 		"e-invisible-md": {},
 		"e-invisible-sm": {},
+		"e-hide": {},
 		"e-uppercase": {},
 		"e-lowercase": {},
 		"e-capitalize": {},
 		"e-w-100": {},
 		"e-w-75": {},
 		"e-w-50": {},
-		"e-w-25": {}
+		"e-w-25": {},
+		"e-w-0": {},
+		"e-h-100": {},
+		"e-h-75": {},
+		"e-h-50": {},
+		"e-h-25": {},
+		"e-h-0": {},
+		"e-strip-fieldset": {},
+		"e-flex": {},
+		"e-flex-direction-column": {},
+		"e-flex-direction-row": {},
+		"e-justify-content-center": {},
+		"e-justify-content-start": {},
+		"e-justify-content-end": {},
+		"e-align-items-center": {},
+		"e-align-items-start": {},
+		"e-align-items-end": {}
 	},
 	"flat": {
 		"e-icon": {},
@@ -1693,6 +1703,10 @@
 		"e-table-mobile": {},
 		"e-table": {},
 		"e-table--compact": {},
+		"e-table-mobile__checkbox": {},
+		"e-table-mobile__checkbox--selected": {},
+		"e-table__checkbox": {},
+		"e-table__checkbox--selected": {},
 		"e-table-container": {},
 		"e-table-footnote": {},
 		"e-table__footnote": {},
@@ -1710,11 +1724,7 @@
 		"e-table-mobile__input": {},
 		"e-table__button": {},
 		"e-table-mobile__button": {},
-		"e-table__checkbox": {},
 		"e-checkbox": {},
-		"e-table-mobile__checkbox": {},
-		"e-table__checkbox--selected": {},
-		"e-table-mobile__checkbox--selected": {},
 		"e-table__select": {},
 		"e-table-mobile__select": {},
 		"e-table__sort-header": {},
@@ -1789,13 +1799,6 @@
 		"e-segmented-controls--lg": {},
 		"e-segmented-controls--sm": {},
 		"e-border-none": {},
-		"e-border": {},
-		"e-border-t": {},
-		"e-border-b": {},
-		"e-border-l": {},
-		"e-border-r": {},
-		"e-br-4": {},
-		"e-br-8": {},
 		"e-grid-gutters-ext": {},
 		"e-grid-gutters-vertical": {},
 		"e-grid-gutters-int": {},
@@ -1844,12 +1847,29 @@
 		"e-invisible-lg": {},
 		"e-invisible-md": {},
 		"e-invisible-sm": {},
+		"e-hide": {},
 		"e-uppercase": {},
 		"e-lowercase": {},
 		"e-capitalize": {},
 		"e-w-100": {},
 		"e-w-75": {},
 		"e-w-50": {},
-		"e-w-25": {}
+		"e-w-25": {},
+		"e-w-0": {},
+		"e-h-100": {},
+		"e-h-75": {},
+		"e-h-50": {},
+		"e-h-25": {},
+		"e-h-0": {},
+		"e-strip-fieldset": {},
+		"e-flex": {},
+		"e-flex-direction-column": {},
+		"e-flex-direction-row": {},
+		"e-justify-content-center": {},
+		"e-justify-content-start": {},
+		"e-justify-content-end": {},
+		"e-align-items-center": {},
+		"e-align-items-start": {},
+		"e-align-items-end": {}
 	}
 }

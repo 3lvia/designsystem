@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { dropdownData } from './dropdown-data';
 import { exampleContents } from 'src/app/shared/example-contents';
+import { dropdownIconsCode } from './dropdown-icons-code';
 
 @Component({
   selector: 'app-dropdown-doc',
@@ -15,6 +16,8 @@ export class DropdownDocComponent {
   donts = dropdownData.donts;
   figmaUrl = getComponent('dropdown').figmaUrl;
   description = getComponent('dropdown').description;
+
+  dropdownIconsCode = dropdownIconsCode;
 
   isCompact = true;
   isDisabled = true;

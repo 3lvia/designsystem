@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "12.04.22",
+      "version": "2.4.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Now possible to add icon in the options object to display icons in the dropdown options. Note that you need to pass icons to all objects in the options array to display icons."
+          ]
+        }
+      ]
+    },
+    {
       "date": "07.04.22",
       "version": "2.3.0 ",
       "changelog": [

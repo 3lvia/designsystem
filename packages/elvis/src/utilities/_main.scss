@@ -1,5 +1,5 @@
 @use 'animations';
-@use 'borders';
+@use 'border';
 @use 'breakpoints';
 @use 'colors';
 @use 'grid';
@@ -14,3 +14,5 @@
 @use 'visibility';
 @use 'text-transform';
 @use 'sizing';
+@use 'strip';
+@use 'flex';

@@ -10,6 +10,34 @@
 <div class="page-body">
   <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
+  <!--OPTIONS-->
+  <app-component-section [sectionTitle]="'Options'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Icons'">
+        <ng-container ngProjectAs="sectionContent">
+          <div>
+            It's possible to display icons in the dropdown. Simply add a key value pair of
+            <code class="code-text">icon: IconName</code>
+            to the dropdown options to create icons aligned on the left side of the label text.
+          </div>
+          <div class="e-mt-16">
+            Note that to display icons, all options need to have an icon attribute. Remember to pass icon
+            names as camelcase, as under the hood we use the icon component to display icons within the
+            dropdown component,
+            <a class="e-link e-link--inline" [routerLink]="['/brand/icon']" [fragment]="'Implementation'">
+              click here
+            </a>
+            for more information on the icon component
+          </div>
+          <app-component-example-generator
+            [componentData]="dropdownIconsCode"
+            [inlineExample]="true"
+          ></app-component-example-generator>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
