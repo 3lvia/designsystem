@@ -2,10 +2,21 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "19.04.22",
+      "version": "1.2.4 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added correct role and aria tags for accessibility improvements."]
+        }
+      ]
+    },
+    {
       "date": "23.03.22",
       "version": "1.2.3 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": [
             "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
           ]
@@ -47,6 +58,7 @@
       "version": "1.1.7 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Updated dependencies"]
         }
       ]
@@ -96,6 +108,7 @@
       "version": "1.1.2 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Web component wrapper fix"]
         }
       ]
