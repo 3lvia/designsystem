@@ -1,9 +1,9 @@
 const dropdownIconsCode = {
   codeReact: `<Dropdown 
   options={[
-    { value: 'renewableEnergy', label: 'Powerline', icon: 'powerline' },
-    { value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' },
-    { value: 'Calendar', label: 'Cable', icon: 'cable' },
+    { value: 'Powerline', label: 'Powerline', icon: 'powerline' },
+    { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
+    { value: 'Cable', label: 'Cable', icon: 'cable' },
   ]} 
   defaultValue={{ value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' }}
   label={"Label"}
@@ -13,9 +13,9 @@ const dropdownIconsCode = {
 `,
   codeAngular: `<elvia-dropdown
   [options]="[
-    { value: 'renewableEnergy', label: 'Powerline', icon: 'powerline' },
-    { value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' },
-    { value: 'Calendar', label: 'Cable', icon: 'cable' },
+    { value: 'Powerline', label: 'Powerline', icon: 'powerline' },
+    { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
+    { value: 'Cable', label: 'Cable', icon: 'cable' },
   ]"
   [defaultValue]="{ value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' }"
   [label]="'Label'"
@@ -25,9 +25,9 @@ const dropdownIconsCode = {
 `,
   codeVue: `<elvia-dropdown
   :options="[
-    { value: 'renewableEnergy', label: 'Powerline', icon: 'powerline' },
-    { value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' },
-    { value: 'Calendar', label: 'Cable', icon: 'cable' },
+    { value: 'Powerline', label: 'Powerline', icon: 'powerline' },
+    { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
+    { value: 'Cable', label: 'Cable', icon: 'cable' },
   ]"
   :defaultValue="{ value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' }"
   :label="'Label'"
@@ -41,9 +41,9 @@ const dropdownIconsCode = {
 
   codeNativeScript: `  const dropdown = document.getElementById('example-elvia-dropdown-icons');
   const options = [
-    { value: 'renewableEnergy', label: 'Powerline', icon: 'powerline' },
-    { value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' },
-    { value: 'Calendar', label: 'Cable', icon: 'cable' },
+    { value: 'Powerline', label: 'Powerline', icon: 'powerline' },
+    { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
+    { value: 'Cable', label: 'Cable', icon: 'cable' },
   ];
   dropdown.setProps({label: 'Label' });
   dropdown.setProps({placeholder: 'Placeholder' });

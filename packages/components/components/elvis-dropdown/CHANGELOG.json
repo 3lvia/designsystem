@@ -10,10 +10,6 @@
           "changes": [
             "Now possible to add icon in the options object to display icons in the dropdown options. Note that you need to pass icons to all objects in the options array to display icons."
           ]
-        },
-        {
-          "type": "patch",
-          "changes": ["Now using elvis-colors package for all colors."]
         }
       ]
     },

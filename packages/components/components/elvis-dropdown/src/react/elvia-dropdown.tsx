@@ -296,13 +296,12 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   // helper function to determine if options array have valid icon attributes.
   const allOptionsHaveIconAttribute = (): boolean => {
-    let validIcons = true;
-    options.forEach((dropdownOption) => {
+    for (const dropdownOption of options) {
       if (dropdownOption.icon === undefined) {
-        validIcons = false;
+        return false;
       }
-    });
-    return validIcons;
+    }
+    return true;
   };
 
   // Custom components for Elvia dropdown
@@ -322,7 +321,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     if (!isMulti) {
       return (
         <components.Option {...props}>
-          {(props.data as DropdownOption).icon && allOptionsHaveIconAttribute() ? (
+          {allOptionsHaveIconAttribute() ? (
             <Icon
               inlineStyle={{ marginRight: '16px' }}
               name={(props.data as DropdownOption).icon}
@@ -395,7 +394,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const ElviaSingleValue = (props: SingleValueProps) => {
     return (
       <components.SingleValue {...props}>
-        {(props.data as DropdownOption).icon && allOptionsHaveIconAttribute() ? (
+        {allOptionsHaveIconAttribute() ? (
           <Icon
             inlineStyle={{ marginRight: '16px' }}
             name={(props.data as DropdownOption).icon}
