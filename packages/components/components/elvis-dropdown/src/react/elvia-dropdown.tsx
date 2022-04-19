@@ -5,6 +5,7 @@ import Select, {
   MultiValueProps,
   OptionProps,
   PlaceholderProps,
+  SingleValueProps,
   StylesConfig,
 } from 'react-select';
 import toolbox from '@elvia/elvis-toolbox';
@@ -27,6 +28,7 @@ export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 export interface DropdownOption {
   value: string;
   label: string;
+  icon?: string;
 }
 
 export interface DropdownProps {
@@ -221,10 +223,12 @@ const Dropdown: React.FC<DropdownProps> = ({
     option: (provided, state) => ({
       ...provided,
       display: 'flex',
-      alignContent: 'center',
+      alignItems: 'center',
       backgroundColor: decideOptionBg(state.isFocused, state.isSelected, state.isMulti),
       color: getColor('black'),
       height: isCompact ? '36px' : '48px',
+      paddingTop: '7px',
+      paddingBottom: '7px',
       paddingLeft: isCompact ? '9px' : '15px',
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: isCompact ? '18px' : '30px',
@@ -273,6 +277,8 @@ const Dropdown: React.FC<DropdownProps> = ({
       color: decideSingleValueColor(menuIsOpen, isSearchable, isDisabled),
       margin: '0px',
       maxWidth: 'calc(100% - 12px)',
+      display: 'flex',
+      alignItems: 'center',
     }),
 
     valueContainer: (provided, state) => ({
@@ -286,6 +292,16 @@ const Dropdown: React.FC<DropdownProps> = ({
       lineHeight: '22px',
       paddingLeft: isCompact ? '8px' : '15px',
     }),
+  };
+
+  // helper function to determine if options array have valid icon attributes.
+  const allOptionsHaveIconAttribute = (): boolean => {
+    for (const dropdownOption of options) {
+      if (dropdownOption.icon === undefined) {
+        return false;
+      }
+    }
+    return true;
   };
 
   // Custom components for Elvia dropdown
@@ -303,7 +319,20 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const ElviaOption = (props: OptionProps) => {
     if (!isMulti) {
-      return <components.Option {...props}>{props.children}</components.Option>;
+      return (
+        <components.Option {...props}>
+          {allOptionsHaveIconAttribute() ? (
+            <Icon
+              inlineStyle={{ marginRight: '16px' }}
+              name={(props.data as DropdownOption).icon}
+              size={isCompact ? 'xs' : 'sm'}
+            />
+          ) : (
+            ''
+          )}
+          {props.children}
+        </components.Option>
+      );
     }
     const isSelectAllWithPartialSelected =
       hasSelectAllOption &&
@@ -362,6 +391,23 @@ const Dropdown: React.FC<DropdownProps> = ({
     return <components.Placeholder {...props}>{props.children}</components.Placeholder>;
   };
 
+  const ElviaSingleValue = (props: SingleValueProps) => {
+    return (
+      <components.SingleValue {...props}>
+        {allOptionsHaveIconAttribute() ? (
+          <Icon
+            inlineStyle={{ marginRight: '16px' }}
+            name={(props.data as DropdownOption).icon}
+            size={isCompact ? 'xs' : 'sm'}
+          />
+        ) : (
+          ''
+        )}
+        {props.children}
+      </components.SingleValue>
+    );
+  };
+
   /** Object containing all components overriden in react-select by Elvis dropdown */
   const overrideComponents = {
     DropdownIndicator: ElviaDropdownIndicator,
@@ -371,6 +417,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     MultiValue: ElviaMultiValue,
     MultiValueRemove: () => null,
     Placeholder: ElviaPlaceholder,
+    SingleValue: ElviaSingleValue,
   };
 
   // handle focus on dropdown, running on first render only (on mount)
