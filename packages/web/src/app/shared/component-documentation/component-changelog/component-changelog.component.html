@@ -47,7 +47,7 @@
               <p [innerHTML]="change.description">{{ change }}</p>
               <ng-container *ngIf="change.fix">
                 <strong>How to fix</strong>
-                <p>{{ change.fix.description }}</p>
+                <p [innerHTML]="change.fix.description">{{ change.fix.description }}</p>
                 <ul>
                   <li *ngFor="let fix of change.fix.changes">test</li>
                 </ul>

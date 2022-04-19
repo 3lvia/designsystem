@@ -240,21 +240,21 @@
               <strong>How to fix</strong>: 
               <div class="how-to-fix-description">
                 Check where you are using segmented controls and update the sizes to the correct new size. If you have no specified size add <span class="code-text">e-segmented-controls--lg</span> and if you have the small size specified (<span class="code-text">e-segmented-controls--sm</span>) just remove the specification to receive medium size instead.
-              </div>
+              </div end>
             </li>
             <li>
               Title xs on mobiles has been updated font-size from 18px -> 16px. This is done so that the difference between title sm and xs i more distinct. 
               <strong>How to fix</strong>: 
               <div class="how-to-fix-description">
                 You should not have to change anything here, just be aware that title-xs is smaller.
-              </div>
+              </div end>
             </li>
             <li>
               Toggle has updated structure and now includes label and role. This is done for better accessibility.
               <strong>How to fix</strong>:
               <div class="how-to-fix-description">
                Replace the old structure for all your toggles with the structure in the <a class="e-link e-link--inline" href="https://design.elvia.io/components/toggle#Overview">examples</a>.
-              </div>
+              </div end>
             </li>
           </ul>
         </div>
@@ -595,7 +595,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/header#Overview">Header</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Header</a>
           </div>
           <ul class="e-list">
             <li>
@@ -620,7 +620,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/checkbox#Overview">Checkbox</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/checkbox#Overview">Checkbox</a>
           </div>
           <ul class="e-list">
             <li>
@@ -645,7 +645,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/list#Overview">Lists</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/list#Overview">Lists</a>
           </div>
           <ul class="e-list">
             <li>
@@ -670,7 +670,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Feature</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://design.elvia.io/brand/icons#Overview">icons</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icons#Overview">icons</a>
           </div>
           <ul class="e-list">
             <li>
@@ -695,11 +695,11 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/radiobutton#Overview">Radiobutton</a>,
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/segmented-control#Overview">Segmented Control</a>,
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/fileUpload#Overview">file Upload</a>,
-            <a class="e-link e-link--inline" href="http://design.elvia.io/brand/typography#Overview">Typography</a> &
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/position-picker#Overview">Position Picker</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/radiobutton#Overview">Radiobutton</a>,
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/segmented-control#Overview">Segmented Control</a>,
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/fileUpload#Overview">file Upload</a>,
+            <a class="e-link e-link--inline" href="https://design.elvia.io/brand/typography#Overview">Typography</a> &
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/position-picker#Overview">Position Picker</a>
           </div>
           <ul class="e-list">
             <li>
@@ -736,7 +736,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/search#Overview">Search</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/search#Overview">Search</a>
           </div>
           <ul class="e-list">
             <li>
@@ -761,7 +761,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/content-loader#Overview">Content loader</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/content-loader#Overview">Content loader</a>
           </div>
           <ul class="e-list">
             <li>
@@ -786,7 +786,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Feature</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://design.elvia.io/brand/icons#Overview">Icons</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icons#Overview">Icons</a>
           </div>
           <ul class="e-list">
             <li>
@@ -811,7 +811,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Feature</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/accordion#Overview">Accordion</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
           </div>
           <ul class="e-list">
             <li>
@@ -822,7 +822,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/accordion#Overview">Modal</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Modal</a>
           </div>
           <ul class="e-list">
             <li>
@@ -847,7 +847,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/accordion#Overview">Accordion</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
           </div>
           <ul class="e-list">
             <li>
@@ -872,7 +872,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/fileUpload#Overview">File Upload</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/fileUpload#Overview">File Upload</a>
           </div>
           <ul class="e-list">
             <li>
@@ -1292,34 +1292,32 @@
         <ul class="e-list">
           <li>
             Documentation on links is updated and usage of different links made clearer. Breaking changes are; Forward links should be replaced by action links, back links should be replaced and now uses the --back modifier, and jumbo links uses a new icon.
+            <div>
+              How to fix:
+              <div class="how-to-fix-description">
+                  <ul class="e-list">
+                    <li>
+                        Jumbo links can be fixed by just changing <span class="code-text">e-icon--arrow_right-bold</span> to <span class="code-text">e-icon--arrow_long_right-bold</span>. 
+                    </li>
+                    <li>                                For back and forward links read the documentation with examples to replace these.</li>
+                  </ul>
+              </div end>
+            </div>
           </li>
           <li>
             Typography now has no specified text-align except those with text-align center. All components now also include left-alignment inside the component itself.
           </li>
           <li>
-          <span class="code-text">e-search--local</span> have been replaced by two new search variants; <span class="code-text">e-search--instant</span> & <span class="code-text">e-search--on-submit</span>.
-          The class <span class="code-text">e-search--global</span> has also been removed and is no longer supported in Elvis. 
-          </li>
-        </ul>
-      </div>
-      <div class="changelog-section">
-      <div class="e-mt-8">
-          How to fix:
-          <ul class="e-list">
-          <li>
-            Jumbo links can be fixed by just changing <span class="code-text">e-icon--arrow_right-bold</span> to <span class="code-text">e-icon--arrow_long_right-bold</span>. 
-          </li>
-          <li>
-            For back and forward links read the documentation with examples to replace these.
-          </li>
-          <li>
-            Typography should fix itself where there were problems with the previous change. Otherwise this change should not change any layout behavior.
-          </li>
-          <li>
             Search classes must be replaced by the new classes, see documentation for examples. 
+              <div>
+              How to fix:
+              <div class="how-to-fix-description">
+                    <span class="code-text">e-search--local</span> have been replaced by two new search variants; <span class="code-text">e-search--instant</span> & <span class="code-text">e-search--on-submit</span>.
+          The class <span class="code-text">e-search--global</span> has also been removed and is no longer supported in Elvis. 
+              </div end>
+            </div>
           </li>
         </ul>
-        </div>
       </div>
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
@@ -1480,7 +1478,7 @@
               How to fix:
               <div class="how-to-fix-description">
                 The changes only affect icon used to display a search bar. The only thing needed to fix this is to replace the <span class="code-text">e-icon--search-bold</span> icon with the new  <span class="code-text">e-icon--search-color</span>
-              </div>
+              </div end>
             </div>
           </li>
         </ul>
@@ -1600,7 +1598,7 @@
                     </div>
                 
                     The other way is to replace the entire 'LOGO + APP' section with the examples showed in the documentation, and then add the information back where you lost it.
-              </div>
+              </div end>
          
           </li>
         </ul>
@@ -1624,11 +1622,11 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover#Overview">Popover</a>
         </div>
         <ul class="e-list">
-          <li>
-          The e-popover alignements classes for left and right positions have been renamed and refactored.
-          </li>
-              <div class="e-mt-8">
-            How to fix:
+            <li>
+            The e-popover alignements classes for left and right positions have been renamed and refactored.
+             How to fix:
+           <div class="how-to-fix-description">
+             <ul>
               <li>
                 <span class="code-text changelog-code">e-popover--top--left</span> -> <span class="code-text changelog-code">e-popover--left</span>
               </li>
@@ -1641,7 +1639,10 @@
               <li>
                 <span class="code-text changelog-code">e-popover--bottom--right</span> -> <span class="code-text changelog-code">e-popover--bottom e-popover--right</span>
               </li>
-              </ul>
+            </ul>
+           </div end>
+            </li>
+          </ul>
           </div>
         </div>
       <div class="changelog-section">
@@ -1653,28 +1654,33 @@
             <ul class="e-list">
               <li>
               Classes for aligning 50% to the left or right from the middle.
+                <ul class="e-list">
+                   <li sdsd>
+                      <span class="code-text changelog-code">e-popover--left-50</span>
+                    </li sdsd>
+                    <li sdsd>
+                      <span class="code-text changelog-code">e-popover--right-50</span>
+                    </li sdsd>
+                    </ul class="test">
               </li>
             <li>
-              <span class="code-text changelog-code">e-popover--left-50</span>
-            </li>
-            <li>
-              <span class="code-text changelog-code">e-popover--right-50</span>
-            </li>
-            <li>
               Classes for sizing popover smaller when is has limited space.
+              <ul class="e-list">
+                        <li ddfdf>
+                    <span class="code-text changelog-code">e-popover--w-200</span>
+                  </li sdsd>
+                  <li dfdfdf>
+                    <span class="code-text changelog-code">e-popover--w-220</span>
+                  </li sdsd>
+                  <li dfdfdfd>
+                    <span class="code-text changelog-code">e-popover--w-240</span>
+                  </li sdsd>
+                  <li dfdfdf>
+                    <span class="code-text changelog-code">e-popover--w-260</span>
+                  </li sdsd>
+                </ul sdsd>
             </li>
-            <li>
-              <span class="code-text changelog-code">e-popover--w-200</span>
-            </li>
-            <li>
-              <span class="code-text changelog-code">e-popover--w-220</span>
-            </li>
-            <li>
-              <span class="code-text changelog-code">e-popover--w-240</span>
-            </li>
-            <li>
-              <span class="code-text changelog-code">e-popover--w-260</span>
-            </li>
+    
           </ul>
       </div>
     </td>
@@ -1709,25 +1715,37 @@
                 How to fix:
                 <div class="how-to-fix-description">
                 The easiest way to fix an existing header is to search and replace the classes listed here with the new classes.
-                </div>
-                    <span class="code-text changelog-code">e-top-bar</span> -> <span class="code-text changelog-code">e-header__top-bar</span>
-                    <span class="code-text changelog-code">e-sidebar</span> -> <span class="code-text changelog-code">e-header__sidebar</span>
-                    <span class="code-text changelog-code">top-bar__</span> -> <span class="code-text changelog-code">top-bar-desktop__</span>
+                      <ul class="e-list">
+                              <li ddfdf>
+                          <span class="code-text changelog-code">e-top-bar</span> -> <span class="code-text changelog-code">e-header__top-bar</span>
+                        </li sdsd>
+                        <li dfdfdf>
+                          <span class="code-text changelog-code">e-sidebar</span> -> <span class="code-text changelog-code">e-header__sidebar</span>
+                        </li sdsd>
+                        <li dfdfdfd>
+                          <span class="code-text changelog-code">top-bar__</span> -> <span class="code-text changelog-code">top-bar-desktop__</span>
+                        </li sdsd>
+                      </ul sdsd>
+                </div end>
                 </li>
                 <li>
                     The design and structure of tables have been updated. Tables with black headers have been removed and a wrapper class has been added.
                       How to fix:
                       <div class="how-to-fix-description">
                         Add an element with the <span class="code-text changelog-code">e-table-container</span> class outside the element with the <span class="code-text changelog-code">e-table</span> class.
-                      </div>
-                          <span class="code-text changelog-code">e-table</span> -> <span class="code-text changelog-code">e-table-container e-table</span>
+                         <ul class="e-list">
+                              <li ddfdf>
+                              <span class="code-text changelog-code">e-table</span> -> <span class="code-text changelog-code">e-table-container e-table</span>
+                            </li sdsdsd>
+                        </ul>
+                      </div end>
                 </li>
             </ul>
           </div>
         </div>
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
-           <div>Component: 
+           <div>Component:
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
         </div>
         <ul class="e-list">
@@ -1737,6 +1755,7 @@
         </ul>
       </div>
     </td>
+
   </tr>
 
   <tr class="changelog-row changelog-divider py-5">
@@ -1803,8 +1822,12 @@
               How to fix:
               <div class="how-to-fix-description">
                 Add the <span class="code-text changelog-code">e-none</span> or <span class="code-text changelog-code">e-invisble</span> utility classes to toggle the components. 
-              </div>
-                  <span class="code-text changelog-code">e-component---visible</span> -> <span class="code-text changelog-code">e-none</span> & <span class="code-text changelog-code">e-invisible</span>
+                <ul sdsd>
+                  <li sdsd>
+                    <span class="code-text changelog-code">e-component---visible</span> -> <span class="code-text changelog-code">e-none</span> & <span class="code-text changelog-code">e-invisible</span>
+                  </li sdsd>
+                </ul sdsd>
+              </div end>
             </div>
           </li>
         </ul>
@@ -1842,9 +1865,15 @@
         <ul class="e-list">
           <li>
             If you are using the grid-classes some might have to be updated to work as usual. The classes that have changed / been added:
-                <span class="code-text changelog-code">e-grid-margin</span> -> <span class="code-text changelog-code">e-grid-margin-ext</span> + <span class="code-text changelog-code">e-grid-margin-int</span>
-                <span class="code-text changelog-code">e-custom-gutters</span> -> <span class="code-text changelog-code">e-grid-gutters-ext</span> +
-                <span class="code-text changelog-code">e-grid-gutters-int</span> + <span class="code-text changelog-code">e-grid-gutters-vertical</span>@
+              <ul sdsd>
+              <li sdsd>
+                  <span class="code-text changelog-code">e-grid-margin</span> -> <span class="code-text changelog-code">e-grid-margin-ext</span> + <span class="code-text changelog-code">e-grid-margin-int</span>
+                </li ssdsd>
+                <li sds>
+                   <span class="code-text changelog-code">e-custom-gutters</span> -> <span class="code-text changelog-code">e-grid-gutters-ext</span> +
+                <span class="code-text changelog-code">e-grid-gutters-int</span> + <span class="code-text changelog-code">e-grid-gutters-vertical</span>
+                </li sdd>
+              </ul sdsd>
           </li>
         </ul>
       </div>
@@ -1883,7 +1912,7 @@
               How to fix:
               <div class="how-to-fix-description">
               If you are using our stylesheets directly and your sass-compiler do not support the use of @use you will have to migrate as well.
-              </div>
+              </div end>
             </div>
           </li>
         </ul>
