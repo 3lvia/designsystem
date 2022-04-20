@@ -20,13 +20,12 @@
           </div>
           <ul class="e-list">
             <li>
-              Fixed table <span class="code-text">e-table--no-stripes</span>.
+              Fixed table <span class="code-text">e-table--no-stripes</span> not working properly.
             </li>
           </ul>
         </div>
       </div>
     </td>
-  </tr>
     <td class="changelog-date">
       <span class="e-title-sm">
         8.3.0
