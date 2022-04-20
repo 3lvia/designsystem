@@ -14,7 +14,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-       <div class="changelog-section-title">💥 New Features</div>
+       <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/table">Table</a>
           </div>
