@@ -33,6 +33,7 @@ type ChipComponentProps = {
 export const ChipComponent = styled.button<ChipComponentProps>`
   display: flex;
   flex-direction: row;
+  flex-shrink: 0;
   align-items: center;
   background: none;
   border: none;
