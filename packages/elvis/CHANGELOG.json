@@ -1,6 +1,21 @@
 {
-  "$schema": "../../changelogSchema.json",
   "content": [
+    {
+      "version": "8.3.1",
+      "date": "April 20, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            {
+              "description": "Fixed <span class=\"code-text\">e-table--no-stripes</span> not working properly."
+            }
+          ],
+          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }],
+          "pages": []
+        }
+      ]
+    },
     {
       "version": "8.3.0",
       "date": "April 19, 2022",
