@@ -17,13 +17,56 @@ export class TooltipDocComponent {
   ];
 
   example1 = `<span class="e-tooltip">
-  <button class="e-btn e-btn--icon e-btn--circled e-btn--lg" aria-label="Vis tooltip">
+  <button class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
     <span class="e-btn__icon">
-      <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-      <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+      <i class="e-icon e-icon--star" aria-hidden="true"></i>
     </span>
   </button>
-  <span class="e-tooltip__content">Tooltip</span>
+  <span class="e-tooltip__content">Favorite</span>
 </span>
+`;
+  exampleTop = `<div class="e-w-100 e-flex e-justify-content-center e-my-40">
+  <span class="e-tooltip">
+    <button class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--star" aria-hidden="true"></i>
+      </span>
+    </button>
+    <span class="e-tooltip__content">Favorite</span>
+  </span>
+</div>
+`;
+  exampleBottom = `<div class="e-w-100 e-flex e-justify-content-center e-my-40">
+  <span class="e-tooltip">
+    <button class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--star" aria-hidden="true"></i>
+      </span>
+    </button>
+    <span class="e-tooltip__content e-tooltip__content--bottom">Favorite</span>
+  </span>
+</div>
+`;
+  exampleLeft = `<div class="e-w-100 e-flex e-justify-content-center e-my-40">
+  <span class="e-tooltip">
+    <button class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--star" aria-hidden="true"></i>
+      </span>
+    </button>
+    <span class="e-tooltip__content e-tooltip__content--left">Favorite</span>
+  </span>
+</div>
+`;
+  exampleRight = `<div class="e-w-100 e-flex e-justify-content-center e-my-40">
+  <span class="e-tooltip">
+    <button class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--star" aria-hidden="true"></i>
+      </span>
+    </button>
+    <span class="e-tooltip__content e-tooltip__content--right">Favorite</span>
+  </span>
+</div>
 `;
 }

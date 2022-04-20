@@ -118,17 +118,6 @@
           <app-when-to-use [whens]="doesExampleIcon" [whenNots]="dontsExampleIcon"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Links with button style'">
-        <ng-container ngProjectAs="sectionContent">
-          The e-btn class can also be used on anchor tags to make links appear like buttons.
-          <app-component-example-v1
-            [codeHTML]="buttonLinks"
-            [codeInverted]="buttonLinksInverted"
-          ></app-component-example-v1>
-          <app-when-to-use [whenNots]="dontsExample7"></app-when-to-use>
-        </ng-container>
-      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
@@ -238,6 +227,43 @@
             An exception goes for Tertiary buttons however. In these cases, icons along with texts are often
             are preferred, as they clarify that the otherwise simple text is clickable.
           </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Accessibility'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-subsubsection [sectionTitle]="'Aria tags'">
+            <ng-container ngProjectAs="sectionContent">
+              Remember to always add a descriptive
+              <span class="code-text">aria-label</span>
+              to icon-buttons as well as
+              <span class="code-text">aria-hidden="true"</span>
+              to all i elements.
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Tooltip'">
+            <ng-container ngProjectAs="sectionContent">
+              If the icon is not very clear on it's own, use a tooltip to make it accessible for the user.
+              Read more about
+              <a class="e-link e-link--inline" [routerLink]="['/components/tooltip']">our tooltip here</a>
+              .
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Links with button style'">
+        <ng-container ngProjectAs="sectionContent">
+          The e-btn class can also be used on anchor tags to make links appear like buttons.
+          <app-component-example-v1
+            [codeHTML]="buttonLinks"
+            [codeInverted]="buttonLinksInverted"
+          ></app-component-example-v1>
+          <app-when-to-use [whenNots]="dontsExample7"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
     </ng-container>
