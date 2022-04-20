@@ -9,7 +9,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: install
+        run: yarn
       - name: Percy Test
-        run: cd packages/elvis && npx @percy/cli snapshot ./percy
+        # run: cd packages/elvis && npx @percy/cli snapshot ./percy
+        run: cd packages/elvis && yarn percy
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
