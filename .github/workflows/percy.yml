@@ -12,7 +12,7 @@ jobs:
       # - name: Install
       #   run: npm install
       - name: Percy Test
-        run: cd packages/elvis && npx @percy/cli snapshot ./percy
+        run: cd packages/elvis && npx @percy/cli snapshot --network-idle-timeout 1000 ./percy
         # run: cd packages/elvis && npm run percy
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
