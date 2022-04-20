@@ -1,12 +1,4 @@
-<!-- <elvia-accordion
-  type="overflow"
-  overflowHeight="500"
-  [openLabel]="'Show all'"
-  [closeLabel]="'Hide'"
-  [labelPosition]="'right'"
-  [size]="'small'"
-> -->
-<div slot="content">
+<ng-template #changelogTemplate>
   <table>
     <caption class="sr-only">Component changes</caption>
     <tr class="sr-only">
@@ -22,7 +14,7 @@
       <td class="changelog-content">
         <div class="changelog-section" *ngFor="let changelog of el.changelog">
           <div class="changelog-section-title">{{ changelog.type | ChangelogTypePipe }}</div>
-          <div *ngIf="changelog.components.length > 0">
+          <div *ngIf="changelog.components && changelog.components.length > 0">
             Components:
             <ng-container *ngFor="let component of changelog.components; let last = last; let first = first">
               <span *ngIf="!last && !first">,</span>
@@ -32,7 +24,7 @@
               </a>
             </ng-container>
           </div>
-          <div *ngIf="changelog.pages.length > 0">
+          <div *ngIf="changelog.pages && changelog.pages.length > 0">
             Pages:
             <ng-container *ngFor="let component of changelog.pages; let last = last; let first = first">
               <span *ngIf="!last && !first">,</span>
@@ -44,19 +36,39 @@
           </div>
           <ul class="e-list">
             <li *ngFor="let change of changelog.changes">
-              <p [innerHTML]="change.description">{{ change }}</p>
-              <ng-container *ngIf="change.fix">
-                <strong>How to fix</strong>
-                <p [innerHTML]="change.fix.description">{{ change.fix.description }}</p>
-                <ul>
-                  <li *ngFor="let fix of change.fix.changes">test</li>
-                </ul>
-              </ng-container>
+              <p [innerHTML]="change">{{ change }}</p>
             </li>
           </ul>
+          <ng-container *ngIf="changelog.fixes && changelog.fixes.length > 0">
+            <strong>How to fix</strong>
+            <ul>
+              <li *ngFor="let fix of changelog.fixes" [innerHTML]="fix">{{ fix }}</li>
+            </ul>
+          </ng-container>
         </div>
       </td>
     </tr>
   </table>
-</div>
-<!-- </elvia-accordion> -->
+</ng-template>
+
+<!-- No accordion  -->
+<ng-container *ngIf="showAll; else accordionTemplate">
+  <ng-container *ngTemplateOutlet="changelogTemplate"></ng-container>
+</ng-container>
+
+<!-- With accordion -->
+<ng-template #accordionTemplate>
+  <elvia-accordion
+    type="overflow"
+    overflowHeight="500"
+    [openLabel]="'Show all'"
+    [closeLabel]="'Hide'"
+    [labelPosition]="'right'"
+    [size]="'small'"
+    ngElse
+  >
+    <div slot="content">
+      <ng-container *ngTemplateOutlet="changelogTemplate"></ng-container>
+    </div>
+  </elvia-accordion>
+</ng-template>

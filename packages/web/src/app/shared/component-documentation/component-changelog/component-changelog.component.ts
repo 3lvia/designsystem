@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ComponentChangelogComponent {
   @Input() componentData;
+  @Input() showAll = false;
 }
