@@ -35,8 +35,9 @@ export class SearchDocComponent {
     <button
       class="e-btn e-btn--icon e-btn--lg"
       (click)="clearExample()"
+      aria-label="Tøm søkefelt"
     >
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
@@ -81,8 +82,9 @@ clearExample(): void {
     <i class="e-icon e-icon--search-color"></i>
     <button
       class="e-btn e-btn--icon"
+      aria-label="Tøm søkefelt"
     >
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
@@ -105,8 +107,9 @@ clearExample(): void {
     <button
       class="e-btn e-btn--icon"
       (click)="clearExample()"
+      aria-label="Tøm søkefelt"
     >
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
@@ -125,8 +128,8 @@ clearExample(): void {
         placeholder="Search"
         />
       </div>
-      <button class="e-btn e-btn--icon">
-        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+      <button class="e-btn e-btn--icon" aria-label="Tøm søkefelt">
+        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
       </button>
     </div>
   </div>
@@ -155,8 +158,9 @@ clearExample(): void {
       </div>
       <button
         class="e-btn e-btn--icon"
+        aria-label="Tøm søkefelt"
       >
-        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
       </button>
     </div>
   </div>
@@ -186,8 +190,9 @@ clearExample(): void {
     <i class="e-icon e-icon--search-color"></i>
     <button
       class="e-btn e-btn--icon"
+      aria-label="Tøm søkefelt"
     >
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
@@ -206,8 +211,8 @@ clearExample(): void {
           placeholder="Search"
         />
       </div>
-      <button class="e-btn e-btn--icon">
-        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+      <button class="e-btn e-btn--icon" aria-label="Tøm søkefelt">
+        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
       </button>
     </div>
   </div>
@@ -237,8 +242,9 @@ clearExample(): void {
     <i class="e-icon e-icon--search-color"></i>
     <button
       class="e-btn e-btn--icon"
+      aria-label="Tøm søkefelt"
     >
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
@@ -259,8 +265,9 @@ clearExample(): void {
       </div>
       <button
         class="e-btn e-btn--icon"
+        aria-label="Tøm søkefelt"
       >
-        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
       </button>
     </div>
   </div>

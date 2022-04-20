@@ -64,8 +64,8 @@ export class AlertMessagesComponent {
     </div>
   </div>
   <div class="e-alert__close">
-    <button class="e-btn e-btn--icon e-btn--sm">
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    <button class="e-btn e-btn--icon e-btn--sm" aria-label="Lukk alert">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
@@ -107,8 +107,8 @@ export class AlertMessagesComponent {
     <div class="e-alert__text">General information for all users across applications.</div>
   </div>
   <div class="e-alert__close">
-    <button class="e-btn e-btn--icon e-btn--sm">
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    <button class="e-btn e-btn--icon e-btn--sm" aria-label="Lukk alert">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
@@ -205,8 +205,8 @@ export class AlertMessagesComponent {
     <div class="e-alert__text">A successful confirmation message.</div>
   </div>
   <div class="e-alert__close">
-    <button class="e-btn e-btn--icon e-btn--sm">
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    <button class="e-btn e-btn--icon e-btn--sm" aria-label="Lukk alert">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
     </button>
   </div>
 </div>

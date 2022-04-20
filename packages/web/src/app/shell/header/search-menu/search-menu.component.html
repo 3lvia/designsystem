@@ -34,10 +34,14 @@
   </div>
   <div class="mobile-menu">
     <div class="closing">
-      <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-mt-16" (click)="closeSearch()">
+      <button
+        class="e-btn e-btn--icon e-btn--circled e-btn--lg e-mt-16"
+        (click)="closeSearch()"
+        aria-label="Close search"
+      >
         <span class="e-btn__icon">
-          <i class="e-icon e-icon--remove_circle-color"></i>
-          <i class="e-icon e-icon--remove_circle-filled-color"></i>
+          <i class="e-icon e-icon--remove_circle-color" aria-hidden="true"></i>
+          <i class="e-icon e-icon--remove_circle-filled-color" aria-hidden="true"></i>
         </span>
       </button>
     </div>
@@ -54,10 +58,14 @@
 >
   <div class="inner-content">
     <div class="close-btn-desk">
-      <button class="e-btn e-btn--icon e-btn--circled e-btn--lg" (click)="closeSearch()">
+      <button
+        class="e-btn e-btn--icon e-btn--circled e-btn--lg"
+        (click)="closeSearch()"
+        aria-label="Close search"
+      >
         <span class="e-btn__icon">
-          <i class="e-icon e-icon--remove_circle-color"></i>
-          <i class="e-icon e-icon--remove_circle-filled-color"></i>
+          <i class="e-icon e-icon--remove_circle-color" aria-hidden="true"></i>
+          <i class="e-icon e-icon--remove_circle-filled-color" aria-hidden="true"></i>
         </span>
       </button>
     </div>
@@ -74,8 +82,8 @@
             (keyup)="onSearch()"
           />
         </div>
-        <button class="e-btn e-btn--icon" (click)="removeSearch()">
-          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        <button class="e-btn e-btn--icon" (click)="removeSearch()" aria-label="Empty search field">
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
         </button>
       </div>
     </div>
