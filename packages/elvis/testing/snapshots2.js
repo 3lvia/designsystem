@@ -1,4 +1,4 @@
-const Percy = require('@percy/core');
+const Percy = await import('@percy/core');
 
 const percy = new Percy();
 percy.snapshot({
@@ -18,6 +18,18 @@ percy.snapshot({
     '/components/header.html',
     '/components/input.html',
     '/components/label.html',
+    '/components/link.html',
+    '/components/list.html',
+    '/components/modal.html',
+    '/components/pagination.html',
+    '/components/position-picker.html',
+    '/components/progressbar.html',
+    '/components/radiobutton.html',
+    '/components/search.html',
+    '/components/segmented-controls.html',
+    '/components/stepper.html',
+    '/components/table.html',
+    '/components/toggle.html',
   ],
   options: {
     widths: [766, 1440],
