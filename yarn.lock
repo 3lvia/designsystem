@@ -2234,7 +2234,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-chip@*, @elvia/elvis-chip@workspace:packages/components/components/elvis-chip":
+"@elvia/elvis-chip@npm:*":
+  version: 1.2.4
+  resolution: "@elvia/elvis-chip@npm:1.2.4"
+  dependencies:
+    "@elvia/elvis-colors": ^1.2.1
+    "@elvia/elvis-component-wrapper": ^2.2.2
+    "@elvia/elvis-icon": ^1.1.1
+    classnames: ^2.3.1
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
+  checksum: 6f2a6ed7b3bf0bf85f0bbc19d29bec6969f3cfb889988634862a6464d5d4059c0f1cc7220504cb476676a401d943a52c0518220def825e05cb9a09e728894f24
+  languageName: node
+  linkType: hard
+
+"@elvia/elvis-chip@workspace:packages/components/components/elvis-chip":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-chip@workspace:packages/components/components/elvis-chip"
   dependencies:
