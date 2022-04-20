@@ -112,6 +112,7 @@
           [ariaLabel]="'Fjern filtrering for ' + chip.value"
           [disabled]="chip.disabled"
           (onDelete)="handleOnDelete($event.detail.value)"
+          [inlineStyle]="{ margin: '8px' }"
         ></elvia-chip>
       </div>
     </div>

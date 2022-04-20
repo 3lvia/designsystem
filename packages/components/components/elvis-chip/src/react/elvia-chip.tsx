@@ -65,8 +65,9 @@ export const Chip: FC<BaseChipProps> = ({
 
   return (
     <ChipComponent
+      role={type === 'removable' ? undefined : 'checkbox'}
+      aria-checked={type === 'removable' ? undefined : isSelected}
       aria-label={ariaLabel}
-      aria-selected={isSelected}
       color={color}
       onClick={() => {
         type === 'removable' ? handleOnDelete(value) : updateSelectedState(value, !isSelected);
