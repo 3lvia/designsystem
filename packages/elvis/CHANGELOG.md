@@ -20,7 +20,7 @@
           </div>
           <ul class="e-list">
             <li>
-              Fixed <span class="code-text">e-table--no-stripes</span> not working properly.
+              Fixed <span class="code-text">e-table--no-stripes</span> not working properly. 
             </li>
           </ul>
         </div>
