@@ -2,6 +2,38 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "version": "8.3.0",
+      "date": "April 19, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            {
+              "description": "Added multiple flex utility classes as well as some other classes like <span class=\"code-text\">e-border-none</span>, height classes, and <span class=\"code-text\">e-strip-fieldset</span>."
+            }
+          ],
+          "components": [],
+          "pages": [
+            { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "8.2.2",
+      "date": "April 13, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            { "description": "Table bug fix that alignes text in the table cells on mobile correctly." }
+          ],
+          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }],
+          "pages": []
+        }
+      ]
+    },
+    {
       "version": "8.2.1",
       "date": "April 13, 2022",
       "changelog": [
