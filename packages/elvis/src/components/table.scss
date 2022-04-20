@@ -109,7 +109,8 @@ $grey10: colors.color('grey-10');
 
   &.e-table--no-stripes {
     tbody {
-      tr:nth-of-type(odd) {
+      tr:nth-of-type(odd) th,
+      tr:nth-of-type(odd) td {
         background: colors.color('white');
       }
     }

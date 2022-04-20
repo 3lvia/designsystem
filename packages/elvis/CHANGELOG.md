@@ -5,6 +5,31 @@
 <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
+        8.3.1
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        April 20, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+       <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/table">Table</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Fixed <span class="code-text">e-table--no-stripes</span> not working properly.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="changelog-row changelog-divider py-5">
+    <td class="changelog-date">
+      <span class="e-title-sm">
         8.3.0
       </span>
       <br>
