@@ -6445,7 +6445,8 @@ input:focus {
 .e-table tbody tr:nth-of-type(odd) td {
   background: #f4f4f4;
 }
-.e-table.e-table--no-stripes tbody tr:nth-of-type(odd) {
+.e-table.e-table--no-stripes tbody tr:nth-of-type(odd) th,
+.e-table.e-table--no-stripes tbody tr:nth-of-type(odd) td {
   background: #fff;
 }
 .e-table.e-table--compact tr {
