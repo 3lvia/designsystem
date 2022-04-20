@@ -23,7 +23,7 @@ export class AlertMessagesComponent {
   doesGlobalDefault = ['Give a general message to all users across the pages'];
   dontsGlobalDefault = ['After an user action'];
 
-  alertOverviewHTML = `<div class="e-alert">
+  alertOverviewHTML = `<div class="e-alert" role="alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
   </div>
@@ -36,7 +36,7 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  exampleAlertDefault = `<div class="e-alert">
+  exampleAlertDefault = `<div class="e-alert" role="alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
   </div>
@@ -49,7 +49,7 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  localAlertClosable = `<div class="e-alert e-alert--info">
+  localAlertClosable = `<div class="e-alert e-alert--info" role="alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
   </div>
@@ -71,7 +71,7 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  localAlertNoTitle = `<div class="e-alert e-alert--info e-alert--no-title">
+  localAlertNoTitle = `<div class="e-alert e-alert--info e-alert--no-title" role="alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
   </div>
@@ -87,7 +87,7 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  globalAlert = `<div class="e-alert e-alert--global">
+  globalAlert = `<div class="e-alert e-alert--global" role="alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
   </div>
@@ -98,7 +98,7 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  globalAlertCloseable = `<div class="e-alert e-alert--global">
+  globalAlertCloseable = `<div class="e-alert e-alert--global" role="alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
   </div>
@@ -114,7 +114,7 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  globalAlertExpandable = `<div class="e-alert e-alert--global e-alert--expandable">
+  globalAlertExpandable = `<div class="e-alert e-alert--global e-alert--expandable" role="alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
   </div>
@@ -135,7 +135,7 @@ export class AlertMessagesComponent {
   </div>
 </div>
 
-<div class="e-alert e-alert--global e-alert--expandable e-alert--open e-mt-40">
+<div class="e-alert e-alert--global e-alert--expandable e-alert--open e-mt-40" role="alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
   </div>
@@ -157,7 +157,7 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  globalAlertActions = `<div class="e-alert e-alert--global e-alert--actions">
+  globalAlertActions = `<div class="e-alert e-alert--global e-alert--actions" role="alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
   </div>
@@ -175,7 +175,7 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  globalAlertNoTitle = `<div class="e-alert e-alert--global e-alert--no-title">
+  globalAlertNoTitle = `<div class="e-alert e-alert--global e-alert--no-title" role="alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
   </div>
@@ -185,7 +185,7 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  toastAlert = `<div class="e-alert e-alert--toast">
+  toastAlert = `<div class="e-alert e-alert--toast" role="alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
   </div>
@@ -196,7 +196,7 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  toastAlertClosable = `<div class="e-alert e-alert--toast">
+  toastAlertClosable = `<div class="e-alert e-alert--toast" role="alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
   </div>
@@ -212,7 +212,7 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  toastAlertNoTitle = `<div class="e-alert e-alert--toast e-alert--no-title">
+  toastAlertNoTitle = `<div class="e-alert e-alert--toast e-alert--no-title" role="alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
   </div>
@@ -224,7 +224,7 @@ export class AlertMessagesComponent {
 
   // STATUSES
   errorStatus = `<div>
-  <div class="e-alert">
+  <div class="e-alert" role="alert">
     <div class="e-alert__icon">
       <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
     </div>
@@ -237,7 +237,7 @@ export class AlertMessagesComponent {
 `;
 
   warnStatus = `<div>
-  <div class="e-alert e-alert--warn">
+  <div class="e-alert e-alert--warn" role="alert">
     <div class="e-alert__icon">
       <i class="e-icon e-icon--warning_circle e-icon--color-orange"></i>
     </div>
@@ -250,7 +250,7 @@ export class AlertMessagesComponent {
 `;
 
   infoStatus = `<div>
-  <div class="e-alert e-alert--info">
+  <div class="e-alert e-alert--info" role="alert">
     <div class="e-alert__icon">
       <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
     </div>
@@ -263,7 +263,7 @@ export class AlertMessagesComponent {
 `;
 
   positiveStatus = `<div>
-  <div class="e-alert e-alert--toast">
+  <div class="e-alert e-alert--toast" role="alert">
     <div class="e-alert__icon">
       <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
     </div>
