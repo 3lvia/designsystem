@@ -81,10 +81,14 @@
       *ngIf="formGroupList.length !== 0 && hasSideFilters && enableFilters"
     >
       <elvia-popover [posX]="'left'" [posY]="'bottom'">
-        <button slot="trigger" class="e-btn e-btn--icon">
+        <button slot="trigger" class="e-btn e-btn--icon" aria-label="Open side filter popover">
           <span class="e-btn__icon">
-            <i class="e-icon e-icon--list" *ngIf="selectedBg !== 'Dark grey'"></i>
-            <i class="e-icon e-icon--list e-icon--inverted" *ngIf="selectedBg === 'Dark grey'"></i>
+            <i class="e-icon e-icon--list" *ngIf="selectedBg !== 'Dark grey'" aria-hidden="true"></i>
+            <i
+              class="e-icon e-icon--list e-icon--inverted"
+              *ngIf="selectedBg === 'Dark grey'"
+              aria-hidden="true"
+            ></i>
           </span>
         </button>
         <div slot="content">

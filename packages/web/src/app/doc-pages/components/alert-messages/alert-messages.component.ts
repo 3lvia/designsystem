@@ -23,9 +23,9 @@ export class AlertMessagesComponent {
   doesGlobalDefault = ['Give a general message to all users across the pages'];
   dontsGlobalDefault = ['After an user action'];
 
-  alertOverviewHTML = `<div class="e-alert">
+  alertOverviewHTML = `<div class="e-alert" role="alert">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
+    <i class="e-icon e-icon--remove_circle e-icon--color-red" aria-hidden="true"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Short title</div>
@@ -36,9 +36,9 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  exampleAlertDefault = `<div class="e-alert">
+  exampleAlertDefault = `<div class="e-alert" role="alert">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
+    <i class="e-icon e-icon--remove_circle e-icon--color-red" aria-hidden="true"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Short title</div>
@@ -49,9 +49,9 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  localAlertClosable = `<div class="e-alert e-alert--info">
+  localAlertClosable = `<div class="e-alert e-alert--info" role="alert">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
+    <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Short title</div>
@@ -64,16 +64,16 @@ export class AlertMessagesComponent {
     </div>
   </div>
   <div class="e-alert__close">
-    <button class="e-btn e-btn--icon e-btn--sm">
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    <button class="e-btn e-btn--icon e-btn--sm" aria-label="Lukk alert">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
 `;
 
-  localAlertNoTitle = `<div class="e-alert e-alert--info e-alert--no-title">
+  localAlertNoTitle = `<div class="e-alert e-alert--info e-alert--no-title" role="alert">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
+    <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__text">
@@ -87,9 +87,9 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  globalAlert = `<div class="e-alert e-alert--global">
+  globalAlert = `<div class="e-alert e-alert--global" role="alert">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
+    <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Short title</div>
@@ -98,32 +98,32 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  globalAlertCloseable = `<div class="e-alert e-alert--global">
+  globalAlertCloseable = `<div class="e-alert e-alert--global" role="alert">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
+    <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Short title</div>
     <div class="e-alert__text">General information for all users across applications.</div>
   </div>
   <div class="e-alert__close">
-    <button class="e-btn e-btn--icon e-btn--sm">
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    <button class="e-btn e-btn--icon e-btn--sm" aria-label="Lukk alert">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
 `;
 
-  globalAlertExpandable = `<div class="e-alert e-alert--global e-alert--expandable">
+  globalAlertExpandable = `<div class="e-alert e-alert--global e-alert--expandable" role="alert">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
+    <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">
       <div>Short title</div>
       <div class="e-alert__accordion">
-        <i class="e-icon e-icon--expand_circle-color"></i>
-        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+        <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
       </div>
     </div>
     <div class="e-alert__text">
@@ -135,16 +135,16 @@ export class AlertMessagesComponent {
   </div>
 </div>
 
-<div class="e-alert e-alert--global e-alert--expandable e-alert--open e-mt-40">
+<div class="e-alert e-alert--global e-alert--expandable e-alert--open e-mt-40" role="alert">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
+    <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">
       <div>Short title</div>
       <div class="e-alert__accordion">
-        <i class="e-icon e-icon--expand_circle-color"></i>
-        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+        <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
       </div>
     </div>
     <div class="e-alert__text">
@@ -157,9 +157,9 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  globalAlertActions = `<div class="e-alert e-alert--global e-alert--actions">
+  globalAlertActions = `<div class="e-alert e-alert--global e-alert--actions" role="alert">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
+    <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__text">General information for all users across applications.</div>
@@ -175,9 +175,9 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  globalAlertNoTitle = `<div class="e-alert e-alert--global e-alert--no-title">
+  globalAlertNoTitle = `<div class="e-alert e-alert--global e-alert--no-title" role="alert">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
+    <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__text">General information for all users across applications.</div>
@@ -185,9 +185,9 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  toastAlert = `<div class="e-alert e-alert--toast">
+  toastAlert = `<div class="e-alert e-alert--toast" role="alert">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
+    <i class="e-icon e-icon--check_circle e-icon--color-green" aria-hidden="true"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Short title</div>
@@ -196,25 +196,25 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  toastAlertClosable = `<div class="e-alert e-alert--toast">
+  toastAlertClosable = `<div class="e-alert e-alert--toast" role="alert">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
+    <i class="e-icon e-icon--check_circle e-icon--color-green" aria-hidden="true"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Short title</div>
     <div class="e-alert__text">A successful confirmation message.</div>
   </div>
   <div class="e-alert__close">
-    <button class="e-btn e-btn--icon e-btn--sm">
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    <button class="e-btn e-btn--icon e-btn--sm" aria-label="Lukk alert">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
 `;
 
-  toastAlertNoTitle = `<div class="e-alert e-alert--toast e-alert--no-title">
+  toastAlertNoTitle = `<div class="e-alert e-alert--toast e-alert--no-title" role="alert">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
+    <i class="e-icon e-icon--check_circle e-icon--color-green" aria-hidden="true"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__text">A successful confirmation message.</div>
@@ -224,9 +224,9 @@ export class AlertMessagesComponent {
 
   // STATUSES
   errorStatus = `<div>
-  <div class="e-alert">
+  <div class="e-alert" role="alert">
     <div class="e-alert__icon">
-      <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
+      <i class="e-icon e-icon--remove_circle e-icon--color-red" aria-hidden="true"></i>
     </div>
     <div class="e-alert__content">
       <div class="e-alert__title">Danger</div>
@@ -237,9 +237,9 @@ export class AlertMessagesComponent {
 `;
 
   warnStatus = `<div>
-  <div class="e-alert e-alert--warn">
+  <div class="e-alert e-alert--warn" role="alert">
     <div class="e-alert__icon">
-      <i class="e-icon e-icon--warning_circle e-icon--color-orange"></i>
+      <i class="e-icon e-icon--warning_circle e-icon--color-orange" aria-hidden="true"></i>
     </div>
     <div class="e-alert__content">
       <div class="e-alert__title">Warn</div>
@@ -250,9 +250,9 @@ export class AlertMessagesComponent {
 `;
 
   infoStatus = `<div>
-  <div class="e-alert e-alert--info">
+  <div class="e-alert e-alert--info" role="alert">
     <div class="e-alert__icon">
-      <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
+      <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
     </div>
     <div class="e-alert__content">
       <div class="e-alert__title">Info</div>
@@ -263,9 +263,9 @@ export class AlertMessagesComponent {
 `;
 
   positiveStatus = `<div>
-  <div class="e-alert e-alert--toast">
+  <div class="e-alert e-alert--toast" role="alert">
     <div class="e-alert__icon">
-      <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
+      <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
     </div>
     <div class="e-alert__content">
       <div class="e-alert__title">Positive</div>
