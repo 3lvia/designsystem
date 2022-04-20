@@ -623,24 +623,11 @@ export class TableDocComponent {
         <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
         <td class="e-table__button">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Rediger">
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
           </button>
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td class="e-text-mono">203413222</td>
-        <td>Elviaveien 3, 1230 Oslo</td>
-        <td>15.01.2021</td>
-        <td class="e-table__button">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
-          </button>
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Slett">
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
           </button>
         </td>
       </tr>
@@ -649,11 +636,24 @@ export class TableDocComponent {
         <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
         <td class="e-table__button">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Rediger">
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
           </button>
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Slett">
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
+        <td>15.01.2021</td>
+        <td class="e-table__button">
+          <button class="e-btn e-btn--icon" aria-label="Rediger">
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
+          </button>
+          <button class="e-btn e-btn--icon" aria-label="Slett">
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
           </button>
         </td>
       </tr>
@@ -686,11 +686,11 @@ export class TableDocComponent {
       <tr>
         <th class="e-table-mobile__cell" scope="row">Actions</th>
         <td class="e-table-mobile__cell e-table-mobile__button">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Rediger">
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
           </button>
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Slett">
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
           </button>
         </td>
       </tr>
@@ -711,11 +711,11 @@ export class TableDocComponent {
       <tr>
         <th class="e-table-mobile__cell" scope="row">Actions</th>
         <td class="e-table-mobile__cell e-table-mobile__button">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Rediger">
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
           </button>
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Slett">
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
           </button>
         </td>
       </tr>

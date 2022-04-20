@@ -17,10 +17,10 @@ export class TooltipDocComponent {
   ];
 
   example1 = `<span class="e-tooltip">
-  <button class="e-btn e-btn--icon e-btn--circled e-btn--lg ">
+  <button class="e-btn e-btn--icon e-btn--circled e-btn--lg" aria-label="Vis tooltip">
     <span class="e-btn__icon">
-      <i class="e-icon e-icon--information_circle"></i>
-      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+      <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
     </span>
   </button>
   <span class="e-tooltip__content">Tooltip</span>

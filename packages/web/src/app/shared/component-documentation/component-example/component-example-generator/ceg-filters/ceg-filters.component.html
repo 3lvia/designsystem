@@ -99,14 +99,15 @@
           class="e-btn e-btn--icon e-btn--circled e-btn--sm e-mr-8"
           [disabled]="counterNumber === formGroup.counterMin"
           (click)="updateCounterProp(formGroup, -formGroup.counterStepValue)"
-          type="button"
+          aria-label="Subtract from count"
         >
           <span class="e-btn__icon">
             <i
               class="e-icon e-icon--subtract_circle"
+              aria-hidden="true"
               [ngClass]="{ 'e-icon--color-disabled': counterNumber === formGroup.counterMin }"
             ></i>
-            <i class="e-icon e-icon e-icon--subtract_circle-filled-color"></i>
+            <i class="e-icon e-icon e-icon--subtract_circle-filled-color" aria-hidden="true"></i>
           </span>
         </button>
         <span
@@ -127,14 +128,15 @@
           class="e-btn e-btn--icon e-btn--circled e-btn--sm e-ml-8"
           [disabled]="counterNumber === formGroup.counterMax"
           (click)="updateCounterProp(formGroup, formGroup.counterStepValue)"
-          type="button"
+          aria-label="Add to count"
         >
           <span class="e-btn__icon">
             <i
               class="e-icon e-icon--add_circle"
+              aria-hidden="true"
               [ngClass]="{ 'e-icon--color-disabled': counterNumber === formGroup.counterMax }"
             ></i>
-            <i class="e-icon e-icon e-icon--add_circle-filled-color"></i>
+            <i class="e-icon e-icon e-icon--add_circle-filled-color" aria-hidden="true"></i>
           </span>
         </button>
       </div>
