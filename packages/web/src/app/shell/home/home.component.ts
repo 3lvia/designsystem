@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(`DAta: `, this.componentData);
     this.findEndOfRow();
     this.holiday();
     (document as any).fonts.ready.then(() => {
