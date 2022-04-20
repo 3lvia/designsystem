@@ -1,5 +1,4 @@
-// const PercyScript = require('@percy/script');
-const PercyScript = require('@percy/core');
+const PercyScript = require('@percy/script');
 const breakpoints = [766, 1440];
 
 PercyScript.run(async (page, percySnapshot) => {

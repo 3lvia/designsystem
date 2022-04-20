@@ -16,8 +16,6 @@
     "bootstrap": "4.6.1"
   },
   "devDependencies": {
-    "@percy/cli": "^1.1.0",
-    "@percy/core": "^1.1.0",
     "del": "^6.0.0",
     "doiuse": "^4.4.0",
     "express": "^4.17.2",
