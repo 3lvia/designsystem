@@ -86,32 +86,6 @@ function App() {
         <div className="example-wrapper">
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
-          <div className="chip-example">
-            <h3>Chip</h3>
-            <Chip type={'removable'} value={2022} selected={true}></Chip>
-            <Chip type={'choice'} value={2022} selected={true}></Chip>
-            <Chip type={'choice'} value={2022} selected={true}></Chip>
-            <Chip type={'choice'} value={2022} selected={true}></Chip>
-            <Chip type={'choice'} value={2022} selected={true}></Chip>
-            <Chip
-              type="legend"
-              valueOnChange={() => setChipSelected(!chipSelected)}
-              selected={chipSelected}
-              value="2022"
-            ></Chip>
-            <Chip
-              type="legend"
-              valueOnChange={() => setChipSelected(!chipSelected)}
-              selected={chipSelected}
-              value="2022"
-            ></Chip>
-            <Chip
-              type="legend"
-              valueOnChange={() => setChipSelected(!chipSelected)}
-              selected={chipSelected}
-              value="2022"
-            ></Chip>
-          </div>
           {/* Normal version */}
           <div className="e-bg-white"></div>
           {/* Inverted version */}
