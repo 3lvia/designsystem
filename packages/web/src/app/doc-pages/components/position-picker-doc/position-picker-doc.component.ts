@@ -18,11 +18,11 @@ export class PositionPickerDocComponent {
 
   exampleOverview = ` <div class="e-position-picker" style="width: 300px">
   <div class="e-position-picker__icon" *ngIf="!showPosition">
-    <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg" aria-hidden="true"></i></span>
   </div>
   <div class="e-position-picker__action">
     <button class="e-btn e-btn--tertiary">
-      <span class="e-btn__icon"><i class="e-icon e-icon--add_circle"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--add_circle" aria-hidden="true"></i></span>
       <span class="e-btn__title">Add position</span>
     </button>
   </div>
@@ -31,11 +31,11 @@ export class PositionPickerDocComponent {
 
   example1 = `<div class="e-position-picker">
   <div class="e-position-picker__icon">
-    <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg" aria-hidden="true"></i></span>
   </div>
   <div class="e-position-picker__action">
     <button class="e-btn e-btn--tertiary">
-      <span class="e-btn__icon"><i class="e-icon e-icon--add_circle"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--add_circle" aria-hidden="true"></i></span>
       <span class="e-btn__title">Add position</span>
     </button>
   </div>

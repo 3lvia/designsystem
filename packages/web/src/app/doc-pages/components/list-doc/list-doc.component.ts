@@ -49,7 +49,7 @@ export class ListDocComponent {
   example4 =
     `<ol class="e-list e-list--icons">
   <li>
-    <span class="e-list__icon"><i class="e-icon e-icon e-icon--powermeter_ams e-icon--md"></i></span>
+    <span class="e-list__icon"><i class="e-icon e-icon e-icon--powermeter_ams e-icon--md" aria-label="hidden"></i></span>
     <strong>` +
     exampleContents.texts.sm2['eng-GBR'].title +
     `:</strong> ` +
@@ -57,7 +57,7 @@ export class ListDocComponent {
     `
   </li>
   <li>
-    <span class="e-list__icon"><i class="e-icon e-icon e-icon--han-color e-icon--md"></i></span>
+    <span class="e-list__icon"><i class="e-icon e-icon e-icon--han-color e-icon--md" aria-label="hidden"></i></span>
     <strong>` +
     exampleContents.texts.xs['eng-GBR'].title +
     `:</strong> ` +
@@ -65,7 +65,7 @@ export class ListDocComponent {
     `
   </li>
   <li>
-    <span class="e-list__icon"><i class="e-icon e-icon e-icon--powermeter_old e-icon--md"></i></span>
+    <span class="e-list__icon"><i class="e-icon e-icon e-icon--powermeter_old e-icon--md" aria-label="hidden"></i></span>
     <strong>` +
     exampleContents.texts.sm['eng-GBR'].title +
     `:</strong> ` +
