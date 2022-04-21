@@ -5,12 +5,10 @@
   },
   {
     "name": "Accordion",
-    "url": "http://localhost:3333/components/accordion.html",
-    "waitForTimeout": "200"
+    "url": "http://localhost:3333/components/accordion.html"
   },
   {
     "name": "Alert",
-    "url": "http://localhost:3333/components/alert.html",
-    "waitForTimeout": "200"
+    "url": "http://localhost:3333/components/alert.html"
   }
 ]
