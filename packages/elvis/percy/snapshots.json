@@ -1,7 +1,7 @@
 [
   {
     "name": "Main",
-    "url": "http://localhost:3333/"
+    "url": "http://localhost:3333/index.html"
   },
   {
     "name": "Accordion",
