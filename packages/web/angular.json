@@ -28,16 +28,6 @@
               "src/assets",
               "src/_redirects",
               {
-                "glob": "**/CHANGELOG.json",
-                "input": "../components/components/",
-                "output": "./assets/changelog"
-              },
-              {
-                "glob": "CHANGELOG.md",
-                "input": "../elvis",
-                "output": "./assets/elvis"
-              },
-              {
                 "glob": "**/*",
                 "input": "../elvis-assets-icons/icons/svg/dist/",
                 "output": "./assets/elvis/icons/svg/dist/"

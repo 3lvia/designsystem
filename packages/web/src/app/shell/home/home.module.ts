@@ -1,12 +1,13 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { OverviewPageModule } from 'src/app/shared/overview-page/overview-page.module';
 import { RouterModule } from '@angular/router';
-import { MarkdownModule } from 'ngx-markdown';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 
 @NgModule({
-  imports: [CommonModule, OverviewPageModule, RouterModule, MarkdownModule.forRoot()],
+  imports: [CommonModule, OverviewPageModule, RouterModule, ComponentChangelogModule],
   declarations: [HomeComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeModule {}
