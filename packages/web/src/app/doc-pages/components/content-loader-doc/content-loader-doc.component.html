@@ -98,6 +98,21 @@
     </ng-container>
   </app-component-section>
 
+  <!-- IMPLEMENTATION -->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Accessibility'">
+        <ng-container ngProjectAs="sectionContent">
+          When loading any content use the
+          <span class="code-text">aria-live</span>
+          tag as well as
+          <span class="code-text">aria-busy</span>
+          on the wrapper element to signalize to the user that the content is loading.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--PROPERTIES-->
   <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-content-loader'">
     <ng-container ngProjectAs="sectionContent">
