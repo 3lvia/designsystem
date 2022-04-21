@@ -5,6 +5,31 @@
 <tr class="changelog-row changelog-divider py-5">
     <td class="changelog-date">
       <span class="e-title-sm">
+        8.3.2
+      </span>
+      <br>
+      <span class="changelog-date-span">
+        April 21, 2022
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+       <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/toggle#Overview">Toggle</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Fixed bug where native checkbox element was partly visible on safari.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </td>
+  </tr>
+<tr class="changelog-row changelog-divider py-5">
+    <td class="changelog-date">
+      <span class="e-title-sm">
         8.3.1
       </span>
       <br>
