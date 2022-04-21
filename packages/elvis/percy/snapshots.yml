@@ -1,0 +1,60 @@
+base-url: http://localhost:3333
+widths: [766, 1440]
+
+snapshots:
+  - url: /index.html
+    name: Main
+  - url: /components/accordion.html
+    name: Accordion
+  - url: /components/alert.html
+    name: Alert
+  - url: /components/autocomplete.html
+    name: Autocomplete
+  - url: /components/buttons.html
+    name: Buttons
+  - url: /components/cards.html
+    name: Cards
+  - url: /components/checkbox.html
+    name: Checkbox
+  - url: /components/content-loader.html
+    name: Content Loader
+  - url: /components/datepicker.html
+    name: Datepicker
+  - url: /components/drag-and-drop.html
+    name: Drag and Drop
+  - url: /components/file-upload.html
+    name: File Upload
+  - url: /components/header.html
+    name: Header
+  - url: /components/input.html
+    name: Input
+  - url: /components/label.html
+    name: Label
+  - url: /components/link.html
+    name: Link
+  - url: /components/list.html
+    name: List
+  - url: /components/modal.html
+    name: Modal
+    minHeight: 2000
+  - url: /components/pagination.html
+    name: Pagination
+  - url: /components/position-picker.html
+    name: Position Picker
+  - url: /components/progressbar.html
+    name: Progressbar
+  - url: /components/radiobutton.html
+    name: Radio Button
+  - url: /components/search.html
+    name: Search
+  - url: /components/segmented-controls.html
+    name: Segmented Controls
+  - url: /components/stepper.html
+    name: Stepper
+  - url: /components/table.html
+    name: Table
+  - url: /components/toggle.html
+    name: Toggle
+  - url: /components/tooltip.html
+    name: Tooltip
+    waitForTimeout: 2000
