@@ -9,14 +9,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Npm Cache
+      - name: Get NPM Cache
         uses: actions/setup-node@v3
         with:
-          nodeVersion: '14'
+          node-version-file: '.nvmrc'
           cache: 'npm'
       - name: Install
         run: npm install
-      - name: Percy Elvis
+      - name: Run Percy on Elvis
         run: |
           cd packages/elvis
           node testing/server.js & 
