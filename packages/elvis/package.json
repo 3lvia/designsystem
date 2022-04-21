@@ -8,9 +8,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp",
-    "watch": "gulp watch",
-    "percy:serve": "node testing/server.js",
-    "percy:test": "npx @percy/cli snapshot percy/snapshots.json"
+    "watch": "gulp watch"
   },
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",
