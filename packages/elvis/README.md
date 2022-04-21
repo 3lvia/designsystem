@@ -86,8 +86,33 @@ information on how to use them.
 
 1. **Update version**: When doing updates to Elvis remember to alway update the version in
    `packages/elvis/package.json`.
-2. **Document**: the changes / removal or new classes in the `CHANGELOG.md` file as well as at the correct
-   documentation-page. E.g. `packages/web/src/app/doc-pages/components/button-doc`
+2. **Document**: the changes / removal or new classes in the `CHANGELOG.json` file as well as at the correct
+   documentation-page. E.g. `packages/web/src/app/doc-pages/components/button-doc`. Example of an update in
+   CHANGELOG.json:
+
+   ```
+   {
+      "version": "8.3.1",
+      "date": "April 20, 2022",
+      "changelog": [
+         {
+         "type": "breaking_changes",
+         "changes": ["Fixed a class not working properly."],
+         "fixes": [
+            "Change something to fix something",
+            "Another step"
+            ],
+         "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }],
+         "pages": []
+         }
+      ]
+   },
+   ```
+
+   The type should be "breaking_changes", "bug_fix", "new_feature" or "patch". Changes describes what changes
+   has been done, while fixes describes steps the user have to do to fix their code to be up to date.
+   Components links to all related components, pages links to all related pages.
+
 3. **Commit & push**: to your branch. Husky should run scripts before you are able to commit or push to ensure
    everything is built and all tests are running. If you are doing just documentation updates skip these
    scripts with `--no-verify`.
