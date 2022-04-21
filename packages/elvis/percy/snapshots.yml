@@ -2,8 +2,6 @@ base-url: http://localhost:3333
 widths: [766, 1440]
 
 snapshots:
-  - url: /index.html
-    name: Main
   - url: /components/accordion.html
     name: Accordion
   - url: /components/alert.html
