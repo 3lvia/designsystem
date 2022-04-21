@@ -11,5 +11,5 @@ import '@elvia/elvis-accordion';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentChangelogModule {
-  @Input() componentData;
+  @Input() changelog;
 }
