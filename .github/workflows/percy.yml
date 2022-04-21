@@ -12,7 +12,7 @@ jobs:
       - name: Install
         run: npm install
       - name: Percy Elvis
-        run: cd packages/elvis && node testing/server.js & npx @percy/cli snapshot ./percy
+        run: cd packages/elvis && node testing/server.js & npx @percy/cli snapshot ./percy/snapshots.json
         # run: cd packages/elvis && npm run percy
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
