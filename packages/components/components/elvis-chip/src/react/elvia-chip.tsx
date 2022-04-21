@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
-import { ChipComponent, ChipTitle } from './styledComponents';
+import { ChipComponent, ChipDot, ChipTitle } from './styledComponents';
 import { ChipType, ColorType, onChangeValue } from './elvia-chip.types';
 import { Icon } from '@elvia/elvis-icon/react';
 
@@ -92,16 +92,16 @@ export const Chip: FC<BaseChipProps> = ({
           }}
         />
       )}
-      <ChipTitle
-        color={color}
-        disabled={disabled}
-        className={classnames({
-          ['dot']: type === 'legend',
-          ['showDot']: type === 'legend' && (isHovering || isSelected),
-          ['disabledDot']: disabled,
-        })}
-        data-testid="chip-label"
-      >
+      {type === 'legend' && (
+        <ChipDot
+          color={color}
+          className={classnames('dot', {
+            ['showDot']: isHovering || isSelected,
+            ['disabledDot']: disabled,
+          })}
+        />
+      )}
+      <ChipTitle disabled={disabled} data-testid="chip-label">
         {value}
       </ChipTitle>
       {type === 'removable' && (
