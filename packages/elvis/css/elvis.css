@@ -6919,7 +6919,9 @@ input:focus {
   height: calc(100% + 8px);
 }
 .e-toggle input[type=checkbox] {
-  -moz-appearance: initial;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 .e-toggle__input {
   position: relative;

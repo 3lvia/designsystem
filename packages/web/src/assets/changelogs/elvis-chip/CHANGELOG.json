@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "20.04.22",
+      "version": "1.2.5 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Prevent legend chip content from shrinking."]
+        }
+      ]
+    },
+    {
       "date": "19.04.22",
       "version": "1.2.4 ",
       "changelog": [
