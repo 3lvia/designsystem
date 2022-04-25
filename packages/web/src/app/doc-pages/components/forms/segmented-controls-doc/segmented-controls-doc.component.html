@@ -10,9 +10,15 @@
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-segmented-controls" style="width: 300px">
-      <input type="radio" name="so-1-1" id="so-1-1" checked />
-      <input type="radio" name="so-1-1" id="so-1-2" />
+    <div class="e-segmented-controls" style="width: 300px" role="radiogroup">
+      <input
+        type="radio"
+        name="so-1-1"
+        id="so-1-1"
+        [value]="exampleContents.words.views['eng-GBR'][0]"
+        checked
+      />
+      <input type="radio" name="so-1-1" id="so-1-2" [value]="exampleContents.words.views['eng-GBR'][1]" />
       <label for="so-1-1" data-value="Option 1">
         <span class="e-segmented-controls__title">{{ exampleContents.words.views['eng-GBR'][0] }}</span>
       </label>

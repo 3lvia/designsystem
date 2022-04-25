@@ -141,6 +141,24 @@
     </ng-container>
   </app-component-section>
 
+  <!-- IMPLEMENTATION -->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Accessibility'">
+        <ng-container ngProjectAs="sectionContent">
+          Remember to add attributes to the input-fields to the describe the current state of the input to
+          inform assistive technologies. For example
+          <span class="code-text">required</span>
+          ,
+          <span class="code-text">disabled</span>
+          , or
+          <span class="code-text">invalid</span>
+          .
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--PROPERTIES-->
   <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-input'">
     <ng-container ngProjectAs="sectionContent">

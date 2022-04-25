@@ -87,10 +87,10 @@ export class InputDocComponent {
   <div class="e-input e-input---invalid">
     <button class="e-btn e-btn--icon" (click)="showMockPassword()" aria-label="Vis/skjul passord">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--view_on" aria-hidden="true" ></i>
+        <i class="e-icon e-icon--view_on" aria-hidden="true"></i>
       </span>
     </button>
-    <input id="validationExample" type="password" value="Passord" invalid #validationExample />
+    <input id="validationExample" type="password" value="Passord" required invalid #validationExample />
   </div>
   <span class="e-form-field__error e-form-field__error--visible">
     <span>
@@ -134,7 +134,7 @@ showMockPassword() {
   <div class="e-input">
     <button class="e-btn e-btn--icon" aria-label="Vis/skjul passord">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--view_on" aria-hidden="true" ></i>
+        <i class="e-icon e-icon--view_on" aria-hidden="true"></i>
       </span>
     </button>
     <input id="iconExample" type="password" value="Passord" />
