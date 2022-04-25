@@ -3568,8 +3568,8 @@ input:focus {
   .e-header__sidebar {
     position: fixed;
     height: 64px;
-    top: calc(100vh - 64px);
-    width: 100vw;
+    bottom: 0;
+    width: 100%;
     background: #fff;
     display: flex;
     align-items: center;
