@@ -673,8 +673,8 @@ $sidebar-mobile-z-index: -2;
   @include breakpoints.breakpoint-up(Mobile) {
     position: fixed;
     height: $sidebar-width;
-    top: calc(100vh - #{$header-height});
-    width: 100vw;
+    bottom: 0;
+    width: 100%;
     background: colors.color('elvia-on');
 
     display: flex;
