@@ -46,7 +46,7 @@
       <elvia-card :header="'Header'" :description="'Hover me!'">
         <div slot="icon">91</div>
         <div slot="iconHover">92</div>
-        <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs"></i>
+        <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
       </elvia-card>
     </div>
 
@@ -123,7 +123,6 @@
         :title="'Redigere bidragsytere'"
         :hasCloseBtn="true"
         @on-hide="isModalShowing = !isModalShowing"
-        @on-test="isModalShowing = !isModalShowing"
       >
         <div slot="content">
           <div class="date-container">
