@@ -56,7 +56,7 @@
 </ng-template>
 
 <!-- No accordion  -->
-<ng-container *ngIf="showAll; else accordionTemplate">
+<ng-container *ngIf="!hasAccordion; else accordionTemplate">
   <ng-container *ngTemplateOutlet="changelogTemplate"></ng-container>
 </ng-container>
 

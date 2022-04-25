@@ -8,10 +8,9 @@ import { Component, Input } from '@angular/core';
 export class ComponentChangelogComponent {
   @Input() changelog;
   /**
-   * If enabled accordion will be hidden and
-   * all elements will be visible
+   * If enabled the changelog-list will be in an accordion
    */
-  @Input() showAll = false;
+  @Input() hasAccordion = true;
   /**
    * Will hide all but first element
    */
