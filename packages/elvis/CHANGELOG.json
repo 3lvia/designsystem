@@ -6,7 +6,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Fixed bug where sidebar in the internal header was hidden by the url bar "],
+          "changes": ["Fixed bug where sidebar in the internal header was hidden by the url bar"],
           "fixes": [],
           "components": [
             { "displayName": "Header", "url": "https://design.elvia.io/components/header#Overview" }
