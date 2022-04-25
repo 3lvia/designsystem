@@ -7,5 +7,12 @@ import { Component, Input } from '@angular/core';
 })
 export class ComponentChangelogComponent {
   @Input() changelog;
-  @Input() showAll = false;
+  /**
+   * If enabled the changelog-list will be in an accordion
+   */
+  @Input() hasAccordion = true;
+  /**
+   * Will hide all but first element
+   */
+  @Input() isFrontpage = false;
 }
