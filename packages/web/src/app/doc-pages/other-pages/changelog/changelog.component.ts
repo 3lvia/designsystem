@@ -10,5 +10,5 @@ import changelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
 export class ChangelogComponent {
   externalUrl = getDocPagesNotFromCMS('changelog').externalUrl;
   description = getDocPagesNotFromCMS('changelog').description;
-  componentData = new Object({ changelog: changelogJson.content });
+  changelog = changelogJson.content;
 }

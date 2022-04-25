@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-var merge = require('merge-stream');
 const header = require('gulp-header');
 const babel = require('gulp-babel');
 const tap = require('gulp-tap');
@@ -217,16 +216,8 @@ function cleanup() {
 // Copies changelogs from component dictionary to web dictionary
 function copyChangelogs() {
   const componentSrc = ['../components/**/CHANGELOG.json'];
-  const elvisSrc = '../../elvis/CHANGELOG.json';
 
-  const componentChangelogs = gulp
-    .src(componentSrc, { base: '../components' })
-    .pipe(gulp.dest('../../web/src/assets/changelogs'));
-
-  const elvisChangelog = gulp
-    .src(elvisSrc, { base: '../../' })
-    .pipe(gulp.dest('../../web/src/assets/changelogs'));
-  return merge(componentChangelogs, elvisChangelog);
+  return gulp.src(componentSrc, { base: '../components' }).pipe(gulp.dest('../../web/src/assets/changelogs'));
 }
 
 gulp.task(

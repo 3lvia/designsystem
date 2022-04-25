@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./component-changelog.component.scss'],
 })
 export class ComponentChangelogComponent {
-  @Input() componentData;
+  @Input() changelog;
   @Input() showAll = false;
 }

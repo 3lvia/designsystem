@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   halloweenMonth = 9;
   halloween = false;
   locale: string;
-  componentData = new Object({ changelog: changelogJson.content });
+  changelog = changelogJson.content;
 
   constructor(localizationService: LocalizationService) {
     localizationService.listenLocalization().subscribe((locale) => {
