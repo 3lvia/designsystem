@@ -13,6 +13,8 @@ import {
   CardHoverArrow,
   CardCornerIcon,
 } from './styledComponents';
+import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import config from './config';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 const globalMinWidthSimple = 112;
@@ -22,12 +24,18 @@ const globalMaxWidth = 400;
 export interface CardProps {
   icon: string | HTMLElement;
   iconHover?: string | HTMLElement;
+  /**
+   * @deprecated Deprecated in version 2.0.0. Use heading instead.
+   */
   header: string;
   description?: string;
   borderColor?: BorderColor;
   type: CardType;
   shape: CardShape;
-  hasBorder: boolean;
+  /**
+   * @deprecated Deprecated in version 2.0.0. Use theme instead.
+   */
+  hasBorder?: boolean;
   width: string;
   minWidth?: number;
   maxWidth?: number;
@@ -39,7 +47,7 @@ export interface CardProps {
   webcomponent?: ElvisComponentWrapper;
 }
 
-const Card: FC<CardProps> = ({
+const Card: FC<CardProps> = function ({
   icon,
   iconHover,
   header,
@@ -57,7 +65,10 @@ const Card: FC<CardProps> = ({
   className,
   inlineStyle,
   webcomponent,
-}) => {
+}) {
+  // eslint-disable-next-line prefer-rest-params
+  warnDeprecatedProps(config, arguments[0]);
+
   if (type === 'detail') shape = 'square';
   if (type === 'simple') maxDescriptionLines = 1;
 
