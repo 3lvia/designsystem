@@ -46,6 +46,16 @@
   <!--STATES-->
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
+      The states have associated classes that can be used to programmatically add the desired styling.
+      Remember to always add the state attribute (
+      <span class="code-text">checked</span>
+      ,
+      <span class="code-text">required</span>
+      ,
+      <span class="code-text">disabled</span>
+      ,
+      <span class="code-text">invalid</span>
+      and so on) to the input to inform assistive tools of the current state.
       <app-component-example-v1 [interactable]="false" [codeHTML]="example3"></app-component-example-v1>
     </ng-container>
   </app-component-section>
