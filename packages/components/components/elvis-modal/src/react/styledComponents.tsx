@@ -195,6 +195,14 @@ export const ModalActions = styled.div`
   margin: auto 0 0 0;
   position: relative;
 
+  button:not(:only-of-type) {
+    width: 50%;
+  }
+
+  button:only-of-type {
+    width: 100%;
+  }
+
   @media (max-width: ${mobileMax}) {
     flex-direction: column;
     width: 100%;
@@ -203,10 +211,9 @@ export const ModalActions = styled.div`
     div button {
       width: 100%;
     }
-  }
-
-  button:not(:only-of-type) {
-    width: 100%;
+    button:not(:only-of-type) {
+      width: 100%;
+    }
   }
 
   .webComponentBtn:not(:only-of-type) {
@@ -214,10 +221,6 @@ export const ModalActions = styled.div`
     button {
       width: inherit;
     }
-  }
-
-  :not(webComponentBtn) > button:only-of-type {
-    width: 50%;
   }
 
   div:only-child {
