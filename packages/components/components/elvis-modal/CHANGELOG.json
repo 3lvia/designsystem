@@ -8,7 +8,7 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed an issue causing the primary and secondary buttons in React to not take up full width when <span class=\"code-text\">width: 100%</span> is set."
+            "Fixed an issue causing the primary and secondary buttons in React to not take up full width."
           ]
         }
       ]
