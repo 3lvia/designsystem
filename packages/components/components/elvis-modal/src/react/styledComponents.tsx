@@ -195,12 +195,15 @@ export const ModalActions = styled.div`
   margin: auto 0 0 0;
   position: relative;
 
-  button:not(:only-of-type) {
+  button {
     width: 50%;
   }
 
-  button:only-of-type {
-    width: 100%;
+  .webComponentBtn {
+    width: 50%;
+    button {
+      width: 100%;
+    }
   }
 
   @media (max-width: ${mobileMax}) {
@@ -208,24 +211,11 @@ export const ModalActions = styled.div`
     width: 100%;
     gap: 16px;
 
-    div button {
+    button {
       width: 100%;
     }
-    button:not(:only-of-type) {
-      width: 100%;
-    }
-  }
 
-  .webComponentBtn:not(:only-of-type) {
-    width: 100%;
-    button {
-      width: inherit;
-    }
-  }
-
-  div:only-child {
-    width: 50%;
-    button {
+    .webComponentBtn {
       width: 100%;
     }
   }

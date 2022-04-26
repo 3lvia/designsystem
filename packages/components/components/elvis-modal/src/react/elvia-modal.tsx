@@ -185,10 +185,12 @@ export const ModalComponent: FC<ModalProps> = ({
               {webcomponent && hasSecondaryButton && (
                 <div className="webComponentBtn" ref={modalSecondaryBtn}></div>
               )}
-              {primaryButton && (
+              {primaryButton ? (
                 <primaryButton.type {...primaryButton.props} data-testid="modal-primary-btn">
                   {primaryButton.props.children}
                 </primaryButton.type>
+              ) : (
+                !webcomponent && <div style={{ width: '50%' }}></div>
               )}
               {webcomponent && <div className="webComponentBtn" ref={modalPrimaryBtn}></div>}
             </ModalActions>

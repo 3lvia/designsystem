@@ -8,7 +8,7 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed an issue causing the primary and secondary buttons in React to not take up full width."
+            "Fixed an issue causing the primary and secondary buttons to not always be correctly positioned and sized."
           ]
         }
       ]
