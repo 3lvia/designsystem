@@ -22,8 +22,8 @@ export interface ModalProps {
   title?: string;
   content: HTMLElement;
   illustration?: HTMLElement;
-  primaryButton?: HTMLElement;
-  secondaryButton?: HTMLElement;
+  primaryButton?: JSX.Element;
+  secondaryButton?: JSX.Element;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   hasCloseBtn?: boolean;
@@ -178,17 +178,17 @@ export const ModalComponent: FC<ModalProps> = ({
           {(hasPrimaryButton || hasSecondaryButton) && (
             <ModalActions>
               {secondaryButton && (
-                <>
-                  <div data-testid="modal-secondary-btn">{secondaryButton}</div>
-                </>
+                <secondaryButton.type {...secondaryButton.props} data-testid="modal-secondary-btn">
+                  {secondaryButton.props.children}
+                </secondaryButton.type>
               )}
               {webcomponent && hasSecondaryButton && (
                 <div className="webComponentBtn" ref={modalSecondaryBtn}></div>
               )}
               {primaryButton && (
-                <>
-                  <div data-testid="modal-primary-btn">{primaryButton}</div>
-                </>
+                <primaryButton.type {...primaryButton.props} data-testid="modal-primary-btn">
+                  {primaryButton.props.children}
+                </primaryButton.type>
               )}
               {webcomponent && <div className="webComponentBtn" ref={modalPrimaryBtn}></div>}
             </ModalActions>
