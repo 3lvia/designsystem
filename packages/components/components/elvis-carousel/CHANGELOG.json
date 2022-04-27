@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "27.04.22",
+      "version": "1.1.6 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed onHide event not triggering for webcomponents."]
+        }
+      ]
+    },
+    {
+      "date": "27.04.22",
       "version": "1.1.5 ",
       "changelog": [
         {
