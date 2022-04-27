@@ -55,6 +55,7 @@ export const Chip: FC<BaseChipProps> = ({
 
   const updateSelectedState = (value: string, isSelected: boolean) => {
     setIsSelected(isSelected);
+    setHover(false);
     if (!webcomponent) {
       valueOnChange && valueOnChange({ value: value, isSelected: isSelected });
     } else if (webcomponent) {
@@ -75,6 +76,8 @@ export const Chip: FC<BaseChipProps> = ({
       disabled={disabled}
       onMouseEnter={setHover(true)}
       onMouseLeave={setHover(false)}
+      onTouchStart={setHover(false)}
+      onTouchEnd={setHover(false)}
       chipType={type}
       isSelected={isSelected}
       className={`${className ? className : ''}`}
