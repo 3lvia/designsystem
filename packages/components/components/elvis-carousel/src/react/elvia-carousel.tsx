@@ -163,6 +163,14 @@ export const Carousel: FC<CarouselProps> = ({
     }, 480);
   };
 
+  const triggerOnHide = () => {
+    if (!webcomponent) {
+      onHide && onHide();
+    } else {
+      webcomponent.triggerEvent('onHide');
+    }
+  };
+
   const classNameContainer = classnames({
     ['exit-animation']: !fadeIn,
     ['enter-animation']: fadeIn,
@@ -237,7 +245,7 @@ export const Carousel: FC<CarouselProps> = ({
         {showOnboardingCheckmark ? (
           <CarouselCheckButton
             aria-label={'Fullfør og lukk.'}
-            onClick={() => onHide && onHide()}
+            onClick={() => triggerOnHide()}
             onMouseEnter={() => setIsHoveringRightButton(true)}
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-onboarding-checkmark"
