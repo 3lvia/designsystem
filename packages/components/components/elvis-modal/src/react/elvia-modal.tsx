@@ -35,7 +35,7 @@ export interface ModalProps {
   webcomponent: ElvisComponentWrapper;
 }
 
-export const ModalComponent: FC<ModalProps> = function ({
+export const ModalComponent: FC<ModalProps> = ({
   isShowing,
   title,
   content,
@@ -51,7 +51,7 @@ export const ModalComponent: FC<ModalProps> = function ({
   maxWidth,
   onHide,
   webcomponent,
-}) {
+}) => {
   const modalWrapperRef = useRef<HTMLDivElement>(null);
   const modalText = useRef<HTMLDivElement>(null);
   const modalIllustration = useRef<HTMLDivElement>(null);

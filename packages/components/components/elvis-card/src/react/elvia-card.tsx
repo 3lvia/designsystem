@@ -27,7 +27,7 @@ export interface CardProps {
   borderColor?: BorderColor;
   type: CardType;
   shape: CardShape;
-  hasBorder?: boolean;
+  hasBorder: boolean;
   width: string;
   minWidth?: number;
   maxWidth?: number;
@@ -39,7 +39,7 @@ export interface CardProps {
   webcomponent?: ElvisComponentWrapper;
 }
 
-const Card: FC<CardProps> = function ({
+const Card: FC<CardProps> = ({
   icon,
   iconHover,
   header,
@@ -57,7 +57,7 @@ const Card: FC<CardProps> = function ({
   className,
   inlineStyle,
   webcomponent,
-}) {
+}) => {
   if (type === 'detail') shape = 'square';
   if (type === 'simple') maxDescriptionLines = 1;
 
