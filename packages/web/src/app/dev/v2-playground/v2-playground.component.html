@@ -25,7 +25,7 @@
     <h3>Box</h3>
     <div style="padding: 8px">
       <elvia-box [hasBorder]="true">
-        <h2 slot="title">Title</h2>
+        <h3 slot="title">Title</h3>
         <div slot="content">Webcomponentent content for the box component</div>
       </elvia-box>
     </div>
@@ -206,7 +206,7 @@
 
   <!--Popover-->
   <div class="example-wrapper">
-    <h2>Popover</h2>
+    <h3>Popover</h3>
     <elvia-popover header="BankID" posX="right" width="200" [isShowing]="isPopoverShowing">
       <button slot="trigger" class="e-btn">Show popover</button>
       <div slot="content">
@@ -218,7 +218,7 @@
 
   <!--Progress linear-->
   <div class="example-wrapper">
-    <h2>Progress linear</h2>
+    <h3>Progress linear</h3>
     <elvia-progress-linear
       [isIndeterminate]="indeterminate"
       [value]="progressValue"
@@ -236,7 +236,7 @@
 
   <!--Radio filter-->
   <div class="example-wrapper">
-    <h2>Radio filter</h2>
+    <h3>Radio filter</h3>
     <elvia-radio-filter
       [items]="[
         { label: 'All', value: 'all' },
@@ -249,9 +249,27 @@
     ></elvia-radio-filter>
   </div>
 
+  <!--Spotlight-->
+  <div class="example-wrapper">
+    <h3>Spotlight</h3>
+    <elvia-spotlight
+      [position]="{ horizontalPosition: 100, verticalPosition: 100 }"
+      [radius]="500"
+    ></elvia-spotlight>
+    <!-- <svg style="position: fixed; top: 0; left: 0; z-index: 99999; width: 100vw; height: 100vh">
+      <defs>
+        <mask id="hole">
+          <rect width="100%" height="100%" fill="white"></rect>
+          <circle r="50" cx="300" cy="300" fill="black"></circle>
+        </mask>
+      </defs>
+      <rect fill="rgba(0,0,0,0.25)" width="100%" height="100%" mask="url(#hole)"></rect>
+    </svg> -->
+  </div>
+
   <!--Tabs-->
   <div class="example-wrapper">
-    <h2>Tabs</h2>
+    <h3>Tabs</h3>
     <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1"></elvia-tabs>
   </div>
 </div>

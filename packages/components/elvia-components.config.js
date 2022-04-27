@@ -348,6 +348,18 @@ module.exports = [
     reactTypescriptDeclaration: true,
   },
   {
+    name: 'elvis-spotlight',
+    elementName: 'elvia-spotlight',
+    attributes: [
+      { name: 'position', type: 'object', propType: 'object' },
+      { name: 'radius', type: 'number', propType: 'number' },
+    ],
+    reactName: 'Spotlight',
+    slotItems: false,
+    useWrapper: false,
+    reactTypescriptDeclaration: true,
+  },
+  {
     name: 'elvis-tabs',
     elementName: 'elvia-tabs',
     attributes: [

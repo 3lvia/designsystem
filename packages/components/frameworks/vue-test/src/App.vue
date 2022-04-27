@@ -164,6 +164,16 @@
       ></elvia-radio-filter>
     </div>
 
+    <!--Spotlight-->
+    <div class="example-wrapper">
+      <h3>Spotlight</h3>
+      <elvia-spotlight
+        :position="{ horizontalPosition: hPos, verticalPosition: vPos }"
+        :radius="radius"
+      ></elvia-spotlight>
+      <button @click="moveSpotlight()" style="z-index: 2147483647; position: relative">Move spotlight</button>
+    </div>
+
     <!--Tabs-->
     <div class="example-wrapper">
       <h3>Tabs</h3>
@@ -215,6 +225,10 @@ export default {
       ],
       // Modal
       isModalShowing: false,
+      // Spotlight
+      vPos: 200,
+      hPos: 200,
+      radius: 100,
       // Pagination
       defaultPaginationValue: { start: 1, end: 10 },
     };
@@ -222,6 +236,17 @@ export default {
   methods: {
     logValue(component, value) {
       console.log(component, ': ', value);
+    },
+    moveSpotlight() {
+      if (this.$data.vPos === 200) {
+        this.$data.vPos = 500;
+        this.$data.hPos = 500;
+        this.$data.radius = 300;
+      } else {
+        this.$data.vPos = 200;
+        this.$data.hPos = 200;
+        this.$data.radius = 100;
+      }
     },
   },
 };
