@@ -12,7 +12,6 @@
     "@elvia/elvis-colors": "^1.2.1",
     "@elvia/elvis-component-wrapper": "^2.2.2",
     "@elvia/elvis-icon": "^1.1.1",
-    "@elvia/elvis-toolbox": "^1.3.0",
     "@elvia/elvis-typography": "^1.2.0",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",

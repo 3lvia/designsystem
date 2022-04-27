@@ -16,8 +16,7 @@ import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
 import { useFocusTrap } from './useFocusTrap';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
-import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
-import config from './config';
+
 export interface ModalProps {
   isShowing: boolean;
   title?: string;
@@ -32,9 +31,6 @@ export interface ModalProps {
   hasPadding?: boolean;
   disableClose?: boolean;
   maxWidth?: string;
-  /**
-   * @deprecated in version 2.0.0. Instead use onOpen and onClose.
-   */
   onHide: () => void;
   webcomponent: ElvisComponentWrapper;
 }
@@ -56,9 +52,6 @@ export const ModalComponent: FC<ModalProps> = function ({
   onHide,
   webcomponent,
 }) {
-  // eslint-disable-next-line prefer-rest-params
-  warnDeprecatedProps(config, arguments[0]);
-
   const modalWrapperRef = useRef<HTMLDivElement>(null);
   const modalText = useRef<HTMLDivElement>(null);
   const modalIllustration = useRef<HTMLDivElement>(null);

@@ -237,3 +237,61 @@ Example of an update
    into master.
 8. **Publish to NPM**: by navigating to `packages/components/components/your-component` in master (after
    pulling the updates) and use the command `npm publish --otp=<code>`.
+
+### Deprecating props
+
+To deprecate a prop on a component you must define it in the component's `config.ts` located in
+`your-component/src/react/config.ts`. You should also refer to the relevant rule from the
+[naming convensions](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/309464209/Navnekonvensjoner). This
+can for instance look like:
+
+```
+import { ComponentConfig } from '@elvia/elvis-toolbox';
+
+const config: ComponentConfig = {
+  componentName: 'Card',
+  deprecatedProps: {
+    // Rule 1.6, introduce theme functionality
+    hasBorder: {
+      version: '2.0.0',
+      newProp: 'theme',
+      explanation: 'This prop has been replaced by the new theme functionality.',
+    },
+    // Rule 1.8, use heading
+    header: {
+      version: '2.0.0',
+      newProp: 'heading',
+      isDirectReplacement: true,
+    },
+  },
+};
+
+export default config;
+
+```
+
+Furthermore, the deprecated prop should be marked with JSDoc as `@deprecated` in the components prop
+interface. This can look like:
+
+```
+export interface CardProps {
+  icon: string | HTMLElement;
+  iconHover?: string | HTMLElement;
+  /**
+   * @deprecated Deprecated in version 1.4.0. Use heading instead.
+   */
+  header: string;
+  shape: CardShape;
+  /**
+   * @deprecated Deprecated in version 1.6.0. Use theme instead.
+   */
+  hasBorder?: boolean;
+  className?: string;
+  inlineStyle?: { [style: string]: CSSProperties };
+  webcomponent?: ElvisComponentWrapper;
+}
+```
+
+The function `warnDeprecatedProps(config, props)` from `@elvia/elvis-toolbox` must be called inside the
+component in order to `console.warn()` about the use of deprecated props. For information on how to use this
+function, see it's JSDoc for an example.
