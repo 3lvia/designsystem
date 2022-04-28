@@ -97,7 +97,7 @@ specifications. The file explains how to add the props and the meaning of the ea
 
 **Divider in config example**
 
-```
+```javascript
 {
     name: 'elvis-divider',
     elementName: 'elvia-divider',
@@ -192,7 +192,7 @@ of the following types:
 
 Example of an update
 
-```
+```json
  {
       "date": "31.03.22",
       "version": "2.3.2 ",
@@ -245,7 +245,7 @@ To deprecate a prop on a component you must define it in the component's `config
 [naming convensions](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/309464209/Navnekonvensjoner). This
 can for instance look like:
 
-```
+```typescript
 import { ComponentConfig } from '@elvia/elvis-toolbox';
 
 const config: ComponentConfig = {
@@ -267,13 +267,12 @@ const config: ComponentConfig = {
 };
 
 export default config;
-
 ```
 
 Furthermore, the deprecated prop should be marked with JSDoc as `@deprecated` in the components prop
 interface. This can look like:
 
-```
+```typescript
 export interface CardProps {
   icon: string | HTMLElement;
   iconHover?: string | HTMLElement;

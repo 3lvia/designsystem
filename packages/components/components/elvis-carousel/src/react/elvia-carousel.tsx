@@ -28,6 +28,7 @@ export interface CarouselProps {
   useOnboardingCheckmark?: boolean;
   value?: number;
   valueOnChange?: (value: number) => void;
+  hasTransitionTime: boolean;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
@@ -40,6 +41,7 @@ export const Carousel: FC<CarouselProps> = ({
   useOnboardingCheckmark,
   value = 0,
   valueOnChange,
+  hasTransitionTime = true,
   className,
   inlineStyle,
   webcomponent,
@@ -66,10 +68,13 @@ export const Carousel: FC<CarouselProps> = ({
       valueOnChange(index);
     } else if (webcomponent) {
       // True -> Prevents rerender
-      const value = index;
-      webcomponent.setProps({ value: value }, true);
+      webcomponent.setProps({ value: index }, true);
     }
   };
+
+  useEffect(() => {
+    handleButtonClick(value, value > index ? 'right' : 'left', true);
+  }, [value]);
 
   useEffect(() => {
     setIndex(index);
@@ -148,19 +153,22 @@ export const Carousel: FC<CarouselProps> = ({
     setSlideDirection(oppositeDirection);
     setFadeIn(false);
 
-    setTimeout(() => {
-      // Using modulo to be able to carousel to next element
-      // For decrement you have to add the length of elements to prevent negative values
-      if (dotClick) {
-        updateValue(index);
-      } else {
-        direction === 'left'
-          ? updateValue((index - 1 + lengthOfElements) % lengthOfElements)
-          : updateValue((index + 1) % lengthOfElements);
-      }
-      setSlideDirection(direction);
-      setFadeIn(true);
-    }, 480);
+    setTimeout(
+      () => {
+        // Using modulo to be able to carousel to next element
+        // For decrement you have to add the length of elements to prevent negative values
+        if (dotClick) {
+          updateValue(index);
+        } else {
+          direction === 'left'
+            ? updateValue((index - 1 + lengthOfElements) % lengthOfElements)
+            : updateValue((index + 1) % lengthOfElements);
+        }
+        setSlideDirection(direction);
+        setFadeIn(true);
+      },
+      hasTransitionTime ? 480 : 0,
+    );
   };
 
   const triggerOnHide = () => {
