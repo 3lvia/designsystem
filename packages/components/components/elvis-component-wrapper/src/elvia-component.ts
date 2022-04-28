@@ -27,6 +27,10 @@ export class ElvisComponentWrapper extends HTMLElement {
     return this._data;
   }
 
+  getProp(propName: string): any {
+    return this._data[propName.toLowerCase()];
+  }
+
   getProps(): { [propName: string]: any } {
     return this._data;
   }

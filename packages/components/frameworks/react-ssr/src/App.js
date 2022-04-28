@@ -23,7 +23,7 @@ function App() {
     console.log(component, ': ', value);
   };
   const updateSpotlight = () => {
-    setSpotlightPos({ verticalPosition: '600', horizontalPosition: '600' });
+    setSpotlightPos({ vertical: '600', horizontal: '600' });
   };
 
   // Breadcrumb
@@ -246,7 +246,7 @@ function App() {
         {/* SPOTLIGHT */}
         <div className="example-wrapper">
           <h3>Spotlight</h3>
-          <Spotlight position={spotlightPos} radius="40"></Spotlight>
+          {/* <Spotlight position={spotlightPos} radius="40"></Spotlight> */}
           <button onClick={updateSpotlight} style={{ position: 'relative', zIndex: 999999 }}>
             Update
           </button>

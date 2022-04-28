@@ -54,6 +54,7 @@ import { ContributeComponent } from './doc-pages/other-pages/contribute/contribu
 import { FaqDocComponent } from './doc-pages/other-pages/faq-doc/faq-doc.component';
 import { UtilitiesDocComponent } from './doc-pages/other-pages/utilities-doc/utilities-doc.component';
 import { TheDesignSystemDocComponent } from './doc-pages/other-pages/the-design-system-doc/the-design-system-doc.component';
+import { SpotlightDocComponent } from './doc-pages/components/spotlight-doc/spotlight-doc.component';
 
 const routes: Routes = [
   {
@@ -266,6 +267,10 @@ const routes: Routes = [
           {
             path: Pages.Search,
             component: SearchDocComponent,
+          },
+          {
+            path: Pages.Spotlight,
+            component: SpotlightDocComponent,
           },
           {
             path: Pages.Stepper,

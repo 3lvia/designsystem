@@ -1,0 +1,67 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Spotlight</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body e-mt-72">
+  <!--CEG-->
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Size of spotlight'">
+        <ng-container ngProjectAs="sectionContent">
+          The spotlight should have a padding of approximately 24px from the element. To get the correct
+          circle radius, find the largest measurement (width or height) of the object you want to light up,
+          divide by 2, and add 24px to the find the correct radius.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Radius'">
+        <ng-container ngProjectAs="sectionContent">
+          To find the correct radius you need to find the largest measurement, either height or width of the
+          element and then you can use this formula:
+          <div class="code-text e-mt-40">radius = ((Math.max(width, height)/2) + 24px)</div>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Position'">
+        <ng-container ngProjectAs="sectionContent">
+          To find the center of the element and therefore circle you can use these formulas:
+          <div class="code-text e-mt-40">horizontal = rect.left + rect.width / 2</div>
+          <div class="code-text e-mt-16">vertical = rect.top + rect.height / 2</div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
+  <!--CHANGELOG-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
+    </ng-container>
+  </app-component-section>
+</div>

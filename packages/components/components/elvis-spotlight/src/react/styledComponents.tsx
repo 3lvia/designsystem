@@ -10,5 +10,5 @@ export const SpotlightArea = styled.svg`
 `;
 
 export const SpotlightCircle = styled.circle`
-  transition: all 700ms ease-in-out;
+  transition: all 350ms ease-in-out;
 `;

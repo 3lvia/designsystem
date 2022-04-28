@@ -167,10 +167,7 @@
     <!--Spotlight-->
     <div class="example-wrapper">
       <h3>Spotlight</h3>
-      <elvia-spotlight
-        :position="{ horizontalPosition: hPos, verticalPosition: vPos }"
-        :radius="radius"
-      ></elvia-spotlight>
+      <!-- <elvia-spotlight :position="{ horizontal: hPos, vertical: vPos }" :radius="radius"></elvia-spotlight> -->
       <button @click="moveSpotlight()" style="z-index: 2147483647; position: relative">Move spotlight</button>
     </div>
 
