@@ -28,7 +28,7 @@ export interface CarouselProps {
   useOnboardingCheckmark?: boolean;
   value?: number;
   valueOnChange?: (value: number) => void;
-  hasTransitionTime: boolean;
+  hasAnimation: boolean;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
@@ -41,7 +41,7 @@ export const Carousel: FC<CarouselProps> = ({
   useOnboardingCheckmark,
   value = 0,
   valueOnChange,
-  hasTransitionTime = true,
+  hasAnimation = true,
   className,
   inlineStyle,
   webcomponent,
@@ -167,7 +167,7 @@ export const Carousel: FC<CarouselProps> = ({
         setSlideDirection(direction);
         setFadeIn(true);
       },
-      hasTransitionTime ? 480 : 0,
+      hasAnimation ? 480 : 0,
     );
   };
 
@@ -180,8 +180,8 @@ export const Carousel: FC<CarouselProps> = ({
   };
 
   const classNameContainer = classnames({
-    ['exit-animation']: !fadeIn,
-    ['enter-animation']: fadeIn,
+    ['exit-animation']: hasAnimation && !fadeIn,
+    ['enter-animation']: hasAnimation && fadeIn,
   });
 
   return (

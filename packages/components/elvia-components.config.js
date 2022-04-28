@@ -125,7 +125,7 @@ module.exports = [
       { name: 'elements', type: 'string', propType: 'number | string | HTMLElement' },
       { name: 'hideArrows', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'useOnboardingCheckmark', type: 'boolean', propType: 'boolean | undefined' },
-      { name: 'hasTransitionTime', type: 'boolean', propType: 'boolean' },
+      { name: 'hasAnimation', type: 'boolean', propType: 'boolean' },
       { name: 'value', type: 'number', propType: 'number | undefined' },
       { name: 'className', type: 'string', propType: 'string' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },

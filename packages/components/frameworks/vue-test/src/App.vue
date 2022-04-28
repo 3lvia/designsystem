@@ -53,7 +53,7 @@
     <!--Carousel-->
     <div class="example-wrapper">
       <h3>Carousel</h3>
-      <elvia-carousel :hasTransitionTime="false" :value="carouselValue">
+      <elvia-carousel :hasAnimation="false" :value="carouselValue">
         <div slot="title-1">
           <h4 class="e-title-sm">HAN-port</h4>
         </div>

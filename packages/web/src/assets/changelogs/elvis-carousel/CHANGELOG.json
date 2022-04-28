@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added new prop hasTransitionTime that can be used to turn off the animation when moving through the carousel."
+            "Added new prop hasAnimation that can be used to turn off the animation when moving through the carousel."
           ]
         },
         {

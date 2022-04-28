@@ -58,7 +58,7 @@ export const carouselData: ComponentData = {
       type: '(value: number) => CustomEvent',
       description: 'Gets called every time the value is changed.',
     },
-    hasTransitionTime: {
+    hasAnimation: {
       isRequired: false,
       type: 'boolean',
       description: 'Can be used to turn off the animation when moving between elements in the carousel.',
