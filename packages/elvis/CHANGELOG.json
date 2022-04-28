@@ -6,7 +6,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Value in compact textfields now gets corect color "],
+          "changes": ["Value in disabled compact textfields now gets corect color "],
           "fixes": [],
           "components": [
             { "displayName": "Textfield", "url": "https://design.elvia.io/components/input#Overview" }
