@@ -73,7 +73,7 @@ export const Carousel: FC<CarouselProps> = ({
   };
 
   useEffect(() => {
-    handleButtonClick(value, value > index ? 'right' : 'left', true);
+    handleValueChange(value, value > index ? 'right' : 'left', true);
   }, [value]);
 
   useEffect(() => {
@@ -140,14 +140,14 @@ export const Carousel: FC<CarouselProps> = ({
     const x = clientX - itemsRef.current.offsetLeft;
     const distance = (x - startX) * 3;
     if (distance < -400 && !hideRightArrow) {
-      handleButtonClick(index, 'right');
+      handleValueChange(index, 'right');
     }
     if (distance > 400 && !hideLeftArrow) {
-      handleButtonClick(index, 'left');
+      handleValueChange(index, 'left');
     }
   };
 
-  const handleButtonClick = (index: number, direction: 'left' | 'right', dotClick?: boolean): void => {
+  const handleValueChange = (index: number, direction: 'left' | 'right', dotClick?: boolean): void => {
     setIsDown(false);
     const oppositeDirection = direction === 'left' ? 'right' : 'left';
     setSlideDirection(oppositeDirection);
@@ -223,7 +223,7 @@ export const Carousel: FC<CarouselProps> = ({
           aria-label={`Gå til forrige side`}
           aria-hidden={hideLeftArrow}
           hidden={hideLeftArrow}
-          onClick={() => handleButtonClick(index, 'left')}
+          onClick={() => handleValueChange(index, 'left')}
           onMouseEnter={() => setIsHoveringLeftButton(true)}
           onMouseLeave={() => setIsHoveringLeftButton(false)}
           data-testid="carousel-left-arrow"
@@ -244,7 +244,7 @@ export const Carousel: FC<CarouselProps> = ({
               }
               onClick={() =>
                 listIndex !== index &&
-                handleButtonClick(listIndex, listIndex > index ? 'right' : 'left', true)
+                handleValueChange(listIndex, listIndex > index ? 'right' : 'left', true)
               }
             />
           ))}
@@ -265,7 +265,7 @@ export const Carousel: FC<CarouselProps> = ({
             aria-label={`Gå til neste side`}
             aria-hidden={hideRightArrow}
             hidden={hideRightArrow}
-            onClick={() => handleButtonClick(index, 'right')}
+            onClick={() => handleValueChange(index, 'right')}
             onMouseEnter={() => setIsHoveringRightButton(true)}
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-right-arrow"
