@@ -2708,8 +2708,8 @@ input:focus {
 .e-input > input:disabled,
 .e-input > textarea:disabled {
   opacity: 1;
-  color: #d3d3d3;
-  border-color: #d3d3d3;
+  color: #bdbdbd;
+  border-color: #bdbdbd;
   cursor: not-allowed;
 }
 .e-input input[type=date]::-webkit-calendar-picker-indicator,
@@ -7506,6 +7506,9 @@ input:focus {
   font-family: "Red Hat Text", Verdana, sans-serif;
   font-size: 12px;
   line-height: 16px;
+}
+.e-form-field.e-form-field--compact input:disabled {
+  color: #bdbdbd;
 }
 
 .e-inlined-field {

@@ -1,6 +1,21 @@
 {
   "content": [
     {
+      "version": "8.3.3",
+      "date": "April 22, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed bug where sidebar in the internal header was hidden by the url bar."],
+          "fixes": [],
+          "components": [
+            { "displayName": "Header", "url": "https://design.elvia.io/components/header#Overview" }
+          ],
+          "pages": []
+        }
+      ]
+    },
+    {
       "version": "8.3.2",
       "date": "April 21, 2022",
       "changelog": [
