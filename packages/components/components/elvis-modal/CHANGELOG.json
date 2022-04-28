@@ -2,13 +2,14 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "26.04.22",
+      "date": "28.04.22",
       "version": "1.4.5 ",
       "changelog": [
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed an issue causing the primary and secondary buttons to not always be correctly positioned and sized."
+            "Fixed an issue causing the primary and secondary buttons to not always be correctly positioned and sized.",
+            "Resized the illustration in modal for mobile."
           ]
         }
       ]
