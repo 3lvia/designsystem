@@ -18,8 +18,6 @@ const desktopMin = '1024px';
 const modalBorderRadius = '8px';
 const modalMaxWidth = '704px';
 
-const mobileTitleFontSize = '24px';
-const mobileTitleFontWeight = '700';
 const modalMobilePadding = '32px 32px 24px 32px';
 const modalMobileTitlePaddingTop = '8px';
 const modalMobileTitlePaddingBottom = '8px';
@@ -172,9 +170,9 @@ export const ModalTitle = styled.div`
   @media (max-width: ${mobileMax}) {
     padding-top: ${modalMobileTitlePaddingTop};
     padding-bottom: ${modalMobileTitlePaddingBottom};
-    font-size: ${mobileTitleFontSize};
-    font-weight: ${mobileTitleFontWeight};
-    line-height: 29px;
+    font-size: ${typography.titleMd.fontSizeMobile};
+    font-weight: ${typography.titleMd.fontWeight};
+    line-height: ${typography.titleMd.lineHeightMobile};
   }
 `;
 
@@ -185,8 +183,8 @@ export const ModalText = styled.div`
   height: 100%;
 
   @media (max-width: ${mobileMax}) {
-    font-size: 14px;
-    line-height: 22.4px;
+    font-size: ${typography.textLg.fontSizeMobile};
+    line-height: ${typography.textLg.lineHeightMobile};
   }
 `;
 

@@ -8,8 +8,14 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed an issue causing the primary and secondary buttons to not always be correctly positioned and sized.",
-            "Resized the illustration in modal for mobile."
+            "Fixed an issue causing the primary and secondary buttons to not always be correctly positioned and sized."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Increased the size of the illustration in modal for mobile.",
+            "Increased the content text font size in modal for mobile."
           ]
         }
       ]
