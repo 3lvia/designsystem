@@ -68,9 +68,6 @@ export const ModalComponent: FC<ModalProps> = ({
     if (!isShowing) {
       return;
     }
-    if (disableClose) {
-      return;
-    }
     if (!webcomponent && onHide) {
       onHide();
     } else if (webcomponent) {
@@ -79,7 +76,7 @@ export const ModalComponent: FC<ModalProps> = ({
     }
   };
 
-  useClickOutside(modalWrapperRef, () => isShowing && handleOnHide());
+  !disableClose && useClickOutside(modalWrapperRef, () => isShowing && handleOnHide());
   useKeyPress('Escape', handleOnHide);
   hasLockBodyScroll && useLockBodyScroll(isShowing);
 

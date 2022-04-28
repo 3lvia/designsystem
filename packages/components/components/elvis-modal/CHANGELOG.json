@@ -8,7 +8,8 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed an issue causing the primary and secondary buttons to not always be correctly positioned and sized."
+            "Fixed an issue causing the primary and secondary buttons to not always be correctly positioned and sized.",
+            "Fixed a bug where the <span class=\"code-text\">disableClose</span> prop caused the modal to not close even when the close button is clicked. Now it only disables closing the modal when clicking the backdrop."
           ]
         },
         {
