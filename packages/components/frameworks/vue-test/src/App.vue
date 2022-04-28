@@ -53,7 +53,7 @@
     <!--Carousel-->
     <div class="example-wrapper">
       <h3>Carousel</h3>
-      <elvia-carousel>
+      <elvia-carousel :hasAnimation="false" :value="carouselValue">
         <div slot="title-1">
           <h4 class="e-title-sm">HAN-port</h4>
         </div>
@@ -67,6 +67,9 @@
         </div>
         <div slot="element-3">hei</div>
       </elvia-carousel>
+      <button @click="carouselValue = incrementCarouselStep(carouselValue)" class="e-btn e-btn--sm">
+        Increment step
+      </button>
     </div>
 
     <!--Chip-->
@@ -209,6 +212,7 @@ export default {
         { title: 'Strømbruddsvarsel', element: this.carouselParagraph },
         { element: this.carouselParagraph },
       ],
+      carouselValue: 0,
       // Chips
       deletableChipsList: [
         { value: 2022, color: 'green' },
@@ -232,6 +236,11 @@ export default {
   methods: {
     logValue(component, value) {
       console.log(component, ': ', value);
+    },
+    incrementCarouselStep(carouselValue) {
+      carouselValue = (carouselValue + 1) % 3;
+      console.log('Carousel value: ', carouselValue);
+      return carouselValue;
     },
   },
 };
