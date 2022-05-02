@@ -358,7 +358,7 @@ export const componentsDocPages: DocPage[] = [
     title: 'Spotlight',
     // tslint:disable-next-line: max-line-length
     description:
-      'Spotlight is used to highlight an specific selection of a page, often used together with an information box. ',
+      'Spotlight is used to highlight a specific selection of a page, often used together with an information box.',
     docUrl: Pages.Spotlight,
     absolutePath: '/components/' + Pages.Spotlight,
     status: DocPageStatus.Done,
