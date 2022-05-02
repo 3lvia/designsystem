@@ -78,6 +78,8 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
+
+  <!--IMPLEMENTATION-->
   <app-component-section [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
       To implement the card component as a link it must be wrapped in a link or an anchor tag. To avoid hard
@@ -86,6 +88,19 @@
         [componentData]="cardLinkCode"
         [inlineExample]="true"
       ></app-component-example-generator>
+    </ng-container>
+  </app-component-section>
+
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Element'">
+        <ng-container ngProjectAs="sectionContent">
+          Remember to wrap the card inside a link element
+          <span class="code-text">&lt;a&gt;</span>
+          to ensure correct HTML markup.
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

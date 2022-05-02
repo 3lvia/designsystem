@@ -1,5 +1,7 @@
 /* Elvia Styleguide */
 @import '@elvia/elvis/src/main.scss';
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import '@elvia/elvis/src/variables/typography.scss';
 
 /* Code highlighter */
 @import '~prismjs/plugins/toolbar/prism-toolbar.css';
@@ -7,9 +9,6 @@
 
 @import './app/shared/shared-sizes';
 @import './app/shared/shared-animations';
-
-// Elvia breakpoints for mobile
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 // Prebuilt css for enabling use of overlays from @angular/cdk
 @import '@angular/cdk/overlay-prebuilt.css';
@@ -72,6 +71,27 @@ p {
   background: var(--e-grey-05);
   border-radius: 4px;
   padding: 0 2px;
+}
+.keyboard-button {
+  padding: 6px 16px;
+  margin-right: 8px;
+  border: 1px solid black;
+  border-radius: 64px;
+  @include typography('text-sm');
+  &:not(:first-of-type) {
+    margin: 0 8px;
+  }
+  &.icon {
+    padding: 8px 16px 4px 16px;
+  }
+}
+.accessibility-keyboard-navigation {
+  line-height: 34px;
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
 }
 
 .page-body {
