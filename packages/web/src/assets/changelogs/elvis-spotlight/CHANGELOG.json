@@ -1,0 +1,47 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "28.04.22",
+      "version": "1.0.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of spotlight."]
+        }
+      ]
+    },
+    {
+      "date": "28.04.22",
+      "version": "1.0.0-beta.3 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Syntax fix."]
+        }
+      ]
+    },
+    {
+      "date": "28.04.22",
+      "version": "1.0.0-beta.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "More smooth and fast animation and renaming of positionVertical and positionHorizontal to vertical and horizontal. Also made it possible to have position undefined from start."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "28.04.22",
+      "version": "1.0.0-beta.1 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Spotlight component beta version."]
+        }
+      ]
+    }
+  ]
+}

@@ -8,6 +8,5 @@ export interface DocPage {
   externalUrl?: string;
   figmaUrl?: string;
   status?: string;
-  imageUrlOn?: string;
   type?: string;
 }

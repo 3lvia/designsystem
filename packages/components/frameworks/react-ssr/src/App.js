@@ -15,11 +15,15 @@ import { Pagination } from '@elvia/elvis-pagination/react';
 import { Popover } from '@elvia/elvis-popover/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
+import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 
 function App() {
   const logValue = (component, value) => {
     console.log(component, ': ', value);
+  };
+  const updateSpotlight = () => {
+    setSpotlightPos({ vertical: '600', horizontal: '600' });
   };
 
   // Breadcrumb
@@ -74,6 +78,9 @@ function App() {
     { label: 'Read', value: 'read' },
     { label: 'Unread', value: 'unread' },
   ];
+
+  // Spotlight
+  const [spotlightPos, setSpotlightPos] = useState({ verticalPosition: '500', horizontalPosition: '500' });
 
   // Tabs
   const tabsItems = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
@@ -237,6 +244,14 @@ function App() {
             value={selectedRadioFilter}
             name={'radioFilterTest'}
           ></RadioFilter>
+        </div>
+        {/* SPOTLIGHT */}
+        <div className="example-wrapper">
+          <h3>Spotlight</h3>
+          {/* <Spotlight position={spotlightPos} radius="40"></Spotlight> */}
+          <button onClick={updateSpotlight} style={{ position: 'relative', zIndex: 999999 }}>
+            Update
+          </button>
         </div>
         {/* TABS */}
         <div className="example-wrapper">

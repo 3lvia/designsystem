@@ -20,6 +20,7 @@
     "@elvia/elvis-pagination": "*",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-progress-linear": "*",
+    "@elvia/elvis-spotlight": "*",
     "@elvia/elvis-tabs": "*",
     "@elvia/elvis-testing": "*",
     "@testing-library/jest-dom": "^5.15.1",

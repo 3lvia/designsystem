@@ -25,6 +25,7 @@
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-radio-filter": "*",
+    "@elvia/elvis-spotlight": "*",
     "@elvia/elvis-tabs": "*",
     "@elvia/elvis-testing": "*",
     "ansi-html-community": "^0.0.8",

@@ -29,6 +29,7 @@ import { TabsDocModule } from './tabs-doc/tabs-doc.module';
 import { BreadcrumbDocModule } from './breadcrumb-doc/breadcrumb-doc.module';
 import { TimepickerDocModule } from './forms/timepicker-doc/timepicker-doc.module';
 import { BoxDocModule } from './box-doc/box-doc.module';
+import { SpotlightDocModule } from './spotlight-doc/spotlight-doc.module';
 
 @NgModule({
   imports: [
@@ -56,6 +57,7 @@ import { BoxDocModule } from './box-doc/box-doc.module';
     PositionPickerDocModule,
     PopoverDocModule,
     PaginationDocModule,
+    SpotlightDocModule,
     StepperDocModule,
     TabsDocModule,
     TableDocModule,
