@@ -18,10 +18,10 @@ const desktopMin = '1024px';
 const modalBorderRadius = '8px';
 const modalMaxWidth = '704px';
 
-const mobileTitleFontSize = '24px';
-const mobileTitleFontWeight = '700';
 const modalMobilePadding = '32px 32px 24px 32px';
+const modalMobileTitlePaddingTop = '8px';
 const modalMobileTitlePaddingBottom = '8px';
+const modalMobileIllustrationHeight = '40vh';
 
 const modalDesktopPadding = '48px';
 const modalDesktopTitlePaddingBottom = '32px';
@@ -114,7 +114,7 @@ export const ModalContent = styled.div<ModalContentProps>`
     padding-top: ${(props: { hasIllustration: boolean }) => props.hasIllustration && '24px'};
     width: 100%;
     height: ${(props: { hasIllustration: boolean }) =>
-      props.hasIllustration ? 'calc(100% - 250px)' : '100%'};
+      props.hasIllustration ? `calc(100% - ${modalMobileIllustrationHeight})` : '100%'};
   }
 `;
 
@@ -145,7 +145,7 @@ export const ModalIllustration = styled.div`
 
   @media (max-width: ${mobileMax}) {
     width: 100%;
-    height: 250px;
+    height: ${modalMobileIllustrationHeight};
     margin: 0;
     padding: 32px 48px 0;
 
@@ -168,10 +168,11 @@ export const ModalTitle = styled.div`
     props.hasIllustration ? modalDesktopWithIllustrationTitlePaddingBottom : modalDesktopTitlePaddingBottom};
 
   @media (max-width: ${mobileMax}) {
+    padding-top: ${modalMobileTitlePaddingTop};
     padding-bottom: ${modalMobileTitlePaddingBottom};
-    font-size: ${mobileTitleFontSize};
-    font-weight: ${mobileTitleFontWeight};
-    line-height: 29px;
+    font-size: ${typography.titleMd.fontSizeMobile};
+    font-weight: ${typography.titleMd.fontWeight};
+    line-height: ${typography.titleMd.lineHeightMobile};
   }
 `;
 
@@ -182,8 +183,8 @@ export const ModalText = styled.div`
   height: 100%;
 
   @media (max-width: ${mobileMax}) {
-    font-size: 14px;
-    line-height: 22.4px;
+    font-size: ${typography.textLg.fontSizeMobile};
+    line-height: ${typography.textLg.lineHeightMobile};
   }
 `;
 
@@ -195,34 +196,27 @@ export const ModalActions = styled.div`
   margin: auto 0 0 0;
   position: relative;
 
+  button {
+    width: 50%;
+  }
+
+  .webComponentBtn {
+    width: 50%;
+    button {
+      width: 100%;
+    }
+  }
+
   @media (max-width: ${mobileMax}) {
     flex-direction: column;
     width: 100%;
     gap: 16px;
 
-    div button {
+    button {
       width: 100%;
     }
-  }
 
-  button:not(:only-of-type) {
-    width: 100%;
-  }
-
-  .webComponentBtn:not(:only-of-type) {
-    width: 100%;
-    button {
-      width: inherit;
-    }
-  }
-
-  :not(webComponentBtn) > button:only-of-type {
-    width: 50%;
-  }
-
-  div:only-child {
-    width: 50%;
-    button {
+    .webComponentBtn {
       width: 100%;
     }
   }

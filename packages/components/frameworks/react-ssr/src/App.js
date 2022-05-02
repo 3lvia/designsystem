@@ -193,6 +193,8 @@ function App() {
             onHide={() => setIsModalShowingState(false)}
             title="Title of content"
             content={<div>Body text comes here and can go over several lines.</div>}
+            primaryButton={<button className="e-btn e-btn--primary">Primary</button>}
+            secondaryButton={<button className="e-btn e-btn--secondary">Secondary</button>}
           ></Modal>
         </div>
         {/* PAGINATION */}
