@@ -46,7 +46,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-angular@npm:^13.2.5":
+"@angular-devkit/build-angular@npm:^13.3.4":
   version: 13.3.4
   resolution: "@angular-devkit/build-angular@npm:13.3.4"
   dependencies:
@@ -217,7 +217,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cli@npm:^13.2.5":
+"@angular/cli@npm:^13.3.4":
   version: 13.3.4
   resolution: "@angular/cli@npm:13.3.4"
   dependencies:
@@ -11126,10 +11126,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "elvia-designsystem@workspace:packages/web"
   dependencies:
-    "@angular-devkit/build-angular": ^13.2.5
+    "@angular-devkit/build-angular": ^13.3.4
     "@angular/animations": ^13.2.4
     "@angular/cdk": ^13.2.1
-    "@angular/cli": ^13.2.5
+    "@angular/cli": ^13.3.4
     "@angular/common": ^13.2.4
     "@angular/compiler": ^13.2.4
     "@angular/compiler-cli": ^13.2.4
