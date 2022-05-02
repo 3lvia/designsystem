@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.05.22",
+      "version": "1.4.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for native events in React. "]
+        }
+      ]
+    },
+    {
       "date": "28.03.22",
       "version": "1.3.4 ",
       "changelog": [
@@ -83,6 +93,7 @@
       "version": "1.1.5 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Updated dependencies"]
         }
       ]
@@ -92,6 +103,7 @@
       "version": "1.1.4 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Added unit tests for tabs"]
         }
       ]
@@ -101,6 +113,7 @@
       "version": "1.1.3 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Web component wrapper fix"]
         }
       ]
@@ -120,6 +133,7 @@
       "version": "1.0.4 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Add a general fade", "Remove margin when scroll is used"]
         }
       ]

@@ -78,6 +78,7 @@ const Pagination: FC<PaginationProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[selectedDropdownItemIndex]);
   const [showPaginationMenu, setShowPaginationMenu] = useState(true);
@@ -489,6 +490,7 @@ const Pagination: FC<PaginationProps> = ({
       className={`${className ? className : ''}`}
       style={inlineStyle}
       data-testid="pagination"
+      {...rest}
     >
       <PaginatorInfoContainer>
         <PaginatorInfoText data-testid="info-text">{labelDisplaying}</PaginatorInfoText>

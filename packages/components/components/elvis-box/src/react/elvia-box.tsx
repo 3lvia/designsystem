@@ -19,6 +19,7 @@ const Box: FC<BoxProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const boxContent = useRef<HTMLDivElement>(null);
   const boxTitle = useRef<HTMLDivElement>(null);
@@ -40,7 +41,7 @@ const Box: FC<BoxProps> = ({
   }, [webcomponent]);
 
   return (
-    <div className={`${className ? className : ''}`} style={inlineStyle}>
+    <div className={`${className ? className : ''}`} style={inlineStyle} {...rest}>
       <BoxArea data-testid="box-area">
         {title && <BoxTitle data-testid="box-title">{title}</BoxTitle>}
         {!title && <BoxTitle ref={boxTitle}></BoxTitle>}

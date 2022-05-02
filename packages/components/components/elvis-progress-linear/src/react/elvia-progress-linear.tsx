@@ -18,6 +18,7 @@ const ProgressLinear: FC<ProgressbarProps> = ({
   ariaValueText,
   className,
   inlineStyle,
+  ...rest
 }) => {
   const classes = classnames({
     ['ewc-progress-linear--range']: !isIndeterminate && !isError,
@@ -34,6 +35,7 @@ const ProgressLinear: FC<ProgressbarProps> = ({
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuetext={ariaValueText ? ariaValueText : 'Progresjonen er nå på ' + value + '%.'}
+      {...rest}
     >
       <div className={'ewc-progress-linear'}>
         <div className={classes} style={{ width: `${value}%` }} data-testid="progress-linear"></div>

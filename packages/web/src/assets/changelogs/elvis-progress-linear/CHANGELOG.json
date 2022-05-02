@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.05.22",
+      "version": "1.3.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for native events in React. "]
+        }
+      ]
+    },
+    {
       "date": "31.03.22",
       "version": "1.2.4 ",
       "changelog": [
@@ -60,6 +70,7 @@
       "version": "1.1.2 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Added unit tests for progress-linear"]
         }
       ]
@@ -69,6 +80,7 @@
       "version": "1.1.1 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Web component wrapper fix"]
         }
       ]
@@ -88,6 +100,7 @@
       "version": "1.0.0",
       "changelog": [
         {
+          "type": "new_feature",
           "changes": ["First stable version :tada:"]
         }
       ]

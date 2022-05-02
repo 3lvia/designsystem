@@ -22,6 +22,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const [childrenLength, setChildrenLength] = useState<number>(0);
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
@@ -137,6 +138,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
       style={inlineStyle}
       data-testid="breadcrumb-wrapper"
       aria-label="Breadcrumbs"
+      {...rest}
     >
       {breadcrumb}
     </BreadcrumbWrapper>

@@ -51,6 +51,7 @@ export const ModalComponent: FC<ModalProps> = ({
   maxWidth,
   onHide,
   webcomponent,
+  ...rest
 }) => {
   const modalWrapperRef = useRef<HTMLDivElement>(null);
   const modalText = useRef<HTMLDivElement>(null);
@@ -133,6 +134,7 @@ export const ModalComponent: FC<ModalProps> = ({
       aria-label={title}
       isShowing={isShowing}
       data-testid="modal-container"
+      {...rest}
     >
       <ModalWrapper
         ref={modalWrapperRef}

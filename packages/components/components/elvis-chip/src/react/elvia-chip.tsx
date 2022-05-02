@@ -33,6 +33,7 @@ export const Chip: FC<BaseChipProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const [isSelected, setIsSelected] = useState(selected);
   const [isHovering, setIsHovering] = useState(false);
@@ -80,6 +81,7 @@ export const Chip: FC<BaseChipProps> = ({
       className={`${className ? className : ''}`}
       style={inlineStyle}
       data-testid="chip-button"
+      {...rest}
     >
       {type === 'choice' && (
         <Icon

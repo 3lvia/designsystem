@@ -67,6 +67,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const [currentVal, setCurrentVal] = useState(defaultValue);
   const [isError, setIsError] = useState(false);
@@ -523,7 +524,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   }, [errorMessage]);
 
   return (
-    <div className={`${className ? className : ''}`} style={inlineStyle}>
+    <div className={`${className ? className : ''}`} style={inlineStyle} {...rest}>
       <DropdownWrapper isDisabled={isDisabled} ref={dropdownRef} data-testid="wrapper">
         <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
           {label}
