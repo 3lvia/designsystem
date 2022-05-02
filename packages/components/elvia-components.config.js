@@ -314,7 +314,7 @@ module.exports = [
     reactName: 'Popover',
     useWrapper: true,
     elementStyle: `display: block;`,
-    slotItems: false,
+    slotItems: true,
     reactTypescriptDeclaration: true,
   },
   {

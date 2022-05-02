@@ -9,8 +9,8 @@
       <div class="e-bg-white">
         <h3>Popover</h3>
         <elvia-popover type="list" :selectable="true" :disableAutoClose="true">
-          <button slot="trigger" className="e-btn">Show popover</button>
-          <div slot="content" className="ewc-popover__list">
+          <button slot="trigger" class="e-btn">Show popover</button>
+          <div slot="content" class="ewc-popover__list">
             <button>
               <elvia-icon name="checkBold" size="xs"></elvia-icon>
               <span>Dato nyeste</span>
@@ -24,11 +24,11 @@
           </div>
         </elvia-popover>
         <elvia-popover type="list" :hasDivider="true">
-          <button slot="trigger" className="e-btn">Show popover</button>
-          <div slot="content" className="ewc-popover__list">
-            <div className="ewc-popover__list-group">
+          <button slot="trigger" class="e-btn">Show popover</button>
+          <div slot="content" class="ewc-popover__list">
+            <div class="ewc-popover__list-group">
               <h1>Title 1</h1>
-              <button className="ewc-popover__list-item--selected">
+              <button class="ewc-popover__list-item--selected">
                 <elvia-icon name="edit" size="xs"></elvia-icon>
                 <span>Rediger</span>
               </button>
@@ -41,7 +41,7 @@
                 <span>Last ned</span>
               </a>
             </div>
-            <div className="ewc-popover__list-group">
+            <div class="ewc-popover__list-group">
               <h1>Title 2</h1>
               <button>
                 <elvia-icon name="edit" size="xs"></elvia-icon>
