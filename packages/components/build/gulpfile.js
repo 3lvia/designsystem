@@ -198,6 +198,15 @@ function buildElviaComponentToJS() {
     .pipe(gulp.dest(`../components/elvis-component-wrapper/dist/`));
 }
 
+function buildElviaComponentTSDeclaration() {
+  const tsConfig = typescript.createProject('../tsconfig.json');
+  return gulp
+    .src(['../components/elvis-component-wrapper/src/*.ts'])
+    .pipe(tsConfig())
+    .pipe(filter(['*.d.ts']))
+    .pipe(gulp.dest(`../components/elvis-component-wrapper/dist/`));
+}
+
 function buildToolboxComponentToJS() {
   const tsConfig = typescript.createProject('../tsconfig.json');
   const tsResult = gulp.src(['../components/elvis-toolbox/src/*.ts']).pipe(tsConfig());
@@ -237,6 +246,7 @@ gulp.task(
     reactTypescriptDeclarations,
     buildWebComponentsMagically,
     buildElviaComponentToJS,
+    buildElviaComponentTSDeclaration,
     runTests,
     function (done) {
       done();
