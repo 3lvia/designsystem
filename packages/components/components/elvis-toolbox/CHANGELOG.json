@@ -2,10 +2,23 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "27.04.22",
+      "version": "1.3.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added helper function to show deprecation warnings when deprecated props are used in components. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "26.01.22",
       "version": "1.2.2 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Updated dependencies."]
         }
       ]

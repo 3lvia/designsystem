@@ -28,6 +28,7 @@ export interface CarouselProps {
   useOnboardingCheckmark?: boolean;
   value?: number;
   valueOnChange?: (value: number) => void;
+  hasAnimation: boolean;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
@@ -40,6 +41,7 @@ export const Carousel: FC<CarouselProps> = ({
   useOnboardingCheckmark,
   value = 0,
   valueOnChange,
+  hasAnimation = true,
   className,
   inlineStyle,
   webcomponent,
@@ -66,10 +68,13 @@ export const Carousel: FC<CarouselProps> = ({
       valueOnChange(index);
     } else if (webcomponent) {
       // True -> Prevents rerender
-      const value = index;
-      webcomponent.setProps({ value: value }, true);
+      webcomponent.setProps({ value: index }, true);
     }
   };
+
+  useEffect(() => {
+    handleValueChange(value, value > index ? 'right' : 'left', true);
+  }, [value]);
 
   useEffect(() => {
     setIndex(index);
@@ -135,37 +140,48 @@ export const Carousel: FC<CarouselProps> = ({
     const x = clientX - itemsRef.current.offsetLeft;
     const distance = (x - startX) * 3;
     if (distance < -400 && !hideRightArrow) {
-      handleButtonClick(index, 'right');
+      handleValueChange(index, 'right');
     }
     if (distance > 400 && !hideLeftArrow) {
-      handleButtonClick(index, 'left');
+      handleValueChange(index, 'left');
     }
   };
 
-  const handleButtonClick = (index: number, direction: 'left' | 'right', dotClick?: boolean): void => {
+  const handleValueChange = (index: number, direction: 'left' | 'right', dotClick?: boolean): void => {
     setIsDown(false);
     const oppositeDirection = direction === 'left' ? 'right' : 'left';
     setSlideDirection(oppositeDirection);
     setFadeIn(false);
 
-    setTimeout(() => {
-      // Using modulo to be able to carousel to next element
-      // For decrement you have to add the length of elements to prevent negative values
-      if (dotClick) {
-        updateValue(index);
-      } else {
-        direction === 'left'
-          ? updateValue((index - 1 + lengthOfElements) % lengthOfElements)
-          : updateValue((index + 1) % lengthOfElements);
-      }
-      setSlideDirection(direction);
-      setFadeIn(true);
-    }, 480);
+    setTimeout(
+      () => {
+        // Using modulo to be able to carousel to next element
+        // For decrement you have to add the length of elements to prevent negative values
+        if (dotClick) {
+          updateValue(index);
+        } else {
+          direction === 'left'
+            ? updateValue((index - 1 + lengthOfElements) % lengthOfElements)
+            : updateValue((index + 1) % lengthOfElements);
+        }
+        setSlideDirection(direction);
+        setFadeIn(true);
+      },
+      hasAnimation ? 480 : 0,
+    );
+  };
+
+  const triggerOnHide = () => {
+    if (!webcomponent) {
+      onHide && onHide();
+    } else {
+      webcomponent.triggerEvent('onHide');
+    }
   };
 
   const classNameContainer = classnames({
-    ['exit-animation']: !fadeIn,
-    ['enter-animation']: fadeIn,
+    ['exit-animation']: hasAnimation && !fadeIn,
+    ['enter-animation']: hasAnimation && fadeIn,
   });
 
   return (
@@ -207,7 +223,7 @@ export const Carousel: FC<CarouselProps> = ({
           aria-label={`Gå til forrige side`}
           aria-hidden={hideLeftArrow}
           hidden={hideLeftArrow}
-          onClick={() => handleButtonClick(index, 'left')}
+          onClick={() => handleValueChange(index, 'left')}
           onMouseEnter={() => setIsHoveringLeftButton(true)}
           onMouseLeave={() => setIsHoveringLeftButton(false)}
           data-testid="carousel-left-arrow"
@@ -228,7 +244,7 @@ export const Carousel: FC<CarouselProps> = ({
               }
               onClick={() =>
                 listIndex !== index &&
-                handleButtonClick(listIndex, listIndex > index ? 'right' : 'left', true)
+                handleValueChange(listIndex, listIndex > index ? 'right' : 'left', true)
               }
             />
           ))}
@@ -237,7 +253,7 @@ export const Carousel: FC<CarouselProps> = ({
         {showOnboardingCheckmark ? (
           <CarouselCheckButton
             aria-label={'Fullfør og lukk.'}
-            onClick={() => onHide && onHide()}
+            onClick={() => triggerOnHide()}
             onMouseEnter={() => setIsHoveringRightButton(true)}
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-onboarding-checkmark"
@@ -249,7 +265,7 @@ export const Carousel: FC<CarouselProps> = ({
             aria-label={`Gå til neste side`}
             aria-hidden={hideRightArrow}
             hidden={hideRightArrow}
-            onClick={() => handleButtonClick(index, 'right')}
+            onClick={() => handleValueChange(index, 'right')}
             onMouseEnter={() => setIsHoveringRightButton(true)}
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-right-arrow"

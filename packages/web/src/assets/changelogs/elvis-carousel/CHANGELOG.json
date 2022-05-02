@@ -2,6 +2,32 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.04.22",
+      "version": "1.2.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added new prop hasAnimation that can be used to turn off the animation when moving through the carousel."
+          ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed carousel not updating when the value prop is changed."]
+        }
+      ]
+    },
+    {
+      "date": "27.04.22",
+      "version": "1.1.6 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed onHide event not triggering for webcomponents."]
+        }
+      ]
+    },
+    {
       "date": "27.04.22",
       "version": "1.1.5 ",
       "changelog": [

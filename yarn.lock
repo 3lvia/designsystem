@@ -27662,6 +27662,7 @@ __metadata:
     "@elvia/elvis-accordion": "*"
     "@elvia/elvis-box": "*"
     "@elvia/elvis-breadcrumb": "*"
+    "@elvia/elvis-card": "*"
     "@elvia/elvis-carousel": "*"
     "@elvia/elvis-chip": "*"
     "@elvia/elvis-datepicker": "*"

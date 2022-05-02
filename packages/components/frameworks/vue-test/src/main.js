@@ -4,6 +4,7 @@ import App from './App.vue';
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-box';
 import '@elvia/elvis-breadcrumb';
+import '@elvia/elvis-card';
 import '@elvia/elvis-carousel';
 import '@elvia/elvis-chip';
 import '@elvia/elvis-datepicker';

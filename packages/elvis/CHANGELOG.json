@@ -1,6 +1,21 @@
 {
   "content": [
     {
+      "version": "8.3.4",
+      "date": "April 28, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Value in disabled compact textfields now gets corect color "],
+          "fixes": [],
+          "components": [
+            { "displayName": "Textfield", "url": "https://design.elvia.io/components/input#Overview" }
+          ],
+          "pages": []
+        }
+      ]
+    },
+    {
       "version": "8.3.3",
       "date": "April 22, 2022",
       "changelog": [

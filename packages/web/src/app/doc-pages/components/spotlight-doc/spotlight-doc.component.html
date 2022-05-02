@@ -44,6 +44,24 @@
     </ng-container>
   </app-component-section>
 
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'ARIA'">
+        <ng-container ngProjectAs="sectionContent">
+          <ul class="e-list">
+            <li>
+              <strong>Role:</strong>
+              If you are placing an element on top of the spotlight, remember to add
+              <span class="code-text">role="dialog"</span>
+              to that element to separate it from the rest of the application.
+            </li>
+          </ul>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--INSTALLATION-->
   <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
