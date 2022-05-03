@@ -45,6 +45,7 @@ export const Carousel: FC<CarouselProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const [carouselElements, setCarouselElements] = useState<CarouselElement[] | number>();
   const [lengthOfElements, setLengthOfElements] = useState<number>(0);
@@ -190,6 +191,7 @@ export const Carousel: FC<CarouselProps> = ({
       className={`${className ? className : ''}`}
       style={inlineStyle}
       data-testid="carousel-container"
+      {...rest}
     >
       <CarouselElements>
         {typeof carouselElements === 'object' && (

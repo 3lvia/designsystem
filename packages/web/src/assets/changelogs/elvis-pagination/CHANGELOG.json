@@ -2,10 +2,21 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.05.22",
+      "version": "2.1.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for native events in React. "]
+        }
+      ]
+    },
+    {
       "date": "04.04.22",
       "version": "2.0.5 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Small fixes for better accessibility."]
         }
       ]
@@ -15,6 +26,7 @@
       "version": "2.0.4 ",
       "changelog": [
         {
+          "type": "bug_fix",
           "changes": [
             "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
           ]
@@ -58,6 +70,7 @@
       "version": "2.0.0 ",
       "changelog": [
         {
+          "type": "breaking_changes",
           "changes": [
             "Pagination prop \"dropdownItemsDefaultIndex\" has been renamed to \"selectedDropdownItemIndex\". We have also  added a callback function for this value called \"selectedDropdownItemIndexOnChange\", that gets called  everytime a value change occurs in the dropdown used within the pagination. Just replace prop name  \"dropdownItemsDefaultIndex\" with the new name \"selectedDropdownItemIndex\" to fix any issues with the  pagination."
           ]
@@ -99,6 +112,7 @@
       "version": "1.1.2 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Updated dependencies"]
         }
       ]
@@ -118,6 +132,7 @@
       "version": "1.1.0 ",
       "changelog": [
         {
+          "type": "new_feature",
           "changes": [
             "Added support for max limit on last number. The 'lastNumberLimit' prop hides last number to jump to if the  amount of items reaches the given limit."
           ]
@@ -208,6 +223,7 @@
       "version": "1.0.0 ",
       "changelog": [
         {
+          "type": "new_feature",
           "changes": ["First version of paginator."]
         }
       ]

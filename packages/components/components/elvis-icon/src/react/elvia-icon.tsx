@@ -18,6 +18,7 @@ export const Icon: React.FC<IconProps> = ({
   customSize,
   className,
   inlineStyle,
+  ...rest
 }) => {
   const getIcon = (icon: string, size: IconSizes, color?: string, customSize?: string): string => {
     let newIcon = undefined;
@@ -87,7 +88,7 @@ export const Icon: React.FC<IconProps> = ({
   const displayIcon = getIcon(name, size, color, customSize);
 
   return (
-    <div style={inlineStyle} className={className ? className : ''}>
+    <div style={inlineStyle} className={className ? className : ''} {...rest}>
       <i dangerouslySetInnerHTML={{ __html: displayIcon }} aria-hidden="true" style={{ display: 'flex' }} />
     </div>
   );

@@ -33,6 +33,7 @@ const Accordion: FC<AccordionProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const [contentOpen, setContentOpen] = useState(false);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
@@ -79,6 +80,7 @@ const Accordion: FC<AccordionProps> = ({
         className={`${className ? className : ''}`}
         style={inlineStyle}
         data-testid="accordion-area"
+        {...rest}
       >
         {type === 'overflow' ? (
           <AccordionContent

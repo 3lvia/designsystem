@@ -111,6 +111,7 @@ function App() {
             content={
               'It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. '
             }
+            onClick={() => console.log('Clicked')}
           ></Accordion>
         </div>
         {/* BOX */}
@@ -121,12 +122,13 @@ function App() {
             isColored={true}
             title={<h1>Title for the box component</h1>}
             content={<div>Heisann dette er en box component sendt med som node i react</div>}
+            onClick={() => console.log('Clicked')}
           ></Box>
         </div>
         {/* BREADCRUMB */}
         <div className="example-wrapper">
           <h3>Breadcrumb</h3>
-          <Breadcrumb breadcrumbs={breadcrumbsNoUrl} />
+          <Breadcrumb breadcrumbs={breadcrumbsNoUrl} onClick={() => console.log('Clicked')} />
         </div>
         {/* CARD */}
         <div className="example-wrapper">
@@ -137,6 +139,7 @@ function App() {
             icon={<i className="e-icon e-icon--search-bold e-icon--md"></i>}
             iconHover={<i className="e-icon e-icon--search-bold-color e-icon--md"></i>}
             cornerIcon={<Icon name="unlock" size="xs" />}
+            onClick={() => console.log('Clicked')}
           ></Card>
         </div>
         {/* CAROUSEL */}
@@ -148,29 +151,36 @@ function App() {
               { title: <h3 className="e-title-sm">AMS-meter</h3>, element: 'Hei' },
               { title: <h3 className="e-title-sm">About login</h3>, element: <p>Halla</p> },
             ]}
+            onClick={() => console.log('Clicked')}
           ></Carousel>
         </div>
         {/* CHIP */}
         <div className="example-wrapper">
           <h3>Chip</h3>
-          <Chip type={'removable'} value={2022} selected={true}></Chip>
-          <Chip type={'choice'} value={2022} selected={true}></Chip>
+          <Chip type={'removable'} value={2022} selected={true} onClick={() => console.log('Clicked')}></Chip>
+          <Chip type={'choice'} value={2022} selected={true} onClick={() => console.log('Clicked')}></Chip>
           <Chip
             type="legend"
             valueOnChange={() => setChipSelected(!chipSelected)}
             selected={chipSelected}
             value="2022"
+            onClick={() => console.log('Clicked')}
           ></Chip>
         </div>
         {/* DATEPICKER */}
         <div className="example-wrapper">
           <h3>Datepicker</h3>
-          <Datepicker isRequired maxDate={maxDate} hasSelectDateOnOpen={false}></Datepicker>
+          <Datepicker
+            isRequired
+            maxDate={maxDate}
+            hasSelectDateOnOpen={false}
+            onClick={() => console.log('Clicked')}
+          ></Datepicker>
         </div>
         {/* DIVIDER */}
         <div className="example-wrapper">
           <h3>Divider</h3>
-          <Divider />
+          <Divider onClick={() => console.log('Clicked')} inlineStyle={{ height: '10px' }} />
         </div>
         {/* DROPDOWN */}
         <div className="example-wrapper">
@@ -180,13 +190,14 @@ function App() {
             defaultValue={defaultDropdownOptions}
             label="test"
             isMulti
+            onClick={() => console.log('Clicked')}
           ></Dropdown>
         </div>
         {/* ICON */}
         <div className="example-wrapper">
           <h3>Icon</h3>
-          <Icon name="arrowLeftBold"></Icon>
-          <Icon name="arrowRightBold"></Icon>
+          <Icon name="arrowLeftBold" onClick={() => console.log('Clicked')}></Icon>
+          <Icon name="arrowRightBold" onClick={() => console.log('Clicked')}></Icon>
         </div>
         {/* MODAL */}
         <div className="example-wrapper">
@@ -202,12 +213,18 @@ function App() {
             content={<div>Body text comes here and can go over several lines.</div>}
             primaryButton={<button className="e-btn e-btn--primary">Primary</button>}
             secondaryButton={<button className="e-btn e-btn--secondary">Secondary</button>}
+            onClick={() => console.log('Clicked')}
           ></Modal>
         </div>
         {/* PAGINATION */}
         <div className="example-wrapper">
           <h3>Pagination</h3>
-          <Pagination numberOfElements={100} lastNumberLimit={99} dropdownMenuPos="top"></Pagination>
+          <Pagination
+            numberOfElements={100}
+            lastNumberLimit={99}
+            dropdownMenuPos="top"
+            onClick={() => console.log('Clicked')}
+          ></Pagination>
         </div>
         {/* POPOVER */}
         <div className="example-wrapper">
@@ -219,12 +236,13 @@ function App() {
             posX="right"
             isShowing={isPopoverShowing}
             isShowingOnChange={(value) => setIsPopoverShowingState(value)}
+            onClick={() => console.log('Clicked')}
           ></Popover>
         </div>
         {/* PROGRESS LINEAR */}
         <div className="example-wrapper">
           <h3>ProgressLinear</h3>
-          <ProgressLinear value={progressValue}></ProgressLinear>
+          <ProgressLinear value={progressValue} onClick={() => console.log('Clicked')}></ProgressLinear>
           <button className="e-btn e-mr-8" onClick={decreaseProgress}>
             Decrease
           </button>
@@ -243,20 +261,30 @@ function App() {
             }}
             value={selectedRadioFilter}
             name={'radioFilterTest'}
+            onClick={() => console.log('Clicked')}
           ></RadioFilter>
         </div>
         {/* SPOTLIGHT */}
         <div className="example-wrapper">
           <h3>Spotlight</h3>
           {/* <Spotlight position={spotlightPos} radius="40"></Spotlight> */}
-          <button onClick={updateSpotlight} style={{ position: 'relative', zIndex: 999999 }}>
+          <button
+            onClick={updateSpotlight}
+            style={{ position: 'relative', zIndex: 999999 }}
+            className="e-btn"
+          >
             Update
           </button>
         </div>
         {/* TABS */}
         <div className="example-wrapper">
           <h3>Tabs</h3>
-          <Tabs items={tabsItems} value={2} valueOnChange={(event) => logValue('Tabs', event)}></Tabs>
+          <Tabs
+            items={tabsItems}
+            value={2}
+            valueOnChange={(event) => logValue('Tabs', event)}
+            onClick={() => console.log('Clicked')}
+          ></Tabs>
         </div>
       </div>
     </div>

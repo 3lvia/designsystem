@@ -20,12 +20,13 @@ const Spotlight: FC<SpotlightProps> = ({
   hasLockBodyScroll = true,
   className,
   inlineStyle,
+  ...rest
 }) => {
   const hasPosition = position && position.horizontal && position.vertical;
   useLockBodyScroll(hasLockBodyScroll);
 
   return hasPosition ? (
-    <div className={`${className ? className : ''}`} style={inlineStyle}>
+    <div className={`${className ? className : ''}`} style={inlineStyle} {...rest}>
       <SpotlightArea>
         <defs>
           <mask id="hole">

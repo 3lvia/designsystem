@@ -23,6 +23,7 @@ export const Divider: React.FC<DividerProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const dividerTitleRef = useRef<HTMLDivElement>(null);
 
@@ -39,7 +40,7 @@ export const Divider: React.FC<DividerProps> = ({
   });
 
   return (
-    <div className={`${className ? className : ''}`} style={{ height: '100%', ...inlineStyle }}>
+    <div className={`${className ? className : ''}`} style={{ height: '100%', ...inlineStyle }} {...rest}>
       <DividerArea
         type={type}
         isInverted={isInverted}

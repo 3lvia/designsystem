@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.05.22",
+      "version": "4.4.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for native events in React. "]
+        }
+      ]
+    },
+    {
       "date": "12.04.22",
       "version": "4.3.9 ",
       "changelog": [
@@ -101,6 +111,7 @@
       "version": "4.2.5 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Added aria-label for close button"]
         }
       ]
@@ -110,6 +121,7 @@
       "version": "4.2.4 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Updated dependencies"]
         }
       ]
@@ -129,6 +141,7 @@
       "version": "4.2.2 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Web component wrapper fix"]
         }
       ]
@@ -200,6 +213,7 @@
       "version": "4.0.0 ",
       "changelog": [
         {
+          "type": "breaking_changes",
           "changes": [
             "Popover now uses a fixed position enabling popovers to be used in containers with overflow attributes like  auto or hidden. Due to the size of the changes and risk for complications we decided to version this update  as a major. No changes are required for existing popovers to function."
           ]
