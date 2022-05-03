@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 2.3.3 (03.05.22)
+
+### Bug fix
+
+- Fixed two icons that were not working: `play_circle-color` and `play_circle-filled-color`.
+
 ## 2.3.2 (08.04.22)
 
 ### Patch
