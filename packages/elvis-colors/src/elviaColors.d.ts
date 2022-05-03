@@ -23,12 +23,10 @@ declare module '@elvia/elvis-colors' {
   const colors: {
     [category: string]: {
       [label: string]: {
-        [color: string]: {
-          [property: 'color']: string;
-          [property: 'rgb']: string;
-          [property: 'contrastText']: string;
-          [property: 'alt-label']: string[];
-        };
+        color: string;
+        rgb: string;
+        contrastText: string;
+        'alt-label': string[];
       };
     };
   };
