@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 1.3.2 (03.05.22)
+
+### Bug fix
+
+- Fixed type declaration of colors object.
+
 ## 1.3.1 (08.04.22)
 
 ### Patch
