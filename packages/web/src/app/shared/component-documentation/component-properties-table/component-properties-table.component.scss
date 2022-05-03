@@ -5,6 +5,12 @@
   font-family: 'Red Hat Mono';
 }
 
+.e-table.e-table--compact td.e-table__cell--multiline-small,
+.e-table.e-table--compact th.e-table__cell--multiline-small {
+  min-width: 250px;
+  width: 100%;
+}
+
 .e-table-container.desktop {
   display: block;
   @include breakpoint-up(Mobile) {
@@ -17,6 +23,10 @@
   @include breakpoint-up(Mobile) {
     display: block;
   }
+}
+
+.properties-description-desktop {
+  width: 250px;
 }
 
 .properties-mobile {
