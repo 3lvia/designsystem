@@ -29,6 +29,7 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const updateValue = (value: string) => {
     if (!webcomponent) {
@@ -46,6 +47,7 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
       style={inlineStyle}
       data-testid="radio-filter-group"
       aria-label={groupAriaLabel}
+      {...rest}
     >
       {items &&
         items.map(({ label, value: optionsValue }) => (

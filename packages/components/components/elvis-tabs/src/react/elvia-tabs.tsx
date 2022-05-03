@@ -26,6 +26,7 @@ const Tabs: FC<TabsProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const [currValue, setCurrValue] = useState(value);
   const [isOnRightEnd, setIsOnRightEnd] = useState(true);
@@ -174,6 +175,7 @@ const Tabs: FC<TabsProps> = ({
       style={inlineStyle}
       ref={tabsRef}
       data-testid="tabs-container"
+      {...rest}
     >
       <div
         className={arrowLeftClasses}

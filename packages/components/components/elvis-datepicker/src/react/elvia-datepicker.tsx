@@ -71,6 +71,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   hasValidation = true,
   errorOnChange,
   disableDate,
+  ...rest
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
   const [initialFocusedDate, setInitialFocusedDate] = useState<Date | null>(null);
@@ -407,6 +408,7 @@ export const Datepicker: FC<DatepickerProps> = ({
       ref={datepickerRef}
       style={inlineStyle}
       data-testid="datepicker-wrapper"
+      {...rest}
     >
       {label !== '' && (
         <label

@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.05.22",
+      "version": "2.9.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for native events in React. "]
+        }
+      ]
+    },
+    {
       "date": "07.04.22",
       "version": "2.8.5 ",
       "changelog": [

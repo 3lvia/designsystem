@@ -1,6 +1,36 @@
 {
   "content": [
     {
+      "version": "8.3.5",
+      "date": "May 03, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed two icons that were not working: <span class=\"code-text\">play_circle-color</span> and <span class=\"code-text\">play_circle-filled-color</span>."
+          ],
+          "fixes": [],
+          "components": [],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon#Overview" }]
+        }
+      ]
+    },
+    {
+      "version": "8.3.4",
+      "date": "April 28, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Value in disabled compact textfields now gets corect color "],
+          "fixes": [],
+          "components": [
+            { "displayName": "Textfield", "url": "https://design.elvia.io/components/input#Overview" }
+          ],
+          "pages": []
+        }
+      ]
+    },
+    {
       "version": "8.3.3",
       "date": "April 22, 2022",
       "changelog": [
