@@ -1,6 +1,22 @@
 {
   "content": [
     {
+      "version": "8.3.6",
+      "date": "May 03, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed striped background sometimes breaking for tables using <span class=\"code-text\">e-table__cell--multiline</span>.",
+            "Fixed a bug where a table containing multiple <span class=\"code-text\">e-table__cell--multiline</span> cells would break. "
+          ],
+          "fixes": [],
+          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }],
+          "pages": []
+        }
+      ]
+    },
+    {
       "version": "8.3.5",
       "date": "May 03, 2022",
       "changelog": [

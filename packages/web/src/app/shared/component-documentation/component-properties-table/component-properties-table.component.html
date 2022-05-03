@@ -20,7 +20,7 @@
         </th>
         <td class="table-code-text">{{ prop.type }}</td>
         <td class="e-table__cell--multiline-small">
-          <div class="properties-description-desktop">{{ prop.description }}</div>
+          {{ prop.description }}
         </td>
         <td class="table-code-text" *ngIf="prop.default">{{ prop.default }}</td>
         <td class="table-code-text" *ngIf="!prop.default">-</td>

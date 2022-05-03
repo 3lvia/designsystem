@@ -86,21 +86,31 @@ $grey10: colors.color('grey-10');
     padding: $table-padding;
     background: colors.color('white');
     &.e-table__cell--multiline {
-      display: inline-block;
+      vertical-align: top;
       white-space: pre-wrap;
       width: 450px;
+      min-width: 450px;
+      max-width: 450px;
       height: auto;
     }
     &.e-table__cell--multiline-small,
     &.e-table__cell--multiline-sm {
-      display: inline-block;
+      vertical-align: top;
       white-space: pre-wrap;
       width: 250px;
+      min-width: 250px;
+      max-width: 250px;
       height: auto;
     }
   }
 
   tbody {
+    tr {
+      background: colors.color('white');
+    }
+    tr:nth-of-type(odd) {
+      background: colors.color('grey-05');
+    }
     tr:nth-of-type(odd) th,
     tr:nth-of-type(odd) td {
       background: colors.color('grey-05');
