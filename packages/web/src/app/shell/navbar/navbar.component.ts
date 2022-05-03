@@ -54,6 +54,11 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     this.updateNavbarHeight();
   }
 
+  @HostListener('window:popstate', ['$event']) // for updating side menu on changes to the history (clicking back-button)
+  onPopstate(): void {
+    setTimeout(() => this.updateNavbarList(0), 200);
+  }
+
   ngOnInit(): void {
     const localizationSubscriber = this.localizationService.listenLocalization();
     const routerSubscriber = this.router.events;
