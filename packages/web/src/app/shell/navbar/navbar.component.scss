@@ -170,6 +170,5 @@ $text-line-height: 32px;
 }
 
 .navbar-bottom-blur {
-  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
