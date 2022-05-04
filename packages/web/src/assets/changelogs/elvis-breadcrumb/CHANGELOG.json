@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "04.05.22",
+      "version": "1.4.1 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["The last breadcrumb is no longer targetable by tabbing. "]
+        }
+      ]
+    },
+    {
       "date": "03.05.22",
       "version": "1.4.0 ",
       "changelog": [

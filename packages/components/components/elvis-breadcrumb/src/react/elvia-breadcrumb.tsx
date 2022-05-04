@@ -95,6 +95,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
             isClickable={false}
             data-testid="breadcrumb-desktop-last-link"
             aria-current="page"
+            tabIndex={-1}
           >
             {breadcrumb.title}
           </BreadcrumbLink>
