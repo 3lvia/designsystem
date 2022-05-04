@@ -177,8 +177,8 @@ const modalData: ComponentData = {
     setTimeout(() => {
       const secondaryButton = document.getElementById('close-button');
       secondaryButton.addEventListener("click", () => {
-        modal.setProps({isShowing: !isModalShowing });
-        isModalShowing = !isModalShowing;
+        modal.setProps({isShowing: false });
+        isModalShowing = false;
       });
     }, 500);
   });
