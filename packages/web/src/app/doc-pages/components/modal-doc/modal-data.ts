@@ -173,6 +173,14 @@ const modalData: ComponentData = {
   button.addEventListener("click", () => {
     modal.setProps({isShowing: !isModalShowing });
     isModalShowing = !isModalShowing;
+    
+    setTimeout(() => {
+      const secondaryButton = document.getElementById('close-button');
+      secondaryButton.addEventListener("click", () => {
+        modal.setProps({isShowing: !isModalShowing });
+        isModalShowing = !isModalShowing;
+      });
+    }, 500);
   });
 `,
   changelog: changelogJson.content,
