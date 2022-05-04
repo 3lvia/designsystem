@@ -44,6 +44,23 @@
     </ng-container>
   </app-component-section>
 
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+        <ng-container ngProjectAs="sectionContent">
+          The toggle is build of a checkbox making the keyboard navigation identical to that of checkboxes.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Label'">
+        <ng-container ngProjectAs="sectionContent">
+          Make sure to always add a label that is linked to the toggle, to make it clear for assistive tools
+          what the toggle is doing.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--PROPERTIES-->
   <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-toggle'">
     <ng-container ngProjectAs="sectionContent">
