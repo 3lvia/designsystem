@@ -6,7 +6,11 @@ const modalData: ComponentData = {
   elementNameW: 'elvia-modal',
   elementNameR: 'Modal',
   attributes: {
-    isShowing: { isRequired: true, type: 'boolean', description: 'Controls if the modal is showing or not' },
+    isShowing: {
+      isRequired: true,
+      type: 'boolean',
+      description: 'Controls if the modal is showing or not',
+    },
     title: {
       isRequired: false,
       type: 'string',

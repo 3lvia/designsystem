@@ -6428,18 +6428,28 @@ input:focus {
 }
 .e-table td.e-table__cell--multiline,
 .e-table th.e-table__cell--multiline {
-  display: inline-block;
+  vertical-align: top;
   white-space: pre-wrap;
   width: 450px;
+  min-width: 450px;
+  max-width: 450px;
   height: auto;
 }
 .e-table td.e-table__cell--multiline-small, .e-table td.e-table__cell--multiline-sm,
 .e-table th.e-table__cell--multiline-small,
 .e-table th.e-table__cell--multiline-sm {
-  display: inline-block;
+  vertical-align: top;
   white-space: pre-wrap;
   width: 250px;
+  min-width: 250px;
+  max-width: 250px;
   height: auto;
+}
+.e-table tbody tr {
+  background: #fff;
+}
+.e-table tbody tr:nth-of-type(odd) {
+  background: #f4f4f4;
 }
 .e-table tbody tr:nth-of-type(odd) th,
 .e-table tbody tr:nth-of-type(odd) td {
