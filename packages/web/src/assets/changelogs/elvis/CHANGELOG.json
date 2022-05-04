@@ -1,6 +1,25 @@
 {
   "content": [
     {
+      "version": "8.3.7",
+      "date": "May 04, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed color of error text in the form-classes.",
+            "Small bug fix for dividers in the header "
+          ],
+          "fixes": [],
+          "components": [
+            { "displayName": "Text field", "url": "https://design.elvia.io/components/input" },
+            { "displayName": "Header", "url": "https://design.elvia.io/components/header" }
+          ],
+          "pages": []
+        }
+      ]
+    },
+    {
       "version": "8.3.6",
       "date": "May 04, 2022",
       "changelog": [

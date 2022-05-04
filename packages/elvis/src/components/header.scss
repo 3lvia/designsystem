@@ -468,6 +468,8 @@ $sidebar-mobile-z-index: -2;
       flex-direction: column;
       justify-content: center;
       padding: 8px 24px 24px 24px;
+      min-width: 330px;
+      max-width: 500px;
       &__app,
       &__area,
       &__user {
@@ -526,6 +528,7 @@ $sidebar-mobile-z-index: -2;
         height: 1px;
         width: 288px;
         background: colors.color('grey-10');
+        width: 100%;
       }
     }
     .e-header__top-bar + .e-header__sidebar {
