@@ -8,7 +8,7 @@
           "type": "bug_fix",
           "changes": [
             "Fixed color of error text in the form-classes.",
-            "Small bug fix for dividers in the header "
+            "Small bug fix for dividers in the header on mobile."
           ],
           "fixes": [],
           "components": [
