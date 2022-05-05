@@ -28,7 +28,6 @@
     align-items: center;
     margin-top: 8px;
     @include typography.typography('text-info');
-    color: colors.color('grey');
 
     &.e-form-field__error--visible {
       visibility: visible;
