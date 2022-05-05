@@ -1,5 +1,10 @@
 import React, { useState, useEffect, CSSProperties } from 'react';
-import { BreadcrumbWrapper, BreadcrumbDesktopWrapper, BreadcrumbLink } from './styledComponents';
+import {
+  BreadcrumbWrapper,
+  BreadcrumbDesktopWrapper,
+  BreadcrumbLink,
+  BreadcrumbListWrapper,
+} from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
@@ -86,19 +91,21 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
     const desktopBreadcrumbs = breadcrumbs.map((breadcrumb, index) => {
       if (index == childrenLength - 1) {
         return (
-          <BreadcrumbLink
-            href={breadcrumb.url}
-            onClick={() => {
-              handleOnClick(index);
-            }}
-            key={index}
-            isClickable={false}
-            data-testid="breadcrumb-desktop-last-link"
-            aria-current="page"
-            tabIndex={-1}
-          >
-            {breadcrumb.title}
-          </BreadcrumbLink>
+          <BreadcrumbDesktopWrapper key={index}>
+            <BreadcrumbLink
+              href={breadcrumb.url}
+              onClick={() => {
+                handleOnClick(index);
+              }}
+              key={index}
+              isClickable={false}
+              data-testid="breadcrumb-desktop-last-link"
+              aria-current="page"
+              tabIndex={-1}
+            >
+              {breadcrumb.title}
+            </BreadcrumbLink>
+          </BreadcrumbDesktopWrapper>
         );
       }
       return (
@@ -141,7 +148,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
       aria-label="Breadcrumbs"
       {...rest}
     >
-      {breadcrumb}
+      <BreadcrumbListWrapper>
+        {Array.isArray(breadcrumb) ? breadcrumb : <li>{breadcrumb}</li>}
+      </BreadcrumbListWrapper>
     </BreadcrumbWrapper>
   );
 };
