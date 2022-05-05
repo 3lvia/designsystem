@@ -25,7 +25,10 @@ const modalMobileIllustrationHeight = '40vh';
 
 const modalTabletPadding = '40px';
 const modalTabletIllustrationHeight = '28vh';
+const modalTabletTitlePaddingBottom = '32px';
 const modalTabletMaxWidth = '500px';
+
+const modalTabletWithIllustrationTitlePaddingBottom = '16px';
 
 const modalDesktopPadding = '48px';
 const modalDesktopTitlePaddingBottom = '32px';
@@ -200,6 +203,10 @@ export const ModalTitle = styled.div`
     ${typography.titleMd}
   }
 
+  @media (max-width: ${desktopMin}) {
+    padding-bottom: ${(props: { hasIllustration: boolean }) =>
+      props.hasIllustration ? modalTabletWithIllustrationTitlePaddingBottom : modalTabletTitlePaddingBottom};
+  }
   @media (max-width: ${mobileMax}) {
     padding-top: ${modalMobileTitlePaddingTop};
     padding-bottom: ${modalMobileTitlePaddingBottom};
