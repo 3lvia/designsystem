@@ -201,9 +201,6 @@ export const ModalTitle = styled.div`
 
   @media (max-width: ${desktopMin}) {
     ${typography.titleMd}
-  }
-
-  @media (max-width: ${desktopMin}) {
     padding-bottom: ${(props: { hasIllustration: boolean }) =>
       props.hasIllustration ? modalTabletWithIllustrationTitlePaddingBottom : modalTabletTitlePaddingBottom};
   }
