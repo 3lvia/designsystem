@@ -29,15 +29,25 @@ export const BreadcrumbWrapper = styled.nav`
   }
 `;
 
-export const BreadcrumbDesktopWrapper = styled.span`
+export const BreadcrumbListWrapper = styled.ol`
+  display: flex;
+  padding: 0;
+  margin: 0;
+`;
+
+export const BreadcrumbDesktopWrapper = styled.li`
   display: flex;
   align-items: center;
+  margin: 0;
+`;
+
+export const BreadcrumbMobileWrapper = styled.li`
+  list-style: none;
 `;
 
 type BreadcrumbLinkProps = {
   isClickable: boolean;
   href: any;
-  key: number | undefined;
 };
 
 export const BreadcrumbLink = styled.a<BreadcrumbLinkProps>`

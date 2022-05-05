@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.05.22",
+      "version": "1.4.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "The breadcrumb has been restructured as an <span class=\"code-text\">&lt;ol&gt;</span> for better accessibility."
+          ]
+        }
+      ]
+    },
+    {
       "date": "03.05.22",
       "version": "1.4.0 ",
       "changelog": [
