@@ -4,6 +4,7 @@ import {
   BreadcrumbDesktopWrapper,
   BreadcrumbLink,
   BreadcrumbListWrapper,
+  BreadcrumbMobileWrapper,
 } from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
@@ -146,7 +147,11 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
       {...rest}
     >
       <BreadcrumbListWrapper>
-        {Array.isArray(breadcrumb) ? breadcrumb : <li>{breadcrumb}</li>}
+        {Array.isArray(breadcrumb) ? (
+          breadcrumb
+        ) : (
+          <BreadcrumbMobileWrapper>{breadcrumb}</BreadcrumbMobileWrapper>
+        )}
       </BreadcrumbListWrapper>
     </BreadcrumbWrapper>
   );

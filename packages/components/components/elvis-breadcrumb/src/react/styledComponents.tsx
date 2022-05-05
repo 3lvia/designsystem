@@ -41,6 +41,10 @@ export const BreadcrumbDesktopWrapper = styled.li`
   margin: 0;
 `;
 
+export const BreadcrumbMobileWrapper = styled.li`
+  list-style: none;
+`;
+
 type BreadcrumbLinkProps = {
   isClickable: boolean;
   href: any;
