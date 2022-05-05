@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.05.22",
+      "version": "1.5.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Small bug fix to make all inputs focusable inside the modal."]
+        }
+      ]
+    },
+    {
       "date": "03.05.22",
       "version": "1.5.0 ",
       "changelog": [
