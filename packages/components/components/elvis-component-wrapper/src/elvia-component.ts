@@ -5,7 +5,7 @@ import toolbox from '@elvia/elvis-toolbox';
 
 export class ElvisComponentWrapper extends HTMLElement {
   protected _data: { [propName: string]: any };
-  protected _slots: { [slotName: string]: any };
+  protected _slots: { [slotName: string]: Element };
   protected reactComponent: any;
   protected webComponent: any;
   protected cssStyle: string;
@@ -23,7 +23,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.throttleRenderReactDOM = toolbox.throttle(this.renderReactDOM, 50, { trailing: true });
   }
 
-  get data(): { [propName: string]: any } {
+  get data(): ElvisComponentWrapper['_data'] {
     return this._data;
   }
 
@@ -31,7 +31,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     return this._data[propName.toLowerCase()];
   }
 
-  getProps(): { [propName: string]: any } {
+  getProps(): ElvisComponentWrapper['_data'] {
     return this._data;
   }
 
@@ -40,7 +40,7 @@ export class ElvisComponentWrapper extends HTMLElement {
    * @param slotName Name of slot.
    * @returns Value of slot.
    */
-  getSlot(slotName: string): any {
+  getSlot(slotName: string): ElvisComponentWrapper['_slots'][0] {
     return this._slots[slotName];
   }
 
@@ -48,7 +48,7 @@ export class ElvisComponentWrapper extends HTMLElement {
    * Get all slots of the webcomponent.
    * @returns An object containing all the slots of the webcomponent.
    */
-  getAllSlots(): { [slotName: string]: any } {
+  getAllSlots(): ElvisComponentWrapper['_slots'] {
     return this._slots;
   }
 
@@ -107,7 +107,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   /**
    * Trigger an event on webcomponent, optionally with a value.
    * @param callbackName Name of event.
-   * @param eventData Either a value of any type, or the name of a prop as a string. NB: if a string is passed and it corresponds to the name of a prop, the prop value will be sent with the event instead of the string.
+   * @param eventData A value of any type to be sent with the event.
    *
    * @example
    * webcomponent.triggerEvent('onOpen');
