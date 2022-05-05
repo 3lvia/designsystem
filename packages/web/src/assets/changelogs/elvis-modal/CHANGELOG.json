@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.05.22",
+      "version": "1.5.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added missing design for tablet version of modal."]
+        }
+      ]
+    },
+    {
       "date": "03.05.22",
       "version": "1.5.0 ",
       "changelog": [
