@@ -6,8 +6,11 @@
       "version": "1.5.1 ",
       "changelog": [
         {
-          "type": "patch",
-          "changes": ["Added missing design for tablet version of modal."]
+          "type": "bug_fix",
+          "changes": [
+            "Added missing design for tablet version of modal.",
+            "Small bug fix to make all inputs focusable inside the modal."
+          ]
         }
       ]
     },
