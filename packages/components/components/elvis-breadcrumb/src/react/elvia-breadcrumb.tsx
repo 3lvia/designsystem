@@ -74,7 +74,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
           }}
         />
         <BreadcrumbLink
-          key={undefined}
           href={breadcrumbs[childrenLength - 2].url}
           onClick={() => {
             handleOnClick(childrenLength - 2);
@@ -97,7 +96,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
               onClick={() => {
                 handleOnClick(index);
               }}
-              key={index}
               isClickable={false}
               data-testid="breadcrumb-desktop-last-link"
               aria-current="page"
@@ -115,7 +113,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
             onClick={() => {
               handleOnClick(index);
             }}
-            key={undefined}
             isClickable={true}
             data-testid="breadcrumb-desktop-multiple-links"
           >

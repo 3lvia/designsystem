@@ -44,7 +44,6 @@ export const BreadcrumbDesktopWrapper = styled.li`
 type BreadcrumbLinkProps = {
   isClickable: boolean;
   href: any;
-  key: number | undefined;
 };
 
 export const BreadcrumbLink = styled.a<BreadcrumbLinkProps>`
