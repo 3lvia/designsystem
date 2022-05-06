@@ -235,27 +235,6 @@
   <!--IMPLEMENTATION-->
   <app-component-section [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Accessibility'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-subsubsection [sectionTitle]="'Aria tags'">
-            <ng-container ngProjectAs="sectionContent">
-              Remember to always add a descriptive
-              <span class="code-text">aria-label</span>
-              to icon-buttons as well as
-              <span class="code-text">aria-hidden="true"</span>
-              to all i elements.
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Tooltip'">
-            <ng-container ngProjectAs="sectionContent">
-              If the icon is not very clear on it's own, use a tooltip to make it accessible for the user.
-              Read more about
-              <a class="e-link e-link--inline" [routerLink]="['/components/tooltip']">our tooltip here</a>
-              .
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Links with button style'">
         <ng-container ngProjectAs="sectionContent">
           The e-btn class can also be used on anchor tags to make links appear like buttons.
@@ -264,6 +243,39 @@
             [codeInverted]="buttonLinksInverted"
           ></app-component-example-v1>
           <app-when-to-use [whenNots]="dontsExample7"></app-when-to-use>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'ARIA'">
+        <ng-container ngProjectAs="sectionContent">
+          <ul class="e-list">
+            <li>
+              <strong>Aria label:</strong>
+              Remember to always add a descriptive
+              <span class="code-text">aria-label</span>
+              to all icon-button.
+            </li>
+            <li>
+              <strong>Aria hidden:</strong>
+              Most icons are purely decorative and should therefore be excluded from the accessibility tree by
+              adding
+              <span class="code-text">aria-hidden="true"</span>
+              to the icon element.
+            </li>
+          </ul>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Tooltip'">
+        <ng-container ngProjectAs="sectionContent">
+          If the icon in an icon-button is not very clear on it's own, use a tooltip to make it accessible for
+          the user. Read more about
+          <a class="e-link e-link--inline" [routerLink]="['/components/tooltip']">our tooltip here</a>
+          .
         </ng-container>
       </app-component-subsection>
     </ng-container>

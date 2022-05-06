@@ -98,16 +98,25 @@
     </ng-container>
   </app-component-section>
 
-  <!-- IMPLEMENTATION -->
-  <app-component-section [sectionTitle]="'Implementation'">
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Accessibility'">
+      <app-component-subsection [sectionTitle]="'ARIA'">
         <ng-container ngProjectAs="sectionContent">
-          When loading any content use the
-          <span class="code-text">aria-live</span>
-          tag as well as
-          <span class="code-text">aria-busy</span>
-          on the wrapper element to signalize to the user that the content is loading.
+          <ul class="e-list">
+            <li>
+              <strong>Aria live:</strong>
+              When loading any content use the
+              <span class="code-text">aria-live</span>
+              tag to indicate that the element will have an update.
+            </li>
+            <li>
+              <strong>Aria busy:</strong>
+              Set the
+              <span class="code-text">aria-busy</span>
+              state to prevent assistive tools from announcing changes before updates are done.
+            </li>
+          </ul>
         </ng-container>
       </app-component-subsection>
     </ng-container>

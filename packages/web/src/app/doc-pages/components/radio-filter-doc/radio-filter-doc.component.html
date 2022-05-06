@@ -15,7 +15,6 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="whens" [whenNots]="whenNots"></app-when-to-use>
-
       <app-component-subsection [sectionTitle]="'Lack of space'">
         <ng-container ngProjectAs="sectionContent">
           <div>
@@ -25,6 +24,41 @@
           </div>
           <div class="e-mt-24 e-ml-n24">
             <img alt="Radio filter in popover" src="./../../../../assets/radio-filter/Example popover.svg" />
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+        <ng-container ngProjectAs="sectionContent">
+          Radio filters work like and built up of a radiobuttons, making the keyboard navigation identical to
+          the keyboard navigation for native radiobuttons.
+          <div class="accessibility-keyboard-navigation e-mt-40">
+            <div>
+              <span class="keyboard-button">Space</span>
+              or
+              <span class="keyboard-button">Enter</span>
+              to select a radio filter.
+            </div>
+            <div>
+              <span class="keyboard-button icon">
+                <i class="e-icon e-icon--arrow_left e-icon--xs" aria-hidden="true"></i>
+              </span>
+              <span class="keyboard-button icon" style="margin-left: 0px">
+                <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true"></i>
+              </span>
+              <span class="keyboard-button icon">
+                <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true"></i>
+              </span>
+              <span class="keyboard-button icon" style="margin-left: 0px">
+                <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true"></i>
+              </span>
+              can be used to navigate between the radio filters.
+            </div>
           </div>
         </ng-container>
       </app-component-subsection>

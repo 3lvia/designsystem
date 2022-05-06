@@ -155,18 +155,35 @@
     </ng-container>
   </app-component-section>
 
-  <!--IMPLEMENTATION-->
-  <app-component-section [sectionTitle]="'Implementation'">
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Accessibility'">
+      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
         <ng-container ngProjectAs="sectionContent">
-          In this example you can see how to implement a group of chips so that they are accessible. The
-          classes used are fetched from elvis, but can easily be replicated without elvis. The aria-label prop
-          should be updated whenever a chip is selected or unselected.
-          <app-component-example-generator
-            [componentData]="chipAccessibilityCode"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <div class="accessibility-keyboard-navigation e-mt-40">
+            <div>
+              <span class="keyboard-button">Space</span>
+              or
+              <span class="keyboard-button">Enter</span>
+              to select, unselect or delete a chip.
+            </div>
+            <div>
+              <span class="keyboard-button">Tab</span>
+              to navigate through the chips.
+            </div>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'ARIA'">
+        <ng-container ngProjectAs="sectionContent">
+          <ul class="e-list">
+            <li>
+              <strong>Aria label:</strong>
+              Remember to always supply a
+              <span class="code-text">aria-label</span>
+              for the chip. It should also be updated whenever a chip is selected or unselected
+            </li>
+          </ul>
         </ng-container>
       </app-component-subsection>
     </ng-container>

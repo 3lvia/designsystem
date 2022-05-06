@@ -8,6 +8,7 @@ import { ComponentExampleCodeModule } from 'src/app/shared/component-documentati
 import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
     ComponentPropertiesModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
+    RouterModule,
   ],
   declarations: [FileUploadDocComponent, DndDirective],
 })

@@ -68,16 +68,6 @@
   <!-- STATES -->
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
-      The states have associated classes that can be used to programmatically add the desired styling.
-      Remember to always add the state attribute (
-      <span class="code-text">checked</span>
-      ,
-      <span class="code-text">required</span>
-      ,
-      <span class="code-text">disabled</span>
-      ,
-      <span class="code-text">invalid</span>
-      and so on) to the input to inform assistive tools of the current state.
       <app-component-example-v1 [interactable]="false" [codeHTML]="exampleStates"></app-component-example-v1>
     </ng-container>
   </app-component-section>
@@ -86,13 +76,41 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
 
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Label'">
+        <ng-container ngProjectAs="sectionContent">
+          Make sure to always add a label that is linked to the checkbox, to make it clear for assistive tools
+          what the checkbox is doing. Use the
+          <span class="code-text">e-form-field</span>
+          classes to get correct styling of labels.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'State'">
+        <ng-container ngProjectAs="sectionContent">
+          The states have associated classes that can be used to programmatically add the desired styling.
+          Remember to always add the state attribute (
+          <span class="code-text">checked</span>
+          ,
+          <span class="code-text">required</span>
+          ,
+          <span class="code-text">disabled</span>
+          ,
+          <span class="code-text">invalid</span>
+          and so on) to the input to inform assistive tools of the current state.
+        </ng-container>
+      </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Validation'">
         <ng-container ngProjectAs="sectionContent">
-          Read about
+          Remember to add validation classes to help users understand what needs to be corrected.
           <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
-            input validation and behaviors here.
+            Read more about how the validation should happen
           </a>
+          .
         </ng-container>
       </app-component-subsection>
     </ng-container>

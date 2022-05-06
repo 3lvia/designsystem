@@ -441,6 +441,31 @@
     </ng-container>
   </app-component-section>
 
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'ARIA'">
+        <ng-container ngProjectAs="sectionContent">
+          <ul class="e-list">
+            <li>
+              <strong>Rule:</strong>
+              Use
+              <span class="code-text">role="alert"</span>
+              on the alert elements to provide sematic meaning to the content.
+            </li>
+            <li>
+              <strong>Aria hidden:</strong>
+              Most icons are purely decorative and should therefore be excluded from the accessibility tree by
+              adding
+              <span class="code-text">aria-hidden="true"</span>
+              to the icon element.
+            </li>
+          </ul>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--PROPERTIES-->
   <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-alert'">
     <ng-container ngProjectAs="sectionContent">

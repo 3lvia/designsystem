@@ -512,21 +512,30 @@
     </ng-container>
   </app-component-section>
 
-  <!--IMPLEMENTATION-->
-  <app-component-section [sectionTitle]="'Implementation'">
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Accessibility'">
+      <app-component-subsection [sectionTitle]="'ARIA'">
         <ng-container ngProjectAs="sectionContent">
-          Here are some accessibility rules to be aware of when setting up tables.
-          <app-component-subsubsection [sectionTitle]="'Headers for rows'">
-            <ng-container ngProjectAs="sectionContent">
-              When the first cells for each row in a table can be seen as headers for the rows. If this is the
-              case the first column should be 'th' elements and not 'td' elements. Example:
-              <div>
-                <span class="code-text">&lt;th scope="row"&gt; January 2020 &lt;/th&gt;</span>
-              </div>
-            </ng-container>
-          </app-component-subsubsection>
+          <ul class="e-list">
+            <li>
+              <strong>Aria label:</strong>
+              Remember to add
+              <span class="code-text">aria-label</span>
+              to the table to provide a description for the table.
+            </li>
+            <li>
+              <strong>Scope:</strong>
+              The
+              <span class="code-text">scope</span>
+              attribute should be places on all table header elements to make it clear if the headers is a row
+              or column header. Add
+              <span class="code-text">scope="row"</span>
+              and the
+              <span class="code-text">th</span>
+              element to the first cell on a row if this element acts as a header.
+            </li>
+          </ul>
         </ng-container>
       </app-component-subsection>
     </ng-container>

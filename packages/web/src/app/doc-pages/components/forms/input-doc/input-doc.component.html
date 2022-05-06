@@ -59,6 +59,8 @@
 
       <app-component-subsection [sectionTitle]="'Without label'">
         <ng-container ngProjectAs="sectionContent">
+          If you have an input field without a label, make sure that assistive tools are informed in some
+          other way with a description for the input.
           <app-component-example-v1 [codeHTML]="exampleInputNoLabel"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
@@ -141,10 +143,18 @@
     </ng-container>
   </app-component-section>
 
-  <!-- IMPLEMENTATION -->
-  <app-component-section [sectionTitle]="'Implementation'">
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Accessibility'">
+      <app-component-subsection [sectionTitle]="'Label'">
+        <ng-container ngProjectAs="sectionContent">
+          Make sure to always add a label that is linked to the input, to make it clear for assistive tools
+          what the input is doing. Use the
+          <span class="code-text">e-form-field</span>
+          classes to get correct styling of labels.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'State'">
         <ng-container ngProjectAs="sectionContent">
           Remember to add attributes to the input-fields to the describe the current state of the input to
           inform assistive technologies. For example
@@ -153,6 +163,15 @@
           <span class="code-text">disabled</span>
           , or
           <span class="code-text">invalid</span>
+          .
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Validation'">
+        <ng-container ngProjectAs="sectionContent">
+          Remember to add validation classes to help users understand what needs to be corrected.
+          <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
+            Read more about how the validation should happen
+          </a>
           .
         </ng-container>
       </app-component-subsection>
