@@ -22,6 +22,29 @@
     </ng-container>
   </app-component-section>
 
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="accessibility-keyboard-navigation">
+            <div>
+              <span class="keyboard-button">Space</span>
+              or
+              <span class="keyboard-button">Enter</span>
+              to open or close the dropdown, to select a new page number inside the pagination and to navigate
+              with the arrows.
+            </div>
+            <div>
+              <span class="keyboard-button">Tab</span>
+              to navigate through the pagination elements and buttons.
+            </div>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--INSTALLATION-->
   <app-component-section [sectionTitle]="'Installation'" noAnimation="true">
     <ng-container ngProjectAs="sectionContent">
@@ -39,7 +62,7 @@
   <!--CHANGELOG-->
   <app-component-section [sectionTitle]="'Changelog'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [componentData]="componentData"></app-component-changelog>
+      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>

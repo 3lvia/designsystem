@@ -6,6 +6,13 @@ const classList = require('./tasks/classlist.js');
 const typography = require('./tasks/typography.js');
 const gulp = require('gulp');
 
+// Copies changelog to web dictionary
+function copyChangelogs() {
+  const elvisSrc = 'CHANGELOG.json';
+
+  return gulp.src(elvisSrc).pipe(gulp.dest('../web/src/assets/changelogs/elvis'));
+}
+
 // Run gulp tasks
 gulp.task(
   'default',
@@ -14,6 +21,7 @@ gulp.task(
     styles.generateCSS,
     classList.createClassListOverview,
     icons.generateIcons,
+    copyChangelogs,
     function (done) {
       done();
       console.log('Elvis - Successfully built Elvis!');

@@ -1,6 +1,6 @@
 @use '../../variables/colors.scss';
-@use "../../variables/typography";
-@use "../../utilities/icons.scss";
+@use '../../variables/typography';
+@use '../../utilities/icons.scss';
 
 .e-form-field {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -28,7 +28,6 @@
     align-items: center;
     margin-top: 8px;
     @include typography.typography('text-info');
-    color: colors.color('grey');
 
     &.e-form-field__error--visible {
       visibility: visible;
@@ -89,6 +88,10 @@
       font-family: 'Red Hat Text', Verdana, sans-serif;
       font-size: 12px;
       line-height: 16px;
+    }
+
+    input:disabled {
+      color: colors.color('disabled');
     }
   }
 }

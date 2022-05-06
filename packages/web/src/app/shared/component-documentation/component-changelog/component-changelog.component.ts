@@ -6,5 +6,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./component-changelog.component.scss'],
 })
 export class ComponentChangelogComponent {
-  @Input() componentData;
+  @Input() changelog;
+  /**
+   * If enabled the changelog-list will be in an accordion
+   */
+  @Input() hasAccordion = true;
+  /**
+   * Will hide all but first element
+   */
+  @Input() isFrontpage = false;
 }

@@ -28,6 +28,7 @@ type ChipComponentProps = {
   isSelected: boolean;
   chipType: string;
   disabled: boolean;
+  isHovering: boolean;
 };
 
 export const ChipComponent = styled.button<ChipComponentProps>`
@@ -43,26 +44,13 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   line-height: 16px;
   padding: calc(8px - 1px) calc(16px - 1px);
   border-radius: 24px;
-  &:hover:not(:disabled) {
-    background-color: ${(props: { chipType: string }) =>
-      props.chipType === 'removable' ? colors.elviaCharge : 'transparent'};
-  }
+  ${(props: { disabled: boolean; isHovering: boolean; chipType: string }) =>
+    props.isHovering &&
+    !props.disabled &&
+    `background-color: ${props.chipType === 'removable' ? colors.elviaCharge : 'transparent'}`}
 `;
 
-type ChipTitleProps = {
-  disabled: boolean;
-  color: ColorType;
-};
-
-export const ChipTitle = styled.div<ChipTitleProps>`
-  font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: 500;
-  text-transform: 'unset';
-  letter-spacing: 'unset';
-  font-style: unset;
-  opacity: ${(props: { disabled: boolean }) => (props.disabled ? '0.3' : '1')};
-  color: ${colors.elviaBlack};
-
+export const ChipDot = styled.span<{ color: ColorType }>`
   &.dot {
     ::before {
       display: inline-block;
@@ -84,4 +72,14 @@ export const ChipTitle = styled.div<ChipTitleProps>`
       opacity: 0.3;
     }
   }
+`;
+
+export const ChipTitle = styled.div<{ disabled: boolean }>`
+  font-family: 'Red Hat Display', Verdana, sans-serif;
+  font-weight: 500;
+  text-transform: 'unset';
+  letter-spacing: 'unset';
+  font-style: unset;
+  opacity: ${(props: { disabled: boolean }) => (props.disabled ? '0.3' : '1')};
+  color: ${colors.elviaBlack};
 `;

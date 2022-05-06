@@ -8,8 +8,9 @@ export const useFocusTrap = (
     return;
   }
   const focusableItems = focusTrapContainer.current.querySelectorAll(
-    'a[href], button, textarea, input[type="text"],' + 'input[type="radio"], input[type="checkbox"], select',
+    'a[href], button, textarea, input, select, details, [tabindex]:not([tabindex="-1"]',
   );
+  console.log(focusableItems);
   const firstItem = focusableItems.item(0);
   const lastItem = focusableItems.item(focusableItems.length - 1);
 

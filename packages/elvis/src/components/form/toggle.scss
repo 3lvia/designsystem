@@ -43,7 +43,9 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   }
 
   & input[type='checkbox'] {
-    -moz-appearance: initial;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
   }
 
   &__input {

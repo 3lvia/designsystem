@@ -13,12 +13,26 @@ $table-header-compact-height: 40px;
 $grey10: colors.color('grey-10');
 
 %header-style {
-  background: colors.color('elvia-on');
+  background: colors.color('white');
   width: 100%;
   th {
     color: colors.color('font-color');
     font-weight: 700;
     border-bottom: 1px solid colors.color('grey-10');
+  }
+}
+
+%checkbox-selected-style {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    right: 0;
+    top: 0;
+    background: colors.color('green');
+    border-radius: 4px 0 0 4px;
   }
 }
 
@@ -44,7 +58,6 @@ $grey10: colors.color('grey-10');
   text-align: left;
   width: 100%;
   box-sizing: border-box;
-  background: colors.color('elvia-on');
   white-space: nowrap;
 
   // No spacing between table and container
@@ -71,30 +84,43 @@ $grey10: colors.color('grey-10');
     @include typography.typography('text-description');
     text-align: left;
     padding: $table-padding;
+    background: colors.color('white');
     &.e-table__cell--multiline {
-      display: inline-block;
+      vertical-align: top;
       white-space: pre-wrap;
       width: 450px;
+      min-width: 450px;
+      max-width: 450px;
       height: auto;
     }
     &.e-table__cell--multiline-small,
     &.e-table__cell--multiline-sm {
-      display: inline-block;
+      vertical-align: top;
       white-space: pre-wrap;
       width: 250px;
+      min-width: 250px;
+      max-width: 250px;
       height: auto;
     }
   }
 
   tbody {
+    tr {
+      background: colors.color('white');
+    }
     tr:nth-of-type(odd) {
+      background: colors.color('grey-05');
+    }
+    tr:nth-of-type(odd) th,
+    tr:nth-of-type(odd) td {
       background: colors.color('grey-05');
     }
   }
 
   &.e-table--no-stripes {
     tbody {
-      tr:nth-of-type(odd) {
+      tr:nth-of-type(odd) th,
+      tr:nth-of-type(odd) td {
         background: colors.color('white');
       }
     }
@@ -114,9 +140,29 @@ $grey10: colors.color('grey-10');
       line-height: 21px;
     }
   }
+
+  &.e-table--sticky-header {
+    thead {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+  }
+  &.e-table--sticky-column-header {
+    thead th:first-of-type,
+    th[scope='row'] {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      border-right: 1px solid colors.color('grey-10');
+    }
+  }
 }
 
 // TABLE MOBILE
+.e-table-container .e-table-mobile {
+  box-shadow: none;
+}
 .e-table-mobile {
   display: table;
   table-layout: auto;
@@ -126,6 +172,7 @@ $grey10: colors.color('grey-10');
   border-spacing: 0;
   box-shadow: 0 0 0 1px $grey10;
   background: colors.color('elvia-on');
+  position: relative;
 
   thead {
     tr {
@@ -147,6 +194,10 @@ $grey10: colors.color('grey-10');
     line-height: 27px;
     padding: $table-padding;
     text-align: left;
+  }
+
+  th[class*='e-table-mobile__cell'] {
+    vertical-align: text-top;
   }
 
   tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) td,
@@ -195,6 +246,18 @@ $grey10: colors.color('grey-10');
     }
     tbody tr:first-of-type th {
       @include typography.typography('text-sm-strong');
+    }
+  }
+
+  &.e-table-mobile--sticky-header {
+    overflow: auto;
+    tbody {
+      position: relative;
+      tr:first-of-type {
+        position: sticky;
+        z-index: 10;
+        top: 0px;
+      }
     }
   }
 }
@@ -275,21 +338,11 @@ $grey10: colors.color('grey-10');
     }
   }
 }
-.e-table .e-table__checkbox.e-table__checkbox--selected,
+.e-table .e-table__checkbox.e-table__checkbox--selected {
+  @extend %checkbox-selected-style;
+}
 .e-table-mobile tr.e-table-mobile__checkbox.e-table-mobile__checkbox--selected {
-  th:last-of-type {
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      height: 100%;
-      width: 4px;
-      right: 0;
-      top: 0;
-      background: colors.color('green');
-      border-radius: 4px 0 0 4px;
-    }
-  }
+  @extend %checkbox-selected-style;
 }
 
 // Link

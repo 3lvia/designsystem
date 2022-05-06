@@ -10,7 +10,7 @@
     <div class="e-title-sm e-mt-16">Table</div>
     <div class="e-title-xs e-my-16">Normal</div>
     <div class="e-table-container">
-      <table class="e-table">
+      <table class="e-table" aria-label="Beskrivelse av tabellen">
         <thead>
           <tr>
             <th scope="col">Periode</th>
@@ -211,10 +211,43 @@
       </table>
     </div>
 
-    <div class="e-title-xs e-my-16">Sorting</div>
-
+    <div class="e-title-xs e-my-16">No stripes</div>
     <div class="e-table-container">
-      <table class="e-table">
+      <table class="e-table e-table--no-stripes" aria-label="Beskrivelse av tabellen">
+        <thead>
+          <tr>
+            <th scope="col">Periode</th>
+            <th scope="col">Status</th>
+            <th scope="col" class="e-text-right">Beløp</th>
+            <th scope="col" class="e-text-right">Faktura nr.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Januar 2020</th>
+            <td>Sendt</td>
+            <td class="e-text-right">567,98 kr</td>
+            <td class="e-text-right">123456</td>
+          </tr>
+          <tr>
+            <th scope="row">Februar 2020</th>
+            <td>Betalt</td>
+            <td class="e-text-right">543,10 kr</td>
+            <td class="e-text-right">123456</td>
+          </tr>
+          <tr>
+            <th scope="row">Mars 2020</th>
+            <td>Betalt</td>
+            <td class="e-text-right">568,98 kr</td>
+            <td class="e-text-right">123456</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="e-title-xs e-my-16">Sorting</div>
+    <div class="e-table-container">
+      <table class="e-table" aria-label="Beskrivelse av tabellen">
         <thead>
           <tr>
             <th scope="col" class="e-table__sort-header">
@@ -297,7 +330,7 @@
             <td class="e-text-right">123456</td>
           </tr>
           <tr>
-            <th scope="row" class="e-table__cell--multiline--small">
+            <th scope="row" class="e-table__cell--multiline-small">
               This cell exceeds 250px in width, so the class 'e-table__cell--multiline--small' can be added
               for smaller columns.
             </th>

@@ -198,6 +198,15 @@ function buildElviaComponentToJS() {
     .pipe(gulp.dest(`../components/elvis-component-wrapper/dist/`));
 }
 
+function buildElviaComponentTSDeclaration() {
+  const tsConfig = typescript.createProject('../tsconfig.json');
+  return gulp
+    .src(['../components/elvis-component-wrapper/src/*.ts'])
+    .pipe(tsConfig())
+    .pipe(filter(['*.d.ts']))
+    .pipe(gulp.dest(`../components/elvis-component-wrapper/dist/`));
+}
+
 function buildToolboxComponentToJS() {
   const tsConfig = typescript.createProject('../tsconfig.json');
   const tsResult = gulp.src(['../components/elvis-toolbox/src/*.ts']).pipe(tsConfig());
@@ -215,8 +224,9 @@ function cleanup() {
 
 // Copies changelogs from component dictionary to web dictionary
 function copyChangelogs() {
-  const files = ['../components/**/CHANGELOG.json'];
-  return gulp.src(files, { base: '../components' }).pipe(gulp.dest('../../web/src/assets/changelogs'));
+  const componentSrc = ['../components/**/CHANGELOG.json'];
+
+  return gulp.src(componentSrc, { base: '../components' }).pipe(gulp.dest('../../web/src/assets/changelogs'));
 }
 
 gulp.task(
@@ -236,6 +246,7 @@ gulp.task(
     reactTypescriptDeclarations,
     buildWebComponentsMagically,
     buildElviaComponentToJS,
+    buildElviaComponentTSDeclaration,
     runTests,
     function (done) {
       done();
@@ -263,7 +274,12 @@ gulp.task(
 
 gulp.task('watch', function () {
   gulp.watch(
-    ['../components/*/src/**/*', '../elvia-components.config.js', './validateConfig.js'],
+    [
+      '../components/*/src/**/*',
+      '../elvia-components.config.js',
+      './validateConfig.js',
+      '../components/*/CHANGELOG.json',
+    ],
     { ignoreInitial: false },
     gulp.series(
       validate.validateElviaComponentsConfig,

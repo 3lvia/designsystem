@@ -8,23 +8,7 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <!-- <div class="component-preview-temp component-preview-animation v2"> -->
-  <!-- <div class="component-preview-temp-example">
-      <div style="display: flex; flex-direction: row">
-        <div *ngFor="let chip of deletableChipsList" class="e-m-8">
-          <elvia-chip
-            [value]="chip.value"
-            [color]="chip.color"
-            [ariaLabel]="'Fjern filtrering for ' + chip.value"
-            [disabled]="chip.disabled"
-            (onDelete)="handleOnDelete($event.detail.value)"
-          ></elvia-chip>
-        </div>
-      </div>
-    </div> -->
   <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
-  <!-- </div> -->
 
   <!-- TYPE -->
   <app-component-section [sectionTitle]="'Type'">
@@ -171,6 +155,40 @@
     </ng-container>
   </app-component-section>
 
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="accessibility-keyboard-navigation e-mt-40">
+            <div>
+              <span class="keyboard-button">Space</span>
+              or
+              <span class="keyboard-button">Enter</span>
+              to select, unselect or delete a chip.
+            </div>
+            <div>
+              <span class="keyboard-button">Tab</span>
+              to navigate through the chips.
+            </div>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'ARIA'">
+        <ng-container ngProjectAs="sectionContent">
+          <ul class="e-list">
+            <li>
+              <strong>Aria label:</strong>
+              Remember to always supply a
+              <span class="code-text">aria-label</span>
+              for the chip. It should also be updated whenever a chip is selected or unselected
+            </li>
+          </ul>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--INSTALLATION-->
   <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
@@ -188,7 +206,7 @@
   <!--CHANGELOG-->
   <app-component-section [sectionTitle]="'Changelog'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [componentData]="componentData"></app-component-changelog>
+      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>

@@ -2,8 +2,28 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "31.03.22",
+      "date": "03.05.22",
+      "version": "2.4.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for native events in React. "]
+        }
+      ]
+    },
+    {
+      "date": "07.04.22",
       "version": "2.3.2 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Update slot logic to support components inside components better."]
+        }
+      ]
+    },
+    {
+      "date": "31.03.22",
+      "version": "2.3.1 ",
       "changelog": [
         {
           "type": "new_feature",
@@ -28,6 +48,7 @@
       "version": "2.2.1 ",
       "changelog": [
         {
+          "type": "bug_fix",
           "changes": [
             "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
           ]
@@ -141,11 +162,8 @@
       "version": "2.0.4 ",
       "changelog": [
         {
-          "changes": ["Web component wrapper fix"]
-        },
-        {
-          "type": "bug_fix",
-          "changes": ["Improved type safety."]
+          "type": "patch",
+          "changes": ["Improved type safety.", "Web component wrapper fix."]
         }
       ]
     },

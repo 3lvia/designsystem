@@ -84,6 +84,28 @@
     </ng-container>
   </app-component-section>
 
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="accessibility-keyboard-navigation">
+            <div>
+              <span class="keyboard-button">Space</span>
+              or
+              <span class="keyboard-button">Enter</span>
+              to open or close the modal.
+            </div>
+            <div>
+              <span class="keyboard-button">Esc</span>
+              to close the modal when open.
+            </div>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--INSTALLATION-->
   <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
@@ -92,7 +114,7 @@
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-modal'">
+  <app-component-section [sectionTitle]="'Properties'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
@@ -101,7 +123,7 @@
   <!--CHANGELOG-->
   <app-component-section [sectionTitle]="'Changelog'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [componentData]="componentData"></app-component-changelog>
+      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>

@@ -67,6 +67,22 @@
     </ng-container>
   </app-component-section>
 
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="accessibility-keyboard-navigation">
+            <div>
+              <span class="keyboard-button">Tab</span>
+              to navigate through the breadcrumbs.
+            </div>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--INSTALLATION-->
   <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
@@ -84,7 +100,7 @@
   <!--CHANGELOG-->
   <app-component-section [sectionTitle]="'Changelog'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [componentData]="componentData"></app-component-changelog>
+      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>

@@ -85,16 +85,16 @@ export class InputDocComponent {
   example4 = ` <div class="e-form-field">
   <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
   <div class="e-input e-input---invalid">
-    <button class="e-btn e-btn--icon" (click)="showMockPassword()">
+    <button class="e-btn e-btn--icon" (click)="showMockPassword()" aria-label="Vis/skjul passord">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--view_on"></i>
+        <i class="e-icon e-icon--view_on" aria-hidden="true"></i>
       </span>
     </button>
-    <input id="validationExample" type="password" value="Passord" invalid #validationExample />
+    <input id="validationExample" type="password" value="Passord" required invalid #validationExample />
   </div>
   <span class="e-form-field__error e-form-field__error--visible">
     <span>
-      <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
+      <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs" aria-hidden="true"></i>
     </span>
     <span>Passord må inneholde både bokstaver og tall</span>
   </span>
@@ -121,12 +121,20 @@ showMockPassword() {
 </div>
 `;
 
+  exampleOptional = `<div class="e-form-field">
+  <label class="e-form-field__label e-form-field__label--optional" for="normal">Label</label>
+  <div class="e-input">
+    <input id="normal" type="text" placeholder="Placeholder text" />
+  </div>
+</div>
+`;
+
   exampleIcon = ` <div class="e-form-field">
   <label class="e-form-field__label" for="iconExample">Password</label>
   <div class="e-input">
-    <button class="e-btn e-btn--icon">
+    <button class="e-btn e-btn--icon" aria-label="Vis/skjul passord">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--view_on"></i>
+        <i class="e-icon e-icon--view_on" aria-hidden="true"></i>
       </span>
     </button>
     <input id="iconExample" type="password" value="Passord" />

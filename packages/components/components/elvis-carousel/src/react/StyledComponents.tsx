@@ -113,7 +113,7 @@ export const CarouselTitle = styled.div`
 export const CarouselNavigationRow = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
 
   @media (max-width: ${mobileMax}) {

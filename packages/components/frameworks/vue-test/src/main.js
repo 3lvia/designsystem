@@ -4,6 +4,7 @@ import App from './App.vue';
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-box';
 import '@elvia/elvis-breadcrumb';
+import '@elvia/elvis-card';
 import '@elvia/elvis-carousel';
 import '@elvia/elvis-chip';
 import '@elvia/elvis-datepicker';
@@ -15,6 +16,7 @@ import '@elvia/elvis-pagination';
 import '@elvia/elvis-popover';
 import '@elvia/elvis-progress-linear';
 import '@elvia/elvis-radio-filter';
+import '@elvia/elvis-spotlight';
 import '@elvia/elvis-tabs';
 
 const app = createApp(App);

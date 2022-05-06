@@ -3,6 +3,7 @@ import toolbox from '@elvia/elvis-toolbox';
 import { AccordionLabelPosition, AccordionSize, AccordionType } from './elvia-accordion.types';
 import { AccordionArea, AccordionButtonArea, AccordionButton, AccordionContent } from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 export interface AccordionProps {
   content: string | HTMLElement;
@@ -16,6 +17,7 @@ export interface AccordionProps {
   overflowHeight?: number;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
+  webcomponent?: ElvisComponentWrapper;
 }
 
 const Accordion: FC<AccordionProps> = ({
@@ -30,6 +32,8 @@ const Accordion: FC<AccordionProps> = ({
   overflowHeight,
   className,
   inlineStyle,
+  webcomponent,
+  ...rest
 }) => {
   const [contentOpen, setContentOpen] = useState(false);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
@@ -50,22 +54,16 @@ const Accordion: FC<AccordionProps> = ({
       }
     };
   }, []);
-
   useEffect(() => {
-    // Web component - Placing slots at the right place
-    if (
-      accordionRef.current &&
-      accordionRef.current.parentElement &&
-      accordionRef.current.parentElement.parentElement
-    ) {
-      accordionRef.current.parentElement.parentElement.querySelectorAll('[slot]').forEach((element: any) => {
-        if (accordionText.current && element.slot === 'content') {
-          accordionText.current.innerHTML = '';
-          accordionText.current.appendChild(element);
-        }
-      });
+    if (!webcomponent) {
+      return;
     }
-  });
+    // Get slotted items from web component
+    if (accordionText.current && webcomponent.getSlot('content')) {
+      accordionText.current.innerHTML = '';
+      accordionText.current.appendChild(webcomponent.getSlot('content'));
+    }
+  }, [webcomponent]);
 
   const decideButtonAriaLabel = (): string => {
     if (contentOpen) {
@@ -82,6 +80,7 @@ const Accordion: FC<AccordionProps> = ({
         className={`${className ? className : ''}`}
         style={inlineStyle}
         data-testid="accordion-area"
+        {...rest}
       >
         {type === 'overflow' ? (
           <AccordionContent

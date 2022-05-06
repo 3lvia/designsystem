@@ -104,7 +104,8 @@
       <app-component-subsection [sectionTitle]="'Label'">
         <ng-container ngProjectAs="sectionContent">
           Use meaningful labels for links and avoid terms like “click here”, and try to cut down the
-          unnecessary words. Try to reflect the content user will find when clicking on the link.
+          unnecessary words. Try to reflect the content user will find when clicking on the link. The label
+          should be able to make sense on its own without the surrounding sentence or content.
           <app-do-dont-text>
             <ng-container ngProjectAs="do">
               <a class="e-link" href="https://design.elvia.io">See our power outage map</a>
@@ -142,7 +143,8 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Links with button style'">
         <ng-container ngProjectAs="sectionContent">
-          The e-btn class can also be used on anchor tags to make links appear like buttons.
+          The e-btn class can also be used on anchor tags to make links appear like buttons. This should only
+          be done with good reason as the behavior might confuse the user.
           <app-component-example-v1 [codeHTML]="example8" [donts]="dontsExample8"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>

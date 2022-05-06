@@ -1,5 +1,11 @@
 import React, { useState, useEffect, CSSProperties } from 'react';
-import { BreadcrumbWrapper, BreadcrumbDesktopWrapper, BreadcrumbLink } from './styledComponents';
+import {
+  BreadcrumbWrapper,
+  BreadcrumbDesktopWrapper,
+  BreadcrumbLink,
+  BreadcrumbListWrapper,
+  BreadcrumbMobileWrapper,
+} from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
@@ -22,6 +28,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const [childrenLength, setChildrenLength] = useState<number>(0);
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
@@ -68,7 +75,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
           }}
         />
         <BreadcrumbLink
-          key={undefined}
           href={breadcrumbs[childrenLength - 2].url}
           onClick={() => {
             handleOnClick(childrenLength - 2);
@@ -85,18 +91,19 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
     const desktopBreadcrumbs = breadcrumbs.map((breadcrumb, index) => {
       if (index == childrenLength - 1) {
         return (
-          <BreadcrumbLink
-            href={breadcrumb.url}
-            onClick={() => {
-              handleOnClick(index);
-            }}
-            key={index}
-            isClickable={false}
-            data-testid="breadcrumb-desktop-last-link"
-            aria-current="page"
-          >
-            {breadcrumb.title}
-          </BreadcrumbLink>
+          <BreadcrumbDesktopWrapper key={index}>
+            <BreadcrumbLink
+              href={breadcrumb.url}
+              onClick={() => {
+                handleOnClick(index);
+              }}
+              isClickable={false}
+              data-testid="breadcrumb-desktop-last-link"
+              aria-current="page"
+            >
+              {breadcrumb.title}
+            </BreadcrumbLink>
+          </BreadcrumbDesktopWrapper>
         );
       }
       return (
@@ -106,7 +113,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
             onClick={() => {
               handleOnClick(index);
             }}
-            key={undefined}
             isClickable={true}
             data-testid="breadcrumb-desktop-multiple-links"
           >
@@ -137,8 +143,15 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
       style={inlineStyle}
       data-testid="breadcrumb-wrapper"
       aria-label="Breadcrumbs"
+      {...rest}
     >
-      {breadcrumb}
+      <BreadcrumbListWrapper>
+        {Array.isArray(breadcrumb) ? (
+          breadcrumb
+        ) : (
+          <BreadcrumbMobileWrapper>{breadcrumb}</BreadcrumbMobileWrapper>
+        )}
+      </BreadcrumbListWrapper>
     </BreadcrumbWrapper>
   );
 };

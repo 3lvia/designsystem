@@ -39,6 +39,7 @@ const Popover: FC<PopoverProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const [popoverVisibility, setPopoverVisibility] = useState(isShowing);
   const maxContentWidth = useRef(0);
@@ -349,6 +350,9 @@ const Popover: FC<PopoverProps> = ({
       style={inlineStyle}
       ref={popoverRef}
       data-testid="popover-wrapper"
+      aria-modal="true"
+      role="dialog"
+      {...rest}
     >
       <div ref={popoverClasscontainerRef} className={popoverClasses} data-testid="popover-container">
         <div className="ewc-popover__trigger" ref={popoverTriggerRef}>

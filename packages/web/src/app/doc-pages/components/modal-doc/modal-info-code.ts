@@ -46,7 +46,7 @@ const modalInfoCode = {
   <div slot="content">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
   </div>
-  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
+  <button id="close-button" slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
 </elvia-modal>
 `,
   codeNativeScript: ``,

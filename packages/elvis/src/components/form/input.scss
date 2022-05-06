@@ -89,8 +89,8 @@ $form-input-padding-compact-active: 3px 9px;
   > input:disabled,
   > textarea:disabled {
     opacity: 1;
-    color: colors.color('grey-20');
-    border-color: colors.color('grey-20');
+    color: colors.color('disabled');
+    border-color: colors.color('disabled');
     cursor: not-allowed;
   }
 

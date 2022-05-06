@@ -2,10 +2,33 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.05.22",
+      "version": "1.3.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for native events in React. "]
+        }
+      ]
+    },
+    {
+      "date": "04.04.22",
+      "version": "1.2.4 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added aria label for entire radio group. This label can be overwritten by the prop 'groupAriaLabel', be default the label is 'Filtreringsknapper'"
+          ]
+        }
+      ]
+    },
+    {
       "date": "23.03.22",
       "version": "1.2.3 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": [
             "Fixed an issue causing problems for events in non-React environments for props with falsy values. This  update bumps the dependency on @elvia/elvis-component-wrapper."
           ]
@@ -87,6 +110,7 @@
       "version": "1.1.1 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Web component wrapper fix"]
         }
       ]
@@ -116,6 +140,7 @@
       "version": "1.0.1 ",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Add value prop to Option so label is the value displayed"]
         }
       ]

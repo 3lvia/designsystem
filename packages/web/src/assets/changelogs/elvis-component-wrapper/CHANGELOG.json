@@ -2,8 +2,58 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.05.22",
+      "version": "2.3.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Improved Typescript type safety."]
+        }
+      ]
+    },
+    {
+      "date": "03.05.22",
+      "version": "2.3.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added Typescript declarations."]
+        }
+      ]
+    },
+    {
+      "date": "28.04.22",
+      "version": "2.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added getProp function."]
+        }
+      ]
+    },
+    {
+      "date": "08.04.22",
+      "version": "2.2.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Update slot logic to support components inside components better."]
+        }
+      ]
+    },
+    {
+      "date": "07.04.22",
+      "version": "2.2.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["No changes - failed to update."]
+        }
+      ]
+    },
+    {
       "date": "31.03.22",
-      "version": "2.2.3 ",
+      "version": "2.2.3",
       "changelog": [
         {
           "type": "bug_fix",
@@ -13,7 +63,7 @@
     },
     {
       "date": "23.03.22",
-      "version": "2.2.2 ",
+      "version": "2.2.2",
       "changelog": [
         {
           "type": "bug_fix",
@@ -25,7 +75,7 @@
     },
     {
       "date": "07.03.22",
-      "version": "2.2.1 ",
+      "version": "2.2.1",
       "changelog": [
         {
           "type": "bug_fix",
@@ -37,7 +87,7 @@
     },
     {
       "date": "03.03.22",
-      "version": "2.2.0 ",
+      "version": "2.2.0",
       "changelog": [
         {
           "type": "new_feature",
@@ -56,7 +106,7 @@
     },
     {
       "date": "02.03.22",
-      "version": "2.1.14 ",
+      "version": "2.1.14",
       "changelog": [
         {
           "type": "bug_fix",
@@ -66,7 +116,7 @@
     },
     {
       "date": "25.02.22",
-      "version": "2.1.13 ",
+      "version": "2.1.13",
       "changelog": [
         {
           "type": "bug_fix",
@@ -76,16 +126,17 @@
     },
     {
       "date": "26.01.22",
-      "version": "2.1.11 ",
+      "version": "2.1.11",
       "changelog": [
         {
+          "type": "patch",
           "changes": ["Updated dependencies"]
         }
       ]
     },
     {
       "date": "06.01.22",
-      "version": "2.1.10 ",
+      "version": "2.1.10",
       "changelog": [
         {
           "type": "bug_fix",
@@ -95,7 +146,7 @@
     },
     {
       "date": "21.12.21",
-      "version": "2.1.9 ",
+      "version": "2.1.9",
       "changelog": [
         {
           "type": "bug_fix",
@@ -105,7 +156,7 @@
     },
     {
       "date": "16.12.21",
-      "version": "2.1.8 ",
+      "version": "2.1.8",
       "changelog": [
         {
           "type": "bug_fix",
@@ -115,7 +166,7 @@
     },
     {
       "date": "22.11.21",
-      "version": "2.1.7 ",
+      "version": "2.1.7",
       "changelog": [
         {
           "type": "bug_fix",
@@ -125,7 +176,7 @@
     },
     {
       "date": "22.11.21",
-      "version": "2.1.6 ",
+      "version": "2.1.6",
       "changelog": [
         {
           "type": "bug_fix",
@@ -135,7 +186,7 @@
     },
     {
       "date": "22.11.21",
-      "version": "2.1.5 ",
+      "version": "2.1.5",
       "changelog": [
         {
           "type": "bug_fix",
@@ -145,7 +196,7 @@
     },
     {
       "date": "17.11.21",
-      "version": "2.1.4 ",
+      "version": "2.1.4",
       "changelog": [
         {
           "type": "bug_fix",
@@ -155,7 +206,7 @@
     },
     {
       "date": "07.09.21",
-      "version": "2.1.2 ",
+      "version": "2.1.2",
       "changelog": [
         {
           "type": "bug_fix",
@@ -165,7 +216,7 @@
     },
     {
       "date": "20.08.21",
-      "version": "2.1.1 ",
+      "version": "2.1.1",
       "changelog": [
         {
           "type": "bug_fix",
@@ -175,7 +226,7 @@
     },
     {
       "date": "17.08.21",
-      "version": "2.1.0 ",
+      "version": "2.1.0",
       "changelog": [
         {
           "type": "new_feature",

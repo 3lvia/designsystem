@@ -59,7 +59,7 @@ const modalActionsCode = {
   <div slot="content">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
   </div>
-  <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg">
+  <button id="close-button" slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg">
     Cancel
   </button>
   <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>

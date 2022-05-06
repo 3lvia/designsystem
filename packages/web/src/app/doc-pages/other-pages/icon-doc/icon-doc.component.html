@@ -13,7 +13,7 @@
     *ngFor="let icon of visibleIcons | iconSearchPipe: term"
     [id]="icon.title"
   >
-    <div class="e-alert e-alert--local e-alert--info">
+    <div class="e-alert e-alert--local e-alert--info" role="alert">
       <div class="e-alert__icon">
         <i class="e-icon" [ngClass]="'e-icon--' + icon.title"></i>
       </div>
@@ -91,9 +91,14 @@
               <input id="searchIcons" type="text" placeholder="Search through all icons" [(ngModel)]="term" />
             </div>
             <i class="e-icon e-icon--search-color"></i>
-            <button class="e-btn e-btn--icon" *ngIf="term.length > 0" (click)="removeSearch()">
+            <button
+              class="e-btn e-btn--icon"
+              *ngIf="term.length > 0"
+              (click)="removeSearch()"
+              aria-label="Empty search field"
+            >
               <span class="e-btn__icon">
-                <i class="e-icon e-icon--close-bold"></i>
+                <i class="e-icon e-icon--close-bold" aria-hidden="true"></i>
               </span>
             </button>
           </div>
@@ -535,7 +540,7 @@
           <!--CHANGELOG-->
           <app-component-section [sectionTitle]="'Changelog'">
             <ng-container ngProjectAs="sectionContent">
-              <app-component-changelog [componentData]="componentData"></app-component-changelog>
+              <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
             </ng-container>
           </app-component-section>
         </ng-container>

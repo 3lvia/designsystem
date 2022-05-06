@@ -11,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
     <div class="e-table-container overview-example">
-      <table class="e-table">
+      <table class="e-table" aria-label="Beskrivelse av tabellen">
         <thead>
           <tr>
             <th scope="col">Column 1</th>
@@ -111,8 +111,8 @@
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-accordion')">
             <div class="e-accordion__title">Accordion</div>
             <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
             </div>
           </div>
           <div class="e-accordion__content">
@@ -131,7 +131,9 @@
                   target="_blank"
                 >
                   <span class="e-link__title">Figma</span>
-                  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+                  <span class="e-link__icon">
+                    <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+                  </span>
                 </a>
               </li>
               <li>
@@ -174,8 +176,8 @@
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-alignment')">
             <div class="e-accordion__title">Alignment</div>
             <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
             </div>
           </div>
           <div class="e-accordion__content">
@@ -191,8 +193,8 @@
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-button')">
             <div class="e-accordion__title">Button</div>
             <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
             </div>
           </div>
           <div class="e-accordion__content">
@@ -219,8 +221,8 @@
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-checkbox')">
             <div class="e-accordion__title">Checkbox</div>
             <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
             </div>
           </div>
           <div class="e-accordion__content">
@@ -263,8 +265,8 @@
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-footnote')">
             <div class="e-accordion__title">Footnote</div>
             <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
             </div>
           </div>
           <div class="e-accordion__content">
@@ -278,8 +280,8 @@
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-input')">
             <div class="e-accordion__title">Input</div>
             <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
             </div>
           </div>
           <div class="e-accordion__content">
@@ -306,8 +308,8 @@
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-longColumn')">
             <div class="e-accordion__title">Long column</div>
             <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
             </div>
           </div>
           <div class="e-accordion__content">
@@ -324,12 +326,49 @@
           </div>
         </div>
 
+        <div class="e-accordion__item" id="accordion-sticky-header">
+          <div class="e-accordion__label" (click)="toggleAccordion('accordion-sticky-header')">
+            <div class="e-accordion__title">Sticky header</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              Sticky headers should primarily be used when there is a lot of information to scroll through, so
+              that the user can view the context at all times when scrolling. Optional sticky headers for both
+              horizontal and vertical scroll. You can choose to have either row headers sticky, column headers
+              sticky or both.
+            </div>
+            <app-component-subsubsection [sectionTitle]="'Desktop'">
+              <ng-container ngProjectAs="sectionContent">
+                <h5 class="e-title-caps">Row header</h5>
+                The first column will be sticky on the left side including the linked column header.
+                <app-component-example-v1 [codeHTML]="exampleStickyHeader"></app-component-example-v1>
+
+                <h5 class="e-title-caps e-mt-40">Column header</h5>
+                <div>The column header will be sticky on top while scrolling vertically.</div>
+                <app-component-example-v1 [codeHTML]="exampleStickyHeaderColumns"></app-component-example-v1>
+              </ng-container>
+            </app-component-subsubsection>
+            <app-component-subsubsection [sectionTitle]="'Mobile'">
+              <ng-container ngProjectAs="sectionContent">
+                When the row headers are sticky these headers should also be sticky on mobile. The row
+                currently displaying will follow on top until the next row is reached. Column headers will not
+                be sticky on mobile.
+                <app-component-example-v1 [codeHTML]="exampleStickyHeaderMobile"></app-component-example-v1>
+              </ng-container>
+            </app-component-subsubsection>
+          </div>
+        </div>
+
         <div class="e-accordion__item" id="accordion-noStripes">
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-noStripes')">
             <div class="e-accordion__title">No stripes</div>
             <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
             </div>
           </div>
           <div class="e-accordion__content">
@@ -347,8 +386,8 @@
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-numbers')">
             <div class="e-accordion__title">Numbers</div>
             <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
             </div>
           </div>
           <div class="e-accordion__content">
@@ -366,8 +405,8 @@
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-select')">
             <div class="e-accordion__title">Select</div>
             <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
             </div>
           </div>
           <div class="e-accordion__content">
@@ -394,8 +433,8 @@
           <div class="e-accordion__label" (click)="toggleAccordion('accordion-sorting')">
             <div class="e-accordion__title">Sorting</div>
             <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
             </div>
           </div>
           <div class="e-accordion__content">
@@ -413,7 +452,9 @@
                   target="_blank"
                 >
                   <span class="e-link__title">Figma</span>
-                  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+                  <span class="e-link__icon">
+                    <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+                  </span>
                 </a>
               </li>
               <li>
@@ -471,21 +512,30 @@
     </ng-container>
   </app-component-section>
 
-  <!--IMPLEMENTATION-->
-  <app-component-section [sectionTitle]="'Implementation'">
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Accessibility'">
+      <app-component-subsection [sectionTitle]="'ARIA'">
         <ng-container ngProjectAs="sectionContent">
-          Here are some accessibility rules to be aware of when setting up tables.
-          <app-component-subsubsection [sectionTitle]="'Headers for rows'">
-            <ng-container ngProjectAs="sectionContent">
-              When the first cells for each row in a table can be seen as headers for the rows, the column
-              cell should be 'th' elements and not 'td' elements. Example:
-              <div>
-                <span class="code-text">&lt;th scope="row"&gt; January 2020 &lt;/th&gt;</span>
-              </div>
-            </ng-container>
-          </app-component-subsubsection>
+          <ul class="e-list">
+            <li>
+              <strong>Aria label:</strong>
+              Remember to add
+              <span class="code-text">aria-label</span>
+              to the table to provide a description for the table.
+            </li>
+            <li>
+              <strong>Scope:</strong>
+              The
+              <span class="code-text">scope</span>
+              attribute should be places on all table header elements to make it clear if the headers is a row
+              or column header. Add
+              <span class="code-text">scope="row"</span>
+              and the
+              <span class="code-text">th</span>
+              element to the first cell on a row if this element acts as a header.
+            </li>
+          </ul>
         </ng-container>
       </app-component-subsection>
     </ng-container>

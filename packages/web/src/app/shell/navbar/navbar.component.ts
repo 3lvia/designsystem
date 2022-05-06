@@ -54,6 +54,11 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     this.updateNavbarHeight();
   }
 
+  @HostListener('window:popstate', ['$event']) // for updating side menu on changes to the history (clicking back-button)
+  onPopstate(): void {
+    setTimeout(() => this.updateNavbarList(0), 200);
+  }
+
   ngOnInit(): void {
     const localizationSubscriber = this.localizationService.listenLocalization();
     const routerSubscriber = this.router.events;
@@ -76,6 +81,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     this.contentLoadedSubscription = this.cmsService.listenContentLoadedFromCMS().subscribe(() => {
       this.setNewActiveNavbarItem();
       setTimeout(() => this.updateAnchorList(), 200);
+      this.updateNavbarHeight();
     });
     this.anchorPosSubscription = this.scrollService
       .listenAnchorAtCurrPos()
@@ -221,6 +227,24 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       el.style.height = newHeight + 'px';
     } else {
       el.style.height = window.innerHeight - 64 - 48 - 60 + 'px';
+    }
+    this.updateNavbarBlur();
+  }
+
+  updateNavbarBlur(): void {
+    const removePostfix = (value: string, postfix: string) => {
+      return value.substring(0, navbarElement.style.height.lastIndexOf(postfix));
+    };
+
+    const navbarElement = document.getElementById('side-navbar');
+    const clientHeight = Number(removePostfix(navbarElement.style.height, 'px'));
+    const bottomOfNavbar = clientHeight + navbarElement.scrollTop;
+    const heightOfNavbar = navbarElement.scrollHeight;
+    const isAtBottomOfNavbar = bottomOfNavbar + 10 >= heightOfNavbar;
+    if (isAtBottomOfNavbar) {
+      navbarElement.classList.remove('navbar-bottom-blur');
+    } else {
+      navbarElement.classList.add('navbar-bottom-blur');
     }
   }
 

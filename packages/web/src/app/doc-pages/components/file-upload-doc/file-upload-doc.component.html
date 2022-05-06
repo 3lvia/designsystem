@@ -13,13 +13,13 @@
     <div class="liveExample e-mt-40">
       <div class="e-fileupload" style="width: 380px" appDnd>
         <div class="e-fileupload__icon">
-          <i class="e-icon e-icon--image_add-color"></i>
+          <i class="e-icon e-icon--image_add-color" aria-hidden="true"></i>
         </div>
         <div class="e-fileupload__description">Drag and drop or</div>
         <div class="e-fileupload__input">
           <input type="file" id="fileUploadTemplate" />
           <label for="fileUploadTemplate">
-            <i class="e-icon e-icon--upload"></i>
+            <i class="e-icon e-icon--upload" aria-hidden="true"></i>
             Choose file
           </label>
         </div>
@@ -52,7 +52,12 @@
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Uploading'" [figmaOnly]="true">
         <ng-container ngProjectAs="sectionContent">
-          <div width="100%" style="width: 100; overflow-x: auto">
+          Use our
+          <a class="e-link e-link--inline" [routerLink]="['/components/button']">icon buttons</a>
+          and
+          <a class="e-link e-link--inline" [routerLink]="['/components/progressbar']">progressbar</a>
+          to assemble the elements needed here.
+          <div width="100%" style="width: 100; overflow-x: auto" class="e-mt-24">
             <iframe
               style="border: 1px solid rgba(0, 0, 0, 0.1)"
               width="500"
@@ -65,7 +70,12 @@
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Uploaded'" [figmaOnly]="true">
         <ng-container ngProjectAs="sectionContent">
-          <div width="100%" style="width: 100; overflow-x: auto">
+          Use our
+          <a class="e-link e-link--inline" [routerLink]="['/components/button']">icon buttons</a>
+          and
+          <a class="e-link e-link--inline" [routerLink]="['/components/progressbar']">progressbar</a>
+          to assemble the elements needed here.
+          <div width="100%" style="width: 100; overflow-x: auto" class="e-mt-24">
             <iframe
               style="border: 1px solid rgba(0, 0, 0, 0.1)"
               width="500"

@@ -14,6 +14,13 @@ export const dropdownData: ComponentData = {
       cegDisplayName: 'defaultValue',
       default: 'undefined',
     },
+    options: {
+      isRequired: true,
+      type: 'Array<object>',
+      description:
+        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?: string}',
+      cegDisplayName: 'Options',
+    },
     errorMessage: {
       isRequired: false,
       type: 'string',
@@ -42,17 +49,6 @@ export const dropdownData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'State',
     },
-    isMulti: {
-      isRequired: false,
-      type: 'boolean',
-      description: 'Set the dropdown to accept multiple values',
-      default: 'false',
-      cegDisplayName: 'Multiselect',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Options',
-    },
     isSearchable: {
       isRequired: false,
       type: 'boolean',
@@ -64,6 +60,29 @@ export const dropdownData: ComponentData = {
       cegFormType: 'checkbox',
       cegOption: 'true',
       cegDisplayGroup: 'Options',
+    },
+    isMulti: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Set the dropdown to accept multiple values',
+      default: 'false',
+      cegDisplayName: 'Multiselect',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Options',
+    },
+    hasSelectAllOption: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Add a select all-option to the dropdown. Only available in multiselect dropdown.',
+      default: 'false',
+      cegDisplayName: 'Select all option',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Options',
+      cegDependency: [{ name: 'isMulti', value: 'true' }],
     },
     label: {
       isRequired: false,
@@ -81,13 +100,6 @@ export const dropdownData: ComponentData = {
       type: 'string',
       description: 'Text to display when there are no options',
       default: `'Ingen tilgjengelige valg'`,
-    },
-    options: {
-      isRequired: true,
-      type: 'Array<object>',
-      description:
-        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string} ',
-      cegDisplayName: 'Options',
     },
     placeholder: {
       isRequired: false,
@@ -174,7 +186,7 @@ export const dropdownData: ComponentData = {
   changelog: changelogJson.content,
 
   does: [
-    'Use sparingly: use dropdowns only when the user have 5-15 options and you have limited space to display it all open.',
+    'Use dropdowns sparingly - only when the user has 5-15 options and you have limited space to display all options.',
   ],
   donts: [
     'Fewer than 5 options (consider radio filter or radio buttons)',

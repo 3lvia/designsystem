@@ -57,6 +57,7 @@ const Card: FC<CardProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   if (type === 'detail') shape = 'square';
   if (type === 'simple') maxDescriptionLines = 1;
@@ -122,6 +123,7 @@ const Card: FC<CardProps> = ({
       onMouseLeave={() => setIsHovering(false)}
       className={`${className ? className : ''}`}
       style={inlineStyle}
+      {...rest}
     >
       {shape === 'square' && type === 'simple' && borderColor && (
         <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>

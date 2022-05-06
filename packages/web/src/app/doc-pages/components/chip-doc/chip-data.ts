@@ -84,6 +84,7 @@ export const chipData: ComponentData = {
   selected={true}
   ariaLabel={"Fjern filtrering for 2022"}
   onDelete={(event) => handleOnDelete(event)}
+  valueOnChange={(event) => handleValueOnChange(event)}
 >
 </Chip>
 `,
@@ -92,6 +93,7 @@ export const chipData: ComponentData = {
   [selected]="true"
   [ariaLabel]="'Fjern filtrering for 2022'" 
   (onDelete)="handleOnDelete($event.detail.value)"
+  (valueOnChange)="handleValueOnChange($event.detail.value)"
 >
 </elvia-chip>
   `,
@@ -100,6 +102,7 @@ export const chipData: ComponentData = {
   :selected="true"
   :ariaLabel="'Fjern filtrering for 2022'" 
   @on-delete="handleOnDelete($event.detail.value)"
+  @value-on-change="handleValueOnChange($event.detail.value)"
 >
 </elvia-chip>
   `,
@@ -113,8 +116,11 @@ export const chipData: ComponentData = {
   chip.setProps({value: 2022 });
   chip.setProps({ariaLabel: 'Fjern filtrering for 2022' });
   chip.addEventListener('onDelete', () => {
-    console.log('Remove element from DOM');
+    console.log('Used in REMOVABLE chips - Remove element from DOM');
     chip.remove();
+  });
+  chip.addEventListener('valueOnChange', () => {
+    console.log('Do what you want with updated value');
   });
 `,
   changelog: changelogJson.content,

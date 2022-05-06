@@ -1,7 +1,8 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
-import { ChipComponent, ChipTitle } from './styledComponents';
+import { ChipComponent, ChipDot, ChipTitle } from './styledComponents';
 import { ChipType, ColorType, onChangeValue } from './elvia-chip.types';
 import { Icon } from '@elvia/elvis-icon/react';
+import { useHover } from '@react-aria/interactions';
 
 import classnames from 'classnames';
 import { getColor } from '@elvia/elvis-colors';
@@ -33,13 +34,9 @@ export const Chip: FC<BaseChipProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const [isSelected, setIsSelected] = useState(selected);
-  const [isHovering, setIsHovering] = useState(false);
-
-  const setHover = (newState: boolean) => () => {
-    setIsHovering(newState);
-  };
 
   useEffect(() => {
     setIsSelected(selected);
@@ -63,22 +60,26 @@ export const Chip: FC<BaseChipProps> = ({
     }
   };
 
+  const { hoverProps, isHovered } = useHover({});
+
   return (
     <ChipComponent
+      {...hoverProps} // Handles hover / onMouseEnter / onMouseLeave logic
+      role={type === 'removable' ? undefined : 'checkbox'}
+      aria-checked={type === 'removable' ? undefined : isSelected}
       aria-label={ariaLabel}
-      aria-selected={isSelected}
       color={color}
       onClick={() => {
         type === 'removable' ? handleOnDelete(value) : updateSelectedState(value, !isSelected);
       }}
       disabled={disabled}
-      onMouseEnter={setHover(true)}
-      onMouseLeave={setHover(false)}
       chipType={type}
       isSelected={isSelected}
+      isHovering={isHovered}
       className={`${className ? className : ''}`}
       style={inlineStyle}
       data-testid="chip-button"
+      {...rest}
     >
       {type === 'choice' && (
         <Icon
@@ -86,21 +87,21 @@ export const Chip: FC<BaseChipProps> = ({
           customSize="12px"
           inlineStyle={{
             paddingRight: '8px',
-            visibility: isHovering || isSelected ? 'visible' : 'hidden',
+            visibility: isHovered || isSelected ? 'visible' : 'hidden',
             opacity: disabled ? '0.3' : '1',
           }}
         />
       )}
-      <ChipTitle
-        color={color}
-        disabled={disabled}
-        className={classnames({
-          ['dot']: type === 'legend',
-          ['showDot']: type === 'legend' && (isHovering || isSelected),
-          ['disabledDot']: disabled,
-        })}
-        data-testid="chip-label"
-      >
+      {type === 'legend' && (
+        <ChipDot
+          color={color}
+          className={classnames('dot', {
+            ['showDot']: isHovered || isSelected,
+            ['disabledDot']: disabled,
+          })}
+        />
+      )}
+      <ChipTitle disabled={disabled} data-testid="chip-label">
         {value}
       </ChipTitle>
       {type === 'removable' && (

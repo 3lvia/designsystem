@@ -6,7 +6,11 @@ const modalData: ComponentData = {
   elementNameW: 'elvia-modal',
   elementNameR: 'Modal',
   attributes: {
-    isShowing: { isRequired: true, type: 'boolean', description: 'Controls if the modal is showing or not' },
+    isShowing: {
+      isRequired: true,
+      type: 'boolean',
+      description: 'Controls if the modal is showing or not',
+    },
     title: {
       isRequired: false,
       type: 'string',
@@ -173,6 +177,14 @@ const modalData: ComponentData = {
   button.addEventListener("click", () => {
     modal.setProps({isShowing: !isModalShowing });
     isModalShowing = !isModalShowing;
+    
+    setTimeout(() => {
+      const secondaryButton = document.getElementById('close-button');
+      secondaryButton.addEventListener("click", () => {
+        modal.setProps({isShowing: false });
+        isModalShowing = false;
+      });
+    }, 500);
   });
 `,
   changelog: changelogJson.content,

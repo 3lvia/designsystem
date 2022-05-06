@@ -16,7 +16,7 @@ export class TableDocComponent {
   ];
 
   exampleOverview = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">Column 1</th>
@@ -45,8 +45,184 @@ export class TableDocComponent {
 </div>
 `;
 
+  exampleStickyHeaderColumns = `<div class="e-table-container" style="max-height: 250px">
+  <table class="e-table e-table--sticky-header" aria-label="Beskrivelse av tabellen">
+    <thead>
+      <tr>
+        <th scope="col">Column 1</th>
+        <th scope="col">Column 2</th>
+        <th scope="col">Column 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Row 1</th>
+        <td>Row 1</td>
+        <td>Row 1</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 2</th>
+        <td>Row 2</td>
+        <td>Row 2</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 3</th>
+        <td>Row 3</td>
+        <td>Row 3</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 4</th>
+        <td>Row 4</td>
+        <td>Row 4</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 5</th>
+        <td>Row 5</td>
+        <td>Row 5</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 6</th>
+        <td>Row 6</td>
+        <td>Row 6</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 7</th>
+        <td>Row 7</td>
+        <td>Row 7</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 8</th>
+        <td>Row 8</td>
+        <td>Row 8</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 9</th>
+        <td>Row 9</td>
+        <td>Row 9</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+  exampleStickyHeaderMobile = `<div style="width: 305px; margin: 16px">
+  <div class="e-table-container" style="max-height: 250px">
+  <table class="e-table-mobile e-table-mobile--sticky-header">
+    <thead>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">Period</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">January 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Sent</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">567,98</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
+        <td class="e-table-mobile__cell e-text-mono">1023456</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Sent</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">567,98</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
+        <td class="e-table-mobile__cell e-text-mono">1023456</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">May 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Paid</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">556,98</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
+        <td class="e-table-mobile__cell e-text-mono">1234060</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Paid</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Amount (kr)</th>
+        <td class="e-table-mobile__cell e-text-mono">556,98</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Invoice no.</th>
+        <td class="e-table-mobile__cell e-text-mono">1234060</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+`;
+
+  exampleStickyHeader = `<div class="e-table-container" style="max-width: 500px">
+  <table class="e-table e-table--sticky-column-header" aria-label="Beskrivelse av tabellen">
+    <thead>
+      <tr>
+        <th scope="col">Column 1</th>
+        <th scope="col">Column 2</th>
+        <th scope="col">Column 3</th>
+        <th scope="col">Column 4</th>
+        <th scope="col">Column 5</th>
+        <th scope="col">Column 6</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Row 1</th>
+        <td>Row 1</td>
+        <td>Row 1</td>
+        <td>Row 1</td>
+        <td>Row 1</td>
+        <td>Row 1</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 2</th>
+        <td>Row 2</td>
+        <td>Row 2</td>
+        <td>Row 2</td>
+        <td>Row 2</td>
+        <td>Row 2</td>
+      </tr>
+      <tr>
+        <th scope="row">Row 3</th>
+        <td>Row 3</td>
+        <td>Row 3</td>
+        <td>Row 3</td>
+        <td>Row 3</td>
+        <td>Row 3</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
   exampleDesktop = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">Period</th>
@@ -342,7 +518,7 @@ export class TableDocComponent {
 `;
 
   exampleInput = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">CaseID</th>
@@ -432,7 +608,7 @@ export class TableDocComponent {
 `;
 
   exampleButton = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">CaseID</th>
@@ -447,24 +623,11 @@ export class TableDocComponent {
         <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
         <td class="e-table__button">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Rediger">
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
           </button>
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td class="e-text-mono">203413222</td>
-        <td>Elviaveien 3, 1230 Oslo</td>
-        <td>15.01.2021</td>
-        <td class="e-table__button">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
-          </button>
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Slett">
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
           </button>
         </td>
       </tr>
@@ -473,11 +636,24 @@ export class TableDocComponent {
         <td>Elviaveien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
         <td class="e-table__button">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Rediger">
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
           </button>
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Slett">
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td class="e-text-mono">203413222</td>
+        <td>Elviaveien 3, 1230 Oslo</td>
+        <td>15.01.2021</td>
+        <td class="e-table__button">
+          <button class="e-btn e-btn--icon" aria-label="Rediger">
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
+          </button>
+          <button class="e-btn e-btn--icon" aria-label="Slett">
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
           </button>
         </td>
       </tr>
@@ -510,11 +686,11 @@ export class TableDocComponent {
       <tr>
         <th class="e-table-mobile__cell" scope="row">Actions</th>
         <td class="e-table-mobile__cell e-table-mobile__button">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Rediger">
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
           </button>
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Slett">
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
           </button>
         </td>
       </tr>
@@ -535,11 +711,11 @@ export class TableDocComponent {
       <tr>
         <th class="e-table-mobile__cell" scope="row">Actions</th>
         <td class="e-table-mobile__cell e-table-mobile__button">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Rediger">
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
           </button>
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
+          <button class="e-btn e-btn--icon" aria-label="Slett">
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
           </button>
         </td>
       </tr>
@@ -549,7 +725,7 @@ export class TableDocComponent {
 `;
 
   exampleCheckbox = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr class="e-table__checkbox">
         <th scope="col">
@@ -571,8 +747,8 @@ export class TableDocComponent {
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <td class="e-text-mono">203413222</td>
-        <td>Elviaveien 3, 1230 Oslo</td>
+        <td class="e-text-mono">203413</td>
+        <td>Veien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
       </tr>
       <tr class="e-table__checkbox">
@@ -582,8 +758,8 @@ export class TableDocComponent {
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <td class="e-text-mono">203413222</td>
-        <td>Elviaveien 3, 1230 Oslo</td>
+        <td class="e-text-mono">203413</td>
+        <td>Veien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
       </tr>
       <tr class="e-table__checkbox">
@@ -593,8 +769,8 @@ export class TableDocComponent {
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <td class="e-text-mono">203413222</td>
-        <td>Elviaveien 3, 1230 Oslo</td>
+        <td class="e-text-mono">2034132</td>
+        <td>Veien 3, 1230 Oslo</td>
         <td>15.01.2021</td>
       </tr>
     </tbody>
@@ -655,7 +831,7 @@ export class TableDocComponent {
 `;
 
   exampleSelect = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">CaseID</th>
@@ -764,7 +940,7 @@ export class TableDocComponent {
 `;
 
   exampleNumbers = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">Amount (kr)</th>
@@ -798,7 +974,7 @@ export class TableDocComponent {
 `;
 
   exampleLongColumn = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">Period</th>
@@ -844,7 +1020,7 @@ export class TableDocComponent {
 `;
 
   exampleAlignment = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col" class="e-text-left">Left-aligned text</th>
@@ -864,7 +1040,7 @@ export class TableDocComponent {
 `;
 
   exampleFootnote = `<div class="e-table-container">
-  <table class="e-table">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th scope="col">CaseID*</th>

@@ -468,6 +468,8 @@ $sidebar-mobile-z-index: -2;
       flex-direction: column;
       justify-content: center;
       padding: 8px 24px 24px 24px;
+      min-width: 330px;
+      max-width: 500px;
       &__app,
       &__area,
       &__user {
@@ -524,8 +526,8 @@ $sidebar-mobile-z-index: -2;
       &__divider {
         margin: 24px 0;
         height: 1px;
-        width: 288px;
         background: colors.color('grey-10');
+        width: 100%;
       }
     }
     .e-header__top-bar + .e-header__sidebar {
@@ -673,8 +675,8 @@ $sidebar-mobile-z-index: -2;
   @include breakpoints.breakpoint-up(Mobile) {
     position: fixed;
     height: $sidebar-width;
-    top: calc(100vh - #{$header-height});
-    width: 100vw;
+    bottom: 0;
+    width: 100%;
     background: colors.color('elvia-on');
 
     display: flex;

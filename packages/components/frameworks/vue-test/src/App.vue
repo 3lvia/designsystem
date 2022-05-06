@@ -92,10 +92,20 @@
       <elvia-breadcrumb :breadcrumbs="breadcrumbsTestNoUrl"></elvia-breadcrumb>
     </div>
 
+    <!--Card-->
+    <div class="example-wrapper">
+      <h3>Card</h3>
+      <elvia-card :header="'Header'" :description="'Hover me!'">
+        <div slot="icon">91</div>
+        <div slot="iconHover">92</div>
+        <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
+      </elvia-card>
+    </div>
+
     <!--Carousel-->
     <div class="example-wrapper">
       <h3>Carousel</h3>
-      <elvia-carousel>
+      <elvia-carousel :hasAnimation="false" :value="carouselValue">
         <div slot="title-1">
           <h4 class="e-title-sm">HAN-port</h4>
         </div>
@@ -109,6 +119,9 @@
         </div>
         <div slot="element-3">hei</div>
       </elvia-carousel>
+      <button @click="carouselValue = incrementCarouselStep(carouselValue)" class="e-btn e-btn--sm">
+        Increment step
+      </button>
     </div>
 
     <!--Chip-->
@@ -216,6 +229,13 @@
       ></elvia-radio-filter>
     </div>
 
+    <!--Spotlight-->
+    <div class="example-wrapper">
+      <h3>Spotlight</h3>
+      <!-- <elvia-spotlight :position="{ horizontal: hPos, vertical: vPos }" :radius="radius"></elvia-spotlight> -->
+      <button @click="moveSpotlight()" style="z-index: 2147483647; position: relative">Move spotlight</button>
+    </div>
+
     <!--Tabs-->
     <div class="example-wrapper">
       <h3>Tabs</h3>
@@ -251,6 +271,7 @@ export default {
         { title: 'Strømbruddsvarsel', element: this.carouselParagraph },
         { element: this.carouselParagraph },
       ],
+      carouselValue: 0,
       // Chips
       deletableChipsList: [
         { value: 2022, color: 'green' },
@@ -267,6 +288,10 @@ export default {
       ],
       // Modal
       isModalShowing: false,
+      // Spotlight
+      vPos: 200,
+      hPos: 200,
+      radius: 100,
       // Pagination
       defaultPaginationValue: { start: 1, end: 10 },
     };
@@ -274,6 +299,22 @@ export default {
   methods: {
     logValue(component, value) {
       console.log(component, ': ', value);
+    },
+    moveSpotlight() {
+      if (this.$data.vPos === 200) {
+        this.$data.vPos = 500;
+        this.$data.hPos = 500;
+        this.$data.radius = 300;
+      } else {
+        this.$data.vPos = 200;
+        this.$data.hPos = 200;
+        this.$data.radius = 100;
+      }
+    },
+    incrementCarouselStep(carouselValue) {
+      carouselValue = (carouselValue + 1) % 3;
+      console.log('Carousel value: ', carouselValue);
+      return carouselValue;
     },
   },
 };

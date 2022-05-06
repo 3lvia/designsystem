@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 import { homeMenu } from 'src/app/shared/doc-pages';
+import changelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   halloweenMonth = 9;
   halloween = false;
   locale: string;
+  changelog = changelogJson.content;
 
   constructor(localizationService: LocalizationService) {
     localizationService.listenLocalization().subscribe((locale) => {
@@ -31,7 +33,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.findEndOfRow();
     this.holiday();
     (document as any).fonts.ready.then(() => {
       this.fontLoaded = true;
@@ -49,18 +50,4 @@ export class HomeComponent implements OnInit {
       this.overviewTitle = 'Merry christmas';
     }
   };
-
-  findEndOfRow(): void {
-    const rows = document.getElementsByTagName('tr');
-    setTimeout(() => {
-      // tslint:disable-next-line: prefer-for-of
-      for (let i = 1; i < rows.length; i++) {
-        rows[i].classList.add('e-none');
-      }
-      const divider = document.getElementsByClassName('changelog-divider')[0] as HTMLElement;
-      if (divider) {
-        divider.classList.add('e-none');
-      }
-    }, 500);
-  }
 }

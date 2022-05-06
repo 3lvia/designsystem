@@ -71,6 +71,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   hasValidation = true,
   errorOnChange,
   disableDate,
+  ...rest
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
   const [initialFocusedDate, setInitialFocusedDate] = useState<Date | null>(null);
@@ -407,6 +408,7 @@ export const Datepicker: FC<DatepickerProps> = ({
       ref={datepickerRef}
       style={inlineStyle}
       data-testid="datepicker-wrapper"
+      {...rest}
     >
       {label !== '' && (
         <label
@@ -431,8 +433,8 @@ export const Datepicker: FC<DatepickerProps> = ({
             rifmFormatter={getDateFormat}
             disabled={isDisabled === true}
             fullWidth={isFullWidth === true}
-            minDate={minDate}
-            maxDate={maxDate}
+            minDate={minDate ? minDate : undefined}
+            maxDate={maxDate ? maxDate : undefined}
             onChange={handleDateChange}
             onFocus={onFocus}
             open={isDatepickerOpen}
@@ -447,7 +449,7 @@ export const Datepicker: FC<DatepickerProps> = ({
             }
             inputProps={{ ref: inputRef }}
             KeyboardButtonProps={{
-              'aria-label': 'Velg dato',
+              'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
             }}
             leftArrowButtonProps={{
               'aria-label': 'Vis forrige måned',
@@ -456,9 +458,14 @@ export const Datepicker: FC<DatepickerProps> = ({
               'aria-label': 'Vis neste måned',
             }}
             PopoverProps={{
+              'aria-modal': true,
+              'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
               anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
               transformOrigin: { horizontal: 'left', vertical: 'top' },
               ref: datepickerPopoverRef,
+            }}
+            InputAdornmentProps={{
+              'aria-required': isRequired,
             }}
             initialFocusedDate={initialFocusedDate}
             shouldDisableDate={disableDateWrapper()}
