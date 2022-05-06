@@ -2,6 +2,20 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "06.05.22",
+      "version": "2.0.0 ",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Renamed props for more consistent naming conventions."],
+          "fixes": [
+            "Change prop: <span class=\"code-text\">breadcrumbs</span> => <span class=\"code-text\">items</span>",
+            "Change prop: <span class=\"code-text\">breadcrumbsOnChange</span> => <span class=\"code-text\">itemsOnChange</span>"
+          ]
+        }
+      ]
+    },
+    {
       "date": "05.05.22",
       "version": "1.4.1 ",
       "changelog": [

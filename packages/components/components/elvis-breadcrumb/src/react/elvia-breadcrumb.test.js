@@ -26,7 +26,7 @@ describe('Elvis Breadcrumb', () => {
 
   describe('Have links', () => {
     beforeEach(() => {
-      wrapper = mount(<Breadcrumb breadcrumbs={breadcumbsLinksTest}></Breadcrumb>);
+      wrapper = mount(<Breadcrumb items={breadcumbsLinksTest}></Breadcrumb>);
       breadcrumbDekstopMultipleLinksOne = wrapper
         .find({ 'data-testid': 'breadcrumb-desktop-multiple-links' })
         .at(1)
@@ -60,7 +60,7 @@ describe('Elvis Breadcrumb', () => {
     beforeEach(() => {
       wrapper = mount(
         <Breadcrumb
-          breadcrumbs={breadcumbsLinksTest}
+          items={breadcumbsLinksTest}
           className="test-class"
           inlineStyle={{ margin: '24px' }}
         ></Breadcrumb>,

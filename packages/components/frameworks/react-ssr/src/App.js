@@ -128,7 +128,7 @@ function App() {
         {/* BREADCRUMB */}
         <div className="example-wrapper">
           <h3>Breadcrumb</h3>
-          <Breadcrumb breadcrumbs={breadcrumbsNoUrl} onClick={() => console.log('Clicked')} />
+          <Breadcrumb items={breadcrumbsNoUrl} onClick={() => console.log('Clicked')} />
         </div>
         {/* CARD */}
         <div className="example-wrapper">

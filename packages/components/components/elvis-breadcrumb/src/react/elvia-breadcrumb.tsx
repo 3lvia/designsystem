@@ -2,12 +2,14 @@ import React, { useState, useEffect, CSSProperties } from 'react';
 import {
   BreadcrumbWrapper,
   BreadcrumbDesktopWrapper,
-  BreadcrumbLink,
+  BreadcrumbLinkStyle,
   BreadcrumbListWrapper,
   BreadcrumbMobileWrapper,
 } from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import config from './config';
 
 interface BreadcrumbLink {
   url?: string;
@@ -15,27 +17,38 @@ interface BreadcrumbLink {
 }
 
 interface BreadcrumbProps {
+  /**
+   * @deprecated Deprecated in version 2.0.0
+   */
   breadcrumbs: BreadcrumbLink[];
+  items: BreadcrumbLink[];
+  /**
+   * @deprecated Deprecated in version 2.0.0
+   */
   breadcrumbsOnChange?: (value: number) => void;
+  itemsOnChange: (value: number) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({
-  breadcrumbs = [],
-  breadcrumbsOnChange,
+const ElviaBreadcrumb: React.FC<BreadcrumbProps> = function ({
+  items = [],
+  itemsOnChange,
   className,
   inlineStyle,
   webcomponent,
   ...rest
-}) => {
+}) {
+  // eslint-disable-next-line prefer-rest-params
+  warnDeprecatedProps(config, arguments[0]);
+
   const [childrenLength, setChildrenLength] = useState<number>(0);
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
 
   useEffect(() => {
-    setChildrenLength(breadcrumbs.length);
-  }, [breadcrumbs]);
+    setChildrenLength(items.length);
+  }, [items]);
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
@@ -53,10 +66,10 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   });
 
   const handleOnClick = (value: number) => {
-    if (!webcomponent && breadcrumbsOnChange) {
-      breadcrumbsOnChange(value);
+    if (!webcomponent && itemsOnChange) {
+      itemsOnChange(value);
     } else if (webcomponent) {
-      webcomponent.setProps({ breadcrumbs: value }, true);
+      webcomponent.setProps({ items: value }, true);
     }
   };
 
@@ -74,26 +87,26 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
             marginRight: '8px',
           }}
         />
-        <BreadcrumbLink
-          href={breadcrumbs[childrenLength - 2].url}
+        <BreadcrumbLinkStyle
+          href={items[childrenLength - 2].url}
           onClick={() => {
             handleOnClick(childrenLength - 2);
           }}
           isClickable={true}
         >
-          {breadcrumbs[childrenLength - 2].title}
-        </BreadcrumbLink>
+          {items[childrenLength - 2].title}
+        </BreadcrumbLinkStyle>
       </BreadcrumbWrapper>
     );
   };
 
   const DesktopBreadcrumb = () => {
-    const desktopBreadcrumbs = breadcrumbs.map((breadcrumb, index) => {
+    return items.map((item, index) => {
       if (index == childrenLength - 1) {
         return (
           <BreadcrumbDesktopWrapper key={index}>
-            <BreadcrumbLink
-              href={breadcrumb.url}
+            <BreadcrumbLinkStyle
+              href={item.url}
               onClick={() => {
                 handleOnClick(index);
               }}
@@ -101,23 +114,23 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
               data-testid="breadcrumb-desktop-last-link"
               aria-current="page"
             >
-              {breadcrumb.title}
-            </BreadcrumbLink>
+              {item.title}
+            </BreadcrumbLinkStyle>
           </BreadcrumbDesktopWrapper>
         );
       }
       return (
         <BreadcrumbDesktopWrapper key={index}>
-          <BreadcrumbLink
-            href={breadcrumb.url}
+          <BreadcrumbLinkStyle
+            href={item.url}
             onClick={() => {
               handleOnClick(index);
             }}
             isClickable={true}
             data-testid="breadcrumb-desktop-multiple-links"
           >
-            {breadcrumb.title}
-          </BreadcrumbLink>
+            {item.title}
+          </BreadcrumbLinkStyle>
           <Icon
             name="arrowRightBold"
             size="xxs"
@@ -128,8 +141,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
         </BreadcrumbDesktopWrapper>
       );
     });
-
-    return desktopBreadcrumbs;
   };
   let breadcrumb;
   if (windowWidth !== undefined) {
@@ -137,6 +148,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   } else {
     breadcrumb = DesktopBreadcrumb();
   }
+
   return (
     <BreadcrumbWrapper
       className={`${className ? className : ''}`}
@@ -156,4 +168,4 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   );
 };
 
-export default Breadcrumb;
+export default ElviaBreadcrumb;

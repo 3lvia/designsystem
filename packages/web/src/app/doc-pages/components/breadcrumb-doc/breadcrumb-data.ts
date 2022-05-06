@@ -6,13 +6,13 @@ const breadcrumbData: ComponentData = {
   elementNameW: 'elvia-breadcrumb',
   elementNameR: 'Breadcrumb',
   attributes: {
-    breadcrumbs: {
+    items: {
       isRequired: true,
       type: 'Array<object>',
       description:
         'The links that the breadcrumb consists of. Send in as array of objects with the key value pairs of {url: string, title: string}. Url can be omitted to stop the breadcrumb from rerouting by default.',
     },
-    breadcrumbsOnChange: {
+    itemsOnChange: {
       isRequired: false,
       type: '(value: number) => void',
       description:
@@ -33,21 +33,21 @@ const breadcrumbData: ComponentData = {
   codeImportReact: `import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';`,
   codeImportWebComponent: `import '@elvia/elvis-breadcrumb';`,
   codeReact: `<Breadcrumb 
-  breadcrumbs={[
+  items={[
     { url: 'https://design.elvia.io/', title: 'Home' },
     { url: 'https://design.elvia.io/components', title: 'Components' },
     { url: 'https://design.elvia.io/components/breadcrumb', title: 'Breadcrumbs' }
   ]}
 ></Breadcrumb>`,
   codeAngular: `<elvia-breadcrumb
-  [breadcrumbs]="[
+  [items]="[
     { url: 'https://design.elvia.io/', title: 'Home' },
     { url: 'https://design.elvia.io/components', title: 'Components' },
     { url: 'https://design.elvia.io/components/breadcrumb', title: 'Breadcrumbs' }
   ]"
 ></elvia-breadcrumb>`,
   codeVue: `<elvia-breadcrumb
-  :breadcrumbs="[
+  :items="[
     { url: 'https://design.elvia.io/', title: 'Home' },
     { url: 'https://design.elvia.io/components', title: 'Components' },
     { url: 'https://design.elvia.io/components/breadcrumb', title: 'Breadcrumbs' }
@@ -56,7 +56,7 @@ const breadcrumbData: ComponentData = {
   codeNativeHTML: `<elvia-breadcrumb id="example-elvia-breadcrumb">
 </elvia-breadcrumb>`,
   codeNativeScript: `  const breadcrumb = document.getElementById('example-elvia-breadcrumb');
-  const breadcrumbs = [
+  const items = [
     {
       url: 'https://design.elvia.io/',
       title: 'Home',
@@ -70,7 +70,7 @@ const breadcrumbData: ComponentData = {
       title: 'Breadcrumbs',
     },
   ];
-  breadcrumb.setProps({breadcrumbs: breadcrumbs });
+  breadcrumb.setProps({items: items });
   `,
   changelog: changelogJson.content,
 };
