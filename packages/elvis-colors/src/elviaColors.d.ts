@@ -20,17 +20,20 @@ declare module '@elvia/elvis-colors' {
   /**
    * Object containing all Elvia colors.
    */
-  const colors: {
+  export const colors: {
     [category: string]: {
       [label: string]: {
         color: string;
         rgb: string;
         contrastText: string;
+        contrasts: {
+          white: string;
+          black: string;
+        };
         'alt-label': string[];
       };
     };
   };
-  export default colors;
 
   /**
    * All elvia color names.
@@ -81,3 +84,5 @@ declare module '@elvia/elvis-colors' {
     // eslint-disable-next-line @typescript-eslint/ban-types
     | (string & {});
 }
+
+export default { default: colors, getColor, getContrastText };

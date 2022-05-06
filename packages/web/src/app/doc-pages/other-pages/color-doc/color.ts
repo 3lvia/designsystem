@@ -1,198 +1,48 @@
 import { Color } from './color.interface';
+import { colors } from '@elvia/elvis-colors';
 
-export const primaryColors: Color[] = [
-  {
-    title: 'white',
-    labels: ['elvia-on', 'inverted'],
-    hex: '#FFFFFF',
-    rgba: '255 / 255 / 255',
-    contrastBlack: 'AAA',
-    contrastWhite: '',
-    lg: true,
-  },
-  {
-    title: 'green',
-    labels: ['elvia-charge'],
-    hex: '#29D305',
-    rgba: '41 / 211 / 5',
-    contrastBlack: 'AAA',
-    contrastWhite: '',
-    lg: true,
-  },
-  {
-    title: 'black',
-    labels: ['elvia-off', 'text'],
-    hex: '#000000',
-    rgba: '0 / 0 / 0',
-    contrastWhite: 'AAA',
-    contrastBlack: '',
-    lg: true,
-  },
-  {
-    title: 'grey',
-    labels: ['dark'],
-    hex: '#262626',
-    rgba: '38 / 38 / 38',
-    contrastWhite: 'AAA',
-    contrastBlack: '',
-    lg: true,
-  },
-];
-export const signalColors: Color[] = [
-  {
-    title: 'yellow',
-    hex: '#FFFF00',
-    rgba: '255 / 255 / 0',
-    contrastBlack: 'AAA',
-    contrastWhite: '',
-  },
-  {
-    title: 'orange',
-    labels: ['warning'],
-    hex: '#FFA000',
-    rgba: '255 / 160 / 0',
-    contrastBlack: 'AAA',
-    contrastWhite: '',
-  },
-  {
-    title: 'red',
-    labels: ['error'],
-    hex: '#EE0701',
-    rgba: '238 / 7 / 1',
-    contrastBlack: 'AA',
-    contrastWhite: 'AA',
-  },
-];
-export const dataColors: Color[] = [
-  {
-    title: 'green-apple',
-    titleWithSpace: 'green apple',
-    hex: '#21AC04',
-    rgba: '33 / 172 / 4',
-    contrastBlack: 'AA',
-    contrastWhite: '',
-  },
-  {
-    title: 'violet-grape',
-    titleWithSpace: 'violet grape',
-    hex: '#490192',
-    rgba: '73 / 1 / 146',
-    contrastWhite: 'AAA',
-    contrastBlack: '',
-  },
-  {
-    title: 'blue-berry',
-    titleWithSpace: 'blue berry',
-    hex: '#006DDB',
-    rgba: '0 / 109 / 219',
-    contrastWhite: 'AA',
-    contrastBlack: '',
-  },
-  {
-    title: 'purple-plum',
-    titleWithSpace: 'purple plum',
-    hex: '#B66DFF',
-    rgba: '182 / 109 / 255',
-    contrastBlack: 'AA',
-    contrastWhite: '',
-  },
-  {
-    title: 'orange-mango',
-    titleWithSpace: 'orange mango',
-    hex: '#DB6D00',
-    rgba: '219 / 109 / 0',
-    contrastBlack: 'AA',
-    contrastWhite: '',
-  },
-  {
-    title: 'red-tomato',
-    titleWithSpace: 'red tomato',
-    hex: '#B90202',
-    rgba: '185 / 2 / 2',
-    contrastWhite: 'AAA',
-    contrastBlack: '',
-  },
-];
-export const greysColors: Color[] = [
-  {
-    title: 'grey-02',
-    hex: '#FAFAFA',
-    rgba: '38/38/38/0.02',
-    contrastBlack: 'AAA',
-    contrastWhite: '',
-  },
-  {
-    title: 'grey-05',
-    hex: '#F4F4F4',
-    rgba: '38/38/38/0.05',
-    contrastBlack: 'AAA',
-    contrastWhite: '',
-    labels: ['disabled-light'],
-  },
-  {
-    title: 'grey-10',
-    hex: '#E9E9E9',
-    rgba: '38/38/38/0.1',
-    contrastBlack: 'AAA',
-    contrastWhite: '',
-  },
-  {
-    title: 'grey-20',
-    hex: '#D3D3D3',
-    rgba: '38/38/38/0.2',
-    contrastBlack: 'AAA',
-    contrastWhite: '',
-  },
-  {
-    title: 'grey-30',
-    hex: '#BDBDBD',
-    rgba: '38/38/38/0.3',
-    contrastBlack: 'AAA',
-    contrastWhite: '',
-    labels: ['disabled', 'light-inverted'],
-  },
-  {
-    title: 'grey-40',
-    hex: '#A8A8A8',
-    rgba: '38/38/38/0.4',
-    contrastBlack: 'AAA',
-    contrastWhite: '',
-  },
-  {
-    title: 'grey-50',
-    hex: '#929292',
-    rgba: '38/38/38/0.5',
-    contrastBlack: 'AA',
-    contrastWhite: '',
-  },
-  {
-    title: 'grey-60',
-    hex: '#7C7C7C',
-    rgba: '38/38/38/0.6',
-    contrastBlack: 'AA',
-    contrastWhite: '',
-  },
-  {
-    title: 'grey-70',
-    labels: ['placeholder'],
-    hex: '#676767',
-    rgba: '38/38/38/0.7',
-    contrastWhite: 'AA',
-    contrastBlack: '',
-  },
-  {
-    title: 'grey-80',
-    labels: ['text-light'],
-    hex: '#515151',
-    rgba: '38/38/38/0.8',
-    contrastWhite: 'AAA',
-    contrastBlack: '',
-  },
-  {
-    title: 'grey-90',
-    hex: '#3B3B3B',
-    rgba: '38/38/38/0.9',
-    contrastWhite: 'AAA',
-    contrastBlack: '',
-  },
-];
+const hexToRgb = (hex: string): string => {
+  // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+  hex = makeHexValue6Length(hex);
+
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  const rgb = result
+    ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+      }
+    : null;
+  return rgb ? `${rgb.r} / ${rgb.g} / ${rgb.b}` : '';
+};
+
+const getGreyRgba = (name: string): string => {
+  const alpha = name.slice(-2).replace(/0+$/, '');
+  return `38/38/38/0.${alpha}`;
+};
+
+const makeHexValue6Length = (hex: string): string => {
+  if (hex.length === 4) {
+    hex = `#${hex.charAt(1)}${hex.charAt(1)}${hex.charAt(2)}${hex.charAt(2)}${hex.charAt(3)}${hex.charAt(3)}`;
+  }
+  return hex.toUpperCase();
+};
+
+const convertColorObject = (category: string): Color[] => {
+  return Object.entries(colors[category]).map(([name, color]) => {
+    return {
+      title: name,
+      labels: color['alt-labels']?.filter((label: string) => !label.includes('elvis')),
+      hex: makeHexValue6Length(color.color),
+      rgba: category === 'grey-colors' ? getGreyRgba(name) : hexToRgb(color.color),
+      contrastBlack: color.contrasts.black,
+      contrastWhite: color.contrasts.white,
+      lg: category === 'primary-colors',
+    };
+  });
+};
+
+export const primaryColors = convertColorObject('primary-colors');
+export const signalColors = convertColorObject('signal-colors');
+export const dataColors = convertColorObject('data-colors');
+export const greysColors = convertColorObject('grey-colors');

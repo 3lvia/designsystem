@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 1.4.0 (09.05.22)
+
+### New feature
+
+- Added information about color contrasts to black and white on all colors.
+
 ## 1.3.2 (03.05.22)
 
 ### Bug fix

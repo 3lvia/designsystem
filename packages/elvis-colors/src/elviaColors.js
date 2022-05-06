@@ -5,22 +5,38 @@ const colors = {
     white: {
       color: '#fff',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AAA',
+      },
       'alt-labels': ['elvis-on', 'elvia-on', 'font-color-light', 'elvia-inverted'],
-    },
-    black: {
-      color: '#000',
-      contrastText: '#fff',
-      'alt-labels': ['elvis-off', 'elvia-off', 'font-color'],
-    },
-    grey: {
-      color: '#262626',
-      contrastText: '#fff',
-      'alt-labels': ['elvia-dark'],
     },
     green: {
       color: '#29d305',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AAA',
+      },
       'alt-labels': ['elvia-charge'],
+    },
+    black: {
+      color: '#000',
+      contrastText: '#fff',
+      contrasts: {
+        white: 'AAA',
+        black: '',
+      },
+      'alt-labels': ['elvis-off', 'elvia-off', 'font-color', 'text'],
+    },
+    grey: {
+      color: '#262626',
+      contrastText: '#fff',
+      contrasts: {
+        white: 'AAA',
+        black: '',
+      },
+      'alt-labels': ['elvia-dark'],
     },
   },
   'signal-colors': {
@@ -28,17 +44,29 @@ const colors = {
       color: '#ffff00',
       rgb: 'rgb(255, 255, 0)',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AAA',
+      },
     },
     orange: {
       color: '#ffa000',
       rgb: 'rgb(255, 160, 0)',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AAA',
+      },
       'alt-labels': ['warning'],
     },
     red: {
       color: '#ee0701',
       rgb: 'rgb(255, 0, 0)',
       contrastText: '#000',
+      contrasts: {
+        white: 'AA',
+        black: 'AA',
+      },
       'alt-labels': ['error'],
     },
   },
@@ -47,81 +75,149 @@ const colors = {
       color: '#21ac04',
       rgb: 'rgb(33, 172, 4)',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AA',
+      },
     },
     'violet-grape': {
       color: '#490192',
       rgb: 'rgb(73, 1, 146)',
       contrastText: '#fff',
+      contrasts: {
+        white: 'AAA',
+        black: '',
+      },
     },
     'blue-berry': {
       color: '#006ddb',
       rgb: 'rgb(0, 109, 219)',
       contrastText: '#fff',
+      contrasts: {
+        white: 'AA',
+        black: '',
+      },
     },
     'purple-plum': {
       color: '#b66dff',
       rgb: 'rgb(182, 109, 255)',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AA',
+      },
     },
     'orange-mango': {
       color: '#db6d00',
       rgb: 'rgb(219, 109, 0)',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AA',
+      },
     },
     'red-tomato': {
       color: '#b90202',
       rgb: 'rgb(185, 2, 2)',
       contrastText: '#fff',
+      contrasts: {
+        white: 'AAA',
+        black: '',
+      },
     },
   },
   'grey-colors': {
     'grey-90': {
       color: '#3b3b3b',
       contrastText: '#fff',
+      contrasts: {
+        white: 'AAA',
+        black: '',
+      },
     },
     'grey-80': {
       color: '#515151',
       contrastText: '#fff',
+      contrasts: {
+        white: 'AAA',
+        black: '',
+      },
       'alt-labels': ['font-grey', 'text-light'],
     },
     'grey-70': {
       color: '#676767',
       contrastText: '#fff',
+      contrasts: {
+        white: 'AA',
+        black: '',
+      },
       'alt-labels': ['placeholder'],
     },
     'grey-60': {
       color: '#7c7c7c',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AA',
+      },
     },
     'grey-50': {
       color: '#929292',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AA',
+      },
     },
     'grey-40': {
       color: '#a8a8a8',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AAA',
+      },
     },
     'grey-30': {
       color: '#bdbdbd',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AAA',
+      },
       'alt-labels': ['disabled', 'light-inverted'],
     },
     'grey-20': {
       color: '#d3d3d3',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AAA',
+      },
     },
     'grey-10': {
       color: '#e9e9e9',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AAA',
+      },
     },
     'grey-05': {
       color: '#f4f4f4',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AAA',
+      },
       'alt-labels': ['disabled-light'],
     },
     'grey-02': {
       color: '#fafafa',
       contrastText: '#000',
+      contrasts: {
+        white: '',
+        black: 'AAA',
+      },
     },
   },
   'internal-colors': {
@@ -130,7 +226,7 @@ const colors = {
     },
   },
 };
-
+exports.colors = colors;
 exports.default = colors;
 
 const getColorObject = (colorName) => {
