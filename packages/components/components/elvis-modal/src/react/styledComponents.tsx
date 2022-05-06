@@ -23,6 +23,13 @@ const modalMobileTitlePaddingTop = '8px';
 const modalMobileTitlePaddingBottom = '8px';
 const modalMobileIllustrationHeight = '40vh';
 
+const modalTabletPadding = '40px';
+const modalTabletIllustrationHeight = '28vh';
+const modalTabletTitlePaddingBottom = '32px';
+const modalTabletMaxWidth = '500px';
+
+const modalTabletWithIllustrationTitlePaddingBottom = '16px';
+
 const modalDesktopPadding = '48px';
 const modalDesktopTitlePaddingBottom = '32px';
 const titleFontSize = '30px';
@@ -74,6 +81,16 @@ export const ModalWrapper = styled.div<WrapperProps>`
   overflow: hidden;
   background: ${colors.elviaOn};
 
+  ${(props: { hasIllustration: boolean }) =>
+    props.hasIllustration &&
+    `@media (max-width: ${desktopMin}) {
+    flex-direction: column;
+    margin: 0;
+    max-width: ${modalTabletMaxWidth};
+    width: 100%;
+    height: auto;
+  }`};
+
   @media (max-width: ${mobileMax}) {
     flex-direction: column;
     border-radius: 0px;
@@ -107,6 +124,18 @@ export const ModalContent = styled.div<ModalContentProps>`
   display: flex;
   flex-direction: column;
   z-index: 1;
+
+  ${(props: { hasIllustration: boolean }) =>
+    props.hasIllustration &&
+    `
+    @media (max-width: ${desktopMin}) {
+      padding: ${modalTabletPadding};
+      padding: ${(props: { hasPadding: boolean }) =>
+        decideContentPadding(false, props.hasPadding, modalTabletPadding)};
+      padding-top: 24px;
+      width: 100%;
+      height: calc(100% - ${modalMobileIllustrationHeight});
+    }`}
 
   @media (max-width: ${mobileMax}) {
     padding: ${(props: { hasPadding: boolean }) =>
@@ -143,9 +172,9 @@ export const ModalIllustration = styled.div`
     z-index: 0;
   }
 
-  @media (max-width: ${mobileMax}) {
+  @media (max-width: ${desktopMin}) {
     width: 100%;
-    height: ${modalMobileIllustrationHeight};
+    height: ${modalTabletIllustrationHeight};
     margin: 0;
     padding: 32px 48px 0;
 
@@ -155,6 +184,9 @@ export const ModalIllustration = styled.div`
       height: calc(100vw * 6.85);
       width: calc(100vw * 6.85);
     }
+  }
+  @media (max-width: ${mobileMax}) {
+    height: ${modalMobileIllustrationHeight};
   }
 `;
 
@@ -167,6 +199,11 @@ export const ModalTitle = styled.div`
   padding-bottom: ${(props: { hasIllustration: boolean }) =>
     props.hasIllustration ? modalDesktopWithIllustrationTitlePaddingBottom : modalDesktopTitlePaddingBottom};
 
+  @media (max-width: ${desktopMin}) {
+    ${typography.titleMd}
+    padding-bottom: ${(props: { hasIllustration: boolean }) =>
+      props.hasIllustration ? modalTabletWithIllustrationTitlePaddingBottom : modalTabletTitlePaddingBottom};
+  }
   @media (max-width: ${mobileMax}) {
     padding-top: ${modalMobileTitlePaddingTop};
     padding-bottom: ${modalMobileTitlePaddingBottom};
