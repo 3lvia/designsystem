@@ -28,6 +28,7 @@ type ChipComponentProps = {
   isSelected: boolean;
   chipType: string;
   disabled: boolean;
+  isHovering: boolean;
 };
 
 export const ChipComponent = styled.button<ChipComponentProps>`
@@ -43,10 +44,10 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   line-height: 16px;
   padding: calc(8px - 1px) calc(16px - 1px);
   border-radius: 24px;
-  &:hover:not(:disabled) {
-    background-color: ${(props: { chipType: string }) =>
-      props.chipType === 'removable' ? colors.elviaCharge : 'transparent'};
-  }
+  ${(props: { disabled: boolean; isHovering: boolean; chipType: string }) =>
+    props.isHovering &&
+    !props.disabled &&
+    `background-color: ${props.chipType === 'removable' ? colors.elviaCharge : 'transparent'}`}
 `;
 
 export const ChipDot = styled.span<{ color: ColorType }>`
