@@ -9,6 +9,12 @@ const config: ComponentConfig = {
       newProp: 'items',
       isDirectReplacement: true,
     },
+    // Rule 1.4, event handlers
+    breadcrumbsOnChange: {
+      version: '2.0.0',
+      newProp: 'itemsOnChange',
+      isDirectReplacement: true,
+    },
   },
 };
 
