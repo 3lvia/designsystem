@@ -46,6 +46,9 @@
       "yarn run eslint",
       "yarn test:staged",
       "git add"
+    ],
+    "packages/elvis-colors/**/*.+(js|ts|d.ts)": [
+      "yarn build:colors"
     ]
   },
   "engines": {
