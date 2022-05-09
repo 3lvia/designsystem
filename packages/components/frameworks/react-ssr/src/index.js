@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = document.getElementById('root');
-var renderMethod;
+let renderMethod;
 if (root && root.innerHTML !== '') {
   renderMethod = ReactDOM.hydrate;
 } else {
