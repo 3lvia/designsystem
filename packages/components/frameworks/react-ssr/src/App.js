@@ -162,8 +162,8 @@ function App() {
           <Chip
             type="legend"
             valueOnChange={() => setChipSelected(!chipSelected)}
-            selected={chipSelected} aria-hidden="true"></i>
-            value="2022" aria-hidden="true"></i>
+            selected={chipSelected}
+            value="2022"
             onClick={() => console.log('Clicked')}
           ></Chip>
         </div>
