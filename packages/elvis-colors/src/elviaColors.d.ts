@@ -26,10 +26,6 @@ declare module '@elvia/elvis-colors' {
         color: string;
         rgb: string;
         contrastText: string;
-        contrasts: {
-          white: string;
-          black: string;
-        };
         'alt-label': string[];
       };
     };
