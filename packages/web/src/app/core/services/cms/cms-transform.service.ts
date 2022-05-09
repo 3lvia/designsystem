@@ -34,7 +34,7 @@ export class CMSTransformService {
   private subMenu: CMSSubMenu[];
   private options: Options = {
     renderMark: {
-      [MARKS.BOLD]: (text) => `<b>${text}</b>`,
+      [MARKS.BOLD]: (text) => `<strong>${text}</strong>`,
     },
     renderNode: {
       [BLOCKS.HEADING_1]: (node, next) => this.getHeading1(next(node.content)),
