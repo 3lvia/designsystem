@@ -9,24 +9,32 @@ export const homeMenu: DocPage[] = [
     description: 'UI Library',
     docUrl: Pages.OverviewComp,
     absolutePath: '/components/',
+    imageUrl: 'assets/doc-page-icons/shortcut-icons/Component.svg',
+    imageUrlOn: 'assets/doc-page-icons/shortcut-icons/ComponentOn.svg',
   },
   {
     title: 'The concept',
     description: 'Branding',
     docUrl: 'the-concept',
     absolutePath: '/brand/the-concept/',
+    imageUrl: 'assets/doc-page-icons/shortcut-icons/Identity.svg',
+    imageUrlOn: 'assets/doc-page-icons/shortcut-icons/IdentityOn.svg',
   },
   {
     title: 'Accessibility',
     description: 'WCAG 2.0',
     docUrl: 'accessibility',
     absolutePath: '/tools/accessibility/',
+    imageUrl: 'assets/doc-page-icons/shortcut-icons/UtilityClasses.svg',
+    imageUrlOn: 'assets/doc-page-icons/shortcut-icons/UtilityClassesOn.svg',
   },
   {
     title: 'Contribute',
     description: 'Help us get better',
     docUrl: Pages.Contribute,
     absolutePath: '/about/' + Pages.Contribute,
+    imageUrl: 'assets/doc-page-icons/shortcut-icons/Contribute.svg',
+    imageUrlOn: 'assets/doc-page-icons/shortcut-icons/ContributeOn.svg',
   },
 ];
 
