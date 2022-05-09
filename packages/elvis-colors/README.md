@@ -10,7 +10,7 @@ All Color variables are named Elvia< Name > in CamelCase. Eg ElviaBlack, ElviaOr
 
 Insert at top of your scss file :<br>
 
-- @use '@elvia/elvis-colors/src/elviaColors.scss';
+- @use '@elvia/elvis-colors/dist/elviaColors.scss';
 
 Example: <br>
 

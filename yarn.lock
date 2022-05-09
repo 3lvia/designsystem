@@ -2462,7 +2462,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
+    del: ^6.0.0
     gulp: ^4.0.2
+    gulp-header: ^2.0.9
     gulp-prettier: ^4.0.0
     lodash.kebabcase: ^4.1.1
   languageName: unknown
