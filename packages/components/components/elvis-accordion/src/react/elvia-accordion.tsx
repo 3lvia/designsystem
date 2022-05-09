@@ -67,9 +67,9 @@ const Accordion: FC<AccordionProps> = ({
 
   const decideButtonAriaLabel = (): string => {
     if (contentOpen) {
-      return closeAriaLabel ? closeAriaLabel : closeLabel ? closeLabel : 'Lukk';
+      return closeAriaLabel ?? closeLabel ?? 'Lukk';
     } else {
-      return openAriaLabel ? openAriaLabel : openLabel ? openLabel : 'Åpne';
+      return openAriaLabel ?? openLabel ?? 'Åpne';
     }
   };
 
