@@ -12,28 +12,28 @@ export class FileUploadDocComponent {
 
   example1 = `<div class="e-fileupload" style="width:380px">
   <div class="e-fileupload__icon">
-    <i class="e-icon e-icon--image_add-color"></i>
+    <i class="e-icon e-icon--image_add-color" aria-hidden="true"></i>
   </div>
   <div class="e-fileupload__description">
     Drag and drop or
   </div>
   <div class="e-fileupload__input">
     <input type="file" id="fileUploadTemplate">
-    <label for="fileUploadTemplate"> <i class="e-icon e-icon--upload"></i>Choose file</label>
+    <label for="fileUploadTemplate"> <i class="e-icon e-icon--upload" aria-hidden="true"></i>Choose file</label>
   </div>
 </div>
 `;
 
   example2 = `<div class="e-fileupload e-fileupload--dragover" style="width:380px">
   <div class="e-fileupload__icon">
-    <i class="e-icon e-icon--image_add-color"></i>
+    <i class="e-icon e-icon--image_add-color" aria-hidden="true"></i>
   </div>
   <div class="e-fileupload__description">
     Drag and drop or
   </div>
   <div class="e-fileupload__input">
     <input type="file" id="fileUploadTemplate">
-    <label for="fileUploadTemplate"> <i class="e-icon e-icon--upload"></i>Choose file</label>
+    <label for="fileUploadTemplate"> <i class="e-icon e-icon--upload" aria-hidden="true"></i>Choose file</label>
   </div>
 </div>`;
 

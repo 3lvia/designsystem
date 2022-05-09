@@ -2,6 +2,7 @@ export interface DocPage {
   title: string;
   description?: string;
   imageUrl?: string;
+  imageUrlOn?: string;
   absolutePath?: string;
   fragmentPath?: string;
   docUrl?: string;

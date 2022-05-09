@@ -21,9 +21,11 @@
             (keyup)="onInput(exampleInput.value)"
           />
         </div>
-        <i class="e-icon e-icon--search-color"></i>
+        <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
         <button class="e-btn e-btn--icon" (click)="clearExample()" aria-label="Tøm søkefelt">
-          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--close-bold" aria-hidden="true" aria-hidden="true"></i>
+          </span>
         </button>
       </div>
     </div>
