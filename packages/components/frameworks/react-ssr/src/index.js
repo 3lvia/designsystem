@@ -1,5 +1,5 @@
 import React from 'react';
-import { hydrate, render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -7,11 +7,16 @@ import reportWebVitals from './reportWebVitals';
 const root = document.getElementById('root');
 var renderMethod;
 if (root && root.innerHTML !== '') {
-  renderMethod = hydrate;
+  renderMethod = ReactDOM.hydrate;
 } else {
-  renderMethod = render;
+  renderMethod = ReactDOM.render;
 }
-renderMethod(<App />, document.getElementById('root'));
+renderMethod(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root'),
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
