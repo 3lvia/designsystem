@@ -94,7 +94,7 @@ const cardData: ComponentData = {
       cegType: 'boolean',
       cegFormType: 'toggle',
       cegDefault: false,
-      cegSlot: '<i class="e-icon e-icon--electricity_safety-color e-icon--md"></i>',
+      cegSlot: '<i class="e-icon e-icon--electricity_safety-color e-icon--md" aria-hidden="true"></i>',
       cegDependency: [{ name: 'type', value: 'simple' }],
     },
     cornerIcon: {
@@ -105,7 +105,7 @@ const cardData: ComponentData = {
       cegType: 'boolean',
       cegFormType: 'toggle',
       cegDefault: false,
-      cegSlot: '<i class="e-icon e-icon--lock e-icon--xs"></i>',
+      cegSlot: '<i class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>',
       cegDependency: [{ name: 'type', value: 'detail' }],
     },
     className: {

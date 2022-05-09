@@ -25,8 +25,8 @@ export class HeaderDocComponent {
         <a class="e-header__top-bar-mobile__link">
           <span>DROPS</span>
           <span class="e-header__top-bar-mobile__link-icon">
-            <i class="e-icon e-icon--arrow_down-bold"></i>
-            <i class="e-icon e-icon--arrow_up-bold"></i>
+            <i class="e-icon e-icon--arrow_down-bold" aria-hidden="true"></i>
+            <i class="e-icon e-icon--arrow_up-bold" aria-hidden="true"></i>
           </span>
         </a>
       </div>
@@ -38,8 +38,8 @@ export class HeaderDocComponent {
         <a class="e-header__top-bar-mobile__link">
           <span>South</span>
           <span class="e-header__top-bar-mobile__link-icon">
-            <i class="e-icon e-icon--arrow_down-bold"></i>
-            <i class="e-icon e-icon--arrow_up-bold"></i>
+            <i class="e-icon e-icon--arrow_down-bold" aria-hidden="true"></i>
+            <i class="e-icon e-icon--arrow_up-bold" aria-hidden="true"></i>
           </span>
         </a>
       </div>
@@ -51,11 +51,11 @@ export class HeaderDocComponent {
         <div class="e-header__top-bar-mobile__user-menu">
           <div class="e-header__top-bar-mobile__user-menu-name">Ragna Nordmann (e55717@hafslund.no)</div>
           <div class="e-header__top-bar-mobile__user-menu-settings">
-            <i class="e-icon e-icon--cog e-icon--xs"></i>
+            <i class="e-icon e-icon--cog e-icon--xs" aria-hidden="true"></i>
             Settings
           </div>
           <div class="e-header__top-bar-mobile__user-menu-logout">
-            <i class="e-icon e-icon--logout e-icon--xs"></i>
+            <i class="e-icon e-icon--logout e-icon--xs" aria-hidden="true"></i>
             Log out
           </div>
         </div>
@@ -78,8 +78,8 @@ export class HeaderDocComponent {
               <a class="e-header__top-bar-desktop__link">
                 <span>Drops</span>
                 <span class="e-header__top-bar-desktop__link-icon">
-                  <i class="e-icon e-icon--arrow_down-bold"></i>
-                  <i class="e-icon e-icon--arrow_up-bold"></i>
+                  <i class="e-icon e-icon--arrow_down-bold" aria-hidden="true"></i>
+                  <i class="e-icon e-icon--arrow_up-bold" aria-hidden="true"></i>
                 </span>
               </a>
               <div class="e-header__top-bar-desktop__app-menu">
@@ -132,8 +132,8 @@ export class HeaderDocComponent {
               <a class="e-header__top-bar-desktop__link">
                 <span>Elvia South</span>
                 <span class="e-header__top-bar-desktop__link-icon">
-                  <i class="e-icon e-icon--arrow_down-bold"></i>
-                  <i class="e-icon e-icon--arrow_up-bold"></i>
+                  <i class="e-icon e-icon--arrow_down-bold" aria-hidden="true"></i>
+                  <i class="e-icon e-icon--arrow_up-bold" aria-hidden="true"></i>
                 </span>
               </a>
               <div class="e-header__top-bar-desktop__area-menu">
@@ -148,18 +148,18 @@ export class HeaderDocComponent {
             <!--USER-->
             <div class="e-header__top-bar-desktop__user">
               <a class="e-header__top-bar-desktop__link">
-                <span><i class="e-icon e-icon--profile-bold e-icon--xs"></i></span>
+                <span><i class="e-icon e-icon--profile-bold e-icon--xs" aria-hidden="true"></i></span>
                 <span>Ragna Nordmann</span>
               </a>
               <div class="e-header__top-bar-desktop__user-menu">
                 <div class="e-header__top-bar-desktop__user-menu-name">Ragna Nordmann</div>
                 <div class="e-header__top-bar-desktop__user-menu-mail">e55717@hafslund.no</div>
                 <div class="e-header__top-bar-desktop__user-menu-settings">
-                  <i class="e-icon e-icon--cog e-icon--xs"></i>
+                  <i class="e-icon e-icon--cog e-icon--xs" aria-hidden="true"></i>
                   Settings
                 </div>
                 <div class="e-header__top-bar-desktop__user-menu-logout">
-                  <i class="e-icon e-icon--logout e-icon--xs"></i>
+                  <i class="e-icon e-icon--logout e-icon--xs" aria-hidden="true"></i>
                   Log out
                 </div>
               </div>
@@ -169,8 +169,8 @@ export class HeaderDocComponent {
           <!--HAMBURGER-->
           <div class="col-xs-2 col-sm-3 col-md-3">
             <div class="e-header__top-bar-desktop__hamburger">
-              <i class="e-icon e-icon--menu-bold"></i>
-              <i class="e-icon e-icon--remove_circle-color"></i>
+              <i class="e-icon e-icon--menu-bold" aria-hidden="true"></i>
+              <i class="e-icon e-icon--remove_circle-color" aria-hidden="true"></i>
             </div>
           </div>
         </div>
@@ -184,29 +184,29 @@ export class HeaderDocComponent {
     <!--APPS-->
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--dashboard"></i>
-        <i class="e-icon e-icon--dashboard-color"></i>
+        <i class="e-icon e-icon--dashboard" aria-hidden="true"></i>
+        <i class="e-icon e-icon--dashboard-color" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Overview</span>
     </div>
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--search"></i>
-        <i class="e-icon e-icon--search-color"></i>
+        <i class="e-icon e-icon--search" aria-hidden="true"></i>
+        <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Search</span>
     </div>
     <div class="e-header__sidebar__item e-header__sidebar__item--active">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--pin"></i>
-        <i class="e-icon e-icon--pin-color"></i>
+        <i class="e-icon e-icon--pin" aria-hidden="true"></i>
+        <i class="e-icon e-icon--pin-color" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Analysis</span>
     </div>
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--graph_bar"></i>
-        <i class="e-icon e-icon--graph_bar-color"></i>
+        <i class="e-icon e-icon--graph_bar" aria-hidden="true"></i>
+        <i class="e-icon e-icon--graph_bar-color" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Statistics</span>
     </div>
@@ -214,8 +214,8 @@ export class HeaderDocComponent {
     <!--OPEN/CLOSE BTN-->
     <div class="e-header__sidebar__open-close">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--open_menu"></i>
-        <i class="e-icon e-icon--close_menu"></i>
+        <i class="e-icon e-icon--open_menu" aria-hidden="true"></i>
+        <i class="e-icon e-icon--close_menu" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Minimize</span>
     </div>
@@ -236,8 +236,8 @@ export class HeaderDocComponent {
         <a class="e-header__top-bar-mobile__link">
           <span>DROPS</span>
           <span class="e-header__top-bar-mobile__link-icon">
-            <i class="e-icon e-icon--arrow_down-bold"></i>
-            <i class="e-icon e-icon--arrow_up-bold"></i>
+            <i class="e-icon e-icon--arrow_down-bold" aria-hidden="true"></i>
+            <i class="e-icon e-icon--arrow_up-bold" aria-hidden="true"></i>
           </span>
         </a>
       </div>
@@ -249,8 +249,8 @@ export class HeaderDocComponent {
         <a class="e-header__top-bar-mobile__link">
           <span>South</span>
           <span class="e-header__top-bar-mobile__link-icon">
-            <i class="e-icon e-icon--arrow_down-bold"></i>
-            <i class="e-icon e-icon--arrow_up-bold"></i>
+            <i class="e-icon e-icon--arrow_down-bold" aria-hidden="true"></i>
+            <i class="e-icon e-icon--arrow_up-bold" aria-hidden="true"></i>
           </span>
         </a>
       </div>
@@ -262,11 +262,11 @@ export class HeaderDocComponent {
         <div class="e-header__top-bar-mobile__user-menu">
           <div class="e-header__top-bar-mobile__user-menu-name">Ragna Nordmann (e55717@hafslund.no)</div>
           <div class="e-header__top-bar-mobile__user-menu-settings">
-            <i class="e-icon e-icon--cog e-icon--xs"></i>
+            <i class="e-icon e-icon--cog e-icon--xs" aria-hidden="true"></i>
             Settings
           </div>
           <div class="e-header__top-bar-mobile__user-menu-logout">
-            <i class="e-icon e-icon--logout e-icon--xs"></i>
+            <i class="e-icon e-icon--logout e-icon--xs" aria-hidden="true"></i>
             Log out
           </div>
         </div>
@@ -289,8 +289,8 @@ export class HeaderDocComponent {
               <a class="e-header__top-bar-desktop__link">
                 <span>Drops</span>
                 <span class="e-header__top-bar-desktop__link-icon">
-                  <i class="e-icon e-icon--arrow_down-bold"></i>
-                  <i class="e-icon e-icon--arrow_up-bold"></i>
+                  <i class="e-icon e-icon--arrow_down-bold" aria-hidden="true"></i>
+                  <i class="e-icon e-icon--arrow_up-bold" aria-hidden="true"></i>
                 </span>
               </a>
               <div class="e-header__top-bar-desktop__app-menu">
@@ -343,8 +343,8 @@ export class HeaderDocComponent {
               <a class="e-header__top-bar-desktop__link">
                 <span>Elvia South</span>
                 <span class="e-header__top-bar-desktop__link-icon">
-                  <i class="e-icon e-icon--arrow_down-bold"></i>
-                  <i class="e-icon e-icon--arrow_up-bold"></i>
+                  <i class="e-icon e-icon--arrow_down-bold" aria-hidden="true"></i>
+                  <i class="e-icon e-icon--arrow_up-bold" aria-hidden="true"></i>
                 </span>
               </a>
               <div class="e-header__top-bar-desktop__area-menu">
@@ -357,18 +357,18 @@ export class HeaderDocComponent {
             <!--USER-->
             <div class="e-header__top-bar-desktop__user">
               <a class="e-header__top-bar-desktop__link">
-                <span><i class="e-icon e-icon--profile-bold e-icon--xs"></i></span>
+                <span><i class="e-icon e-icon--profile-bold e-icon--xs" aria-hidden="true"></i></span>
                 <span>Ragna Nordmann</span>
               </a>
               <div class="e-header__top-bar-desktop__user-menu">
                 <div class="e-header__top-bar-desktop__user-menu-name">Ragna Nordmann</div>
                 <div class="e-header__top-bar-desktop__user-menu-mail">e55717@hafslund.no</div>
                 <div class="e-header__top-bar-desktop__user-menu-settings">
-                  <i class="e-icon e-icon--cog e-icon--xs"></i>
+                  <i class="e-icon e-icon--cog e-icon--xs" aria-hidden="true"></i>
                   Settings
                 </div>
                 <div class="e-header__top-bar-desktop__user-menu-logout">
-                  <i class="e-icon e-icon--logout e-icon--xs"></i>
+                  <i class="e-icon e-icon--logout e-icon--xs" aria-hidden="true"></i>
                   Log out
                 </div>
               </div>
@@ -378,8 +378,8 @@ export class HeaderDocComponent {
           <!--HAMBURGER-->
           <div class="col-xs-2 col-sm-3 col-md-3">
             <div class="e-header__top-bar-desktop__hamburger">
-              <i class="e-icon e-icon--menu-bold"></i>
-              <i class="e-icon e-icon--remove_circle-color"></i>
+              <i class="e-icon e-icon--menu-bold" aria-hidden="true"></i>
+              <i class="e-icon e-icon--remove_circle-color" aria-hidden="true"></i>
             </div>
           </div>
         </div>
@@ -393,29 +393,29 @@ export class HeaderDocComponent {
     <!--APPS-->
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--dashboard"></i>
-        <i class="e-icon e-icon--dashboard-color"></i>
+        <i class="e-icon e-icon--dashboard" aria-hidden="true"></i>
+        <i class="e-icon e-icon--dashboard-color" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Overview</span>
     </div>
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--search"></i>
-        <i class="e-icon e-icon--search-color"></i>
+        <i class="e-icon e-icon--search" aria-hidden="true"></i>
+        <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Search</span>
     </div>
     <div class="e-header__sidebar__item e-header__sidebar__item--active">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--pin"></i>
-        <i class="e-icon e-icon--pin-color"></i>
+        <i class="e-icon e-icon--pin" aria-hidden="true"></i>
+        <i class="e-icon e-icon--pin-color" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Analysis</span>
     </div>
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--graph_bar"></i>
-        <i class="e-icon e-icon--graph_bar-color"></i>
+        <i class="e-icon e-icon--graph_bar" aria-hidden="true"></i>
+        <i class="e-icon e-icon--graph_bar-color" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Statistics</span>
     </div>
@@ -423,8 +423,8 @@ export class HeaderDocComponent {
     <!--OPEN/CLOSE BTN-->
     <div class="e-header__sidebar__open-close">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--open_menu"></i>
-        <i class="e-icon e-icon--close_menu"></i>
+        <i class="e-icon e-icon--open_menu" aria-hidden="true"></i>
+        <i class="e-icon e-icon--close_menu" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Minimize</span>
     </div>
@@ -445,8 +445,8 @@ export class HeaderDocComponent {
         <a class="e-header__top-bar-mobile__link">
           <span>DROPS</span>
           <span class="e-header__top-bar-mobile__link-icon">
-            <i class="e-icon e-icon--arrow_down-bold"></i>
-            <i class="e-icon e-icon--arrow_up-bold"></i>
+            <i class="e-icon e-icon--arrow_down-bold" aria-hidden="true"></i>
+            <i class="e-icon e-icon--arrow_up-bold" aria-hidden="true"></i>
           </span>
         </a>
       </div>
@@ -458,8 +458,8 @@ export class HeaderDocComponent {
         <a class="e-header__top-bar-mobile__link">
           <span>South</span>
           <span class="e-header__top-bar-mobile__link-icon">
-            <i class="e-icon e-icon--arrow_down-bold"></i>
-            <i class="e-icon e-icon--arrow_up-bold"></i>
+            <i class="e-icon e-icon--arrow_down-bold" aria-hidden="true"></i>
+            <i class="e-icon e-icon--arrow_up-bold" aria-hidden="true"></i>
           </span>
         </a>
       </div>
@@ -471,11 +471,11 @@ export class HeaderDocComponent {
         <div class="e-header__top-bar-mobile__user-menu">
           <div class="e-header__top-bar-mobile__user-menu-name">Ragna Nordmann (e55717@hafslund.no)</div>
           <div class="e-header__top-bar-mobile__user-menu-settings">
-            <i class="e-icon e-icon--cog e-icon--xs"></i>
+            <i class="e-icon e-icon--cog e-icon--xs" aria-hidden="true"></i>
             Settings
           </div>
           <div class="e-header__top-bar-mobile__user-menu-logout">
-            <i class="e-icon e-icon--logout e-icon--xs"></i>
+            <i class="e-icon e-icon--logout e-icon--xs" aria-hidden="true"></i>
             Log out
           </div>
         </div>
@@ -498,8 +498,8 @@ export class HeaderDocComponent {
               <a class="e-header__top-bar-desktop__link">
                 <span>Drops</span>
                 <span class="e-header__top-bar-desktop__link-icon">
-                  <i class="e-icon e-icon--arrow_down-bold"></i>
-                  <i class="e-icon e-icon--arrow_up-bold"></i>
+                  <i class="e-icon e-icon--arrow_down-bold" aria-hidden="true"></i>
+                  <i class="e-icon e-icon--arrow_up-bold" aria-hidden="true"></i>
                 </span>
               </a>
               <div class="e-header__top-bar-desktop__app-menu">
@@ -552,8 +552,8 @@ export class HeaderDocComponent {
               <a class="e-header__top-bar-desktop__link">
                 <span>Elvia South</span>
                 <span class="e-header__top-bar-desktop__link-icon">
-                  <i class="e-icon e-icon--arrow_down-bold"></i>
-                  <i class="e-icon e-icon--arrow_up-bold"></i>
+                  <i class="e-icon e-icon--arrow_down-bold" aria-hidden="true"></i>
+                  <i class="e-icon e-icon--arrow_up-bold" aria-hidden="true"></i>
                 </span>
               </a>
               <div class="e-header__top-bar-desktop__area-menu">
@@ -566,18 +566,18 @@ export class HeaderDocComponent {
             <!--USER-->
             <div class="e-header__top-bar-desktop__user">
               <a class="e-header__top-bar-desktop__link">
-                <span><i class="e-icon e-icon--profile-bold e-icon--xs"></i></span>
+                <span><i class="e-icon e-icon--profile-bold e-icon--xs" aria-hidden="true"></i></span>
                 <span>Ragna Nordmann</span>
               </a>
               <div class="e-header__top-bar-desktop__user-menu">
                 <div class="e-header__top-bar-desktop__user-menu-name">Ragna Nordmann</div>
                 <div class="e-header__top-bar-desktop__user-menu-mail">e55717@hafslund.no</div>
                 <div class="e-header__top-bar-desktop__user-menu-settings">
-                  <i class="e-icon e-icon--cog e-icon--xs"></i>
+                  <i class="e-icon e-icon--cog e-icon--xs" aria-hidden="true"></i>
                   Settings
                 </div>
                 <div class="e-header__top-bar-desktop__user-menu-logout">
-                  <i class="e-icon e-icon--logout e-icon--xs"></i>
+                  <i class="e-icon e-icon--logout e-icon--xs" aria-hidden="true"></i>
                   Log out
                 </div>
               </div>
@@ -587,8 +587,8 @@ export class HeaderDocComponent {
           <!--HAMBURGER-->
           <div class="col-xs-2 col-sm-3 col-md-3">
             <div class="e-header__top-bar-desktop__hamburger">
-              <i class="e-icon e-icon--menu-bold"></i>
-              <i class="e-icon e-icon--remove_circle-color"></i>
+              <i class="e-icon e-icon--menu-bold" aria-hidden="true"></i>
+              <i class="e-icon e-icon--remove_circle-color" aria-hidden="true"></i>
             </div>
           </div>
         </div>
@@ -602,29 +602,29 @@ export class HeaderDocComponent {
     <!--APPS-->
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--dashboard"></i>
-        <i class="e-icon e-icon--dashboard-color"></i>
+        <i class="e-icon e-icon--dashboard" aria-hidden="true"></i>
+        <i class="e-icon e-icon--dashboard-color" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Overview</span>
     </div>
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--search"></i>
-        <i class="e-icon e-icon--search-color"></i>
+        <i class="e-icon e-icon--search" aria-hidden="true"></i>
+        <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Search</span>
     </div>
     <div class="e-header__sidebar__item e-header__sidebar__item--active">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--pin"></i>
-        <i class="e-icon e-icon--pin-color"></i>
+        <i class="e-icon e-icon--pin" aria-hidden="true"></i>
+        <i class="e-icon e-icon--pin-color" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Analysis</span>
     </div>
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--graph_bar"></i>
-        <i class="e-icon e-icon--graph_bar-color"></i>
+        <i class="e-icon e-icon--graph_bar" aria-hidden="true"></i>
+        <i class="e-icon e-icon--graph_bar-color" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Statistics</span>
     </div>
@@ -632,8 +632,8 @@ export class HeaderDocComponent {
     <!--OPEN/CLOSE BTN-->
     <div class="e-header__sidebar__open-close">
       <span class="e-header__sidebar__icon">
-        <i class="e-icon e-icon--open_menu"></i>
-        <i class="e-icon e-icon--close_menu"></i>
+        <i class="e-icon e-icon--open_menu" aria-hidden="true"></i>
+        <i class="e-icon e-icon--close_menu" aria-hidden="true"></i>
       </span>
       <span class="e-header__sidebar__text">Minimize</span>
     </div>

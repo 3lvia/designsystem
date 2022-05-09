@@ -15,7 +15,7 @@
   >
     <div class="e-alert e-alert--local e-alert--info" role="alert">
       <div class="e-alert__icon">
-        <i class="e-icon" [ngClass]="'e-icon--' + icon.title"></i>
+        <i class="e-icon" [ngClass]="'e-icon--' + icon.title" aria-hidden="true"></i>
       </div>
       <div class="e-alert__content e-w-100">
         <div style="display: flex; justify-content: space-between">
@@ -46,7 +46,7 @@
                 (click)="copyIconClass(icon.title)"
               >
                 <span class="e-btn__icon">
-                  <i class="e-icon e-icon--copy"></i>
+                  <i class="e-icon e-icon--copy" aria-hidden="true"></i>
                 </span>
                 <span class="e-btn__title">Copy</span>
               </button>
@@ -57,7 +57,7 @@
               class="e-btn e-btn--tertiary e-btn--sm e-mr-24"
             >
               <span class="e-btn__icon">
-                <i class="e-icon e-icon--download"></i>
+                <i class="e-icon e-icon--download" aria-hidden="true"></i>
               </span>
               <span class="e-btn__title">Svg</span>
             </a>
@@ -67,7 +67,7 @@
               class="e-btn e-btn--tertiary e-btn--sm e-mr-24"
             >
               <span class="e-btn__icon">
-                <i class="e-icon e-icon--download"></i>
+                <i class="e-icon e-icon--download" aria-hidden="true"></i>
               </span>
               <span class="e-btn__title">Png</span>
             </a>
@@ -90,7 +90,7 @@
             <div class="e-input">
               <input id="searchIcons" type="text" placeholder="Search through all icons" [(ngModel)]="term" />
             </div>
-            <i class="e-icon e-icon--search-color"></i>
+            <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
             <button
               class="e-btn e-btn--icon"
               *ngIf="term.length > 0"
@@ -98,7 +98,7 @@
               aria-label="Empty search field"
             >
               <span class="e-btn__icon">
-                <i class="e-icon e-icon--close-bold" aria-hidden="true"></i>
+                <i class="e-icon e-icon--close-bold" aria-hidden="true" aria-hidden="true"></i>
               </span>
             </button>
           </div>
@@ -190,6 +190,7 @@
                     <i
                       [class.e-icon--inverted]="inverted"
                       [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'"
+                      aria-hidden="true"
                     ></i>
                   </div>
                   <div class="e-text-info e-text-center" [style.color]="inverted ? 'white' : 'black'">
@@ -212,6 +213,7 @@
                         <i
                           [class.e-icon--inverted]="inverted"
                           [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'"
+                          aria-hidden="true"
                         ></i>
                       </div>
                       <div class="e-text-info e-text-center" [style.color]="inverted ? 'white' : 'black'">
@@ -259,7 +261,7 @@
             target="_blank"
           >
             <span class="e-link__title">here</span>
-            <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+            <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
           </a>
           .
         </ng-container>
@@ -389,15 +391,19 @@
           <div class="doDontIcons">
             <div class="doDontIcons__container">
               <div class="doDontIcons__container__title">
-                <i class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green" aria-hidden="true"></i>
+                <i
+                  class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green"
+                  aria-hidden="true"
+                  aria-hidden="true"
+                ></i>
                 <div class="e-title-caps e-ml-16">Be consistent</div>
               </div>
               <div class="doDontIcons__container__icons">
-                <i class="e-icon e-icon--arrow_down e-icon--sm" aria-hidden="true"></i>
-                <i class="e-icon e-icon--arrow_up e-icon--sm" aria-hidden="true"></i>
+                <i class="e-icon e-icon--arrow_down e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
+                <i class="e-icon e-icon--arrow_up e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
                 <i class="e-icon e-icon--subtract_circle e-icon--sm" aria-hidden="true"></i>
-                <i class="e-icon e-icon--add_circle e-icon--sm" aria-hidden="true"></i>
-                <i class="e-icon e-icon--remove_circle e-icon--sm" aria-hidden="true"></i>
+                <i class="e-icon e-icon--add_circle e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
+                <i class="e-icon e-icon--remove_circle e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
                 <i class="e-icon e-icon--information_circle e-icon--sm" aria-hidden="true"></i>
               </div>
             </div>
@@ -409,10 +415,10 @@
               </div>
               <div class="doDontIcons__container__icons">
                 <i class="e-icon e-icon--arrow_down-bold e-icon--sm" aria-hidden="true"></i>
-                <i class="e-icon e-icon--arrow_up e-icon--sm" aria-hidden="true"></i>
+                <i class="e-icon e-icon--arrow_up e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
                 <i class="e-icon e-icon--subtract_circle-filled e-icon--sm" aria-hidden="true"></i>
                 <i class="e-icon e-icon--add_circle-filled e-icon--sm" aria-hidden="true"></i>
-                <i class="e-icon e-icon--remove_circle e-icon--sm" aria-hidden="true"></i>
+                <i class="e-icon e-icon--remove_circle e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
                 <i class="e-icon e-icon--information_circle e-icon--sm" aria-hidden="true"></i>
               </div>
             </div>

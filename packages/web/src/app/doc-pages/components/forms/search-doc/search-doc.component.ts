@@ -31,13 +31,13 @@ export class SearchDocComponent {
         (keyup)="onInput(exampleInput.value)"
       />
     </div>
-    <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+    <i class="e-icon e-icon--search-color"  aria-hidden="true"></i>
     <button
       class="e-btn e-btn--icon e-btn--lg"
       (click)="clearExample()"
       aria-label="Tøm søkefelt"
     >
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"  aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
@@ -79,12 +79,12 @@ clearExample(): void {
         placeholder="Search"
       />
     </div>
-    <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+    <i class="e-icon e-icon--search-color"  aria-hidden="true"></i>
     <button
       class="e-btn e-btn--icon"
       aria-label="Tøm søkefelt"
     >
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"  aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
@@ -103,13 +103,13 @@ clearExample(): void {
         value="Elvia"
       />
     </div>
-    <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+    <i class="e-icon e-icon--search-color"  aria-hidden="true"></i>
     <button
       class="e-btn e-btn--icon"
       (click)="clearExample()"
       aria-label="Tøm søkefelt"
     >
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"  aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
@@ -129,14 +129,14 @@ clearExample(): void {
         />
       </div>
       <button class="e-btn e-btn--icon" aria-label="Tøm søkefelt">
-        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"  aria-hidden="true"></i></span>
       </button>
     </div>
   </div>
   <button class="e-btn e-btn--lg e-ml-16">
     <span class="e-btn__icon">
-      <i class="e-icon e-icon--search-color e-icon--inverted" aria-hidden="true"></i>
-      <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+      <i class="e-icon e-icon--search-color e-icon--inverted"  aria-hidden="true"></i>
+      <i class="e-icon e-icon--search-color"  aria-hidden="true"></i>
     </span>
     <span class="e-btn__title">Search</span>
   </button>
@@ -160,14 +160,14 @@ clearExample(): void {
         class="e-btn e-btn--icon"
         aria-label="Tøm søkefelt"
       >
-        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"  aria-hidden="true"></i></span>
       </button>
     </div>
   </div>
   <button class="e-btn e-btn--lg e-ml-16">
     <span class="e-btn__icon">
-      <i class="e-icon e-icon--search-color e-icon--inverted" aria-hidden="true"></i>
-      <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+      <i class="e-icon e-icon--search-color e-icon--inverted"  aria-hidden="true"></i>
+      <i class="e-icon e-icon--search-color"  aria-hidden="true"></i>
     </span>
     <span class="e-btn__title">Search</span>
   </button>
@@ -187,12 +187,12 @@ clearExample(): void {
         placeholder="Search"
       />
     </div>
-    <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+    <i class="e-icon e-icon--search-color"  aria-hidden="true"></i>
     <button
       class="e-btn e-btn--icon"
       aria-label="Tøm søkefelt"
     >
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"  aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
@@ -212,14 +212,14 @@ clearExample(): void {
         />
       </div>
       <button class="e-btn e-btn--icon" aria-label="Tøm søkefelt">
-        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"  aria-hidden="true"></i></span>
       </button>
     </div>
   </div>
   <button class="e-btn e-btn--lg e-ml-16">
     <span class="e-btn__icon">
-      <i class="e-icon e-icon--search-color e-icon--inverted" aria-hidden="true"></i>
-      <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+      <i class="e-icon e-icon--search-color e-icon--inverted"  aria-hidden="true"></i>
+      <i class="e-icon e-icon--search-color"  aria-hidden="true"></i>
     </span>
     <span class="e-btn__title">Search</span>
   </button>
@@ -239,12 +239,12 @@ clearExample(): void {
         placeholder="Search"
       />
     </div>
-    <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+    <i class="e-icon e-icon--search-color"  aria-hidden="true"></i>
     <button
       class="e-btn e-btn--icon"
       aria-label="Tøm søkefelt"
     >
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"  aria-hidden="true"></i></span>
     </button>
   </div>
 </div>
@@ -267,14 +267,14 @@ clearExample(): void {
         class="e-btn e-btn--icon"
         aria-label="Tøm søkefelt"
       >
-        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"  aria-hidden="true"></i></span>
       </button>
     </div>
   </div>
   <button class="e-btn e-btn--sm e-ml-16">
     <span class="e-btn__icon">
-      <i class="e-icon e-icon--search-color e-icon--inverted" aria-hidden="true"></i>
-      <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+      <i class="e-icon e-icon--search-color e-icon--inverted"  aria-hidden="true"></i>
+      <i class="e-icon e-icon--search-color"  aria-hidden="true"></i>
     </span>
     <span class="e-btn__title">Search</span>
   </button>

@@ -32,8 +32,8 @@ export class AccordionDocComponent {
       Closed Accordion
     </div>
     <div class="e-accordion__icon">
-      <i class="e-icon e-icon--expand_circle-color"></i>
-      <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+      <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
     </div>
     <div class="e-accordion__content">
       Hidden information
@@ -46,8 +46,8 @@ export class AccordionDocComponent {
       Open Accordion
     </div>
     <div class="e-accordion__icon">
-      <i class="e-icon e-icon--expand_circle-color"></i>
-      <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+      <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
     </div>
     <div class="e-accordion__content">
       ` +
@@ -68,8 +68,8 @@ export class AccordionDocComponent {
     `
       </div>
       <div class="e-accordion__icon">
-        <i class="e-icon e-icon--expand_circle-color"></i>
-        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+        <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
       </div>
     </div>
     <div class="e-accordion__content">
@@ -84,8 +84,8 @@ export class AccordionDocComponent {
     `
       </div>
       <div class="e-accordion__icon">
-        <i class="e-icon e-icon--expand_circle-color"></i>
-        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+        <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
       </div>
     </div>
     <div class="e-accordion__content">
@@ -102,8 +102,8 @@ export class AccordionDocComponent {
     `
       </div>
       <div class="e-accordion__icon">
-        <i class="e-icon e-icon--expand_circle-color"></i>
-        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+        <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
       </div>
     </div>
     <div class="e-accordion__content">
@@ -118,8 +118,8 @@ export class AccordionDocComponent {
     `
       </div>
       <div class="e-accordion__icon">
-        <i class="e-icon e-icon--expand_circle-color"></i>
-        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+        <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
       </div>
     </div>
     <div class="e-accordion__content">
@@ -135,8 +135,8 @@ export class AccordionDocComponent {
       Small Accordion
     </div>
     <div class="e-accordion__icon">
-      <i class="e-icon e-icon--expand_circle-color"></i>
-      <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+      <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
     </div>
   </div>
 </div>
@@ -147,8 +147,8 @@ export class AccordionDocComponent {
       Medium Accordion
     </div>
     <div class="e-accordion__icon">
-      <i class="e-icon e-icon--expand_circle-color"></i>
-      <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+      <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
     </div>
   </div>
 </div>
@@ -159,8 +159,8 @@ export class AccordionDocComponent {
       Large Accordion
     </div>
     <div class="e-accordion__icon">
-      <i class="e-icon e-icon--expand_circle-color"></i>
-      <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+      <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
     </div>
   </div>
 </div>
@@ -169,8 +169,8 @@ export class AccordionDocComponent {
   liveCodeHTML = `<div class="e-accordion e-accordion--md e-accordion--center">
   <div class="e-accordion__item" #accordionLiveExample>
     <div class="e-accordion__icon" (click)="toggleOpen()">
-      <i class="e-icon e-icon--expand_circle-color"></i>
-      <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+      <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
     </div>
     <div class="e-accordion__content">
       <div>Hidden information</div>

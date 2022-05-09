@@ -446,7 +446,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a>`,
     docUrl: Pages.Contact,
     absolutePath: '/about/' + Pages.Contact,
@@ -458,11 +458,11 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `To contribute, or if you have any question, you can contact us on slack:
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a> or fill out our
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
         <span class="e-link__title">request form</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a>`,
     docUrl: Pages.Contribute,
     absolutePath: '/about/' + Pages.Contribute,
@@ -474,7 +474,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a>`,
     docUrl: Pages.Faq,
     absolutePath: '/about/' + Pages.Faq,
@@ -503,7 +503,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     as well guides on how to use them. Missing a specific icon? Let us know on our slack channel 
   <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank">
   <span class="e-link__title">#designsystemet</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
 </a>
    and we’ll look into adding it to the library.`,
     docUrl: Pages.Icon,
@@ -547,7 +547,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
     </a>`,
     docUrl: Pages.Contact,
     absolutePath: '/about/' + Pages.Contact,
@@ -559,7 +559,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `To contribute, or if you have any question, you can contact us on slack:
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
     </a>`,
     docUrl: Pages.Contribute,
     absolutePath: '/about/' + Pages.Contribute,
@@ -571,7 +571,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
     </a>`,
     docUrl: Pages.Faq,
     absolutePath: '/about/' + Pages.Faq,

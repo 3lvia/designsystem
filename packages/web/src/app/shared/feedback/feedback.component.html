@@ -36,7 +36,7 @@
         <div class="left">
           <button class="e-btn e-btn--tertiary" (click)="resetFeedback()">
             <span class="e-btn__icon">
-              <i class="e-icon e-icon--arrow_left"></i>
+              <i class="e-icon e-icon--arrow_left" aria-hidden="true"></i>
             </span>
             <span class="e-btn__title">Back</span>
           </button>
@@ -89,7 +89,7 @@
     </div>
     <!--THANKS-->
     <div class="thanks-section" *ngIf="isSent">
-      <div><i class="e-icon e-icon--check_circle-filled-color"></i></div>
+      <div><i class="e-icon e-icon--check_circle-filled-color" aria-hidden="true"></i></div>
       <div class="e-mt-16 e-text-label">Thanks for your feedback!</div>
     </div>
   </div>
