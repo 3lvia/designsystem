@@ -96,61 +96,27 @@ function App() {
           {/* Normal version */}
           <div className="e-bg-white">
             <Popover
-              type="list"
-              selectable={true}
-              disableAutoClose={true}
-              trigger={<button className="e-btn">Show popover</button>}
-              content={
-                <div className="ewc-popover__list">
-                  <button>
-                    <Icon name="checkBold" size="xs"></Icon>
-                    <span>Dato nyeste</span>
-                  </button>
-                  <button>
-                    <span>Dato eldste</span>
-                  </button>
-                  <a href="design.elvia.io">
-                    <span>Relevans</span>
-                  </a>
-                </div>
+              type={'list'}
+              posY={'top'}
+              trigger={
+                <button className="e-btn e-btn--icon e-btn--circled">
+                  <span className="e-btn__icon">
+                    <Icon name="informationCircle"></Icon>
+                    <Icon name="informationCircleFilledColor"></Icon>
+                  </span>
+                </button>
               }
-            ></Popover>
-            <Popover
-              type="list"
-              hasDivider={true}
-              trigger={<button className="e-btn">Show popover</button>}
               content={
                 <div className="ewc-popover__list">
-                  <div className="ewc-popover__list-group">
-                    <h1>Title 1</h1>
-                    <button>
-                      <Icon name={'edit'} size={'xs'}></Icon>
-                      <span>Rediger</span>
-                    </button>
-                    <button>
-                      <Icon name={'bin'} size={'xs'}></Icon>
-                      <span>Slett</span>
-                    </button>
-                    <a href="design.elvia.io">
-                      <Icon name={'download'} size={'xs'}></Icon>
-                      <span>Last ned</span>
-                    </a>
-                  </div>
-                  <div className="ewc-popover__list-group">
-                    <h1>Title 2</h1>
-                    <button>
-                      <Icon name={'edit'} size={'xs'}></Icon>
-                      <span>Rediger</span>
-                    </button>
-                    <button>
-                      <Icon name={'bin'} size={'xs'}></Icon>
-                      <span>Slett</span>
-                    </button>
-                    <a href="design.elvia.io">
-                      <Icon name={'download'} size={'xs'}></Icon>
-                      <span>Last ned</span>
-                    </a>
-                  </div>
+                  <button>
+                    <span>Be om tilgang</span>
+                  </button>
+                  <button>
+                    <span>Legg til bruker</span>
+                  </button>
+                  <a>
+                    <span>Endre passord</span>
+                  </a>
                 </div>
               }
             ></Popover>

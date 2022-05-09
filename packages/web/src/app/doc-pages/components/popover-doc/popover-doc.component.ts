@@ -3,6 +3,9 @@ import { getComponent } from 'src/app/shared/doc-pages';
 import { popoverData } from './popover-data';
 import { popoverInformativeCode } from './popover-informative-code';
 import { popoverListCode } from './popover-list-code';
+import { popoverListHeadingsCode } from './popover-list-headings';
+import { popoverListIconsCode } from './popover-list-icons-code';
+import { popoverListSelectableCode } from './popover-list-selectable-code';
 @Component({
   selector: 'app-popover-doc',
   templateUrl: './popover-doc.component.html',
@@ -10,10 +13,13 @@ import { popoverListCode } from './popover-list-code';
 })
 export class PopoverDocComponent {
   componentData = popoverData;
+  popoverListIconsCode = popoverListIconsCode;
+  popoverListHeadingsCode = popoverListHeadingsCode;
+  popoverListSelectableCode = popoverListSelectableCode;
+  typesData = [popoverInformativeCode, popoverListCode];
   loadedPopoverStructure = false;
   figmaUrl = getComponent('popover').figmaUrl;
   description = getComponent('popover').description;
-  typesData = [popoverInformativeCode, popoverListCode];
   // tslint:disable-next-line:max-line-length
   does = [
     'To provide additional information',
