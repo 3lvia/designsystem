@@ -5,13 +5,13 @@
       "contrastText": "#000",
       "alt-labels": ["elvis-on", "elvia-on", "font-color-light", "elvia-inverted"]
     },
+    "green": { "color": "#29d305", "contrastText": "#000", "alt-labels": ["elvia-charge"] },
     "black": {
       "color": "#000",
       "contrastText": "#fff",
-      "alt-labels": ["elvis-off", "elvia-off", "font-color"]
+      "alt-labels": ["elvis-off", "elvia-off", "font-color", "text"]
     },
-    "grey": { "color": "#262626", "contrastText": "#fff", "alt-labels": ["elvia-dark"] },
-    "green": { "color": "#29d305", "contrastText": "#000", "alt-labels": ["elvia-charge"] }
+    "grey": { "color": "#262626", "contrastText": "#fff", "alt-labels": ["elvia-dark"] }
   },
   "signal-colors": {
     "yellow": { "color": "#ffff00", "rgb": "rgb(255, 255, 0)", "contrastText": "#000" },
