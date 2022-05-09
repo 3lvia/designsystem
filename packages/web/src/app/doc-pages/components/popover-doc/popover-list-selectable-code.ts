@@ -6,10 +6,10 @@ const popoverListSelectableCode = {
   posY={"bottom"}
   isShowingOnChange={(event) => showingChanges(event)}
   trigger={
-    <button className="e-btn e-btn--icon e-btn--circled">
+    <button className="e-btn e-btn--icon e-btn--circled" aria-label="More menu">
       <span className="e-btn__icon">
-        <i className="e-icon e-icon--information_circle"></i>
-        <i className="e-icon e-icon e-icon--information_circle-filled-color"></i>
+        <i className="e-icon e-icon--information_circle" aria-hidden="true"></i>
+        <i className="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
       </span>
     </button>
   }
@@ -37,10 +37,10 @@ const popoverListSelectableCode = {
   [posY]="'bottom'"
   (isShowingOnChange)="showingChanges($event.detail.value)"
 >
-  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="More menu">
     <span class="e-btn__icon">
-      <i class="e-icon e-icon--information_circle"></i>
-      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+      <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
     </span>
   </button>
   <div slot="content" class="ewc-popover__list">
@@ -65,10 +65,10 @@ const popoverListSelectableCode = {
   :posY="'bottom'"
   @is-showing-on-change="showingChanges($event.detail.value)"
 >
-  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="More menu">
     <span class="e-btn__icon">
-      <i class="e-icon e-icon--information_circle"></i>
-      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+      <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
     </span>
   </button>
   <div slot="content" class="ewc-popover__list">
