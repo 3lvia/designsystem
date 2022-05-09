@@ -2,12 +2,12 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "06.05.22",
+      "date": "09.05.22",
       "version": "2.1.1 ",
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Adjusted the minimim width for the dropdown within the pagination "]
+          "changes": ["Adjusted the width for the dropdown within the pagination "]
         }
       ]
     },
