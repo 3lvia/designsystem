@@ -143,7 +143,14 @@ function TSX_to_JS() {
           babel({
             presets: [
               '@babel/preset-typescript',
-              ['@babel/preset-env', { targets: ['>0.2%', 'not dead', 'not ie <= 11', 'not op_mini all'] }],
+              [
+                '@babel/preset-env',
+                {
+                  targets: [
+                    '>0.2%, last 2 versions, Firefox ESR, not dead, not IE <= 11, not op_mini all, not op_mob > 0',
+                  ],
+                },
+              ],
             ],
             plugins: ['babel-plugin-styled-components', '@babel/plugin-transform-react-jsx'],
           }),
