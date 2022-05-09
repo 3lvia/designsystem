@@ -136,8 +136,8 @@ function App() {
           <Card
             header={'Title1'}
             borderColor={'red'}
-            icon={<i className="e-icon e-icon--search-bold e-icon--md"></i>}
-            iconHover={<i className="e-icon e-icon--search-bold-color e-icon--md"></i>}
+            icon={<i className="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>}
+            iconHover={<i className="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>}
             cornerIcon={<Icon name="unlock" size="xs" />}
             onClick={() => console.log('Clicked')}
           ></Card>
