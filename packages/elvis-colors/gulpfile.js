@@ -101,7 +101,7 @@ gulp.task(
     copyElviaColors,
     formatPrettier,
     function (done) {
-      console.log('Elvis-colors - Successfully built Elvis-colors!');
+      console.log('Elvis-colors - Successfully built Elvis-colors! ');
       done();
     },
   ),
