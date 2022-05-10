@@ -94,7 +94,33 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white"></div>
+          <div className="e-bg-white">
+            <Popover
+              type={'list'}
+              posY={'top'}
+              trigger={
+                <button className="e-btn e-btn--icon e-btn--circled">
+                  <span className="e-btn__icon">
+                    <Icon name="informationCircle"></Icon>
+                    <Icon name="informationCircleFilledColor"></Icon>
+                  </span>
+                </button>
+              }
+              content={
+                <div className="ewc-popover__list">
+                  <button>
+                    <span>Be om tilgang</span>
+                  </button>
+                  <button>
+                    <span>Legg til bruker</span>
+                  </button>
+                  <a>
+                    <span>Endre passord</span>
+                  </a>
+                </div>
+              }
+            ></Popover>
+          </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>
@@ -236,7 +262,6 @@ function App() {
             posX="right"
             isShowing={isPopoverShowing}
             isShowingOnChange={(value) => setIsPopoverShowingState(value)}
-            onClick={() => console.log('Clicked')}
           ></Popover>
         </div>
         {/* PROGRESS LINEAR */}

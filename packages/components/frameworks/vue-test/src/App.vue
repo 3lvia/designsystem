@@ -6,7 +6,59 @@
       <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
       <h3>Test your component here</h3>
       <!--Normal version-->
-      <div class="e-bg-white"></div>
+      <div class="e-bg-white">
+        <h3>Popover</h3>
+        <elvia-popover type="list" :selectable="true" :disableAutoClose="true">
+          <button slot="trigger" class="e-btn">Show popover</button>
+          <div slot="content" class="ewc-popover__list">
+            <button>
+              <elvia-icon name="checkBold" size="xs"></elvia-icon>
+              <span>Dato nyeste</span>
+            </button>
+            <button>
+              <span>Dato eldste</span>
+            </button>
+            <a>
+              <span>Relevans</span>
+            </a>
+          </div>
+        </elvia-popover>
+        <elvia-popover type="list" :hasDivider="true">
+          <button slot="trigger" class="e-btn">Show popover</button>
+          <div slot="content" class="ewc-popover__list">
+            <div class="ewc-popover__list-group">
+              <h1>Title 1</h1>
+              <button class="ewc-popover__list-item--selected">
+                <elvia-icon name="edit" size="xs"></elvia-icon>
+                <span>Rediger</span>
+              </button>
+              <button>
+                <elvia-icon name="bin" size="xs"></elvia-icon>
+                <span>Slett</span>
+              </button>
+              <a>
+                <elvia-icon name="download" size="xs"></elvia-icon>
+                <span>Last ned</span>
+              </a>
+            </div>
+            <div class="ewc-popover__list-group">
+              <h1>Title 2</h1>
+              <button>
+                <elvia-icon name="edit" size="xs"></elvia-icon>
+                <span>Rediger</span>
+              </button>
+              <button>
+                <elvia-icon name="bin" size="xs"></elvia-icon>
+                <span>Slett</span>
+              </button>
+              <a>
+                <elvia-icon name="download" size="xs"></elvia-icon>
+                <span>Last ned</span>
+              </a>
+            </div>
+          </div>
+        </elvia-popover>
+      </div>
       <!--Inverted version-->
       <div class="e-bg-grey"></div>
     </div>
