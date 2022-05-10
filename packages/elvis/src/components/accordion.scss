@@ -147,6 +147,9 @@
     .e-accordion__icon {
       @include icons.icon-size('sm');
     }
+    .e-accordion__title {
+      font-size: 20px;
+    }
   }
   &.e-accordion--md {
     .e-accordion__icon {

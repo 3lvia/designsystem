@@ -389,6 +389,9 @@ body {
   width: 24px;
   height: 24px;
 }
+.e-accordion.e-accordion--lg .e-accordion__title {
+  font-size: 20px;
+}
 .e-accordion.e-accordion--md .e-accordion__icon {
   width: 24px;
   height: 24px;
