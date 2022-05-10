@@ -389,9 +389,6 @@ body {
   width: 24px;
   height: 24px;
 }
-.e-accordion.e-accordion--lg .e-accordion__title {
-  font-size: 20px;
-}
 .e-accordion.e-accordion--md .e-accordion__icon {
   width: 24px;
   height: 24px;
@@ -471,6 +468,7 @@ body {
 .e-accordion.e-accordion--group .e-accordion__item .e-accordion__label .e-accordion__title {
   font-family: "Red Hat Display", Verdana, sans-serif;
   font-weight: 500;
+  font-size: 20px;
   line-height: 32px;
   margin-right: 8px;
 }
