@@ -27,7 +27,6 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
   }
 
   &.e-radio--sm {
-    line-height: 22px;
     @include typography.typography('text-info');
 
     &:not(:last-child) {

@@ -53,8 +53,6 @@ $toast-max-width: 400px;
     }
     .e-alert__text {
       @include typography.typography('text-description');
-      font-size: 16px;
-      line-height: 28px;
       max-width: 758px;
       ul {
         margin: 0;
@@ -138,8 +136,6 @@ $toast-max-width: 400px;
         min-height: 32px;
 
         .e-alert__accordion {
-          @include icons.icon-size('sm');
-          margin-left: 24px;
           @include helpers.keyframes(rotate-center-forward) {
             0% {
               @include helpers.transform(rotate(180deg));
@@ -154,6 +150,7 @@ $toast-max-width: 400px;
           animation: rotate-center-forward 0.2s ease-in-out both;
 
           display: flex;
+          margin-left: 24px;
           @include icons.icon-size('sm');
           i[class*='expand_circle-filled-color'] {
             display: none;
@@ -234,8 +231,7 @@ $toast-max-width: 400px;
       margin-top: 11px;
     }
     .e-alert__title {
-      @include typography.typography('text-md');
-      font-weight: 500;
+      @include typography.typography('text-md-strong');
       margin-bottom: 0px;
     }
     .e-alert__close {
@@ -286,8 +282,7 @@ $toast-max-width: 400px;
       }
     }
     .e-alert__title {
-      @include typography.typography('text-sm');
-      font-weight: 500;
+      @include typography.typography('text-sm-strong');
     }
     .e-alert__content .e-alert__text {
       @include typography.typography('text-info');
@@ -336,7 +331,6 @@ $toast-max-width: 400px;
         @media screen and (-ms-high-contrast: none) {
           width: 100%;
         }
-        margin-left: auto;
         display: flex;
         align-items: center;
         padding-left: 24px;
