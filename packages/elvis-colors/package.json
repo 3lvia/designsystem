@@ -5,7 +5,6 @@
   "license": "MIT",
   "author": "",
   "main": "./dist/elviaColors.js",
-  "types": "./dist/elviaColors.d.ts",
   "style": "./dist/elviaColors.scss",
   "scripts": {
     "build": "gulp",
