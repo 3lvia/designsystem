@@ -78,7 +78,7 @@ const generateElviaColorsScssFile = async () => {
 };
 
 const copyElviaColors = async () => {
-  gulp
+  return gulp
     .src(['./src/elviaColors.js', './src/elviaColors.d.ts'])
     .pipe(header(WARNING))
     .pipe(gulp.dest('./dist/'));
