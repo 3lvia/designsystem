@@ -92,9 +92,18 @@ function cleanup() {
   return del(['./dist/**/*'], { force: true });
 }
 
+const makeDistFolder = async () => {
+  const dir = './dist';
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+  }
+  return true;
+};
+
 gulp.task(
   'default',
   gulp.series(
+    makeDistFolder,
     cleanup,
     generateElviaColorsJsonFile,
     generateElviaColorsScssFile,
