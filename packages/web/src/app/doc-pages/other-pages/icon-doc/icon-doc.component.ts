@@ -31,42 +31,42 @@ export class IconDocComponent implements OnInit {
   latestIcon = '';
   copied = false;
 
-  example = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-mr-40"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xs e-mr-40"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--sm e-mr-40"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--md e-mr-40"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--lg e-mr-40"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xl e-mr-40"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xxl"></i>
+  example = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xs e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--sm e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--md e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--lg e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xl e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xxl" aria-hidden="true"></i>
 `;
-  exampleInverted = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-icon--inverted e-mr-40"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xs e-icon--inverted e-mr-40"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--sm e-icon--inverted e-mr-40"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--md e-icon--inverted e-mr-40"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--lg e-icon--inverted e-mr-40"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xl e-icon--inverted e-mr-40"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xxl e-icon--inverted"></i>
-`;
-
-  example2 = `<i class="e-icon e-icon--remove_circle e-icon--color-red e-mr-40"></i>
-<i class="e-icon e-icon--warning_circle e-icon--color-orange e-mr-40"></i>
-<i class="e-icon e-icon--check_circle e-icon--color-green e-mr-40"></i>
-`;
-  example2Inverted = `<i class="e-icon e-icon--remove_circle e-icon--color-red e-mr-40"></i>
-<i class="e-icon e-icon--warning_circle e-icon--color-orange e-mr-40"></i>
-<i class="e-icon e-icon--check_circle e-icon--color-green e-mr-40"></i>
+  exampleInverted = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-icon--inverted e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xs e-icon--inverted e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--sm e-icon--inverted e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--md e-icon--inverted e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--lg e-icon--inverted e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xl e-icon--inverted e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xxl e-icon--inverted" aria-hidden="true"></i>
 `;
 
-  example3 = `<i class="e-icon e-icon--chat e-mr-40"></i>
-<i class="e-icon e-icon--chat e-icon--color-disabled"></i>
+  example2 = `<i class="e-icon e-icon--remove_circle e-icon--color-red e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--warning_circle e-icon--color-orange e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--check_circle e-icon--color-green e-mr-40" aria-hidden="true"></i>
 `;
-  example3Inverted = `<i class="e-icon e-icon--chat e-icon--inverted e-mr-40"></i>
-<i class="e-icon e-icon--chat e-icon--inverted-disabled-grey-70"></i>
+  example2Inverted = `<i class="e-icon e-icon--remove_circle e-icon--color-red e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--warning_circle e-icon--color-orange e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--check_circle e-icon--color-green e-mr-40" aria-hidden="true"></i>
+`;
+
+  example3 = `<i class="e-icon e-icon--chat e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--chat e-icon--color-disabled" aria-hidden="true"></i>
+`;
+  example3Inverted = `<i class="e-icon e-icon--chat e-icon--inverted e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--chat e-icon--inverted-disabled-grey-70" aria-hidden="true"></i>
 `;
 
   importCodeTS = `import { addCircle } from '@elvia/elvis-assets-icons/icons'`;
   scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>;`;
-  iconExample = `<i class="e-icon e-icon--chat e-icon--md"></i>`;
+  iconExample = `<i class="e-icon e-icon--chat e-icon--md" aria-hidden="true"></i>`;
 
   term = '';
   IconClassList: Icon[] = [];

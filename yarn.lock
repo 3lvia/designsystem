@@ -2401,6 +2401,7 @@ __metadata:
     express: ^4.17.1
     gulp: ^4.0.2
     gulp-babel: ^8.0.0
+    gulp-cached: ^1.1.1
     gulp-filter: ^7.0.0
     gulp-header: ^2.0.9
     gulp-rename: ^2.0.0
@@ -14262,6 +14263,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gulp-cached@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "gulp-cached@npm:1.1.1"
+  dependencies:
+    lodash.defaults: ^4.2.0
+    through2: ^2.0.1
+  checksum: 40e9679a7a3097557929c64103a32a3a660c7b7366a477656f391a0220e1b52b6f4fa880c32a2846058f7bc27e70ad71ced8cc138eba6aeb154d1b5df741aeb8
+  languageName: node
+  linkType: hard
+
 "gulp-clean-css@npm:^4.2.0":
   version: 4.3.0
   resolution: "gulp-clean-css@npm:4.3.0"
@@ -18090,6 +18101,13 @@ __metadata:
   version: 4.0.8
   resolution: "lodash.debounce@npm:4.0.8"
   checksum: a3f527d22c548f43ae31c861ada88b2637eb48ac6aa3eb56e82d44917971b8aa96fbb37aa60efea674dc4ee8c42074f90f7b1f772e9db375435f6c83a19b3bc6
+  languageName: node
+  linkType: hard
+
+"lodash.defaults@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "lodash.defaults@npm:4.2.0"
+  checksum: 84923258235592c8886e29de5491946ff8c2ae5c82a7ac5cddd2e3cb697e6fbdfbbb6efcca015795c86eec2bb953a5a2ee4016e3735a3f02720428a40efbb8f1
   languageName: node
   linkType: hard
 
@@ -26520,7 +26538,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"through2@npm:^2.0.0, through2@npm:^2.0.3, through2@npm:~2.0.0":
+"through2@npm:^2.0.0, through2@npm:^2.0.1, through2@npm:^2.0.3, through2@npm:~2.0.0":
   version: 2.0.5
   resolution: "through2@npm:2.0.5"
   dependencies:

@@ -19,7 +19,7 @@ export class TooltipDocComponent {
   example1 = `<span class="e-tooltip">
   <button class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
     <span class="e-btn__icon">
-      <i class="e-icon e-icon--star" aria-hidden="true"></i>
+      <i class="e-icon e-icon--star"  aria-hidden="true"></i>
     </span>
   </button>
   <span class="e-tooltip__content">Favorite</span>
@@ -29,7 +29,7 @@ export class TooltipDocComponent {
   <span class="e-tooltip">
     <button class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--star" aria-hidden="true"></i>
+        <i class="e-icon e-icon--star"  aria-hidden="true"></i>
       </span>
     </button>
     <span class="e-tooltip__content">Favorite</span>
@@ -40,7 +40,7 @@ export class TooltipDocComponent {
   <span class="e-tooltip">
     <button class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--star" aria-hidden="true"></i>
+        <i class="e-icon e-icon--star"  aria-hidden="true"></i>
       </span>
     </button>
     <span class="e-tooltip__content e-tooltip__content--bottom">Favorite</span>
@@ -51,7 +51,7 @@ export class TooltipDocComponent {
   <span class="e-tooltip">
     <button class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--star" aria-hidden="true"></i>
+        <i class="e-icon e-icon--star"  aria-hidden="true"></i>
       </span>
     </button>
     <span class="e-tooltip__content e-tooltip__content--left">Favorite</span>
@@ -62,7 +62,7 @@ export class TooltipDocComponent {
   <span class="e-tooltip">
     <button class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--star" aria-hidden="true"></i>
+        <i class="e-icon e-icon--star"  aria-hidden="true"></i>
       </span>
     </button>
     <span class="e-tooltip__content e-tooltip__content--right">Favorite</span>
