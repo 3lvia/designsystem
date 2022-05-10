@@ -360,7 +360,6 @@ $loading-dot-sm: 8px;
 
       @include helpers.hover() {
         &:hover:not(:disabled):not(.e-btn--loading) {
-          border-bottom-color: colors.color('elvia-charge');
           border-color: colors.color('elvia-charge');
           background: none;
           .e-btn__icon {
@@ -420,7 +419,6 @@ $loading-dot-sm: 8px;
       cursor: not-allowed;
     }
     &.e-btn---hover {
-      border-bottom-color: colors.color('elvia-charge');
       border-color: colors.color('elvia-charge');
       background: none;
       .e-btn__icon i {
@@ -429,7 +427,6 @@ $loading-dot-sm: 8px;
     }
     @include helpers.hover() {
       &:hover:not(:disabled):not(.e-btn--loading) {
-        border-bottom-color: colors.color('elvia-charge');
         border-color: colors.color('elvia-charge');
         background: none;
         .e-btn__icon i {

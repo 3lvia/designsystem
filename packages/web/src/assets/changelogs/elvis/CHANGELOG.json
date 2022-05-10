@@ -1,6 +1,18 @@
 {
   "content": [
     {
+      "version": "8.3.9",
+      "date": "May 10, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Small patches to remove duplicated css."],
+          "fixes": [],
+          "pages": []
+        }
+      ]
+    },
+    {
       "version": "8.3.8",
       "date": "May 04, 2022",
       "changelog": [

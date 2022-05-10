@@ -34,7 +34,7 @@ $label-colors: map-merge(colors.$just-colors, colors.$primary-colors);
   border-radius: $label-radius;
   background: colors.color('grey-10');
 
-  font-family: 'Red Hat Text', 'Verdana, sans-serif';
+  font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: $label-font-size;
   font-weight: 400;
   line-height: 16px;
