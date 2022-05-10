@@ -20,7 +20,7 @@ declare module '@elvia/elvis-colors' {
   /**
    * Object containing all Elvia colors.
    */
-  const colors: {
+  export const colors: {
     [category: string]: {
       [label: string]: {
         color: string;
@@ -30,6 +30,7 @@ declare module '@elvia/elvis-colors' {
       };
     };
   };
+
   export default colors;
 
   /**
