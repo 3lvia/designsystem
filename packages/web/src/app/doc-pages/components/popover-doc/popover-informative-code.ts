@@ -66,6 +66,7 @@ const popoverInformativeCode = {
   header="` +
     exampleContents.texts.md['eng-GBR'].title +
     `"
+  content=${JSON.stringify(exampleContents.texts.md['eng-GBR'].description)}
   posY="top"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
@@ -75,12 +76,6 @@ const popoverInformativeCode = {
     </span>
   </button>
 </elvia-popover>
-`,
-  codeNativeScript: `  const popover = document.getElementById('example-elvia-popover');
-  popover.setProps({content: ${JSON.stringify(exampleContents.texts.md['eng-GBR'].description)}});
-  popover.addEventListener('isShowingOnChange', (event) => {
-    console.log('Do what you want when visibility changes: ', event.detail.value);
-  });
 `,
   // all scripts for the examples are in popover-data.ts
 };

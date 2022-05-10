@@ -370,7 +370,7 @@ const Popover: FC<PopoverProps> = ({
             <div className="ewc-popover__content" ref={popoverContentRef}>
               {type === 'informative' && (
                 <div className="ewc-popover__content-area">
-                  {hasCloseBtn == true && (
+                  {hasCloseBtn === true && (
                     <div className="ewc-popover__close">
                       <button
                         className="ewc-btn ewc-btn--icon ewc-btn--sm"

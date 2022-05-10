@@ -136,10 +136,10 @@ const popoverListHeadingsCode = {
 </elvia-popover>
 `,
   codeNativeScript: `  const popover = document.getElementById('example-elvia-popover-list-headings');
-  popover.addEventListener('isShowingOnChange', (event) => {
-    console.log('Do what you want when visibility changes: ', event.detail.value);
-  });
-`,
+    popover.addEventListener('isShowingOnChange', (event) => {
+      console.log('Do what you want when visibility changes: ', event.detail.value);
+    });
+  `,
 };
 
 export { popoverListHeadingsCode };

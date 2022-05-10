@@ -261,7 +261,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         const newType = { value: index, label: label };
         this.typeOptions.push(newType);
       });
-      console.log(this.typeOptions);
     }
   }
 
@@ -326,7 +325,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       }
     });
     if (this.typePropExists) {
-      console.log(selected.label);
       this.updateSelected('type', selected.label.toLowerCase(), 'string', false);
     }
     this.enableFilters = false;

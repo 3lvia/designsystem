@@ -113,7 +113,6 @@ const popoverData: ComponentData = {
   codeVue: ``,
   codeNativeHTML: ``,
   codeNativeScript: `  const popover = document.getElementById('example-elvia-popover');
-  popover.setProps({content: ${JSON.stringify(exampleContents.texts.md['eng-GBR'].description)}});
   popover.addEventListener('isShowingOnChange', (event) => {
     console.log('Do what you want when visibility changes: ', event.detail.value);
   });
