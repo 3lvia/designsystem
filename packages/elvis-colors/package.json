@@ -4,8 +4,8 @@
   "description": "Elvia colors",
   "license": "MIT",
   "author": "",
-  "main": "./dist/elviaColors.js",
-  "style": "./dist/elviaColors.scss",
+  "main": "src/elviaColors.js",
+  "style": "src/elviaColors.scss",
   "scripts": {
     "build": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
