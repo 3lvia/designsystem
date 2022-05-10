@@ -21,7 +21,7 @@
 
 body {
   margin: 0;
-  font-family: 'Red Hat Text', 'Verdana, sans-serif';
+  font-family: 'Red Hat Text', Verdana, sans-serif;
 }
 
 html {
@@ -62,7 +62,7 @@ p {
   }
 }
 .code-text {
-  font-family: 'Red Hat Mono';
+  font-family: 'Red Hat Mono', Verdana, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;

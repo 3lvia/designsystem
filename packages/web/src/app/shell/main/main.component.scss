@@ -32,10 +32,8 @@
   }
 }
 .feedback-link {
-  display: flex;
-  justify-content: flex-end;
-
   display: none;
+  justify-content: flex-end;
   &.desktop {
     display: flex;
     position: fixed;

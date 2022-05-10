@@ -9,7 +9,7 @@
 -->
 <div class="screen-container">
   <div *ngIf="screenSize === 'desktop'" class="desktop">
-    <iframe #iframeDesktop src="about:blank"></iframe>
+    <iframe #iframeDesktop src="about:blank" title="Iframe showing component on a desktop"></iframe>
   </div>
   <div *ngIf="screenSize === 'tablet'" class="tablet">
     <div class="tablet__elvia">Elvia</div>
@@ -18,7 +18,7 @@
     </div>
     <div class="tablet__camera"></div>
     <div class="tablet__time">{{ now | date: 'hh:mm' }}</div>
-    <iframe #iframeTablet src="about:blank"></iframe>
+    <iframe #iframeTablet src="about:blank" title="Iframe showing component on a tablet"></iframe>
   </div>
   <div *ngIf="screenSize === 'phone'" class="phone" [ngClass]="{ 'no-padding-x': noPaddingX }">
     <div class="phone__elvia">Elvia</div>
@@ -27,6 +27,6 @@
     </div>
     <div class="phone__camera"></div>
     <div class="phone__time">{{ now | date: 'hh:mm' }}</div>
-    <iframe #iframePhone src="about:blank"></iframe>
+    <iframe #iframePhone src="about:blank" title="Iframe showing component on a mobile"></iframe>
   </div>
 </div>
