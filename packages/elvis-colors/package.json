@@ -4,7 +4,7 @@
   "description": "Elvia colors",
   "license": "MIT",
   "author": "",
-  "main": "src/elviaColors.js",
+  "main": "dist/elviaColors.js",
   "style": "src/elviaColors.scss",
   "scripts": {
     "build": "gulp",
