@@ -31,6 +31,8 @@ declare module '@elvia/elvis-colors' {
     };
   };
 
+  export default colors;
+
   /**
    * All elvia color names.
    */
@@ -79,6 +81,4 @@ declare module '@elvia/elvis-colors' {
     | 'focus-outline'
     // eslint-disable-next-line @typescript-eslint/ban-types
     | (string & {});
-
-  export default colors;
 }
