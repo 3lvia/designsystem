@@ -77,6 +77,35 @@ const generateElviaColorsScssFile = async () => {
   fs.writeFileSync('./dist/elviaColors.scss', WARNING + content.join('\n') + '\n');
 };
 
+const generateElvisColorMapScss = async () => {
+  let content = ``;
+
+  for (const categoryLabel in colors) {
+    content = content + `\$${categoryLabel}: (\n`;
+    for (const colorLabel in colors[categoryLabel]) {
+      content = content + `'${colorLabel}': (\n`;
+      content = content + `color: ${colors[categoryLabel][colorLabel].color},\n`;
+      if (colors[categoryLabel][colorLabel].rgb) {
+        content = content + `rgb: ${colors[categoryLabel][colorLabel].rgb},\n`;
+      }
+      if (colors[categoryLabel][colorLabel]['contrastText']) {
+        content = content + `contrastText: ${colors[categoryLabel][colorLabel]['contrastText']},\n`;
+      }
+      if (colors[categoryLabel][colorLabel]['alt-labels']) {
+        content = content + `alt-labels: (\n`;
+        for (const altLabel in colors[categoryLabel][colorLabel]['alt-labels']) {
+          content = content + `${colors[categoryLabel][colorLabel]['alt-labels'][altLabel]},\n`;
+        }
+        content = content + `),\n`;
+      }
+      content = content + `),\n`;
+    }
+    content = content + `);\n\n`;
+  }
+
+  fs.writeFileSync('./dist/colorMap.scss', content);
+};
+
 const copyElviaColors = async () => {
   return gulp
     .src(['./src/elviaColors.js', './src/elviaColors.d.ts'])
@@ -107,6 +136,7 @@ gulp.task(
     cleanup,
     generateElviaColorsJsonFile,
     generateElviaColorsScssFile,
+    generateElvisColorMapScss,
     copyElviaColors,
     formatPrettier,
     function (done) {
