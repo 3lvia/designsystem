@@ -7,7 +7,6 @@
 }
 
 pre {
-  line-height: 18px;
   padding: 0;
   margin: 0;
   font-size: 14px;
@@ -53,7 +52,7 @@ pre {
   padding-bottom: 16px;
   margin-bottom: -16px;
   .active-code {
-    font-family: 'Red Hat Mono';
+    font-family: 'Red Hat Mono', Verdana, sans-serif;
     color: white;
   }
   .script-tag {

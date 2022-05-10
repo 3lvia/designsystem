@@ -107,7 +107,7 @@ export class TableDocComponent {
 
   exampleStickyHeaderMobile = `<div style="width: 305px; margin: 16px">
   <div class="e-table-container" style="max-height: 250px">
-  <table class="e-table-mobile e-table-mobile--sticky-header">
+  <table class="e-table-mobile e-table-mobile--sticky-header" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">Period</th>
@@ -268,7 +268,7 @@ export class TableDocComponent {
 `;
 
   exampleMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile">
+  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">Period</th>
@@ -416,7 +416,7 @@ export class TableDocComponent {
 `;
 
   exampleCompactMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile e-table-mobile--compact">
+  <table class="e-table-mobile e-table-mobile--compact" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">Period</th>
@@ -560,7 +560,7 @@ export class TableDocComponent {
 `;
 
   exampleInputMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile">
+  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">CaseID</th>
@@ -663,7 +663,7 @@ export class TableDocComponent {
 `;
 
   exampleButtonMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile">
+  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">CaseID</th>
@@ -779,7 +779,7 @@ export class TableDocComponent {
 `;
 
   exampleCheckboxMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile">
+  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">CaseID</th>
@@ -886,7 +886,7 @@ export class TableDocComponent {
 `;
 
   exampleSelectMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile">
+  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">CaseID</th>
