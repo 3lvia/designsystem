@@ -10,10 +10,11 @@
   },
   "scripts": {
     "start:web": "cd packages/web && yarn contentful && yarn start",
-    "start:components": "cd packages/components && yarn watch",
+    "start:components": "yarn build:colors && cd packages/components && yarn watch",
     "start:react": "cd packages/components/frameworks/react-ssr && yarn start",
     "start:vue": "cd packages/components/frameworks/vue-test && yarn start",
-    "build:web": "yarn && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run build:production && cd ../web && yarn run contentful:production && yarn run build:production && cd ../components/frameworks/react-ssr && yarn run production",
+    "build:web": "yarn && yarn build:colors && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run build:production && cd ../web && yarn run contentful:production && yarn run build:production && cd ../components/frameworks/react-ssr && yarn run production",
+    "build:colors": "cd packages/elvis-colors && yarn build",
     "prettier-elvis": "yarn prettier --write \"packages/elvis/**/*.js\"",
     "prettier-doc": "yarn prettier --write \"packages/web/src/**/*.ts\"",
     "prettier-comp": "yarn prettier --write \"packages/components/**/*.{js,ts,tsx}\"",

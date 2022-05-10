@@ -2353,7 +2353,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
+    "@types/lodash.kebabcase": ^4.1.7
+    del: ^6.0.0
     gulp: ^4.0.2
+    gulp-header: ^2.0.9
     gulp-prettier: ^4.0.0
     lodash.kebabcase: ^4.1.1
   languageName: unknown
@@ -4452,6 +4455,15 @@ __metadata:
   dependencies:
     "@types/lodash": "*"
   checksum: 0f065989408a9e0584e6c27495be2cd4602e62650f55266aa195812582444463c0c8570c674ae84f947c11748f49ab43fd5b482fa120e08eeee4c23b162edc38
+  languageName: node
+  linkType: hard
+
+"@types/lodash.kebabcase@npm:^4.1.7":
+  version: 4.1.7
+  resolution: "@types/lodash.kebabcase@npm:4.1.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 8c28dae574d0d15d316b8412f1edf7628398f0d1d34bec978af9d8b9f1286749492c23680817e74c6bd15e14b45b0006c79b320ebd260f9b8c0ac85668e0c409
   languageName: node
   linkType: hard
 

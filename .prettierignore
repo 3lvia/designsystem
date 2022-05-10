@@ -1,4 +1,5 @@
 dist
+!packages/elvis-colors/*
 e2e
 node_modules
 coverage

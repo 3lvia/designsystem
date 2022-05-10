@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 1.4.0 (10.05.22)
+
+### New feature
+
+- Expanded the build system and added a dist folder.
+
 ## 1.3.2 (03.05.22)
 
 ### Bug fix

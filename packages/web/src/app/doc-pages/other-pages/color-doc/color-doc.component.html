@@ -218,7 +218,7 @@
             <ng-container ngProjectAs="copyContent">
               <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
                 <div class="e-title-caps" style="text-align: center; padding: 14px">
-                  {{ item.titleWithSpace }}
+                  {{ item.title.replace('-', ' ') }}
                 </div>
               </div>
             </ng-container>
@@ -329,7 +329,7 @@
               <div class="sub-content">{{ item.hex }}</div>
             </div>
             <div class="display-card-sub-title e-text-info">
-              <div class="sub-title e-title-caps">RGB</div>
+              <div class="sub-title e-title-caps">RGBA</div>
               <div class="sub-content">{{ item.rgba }}</div>
             </div>
             <div
