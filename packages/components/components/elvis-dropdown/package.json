@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-dropdown",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "",
   "main": "web_component.js",
   "scripts": {

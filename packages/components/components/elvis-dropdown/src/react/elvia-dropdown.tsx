@@ -292,6 +292,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: '22px',
       paddingLeft: isCompact ? '8px' : '15px',
+      paddingRight: '2px',
     }),
   };
 

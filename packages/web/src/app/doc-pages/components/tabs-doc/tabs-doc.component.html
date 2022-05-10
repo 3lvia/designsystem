@@ -45,10 +45,10 @@
             </div>
             <div>
               <span class="keyboard-button icon">
-                <i class="e-icon e-icon--arrow_left e-icon--xs" aria-hidden="true"></i>
+                <i class="e-icon e-icon--arrow_left e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
               </span>
               <span class="keyboard-button icon" style="margin-left: 0px">
-                <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true"></i>
+                <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
               </span>
               to navigate through the tabs. Will also select the tab if
               <span class="code-text">hasManualActivation</span>
@@ -71,8 +71,10 @@
             <li>
               <strong>Aria labelledby:</strong>
               Add
-              <span class="code-text">aria-labelledby="insertIdOfTab"</span>
-              to the corresponding contents, with the id of that tab.
+              <span class="code-text">aria-labelledby="ewc-tab-id-0"</span>
+              to the corresponding contents, with the id of that tab. The id of the tab is named like this:
+              <span class="code-text">'ewc-tab-id-' + index</span>
+              .
             </li>
           </ul>
         </ng-container>
