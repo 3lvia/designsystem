@@ -24,6 +24,14 @@ const setBackgroundColor = (color: ColorType, isSelected: boolean, type: string)
   }
 };
 
+const setBackgroundColorHover = (color: ColorType, isSelected: boolean, type: string) => {
+  return type === 'removable'
+    ? colors.elviaCharge
+    : isSelected
+    ? setOpacity(colors[color], 20)
+    : 'transparent';
+};
+
 const decideChipBorder = (isSelected: boolean, isHovering: boolean, disabled: boolean) => {
   if (disabled) {
     return 'solid 1px transparent';
@@ -56,10 +64,16 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   line-height: 16px;
   padding: calc(8px - 1px) calc(16px - 1px);
   border-radius: 24px;
-  ${(props: { disabled: boolean; isHovering: boolean; chipType: string }) =>
+  ${(props: {
+    disabled: boolean;
+    isHovering: boolean;
+    isSelected: boolean;
+    chipType: string;
+    color: ColorType;
+  }) =>
     props.isHovering &&
     !props.disabled &&
-    `background-color: ${props.chipType === 'removable' ? colors.elviaCharge : 'transparent'}`}
+    `background-color: ${setBackgroundColorHover(props.color, props.isSelected, props.chipType)}`}
 `;
 
 export const ChipDot = styled.span<{ color: ColorType }>`

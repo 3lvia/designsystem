@@ -15,7 +15,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "New design for unselected chips.",
+            "New design for unselected chips and hover state.",
             "Added a new event <span class=\"code-text\">isSelectedOnChange</span>."
           ]
         }
