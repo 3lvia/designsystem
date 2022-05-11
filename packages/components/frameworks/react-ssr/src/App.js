@@ -159,6 +159,8 @@ function App() {
           <h3>Chip</h3>
           <Chip type={'removable'} value={2022} selected={true} onClick={() => console.log('Clicked')}></Chip>
           <Chip type={'choice'} value={2022} selected={true} onClick={() => console.log('Clicked')}></Chip>
+          <Chip value={'Disabled'} selected={true} onClick={() => console.log('Clicked')} isDisabled></Chip>
+
           <Chip
             type="legend"
             valueOnChange={() => setChipSelected(!chipSelected)}
