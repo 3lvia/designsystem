@@ -77,6 +77,41 @@ const generateElviaColorsScssFile = async () => {
   fs.writeFileSync('./dist/elviaColors.scss', WARNING + content.join('\n') + '\n');
 };
 
+const generateElvisColorMapScss = async () => {
+  let content = ``;
+  // For each color category
+  for (const categoryLabel in colors) {
+    content += `\$${categoryLabel}: (\n`;
+    // For each color
+    for (const colorLabel in colors[categoryLabel]) {
+      content += `\t'${colorLabel}': (\n`;
+      // Add color value
+      content += `\t\tcolor: ${colors[categoryLabel][colorLabel].color},\n`;
+      // Add rgb value
+      if (colors[categoryLabel][colorLabel].rgb) {
+        const rgbValue = `\t\trgb: ${colors[categoryLabel][colorLabel].rgb},\n`;
+        content += rgbValue;
+      }
+      // Add contrastText value
+      if (colors[categoryLabel][colorLabel]['contrastText']) {
+        const contrastText = `\t\tcontrastText: ${colors[categoryLabel][colorLabel]['contrastText']},\n`;
+        content += contrastText;
+      }
+      // Add alt-labels
+      if (colors[categoryLabel][colorLabel]['alt-labels']) {
+        let altLabels = `\t\talt-labels: (\n`;
+        for (const altLabel in colors[categoryLabel][colorLabel]['alt-labels']) {
+          altLabels += `\t\t\t${colors[categoryLabel][colorLabel]['alt-labels'][altLabel]},\n`;
+        }
+        content += altLabels + `\t\t),\n`;
+      }
+      content += `\t),\n`;
+    }
+    content += `);\n\n`;
+  }
+  fs.writeFileSync('./dist/colorMap.scss', content);
+};
+
 const copyElviaColors = async () => {
   return gulp
     .src(['./src/elviaColors.js', './src/elviaColors.d.ts'])
@@ -107,6 +142,7 @@ gulp.task(
     cleanup,
     generateElviaColorsJsonFile,
     generateElviaColorsScssFile,
+    generateElvisColorMapScss,
     copyElviaColors,
     formatPrettier,
     function (done) {
