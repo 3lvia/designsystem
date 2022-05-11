@@ -141,7 +141,8 @@ module.exports = [
     attributes: [
       { name: 'ariaLabel', type: 'string', propType: 'string | undefined' },
       { name: 'color', type: 'string', propType: 'string | undefined' },
-      { name: 'disabled', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'disabled', type: 'boolean', propType: 'boolean | undefined' }, // DEPRECATED
+      { name: 'isDisabled', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'type', type: 'string', propType: 'string | undefined' },
       { name: 'selected', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'value', type: 'string', propType: 'string' },

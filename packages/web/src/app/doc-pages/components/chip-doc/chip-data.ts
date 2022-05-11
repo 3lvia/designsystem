@@ -33,7 +33,7 @@ export const chipData: ComponentData = {
       cegFormType: 'radio',
       cegOptions: ['green', 'blue', 'orange', 'purple', 'red', 'violet'],
     },
-    disabled: {
+    isDisabled: {
       isRequired: false,
       type: 'boolean',
       description: 'Set the chip as disabled',

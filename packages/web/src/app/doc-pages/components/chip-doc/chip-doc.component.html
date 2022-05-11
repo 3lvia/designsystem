@@ -21,7 +21,7 @@
               <elvia-chip
                 [value]="chip.value"
                 [color]="chip.color"
-                [disabled]="chip.disabled"
+                [isDisabled]="chip.isDisabled"
                 (onDelete)="handleOnDeleteInType($event.detail.value)"
               ></elvia-chip>
             </div>
@@ -65,7 +65,7 @@
                 selected="true"
                 type="legend"
                 color="blue"
-                disabled="true"
+                isDisabled="true"
                 (valueOnChange)="handleOnChange($event.detail.value)"
               ></elvia-chip>
             </div>
@@ -100,7 +100,7 @@
                 [value]="'Negativt forbruk'"
                 selected="true"
                 type="choice"
-                disabled="true"
+                isDisabled="true"
                 (valueOnChange)="handleOnChange($event.detail.value)"
               ></elvia-chip>
             </div>
@@ -138,7 +138,7 @@
               <elvia-chip
                 [value]="chip.value"
                 [color]="chip.color"
-                [disabled]="chip.disabled"
+                [isDisabled]="chip.disabled"
                 (onDelete)="handleOnDeleteColor($event.detail.value)"
               ></elvia-chip>
             </div>

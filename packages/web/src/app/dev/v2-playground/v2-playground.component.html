@@ -109,7 +109,7 @@
           [value]="chip.value"
           [color]="chip.color"
           [ariaLabel]="'Fjern filtrering for ' + chip.value"
-          [disabled]="chip.disabled"
+          [isDisabled]="chip.isDisabled"
           (onDelete)="handleOnDelete($event.detail.value)"
           [inlineStyle]="{ margin: '8px' }"
         ></elvia-chip>

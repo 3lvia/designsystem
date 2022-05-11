@@ -80,7 +80,7 @@
           :value="chip.value"
           :color="chip.color"
           :ariaLabel="'Fjern filtrering for ' + chip.value"
-          :disabled="chip.disabled"
+          :disabled="chip.isDisabled"
         ></elvia-chip>
       </div>
     </div>

@@ -28,7 +28,7 @@ export class v2PlaygroundComponent {
     { value: 2022, color: 'green' },
     { value: 2023, color: 'red' },
     { value: 2024, color: 'blue' },
-    { value: 2025, color: 'purple', disabled: true },
+    { value: 2025, color: 'purple', isDisabled: true },
   ];
 
   // Datepicker
