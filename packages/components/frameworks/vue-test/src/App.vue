@@ -98,7 +98,7 @@
       <elvia-card :header="'Header'" :description="'Hover me!'">
         <div slot="icon">91</div>
         <div slot="iconHover">92</div>
-        <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs"  aria-hidden="true"></i>
+        <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
       </elvia-card>
     </div>
 
@@ -129,10 +129,13 @@
       <h3>Chip</h3>
       <div v-for="chip in deletableChipsList" :key="chip.value">
         <elvia-chip
+          :type="'legend'"
           :value="chip.value"
           :color="chip.color"
           :ariaLabel="'Fjern filtrering for ' + chip.value"
           :disabled="chip.disabled"
+          :isSelected="true"
+          @is-selected-on-change="logValue('chip', $event.detail.value)"
         ></elvia-chip>
       </div>
     </div>
@@ -150,7 +153,7 @@
     <!--Divider-->
     <div class="example-wrapper">
       <h3>Divider</h3>
-      <elvia-divider></elvia-divider> aria-hidden="true"></i>
+      <elvia-divider></elvia-divider>
       <elvia-divider :isInverted="false" :type="'title'">
         <h2 slot="title">Title</h2>
       </elvia-divider>

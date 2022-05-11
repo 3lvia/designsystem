@@ -2,6 +2,26 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "11.05.22",
+      "version": "2.0.0 ",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Removed the <span class=\"code-text\">valueOnChange</span> event. It was dispatching the wrong value, and has been replaced with <span class=\"code-text\">isSelectedOnChange</span>.",
+            "Deprecated the prop <span class=\"code-text\">selected</span> and replaced it with <span class=\"code-text\">isSelected</span>"
+          ]
+        },
+        {
+          "type": "new_feature",
+          "changes": [
+            "New design for unselected chips.",
+            "Added a new event <span class=\"code-text\">isSelectedOnChange</span>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "03.05.22",
       "version": "1.3.1 ",
       "changelog": [

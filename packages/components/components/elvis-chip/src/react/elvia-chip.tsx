@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
 import { ChipComponent, ChipDot, ChipTitle } from './styledComponents';
-import { ChipType, ColorType, onChangeValue } from './elvia-chip.types';
+import { ChipType, ColorType } from './elvia-chip.types';
 import { Icon } from '@elvia/elvis-icon/react';
 import { useHover } from '@react-aria/interactions';
 
@@ -13,10 +13,18 @@ export interface BaseChipProps {
   color?: ColorType;
   disabled?: boolean;
   type?: ChipType;
+  /**
+   * @deprecated Removed in version 2.0.0. Replaced by `isSelected`.
+   */
   selected?: boolean;
+  isSelected?: boolean;
   value: string;
-  onDelete?: (event: string) => void;
-  valueOnChange?: (event: onChangeValue) => void;
+  onDelete?: (event: BaseChipProps['value']) => void;
+  /**
+   * @deprecated Removed in version 2.0.0. Replaced by `selectedOnChange()`.
+   */
+  valueOnChange?: (event: { value: string; isSelected: boolean }) => void;
+  isSelectedOnChange?: (isSelected: NonNullable<BaseChipProps['isSelected']>) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
@@ -26,21 +34,21 @@ export const Chip: FC<BaseChipProps> = ({
   ariaLabel,
   color = 'green',
   disabled = false,
-  selected = false,
+  isSelected = false,
   type = 'removable',
   value,
   onDelete,
-  valueOnChange,
+  isSelectedOnChange,
   className,
   inlineStyle,
   webcomponent,
   ...rest
 }) => {
-  const [isSelected, setIsSelected] = useState(selected);
+  const [isSelectedState, setIsSelectedState] = useState(isSelected);
 
   useEffect(() => {
-    setIsSelected(selected);
-  }, [selected]);
+    setIsSelectedState(isSelected);
+  }, [isSelected]);
 
   const handleOnDelete = (value: string) => {
     if (!webcomponent) {
@@ -50,13 +58,13 @@ export const Chip: FC<BaseChipProps> = ({
     }
   };
 
-  const updateSelectedState = (value: string, isSelected: boolean) => {
-    setIsSelected(isSelected);
+  const updateSelectedState = (newIsSelected: boolean) => {
+    setIsSelectedState(newIsSelected);
     if (!webcomponent) {
-      valueOnChange && valueOnChange({ value: value, isSelected: isSelected });
+      isSelectedOnChange && isSelectedOnChange(newIsSelected);
     } else if (webcomponent) {
       // True -> Prevents rerender
-      webcomponent.setProps({ value: { value: value, isSelected: isSelected } }, true);
+      webcomponent.setProps({ isSelected: newIsSelected }, true);
     }
   };
 
@@ -66,15 +74,15 @@ export const Chip: FC<BaseChipProps> = ({
     <ChipComponent
       {...hoverProps} // Handles hover / onMouseEnter / onMouseLeave logic
       role={type === 'removable' ? undefined : 'checkbox'}
-      aria-checked={type === 'removable' ? undefined : isSelected}
+      aria-checked={type === 'removable' ? undefined : isSelectedState}
       aria-label={ariaLabel}
       color={color}
       onClick={() => {
-        type === 'removable' ? handleOnDelete(value) : updateSelectedState(value, !isSelected);
+        type === 'removable' ? handleOnDelete(value) : updateSelectedState(!isSelectedState);
       }}
       disabled={disabled}
       chipType={type}
-      isSelected={isSelected}
+      isSelected={isSelectedState}
       isHovering={isHovered}
       className={`${className ? className : ''}`}
       style={inlineStyle}
@@ -87,8 +95,7 @@ export const Chip: FC<BaseChipProps> = ({
           customSize="12px"
           inlineStyle={{
             paddingRight: '8px',
-            visibility: isHovered || isSelected ? 'visible' : 'hidden',
-            opacity: disabled ? '0.3' : '1',
+            opacity: disabled ? '0.3' : isHovered || isSelectedState ? '1' : '0.05',
           }}
         />
       )}
@@ -96,7 +103,7 @@ export const Chip: FC<BaseChipProps> = ({
         <ChipDot
           color={color}
           className={classnames('dot', {
-            ['showDot']: isHovered || isSelected,
+            ['showDot']: isHovered || isSelectedState,
             ['disabledDot']: disabled,
           })}
         />
