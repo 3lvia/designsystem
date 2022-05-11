@@ -68,6 +68,16 @@ export const Chip: FC<BaseChipProps> = ({
     }
   };
 
+  const decideChoiceCheckmarkIconOpacity = () => {
+    if (disabled) {
+      return '0.3';
+    } else if (isHovered || isSelectedState) {
+      return '1';
+    } else {
+      return '0.05';
+    }
+  };
+
   const { hoverProps, isHovered } = useHover({});
 
   return (
@@ -95,7 +105,7 @@ export const Chip: FC<BaseChipProps> = ({
           customSize="12px"
           inlineStyle={{
             paddingRight: '8px',
-            opacity: disabled ? '0.3' : isHovered || isSelectedState ? '1' : '0.05',
+            opacity: decideChoiceCheckmarkIconOpacity(),
           }}
         />
       )}
