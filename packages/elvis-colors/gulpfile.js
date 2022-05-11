@@ -79,30 +79,36 @@ const generateElviaColorsScssFile = async () => {
 
 const generateElvisColorMapScss = async () => {
   let content = ``;
-
+  // For each color category
   for (const categoryLabel in colors) {
-    content = content + `\$${categoryLabel}: (\n`;
+    content += `\$${categoryLabel}: (\n`;
+    // For each color
     for (const colorLabel in colors[categoryLabel]) {
-      content = content + `'${colorLabel}': (\n`;
-      content = content + `color: ${colors[categoryLabel][colorLabel].color},\n`;
+      content += `\t'${colorLabel}': (\n`;
+      // Add color value
+      content += `\t\tcolor: ${colors[categoryLabel][colorLabel].color},\n`;
+      // Add rgb value
       if (colors[categoryLabel][colorLabel].rgb) {
-        content = content + `rgb: ${colors[categoryLabel][colorLabel].rgb},\n`;
+        const rgbValue = `\t\trgb: ${colors[categoryLabel][colorLabel].rgb},\n`;
+        content += rgbValue;
       }
+      // Add contrastText value
       if (colors[categoryLabel][colorLabel]['contrastText']) {
-        content = content + `contrastText: ${colors[categoryLabel][colorLabel]['contrastText']},\n`;
+        const contrastText = `\t\tcontrastText: ${colors[categoryLabel][colorLabel]['contrastText']},\n`;
+        content += contrastText;
       }
+      // Add alt-labels
       if (colors[categoryLabel][colorLabel]['alt-labels']) {
-        content = content + `alt-labels: (\n`;
+        let altLabels = `\t\talt-labels: (\n`;
         for (const altLabel in colors[categoryLabel][colorLabel]['alt-labels']) {
-          content = content + `${colors[categoryLabel][colorLabel]['alt-labels'][altLabel]},\n`;
+          altLabels += `\t\t\t${colors[categoryLabel][colorLabel]['alt-labels'][altLabel]},\n`;
         }
-        content = content + `),\n`;
+        content += altLabels + `\t\t),\n`;
       }
-      content = content + `),\n`;
+      content += `\t),\n`;
     }
-    content = content + `);\n\n`;
+    content += `);\n\n`;
   }
-
   fs.writeFileSync('./dist/colorMap.scss', content);
 };
 
