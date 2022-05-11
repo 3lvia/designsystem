@@ -5,7 +5,7 @@ const config: ComponentConfig = {
   deprecatedProps: {
     // Rule 1.3: Better naming for booleans
     disabled: {
-      version: '', // TODO: Update
+      version: '1.4.0',
       newProp: 'isDisabled',
       isDirectReplacement: true,
     },

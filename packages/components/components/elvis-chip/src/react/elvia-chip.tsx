@@ -14,7 +14,7 @@ export interface BaseChipProps {
   ariaLabel?: string;
   color?: ColorType;
   /**
-   * @deprecated Deprecated in version // TODO
+   * @deprecated Deprecated in version 1.4.0
    *
    */
   disabled?: boolean; // TODO: Remove when deprecation will be final.
