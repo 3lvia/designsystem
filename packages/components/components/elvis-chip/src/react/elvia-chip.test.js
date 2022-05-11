@@ -131,7 +131,7 @@ describe('Elvis Chip', () => {
 
   describe('Disabled', () => {
     beforeEach(() => {
-      wrapper = mount(<Chip value="chip value" disabled></Chip>);
+      wrapper = mount(<Chip value="chip value" isDisabled></Chip>);
       chipButton = wrapper.find({ 'data-testid': 'chip-button' }).at(0);
       chipLabel = wrapper.find({ 'data-testid': 'chip-label' }).at(0);
     });

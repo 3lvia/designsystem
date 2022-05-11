@@ -13,11 +13,6 @@ import config from './config';
 export interface BaseChipProps {
   ariaLabel?: string;
   color?: ColorType;
-  /**
-   * @deprecated Deprecated in version 1.4.0
-   *
-   */
-  disabled?: boolean; // TODO: Remove when deprecation will be final.
   isDisabled?: boolean;
   type?: ChipType;
   selected?: boolean;
@@ -32,8 +27,7 @@ export interface BaseChipProps {
 export const Chip: FC<BaseChipProps> = function ({
   ariaLabel,
   color = 'green',
-  disabled = undefined, // TODO: Remove when deprecation will be final. Set default to false.
-  isDisabled = undefined,
+  isDisabled = false,
   selected = false,
   type = 'removable',
   value,
@@ -46,16 +40,6 @@ export const Chip: FC<BaseChipProps> = function ({
 }) {
   // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(config, arguments[0]);
-
-  // TODO:
-  // Remove codeblock when deprecation will be final.
-  // Use 'isDisabled' instead of 'deprecatedDisabled'
-  const [deprecatedDisabled, setDeprecatedDisabled] = useState(false);
-
-  useEffect(() => {
-    setDeprecatedDisabled(disabled ?? isDisabled ?? false);
-  }, [disabled, isDisabled]);
-  // End of codeblock
 
   const [isSelected, setIsSelected] = useState(selected);
 
@@ -93,7 +77,7 @@ export const Chip: FC<BaseChipProps> = function ({
       onClick={() => {
         type === 'removable' ? handleOnDelete(value) : updateSelectedState(value, !isSelected);
       }}
-      disabled={deprecatedDisabled}
+      disabled={isDisabled}
       chipType={type}
       isSelected={isSelected}
       isHovering={isHovered}
@@ -109,7 +93,7 @@ export const Chip: FC<BaseChipProps> = function ({
           inlineStyle={{
             paddingRight: '8px',
             visibility: isHovered || isSelected ? 'visible' : 'hidden',
-            opacity: deprecatedDisabled ? '0.3' : '1',
+            opacity: isDisabled ? '0.3' : '1',
           }}
         />
       )}
@@ -118,11 +102,11 @@ export const Chip: FC<BaseChipProps> = function ({
           color={color}
           className={classnames('dot', {
             ['showDot']: isHovered || isSelected,
-            ['disabledDot']: deprecatedDisabled,
+            ['disabledDot']: isDisabled,
           })}
         />
       )}
-      <ChipTitle disabled={deprecatedDisabled} data-testid="chip-label">
+      <ChipTitle disabled={isDisabled} data-testid="chip-label">
         {value}
       </ChipTitle>
       {type === 'removable' && (
@@ -130,7 +114,7 @@ export const Chip: FC<BaseChipProps> = function ({
           name="close"
           size="xxs"
           inlineStyle={{ marginLeft: '8px' }}
-          color={deprecatedDisabled ? getColor('disabled') : undefined}
+          color={isDisabled ? getColor('disabled') : undefined}
         />
       )}
     </ChipComponent>
