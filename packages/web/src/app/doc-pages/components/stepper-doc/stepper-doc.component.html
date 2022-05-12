@@ -10,36 +10,36 @@
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-stepper e-stepper--horizontal">
+    <div class="e-stepper e-stepper--horizontal" role="group" aria-label="progress">
       <div class="e-stepper__steps">
         <!--STEP-->
         <div class="e-stepper__step e-stepper__step--done">
-          <div class="e-stepper__step-line"></div>
-          <button class="e-stepper__step-header">
+          <div class="e-stepper__step-line" aria-hidden="true"></div>
+          <button class="e-stepper__step-header" aria-label="Steg 1">
             <div class="e-stepper__step-number">1</div>
           </button>
         </div>
 
         <!--STEP-->
         <div class="e-stepper__step e-stepper__step--error">
-          <div class="e-stepper__step-line"></div>
-          <button class="e-stepper__step-header">
+          <div class="e-stepper__step-line" aria-hidden="true"></div>
+          <button class="e-stepper__step-header" aria-label="Steg 2">
             <div class="e-stepper__step-number">2</div>
           </button>
         </div>
 
         <!--STEP-->
-        <div class="e-stepper__step e-stepper__step--active">
-          <div class="e-stepper__step-line"></div>
-          <button class="e-stepper__step-header">
+        <div class="e-stepper__step e-stepper__step--active" aria-selected="true">
+          <div class="e-stepper__step-line" aria-hidden="true"></div>
+          <button class="e-stepper__step-header" aria-label="Steg 3">
             <div class="e-stepper__step-number">3</div>
           </button>
         </div>
 
         <!--STEP-->
         <div class="e-stepper__step">
-          <div class="e-stepper__step-line"></div>
-          <button class="e-stepper__step-header">
+          <div class="e-stepper__step-line" aria-hidden="true"></div>
+          <button class="e-stepper__step-header" aria-label="Step 4">
             <div class="e-stepper__step-number">4</div>
           </button>
         </div>
@@ -101,7 +101,7 @@
       <div class="state-container">
         <div class="state">
           <div class="number-cont e-stepper">
-            <div class="e-stepper__step e-stepper__step--active">
+            <div class="e-stepper__step e-stepper__step--active" aria-selected="true">
               <div class="e-stepper__step-header">
                 <div class="e-stepper__step-number">2</div>
               </div>
@@ -129,7 +129,7 @@
 
         <div class="state">
           <div class="number-cont e-stepper">
-            <div class="e-stepper__step e-stepper__step--active-done">
+            <div class="e-stepper__step e-stepper__step--active-done" aria-selected="true">
               <div class="e-stepper__step-header">
                 <div class="e-stepper__step-number">2</div>
               </div>
@@ -168,11 +168,11 @@
           <div class="number-cont collapsed">
             <span class="number collapsed">5</span>
             <span class="e-stepper__step-lines">
-              <div class="e-stepper__step-line"></div>
-              <div class="e-stepper__step-line"></div>
-              <div class="e-stepper__step-line"></div>
-              <div class="e-stepper__step-line"></div>
-              <div class="e-stepper__step-line"></div>
+              <div class="e-stepper__step-line" aria-hidden="true"></div>
+              <div class="e-stepper__step-line" aria-hidden="true"></div>
+              <div class="e-stepper__step-line" aria-hidden="true"></div>
+              <div class="e-stepper__step-line" aria-hidden="true"></div>
+              <div class="e-stepper__step-line" aria-hidden="true"></div>
             </span>
             <span class="number collapsed">7</span>
           </div>
@@ -189,6 +189,36 @@
     </ng-container>
   </app-component-section>
 
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'ARIA'">
+        <ng-container ngProjectAs="sectionContent">
+          <ul class="e-list">
+            <li>
+              <strong>Role:</strong>
+              Use
+              <span class="code-text">role="group"</span>
+              to indicate the steps are connected.
+            </li>
+            <li>
+              <strong>Aria-label:</strong>
+              Add
+              <span class="code-text">aria-label="progress"</span>
+              to the stepper element.
+            </li>
+            <li>
+              <strong>Aria-current:</strong>
+              Add
+              <span class="code-text">aria-current="true"</span>
+              to the current active step.
+            </li>
+          </ul>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--EXAMPLES-->
   <app-component-section [sectionTitle]="'Examples'">
     <ng-container ngProjectAs="sectionContent">
@@ -199,7 +229,7 @@
       <!--SHORT HORIZONTAL STEPPER-->
       <app-component-subsection [sectionTitle]="' Horizontal stepper'">
         <ng-container ngProjectAs="sectionContent">
-          <div class="e-stepper e-stepper--horizontal">
+          <div class="e-stepper e-stepper--horizontal" role="group" aria-label="progress">
             <div class="e-stepper__steps">
               <div
                 class="e-stepper__step"
@@ -211,9 +241,10 @@
                   'e-stepper__step--error': step.status === 'error',
                   'e-stepper__step--active-done': step.status === 'activeDone'
                 }"
+                [attr.aria-selected]="step.status === 'active'"
               >
-                <div class="e-stepper__step-line"></div>
-                <button class="e-stepper__step-header">
+                <div class="e-stepper__step-line" aria-hidden="true"></div>
+                <button class="e-stepper__step-header" [attr.aria-label]="'Steg ' + step.number">
                   <div class="e-stepper__step-number">{{ step.number }}</div>
                 </button>
               </div>
@@ -317,7 +348,7 @@
       <app-component-subsection [sectionTitle]="'Forced horizontal'">
         <ng-container ngProjectAs="sectionContent">
           <!--HORIZONTAL FORCED STEPPER-->
-          <div class="e-stepper e-stepper--horizontal e-stepper--forced">
+          <div class="e-stepper e-stepper--horizontal e-stepper--forced" role="group" aria-label="progress">
             <div class="e-stepper__steps">
               <div
                 class="e-stepper__step"
@@ -329,9 +360,10 @@
                   'e-stepper__step--error': step.status === 'error',
                   'e-stepper__step--active-done': step.status === 'activeDone'
                 }"
+                [attr.aria-selected]="step.status === 'active'"
               >
-                <div class="e-stepper__step-line"></div>
-                <button class="e-stepper__step-header">
+                <div class="e-stepper__step-line" aria-hidden="true"></div>
+                <button class="e-stepper__step-header" [attr.aria-label]="'Steg ' + step.number">
                   <div class="e-stepper__step-number">{{ step.number }}</div>
                 </button>
               </div>
@@ -432,7 +464,7 @@
       <app-component-subsection [sectionTitle]="'Long horizontal'">
         <ng-container ngProjectAs="sectionContent">
           <!--LONG HORIZONTAL STEPPER-->
-          <div class="e-stepper e-stepper--horizontal">
+          <div class="e-stepper e-stepper--horizontal" role="group" aria-label="progress">
             <div class="e-stepper__steps">
               <div
                 class="e-stepper__step"
@@ -444,20 +476,21 @@
                   'e-stepper__step--error': step.status === 'error',
                   'e-stepper__step--active-done': step.status === 'activeDone'
                 }"
+                [attr.aria-selected]="step.status === 'active'"
               >
-                <div class="e-stepper__step-line"></div>
-                <button class="e-stepper__step-header">
+                <div class="e-stepper__step-line" aria-hidden="true"></div>
+                <button class="e-stepper__step-header" [attr.aria-label]="'Steg ' + step.number">
                   <div class="e-stepper__step-number">{{ step.number }}</div>
                 </button>
               </div>
 
               <!--DASHED LINES-->
               <div class="e-stepper__step-lines">
-                <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-line"></div>
+                <div class="e-stepper__step-line" aria-hidden="true"></div>
+                <div class="e-stepper__step-line" aria-hidden="true"></div>
+                <div class="e-stepper__step-line" aria-hidden="true"></div>
+                <div class="e-stepper__step-line" aria-hidden="true"></div>
+                <div class="e-stepper__step-line" aria-hidden="true"></div>
               </div>
 
               <div
@@ -470,20 +503,25 @@
                   'e-stepper__step--error': step.status === 'error',
                   'e-stepper__step--active-done': step.status === 'activeDone'
                 }"
+                [attr.aria-selected]="step.status === 'active'"
               >
-                <div class="e-stepper__step-line" *ngIf="step.number > chosenNum - 1"></div>
-                <button class="e-stepper__step-header">
+                <div
+                  class="e-stepper__step-line"
+                  aria-hidden="true"
+                  *ngIf="step.number > chosenNum - 1"
+                ></div>
+                <button class="e-stepper__step-header" [attr.aria-label]="'Steg ' + step.number">
                   <div class="e-stepper__step-number">{{ step.number }}</div>
                 </button>
               </div>
 
               <!--DASHED LINES-->
               <div class="e-stepper__step-lines" *ngIf="linesBottom()">
-                <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-line"></div>
+                <div class="e-stepper__step-line" aria-hidden="true"></div>
+                <div class="e-stepper__step-line" aria-hidden="true"></div>
+                <div class="e-stepper__step-line" aria-hidden="true"></div>
+                <div class="e-stepper__step-line" aria-hidden="true"></div>
+                <div class="e-stepper__step-line" aria-hidden="true"></div>
               </div>
 
               <div
@@ -496,9 +534,10 @@
                   'e-stepper__step--error': step.status === 'error',
                   'e-stepper__step--active-done': step.status === 'activeDone'
                 }"
+                [attr.aria-selected]="step.status === 'active'"
               >
-                <div class="e-stepper__step-line" *ngIf="lastLine(step)"></div>
-                <button class="e-stepper__step-header">
+                <div class="e-stepper__step-line" aria-hidden="true" *ngIf="lastLine(step)"></div>
+                <button class="e-stepper__step-header" [attr.aria-label]="'Steg ' + step.number">
                   <div class="e-stepper__step-number">{{ step.number }}</div>
                 </button>
               </div>
@@ -617,7 +656,7 @@
       <app-component-subsection [sectionTitle]="'Vertical'">
         <ng-container ngProjectAs="sectionContent">
           <!--VERTICAL SHORT STEPPER-->
-          <div class="e-stepper e-stepper--vertical">
+          <div class="e-stepper e-stepper--vertical" role="group" aria-label="progress">
             <div
               class="e-stepper__step"
               *ngFor="let step of shortSteps"
@@ -627,8 +666,13 @@
                 'e-stepper__step--error': step.status === 'error',
                 'e-stepper__step--active-done': step.status === 'activeDone'
               }"
+              [attr.aria-selected]="step.status === 'active'"
             >
-              <div class="e-stepper__step-line" *ngIf="shortChosenNum !== step.number - 1"></div>
+              <div
+                class="e-stepper__step-line"
+                aria-hidden="true"
+                *ngIf="shortChosenNum !== step.number - 1"
+              ></div>
               <button class="e-stepper__step-header" (click)="chooseShortStep(step)">
                 <div class="e-stepper__step-number">{{ step.number }}</div>
                 <div class="e-stepper__step-title">{{ step.title }}</div>
@@ -733,7 +777,7 @@
       <app-component-subsection [sectionTitle]="'Forced vertical'">
         <ng-container ngProjectAs="sectionContent">
           <!--VERTICAL FORCED STEPPER-->
-          <div class="e-stepper e-stepper--vertical e-stepper--forced">
+          <div class="e-stepper e-stepper--vertical e-stepper--forced" role="group" aria-label="progress">
             <div
               class="e-stepper__step"
               *ngFor="let step of forcedSteps"
@@ -743,8 +787,13 @@
                 'e-stepper__step--error': step.status === 'error',
                 'e-stepper__step--active-done': step.status === 'activeDone'
               }"
+              [attr.aria-selected]="step.status === 'active'"
             >
-              <div class="e-stepper__step-line" *ngIf="forcedChosenNum !== step.number - 1"></div>
+              <div
+                class="e-stepper__step-line"
+                aria-hidden="true"
+                *ngIf="forcedChosenNum !== step.number - 1"
+              ></div>
               <button class="e-stepper__step-header" (click)="chooseForcedStep(step)">
                 <div class="e-stepper__step-number">{{ step.number }}</div>
                 <div class="e-stepper__step-title">{{ step.title }}</div>
@@ -845,7 +894,7 @@
       <app-component-subsection [sectionTitle]="'Long vertical'">
         <ng-container ngProjectAs="sectionContent">
           <!--LONG VERTICAL STEPPER-->
-          <div class="e-stepper e-stepper--vertical">
+          <div class="e-stepper e-stepper--vertical" role="group" aria-label="progress">
             <!--STEP FIRSTS-->
             <div
               class="e-stepper__step"
@@ -856,8 +905,13 @@
                 'e-stepper__step--error': step.status === 'error',
                 'e-stepper__step--active-done': step.status === 'activeDone'
               }"
+              [attr.aria-selected]="step.status === 'active'"
             >
-              <div class="e-stepper__step-line" *ngIf="chosenNum !== step.number - 1"></div>
+              <div
+                class="e-stepper__step-line"
+                aria-hidden="true"
+                *ngIf="chosenNum !== step.number - 1"
+              ></div>
               <button class="e-stepper__step-header" (click)="chooseStep(step)">
                 <div class="e-stepper__step-number">{{ step.number }}</div>
                 <div class="e-stepper__step-title">{{ step.title }}</div>
@@ -948,9 +1002,9 @@
 
             <!--DASHED LINES-->
             <div class="e-stepper__step-lines">
-              <div class="e-stepper__step-line"></div>
-              <div class="e-stepper__step-line"></div>
-              <div class="e-stepper__step-line"></div>
+              <div class="e-stepper__step-line" aria-hidden="true"></div>
+              <div class="e-stepper__step-line" aria-hidden="true"></div>
+              <div class="e-stepper__step-line" aria-hidden="true"></div>
             </div>
 
             <!--STEP CENTER-->
@@ -963,9 +1017,11 @@
                 'e-stepper__step--error': step.status === 'error',
                 'e-stepper__step--active-done': step.status === 'activeDone'
               }"
+              [attr.aria-selected]="step.status === 'active'"
             >
               <div
                 class="e-stepper__step-line"
+                aria-hidden="true"
                 *ngIf="chosenNum !== step.number - 1 && chosenNum !== step.number + 1"
               ></div>
               <button class="e-stepper__step-header" (click)="chooseStep(step)">
@@ -1005,9 +1061,9 @@
 
             <!--DASHED LINES-->
             <div class="e-stepper__step-lines" *ngIf="linesBottom()">
-              <div class="e-stepper__step-line"></div>
-              <div class="e-stepper__step-line"></div>
-              <div class="e-stepper__step-line"></div>
+              <div class="e-stepper__step-line" aria-hidden="true"></div>
+              <div class="e-stepper__step-line" aria-hidden="true"></div>
+              <div class="e-stepper__step-line" aria-hidden="true"></div>
             </div>
 
             <!--STEP LASTS-->
@@ -1020,8 +1076,13 @@
                 'e-stepper__step--error': step.status === 'error',
                 'e-stepper__step--active-done': step.status === 'activeDone'
               }"
+              [attr.aria-selected]="step.status === 'active'"
             >
-              <div class="e-stepper__step-line" *ngIf="lastLine(step) && chosenNum !== step.number - 1"></div>
+              <div
+                class="e-stepper__step-line"
+                aria-hidden="true"
+                *ngIf="lastLine(step) && chosenNum !== step.number - 1"
+              ></div>
               <button class="e-stepper__step-header" (click)="chooseStep(step)">
                 <div class="e-stepper__step-number">{{ step.number }}</div>
                 <div class="e-stepper__step-title">{{ step.title }}</div>

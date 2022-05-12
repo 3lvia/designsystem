@@ -16,37 +16,36 @@ export class StepperDocComponent implements OnInit {
   figmaUrl = getComponent('stepper').figmaUrl;
   description = getComponent('stepper').description;
 
-  exampleShortHorizontalHTML = `<div class="e-stepper e-stepper--horizontal">
-  <div class="e-stepper__steps">
-
+  exampleShortHorizontalHTML = `<div class="e-stepper e-stepper--horizontal" role="group" aria-label="progress">
+  <ol class="e-stepper__steps">
     <!--STEP-->
     <div class="e-stepper__step e-stepper__step--done">
-      <div class="e-stepper__step-line"></div>
-      <button class="e-stepper__step-header">
+      <div class="e-stepper__step-line" aria-hidden="true"></div>
+      <button class="e-stepper__step-header" aria-label="Steg 1">
         <div class="e-stepper__step-number">1</div>
       </button>
     </div>
 
     <!--STEP-->
     <div class="e-stepper__step e-stepper__step--error">
-      <div class="e-stepper__step-line"></div>
-      <button class="e-stepper__step-header">
+      <div class="e-stepper__step-line" aria-hidden="true"></div>
+      <button class="e-stepper__step-header" aria-label="Steg 2">
         <div class="e-stepper__step-number">2</div>
       </button>
     </div>
 
     <!--STEP-->
-    <div class="e-stepper__step e-stepper__step--active">
-      <div class="e-stepper__step-line"></div>
-      <button class="e-stepper__step-header">
+    <div class="e-stepper__step e-stepper__step--active" aria-selected="true">
+      <div class="e-stepper__step-line" aria-hidden="true"></div>
+      <button class="e-stepper__step-header" aria-label="Steg 3">
         <div class="e-stepper__step-number">3</div>
       </button>
     </div>
 
     <!--STEP-->
     <div class="e-stepper__step">
-      <div class="e-stepper__step-line"></div>
-      <button class="e-stepper__step-header">
+      <div class="e-stepper__step-line" aria-hidden="true"></div>
+      <button class="e-stepper__step-header" aria-label="Steg 4">
         <div class="e-stepper__step-number">4</div>
       </button>
     </div>
@@ -80,37 +79,37 @@ export class StepperDocComponent implements OnInit {
 </div>
 `;
 
-  exampleForcedHorizontalHTML = `<div class="e-stepper e-stepper--horizontal e-stepper--forced">
-  <div class="e-stepper__steps">
+  exampleForcedHorizontalHTML = `<div class="e-stepper e-stepper--horizontal e-stepper--forced" role="group" aria-label="progress">
+  <ol class="e-stepper__steps">
 
     <!--STEP-->
     <div class="e-stepper__step e-stepper__step--done">
-      <div class="e-stepper__step-line"></div>
-      <button class="e-stepper__step-header">
+      <div class="e-stepper__step-line" aria-hidden="true"></div>
+      <button class="e-stepper__step-header" aria-label="Steg #nr">
         <div class="e-stepper__step-number">1</div>
       </button>
     </div>
 
     <!--STEP-->
-    <div class="e-stepper__step e-stepper__step--active-done">
-      <div class="e-stepper__step-line"></div>
-      <button class="e-stepper__step-header">
+    <div class="e-stepper__step e-stepper__step--active-done" aria-selected="true">
+      <div class="e-stepper__step-line" aria-hidden="true"></div>
+      <button class="e-stepper__step-header" aria-label="Steg #nr">
         <div class="e-stepper__step-number">2</div>
       </button>
     </div>
 
     <!--STEP-->
     <div class="e-stepper__step">
-      <div class="e-stepper__step-line"></div>
-      <button class="e-stepper__step-header">
+      <div class="e-stepper__step-line" aria-hidden="true"></div>
+      <button class="e-stepper__step-header" aria-label="Steg #nr">
         <div class="e-stepper__step-number">3</div>
       </button>
     </div>
 
     <!--STEP-->
     <div class="e-stepper__step">
-      <div class="e-stepper__step-line"></div>
-      <button class="e-stepper__step-header">
+      <div class="e-stepper__step-line" aria-hidden="true"></div>
+      <button class="e-stepper__step-header" aria-label="Steg #nr">
         <div class="e-stepper__step-number">4</div>
       </button>
     </div>
@@ -144,19 +143,19 @@ export class StepperDocComponent implements OnInit {
 </div>
 `;
 
-  exampleHorizontalHTML = `<div class="e-stepper e-stepper--horizontal">
-  <div class="e-stepper__steps">
+  exampleHorizontalHTML = `<div class="e-stepper e-stepper--horizontal" role="group" aria-label="progress">
+  <ol class="e-stepper__steps">
 
     <!--STEP-->
     <div class="e-stepper__step e-stepper__step--done">
-      <div class="e-stepper__step-line"></div>
-      <button class="e-stepper__step-header">
+      <div class="e-stepper__step-line" aria-hidden="true"></div>
+      <button class="e-stepper__step-header" aria-label="Steg #nr">
         <div class="e-stepper__step-number">1</div>
       </button>
     </div>
 
     <!--DASHED LINES-->
-    <div class="e-stepper__step-lines">
+    <div class="e-stepper__step-lines" aria-hidden="true">
       <div class="e-stepper__step-line"></div>
       <div class="e-stepper__step-line"></div>
       <div class="e-stepper__step-line"></div>
@@ -166,30 +165,30 @@ export class StepperDocComponent implements OnInit {
 
     <!--STEP-->
     <div class="e-stepper__step e-stepper__step--error">
-      <!--<div class="e-stepper__step-line"></div>-->
-      <button class="e-stepper__step-header">
+      <!--<div class="e-stepper__step-line" aria-hidden="true"></div>-->
+      <button class="e-stepper__step-header" aria-label="Steg #nr">
         <div class="e-stepper__step-number">3</div>
       </button>
     </div>
 
     <!--STEP-->
-    <div class="e-stepper__step e-stepper__step--active">
-      <div class="e-stepper__step-line"></div>
-      <button class="e-stepper__step-header">
+    <div class="e-stepper__step e-stepper__step--active" aria-selected="true">
+      <div class="e-stepper__step-line" aria-hidden="true"></div>
+      <button class="e-stepper__step-header" aria-label="Steg #nr">
         <div class="e-stepper__step-number">4</div>
       </button>
     </div>
 
     <!--STEP-->
     <div class="e-stepper__step">
-      <div class="e-stepper__step-line"></div>
-      <button class="e-stepper__step-header">
+      <div class="e-stepper__step-line" aria-hidden="true"></div>
+      <button class="e-stepper__step-header" aria-label="Steg #nr">
         <div class="e-stepper__step-number">5</div>
       </button>
     </div>
 
     <!--DASHED LINES-->
-    <div class="e-stepper__step-lines">
+    <div class="e-stepper__step-lines" aria-hidden="true">
       <div class="e-stepper__step-line"></div>
       <div class="e-stepper__step-line"></div>
       <div class="e-stepper__step-line"></div>
@@ -199,8 +198,8 @@ export class StepperDocComponent implements OnInit {
 
     <!--STEP-->
     <div class="e-stepper__step">
-      <!--<div class="e-stepper__step-line"></div>-->
-      <button class="e-stepper__step-header">
+      <!--<div class="e-stepper__step-line" aria-hidden="true"></div>-->
+      <button class="e-stepper__step-header" aria-label="Steg #nr">
         <div class="e-stepper__step-number">7</div>
       </button>
     </div>
@@ -234,11 +233,11 @@ export class StepperDocComponent implements OnInit {
 </div>
 `;
 
-  exampleVerticalShortHTML = `<div class="e-stepper e-stepper--vertical">
+  exampleVerticalShortHTML = `<div class="e-stepper e-stepper--vertical" role="group" aria-label="progress">
   <!--STEP-->
   <div class="e-stepper__step e-stepper__step--done">
-    <div class="e-stepper__step-line"></div>
-    <button class="e-stepper__step-header">
+    <div class="e-stepper__step-line" aria-hidden="true"></div>
+    <button class="e-stepper__step-header" aria-label="Steg #nr">
       <div class="e-stepper__step-number">1</div>
       <div class="e-stepper__step-title">Create payment</div>
     </button>
@@ -246,17 +245,17 @@ export class StepperDocComponent implements OnInit {
 
   <!--STEP-->
   <div class="e-stepper__step e-stepper__step--error">
-    <div class="e-stepper__step-line"></div>
-    <button class="e-stepper__step-header">
+    <div class="e-stepper__step-line" aria-hidden="true"></div>
+    <button class="e-stepper__step-header" aria-label="Steg #nr">
       <div class="e-stepper__step-number">2</div>
       <div class="e-stepper__step-title">Card</div>
     </button>
   </div>
 
   <!--STEP-->
-  <div class="e-stepper__step e-stepper__step--active">
-    <div class="e-stepper__step-line"></div>
-    <button class="e-stepper__step-header">
+  <div class="e-stepper__step e-stepper__step--active" aria-selected="true">
+    <div class="e-stepper__step-line" aria-hidden="true"></div>
+    <button class="e-stepper__step-header" aria-label="Steg #nr">
       <div class="e-stepper__step-number">3</div>
       <div class="e-stepper__step-title">Contact</div>
     </button>
@@ -289,8 +288,8 @@ export class StepperDocComponent implements OnInit {
 
   <!--STEP-->
   <div class="e-stepper__step">
-    <!--<div class="e-stepper__step-line"></div>-->
-    <button class="e-stepper__step-header">
+    <!--<div class="e-stepper__step-line" aria-hidden="true"></div>-->
+    <button class="e-stepper__step-header" aria-label="Steg #nr">
       <div class="e-stepper__step-number">4</div>
       <div class="e-stepper__step-title">Send</div>
     </button>
@@ -298,20 +297,20 @@ export class StepperDocComponent implements OnInit {
 </div>
 `;
 
-  exampleVerticalForcedHTML = `<div class="e-stepper e-stepper--vertical e-stepper--forced">
+  exampleVerticalForcedHTML = `<div class="e-stepper e-stepper--vertical e-stepper--forced" role="group" aria-label="progress">
   <!--STEP-->
   <div class="e-stepper__step e-stepper__step--done">
-    <div class="e-stepper__step-line"></div>
-    <button class="e-stepper__step-header">
+    <div class="e-stepper__step-line" aria-hidden="true"></div>
+    <button class="e-stepper__step-header" aria-label="Steg #nr">
       <div class="e-stepper__step-number">1</div>
       <div class="e-stepper__step-title">Create payment</div>
     </button>
   </div>
 
   <!--STEP-->
-  <div class="e-stepper__step e-stepper__step--active">
-    <div class="e-stepper__step-line"></div>
-    <button class="e-stepper__step-header">
+  <div class="e-stepper__step e-stepper__step--active" aria-selected="true">
+    <div class="e-stepper__step-line" aria-hidden="true"></div>
+    <button class="e-stepper__step-header" aria-label="Steg #nr">
       <div class="e-stepper__step-number">2</div>
       <div class="e-stepper__step-title">Contact</div>
     </button>
@@ -344,8 +343,8 @@ export class StepperDocComponent implements OnInit {
 
   <!--STEP-->
   <div class="e-stepper__step">
-    <!--<div class="e-stepper__step-line"></div>-->
-    <button class="e-stepper__step-header">
+    <!--<div class="e-stepper__step-line" aria-hidden="true"></div>-->
+    <button class="e-stepper__step-header" aria-label="Steg #nr">
       <div class="e-stepper__step-number">3</div>
       <div class="e-stepper__step-title">Card</div>
     </button>
@@ -353,8 +352,8 @@ export class StepperDocComponent implements OnInit {
 
   <!--STEP-->
   <div class="e-stepper__step">
-    <div class="e-stepper__step-line"></div>
-    <button class="e-stepper__step-header">
+    <div class="e-stepper__step-line" aria-hidden="true"></div>
+    <button class="e-stepper__step-header" aria-label="Steg #nr">
       <div class="e-stepper__step-number">4</div>
       <div class="e-stepper__step-title">Send</div>
     </button>
@@ -362,18 +361,18 @@ export class StepperDocComponent implements OnInit {
 </div>
 `;
 
-  exampleVerticalHTML = `<div class="e-stepper e-stepper--vertical">
+  exampleVerticalHTML = `<div class="e-stepper e-stepper--vertical" role="group" aria-label="progress">
   <!--STEP-->
   <div class="e-stepper__step e-stepper__step--done">
-    <div class="e-stepper__step-line"></div>
-    <button class="e-stepper__step-header">
+    <div class="e-stepper__step-line" aria-hidden="true"></div>
+    <button class="e-stepper__step-header" aria-label="Steg #nr">
       <div class="e-stepper__step-number">1</div>
       <div class="e-stepper__step-title">Create payment</div>
     </button>
   </div>
 
   <!--DASHED LINES-->
-  <div class="e-stepper__step-lines">
+  <div class="e-stepper__step-lines" aria-hidden="true">
     <div class="e-stepper__step-line"></div>
     <div class="e-stepper__step-line"></div>
     <div class="e-stepper__step-line"></div>
@@ -381,17 +380,17 @@ export class StepperDocComponent implements OnInit {
 
   <!--STEP-->
   <div class="e-stepper__step e-stepper__step--error">
-    <!--<div class="e-stepper__step-line"></div>-->
-    <button class="e-stepper__step-header">
+    <!---stepper__step-line" aria-hidden="true"></div>-->
+    <button class="e-stepper__step-header" aria-label="Steg #nr">
       <div class="e-stepper__step-number">3</div>
       <div class="e-stepper__step-title">Card</div>
     </button>
   </div>
 
   <!--STEP-->
-  <div class="e-stepper__step e-stepper__step--active">
-    <div class="e-stepper__step-line"></div>
-    <button class="e-stepper__step-header">
+  <div class="e-stepper__step e-stepper__step--active" aria-selected="true">
+    <div class="e-stepper__step-line" aria-hidden="true"></div>
+    <button class="e-stepper__step-header" aria-label="Steg #nr">
       <div class="e-stepper__step-number">4</div>
       <div class="e-stepper__step-title">Contact</div>
     </button>
@@ -424,24 +423,24 @@ export class StepperDocComponent implements OnInit {
 
   <!--STEP-->
   <div class="e-stepper__step">
-    <!--<div class="e-stepper__step-line"></div>-->
-    <button class="e-stepper__step-header">
+    <!--<div class="e-stepper__step-line" aria-hidden="true"></div>-->
+    <button class="e-stepper__step-header" aria-label="Steg #nr">
       <div class="e-stepper__step-number">5</div>
       <div class="e-stepper__step-title">More</div>
     </button>
   </div>
 
   <!--DASHED LINES-->
-  <div class="e-stepper__step-lines" *ngIf="linesBottom()">
-    <div class="e-stepper__step-line"></div>
-    <div class="e-stepper__step-line"></div>
-    <div class="e-stepper__step-line"></div>
+  <div class="e-stepper__step-lines" aria-hidden="true" *ngIf="linesBottom()">
+    <div class="e-stepper__step-line" aria-hidden="true"></div>
+    <div class="e-stepper__step-line" aria-hidden="true"></div>
+    <div class="e-stepper__step-line" aria-hidden="true"></div>
   </div>
 
   <!--STEP-->
   <div class="e-stepper__step">
-    <!--<div class="e-stepper__step-line"></div>-->
-    <button class="e-stepper__step-header">
+    <!--<div class="e-stepper__step-line" aria-hidden="true"></div>-->
+    <button class="e-stepper__step-header" aria-label="Steg #nr">
       <div class="e-stepper__step-number">7</div>
       <div class="e-stepper__step-title">Send</div>
     </button>

@@ -6226,6 +6226,7 @@ input:focus {
   border: 0;
   background: transparent;
   padding: 0px;
+  cursor: pointer;
 }
 .e-stepper__step-number {
   font-family: "Red Hat Display", Verdana, sans-serif;
