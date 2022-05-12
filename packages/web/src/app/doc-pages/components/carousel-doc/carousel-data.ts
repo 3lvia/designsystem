@@ -7,18 +7,17 @@ export const carouselData: ComponentData = {
   elementNameW: 'elvia-carousel',
   elementNameR: 'Carousel',
   attributes: {
-    elements: {
+    items: {
       isRequired: true,
-      type: 'CarouselElement[] | number | slot',
+      type: 'CarouselItem[] | number | slot',
       description:
-        'A collection of related items that should be displayed in a carousel. If not React, send the elements in by slots. Name the slots "element-1", "title-1", "element-2", "title-2" and so on.',
+        'A collection of related items that should be displayed in a carousel. If not React, send the items in by slots. Name the slots "item-1", "title-1", "item-2", "title-2" and so on.',
       cegDisplayName: 'No content',
     },
     hideArrows: {
       isRequired: false,
       type: 'boolean',
-      description:
-        'Decides if looping through the elements should be possible, hides the arrows at the if not.',
+      description: 'Decides if looping through the items should be possible, hides the arrows at the if not.',
       default: 'false',
       cegDisplayName: 'Loop',
       cegType: 'boolean',
@@ -31,7 +30,7 @@ export const carouselData: ComponentData = {
       isRequired: false,
       type: 'boolean',
       description:
-        'Whether a checkmark button should be used for the last element. Is used in an onboarding situation and requires hideArrows to also be sent in',
+        'Whether a checkmark button should be used for the last item. Is used in an onboarding situation and requires hideArrows to also be sent in',
       default: 'false',
       cegDisplayName: 'Confirm button',
       cegType: 'boolean',
@@ -61,7 +60,7 @@ export const carouselData: ComponentData = {
     hasAnimation: {
       isRequired: false,
       type: 'boolean',
-      description: 'Can be used to turn off the animation when moving between elements in the carousel.',
+      description: 'Can be used to turn off the animation when moving between items in the carousel.',
       default: 'true',
     },
     className: {
@@ -80,10 +79,10 @@ export const carouselData: ComponentData = {
   codeImportReact: `import { Carousel } from '@elvia/elvis-carousel/react';`,
   codeImportWebComponent: `import '@elvia/elvis-carousel';`,
   codeReact: `<Carousel
-  elements={[
+  items={[
     { 
       title: <h3 className="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>, 
-      element: <img 
+      item: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el1.jpeg"
         style={{width: '100%', minWidth: '278px', borderRadius: '8px'}}
@@ -91,7 +90,7 @@ export const carouselData: ComponentData = {
     },
     { 
       title: <h3 className="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>, 
-      element: <img 
+      item: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el2.jpeg"
         style={{width: '100%', minWidth: '278px', borderRadius: '8px'}}
@@ -99,7 +98,7 @@ export const carouselData: ComponentData = {
     },
     { 
       title: <h3 className="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>, 
-      element: <img 
+      item: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el3.jpeg"
         style={{width: '100%', minWidth: '278px', borderRadius: '8px'}}
@@ -112,7 +111,7 @@ export const carouselData: ComponentData = {
   <div slot="title-1">
     <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-1">
+  <div slot="item-1">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el1.jpeg"
@@ -122,7 +121,7 @@ export const carouselData: ComponentData = {
   <div slot="title-2">
     <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-2">
+  <div slot="item-2">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el2.jpeg"
@@ -132,7 +131,7 @@ export const carouselData: ComponentData = {
   <div slot="title-3">
     <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-3">
+  <div slot="item-3">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el3.jpeg"
@@ -145,7 +144,7 @@ export const carouselData: ComponentData = {
   <div slot="title-1">
     <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-1">
+  <div slot="item-1">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el1.jpeg"
@@ -155,7 +154,7 @@ export const carouselData: ComponentData = {
   <div slot="title-2">
     <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-2">
+  <div slot="item-2">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el2.jpeg"
@@ -165,7 +164,7 @@ export const carouselData: ComponentData = {
   <div slot="title-3">
     <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-3">
+  <div slot="item-3">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el3.jpeg"
@@ -178,7 +177,7 @@ export const carouselData: ComponentData = {
   <div slot="title-1">
     <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-1">
+  <div slot="item-1">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el1.jpeg"
@@ -188,7 +187,7 @@ export const carouselData: ComponentData = {
   <div slot="title-2">
     <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-2">
+  <div slot="item-2">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el2.jpeg"
@@ -198,7 +197,7 @@ export const carouselData: ComponentData = {
   <div slot="title-3">
     <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-3">
+  <div slot="item-3">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el3.jpeg"
@@ -213,7 +212,7 @@ export const carouselData: ComponentData = {
   ],
   donts: [
     'Should not be use on non-visual items such as links or paragraphs',
-    'More than 5 frames - It’s unlikely users will engage with more than that (Use a list instead)',
+    'More than 5 frames - It`s unlikely users will engage with more than that (Use a list instead)',
   ],
   changelog: changelogJson.content,
 };

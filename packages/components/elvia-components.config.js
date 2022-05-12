@@ -122,7 +122,7 @@ module.exports = [
     name: 'elvis-carousel',
     elementName: 'elvia-carousel',
     attributes: [
-      { name: 'elements', type: 'string', propType: 'number | string | HTMLElement' },
+      { name: 'items', type: 'string', propType: 'number | string | HTMLElement' },
       { name: 'hideArrows', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'useOnboardingCheckmark', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasAnimation', type: 'boolean', propType: 'boolean' },

@@ -89,7 +89,7 @@ const consoleWarnDeprecatedProp = (
  *
  * @since 1.3.0
  */
-export const warnDeprecatedProps = (config: ComponentConfig, props: IArguments): void => {
+export const warnDeprecatedProps = (config: ComponentConfig, props: IArguments | any): void => {
   // If not on localhost, don't console log deprecation warnings.
   if (window.location.href.indexOf('localhost') === -1) {
     return;
@@ -97,6 +97,7 @@ export const warnDeprecatedProps = (config: ComponentConfig, props: IArguments):
   /** List of deprecated callbacks that have already been console warned. Used to avoid duplicated warnings. */
   const warnedCallbacks: string[] = [];
   const deprecatedProps = config.deprecatedProps;
+
   for (const prop in props) {
     // Check for deprecated props
     if (prop in deprecatedProps) {

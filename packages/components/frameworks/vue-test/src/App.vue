@@ -109,15 +109,15 @@
         <div slot="title-1">
           <h4 class="e-title-sm">HAN-port</h4>
         </div>
-        <div slot="element-1">hello</div>
+        <div slot="item-1">hello</div>
         <div slot="title-2">
           <h4 class="e-title-sm">AMS-meter</h4>
         </div>
-        <div slot="element-2">halla</div>
+        <div slot="item-2">halla</div>
         <div slot="title-3">
           <h4 class="e-title-sm">YOYOYO</h4>
         </div>
-        <div slot="element-3">hei</div>
+        <div slot="item-3">hei</div>
       </elvia-carousel>
       <button @click="carouselValue = incrementCarouselStep(carouselValue)" class="e-btn e-btn--sm">
         Increment step
@@ -265,11 +265,11 @@ export default {
         { title: 'Elvias leveringsplikt' },
       ],
       // Carousel
-      elements: [
-        { element: this.carouselParagraph },
-        { title: 'Hei til ny tariff!', element: this.carouselParagraph },
-        { title: 'Strømbruddsvarsel', element: this.carouselParagraph },
-        { element: this.carouselParagraph },
+      items: [
+        { item: this.carouselParagraph },
+        { title: 'Hei til ny tariff!', item: this.carouselParagraph },
+        { title: 'Strømbruddsvarsel', item: this.carouselParagraph },
+        { item: this.carouselParagraph },
       ],
       carouselValue: 0,
       // Chips
