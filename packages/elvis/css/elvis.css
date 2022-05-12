@@ -7076,6 +7076,9 @@ input:focus {
   transform: translateX(16px);
 }
 .e-toggle.e-toggle---focus input.e-toggle__input {
+  outline: none;
+}
+.e-toggle.e-toggle---focus input.e-toggle__input::before {
   outline: 2px solid #0064fa !important;
   outline-offset: 2px;
 }

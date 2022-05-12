@@ -92,7 +92,10 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
 
   // Focus
   &.e-toggle---focus input.e-toggle__input {
-    @include outline.e-outline-pseudoclass();
+    outline: none;
+    &::before {
+      @include outline.e-outline-pseudoclass();
+    }
   }
   input:focus-visible.e-toggle__input {
     outline: none;
