@@ -179,15 +179,15 @@ function App() {
         {/* CHIP */}
         <div className="example-wrapper">
           <h3>Chip</h3>
-          <Chip type={'removable'} value={2022} selected={true}></Chip>
-          <Chip type={'choice'} value={2022} selected={true}></Chip>
+          <Chip type={'removable'} value={2022} isSelected={true}></Chip>
+          <Chip type={'choice'} value={2022} isSelected={true}></Chip>
           <Chip type={'choice'} value={'Disabled'} isDisabled></Chip>
 
           <Chip
             type="legend"
             isSelectedOnChange={() => setChipSelected(!chipSelected)}
             isSelected={chipSelected}
-            value="2022"
+            value="Selectable"
           ></Chip>
         </div>
         {/* DATEPICKER */}

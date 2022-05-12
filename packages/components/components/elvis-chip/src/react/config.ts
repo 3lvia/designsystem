@@ -5,8 +5,14 @@ const config: ComponentConfig = {
   deprecatedProps: {
     // Rule 1.3: Better naming for booleans
     disabled: {
-      version: '1.4.0',
+      version: '2.0.0',
       newProp: 'isDisabled',
+      isDirectReplacement: true,
+    },
+    // Rule 1.3: Better naming for booleans
+    selected: {
+      version: '2.0.0',
+      newProp: 'isSelected',
       isDirectReplacement: true,
     },
   },

@@ -13,6 +13,10 @@ import config from './config';
 export interface BaseChipProps {
   ariaLabel?: string;
   color?: ColorType;
+  /**
+   * @deprecated Removed in version 2.0.0. Replaced by `isDisabled`.
+   */
+  disabled?: boolean;
   isDisabled?: boolean;
   type?: ChipType;
   /**
