@@ -32,6 +32,7 @@ export const chipData: ComponentData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['green', 'blue', 'orange', 'purple', 'red', 'violet'],
+      cegDependency: [{ name: 'type', value: ['legend', 'removable'] }],
     },
     isDisabled: {
       isRequired: false,
@@ -125,8 +126,8 @@ export const chipData: ComponentData = {
 `,
   changelog: changelogJson.content,
   does: [
-    'To provide an overview of selected options and allows you to easily remove them',
-    'Use together with an inputfield',
+    'Used together with filter so the user has control and an overview of what is selected',
+    'Simple way for the user to toggle data on and off',
   ],
-  donts: ['Not to be used alone without inputfield'],
+  donts: [''],
 };

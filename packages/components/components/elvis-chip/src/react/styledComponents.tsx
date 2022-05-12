@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { ColorType } from './elvia-chip.types';
 import { getColor } from '@elvia/elvis-colors';
+import { ChipType } from '../../dist/react/js/elvia-chip.types';
 
 export const colors = {
   elviaCharge: getColor('elvia-charge'),
@@ -16,16 +17,18 @@ export const colors = {
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
 
-const setBackgroundColor = (color: ColorType, isSelected: boolean, type: string) => {
-  if (type !== 'removable') {
+const setBackgroundColor = (color: ColorType, isSelected: boolean, type: ChipType) => {
+  if (type === 'choice') {
+    return isSelected ? setOpacity(colors.green, 40) : 'transparent';
+  } else if (type === 'legend') {
     return isSelected ? setOpacity(colors[color], 40) : 'transparent';
   } else {
     return setOpacity(colors[color], 40);
   }
 };
 
-const setBackgroundColorHover = (color: ColorType, isSelected: boolean, type: string) => {
-  if (type === 'removable') {
+const setBackgroundColorHover = (color: ColorType, isSelected: boolean, type: ChipType) => {
+  if (type !== 'legend') {
     return colors.elviaCharge;
   } else if (isSelected) {
     return setOpacity(colors[color], 20);
@@ -34,10 +37,12 @@ const setBackgroundColorHover = (color: ColorType, isSelected: boolean, type: st
   }
 };
 
-const decideChipBorder = (isSelected: boolean, isHovering: boolean, disabled: boolean) => {
+const decideChipBorder = (isSelected: boolean, isHovering: boolean, disabled: boolean, type: ChipType) => {
   if (disabled) {
     return 'solid 1px transparent';
-  } else if (!isSelected || isHovering) {
+  } else if (type === 'legend' && !isSelected) {
+    return `solid 1px ${colors.gray05}`;
+  } else if (type === 'choice' && !isSelected) {
     return `solid 1px ${colors.gray05}`;
   }
   return 'solid 1px transparent';
@@ -46,7 +51,7 @@ const decideChipBorder = (isSelected: boolean, isHovering: boolean, disabled: bo
 type ChipComponentProps = {
   color: ColorType;
   isSelected: boolean;
-  chipType: string;
+  chipType: ChipType;
   disabled: boolean;
   isHovering: boolean;
 };
@@ -57,9 +62,9 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   align-items: center;
   background: none;
   box-sizing: border-box;
-  border: ${(props: { isSelected: boolean; isHovering: boolean; disabled: boolean }) =>
-    decideChipBorder(props.isSelected, props.isHovering, props.disabled)};
-  background-color: ${(props: { color: ColorType; isSelected: boolean; chipType: string }) =>
+  border: ${(props: { isSelected: boolean; isHovering: boolean; disabled: boolean; chipType: ChipType }) =>
+    decideChipBorder(props.isSelected, props.isHovering, props.disabled, props.chipType)};
+  background-color: ${(props: { color: ColorType; isSelected: boolean; chipType: ChipType }) =>
     setBackgroundColor(props.color, props.isSelected, props.chipType)};
   cursor: ${(props: { disabled: boolean }) => (props.disabled ? 'not-allowed' : 'pointer')};
   font-size: 14px;
@@ -70,7 +75,7 @@ export const ChipComponent = styled.button<ChipComponentProps>`
     disabled: boolean;
     isHovering: boolean;
     isSelected: boolean;
-    chipType: string;
+    chipType: ChipType;
     color: ColorType;
   }) =>
     props.isHovering &&

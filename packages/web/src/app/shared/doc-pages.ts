@@ -131,7 +131,7 @@ export const componentsDocPages: DocPage[] = [
     title: 'Chip',
     // tslint:disable-next-line: max-line-length
     description:
-      'Chips are interactive elements that represent an input. These are triggered by the user and can easily be removed by clicking on them. These are often used when you are going to filter content.',
+      'Chips are interactive elements that are often used when a user filters content. They provide a good overview of the options the user has chosen.',
     docUrl: Pages.Chip,
     absolutePath: '/components/' + Pages.Chip,
     status: DocPageStatus.New,

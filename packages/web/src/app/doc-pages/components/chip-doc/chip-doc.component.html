@@ -15,7 +15,8 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Removable'">
         <ng-container ngProjectAs="sectionContent">
-          The Removable chip type is removed when it's clicked.
+          Removable chip is used to show what filter the user have selected and can easily be removed by
+          clicking on them.
           <div style="display: flex; flex-direction: ChCrow" class="e-ml-n8">
             <div *ngFor="let chip of deletableChipsListInType" class="e-m-8">
               <elvia-chip
@@ -31,8 +32,8 @@
 
       <app-component-subsection [sectionTitle]="'Legend'">
         <ng-container ngProjectAs="sectionContent">
-          Legend chips should be used for filtering, primarily for visualization in graphs (e.g. colors
-          representing different lines in a graph).
+          Legend chips are a combination of a chip and a legend with multiple choice. It visualizes the color
+          of the data you are toggling on/off in a graph or map.
           <div style="display: flex; flex-direction: row" class="e-ml-n8">
             <div class="e-m-8">
               <elvia-chip
@@ -75,8 +76,8 @@
 
       <app-component-subsection [sectionTitle]="'Choice'">
         <ng-container ngProjectAs="sectionContent">
-          Choice chips can be used as a filter for multiple choice that you want the user to be able to toggle
-          on and off.
+          Choice chips are always showing all options the user can select from and can be toggled on/off
+          (multiple choice).
           <div style="display: flex; flex-direction: row" class="e-ml-n8">
             <div class="e-m-8">
               <elvia-chip
