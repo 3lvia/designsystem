@@ -15,6 +15,11 @@ const config: ComponentConfig = {
       newProp: 'isSelected',
       isDirectReplacement: true,
     },
+    valueOnChange: {
+      version: '2.0.0',
+      newProp: 'isSelectedOnChange',
+      isCallbackFunction: true,
+    },
   },
 };
 

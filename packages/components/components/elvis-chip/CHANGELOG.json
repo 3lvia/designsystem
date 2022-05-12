@@ -9,13 +9,13 @@
           "type": "breaking_changes",
           "changes": [
             "Removed the <span class=\"code-text\">valueOnChange</span> event. It was dispatching the wrong value, and has been replaced with <span class=\"code-text\">isSelectedOnChange</span>.",
-            "Deprecated the prop <span class=\"code-text\">selected</span> and replaced it with <span class=\"code-text\">isSelected</span>",
+            "Deprecated the prop <span class=\"code-text\">selected</span> and replaced it with <span class=\"code-text\">isSelected</span>.",
             "Deprecated prop 'disabled', use 'isDisabled' instead."
           ],
           "fixes": [
-            "Rename event: <span class=\"code-text\">valueOnChange</span> => <span class=\"code-text\">isSelectedOnChange</span>",
-            "Rename prop: <span class=\"code-text\">selected</span> => <span class=\"code-text\">isSelected</span>",
-            "Rename prop: <span class=\"code-text\">disabled</span> => <span class=\"code-text\">isDisabled</span>"
+            "The event <span class=\"code-text\">valueOnChange</span> is replaced by <span class=\"code-text\">isSelectedOnChange</span>. The old event contained both <span class=\"code-text\">value</span> and <span class=\"code-text\">isSelected</span>, but the new event only contains <span class=\"code-text\">isSelected</span>. For webcomponents, the <span class=\"code-text\">value</span> can be accessed through <span class=\"code-text\">$event.target.value</span>.",
+            "Rename prop: <span class=\"code-text\">selected</span> => <span class=\"code-text\">isSelected</span>.",
+            "Rename prop: <span class=\"code-text\">disabled</span> => <span class=\"code-text\">isDisabled</span>."
           ]
         },
         {
