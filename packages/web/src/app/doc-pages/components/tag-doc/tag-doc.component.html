@@ -1,6 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">Labels</ng-container>
+  <ng-container ngProjectAs="headerTitle">Tag</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -10,7 +10,7 @@
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <label class="e-label">Label</label>
+    <div class="e-tag">Tag</div>
     <div class="e-w-100">
       <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
     </div>
@@ -39,23 +39,23 @@
       <app-when-to-use [whens]="headerDoes" [whenNots]="headerDonts"></app-when-to-use>
       <app-component-subsection [sectionTitle]="'Keep it short'">
         <ng-container ngProjectAs="sectionContent">
-          Labels should be easy to scan to quickly get an overview, so keep it short and descriptive. Maximum
+          Tags should be easy to scan to quickly get an overview, so keep it short and descriptive. Maximum
           two words.
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Color usage'">
         <ng-container ngProjectAs="sectionContent">
-          Labels can be used with any color, but when visualising status, we typically use the combinations
-          seen in the examples.
+          Tags can be used with any color, but when visualising status, we typically use the combinations seen
+          in the examples.
         </ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-label'">
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-tag'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-label'"></app-component-properties>
+      <app-component-properties [componentName]="'e-tag'"></app-component-properties>
     </ng-container>
   </app-component-section>
 </div>

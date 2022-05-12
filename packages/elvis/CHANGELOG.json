@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "8.4.1",
+      "date": "May 13, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Changed name of class <span class=\"code-text\">label</span> to <span class=\"code-text\">tag</span>."
+          ],
+          "components": [{ "displayName": "Tag", "url": "https://design.elvia.io/components/tag" }]
+        }
+      ]
+    },
+    {
       "version": "8.4.0",
       "date": "May 12, 2022",
       "changelog": [
