@@ -60,7 +60,8 @@ Read about the
 #### Step 1 - Running project
 
 1. Run `yarn build` to build the classes
-2. Run `yarn watch` to watch for changes while developing
+2. Run `yarn watch` from `packages/elvis` or `yarn start:elvis` from root to watch for changes while
+   developing
 3. Test your changes by [running the main project](https://github.com/3lvia/designsystem#setup) at the same
    time and using the classes in the doc-pages in `packages/web`. E.g.
    `packages/web/src/app/doc-pages/components/button-doc`

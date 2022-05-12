@@ -15,33 +15,33 @@
         <!--STEP-->
         <div class="e-stepper__step e-stepper__step--done">
           <div class="e-stepper__step-line"></div>
-          <div class="e-stepper__step-header">
+          <button class="e-stepper__step-header">
             <div class="e-stepper__step-number">1</div>
-          </div>
+          </button>
         </div>
 
         <!--STEP-->
         <div class="e-stepper__step e-stepper__step--error">
           <div class="e-stepper__step-line"></div>
-          <div class="e-stepper__step-header">
+          <button class="e-stepper__step-header">
             <div class="e-stepper__step-number">2</div>
-          </div>
+          </button>
         </div>
 
         <!--STEP-->
         <div class="e-stepper__step e-stepper__step--active">
           <div class="e-stepper__step-line"></div>
-          <div class="e-stepper__step-header">
+          <button class="e-stepper__step-header">
             <div class="e-stepper__step-number">3</div>
-          </div>
+          </button>
         </div>
 
         <!--STEP-->
         <div class="e-stepper__step">
           <div class="e-stepper__step-line"></div>
-          <div class="e-stepper__step-header">
+          <button class="e-stepper__step-header">
             <div class="e-stepper__step-number">4</div>
-          </div>
+          </button>
         </div>
       </div>
 
@@ -213,9 +213,9 @@
                 }"
               >
                 <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-header">
+                <button class="e-stepper__step-header">
                   <div class="e-stepper__step-number">{{ step.number }}</div>
-                </div>
+                </button>
               </div>
             </div>
 
@@ -331,9 +331,9 @@
                 }"
               >
                 <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-header">
+                <button class="e-stepper__step-header">
                   <div class="e-stepper__step-number">{{ step.number }}</div>
-                </div>
+                </button>
               </div>
             </div>
 
@@ -446,9 +446,9 @@
                 }"
               >
                 <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-header">
+                <button class="e-stepper__step-header">
                   <div class="e-stepper__step-number">{{ step.number }}</div>
-                </div>
+                </button>
               </div>
 
               <!--DASHED LINES-->
@@ -472,9 +472,9 @@
                 }"
               >
                 <div class="e-stepper__step-line" *ngIf="step.number > chosenNum - 1"></div>
-                <div class="e-stepper__step-header">
+                <button class="e-stepper__step-header">
                   <div class="e-stepper__step-number">{{ step.number }}</div>
-                </div>
+                </button>
               </div>
 
               <!--DASHED LINES-->
@@ -498,9 +498,9 @@
                 }"
               >
                 <div class="e-stepper__step-line" *ngIf="lastLine(step)"></div>
-                <div class="e-stepper__step-header">
+                <button class="e-stepper__step-header">
                   <div class="e-stepper__step-number">{{ step.number }}</div>
-                </div>
+                </button>
               </div>
             </div>
 
@@ -629,10 +629,10 @@
               }"
             >
               <div class="e-stepper__step-line" *ngIf="shortChosenNum !== step.number - 1"></div>
-              <div class="e-stepper__step-header" (click)="chooseShortStep(step)">
+              <button class="e-stepper__step-header" (click)="chooseShortStep(step)">
                 <div class="e-stepper__step-number">{{ step.number }}</div>
                 <div class="e-stepper__step-title">{{ step.title }}</div>
-              </div>
+              </button>
 
               <!--CONTENT-->
               <div class="e-stepper__content" *ngIf="step.number == shortChosenNum">
@@ -745,10 +745,10 @@
               }"
             >
               <div class="e-stepper__step-line" *ngIf="forcedChosenNum !== step.number - 1"></div>
-              <div class="e-stepper__step-header" (click)="chooseForcedStep(step)">
+              <button class="e-stepper__step-header" (click)="chooseForcedStep(step)">
                 <div class="e-stepper__step-number">{{ step.number }}</div>
                 <div class="e-stepper__step-title">{{ step.title }}</div>
-              </div>
+              </button>
 
               <!--CONTENT-->
               <div class="e-stepper__content" *ngIf="step.number == forcedChosenNum">
@@ -858,10 +858,10 @@
               }"
             >
               <div class="e-stepper__step-line" *ngIf="chosenNum !== step.number - 1"></div>
-              <div class="e-stepper__step-header" (click)="chooseStep(step)">
+              <button class="e-stepper__step-header" (click)="chooseStep(step)">
                 <div class="e-stepper__step-number">{{ step.number }}</div>
                 <div class="e-stepper__step-title">{{ step.title }}</div>
-              </div>
+              </button>
 
               <!--CONTENT-->
               <div class="e-stepper__content" *ngIf="step.number == chosenNum">
@@ -968,10 +968,10 @@
                 class="e-stepper__step-line"
                 *ngIf="chosenNum !== step.number - 1 && chosenNum !== step.number + 1"
               ></div>
-              <div class="e-stepper__step-header" (click)="chooseStep(step)">
+              <button class="e-stepper__step-header" (click)="chooseStep(step)">
                 <div class="e-stepper__step-number">{{ step.number }}</div>
                 <div class="e-stepper__step-title">{{ step.title }}</div>
-              </div>
+              </button>
 
               <!--CONTENT-->
               <div class="e-stepper__content" *ngIf="step.number == chosenNum">
@@ -1022,10 +1022,10 @@
               }"
             >
               <div class="e-stepper__step-line" *ngIf="lastLine(step) && chosenNum !== step.number - 1"></div>
-              <div class="e-stepper__step-header" (click)="chooseStep(step)">
+              <button class="e-stepper__step-header" (click)="chooseStep(step)">
                 <div class="e-stepper__step-number">{{ step.number }}</div>
                 <div class="e-stepper__step-title">{{ step.title }}</div>
-              </div>
+              </button>
 
               <!--CONTENT-->
               <div class="e-stepper__content" *ngIf="step.number == chosenNum">

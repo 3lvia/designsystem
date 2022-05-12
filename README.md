@@ -95,9 +95,11 @@ Setup for development environment:
 1. Navigate to `packages/web/contentful` and follow the instructions in the `.env.template` file.
 2. Running projects:
    1. Run `yarn start:web` at root to run the main documentation page (design.elvia.io).
-   2. Run `yarn start:components` at root to run watch for the components (every time components are changed).
+   2. Run `yarn start:components` at root to run watch the components (every time components are changed).
    3. Run `yarn start:react` at root to run the react test-project (testing components).
    4. Run `yarn start:vue` at root to run the vue test-project (testing components).
+   5. Run `yarn start:elvis` at root to watch the style-library elvis (evert time css classes in elvis are
+      changed).
 
 ### Start developing
 

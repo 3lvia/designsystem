@@ -22,33 +22,33 @@ export class StepperDocComponent implements OnInit {
     <!--STEP-->
     <div class="e-stepper__step e-stepper__step--done">
       <div class="e-stepper__step-line"></div>
-      <div class="e-stepper__step-header">
+      <button class="e-stepper__step-header">
         <div class="e-stepper__step-number">1</div>
-      </div>
+      </button>
     </div>
 
     <!--STEP-->
     <div class="e-stepper__step e-stepper__step--error">
       <div class="e-stepper__step-line"></div>
-      <div class="e-stepper__step-header">
+      <button class="e-stepper__step-header">
         <div class="e-stepper__step-number">2</div>
-      </div>
+      </button>
     </div>
 
     <!--STEP-->
     <div class="e-stepper__step e-stepper__step--active">
       <div class="e-stepper__step-line"></div>
-      <div class="e-stepper__step-header">
+      <button class="e-stepper__step-header">
         <div class="e-stepper__step-number">3</div>
-      </div>
+      </button>
     </div>
 
     <!--STEP-->
     <div class="e-stepper__step">
       <div class="e-stepper__step-line"></div>
-      <div class="e-stepper__step-header">
+      <button class="e-stepper__step-header">
         <div class="e-stepper__step-number">4</div>
-      </div>
+      </button>
     </div>
   </div>
 
@@ -86,33 +86,33 @@ export class StepperDocComponent implements OnInit {
     <!--STEP-->
     <div class="e-stepper__step e-stepper__step--done">
       <div class="e-stepper__step-line"></div>
-      <div class="e-stepper__step-header">
+      <button class="e-stepper__step-header">
         <div class="e-stepper__step-number">1</div>
-      </div>
+      </button>
     </div>
 
     <!--STEP-->
     <div class="e-stepper__step e-stepper__step--active-done">
       <div class="e-stepper__step-line"></div>
-      <div class="e-stepper__step-header">
+      <button class="e-stepper__step-header">
         <div class="e-stepper__step-number">2</div>
-      </div>
+      </button>
     </div>
 
     <!--STEP-->
     <div class="e-stepper__step">
       <div class="e-stepper__step-line"></div>
-      <div class="e-stepper__step-header">
+      <button class="e-stepper__step-header">
         <div class="e-stepper__step-number">3</div>
-      </div>
+      </button>
     </div>
 
     <!--STEP-->
     <div class="e-stepper__step">
       <div class="e-stepper__step-line"></div>
-      <div class="e-stepper__step-header">
+      <button class="e-stepper__step-header">
         <div class="e-stepper__step-number">4</div>
-      </div>
+      </button>
     </div>
   </div>
 
@@ -150,9 +150,9 @@ export class StepperDocComponent implements OnInit {
     <!--STEP-->
     <div class="e-stepper__step e-stepper__step--done">
       <div class="e-stepper__step-line"></div>
-      <div class="e-stepper__step-header">
+      <button class="e-stepper__step-header">
         <div class="e-stepper__step-number">1</div>
-      </div>
+      </button>
     </div>
 
     <!--DASHED LINES-->
@@ -167,25 +167,25 @@ export class StepperDocComponent implements OnInit {
     <!--STEP-->
     <div class="e-stepper__step e-stepper__step--error">
       <!--<div class="e-stepper__step-line"></div>-->
-      <div class="e-stepper__step-header">
+      <button class="e-stepper__step-header">
         <div class="e-stepper__step-number">3</div>
-      </div>
+      </button>
     </div>
 
     <!--STEP-->
     <div class="e-stepper__step e-stepper__step--active">
       <div class="e-stepper__step-line"></div>
-      <div class="e-stepper__step-header">
+      <button class="e-stepper__step-header">
         <div class="e-stepper__step-number">4</div>
-      </div>
+      </button>
     </div>
 
     <!--STEP-->
     <div class="e-stepper__step">
       <div class="e-stepper__step-line"></div>
-      <div class="e-stepper__step-header">
+      <button class="e-stepper__step-header">
         <div class="e-stepper__step-number">5</div>
-      </div>
+      </button>
     </div>
 
     <!--DASHED LINES-->
@@ -200,9 +200,9 @@ export class StepperDocComponent implements OnInit {
     <!--STEP-->
     <div class="e-stepper__step">
       <!--<div class="e-stepper__step-line"></div>-->
-      <div class="e-stepper__step-header">
+      <button class="e-stepper__step-header">
         <div class="e-stepper__step-number">7</div>
-      </div>
+      </button>
     </div>
   </div>
 
@@ -238,28 +238,28 @@ export class StepperDocComponent implements OnInit {
   <!--STEP-->
   <div class="e-stepper__step e-stepper__step--done">
     <div class="e-stepper__step-line"></div>
-    <div class="e-stepper__step-header">
+    <button class="e-stepper__step-header">
       <div class="e-stepper__step-number">1</div>
       <div class="e-stepper__step-title">Create payment</div>
-    </div>
+    </button>
   </div>
 
   <!--STEP-->
   <div class="e-stepper__step e-stepper__step--error">
     <div class="e-stepper__step-line"></div>
-    <div class="e-stepper__step-header">
+    <button class="e-stepper__step-header">
       <div class="e-stepper__step-number">2</div>
       <div class="e-stepper__step-title">Card</div>
-    </div>
+    </button>
   </div>
 
   <!--STEP-->
   <div class="e-stepper__step e-stepper__step--active">
     <div class="e-stepper__step-line"></div>
-    <div class="e-stepper__step-header">
+    <button class="e-stepper__step-header">
       <div class="e-stepper__step-number">3</div>
       <div class="e-stepper__step-title">Contact</div>
-    </div>
+    </button>
 
     <!--CONTENT - ONLY ONE VISIBLE AT THE TIME-->
     <div class="e-stepper__content">
@@ -290,10 +290,10 @@ export class StepperDocComponent implements OnInit {
   <!--STEP-->
   <div class="e-stepper__step">
     <!--<div class="e-stepper__step-line"></div>-->
-    <div class="e-stepper__step-header">
+    <button class="e-stepper__step-header">
       <div class="e-stepper__step-number">4</div>
       <div class="e-stepper__step-title">Send</div>
-    </div>
+    </button>
   </div>
 </div>
 `;
@@ -302,19 +302,19 @@ export class StepperDocComponent implements OnInit {
   <!--STEP-->
   <div class="e-stepper__step e-stepper__step--done">
     <div class="e-stepper__step-line"></div>
-    <div class="e-stepper__step-header">
+    <button class="e-stepper__step-header">
       <div class="e-stepper__step-number">1</div>
       <div class="e-stepper__step-title">Create payment</div>
-    </div>
+    </button>
   </div>
 
   <!--STEP-->
   <div class="e-stepper__step e-stepper__step--active">
     <div class="e-stepper__step-line"></div>
-    <div class="e-stepper__step-header">
+    <button class="e-stepper__step-header">
       <div class="e-stepper__step-number">2</div>
       <div class="e-stepper__step-title">Contact</div>
-    </div>
+    </button>
 
     <!--CONTENT-->
     <div class="e-stepper__content" *ngIf="step.number == forcedChosenNum">
@@ -345,19 +345,19 @@ export class StepperDocComponent implements OnInit {
   <!--STEP-->
   <div class="e-stepper__step">
     <!--<div class="e-stepper__step-line"></div>-->
-    <div class="e-stepper__step-header">
+    <button class="e-stepper__step-header">
       <div class="e-stepper__step-number">3</div>
       <div class="e-stepper__step-title">Card</div>
-    </div>
+    </button>
   </div>
 
   <!--STEP-->
   <div class="e-stepper__step">
     <div class="e-stepper__step-line"></div>
-    <div class="e-stepper__step-header">
+    <button class="e-stepper__step-header">
       <div class="e-stepper__step-number">4</div>
       <div class="e-stepper__step-title">Send</div>
-    </div>
+    </button>
   </div>
 </div>
 `;
@@ -366,10 +366,10 @@ export class StepperDocComponent implements OnInit {
   <!--STEP-->
   <div class="e-stepper__step e-stepper__step--done">
     <div class="e-stepper__step-line"></div>
-    <div class="e-stepper__step-header">
+    <button class="e-stepper__step-header">
       <div class="e-stepper__step-number">1</div>
       <div class="e-stepper__step-title">Create payment</div>
-    </div>
+    </button>
   </div>
 
   <!--DASHED LINES-->
@@ -382,19 +382,19 @@ export class StepperDocComponent implements OnInit {
   <!--STEP-->
   <div class="e-stepper__step e-stepper__step--error">
     <!--<div class="e-stepper__step-line"></div>-->
-    <div class="e-stepper__step-header">
+    <button class="e-stepper__step-header">
       <div class="e-stepper__step-number">3</div>
       <div class="e-stepper__step-title">Card</div>
-    </div>
+    </button>
   </div>
 
   <!--STEP-->
   <div class="e-stepper__step e-stepper__step--active">
     <div class="e-stepper__step-line"></div>
-    <div class="e-stepper__step-header">
+    <button class="e-stepper__step-header">
       <div class="e-stepper__step-number">4</div>
       <div class="e-stepper__step-title">Contact</div>
-    </div>
+    </button>
 
     <!--CONTENT-->
     <div class="e-stepper__content" *ngIf="step.number == forcedChosenNum">
@@ -425,10 +425,10 @@ export class StepperDocComponent implements OnInit {
   <!--STEP-->
   <div class="e-stepper__step">
     <!--<div class="e-stepper__step-line"></div>-->
-    <div class="e-stepper__step-header">
+    <button class="e-stepper__step-header">
       <div class="e-stepper__step-number">5</div>
       <div class="e-stepper__step-title">More</div>
-    </div>
+    </button>
   </div>
 
   <!--DASHED LINES-->
@@ -441,10 +441,10 @@ export class StepperDocComponent implements OnInit {
   <!--STEP-->
   <div class="e-stepper__step">
     <!--<div class="e-stepper__step-line"></div>-->
-    <div class="e-stepper__step-header">
+    <button class="e-stepper__step-header">
       <div class="e-stepper__step-number">7</div>
       <div class="e-stepper__step-title">Send</div>
-    </div>
+    </button>
   </div>
 </div>
 `;
