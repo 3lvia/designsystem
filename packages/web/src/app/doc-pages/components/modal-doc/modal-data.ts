@@ -90,8 +90,8 @@ const modalData: ComponentData = {
     },
     inlineStyle: {
       isRequired: false,
-      type: 'string',
-      description: 'Custom css style that can be added to the modal.',
+      type: '{[cssProperty: string]: string}',
+      description: 'Custom CSS style object that can be added to the modal.',
     },
   },
   package: 'npm install @elvia/elvis-modal',

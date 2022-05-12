@@ -66,8 +66,8 @@ export const dividerData: ComponentData = {
     },
     inlineStyle: {
       isRequired: false,
-      type: 'string',
-      description: 'Custom css style that can be added to the divider.',
+      type: '{[cssProperty: string]: string}',
+      description: 'Custom CSS style object that can be added to the divider.',
     },
   },
   codeImportReact: `import { Divider } from '@elvia/elvis-divider/react';`,

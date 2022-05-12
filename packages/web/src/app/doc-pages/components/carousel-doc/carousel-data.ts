@@ -71,8 +71,8 @@ export const carouselData: ComponentData = {
     },
     inlineStyle: {
       isRequired: false,
-      type: 'string',
-      description: 'Custom css style that can be added to the carousel.',
+      type: '{[cssProperty: string]: string}',
+      description: 'Custom CSS style object that can be added to the carousel.',
     },
   },
   package: 'npm install @elvia/elvis-carousel',
