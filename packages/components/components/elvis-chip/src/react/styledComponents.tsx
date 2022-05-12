@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ColorType } from './elvia-chip.types';
 import { getColor } from '@elvia/elvis-colors';
-import { ChipType } from '../../dist/react/js/elvia-chip.types';
+import { ChipType } from './elvia-chip.types';
 
 export const colors = {
   elviaCharge: getColor('elvia-charge'),
