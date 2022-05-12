@@ -49,10 +49,6 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     private codeService: ExampleCodeService,
   ) {}
 
-  getTabIndex(str: string): void {
-    this.tabs.indexOf(str);
-  }
-
   changeTab(index: number): void {
     this.activeTab = index;
     const selectedTab = this.tabs[index];

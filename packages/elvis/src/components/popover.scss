@@ -1,8 +1,8 @@
-@use "../variables/colors.scss";
-@use "../variables/typography";
-@use "../utilities/breakpoints";
-@use "../utilities/icons";
-@use "../utilities/helpers";
+@use '../variables/colors.scss';
+@use '../variables/typography';
+@use '../utilities/breakpoints';
+@use '../utilities/icons';
+@use '../utilities/helpers';
 
 $popover-border-width: 1px;
 $popover-padding: 24px;
@@ -77,13 +77,12 @@ $popover-mobile-size: 300px;
     }
 
     .e-popover__title {
-      @include typography.typography('text-info');
-      font-weight: 500 !important;
+      @include typography.typography('text-sm-strong');
       padding-bottom: 8px;
       margin-right: 16px;
     }
     .e-popover__text {
-      @include typography.typography('text-info');
+      @include typography.typography('text-sm');
     }
 
     &::before {

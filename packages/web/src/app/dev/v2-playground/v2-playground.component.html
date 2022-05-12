@@ -5,7 +5,25 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <elvia-popover header="BankID" type="list" selectable="true" hasDivider posX="right">
+        <button slot="trigger" class="e-btn">Show popover</button>
+        <div slot="content" class="ewc-popover__list">
+          <div class="ewc-popover__list-group">
+            <button>
+              <elvia-icon name="checkBold" size="xs"></elvia-icon>
+              <span>Rediger</span>
+            </button>
+            <button>
+              <span>Slett</span>
+            </button>
+            <a>
+              <span>Last ned</span>
+            </a>
+          </div>
+        </div>
+      </elvia-popover>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -111,6 +129,7 @@
           [ariaLabel]="'Fjern filtrering for ' + chip.value"
           [isDisabled]="chip.isDisabled"
           (onDelete)="handleOnDelete($event.detail.value)"
+          (isSelectedOnChange)="logValue('chip', $event.detail.value)"
           [inlineStyle]="{ margin: '8px' }"
         ></elvia-chip>
       </div>
@@ -119,12 +138,15 @@
 
     <h3>Clickable chips</h3>
     <div style="display: flex; flex-direction: row">
-      <elvia-chip
-        [value]="2021"
-        color="orange"
-        type="legend"
-        (valueOnChange)="handleOnChange($event.detail.value)"
-      ></elvia-chip>
+      <div *ngFor="let chip of filteredKeys">
+        <elvia-chip
+          [value]="chip"
+          [isSelected]="filteredValues[chip]"
+          color="orange"
+          type="legend"
+          (isSelectedOnChange)="handleOnChange($event)"
+        ></elvia-chip>
+      </div>
     </div>
     Selected values:
     <span *ngFor="let key of filteredKeys">

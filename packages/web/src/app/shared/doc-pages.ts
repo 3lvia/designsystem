@@ -291,7 +291,7 @@ export const componentsDocPages: DocPage[] = [
     title: 'Popover',
     // tslint:disable-next-line: max-line-length
     description:
-      'We offer popover as a shell with options like close button, title and text. Popover displays additional information or operations without leaving the page. It is triggered by a button and layered on top of all other content.',
+      'A popover is a non-modal dialog that appears above the content on the screen without losing the context of their original view. It can contain rich data such as text, selection controls, and buttons. A popover is used with a clickable trigger element and should position itself relative to where there is free space on the screen.',
     docUrl: Pages.Popover,
     absolutePath: '/components/' + Pages.Popover,
     status: DocPageStatus.New,

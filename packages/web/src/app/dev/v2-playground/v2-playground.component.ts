@@ -73,8 +73,8 @@ export class v2PlaygroundComponent {
   };
 
   // Chips
-  handleOnChange = (event: { value: string; isSelected: boolean }): void => {
-    this.filteredValues = { ...this.filteredValues, [event.value]: event.isSelected };
+  handleOnChange = (event: { target: { value: string }; detail: { value: boolean } }): void => {
+    this.filteredValues = { ...this.filteredValues, [event.target.value]: event.detail.value };
   };
   handleOnDelete = (event: number): void => {
     this.deleteValue = event;

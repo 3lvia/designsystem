@@ -3,13 +3,26 @@
   "content": [
     {
       "date": "11.05.22",
-      "version": "1.4.0",
+      "version": "2.0.0 ",
       "changelog": [
         {
-          "type": "patch",
-          "changes": ["Deprecated prop 'disabled', use 'isDisabled' instead."],
+          "type": "breaking_changes",
+          "changes": [
+            "Removed the <span class=\"code-text\">valueOnChange</span> event. It was dispatching the wrong value, and has been replaced with <span class=\"code-text\">isSelectedOnChange</span>.",
+            "Deprecated the prop <span class=\"code-text\">selected</span> and replaced it with <span class=\"code-text\">isSelected</span>",
+            "Deprecated prop 'disabled', use 'isDisabled' instead."
+          ],
           "fixes": [
+            "Rename event: <span class=\"code-text\">valueOnChange</span> => <span class=\"code-text\">isSelectedOnChange</span>",
+            "Rename prop: <span class=\"code-text\">selected</span> => <span class=\"code-text\">isSelected</span>",
             "Rename prop: <span class=\"code-text\">disabled</span> => <span class=\"code-text\">isDisabled</span>"
+          ]
+        },
+        {
+          "type": "new_feature",
+          "changes": [
+            "New design for unselected chips and hover state.",
+            "Added a new event <span class=\"code-text\">isSelectedOnChange</span>."
           ]
         }
       ]

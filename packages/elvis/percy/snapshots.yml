@@ -18,6 +18,9 @@ snapshots:
   - url: /components/checkbox.html
     name: Checkbox
     widths: [766, 1440]
+  - url: /components/colors.html
+    name: Colors
+    widths: [766, 1440]
   - url: /components/content-loader.html
     name: Content Loader
     widths: [766, 1440]

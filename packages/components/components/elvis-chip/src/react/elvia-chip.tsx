@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
 import { ChipComponent, ChipDot, ChipTitle } from './styledComponents';
-import { ChipType, ColorType, onChangeValue } from './elvia-chip.types';
+import { ChipType, ColorType } from './elvia-chip.types';
 import { Icon } from '@elvia/elvis-icon/react';
 import { useHover } from '@react-aria/interactions';
 
@@ -15,10 +15,18 @@ export interface BaseChipProps {
   color?: ColorType;
   isDisabled?: boolean;
   type?: ChipType;
+  /**
+   * @deprecated Removed in version 2.0.0. Replaced by `isSelected`.
+   */
   selected?: boolean;
+  isSelected?: boolean;
   value: string;
-  onDelete?: (event: string) => void;
-  valueOnChange?: (event: onChangeValue) => void;
+  onDelete?: (event: BaseChipProps['value']) => void;
+  /**
+   * @deprecated Removed in version 2.0.0. Replaced by `selectedOnChange()`.
+   */
+  valueOnChange?: (event: { value: string; isSelected: boolean }) => void;
+  isSelectedOnChange?: (isSelected: NonNullable<BaseChipProps['isSelected']>) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
@@ -28,11 +36,11 @@ export const Chip: FC<BaseChipProps> = function ({
   ariaLabel,
   color = 'green',
   isDisabled = false,
-  selected = false,
+  isSelected = false,
   type = 'removable',
   value,
   onDelete,
-  valueOnChange,
+  isSelectedOnChange,
   className,
   inlineStyle,
   webcomponent,
@@ -41,11 +49,11 @@ export const Chip: FC<BaseChipProps> = function ({
   // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(config, arguments[0]);
 
-  const [isSelected, setIsSelected] = useState(selected);
+  const [isSelectedState, setIsSelectedState] = useState(isSelected);
 
   useEffect(() => {
-    setIsSelected(selected);
-  }, [selected]);
+    setIsSelectedState(isSelected);
+  }, [isSelected]);
 
   const handleOnDelete = (value: string) => {
     if (!webcomponent) {
@@ -55,13 +63,23 @@ export const Chip: FC<BaseChipProps> = function ({
     }
   };
 
-  const updateSelectedState = (value: string, isSelected: boolean) => {
-    setIsSelected(isSelected);
+  const updateSelectedState = (newIsSelected: boolean) => {
+    setIsSelectedState(newIsSelected);
     if (!webcomponent) {
-      valueOnChange && valueOnChange({ value: value, isSelected: isSelected });
+      isSelectedOnChange && isSelectedOnChange(newIsSelected);
     } else if (webcomponent) {
       // True -> Prevents rerender
-      webcomponent.setProps({ value: { value: value, isSelected: isSelected } }, true);
+      webcomponent.setProps({ isSelected: newIsSelected }, true);
+    }
+  };
+
+  const decideChoiceCheckmarkIconOpacity = () => {
+    if (isDisabled) {
+      return '0.3';
+    } else if (isHovered || isSelectedState) {
+      return '1';
+    } else {
+      return '0.05';
     }
   };
 
@@ -71,15 +89,15 @@ export const Chip: FC<BaseChipProps> = function ({
     <ChipComponent
       {...hoverProps} // Handles hover / onMouseEnter / onMouseLeave logic
       role={type === 'removable' ? undefined : 'checkbox'}
-      aria-checked={type === 'removable' ? undefined : isSelected}
+      aria-checked={type === 'removable' ? undefined : isSelectedState}
       aria-label={ariaLabel}
       color={color}
       onClick={() => {
-        type === 'removable' ? handleOnDelete(value) : updateSelectedState(value, !isSelected);
+        type === 'removable' ? handleOnDelete(value) : updateSelectedState(!isSelectedState);
       }}
       disabled={isDisabled}
       chipType={type}
-      isSelected={isSelected}
+      isSelected={isSelectedState}
       isHovering={isHovered}
       className={`${className ? className : ''}`}
       style={inlineStyle}
@@ -92,8 +110,7 @@ export const Chip: FC<BaseChipProps> = function ({
           customSize="12px"
           inlineStyle={{
             paddingRight: '8px',
-            visibility: isHovered || isSelected ? 'visible' : 'hidden',
-            opacity: isDisabled ? '0.3' : '1',
+            opacity: decideChoiceCheckmarkIconOpacity(),
           }}
         />
       )}
@@ -101,7 +118,7 @@ export const Chip: FC<BaseChipProps> = function ({
         <ChipDot
           color={color}
           className={classnames('dot', {
-            ['showDot']: isHovered || isSelected,
+            ['showDot']: isHovered || isSelectedState,
             ['disabledDot']: isDisabled,
           })}
         />

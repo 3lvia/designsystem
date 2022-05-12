@@ -14,7 +14,7 @@ const CONFIG = {
     : dotenv.parsed.CONTENTFUL_ACCESS_TOKEN,
 };
 
-contentfulClient = contentful.createClient({
+const contentfulClient = contentful.createClient({
   host: process.env.NODE_ENV === 'production' ? 'cdn.contentful.com' : 'preview.contentful.com',
   space: CONFIG.space,
   accessToken: process.env.NODE_ENV === 'production' ? CONFIG.accessToken : CONFIG.previewAccessToken,

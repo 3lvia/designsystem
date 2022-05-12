@@ -8,12 +8,16 @@ import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-
 export interface PopoverProps {
   header?: string;
   content?: string | HTMLElement;
+  type?: 'informative' | 'list';
+  selectable?: boolean;
+  hasDivider?: boolean;
   posX?: 'left' | 'right' | 'center';
   posY?: 'top' | 'bottom';
   trigger?: HTMLElement;
   hasCloseBtn?: boolean;
   isShowing?: boolean;
   isShowingOnChange?: (isShowing: boolean) => void;
+  disableAutoClose: boolean;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
@@ -22,12 +26,16 @@ export interface PopoverProps {
 const Popover: FC<PopoverProps> = ({
   header,
   content,
-  posX = 'center',
-  posY = 'top',
+  type = 'informative',
+  selectable = false,
+  hasDivider = false,
+  posX = type === 'list' ? 'right' : 'center',
+  posY = type === 'list' ? 'bottom' : 'top',
   trigger,
   hasCloseBtn = true,
   isShowing = false,
   isShowingOnChange,
+  disableAutoClose = false,
   className,
   inlineStyle,
   webcomponent,
@@ -86,30 +94,28 @@ const Popover: FC<PopoverProps> = ({
       maxContentWidth.current = popoverContentRef.current.getBoundingClientRect().width;
     }
 
-    // Web component - Placing slots at the right place
-    if (
-      popoverRef.current &&
-      popoverRef.current.parentElement &&
-      popoverRef.current.parentElement.parentElement
-    ) {
-      popoverRef.current.parentElement.parentElement.querySelectorAll('[slot]').forEach((element: any) => {
-        if (popoverSlotTriggerRef.current && element.slot === 'trigger') {
-          popoverSlotTriggerRef.current.innerHTML = '';
-          popoverSlotTriggerRef.current.appendChild(element);
-        }
-        if (popoverText.current && element.slot === 'content') {
-          popoverText.current.innerHTML = '';
-          popoverText.current.appendChild(element);
-        }
-      });
-    }
-
     // Cleanup
     return () => {
       // Remove outline listener
       document.removeEventListener('keydown', closeOnEscape, false);
     };
   });
+
+  // Web component - Placing slots at the right place
+  useEffect(() => {
+    if (!webcomponent) {
+      return;
+    }
+
+    if (popoverSlotTriggerRef.current && webcomponent.getSlot('trigger')) {
+      popoverSlotTriggerRef.current.innerHTML = '';
+      popoverSlotTriggerRef.current.appendChild(webcomponent.getSlot('trigger'));
+    }
+    if (popoverText.current && webcomponent.getSlot('content')) {
+      popoverText.current.innerHTML = '';
+      popoverText.current.appendChild(webcomponent.getSlot('content'));
+    }
+  }, [webcomponent]);
 
   useEffect(() => {
     setPopoverVisibility(isShowing);
@@ -333,6 +339,9 @@ const Popover: FC<PopoverProps> = ({
     ['ewc-popover--hide']: !popoverVisibility,
     ['ewc-popover--text-only']: typeof content === 'string',
     ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
+    ['ewc-popover--list']: type === 'list',
+    ['ewc-popover--list-divider']: type === 'list' && hasDivider,
+    ['ewc-popover--list-selectable']: selectable,
   });
 
   return (
@@ -359,30 +368,50 @@ const Popover: FC<PopoverProps> = ({
         <div className="ewc-popover__fixed-content-area" ref={popoverFixedAreaRef}>
           <div className="ewc-popover__contentContainer">
             <div className="ewc-popover__content" ref={popoverContentRef}>
-              {hasCloseBtn == true && (
-                <div className="ewc-popover__close">
-                  <button
-                    className="ewc-btn ewc-btn--icon ewc-btn--sm"
-                    onClick={() => setPopoverVisibility(false)}
-                    type="button"
-                    data-testid="popover-close-btn"
-                    aria-label="Lukk"
-                  >
-                    <Icon name="closeBold" size="xs" />
-                  </button>
+              {type === 'informative' && (
+                <div className="ewc-popover__content-area">
+                  {hasCloseBtn === true && (
+                    <div className="ewc-popover__close">
+                      <button
+                        className="ewc-btn ewc-btn--icon ewc-btn--sm"
+                        onClick={() => setPopoverVisibility(false)}
+                        type="button"
+                        data-testid="popover-close-btn"
+                        aria-label="Lukk"
+                      >
+                        <Icon name="closeBold" size="xs" />
+                      </button>
+                    </div>
+                  )}
+                  {header && (
+                    <div className="ewc-popover__header" data-testid="popover-header">
+                      {header}
+                    </div>
+                  )}
                 </div>
               )}
-              {header && (
-                <div className="ewc-popover__header" data-testid="popover-header">
-                  {header}
-                </div>
-              )}
-              {content && (
+              {content && type === 'informative' && (
                 <div className="ewc-popover__text" data-testid="popover-text">
                   {content}
                 </div>
               )}
-              {!content && <div className="ewc-popover__text" ref={popoverText} />}
+              {!content && type === 'informative' && <div className="ewc-popover__text" ref={popoverText} />}
+              {content && type === 'list' && (
+                <div
+                  className="ewc-popover__text"
+                  data-testid="popover-text"
+                  onClick={() => !disableAutoClose && setPopoverVisibility(false)}
+                >
+                  {content}
+                </div>
+              )}
+              {!content && type === 'list' && (
+                <div
+                  className="ewc-popover__text"
+                  onClick={() => !disableAutoClose && setPopoverVisibility(false)}
+                  ref={popoverText}
+                />
+              )}
             </div>
           </div>
         </div>

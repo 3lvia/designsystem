@@ -6,7 +6,59 @@
       <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
       <h3>Test your component here</h3>
       <!--Normal version-->
-      <div class="e-bg-white"></div>
+      <div class="e-bg-white">
+        <h3>Popover</h3>
+        <elvia-popover type="list" :selectable="true" :disableAutoClose="true">
+          <button slot="trigger" class="e-btn">Show popover</button>
+          <div slot="content" class="ewc-popover__list">
+            <button>
+              <elvia-icon name="checkBold" size="xs"></elvia-icon>
+              <span>Dato nyeste</span>
+            </button>
+            <button>
+              <span>Dato eldste</span>
+            </button>
+            <a>
+              <span>Relevans</span>
+            </a>
+          </div>
+        </elvia-popover>
+        <elvia-popover type="list" :hasDivider="true">
+          <button slot="trigger" class="e-btn">Show popover</button>
+          <div slot="content" class="ewc-popover__list">
+            <div class="ewc-popover__list-group">
+              <h1>Title 1</h1>
+              <button class="ewc-popover__list-item--selected">
+                <elvia-icon name="edit" size="xs"></elvia-icon>
+                <span>Rediger</span>
+              </button>
+              <button>
+                <elvia-icon name="bin" size="xs"></elvia-icon>
+                <span>Slett</span>
+              </button>
+              <a>
+                <elvia-icon name="download" size="xs"></elvia-icon>
+                <span>Last ned</span>
+              </a>
+            </div>
+            <div class="ewc-popover__list-group">
+              <h1>Title 2</h1>
+              <button>
+                <elvia-icon name="edit" size="xs"></elvia-icon>
+                <span>Rediger</span>
+              </button>
+              <button>
+                <elvia-icon name="bin" size="xs"></elvia-icon>
+                <span>Slett</span>
+              </button>
+              <a>
+                <elvia-icon name="download" size="xs"></elvia-icon>
+                <span>Last ned</span>
+              </a>
+            </div>
+          </div>
+        </elvia-popover>
+      </div>
       <!--Inverted version-->
       <div class="e-bg-grey"></div>
     </div>
@@ -46,7 +98,7 @@
       <elvia-card :header="'Header'" :description="'Hover me!'">
         <div slot="icon">91</div>
         <div slot="iconHover">92</div>
-        <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs"  aria-hidden="true"></i>
+        <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
       </elvia-card>
     </div>
 
@@ -77,10 +129,13 @@
       <h3>Chip</h3>
       <div v-for="chip in deletableChipsList" :key="chip.value">
         <elvia-chip
+          :type="'legend'"
           :value="chip.value"
           :color="chip.color"
           :ariaLabel="'Fjern filtrering for ' + chip.value"
           :isDisabled="chip.isDisabled"
+          :isSelected="true"
+          @is-selected-on-change="logValue('chip', $event.detail.value)"
         ></elvia-chip>
       </div>
     </div>
@@ -98,7 +153,7 @@
     <!--Divider-->
     <div class="example-wrapper">
       <h3>Divider</h3>
-      <elvia-divider></elvia-divider> aria-hidden="true"></i>
+      <elvia-divider></elvia-divider>
       <elvia-divider :isInverted="false" :type="'title'">
         <h2 slot="title">Title</h2>
       </elvia-divider>

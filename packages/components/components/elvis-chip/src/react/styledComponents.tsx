@@ -11,6 +11,7 @@ export const colors = {
   purple: getColor('purple-plum'),
   red: getColor('red-tomato'),
   violet: getColor('violet-grape'),
+  gray05: getColor('grey-05'),
 };
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
@@ -21,6 +22,25 @@ const setBackgroundColor = (color: ColorType, isSelected: boolean, type: string)
   } else {
     return setOpacity(colors[color], 40);
   }
+};
+
+const setBackgroundColorHover = (color: ColorType, isSelected: boolean, type: string) => {
+  if (type === 'removable') {
+    return colors.elviaCharge;
+  } else if (isSelected) {
+    return setOpacity(colors[color], 20);
+  } else {
+    return 'transparent';
+  }
+};
+
+const decideChipBorder = (isSelected: boolean, isHovering: boolean, disabled: boolean) => {
+  if (disabled) {
+    return 'solid 1px transparent';
+  } else if (!isSelected || isHovering) {
+    return `solid 1px ${colors.gray05}`;
+  }
+  return 'solid 1px transparent';
 };
 
 type ChipComponentProps = {
@@ -36,7 +56,9 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   flex-direction: row;
   align-items: center;
   background: none;
-  border: none;
+  box-sizing: border-box;
+  border: ${(props: { isSelected: boolean; isHovering: boolean; disabled: boolean }) =>
+    decideChipBorder(props.isSelected, props.isHovering, props.disabled)};
   background-color: ${(props: { color: ColorType; isSelected: boolean; chipType: string }) =>
     setBackgroundColor(props.color, props.isSelected, props.chipType)};
   cursor: ${(props: { disabled: boolean }) => (props.disabled ? 'not-allowed' : 'pointer')};
@@ -44,10 +66,16 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   line-height: 16px;
   padding: calc(8px - 1px) calc(16px - 1px);
   border-radius: 24px;
-  ${(props: { disabled: boolean; isHovering: boolean; chipType: string }) =>
+  ${(props: {
+    disabled: boolean;
+    isHovering: boolean;
+    isSelected: boolean;
+    chipType: string;
+    color: ColorType;
+  }) =>
     props.isHovering &&
     !props.disabled &&
-    `background-color: ${props.chipType === 'removable' ? colors.elviaCharge : 'transparent'}`}
+    `background-color: ${setBackgroundColorHover(props.color, props.isSelected, props.chipType)}`}
 `;
 
 export const ChipDot = styled.span<{ color: ColorType }>`
@@ -58,7 +86,7 @@ export const ChipDot = styled.span<{ color: ColorType }>`
       height: 10px;
       width: 10px;
       border-radius: 50%;
-      background-color: transparent;
+      background-color: ${colors.gray05};
       margin: 0 8px 0 0;
     }
   }
