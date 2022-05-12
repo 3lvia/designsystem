@@ -11,6 +11,18 @@ export class UtilitiesDocComponent {
   description = getDocPagesNotFromCMS('utilities').description;
   utilityGroups: UtilityGroup[] = [
     {
+      title: 'Accessibility',
+      path: '/tools/accessibility',
+      classes: [
+        {
+          className: 'e-sr-only',
+          description:
+            'Screen readers only content. Hides the content so it will be visually hidden but still readable by modern screen readers.',
+          styling: 'Hiding',
+        },
+      ],
+    },
+    {
       title: 'Border',
       classes: [{ className: 'e-border-none', description: 'Removes the border.', styling: 'border: none' }],
     },
