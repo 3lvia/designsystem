@@ -1,12 +1,28 @@
 {
   "content": [
     {
+      "version": "8.4.0",
+      "date": "May 12, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added utility class for screen readers only content."],
+          "components": [
+            { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
+          ],
+          "fixes": [],
+          "pages": []
+        }
+      ]
+    },
+    {
       "version": "8.3.9",
       "date": "May 10, 2022",
       "changelog": [
         {
           "type": "patch",
           "changes": ["Small patches to remove duplicated css."],
+          "components": [],
           "fixes": [],
           "pages": []
         }

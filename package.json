@@ -11,6 +11,7 @@
   "scripts": {
     "start:web": "cd packages/web && yarn contentful && yarn start",
     "start:components": "yarn build:colors && cd packages/components && yarn watch",
+    "start:elvis": "cd packages/elvis && yarn watch",
     "start:react": "cd packages/components/frameworks/react-ssr && yarn start",
     "start:vue": "cd packages/components/frameworks/vue-test && yarn start",
     "build:web": "yarn && yarn build:colors && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run build:production && cd ../web && yarn run contentful:production && yarn run build:production && cd ../components/frameworks/react-ssr && yarn run production",
