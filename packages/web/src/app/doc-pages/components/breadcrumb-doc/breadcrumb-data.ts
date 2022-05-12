@@ -25,8 +25,9 @@ const breadcrumbData: ComponentData = {
     },
     inlineStyle: {
       isRequired: false,
-      type: 'string',
-      description: 'Custom css style that can be added to the breadcrumb.',
+      type: '{[cssProperty: string]: string}',
+      description:
+        "Custom CSS style object that can be added to the breadcrumb. Example: {marginTop: '8px', width: '100%'}",
     },
   },
   package: 'npm install @elvia/elvis-breadcrumb',
