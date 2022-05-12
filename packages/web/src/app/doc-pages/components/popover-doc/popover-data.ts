@@ -101,7 +101,8 @@ const popoverData: ComponentData = {
     inlineStyle: {
       isRequired: false,
       type: '{[cssProperty: string]: string}',
-      description: 'Custom CSS style object that can be added to the popover.',
+      description:
+        "Custom CSS style object that can be added to the popover. Example: {marginTop: '8px', width: '100%'}",
     },
   },
   package: 'npm install @elvia/elvis-popover',
