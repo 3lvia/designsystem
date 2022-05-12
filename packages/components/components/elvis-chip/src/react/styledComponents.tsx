@@ -25,11 +25,13 @@ const setBackgroundColor = (color: ColorType, isSelected: boolean, type: string)
 };
 
 const setBackgroundColorHover = (color: ColorType, isSelected: boolean, type: string) => {
-  return type === 'removable'
-    ? colors.elviaCharge
-    : isSelected
-    ? setOpacity(colors[color], 20)
-    : 'transparent';
+  if (type === 'removable') {
+    return colors.elviaCharge;
+  } else if (isSelected) {
+    return setOpacity(colors[color], 20);
+  } else {
+    return 'transparent';
+  }
 };
 
 const decideChipBorder = (isSelected: boolean, isHovering: boolean, disabled: boolean) => {
