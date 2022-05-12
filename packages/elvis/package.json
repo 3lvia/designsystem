@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",
+    "@elvia/elvis-colors": "^1.4.1",
     "bootstrap": "4.6.1"
   },
   "devDependencies": {

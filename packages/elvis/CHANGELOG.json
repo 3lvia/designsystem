@@ -9,7 +9,29 @@
           "changes": ["Added utility class for screen readers only content."],
           "components": [
             { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
-          ],
+          ]
+        }
+      ]
+    },
+    {
+      "version": "8.3.11",
+      "date": "May 12, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the toggle pseudo class <span class=\"code-text\">e-toggle---focus</span>."],
+          "fixes": [],
+          "pages": []
+        }
+      ]
+    },
+    {
+      "version": "8.3.10",
+      "date": "May 11, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using elvis-colors for color definitions."],
           "fixes": [],
           "pages": []
         }

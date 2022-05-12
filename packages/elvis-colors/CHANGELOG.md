@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 1.4.1 (11.05.22)
+
+### Patch
+
+- Added generation of scss file for elvis (colorMap.scss).
+
 ## 1.4.0 (10.05.22)
 
 ### New feature

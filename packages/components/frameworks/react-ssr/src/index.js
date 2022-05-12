@@ -4,7 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.hydrate(
+const root = document.getElementById('root');
+let renderMethod;
+if (root && root.innerHTML !== '') {
+  renderMethod = ReactDOM.hydrate;
+} else {
+  renderMethod = ReactDOM.render;
+}
+renderMethod(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
