@@ -203,12 +203,7 @@ function App() {
         {/* DROPDOWN */}
         <div className="example-wrapper">
           <h3>Dropdown</h3>
-          <Dropdown
-            options={dropdownOptions}
-            defaultValue={defaultDropdownOptions}
-            label="test"
-            isMulti
-          ></Dropdown>
+          <Dropdown items={dropdownOptions} value={defaultDropdownOptions} label="test" isMulti></Dropdown>
         </div>
         {/* ICON */}
         <div className="example-wrapper">
