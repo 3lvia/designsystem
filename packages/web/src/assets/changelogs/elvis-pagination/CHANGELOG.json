@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "13.05.22",
+      "version": "2.1.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Small patch fixing sonarcloud bug."]
+        }
+      ]
+    },
+    {
       "date": "09.05.22",
       "version": "2.1.1 ",
       "changelog": [
