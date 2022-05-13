@@ -89,7 +89,7 @@ const consoleWarnDeprecatedProp = (
  *
  * @since 1.3.0
  */
-export const warnDeprecatedProps = (config: ComponentConfig, props: IArguments | any): void => {
+export const warnDeprecatedProps = (config: ComponentConfig, props: { [propName: string]: any }): void => {
   // If not on localhost, don't console log deprecation warnings.
   if (window.location.href.indexOf('localhost') === -1) {
     return;
@@ -104,7 +104,7 @@ export const warnDeprecatedProps = (config: ComponentConfig, props: IArguments |
       consoleWarnDeprecatedProp(prop, deprecatedProps[prop], config.componentName, false);
     }
 
-    const webcomponent = props['webcomponent' as any];
+    const webcomponent = props['webcomponent'];
     if (webcomponent) {
       // Check for deprecated slots on webcomponent.
       for (const slot in webcomponent['_slots']) {
