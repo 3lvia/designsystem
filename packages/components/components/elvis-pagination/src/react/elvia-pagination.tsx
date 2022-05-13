@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Icon } from '@elvia/elvis-icon/react';
-import { DropdownOption, SelectionNumber } from './elvia-pagination.types';
+import { DropdownOption, SelectionNumber, PaginationLabel } from './elvia-pagination.types';
 import {
   Paginator,
   PaginatorNumber,
@@ -15,18 +15,8 @@ import {
   PaginatorSelectorArrowBtn,
 } from './styledComponents';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
-
-export interface PaginationLabel {
-  displaying?: string;
-  of?: string;
-  label?: string;
-}
-
-const defaultPaginationLabel: PaginationLabel = {
-  displaying: 'Viser',
-  of: 'av',
-  label: 'elementer',
-};
+import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { config } from './config';
 
 export interface PaginationProps {
   value: SelectionNumber;
@@ -43,36 +33,36 @@ export interface PaginationProps {
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
   /**
-   * @deprecated Removed in version 2.0.0. Replaced by `alignment`.
+   * @deprecated Removed in version 3.0.0. Replaced by `alignment`.
    */
   isRightAligned?: boolean;
   /**
-   * @deprecated Removed in version 2.0.0. Replaced by `dropdownMenuPosition`.
+   * @deprecated Removed in version 3.0.0. Replaced by `dropdownMenuPosition`.
    */
   dropdownMenuPos?: string;
   /**
-   * @deprecated Removed in version 2.0.0. Replaced by `dropdownSelectedItemIndex`.
+   * @deprecated Removed in version 3.0.0. Replaced by `dropdownSelectedItemIndex`.
    */
   selectedDropdownItemIndex?: number;
   /**
-   * @deprecated Removed in version 2.0.0. Replaced by `dropdownSelectedItemIndexOnChange`.
+   * @deprecated Removed in version 3.0.0. Replaced by `dropdownSelectedItemIndexOnChange`.
    */
   selectedDropdownItemIndexOnChange?: (value: number) => void;
   /**
-   * @deprecated Removed in version 2.0.0. Replaced by `labelOptions`.
+   * @deprecated Removed in version 3.0.0. Replaced by `labelOptions.displaying`.
    */
   labelDisplaying?: string;
   /**
-   * @deprecated Removed in version 2.0.0. Replaced by `labelOptions`.
+   * @deprecated Removed in version 3.0.0. Replaced by `labelOptions.label`.
    */
   label?: string;
   /**
-   * @deprecated Removed in version 2.0.0. Replaced by `labelOptions`.
+   * @deprecated Removed in version 3.0.0. Replaced by `labelOptions.of`.
    */
   labelOf?: string;
 }
 
-export const paginationOptions = [
+const defaultPaginationOptions: DropdownOption[] = [
   {
     value: '10',
     label: '10',
@@ -91,13 +81,19 @@ export const paginationOptions = [
   },
 ];
 
-const Pagination: FC<PaginationProps> = ({
+const defaultPaginationLabel: PaginationLabel = {
+  displaying: 'Viser',
+  of: 'av',
+  label: 'elementer',
+};
+
+const Pagination: FC<PaginationProps> = function ({
   value = { start: undefined, end: undefined },
   numberOfElements = 0,
   lastNumberLimit,
   alignment = 'left',
   dropdownMenuPosition = 'bottom',
-  dropdownItems = paginationOptions,
+  dropdownItems = defaultPaginationOptions,
   dropdownSelectedItemIndex = 0,
   dropdownSelectedItemIndexOnChange,
   labelOptions,
@@ -106,7 +102,10 @@ const Pagination: FC<PaginationProps> = ({
   inlineStyle,
   webcomponent,
   ...rest
-}) => {
+}) {
+  // eslint-disable-next-line prefer-rest-params
+  warnDeprecatedProps(config, arguments[0]);
+
   const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[dropdownSelectedItemIndex]);
   const [showPaginationMenu, setShowPaginationMenu] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

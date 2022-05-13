@@ -197,7 +197,11 @@
     <!--Pagination-->
     <div class="example-wrapper">
       <h3>Pagination</h3>
-      <elvia-pagination :numberOfElements="156" :value="defaultPaginationValue"></elvia-pagination>
+      <elvia-pagination
+        :numberOfElements="156"
+        :value="defaultPaginationValue"
+        :dropdownMenuPosition="'top'"
+      ></elvia-pagination>
     </div>
 
     <!--Popover-->

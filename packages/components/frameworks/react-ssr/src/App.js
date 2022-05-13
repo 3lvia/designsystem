@@ -238,7 +238,7 @@ function App() {
           <Pagination
             numberOfElements={100}
             lastNumberLimit={99}
-            dropdownMenuPos="top"
+            dropdownMenuPosition="top"
             labelOptions={{ displaying: 'Showing' }}
             alignment={'left'}
           ></Pagination>
