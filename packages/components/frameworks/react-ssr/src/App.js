@@ -137,7 +137,6 @@ function App() {
             content={
               'It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. '
             }
-            onClick={() => console.log('Clicked')}
           ></Accordion>
         </div>
         {/* BOX */}
@@ -148,13 +147,12 @@ function App() {
             isColored={true}
             title={<h1>Title for the box component</h1>}
             content={<div>Heisann dette er en box component sendt med som node i react</div>}
-            onClick={() => console.log('Clicked')}
           ></Box>
         </div>
         {/* BREADCRUMB */}
         <div className="example-wrapper">
           <h3>Breadcrumb</h3>
-          <Breadcrumb breadcrumbs={breadcrumbsNoUrl} onClick={() => console.log('Clicked')} />
+          <Breadcrumb breadcrumbs={breadcrumbsNoUrl} />
         </div>
         {/* CARD */}
         <div className="example-wrapper">
@@ -165,7 +163,6 @@ function App() {
             icon={<i className="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>}
             iconHover={<i className="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>}
             cornerIcon={<Icon name="unlock" size="xs" />}
-            onClick={() => console.log('Clicked')}
           ></Card>
         </div>
         {/* CAROUSEL */}
@@ -177,36 +174,31 @@ function App() {
               { title: <h3 className="e-title-sm">AMS-meter</h3>, element: 'Hei' },
               { title: <h3 className="e-title-sm">About login</h3>, element: <p>Halla</p> },
             ]}
-            onClick={() => console.log('Clicked')}
           ></Carousel>
         </div>
         {/* CHIP */}
         <div className="example-wrapper">
           <h3>Chip</h3>
-          <Chip type={'removable'} value={2022} selected={true} onClick={() => console.log('Clicked')}></Chip>
-          <Chip type={'choice'} value={2022} selected={true} onClick={() => console.log('Clicked')}></Chip>
+          <Chip type={'removable'} value={2022} isSelected={true}></Chip>
+          <Chip type={'choice'} value={2022} isSelected={true}></Chip>
+          <Chip type={'choice'} value={'Disabled'} isDisabled></Chip>
+
           <Chip
             type="legend"
-            valueOnChange={() => setChipSelected(!chipSelected)}
-            selected={chipSelected}
-            value="2022"
-            onClick={() => console.log('Clicked')}
+            isSelectedOnChange={() => setChipSelected(!chipSelected)}
+            isSelected={chipSelected}
+            value="Selectable"
           ></Chip>
         </div>
         {/* DATEPICKER */}
         <div className="example-wrapper">
           <h3>Datepicker</h3>
-          <Datepicker
-            isRequired
-            maxDate={maxDate}
-            hasSelectDateOnOpen={false}
-            onClick={() => console.log('Clicked')}
-          ></Datepicker>
+          <Datepicker isRequired maxDate={maxDate} hasSelectDateOnOpen={false}></Datepicker>
         </div>
         {/* DIVIDER */}
         <div className="example-wrapper">
           <h3>Divider</h3>
-          <Divider onClick={() => console.log('Clicked')} inlineStyle={{ height: '10px' }} />
+          <Divider />
         </div>
         {/* DROPDOWN */}
         <div className="example-wrapper">
@@ -216,14 +208,13 @@ function App() {
             defaultValue={defaultDropdownOptions}
             label="test"
             isMulti
-            onClick={() => console.log('Clicked')}
           ></Dropdown>
         </div>
         {/* ICON */}
         <div className="example-wrapper">
           <h3>Icon</h3>
-          <Icon name="arrowLeftBold" onClick={() => console.log('Clicked')}></Icon>
-          <Icon name="arrowRightBold" onClick={() => console.log('Clicked')}></Icon>
+          <Icon name="arrowLeftBold"></Icon>
+          <Icon name="arrowRightBold"></Icon>
         </div>
         {/* MODAL */}
         <div className="example-wrapper">
@@ -239,18 +230,12 @@ function App() {
             content={<div>Body text comes here and can go over several lines.</div>}
             primaryButton={<button className="e-btn e-btn--primary">Primary</button>}
             secondaryButton={<button className="e-btn e-btn--secondary">Secondary</button>}
-            onClick={() => console.log('Clicked')}
           ></Modal>
         </div>
         {/* PAGINATION */}
         <div className="example-wrapper">
           <h3>Pagination</h3>
-          <Pagination
-            numberOfElements={100}
-            lastNumberLimit={99}
-            dropdownMenuPos="top"
-            onClick={() => console.log('Clicked')}
-          ></Pagination>
+          <Pagination numberOfElements={100} lastNumberLimit={99} dropdownMenuPos="top"></Pagination>
         </div>
         {/* POPOVER */}
         <div className="example-wrapper">
@@ -267,7 +252,7 @@ function App() {
         {/* PROGRESS LINEAR */}
         <div className="example-wrapper">
           <h3>ProgressLinear</h3>
-          <ProgressLinear value={progressValue} onClick={() => console.log('Clicked')}></ProgressLinear>
+          <ProgressLinear value={progressValue}></ProgressLinear>
           <button className="e-btn e-mr-8" onClick={decreaseProgress}>
             Decrease
           </button>
@@ -286,7 +271,6 @@ function App() {
             }}
             value={selectedRadioFilter}
             name={'radioFilterTest'}
-            onClick={() => console.log('Clicked')}
           ></RadioFilter>
         </div>
         {/* SPOTLIGHT */}
@@ -304,12 +288,7 @@ function App() {
         {/* TABS */}
         <div className="example-wrapper">
           <h3>Tabs</h3>
-          <Tabs
-            items={tabsItems}
-            value={2}
-            valueOnChange={(event) => logValue('Tabs', event)}
-            onClick={() => console.log('Clicked')}
-          ></Tabs>
+          <Tabs items={tabsItems} value={2} valueOnChange={(event) => logValue('Tabs', event)}></Tabs>
         </div>
       </div>
     </div>

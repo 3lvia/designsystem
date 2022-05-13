@@ -32,8 +32,9 @@ export const chipData: ComponentData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['green', 'blue', 'orange', 'purple', 'red', 'violet'],
+      cegDependency: [{ name: 'type', value: ['legend', 'removable'] }],
     },
-    disabled: {
+    isDisabled: {
       isRequired: false,
       type: 'boolean',
       description: 'Set the chip as disabled',
@@ -49,15 +50,15 @@ export const chipData: ComponentData = {
       type: 'string',
       description: 'The value displayed in the chip',
     },
-    selected: {
+    isSelected: {
       isRequired: false,
       type: 'boolean',
-      description: 'If the chip should be selected. Optional on legend and choice types',
+      description: 'Sets the chip to have the selected state. Optional on legend and choice types',
     },
-    valueOnChange: {
+    isSelectedOnChange: {
       isRequired: false,
-      type: '(value: string) => CustomEvent',
-      description: 'Gets called every time the value is changed. Required on legend and choice types',
+      type: '(selected: boolean) => CustomEvent',
+      description: 'Gets called every time the selected state is changed.',
     },
     onDelete: {
       isRequired: false,
@@ -82,34 +83,34 @@ export const chipData: ComponentData = {
   codeImportWebComponent: `import '@elvia/elvis-chip';`,
   codeReact: `<Chip 
   value={2022} 
-  selected={true}
+  isSelected={true}
   ariaLabel={"Fjern filtrering for 2022"}
   onDelete={(event) => handleOnDelete(event)}
-  valueOnChange={(event) => handleValueOnChange(event)}
+  isSelectedOnChange={(event) => handleIsSelectedOnChange(event)}
 >
 </Chip>
 `,
   codeAngular: `<elvia-chip 
   [value]="2022" 
-  [selected]="true"
+  [isSelected]="true"
   [ariaLabel]="'Fjern filtrering for 2022'" 
   (onDelete)="handleOnDelete($event.detail.value)"
-  (valueOnChange)="handleValueOnChange($event.detail.value)"
+  (isSelectedOnChange)="handleIsSelectedOnChange($event.detail.value)"
 >
 </elvia-chip>
   `,
   codeVue: `<elvia-chip 
   :value="2022" 
-  :selected="true"
+  :isSelected="true"
   :ariaLabel="'Fjern filtrering for 2022'" 
   @on-delete="handleOnDelete($event.detail.value)"
-  @value-on-change="handleValueOnChange($event.detail.value)"
+  @is-selected-on-change="handleIsSelectedOnChange($event.detail.value)"
 >
 </elvia-chip>
   `,
   codeNativeHTML: `<elvia-chip 
   id="example-elvia-chip"
-  selected="true"
+  isSelected="true"
 >
 </elvia-chip>
 `,
@@ -120,14 +121,14 @@ export const chipData: ComponentData = {
     console.log('Used in REMOVABLE chips - Remove element from DOM');
     chip.remove();
   });
-  chip.addEventListener('valueOnChange', () => {
+  chip.addEventListener('isSelectedOnChange', () => {
     console.log('Do what you want with updated value');
   });
 `,
   changelog: changelogJson.content,
   does: [
-    'To provide an overview of selected options and allows you to easily remove them',
-    'Use together with an inputfield',
+    'Used together with filter so the user has control and an overview of what is selected',
+    'Simple way for the user to toggle data on and off',
   ],
-  donts: ['Not to be used alone without inputfield'],
+  donts: [''],
 };
