@@ -1001,6 +1001,7 @@
 				"e-segmented-controls--sm": {}
 			}
 		},
+		"e-sr-only": {},
 		"e-border-none": {},
 		"e-grid-gutters-ext": {},
 		"e-grid-gutters-vertical": {},
@@ -1838,6 +1839,7 @@
 		"e-segmented-controls__title": {},
 		"e-segmented-controls--lg": {},
 		"e-segmented-controls--sm": {},
+		"e-sr-only": {},
 		"e-border-none": {},
 		"e-grid-gutters-ext": {},
 		"e-grid-gutters-vertical": {},
