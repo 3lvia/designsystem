@@ -2,8 +2,23 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.05.22",
+      "version": "2.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Renamed several props for more consistent naming conventions. "],
+          "fixes": [
+            "Change prop <span class=\"code-text\">title</span> => <span class=\"code-text\">heading</span>.",
+            "Change prop <span class=\"code-text\">hasCloseBtn</span> => <span class=\"code-text\">hasCloseButton</span>.",
+            "Change event listener / callback function <span class=\"code-text\">onHide</span> => <span class=\"code-text\">onClose</span>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "05.05.22",
-      "version": "1.5.1 ",
+      "version": "1.5.1",
       "changelog": [
         {
           "type": "bug_fix",
