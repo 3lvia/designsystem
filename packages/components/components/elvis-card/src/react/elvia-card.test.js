@@ -2,6 +2,8 @@ import Card from './elvia-card.tsx';
 import React from 'react';
 import { mount } from 'enzyme';
 import { getColor } from '@elvia/elvis-colors';
+import TestRenderer from 'react-test-renderer';
+import 'jest-styled-components';
 
 describe('Elvis Card', () => {
   let wrapper;
@@ -359,6 +361,31 @@ describe('Elvis Card', () => {
       expect(cardArea.at(0).getDOMNode()).toHaveStyle('margin: 24px');
       expect(cardArea.at(0).getDOMNode()).toHaveClass('test-class');
       done();
+    });
+  });
+});
+
+describe('Elvis Card Snapshots', () => {
+  describe('Type = simple', () => {
+    it('should render correctly square', () => {
+      const tree = TestRenderer.create(
+        <Card icon={'Icon'} header={'Header'} description={'Description'} borderColor={'orange'}></Card>,
+      ).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+    it('should render correctly circle', () => {
+      const tree = TestRenderer.create(
+        <Card shape={'circle'} icon={'Icon'} header={'Header'} description={'Description'}></Card>,
+      ).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+  });
+  describe('Type = detail', () => {
+    it('should render correctly', () => {
+      const tree = TestRenderer.create(
+        <Card type={'detail'} label={'Label'} description={'Description'} cornerIcon={'CornerIcon'}></Card>,
+      ).toJSON();
+      expect(tree).toMatchSnapshot();
     });
   });
 });

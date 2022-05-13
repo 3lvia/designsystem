@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('@jest/types').Config.InitialOptions} */
+const config = {
   verbose: true,
   setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   moduleNameMapper: {
@@ -6,3 +7,5 @@ module.exports = {
   },
   transformIgnorePatterns: ['/node_modules/(?!@elvia/elvis-(assets-icons|typography))'],
 };
+
+module.exports = config;

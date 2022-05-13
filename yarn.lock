@@ -2424,6 +2424,7 @@ __metadata:
     gulp-tap: ^2.0.0
     gulp-typescript: ^6.0.0-alpha.1
     jest: ^27.0.1
+    jest-styled-components: ^7.0.8
     jsdom: ^16.6.0
     jsdom-global: ^3.0.2
     merge-stream: ^2.0.0
@@ -2431,6 +2432,7 @@ __metadata:
     react: ^17.0.0-0
     react-dom: ^17.0.0-0
     react-is: ">= 16.8.0"
+    react-test-renderer: ^17.0.2
     sass: ^1.33.0
     sass-loader: ^10.0.2
     style-loader: ^1.2.1
@@ -17063,6 +17065,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-styled-components@npm:^7.0.8":
+  version: 7.0.8
+  resolution: "jest-styled-components@npm:7.0.8"
+  dependencies:
+    css: ^3.0.0
+  peerDependencies:
+    styled-components: ">= 5"
+  checksum: 0fc3a71c54ece55b8fd4c8304a9db283acac97cdfd8350ff27ff3b0c3da8e798dca87c7ee5fc004b1b0577d632dec44ebea31750238b82395152c0f8a471ea7c
+  languageName: node
+  linkType: hard
+
 "jest-util@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-util@npm:27.5.1"
@@ -23330,7 +23343,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"react-test-renderer@npm:^17.0.0":
+"react-test-renderer@npm:^17.0.0, react-test-renderer@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-test-renderer@npm:17.0.2"
   dependencies:
