@@ -27,7 +27,7 @@ export interface BaseChipProps {
   value: string;
   onDelete?: (event: BaseChipProps['value']) => void;
   /**
-   * @deprecated Removed in version 2.0.0. Replaced by `selectedOnChange()`.
+   * @deprecated Removed in version 2.0.0. Replaced by `isSelectedOnChange()`.
    */
   valueOnChange?: (event: { value: string; isSelected: boolean }) => void;
   isSelectedOnChange?: (isSelected: NonNullable<BaseChipProps['isSelected']>) => void;
