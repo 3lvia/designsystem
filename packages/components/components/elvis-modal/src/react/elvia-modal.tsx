@@ -4,7 +4,7 @@ import {
   ModalContent,
   ModalIllustration,
   Modal,
-  ModalHeading as ModalHeading,
+  ModalHeading,
   ModalWrapper,
   ModalText,
   ModalActions,
