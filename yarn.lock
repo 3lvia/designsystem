@@ -2480,14 +2480,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^2.0.0, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
+"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
   dependencies:
     "@elvia/elvis-colors": ^1.2.1
     "@elvia/elvis-component-wrapper": ^2.2.2
     "@elvia/elvis-icon": ^1.1.1
-    "@elvia/elvis-toolbox": ^1.2.1
+    "@elvia/elvis-toolbox": ^1.3.1
     "@elvia/elvis-typography": ^1.2.0
     "@types/lodash.isequal": ^4.5.5
     lodash.isequal: ^4.5.0
@@ -2503,6 +2503,27 @@ __metadata:
     react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
+
+"@elvia/elvis-dropdown@npm:^2.0.0":
+  version: 2.5.1
+  resolution: "@elvia/elvis-dropdown@npm:2.5.1"
+  dependencies:
+    "@elvia/elvis-colors": ^1.2.1
+    "@elvia/elvis-component-wrapper": ^2.2.2
+    "@elvia/elvis-icon": ^1.1.1
+    "@elvia/elvis-toolbox": ^1.2.1
+    "@elvia/elvis-typography": ^1.2.0
+    lodash.isequal: ^4.5.0
+    lodash.uniqueid: 4.0.1
+    react-select: 5.2.2
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
+  checksum: 00fd8d7bca9f4f93efcabf5f4ed5450efad210838d25d69fff43cece839cf75bf8f6b8c690dab11e7a2635840a8db6ac5a88ddd9aab587812798b500404adff2
+  languageName: node
+  linkType: hard
 
 "@elvia/elvis-icon@*, @elvia/elvis-icon@^1.1.1, @elvia/elvis-icon@workspace:packages/components/components/elvis-icon":
   version: 0.0.0-use.local
@@ -2642,7 +2663,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-toolbox@^1.2.1, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@^1.2.1, @elvia/elvis-toolbox@^1.3.1, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
