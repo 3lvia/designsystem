@@ -19,9 +19,7 @@
           <span *ngIf="prop.isRequired">*</span>
         </th>
         <td class="table-code-text">{{ prop.type }}</td>
-        <td class="e-table__cell--multiline-small">
-          {{ prop.description }}
-        </td>
+        <td class="e-table__cell--multiline-small">{{ prop.description }}</td>
         <td class="table-code-text" *ngIf="prop.default">{{ prop.default }}</td>
         <td class="table-code-text" *ngIf="!prop.default">-</td>
       </tr>
@@ -29,7 +27,10 @@
   </table>
 </div>
 <div class="e-table-container mobile properties-mobile">
-  <table class="e-table-mobile e-table-mobile--sticky-header e-table-mobile--compact">
+  <table
+    class="e-table-mobile e-table-mobile--sticky-header e-table-mobile--compact"
+    aria-label="Beskrivelse av tabellen"
+  >
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">Prop</th>

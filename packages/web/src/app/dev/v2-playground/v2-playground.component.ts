@@ -28,7 +28,7 @@ export class v2PlaygroundComponent {
     { value: 2022, color: 'green' },
     { value: 2023, color: 'red' },
     { value: 2024, color: 'blue' },
-    { value: 2025, color: 'purple', disabled: true },
+    { value: 2025, color: 'purple', isDisabled: true },
   ];
 
   // Datepicker
@@ -73,8 +73,8 @@ export class v2PlaygroundComponent {
   };
 
   // Chips
-  handleOnChange = (event: { value: string; isSelected: boolean }): void => {
-    this.filteredValues = { ...this.filteredValues, [event.value]: event.isSelected };
+  handleOnChange = (event: { target: { value: string }; detail: { value: boolean } }): void => {
+    this.filteredValues = { ...this.filteredValues, [event.target.value]: event.detail.value };
   };
   handleOnDelete = (event: number): void => {
     this.deleteValue = event;

@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Icon } from '@elvia/elvis-icon/react';
+import { DropdownOption, SelectionNumber } from './elvia-pagination.types';
 import {
   Paginator,
   PaginatorNumber,
@@ -14,16 +15,6 @@ import {
   PaginatorSelectorArrowBtn,
 } from './styledComponents';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
-
-export interface DropdownOption {
-  value: string;
-  label: string;
-}
-
-export interface SelectionNumber {
-  start: number;
-  end: number;
-}
 
 export interface PaginationProps {
   value: SelectionNumber;
@@ -405,7 +396,7 @@ const Pagination: FC<PaginationProps> = ({
       const lastDots = getLastDots();
       const lastNumbers = getLastNumber();
       visibleNumbers.push(firstNumbers, firstDots);
-      centerNumbers.map((paginatorNumbers) => {
+      centerNumbers.forEach((paginatorNumbers) => {
         if (paginatorNumbers.length != 0) {
           visibleNumbers.push(paginatorNumbers);
         }

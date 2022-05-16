@@ -209,8 +209,7 @@ $sidebar-mobile-z-index: -2;
   }
   &__title {
     @include helpers.user-select(text);
-    @include typography.typography('text-md');
-    font-weight: 500;
+    @include typography.typography('text-md-strong');
     @include breakpoints.breakpoint-up(Tablet) {
       font-size: 16px;
       line-height: 145%;

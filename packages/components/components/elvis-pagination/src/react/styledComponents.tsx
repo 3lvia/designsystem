@@ -49,7 +49,7 @@ export const PaginatorInfoText = styled.div`
   text-align: left;
 `;
 export const PaginatorInfoDropdown = styled.div`
-  width: 72px;
+  width: 75px;
   margin: 0 8px;
 `;
 

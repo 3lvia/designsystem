@@ -60,7 +60,7 @@ describe('Elvis Chip', () => {
 
   describe('Type = Legend, Selected by default', () => {
     beforeEach(() => {
-      wrapper = mount(<Chip type="legend" value="chip value" selected></Chip>);
+      wrapper = mount(<Chip type="legend" value="chip value" isSelected></Chip>);
       chipButton = wrapper.find({ 'data-testid': 'chip-button' }).at(0);
     });
     afterEach(() => {
@@ -101,7 +101,7 @@ describe('Elvis Chip', () => {
 
   describe('Type = Choice, Selected by default', () => {
     beforeEach(() => {
-      wrapper = mount(<Chip type="choice" value="chip value" selected></Chip>);
+      wrapper = mount(<Chip type="choice" value="chip value" isSelected></Chip>);
       chipButton = wrapper.find({ 'data-testid': 'chip-button' }).at(0);
     });
     afterEach(() => {
@@ -116,7 +116,7 @@ describe('Elvis Chip', () => {
 
   describe('Color = blue', () => {
     beforeEach(() => {
-      wrapper = mount(<Chip value="chip value" color="blue" selected></Chip>);
+      wrapper = mount(<Chip value="chip value" color="blue" isSelected></Chip>);
       chipButton = wrapper.find({ 'data-testid': 'chip-button' }).at(0);
     });
     afterEach(() => {
@@ -131,7 +131,7 @@ describe('Elvis Chip', () => {
 
   describe('Disabled', () => {
     beforeEach(() => {
-      wrapper = mount(<Chip value="chip value" disabled></Chip>);
+      wrapper = mount(<Chip value="chip value" isDisabled></Chip>);
       chipButton = wrapper.find({ 'data-testid': 'chip-button' }).at(0);
       chipLabel = wrapper.find({ 'data-testid': 'chip-label' }).at(0);
     });

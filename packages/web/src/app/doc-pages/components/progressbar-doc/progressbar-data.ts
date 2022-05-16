@@ -57,8 +57,9 @@ export const progressbarData: ComponentData = {
     },
     inlineStyle: {
       isRequired: false,
-      type: 'string',
-      description: 'Custom css style that can be added to the progressbar.',
+      type: '{[cssProperty: string]: string}',
+      description:
+        "Custom CSS style object that can be added to the progressbar. Example: {marginTop: '8px', width: '100%'}",
     },
   },
   codeImportReact: `import { ProgressLinear } from '@elvia/elvis-progress-linear/react';`,

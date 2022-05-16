@@ -12,6 +12,7 @@ const fs = require('fs');
 const typescript = require('gulp-typescript');
 const validate = require('./validateConfig.js');
 const filter = require('gulp-filter');
+const cache = require('gulp-cached');
 let components = require('../elvia-components.config');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
@@ -137,9 +138,20 @@ function TSX_to_JS() {
     return mergeStream(
       gulp
         .src([`../components/${component.name}/src/react/**/*.ts*`, '!../components/**/*.d.ts*'])
+        .pipe(cache('TSX_to_JS'))
         .pipe(
           babel({
-            presets: ['@babel/preset-typescript'],
+            presets: [
+              '@babel/preset-typescript',
+              [
+                '@babel/preset-env',
+                {
+                  targets: [
+                    '>0.2%, last 2 versions, Firefox ESR, not dead, not IE <= 11, not op_mini all, not op_mob > 0',
+                  ],
+                },
+              ],
+            ],
             plugins: ['babel-plugin-styled-components', '@babel/plugin-transform-react-jsx'],
           }),
         )

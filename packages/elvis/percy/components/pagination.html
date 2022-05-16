@@ -15,7 +15,7 @@
           <div class="e-form-field e-form-field--compact">
             <div class="e-dropdown">
               <div class="e-input e-input--centered" (click)="toggleDropdown()">
-                <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown"></i>
+                <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown" aria-hidden="true"></i>
 
                 <input type="button" />
               </div>
@@ -31,7 +31,7 @@
       </div>
       <div class="e-pagination__choosing-page">
         <div class="e-pagination__arrow" *ngIf="leftArrow()" (click)="prev()">
-          <i class="e-icon e-icon--arrow_long_left e-icon--xs"></i>
+          <i class="e-icon e-icon--arrow_long_left e-icon--xs" aria-hidden="true"></i>
         </div>
         <div
           *ngFor="let firstNum of firstNums"
@@ -63,7 +63,7 @@
           10
         </div>
         <div class="e-pagination__arrow" *ngIf="rightArrow()" (click)="next()">
-          <i class="e-icon e-icon--arrow_long e-icon--xs"></i>
+          <i class="e-icon e-icon--arrow_long e-icon--xs" aria-hidden="true"></i>
         </div>
       </div>
     </div>
@@ -76,7 +76,7 @@
           <div class="e-form-field e-form-field--compact">
             <div class="e-dropdown">
               <div class="e-input e-input--centered" (click)="toggleDropdown()">
-                <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown"></i>
+                <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown" aria-hidden="true"></i>
 
                 <input type="button" />
               </div>
@@ -92,7 +92,7 @@
       </div>
       <div class="e-pagination__choosing-page">
         <div class="e-pagination__arrow" *ngIf="leftArrow()" (click)="prev()">
-          <i class="e-icon e-icon--arrow_long_left e-icon--xs"></i>
+          <i class="e-icon e-icon--arrow_long_left e-icon--xs" aria-hidden="true"></i>
         </div>
         <div
           *ngFor="let firstNum of firstNums"
@@ -124,7 +124,7 @@
           10
         </div>
         <div class="e-pagination__arrow" *ngIf="rightArrow()" (click)="next()">
-          <i class="e-icon e-icon--arrow_long e-icon--xs"></i>
+          <i class="e-icon e-icon--arrow_long e-icon--xs" aria-hidden="true"></i>
         </div>
       </div>
     </div>
@@ -135,7 +135,7 @@
           <div class="e-form-field e-form-field--compact">
             <div class="e-dropdown">
               <div class="e-input e-input--centered" (click)="toggleDropdown()">
-                <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown"></i>
+                <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown" aria-hidden="true"></i>
 
                 <input type="button" />
               </div>
@@ -151,7 +151,7 @@
       </div>
       <div class="e-pagination__choosing-page">
         <div class="e-pagination__arrow" *ngIf="leftArrow()" (click)="prev()">
-          <i class="e-icon e-icon--arrow_long_left e-icon--xs"></i>
+          <i class="e-icon e-icon--arrow_long_left e-icon--xs" aria-hidden="true"></i>
         </div>
         <div
           *ngFor="let firstNum of firstNums"
@@ -183,7 +183,7 @@
           10
         </div>
         <div class="e-pagination__arrow" *ngIf="rightArrow()" (click)="next()">
-          <i class="e-icon e-icon--arrow_long e-icon--xs"></i>
+          <i class="e-icon e-icon--arrow_long e-icon--xs" aria-hidden="true"></i>
         </div>
       </div>
     </div>

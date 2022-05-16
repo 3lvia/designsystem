@@ -5,7 +5,25 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <elvia-popover header="BankID" type="list" selectable="true" hasDivider posX="right">
+        <button slot="trigger" class="e-btn">Show popover</button>
+        <div slot="content" class="ewc-popover__list">
+          <div class="ewc-popover__list-group">
+            <button>
+              <elvia-icon name="checkBold" size="xs"></elvia-icon>
+              <span>Rediger</span>
+            </button>
+            <button>
+              <span>Slett</span>
+            </button>
+            <a>
+              <span>Last ned</span>
+            </a>
+          </div>
+        </div>
+      </elvia-popover>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -47,16 +65,16 @@
             <elvia-card [header]="'Header'" [description]="'Hover me!'">
               <div slot="icon">91</div>
               <div slot="iconHover">92</div>
-              <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs"></i>
+              <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
             </elvia-card>
           </a>
         </div>
         <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
           <a [routerLink]="['/components/card']">
             <elvia-card [header]="'Hover!'" [borderColor]="'red'">
-              <i slot="icon" class="e-icon e-icon--search-bold e-icon--md"></i>
-              <i slot="iconHover" class="e-icon e-icon--search-bold-color e-icon--md"></i>
-              <i slot="cornerIcon" class="e-icon e-icon--unlock e-icon--xs"></i>
+              <i slot="icon" class="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>
+              <i slot="iconHover" class="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>
+              <i slot="cornerIcon" class="e-icon e-icon--unlock e-icon--xs" aria-hidden="true"></i>
             </elvia-card>
           </a>
         </div>
@@ -73,7 +91,6 @@
       </div>
     </div>
   </div>
-
   <!--Carousel-->
   <div class="example-wrapper">
     <h3>Carousel</h3>
@@ -110,8 +127,9 @@
           [value]="chip.value"
           [color]="chip.color"
           [ariaLabel]="'Fjern filtrering for ' + chip.value"
-          [disabled]="chip.disabled"
+          [isDisabled]="chip.isDisabled"
           (onDelete)="handleOnDelete($event.detail.value)"
+          (isSelectedOnChange)="logValue('chip', $event.detail.value)"
           [inlineStyle]="{ margin: '8px' }"
         ></elvia-chip>
       </div>
@@ -120,12 +138,15 @@
 
     <h3>Clickable chips</h3>
     <div style="display: flex; flex-direction: row">
-      <elvia-chip
-        [value]="2021"
-        color="orange"
-        type="legend"
-        (valueOnChange)="handleOnChange($event.detail.value)"
-      ></elvia-chip>
+      <div *ngFor="let chip of filteredKeys">
+        <elvia-chip
+          [value]="chip"
+          [isSelected]="filteredValues[chip]"
+          color="orange"
+          type="legend"
+          (isSelectedOnChange)="handleOnChange($event)"
+        ></elvia-chip>
+      </div>
     </div>
     Selected values:
     <span *ngFor="let key of filteredKeys">

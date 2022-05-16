@@ -21,7 +21,7 @@
 
 body {
   margin: 0;
-  font-family: 'Red Hat Text', 'Verdana, sans-serif';
+  font-family: 'Red Hat Text', Verdana, sans-serif;
 }
 
 html {
@@ -62,7 +62,7 @@ p {
   }
 }
 .code-text {
-  font-family: 'Red Hat Mono';
+  font-family: 'Red Hat Mono', Verdana, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -415,19 +415,4 @@ p {
 
 hr {
   border: 1px solid black;
-}
-
-// Visible on screenreader only. Used for accessibility.
-.sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important; /* 3 */
 }

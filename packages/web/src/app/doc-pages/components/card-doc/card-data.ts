@@ -94,7 +94,7 @@ const cardData: ComponentData = {
       cegType: 'boolean',
       cegFormType: 'toggle',
       cegDefault: false,
-      cegSlot: '<i class="e-icon e-icon--electricity_safety-color e-icon--md"></i>',
+      cegSlot: '<i class="e-icon e-icon--electricity_safety-color e-icon--md" aria-hidden="true"></i>',
       cegDependency: [{ name: 'type', value: 'simple' }],
     },
     cornerIcon: {
@@ -105,7 +105,7 @@ const cardData: ComponentData = {
       cegType: 'boolean',
       cegFormType: 'toggle',
       cegDefault: false,
-      cegSlot: '<i class="e-icon e-icon--lock e-icon--xs"></i>',
+      cegSlot: '<i class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>',
       cegDependency: [{ name: 'type', value: 'detail' }],
     },
     className: {
@@ -115,8 +115,9 @@ const cardData: ComponentData = {
     },
     inlineStyle: {
       isRequired: false,
-      type: 'string',
-      description: 'Custom css style that can be added to the card.',
+      type: '{[cssProperty: string]: string}',
+      description:
+        "Custom CSS style object that can be added to the card. Example: {marginTop: '8px', width: '100%'}",
     },
   },
   package: 'npm install @elvia/elvis-card',

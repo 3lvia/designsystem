@@ -9,24 +9,32 @@ export const homeMenu: DocPage[] = [
     description: 'UI Library',
     docUrl: Pages.OverviewComp,
     absolutePath: '/components/',
+    imageUrl: 'assets/doc-page-icons/shortcut-icons/Component.svg',
+    imageUrlOn: 'assets/doc-page-icons/shortcut-icons/ComponentOn.svg',
   },
   {
     title: 'The concept',
     description: 'Branding',
     docUrl: 'the-concept',
     absolutePath: '/brand/the-concept/',
+    imageUrl: 'assets/doc-page-icons/shortcut-icons/Identity.svg',
+    imageUrlOn: 'assets/doc-page-icons/shortcut-icons/IdentityOn.svg',
   },
   {
     title: 'Accessibility',
     description: 'WCAG 2.0',
     docUrl: 'accessibility',
     absolutePath: '/tools/accessibility/',
+    imageUrl: 'assets/doc-page-icons/shortcut-icons/UtilityClasses.svg',
+    imageUrlOn: 'assets/doc-page-icons/shortcut-icons/UtilityClassesOn.svg',
   },
   {
     title: 'Contribute',
     description: 'Help us get better',
     docUrl: Pages.Contribute,
     absolutePath: '/about/' + Pages.Contribute,
+    imageUrl: 'assets/doc-page-icons/shortcut-icons/Contribute.svg',
+    imageUrlOn: 'assets/doc-page-icons/shortcut-icons/ContributeOn.svg',
   },
 ];
 
@@ -123,7 +131,7 @@ export const componentsDocPages: DocPage[] = [
     title: 'Chip',
     // tslint:disable-next-line: max-line-length
     description:
-      'Chips are interactive elements that represent an input. These are triggered by the user and can easily be removed by clicking on them. These are often used when you are going to filter content.',
+      'Chips are interactive elements that are often used when a user filters content. They provide a good overview of the options the user has chosen.',
     docUrl: Pages.Chip,
     absolutePath: '/components/' + Pages.Chip,
     status: DocPageStatus.New,
@@ -283,7 +291,7 @@ export const componentsDocPages: DocPage[] = [
     title: 'Popover',
     // tslint:disable-next-line: max-line-length
     description:
-      'We offer popover as a shell with options like close button, title and text. Popover displays additional information or operations without leaving the page. It is triggered by a button and layered on top of all other content.',
+      'A popover is a non-modal dialog that appears above the content on the screen without losing the context of their original view. It can contain rich data such as text, selection controls, and buttons. A popover is used with a clickable trigger element and should position itself relative to where there is free space on the screen.',
     docUrl: Pages.Popover,
     absolutePath: '/components/' + Pages.Popover,
     status: DocPageStatus.New,
@@ -446,7 +454,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a>`,
     docUrl: Pages.Contact,
     absolutePath: '/about/' + Pages.Contact,
@@ -458,11 +466,11 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `To contribute, or if you have any question, you can contact us on slack:
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a> or fill out our
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
         <span class="e-link__title">request form</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a>`,
     docUrl: Pages.Contribute,
     absolutePath: '/about/' + Pages.Contribute,
@@ -474,7 +482,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a>`,
     docUrl: Pages.Faq,
     absolutePath: '/about/' + Pages.Faq,
@@ -503,7 +511,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     as well guides on how to use them. Missing a specific icon? Let us know on our slack channel 
   <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank">
   <span class="e-link__title">#designsystemet</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
 </a>
    and we’ll look into adding it to the library.`,
     docUrl: Pages.Icon,
@@ -547,7 +555,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
     </a>`,
     docUrl: Pages.Contact,
     absolutePath: '/about/' + Pages.Contact,
@@ -559,7 +567,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `To contribute, or if you have any question, you can contact us on slack:
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
     </a>`,
     docUrl: Pages.Contribute,
     absolutePath: '/about/' + Pages.Contribute,
@@ -571,7 +579,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
     </a>`,
     docUrl: Pages.Faq,
     absolutePath: '/about/' + Pages.Faq,

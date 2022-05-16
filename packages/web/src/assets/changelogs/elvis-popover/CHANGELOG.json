@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "10.04.22",
+      "version": "4.5.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["List type for popover now available."]
+        }
+      ]
+    },
+    {
       "date": "03.05.22",
       "version": "4.4.0 ",
       "changelog": [
@@ -18,6 +28,18 @@
         {
           "type": "patch",
           "changes": ["Added role='dialog' and aria-modal to the popover."]
+        }
+      ]
+    },
+    {
+      "date": "05.04.22",
+      "version": "4.4.0-beta.4 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added functionality for list type for popover. This version has not been tested properly yet, but should be functional."
+          ]
         }
       ]
     },

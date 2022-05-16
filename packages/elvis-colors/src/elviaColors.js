@@ -7,20 +7,20 @@ const colors = {
       contrastText: '#000',
       'alt-labels': ['elvis-on', 'elvia-on', 'font-color-light', 'elvia-inverted'],
     },
+    green: {
+      color: '#29d305',
+      contrastText: '#000',
+      'alt-labels': ['elvia-charge'],
+    },
     black: {
       color: '#000',
       contrastText: '#fff',
-      'alt-labels': ['elvis-off', 'elvia-off', 'font-color'],
+      'alt-labels': ['elvis-off', 'elvia-off', 'font-color', 'text'],
     },
     grey: {
       color: '#262626',
       contrastText: '#fff',
       'alt-labels': ['elvia-dark'],
-    },
-    green: {
-      color: '#29d305',
-      contrastText: '#000',
-      'alt-labels': ['elvia-charge'],
     },
   },
   'signal-colors': {
@@ -130,7 +130,7 @@ const colors = {
     },
   },
 };
-
+exports.colors = colors;
 exports.default = colors;
 
 const getColorObject = (colorName) => {

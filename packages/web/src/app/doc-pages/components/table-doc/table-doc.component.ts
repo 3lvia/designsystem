@@ -107,7 +107,7 @@ export class TableDocComponent {
 
   exampleStickyHeaderMobile = `<div style="width: 305px; margin: 16px">
   <div class="e-table-container" style="max-height: 250px">
-  <table class="e-table-mobile e-table-mobile--sticky-header">
+  <table class="e-table-mobile e-table-mobile--sticky-header" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">Period</th>
@@ -268,7 +268,7 @@ export class TableDocComponent {
 `;
 
   exampleMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile">
+  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">Period</th>
@@ -416,7 +416,7 @@ export class TableDocComponent {
 `;
 
   exampleCompactMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile e-table-mobile--compact">
+  <table class="e-table-mobile e-table-mobile--compact" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">Period</th>
@@ -560,7 +560,7 @@ export class TableDocComponent {
 `;
 
   exampleInputMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile">
+  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">CaseID</th>
@@ -624,10 +624,10 @@ export class TableDocComponent {
         <td>15.01.2021</td>
         <td class="e-table__button">
           <button class="e-btn e-btn--icon" aria-label="Rediger">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit"  aria-hidden="true"></i></span>
           </button>
           <button class="e-btn e-btn--icon" aria-label="Slett">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin"  aria-hidden="true"></i></span>
           </button>
         </td>
       </tr>
@@ -637,10 +637,10 @@ export class TableDocComponent {
         <td>15.01.2021</td>
         <td class="e-table__button">
           <button class="e-btn e-btn--icon" aria-label="Rediger">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit"  aria-hidden="true"></i></span>
           </button>
           <button class="e-btn e-btn--icon" aria-label="Slett">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin"  aria-hidden="true"></i></span>
           </button>
         </td>
       </tr>
@@ -650,10 +650,10 @@ export class TableDocComponent {
         <td>15.01.2021</td>
         <td class="e-table__button">
           <button class="e-btn e-btn--icon" aria-label="Rediger">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit"  aria-hidden="true"></i></span>
           </button>
           <button class="e-btn e-btn--icon" aria-label="Slett">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin"  aria-hidden="true"></i></span>
           </button>
         </td>
       </tr>
@@ -663,7 +663,7 @@ export class TableDocComponent {
 `;
 
   exampleButtonMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile">
+  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">CaseID</th>
@@ -687,10 +687,10 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="row">Actions</th>
         <td class="e-table-mobile__cell e-table-mobile__button">
           <button class="e-btn e-btn--icon" aria-label="Rediger">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit"  aria-hidden="true"></i></span>
           </button>
           <button class="e-btn e-btn--icon" aria-label="Slett">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin"  aria-hidden="true"></i></span>
           </button>
         </td>
       </tr>
@@ -712,10 +712,10 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="row">Actions</th>
         <td class="e-table-mobile__cell e-table-mobile__button">
           <button class="e-btn e-btn--icon" aria-label="Rediger">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit" aria-hidden="true"></i></span>
+            <span class="e-btn__icon"><i class="e-icon e-icon--edit"  aria-hidden="true"></i></span>
           </button>
           <button class="e-btn e-btn--icon" aria-label="Slett">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin" aria-hidden="true"></i></span>
+            <span class="e-btn__icon"><i class="e-icon e-icon--bin"  aria-hidden="true"></i></span>
           </button>
         </td>
       </tr>
@@ -779,7 +779,7 @@ export class TableDocComponent {
 `;
 
   exampleCheckboxMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile">
+  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">CaseID</th>
@@ -848,8 +848,8 @@ export class TableDocComponent {
         <td>
           <a class="e-link e-link--action">
             <span class="e-link__icon">
-              <i class="e-icon e-icon--arrow_right_circle-color"></i>
-              <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+              <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
             </span>  
           </a>
         </td>
@@ -861,8 +861,8 @@ export class TableDocComponent {
         <td>
           <a class="e-link e-link--action">
             <span class="e-link__icon">
-              <i class="e-icon e-icon--arrow_right_circle-color"></i>
-              <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+              <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
             </span>  
           </a>
         </td>
@@ -874,8 +874,8 @@ export class TableDocComponent {
         <td>
           <a class="e-link e-link--action">
             <span class="e-link__icon">
-              <i class="e-icon e-icon--arrow_right_circle-color"></i>
-              <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+              <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
             </span>  
           </a>
         </td>
@@ -886,7 +886,7 @@ export class TableDocComponent {
 `;
 
   exampleSelectMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile">
+  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">CaseID</th>
@@ -899,8 +899,8 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col">
           <a class="e-link e-link--action">
             <span class="e-link__icon">
-              <i class="e-icon e-icon--arrow_right_circle-color"></i>
-              <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+              <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
             </span>  
           </a>
         </th>
@@ -920,8 +920,8 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col">
           <a class="e-link e-link--action">
             <span class="e-link__icon">
-              <i class="e-icon e-icon--arrow_right_circle-color"></i>
-              <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+              <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
             </span>  
           </a>
         </th>
