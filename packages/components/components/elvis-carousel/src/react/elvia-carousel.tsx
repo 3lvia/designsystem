@@ -5,7 +5,7 @@ import {
   CarouselElements,
   CarouselElementContainer,
   CarouselElement,
-  CarouselTitle,
+  CarouselHeading,
   CarouselLeftButton,
   CarouselListOfDots,
   CarouselDot,
@@ -19,11 +19,15 @@ import { CarouselConfig, CarouselItemConfig } from './config';
 import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 
 type CarouselItem = {
+  /**
+   * @deprecated Deprecated in version 2.0.0. Use heading instead.
+   */
   title?: JSX.Element | string | HTMLElement;
   /**
    * @deprecated Deprecated in version 2.0.0. Use item instead.
    */
   element?: JSX.Element | string | HTMLElement;
+  heading?: JSX.Element | string | HTMLElement;
   item: JSX.Element | string | HTMLElement;
 };
 
@@ -33,9 +37,22 @@ export interface CarouselProps {
    * @deprecated Deprecated in version 2.0.0. Use items instead.
    */
   elements?: CarouselItem[] | number;
+  /**
+   *  @deprecated Deprecated in version 2.0.0.
+   * Use loop instead. Remember to invert boolean.
+   */
   hideArrows?: boolean;
+  loop?: boolean;
+  onFinish?: () => void;
+  /**
+   *  @deprecated Deprecated in version 2.0.0. Use onFinish instead.
+   */
   onHide?: () => void;
+  /**
+   *  @deprecated Deprecated in version 2.0.0. Use hasConfirmationCheckmark instead.
+   */
   useOnboardingCheckmark?: boolean;
+  hasConfirmationCheckmark?: boolean;
   value?: number;
   valueOnChange?: (value: number) => void;
   hasAnimation: boolean;
@@ -46,9 +63,9 @@ export interface CarouselProps {
 
 export const Carousel: FC<CarouselProps> = function ({
   items,
-  hideArrows = false,
-  onHide,
-  useOnboardingCheckmark,
+  loop = true,
+  onFinish,
+  hasConfirmationCheckmark,
   value = 0,
   valueOnChange,
   hasAnimation = true,
@@ -79,9 +96,9 @@ export const Carousel: FC<CarouselProps> = function ({
 
   const itemsRef = useRef<HTMLDivElement>(null);
 
-  const hideLeftArrow = hideArrows && index === 0;
-  const hideRightArrow = hideArrows && index === lengthOfItems - 1;
-  const showOnboardingCheckmark = hideRightArrow && useOnboardingCheckmark;
+  const hideLeftArrow = !loop && index === 0;
+  const hideRightArrow = !loop && index === lengthOfItems - 1;
+  const showOnboardingCheckmark = hideRightArrow && hasConfirmationCheckmark;
 
   const updateValue = (updateValueIndex: number) => {
     setIndex(updateValueIndex);
@@ -129,14 +146,14 @@ export const Carousel: FC<CarouselProps> = function ({
   const mapSlottedItems = (slots: Record<string, any>, slotElements: string | any[]) => {
     const newElements: CarouselItem[] = [];
     for (let i = 1; i < slotElements.length + 1; i++) {
-      const newEl: CarouselItem = { title: '', item: '' };
-      const title = Object.keys(slots).find((el) => {
-        return el === 'title-' + i;
+      const newEl: CarouselItem = { heading: '', item: '' };
+      const heading = Object.keys(slots).find((el) => {
+        return el === 'heading-' + i;
       });
       const item = Object.keys(slots).find((el) => {
         return el === 'item-' + i;
       });
-      newEl.title = <div dangerouslySetInnerHTML={{ __html: title ? slots[title].innerHTML : '' }} />;
+      newEl.heading = <div dangerouslySetInnerHTML={{ __html: heading ? slots[heading].innerHTML : '' }} />;
       newEl.item = <div dangerouslySetInnerHTML={{ __html: item ? slots[item].innerHTML : '' }} />;
       newElements.push(newEl);
     }
@@ -200,7 +217,7 @@ export const Carousel: FC<CarouselProps> = function ({
 
   const triggerOnHide = () => {
     if (!webcomponent) {
-      onHide && onHide();
+      onFinish && onFinish();
     } else {
       webcomponent.triggerEvent('onHide');
     }
@@ -233,13 +250,13 @@ export const Carousel: FC<CarouselProps> = function ({
       <CarouselElements>
         {typeof carouselItems === 'object' && (
           <CarouselElementContainer className={classNameContainer}>
-            {typeof carouselItems[index].title === 'string' && (
-              <CarouselTitle data-testid="carousel-item-title">
-                <h2 className="e-title-sm">{carouselItems[index].title}</h2>
-              </CarouselTitle>
+            {typeof carouselItems[index].heading === 'string' && (
+              <CarouselHeading data-testid="carousel-item-heading">
+                <h2 className="e-heading-sm">{carouselItems[index].heading}</h2>
+              </CarouselHeading>
             )}
-            {typeof carouselItems[index].title === 'object' && (
-              <CarouselTitle>{carouselItems[index].title}</CarouselTitle>
+            {typeof carouselItems[index].heading === 'object' && (
+              <CarouselHeading>{carouselItems[index].heading}</CarouselHeading>
             )}
             <CarouselElement
               ref={itemsRef}
@@ -294,7 +311,7 @@ export const Carousel: FC<CarouselProps> = function ({
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-onboarding-checkmark"
           >
-            <Icon name={carouselRightCheckButtonIcon} size="md" />
+            <Icon name={carouselRightCheckButtonIcon()} size="md" />
           </CarouselCheckButton>
         ) : (
           <CarouselRightButton

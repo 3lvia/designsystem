@@ -122,9 +122,12 @@ module.exports = [
     name: 'elvis-carousel',
     elementName: 'elvia-carousel',
     attributes: [
+      { name: 'elements', type: 'string', propType: 'number | string | HTMLElement' }, // TODO: Remove when deprecation is final.
       { name: 'items', type: 'string', propType: 'number | string | HTMLElement' },
-      { name: 'hideArrows', type: 'boolean', propType: 'boolean | undefined' },
-      { name: 'useOnboardingCheckmark', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'hideArrows', type: 'boolean', propType: 'boolean | undefined' }, // TODO: Remove when deprecation is final.
+      { name: 'loop', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'useOnboardingCheckmark', type: 'boolean', propType: 'boolean | undefined' }, // TODO: Remove when deprecation is final.
+      { name: 'hasConfirmationCheckmark', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasAnimation', type: 'boolean', propType: 'boolean' },
       { name: 'value', type: 'number', propType: 'number | undefined' },
       { name: 'className', type: 'string', propType: 'string' },

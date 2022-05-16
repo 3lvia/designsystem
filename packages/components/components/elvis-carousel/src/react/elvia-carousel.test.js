@@ -15,10 +15,10 @@ describe('Elvis Carousel', () => {
   let carouselOnboardingCheckmark;
   const itemsNum = 5;
   const items = [
-    { title: 'Item 1', item: <p>Body text 1</p> },
-    { title: 'Item 2', item: <p>Body text 2</p> },
-    { title: 'Item 3', item: <p>Body text 3</p> },
-    { title: 'Item 4', item: <p>Body text 4</p> },
+    { heading: 'Item 1', item: <p>Body text 1</p> },
+    { heading: 'Item 2', item: <p>Body text 2</p> },
+    { heading: 'Item 3', item: <p>Body text 3</p> },
+    { heading: 'Item 4', item: <p>Body text 4</p> },
   ];
 
   describe('Default', () => {
@@ -30,7 +30,7 @@ describe('Elvis Carousel', () => {
         .children()
         .children();
       carouselListOfDotsNodes = carouselListOfDots.map((dot) => dot.getDOMNode());
-      carouselItemTitle = wrapper.find({ 'data-testid': 'carousel-item-title' }).at(0);
+      carouselItemTitle = wrapper.find({ 'data-testid': 'carousel-item-heading' }).at(0);
       carouselItem = wrapper.find({ 'data-testid': 'carousel-item' }).at(0);
       carouselLeftArrow = wrapper.find({ 'data-testid': 'carousel-left-arrow' }).at(0);
       carouselRightArrow = wrapper.find({ 'data-testid': 'carousel-right-arrow' }).at(0);
@@ -115,7 +115,7 @@ describe('Elvis Carousel', () => {
   describe('Value = 2', () => {
     beforeEach(() => {
       wrapper = mount(<Carousel items={items} value={2} />);
-      carouselItemTitle = wrapper.find({ 'data-testid': 'carousel-item-title' }).at(0);
+      carouselItemTitle = wrapper.find({ 'data-testid': 'carousel-item-heading' }).at(0);
       carouselItem = wrapper.find({ 'data-testid': 'carousel-item' }).at(0);
     });
     afterEach(() => {
@@ -129,7 +129,7 @@ describe('Elvis Carousel', () => {
   });
   describe('Hide arrows = true', () => {
     beforeEach(() => {
-      wrapper = mount(<Carousel items={items} hideArrows />);
+      wrapper = mount(<Carousel items={items} loop={false} />);
       carouselListOfDots = wrapper
         .find({ 'data-testid': 'carousel-list-of-dots' })
         .at(0)
