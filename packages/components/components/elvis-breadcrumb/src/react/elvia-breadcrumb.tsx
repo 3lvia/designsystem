@@ -9,21 +9,29 @@ import {
 import { Icon } from '@elvia/elvis-icon/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
-import config from './config';
+import { breadcrumbConfig, breadcrumbLinkConfig } from './config';
 
 interface BreadcrumbLink {
+  /**
+   * @deprecated Deprecated in version 2.0.0. Use href instead.
+   */
   url?: string;
-  title: string;
+  /**
+   * @deprecated Deprecated in version 2.0.0. Use text instead
+   */
+  title?: string;
+  href?: string;
+  text: string;
 }
 
 interface BreadcrumbProps {
   /**
-   * @deprecated Deprecated in version 2.0.0
+   * @deprecated Deprecated in version 2.0.0. Use items instead.
    */
-  breadcrumbs: BreadcrumbLink[];
+  breadcrumbs?: BreadcrumbLink[];
   items: BreadcrumbLink[];
   /**
-   * @deprecated Deprecated in version 2.0.0
+   * @deprecated Deprecated in version 2.0.0. Use itemsOnChange instead.
    */
   breadcrumbsOnChange?: (value: number) => void;
   itemsOnChange: (value: number) => void;
@@ -32,7 +40,7 @@ interface BreadcrumbProps {
   webcomponent?: ElvisComponentWrapper;
 }
 
-const ElviaBreadcrumb: React.FC<BreadcrumbProps> = function ({
+const Breadcrumb: React.FC<BreadcrumbProps> = function ({
   items = [],
   itemsOnChange,
   className,
@@ -41,7 +49,10 @@ const ElviaBreadcrumb: React.FC<BreadcrumbProps> = function ({
   ...rest
 }) {
   // eslint-disable-next-line prefer-rest-params
-  warnDeprecatedProps(config, arguments[0]);
+  warnDeprecatedProps(breadcrumbConfig, arguments[0]);
+  items.forEach((item) => {
+    warnDeprecatedProps(breadcrumbLinkConfig, item);
+  });
 
   const [childrenLength, setChildrenLength] = useState<number>(0);
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
@@ -88,13 +99,13 @@ const ElviaBreadcrumb: React.FC<BreadcrumbProps> = function ({
           }}
         />
         <BreadcrumbLinkStyle
-          href={items[childrenLength - 2].url}
+          href={items[childrenLength - 2].href}
           onClick={() => {
             handleOnClick(childrenLength - 2);
           }}
           isClickable={true}
         >
-          {items[childrenLength - 2].title}
+          {items[childrenLength - 2].text}
         </BreadcrumbLinkStyle>
       </BreadcrumbWrapper>
     );
@@ -106,7 +117,7 @@ const ElviaBreadcrumb: React.FC<BreadcrumbProps> = function ({
         return (
           <BreadcrumbDesktopWrapper key={index}>
             <BreadcrumbLinkStyle
-              href={item.url}
+              href={item.href}
               onClick={() => {
                 handleOnClick(index);
               }}
@@ -114,7 +125,7 @@ const ElviaBreadcrumb: React.FC<BreadcrumbProps> = function ({
               data-testid="breadcrumb-desktop-last-link"
               aria-current="page"
             >
-              {item.title}
+              {item.text}
             </BreadcrumbLinkStyle>
           </BreadcrumbDesktopWrapper>
         );
@@ -122,14 +133,14 @@ const ElviaBreadcrumb: React.FC<BreadcrumbProps> = function ({
       return (
         <BreadcrumbDesktopWrapper key={index}>
           <BreadcrumbLinkStyle
-            href={item.url}
+            href={item.href}
             onClick={() => {
               handleOnClick(index);
             }}
             isClickable={true}
             data-testid="breadcrumb-desktop-multiple-links"
           >
-            {item.title}
+            {item.text}
           </BreadcrumbLinkStyle>
           <Icon
             name="arrowRightBold"
@@ -168,4 +179,4 @@ const ElviaBreadcrumb: React.FC<BreadcrumbProps> = function ({
   );
 };
 
-export default ElviaBreadcrumb;
+export default Breadcrumb;

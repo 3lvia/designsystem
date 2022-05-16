@@ -29,10 +29,10 @@ function App() {
   // Breadcrumb
   const breadcrumbsNoUrl = [
     {
-      title: 'Elvia.no',
+      text: 'Elvia.no',
     },
     {
-      title: 'Nettleie',
+      text: 'Nettleie',
     },
   ];
 
@@ -152,7 +152,7 @@ function App() {
         {/* BREADCRUMB */}
         <div className="example-wrapper">
           <h3>Breadcrumb</h3>
-          <Breadcrumb breadcrumbs={breadcrumbsNoUrl} />
+          <Breadcrumb items={breadcrumbsNoUrl} />
         </div>
         {/* CARD */}
         <div className="example-wrapper">

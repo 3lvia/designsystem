@@ -2,15 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "06.05.22",
+      "date": "16.05.22",
       "version": "2.0.0 ",
       "changelog": [
         {
           "type": "breaking_changes",
-          "changes": ["Renamed props for more consistent naming conventions."],
+          "changes": [
+            "Renamed props for more consistent naming conventions. Changed BreadcrumbLink structure. "
+          ],
           "fixes": [
             "Change prop: <span class=\"code-text\">breadcrumbs</span> => <span class=\"code-text\">items</span>",
-            "Change prop: <span class=\"code-text\">breadcrumbsOnChange</span> => <span class=\"code-text\">itemsOnChange</span>"
+            "Change prop: <span class=\"code-text\">breadcrumbsOnChange</span> => <span class=\"code-text\">itemsOnChange</span>",
+            "Change the link items to {'href': '...', 'text': '...'}"
           ]
         }
       ]

@@ -11,7 +11,7 @@ export class v2PlaygroundComponent {
   accordionHtmlContent = `<div>HTML content<div>`;
 
   // Breadcrumb
-  breadcrumbsTestNoUrl = [{ title: 'Elvia.no' }, { title: 'Nettleie' }, { title: 'Elvias leveringsplikt' }];
+  breadcrumbsTestNoUrl = [{ text: 'Elvia.no' }, { text: 'Nettleie' }, { text: 'Elvias leveringsplikt' }];
 
   // Carousel
   carouselParagraph = `

@@ -1,6 +1,6 @@
 import { ComponentConfig } from '@elvia/elvis-toolbox';
 
-const config: ComponentConfig = {
+export const breadcrumbConfig: ComponentConfig = {
   componentName: 'Breadcrumb',
   deprecatedProps: {
     // Rule 1.12: List of elements
@@ -18,4 +18,20 @@ const config: ComponentConfig = {
   },
 };
 
-export default config;
+export const breadcrumbLinkConfig: ComponentConfig = {
+  componentName: 'Breadcrumb',
+  deprecatedProps: {
+    // Rule 1.12: List of elements
+    url: {
+      version: '2.0.0',
+      newProp: 'href',
+      isDirectReplacement: true,
+    },
+    // Rule 1.4, event handlers
+    title: {
+      version: '2.0.0',
+      newProp: 'text',
+      isDirectReplacement: true,
+    },
+  },
+};

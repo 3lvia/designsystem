@@ -83,6 +83,7 @@ module.exports = [
     name: 'elvis-breadcrumb',
     elementName: 'elvia-breadcrumb',
     attributes: [
+      { name: 'breadcrumbs', type: 'object', propType: 'object' }, // Remove when deprecation is final.
       { name: 'items', type: 'object', propType: 'object' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },

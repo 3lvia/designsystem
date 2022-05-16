@@ -4,16 +4,16 @@ import { mount } from 'enzyme';
 
 const breadcumbsLinksTest = [
   {
-    url: 'https://elvia.no',
-    title: 'Elvia.no',
+    href: 'https://elvia.no',
+    text: 'Elvia.no',
   },
   {
-    url: 'https://www.elvia.no/nettleie',
-    title: 'Nettleie',
+    href: 'https://www.elvia.no/nettleie',
+    text: 'Nettleie',
   },
   {
-    url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt',
-    title: 'Elvias leveringsplikt',
+    href: 'https://www.elvia.no/nettleie/elvias-leveringsplikt',
+    text: 'Elvias leveringsplikt',
   },
 ];
 
