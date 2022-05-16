@@ -2652,18 +2652,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@elvia/elvis-typography@*, @elvia/elvis-typography@workspace:packages/elvis-typography":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
+  languageName: unknown
+  linkType: soft
+
 "@elvia/elvis-typography@npm:^1.2.0":
   version: 1.2.1
   resolution: "@elvia/elvis-typography@npm:1.2.1"
   checksum: 616c0d7edc9219ae198f3725b22fd967df8ccfb2ad52c0339c451355a0b447a722b6cd8968275b6975d150619b06aded2f069e29814d1d4c61f98141b27bcc4a
   languageName: node
   linkType: hard
-
-"@elvia/elvis-typography@workspace:packages/elvis-typography":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
-  languageName: unknown
-  linkType: soft
 
 "@elvia/elvis@*, @elvia/elvis@workspace:packages/elvis":
   version: 0.0.0-use.local
@@ -23311,6 +23311,7 @@ __metadata:
     "@elvia/elvis-spotlight": "*"
     "@elvia/elvis-tabs": "*"
     "@elvia/elvis-testing": "*"
+    "@elvia/elvis-typography": "*"
     "@testing-library/dom": ">=7.21.4"
     "@testing-library/jest-dom": ^5.15.1
     "@testing-library/react": 12.1.2
