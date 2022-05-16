@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.05.22",
+      "version": "2.1.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added a new prop, isLoading"]
+        }
+      ]
+    },
+    {
       "date": "13.05.22",
       "version": "2.0.1 ",
       "changelog": [

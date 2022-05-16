@@ -84,6 +84,7 @@ function App() {
 
   // Tabs
   const tabsItems = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
+  const [isChipLoading, setIsChipLoading] = useState(false);
 
   return (
     <div className="App">
@@ -94,33 +95,7 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white">
-            <Popover
-              type={'list'}
-              posY={'top'}
-              trigger={
-                <button className="e-btn e-btn--icon e-btn--circled">
-                  <span className="e-btn__icon">
-                    <Icon name="informationCircle"></Icon>
-                    <Icon name="informationCircleFilledColor"></Icon>
-                  </span>
-                </button>
-              }
-              content={
-                <div className="ewc-popover__list">
-                  <button>
-                    <span>Be om tilgang</span>
-                  </button>
-                  <button>
-                    <span>Legg til bruker</span>
-                  </button>
-                  <a>
-                    <span>Endre passord</span>
-                  </a>
-                </div>
-              }
-            ></Popover>
-          </div>
+          <div className="e-bg-white"></div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>
@@ -185,8 +160,14 @@ function App() {
 
           <Chip
             type="legend"
-            isSelectedOnChange={() => setChipSelected(!chipSelected)}
+            isSelectedOnChange={() => {
+              setIsChipLoading(!isChipLoading);
+              setTimeout(() => {
+                setIsChipLoading(false);
+              }, [2000]);
+            }}
             isSelected={chipSelected}
+            isLoading={isChipLoading}
             value="Selectable"
           ></Chip>
         </div>
