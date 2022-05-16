@@ -1,6 +1,6 @@
 import { ComponentConfig } from '@elvia/elvis-toolbox';
 
-const config: ComponentConfig = {
+export const config: ComponentConfig = {
   componentName: 'Popover',
   deprecatedProps: {
     // Rule 1.2: Fullstendige ord
@@ -33,5 +33,3 @@ const config: ComponentConfig = {
     },
   },
 };
-
-export default config;
