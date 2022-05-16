@@ -37,7 +37,7 @@
           *ngFor="let firstNum of firstNums"
           class="e-pagination__number"
           [ngClass]="{ 'e-pagination__number--active': activeNumber(firstNum) }"
-          id="item-{{ firstNum }}"
+          id="element-{{ firstNum }}"
           (click)="chooseNumber($event)"
         >
           1
@@ -47,7 +47,7 @@
           class="e-pagination__number"
           *ngFor="let centerNum of centerNums"
           [ngClass]="{ 'e-pagination__number--active': activeNumber(centerNum) }"
-          id="item-{{ centerNum }}"
+          id="element-{{ centerNum }}"
           (click)="chooseNumber($event)"
         >
           5
@@ -57,7 +57,7 @@
           class="e-pagination__number"
           *ngFor="let lastNum of lastNums"
           [ngClass]="{ 'e-pagination__number--active': activeNumber(lastNum) }"
-          id="item-{{ lastNum }}"
+          id="element-{{ lastNum }}"
           (click)="chooseNumber($event)"
         >
           10
@@ -98,7 +98,7 @@
           *ngFor="let firstNum of firstNums"
           class="e-pagination__number"
           [ngClass]="{ 'e-pagination__number--active': activeNumber(firstNum) }"
-          id="item-{{ firstNum }}"
+          id="element-{{ firstNum }}"
           (click)="chooseNumber($event)"
         >
           1
@@ -108,7 +108,7 @@
           class="e-pagination__number e-pagination__number--active"
           *ngFor="let centerNum of centerNums"
           [ngClass]="{ 'e-pagination__number--active': activeNumber(centerNum) }"
-          id="item-{{ centerNum }}"
+          id="element-{{ centerNum }}"
           (click)="chooseNumber($event)"
         >
           5
@@ -118,7 +118,7 @@
           class="e-pagination__number"
           *ngFor="let lastNum of lastNums"
           [ngClass]="{ 'e-pagination__number--active': activeNumber(lastNum) }"
-          id="item-{{ lastNum }}"
+          id="element-{{ lastNum }}"
           (click)="chooseNumber($event)"
         >
           10
@@ -157,7 +157,7 @@
           *ngFor="let firstNum of firstNums"
           class="e-pagination__number"
           [ngClass]="{ 'e-pagination__number--active': activeNumber(firstNum) }"
-          id="item-{{ firstNum }}"
+          id="element-{{ firstNum }}"
           (click)="chooseNumber($event)"
         >
           1
@@ -167,7 +167,7 @@
           class="e-pagination__number e-pagination__number---hover"
           *ngFor="let centerNum of centerNums"
           [ngClass]="{ 'e-pagination__number--active': activeNumber(centerNum) }"
-          id="item-{{ centerNum }}"
+          id="element-{{ centerNum }}"
           (click)="chooseNumber($event)"
         >
           5
@@ -177,7 +177,7 @@
           class="e-pagination__number"
           *ngFor="let lastNum of lastNums"
           [ngClass]="{ 'e-pagination__number--active': activeNumber(lastNum) }"
-          id="item-{{ lastNum }}"
+          id="element-{{ lastNum }}"
           (click)="chooseNumber($event)"
         >
           10

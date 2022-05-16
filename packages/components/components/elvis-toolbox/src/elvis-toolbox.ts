@@ -97,7 +97,6 @@ export const warnDeprecatedProps = (config: ComponentConfig, props: { [propName:
   /** List of deprecated callbacks that have already been console warned. Used to avoid duplicated warnings. */
   const warnedCallbacks: string[] = [];
   const deprecatedProps = config.deprecatedProps;
-
   for (const prop in props) {
     // Check for deprecated props
     if (prop in deprecatedProps) {
