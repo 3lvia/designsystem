@@ -7,7 +7,7 @@ describe('Elvis Modal', () => {
   let modalWrapper;
   let modalPrimaryBtn;
   let modalSecondaryBtn;
-  let modalTitle;
+  let modalHeading;
   let modalContent;
   let modalIllustration;
   let modalCloseBtn;
@@ -15,12 +15,12 @@ describe('Elvis Modal', () => {
   describe('Default', () => {
     beforeEach(() => {
       wrapper = mount(
-        <Modal title="Title" content="Content" primaryButton={<button>Primary</button>}></Modal>,
+        <Modal heading="Title" content="Content" primaryButton={<button>Primary</button>}></Modal>,
       );
       modalWrapper = wrapper.find({ 'data-testid': 'modal-container' }).at(0);
       modalPrimaryBtn = wrapper.find({ 'data-testid': 'modal-primary-btn' }).at(0);
       modalSecondaryBtn = wrapper.find({ 'data-testid': 'modal-secondary-btn' }).at(0);
-      modalTitle = wrapper.find({ 'data-testid': 'modal-title' }).at(0);
+      modalHeading = wrapper.find({ 'data-testid': 'modal-heading' }).at(0);
       modalContent = wrapper.find({ 'data-testid': 'modal-content' }).at(0);
       modalIllustration = wrapper.find({ 'data-testid': 'modal-illustration' }).at(0);
       modalCloseBtn = wrapper.find({ 'data-testid': 'modal-close-btn' }).at(0);
@@ -37,8 +37,8 @@ describe('Elvis Modal', () => {
       expect(modalSecondaryBtn.exists()).toBeFalsy();
       done();
     });
-    it('should have title', function (done) {
-      expect(modalTitle.text()).toEqual('Title');
+    it('should have heading', function (done) {
+      expect(modalHeading.text()).toEqual('Title');
       done();
     });
     it('should have content', function (done) {
@@ -58,12 +58,12 @@ describe('Elvis Modal', () => {
     beforeEach(() => {
       wrapper = mount(
         <Modal
-          title="Title"
+          heading="Title"
           content="Content"
           primaryButton={<button>Primary</button>}
           secondaryButton={<button>Secondary</button>}
           illustration={<svg />}
-          hasCloseBtn
+          hasCloseButton
           isShowing
         ></Modal>,
       );
@@ -93,7 +93,7 @@ describe('Elvis Modal', () => {
     beforeEach(() => {
       wrapper = mount(
         <Modal
-          title="Title"
+          heading="Title"
           content="Content"
           primaryButton={<button>Primary</button>}
           className="test-class"

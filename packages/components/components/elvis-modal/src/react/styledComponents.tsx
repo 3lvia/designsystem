@@ -190,7 +190,7 @@ export const ModalIllustration = styled.div`
   }
 `;
 
-export const ModalTitle = styled.div`
+export const ModalHeading = styled.div`
   ${typography.titleMd}
   font-size: ${(props: { hasIllustration: boolean }) =>
     props.hasIllustration ? modalDesktopWithIllustrationTitleFontSize : titleFontSize};

@@ -252,12 +252,14 @@ module.exports = [
     elementName: 'elvia-modal',
     attributes: [
       { name: 'isShowing', type: 'boolean', propType: 'boolean' },
-      { name: 'title', type: 'string', propType: 'string | undefined' },
+      { name: 'title', type: 'string', propType: 'string | undefined' }, // Deprecated
+      { name: 'heading', type: 'string', propType: 'string | undefined' },
       { name: 'content', type: 'string', propType: 'HTMLElement' },
       { name: 'illustration', type: 'string', propType: 'HTMLElement | undefined' },
       { name: 'primaryButton', type: 'string', propType: 'HTMLElement | undefined' },
       { name: 'secondaryButton', type: 'string', propType: 'HTMLElement | undefined' },
-      { name: 'hasCloseBtn', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'hasCloseBtn', type: 'boolean', propType: 'boolean | undefined' }, // Deprecated
+      { name: 'hasCloseButton', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasLockBodyScroll', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasPadding', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'disableClose', type: 'boolean', propType: 'boolean | undefined' },

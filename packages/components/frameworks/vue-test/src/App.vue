@@ -178,9 +178,9 @@
       <button class="e-btn" @click="isModalShowing = !isModalShowing">Hello</button>
       <elvia-modal
         :isShowing="isModalShowing"
-        :title="'Redigere bidragsytere'"
-        :hasCloseBtn="true"
-        @on-hide="isModalShowing = !isModalShowing"
+        :heading="'Redigere bidragsytere'"
+        :hasCloseButton="true"
+        @on-close="isModalShowing = !isModalShowing"
       >
         <div slot="content">
           <div class="date-container">

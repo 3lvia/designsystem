@@ -4,7 +4,7 @@ import {
   ModalContent,
   ModalIllustration,
   Modal,
-  ModalTitle,
+  ModalHeading,
   ModalWrapper,
   ModalText,
   ModalActions,
@@ -16,43 +16,60 @@ import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
 import { useFocusTrap } from './useFocusTrap';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { config } from './config';
 
 export interface ModalProps {
   isShowing: boolean;
+  /**
+   * @deprecated Removed in version 2.0.0. Replaced by `heading`.
+   */
   title?: string;
+  heading?: string;
   content: HTMLElement;
   illustration?: HTMLElement;
   primaryButton?: JSX.Element;
   secondaryButton?: JSX.Element;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
+  /**
+   * @deprecated Removed in version 2.0.0. Replaced by `hasCloseButton`.
+   */
   hasCloseBtn?: boolean;
+  hasCloseButton?: boolean;
   hasLockBodyScroll?: boolean;
   hasPadding?: boolean;
   disableClose?: boolean;
   maxWidth?: string;
+  /**
+   * @deprecated Removed in version 2.0.0. Replaced by `onClose()`.
+   */
   onHide: () => void;
-  webcomponent: ElvisComponentWrapper;
+  onClose: () => void;
+  webcomponent?: ElvisComponentWrapper;
 }
 
-export const ModalComponent: FC<ModalProps> = ({
+export const ModalComponent: FC<ModalProps> = function ({
   isShowing,
-  title,
+  heading,
   content,
   illustration,
   primaryButton,
   secondaryButton,
   className,
   inlineStyle,
-  hasCloseBtn = false,
+  hasCloseButton = false,
   hasLockBodyScroll = true,
   hasPadding = true,
   disableClose = false,
   maxWidth,
-  onHide,
+  onClose,
   webcomponent,
   ...rest
-}) => {
+}) {
+  // eslint-disable-next-line prefer-rest-params
+  warnDeprecatedProps(config, arguments[0]);
+
   const modalWrapperRef = useRef<HTMLDivElement>(null);
   const modalText = useRef<HTMLDivElement>(null);
   const modalIllustration = useRef<HTMLDivElement>(null);
@@ -61,24 +78,25 @@ export const ModalComponent: FC<ModalProps> = ({
 
   const [isHoveringCloseButton, setIsHoveringCloseButton] = useState(false);
 
-  const hasIllustration = !!illustration || (webcomponent && !!webcomponent.getSlot('illustration'));
-  const hasPrimaryButton = !!primaryButton || (webcomponent && !!webcomponent.getSlot('primaryButton'));
-  const hasSecondaryButton = !!secondaryButton || (webcomponent && !!webcomponent.getSlot('secondaryButton'));
+  const hasIllustration = !!illustration || !!(webcomponent && !!webcomponent.getSlot('illustration'));
+  const hasPrimaryButton = !!primaryButton || !!(webcomponent && !!webcomponent.getSlot('primaryButton'));
+  const hasSecondaryButton =
+    !!secondaryButton || !!(webcomponent && !!webcomponent.getSlot('secondaryButton'));
 
-  const handleOnHide = () => {
+  const handleOnClose = () => {
     if (!isShowing) {
       return;
     }
-    if (!webcomponent && onHide) {
-      onHide();
+    if (!webcomponent && onClose) {
+      onClose();
     } else if (webcomponent) {
       webcomponent.setProps({ isShowing: false }, true);
-      webcomponent.triggerEvent('onHide');
+      webcomponent.triggerEvent('onClose');
     }
   };
 
-  !disableClose && useClickOutside(modalWrapperRef, () => isShowing && handleOnHide());
-  useKeyPress('Escape', handleOnHide);
+  !disableClose && useClickOutside(modalWrapperRef, () => isShowing && handleOnClose());
+  useKeyPress('Escape', handleOnClose);
   hasLockBodyScroll && useLockBodyScroll(isShowing);
 
   useEffect(() => {
@@ -131,7 +149,7 @@ export const ModalComponent: FC<ModalProps> = ({
       aria-modal
       tabIndex={-1}
       role="dialog"
-      aria-label={title}
+      aria-label={heading}
       isShowing={isShowing}
       data-testid="modal-container"
       {...rest}
@@ -148,9 +166,9 @@ export const ModalComponent: FC<ModalProps> = ({
           <ModalIllustration data-testid="modal-illustration">{illustration}</ModalIllustration>
         )}
         {!illustration && hasIllustration && <ModalIllustration ref={modalIllustration}></ModalIllustration>}
-        {hasCloseBtn && (
+        {hasCloseButton && (
           <ModalCloseButton
-            onClick={() => handleOnHide()}
+            onClick={() => handleOnClose()}
             onMouseEnter={() => setIsHoveringCloseButton(true)}
             onMouseLeave={() => setIsHoveringCloseButton(false)}
             aria-label="Lukk modal"
@@ -165,10 +183,10 @@ export const ModalComponent: FC<ModalProps> = ({
         )}
 
         <ModalContent hasIllustration={hasIllustration} hasPadding={hasPadding}>
-          {title && (
-            <ModalTitle hasIllustration={hasIllustration} data-testid="modal-title">
-              {title}
-            </ModalTitle>
+          {heading && (
+            <ModalHeading hasIllustration={hasIllustration} data-testid="modal-heading">
+              {heading}
+            </ModalHeading>
           )}
 
           {content && <ModalText data-testid="modal-content">{content}</ModalText>}

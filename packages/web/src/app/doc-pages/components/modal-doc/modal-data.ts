@@ -11,7 +11,7 @@ const modalData: ComponentData = {
       type: 'boolean',
       description: 'Controls if the modal is showing or not',
     },
-    title: {
+    heading: {
       isRequired: false,
       type: 'string',
       description: 'Title for the modal',
@@ -47,7 +47,7 @@ const modalData: ComponentData = {
       type: 'string',
       description: 'Custom css classes that could be added to the modal',
     },
-    hasCloseBtn: {
+    hasCloseButton: {
       isRequired: false,
       type: 'boolean',
       description:
@@ -78,7 +78,7 @@ const modalData: ComponentData = {
         'Disables closing of modal, should only be used in special cases where closing the modal was not intended.',
       default: 'false',
     },
-    onHide: {
+    onClose: {
       isRequired: true,
       type: '() => void',
       description: 'Callback for every time the modal is being closed.',
@@ -101,8 +101,8 @@ const modalData: ComponentData = {
   codeReact: `<button onClick={() => setIsModalShowingState(true)} className="e-btn">Åpne modal</button>
 <Modal
   isShowing={isModalShowing}
-  onHide={() => setIsModalShowingState(false)}
-  title="Title of content"
+  onClose={() => setIsModalShowingState(false)}
+  heading="Title of content"
   primaryButton={
     <button
       onClick={() => setIsModalShowingState(false)}
@@ -124,9 +124,9 @@ const modalData: ComponentData = {
 </Modal>`,
   codeAngular: `<button (click)="isModalShowing = true" class="e-btn">Åpne modal</button>
 <elvia-modal
-  (onHide)="isModalShowing = !isModalShowing"
+  (onClose)="isModalShowing = !isModalShowing"
   [isShowing]="isModalShowing"
-  [title]="'Title of content'"
+  [heading]="'Title of content'"
 >
   <div slot="content">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
@@ -139,9 +139,9 @@ const modalData: ComponentData = {
 `,
   codeVue: `<button @click="isModalShowing = true" class="e-btn">Åpne modal</button>
 <elvia-modal
-  @on-hide="isModalShowing = !isModalShowing"
+  @on-close="isModalShowing = !isModalShowing"
   :isShowing="isModalShowing"
-  :title="'Title of content'"
+  :heading="'Title of content'"
 >
   <div slot="content">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
@@ -170,8 +170,8 @@ const modalData: ComponentData = {
   let isModalShowing = false;
 
   modal.setProps({isShowing: isModalShowing });
-  modal.setProps({title: "Title of content" });
-  modal.addEventListener('onHide', () => {
+  modal.setProps({heading: "Title of content" });
+  modal.addEventListener('onClose', () => {
     modal.setProps({isShowing: !isModalShowing });
     isModalShowing = !isModalShowing;
   });
