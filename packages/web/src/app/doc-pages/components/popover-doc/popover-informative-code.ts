@@ -4,13 +4,13 @@ const popoverInformativeCode = {
   type: 'informative',
   codeReact:
     `<Popover
-  header={"` +
+  heading={"` +
     exampleContents.texts.md['eng-GBR'].title +
     `"}
   content={"` +
     exampleContents.texts.md['eng-GBR'].description +
     `"}
-  posY={"top"}
+    verticalPosistion={"top"}
   isShowingOnChange={(event) => showingChanges(event)}
   trigger={
     <button className="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
@@ -24,13 +24,13 @@ const popoverInformativeCode = {
 `,
   codeAngular:
     `<elvia-popover 
-  [header]="'` +
+  [heading]="'` +
     exampleContents.texts.md['eng-GBR'].title +
     `'"
   [content]="'` +
     exampleContents.texts.md['eng-GBR'].description +
     `'"
-  [posY]="'top'"
+  [verticalPosistion]="'top'"
   (isShowingOnChange)="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
@@ -43,13 +43,13 @@ const popoverInformativeCode = {
 `,
   codeVue:
     `<elvia-popover 
-  :header="'` +
+  :heading="'` +
     exampleContents.texts.md['eng-GBR'].title +
     `'"
   :content="'` +
     exampleContents.texts.md['eng-GBR'].description +
     `'"
-  :posY="'top'"
+  :verticalPosistion="'top'"
   @is-showing-on-change="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
@@ -63,11 +63,11 @@ const popoverInformativeCode = {
   codeNativeHTML:
     `<elvia-popover 
   id="example-elvia-popover"
-  header="` +
+  heading="` +
     exampleContents.texts.md['eng-GBR'].title +
     `"
   content=${JSON.stringify(exampleContents.texts.md['eng-GBR'].description)}
-  posY="top"
+  verticalPosistion="top"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
     <span class="e-btn__icon">

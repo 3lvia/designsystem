@@ -7,7 +7,7 @@ const popoverData: ComponentData = {
   elementNameW: 'elvia-popover',
   elementNameR: 'Popover',
   attributes: {
-    header: {
+    heading: {
       isRequired: false,
       type: 'string',
       description: 'Header of content',
@@ -18,7 +18,7 @@ const popoverData: ComponentData = {
       cegOption: exampleContents.texts.md['eng-GBR'].title,
       cegDependency: [{ name: 'type', value: 'informative' }],
     },
-    hasCloseBtn: {
+    hasCloseButton: {
       isRequired: false,
       type: 'boolean',
       description: 'Determines if the close button in the upper right corner should be visible',
@@ -64,7 +64,7 @@ const popoverData: ComponentData = {
       type: 'HTMLElement',
       description: 'The element the user clicks to open the popover',
     },
-    posY: {
+    verticalPosistion: {
       isRequired: false,
       type: '“bottom” | “top”',
       description: 'Position vertically',
@@ -75,7 +75,7 @@ const popoverData: ComponentData = {
       cegFormType: 'radio',
       cegOptions: ['top', 'bottom'],
     },
-    posX: {
+    horizontalPosistion: {
       isRequired: false,
       type: '“left” | “center” | “right”',
       description: 'Position horizontally',

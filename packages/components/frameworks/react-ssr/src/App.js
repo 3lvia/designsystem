@@ -96,29 +96,14 @@ function App() {
           {/* Normal version */}
           <div className="e-bg-white">
             <Popover
-              type={'list'}
-              posY={'top'}
-              trigger={
-                <button className="e-btn e-btn--icon e-btn--circled">
-                  <span className="e-btn__icon">
-                    <Icon name="informationCircle"></Icon>
-                    <Icon name="informationCircleFilledColor"></Icon>
-                  </span>
-                </button>
-              }
-              content={
-                <div className="ewc-popover__list">
-                  <button>
-                    <span>Be om tilgang</span>
-                  </button>
-                  <button>
-                    <span>Legg til bruker</span>
-                  </button>
-                  <a>
-                    <span>Endre passord</span>
-                  </a>
-                </div>
-              }
+              heading="BankID"
+              hasCloseButton={false}
+              content={<Tabs items={tabsItems} value={2}></Tabs>}
+              trigger={<button className="e-btn">Show popover</button>}
+              horizontalPosistion="left"
+              verticalPosistion="top"
+              isShowing={isPopoverShowing}
+              isShowingOnChange={(value) => setIsPopoverShowingState(value)}
             ></Popover>
           </div>
           {/* Inverted version */}
@@ -240,14 +225,6 @@ function App() {
         {/* POPOVER */}
         <div className="example-wrapper">
           <h3>Popover</h3>
-          <Popover
-            header="BankID"
-            content={<Tabs items={tabsItems} value={2}></Tabs>}
-            trigger={<button className="e-btn">Show popover</button>}
-            posX="right"
-            isShowing={isPopoverShowing}
-            isShowingOnChange={(value) => setIsPopoverShowingState(value)}
-          ></Popover>
         </div>
         {/* PROGRESS LINEAR */}
         <div className="example-wrapper">

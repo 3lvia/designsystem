@@ -203,7 +203,7 @@
     <!--Popover-->
     <div class="example-wrapper">
       <h3>Popover</h3>
-      <elvia-popover header="BankID" posX="right">
+      <elvia-popover heading="BankID" horizontalPosistion="right">
         <div slot="trigger"><button class="e-btn">Right top</button></div>
         <div slot="content">
           Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.

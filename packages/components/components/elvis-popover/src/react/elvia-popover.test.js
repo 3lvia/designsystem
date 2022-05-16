@@ -13,7 +13,7 @@ describe('Elvis Popover', () => {
 
   describe('Default', () => {
     beforeEach(() => {
-      wrapper = mount(<Popover trigger={<button>Trigger</button>} header="Header" content="Content" />);
+      wrapper = mount(<Popover trigger={<button>Trigger</button>} heading="Header" content="Content" />);
       popoverTrigger = wrapper.find({ 'data-testid': 'popover-trigger' }).at(0);
       popoverContainer = wrapper.find({ 'data-testid': 'popover-container' }).at(0);
       popoverCloseBtn = wrapper.find({ 'data-testid': 'popover-close-btn' }).at(0);
@@ -60,7 +60,7 @@ describe('Elvis Popover', () => {
   describe('Showing = True', () => {
     beforeEach(() => {
       wrapper = mount(
-        <Popover trigger={<button>Trigger</button>} header="Header" content="Content" isShowing />,
+        <Popover trigger={<button>Trigger</button>} heading="Header" content="Content" isShowing />,
       );
       popoverContainer = wrapper.find({ 'data-testid': 'popover-container' }).at(0);
     });
@@ -75,7 +75,12 @@ describe('Elvis Popover', () => {
   describe('Close button', () => {
     beforeEach(() => {
       wrapper = mount(
-        <Popover trigger={<button>Trigger</button>} header="Header" content="Content" hasCloseBtn="false" />,
+        <Popover
+          trigger={<button>Trigger</button>}
+          heading="Header"
+          content="Content"
+          hasCloseButton="false"
+        />,
       );
       popoverCloseBtn = wrapper.find({ 'data-testid': 'popover-close-btn' }).at(0);
     });
@@ -92,7 +97,7 @@ describe('Elvis Popover', () => {
       wrapper = mount(
         <Popover
           trigger={<button>Trigger</button>}
-          header="Header"
+          heading="Header"
           content="Content"
           className="test-class"
           inlineStyle={{ margin: '24px' }}

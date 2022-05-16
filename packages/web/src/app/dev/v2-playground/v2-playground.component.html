@@ -6,7 +6,7 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <elvia-popover header="BankID" type="list" selectable="true" hasDivider posX="right">
+      <elvia-popover header="BankID" type="list" selectable="true" hasDivider horizontalPosistion="right">
         <button slot="trigger" class="e-btn">Show popover</button>
         <div slot="content" class="ewc-popover__list">
           <div class="ewc-popover__list-group">
@@ -228,7 +228,7 @@
   <!--Popover-->
   <div class="example-wrapper">
     <h3>Popover</h3>
-    <elvia-popover header="BankID" posX="right" width="200" [isShowing]="isPopoverShowing">
+    <elvia-popover heading="BankID" horizontalPosistion="right" width="200" [isShowing]="isPopoverShowing">
       <button slot="trigger" class="e-btn">Show popover</button>
       <div slot="content">
         Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.

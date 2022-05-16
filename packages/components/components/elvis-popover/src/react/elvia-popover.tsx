@@ -4,19 +4,42 @@ import classnames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { config } from './config';
 
 export interface PopoverProps {
+  /**
+   * @deprecated Deprecated in version 5.0.0. Replaced by `heading`.
+   */
   header?: string;
+  heading?: string;
   content?: string | HTMLElement;
   type?: 'informative' | 'list';
   selectable?: boolean;
   hasDivider?: boolean;
+  /**
+   * @deprecated Deprecated in version 5.0.0. Replaced by `horizontalPosistion`.
+   */
   posX?: 'left' | 'right' | 'center';
+  horizontalPosistion?: 'left' | 'right' | 'center';
+  /**
+   * @deprecated Deprecated in version 5.0.0. Replaced by `verticalPosistion`.
+   */
   posY?: 'top' | 'bottom';
+  verticalPosistion?: 'top' | 'bottom';
   trigger?: HTMLElement;
+  /**
+   * @deprecated Deprecated in version 5.0.0. Replaced by 'hasCloseButton'.
+   */
   hasCloseBtn?: boolean;
+  hasCloseButton?: boolean;
   isShowing?: boolean;
+  /**
+   * @deprecated Deprecated in version 5.0.0. Replaced by 'onOpen' & 'onClose'
+   */
   isShowingOnChange?: (isShowing: boolean) => void;
+  onOpen?: () => void;
+  onClose?: () => void;
   disableAutoClose: boolean;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
@@ -24,23 +47,28 @@ export interface PopoverProps {
 }
 
 const Popover: FC<PopoverProps> = ({
-  header,
+  heading,
   content,
   type = 'informative',
   selectable = false,
   hasDivider = false,
-  posX = type === 'list' ? 'right' : 'center',
-  posY = type === 'list' ? 'bottom' : 'top',
+  horizontalPosistion = type === 'list' ? 'right' : 'center',
+  verticalPosistion = type === 'list' ? 'bottom' : 'top',
   trigger,
-  hasCloseBtn = true,
+  hasCloseButton = true,
   isShowing = false,
   isShowingOnChange,
+  onOpen,
+  onClose,
   disableAutoClose = false,
   className,
   inlineStyle,
   webcomponent,
   ...rest
 }) => {
+  // eslint-disable-next-line prefer-rest-params
+  warnDeprecatedProps(config, arguments[0]);
+
   const [popoverVisibility, setPopoverVisibility] = useState(isShowing);
   const maxContentWidth = useRef(0);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -119,6 +147,14 @@ const Popover: FC<PopoverProps> = ({
 
   useEffect(() => {
     setPopoverVisibility(isShowing);
+
+    if (!webcomponent && isShowing && onOpen) {
+      onOpen();
+    }
+
+    if (!webcomponent && !isShowing && onClose) {
+      onClose();
+    }
   }, [isShowing]);
 
   // Toggling popover state
@@ -128,14 +164,14 @@ const Popover: FC<PopoverProps> = ({
 
   // Initializing horizontal positions
   const setInitialPosition = useCallback(() => {
-    if (posX === 'left') {
+    if (horizontalPosistion === 'left') {
       updatePosStyle('none', '0', 'auto');
-    } else if (posX === 'right') {
+    } else if (horizontalPosistion === 'right') {
       updatePosStyle('none', 'auto', '0');
     } else {
       updatePosStyle('translateX(-50%)', 'auto', '50%');
     }
-  }, [posX]);
+  }, [horizontalPosistion]);
 
   const updatePosStyle = (transform: string, right: string, left: string) => {
     if (!popoverContentRef.current) {
@@ -218,9 +254,9 @@ const Popover: FC<PopoverProps> = ({
     const triggerOffsetRight = screenWidth - triggerWidth - triggerOffsetLeft;
 
     const updatePositionX = () => {
-      if (posX !== 'right' && isConflict(posX === 'center', 'left')) {
+      if (horizontalPosistion !== 'right' && isConflict(horizontalPosistion === 'center', 'left')) {
         updatePosStyle('none', 'auto', `${-triggerOffsetLeft + popoverMargin}px`);
-      } else if (posX !== 'left' && isConflict(posX === 'center', 'right')) {
+      } else if (horizontalPosistion !== 'left' && isConflict(horizontalPosistion === 'center', 'right')) {
         updatePosStyle('none', `${-triggerOffsetRight + popoverMargin + getScrollbarWidth()}px`, 'auto');
       } else {
         setInitialPosition();
@@ -243,7 +279,7 @@ const Popover: FC<PopoverProps> = ({
     // Calling position functions
     resizePopover();
     updatePositionX();
-  }, [posX]);
+  }, [horizontalPosistion]);
 
   const defineFixedArea = () => {
     if (popoverTriggerRef.current === null) {
@@ -338,7 +374,7 @@ const Popover: FC<PopoverProps> = ({
   const popoverClasses = classnames('ewc-popover', {
     ['ewc-popover--hide']: !popoverVisibility,
     ['ewc-popover--text-only']: typeof content === 'string',
-    ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
+    ['ewc-popover--bottom']: (verticalPosistion === 'bottom' && !isConflictBottom()) || isConflictTop(),
     ['ewc-popover--list']: type === 'list',
     ['ewc-popover--list-divider']: type === 'list' && hasDivider,
     ['ewc-popover--list-selectable']: selectable,
@@ -370,7 +406,7 @@ const Popover: FC<PopoverProps> = ({
             <div className="ewc-popover__content" ref={popoverContentRef}>
               {type === 'informative' && (
                 <div className="ewc-popover__content-area">
-                  {hasCloseBtn === true && (
+                  {hasCloseButton === true && (
                     <div className="ewc-popover__close">
                       <button
                         className="ewc-btn ewc-btn--icon ewc-btn--sm"
@@ -383,9 +419,9 @@ const Popover: FC<PopoverProps> = ({
                       </button>
                     </div>
                   )}
-                  {header && (
+                  {heading && (
                     <div className="ewc-popover__header" data-testid="popover-header">
-                      {header}
+                      {heading}
                     </div>
                   )}
                 </div>
