@@ -25,15 +25,15 @@ export const config: ComponentConfig = {
     },
     labelDisplaying: {
       version: '3.0.0',
-      newProp: 'labelOptions',
+      newProp: 'labelOptions.displaying',
     },
     label: {
       version: '3.0.0',
-      newProp: 'labelOptions',
+      newProp: 'labelOptions.label',
     },
     labelOf: {
       version: '3.0.0',
-      newProp: 'labelOptions',
+      newProp: 'labelOptions.of',
     },
   },
 };

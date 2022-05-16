@@ -33,7 +33,7 @@ export const paginationData: ComponentData = {
     },
     alignment: {
       isRequired: false,
-      type: 'right | left',
+      type: 'left | right',
       description: 'Alignment of the paginator',
       default: 'left',
     },
@@ -41,7 +41,7 @@ export const paginationData: ComponentData = {
       isRequired: false,
       type: 'object',
       description:
-        'Options available in the pagination dropdown menu, set as array of objects with keys of :  {value: string, label: string}',
+        'Options available in the pagination dropdown menu, set as array of objects with keys of:  {value: string, label: string}',
       default: `[
         {
           value: '10',
@@ -57,7 +57,7 @@ export const paginationData: ComponentData = {
     dropdownSelectedItemIndex: {
       isRequired: false,
       type: 'number',
-      description: `Set the default value of the dropdown in the paginator by passing the index number of the dropdownItems object you  want as a default value.`,
+      description: `Set the default value of the dropdown in the paginator by passing the index number of the dropdownItems object you want as a default value.`,
       default: '0',
     },
     dropdownSelectedItemIndexOnChange: {
