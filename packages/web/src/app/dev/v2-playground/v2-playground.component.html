@@ -193,9 +193,9 @@
     <h3>Modal</h3>
     <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
     <elvia-modal
-      (onHide)="isModalShowing = !isModalShowing"
+      (onClose)="isModalShowing = !isModalShowing"
       [isShowing]="isModalShowing"
-      [title]="'Redigere bidragsytere'"
+      [heading]="'Redigere bidragsytere'"
       [disableClose]="false"
     >
       <div slot="content">Content</div>
