@@ -277,13 +277,13 @@ module.exports = [
       { name: 'value', type: 'object', propType: 'object' },
       { name: 'numberOfElements', type: 'number', propType: 'number' },
       { name: 'lastNumberLimit', type: 'number', propType: 'number | undefined' },
-      { name: 'dropdownMenuPos', type: 'string', propType: 'string' },
-      { name: 'selectedDropdownItemIndex', type: 'number', propType: 'number' },
-      { name: 'isRightAligned', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'dropdownMenuPos', type: 'string', propType: 'string' }, // Deprecated
+      { name: 'selectedDropdownItemIndex', type: 'number', propType: 'number' }, // Deprecated
+      { name: 'isRightAligned', type: 'boolean', propType: 'boolean | undefined' }, // Deprecated
       { name: 'dropdownItems', type: 'object', propType: 'object' },
-      { name: 'labelDisplaying', type: 'string', propType: 'string' },
-      { name: 'label', type: 'string', propType: 'string' },
-      { name: 'labelOf', type: 'string', propType: 'string' },
+      { name: 'labelDisplaying', type: 'string', propType: 'string' }, // Deprecated
+      { name: 'label', type: 'string', propType: 'string' }, // Deprecated
+      { name: 'labelOf', type: 'string', propType: 'string' }, // Deprecated
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
       { name: 'labelOptions', type: 'object', propType: 'object | undefined' },
