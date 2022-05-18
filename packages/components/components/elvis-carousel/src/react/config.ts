@@ -1,6 +1,6 @@
 import { ComponentConfig } from '@elvia/elvis-toolbox';
 
-export const CarouselConfig: ComponentConfig = {
+export const carouselConfig: ComponentConfig = {
   componentName: 'Carousel',
   deprecatedProps: {
     // Rule 1.12: list of items
@@ -35,7 +35,7 @@ export const CarouselConfig: ComponentConfig = {
   },
 };
 
-export const CarouselItemConfig: ComponentConfig = {
+export const carouselItemConfig: ComponentConfig = {
   componentName: 'CarouselItem',
   deprecatedProps: {
     // Rule 1.12: items, not elements

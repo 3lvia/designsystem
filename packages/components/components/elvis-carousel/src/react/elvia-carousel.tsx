@@ -15,7 +15,7 @@ import {
 } from './StyledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
-import { CarouselConfig, CarouselItemConfig } from './config';
+import { carouselConfig, carouselItemConfig } from './config';
 import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 
 type CarouselItem = {
@@ -75,12 +75,12 @@ export const Carousel: FC<CarouselProps> = function ({
   ...rest
 }) {
   // eslint-disable-next-line prefer-rest-params
-  warnDeprecatedProps(CarouselConfig, arguments[0]);
+  warnDeprecatedProps(carouselConfig, arguments[0]);
 
   if (Array.isArray(items)) {
     // eslint-disable-next-line prefer-rest-params
     items.forEach((item) => {
-      warnDeprecatedProps(CarouselItemConfig, item);
+      warnDeprecatedProps(carouselItemConfig, item);
     });
   }
 
@@ -132,7 +132,6 @@ export const Carousel: FC<CarouselProps> = function ({
     }
   }, [webcomponent]);
 
-  // TODO: Hvordan kan items bli til string??
   useEffect(() => {
     if (items !== undefined) {
       setCarouselItems(items);
