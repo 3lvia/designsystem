@@ -6,20 +6,18 @@ export const dropdownData: ComponentData = {
   elementNameW: 'elvia-dropdown',
   elementNameR: 'Dropdown',
   attributes: {
-    defaultValue: {
-      isRequired: false,
-      type: 'object',
-      description:
-        'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string}',
-      cegDisplayName: 'defaultValue',
-      default: 'undefined',
-    },
-    options: {
+    items: {
       isRequired: true,
       type: 'Array<object>',
       description:
         'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?: string}',
-      cegDisplayName: 'Options',
+    },
+    value: {
+      isRequired: false,
+      type: 'object',
+      description:
+        'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string, icon?: string}',
+      default: 'undefined',
     },
     errorMessage: {
       isRequired: false,

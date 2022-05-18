@@ -212,17 +212,19 @@ module.exports = [
     name: 'elvis-dropdown',
     elementName: 'elvia-dropdown',
     attributes: [
-      { name: 'defaultValue', type: 'object', propType: 'object | undefined' },
-      { name: 'errorMessage', type: 'string', propType: 'string | undefined' },
+      { name: 'items', type: 'object', propType: 'object' },
+      { name: 'options', type: 'object', propType: 'object' }, // DEPRECATED
+      { name: 'value', type: 'object', propType: 'object | undefined' },
+      { name: 'defaultValue', type: 'object', propType: 'object | undefined' }, // DEPRECATED
       { name: 'isCompact', type: 'boolean', propType: 'boolean' },
       { name: 'isDisabled', type: 'boolean', propType: 'boolean' },
       { name: 'isMulti', type: 'boolean', propType: 'boolean' },
       { name: 'isSearchable', type: 'boolean', propType: 'boolean' },
       { name: 'hasSelectAllOption', type: 'boolean', propType: 'boolean' },
+      { name: 'errorMessage', type: 'string', propType: 'string | undefined' },
       { name: 'label', type: 'string', propType: 'string | undefined' },
       { name: 'menuPosition', type: 'string', propType: 'string | undefined' },
       { name: 'noOptionsMessage', type: 'string', propType: 'string | undefined' },
-      { name: 'options', type: 'object', propType: 'object' },
       { name: 'placeholder', type: 'string', propType: 'string | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
