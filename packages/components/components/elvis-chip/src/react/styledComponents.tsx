@@ -196,6 +196,7 @@ export const ChipDot = styled.span<{ color: ColorType }>`
       height: 10px;
       width: 10px;
       border-radius: 50%;
+      transition: background-color 200ms ease-in;
       background-color: ${colors.gray05};
       margin: 0 8px 0 0;
     }
