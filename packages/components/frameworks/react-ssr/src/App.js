@@ -161,6 +161,7 @@ function App() {
           <Chip
             type="legend"
             isSelectedOnChange={() => {
+              setChipSelected(!chipSelected);
               setIsChipLoading(!isChipLoading);
               setTimeout(() => {
                 setIsChipLoading(false);

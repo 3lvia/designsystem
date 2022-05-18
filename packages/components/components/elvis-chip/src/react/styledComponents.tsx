@@ -36,10 +36,10 @@ const setBackgroundColorHover = (color: ColorType, isSelected: boolean, type: Ch
   }
 };
 
-const decideChipBorder = (isSelected: boolean, disabled: boolean, type: ChipType) => {
+const decideChipBorder = (isLoading: boolean, isSelected: boolean, disabled: boolean, type: ChipType) => {
   if (disabled) {
     return 'solid 1px transparent';
-  } else if (type === 'legend' && !isSelected) {
+  } else if (type === 'legend' && (!isSelected || isLoading)) {
     return `solid 1px ${colors.gray05}`;
   } else if (type === 'choice' && !isSelected) {
     return `solid 1px ${colors.gray05}`;
@@ -62,8 +62,8 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   align-items: center;
   background: none;
   box-sizing: border-box;
-  border: ${(props: { isSelected: boolean; disabled: boolean; chipType: ChipType }) =>
-    decideChipBorder(props.isSelected, props.disabled, props.chipType)};
+  border: ${(props: { isLoading: boolean; isSelected: boolean; disabled: boolean; chipType: ChipType }) =>
+    decideChipBorder(props.isLoading, props.isSelected, props.disabled, props.chipType)};
   background-color: ${(props: {
     color: ColorType;
     isLoading: boolean;
@@ -75,6 +75,7 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   line-height: 16px;
   padding: calc(8px - 1px) calc(16px - 1px);
   border-radius: 24px;
+  transition: background-color 200ms ease-in;
   position: relative;
   ${(props: {
     chipType: ChipType;

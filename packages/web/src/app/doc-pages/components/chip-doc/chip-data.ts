@@ -62,7 +62,7 @@ export const chipData: ComponentData = {
     },
     isSelectedOnChange: {
       isRequired: false,
-      type: '(selected: boolean) => CustomEvent',
+      type: '(isSelected: boolean) => CustomEvent',
       description: 'Gets called every time the selected state is changed.',
     },
     onDelete: {
