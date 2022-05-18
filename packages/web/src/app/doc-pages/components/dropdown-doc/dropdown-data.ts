@@ -16,7 +16,7 @@ export const dropdownData: ComponentData = {
       isRequired: false,
       type: 'object',
       description:
-        'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string}',
+        'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string, icon?: string}',
       default: 'undefined',
     },
     errorMessage: {
