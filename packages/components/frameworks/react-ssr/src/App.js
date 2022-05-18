@@ -94,23 +94,7 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white">
-            <Popover
-              heading="BankID"
-              hasCloseButton
-              content={<Tabs items={tabsItems} value={2}></Tabs>}
-              trigger={<button className="e-btn">Show popover</button>}
-              horizontalPosistion="left"
-              verticalPosistion="top"
-              isShowing={isPopoverShowing}
-              onOpen={() => {
-                setIsPopoverShowingState(true), console.log('hello on Open');
-              }}
-              onClose={() => {
-                setIsPopoverShowingState(false), console.log('hello on close');
-              }}
-            ></Popover>
-          </div>
+          <div className="e-bg-white"></div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>
@@ -215,7 +199,9 @@ function App() {
           <Modal
             isShowing={isModalShowing}
             hasCloseButton
-            onClose={() => setIsModalShowingState(false)}
+            onClose={() => {
+              setIsModalShowingState(false), console.log('onCLose Modal');
+            }}
             heading="Title of content"
             content={<div>Body text comes here and can go over several lines.</div>}
             primaryButton={<button className="e-btn e-btn--primary">Primary</button>}
@@ -230,6 +216,21 @@ function App() {
         {/* POPOVER */}
         <div className="example-wrapper">
           <h3>Popover</h3>
+          <Popover
+            heading="BankID"
+            hasCloseButton
+            content={<Tabs items={tabsItems} value={2}></Tabs>}
+            trigger={<button className="e-btn">Show popover</button>}
+            horizontalPosistion="left"
+            verticalPosistion="top"
+            isShowing={isPopoverShowing}
+            onOpen={() => {
+              setIsPopoverShowingState(true), console.log('hello on Open');
+            }}
+            onClose={() => {
+              setIsPopoverShowingState(false), console.log('hello on close');
+            }}
+          ></Popover>
         </div>
         {/* PROGRESS LINEAR */}
         <div className="example-wrapper">

@@ -57,7 +57,6 @@ const Popover: FC<PopoverProps> = function ({
   trigger,
   hasCloseButton = true,
   isShowing = false,
-  isShowingOnChange,
   onOpen,
   onClose,
   disableAutoClose = false,
@@ -146,14 +145,8 @@ const Popover: FC<PopoverProps> = function ({
   }, [webcomponent]);
 
   useEffect(() => {
-    setPopoverVisibility(isShowing);
-
-    if (!webcomponent && isShowing && onOpen) {
-      onOpen();
-    }
-
-    if (!webcomponent && !isShowing && onClose) {
-      onClose();
+    if (popoverVisibility !== isShowing) {
+      setPopoverVisibility(isShowing);
     }
   }, [isShowing]);
 
@@ -327,10 +320,20 @@ const Popover: FC<PopoverProps> = function ({
   // Updates position when popover is opened and when window is resized
   // Positions a fixed area that covers trigger element and works as position anchor for content element
   useEffect(() => {
-    if (!webcomponent && isShowingOnChange) {
-      isShowingOnChange(popoverVisibility);
-    } else if (webcomponent) {
-      webcomponent.setProps({ isShowing: popoverVisibility }, true);
+    if (popoverVisibility) {
+      if (!webcomponent && onOpen) {
+        onOpen();
+      } else if (webcomponent) {
+        webcomponent.triggerEvent('onOpen');
+      }
+    }
+
+    if (!popoverVisibility && popoverVisibility !== isShowing) {
+      if (!webcomponent && onClose) {
+        onClose();
+      } else if (webcomponent) {
+        webcomponent.triggerEvent('onClose');
+      }
     }
 
     // Remove fixed area styles if popover is closed
