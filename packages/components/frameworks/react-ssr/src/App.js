@@ -97,13 +97,18 @@ function App() {
           <div className="e-bg-white">
             <Popover
               heading="BankID"
-              hasCloseButton={false}
+              hasCloseButton
               content={<Tabs items={tabsItems} value={2}></Tabs>}
               trigger={<button className="e-btn">Show popover</button>}
               horizontalPosistion="left"
               verticalPosistion="top"
               isShowing={isPopoverShowing}
-              isShowingOnChange={(value) => setIsPopoverShowingState(value)}
+              onOpen={() => {
+                setIsPopoverShowingState(true), console.log('hello on Open');
+              }}
+              onClose={() => {
+                setIsPopoverShowingState(false), console.log('hello on close');
+              }}
             ></Popover>
           </div>
           {/* Inverted version */}
