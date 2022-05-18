@@ -50,6 +50,11 @@ export const chipData: ComponentData = {
       type: 'string',
       description: 'The value displayed in the chip',
     },
+    isLoading: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Sets the chip to have loading state. Only works for legend type',
+    },
     isSelected: {
       isRequired: false,
       type: 'boolean',
