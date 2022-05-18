@@ -46,7 +46,7 @@ export interface PopoverProps {
   webcomponent?: ElvisComponentWrapper;
 }
 
-const Popover: FC<PopoverProps> = ({
+const Popover: FC<PopoverProps> = function ({
   heading,
   content,
   type = 'informative',
@@ -65,7 +65,7 @@ const Popover: FC<PopoverProps> = ({
   inlineStyle,
   webcomponent,
   ...rest
-}) => {
+}) {
   // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(config, arguments[0]);
 
