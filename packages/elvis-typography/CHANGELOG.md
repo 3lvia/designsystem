@@ -1,5 +1,12 @@
 # Elvia Typography Changelog
 
+## 2.1.0 (18.05.22)
+
+### New feature
+
+- Added function `getTypographyCss(typographyName)` that gets the CSS-formated text containing all the
+  properties of a typography, including a media query breakpoint for the mobile typography.
+
 ## 2.0.0 (16.02.22)
 
 ### Major
