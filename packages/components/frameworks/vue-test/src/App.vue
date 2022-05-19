@@ -129,10 +129,13 @@
       <h3>Chip</h3>
       <div v-for="chip in deletableChipsList" :key="chip.value">
         <elvia-chip
+          :type="'legend'"
           :value="chip.value"
           :color="chip.color"
           :ariaLabel="'Fjern filtrering for ' + chip.value"
-          :disabled="chip.disabled"
+          :isDisabled="chip.isDisabled"
+          :isSelected="true"
+          @is-selected-on-change="logValue('chip', $event.detail.value)"
         ></elvia-chip>
       </div>
     </div>
@@ -159,7 +162,7 @@
     <!--Dropdown-->
     <div class="example-wrapper">
       <h3>Dropdown</h3>
-      <elvia-dropdown :defaultValue="dropdownDefaultOption" :options="dropdownOptions"></elvia-dropdown>
+      <elvia-dropdown :value="dropdownDefaultOption" :items="dropdownOptions"></elvia-dropdown>
     </div>
 
     <!--Ikon-->

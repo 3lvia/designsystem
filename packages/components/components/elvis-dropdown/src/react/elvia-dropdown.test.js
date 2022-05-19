@@ -13,7 +13,7 @@ describe('Elvis Dropdown', () => {
       wrapper = mount(
         <Dropdown
           label={'Label'}
-          options={[
+          items={[
             { value: '1', label: 'Option 1' },
             { value: '2', label: 'Option 2' },
             { value: '3', label: 'Option 3' },

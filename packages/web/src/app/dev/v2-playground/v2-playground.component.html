@@ -127,8 +127,9 @@
           [value]="chip.value"
           [color]="chip.color"
           [ariaLabel]="'Fjern filtrering for ' + chip.value"
-          [disabled]="chip.disabled"
+          [isDisabled]="chip.isDisabled"
           (onDelete)="handleOnDelete($event.detail.value)"
+          (isSelectedOnChange)="logValue('chip', $event.detail.value)"
           [inlineStyle]="{ margin: '8px' }"
         ></elvia-chip>
       </div>
@@ -137,12 +138,15 @@
 
     <h3>Clickable chips</h3>
     <div style="display: flex; flex-direction: row">
-      <elvia-chip
-        [value]="2021"
-        color="orange"
-        type="legend"
-        (valueOnChange)="handleOnChange($event.detail.value)"
-      ></elvia-chip>
+      <div *ngFor="let chip of filteredKeys">
+        <elvia-chip
+          [value]="chip"
+          [isSelected]="filteredValues[chip]"
+          color="orange"
+          type="legend"
+          (isSelectedOnChange)="handleOnChange($event)"
+        ></elvia-chip>
+      </div>
     </div>
     Selected values:
     <span *ngFor="let key of filteredKeys">
@@ -176,8 +180,8 @@
       [isCompact]="false"
       [isDisabled]="false"
       label="testing something"
-      [defaultValue]="dropdownDefOptions"
-      [options]="dropdownOptions"
+      [value]="dropdownDefOptions"
+      [items]="dropdownOptions"
     ></elvia-dropdown>
   </div>
 

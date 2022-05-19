@@ -21,13 +21,13 @@ export class ChipDocComponent {
   deletableChipsList = [
     { value: 2022, color: 'green' },
     { value: 2023, color: 'blue' },
-    { value: 2024, color: 'purple', disabled: true },
+    { value: 2024, color: 'purple', isDisabled: true },
   ];
 
   deletableChipsListInType = [
     { value: 2019 },
     { value: 2020, color: 'green' },
-    { value: 2021, color: 'green', disabled: true },
+    { value: 2021, color: 'green', isDisabled: true },
   ];
 
   colorChips = [
@@ -39,8 +39,8 @@ export class ChipDocComponent {
     { value: 'Ola Nordmann', color: 'green' },
   ];
 
-  handleOnChange = (event: { value: string; isSelected: boolean }): void => {
-    this.filteredValues = { ...this.filteredValues, [event.value]: event.isSelected };
+  handleOnChange = (event: { target: { value: string }; detail: { value: boolean } }): void => {
+    this.filteredValues = { ...this.filteredValues, [event.target.value]: event.detail.value };
   };
 
   handleOnDelete = (event: number): void => {
