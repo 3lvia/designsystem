@@ -1,35 +1,35 @@
 const dropdownIconsCode = {
   codeReact: `<Dropdown 
-  options={[
+  items={[
     { value: 'Powerline', label: 'Powerline', icon: 'powerline' },
     { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
     { value: 'Cable', label: 'Cable', icon: 'cable' },
   ]} 
-  defaultValue={{ value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' }}
+  value={{ value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' }}
   label={"Label"}
   placeholder={"Placeholder"}
   valueOnChange={(event) => updateSelectedList(event)}
 ></Dropdown>
 `,
   codeAngular: `<elvia-dropdown
-  [options]="[
+  [items]="[
     { value: 'Powerline', label: 'Powerline', icon: 'powerline' },
     { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
     { value: 'Cable', label: 'Cable', icon: 'cable' },
   ]"
-  [defaultValue]="{ value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' }"
+  [value]="{ value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' }"
   [label]="'Label'"
   [placeholder]="'Placeholder'"
   (valueOnChange)="updateSelectedList($event.detail.value)"
 ></elvia-dropdown>
 `,
   codeVue: `<elvia-dropdown
-  :options="[
+  :items="[
     { value: 'Powerline', label: 'Powerline', icon: 'powerline' },
     { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
     { value: 'Cable', label: 'Cable', icon: 'cable' },
   ]"
-  :defaultValue="{ value: 'checkCircle', label: 'Electricity tower', icon: 'electricityTower' }"
+  :value="{ value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' }"
   :label="'Label'"
   :placeholder="'Placeholder'"
   @value-on-change="updateSelectedList($event.detail.value)"
@@ -40,15 +40,15 @@ const dropdownIconsCode = {
 ></elvia-dropdown>`,
 
   codeNativeScript: `  const dropdown = document.getElementById('example-elvia-dropdown-icons');
-  const options = [
+  const items = [
     { value: 'Powerline', label: 'Powerline', icon: 'powerline' },
     { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
     { value: 'Cable', label: 'Cable', icon: 'cable' },
   ];
   dropdown.setProps({label: 'Label' });
   dropdown.setProps({placeholder: 'Placeholder' });
-  dropdown.setProps({options: options});
-  dropdown.setProps({defaultValue: options[1]});
+  dropdown.setProps({items: items});
+  dropdown.setProps({value: items[1]});
   dropdown.addEventListener('valueOnChange', (event) => {
     console.log('Do what you want with selected elements: ', event.detail.value);
   });

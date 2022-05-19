@@ -162,7 +162,7 @@
     <!--Dropdown-->
     <div class="example-wrapper">
       <h3>Dropdown</h3>
-      <elvia-dropdown :defaultValue="dropdownDefaultOption" :options="dropdownOptions"></elvia-dropdown>
+      <elvia-dropdown :value="dropdownDefaultOption" :items="dropdownOptions"></elvia-dropdown>
     </div>
 
     <!--Ikon-->

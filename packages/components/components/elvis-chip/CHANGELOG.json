@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "13.05.22",
+      "version": "2.0.1 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a missing dependency."]
+        }
+      ]
+    },
+    {
+      "date": "13.05.22",
       "version": "2.0.0 ",
       "changelog": [
         {

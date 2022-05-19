@@ -6,20 +6,18 @@ export const dropdownData: ComponentData = {
   elementNameW: 'elvia-dropdown',
   elementNameR: 'Dropdown',
   attributes: {
-    defaultValue: {
-      isRequired: false,
-      type: 'object',
-      description:
-        'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string}',
-      cegDisplayName: 'defaultValue',
-      default: 'undefined',
-    },
-    options: {
+    items: {
       isRequired: true,
       type: 'Array<object>',
       description:
         'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?: string}',
-      cegDisplayName: 'Options',
+    },
+    value: {
+      isRequired: false,
+      type: 'object',
+      description:
+        'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string, icon?: string}',
+      default: 'undefined',
     },
     errorMessage: {
       isRequired: false,
@@ -127,7 +125,7 @@ export const dropdownData: ComponentData = {
   codeImportReact: `import { Dropdown } from '@elvia/elvis-dropdown/react';`,
   codeImportWebComponent: `import '@elvia/elvis-dropdown';`,
   codeReact: `<Dropdown 
-  options={[
+  items={[
     { value: 'Norge', label: 'Norge' },
     { value: 'Sverige', label: 'Sverige' },
     { value: 'Danmark', label: 'Danmark' },
@@ -140,7 +138,7 @@ export const dropdownData: ComponentData = {
 ></Dropdown>
 `,
   codeAngular: `<elvia-dropdown
-  [options]="[
+  [items]="[
     { value: 'Norge', label: 'Norge' },
     { value: 'Sverige', label: 'Sverige' },
     { value: 'Danmark', label: 'Danmark' },
@@ -153,7 +151,7 @@ export const dropdownData: ComponentData = {
 ></elvia-dropdown>
 `,
   codeVue: `<elvia-dropdown
-  :options="[
+  :items="[
     { value: 'Norge', label: 'Norge' },
     { value: 'Sverige', label: 'Sverige' },
     { value: 'Danmark', label: 'Danmark' },
@@ -170,7 +168,7 @@ export const dropdownData: ComponentData = {
 ></elvia-dropdown>
 `,
   codeNativeScript: `  const dropdown = document.getElementById('example-elvia-dropdown');
-  const options = [
+  const items = [
     { value: 'Norge', label: 'Norge' },
     { value: 'Sverige', label: 'Sverige' },
     { value: 'Danmark', label: 'Danmark' },
@@ -179,7 +177,7 @@ export const dropdownData: ComponentData = {
   ];
   dropdown.setProps({label: 'Label' });
   dropdown.setProps({placeholder: 'Placeholder' });
-  dropdown.setProps({options: options});
+  dropdown.setProps({items: items});
   dropdown.addEventListener('valueOnChange', (event) => {
     console.log('Do what you want with selected elements: ', event.detail.value);
   });
