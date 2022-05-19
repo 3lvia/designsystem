@@ -83,7 +83,8 @@ module.exports = [
     name: 'elvis-breadcrumb',
     elementName: 'elvia-breadcrumb',
     attributes: [
-      { name: 'breadcrumbs', type: 'object', propType: 'object' },
+      { name: 'breadcrumbs', type: 'object', propType: 'object' }, // Remove when deprecation is final.
+      { name: 'items', type: 'object', propType: 'object' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
     ],
@@ -122,9 +123,12 @@ module.exports = [
     name: 'elvis-carousel',
     elementName: 'elvia-carousel',
     attributes: [
-      { name: 'elements', type: 'string', propType: 'number | string | HTMLElement' },
-      { name: 'hideArrows', type: 'boolean', propType: 'boolean | undefined' },
-      { name: 'useOnboardingCheckmark', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'elements', type: 'string', propType: 'number | string | HTMLElement' }, // TODO: Remove when deprecation is final.
+      { name: 'items', type: 'string', propType: 'number | string | HTMLElement' },
+      { name: 'hideArrows', type: 'boolean', propType: 'boolean | undefined' }, // TODO: Remove when deprecation is final.
+      { name: 'loop', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'useOnboardingCheckmark', type: 'boolean', propType: 'boolean | undefined' }, // TODO: Remove when deprecation is final.
+      { name: 'hasConfirmationCheckmark', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasAnimation', type: 'boolean', propType: 'boolean' },
       { name: 'value', type: 'number', propType: 'number | undefined' },
       { name: 'className', type: 'string', propType: 'string' },
@@ -281,18 +285,22 @@ module.exports = [
       { name: 'value', type: 'object', propType: 'object' },
       { name: 'numberOfElements', type: 'number', propType: 'number' },
       { name: 'lastNumberLimit', type: 'number', propType: 'number | undefined' },
-      { name: 'dropdownMenuPos', type: 'string', propType: 'string' },
-      { name: 'selectedDropdownItemIndex', type: 'number', propType: 'number' },
-      { name: 'isRightAligned', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'dropdownMenuPos', type: 'string', propType: 'string' }, // Deprecated
+      { name: 'selectedDropdownItemIndex', type: 'number', propType: 'number' }, // Deprecated
+      { name: 'isRightAligned', type: 'boolean', propType: 'boolean | undefined' }, // Deprecated
       { name: 'dropdownItems', type: 'object', propType: 'object' },
-      { name: 'labelDisplaying', type: 'string', propType: 'string' },
-      { name: 'label', type: 'string', propType: 'string' },
-      { name: 'labelOf', type: 'string', propType: 'string' },
+      { name: 'labelDisplaying', type: 'string', propType: 'string' }, // Deprecated
+      { name: 'label', type: 'string', propType: 'string' }, // Deprecated
+      { name: 'labelOf', type: 'string', propType: 'string' }, // Deprecated
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
+      { name: 'labelOptions', type: 'object', propType: 'object | undefined' },
+      { name: 'alignment', type: 'string', propType: 'string | undefined' },
+      { name: 'dropdownMenuPosition', type: 'string', propType: 'string | undefined' },
+      { name: 'dropdownSelectedItemIndex', type: 'number', propType: 'number' },
     ],
     elementStyle: `display:flex; width: 100%; min-width: 325px`,
-    conditionalElementStyle: [{ name: 'isRightAligned', value: 'true', style: `justify-content: flex-end;` }],
+    conditionalElementStyle: [{ name: 'alignment', value: 'right', style: `justify-content: flex-end;` }],
     reactName: 'Pagination',
     slotItems: false,
     useWrapper: false,

@@ -25,23 +25,23 @@ export const paginationData: ComponentData = {
       description:
         'Hides the last number in pagination if numberOfElements is equal or exceeds the lastNumberLimit.',
     },
-    dropdownMenuPos: {
+    dropdownMenuPosition: {
       isRequired: false,
       type: 'string',
       description: `Set the position of the dropdown menu, can be either 'top', 'bottom' or 'auto'`,
       default: 'bottom',
     },
-    isRightAligned: {
+    alignment: {
       isRequired: false,
-      type: 'boolean',
-      description: 'Align the paginator to the right',
-      default: false,
+      type: 'left | right',
+      description: 'Alignment of the paginator',
+      default: 'left',
     },
     dropdownItems: {
       isRequired: false,
       type: 'object',
       description:
-        'Options available in the pagination dropdown menu, set as array of objects with keys of :  {value: string, label: string}',
+        'Options available in the pagination dropdown menu, set as array of objects with keys of:  {value: string, label: string}',
       default: `[
         {
           value: '10',
@@ -54,34 +54,26 @@ export const paginationData: ComponentData = {
         },
       ]`,
     },
-    selectedDropdownItemIndex: {
+    dropdownSelectedItemIndex: {
       isRequired: false,
       type: 'number',
-      description: `Set the default value of the dropdown in the paginator by passing the index number of the dropdownItems object you  want as a default value.`,
+      description: `Set the default value of the dropdown in the paginator by passing the index number of the dropdownItems object you want as a default value.`,
       default: '0',
     },
-    selectedDropdownItemIndexOnChange: {
+    dropdownSelectedItemIndexOnChange: {
       isRequired: false,
       type: '(value: number) => CustomEvent',
       description: `Gets called every time a new value in the pagination dropdown is chosen, returns the index of the chosen value from the available dropdownItems`,
     },
-    labelDisplaying: {
+    labelOptions: {
       isRequired: false,
-      type: 'string',
-      description: 'First label in front of dropdown menu',
-      default: 'Viser',
-    },
-    labelOf: {
-      isRequired: false,
-      type: 'string',
-      description: 'Label between dropdown menu and amount of elements being showed',
-      default: 'av',
-    },
-    label: {
-      isRequired: false,
-      type: 'string',
-      description: 'Label for describing what kind of data is displayed, eg. rows, elements.',
-      default: 'elementer',
+      type: 'object',
+      description: 'Labels used in the paginator.',
+      default: `{
+        displaying: 'Viser', 
+        of: 'av',
+        label: 'elementer'
+      }`,
     },
     valueOnChange: {
       isRequired: false,

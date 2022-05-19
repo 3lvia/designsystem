@@ -50,7 +50,7 @@ type BreadcrumbLinkProps = {
   href: any;
 };
 
-export const BreadcrumbLink = styled.a<BreadcrumbLinkProps>`
+export const BreadcrumbLinkStyle = styled.a<BreadcrumbLinkProps>`
   ${typography.textSm}
   position: relative;
   box-sizing: border-box;

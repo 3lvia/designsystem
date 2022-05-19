@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
-import { getTypography } from '@elvia/elvis-typography';
+import { getTypographyCss } from '@elvia/elvis-typography';
 
 export const colors = {
   elviaCharge: getColor('elvia-charge'),
@@ -9,8 +9,8 @@ export const colors = {
   grey: getColor('grey'),
 };
 export const typography = {
-  titleMd: getTypography('title-md'),
-  textLg: getTypography('text-lg'),
+  titleMd: getTypographyCss('title-md'),
+  textLg: getTypographyCss('text-lg'),
 };
 
 const mobileMax = '767px';
@@ -207,9 +207,6 @@ export const ModalHeading = styled.div`
   @media (max-width: ${mobileMax}) {
     padding-top: ${modalMobileTitlePaddingTop};
     padding-bottom: ${modalMobileTitlePaddingBottom};
-    font-size: ${typography.titleMd.fontSizeMobile};
-    font-weight: ${typography.titleMd.fontWeight};
-    line-height: ${typography.titleMd.lineHeightMobile};
   }
 `;
 
@@ -218,11 +215,6 @@ export const ModalText = styled.div`
   position: relative;
   overflow-y: auto;
   height: 100%;
-
-  @media (max-width: ${mobileMax}) {
-    font-size: ${typography.textLg.fontSizeMobile};
-    line-height: ${typography.textLg.lineHeightMobile};
-  }
 `;
 
 export const ModalActions = styled.div`

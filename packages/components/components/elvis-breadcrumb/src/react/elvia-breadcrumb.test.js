@@ -4,16 +4,16 @@ import { mount } from 'enzyme';
 
 const breadcumbsLinksTest = [
   {
-    url: 'https://elvia.no',
-    title: 'Elvia.no',
+    href: 'https://elvia.no',
+    text: 'Elvia.no',
   },
   {
-    url: 'https://www.elvia.no/nettleie',
-    title: 'Nettleie',
+    href: 'https://www.elvia.no/nettleie',
+    text: 'Nettleie',
   },
   {
-    url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt',
-    title: 'Elvias leveringsplikt',
+    href: 'https://www.elvia.no/nettleie/elvias-leveringsplikt',
+    text: 'Elvias leveringsplikt',
   },
 ];
 
@@ -26,7 +26,7 @@ describe('Elvis Breadcrumb', () => {
 
   describe('Have links', () => {
     beforeEach(() => {
-      wrapper = mount(<Breadcrumb breadcrumbs={breadcumbsLinksTest}></Breadcrumb>);
+      wrapper = mount(<Breadcrumb items={breadcumbsLinksTest}></Breadcrumb>);
       breadcrumbDekstopMultipleLinksOne = wrapper
         .find({ 'data-testid': 'breadcrumb-desktop-multiple-links' })
         .at(1)
@@ -60,7 +60,7 @@ describe('Elvis Breadcrumb', () => {
     beforeEach(() => {
       wrapper = mount(
         <Breadcrumb
-          breadcrumbs={breadcumbsLinksTest}
+          items={breadcumbsLinksTest}
           className="test-class"
           inlineStyle={{ margin: '24px' }}
         ></Breadcrumb>,

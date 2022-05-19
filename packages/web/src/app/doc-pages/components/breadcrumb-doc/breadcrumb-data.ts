@@ -6,13 +6,13 @@ const breadcrumbData: ComponentData = {
   elementNameW: 'elvia-breadcrumb',
   elementNameR: 'Breadcrumb',
   attributes: {
-    breadcrumbs: {
+    items: {
       isRequired: true,
       type: 'Array<object>',
       description:
-        'The links that the breadcrumb consists of. Send in as array of objects with the key value pairs of {url: string, title: string}. Url can be omitted to stop the breadcrumb from rerouting by default.',
+        'The links that the breadcrumb consists of. Send in as array of objects with the key value pairs of {href: string, text: string}. Url can be omitted to stop the breadcrumb from rerouting by default.',
     },
-    breadcrumbsOnChange: {
+    onLinkClick: {
       isRequired: false,
       type: '(value: number) => void',
       description:
@@ -34,44 +34,44 @@ const breadcrumbData: ComponentData = {
   codeImportReact: `import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';`,
   codeImportWebComponent: `import '@elvia/elvis-breadcrumb';`,
   codeReact: `<Breadcrumb 
-  breadcrumbs={[
-    { url: 'https://design.elvia.io/', title: 'Home' },
-    { url: 'https://design.elvia.io/components', title: 'Components' },
-    { url: 'https://design.elvia.io/components/breadcrumb', title: 'Breadcrumbs' }
+  items={[
+    { href: 'https://design.elvia.io/', text: 'Home' },
+    { href: 'https://design.elvia.io/components', text: 'Components' },
+    { href: 'https://design.elvia.io/components/breadcrumb', text: 'Breadcrumbs' }
   ]}
 ></Breadcrumb>`,
   codeAngular: `<elvia-breadcrumb
-  [breadcrumbs]="[
-    { url: 'https://design.elvia.io/', title: 'Home' },
-    { url: 'https://design.elvia.io/components', title: 'Components' },
-    { url: 'https://design.elvia.io/components/breadcrumb', title: 'Breadcrumbs' }
+  [items]="[
+    { href: 'https://design.elvia.io/', text: 'Home' },
+    { href: 'https://design.elvia.io/components', text: 'Components' },
+    { href: 'https://design.elvia.io/components/breadcrumb', text: 'Breadcrumbs' }
   ]"
 ></elvia-breadcrumb>`,
   codeVue: `<elvia-breadcrumb
-  :breadcrumbs="[
-    { url: 'https://design.elvia.io/', title: 'Home' },
-    { url: 'https://design.elvia.io/components', title: 'Components' },
-    { url: 'https://design.elvia.io/components/breadcrumb', title: 'Breadcrumbs' }
+  :items="[
+    { href: 'https://design.elvia.io/', text: 'Home' },
+    { href: 'https://design.elvia.io/components', text: 'Components' },
+    { href: 'https://design.elvia.io/components/breadcrumb', text: 'Breadcrumbs' }
   ]"
 ></elvia-breadcrumb>`,
   codeNativeHTML: `<elvia-breadcrumb id="example-elvia-breadcrumb">
 </elvia-breadcrumb>`,
   codeNativeScript: `  const breadcrumb = document.getElementById('example-elvia-breadcrumb');
-  const breadcrumbs = [
+  const items = [
     {
-      url: 'https://design.elvia.io/',
-      title: 'Home',
+      href: 'https://design.elvia.io/',
+      text: 'Home',
     },
     {
-      url: 'https://design.elvia.io/components',
-      title: 'Components',
+      href: 'https://design.elvia.io/components',
+      text: 'Components',
     },
     {
-      url: 'https://design.elvia.io/components/breadcrumb',
-      title: 'Breadcrumbs',
+      href: 'https://design.elvia.io/components/breadcrumb',
+      text: 'Breadcrumbs',
     },
   ];
-  breadcrumb.setProps({breadcrumbs: breadcrumbs });
+  breadcrumb.setProps({items: items });
   `,
   changelog: changelogJson.content,
 };

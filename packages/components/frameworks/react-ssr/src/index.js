@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import '@elvia/elvis/css/elvis.min.css';
+import '@elvia/elvis/elvis.js';
+
 const root = document.getElementById('root');
 let renderMethod;
 if (root && root.innerHTML !== '') {

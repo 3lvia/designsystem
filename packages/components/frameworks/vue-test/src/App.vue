@@ -89,7 +89,7 @@
     <!--Breadcrumb-->
     <div class="example-wrapper">
       <h3>Breadcrumb</h3>
-      <elvia-breadcrumb :breadcrumbs="breadcrumbsTestNoUrl"></elvia-breadcrumb>
+      <elvia-breadcrumb :items="breadcrumbsTestNoUrl"></elvia-breadcrumb>
     </div>
 
     <!--Card-->
@@ -109,15 +109,15 @@
         <div slot="title-1">
           <h4 class="e-title-sm">HAN-port</h4>
         </div>
-        <div slot="element-1">hello</div>
+        <div slot="item-1">hello</div>
         <div slot="title-2">
           <h4 class="e-title-sm">AMS-meter</h4>
         </div>
-        <div slot="element-2">halla</div>
+        <div slot="item-2">halla</div>
         <div slot="title-3">
           <h4 class="e-title-sm">YOYOYO</h4>
         </div>
-        <div slot="element-3">hei</div>
+        <div slot="item-3">hei</div>
       </elvia-carousel>
       <button @click="carouselValue = incrementCarouselStep(carouselValue)" class="e-btn e-btn--sm">
         Increment step
@@ -197,7 +197,11 @@
     <!--Pagination-->
     <div class="example-wrapper">
       <h3>Pagination</h3>
-      <elvia-pagination :numberOfElements="156" :value="defaultPaginationValue"></elvia-pagination>
+      <elvia-pagination
+        :numberOfElements="156"
+        :value="defaultPaginationValue"
+        :dropdownMenuPosition="'top'"
+      ></elvia-pagination>
     </div>
 
     <!--Popover-->
@@ -258,21 +262,17 @@ export default {
     return {
       // Breadcrumb
       breadcrumbsTest: [
-        { url: 'https://elvia.no', title: 'Elvia.no' },
-        { url: 'https://www.elvia.no/nettleie', title: 'Nettleie' },
-        { url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt', title: 'Elvias leveringsplikt' },
+        { href: 'https://elvia.no', text: 'Elvia.no' },
+        { href: 'https://www.elvia.no/nettleie', text: 'Nettleie' },
+        { href: 'https://www.elvia.no/nettleie/elvias-leveringsplikt', text: 'Elvias leveringsplikt' },
       ],
-      breadcrumbsTestNoUrl: [
-        { title: 'Elvia.no' },
-        { title: 'Nettleie' },
-        { title: 'Elvias leveringsplikt' },
-      ],
+      breadcrumbsTestNoUrl: [{ text: 'Elvia.no' }, { text: 'Nettleie' }, { text: 'Elvias leveringsplikt' }],
       // Carousel
-      elements: [
-        { element: this.carouselParagraph },
-        { title: 'Hei til ny tariff!', element: this.carouselParagraph },
-        { title: 'Strømbruddsvarsel', element: this.carouselParagraph },
-        { element: this.carouselParagraph },
+      items: [
+        { item: this.carouselParagraph },
+        { title: 'Hei til ny tariff!', item: this.carouselParagraph },
+        { title: 'Strømbruddsvarsel', item: this.carouselParagraph },
+        { item: this.carouselParagraph },
       ],
       carouselValue: 0,
       // Chips

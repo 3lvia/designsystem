@@ -16,23 +16,23 @@ export class BreadcrumbDocComponent {
 
   exampleBreadcrumb = [
     {
-      url: 'https://design.elvia.io/components/breadcrumb',
-      title: 'Example',
+      href: 'https://design.elvia.io/components/breadcrumb',
+      text: 'Example',
     },
   ];
 
   breadcrumbsTest = [
     {
-      url: 'https://design.elvia.io/',
-      title: 'Home',
+      href: 'https://design.elvia.io/',
+      text: 'Home',
     },
     {
-      url: 'https://design.elvia.io/components',
-      title: 'Components',
+      href: 'https://design.elvia.io/components',
+      text: 'Components',
     },
     {
-      url: 'https://design.elvia.io/components/breadcrumb',
-      title: 'Breadcrumbs',
+      href: 'https://design.elvia.io/components/breadcrumb',
+      text: 'Breadcrumbs',
     },
   ];
 

@@ -125,7 +125,7 @@ export const dropdownData: ComponentData = {
   codeImportReact: `import { Dropdown } from '@elvia/elvis-dropdown/react';`,
   codeImportWebComponent: `import '@elvia/elvis-dropdown';`,
   codeReact: `<Dropdown 
-  options={[
+  items={[
     { value: 'Norge', label: 'Norge' },
     { value: 'Sverige', label: 'Sverige' },
     { value: 'Danmark', label: 'Danmark' },
@@ -138,7 +138,7 @@ export const dropdownData: ComponentData = {
 ></Dropdown>
 `,
   codeAngular: `<elvia-dropdown
-  [options]="[
+  [items]="[
     { value: 'Norge', label: 'Norge' },
     { value: 'Sverige', label: 'Sverige' },
     { value: 'Danmark', label: 'Danmark' },
@@ -151,7 +151,7 @@ export const dropdownData: ComponentData = {
 ></elvia-dropdown>
 `,
   codeVue: `<elvia-dropdown
-  :options="[
+  :items="[
     { value: 'Norge', label: 'Norge' },
     { value: 'Sverige', label: 'Sverige' },
     { value: 'Danmark', label: 'Danmark' },
@@ -168,7 +168,7 @@ export const dropdownData: ComponentData = {
 ></elvia-dropdown>
 `,
   codeNativeScript: `  const dropdown = document.getElementById('example-elvia-dropdown');
-  const options = [
+  const items = [
     { value: 'Norge', label: 'Norge' },
     { value: 'Sverige', label: 'Sverige' },
     { value: 'Danmark', label: 'Danmark' },
@@ -177,7 +177,7 @@ export const dropdownData: ComponentData = {
   ];
   dropdown.setProps({label: 'Label' });
   dropdown.setProps({placeholder: 'Placeholder' });
-  dropdown.setProps({options: options});
+  dropdown.setProps({items: items});
   dropdown.addEventListener('valueOnChange', (event) => {
     console.log('Do what you want with selected elements: ', event.detail.value);
   });
