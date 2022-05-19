@@ -174,15 +174,7 @@ function App() {
             isSelected={chipSelected}
             isLoading={isChipLoading}
             value="Selectable"
-          ></Chip>
-
-          <Chip
-            type="legend"
-            isSelectedOnChange={() => {
-              setChipSelected(!chipSelected);
-            }}
-            isSelected={chipSelected}
-            value="Selectable"
+            color="red"
           ></Chip>
         </div>
         {/* DATEPICKER */}
