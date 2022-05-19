@@ -212,7 +212,7 @@ export const carouselData: ComponentData = {
   ],
   donts: [
     'Should not be use on non-visual items such as links or paragraphs',
-    'More than 5 frames - It`s unlikely users will engage with more than that (Use a list instead)',
+    'More than 5 frames - It´s unlikely users will engage with more than that (Use a list instead)',
   ],
   changelog: changelogJson.content,
 };
