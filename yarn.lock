@@ -23341,6 +23341,7 @@ __metadata:
     "@babel/preset-env": ^7.17.10
     "@babel/preset-react": ^7.16.7
     "@babel/register": ^7.17.7
+    "@elvia/elvis": "*"
     "@elvia/elvis-accordion": "*"
     "@elvia/elvis-box": "*"
     "@elvia/elvis-breadcrumb": "*"
