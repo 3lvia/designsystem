@@ -489,9 +489,9 @@ const Pagination: FC<PaginationProps> = ({
           <Dropdown
             isCompact
             placeholder=""
-            options={dropdownItems}
+            items={dropdownItems}
             menuPosition={dropdownMenuPos}
-            defaultValue={currentDisplayAmount}
+            value={currentDisplayAmount}
             valueOnChange={(event: any) => onDropdownChangeHandler(event)}
             data-testid="dropdown"
           ></Dropdown>

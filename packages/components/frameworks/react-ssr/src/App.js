@@ -17,6 +17,7 @@ import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
+import { getTypographyCss } from '@elvia/elvis-typography';
 
 function App() {
   const logValue = (component, value) => {
@@ -94,7 +95,11 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white"></div>
+          <div className="e-bg-white">
+            <button className="e-btn" onClick={() => console.log(getTypographyCss('title-lg'))}>
+              Log title-lg css
+            </button>
+          </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>
@@ -177,12 +182,7 @@ function App() {
         {/* DROPDOWN */}
         <div className="example-wrapper">
           <h3>Dropdown</h3>
-          <Dropdown
-            options={dropdownOptions}
-            defaultValue={defaultDropdownOptions}
-            label="test"
-            isMulti
-          ></Dropdown>
+          <Dropdown items={dropdownOptions} value={defaultDropdownOptions} label="test" isMulti></Dropdown>
         </div>
         {/* ICON */}
         <div className="example-wrapper">
