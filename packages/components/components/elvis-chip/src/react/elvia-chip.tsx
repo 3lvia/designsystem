@@ -56,6 +56,7 @@ export const Chip: FC<BaseChipProps> = function ({
   warnDeprecatedProps(config, arguments[0]);
 
   const [isSelectedState, setIsSelectedState] = useState(isSelected);
+  const [isAnimation, setIsAnimation] = useState(false);
 
   useEffect(() => {
     setIsSelectedState(isSelected);
@@ -99,6 +100,10 @@ export const Chip: FC<BaseChipProps> = function ({
       aria-label={ariaLabel}
       color={color}
       onClick={() => {
+        setIsAnimation(true);
+        setTimeout(() => {
+          setIsAnimation(false);
+        }, 300);
         type === 'removable' ? handleOnDelete(value) : updateSelectedState(!isSelectedState);
       }}
       disabled={isDisabled}
@@ -140,7 +145,9 @@ export const Chip: FC<BaseChipProps> = function ({
       )}
       <ChipTitle
         className={classnames({
-          ['hideTitle']: isLoading,
+          ['hide']: isLoading,
+          ['disabled']: isDisabled,
+          ['fadeIn']: isAnimation && !isLoading,
         })}
         disabled={isDisabled}
         data-testid="chip-label"

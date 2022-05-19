@@ -154,7 +154,6 @@ function App() {
         {/* CHIP */}
         <div className="example-wrapper">
           <h3>Chip</h3>
-          <Chip type={'removable'} value={2022} isSelected={true}></Chip>
           <Chip type={'choice'} value={2022} isSelected={true}></Chip>
           <Chip type={'choice'} value={'Disabled'} isDisabled></Chip>
 
@@ -169,6 +168,15 @@ function App() {
             }}
             isSelected={chipSelected}
             isLoading={isChipLoading}
+            value="Selectable"
+          ></Chip>
+
+          <Chip
+            type="legend"
+            isSelectedOnChange={() => {
+              setChipSelected(!chipSelected);
+            }}
+            isSelected={chipSelected}
             value="Selectable"
           ></Chip>
         </div>

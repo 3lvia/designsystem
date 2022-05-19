@@ -75,7 +75,8 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   line-height: 16px;
   padding: calc(8px - 1px) calc(16px - 1px);
   border-radius: 24px;
-  transition: background-color 200ms ease-in;
+  transition: background-color 300ms ease-in;
+
   position: relative;
   ${(props: {
     chipType: ChipType;
@@ -196,7 +197,7 @@ export const ChipDot = styled.span<{ color: ColorType }>`
       height: 10px;
       width: 10px;
       border-radius: 50%;
-      transition: background-color 200ms ease-in;
+      transition: background-color 300ms ease-in;
       background-color: ${colors.gray05};
       margin: 0 8px 0 0;
     }
@@ -222,10 +223,21 @@ export const ChipTitle = styled.div<{ disabled: boolean }>`
   text-transform: 'unset';
   letter-spacing: 'unset';
   font-style: unset;
-  opacity: ${(props: { disabled: boolean }) => (props.disabled ? '0.3' : '1')};
+  opacity: 1;
+  transition: opacity 300ms ease-in;
   color: ${colors.elviaBlack};
 
-  &.hideTitle {
+  &.fadeIn {
+    opacity: 0.7;
+    transition: opacity 300ms ease-in;
+  }
+
+  &.disabled {
+    opacity: 0.3;
+  }
+
+  &.hide {
     visibility: hidden;
+    opacity: 0.7;
   }
 `;
