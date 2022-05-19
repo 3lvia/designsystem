@@ -7,44 +7,43 @@ export const carouselData: ComponentData = {
   elementNameW: 'elvia-carousel',
   elementNameR: 'Carousel',
   attributes: {
-    elements: {
+    items: {
       isRequired: true,
-      type: 'CarouselElement[] | number | slot',
+      type: 'CarouselItem[] | number | slot',
       description:
-        'A collection of related items that should be displayed in a carousel. If not React, send the elements in by slots. Name the slots "element-1", "title-1", "element-2", "title-2" and so on.',
+        'A collection of related items that should be displayed in a carousel. If not React, send the items in by slots. Name the slots "item-1", "heading-1", "item-2", "heading-2" and so on.',
       cegDisplayName: 'No content',
     },
-    hideArrows: {
+    loop: {
       isRequired: false,
       type: 'boolean',
-      description:
-        'Decides if looping through the elements should be possible, hides the arrows at the if not.',
-      default: 'false',
+      description: 'Decides if looping through the items should be possible, hides the arrows at the if not.',
+      default: 'true',
       cegDisplayName: 'Loop',
       cegType: 'boolean',
       cegFormType: 'checkbox',
-      cegOption: 'true',
+      cegOption: 'false',
       cegDefault: true,
       cegDisplayGroup: 'Options',
     },
-    useOnboardingCheckmark: {
+    hasConfirmationCheckmark: {
       isRequired: false,
       type: 'boolean',
       description:
-        'Whether a checkmark button should be used for the last element. Is used in an onboarding situation and requires hideArrows to also be sent in',
+        'Whether a checkmark button should be used for the last carousel-item. This requires the loop-prop to be disabled. This could be used in an onboarding situation.',
       default: 'false',
       cegDisplayName: 'Confirm button',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
       cegDisplayGroup: 'Options',
-      cegDependency: [{ name: 'hideArrows', value: 'false' }],
+      cegDependency: [{ name: 'loop', value: 'false' }],
     },
-    onHide: {
+    onFinish: {
       isRequired: false,
       type: '() => void',
       description:
-        'If useOnboardingCheckmark is used you most likely want a close action implemented for the checkmark button',
+        'If loop is disabled and hasConfirmationButton is enbled you might want to do an action when you finish the iteration. When the checkmark is clicked this funtion will be triggered.',
       default: 'false',
     },
     value: {
@@ -61,7 +60,7 @@ export const carouselData: ComponentData = {
     hasAnimation: {
       isRequired: false,
       type: 'boolean',
-      description: 'Can be used to turn off the animation when moving between elements in the carousel.',
+      description: 'Can be used to turn off the animation when moving between items in the carousel.',
       default: 'true',
     },
     className: {
@@ -80,26 +79,26 @@ export const carouselData: ComponentData = {
   codeImportReact: `import { Carousel } from '@elvia/elvis-carousel/react';`,
   codeImportWebComponent: `import '@elvia/elvis-carousel';`,
   codeReact: `<Carousel
-  elements={[
+  items={[
     { 
-      title: <h3 className="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>, 
-      element: <img 
+      heading: <h3 className="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>, 
+      item: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el1.jpeg"
         style={{width: '100%', minWidth: '278px', borderRadius: '8px'}}
       />
     },
     { 
-      title: <h3 className="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>, 
-      element: <img 
+      heading: <h3 className="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>, 
+      item: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el2.jpeg"
         style={{width: '100%', minWidth: '278px', borderRadius: '8px'}}
       />
     },
     { 
-      title: <h3 className="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>, 
-      element: <img 
+      heading: <h3 className="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>, 
+      item: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el3.jpeg"
         style={{width: '100%', minWidth: '278px', borderRadius: '8px'}}
@@ -109,30 +108,30 @@ export const carouselData: ComponentData = {
 ></Carousel>`,
   codeAngular: `<elvia-carousel
 >
-  <div slot="title-1">
+  <div slot="heading-1">
     <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-1">
+  <div slot="item-1">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el1.jpeg"
       style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
-  <div slot="title-2">
+  <div slot="heading-2">
     <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-2">
+  <div slot="item-2">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el2.jpeg"
       style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
-  <div slot="title-3">
+  <div slot="heading-3">
     <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-3">
+  <div slot="item-3">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el3.jpeg"
@@ -142,30 +141,30 @@ export const carouselData: ComponentData = {
 </elvia-carousel>`,
   codeVue: `<elvia-carousel
 >
-  <div slot="title-1">
+  <div slot="heading-1">
     <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-1">
+  <div slot="item-1">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el1.jpeg"
       style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
-  <div slot="title-2">
+  <div slot="heading-2">
     <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-2">
+  <div slot="item-2">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el2.jpeg"
       style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
-  <div slot="title-3">
+  <div slot="heading-3">
     <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-3">
+  <div slot="item-3">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el3.jpeg"
@@ -175,30 +174,30 @@ export const carouselData: ComponentData = {
 </elvia-carousel>`,
   codeNativeHTML: `<elvia-carousel
 >
-  <div slot="title-1">
+  <div slot="heading-1">
     <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-1">
+  <div slot="item-1">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el1.jpeg"
       style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
-  <div slot="title-2">
+  <div slot="heading-2">
     <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-2">
+  <div slot="item-2">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el2.jpeg"
       style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
-  <div slot="title-3">
+  <div slot="heading-3">
     <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>
   </div>
-  <div slot="element-3">
+  <div slot="item-3">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el3.jpeg"
@@ -213,7 +212,7 @@ export const carouselData: ComponentData = {
   ],
   donts: [
     'Should not be use on non-visual items such as links or paragraphs',
-    'More than 5 frames - It’s unlikely users will engage with more than that (Use a list instead)',
+    'More than 5 frames - It´s unlikely users will engage with more than that (Use a list instead)',
   ],
   changelog: changelogJson.content,
 };

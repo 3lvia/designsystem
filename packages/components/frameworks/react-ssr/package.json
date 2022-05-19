@@ -2,11 +2,18 @@
   "name": "react-ssr",
   "version": "0.1.0",
   "private": true,
+  "workspaces": {
+    "nohoist": [
+      "react-scripts",
+      "react-scripts/**"
+    ]
+  },
   "dependencies": {
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
     "@babel/register": "^7.17.7",
+    "@elvia/elvis": "*",
     "@elvia/elvis-accordion": "*",
     "@elvia/elvis-box": "*",
     "@elvia/elvis-breadcrumb": "*",
@@ -23,6 +30,7 @@
     "@elvia/elvis-spotlight": "*",
     "@elvia/elvis-tabs": "*",
     "@elvia/elvis-testing": "*",
+    "@elvia/elvis-typography": "*",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "^12.1.10",

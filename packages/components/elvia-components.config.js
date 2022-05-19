@@ -123,9 +123,12 @@ module.exports = [
     name: 'elvis-carousel',
     elementName: 'elvia-carousel',
     attributes: [
-      { name: 'elements', type: 'string', propType: 'number | string | HTMLElement' },
-      { name: 'hideArrows', type: 'boolean', propType: 'boolean | undefined' },
-      { name: 'useOnboardingCheckmark', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'elements', type: 'string', propType: 'number | string | HTMLElement' }, // TODO: Remove when deprecation is final.
+      { name: 'items', type: 'string', propType: 'number | string | HTMLElement' },
+      { name: 'hideArrows', type: 'boolean', propType: 'boolean | undefined' }, // TODO: Remove when deprecation is final.
+      { name: 'loop', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'useOnboardingCheckmark', type: 'boolean', propType: 'boolean | undefined' }, // TODO: Remove when deprecation is final.
+      { name: 'hasConfirmationCheckmark', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasAnimation', type: 'boolean', propType: 'boolean' },
       { name: 'value', type: 'number', propType: 'number | undefined' },
       { name: 'className', type: 'string', propType: 'string' },
@@ -213,17 +216,19 @@ module.exports = [
     name: 'elvis-dropdown',
     elementName: 'elvia-dropdown',
     attributes: [
-      { name: 'defaultValue', type: 'object', propType: 'object | undefined' },
-      { name: 'errorMessage', type: 'string', propType: 'string | undefined' },
+      { name: 'items', type: 'object', propType: 'object' },
+      { name: 'options', type: 'object', propType: 'object' }, // DEPRECATED
+      { name: 'value', type: 'object', propType: 'object | undefined' },
+      { name: 'defaultValue', type: 'object', propType: 'object | undefined' }, // DEPRECATED
       { name: 'isCompact', type: 'boolean', propType: 'boolean' },
       { name: 'isDisabled', type: 'boolean', propType: 'boolean' },
       { name: 'isMulti', type: 'boolean', propType: 'boolean' },
       { name: 'isSearchable', type: 'boolean', propType: 'boolean' },
       { name: 'hasSelectAllOption', type: 'boolean', propType: 'boolean' },
+      { name: 'errorMessage', type: 'string', propType: 'string | undefined' },
       { name: 'label', type: 'string', propType: 'string | undefined' },
       { name: 'menuPosition', type: 'string', propType: 'string | undefined' },
       { name: 'noOptionsMessage', type: 'string', propType: 'string | undefined' },
-      { name: 'options', type: 'object', propType: 'object' },
       { name: 'placeholder', type: 'string', propType: 'string | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
@@ -253,12 +258,14 @@ module.exports = [
     elementName: 'elvia-modal',
     attributes: [
       { name: 'isShowing', type: 'boolean', propType: 'boolean' },
-      { name: 'title', type: 'string', propType: 'string | undefined' },
+      { name: 'title', type: 'string', propType: 'string | undefined' }, // Deprecated
+      { name: 'heading', type: 'string', propType: 'string | undefined' },
       { name: 'content', type: 'string', propType: 'HTMLElement' },
       { name: 'illustration', type: 'string', propType: 'HTMLElement | undefined' },
       { name: 'primaryButton', type: 'string', propType: 'HTMLElement | undefined' },
       { name: 'secondaryButton', type: 'string', propType: 'HTMLElement | undefined' },
-      { name: 'hasCloseBtn', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'hasCloseBtn', type: 'boolean', propType: 'boolean | undefined' }, // Deprecated
+      { name: 'hasCloseButton', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasLockBodyScroll', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasPadding', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'disableClose', type: 'boolean', propType: 'boolean | undefined' },

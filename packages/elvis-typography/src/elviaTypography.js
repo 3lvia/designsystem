@@ -267,4 +267,36 @@ export const getTypography = (typographyName) => {
   }
 };
 
+const camelCaseToKebabCase = (camel) => {
+  return camel.replace(/([A-Z])/g, (match) => `-${match.toLowerCase()}`);
+};
+
+export const getTypographyCss = (typographyName) => {
+  if (!ElviaTypography[typographyName]) {
+    console.error(`Cannot get typography ${typographyName} from elvis-typography.`);
+    return '';
+  }
+  let typographyString = '';
+  const mobileProperties = {};
+  for (const property in ElviaTypography[typographyName]) {
+    const value = ElviaTypography[typographyName][property];
+    if (property.endsWith('Mobile')) {
+      mobileProperties[property] = value;
+    } else {
+      typographyString += `${camelCaseToKebabCase(property)}: ${value};\n`;
+    }
+  }
+  if (Object.keys(mobileProperties).length > 0) {
+    typographyString += `@media (max-width: 767px) {\n`;
+    {
+      for (const property in mobileProperties) {
+        const value = mobileProperties[property];
+        typographyString += `\t${camelCaseToKebabCase(property.slice(0, -6))}: ${value};\n`;
+      }
+    }
+    typographyString += `}\n`;
+  }
+  return typographyString;
+};
+
 export default ElviaTypography;

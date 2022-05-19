@@ -109,15 +109,15 @@
         <div slot="title-1">
           <h4 class="e-title-sm">HAN-port</h4>
         </div>
-        <div slot="element-1">hello</div>
+        <div slot="item-1">hello</div>
         <div slot="title-2">
           <h4 class="e-title-sm">AMS-meter</h4>
         </div>
-        <div slot="element-2">halla</div>
+        <div slot="item-2">halla</div>
         <div slot="title-3">
           <h4 class="e-title-sm">YOYOYO</h4>
         </div>
-        <div slot="element-3">hei</div>
+        <div slot="item-3">hei</div>
       </elvia-carousel>
       <button @click="carouselValue = incrementCarouselStep(carouselValue)" class="e-btn e-btn--sm">
         Increment step
@@ -162,7 +162,7 @@
     <!--Dropdown-->
     <div class="example-wrapper">
       <h3>Dropdown</h3>
-      <elvia-dropdown :defaultValue="dropdownDefaultOption" :options="dropdownOptions"></elvia-dropdown>
+      <elvia-dropdown :value="dropdownDefaultOption" :items="dropdownOptions"></elvia-dropdown>
     </div>
 
     <!--Ikon-->
@@ -178,9 +178,9 @@
       <button class="e-btn" @click="isModalShowing = !isModalShowing">Hello</button>
       <elvia-modal
         :isShowing="isModalShowing"
-        :title="'Redigere bidragsytere'"
-        :hasCloseBtn="true"
-        @on-hide="isModalShowing = !isModalShowing"
+        :heading="'Redigere bidragsytere'"
+        :hasCloseButton="true"
+        @on-close="isModalShowing = !isModalShowing"
       >
         <div slot="content">
           <div class="date-container">
@@ -264,11 +264,11 @@ export default {
       ],
       breadcrumbsTestNoUrl: [{ text: 'Elvia.no' }, { text: 'Nettleie' }, { text: 'Elvias leveringsplikt' }],
       // Carousel
-      elements: [
-        { element: this.carouselParagraph },
-        { title: 'Hei til ny tariff!', element: this.carouselParagraph },
-        { title: 'Strømbruddsvarsel', element: this.carouselParagraph },
-        { element: this.carouselParagraph },
+      items: [
+        { item: this.carouselParagraph },
+        { title: 'Hei til ny tariff!', item: this.carouselParagraph },
+        { title: 'Strømbruddsvarsel', item: this.carouselParagraph },
+        { item: this.carouselParagraph },
       ],
       carouselValue: 0,
       // Chips

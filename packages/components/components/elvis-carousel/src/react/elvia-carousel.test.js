@@ -8,30 +8,30 @@ describe('Elvis Carousel', () => {
   let carouselContainer;
   let carouselListOfDots;
   let carouselListOfDotsNodes;
-  let carouselElementTitle;
-  let carouselElement;
+  let carouselItemTitle;
+  let carouselItem;
   let carouselLeftArrow;
   let carouselRightArrow;
   let carouselOnboardingCheckmark;
-  const elementsNum = 5;
-  const elements = [
-    { title: 'Element 1', element: <p>Body text 1</p> },
-    { title: 'Element 2', element: <p>Body text 2</p> },
-    { title: 'Element 3', element: <p>Body text 3</p> },
-    { title: 'Element 4', element: <p>Body text 4</p> },
+  const itemsNum = 5;
+  const items = [
+    { heading: 'Item 1', item: <p>Body text 1</p> },
+    { heading: 'Item 2', item: <p>Body text 2</p> },
+    { heading: 'Item 3', item: <p>Body text 3</p> },
+    { heading: 'Item 4', item: <p>Body text 4</p> },
   ];
 
   describe('Default', () => {
     beforeEach(() => {
-      wrapper = mount(<Carousel elements={elements} />);
+      wrapper = mount(<Carousel items={items} />);
       carouselListOfDots = wrapper
         .find({ 'data-testid': 'carousel-list-of-dots' })
         .at(0)
         .children()
         .children();
       carouselListOfDotsNodes = carouselListOfDots.map((dot) => dot.getDOMNode());
-      carouselElementTitle = wrapper.find({ 'data-testid': 'carousel-element-title' }).at(0);
-      carouselElement = wrapper.find({ 'data-testid': 'carousel-element' }).at(0);
+      carouselItemTitle = wrapper.find({ 'data-testid': 'carousel-item-heading' }).at(0);
+      carouselItem = wrapper.find({ 'data-testid': 'carousel-item' }).at(0);
       carouselLeftArrow = wrapper.find({ 'data-testid': 'carousel-left-arrow' }).at(0);
       carouselRightArrow = wrapper.find({ 'data-testid': 'carousel-right-arrow' }).at(0);
     });
@@ -44,12 +44,12 @@ describe('Elvis Carousel', () => {
       done();
     });
     it('should have default value 0', function (done) {
-      expect(carouselElementTitle.text()).toBe('Element 1');
-      expect(carouselElement.text()).toBe('Body text 1');
+      expect(carouselItemTitle.text()).toBe('Item 1');
+      expect(carouselItem.text()).toBe('Body text 1');
       done();
     });
-    it('should have elements', function (done) {
-      expect(carouselElement.exists()).toBeTruthy();
+    it('should have items', function (done) {
+      expect(carouselItem.exists()).toBeTruthy();
       done();
     });
     it('should have aria-labels', function (done) {
@@ -61,38 +61,38 @@ describe('Elvis Carousel', () => {
       expect(carouselRightArrow.getDOMNode()).toHaveAttribute('aria-label', 'Gå til neste side');
       done();
     });
-    it('should update selected element using dots ', function (done) {
+    it('should update selected item using dots ', function (done) {
       act(() => {
         jest.useFakeTimers();
         carouselListOfDots.at(2).simulate('click');
         jest.advanceTimersByTime(480);
       });
-      expect(carouselElementTitle.text()).toBe('Element 3');
-      expect(carouselElement.text()).toBe('Body text 3');
+      expect(carouselItemTitle.text()).toBe('Item 3');
+      expect(carouselItem.text()).toBe('Body text 3');
       done();
     });
-    it('should update selected element using right arrow', function (done) {
+    it('should update selected item using right arrow', function (done) {
       act(() => {
         jest.useFakeTimers();
         carouselRightArrow.simulate('click');
         jest.advanceTimersByTime(480);
       });
-      expect(carouselElementTitle.text()).toBe('Element 2');
+      expect(carouselItemTitle.text()).toBe('Item 2');
       done();
     });
-    it('should update selected element using left arrow', function (done) {
+    it('should update selected item using left arrow', function (done) {
       act(() => {
         jest.useFakeTimers();
         carouselLeftArrow.simulate('click');
         jest.advanceTimersByTime(480);
       });
-      expect(carouselElementTitle.text()).toBe('Element 4');
+      expect(carouselItemTitle.text()).toBe('Item 4');
       done();
     });
   });
-  describe('Elements = number', () => {
+  describe('Items = number', () => {
     beforeEach(() => {
-      wrapper = mount(<Carousel elements={elementsNum} />);
+      wrapper = mount(<Carousel items={itemsNum} />);
       carouselListOfDots = wrapper
         .find({ 'data-testid': 'carousel-list-of-dots' })
         .at(0)
@@ -107,29 +107,29 @@ describe('Elvis Carousel', () => {
       expect(carouselListOfDots.length).toEqual(5);
       done();
     });
-    it('should not have any elements', function (done) {
-      expect(wrapper.find({ 'data-testid': 'carousel-element' }).exists()).toBeFalsy();
+    it('should not have any items', function (done) {
+      expect(wrapper.find({ 'data-testid': 'carousel-item' }).exists()).toBeFalsy();
       done();
     });
   });
   describe('Value = 2', () => {
     beforeEach(() => {
-      wrapper = mount(<Carousel elements={elements} value={2} />);
-      carouselElementTitle = wrapper.find({ 'data-testid': 'carousel-element-title' }).at(0);
-      carouselElement = wrapper.find({ 'data-testid': 'carousel-element' }).at(0);
+      wrapper = mount(<Carousel items={items} value={2} />);
+      carouselItemTitle = wrapper.find({ 'data-testid': 'carousel-item-heading' }).at(0);
+      carouselItem = wrapper.find({ 'data-testid': 'carousel-item' }).at(0);
     });
     afterEach(() => {
       wrapper.unmount();
     });
     it('should have new default value 2', function (done) {
-      expect(carouselElementTitle.text()).toBe('Element 3');
-      expect(carouselElement.text()).toBe('Body text 3');
+      expect(carouselItemTitle.text()).toBe('Item 3');
+      expect(carouselItem.text()).toBe('Body text 3');
       done();
     });
   });
   describe('Hide arrows = true', () => {
     beforeEach(() => {
-      wrapper = mount(<Carousel elements={elements} hideArrows />);
+      wrapper = mount(<Carousel items={items} loop={false} />);
       carouselListOfDots = wrapper
         .find({ 'data-testid': 'carousel-list-of-dots' })
         .at(0)
@@ -160,9 +160,7 @@ describe('Elvis Carousel', () => {
   });
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      wrapper = mount(
-        <Carousel elements={elements} className="test-class" inlineStyle={{ margin: '24px' }} />,
-      );
+      wrapper = mount(<Carousel items={items} className="test-class" inlineStyle={{ margin: '24px' }} />);
       carouselContainer = wrapper.find({ 'data-testid': 'carousel-container' }).at(0);
     });
     afterEach(() => {
@@ -179,7 +177,7 @@ describe('Elvis Carousel', () => {
   // TODO: Vet ikke hvorfor denne testeen ikke funker
   // describe('Onboarding Checkmark  = true', () => {
   //   beforeEach(() => {
-  //     wrapper = mount(<Carousel elements={elements} hideArrows />);
+  //     wrapper = mount(<Carousel items={items} hideArrows />);
   //     carouselListOfDots = wrapper
   //       .find({ 'data-testid': 'carousel-list-of-dots' })
   //       .at(0)

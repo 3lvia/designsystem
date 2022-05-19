@@ -17,6 +17,7 @@ import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
+import { getTypographyCss } from '@elvia/elvis-typography';
 
 function App() {
   const logValue = (component, value) => {
@@ -95,31 +96,9 @@ function App() {
           <h3>Test your component here</h3>
           {/* Normal version */}
           <div className="e-bg-white">
-            <Popover
-              type={'list'}
-              posY={'top'}
-              trigger={
-                <button className="e-btn e-btn--icon e-btn--circled">
-                  <span className="e-btn__icon">
-                    <Icon name="informationCircle"></Icon>
-                    <Icon name="informationCircleFilledColor"></Icon>
-                  </span>
-                </button>
-              }
-              content={
-                <div className="ewc-popover__list">
-                  <button>
-                    <span>Be om tilgang</span>
-                  </button>
-                  <button>
-                    <span>Legg til bruker</span>
-                  </button>
-                  <a>
-                    <span>Endre passord</span>
-                  </a>
-                </div>
-              }
-            ></Popover>
+            <button className="e-btn" onClick={() => console.log(getTypographyCss('title-lg'))}>
+              Log title-lg css
+            </button>
           </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
@@ -169,11 +148,17 @@ function App() {
         <div className="example-wrapper">
           <h3>Carousel</h3>
           <Carousel
-            elements={[
-              { title: <h3 className="e-title-sm">HAN-port</h3>, element: <div>Hallo</div> },
-              { title: <h3 className="e-title-sm">AMS-meter</h3>, element: 'Hei' },
-              { title: <h3 className="e-title-sm">About login</h3>, element: <p>Halla</p> },
+            loop={false}
+            hasConfirmationCheckmark={true}
+            items={[
+              { heading: <h3 className="e-title-sm">HAN-port</h3>, item: <div>Hallo</div> },
+              { heading: <h3 className="e-title-sm">AMS-meter</h3>, item: 'Hei' },
+              {
+                heading: <h3 className="e-title-sm">About login</h3>,
+                item: <p>Halla</p>,
+              },
             ]}
+            onFinish={() => console.log('Hide')}
           ></Carousel>
         </div>
         {/* CHIP */}
@@ -203,12 +188,7 @@ function App() {
         {/* DROPDOWN */}
         <div className="example-wrapper">
           <h3>Dropdown</h3>
-          <Dropdown
-            options={dropdownOptions}
-            defaultValue={defaultDropdownOptions}
-            label="test"
-            isMulti
-          ></Dropdown>
+          <Dropdown items={dropdownOptions} value={defaultDropdownOptions} label="test" isMulti></Dropdown>
         </div>
         {/* ICON */}
         <div className="example-wrapper">
@@ -224,9 +204,9 @@ function App() {
           </button>
           <Modal
             isShowing={isModalShowing}
-            hasCloseBtn
-            onHide={() => setIsModalShowingState(false)}
-            title="Title of content"
+            hasCloseButton
+            onClose={() => setIsModalShowingState(false)}
+            heading="Title of content"
             content={<div>Body text comes here and can go over several lines.</div>}
             primaryButton={<button className="e-btn e-btn--primary">Primary</button>}
             secondaryButton={<button className="e-btn e-btn--secondary">Secondary</button>}
