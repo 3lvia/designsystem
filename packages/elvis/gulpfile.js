@@ -3,7 +3,6 @@
 const styles = require('./tasks/styles.js');
 const icons = require('./tasks/icons.js');
 const classList = require('./tasks/classlist.js');
-const typography = require('./tasks/typography.js');
 const gulp = require('gulp');
 
 // Copies changelog to web dictionary
@@ -17,7 +16,6 @@ function copyChangelogs() {
 gulp.task(
   'default',
   gulp.series(
-    typography.createTypographyScss,
     styles.generateCSS,
     classList.createClassListOverview,
     icons.generateIcons,

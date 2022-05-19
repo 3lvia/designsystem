@@ -51,6 +51,7 @@ const ElviaTypography = {
   },
 
   'title-caps': {
+    altLabels: ['text-caps'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '14px',
     fontWeight: '500',
@@ -75,6 +76,7 @@ const ElviaTypography = {
   },
 
   'text-lg': {
+    altLabels: ['text-body'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '20px',
     fontSizeMobile: '18px',
@@ -114,6 +116,7 @@ const ElviaTypography = {
   },
 
   'text-md': {
+    altLabels: ['text-description'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '16px',
     fontWeight: '400',
@@ -145,6 +148,7 @@ const ElviaTypography = {
   },
 
   'text-sm': {
+    altLabels: ['text-info'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '14px',
     fontWeight: '400',
@@ -259,7 +263,7 @@ const ElviaTypography = {
   },
 };
 
-export const getTypography = (typographyName) => {
+const getTypography = (typographyName) => {
   if (!ElviaTypography[typographyName]) {
     console.error(`Cannot get typography ${typographyName} from elvis-typography.`);
   } else {
@@ -267,11 +271,13 @@ export const getTypography = (typographyName) => {
   }
 };
 
+exports.getTypography = getTypography;
+
 const camelCaseToKebabCase = (camel) => {
   return camel.replace(/([A-Z])/g, (match) => `-${match.toLowerCase()}`);
 };
 
-export const getTypographyCss = (typographyName) => {
+const getTypographyCss = (typographyName) => {
   if (!ElviaTypography[typographyName]) {
     console.error(`Cannot get typography ${typographyName} from elvis-typography.`);
     return '';
@@ -299,4 +305,6 @@ export const getTypographyCss = (typographyName) => {
   return typographyString;
 };
 
-export default ElviaTypography;
+exports.getTypographyCss = getTypographyCss;
+
+exports.default = ElviaTypography;
