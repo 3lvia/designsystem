@@ -7,3 +7,9 @@ export type SelectionNumber = {
   start: number;
   end: number;
 };
+
+export interface PaginationLabel {
+  displaying?: string;
+  of?: string;
+  label?: string;
+}

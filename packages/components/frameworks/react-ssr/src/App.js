@@ -215,7 +215,13 @@ function App() {
         {/* PAGINATION */}
         <div className="example-wrapper">
           <h3>Pagination</h3>
-          <Pagination numberOfElements={100} lastNumberLimit={99} dropdownMenuPos="top"></Pagination>
+          <Pagination
+            numberOfElements={100}
+            lastNumberLimit={99}
+            dropdownMenuPosition="top"
+            labelOptions={{ displaying: 'Showing' }}
+            alignment={'left'}
+          ></Pagination>
         </div>
         {/* POPOVER */}
         <div className="example-wrapper">
