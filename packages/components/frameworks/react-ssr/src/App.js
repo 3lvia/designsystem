@@ -148,11 +148,17 @@ function App() {
         <div className="example-wrapper">
           <h3>Carousel</h3>
           <Carousel
-            elements={[
-              { title: <h3 className="e-title-sm">HAN-port</h3>, element: <div>Hallo</div> },
-              { title: <h3 className="e-title-sm">AMS-meter</h3>, element: 'Hei' },
-              { title: <h3 className="e-title-sm">About login</h3>, element: <p>Halla</p> },
+            loop={false}
+            hasConfirmationCheckmark={true}
+            items={[
+              { heading: <h3 className="e-title-sm">HAN-port</h3>, item: <div>Hallo</div> },
+              { heading: <h3 className="e-title-sm">AMS-meter</h3>, item: 'Hei' },
+              {
+                heading: <h3 className="e-title-sm">About login</h3>,
+                item: <p>Halla</p>,
+              },
             ]}
+            onFinish={() => console.log('Hide')}
           ></Carousel>
         </div>
         {/* CHIP */}

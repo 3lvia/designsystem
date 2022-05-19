@@ -2,6 +2,12 @@
   "name": "react-ssr",
   "version": "0.1.0",
   "private": true,
+  "workspaces": {
+    "nohoist": [
+      "react-scripts",
+      "react-scripts/**"
+    ]
+  },
   "dependencies": {
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
