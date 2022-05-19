@@ -1,13 +1,12 @@
-import { Component, ElementRef, QueryList, ViewChildren, OnInit } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-import * as typography from '@elvia/elvis/src/config/typography.config';
 
 @Component({
   selector: 'app-typography-doc',
   templateUrl: './typography-doc.component.html',
   styleUrls: ['./typography-doc.component.scss'],
 })
-export class TypographyDocComponent implements OnInit {
+export class TypographyDocComponent {
   @ViewChildren('toCopy') toCopy: QueryList<ElementRef>;
   @ViewChildren('mobileTypography') mobileTypography: QueryList<ElementRef>;
 
@@ -71,17 +70,6 @@ import { getTypography } from '@elvia/elvis-typography';
 
 const typography = getTypography('text-md');
 const MediumParagraph = styled.p'\${typography}';`;
-
-  ngOnInit(): void {
-    this.fillTypography();
-  }
-
-  fillTypography(): void {
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < typography.length; i++) {
-      this.typographyClasses.push(typography[i]);
-    }
-  }
 
   changeListView(): void {
     this.isDesktop = !this.isDesktop;

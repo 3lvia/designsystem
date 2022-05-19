@@ -288,7 +288,7 @@ const getTypographyCss = (typographyName) => {
     const value = ElviaTypography[typographyName][property];
     if (property.endsWith('Mobile')) {
       mobileProperties[property] = value;
-    } else {
+    } else if (property !== 'altLabels') {
       typographyString += `${camelCaseToKebabCase(property)}: ${value};\n`;
     }
   }
