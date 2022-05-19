@@ -5,9 +5,9 @@ const modalMultipageCode = {
   codeReact: `<button onClick={() => setIsModalShowingState(true)} className="e-btn">Åpne modal</button>
 <Modal
   isShowing={isModalShowing}
-  onHide={() => setIsModalShowingState(false)}
-  title="Title of content"
-  hasCloseBtn={true}
+  onClose={() => setIsModalShowingState(false)}
+  heading="Title of content"
+  hasCloseButton={true}
   content={
     <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%'}}>
       <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
@@ -21,10 +21,10 @@ const modalMultipageCode = {
 </Modal>`,
   codeAngular: `<button (click)="isModalShowing = true" class="e-btn">Åpne modal</button>
 <elvia-modal
-  (onHide)="isModalShowing = !isModalShowing"
+  (onClose)="isModalShowing = !isModalShowing"
   [isShowing]="isModalShowing"
-  [title]="'Title of content'"
-  [hasCloseBtn]="true"
+  [heading]="'Title of content'"
+  [hasCloseButton]="true"
 >
   <div slot="content" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
@@ -38,8 +38,8 @@ const modalMultipageCode = {
 <elvia-modal
   @on-hide="isModalShowing = !isModalShowing"
   :isShowing="isModalShowing"
-  :title="'Title of content'"
-  :hasCloseBtn="true"
+  :heading="'Title of content'"
+  :hasCloseButton="true"
 >
   <div slot="content" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
@@ -66,10 +66,10 @@ const modalMultipageCode = {
   const button = document.getElementById('example-modal-button-multipage');
   let isModalShowing = false;
 
-  modal.setProps({hasCloseBtn: true });
+  modal.setProps({hasCloseButton: true });
   modal.setProps({isShowing: isModalShowing });
-  modal.setProps({title: "Title of content" });
-  modal.addEventListener('onHide', () => {
+  modal.setProps({heading: "Title of content" });
+  modal.addEventListener('onClose', () => {
     modal.setProps({isShowing: !isModalShowing });
     isModalShowing = !isModalShowing;
   });
