@@ -199,9 +199,7 @@ function App() {
           <Modal
             isShowing={isModalShowing}
             hasCloseButton
-            onClose={() => {
-              setIsModalShowingState(false), console.log('onCLose Modal');
-            }}
+            onClose={() => setIsModalShowingState(false)}
             heading="Title of content"
             content={<div>Body text comes here and can go over several lines.</div>}
             primaryButton={<button className="e-btn e-btn--primary">Primary</button>}
@@ -224,12 +222,8 @@ function App() {
             horizontalPosistion="left"
             verticalPosistion="top"
             isShowing={isPopoverShowing}
-            onOpen={() => {
-              setIsPopoverShowingState(true), console.log('hello on Open');
-            }}
-            onClose={() => {
-              setIsPopoverShowingState(false), console.log('hello on close');
-            }}
+            onOpen={() => setIsPopoverShowingState(true)}
+            onClose={() => setIsPopoverShowingState(false)}
           ></Popover>
         </div>
         {/* PROGRESS LINEAR */}

@@ -326,9 +326,7 @@ const Popover: FC<PopoverProps> = function ({
       } else if (webcomponent) {
         webcomponent.triggerEvent('onOpen');
       }
-    }
-
-    if (!popoverVisibility && popoverVisibility !== isShowing) {
+    } else if (!popoverVisibility && popoverVisibility !== isShowing) {
       if (!webcomponent && onClose) {
         onClose();
       } else if (webcomponent) {
