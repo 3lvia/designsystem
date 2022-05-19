@@ -89,7 +89,7 @@
     <!--Breadcrumb-->
     <div class="example-wrapper">
       <h3>Breadcrumb</h3>
-      <elvia-breadcrumb :breadcrumbs="breadcrumbsTestNoUrl"></elvia-breadcrumb>
+      <elvia-breadcrumb :items="breadcrumbsTestNoUrl"></elvia-breadcrumb>
     </div>
 
     <!--Card-->
@@ -258,15 +258,11 @@ export default {
     return {
       // Breadcrumb
       breadcrumbsTest: [
-        { url: 'https://elvia.no', title: 'Elvia.no' },
-        { url: 'https://www.elvia.no/nettleie', title: 'Nettleie' },
-        { url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt', title: 'Elvias leveringsplikt' },
+        { href: 'https://elvia.no', text: 'Elvia.no' },
+        { href: 'https://www.elvia.no/nettleie', text: 'Nettleie' },
+        { href: 'https://www.elvia.no/nettleie/elvias-leveringsplikt', text: 'Elvias leveringsplikt' },
       ],
-      breadcrumbsTestNoUrl: [
-        { title: 'Elvia.no' },
-        { title: 'Nettleie' },
-        { title: 'Elvias leveringsplikt' },
-      ],
+      breadcrumbsTestNoUrl: [{ text: 'Elvia.no' }, { text: 'Nettleie' }, { text: 'Elvias leveringsplikt' }],
       // Carousel
       items: [
         { item: this.carouselParagraph },
