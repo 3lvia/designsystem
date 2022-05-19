@@ -8,7 +8,7 @@ const breadcrumbEventCode = {
     {text: 'Components'},
     {text: 'Breadcrumbs'},
   ]}
-  itemsOnChange={(event) => handleOnChange(event)}
+  onLinkClick={(event) => handleOnChange(event)}
 ></Breadcrumb>`,
   codeAngular: `<elvia-breadcrumb 
   [items]="[
@@ -16,7 +16,7 @@ const breadcrumbEventCode = {
     {text: 'Components'},
     {text: 'Breadcrumbs'},
   ]"
-  (itemsOnChange)="handleOnChange($event)"
+  (onLinkClick)="handleOnChange($event)"
 ></elvia-breadcrumb>`,
   codeVue: `<elvia-breadcrumb 
   :items="[
@@ -34,7 +34,7 @@ const breadcrumbEventCode = {
     {text: 'Breadcrumbs'},
   ];
   breadcrumb.setProps({items: items})
-  breadcrumb.addEventListener('itemsOnChange', (event) => {
+  breadcrumb.addEventListener('onLinkClick', (event) => {
     console.log('Do what you want with selected breadcrumb: ', event.detail.value)
     // Handle routing here
   });

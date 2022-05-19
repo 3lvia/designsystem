@@ -31,10 +31,10 @@ interface BreadcrumbProps {
   breadcrumbs?: BreadcrumbLink[];
   items: BreadcrumbLink[];
   /**
-   * @deprecated Deprecated in version 2.0.0. Use itemsOnChange instead.
+   * @deprecated Deprecated in version 2.0.0. Use onLinkClick instead.
    */
   breadcrumbsOnChange?: (value: number) => void;
-  itemsOnChange: (value: number) => void;
+  onLinkClick?: (value: number) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
@@ -42,7 +42,7 @@ interface BreadcrumbProps {
 
 const Breadcrumb: React.FC<BreadcrumbProps> = function ({
   items = [],
-  itemsOnChange,
+  onLinkClick,
   className,
   inlineStyle,
   webcomponent,
@@ -77,10 +77,10 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
   });
 
   const handleOnClick = (value: number) => {
-    if (!webcomponent && itemsOnChange) {
-      itemsOnChange(value);
+    if (!webcomponent && onLinkClick) {
+      onLinkClick(value);
     } else if (webcomponent) {
-      webcomponent.setProps({ items: value }, true);
+      webcomponent.triggerEvent('onLinkClick', value);
     }
   };
 

@@ -2,7 +2,7 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "16.05.22",
+      "date": "19.05.22",
       "version": "2.0.0 ",
       "changelog": [
         {
@@ -12,7 +12,7 @@
           ],
           "fixes": [
             "Change prop: <span class=\"code-text\">breadcrumbs</span> => <span class=\"code-text\">items</span>",
-            "Change prop: <span class=\"code-text\">breadcrumbsOnChange</span> => <span class=\"code-text\">itemsOnChange</span>",
+            "Change event: <span class=\"code-text\">breadcrumbsOnChange</span> => <span class=\"code-text\">onLinkClick</span>",
             "Change the link items to {'href': '...', 'text': '...'}"
           ]
         }

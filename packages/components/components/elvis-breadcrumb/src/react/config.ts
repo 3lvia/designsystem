@@ -12,7 +12,7 @@ export const breadcrumbConfig: ComponentConfig = {
     // Rule 1.4, event handlers
     breadcrumbsOnChange: {
       version: '2.0.0',
-      newProp: 'itemsOnChange',
+      newProp: 'onLinkClick',
       isDirectReplacement: true,
     },
   },
