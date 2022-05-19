@@ -23,53 +23,66 @@ import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
 import { getColor } from '@elvia/elvis-colors';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { config } from './config';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
-export interface DropdownOption {
+export interface DropdownItem {
   value: string;
   label: string;
   icon?: string;
 }
 
 export interface DropdownProps {
-  defaultValue?: DropdownOption | Array<DropdownOption> | undefined;
-  errorMessage?: string;
+  /**
+   * @deprecated Removed in version 3.0.0. Replaced by `value`.
+   */
+  options?: never;
+  items: DropdownItem[];
+  /**
+   * @deprecated Removed in version 3.0.0. Replaced by `value`.
+   */
+  defaultValue?: never;
+  value?: DropdownItem | Array<DropdownItem> | undefined;
   isCompact: boolean;
   isDisabled: boolean;
   isMulti: boolean;
   isSearchable: boolean;
   hasSelectAllOption: boolean;
+  errorMessage?: string;
   label?: string;
   menuPosition?: DropdownMenuPosition;
   noOptionsMessage?: string;
-  options: DropdownOption[];
   placeholder?: string;
-  valueOnChange?: (selectedOptions: DropdownOption | Array<DropdownOption> | undefined) => void;
+  valueOnChange?: (selectedOptions: DropdownItem | Array<DropdownItem> | undefined) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({
-  defaultValue = undefined,
-  errorMessage = '',
+const Dropdown: React.FC<DropdownProps> = function ({
+  items,
+  value = undefined,
   isCompact,
   isDisabled,
   isMulti,
   isSearchable = false,
   hasSelectAllOption = false,
   label,
+  errorMessage = '',
   menuPosition = 'auto',
   noOptionsMessage = 'Ingen tilgjengelige valg',
-  options,
   placeholder = '',
   valueOnChange,
   className,
   inlineStyle,
   webcomponent,
   ...rest
-}) => {
-  const [currentVal, setCurrentVal] = useState(defaultValue);
+}) {
+  // eslint-disable-next-line prefer-rest-params
+  warnDeprecatedProps(config, arguments[0]);
+
+  const [currentVal, setCurrentVal] = useState(value);
   const [isError, setIsError] = useState(false);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLSpanElement>(null);
@@ -77,7 +90,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const selectId = uniqueId('ewc-dropdown-');
 
   /** Default value for the select all-option. */
-  const selectAllOption: DropdownOption = { label: 'Alle', value: '*' };
+  const selectAllOption: DropdownItem = { label: 'Alle', value: '*' };
 
   // styling functions for react select
   const decideControlBorder = (disabled: boolean, error: boolean) => {
@@ -298,8 +311,8 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   // helper function to determine if options array have valid icon attributes.
   const allOptionsHaveIconAttribute = (): boolean => {
-    for (const dropdownOption of options) {
-      if (dropdownOption.icon === undefined) {
+    for (const dropdownItem of items) {
+      if (dropdownItem.icon === undefined) {
         return false;
       }
     }
@@ -326,7 +339,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           {allOptionsHaveIconAttribute() ? (
             <Icon
               inlineStyle={{ marginRight: '16px' }}
-              name={(props.data as DropdownOption).icon}
+              name={(props.data as DropdownItem).icon}
               size={isCompact ? 'xs' : 'sm'}
             />
           ) : (
@@ -371,7 +384,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       return null;
     }
     if (props.getValue().length === 1) {
-      return (props.getValue()[0] as DropdownOption).label;
+      return (props.getValue()[0] as DropdownItem).label;
     }
 
     if (isMulti && hasSelectAllOption) {
@@ -399,7 +412,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         {allOptionsHaveIconAttribute() ? (
           <Icon
             inlineStyle={{ marginRight: '16px' }}
-            name={(props.data as DropdownOption).icon}
+            name={(props.data as DropdownItem).icon}
             size={isCompact ? 'xs' : 'sm'}
           />
         ) : (
@@ -438,9 +451,9 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   // Needed for webcomponent -> To update the default value
   useEffect(() => {
-    setCurrentVal(defaultValue);
-    updateValue(defaultValue);
-  }, [defaultValue]);
+    setCurrentVal(value);
+    updateValue(value);
+  }, [value]);
 
   const onChangeHandler = (event: Parameters<NonNullable<DropdownProps['valueOnChange']>>[0]) => {
     if (hasSelectAllOption && isMulti && Array.isArray(event)) {
@@ -454,8 +467,8 @@ const Dropdown: React.FC<DropdownProps> = ({
           !currentVal.find((option) => isEqual(option, selectAllOption)) &&
           event.includes(selectAllOption))
       ) {
-        setCurrentVal([selectAllOption, ...options]);
-        updateValue([selectAllOption, ...options]);
+        setCurrentVal([selectAllOption, ...items]);
+        updateValue([selectAllOption, ...items]);
       } else if (
         // selectAllOption is selected, but becomes unselected => unselect all
         // Check that selectAllOption is currently selected
@@ -472,7 +485,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         Array.isArray(currentVal) &&
         currentVal.find((option) => isEqual(option, selectAllOption)) &&
         // Check that not all elements in options are selected any more  (length + 1 because of selectAllOption being added)
-        event.length !== options.length + 1
+        event.length !== items.length + 1
       ) {
         // Filter out selectAllOption from the selected options
         const newSelectedValue = event.filter((option) => !isEqual(option, selectAllOption));
@@ -484,7 +497,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         Array.isArray(currentVal) &&
         !currentVal.find((option) => isEqual(option, selectAllOption)) &&
         // Check that all options are selected
-        event.length == options.length
+        event.length == items.length
       ) {
         setCurrentVal([selectAllOption, ...event]);
         updateValue([selectAllOption, ...event]);
@@ -554,7 +567,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           }}
           onMenuClose={() => setMenuIsOpen(false)}
           onMenuOpen={() => setMenuIsOpen(true)}
-          options={options && isMulti && hasSelectAllOption ? [selectAllOption, ...options] : options}
+          options={items && isMulti && hasSelectAllOption ? [selectAllOption, ...items] : items}
           placeholder={placeholder}
           value={currentVal}
           styles={customElviaStyles}
