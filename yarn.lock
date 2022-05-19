@@ -2504,7 +2504,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-icon@*, @elvia/elvis-icon@^1.1.1, @elvia/elvis-icon@workspace:packages/components/components/elvis-icon":
+"@elvia/elvis-icon@*, @elvia/elvis-icon@^1.1.1, @elvia/elvis-icon@^1.2.0, @elvia/elvis-icon@workspace:packages/components/components/elvis-icon":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-icon@workspace:packages/components/components/elvis-icon"
   dependencies:
@@ -2529,11 +2529,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-modal@workspace:packages/components/components/elvis-modal"
   dependencies:
-    "@elvia/elvis-colors": ^1.2.1
+    "@elvia/elvis-colors": ^1.4.1
     "@elvia/elvis-component-wrapper": ^2.2.2
-    "@elvia/elvis-icon": ^1.1.1
+    "@elvia/elvis-icon": ^1.2.0
     "@elvia/elvis-toolbox": ^1.3.1
-    "@elvia/elvis-typography": ^1.2.0
+    "@elvia/elvis-typography": ^2.1.0
     "@material-ui/core": ^4.12.3
     "@material-ui/icons": ^4.11.2
     react: ^16.8.0 || ^17.0.0
@@ -2656,6 +2656,13 @@ __metadata:
   version: 1.2.1
   resolution: "@elvia/elvis-typography@npm:1.2.1"
   checksum: 616c0d7edc9219ae198f3725b22fd967df8ccfb2ad52c0339c451355a0b447a722b6cd8968275b6975d150619b06aded2f069e29814d1d4c61f98141b27bcc4a
+  languageName: node
+  linkType: hard
+
+"@elvia/elvis-typography@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@elvia/elvis-typography@npm:2.1.0"
+  checksum: 1f8a7aa9967a4a788b42df49cff796228e30caa7678f36ec485882ac1cd13d828c04dc54709c769af4d9132116ddfe2a7a79deb37d72181161c61f203793b76a
   languageName: node
   linkType: hard
 

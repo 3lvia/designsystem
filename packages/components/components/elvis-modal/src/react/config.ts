@@ -18,7 +18,7 @@ export const config: ComponentConfig = {
     // Rule 1.2: Complete words
     hasCloseBtn: {
       version: '2.0.0',
-      newProp: 'hasCloseBtn',
+      newProp: 'hasCloseButton',
       isDirectReplacement: true,
     },
   },
