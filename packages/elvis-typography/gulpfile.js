@@ -32,7 +32,7 @@ const generateElvisTypographyClass = (name, properties) => {
 
   const mobileProperties = {};
   for (const property in properties) {
-    if (property === 'altLabels') {
+    if (property === 'altLabels' || property === 'deprecated') {
       continue; // Do not include altLabels here
     } else if (property.endsWith('Mobile')) {
       mobileProperties[property] = properties[property]; // Put "mobile" properties in media-query
