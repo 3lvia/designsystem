@@ -147,6 +147,7 @@ module.exports = [
       { name: 'color', type: 'string', propType: 'string | undefined' },
       { name: 'isDisabled', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'type', type: 'string', propType: 'string | undefined' },
+      { name: 'isLoading', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isSelected', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'value', type: 'string', propType: 'string' },
       { name: 'className', type: 'string', propType: 'string | undefined' },

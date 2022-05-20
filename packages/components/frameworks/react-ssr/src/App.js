@@ -85,6 +85,7 @@ function App() {
 
   // Tabs
   const tabsItems = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
+  const [isChipLoading, setIsChipLoading] = useState(false);
 
   return (
     <div className="App">
@@ -164,15 +165,22 @@ function App() {
         {/* CHIP */}
         <div className="example-wrapper">
           <h3>Chip</h3>
-          <Chip type={'removable'} value={2022} isSelected={true}></Chip>
           <Chip type={'choice'} value={2022} isSelected={true}></Chip>
           <Chip type={'choice'} value={'Disabled'} isDisabled></Chip>
 
           <Chip
             type="legend"
-            isSelectedOnChange={() => setChipSelected(!chipSelected)}
+            isSelectedOnChange={() => {
+              setChipSelected(!chipSelected);
+              setIsChipLoading(!isChipLoading);
+              setTimeout(() => {
+                setIsChipLoading(false);
+              }, [2000]);
+            }}
             isSelected={chipSelected}
+            isLoading={isChipLoading}
             value="Selectable"
+            color="red"
           ></Chip>
         </div>
         {/* DATEPICKER */}

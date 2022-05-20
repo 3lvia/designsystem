@@ -16,11 +16,11 @@ export const colors = {
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
 
-const setBackgroundColor = (color: ColorType, isSelected: boolean, type: ChipType) => {
+const setBackgroundColor = (color: ColorType, isLoading: boolean, isSelected: boolean, type: ChipType) => {
   if (type === 'choice') {
     return isSelected ? setOpacity(colors.green, 40) : 'transparent';
   } else if (type === 'legend') {
-    return isSelected ? setOpacity(colors[color], 40) : 'transparent';
+    return isSelected && !isLoading ? setOpacity(colors[color], 40) : 'transparent';
   } else {
     return setOpacity(colors[color], 40);
   }
@@ -36,10 +36,10 @@ const setBackgroundColorHover = (color: ColorType, isSelected: boolean, type: Ch
   }
 };
 
-const decideChipBorder = (isSelected: boolean, disabled: boolean, type: ChipType) => {
+const decideChipBorder = (isLoading: boolean, isSelected: boolean, disabled: boolean, type: ChipType) => {
   if (disabled) {
     return 'solid 1px transparent';
-  } else if (type === 'legend' && !isSelected) {
+  } else if (type === 'legend' && (!isSelected || isLoading)) {
     return `solid 1px ${colors.gray05}`;
   } else if (type === 'choice' && !isSelected) {
     return `solid 1px ${colors.gray05}`;
@@ -48,11 +48,12 @@ const decideChipBorder = (isSelected: boolean, disabled: boolean, type: ChipType
 };
 
 type ChipComponentProps = {
-  color: ColorType;
-  isSelected: boolean;
   chipType: ChipType;
+  color: ColorType;
   disabled: boolean;
   isHovering: boolean;
+  isLoading: boolean;
+  isSelected: boolean;
 };
 
 export const ChipComponent = styled.button<ChipComponentProps>`
@@ -61,25 +62,131 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   align-items: center;
   background: none;
   box-sizing: border-box;
-  border: ${(props: { isSelected: boolean; disabled: boolean; chipType: ChipType }) =>
-    decideChipBorder(props.isSelected, props.disabled, props.chipType)};
-  background-color: ${(props: { color: ColorType; isSelected: boolean; chipType: ChipType }) =>
-    setBackgroundColor(props.color, props.isSelected, props.chipType)};
+  border: ${(props: { isLoading: boolean; isSelected: boolean; disabled: boolean; chipType: ChipType }) =>
+    decideChipBorder(props.isLoading, props.isSelected, props.disabled, props.chipType)};
+  background-color: ${(props: {
+    color: ColorType;
+    isLoading: boolean;
+    isSelected: boolean;
+    chipType: ChipType;
+  }) => setBackgroundColor(props.color, props.isLoading, props.isSelected, props.chipType)};
   cursor: ${(props: { disabled: boolean }) => (props.disabled ? 'not-allowed' : 'pointer')};
   font-size: 14px;
   line-height: 16px;
   padding: calc(8px - 1px) calc(16px - 1px);
   border-radius: 24px;
+  transition: background-color 300ms ease-in;
+
+  position: relative;
   ${(props: {
-    disabled: boolean;
-    isHovering: boolean;
-    isSelected: boolean;
     chipType: ChipType;
     color: ColorType;
+    disabled: boolean;
+    isHovering: boolean;
+    isLoading: boolean;
+    isSelected: boolean;
   }) =>
     props.isHovering &&
+    !props.isLoading &&
     !props.disabled &&
     `background-color: ${setBackgroundColorHover(props.color, props.isSelected, props.chipType)}`}
+`;
+
+export const Loading = styled.div`
+  @-webkit-keyframes loading-dots {
+    0%,
+    80%,
+    100% {
+      -o-transform: scale(0);
+      -ms-transform: scale(0);
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    40% {
+      -o-transform: scale(1);
+      -ms-transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  @-moz-keyframes loading-dots {
+    0%,
+    80%,
+    100% {
+      -o-transform: scale(0);
+      -ms-transform: scale(0);
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    40% {
+      -o-transform: scale(1);
+      -ms-transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  @-o-keyframes loading-dots {
+    0%,
+    80%,
+    100% {
+      -o-transform: scale(0);
+      -ms-transform: scale(0);
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    40% {
+      -o-transform: scale(1);
+      -ms-transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  @keyframes loading-dots {
+    0%,
+    80%,
+    100% {
+      -o-transform: scale(0);
+      -ms-transform: scale(0);
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    40% {
+      -o-transform: scale(1);
+      -ms-transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  position: absolute;
+  top: 50%; /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, -50%);
+
+  > span {
+    width: 10px;
+    height: 10px;
+    background-color: ${(props: { color: ColorType }) => colors[props.color]};
+    border-radius: 100%;
+    display: inline-block;
+    -o-animation: loading-dots 1s infinite ease-in-out both;
+    -moz-animation: loading-dots 1s infinite ease-in-out both;
+    -webkit-animation: loading-dots 1s infinite ease-in-out both;
+    animation: loading-dots 1s infinite ease-in-out both;
+  }
+
+  > span:nth-of-type(1) {
+    -o-animation-delay: -0.32s;
+    -moz-animation-delay: -0.32s;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+
+  > span:nth-of-type(2) {
+    -o-animation-delay: -0.16s;
+    -moz-animation-delay: -0.16s;
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
 `;
 
 export const ChipDot = styled.span<{ color: ColorType }>`
@@ -90,6 +197,7 @@ export const ChipDot = styled.span<{ color: ColorType }>`
       height: 10px;
       width: 10px;
       border-radius: 50%;
+      transition: background-color 300ms ease-in;
       background-color: ${colors.gray05};
       margin: 0 8px 0 0;
     }
@@ -104,6 +212,9 @@ export const ChipDot = styled.span<{ color: ColorType }>`
       opacity: 0.3;
     }
   }
+  &.hideDot {
+    visibility: hidden;
+  }
 `;
 
 export const ChipTitle = styled.div<{ disabled: boolean }>`
@@ -112,6 +223,21 @@ export const ChipTitle = styled.div<{ disabled: boolean }>`
   text-transform: 'unset';
   letter-spacing: 'unset';
   font-style: unset;
-  opacity: ${(props: { disabled: boolean }) => (props.disabled ? '0.3' : '1')};
+  opacity: 1;
+  transition: opacity 300ms ease-in;
   color: ${colors.elviaBlack};
+
+  &.fadeIn {
+    opacity: 0.7;
+    transition: opacity 300ms ease-in;
+  }
+
+  &.disabled {
+    opacity: 0.3;
+  }
+
+  &.hide {
+    visibility: hidden;
+    opacity: 0.7;
+  }
 `;
