@@ -241,7 +241,7 @@ const ElviaTypography = {
 
   'text-label': {
     deprecated: '1.0.0',
-    fontFamily: '"Red Hat Display", Verdana, sans-serif',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '16px',
     fontWeight: '500',
     lineHeight: '23px',
@@ -252,7 +252,7 @@ const ElviaTypography = {
   },
   'text-option': {
     deprecated: '1.0.0',
-    fontFamily: '"Red Hat Display", Verdana, sans-serif',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '16px',
     fontWeight: '400',
     lineHeight: '22px',
