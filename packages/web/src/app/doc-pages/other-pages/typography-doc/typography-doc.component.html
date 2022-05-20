@@ -177,10 +177,15 @@
           <p>
             To use the CSS typography classes without using Elvis, you need to import the
             <code class="code-text">@elvia/elvis-typography</code>
-            package itself.
+            package itself. It only provides SCSS-files, not CSS.
           </p>
           <app-component-example-code
             [codeCSS]="exampleCss"
+            [noSubscriptions]="'true'"
+          ></app-component-example-code>
+          <p>If this import does not work, you may need to specify the file.</p>
+          <app-component-example-code
+            [codeCSS]="exampleCssLong"
             [noSubscriptions]="'true'"
           ></app-component-example-code>
           <p>
@@ -199,23 +204,17 @@
       <app-component-subsection [sectionTitle]="'Using Javascript package'">
         <ng-container ngProjectAs="sectionContent">
           <p>
-            All typographies can also be used through the Javascript package
-            <code class="code-text">@elvia/elvis-typography</code>
-            . The utility function
-            <code class="code-text">getTypography()</code>
-            is provided to easily access a typography's attributes without having to manually traverse the
-            underlying typography object.
+            All typographies can also be used through Javascript. To get a typography with breakpoints for
+            mobile font properties, the utility function
+            <code class="code-text">getTypographyCss()</code>
+            is provided. It returns a CSS string with all the properties of the typography.
           </p>
-          <p>
-            <app-do-dont [do]="true" [codeTS]="doCodeTS"></app-do-dont>
-            <app-do-dont [do]="false" [codeTS]="dontCodeTS"></app-do-dont>
-          </p>
-          <p>
-            This typography object holds the different attributes of the typography, such as font family or
-            font weight. They can be accessed individually (e.g.
-            <code class="code-text">typography.fontFamily</code>
-            ) or used together. For instance, to use a typography with styled-components you can simply do:
-          </p>
+          <app-component-example-code
+            [codeTS]="exampleGetTypographyCssTS"
+            [codeCSS]="exampleGetTypographyCssCSS"
+            [noSubscriptions]="'true'"
+          ></app-component-example-code>
+          <p>To use a typography with styled-components you can simply do:</p>
           <app-component-example-code
             [codeTS]="exampleStyledComponents"
             [noSubscriptions]="'true'"
