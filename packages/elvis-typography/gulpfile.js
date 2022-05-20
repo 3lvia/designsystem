@@ -93,7 +93,7 @@ const generateElvisTypographyMapScss = async () => {
   for (const label in labels) {
     content += `\t${label}: (\n`;
     for (const property in typographies[labels[label]]) {
-      if (property !== 'altLabels') {
+      if (property !== 'altLabels' && property !== 'deprecated') {
         content += `\t${ScssPropertyEnum[property]}: #\{${typographies[labels[label]][property]}\},\n`;
       }
     }
