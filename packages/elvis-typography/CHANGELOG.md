@@ -1,5 +1,12 @@
 # Elvia Typography Changelog
 
+## 2.2.0 (20.05.22)
+
+### New feature
+
+- Expanded the build system and added a dist folder.
+- Now generating the files needed to use this package as the source of typographies in Elvis.
+
 ## 2.1.0 (18.05.22)
 
 ### New feature

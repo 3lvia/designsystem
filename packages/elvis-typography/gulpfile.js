@@ -23,10 +23,62 @@ const ScssPropertyEnum = {
   color: 'color',
 };
 
+const camelCaseToKebabCase = (camel) => {
+  return camel.replace(/([A-Z])/g, (match) => `-${match.toLowerCase()}`);
+};
+
+const generateElvisTypographyClass = (name, properties) => {
+  let classContent = `.e-${name} {\n`;
+
+  const mobileProperties = {};
+  for (const property in properties) {
+    if (property === 'altLabels') {
+      continue; // Do not include altLabels here
+    } else if (property.endsWith('Mobile')) {
+      mobileProperties[property] = properties[property]; // Put "mobile" properties in media-query
+    } else {
+      classContent += `\t${camelCaseToKebabCase(property)}: ${properties[property]};\n`;
+    }
+  }
+  classContent += `}\n`;
+
+  if (Object.keys(mobileProperties).length > 0) {
+    classContent += `@media (max-width: 767px) {\n`;
+    classContent += `\t.e-${name} {\n`;
+    {
+      for (const property in mobileProperties) {
+        const value = mobileProperties[property];
+        classContent += `\t\t${camelCaseToKebabCase(property.slice(0, -6))}: ${value};\n`;
+      }
+    }
+    classContent += `\t}\n`;
+    classContent += `}\n`;
+  }
+
+  return classContent;
+};
+
+/**
+ * Generates the typography SCSS that is exposed by this package.
+ */
+const generateElviaTypographyScss = async () => {
+  let content = WARNING;
+  for (const typography in typographies) {
+    content += generateElvisTypographyClass(typography, typographies[typography]);
+  }
+
+  fs.writeFileSync('./dist/elviaTypography.scss', content);
+};
+
+/**
+ * Generates the typography SCSS used in Elvis.
+ */
 const generateElvisTypographyMapScss = async () => {
-  let content = `$typography: (\n`;
+  let content = WARNING + `$typography: (\n`;
   const labels = {};
 
+  // Typographies can have altLabels. First collect all typography labels including altLabels.
+  // The alt label points to its parent typography.
   for (const typography in typographies) {
     labels[typography] = typography;
     if (typographies[typography]['altLabels']) {
@@ -37,6 +89,7 @@ const generateElvisTypographyMapScss = async () => {
     }
   }
 
+  // Write every typography, including altLabels.
   for (const label in labels) {
     content += `\t${label}: (\n`;
     for (const property in typographies[labels[label]]) {
@@ -50,7 +103,12 @@ const generateElvisTypographyMapScss = async () => {
   fs.writeFileSync('./dist/typographyMap.scss', content);
 };
 
-const copyElviaTypography = async () => {
+const generateElviaTypographyJson = async () => {
+  const typographyJSON = JSON.stringify(typographies);
+  fs.writeFileSync('./dist/elviaTypography.json', typographyJSON);
+};
+
+const copyElviaTypographyJs = async () => {
   return gulp
     .src(['./src/elviaTypography.js', './src/elviaTypography.d.ts'])
     .pipe(header(WARNING))
@@ -78,8 +136,10 @@ gulp.task(
   gulp.series(
     makeDistFolder,
     cleanup,
+    generateElviaTypographyScss,
     generateElvisTypographyMapScss,
-    copyElviaTypography,
+    generateElviaTypographyJson,
+    copyElviaTypographyJs,
     formatPrettier,
     function (done) {
       console.log('Elvis-typography - Successfully built Elvis-typography! ');

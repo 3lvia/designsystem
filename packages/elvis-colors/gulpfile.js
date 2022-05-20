@@ -78,7 +78,7 @@ const generateElviaColorsScssFile = async () => {
 };
 
 const generateElvisColorMapScss = async () => {
-  let content = ``;
+  let content = WARNING;
   // For each color category
   for (const categoryLabel in colors) {
     content += `\$${categoryLabel}: (\n`;
