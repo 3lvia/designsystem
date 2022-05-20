@@ -1,8 +1,8 @@
 #!/bin/bash
-cd packages/elvis-colors
 echo 'Building elvis-colors...'
-yarn build
-cd ../..
+yarn build:colors
+echo 'Building elvis-typography...'
+yarn build:typography
 # TODO: Build components only when changed
 cd packages/components
 echo 'Components - Building components...'
