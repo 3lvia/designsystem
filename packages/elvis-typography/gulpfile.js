@@ -21,6 +21,7 @@ const ScssPropertyEnum = {
   fontStyle: 'style',
   textTransform: 'transform',
   color: 'color',
+  textAlign: 'align',
 };
 
 const camelCaseToKebabCase = (camel) => {

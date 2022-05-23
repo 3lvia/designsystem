@@ -26,7 +26,9 @@ $label-colors: map-merge(colors.$just-colors, colors.$primary-colors);
   }
 }
 
-.e-label {
+// DEPRECATED (e-label)
+.e-label,
+.e-tag {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -43,13 +45,14 @@ $label-colors: map-merge(colors.$just-colors, colors.$primary-colors);
   color: colors.color('font-color');
   white-space: nowrap;
 
-  @each $label, $map in $label-colors {
-    $color: colors.color($label);
-    $labels: ($label);
+  @each $colorName, $map in $label-colors {
+    $color: colors.color($colorName);
+    $labels: ($colorName);
 
-    @each $label in $labels {
-      &.e-label--#{$label} {
-        @include circle($label);
+    @each $name in $labels {
+      &.e-label--#{$name},
+      &.e-tag--#{$name} {
+        @include circle($name);
       }
     }
   }

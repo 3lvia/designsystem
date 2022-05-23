@@ -49,10 +49,8 @@ describe('Elvis Pagination', () => {
       wrapper = mount(
         <Pagination
           numberOfElements={100}
-          isRightAligned={true}
-          label={'elements'}
-          labelDisplaying={'Showing'}
-          labelOf={'of'}
+          alignment={'right'}
+          labelOptions={{ displaying: 'Showing', of: 'of', label: 'elements' }}
         ></Pagination>,
       );
       paginator = wrapper.find({ 'data-testid': 'pagination' });

@@ -233,12 +233,12 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
   },
   {
-    title: 'Label',
+    title: 'Tag',
     // tslint:disable-next-line: max-line-length
     description:
-      'Labels are used to label, categorize or organize items using keywords that describe them. They can also be used to show the status of an item.',
-    docUrl: Pages.Label,
-    absolutePath: '/components/' + Pages.Label,
+      'Tags are used to label, tag, categorize or organize items using keywords that describe them. They can also be used to show the status of an item.',
+    docUrl: Pages.Tag,
+    absolutePath: '/components/' + Pages.Tag,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-%26-chips?node-id=136%3A1738',
     type: 'Component',

@@ -103,7 +103,7 @@ export const CarouselElement = styled.div<CarouselElementProps>`
   }
 `;
 
-export const CarouselTitle = styled.div`
+export const CarouselHeading = styled.div`
   margin-top: 0;
   * {
     margin-top: 0;

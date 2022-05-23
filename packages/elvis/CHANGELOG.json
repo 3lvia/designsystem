@@ -1,13 +1,25 @@
 {
   "content": [
     {
+      "version": "8.4.2",
+      "date": "May 23, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using elvis-typography for typography definitions. "]
+        }
+      ]
+    },
+    {
       "version": "8.4.1",
       "date": "May 23, 2022",
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Now using elvis-typography for typography definitions. "],
-          "components": []
+          "changes": [
+            "Changed name of class <span class=\"code-text\">label</span> to <span class=\"code-text\">tag</span>."
+          ],
+          "components": [{ "displayName": "Tag", "url": "https://design.elvia.io/components/tag" }]
         }
       ]
     },

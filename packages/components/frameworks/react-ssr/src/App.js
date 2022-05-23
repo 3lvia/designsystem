@@ -30,10 +30,10 @@ function App() {
   // Breadcrumb
   const breadcrumbsNoUrl = [
     {
-      title: 'Elvia.no',
+      text: 'Elvia.no',
     },
     {
-      title: 'Nettleie',
+      text: 'Nettleie',
     },
   ];
 
@@ -85,6 +85,7 @@ function App() {
 
   // Tabs
   const tabsItems = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
+  const [isChipLoading, setIsChipLoading] = useState(false);
 
   return (
     <div className="App">
@@ -131,7 +132,7 @@ function App() {
         {/* BREADCRUMB */}
         <div className="example-wrapper">
           <h3>Breadcrumb</h3>
-          <Breadcrumb breadcrumbs={breadcrumbsNoUrl} />
+          <Breadcrumb items={breadcrumbsNoUrl} />
         </div>
         {/* CARD */}
         <div className="example-wrapper">
@@ -148,25 +149,38 @@ function App() {
         <div className="example-wrapper">
           <h3>Carousel</h3>
           <Carousel
-            elements={[
-              { title: <h3 className="e-title-sm">HAN-port</h3>, element: <div>Hallo</div> },
-              { title: <h3 className="e-title-sm">AMS-meter</h3>, element: 'Hei' },
-              { title: <h3 className="e-title-sm">About login</h3>, element: <p>Halla</p> },
+            loop={false}
+            hasConfirmationCheckmark={true}
+            items={[
+              { heading: <h3 className="e-title-sm">HAN-port</h3>, item: <div>Hallo</div> },
+              { heading: <h3 className="e-title-sm">AMS-meter</h3>, item: 'Hei' },
+              {
+                heading: <h3 className="e-title-sm">About login</h3>,
+                item: <p>Halla</p>,
+              },
             ]}
+            onFinish={() => console.log('Hide')}
           ></Carousel>
         </div>
         {/* CHIP */}
         <div className="example-wrapper">
           <h3>Chip</h3>
-          <Chip type={'removable'} value={2022} isSelected={true}></Chip>
           <Chip type={'choice'} value={2022} isSelected={true}></Chip>
           <Chip type={'choice'} value={'Disabled'} isDisabled></Chip>
 
           <Chip
             type="legend"
-            isSelectedOnChange={() => setChipSelected(!chipSelected)}
+            isSelectedOnChange={() => {
+              setChipSelected(!chipSelected);
+              setIsChipLoading(!isChipLoading);
+              setTimeout(() => {
+                setIsChipLoading(false);
+              }, [2000]);
+            }}
             isSelected={chipSelected}
+            isLoading={isChipLoading}
             value="Selectable"
+            color="red"
           ></Chip>
         </div>
         {/* DATEPICKER */}
@@ -209,7 +223,13 @@ function App() {
         {/* PAGINATION */}
         <div className="example-wrapper">
           <h3>Pagination</h3>
-          <Pagination numberOfElements={100} lastNumberLimit={99} dropdownMenuPos="top"></Pagination>
+          <Pagination
+            numberOfElements={100}
+            lastNumberLimit={99}
+            dropdownMenuPosition="top"
+            labelOptions={{ displaying: 'Showing' }}
+            alignment={'left'}
+          ></Pagination>
         </div>
         {/* POPOVER */}
         <div className="example-wrapper">

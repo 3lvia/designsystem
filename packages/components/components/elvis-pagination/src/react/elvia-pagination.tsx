@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Icon } from '@elvia/elvis-icon/react';
-import { DropdownOption, SelectionNumber } from './elvia-pagination.types';
+import { DropdownOption, SelectionNumber, PaginationLabel } from './elvia-pagination.types';
 import {
   Paginator,
   PaginatorNumber,
@@ -15,26 +15,54 @@ import {
   PaginatorSelectorArrowBtn,
 } from './styledComponents';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { config } from './config';
 
 export interface PaginationProps {
   value: SelectionNumber;
   numberOfElements: number;
   lastNumberLimit?: number;
-  dropdownMenuPos: string;
-  isRightAligned?: boolean;
-  dropdownItems: Array<DropdownOption>;
-  selectedDropdownItemIndex: number;
-  selectedDropdownItemIndexOnChange?: (value: number) => void;
-  labelDisplaying: string;
-  label: string;
-  labelOf: string;
+  alignment?: 'left' | 'right';
+  dropdownItems: DropdownOption[];
+  dropdownMenuPosition: string;
+  dropdownSelectedItemIndex: number;
+  dropdownSelectedItemIndexOnChange?: (value: number) => void;
+  labelOptions?: PaginationLabel;
   valueOnChange?: (value: SelectionNumber) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
+  /**
+   * @deprecated Removed in version 3.0.0. Replaced by `alignment`.
+   */
+  isRightAligned?: boolean;
+  /**
+   * @deprecated Removed in version 3.0.0. Replaced by `dropdownMenuPosition`.
+   */
+  dropdownMenuPos?: string;
+  /**
+   * @deprecated Removed in version 3.0.0. Replaced by `dropdownSelectedItemIndex`.
+   */
+  selectedDropdownItemIndex?: number;
+  /**
+   * @deprecated Removed in version 3.0.0. Replaced by `dropdownSelectedItemIndexOnChange`.
+   */
+  selectedDropdownItemIndexOnChange?: (value: number) => void;
+  /**
+   * @deprecated Removed in version 3.0.0. Replaced by `labelOptions.displaying`.
+   */
+  labelDisplaying?: string;
+  /**
+   * @deprecated Removed in version 3.0.0. Replaced by `labelOptions.label`.
+   */
+  label?: string;
+  /**
+   * @deprecated Removed in version 3.0.0. Replaced by `labelOptions.of`.
+   */
+  labelOf?: string;
 }
 
-export const paginationOptions = [
+const defaultPaginationOptions: DropdownOption[] = [
   {
     value: '10',
     label: '10',
@@ -53,28 +81,43 @@ export const paginationOptions = [
   },
 ];
 
-const Pagination: FC<PaginationProps> = ({
+const defaultPaginationLabel: PaginationLabel = {
+  displaying: 'Viser',
+  of: 'av',
+  label: 'elementer',
+};
+
+const Pagination: FC<PaginationProps> = function ({
   value = { start: undefined, end: undefined },
   numberOfElements = 0,
   lastNumberLimit,
-  isRightAligned = false,
-  dropdownMenuPos = 'bottom',
-  dropdownItems = paginationOptions,
-  selectedDropdownItemIndex = 0,
-  selectedDropdownItemIndexOnChange,
-  label = 'elementer',
-  labelDisplaying = 'Viser',
-  labelOf = 'av',
+  alignment = 'left',
+  dropdownMenuPosition = 'bottom',
+  dropdownItems = defaultPaginationOptions,
+  dropdownSelectedItemIndex = 0,
+  dropdownSelectedItemIndexOnChange,
+  labelOptions,
   valueOnChange,
   className,
   inlineStyle,
   webcomponent,
   ...rest
-}) => {
-  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[selectedDropdownItemIndex]);
+}) {
+  // eslint-disable-next-line prefer-rest-params
+  warnDeprecatedProps(config, arguments[0]);
+
+  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[dropdownSelectedItemIndex]);
   const [showPaginationMenu, setShowPaginationMenu] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [selectedNumber, setSelectedNumber] = useState(1);
+
+  const [labelOptionsState, setLabelOptionsState] = useState<PaginationLabel>({
+    ...defaultPaginationLabel,
+    ...labelOptions,
+  });
+  useEffect(() => {
+    setLabelOptionsState({ ...defaultPaginationLabel, ...labelOptions });
+  }, [labelOptions]);
 
   useEffect(() => {
     updateValue(selectedNumber);
@@ -85,8 +128,8 @@ const Pagination: FC<PaginationProps> = ({
   }, [numberOfElements]);
 
   useEffect(() => {
-    setCurrentDisplayAmount(dropdownItems[selectedDropdownItemIndex]);
-  }, [dropdownItems, selectedDropdownItemIndex]);
+    setCurrentDisplayAmount(dropdownItems[dropdownSelectedItemIndex]);
+  }, [dropdownItems, dropdownSelectedItemIndex]);
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
@@ -423,11 +466,11 @@ const Pagination: FC<PaginationProps> = ({
     }
     if (selectionRange !== currentDisplayAmount) {
       const selectedIndex = dropdownItems.indexOf(selectionRange);
-      if (!webcomponent && selectedDropdownItemIndexOnChange) {
-        selectedDropdownItemIndexOnChange(selectedIndex);
+      if (!webcomponent && dropdownSelectedItemIndexOnChange) {
+        dropdownSelectedItemIndexOnChange(selectedIndex);
       } else if (webcomponent) {
         // True -> Prevents rerender
-        webcomponent.setProps({ selectedDropdownItemIndex: selectedIndex }, true);
+        webcomponent.setProps({ dropdownSelectedItemIndex: selectedIndex }, true);
       }
     }
   };
@@ -477,27 +520,27 @@ const Pagination: FC<PaginationProps> = ({
 
   return (
     <Paginator
-      isRightAligned={isRightAligned}
+      isRightAligned={alignment === 'right'}
       className={`${className ? className : ''}`}
       style={inlineStyle}
       data-testid="pagination"
       {...rest}
     >
       <PaginatorInfoContainer>
-        <PaginatorInfoText data-testid="info-text">{labelDisplaying}</PaginatorInfoText>
+        <PaginatorInfoText data-testid="info-text">{labelOptionsState.displaying}</PaginatorInfoText>
         <PaginatorInfoDropdown>
           <Dropdown
             isCompact
             placeholder=""
             items={dropdownItems}
-            menuPosition={dropdownMenuPos}
+            menuPosition={dropdownMenuPosition}
             value={currentDisplayAmount}
             valueOnChange={(event: any) => onDropdownChangeHandler(event)}
             data-testid="dropdown"
           ></Dropdown>
         </PaginatorInfoDropdown>
         <PaginatorInfoAmount isMobile={windowWidth < 768} data-testid="info-amount">
-          {labelOf} {numberOfElements} {label}
+          {labelOptionsState.of} {numberOfElements} {labelOptionsState.label}
         </PaginatorInfoAmount>
       </PaginatorInfoContainer>
       <PaginatorSelectorArea role="navigation">

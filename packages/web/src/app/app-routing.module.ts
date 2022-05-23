@@ -4,7 +4,7 @@ import { Pages } from './shared/pages.enum';
 import { MainComponent } from './shell/main/main.component';
 import { HomeComponent } from './shell/home/home.component';
 import { ButtonDocComponent } from './doc-pages/components/button-doc/button-doc.component';
-import { LabelDocComponent } from './doc-pages/components/label-doc/label-doc.component';
+import { TagDocComponent } from './doc-pages/components/tag-doc/tag-doc.component';
 import { CardDocComponent } from './doc-pages/components/card-doc/card-doc.component';
 import { CarouselDocComponent } from './doc-pages/components/carousel-doc/carousel-doc.component';
 import { LinkDocComponent } from './doc-pages/components/link-doc/link-doc.component';
@@ -225,8 +225,8 @@ const routes: Routes = [
             component: InputDocComponent,
           },
           {
-            path: Pages.Label,
-            component: LabelDocComponent,
+            path: Pages.Tag,
+            component: TagDocComponent,
           },
           {
             path: Pages.Link,

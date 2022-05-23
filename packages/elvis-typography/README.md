@@ -1,6 +1,7 @@
 # Elvia typography
 
-Available typography reflect the typography classes availabe at https://design.elvia.io/brand/typography
+Available typography reflect the typography classes availabe at
+[design.elvia.io](https://design.elvia.io/brand/typography).
 
 ## Usage SCSS
 
@@ -32,8 +33,8 @@ const typography = getTypography('text-md');
 ```
 
 It is also possible to use the function `getTypographyCss()`. It takes the name of the requested typography as
-input, and returns a string containing all the css for the typography, including a media-query breakpoint for
-mobile font properties if there are any.
+input, and returns a string containing all the css for the typography, including a breakpoint for mobile font
+properties if there are any.
 
 ```js
 import { getTypographyCss } from '@elvia/elvis-typography';

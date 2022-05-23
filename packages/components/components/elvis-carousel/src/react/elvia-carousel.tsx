@@ -5,7 +5,7 @@ import {
   CarouselElements,
   CarouselElementContainer,
   CarouselElement,
-  CarouselTitle,
+  CarouselHeading,
   CarouselLeftButton,
   CarouselListOfDots,
   CarouselDot,
@@ -15,17 +15,44 @@ import {
 } from './StyledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import { carouselConfig, carouselItemConfig } from './config';
+import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 
-type CarouselElement = {
+type CarouselItem = {
+  /**
+   * @deprecated Deprecated in version 2.0.0. Use heading instead.
+   */
   title?: JSX.Element | string | HTMLElement;
-  element: JSX.Element | string | HTMLElement;
+  /**
+   * @deprecated Deprecated in version 2.0.0. Use item instead.
+   */
+  element?: JSX.Element | string | HTMLElement;
+  heading?: JSX.Element | string | HTMLElement;
+  item: JSX.Element | string | HTMLElement;
 };
 
 export interface CarouselProps {
-  elements: CarouselElement[] | number;
+  items: CarouselItem[] | number;
+  /**
+   * @deprecated Deprecated in version 2.0.0. Use items instead.
+   */
+  elements?: CarouselItem[] | number;
+  /**
+   *  @deprecated Deprecated in version 2.0.0.
+   * Use loop instead. Remember to invert boolean.
+   */
   hideArrows?: boolean;
+  loop?: boolean;
+  onFinish?: () => void;
+  /**
+   *  @deprecated Deprecated in version 2.0.0. Use onFinish instead.
+   */
   onHide?: () => void;
+  /**
+   *  @deprecated Deprecated in version 2.0.0. Use hasConfirmationCheckmark instead.
+   */
   useOnboardingCheckmark?: boolean;
+  hasConfirmationCheckmark?: boolean;
   value?: number;
   valueOnChange?: (value: number) => void;
   hasAnimation: boolean;
@@ -34,11 +61,11 @@ export interface CarouselProps {
   webcomponent?: ElvisComponentWrapper;
 }
 
-export const Carousel: FC<CarouselProps> = ({
-  elements,
-  hideArrows = false,
-  onHide,
-  useOnboardingCheckmark,
+export const Carousel: FC<CarouselProps> = function ({
+  items,
+  loop = true,
+  onFinish,
+  hasConfirmationCheckmark,
   value = 0,
   valueOnChange,
   hasAnimation = true,
@@ -46,9 +73,19 @@ export const Carousel: FC<CarouselProps> = ({
   inlineStyle,
   webcomponent,
   ...rest
-}) => {
-  const [carouselElements, setCarouselElements] = useState<CarouselElement[] | number>();
-  const [lengthOfElements, setLengthOfElements] = useState<number>(0);
+}) {
+  // eslint-disable-next-line prefer-rest-params
+  warnDeprecatedProps(carouselConfig, arguments[0]);
+
+  if (Array.isArray(items)) {
+    // eslint-disable-next-line prefer-rest-params
+    items.forEach((item) => {
+      warnDeprecatedProps(carouselItemConfig, item);
+    });
+  }
+
+  const [carouselItems, setCarouselItems] = useState<CarouselItem[] | number>();
+  const [lengthOfItems, setLengthOfItems] = useState<number>(0);
   const [index, setIndex] = useState(value);
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -59,17 +96,17 @@ export const Carousel: FC<CarouselProps> = ({
 
   const itemsRef = useRef<HTMLDivElement>(null);
 
-  const hideLeftArrow = hideArrows && index === 0;
-  const hideRightArrow = hideArrows && index === lengthOfElements - 1;
-  const showOnboardingCheckmark = hideRightArrow && useOnboardingCheckmark;
+  const hideLeftArrow = !loop && index === 0;
+  const hideRightArrow = !loop && index === lengthOfItems - 1;
+  const showOnboardingCheckmark = hideRightArrow && hasConfirmationCheckmark;
 
-  const updateValue = (index: number) => {
-    setIndex(index);
+  const updateValue = (updateValueIndex: number) => {
+    setIndex(updateValueIndex);
     if (!webcomponent && valueOnChange) {
-      valueOnChange(index);
+      valueOnChange(updateValueIndex);
     } else if (webcomponent) {
       // True -> Prevents rerender
-      webcomponent.setProps({ value: index }, true);
+      webcomponent.setProps({ value: updateValueIndex }, true);
     }
   };
 
@@ -87,35 +124,36 @@ export const Carousel: FC<CarouselProps> = ({
     }
     // Get slotted items from web component
     const slots = webcomponent.getAllSlots();
-    const slotElements = Object.keys(slots).filter((el) => el.includes('element-'));
+    const slotElements = Object.keys(slots).filter((el) => el.includes('item-'));
     if (slotElements.length !== 0) {
       const newElements = mapSlottedItems(slots, slotElements);
-      setLengthOfElements(newElements.length);
-      setCarouselElements(newElements);
+      setLengthOfItems(newElements.length);
+      setCarouselItems(newElements);
     }
   }, [webcomponent]);
 
   useEffect(() => {
-    if (elements !== undefined) {
-      setCarouselElements(elements);
-      setLengthOfElements(
-        typeof elements === 'object' ? elements.length : typeof elements === 'string' ? +elements : elements,
-      );
+    if (items !== undefined) {
+      setCarouselItems(items);
+      if (typeof items === 'object') setLengthOfItems(items.length);
+      else {
+        setLengthOfItems(typeof items === 'string' ? +items : items);
+      }
     }
-  }, [elements]);
+  }, [items]);
 
   const mapSlottedItems = (slots: Record<string, any>, slotElements: string | any[]) => {
-    const newElements: CarouselElement[] = [];
+    const newElements: CarouselItem[] = [];
     for (let i = 1; i < slotElements.length + 1; i++) {
-      const newEl: CarouselElement = { title: '', element: '' };
-      const title = Object.keys(slots).find((el) => {
-        return el === 'title-' + i;
+      const newEl: CarouselItem = { heading: '', item: '' };
+      const heading = Object.keys(slots).find((el) => {
+        return el === 'heading-' + i;
       });
-      const element = Object.keys(slots).find((el) => {
-        return el === 'element-' + i;
+      const item = Object.keys(slots).find((el) => {
+        return el === 'item-' + i;
       });
-      newEl.title = <div dangerouslySetInnerHTML={{ __html: title ? slots[title].innerHTML : '' }} />;
-      newEl.element = <div dangerouslySetInnerHTML={{ __html: element ? slots[element].innerHTML : '' }} />;
+      newEl.heading = <div dangerouslySetInnerHTML={{ __html: heading ? slots[heading].innerHTML : '' }} />;
+      newEl.item = <div dangerouslySetInnerHTML={{ __html: item ? slots[item].innerHTML : '' }} />;
       newElements.push(newEl);
     }
     return newElements;
@@ -148,7 +186,11 @@ export const Carousel: FC<CarouselProps> = ({
     }
   };
 
-  const handleValueChange = (index: number, direction: 'left' | 'right', dotClick?: boolean): void => {
+  const handleValueChange = (
+    handleValueChangeIndex: number,
+    direction: 'left' | 'right',
+    dotClick?: boolean,
+  ): void => {
     setIsDown(false);
     const oppositeDirection = direction === 'left' ? 'right' : 'left';
     setSlideDirection(oppositeDirection);
@@ -159,11 +201,11 @@ export const Carousel: FC<CarouselProps> = ({
         // Using modulo to be able to carousel to next element
         // For decrement you have to add the length of elements to prevent negative values
         if (dotClick) {
-          updateValue(index);
+          updateValue(handleValueChangeIndex);
         } else {
           direction === 'left'
-            ? updateValue((index - 1 + lengthOfElements) % lengthOfElements)
-            : updateValue((index + 1) % lengthOfElements);
+            ? updateValue((handleValueChangeIndex - 1 + lengthOfItems) % lengthOfItems)
+            : updateValue((handleValueChangeIndex + 1) % lengthOfItems);
         }
         setSlideDirection(direction);
         setFadeIn(true);
@@ -174,10 +216,21 @@ export const Carousel: FC<CarouselProps> = ({
 
   const triggerOnHide = () => {
     if (!webcomponent) {
-      onHide && onHide();
+      onFinish && onFinish();
     } else {
       webcomponent.triggerEvent('onHide');
     }
+  };
+
+  const carouselLeftButtonIcon = () => {
+    return isHoveringLeftButton ? 'arrowLeftCircleFilledColor' : 'arrowLeftCircleColor';
+  };
+
+  const carouselRightButtonIcon = () => {
+    return isHoveringRightButton ? 'arrowRightCircleFilledColor' : 'arrowRightCircleColor';
+  };
+  const carouselRightCheckButtonIcon = () => {
+    return isHoveringRightButton ? 'checkCircleFilledColor' : 'checkCircleColor';
   };
 
   const classNameContainer = classnames({
@@ -194,15 +247,15 @@ export const Carousel: FC<CarouselProps> = ({
       {...rest}
     >
       <CarouselElements>
-        {typeof carouselElements === 'object' && (
+        {typeof carouselItems === 'object' && (
           <CarouselElementContainer className={classNameContainer}>
-            {typeof carouselElements[index].title === 'string' && (
-              <CarouselTitle data-testid="carousel-element-title">
-                <h2 className="e-title-sm">{carouselElements[index].title}</h2>
-              </CarouselTitle>
+            {typeof carouselItems[index].heading === 'string' && (
+              <CarouselHeading data-testid="carousel-item-heading">
+                <h2 className="e-heading-sm">{carouselItems[index].heading}</h2>
+              </CarouselHeading>
             )}
-            {typeof carouselElements[index].title === 'object' && (
-              <CarouselTitle>{carouselElements[index].title}</CarouselTitle>
+            {typeof carouselItems[index].heading === 'object' && (
+              <CarouselHeading>{carouselItems[index].heading}</CarouselHeading>
             )}
             <CarouselElement
               ref={itemsRef}
@@ -213,9 +266,9 @@ export const Carousel: FC<CarouselProps> = ({
               onTouchStart={(e: TouchEvent) => handleMouseDown(e)}
               onTouchMove={(e: TouchEvent) => handleMouseMove(e)}
               onTouchEnd={() => setIsDown(false)}
-              data-testid="carousel-element"
+              data-testid="carousel-item"
             >
-              {carouselElements[index].element}
+              {carouselItems[index].item}
             </CarouselElement>
           </CarouselElementContainer>
         )}
@@ -230,13 +283,10 @@ export const Carousel: FC<CarouselProps> = ({
           onMouseLeave={() => setIsHoveringLeftButton(false)}
           data-testid="carousel-left-arrow"
         >
-          <Icon
-            name={isHoveringLeftButton ? 'arrowLeftCircleFilledColor' : 'arrowLeftCircleColor'}
-            size="md"
-          />
+          <Icon name={carouselLeftButtonIcon()} size="md" />
         </CarouselLeftButton>
         <CarouselListOfDots data-testid="carousel-list-of-dots">
-          {Array.from(Array(lengthOfElements), (e, listIndex: number) => (
+          {Array.from(Array(lengthOfItems), (_e, listIndex: number) => (
             <CarouselDot
               key={listIndex}
               isSelected={listIndex === index}
@@ -260,7 +310,7 @@ export const Carousel: FC<CarouselProps> = ({
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-onboarding-checkmark"
           >
-            <Icon name={isHoveringRightButton ? 'checkCircleFilledColor' : 'checkCircleColor'} size="md" />
+            <Icon name={carouselRightCheckButtonIcon()} size="md" />
           </CarouselCheckButton>
         ) : (
           <CarouselRightButton
@@ -272,10 +322,7 @@ export const Carousel: FC<CarouselProps> = ({
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-right-arrow"
           >
-            <Icon
-              name={isHoveringRightButton ? 'arrowRightCircleFilledColor' : 'arrowRightCircleColor'}
-              size="md"
-            />
+            <Icon name={carouselRightButtonIcon()} size="md" />
           </CarouselRightButton>
         )}
       </CarouselNavigationRow>

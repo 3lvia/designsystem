@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
-import { ChipComponent, ChipDot, ChipTitle } from './styledComponents';
+import { ChipComponent, ChipDot, ChipTitle, Loading } from './styledComponents';
 import { ChipType, ColorType } from './elvia-chip.types';
 import { Icon } from '@elvia/elvis-icon/react';
 import { useHover } from '@react-aria/interactions';
@@ -18,6 +18,7 @@ export interface BaseChipProps {
    */
   disabled?: boolean;
   isDisabled?: boolean;
+  isLoading?: boolean;
   type?: ChipType;
   /**
    * @deprecated Removed in version 2.0.0. Replaced by `isSelected`.
@@ -41,6 +42,7 @@ export const Chip: FC<BaseChipProps> = function ({
   color = 'green',
   isDisabled = false,
   isSelected = false,
+  isLoading = false,
   type = 'removable',
   value,
   onDelete,
@@ -54,6 +56,7 @@ export const Chip: FC<BaseChipProps> = function ({
   warnDeprecatedProps(config, arguments[0]);
 
   const [isSelectedState, setIsSelectedState] = useState(isSelected);
+  const [isAnimation, setIsAnimation] = useState(false);
 
   useEffect(() => {
     setIsSelectedState(isSelected);
@@ -97,6 +100,10 @@ export const Chip: FC<BaseChipProps> = function ({
       aria-label={ariaLabel}
       color={color}
       onClick={() => {
+        setIsAnimation(true);
+        setTimeout(() => {
+          setIsAnimation(false);
+        }, 300);
         type === 'removable' ? handleOnDelete(value) : updateSelectedState(!isSelectedState);
       }}
       disabled={isDisabled}
@@ -104,6 +111,7 @@ export const Chip: FC<BaseChipProps> = function ({
       isSelected={isSelectedState}
       isHovering={isHovered}
       className={`${className ? className : ''}`}
+      isLoading={isLoading}
       style={inlineStyle}
       data-testid="chip-button"
       {...rest}
@@ -124,10 +132,26 @@ export const Chip: FC<BaseChipProps> = function ({
           className={classnames('dot', {
             ['showDot']: isHovered || isSelectedState,
             ['disabledDot']: isDisabled,
+            ['hideDot']: isLoading,
           })}
         />
       )}
-      <ChipTitle disabled={isDisabled} data-testid="chip-label">
+      {isLoading && (
+        <Loading color={color}>
+          <span />
+          <span />
+          <span />
+        </Loading>
+      )}
+      <ChipTitle
+        className={classnames({
+          ['hide']: isLoading,
+          ['disabled']: isDisabled,
+          ['fadeIn']: isAnimation && !isLoading,
+        })}
+        disabled={isDisabled}
+        data-testid="chip-label"
+      >
         {value}
       </ChipTitle>
       {type === 'removable' && (
