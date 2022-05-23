@@ -11383,6 +11383,7 @@ __metadata:
     "@elvia/elvis-progress-linear": "*"
     "@elvia/elvis-spotlight": "*"
     "@elvia/elvis-tabs": "*"
+    "@elvia/elvis-typography": "*"
     "@types/jasmine": 3.10.3
     "@types/jasminewd2": ~2.0.3
     "@types/lodash.debounce": ^4.0.6
