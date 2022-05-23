@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getTypography } from '@elvia/elvis-typography';
+import { getTypographyCss } from '@elvia/elvis-typography';
 import { getColor } from '@elvia/elvis-colors';
 import { CardType, CardShape, BorderColor } from './elvia-card.types';
 
@@ -17,12 +17,12 @@ const colors = {
 };
 
 const typography = {
-  titleLg: getTypography('title-lg'),
-  textMdStrong: getTypography('text-md-strong'),
-  textSm: getTypography('text-sm'),
-  textSmStrong: getTypography('text-sm-strong'),
-  titleSm: getTypography('title-sm'),
-  textMicro: getTypography('text-micro'),
+  titleLg: getTypographyCss('title-lg'),
+  textMdStrong: getTypographyCss('text-md-strong'),
+  textSm: getTypographyCss('text-sm'),
+  textSmStrong: getTypographyCss('text-sm-strong'),
+  titleSm: getTypographyCss('title-sm'),
+  textMicro: getTypographyCss('text-micro'),
 };
 
 type CardAreaProps = {

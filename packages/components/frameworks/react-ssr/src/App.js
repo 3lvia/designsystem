@@ -96,11 +96,7 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white">
-            <button className="e-btn" onClick={() => console.log(getTypographyCss('title-lg'))}>
-              Log title-lg css
-            </button>
-          </div>
+          <div className="e-bg-white"></div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>

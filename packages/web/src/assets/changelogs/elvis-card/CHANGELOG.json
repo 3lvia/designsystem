@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.05.22",
+      "version": "1.2.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Bumped the dependency on <span class=\"code-text\">@elvia/elvis-typography</span>. ",
+            "Added support for mobile font properties. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "03.05.22",
       "version": "1.2.0 ",
       "changelog": [
