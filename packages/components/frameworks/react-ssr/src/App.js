@@ -235,12 +235,15 @@ function App() {
         <div className="example-wrapper">
           <h3>Popover</h3>
           <Popover
-            header="BankID"
+            heading="BankID"
+            hasCloseButton
             content={<Tabs items={tabsItems} value={2}></Tabs>}
             trigger={<button className="e-btn">Show popover</button>}
-            posX="right"
+            horizontalPosition="left"
+            verticalPosition="top"
             isShowing={isPopoverShowing}
-            isShowingOnChange={(value) => setIsPopoverShowingState(value)}
+            onOpen={() => setIsPopoverShowingState(true)}
+            onClose={() => setIsPopoverShowingState(false)}
           ></Popover>
         </div>
         {/* PROGRESS LINEAR */}

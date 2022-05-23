@@ -13,10 +13,6 @@
             "Change prop <span class=\"code-text\">hasCloseBtn</span> => <span class=\"code-text\">hasCloseButton</span>.",
             "Change event listener / callback function <span class=\"code-text\">onHide</span> => <span class=\"code-text\">onClose</span>."
           ]
-        },
-        {
-          "type": "patch",
-          "changes": ["Updated several dependency versions. "]
         }
       ]
     },

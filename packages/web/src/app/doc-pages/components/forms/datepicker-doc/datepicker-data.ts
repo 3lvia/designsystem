@@ -134,7 +134,7 @@ const datepickerData: ComponentData = {
     onClose: {
       isRequired: false,
       type: '() => void',
-      description: 'Callback for every time the modal is being closed.',
+      description: 'Callback for every time the datepicker is being closed.',
     },
     placeholder: {
       isRequired: false,

@@ -2,8 +2,9 @@ const popoverListHeadingsCode = {
   type: 'list',
   codeReact: `<Popover
   type={"list"}
-  posY={"bottom"}
-  isShowingOnChange={(event) => showingChanges(event)}
+  verticalPosition={"bottom"}
+  onClose={(event) => showingChanges(event)}
+  onOpen={(event) => showingChanges(event)}
   trigger={
     <button className="e-btn e-btn--icon e-btn--circled" aria-label="More menu">
       <span className="e-btn__icon">
@@ -38,8 +39,9 @@ const popoverListHeadingsCode = {
 `,
   codeAngular: `<elvia-popover 
   [type]="'list'"
-  [posY]="'bottom'"
-  (isShowingOnChange)="showingChanges($event.detail.value)"
+  [verticalPosition]="'bottom'"
+  (onClose)="showingChanges($event.detail.value)"
+  (onOpen)="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="More menu">
     <span class="e-btn__icon">
@@ -71,7 +73,7 @@ const popoverListHeadingsCode = {
 `,
   codeVue: `<elvia-popover 
   :type="'list'"
-  :posY="'bottom'"
+  :verticalPosition="'bottom'"
   @is-showing-on-change="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="More menu">
@@ -105,7 +107,7 @@ const popoverListHeadingsCode = {
   codeNativeHTML: `<elvia-popover 
   id="example-elvia-popover-list-headings"
   type="list"
-  posY="bottom"
+  verticalPosition="bottom"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu">
     <span class="e-btn__icon">
@@ -136,7 +138,10 @@ const popoverListHeadingsCode = {
 </elvia-popover>
 `,
   codeNativeScript: `  const popover = document.getElementById('example-elvia-popover-list-headings');
-    popover.addEventListener('isShowingOnChange', (event) => {
+    popover.addEventListener('onClose', (event) => {
+      console.log('Do what you want when visibility changes: ', event.detail.value);
+    });
+    popover.addEventListener('onOpen', (event) => {
       console.log('Do what you want when visibility changes: ', event.detail.value);
     });
   `,

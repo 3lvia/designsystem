@@ -2,9 +2,10 @@ const popoverListSelectableCode = {
   type: 'list',
   codeReact: `<Popover
   type={"list"}
-  selectable={true}
-  posY={"bottom"}
-  isShowingOnChange={(event) => showingChanges(event)}
+  isSelectable={true}
+  verticalPosition={"bottom"}
+  onClose={(event) => showingChanges(event)}
+  onOpen={(event) => showingChanges(event)}
   trigger={
     <button className="e-btn e-btn--icon e-btn--circled" aria-label="More menu">
       <span className="e-btn__icon">
@@ -33,9 +34,10 @@ const popoverListSelectableCode = {
 `,
   codeAngular: `<elvia-popover 
   [type]="'list'"
-  [selectable]="true"
-  [posY]="'bottom'"
-  (isShowingOnChange)="showingChanges($event.detail.value)"
+  [isSelectable]="true"
+  [verticalPosition]="'bottom'"
+  (onClose)="showingChanges($event.detail.value)"
+  (onOpen)="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="More menu">
     <span class="e-btn__icon">
@@ -61,8 +63,8 @@ const popoverListSelectableCode = {
 `,
   codeVue: `<elvia-popover 
   :type="'list'"
-  :selectable="true"
-  :posY="'bottom'"
+  :isSelectable="true"
+  :verticalPosition="'bottom'"
   @is-showing-on-change="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="More menu">
@@ -90,8 +92,8 @@ const popoverListSelectableCode = {
   codeNativeHTML: `<elvia-popover 
   id="example-elvia-popover-list-selectable"
   type="list"
-  selectable="true"
-  posY="bottom"
+  isSelectable="true"
+  verticalPosition="bottom"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu">
     <span class="e-btn__icon">
@@ -116,7 +118,10 @@ const popoverListSelectableCode = {
 </elvia-popover>
 `,
   codeNativeScript: `  const popover = document.getElementById('example-elvia-popover-list-selectable');
-  popover.addEventListener('isShowingOnChange', (event) => {
+  popover.addEventListener('onClose', (event) => {
+    console.log('Do what you want when visibility changes: ', event.detail.value);
+  });
+  popover.addEventListener('onPopover', (event) => {
     console.log('Do what you want when visibility changes: ', event.detail.value);
   });
 `,

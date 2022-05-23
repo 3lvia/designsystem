@@ -4,14 +4,15 @@ const popoverInformativeCode = {
   type: 'informative',
   codeReact:
     `<Popover
-  header={"` +
+  heading={"` +
     exampleContents.texts.md['eng-GBR'].title +
     `"}
   content={"` +
     exampleContents.texts.md['eng-GBR'].description +
     `"}
-  posY={"top"}
-  isShowingOnChange={(event) => showingChanges(event)}
+    verticalPosition={"top"}
+  onOpen={(event) => showingChanges(event)}
+  onClose={(event) => showingChanges(event)}
   trigger={
     <button className="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
       <span className="e-btn__icon">
@@ -24,14 +25,15 @@ const popoverInformativeCode = {
 `,
   codeAngular:
     `<elvia-popover 
-  [header]="'` +
+  [heading]="'` +
     exampleContents.texts.md['eng-GBR'].title +
     `'"
   [content]="'` +
     exampleContents.texts.md['eng-GBR'].description +
     `'"
-  [posY]="'top'"
-  (isShowingOnChange)="showingChanges($event.detail.value)"
+  [verticalPosition]="'top'"
+  (onOpen)="showingChanges($event.detail.value)"
+  (onClose)="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
     <span class="e-btn__icon">
@@ -43,13 +45,13 @@ const popoverInformativeCode = {
 `,
   codeVue:
     `<elvia-popover 
-  :header="'` +
+  :heading="'` +
     exampleContents.texts.md['eng-GBR'].title +
     `'"
   :content="'` +
     exampleContents.texts.md['eng-GBR'].description +
     `'"
-  :posY="'top'"
+  :verticalPosition="'top'"
   @is-showing-on-change="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
@@ -63,11 +65,11 @@ const popoverInformativeCode = {
   codeNativeHTML:
     `<elvia-popover 
   id="example-elvia-popover"
-  header="` +
+  heading="` +
     exampleContents.texts.md['eng-GBR'].title +
     `"
   content=${JSON.stringify(exampleContents.texts.md['eng-GBR'].description)}
-  posY="top"
+  verticalPosition="top"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
     <span class="e-btn__icon">

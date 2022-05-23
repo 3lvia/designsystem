@@ -7,7 +7,7 @@ const popoverData: ComponentData = {
   elementNameW: 'elvia-popover',
   elementNameR: 'Popover',
   attributes: {
-    header: {
+    heading: {
       isRequired: false,
       type: 'string',
       description: 'Header of content',
@@ -18,7 +18,7 @@ const popoverData: ComponentData = {
       cegOption: exampleContents.texts.md['eng-GBR'].title,
       cegDependency: [{ name: 'type', value: 'informative' }],
     },
-    hasCloseBtn: {
+    hasCloseButton: {
       isRequired: false,
       type: 'boolean',
       description: 'Determines if the close button in the upper right corner should be visible',
@@ -49,10 +49,15 @@ const popoverData: ComponentData = {
       description: 'Determines the popover is showing or not.',
       default: 'false',
     },
-    isShowingOnChange: {
+    onOpen: {
       isRequired: false,
-      type: '(isShowing: boolean) => CustomEvent',
-      description: 'Gets called every time the isShowing value is changed.',
+      type: '() => void',
+      description: 'Callback for every time the popover is being opened.',
+    },
+    onClose: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Callback for every time the popover is being closed.',
     },
     content: {
       isRequired: true,
@@ -64,7 +69,7 @@ const popoverData: ComponentData = {
       type: 'HTMLElement',
       description: 'The element the user clicks to open the popover',
     },
-    posY: {
+    verticalPosition: {
       isRequired: false,
       type: '“bottom” | “top”',
       description: 'Position vertically',
@@ -75,7 +80,7 @@ const popoverData: ComponentData = {
       cegFormType: 'radio',
       cegOptions: ['top', 'bottom'],
     },
-    posX: {
+    horizontalPosition: {
       isRequired: false,
       type: '“left” | “center” | “right”',
       description: 'Position horizontally',
@@ -114,7 +119,10 @@ const popoverData: ComponentData = {
   codeVue: ``,
   codeNativeHTML: ``,
   codeNativeScript: `  const popover = document.getElementById('example-elvia-popover');
-  popover.addEventListener('isShowingOnChange', (event) => {
+  popover.addEventListener('onOpen', (event) => {
+    console.log('Do what you want when visibility changes: ', event.detail.value);
+  });
+  popover.addEventListener('onClose', (event) => {
     console.log('Do what you want when visibility changes: ', event.detail.value);
   });
 `,

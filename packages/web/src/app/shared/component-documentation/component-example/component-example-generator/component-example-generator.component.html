@@ -80,7 +80,7 @@
       class="ceg-side-filters-mobile"
       *ngIf="formGroupList.length !== 0 && hasSideFilters && enableFilters"
     >
-      <elvia-popover [posX]="'left'" [posY]="'bottom'">
+      <elvia-popover [horizontalPosition]="'left'" [verticalPosition]="'bottom'">
         <button slot="trigger" class="e-btn e-btn--icon" aria-label="Open side filter popover">
           <span class="e-btn__icon">
             <i class="e-icon e-icon--list" *ngIf="selectedBg !== 'Dark grey'" aria-hidden="true"></i>

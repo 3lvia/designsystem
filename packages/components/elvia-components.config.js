@@ -311,15 +311,20 @@ module.exports = [
     name: 'elvis-popover',
     elementName: 'elvia-popover',
     attributes: [
-      { name: 'header', type: 'string', propType: 'string | undefined' },
+      { name: 'header', type: 'string', propType: 'string | undefined' }, // DEPRECATED SINCE 5.0.0
+      { name: 'heading', type: 'string', propType: 'string | undefined' }, // DEPRECATED SINCE 5.0.0
       { name: 'content', type: 'string', propType: 'string | HTMLElement | undefined' },
       { name: 'type', type: 'string', propType: 'string' },
-      { name: 'selectable', type: 'boolean', propType: 'boolean' },
+      { name: 'selectable', type: 'boolean', propType: 'boolean' }, // DEPRECATED SINCE 5.0.0
+      { name: 'isSelectable', type: 'boolean', propType: 'boolean' },
       { name: 'hasDivider', type: 'boolean', propType: 'boolean' },
-      { name: 'posX', type: 'string', propType: 'string | undefined' },
-      { name: 'posY', type: 'string', propType: 'string | undefined' },
+      { name: 'posX', type: 'string', propType: 'string | undefined' }, // DEPRECATED SINCE 5.0.0
+      { name: 'posY', type: 'string', propType: 'string | undefined' }, // DEPRECATED SINCE 5.0.0
+      { name: 'horizontalPosition', type: 'string', propType: 'string | undefined' },
+      { name: 'verticalPosition', type: 'string', propType: 'string | undefined' },
       { name: 'trigger', type: 'string', propType: 'HTMLElement | undefined' },
-      { name: 'hasCloseBtn', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'hasCloseBtn', type: 'boolean', propType: 'boolean | undefined' }, // DEPRECATED SINCE 5.0.0
+      { name: 'hasCloseButton', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isShowing', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'disableAutoClose', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
