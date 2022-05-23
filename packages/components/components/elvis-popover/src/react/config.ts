@@ -19,6 +19,8 @@ export const config: ComponentConfig = {
     isShowingOnChange: {
       version: '5.0.0',
       isCallbackFunction: true,
+      explanation:
+        'Events related to removing or adding elements to the DOM should follow our naming guidelines and be named "onOpen" & "onClose"',
     },
     // Rule 1.2: Fullstendige ord
     posX: {

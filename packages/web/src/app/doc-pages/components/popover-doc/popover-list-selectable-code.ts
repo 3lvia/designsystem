@@ -4,7 +4,8 @@ const popoverListSelectableCode = {
   type={"list"}
   selectable={true}
   verticalPosistion={"bottom"}
-  isShowingOnChange={(event) => showingChanges(event)}
+  onClose={(event) => showingChanges(event)}
+  onOpen={(event) => showingChanges(event)}
   trigger={
     <button className="e-btn e-btn--icon e-btn--circled" aria-label="More menu">
       <span className="e-btn__icon">
@@ -35,7 +36,8 @@ const popoverListSelectableCode = {
   [type]="'list'"
   [selectable]="true"
   [verticalPosistion]="'bottom'"
-  (isShowingOnChange)="showingChanges($event.detail.value)"
+  (onClose)="showingChanges($event.detail.value)"
+  (onOpen)="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="More menu">
     <span class="e-btn__icon">
@@ -116,7 +118,10 @@ const popoverListSelectableCode = {
 </elvia-popover>
 `,
   codeNativeScript: `  const popover = document.getElementById('example-elvia-popover-list-selectable');
-  popover.addEventListener('isShowingOnChange', (event) => {
+  popover.addEventListener('onClose', (event) => {
+    console.log('Do what you want when visibility changes: ', event.detail.value);
+  });
+  popover.addEventListener('onPopover', (event) => {
     console.log('Do what you want when visibility changes: ', event.detail.value);
   });
 `,

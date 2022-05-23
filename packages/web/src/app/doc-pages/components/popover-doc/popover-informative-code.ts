@@ -11,7 +11,8 @@ const popoverInformativeCode = {
     exampleContents.texts.md['eng-GBR'].description +
     `"}
     verticalPosistion={"top"}
-  isShowingOnChange={(event) => showingChanges(event)}
+  onOpen={(event) => showingChanges(event)}
+  onClose={(event) => showingChanges(event)}
   trigger={
     <button className="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
       <span className="e-btn__icon">
@@ -31,7 +32,8 @@ const popoverInformativeCode = {
     exampleContents.texts.md['eng-GBR'].description +
     `'"
   [verticalPosistion]="'top'"
-  (isShowingOnChange)="showingChanges($event.detail.value)"
+  (onOpen)="showingChanges($event.detail.value)"
+  (onClose)="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
     <span class="e-btn__icon">

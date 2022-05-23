@@ -1,10 +1,9 @@
 import React, { FC, useState, useEffect, useRef, useCallback, CSSProperties } from 'react';
 import './style.scss';
 import classnames from 'classnames';
-import toolbox from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
-import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import toolbox, { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import { config } from './config';
 
 export interface PopoverProps {

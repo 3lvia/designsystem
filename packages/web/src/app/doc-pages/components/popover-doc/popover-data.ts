@@ -49,10 +49,15 @@ const popoverData: ComponentData = {
       description: 'Determines the popover is showing or not.',
       default: 'false',
     },
-    isShowingOnChange: {
+    onOpen: {
       isRequired: false,
-      type: '(isShowing: boolean) => CustomEvent',
-      description: 'Gets called every time the isShowing value is changed.',
+      type: '() => void',
+      description: 'Callback for every time the popover is being opened.',
+    },
+    onClose: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Callback for every time the popover is being closed.',
     },
     content: {
       isRequired: true,

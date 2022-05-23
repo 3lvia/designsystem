@@ -4,7 +4,8 @@ const popoverListCode = {
   type={"list"}
   verticalPosistion={"top"}
   horizontalPosistion={"center"}
-  isShowingOnChange={(event) => showingChanges(event)}
+  onOpen={(event) => showingChanges(event)}
+  onClose={(event) => showingChanges(event)}
   trigger={
     <button className="e-btn e-btn--icon e-btn--circled">
       <span className="e-btn__icon">
@@ -36,7 +37,8 @@ const popoverListCode = {
   [type]="'list'"
   [verticalPosistion]="'top'"
   [horizontalPosistion]="'center'"
-  (isShowingOnChange)="showingChanges($event.detail.value)"
+  (onOpen)="showingChanges($event.detail.value)"
+  (onClose)="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu">
     <span class="e-btn__icon">
