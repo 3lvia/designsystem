@@ -1,6 +1,16 @@
 {
   "content": [
     {
+      "version": "8.4.2",
+      "date": "May 23, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using elvis-typography for typography definitions. "]
+        }
+      ]
+    },
+    {
       "version": "8.4.1",
       "date": "May 23, 2022",
       "changelog": [
@@ -18,7 +28,7 @@
       "date": "May 12, 2022",
       "changelog": [
         {
-          "type": "patch",
+          "type": "new_features",
           "changes": ["Added utility class for screen readers only content."],
           "components": [
             { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
