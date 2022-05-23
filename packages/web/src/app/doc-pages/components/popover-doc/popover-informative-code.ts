@@ -10,7 +10,7 @@ const popoverInformativeCode = {
   content={"` +
     exampleContents.texts.md['eng-GBR'].description +
     `"}
-    verticalPosistion={"top"}
+    verticalPosition={"top"}
   onOpen={(event) => showingChanges(event)}
   onClose={(event) => showingChanges(event)}
   trigger={
@@ -31,7 +31,7 @@ const popoverInformativeCode = {
   [content]="'` +
     exampleContents.texts.md['eng-GBR'].description +
     `'"
-  [verticalPosistion]="'top'"
+  [verticalPosition]="'top'"
   (onOpen)="showingChanges($event.detail.value)"
   (onClose)="showingChanges($event.detail.value)"
 >
@@ -51,7 +51,7 @@ const popoverInformativeCode = {
   :content="'` +
     exampleContents.texts.md['eng-GBR'].description +
     `'"
-  :verticalPosistion="'top'"
+  :verticalPosition="'top'"
   @is-showing-on-change="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
@@ -69,7 +69,7 @@ const popoverInformativeCode = {
     exampleContents.texts.md['eng-GBR'].title +
     `"
   content=${JSON.stringify(exampleContents.texts.md['eng-GBR'].description)}
-  verticalPosistion="top"
+  verticalPosition="top"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
     <span class="e-btn__icon">

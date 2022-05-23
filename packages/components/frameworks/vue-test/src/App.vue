@@ -8,11 +8,10 @@
       <!--Normal version-->
       <div class="e-bg-white">
         <h3>Popover</h3>
-        <elvia-popover type="list" :isSelectable="true" :disableAutoClose="true">
+        <elvia-popover type="list" :isSelectable="true" verticalPosition="top">
           <button slot="trigger" class="e-btn">Show popover</button>
           <div slot="content" class="ewc-popover__list">
             <button>
-              <elvia-icon name="checkBold" size="xs"></elvia-icon>
               <span>Dato nyeste</span>
             </button>
             <button>
@@ -207,7 +206,7 @@
     <!--Popover-->
     <div class="example-wrapper">
       <h3>Popover</h3>
-      <elvia-popover heading="BankID" horizontalPosistion="right">
+      <elvia-popover heading="BankID" horizontalPosition="right">
         <div slot="trigger"><button class="e-btn">Right top</button></div>
         <div slot="content">
           Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.

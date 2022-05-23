@@ -11,8 +11,8 @@
           "fixes": [
             "Change prop <span class=\"code-text\">hasCloseBtn</span> => <span class=\"code-text\">hasCloseButton</span>.",
             "Change prop <span class=\"code-text\">header</span> => <span class=\"code-text\">heading</span>.",
-            "Change prop <span class=\"code-text\">posX</span> => <span class=\"code-text\">horizontalPosistion</span>.",
-            "Change prop <span class=\"code-text\">posY</span> => <span class=\"code-text\">verticalPosistion</span>.",
+            "Change prop <span class=\"code-text\">posX</span> => <span class=\"code-text\">horizontalPosition</span>.",
+            "Change prop <span class=\"code-text\">posY</span> => <span class=\"code-text\">verticalPosition</span>.",
             "Change prop <span class=\"code-text\">selectable</span> => <span class=\"code-text\">isSelectable</span>.",
             "Change prop <span class=\"code-text\">isShowingOnChange</span> => <span class=\"code-text\">onOpen</span> & <span class=\"code-text\">onOpen</span>."
           ]

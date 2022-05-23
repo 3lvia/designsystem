@@ -319,8 +319,8 @@ module.exports = [
       { name: 'hasDivider', type: 'boolean', propType: 'boolean' },
       { name: 'posX', type: 'string', propType: 'string | undefined' }, // DEPRECATED SINCE 5.0.0
       { name: 'posY', type: 'string', propType: 'string | undefined' }, // DEPRECATED SINCE 5.0.0
-      { name: 'horizontalPosistion', type: 'string', propType: 'string | undefined' },
-      { name: 'verticalPosistion', type: 'string', propType: 'string | undefined' },
+      { name: 'horizontalPosition', type: 'string', propType: 'string | undefined' },
+      { name: 'verticalPosition', type: 'string', propType: 'string | undefined' },
       { name: 'trigger', type: 'string', propType: 'HTMLElement | undefined' },
       { name: 'hasCloseBtn', type: 'boolean', propType: 'boolean | undefined' }, // DEPRECATED SINCE 5.0.0
       { name: 'hasCloseButton', type: 'boolean', propType: 'boolean | undefined' },

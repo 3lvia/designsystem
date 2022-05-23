@@ -2,7 +2,7 @@ const popoverListIconsCode = {
   type: 'list',
   codeReact: `<Popover
   type={"list"}
-  verticalPosistion={"bottom"}
+  verticalPosition={"bottom"}
   onClose={(event) => showingChanges(event)}
   onPopover={(event) => showingChanges(event)}
   trigger={
@@ -37,7 +37,7 @@ const popoverListIconsCode = {
 `,
   codeAngular: `<elvia-popover 
   [type]="'list'"
-  [verticalPosistion]="'bottom'"
+  [verticalPosition]="'bottom'"
   (onClose)="showingChanges($event.detail.value)"
   (onPopover)="showingChanges($event.detail.value)"
 >
@@ -69,7 +69,7 @@ const popoverListIconsCode = {
 `,
   codeVue: `<elvia-popover 
   :type="'list'"
-  :verticalPosistion="'bottom'"
+  :verticalPosition="'bottom'"
   @is-showing-on-change="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="More menu">
@@ -101,7 +101,7 @@ const popoverListIconsCode = {
   codeNativeHTML: `<elvia-popover 
   id="example-elvia-popover-list-icons"
   type="list"
-  verticalPosistion="bottom"
+  verticalPosition="bottom"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu">
     <span class="e-btn__icon">

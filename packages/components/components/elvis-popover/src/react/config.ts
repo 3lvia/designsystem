@@ -25,12 +25,12 @@ export const config: ComponentConfig = {
     // Rule 1.2: Fullstendige ord
     posX: {
       version: '5.0.0',
-      newProp: 'horizontalPosistion',
+      newProp: 'horizontalPosition',
       isDirectReplacement: true,
     }, // Rule 1.2: Fullstendige ord
     posY: {
       version: '5.0.0',
-      newProp: 'verticalPosistion',
+      newProp: 'verticalPosition',
       isDirectReplacement: true,
     }, // Rule 1.6: Variant / state / valg
     selectable: {

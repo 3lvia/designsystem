@@ -2,7 +2,7 @@ const popoverListHeadingsCode = {
   type: 'list',
   codeReact: `<Popover
   type={"list"}
-  verticalPosistion={"bottom"}
+  verticalPosition={"bottom"}
   onClose={(event) => showingChanges(event)}
   onOpen={(event) => showingChanges(event)}
   trigger={
@@ -39,7 +39,7 @@ const popoverListHeadingsCode = {
 `,
   codeAngular: `<elvia-popover 
   [type]="'list'"
-  [verticalPosistion]="'bottom'"
+  [verticalPosition]="'bottom'"
   (onClose)="showingChanges($event.detail.value)"
   (onOpen)="showingChanges($event.detail.value)"
 >
@@ -73,7 +73,7 @@ const popoverListHeadingsCode = {
 `,
   codeVue: `<elvia-popover 
   :type="'list'"
-  :verticalPosistion="'bottom'"
+  :verticalPosition="'bottom'"
   @is-showing-on-change="showingChanges($event.detail.value)"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="More menu">
@@ -107,7 +107,7 @@ const popoverListHeadingsCode = {
   codeNativeHTML: `<elvia-popover 
   id="example-elvia-popover-list-headings"
   type="list"
-  verticalPosistion="bottom"
+  verticalPosition="bottom"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu">
     <span class="e-btn__icon">

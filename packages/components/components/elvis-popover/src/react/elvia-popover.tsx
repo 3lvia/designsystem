@@ -21,15 +21,15 @@ export interface PopoverProps {
   isSelectable?: boolean;
   hasDivider?: boolean;
   /**
-   * @deprecated Deprecated in version 5.0.0. Replaced by `horizontalPosistion`.
+   * @deprecated Deprecated in version 5.0.0. Replaced by `horizontalPosition`.
    */
   posX?: 'left' | 'right' | 'center';
-  horizontalPosistion?: 'left' | 'right' | 'center';
+  horizontalPosition?: 'left' | 'right' | 'center';
   /**
-   * @deprecated Deprecated in version 5.0.0. Replaced by `verticalPosistion`.
+   * @deprecated Deprecated in version 5.0.0. Replaced by `verticalPosition`.
    */
   posY?: 'top' | 'bottom';
-  verticalPosistion?: 'top' | 'bottom';
+  verticalPosition?: 'top' | 'bottom';
   trigger?: HTMLElement;
   /**
    * @deprecated Deprecated in version 5.0.0. Replaced by 'hasCloseButton'.
@@ -55,8 +55,8 @@ const Popover: FC<PopoverProps> = function ({
   type = 'informative',
   isSelectable = false,
   hasDivider = false,
-  horizontalPosistion = type === 'list' ? 'right' : 'center',
-  verticalPosistion = type === 'list' ? 'bottom' : 'top',
+  horizontalPosition = type === 'list' ? 'right' : 'center',
+  verticalPosition = type === 'list' ? 'bottom' : 'top',
   trigger,
   hasCloseButton = true,
   isShowing = false,
@@ -160,14 +160,14 @@ const Popover: FC<PopoverProps> = function ({
 
   // Initializing horizontal positions
   const setInitialPosition = useCallback(() => {
-    if (horizontalPosistion === 'left') {
+    if (horizontalPosition === 'left') {
       updatePosStyle('none', '0', 'auto');
-    } else if (horizontalPosistion === 'right') {
+    } else if (horizontalPosition === 'right') {
       updatePosStyle('none', 'auto', '0');
     } else {
       updatePosStyle('translateX(-50%)', 'auto', '50%');
     }
-  }, [horizontalPosistion]);
+  }, [horizontalPosition]);
 
   const updatePosStyle = (transform: string, right: string, left: string) => {
     if (!popoverContentRef.current) {
@@ -250,9 +250,9 @@ const Popover: FC<PopoverProps> = function ({
     const triggerOffsetRight = screenWidth - triggerWidth - triggerOffsetLeft;
 
     const updatePositionX = () => {
-      if (horizontalPosistion !== 'right' && isConflict(horizontalPosistion === 'center', 'left')) {
+      if (horizontalPosition !== 'right' && isConflict(horizontalPosition === 'center', 'left')) {
         updatePosStyle('none', 'auto', `${-triggerOffsetLeft + popoverMargin}px`);
-      } else if (horizontalPosistion !== 'left' && isConflict(horizontalPosistion === 'center', 'right')) {
+      } else if (horizontalPosition !== 'left' && isConflict(horizontalPosition === 'center', 'right')) {
         updatePosStyle('none', `${-triggerOffsetRight + popoverMargin + getScrollbarWidth()}px`, 'auto');
       } else {
         setInitialPosition();
@@ -275,7 +275,7 @@ const Popover: FC<PopoverProps> = function ({
     // Calling position functions
     resizePopover();
     updatePositionX();
-  }, [horizontalPosistion]);
+  }, [horizontalPosition]);
 
   const defineFixedArea = () => {
     if (popoverTriggerRef.current === null) {
@@ -378,7 +378,7 @@ const Popover: FC<PopoverProps> = function ({
   const popoverClasses = classnames('ewc-popover', {
     ['ewc-popover--hide']: !popoverVisibility,
     ['ewc-popover--text-only']: typeof content === 'string',
-    ['ewc-popover--bottom']: (verticalPosistion === 'bottom' && !isConflictBottom()) || isConflictTop(),
+    ['ewc-popover--bottom']: (verticalPosition === 'bottom' && !isConflictBottom()) || isConflictTop(),
     ['ewc-popover--list']: type === 'list',
     ['ewc-popover--list-divider']: type === 'list' && hasDivider,
     ['ewc-popover--list-selectable']: isSelectable,

@@ -231,8 +231,8 @@ function App() {
             hasCloseButton
             content={<Tabs items={tabsItems} value={2}></Tabs>}
             trigger={<button className="e-btn">Show popover</button>}
-            horizontalPosistion="left"
-            verticalPosistion="top"
+            horizontalPosition="left"
+            verticalPosition="top"
             isShowing={isPopoverShowing}
             onOpen={() => setIsPopoverShowingState(true)}
             onClose={() => setIsPopoverShowingState(false)}
