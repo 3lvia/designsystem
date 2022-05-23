@@ -8,7 +8,7 @@
       <!--Normal version-->
       <div class="e-bg-white">
         <h3>Popover</h3>
-        <elvia-popover type="list" :selectable="true" :disableAutoClose="true">
+        <elvia-popover type="list" :isSelectable="true" :disableAutoClose="true">
           <button slot="trigger" class="e-btn">Show popover</button>
           <div slot="content" class="ewc-popover__list">
             <button>

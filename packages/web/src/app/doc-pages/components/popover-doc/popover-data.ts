@@ -119,7 +119,10 @@ const popoverData: ComponentData = {
   codeVue: ``,
   codeNativeHTML: ``,
   codeNativeScript: `  const popover = document.getElementById('example-elvia-popover');
-  popover.addEventListener('isShowingOnChange', (event) => {
+  popover.addEventListener('onOpen', (event) => {
+    console.log('Do what you want when visibility changes: ', event.detail.value);
+  });
+  popover.addEventListener('onClose', (event) => {
     console.log('Do what you want when visibility changes: ', event.detail.value);
   });
 `,

@@ -32,6 +32,11 @@ export const config: ComponentConfig = {
       version: '5.0.0',
       newProp: 'verticalPosistion',
       isDirectReplacement: true,
+    }, // Rule 1.6: Variant / state / valg
+    selectable: {
+      version: '5.0.0',
+      newProp: 'isSelectable',
+      isDirectReplacement: true,
     },
   },
 };

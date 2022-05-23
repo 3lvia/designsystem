@@ -14,7 +14,11 @@ export interface PopoverProps {
   heading?: string;
   content?: string | HTMLElement;
   type?: 'informative' | 'list';
+  /**
+   * @deprecated Deprecated in version 5.0.0. Replaced by `isSelectable`.
+   */
   selectable?: boolean;
+  isSelectable?: boolean;
   hasDivider?: boolean;
   /**
    * @deprecated Deprecated in version 5.0.0. Replaced by `horizontalPosistion`.
@@ -49,7 +53,7 @@ const Popover: FC<PopoverProps> = function ({
   heading,
   content,
   type = 'informative',
-  selectable = false,
+  isSelectable = false,
   hasDivider = false,
   horizontalPosistion = type === 'list' ? 'right' : 'center',
   verticalPosistion = type === 'list' ? 'bottom' : 'top',
@@ -377,7 +381,7 @@ const Popover: FC<PopoverProps> = function ({
     ['ewc-popover--bottom']: (verticalPosistion === 'bottom' && !isConflictBottom()) || isConflictTop(),
     ['ewc-popover--list']: type === 'list',
     ['ewc-popover--list-divider']: type === 'list' && hasDivider,
-    ['ewc-popover--list-selectable']: selectable,
+    ['ewc-popover--list-selectable']: isSelectable,
   });
 
   return (

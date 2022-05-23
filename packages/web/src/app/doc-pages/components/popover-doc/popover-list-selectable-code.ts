@@ -2,7 +2,7 @@ const popoverListSelectableCode = {
   type: 'list',
   codeReact: `<Popover
   type={"list"}
-  selectable={true}
+  isSelectable={true}
   verticalPosistion={"bottom"}
   onClose={(event) => showingChanges(event)}
   onOpen={(event) => showingChanges(event)}
@@ -34,7 +34,7 @@ const popoverListSelectableCode = {
 `,
   codeAngular: `<elvia-popover 
   [type]="'list'"
-  [selectable]="true"
+  [isSelectable]="true"
   [verticalPosistion]="'bottom'"
   (onClose)="showingChanges($event.detail.value)"
   (onOpen)="showingChanges($event.detail.value)"
@@ -63,7 +63,7 @@ const popoverListSelectableCode = {
 `,
   codeVue: `<elvia-popover 
   :type="'list'"
-  :selectable="true"
+  :isSelectable="true"
   :verticalPosistion="'bottom'"
   @is-showing-on-change="showingChanges($event.detail.value)"
 >
@@ -92,7 +92,7 @@ const popoverListSelectableCode = {
   codeNativeHTML: `<elvia-popover 
   id="example-elvia-popover-list-selectable"
   type="list"
-  selectable="true"
+  isSelectable="true"
   verticalPosistion="bottom"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu">

@@ -314,7 +314,8 @@ module.exports = [
       { name: 'heading', type: 'string', propType: 'string | undefined' }, // DEPRECATED SINCE 5.0.0
       { name: 'content', type: 'string', propType: 'string | HTMLElement | undefined' },
       { name: 'type', type: 'string', propType: 'string' },
-      { name: 'selectable', type: 'boolean', propType: 'boolean' },
+      { name: 'selectable', type: 'boolean', propType: 'boolean' }, // DEPRECATED SINCE 5.0.0
+      { name: 'isSelectable', type: 'boolean', propType: 'boolean' },
       { name: 'hasDivider', type: 'boolean', propType: 'boolean' },
       { name: 'posX', type: 'string', propType: 'string | undefined' }, // DEPRECATED SINCE 5.0.0
       { name: 'posY', type: 'string', propType: 'string | undefined' }, // DEPRECATED SINCE 5.0.0
