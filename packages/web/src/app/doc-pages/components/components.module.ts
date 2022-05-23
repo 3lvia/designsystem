@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { LabelDocModule } from './label-doc/label-doc.module';
+import { TagDocModule } from './tag-doc/tag-doc.module';
 import { ButtonDocModule } from './button-doc/button-doc.module';
 import { CardDocModule } from './card-doc/card-doc.module';
 import { CarouselDocModule } from './carousel-doc/carousel-doc.module';
@@ -48,7 +48,7 @@ import { SpotlightDocModule } from './spotlight-doc/spotlight-doc.module';
     FileUploadDocModule,
     RadioFilterDocModule,
     FormComponentsModule,
-    LabelDocModule,
+    TagDocModule,
     LinkDocModule,
     ListDocModule,
     ModalDocModule,

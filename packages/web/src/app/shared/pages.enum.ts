@@ -27,7 +27,7 @@ export enum Pages {
   RadioFilter = 'radio-filter',
   Header = 'header',
   Input = 'input',
-  Label = 'label',
+  Tag = 'tag',
   Link = 'link',
   List = 'list',
   Modal = 'modal',
