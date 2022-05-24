@@ -7,10 +7,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": [
-            "Bumped the dependency on <span class=\"code-text\">@elvia/elvis-typography</span>. ",
-            "Added support for mobile font properties. "
-          ]
+          "changes": ["Bumped the dependency on <span class=\"code-text\">@elvia/elvis-typography</span>. "]
         }
       ]
     },
