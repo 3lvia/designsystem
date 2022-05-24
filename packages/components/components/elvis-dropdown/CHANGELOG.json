@@ -3,6 +3,19 @@
   "content": [
     {
       "date": "24.05.22",
+      "version": "3.0.2 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed bug where items list array was empty and returned no found icon",
+            "Fixed issue where long labels created scroll in options"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "24.05.22",
       "version": "3.0.1 ",
       "changelog": [
         {

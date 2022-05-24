@@ -240,7 +240,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
       alignItems: 'center',
       backgroundColor: decideOptionBg(state.isFocused, state.isSelected, state.isMulti),
       color: getColor('black'),
-      height: isCompact ? '36px' : '48px',
+      height: '100%',
       paddingTop: '7px',
       paddingBottom: '7px',
       paddingLeft: isCompact ? '9px' : '15px',
@@ -306,17 +306,21 @@ const Dropdown: React.FC<DropdownProps> = function ({
       lineHeight: '22px',
       paddingLeft: isCompact ? '8px' : '15px',
       paddingRight: '2px',
+      height: isSearchable ? 'inherit' : '22px',
     }),
   };
 
   // helper function to determine if options array have valid icon attributes.
   const allOptionsHaveIconAttribute = (): boolean => {
-    for (const dropdownItem of items) {
-      if (dropdownItem.icon === undefined) {
-        return false;
+    if (items.length > 0) {
+      for (const dropdownItem of items) {
+        if (dropdownItem.icon === undefined) {
+          return false;
+        }
       }
+      return true;
     }
-    return true;
+    return false;
   };
 
   // Custom components for Elvia dropdown
