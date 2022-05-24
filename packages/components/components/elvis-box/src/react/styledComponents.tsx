@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
-import { getTypography } from '@elvia/elvis-typography';
+import { getTypographyCss } from '@elvia/elvis-typography';
 
 const colors = {
   elviaCharge: getColor('elvia-charge'),
@@ -10,7 +10,7 @@ const colors = {
 };
 
 const typography = {
-  titleCaps: getTypography('title-caps'),
+  titleCaps: getTypographyCss('title-caps'),
 };
 
 export const BoxArea = styled.div`

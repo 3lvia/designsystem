@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
-import { getTypography } from '@elvia/elvis-typography';
+import { getTypographyCss } from '@elvia/elvis-typography';
 
 const colors = {
   elviaCharge: getColor('elvia-charge'),
@@ -10,9 +10,9 @@ const colors = {
 };
 
 const typography = {
-  textMdStrong: getTypography('text-md-strong'),
-  textMd: getTypography('text-md'),
-  textSm: getTypography('text-sm'),
+  textMdStrong: getTypographyCss('text-md-strong'),
+  textMd: getTypographyCss('text-md'),
+  textSm: getTypographyCss('text-sm'),
 };
 
 export const DropdownWrapper = styled.span`
