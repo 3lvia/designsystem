@@ -1,4 +1,6 @@
-const popoverListCode = {
+import ComponentTypeData from '../component-type-data.interface';
+
+const popoverListCode: ComponentTypeData = {
   type: 'list',
   codeReact: `<Popover
   type={"list"}
@@ -9,8 +11,8 @@ const popoverListCode = {
   trigger={
     <button className="e-btn e-btn--icon e-btn--circled">
       <span className="e-btn__icon">
-        <i className="e-icon e-icon--information_circle"></i>
-        <i className="e-icon e-icon e-icon--information_circle-filled-color"></i>
+      <i class="e-icon e-icon--more_menu e-icon--inverted" aria-hidden="true"></i>
+      <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
       </span>
     </button>
   }
@@ -37,8 +39,8 @@ const popoverListCode = {
   [type]="'list'"
   [verticalPosition]="'top'"
   [horizontalPosition]="'center'"
-  (onOpen)="showingChanges($event.detail.value)"
-  (onClose)="showingChanges($event.detail.value)"
+  (onOpen)="showingChanges()"
+  (onClose)="showingChanges()"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu">
     <span class="e-btn__icon">
@@ -67,7 +69,8 @@ const popoverListCode = {
   :type="'list'"
   :verticalPosition="'top'"
   :horizontalPosition="'center'"
-  @is-showing-on-change="showingChanges($event.detail.value)"
+  @on-open="showingChanges()"
+  @on-close="showingChanges()"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu">
     <span class="e-btn__icon">

@@ -1,9 +1,10 @@
 import { AfterContentInit, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../example-code.service';
 import * as ElvisIcons from '@elvia/elvis-assets-icons';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
+import ComponentTypeData from 'src/app/doc-pages/components/component-type-data.interface';
 
 @Component({
   selector: 'app-component-example-generator',
@@ -15,7 +16,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @ViewChild('cegContent') cegContent;
   @Input() delayInnerHtml = false;
   @Input() componentData: ComponentData;
-  @Input() typesData;
+  @Input() typesData: ComponentTypeData[];
   @Input() typePropExists = false;
   @Input() width = 100;
   @Input() hasPreview = true;
@@ -30,11 +31,11 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   codeReactSub: Subscription;
   codeVueSub: Subscription;
   codeNativeSub: Subscription;
-  codeReact;
-  codeAngular;
-  codeVue;
-  codeNative;
-  dynamicCode;
+  codeReact: ComponentData['codeReact'];
+  codeAngular: ComponentData['codeAngular'];
+  codeVue: ComponentData['codeVue'];
+  codeNative: ComponentData['codeNativeHTML'];
+  dynamicCode: SafeHtml;
 
   enableFilters = true;
   hasSideFilters = true;

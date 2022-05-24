@@ -1,4 +1,6 @@
-const modalDangerCode = {
+import ComponentTypeData from '../component-type-data.interface';
+
+const modalDangerCode: ComponentTypeData = {
   type: 'danger',
   codeReact: `<button onClick={() => setIsModalShowingState(true)} className="e-btn">Åpne modal</button>
 <Modal
@@ -65,8 +67,6 @@ const modalDangerCode = {
   <button slot="primaryButton" class="e-btn e-btn--danger e-btn--lg">Danger action</button>
 </elvia-modal>
 `,
-  codeNativeScript: ``,
-  // all scripts for the examples are in modal-data.ts
 };
 
 export { modalDangerCode };

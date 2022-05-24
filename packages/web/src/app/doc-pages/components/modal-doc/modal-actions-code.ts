@@ -1,4 +1,6 @@
-const modalActionsCode = {
+import ComponentTypeData from '../component-type-data.interface';
+
+const modalActionsCode: ComponentTypeData = {
   type: 'actions',
   codeReact: `<button onClick={() => setIsModalShowingState(true)} className="e-btn">Åpne modal</button>
 <Modal
@@ -65,8 +67,6 @@ const modalActionsCode = {
   <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
 </elvia-modal>
 `,
-  codeNativeScript: ``,
-  // all scripts for the examples are in modal-data.ts
 };
 
 export { modalActionsCode };
