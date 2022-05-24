@@ -178,103 +178,175 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   colors = {
-    white: {
-      color: '#FFF',
-      contrastText: '#000',
-    },
-    black: {
-      color: '#000',
-      contrastText: '#fff',
-    },
-    grey: {
-      color: '#262626',
-      contrastText: '#fff',
-    },
-    'grey-90': {
-      color: '#3B3B3B',
-      contrastText: '#fff',
-    },
-    'grey-80': {
-      color: '#515151',
-      contrastText: '#fff',
-    },
-    'grey-70': {
-      color: '#676767',
-      contrastText: '#fff',
-    },
-    'grey-60': {
-      color: '#7C7C7C',
-      contrastText: '#000',
-    },
-    'grey-50': {
-      color: '#929292',
-      contrastText: '#000',
-    },
-    'grey-40': {
-      color: '#A8A8A8',
-      contrastText: '#000',
-    },
-    'grey-30': {
-      color: '#BDBDBD',
-      contrastText: '#000',
-    },
-    'grey-20': {
-      color: '#D3D3D3',
-      contrastText: '#000',
-    },
-    'grey-10': {
-      color: '#E9E9E9',
-      contrastText: '#000',
-    },
-    'grey-05': {
-      color: '#F4F4F4',
-      contrastText: '#000',
-    },
-    'grey-02': {
-      color: '#FAFAFA',
-      contrastText: '#000',
-    },
-    green: {
-      color: '#29D305',
-      contrastText: '#000',
-    },
-    yellow: {
-      color: '#FFFF00',
-      contrastText: '#000',
-    },
-    orange: {
-      color: '#FFA000',
-      contrastText: '#000',
-    },
-    red: {
-      color: '#EE0701',
-      contrastText: '#000',
-    },
-    'green-apple': {
-      color: '#21AC04',
-      contrastText: '#000',
-    },
-    'violet-grape': {
-      color: '#490192',
-      contrastText: '#fff',
-    },
-    'blue-berry': {
-      color: '#006DDB',
-      contrastText: '#fff',
-    },
-    'purple-plum': {
-      color: '#B66DFF',
-      contrastText: '#000',
-    },
-    'orange-mango': {
-      color: '#DB6D00',
-      contrastText: '#000',
-    },
-    'red-tomato': {
-      color: '#B90202',
-      contrastText: '#fff',
-    },
-  };
+		'white': {
+			color: '#fff',
+			contrastText: '#000',
+		},
+		'elvis-on': {
+			color: '#fff',
+			contrastText: '#000',
+		},
+		'elvia-on': {
+			color: '#fff',
+			contrastText: '#000',
+		},
+		'font-color-light': {
+			color: '#fff',
+			contrastText: '#000',
+		},
+		'elvia-inverted': {
+			color: '#fff',
+			contrastText: '#000',
+		},
+		'green': {
+			color: '#29d305',
+			contrastText: '#000',
+		},
+		'elvia-charge': {
+			color: '#29d305',
+			contrastText: '#000',
+		},
+		'black': {
+			color: '#000',
+			contrastText: '#fff',
+		},
+		'elvis-off': {
+			color: '#000',
+			contrastText: '#fff',
+		},
+		'elvia-off': {
+			color: '#000',
+			contrastText: '#fff',
+		},
+		'font-color': {
+			color: '#000',
+			contrastText: '#fff',
+		},
+		'text': {
+			color: '#000',
+			contrastText: '#fff',
+		},
+		'grey': {
+			color: '#262626',
+			contrastText: '#fff',
+		},
+		'elvia-dark': {
+			color: '#262626',
+			contrastText: '#fff',
+		},
+		'yellow': {
+			color: '#ffff00',
+			contrastText: '#000',
+		},
+		'orange': {
+			color: '#ffa000',
+			contrastText: '#000',
+		},
+		'warning': {
+			color: '#ffa000',
+			contrastText: '#000',
+		},
+		'red': {
+			color: '#ee0701',
+			contrastText: '#000',
+		},
+		'error': {
+			color: '#ee0701',
+			contrastText: '#000',
+		},
+		'green-apple': {
+			color: '#21ac04',
+			contrastText: '#000',
+		},
+		'violet-grape': {
+			color: '#490192',
+			contrastText: '#fff',
+		},
+		'blue-berry': {
+			color: '#006ddb',
+			contrastText: '#fff',
+		},
+		'purple-plum': {
+			color: '#b66dff',
+			contrastText: '#000',
+		},
+		'orange-mango': {
+			color: '#db6d00',
+			contrastText: '#000',
+		},
+		'red-tomato': {
+			color: '#b90202',
+			contrastText: '#fff',
+		},
+		'grey-90': {
+			color: '#3b3b3b',
+			contrastText: '#fff',
+		},
+		'grey-80': {
+			color: '#515151',
+			contrastText: '#fff',
+		},
+		'font-grey': {
+			color: '#515151',
+			contrastText: '#fff',
+		},
+		'text-light': {
+			color: '#515151',
+			contrastText: '#fff',
+		},
+		'grey-70': {
+			color: '#676767',
+			contrastText: '#fff',
+		},
+		'placeholder': {
+			color: '#676767',
+			contrastText: '#fff',
+		},
+		'grey-60': {
+			color: '#7c7c7c',
+			contrastText: '#000',
+		},
+		'grey-50': {
+			color: '#929292',
+			contrastText: '#000',
+		},
+		'grey-40': {
+			color: '#a8a8a8',
+			contrastText: '#000',
+		},
+		'grey-30': {
+			color: '#bdbdbd',
+			contrastText: '#000',
+		},
+		'disabled': {
+			color: '#bdbdbd',
+			contrastText: '#000',
+		},
+		'light-inverted': {
+			color: '#bdbdbd',
+			contrastText: '#000',
+		},
+		'grey-20': {
+			color: '#d3d3d3',
+			contrastText: '#000',
+		},
+		'grey-10': {
+			color: '#e9e9e9',
+			contrastText: '#000',
+		},
+		'grey-05': {
+			color: '#f4f4f4',
+			contrastText: '#000',
+		},
+		'disabled-light': {
+			color: '#f4f4f4',
+			contrastText: '#000',
+		},
+		'grey-02': {
+			color: '#fafafa',
+			contrastText: '#000',
+		},
+	};
 
   
   // THIS FILE IS GENERATED BY GULP, DO NOT CHANGE THIS ICON LIST MANUALLY.
