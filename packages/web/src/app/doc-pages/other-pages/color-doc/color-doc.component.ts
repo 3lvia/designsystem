@@ -26,4 +26,11 @@ color: var(--e-text-red);`;
 const color = getColor('elvia-charge');`;
   dontCodeTS = `import colors from '@elvia/elvis-colors';
 const color = colors['primary-colors']['green']['color'];`;
+  exampleCss = `@use '@elvia/elvis-colors' as colors;
+
+.class {
+  border: 1px solid colors.$ElviaGreen;
+  background: colors.$ElviaDark;
+}`;
+  exampleCssLong = `@use '@elvia/elvis-colors/dist/elviaColors.scss' as colors;`;
 }

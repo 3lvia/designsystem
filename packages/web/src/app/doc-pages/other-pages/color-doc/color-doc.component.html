@@ -464,72 +464,111 @@
   <!--IMPLEMENTATION-->
   <app-component-section [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Using Classes'">
+      <app-component-subsection [sectionTitle]="'Elvis'">
         <ng-container ngProjectAs="sectionContent">
-          All colors can be used through a set of classes. The
-          <code class="code-text">e-text</code>
-          sets the text-color of the element, while the
-          <code class="code-text">e-bg</code>
-          sets the background as well as the text.
-          <ul class="e-list">
-            <li><code class="code-text">e-bg-name</code></li>
-            <li><code class="code-text">e-text-name</code></li>
-          </ul>
-          <p>
-            All bg-classes sets the text-color to the contrast-color of the background. It is therefore not
-            necessary to use both the
-            <code class="code-text">bg</code>
-            and the
-            <code class="code-text">text</code>
-            class on the same element, exceptions can of course occur and then the
-            <code class="code-text">text</code>
-            class is available.
-          </p>
-          <p>
-            <app-do-dont [do]="true" [codeHTML]="doCode"></app-do-dont>
-            <app-do-dont [do]="false" [codeHTML]="dontCode"></app-do-dont>
-          </p>
+          Elvia colors are included in
+          <code class="code-text">@elvia/elvis</code>
+          as CSS classes and variables.
+          <app-component-subsubsection [sectionTitle]="'Using Classes'">
+            <ng-container ngProjectAs="sectionContent">
+              All colors can be used through a set of classes. The
+              <code class="code-text">e-text</code>
+              sets the text-color of the element, while the
+              <code class="code-text">e-bg</code>
+              sets the background as well as the text.
+              <ul class="e-list">
+                <li><code class="code-text">e-bg-name</code></li>
+                <li><code class="code-text">e-text-name</code></li>
+              </ul>
+              <p>
+                All bg-classes sets the text-color to the contrast-color of the background. It is therefore
+                not necessary to use both the
+                <code class="code-text">bg</code>
+                and the
+                <code class="code-text">text</code>
+                class on the same element, exceptions can of course occur and then the
+                <code class="code-text">text</code>
+                class is available.
+              </p>
+              <p>
+                <app-do-dont [do]="true" [codeHTML]="doCode"></app-do-dont>
+                <app-do-dont [do]="false" [codeHTML]="dontCode"></app-do-dont>
+              </p>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Using CSS-variables'">
+            <ng-container ngProjectAs="sectionContent">
+              <p>
+                All colors can be used through their CSS-variable as well. To use the CSS-variables you need
+                to install the ponyfill css-vars-ponyfill. Read more about
+                <a
+                  class="e-link e-link-inline"
+                  [routerLink]="['/about/get-started/']"
+                  fragment="For-developers"
+                >
+                  using CSS variables
+                </a>
+              </p>
+              <ul class="e-list">
+                <li><code class="code-text">var(--e-name)</code></li>
+              </ul>
+              <p>All CSS-variables can be used.</p>
+              <p>
+                <app-do-dont [do]="true" [codeCSS]="doCodeCSS"></app-do-dont>
+                <app-do-dont [do]="false" [codeCSS]="dontCodeCSS"></app-do-dont>
+              </p>
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Using CSS-variables'">
+      <app-component-subsection [sectionTitle]="'Token package'">
         <ng-container ngProjectAs="sectionContent">
-          <p>
-            All colors can be used through their CSS-variable as well. To use the CSS-variables you need to
-            install the ponyfill css-vars-ponyfill. Read more about
-            <a class="e-link e-link-inline" [routerLink]="['/about/get-started/']" fragment="For-developers">
-              using CSS variables
-            </a>
-          </p>
-          <ul class="e-list">
-            <li><code class="code-text">var(--e-name)</code></li>
-          </ul>
-          <p>All CSS-variables can be used.</p>
-          <p>
-            <app-do-dont [do]="true" [codeCSS]="doCodeCSS"></app-do-dont>
-            <app-do-dont [do]="false" [codeCSS]="dontCodeCSS"></app-do-dont>
-          </p>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Using Javascript package'">
-        <ng-container ngProjectAs="sectionContent">
-          <p>
-            All colors can be used through the Javascript package
-            <code class="code-text">@elvia/elvis-colors</code>
-            . The utility function
-            <code class="code-text">getColor(colorName)</code>
-            is provided to easily access a color hex value without having to manually traverse the underlying
-            colors object. The colors can be accessed through their names and labels.
-          </p>
-          <p>
-            <app-do-dont [do]="true" [codeTS]="doCodeTS"></app-do-dont>
-            <app-do-dont [do]="false" [codeTS]="dontCodeTS"></app-do-dont>
-          </p>
-          <p>
-            Likewise, the function
-            <code class="code-text">getContrastText(colorName)</code>
-            is provided to get a contrast text color corresponding to the requested color.
-          </p>
+          All colors can also be used through the package
+          <code class="code-text">@elvia/elvis-colors</code>
+          .
+          <app-component-subsubsection [sectionTitle]="'Using Javascript'">
+            <ng-container ngProjectAs="sectionContent">
+              <p>
+                The utility function
+                <code class="code-text">getColor(colorName)</code>
+                is provided to easily access a color hex value without having to manually traverse the
+                underlying colors object. The colors can be accessed through their names and labels.
+              </p>
+              <p>
+                <app-do-dont [do]="true" [codeTS]="doCodeTS"></app-do-dont>
+                <app-do-dont [do]="false" [codeTS]="dontCodeTS"></app-do-dont>
+              </p>
+              <p>
+                Likewise, the function
+                <code class="code-text">getContrastText(colorName)</code>
+                is provided to get a contrast text color corresponding to the requested color.
+              </p>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Using SCSS'">
+            <ng-container ngProjectAs="sectionContent">
+              <p>
+                <code class="code-text">@elvia/elvis-colors</code>
+                also provides all the Elvia colors (including labels) as SCSS-variables. All names are
+                prefixed with
+                <code class="code-text">Elvia</code>
+                , such as
+                <code class="code-text">ElviaGreen</code>
+                or
+                <code class="code-text">ElviaGrey30</code>
+                .
+              </p>
+              <app-component-example-code
+                [codeCSS]="exampleCss"
+                [noSubscriptions]="'true'"
+              ></app-component-example-code>
+              If this does not work for you, you may need to specify the exact file to include.
+              <app-component-example-code
+                [codeCSS]="exampleCssLong"
+                [noSubscriptions]="'true'"
+              ></app-component-example-code>
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
     </ng-container>
