@@ -514,7 +514,7 @@
       <app-component-subsection [sectionTitle]="'Using Javascript package'">
         <ng-container ngProjectAs="sectionContent">
           <p>
-            All colors can be used through the Javascript package
+            All colors can be used through the package
             <code class="code-text">@elvia/elvis-colors</code>
             . The utility function
             <code class="code-text">getColor(colorName)</code>
@@ -530,6 +530,30 @@
             <code class="code-text">getContrastText(colorName)</code>
             is provided to get a contrast text color corresponding to the requested color.
           </p>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Using SCSS package'">
+        <ng-container ngProjectAs="sectionContent">
+          <p>
+            <code class="code-text">@elvia/elvis-colors</code>
+            also provides all the Elvia colors (including labels) as SCSS-variables. All names are prefixed
+            with
+            <code class="code-text">Elvia</code>
+            , such as
+            <code class="code-text">ElviaGreen</code>
+            or
+            <code class="code-text">ElviaGrey30</code>
+            .
+          </p>
+          <app-component-example-code
+            [codeCSS]="exampleCss"
+            [noSubscriptions]="'true'"
+          ></app-component-example-code>
+          If this does not work for you, you may need to specify the exact file to include.
+          <app-component-example-code
+            [codeCSS]="exampleCssLong"
+            [noSubscriptions]="'true'"
+          ></app-component-example-code>
         </ng-container>
       </app-component-subsection>
     </ng-container>
