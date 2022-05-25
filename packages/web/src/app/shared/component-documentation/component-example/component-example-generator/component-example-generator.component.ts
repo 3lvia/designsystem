@@ -3,8 +3,15 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../example-code.service';
 import * as ElvisIcons from '@elvia/elvis-assets-icons';
-import ComponentData from 'src/app/doc-pages/components/component-data.interface';
+import ComponentData, { AttributeType } from 'src/app/doc-pages/components/component-data.interface';
 import ComponentTypeData from 'src/app/doc-pages/components/component-type-data.interface';
+
+type DropdownEvent = CustomEvent<{
+  value: {
+    value: string;
+    label: string;
+  };
+}>;
 
 @Component({
   selector: 'app-component-example-generator',
@@ -40,21 +47,21 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   enableFilters = true;
   hasSideFilters = true;
   formGroupList = [];
-  allCheckboxes = [];
+  allCheckboxes: (AttributeType & { propName: string })[] = [];
 
-  iconsOptions = [];
-  selectedIcon;
-  defaultIcon;
+  iconsOptions: { value: string; label: string }[] = [];
+  selectedIcon: { value: string; label: string };
+  defaultIcon: { value: string; label: string };
 
-  typeOptions = [];
-  selectedType;
+  typeOptions: { value: string | number; label: string }[] = [];
+  selectedType: string;
   defaultType;
-  bgOptions = [];
-  bgObj;
-  selectedBg;
-  defaultBg;
+  bgOptions: { value: number; label: string }[] = [];
+  bgObj: AttributeType & { propName: string };
+  selectedBg: string;
+  defaultBg: string;
 
-  topFilterFormStates = {};
+  topFilterFormStates: { [key: string]: string } = {};
 
   constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) {}
 
@@ -66,16 +73,16 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     if (this.inlineExample) {
       return;
     }
-    this.codeAngularSub = this.cegService.listenCodeAngular().subscribe((code: string) => {
+    this.codeAngularSub = this.cegService.listenCodeAngular().subscribe((code) => {
       this.codeAngular = code;
     });
-    this.codeReactSub = this.cegService.listenCodeReact().subscribe((code: string) => {
+    this.codeReactSub = this.cegService.listenCodeReact().subscribe((code) => {
       this.codeReact = code;
     });
-    this.codeVueSub = this.cegService.listenCodeVue().subscribe((code: string) => {
+    this.codeVueSub = this.cegService.listenCodeVue().subscribe((code) => {
       this.codeVue = code;
     });
-    this.codeNativeSub = this.cegService.listenCodeNative().subscribe((code: string) => {
+    this.codeNativeSub = this.cegService.listenCodeNative().subscribe((code) => {
       this.codeNative = code;
       this.updateCegFrame(code);
     });
@@ -246,8 +253,8 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           propName: propKey,
           ...prop,
         };
-        this.selectedBg = prop.cegDefault;
-        this.defaultBg = prop.cegDefault;
+        this.selectedBg = prop.cegDefault as string;
+        this.defaultBg = prop.cegDefault as string;
         this.bgObj.cegOptions.forEach((option, index) => {
           const type = { value: index, label: option };
           this.bgOptions.push(type);
@@ -277,7 +284,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     return checkboxArrays;
   }
 
-  updateFormStates(propName: string, event: CustomEvent): void {
+  updateFormStates(propName: string, event: DropdownEvent): void {
     const value = event.detail.value.label;
     this.addToFormStates(propName, value);
   }
@@ -304,21 +311,24 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     this.cegService.updateCodeNative(this.codeNative);
   }
 
-  updateSelectedType(selected: { value: any; label: any }, icon?: boolean): void {
-    this.selectedType = selected.label;
-    let newValue;
+  updateSelectedType(event: DropdownEvent, icon?: boolean): void {
+    const label = event.detail.value.label;
+    const value = event.detail.value.value;
+    this.selectedType = label;
+    let newValue: string;
     if (!icon || icon === undefined) {
-      newValue = selected.label.toLowerCase();
+      newValue = label.toLowerCase();
       this.updateSelected('type', newValue, 'string');
     } else {
-      this.updateSelected('name', selected.value, 'string');
+      this.updateSelected('name', value, 'string');
     }
   }
 
-  updateSelectedTypeCustom(selected: { value: any; label: any }): void {
+  updateSelectedTypeCustom(event: DropdownEvent): void {
+    const label = event.detail.value.label;
     this.typesData.forEach((element) => {
-      if (element.type === selected.label.toLowerCase()) {
-        this.selectedType = selected.label;
+      if (element.type === label.toLowerCase()) {
+        this.selectedType = label;
         this.codeReact = element.codeReact;
         this.codeAngular = element.codeAngular;
         this.codeVue = element.codeVue ? element.codeVue : '';
@@ -326,7 +336,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       }
     });
     if (this.typePropExists) {
-      this.updateSelected('type', selected.label.toLowerCase(), 'string', false);
+      this.updateSelected('type', label.toLowerCase(), 'string', false);
     }
     this.enableFilters = false;
     setTimeout(() => {
@@ -337,10 +347,11 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }, 100);
   }
 
-  updateSelectedBg(selected: { value: any; label: any }): void {
-    this.selectedBg = selected.label;
-    if (this.bgObj.cegOptions[this.bgObj.cegDefault] === selected.label) {
-      this.updateSelected(this.bgObj.propName, this.bgObj.default, 'boolean');
+  updateSelectedBg(event: DropdownEvent): void {
+    const label = event.detail.value.label;
+    this.selectedBg = label;
+    if (this.bgObj.cegOptions[this.bgObj.cegDefault as string] === label) {
+      this.updateSelected(this.bgObj.propName, this.bgObj.default as string, 'boolean');
     } else {
       this.updateSelected(this.bgObj.propName, '' + (this.bgObj.default == 'false'), 'boolean');
     }
