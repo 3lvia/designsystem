@@ -527,7 +527,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   /** Call valueOnChange (React) or dispatch on change-event (webcomponent) */
   const updateValue = (event: Parameters<NonNullable<DropdownProps['valueOnChange']>>[0]) => {
     // return if value undefined, need this check on initation to remove value undefined callback
-    if (value === undefined) {
+    if (event === undefined) {
       return;
     }
     // Filter out selectAllOption from the dispatched selected options
