@@ -61,7 +61,7 @@ export interface DropdownProps {
 }
 
 const Dropdown: React.FC<DropdownProps> = function ({
-  items,
+  items = [],
   value = undefined,
   isCompact,
   isDisabled,
@@ -150,6 +150,13 @@ const Dropdown: React.FC<DropdownProps> = function ({
     } else {
       return getColor('white');
     }
+  };
+
+  const decideValueContainerHeight = (): string => {
+    if (allOptionsHaveIconAttribute() && !isMulti) {
+      return 'inherit';
+    }
+    return '22px';
   };
 
   /** Custom styling for dropdown using emotion from react-select package. */
@@ -306,7 +313,8 @@ const Dropdown: React.FC<DropdownProps> = function ({
       lineHeight: '22px',
       paddingLeft: isCompact ? '8px' : '15px',
       paddingRight: '2px',
-      height: isSearchable ? 'inherit' : '22px',
+      height: decideValueContainerHeight(),
+      whiteSpace: 'nowrap',
     }),
   };
 
@@ -518,6 +526,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
 
   /** Call valueOnChange (React) or dispatch on change-event (webcomponent) */
   const updateValue = (event: Parameters<NonNullable<DropdownProps['valueOnChange']>>[0]) => {
+    // return if value undefined, need this check on initation to remove value undefined callback
+    if (value === undefined) {
+      return;
+    }
     // Filter out selectAllOption from the dispatched selected options
     const eventToDispatch =
       hasSelectAllOption && Array.isArray(event)
