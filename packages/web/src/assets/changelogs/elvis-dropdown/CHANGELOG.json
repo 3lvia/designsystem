@@ -8,6 +8,7 @@
         {
           "type": "bug_fix",
           "changes": [
+            "Fixed bug where dropdown gave a valueOnChange callback with undefined value on initation",
             "Fixed bug where items list array was empty and returned no found icon",
             "Fixed issue where long labels created scroll in options"
           ]
