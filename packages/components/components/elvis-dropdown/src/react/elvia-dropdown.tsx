@@ -61,7 +61,7 @@ export interface DropdownProps {
 }
 
 const Dropdown: React.FC<DropdownProps> = function ({
-  items,
+  items = [],
   value = undefined,
   isCompact,
   isDisabled,
@@ -152,6 +152,13 @@ const Dropdown: React.FC<DropdownProps> = function ({
     }
   };
 
+  const decideValueContainerHeight = (): string => {
+    if (allOptionsHaveIconAttribute() && !isMulti) {
+      return 'inherit';
+    }
+    return '22px';
+  };
+
   /** Custom styling for dropdown using emotion from react-select package. */
   const customElviaStyles: StylesConfig = {
     container: (provided) => ({
@@ -240,7 +247,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
       alignItems: 'center',
       backgroundColor: decideOptionBg(state.isFocused, state.isSelected, state.isMulti),
       color: getColor('black'),
-      height: isCompact ? '36px' : '48px',
+      height: '100%',
       paddingTop: '7px',
       paddingBottom: '7px',
       paddingLeft: isCompact ? '9px' : '15px',
@@ -306,17 +313,22 @@ const Dropdown: React.FC<DropdownProps> = function ({
       lineHeight: '22px',
       paddingLeft: isCompact ? '8px' : '15px',
       paddingRight: '2px',
+      height: decideValueContainerHeight(),
+      whiteSpace: 'nowrap',
     }),
   };
 
   // helper function to determine if options array have valid icon attributes.
   const allOptionsHaveIconAttribute = (): boolean => {
-    for (const dropdownItem of items) {
-      if (dropdownItem.icon === undefined) {
-        return false;
+    if (items.length > 0) {
+      for (const dropdownItem of items) {
+        if (dropdownItem.icon === undefined) {
+          return false;
+        }
       }
+      return true;
     }
-    return true;
+    return false;
   };
 
   // Custom components for Elvia dropdown
@@ -514,6 +526,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
 
   /** Call valueOnChange (React) or dispatch on change-event (webcomponent) */
   const updateValue = (event: Parameters<NonNullable<DropdownProps['valueOnChange']>>[0]) => {
+    // return if value undefined, need this check on initation to remove value undefined callback
+    if (value === undefined) {
+      return;
+    }
     // Filter out selectAllOption from the dispatched selected options
     const eventToDispatch =
       hasSelectAllOption && Array.isArray(event)
