@@ -1,6 +1,7 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import ComponentTypeData from '../component-type-data.interface';
 
-const popoverInformativeCode = {
+const popoverInformativeCode: ComponentTypeData = {
   type: 'informative',
   codeReact:
     `<Popover
@@ -79,7 +80,6 @@ const popoverInformativeCode = {
   </button>
 </elvia-popover>
 `,
-  // all scripts for the examples are in popover-data.ts
 };
 
 export { popoverInformativeCode };

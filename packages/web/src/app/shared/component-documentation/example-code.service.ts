@@ -5,24 +5,24 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class ExampleCodeService {
-  private subjectCodeReact = new Subject<any>();
-  private subjectCodeAngular = new Subject<any>();
-  private subjectCodeVue = new Subject<any>();
-  private subjectCodeNative = new Subject<any>();
+  private subjectCodeReact = new Subject<string>();
+  private subjectCodeAngular = new Subject<string>();
+  private subjectCodeVue = new Subject<string>();
+  private subjectCodeNative = new Subject<string>();
 
-  listenCodeReact(): Observable<any> {
+  listenCodeReact(): Observable<string> {
     return this.subjectCodeReact.asObservable();
   }
 
-  listenCodeAngular(): Observable<any> {
+  listenCodeAngular(): Observable<string> {
     return this.subjectCodeAngular.asObservable();
   }
 
-  listenCodeVue(): Observable<any> {
+  listenCodeVue(): Observable<string> {
     return this.subjectCodeVue.asObservable();
   }
 
-  listenCodeNative(): Observable<any> {
+  listenCodeNative(): Observable<string> {
     return this.subjectCodeNative.asObservable();
   }
 

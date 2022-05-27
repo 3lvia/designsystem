@@ -29,13 +29,13 @@ export interface AttributeTypeCommon {
 /**
  * These types are specific for the attributes that are shown in the CEG.
  */
-export type AttributeTypeCEG = {
+export interface AttributeTypeCEG {
   /**
-   * Selects the default option from the cegOptions array.
+   * Selects the default option from the `cegOptions` array.
    *
    * Can either be the index of the default value, or the default value itself.
    *
-   * For cegFormType = 'checkbox' | 'toggle' it should be a boolean indicating whether it is selected by default.
+   * For `cegFormType = 'checkbox' | 'toggle'` it should be a boolean indicating whether it is selected by default.
    */
   cegDefault?: number | string | boolean;
   /**
@@ -45,38 +45,38 @@ export type AttributeTypeCEG = {
   /**
    * How the prop is displayed in the CEG.
    *
-   * 'type' and 'background' are shown as dropdowns on top of the CEG.
+   * `'type'` and `'background'` are shown as dropdowns on top of the CEG.
    *
-   * 'checkbox' is often used for additional props that can be turned on and off simultaneously.
+   * `'radio'` shows a radio button that is often used to show different states.
    *
-   * 'radio' shows a radio button that is often used to show different states.
+   * `'checkbox'` is often used for additional props that can be turned on and off simultaneously.
    *
-   * 'toggle' should be used when the prop turns something visible on or off (e.g. heading).
+   * `'toggle'` should be used when the prop turns something visible on or off (e.g. heading).
    *
-   * 'counter' should be used to show a counter that can be adjusted.
-   * Also requires 'cegCounterMax', 'cegCounterMin', 'cegStepValue', and 'cegCounterType'.
+   * `'counter'` should be used to show a counter that can be adjusted.
+   * Also requires `'cegCounterMax'`, `'cegCounterMin'`, `'cegStepValue'`, and `'cegCounterType'`.
    * See the component Progressbar for an example.
    *
-   * 'iconName' is only used for the icon documentation.
+   * `'iconName'` is only used for the icon documentation.
    */
   cegFormType?: 'type' | 'background' | 'radio' | 'checkbox' | 'toggle' | 'counter' | 'iconName';
   /**
    * Options for the prop in the dropdown and the value sent in as the attribute in the code.
    *
-   * Used for cegFormType =  'background' | 'radio' | 'type'.
+   * Used for `cegFormType =  'background' | 'radio' | 'type'`.
    */
   cegOptions?: string[];
 
   /**
-   * The value that will be sent in with the prop. If a slot is sent in for web component, instead use the option cegSlot.
+   * The value that will be sent in with the prop. If a slot is sent in for web component, instead use the option `cegSlot`.
    *
-   * Used for cegFormType = 'checkbox' | 'toggle'.
+   * Used for `cegFormType = 'checkbox' | 'toggle'`.
    */
   cegOption?: string;
   /**
-   * Replaces 'cegOption' if it is a slot and not a normal prop in the custom element.
+   * Replaces `cegOption` if it is a slot and not a normal prop in the custom element.
    *
-   * Used for cegFormType = 'checkbox' | 'toggle'.
+   * Used for `cegFormType = 'checkbox' | 'toggle'`.
    */
   cegSlot?: string;
 
@@ -100,30 +100,30 @@ export type AttributeTypeCEG = {
   /**
    * Set the max value of the counter.
    *
-   * Used for cegFormType = 'counter'.
+   * Used for `cegFormType = 'counter'`.
    */
   cegCounterMax?: number;
   /**
    * Set the min value of the counter.
    *
-   * Used for cegFormType = 'counter'.
+   * Used for `cegFormType = 'counter'`.
    */
   cegCounterMin?: number;
   /**
    * Set the increment of the counter for each step.
    *
-   * Used for cegFormType = 'counter'.
+   * Used for `cegFormType = 'counter'`.
    */
   cegStepValue?: number;
   /**
    * Added to the back of the value of the counter (e.g. '%' to make the counter in percentages).
    *
-   * Used for cegFormType = 'counter'.
+   * Used for `cegFormType = 'counter'`.
    */
   cegCounterType?: string;
-};
+}
 
-export type AttributeType = AttributeTypeCommon & AttributeTypeCEG;
+export interface AttributeType extends AttributeTypeCommon, AttributeTypeCEG {}
 
 /**
  * These types are essental for the CEG to function.
@@ -158,30 +158,30 @@ export interface ComponentDataCode {
 /**
  * Definition for an object/a single update in the changelog
  */
-type ComponentChangelog = {
+export interface ComponentChangelog {
   date: string;
   version: string;
   changelog: Array<ComponentChangelogChange>;
-};
+}
 
 /**
  * Each segment in the changelog for a spesific update.
  */
-type ComponentChangelogChange = {
+export interface ComponentChangelogChange {
   type?: string; // TODO: Should be required, but old changelogs dont always implement this
   changes: Array<string>;
-};
+}
 /**
  * Interface for component data for documentation pages.
  */
-type ComponentData = {
+export default interface ComponentData extends ComponentDataCode {
   /**
    * Component name (package name). Prefixed with 'elvis'.
    * @example 'elvis-component'
    */
   name: string;
   /**
-   * Component name for the DOM (Custom element). Prefixed with 'elvia'.
+   * Component name for the DOM (Custom element). Prefixed with 'elvia-'.
    * @example 'elvia-component'
    */
   elementNameW: string;
@@ -193,7 +193,7 @@ type ComponentData = {
   /**
    * All the component's attributes should be in this object.
    * Some attributes will need more information depending on whether they should be displayed in the CEG or not,
-   * however 3 attributes are required for all components: 'isRequired', 'type' and 'description'.
+   * however 3 attributes are required for all components: `'isRequired'`, `'type'` and `'description'`.
    */
   attributes: {
     [attribute: string]: AttributeType;
@@ -223,6 +223,4 @@ type ComponentData = {
 
   does?: string[];
   donts?: string[];
-} & ComponentDataCode;
-
-export default ComponentData;
+}

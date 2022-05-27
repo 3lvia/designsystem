@@ -1,6 +1,7 @@
 import { exampleContents } from 'src/app/shared/example-contents';
+import ComponentTypeData from '../component-type-data.interface';
 
-const cardDetailCode = {
+const cardDetailCode: ComponentTypeData = {
   type: 'detail',
   codeReact:
     `<Card 
@@ -47,8 +48,6 @@ const cardDetailCode = {
     `"
 >
 </elvia-card>
-`,
-  codeNativeScript: `  const card = document.getElementById('example-elvia-card');
 `,
 };
 

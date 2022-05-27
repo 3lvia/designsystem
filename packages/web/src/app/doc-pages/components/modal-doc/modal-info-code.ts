@@ -1,4 +1,6 @@
-const modalInfoCode = {
+import ComponentTypeData from '../component-type-data.interface';
+
+const modalInfoCode: ComponentTypeData = {
   type: 'info',
   codeReact: `<button onClick={() => setIsModalShowingState(true)} className="e-btn">Åpne modal</button>
 <Modal
@@ -49,8 +51,6 @@ const modalInfoCode = {
   <button id="close-button" slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
 </elvia-modal>
 `,
-  codeNativeScript: ``,
-  // all scripts for the examples are in modal-data.ts
 };
 
 export { modalInfoCode };

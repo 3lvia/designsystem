@@ -1,4 +1,6 @@
-const cardSimpleCode = {
+import ComponentTypeData from '../component-type-data.interface';
+
+const cardSimpleCode: ComponentTypeData = {
   type: 'simple',
   codeReact: `<Card 
   header={"Safety"}
@@ -21,8 +23,6 @@ const cardSimpleCode = {
 >
   <i slot="icon" class="e-icon e-icon--electricity_safety e-icon--md" aria-hidden="true"></i>
 </elvia-card>
-`,
-  codeNativeScript: `  const card = document.getElementById('example-elvia-card');
 `,
 };
 
