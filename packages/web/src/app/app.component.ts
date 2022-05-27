@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { DocumentEventListenerService } from './core/services/document-event-listener.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,13 @@ export class AppComponent implements OnInit {
   isLightMode = window
     .matchMedia('(prefers-color-scheme: light)')
     .addListener((e) => e.matches && this.handleMode(!e.matches));
+
+  constructor(private documentEventListenerService: DocumentEventListenerService) {}
+
+  @HostListener('document:keypress', ['$event'])
+  navigateOnKeyboardEvents(event: KeyboardEvent): void {
+    this.documentEventListenerService.handleKeyboardEvent(event);
+  }
 
   ngOnInit(): void {
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
