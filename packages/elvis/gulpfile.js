@@ -2,6 +2,7 @@
 
 const styles = require('./tasks/styles.js');
 const icons = require('./tasks/icons.js');
+const colors = require('./tasks/colors.js');
 const classList = require('./tasks/classlist.js');
 const gulp = require('gulp');
 
@@ -19,6 +20,8 @@ gulp.task(
     styles.generateCSS,
     classList.createClassListOverview,
     icons.generateIcons,
+    // colors.injectColors must be called after icons.generateIcons
+    colors.injectColors,
     copyChangelogs,
     function (done) {
       done();
