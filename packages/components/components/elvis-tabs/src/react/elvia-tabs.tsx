@@ -37,22 +37,24 @@ const Tabs: FC<TabsProps> = ({
   const lengthToScroll = 140;
   const scrollSteps = 12;
 
+  /**
+   * Start outline listener
+   *
+   * Start resize and scroll listener that updates arrow visibility
+   */
   useEffect(() => {
-    // Start outline listener
-    toolbox.outlineListener(tabsRef.current);
-
-    // Listen to resize & scroll and update scrolled positions
     if (!itemsRef.current) {
       return;
     }
+
+    toolbox.outlineListener(tabsRef.current);
+
     const throttledResizeCount = toolbox.throttle(updateArrowVisibility, 100);
     const throttledScrollCount = toolbox.throttle(updateArrowVisibility, 50);
-
     window.addEventListener('resize', throttledResizeCount);
     itemsRef.current.addEventListener('scroll', throttledScrollCount);
 
     return () => {
-      // Remove outline listener
       toolbox.outlineListener(tabsRef.current, true);
 
       window.removeEventListener('resize', throttledResizeCount);
@@ -62,11 +64,14 @@ const Tabs: FC<TabsProps> = ({
     };
   }, []);
 
+  /**
+   * Set arrow visibility
+   *
+   * Start listening to keydown events for updating tab-focus
+   */
   useEffect(() => {
-    // Update scroll position on init
     updateArrowVisibility();
 
-    // Listen for key-events to update focused element
     if (itemsRef.current) {
       itemsRef.current.addEventListener('keydown', updateFocusedElement);
     }
@@ -77,21 +82,30 @@ const Tabs: FC<TabsProps> = ({
     };
   });
 
+  /**
+   * When value changes, currValue and tabInFocus should be updated
+   */
   useEffect(() => {
     setCurrValue(value);
     setTabInFocus(value);
   }, [value]);
 
+  /**
+   * Updates the active tab and triggering valueOnChange events.
+   */
   const updateValue = (value: number) => {
     setCurrValue(value);
     if (!webcomponent && valueOnChange) {
       valueOnChange(value);
     } else if (webcomponent) {
-      // True -> Prevents rerender
       webcomponent.setProps({ value: value }, true);
     }
   };
 
+  /**
+   * Checks if the tabs area is showing all the tabs or if some of them are overflowing.
+   * Update variables for showing or hiding the navigational arrows.
+   */
   const updateArrowVisibility = () => {
     if (!itemsRef.current || !tabsRef.current) {
       return;
@@ -108,13 +122,18 @@ const Tabs: FC<TabsProps> = ({
     }
   };
 
+  /**
+   * If arrow right or left are used, update the focused element
+   *
+   * If hasManualActivation is false update the tab value as well (switch tab)
+   */
   const updateFocusedElement = (e: KeyboardEvent) => {
     if (!itemsRef.current) {
       return;
     }
-    const tabsCollection = itemsRef.current.children as HTMLCollection;
-    let newTabToFocus = 0;
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      let newTabToFocus = 0;
+      const tabsCollection = itemsRef.current.children as HTMLCollection;
       tabsCollection[tabInFocus].setAttribute('tabIndex', '-1');
       if (e.key === 'ArrowRight') {
         newTabToFocus = tabInFocus + 1;
@@ -136,6 +155,9 @@ const Tabs: FC<TabsProps> = ({
     }
   };
 
+  /**
+   * Takes a direction (left or right) and scrolls a set amount in that direction within the tabs
+   */
   const scrollSideways = (direction: string) => {
     let scrollAmount = 0;
     const slideTimer = () => {
