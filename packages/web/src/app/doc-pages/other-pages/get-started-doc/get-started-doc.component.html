@@ -3,8 +3,8 @@
   <ng-container ngProjectAs="headerTitle">Get started</ng-container>
   <ng-container ngProjectAs="headerDescription">
     We are an open-source design system to be used for Elvia’s external and internal systems to provide a
-    comprehensive and user-friendly experience. We offer classes and variables for styling components, as well
-    as templates, accessibility rules and design principles.
+    comprehensive and user-friendly experience. We offer classes, variables and components, as well as tools
+    like accessibility guidelines and design principles.
   </ng-container>
 </app-component-header>
 
@@ -13,10 +13,239 @@
   <!--FOR DEVELOPERS-->
   <app-component-section [sectionTitle]="'For developers'">
     <ng-container ngProjectAs="sectionContent">
-      Elvis helps designers and developers create software with a consistent look and feel and saves time by
-      allowing us to reuse components and design elements across multiple systems and sketches.
+      The design system helps designers and developers create software with a consistent look and feel and
+      saves time by allowing us to reuse components and design elements across multiple systems and sketches.
 
-      <div class="e-accordion e-accordion--group">
+      <div class="e-mt-24">
+        We separate the available components into a style library and separate components. The style library
+        is called elvis and can be used to get styling with html classes. For more advanced components we
+        offer separate packages that can be used individually. When browsing our components it will be clear
+        what kind of component it is by looking at the code examples or the installation guidelines. Find all
+        the components under "Components" in the main menu.
+      </div>
+
+      <div class="e-accordion e-accordion--group e-mt-40">
+        <!--Style library - Elvis-->
+        <div class="e-accordion__item" id="elvis">
+          <div class="e-accordion__label" (click)="toggleAccordion('elvis')">
+            <div class="e-accordion__title">Elvis</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              Elvis is the styling library we offer with multiple component classes and utilities like colors,
+              icons and typography.
+            </div>
+
+            <!--CDN-->
+            <app-component-subsubsection [sectionTitle]="'With CDN'">
+              <ng-container ngProjectAs="sectionContent">
+                Elvis can be very easily used through our CDN.
+                <ol class="e-list e-list--numbers">
+                  <li>
+                    <strong>Put the following in &lt;head></strong>
+                    <div *ngIf="loadedStyle">
+                      <div class="code-text">{{ linkTagCode }}</div>
+                    </div>
+                    <div
+                      *ngIf="!loadedStyle"
+                      class="e-content-loader"
+                      style="width: 100%; height: 127px"
+                    ></div>
+                  </li>
+                  <li>
+                    <strong>Put the following at the bottom of &lt;body></strong>
+                    <div *ngIf="loadedScript">
+                      <div class="code-text">{{ scriptTagCode }}</div>
+                    </div>
+                    <div
+                      *ngIf="!loadedScript"
+                      class="e-content-loader"
+                      style="width: 100%; height: 127px"
+                    ></div>
+                  </li>
+                </ol>
+
+                <p>The result should look like this:</p>
+                <div *ngIf="loadedFullExample">
+                  <app-component-example-code [codeHTML]="fullExampleCode"></app-component-example-code>
+                </div>
+                <div
+                  *ngIf="!loadedFullExample"
+                  class="e-content-loader"
+                  style="width: 100%; height: 337px"
+                ></div>
+              </ng-container>
+            </app-component-subsubsection>
+
+            <!--NPM-->
+            <app-component-subsubsection [sectionTitle]="'With NPM (alternative)'">
+              <ng-container ngProjectAs="sectionContent">
+                <div class="e-alert e-alert--local e-alert--warn e-mb-32" role="alert">
+                  <div class="e-alert__icon">
+                    <i class="e-icon e-icon--warning_circle e-icon--color-orange" aria-hidden="true"></i>
+                  </div>
+                  <div class="e-alert__content">
+                    <div class="e-alert__title">Not recommended</div>
+                    <div class="e-alert__text">This method is not recommended for less advanced users</div>
+                  </div>
+                </div>
+                <ol class="e-list e-list--numbers">
+                  <li>
+                    <strong class="e-mr-16">Install the package:</strong>
+                    <app-copy [message]="'npm i @elvia/elvis'">
+                      <ng-container ngProjectAs="copyContent">
+                        <code class="code-text">npm i @elvia/elvis</code>
+                      </ng-container>
+                    </app-copy>
+                  </li>
+                  <li>
+                    <strong class="e-mr-16">Import src/main.scss or elvis.min.css in your stylesheet:</strong>
+                    <app-copy [message]="'@import \'~@elvia/elvis/src/main.scss\';'">
+                      <ng-container ngProjectAs="copyContent">
+                        <code class="code-text">@import '~@elvia/elvis/src/main.scss';</code>
+                      </ng-container>
+                    </app-copy>
+                  </li>
+                  <li>
+                    <strong class="e-mr-16">Add elvis.js from the NPM package in &#x3C;body&#x3E;:</strong>
+                    <app-copy [message]="bodyScriptMessage">
+                      <ng-container ngProjectAs="copyContent">
+                        <code class="code-text">
+                          &lt;body&gt; &lt;script src="assets/js/elvis.js"&gt;&lt;/script&gt; &lt;/body&gt;
+                        </code>
+                      </ng-container>
+                    </app-copy>
+                  </li>
+                </ol>
+              </ng-container>
+            </app-component-subsubsection>
+
+            <app-component-subsubsection [sectionTitle]="'Using CSS variables'">
+              <ng-container ngProjectAs="sectionContent">
+                <div>
+                  For many of the our utilities, like colors and spacing, CSS-variables are also provided. All
+                  these variables are available when importing the main.scss file in your stylesheet, meaning
+                  you don't need to import any specific files to use them.
+                  <div class="e-my-16">
+                    <code class="code-text">var(--e-name-of-class)</code>
+                  </div>
+                </div>
+
+                <h4 class="e-title-caps">Internet Explorer Support</h4>
+                <div>
+                  The CSS-variables are not supported by IE11 and a ponyfill is therefore added as a
+                  dependency. But this library is offered as a ponyfill, not a polyfill, meaning that the code
+                  below needs to be added to your project, in your main.js/ts file, for processing to take
+                  place. Read more on the
+                  <span>
+                    <a
+                      class="e-link e-link--inline e-link--new-tab"
+                      href="https://jhildenbiddle.github.io/css-vars-ponyfill/#/"
+                      target="_blank"
+                    >
+                      <span class="e-link__title">ponyfill documentation here.</span>
+                      <span class="e-link__icon">
+                        <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </span>
+                  <app-copy [message]="'npm install css-vars-ponyfill'">
+                    <ng-container ngProjectAs="copyContent">
+                      <code class="code-text">npm install css-vars-ponyfill</code>
+                    </ng-container>
+                  </app-copy>
+                </div>
+                <p>
+                  <app-component-example-code [codeTS]="cssVarsCode"></app-component-example-code>
+                </p>
+              </ng-container>
+            </app-component-subsubsection>
+          </div>
+        </div>
+
+        <!--Components-->
+        <div class="e-accordion__item" id="components">
+          <div class="e-accordion__label" (click)="toggleAccordion('components')">
+            <div class="e-accordion__title">Components</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              Our components have each their own npm package that can be used individually or together with
+              other components and elvis. Our components are also listed together with the styling library
+              under "Components" in the menu. We also offer colors, typography and icons as individual
+              packages if you don't want to use Elvis.
+            </div>
+
+            <div class="e-mt-24">
+              Each components has their own guidelines for how to use and install the package in your project.
+            </div>
+          </div>
+        </div>
+
+        <!--Utilities-->
+        <div class="e-accordion__item" id="utilities">
+          <div class="e-accordion__label" (click)="toggleAccordion('utilities')">
+            <div class="e-accordion__title">Utilities</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content" style="display: block">
+            Find all the utilities we provide under the
+            <a class="e-link e-link--inline" [routerLink]="['/brand']">brand</a>
+            and
+            <a class="e-link e-link--inline" [routerLink]="['/tools']">tools</a>
+            headings. Here you can find our variables and packages for colors, typography, icons and many
+            more.
+
+            <div class="e-mt-32">
+              <a class="e-link e-link--action" [routerLink]="['/brand/color']">
+                <span class="e-link__title">Colors</span>
+                <span class="e-link__icon">
+                  <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+                  <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+                </span>
+              </a>
+            </div>
+            <div class="e-mt-16">
+              <a class="e-link e-link--action" [routerLink]="['/brand/typography']">
+                <span class="e-link__title">Typography</span>
+                <span class="e-link__icon">
+                  <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+                  <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+                </span>
+              </a>
+            </div>
+            <div class="e-mt-16">
+              <a class="e-link e-link--action" [routerLink]="['/brand/icon']">
+                <span class="e-link__title">Icons</span>
+                <span class="e-link__icon">
+                  <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+                  <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+                </span>
+              </a>
+            </div>
+            <div class="e-mt-16 e-mb-40">
+              <a class="e-link e-link--action" [routerLink]="['/tools/utility-classes']">
+                <span class="e-link__title">Utility classes</span>
+                <span class="e-link__icon">
+                  <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+                  <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <!--Talk with us-->
         <div class="e-accordion__item" id="talk">
           <div class="e-accordion__label" (click)="toggleAccordion('talk')">
@@ -45,217 +274,6 @@
                 </span>
               </a>
             </span>
-          </div>
-        </div>
-
-        <!--Get started using CDN-->
-        <div class="e-accordion__item" id="cdn">
-          <div class="e-accordion__label" (click)="toggleAccordion('cdn')">
-            <div class="e-accordion__title">Get started using CDN</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
-            <ol class="e-list e-list--numbers">
-              <li>
-                <strong>Put the following in &lt;head></strong>
-                <div *ngIf="loadedStyle">
-                  <app-component-example-code [codeHTML]="linkTagCode"></app-component-example-code>
-                </div>
-                <div *ngIf="!loadedStyle" class="e-content-loader" style="width: 100%; height: 127px"></div>
-              </li>
-              <li>
-                <strong>Put the following at the bottom of &lt;body></strong>
-                <div *ngIf="loadedScript">
-                  <app-component-example-code [codeHTML]="scriptTagCode"></app-component-example-code>
-                </div>
-                <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px"></div>
-              </li>
-            </ol>
-
-            <p>The result should look like this:</p>
-            <div *ngIf="loadedFullExample">
-              <app-component-example-code [codeHTML]="fullExampleCode"></app-component-example-code>
-            </div>
-            <div *ngIf="!loadedFullExample" class="e-content-loader" style="width: 100%; height: 337px"></div>
-          </div>
-        </div>
-
-        <!--Alternative: Get started using NPM-->
-        <div class="e-accordion__item" id="npm">
-          <div class="e-accordion__label" (click)="toggleAccordion('npm')">
-            <div class="e-accordion__title">Alternative: Get started using NPM</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
-            <div class="e-alert e-alert--local e-alert--warn e-mb-32" role="alert">
-              <div class="e-alert__icon">
-                <i class="e-icon e-icon--warning_circle e-icon--color-orange" aria-hidden="true"></i>
-              </div>
-              <div class="e-alert__content">
-                <div class="e-alert__title">Not recommended</div>
-                <div class="e-alert__text">This method is not recommended for less advanced users</div>
-              </div>
-            </div>
-            <ol class="e-list e-list--numbers">
-              <li>
-                <strong class="e-mr-16">Install the package</strong>
-                <app-copy [message]="'npm i @elvia/elvis'">
-                  <ng-container ngProjectAs="copyContent">
-                    <code class="code-text">npm i @elvia/elvis</code>
-                  </ng-container>
-                </app-copy>
-              </li>
-              <li>
-                <strong class="e-mr-16">Import src/main.scss or elvis.min.css in your stylesheet</strong>
-                <app-copy [message]="'@import \'~@elvia/elvis/src/main.scss\';'">
-                  <ng-container ngProjectAs="copyContent">
-                    <code class="code-text">@import '~@elvia/elvis/src/main.scss';</code>
-                  </ng-container>
-                </app-copy>
-              </li>
-              <li>
-                <strong class="e-mr-16">Add elvis.js from the NPM package in &#x3C;body&#x3E;</strong>
-                <app-copy [message]="bodyScriptMessage">
-                  <ng-container ngProjectAs="copyContent">
-                    <code class="code-text">
-                      &lt;body&gt; &lt;script src="assets/js/elvis.js"&gt;&lt;/script&gt; &lt;/body&gt;
-                    </code>
-                  </ng-container>
-                </app-copy>
-                <p><strong>or use the CDN for elvis.js:</strong></p>
-                <div *ngIf="loadedScript">
-                  <app-component-example-code [codeHTML]="scriptTagCode"></app-component-example-code>
-                </div>
-                <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px"></div>
-              </li>
-            </ol>
-          </div>
-        </div>
-
-        <!--Using CSS-variables-->
-        <div class="e-accordion__item" id="css-vars">
-          <div class="e-accordion__label" (click)="toggleAccordion('css-vars')">
-            <div class="e-accordion__title">Using CSS-variables</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
-            <div>
-              Sometimes creating your own classes is necessary. For most of the identity like colors, shadows
-              and spacing CSS-variables are also provided. All these variables are available when importing
-              the main.scss file in your stylesheet, meaning you don't need to import any specific files to
-              use them.
-              <p class="e-my-16">
-                <code class="code-text">var(--e-name-of-class)</code>
-              </p>
-            </div>
-
-            <app-component-subsubsection [sectionTitle]="'Internet Explorer Support'">
-              <ng-container ngProjectAs="sectionContent">
-                <p>
-                  <app-copy [message]="'npm install css-vars-ponyfill'">
-                    <ng-container ngProjectAs="copyContent">
-                      <code class="code-text">npm install css-vars-ponyfill</code>
-                    </ng-container>
-                  </app-copy>
-                </p>
-                <p>
-                  The CSS-variables are not supported by IE11 and a ponyfill is therefore added as a
-                  dependency. But this library is offered as a ponyfill, not a polyfill, meaning that the code
-                  below needs to be added to your project, in your main.js/ts file, for processing to take
-                  place:
-                </p>
-                <p>
-                  <app-component-example-code [codeTS]="cssVarsCode"></app-component-example-code>
-                </p>
-                <p>
-                  You can read more on the
-                  <span>
-                    <a
-                      class="e-link e-link--inline e-link--new-tab"
-                      href="https://jhildenbiddle.github.io/css-vars-ponyfill/#/"
-                      target="_blank"
-                    >
-                      <span class="e-link__title">Ponyfill documentation here.</span>
-                      <span class="e-link__icon">
-                        <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                  </span>
-                </p>
-              </ng-container>
-            </app-component-subsubsection>
-          </div>
-        </div>
-
-        <!--Font-->
-        <div class="e-accordion__item" id="font">
-          <div class="e-accordion__label" (click)="toggleAccordion('font')">
-            <div class="e-accordion__title">Font</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
-            <div>
-              Elvia Designsystem uses two fonts provided by Google:
-              <ol class="e-list">
-                <li>Red Hat Text</li>
-                <li>Red Hat Display</li>
-              </ol>
-
-              The import of these two font types are provied within the compiled CSS of Elvis, and you don't
-              need any font imports in your project to get the correct font style for Elvia styled components.
-            </div>
-          </div>
-        </div>
-
-        <!--Icons-->
-        <div class="e-accordion__item" id="icons">
-          <div class="e-accordion__label" (click)="toggleAccordion('icons')">
-            <div class="e-accordion__title">Icons</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
-            <div>
-              Icons and how to implement them is available through @elvia/elvis package or CDN, take a look at
-              the icon documentation page on how:
-              <a class="e-link e-link--inline" [routerLink]="['/brand/icon']">Icons</a>
-              .
-            </div>
-
-            <div class="e-mt-16">
-              We also offer all elvia icons as a seperate package
-              <a class="e-link e-link--inline" href="https://www.npmjs.com/package/@elvia/elvis-assets-icons">
-                @elvia/elvis-asseets-icons
-              </a>
-              .
-            </div>
-            <div class="e-mt-16">
-              Our icon library is based on Streamline icons. The icons that are from Streamline is not made
-              accessible under the same license as this npm package. Those icons are still the property of
-              Webablys LLC. Elvia has bought a license for the use of these icons in the organization. They
-              can also be used in open source projects as long as you follow their license.
-            </div>
-
-            <div>
-              Streamline license information:
-              <a class="e-link e-link--inline" href="https://help.streamlineicons.com/license-premium">
-                Steamline license
-              </a>
-            </div>
           </div>
         </div>
       </div>
