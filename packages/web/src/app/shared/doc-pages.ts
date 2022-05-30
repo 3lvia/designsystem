@@ -523,6 +523,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     title: 'Layout',
     figmaUrl: 'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8936%3A67993',
     docUrl: 'layout',
+    absolutePath: '/brand/' + 'layout',
   },
   {
     title: 'Typography',

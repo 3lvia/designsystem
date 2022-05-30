@@ -1,10 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages';
-import { DocPage } from 'src/app/shared/doc-pages.interface';
 import packageJson from '@elvia/elvis/package.json';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
+import { IDocumentationPage } from 'contentful/types';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { SearchItem } from './search-menu.interface';
+import { compareTwoStrings } from 'string-similarity';
 
 @Component({
   selector: 'app-search-menu',
@@ -12,13 +16,13 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
   styleUrls: ['./search-menu.component.scss'],
 })
 export class SearchMenuComponent implements OnInit, OnDestroy {
-  mainMenu: any;
+  mainMenu: CMSMenu;
   version = packageJson.version;
   showResults = false;
   resultOfMoreThanTwo = false;
   searchString = '';
-  elvisItems: DocPage[] = [];
-  activeResults: DocPage[] = [];
+  elvisItems: SearchItem[] = [];
+  activeResults: SearchItem[] = [];
 
   indexOfResultDescription = 0;
   indexStartLimit = 0;
@@ -50,18 +54,92 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const search = document.getElementById('search-field');
     search.focus();
-    this.elvisItems = this.elvisItems.concat(componentsDocPages, docPagesNotFromCMS);
+
+    this.getSearchOptionsFromCMS()
+      .then((cmsItems) => {
+        this.elvisItems = this.elvisItems.concat(
+          componentsDocPages.map((docPage) => {
+            return {
+              title: docPage.title,
+              description: docPage.description,
+              type: docPage.type,
+              absolutePath: docPage.absolutePath,
+              fragmentPath: docPage.fragmentPath,
+            };
+          }),
+          docPagesNotFromCMS.map((docPage) => {
+            return {
+              title: docPage.title,
+              description: docPage.description,
+              type: docPage.type,
+              absolutePath: docPage.absolutePath,
+              fragmentPath: docPage.fragmentPath,
+            };
+          }),
+          cmsItems,
+        );
+      })
+      .then(() => {
+        this.elvisItems = this.removeDuplicateSearchOptions(this.elvisItems);
+        this.elvisItems = this.removeSearchOptionsWithoutPath(this.elvisItems);
+      });
+  }
+
+  async getSearchOptionsFromCMS(): Promise<SearchItem[]> {
+    const items = await this.cmsService.getMenu(0);
+    const mappedCMSItems: SearchItem[] = [];
+    items.pages.forEach((subMenu) => {
+      subMenu.entry.fields.pages['en-GB'].forEach((documentationPage: IDocumentationPage) => {
+        let description: string | undefined;
+        if (documentationPage.fields.pageDescription) {
+          description = documentToHtmlString(documentationPage.fields.pageDescription['en-GB']);
+        }
+
+        if (!this.elvisItems.find((item) => item.title === documentationPage.fields.title['en-GB'])) {
+          mappedCMSItems.push({
+            title: documentationPage.fields.title['en-GB'],
+            description: description,
+            type: subMenu.title.toLowerCase(),
+            absolutePath: subMenu.path + '/' + documentationPage.fields.path['en-GB'],
+          });
+        }
+      });
+    });
+    return mappedCMSItems;
+  }
+
+  removeDuplicateSearchOptions(items: SearchItem[]): SearchItem[] {
+    const seen = {};
+    return items
+      .filter((item) => {
+        const title = item.title.replace(' ', '').toLocaleLowerCase();
+        return seen[title] ? false : (seen[title] = true);
+      })
+      .filter((item) => item.absolutePath != undefined);
+  }
+
+  removeSearchOptionsWithoutPath(items: SearchItem[]): SearchItem[] {
+    return items.filter((item) => item.absolutePath);
   }
 
   onSearch(): void {
     // Adding all titles that contain searchString to results
-    this.activeResults = this.elvisItems.filter((item: any) =>
+    this.activeResults = this.elvisItems.filter((item) =>
       item.title.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()),
     );
     // Adding all descriptions that contain searchString to results
     this.activeResults = this.activeResults.concat(
-      this.elvisItems.filter((item: any) => this.containsSearchString(item)),
+      this.elvisItems.filter((item) => this.containsSearchString(item)),
     );
+
+    // Rank what results have a title closest to the searched phrase
+    this.activeResults = this.activeResults
+      .map((item) => {
+        return { ...item, similarity: compareTwoStrings(this.searchString, item.title) };
+      })
+      .sort((a, b) => {
+        return b.similarity - a.similarity;
+      });
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
       this.showResults = true;
@@ -73,7 +151,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     }
   }
 
-  containsSearchString(item: DocPage): boolean {
+  containsSearchString(item: SearchItem): boolean {
     if (!item.description) {
       return;
     }
@@ -89,15 +167,15 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   }
 
   encodeHTML(txt: string): string {
-    txt = txt.replace(/</g, '&lt;');
-    txt = txt.replace(/>/g, '&gt;');
-    txt = txt.replace(/&/g, '&amp;');
-    txt = txt.replace(/'/g, '&apos;');
-    txt = txt.replace(/"/g, '&quot;');
-    return txt;
+    return txt
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/&/g, '&amp;')
+      .replace(/'/g, '&apos;')
+      .replace(/"/g, '&quot;');
   }
 
-  createHTMLElement(txt: string): any {
+  createHTMLElement(txt: string): HTMLDivElement {
     const div = document.createElement('div');
     div.innerHTML = txt;
     return div;
@@ -110,7 +188,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     });
   }
 
-  replaceTitleString(resultItem: DocPage): void {
+  replaceTitleString(resultItem: SearchItem): void {
     const indexOfResult = resultItem.title.toLocaleLowerCase().indexOf(this.searchString.toLocaleLowerCase());
     if (indexOfResult < 0) {
       return;
@@ -125,7 +203,10 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     title.innerHTML = newTitleString;
   }
 
-  replaceDescriptionString(resultItem: DocPage): void {
+  replaceDescriptionString(resultItem: SearchItem): void {
+    if (!resultItem.description) {
+      return;
+    }
     this.setDescriptionResultStringIndices(resultItem);
     const description = document.getElementById(this.encodeHTML(resultItem.description));
     description.innerHTML = '';
@@ -139,7 +220,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     description.appendChild(this.createHTMLElement(newDescriptionString));
   }
 
-  constructHighlightedString(resultItem: DocPage): string {
+  constructHighlightedString(resultItem: SearchItem): string {
     let newDescriptionString = '';
     let startOfString = 0;
     let endOfString = this.maxTotalCharacters;
@@ -165,7 +246,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     return newDescriptionString;
   }
 
-  setDescriptionResultStringIndices(resultItem: DocPage): void {
+  setDescriptionResultStringIndices(resultItem: SearchItem): void {
     // If string contains link, adding all characters of link and not cutting it off
     const indexOfLinkStart = resultItem.description.toLocaleLowerCase().indexOf('<a');
     const indexOfLinkEnd = resultItem.description.toLocaleLowerCase().indexOf('>', indexOfLinkStart);
