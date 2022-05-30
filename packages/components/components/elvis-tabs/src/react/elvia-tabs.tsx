@@ -93,7 +93,7 @@ const Tabs: FC<TabsProps> = ({
   /**
    * Updates the active tab and triggering valueOnChange events.
    */
-  const updateValue = (value: number) => {
+  const updateValue = (value: number): void => {
     setCurrValue(value);
     if (!webcomponent && valueOnChange) {
       valueOnChange(value);
@@ -106,7 +106,7 @@ const Tabs: FC<TabsProps> = ({
    * Checks if the tabs area is showing all the tabs or if some of them are overflowing.
    * Update variables for showing or hiding the navigational arrows.
    */
-  const updateArrowVisibility = () => {
+  const updateArrowVisibility = (): void => {
     if (!itemsRef.current || !tabsRef.current) {
       return;
     }
@@ -127,7 +127,7 @@ const Tabs: FC<TabsProps> = ({
    *
    * If hasManualActivation is false update the tab value as well (switch tab)
    */
-  const updateFocusedElement = (e: KeyboardEvent) => {
+  const updateFocusedElement = (e: KeyboardEvent): void => {
     if (!itemsRef.current) {
       return;
     }
@@ -158,7 +158,7 @@ const Tabs: FC<TabsProps> = ({
   /**
    * Takes a direction (left or right) and scrolls a set amount in that direction within the tabs
    */
-  const scrollSideways = (direction: string) => {
+  const scrollSideways = (direction: string): void => {
     let scrollAmount = 0;
     const slideTimer = () => {
       if (!itemsRef.current) {
