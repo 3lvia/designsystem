@@ -110,12 +110,10 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
 
   removeDuplicateSearchOptions(items: SearchItem[]): SearchItem[] {
     const seen = {};
-    return items
-      .filter((item) => {
-        const title = item.title.replace(' ', '').toLocaleLowerCase();
-        return seen[title] ? false : (seen[title] = true);
-      })
-      .filter((item) => item.absolutePath != undefined);
+    return items.filter((item) => {
+      const title = item.title.replace(' ', '').toLocaleLowerCase();
+      return seen[title] ? false : (seen[title] = true);
+    });
   }
 
   removeSearchOptionsWithoutPath(items: SearchItem[]): SearchItem[] {
