@@ -7,6 +7,13 @@
 
 .e-table-container.desktop {
   display: block;
+  margin-left: -72px;
+  width: calc(100% + 72px);
+  max-height: 80vh;
+  @include breakpoint-up(Tablet) {
+    margin-left: 0px;
+    width: 100%;
+  }
   @include breakpoint-up(Mobile) {
     display: none;
   }
