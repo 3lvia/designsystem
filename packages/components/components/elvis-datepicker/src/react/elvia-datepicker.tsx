@@ -90,24 +90,24 @@ export const Datepicker: FC<DatepickerProps> = ({
     ((showValidation && currErrorMessage !== '') ||
       (!hasFocus && (customError || (currErrorMessage !== '' && hasHadFocus))));
 
-  useEffect((): void => {
+  useEffect(() => {
     setIsDatepickerOpen(isOpen);
   }, [isOpen]);
 
-  useEffect((): void => {
+  useEffect(() => {
     hasValidation && validateDate(selectedDate);
   }, [minDate]);
 
-  useEffect((): void => {
+  useEffect(() => {
     hasValidation && validateDate(selectedDate);
   }, [maxDate]);
 
   /**
    * Needed for webcomponent -> To update the default value
    */
-  useEffect((): void => handleDateChange(value), [value]);
+  useEffect(() => handleDateChange(value), [value]);
 
-  useEffect((): void => {
+  useEffect(() => {
     updateCaretPositionWhenDotIsAdded();
   }, [selectedDate]);
 
@@ -116,7 +116,7 @@ export const Datepicker: FC<DatepickerProps> = ({
    *
    * Set initial focused date based on minDate and maxDate
    */
-  useEffect((): any => {
+  useEffect(() => {
     addOutlineListenerDatepickerPopover(datepickerRef.current);
 
     if (hasSelectDateOnOpen) return;
