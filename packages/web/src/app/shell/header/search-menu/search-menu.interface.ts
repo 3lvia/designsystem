@@ -4,5 +4,4 @@ export interface SearchItem {
   type: string;
   absolutePath: string;
   fragmentPath?: string;
-  similarity?: number;
 }

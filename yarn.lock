@@ -11400,6 +11400,7 @@ __metadata:
     contentful-typescript-codegen: ^3.2.3
     dotenv: ^10.0.0
     eslint: ^7.1.0
+    fuse.js: ^6.6.2
     glob: ^7.1.6
     jasmine-core: 3.10.1
     jasmine-spec-reporter: ~5.0.0
@@ -11420,7 +11421,6 @@ __metadata:
     react-is: ^17.0.2
     rxjs: ^6.5.5
     sass: ^1.33.0
-    string-similarity: ^4.0.4
     stylelint: ^10.0.1 || ^11.0.0 || ^12.0.0 || ^13.0.0
     stylelint-config-sass-guidelines: ^7.0.0
     ts-node: 8.10.2
@@ -13769,6 +13769,13 @@ __metadata:
   version: 1.2.3
   resolution: "functions-have-names@npm:1.2.3"
   checksum: c3f1f5ba20f4e962efb71344ce0a40722163e85bee2101ce25f88214e78182d2d2476aa85ef37950c579eb6cf6ee811c17b3101bb84004bb75655f3e33f3fdb5
+  languageName: node
+  linkType: hard
+
+"fuse.js@npm:^6.6.2":
+  version: 6.6.2
+  resolution: "fuse.js@npm:6.6.2"
+  checksum: 17ae758ce205276ebd88bd9c9f088a100be0b4896abac9f6b09847151269d1690f41d7f98ff5813d4a58973162dbd99d0072ce807020fee6f9de60170f6b08eb
   languageName: node
   linkType: hard
 
@@ -25624,13 +25631,6 @@ __metadata:
   version: 3.0.1
   resolution: "string-natural-compare@npm:3.0.1"
   checksum: 65910d9995074086e769a68728395effbba9b7186be5b4c16a7fad4f4ef50cae95ca16e3e9086e019cbb636ae8daac9c7b8fe91b5f21865c5c0f26e3c0725406
-  languageName: node
-  linkType: hard
-
-"string-similarity@npm:^4.0.4":
-  version: 4.0.4
-  resolution: "string-similarity@npm:4.0.4"
-  checksum: 797b41b24e1eb6b3b0ab896950b58c295a19a82933479c75f7b5279ffb63e0b456a8c8d10329c02f607ca1a50370e961e83d552aa468ff3b0fa15809abc9eff7
   languageName: node
   linkType: hard
 

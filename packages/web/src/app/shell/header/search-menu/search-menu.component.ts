@@ -8,7 +8,7 @@ import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { IDocumentationPage } from 'contentful/types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { SearchItem } from './search-menu.interface';
-import { compareTwoStrings } from 'string-similarity';
+import Fuse from 'fuse.js';
 
 @Component({
   selector: 'app-search-menu',
@@ -34,6 +34,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   private onDestroy$ = this.onDestroy.asObservable();
 
   private subscriptions: Subscription = new Subscription();
+  private fuse: Fuse<SearchItem>;
 
   constructor(private cmsService: CMSService, private localizationService: LocalizationService) {
     this.localizationService.listenLocalization().subscribe((locale) => {
@@ -82,6 +83,15 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       .then(() => {
         this.elvisItems = this.removeDuplicateSearchOptions(this.elvisItems);
         this.elvisItems = this.removeSearchOptionsWithoutPath(this.elvisItems);
+      })
+      .then(() => {
+        this.fuse = new Fuse(this.elvisItems, {
+          includeScore: true,
+          keys: [
+            { name: 'title', weight: 1 },
+            { name: 'description', weight: 0.5 },
+          ],
+        });
       });
   }
 
@@ -99,7 +109,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
           mappedCMSItems.push({
             title: documentationPage.fields.title['en-GB'],
             description: description,
-            type: subMenu.title.toLowerCase(),
+            type: subMenu.title,
             absolutePath: subMenu.path + '/' + documentationPage.fields.path['en-GB'],
           });
         }
@@ -121,23 +131,9 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   }
 
   onSearch(): void {
-    // Adding all titles that contain searchString to results
-    this.activeResults = this.elvisItems.filter((item) =>
-      item.title.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()),
-    );
-    // Adding all descriptions that contain searchString to results
-    this.activeResults = this.activeResults.concat(
-      this.elvisItems.filter((item) => this.containsSearchString(item)),
-    );
-
-    // Rank what results have a title closest to the searched phrase
-    this.activeResults = this.activeResults
-      .map((item) => {
-        return { ...item, similarity: compareTwoStrings(this.searchString, item.title) };
-      })
-      .sort((a, b) => {
-        return b.similarity - a.similarity;
-      });
+    const searchResult = this.fuse.search(this.searchString);
+    this.activeResults = searchResult.filter((result) => result.score < 0.4).map((result) => result.item);
+    console.log(searchResult);
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
       this.showResults = true;
