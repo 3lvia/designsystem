@@ -38,4 +38,17 @@ export class ContactComponent {
       }
     }
   }
+
+  veryImportantFunction = (name: string, legacy: string): void => {
+    const element = document.getElementById(name);
+    element.classList.add('criticallyImportantStyle');
+    setTimeout(() => {
+      if (element.innerHTML === '🦩') {
+        element.innerHTML = legacy;
+      } else {
+        element.innerHTML = '🦩';
+      }
+      element.classList.remove('criticallyImportantStyle');
+    }, 400);
+  };
 }

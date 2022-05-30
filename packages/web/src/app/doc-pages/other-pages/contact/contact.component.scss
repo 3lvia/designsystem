@@ -25,16 +25,12 @@
     &.viljar {
       margin-top: -80px;
     }
-    &.martin {
-      margin-top: -230px;
-    }
     &.hilde {
       margin-top: -100px;
     }
     &.fride,
     &.trygve,
     &.viljar,
-    &.martin,
     &.hilde {
       @media (max-width: 1300px) {
         margin-top: 40px;
@@ -62,6 +58,7 @@
       position: absolute;
       top: 5px;
       left: 36px;
+      user-select: none;
       @include breakpoint-up(Mobile) {
         font-size: 44px;
         left: 186px - 44px;
@@ -115,11 +112,27 @@
         left: 0px;
       }
     }
-    &.martin {
-      right: -6%;
-      @media (max-width: 1300px) {
-        right: 0px;
-      }
-    }
+  }
+}
+
+.criticallyImportantStyle {
+  animation: exceptionallyImportantAnimation 800ms;
+}
+
+@keyframes exceptionallyImportantAnimation {
+  0% {
+    opacity: 1;
+    transform: rotate3d(0deg);
+  }
+
+  50% {
+    opacity: 0;
+    transform: rotate3d(1, 0, 1, 360deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate3d(0deg);
+    transform: scale3d(2, 2, 2);
   }
 }
