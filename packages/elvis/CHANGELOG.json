@@ -1,6 +1,16 @@
 {
   "content": [
     {
+      "version": "8.4.4",
+      "date": "June 1, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Accordion group fix, removing flex from content container."]
+        }
+      ]
+    },
+    {
       "version": "8.4.3",
       "date": "May 27, 2022",
       "changelog": [
