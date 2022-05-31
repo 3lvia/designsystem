@@ -8,7 +8,7 @@
         {
           "type": "patch",
           "changes": [
-            "Changed the types of the deprecation function parameters to accomodate more functionality. "
+            "Changed the types of the deprecation function parameters to accommodate more functionality. "
           ]
         }
       ]

@@ -6,7 +6,6 @@ import { throttle } from 'lodash';
  * @param func — The function to throttle.
  * @param limit — The number of milliseconds to throttle invocations to.
  * @param options — The options object.
- * @param options.leading — Specify invoking on the leading edge of the timeout.
  * @param options.trailing — Specify invoking on the trailing edge of the timeout.
  * @returns Returns the new throttled function.
  */
