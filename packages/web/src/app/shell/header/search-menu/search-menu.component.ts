@@ -2,13 +2,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages';
 import packageJson from '@elvia/elvis/package.json';
-import { LocalizationService } from 'src/app/core/services/localization.service';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { IDocumentationPage } from 'contentful/types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { SearchItem } from './search-menu.interface';
-import { SearchService } from './search.service';
+import { SearchService } from '../../../core/services/search.service';
 import Fuse from 'fuse.js';
 
 @Component({
@@ -26,17 +26,18 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   activeResults: SearchItem[] = [];
 
   private onDestroy = new Subject<void>();
-
   private onDestroy$ = this.onDestroy.asObservable();
 
   private subscriptions: Subscription = new Subscription();
+  private locale: Locale;
 
   constructor(
     private cmsService: CMSService,
     private localizationService: LocalizationService,
-    private searchService: SearchService,
+    private searchService: SearchService<SearchItem>,
   ) {
     this.localizationService.listenLocalization().subscribe((locale) => {
+      this.locale = locale;
       this.cmsService.getMenu(locale).then((data) => {
         this.mainMenu = data;
       });
@@ -55,56 +56,59 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     const search = document.getElementById('search-field');
     search.focus();
 
-    this.getSearchOptionsFromCMS()
-      .then((cmsItems) => {
-        this.searchItems = this.searchItems.concat(
-          componentsDocPages.map((docPage) => {
-            return {
-              title: docPage.title,
-              description: docPage.description?.replace(/<.*?>/g, ''),
-              type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
-              absolutePath: docPage.absolutePath,
-              fragmentPath: docPage.fragmentPath,
-            };
-          }),
-          docPagesNotFromCMS.map((docPage) => {
-            return {
-              title: docPage.title,
-              description: docPage.description?.replace(/<.*?>/g, ''),
-              type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
-              absolutePath: docPage.absolutePath,
-              fragmentPath: docPage.fragmentPath,
-            };
-          }),
-          cmsItems,
-        );
-      })
-      .then(() => {
-        this.searchItems = this.removeDuplicateSearchItems(this.searchItems);
-        this.searchItems = this.removeSearchItemsWithoutPath(this.searchItems);
-      })
-      .then(() => {
-        this.searchService.initializeSearch(this.searchItems);
-      });
+    this.searchItems = this.searchItems.concat(
+      componentsDocPages.map((docPage) => {
+        return {
+          title: docPage.title,
+          description: docPage.description?.replace(/<.*?>/g, ''),
+          type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
+          absolutePath: docPage.absolutePath,
+          fragmentPath: docPage.fragmentPath,
+        };
+      }),
+      docPagesNotFromCMS.map((docPage) => {
+        return {
+          title: docPage.title,
+          description: docPage.description?.replace(/<.*?>/g, ''),
+          type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
+          absolutePath: docPage.absolutePath,
+          fragmentPath: docPage.fragmentPath,
+        };
+      }),
+      this.getSearchOptionsFromCMS(),
+    );
+    this.searchItems = this.removeDuplicateSearchItems(this.searchItems);
+    this.searchItems = this.removeSearchItemsWithoutPath(this.searchItems);
+    this.searchService.initializeSearch(this.searchItems, {
+      includeScore: true,
+      includeMatches: true,
+      threshold: 0.4,
+      minMatchCharLength: 1,
+      keys: [
+        { name: 'title', weight: 1 },
+        { name: 'description', weight: 0.5 },
+      ],
+    });
   }
 
-  async getSearchOptionsFromCMS(): Promise<SearchItem[]> {
-    const items = await this.cmsService.getMenu(0);
+  getSearchOptionsFromCMS(): SearchItem[] {
     const mappedCMSItems: SearchItem[] = [];
-    items.pages.forEach((subMenu) => {
-      subMenu.entry.fields.pages['en-GB'].forEach((documentationPage: IDocumentationPage) => {
+    this.mainMenu.pages.forEach((subMenu) => {
+      subMenu.entry.fields.pages[Locale[this.locale]].forEach((documentationPage: IDocumentationPage) => {
         let description: string | undefined;
         if (documentationPage.fields.pageDescription) {
-          description = documentToHtmlString(documentationPage.fields.pageDescription['en-GB']);
+          description = documentToHtmlString(documentationPage.fields.pageDescription[Locale[this.locale]]);
           description = description.replace(/<.*?>/g, '');
         }
 
-        if (!this.searchItems.find((item) => item.title === documentationPage.fields.title['en-GB'])) {
+        if (
+          !this.searchItems.find((item) => item.title === documentationPage.fields.title[Locale[this.locale]])
+        ) {
           mappedCMSItems.push({
-            title: documentationPage.fields.title['en-GB'],
+            title: documentationPage.fields.title[Locale[this.locale]],
             description: description,
             type: subMenu.title.substring(0, subMenu.title.length - (subMenu.title.endsWith('s') ? 1 : 0)),
-            absolutePath: subMenu.path + '/' + documentationPage.fields.path['en-GB'],
+            absolutePath: subMenu.path + '/' + documentationPage.fields.path[Locale[this.locale]],
           });
         }
       });
@@ -125,9 +129,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   }
 
   onSearch(): void {
-    this.searchService.search(this.searchString);
-    this.activeResults = this.searchService.getSearchItems();
-    console.log(this.searchService.searchResults);
+    this.activeResults = this.searchService.search(this.searchString);
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
       this.showResults = true;
