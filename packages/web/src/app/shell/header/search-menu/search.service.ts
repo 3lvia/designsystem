@@ -9,8 +9,8 @@ export class SearchService {
   searchOptions: Fuse.IFuseOptions<SearchItem> = {
     includeScore: true,
     includeMatches: true,
-    threshold: 0.5,
-    minMatchCharLength: 2,
+    threshold: 0.4,
+    minMatchCharLength: 1,
     keys: [
       { name: 'title', weight: 1 },
       { name: 'description', weight: 0.5 },

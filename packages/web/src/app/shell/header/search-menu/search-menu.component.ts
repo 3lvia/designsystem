@@ -62,7 +62,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
             return {
               title: docPage.title,
               description: docPage.description,
-              type: docPage.type,
+              type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
               absolutePath: docPage.absolutePath,
               fragmentPath: docPage.fragmentPath,
             };
@@ -71,7 +71,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
             return {
               title: docPage.title,
               description: docPage.description,
-              type: docPage.type,
+              type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
               absolutePath: docPage.absolutePath,
               fragmentPath: docPage.fragmentPath,
             };
@@ -103,7 +103,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
           mappedCMSItems.push({
             title: documentationPage.fields.title['en-GB'],
             description: description,
-            type: subMenu.title,
+            type: subMenu.title.substring(0, subMenu.title.length - (subMenu.title.endsWith('s') ? 1 : 0)),
             absolutePath: subMenu.path + '/' + documentationPage.fields.path['en-GB'],
           });
         }
@@ -127,6 +127,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   onSearch(): void {
     this.searchService.search(this.searchString);
     this.activeResults = this.searchService.getSearchItems();
+    console.log(this.searchService.searchResults);
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
       this.showResults = true;
@@ -180,10 +181,14 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   replaceTitleString(match: Fuse.FuseResultMatch, title: string): void {
     let newTitleString = title.substring(0, match.indices[0][0]);
     match.indices.forEach((matchIndices, index, items) => {
-      newTitleString +=
-        "<span style='background: #29d305'>" +
-        title.substring(matchIndices[0], matchIndices[1] + 1) +
-        '</span>';
+      if (matchIndices[1] - matchIndices[0] > 0) {
+        newTitleString +=
+          "<span style='background: #29d305'>" +
+          title.substring(matchIndices[0], matchIndices[1] + 1) +
+          '</span>';
+      } else {
+        newTitleString += title.substring(matchIndices[0], matchIndices[1] + 1);
+      }
 
       if (index !== match.indices.length - 1) {
         newTitleString += title.substring(matchIndices[1] + 1, items[index + 1][0]);
@@ -202,10 +207,14 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     let newDescriptionString = description.substring(0, match.indices[0][0]);
     // Add each match, and the part of the description between matches
     match.indices.forEach((matchIndices, index, items) => {
-      newDescriptionString +=
-        "<span style='background: #29d305'>" +
-        description.substring(matchIndices[0], matchIndices[1] + 1) +
-        '</span>';
+      if (matchIndices[1] - matchIndices[0] > 0) {
+        newDescriptionString +=
+          "<span style='background: #29d305'>" +
+          description.substring(matchIndices[0], matchIndices[1] + 1) +
+          '</span>';
+      } else {
+        newDescriptionString += description.substring(matchIndices[0], matchIndices[1] + 1);
+      }
 
       if (index !== match.indices.length - 1) {
         newDescriptionString += description.substring(matchIndices[1] + 1, items[index + 1][0]);

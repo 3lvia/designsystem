@@ -502,6 +502,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     docUrl: Pages.Color,
     absolutePath: '/brand/' + Pages.Color,
     status: DocPageStatus.Done,
+    type: 'Brand',
     figmaUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=0%3A1',
   },
   {
@@ -563,6 +564,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     docUrl: Pages.Contact,
     absolutePath: '/about/' + Pages.Contact,
     status: DocPageStatus.New,
+    type: 'About',
   },
   {
     title: 'Contribute',
