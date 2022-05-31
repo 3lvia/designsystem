@@ -61,7 +61,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
           componentsDocPages.map((docPage) => {
             return {
               title: docPage.title,
-              description: docPage.description,
+              description: docPage.description?.replace(/<.*?>/g, ''),
               type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
               absolutePath: docPage.absolutePath,
               fragmentPath: docPage.fragmentPath,
@@ -70,7 +70,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
           docPagesNotFromCMS.map((docPage) => {
             return {
               title: docPage.title,
-              description: docPage.description,
+              description: docPage.description?.replace(/<.*?>/g, ''),
               type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
               absolutePath: docPage.absolutePath,
               fragmentPath: docPage.fragmentPath,
