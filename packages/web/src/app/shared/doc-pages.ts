@@ -524,6 +524,8 @@ export const docPagesNotFromCMS: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8936%3A67993',
     docUrl: 'layout',
     absolutePath: '/brand/' + 'layout',
+    description:
+      'Layout provides rules to give designs consistent rhythm in the application, as well as across applications to ensure a holistic design in Elvia. The layout consist of grid, spacing and box design.',
   },
   {
     title: 'Typography',

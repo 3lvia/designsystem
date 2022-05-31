@@ -8,6 +8,7 @@ import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { IDocumentationPage } from 'contentful/types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { SearchItem } from './search-menu.interface';
+import { SearchService } from './search.service';
 import Fuse from 'fuse.js';
 
 @Component({
@@ -21,22 +22,20 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   showResults = false;
   resultOfMoreThanTwo = false;
   searchString = '';
-  elvisItems: SearchItem[] = [];
+  searchItems: SearchItem[] = [];
   activeResults: SearchItem[] = [];
-
-  indexOfResultDescription = 0;
-  indexStartLimit = 0;
-  maxTotalCharacters = 0;
-  charactersBeforeEllipses = 0;
 
   private onDestroy = new Subject<void>();
 
   private onDestroy$ = this.onDestroy.asObservable();
 
   private subscriptions: Subscription = new Subscription();
-  private fuse: Fuse<SearchItem>;
 
-  constructor(private cmsService: CMSService, private localizationService: LocalizationService) {
+  constructor(
+    private cmsService: CMSService,
+    private localizationService: LocalizationService,
+    private searchService: SearchService,
+  ) {
     this.localizationService.listenLocalization().subscribe((locale) => {
       this.cmsService.getMenu(locale).then((data) => {
         this.mainMenu = data;
@@ -58,7 +57,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
 
     this.getSearchOptionsFromCMS()
       .then((cmsItems) => {
-        this.elvisItems = this.elvisItems.concat(
+        this.searchItems = this.searchItems.concat(
           componentsDocPages.map((docPage) => {
             return {
               title: docPage.title,
@@ -81,17 +80,11 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         );
       })
       .then(() => {
-        this.elvisItems = this.removeDuplicateSearchOptions(this.elvisItems);
-        this.elvisItems = this.removeSearchOptionsWithoutPath(this.elvisItems);
+        this.searchItems = this.removeDuplicateSearchItems(this.searchItems);
+        this.searchItems = this.removeSearchItemsWithoutPath(this.searchItems);
       })
       .then(() => {
-        this.fuse = new Fuse(this.elvisItems, {
-          includeScore: true,
-          keys: [
-            { name: 'title', weight: 1 },
-            { name: 'description', weight: 0.5 },
-          ],
-        });
+        this.searchService.initializeSearch(this.searchItems);
       });
   }
 
@@ -103,9 +96,10 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         let description: string | undefined;
         if (documentationPage.fields.pageDescription) {
           description = documentToHtmlString(documentationPage.fields.pageDescription['en-GB']);
+          description = description.replace(/<.*?>/g, '');
         }
 
-        if (!this.elvisItems.find((item) => item.title === documentationPage.fields.title['en-GB'])) {
+        if (!this.searchItems.find((item) => item.title === documentationPage.fields.title['en-GB'])) {
           mappedCMSItems.push({
             title: documentationPage.fields.title['en-GB'],
             description: description,
@@ -118,7 +112,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     return mappedCMSItems;
   }
 
-  removeDuplicateSearchOptions(items: SearchItem[]): SearchItem[] {
+  removeDuplicateSearchItems(items: SearchItem[]): SearchItem[] {
     const seen = {};
     return items.filter((item) => {
       const title = item.title.replace(' ', '').toLocaleLowerCase();
@@ -126,14 +120,13 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     });
   }
 
-  removeSearchOptionsWithoutPath(items: SearchItem[]): SearchItem[] {
+  removeSearchItemsWithoutPath(items: SearchItem[]): SearchItem[] {
     return items.filter((item) => item.absolutePath);
   }
 
   onSearch(): void {
-    const searchResult = this.fuse.search(this.searchString);
-    this.activeResults = searchResult.filter((result) => result.score < 0.4).map((result) => result.item);
-    console.log(searchResult);
+    this.searchService.search(this.searchString);
+    this.activeResults = this.searchService.getSearchItems();
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
       this.showResults = true;
@@ -143,21 +136,6 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     } else {
       this.showResults = false;
     }
-  }
-
-  containsSearchString(item: SearchItem): boolean {
-    if (!item.description) {
-      return;
-    }
-    return (
-      !item.title.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()) &&
-      item.description.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase())
-    );
-  }
-
-  removeSearch(): void {
-    this.searchString = '';
-    this.activeResults = [];
   }
 
   encodeHTML(txt: string): string {
@@ -176,101 +154,89 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   }
 
   highlightResultGreen(): void {
-    this.activeResults.forEach((resultItem) => {
-      this.replaceTitleString(resultItem);
-      this.replaceDescriptionString(resultItem);
+    this.searchService.searchResults.forEach((resultItem) => {
+      resultItem.matches.forEach((match) => {
+        if (match.key === 'title') {
+          this.replaceTitleString(match, resultItem.item.title);
+        } else if (match.key === 'description') {
+          this.replaceDescriptionString(match, resultItem.item.description);
+        }
+      });
+      // If there are no matches for 'description', just insert the description without any highlighting
+      if (!resultItem.matches.find((item) => item.key === 'description')) {
+        if (!resultItem.item.description) {
+          return;
+        }
+        const descriptionElement = document.getElementById(this.encodeHTML(resultItem.item.description));
+        let description = resultItem.item.description;
+        if (description.length > 165) {
+          description = description.substring(0, 165) + '...';
+        }
+        descriptionElement.innerHTML = description;
+      }
     });
   }
 
-  replaceTitleString(resultItem: SearchItem): void {
-    const indexOfResult = resultItem.title.toLocaleLowerCase().indexOf(this.searchString.toLocaleLowerCase());
-    if (indexOfResult < 0) {
-      return;
-    }
-    const newTitleString =
-      resultItem.title.substring(0, indexOfResult) +
-      "<span style='background: #29d305'>" +
-      resultItem.title.substring(indexOfResult, indexOfResult + this.searchString.length) +
-      '</span>' +
-      resultItem.title.substring(indexOfResult + this.searchString.length);
-    const title = document.getElementById('search_' + resultItem.title);
-    title.innerHTML = newTitleString;
-  }
+  replaceTitleString(match: Fuse.FuseResultMatch, title: string): void {
+    let newTitleString = title.substring(0, match.indices[0][0]);
+    match.indices.forEach((matchIndices, index, items) => {
+      newTitleString +=
+        "<span style='background: #29d305'>" +
+        title.substring(matchIndices[0], matchIndices[1] + 1) +
+        '</span>';
 
-  replaceDescriptionString(resultItem: SearchItem): void {
-    if (!resultItem.description) {
-      return;
-    }
-    this.setDescriptionResultStringIndices(resultItem);
-    const description = document.getElementById(this.encodeHTML(resultItem.description));
-    description.innerHTML = '';
-    if (this.indexOfResultDescription < 0) {
-      description.appendChild(
-        this.createHTMLElement(resultItem.description.substring(0, this.maxTotalCharacters)),
-      );
-      return;
-    }
-    const newDescriptionString = this.constructHighlightedString(resultItem);
-    description.appendChild(this.createHTMLElement(newDescriptionString));
-  }
-
-  constructHighlightedString(resultItem: SearchItem): string {
-    let newDescriptionString = '';
-    let startOfString = 0;
-    let endOfString = this.maxTotalCharacters;
-    const startOfColor = this.indexOfResultDescription;
-    const endOfColor = this.indexOfResultDescription + this.searchString.length;
-
-    if (this.indexOfResultDescription >= 0 && this.indexOfResultDescription > this.indexStartLimit) {
-      newDescriptionString = '...';
-      startOfString = this.indexOfResultDescription - this.charactersBeforeEllipses;
-      endOfString = this.indexOfResultDescription + this.maxTotalCharacters - this.charactersBeforeEllipses;
-    }
-    newDescriptionString =
-      newDescriptionString +
-      resultItem.description.substring(startOfString, startOfColor) +
-      "<span style='background: #29d305'>" +
-      resultItem.description.substring(startOfColor, endOfColor) +
-      '</span>' +
-      resultItem.description.substring(endOfColor, endOfString);
-    if (resultItem.description.length > endOfString) {
-      newDescriptionString = newDescriptionString + '...';
-    }
-
-    return newDescriptionString;
-  }
-
-  setDescriptionResultStringIndices(resultItem: SearchItem): void {
-    // If string contains link, adding all characters of link and not cutting it off
-    const indexOfLinkStart = resultItem.description.toLocaleLowerCase().indexOf('<a');
-    const indexOfLinkEnd = resultItem.description.toLocaleLowerCase().indexOf('>', indexOfLinkStart);
-    const numberOfLinkCharacter = indexOfLinkEnd - indexOfLinkStart;
-
-    this.indexOfResultDescription = resultItem.description
-      .toLocaleLowerCase()
-      .indexOf(this.searchString.toLocaleLowerCase());
-    this.indexStartLimit = 50;
-    this.maxTotalCharacters = 165 + numberOfLinkCharacter;
-    this.charactersBeforeEllipses = 48 + numberOfLinkCharacter;
-    if (screen.width < 770) {
-      this.indexStartLimit = 30;
-      this.maxTotalCharacters = 80 + numberOfLinkCharacter;
-      this.charactersBeforeEllipses = 28 + numberOfLinkCharacter;
-    } else if (screen.width < 1022) {
-      this.maxTotalCharacters = 170 + numberOfLinkCharacter;
-    }
-
-    // If the search result is in the link skip marking inside the link
-    if (this.indexOfResultDescription > indexOfLinkStart && this.indexOfResultDescription < indexOfLinkEnd) {
-      // tslint:disable-next-line: max-line-length
-      this.indexOfResultDescription = resultItem.description
-        .toLocaleLowerCase()
-        .indexOf(this.searchString.toLocaleLowerCase(), indexOfLinkEnd);
-      if (screen.width < 770) {
-        this.charactersBeforeEllipses = 28 + numberOfLinkCharacter + this.searchString.length;
-      } else {
-        this.charactersBeforeEllipses = 48 + numberOfLinkCharacter + this.searchString.length;
+      if (index !== match.indices.length - 1) {
+        newTitleString += title.substring(matchIndices[1] + 1, items[index + 1][0]);
       }
+    });
+    newTitleString += title.substring(match.indices[match.indices.length - 1][1] + 1, title.length);
+    const titleElement = document.getElementById('search_' + title);
+    titleElement.innerHTML = newTitleString;
+  }
+
+  replaceDescriptionString(match: Fuse.FuseResultMatch, description: string): void {
+    if (!description) {
+      return;
     }
+    // Add any part of the description that is before the first match
+    let newDescriptionString = description.substring(0, match.indices[0][0]);
+    // Add each match, and the part of the description between matches
+    match.indices.forEach((matchIndices, index, items) => {
+      newDescriptionString +=
+        "<span style='background: #29d305'>" +
+        description.substring(matchIndices[0], matchIndices[1] + 1) +
+        '</span>';
+
+      if (index !== match.indices.length - 1) {
+        newDescriptionString += description.substring(matchIndices[1] + 1, items[index + 1][0]);
+      }
+    });
+    // Add the part after the last match
+    newDescriptionString += description.substring(
+      match.indices[match.indices.length - 1][1] + 1,
+      description.length,
+    );
+
+    if (description.length > 165) {
+      const descriptionPadding = 30;
+      const startIndex = Math.max(match.indices[0][0] - descriptionPadding, 0);
+      const endIndex = Math.max(
+        match.indices[match.indices.length - 1][1] +
+          match.indices.length * ("<span style='background: #29d305'>".length + '</span>'.length) +
+          descriptionPadding,
+        startIndex + 165,
+      );
+      const prefix = startIndex > 0 ? '...' : '';
+      const postfix = endIndex < newDescriptionString.length - 1 ? '...' : '';
+      newDescriptionString = prefix + newDescriptionString.substring(startIndex, endIndex) + postfix;
+    }
+
+    const descriptionElement = document.getElementById(this.encodeHTML(description));
+    descriptionElement.innerHTML = newDescriptionString;
+  }
+
+  removeSearch(): void {
+    this.searchString = '';
+    this.activeResults = [];
   }
 }
