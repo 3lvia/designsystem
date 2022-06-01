@@ -163,7 +163,7 @@ export const Carousel: FC<CarouselProps> = function ({
   };
 
   /**
-   *
+   * Handles mobile events
    */
   const handleMouseDown = (e: MouseEvent | TouchEvent): void => {
     const clientX = 'changedTouches' in e ? e.changedTouches[0].clientX : e.clientX;
@@ -239,7 +239,7 @@ export const Carousel: FC<CarouselProps> = function ({
   /**
    * Dispatch onFinish events (when the checkmark button is clicked)
    */
-  const triggerOnHide = (): void => {
+  const triggerOnFinish = (): void => {
     if (!webcomponent) {
       onFinish && onFinish();
     } else {
@@ -333,7 +333,7 @@ export const Carousel: FC<CarouselProps> = function ({
         {showOnboardingCheckmark ? (
           <CarouselCheckButton
             aria-label={'Fullfør og lukk.'}
-            onClick={() => triggerOnHide()}
+            onClick={() => triggerOnFinish()}
             onMouseEnter={() => setIsHoveringRightButton(true)}
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-onboarding-checkmark"
