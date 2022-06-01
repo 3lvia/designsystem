@@ -2,7 +2,13 @@
 <div class="header">
   <div class="logo">
     <a class="header-top_logo" [routerLink]="['', 'home']">
-      <img src="./../../../assets/logo/elvia_positive_1.svg" alt="Elvia Logo" />
+      <img src="./../../../assets/logo/elvia_positive_1.svg" alt="Elvia Logo" *ngIf="!isPrideMonth" />
+      <img
+        src="./../../../assets/logo/elvia_pride_rgb.svg"
+        alt="Elvia Logo"
+        class="pride-logo"
+        *ngIf="isPrideMonth"
+      />
     </a>
   </div>
 

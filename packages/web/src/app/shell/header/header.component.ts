@@ -23,6 +23,7 @@ export class HeaderComponent {
   devMode = false;
   mainMenu: any;
   menuContentLoader = true;
+  isPrideMonth = false;
 
   constructor(
     private globalService: GlobalService,
@@ -59,6 +60,15 @@ export class HeaderComponent {
         this.hideInternalHeader();
       }
     });
+
+    this.checkIfPrideMonth();
+  }
+
+  checkIfPrideMonth(): void {
+    const currentMonth = new Date().getMonth();
+    if (currentMonth === 5) {
+      this.isPrideMonth = true;
+    }
   }
 
   hideContentLoader(evt: Event): void {
