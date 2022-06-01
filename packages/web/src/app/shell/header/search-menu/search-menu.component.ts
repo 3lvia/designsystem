@@ -20,6 +20,8 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   elvisItems: DocPage[] = [];
   activeResults: DocPage[] = [];
 
+  isPrideMonth = false;
+
   indexOfResultDescription = 0;
   indexStartLimit = 0;
   maxTotalCharacters = 0;
@@ -51,6 +53,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     const search = document.getElementById('search-field');
     search.focus();
     this.elvisItems = this.elvisItems.concat(componentsDocPages, docPagesNotFromCMS);
+    this.checkIfPrideMonth();
   }
 
   onSearch(): void {
@@ -196,6 +199,13 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       } else {
         this.charactersBeforeEllipses = 48 + numberOfLinkCharacter + this.searchString.length;
       }
+    }
+  }
+
+  checkIfPrideMonth(): void {
+    const currentMonth = new Date().getMonth();
+    if (currentMonth === 5) {
+      this.isPrideMonth = true;
     }
   }
 }

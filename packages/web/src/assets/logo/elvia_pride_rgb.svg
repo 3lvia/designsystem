@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 974.84 429.42" style="enable-background:new 0 0 974.84 429.42;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:url(#SVGID_1_);}
+</style>
+<rect class="st0" width="974.84" height="429.42"/>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="98.2598" y1="214.7216" x2="870.3397" y2="214.7216">
+	<stop  offset="0" style="stop-color:#FD0000"/>
+	<stop  offset="0.1847" style="stop-color:#FF8C00"/>
+	<stop  offset="0.336" style="stop-color:#FFE600"/>
+	<stop  offset="0.4099" style="stop-color:#FFE600"/>
+	<stop  offset="0.5098" style="stop-color:#028214"/>
+	<stop  offset="0.6" style="stop-color:#028214"/>
+	<stop  offset="0.7053" style="stop-color:#004CFF"/>
+	<stop  offset="0.848" style="stop-color:#760C9E"/>
+	<stop  offset="1" style="stop-color:#8C008C"/>
+</linearGradient>
+<path class="st1" d="M670.09,117.66c0,10.77-8.73,19.5-19.5,19.5c-10.76,0-19.5-8.73-19.5-19.5s8.74-19.5,19.5-19.5
+	C661.36,98.16,670.09,106.89,670.09,117.66z M518.17,277.11l-48.86-114.46h-37.6l73.3,165.31h26.31l73.31-165.31h-37.61
+	L518.17,277.11z M369.47,327.96h33.83V101.47h-33.83V327.96z M214.83,297.52c-45.72,0-82.79-37.07-82.79-82.79
+	c0-45.73,37.07-82.8,82.79-82.8c26.32,0,49.75,12.29,64.92,31.43l25.39-22.33c-21.37-26.17-53.89-42.87-90.31-42.87
+	c-64.38,0-116.57,52.19-116.57,116.57c0,64.37,52.19,116.56,116.57,116.56c36.42,0,68.94-16.7,90.31-42.87l-25.4-22.33
+	C264.58,285.23,241.15,297.52,214.83,297.52z M189.11,231.64h141.07v-33.83H189.11V231.64z M633.68,327.96h33.83V162.65h-33.83
+	V327.96z M781.87,277.58c-10.21,0-18.5,8.28-18.5,18.5c0,10.22,8.29,18.5,18.5,18.5c10.22,0,18.5-8.28,18.5-18.5
+	C800.37,285.86,792.09,277.58,781.87,277.58z M795.03,162.65h-26.31l-75.3,165.31h36.6l51.86-116.72l51.85,116.72h36.61
+	L795.03,162.65z"/>
+</svg>
