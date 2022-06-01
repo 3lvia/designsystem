@@ -24,6 +24,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   searchString = '';
   searchItems: SearchItem[] = [];
   activeResults: SearchItem[] = [];
+  isPrideMonth = false;
 
   private onDestroy = new Subject<void>();
   private onDestroy$ = this.onDestroy.asObservable();
@@ -89,6 +90,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         { name: 'description', weight: 0.5 },
       ],
     });
+    this.checkIfPrideMonth();
   }
 
   getSearchOptionsFromCMS(): SearchItem[] {
@@ -249,5 +251,12 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   removeSearch(): void {
     this.searchString = '';
     this.activeResults = [];
+  }
+
+  checkIfPrideMonth(): void {
+    const currentMonth = new Date().getMonth();
+    if (currentMonth === 5) {
+      this.isPrideMonth = true;
+    }
   }
 }
