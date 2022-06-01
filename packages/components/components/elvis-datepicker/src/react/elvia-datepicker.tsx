@@ -83,37 +83,13 @@ export const Datepicker: FC<DatepickerProps> = ({
   const datepickerRef = useRef<HTMLDivElement>(null);
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  // This is the unicode character U+00AD
-  // Used to avoid date-fns from formatting date before date is valid
+  // Unicode character U+00AD - Hack used to avoid date-fns from formatting date before date is valid
   const unicodeChar = '­';
-
   const showError =
     (showValidationState || customError) &&
     ((showValidation && currErrorMessage !== '') ||
       (!hasFocus && (customError || (currErrorMessage !== '' && hasHadFocus))));
 
-  // Styling
-  const datePickerClasses = classnames('ewc-datepicker', {
-    ['ewc-datepicker--error']: showError || (isErrorState && !hasFocus),
-    ['ewc-datepicker--compact']: isCompact !== false,
-    ['ewc-datepicker--unselected']: value === null,
-    ['ewc-datepicker--full-width']: isFullWidth,
-  });
-  const materialTheme = createTheme({
-    props: {
-      MuiButtonBase: {
-        disableRipple: true,
-      },
-      MuiPopover: {
-        style: {
-          zIndex: 99999,
-        },
-      },
-      MuiInputBase: {
-        className: isDatepickerOpen ? 'Mui-focused' : undefined,
-      },
-    },
-  });
   useEffect(() => {
     setIsDatepickerOpen(isOpen);
   }, [isOpen]);
@@ -126,62 +102,73 @@ export const Datepicker: FC<DatepickerProps> = ({
     hasValidation && validateDate(selectedDate);
   }, [maxDate]);
 
-  useEffect(() => {
-    addOutlineFix(datepickerRef.current);
-
-    return () => {
-      removeOutlineFix(datepickerRef.current);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (hasSelectDateOnOpen) return;
-    if (maxDate) {
-      setInitialFocusedDate(maxDate);
-    } else if (minDate) {
-      setInitialFocusedDate(minDate);
-    }
-  }, []);
-
-  // Needed for webcomponent -> To update the default value
+  /**
+   * Needed for webcomponent -> To update the default value
+   */
   useEffect(() => handleDateChange(value), [value]);
 
   useEffect(() => {
     updateCaretPositionWhenDotIsAdded();
   }, [selectedDate]);
 
-  const handleDateChange = (date: Date | null) => {
+  /**
+   * Start outline listener
+   *
+   * Set initial focused date based on minDate and maxDate
+   */
+  useEffect(() => {
+    addOutlineListenerDatepickerPopover(datepickerRef.current);
+
+    if (hasSelectDateOnOpen) return;
+    if (maxDate) {
+      setInitialFocusedDate(maxDate);
+    } else if (minDate) {
+      setInitialFocusedDate(minDate);
+    }
+
+    return () => {
+      removeOutlineListenerDatepickerPopover(datepickerRef.current);
+    };
+  }, []);
+
+  /**
+   * Sets the selected date and dispatches the valueOnChange event
+   */
+  const handleDateChange = (date: Date | null): void => {
     hasValidation && validateDate(date);
     setSelectedDate(date);
 
-    // Updating for any changes in the state of the date field
     if (!webcomponent && valueOnChange) {
       valueOnChange(date);
     } else if (webcomponent) {
-      // True -> Prevents rerender
       webcomponent.setProps({ value: date }, true);
     }
   };
 
-  const addOutlineFix = (ref: HTMLDivElement | null) => {
+  /**
+   * Adds and removed outline listener for datepicker popover element
+   */
+  const addOutlineListenerDatepickerPopover = (ref: HTMLDivElement | null): void => {
     if (ref) {
       toolbox.outlineListener(ref);
     }
   };
-
-  const removeOutlineFix = (ref: HTMLDivElement | null) => {
+  const removeOutlineListenerDatepickerPopover = (ref: HTMLDivElement | null): void => {
     if (ref) {
       toolbox.outlineListener(ref, true);
     }
   };
 
-  const onFocus = () => {
-    updateFocusState();
+  const onFocus = (): void => {
+    updateFocusStates();
     updateCaretPositionOnFocus();
   };
 
-  const handleOpenDatepicker = () => {
-    updateFocusState();
+  /**
+   * Dispatch open event
+   */
+  const handleOpenDatepicker = (): void => {
+    updateFocusStates();
     updateInputWithSelectedDate();
     setIsDatepickerOpen(true);
     if (!webcomponent && onOpen) {
@@ -191,7 +178,10 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
-  const handleCloseDatepicker = () => {
+  /**
+   * Dispatch close event
+   */
+  const handleCloseDatepicker = (): void => {
     setIsDatepickerOpen(false);
     if (!webcomponent && onClose) {
       onClose();
@@ -200,8 +190,14 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
-  const setCurrErrorMessageAndTriggerErrorOnChangeEvent = (error: string) => {
-    // If error is unchanged, don't dispatch event
+  /**
+   * If error is unchanged, don't dispatch event
+   *
+   * If the input has not been in focus yet, don't dispatch event
+   *
+   * Set current error based on validation and dispatch errorOnChange event
+   */
+  const setCurrErrorMessageAndTriggerErrorOnChangeEvent = (error: string): void => {
     if (error === currErrorMessage) {
       return;
     }
@@ -217,7 +213,10 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
-  const validateDate = (date: Date | null) => {
+  /**
+   * Validates the date and finds the current error message if not valid
+   */
+  const validateDate = (date: Date | null): void => {
     if (customError) {
       return;
     }
@@ -237,7 +236,13 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
-  const updateFocusState = () => {
+  /**
+   * Sets hasHadFocus to true
+   *
+   * Starts listener for if datepicker stops having, set hasFocus to false and remove listener if so
+   * hasFocused is used to determine if the input should show an error
+   */
+  const updateFocusStates = (): void => {
     setHasHadFocus(true);
     setHasFocus(true);
 
@@ -255,7 +260,10 @@ export const Datepicker: FC<DatepickerProps> = ({
     window.addEventListener('focusout', checkIfDatepickerHasFocus);
   };
 
-  const updateCaretPositionWhenDotIsAdded = () => {
+  /**
+   * When 2 or 4 numbers are added to the input-field the caret should move to the right of the dot that is added.
+   */
+  const updateCaretPositionWhenDotIsAdded = (): void => {
     if (!inputRef.current) {
       return;
     }
@@ -265,7 +273,11 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
-  const updateCaretPositionOnFocus = () => {
+  /**
+   * An invisible unicode character is added at the end of the date-string to avoid material formatting,
+   * the caret therefore needs to be moved in front of this character when in focus.
+   */
+  const updateCaretPositionOnFocus = (): void => {
     setTimeout(() => {
       if (!inputRef.current) {
         return;
@@ -278,7 +290,13 @@ export const Datepicker: FC<DatepickerProps> = ({
     }, 10);
   };
 
-  const updateInputWithSelectedDate = () => {
+  /**
+   * If date not selected yet and hasSelectDateOnOpen is true, set the date to current date
+   *
+   * Set shouldHaveSelected based on same criterias and if the date is valid
+   * shouldHaveSelected is used to determine the styling for when a date is showing or not in the datepicker header.
+   */
+  const updateInputWithSelectedDate = (): void => {
     if (selectedDate === null && hasSelectDateOnOpen) {
       handleDateChange(new Date());
       setShouldHaveSelected(true);
@@ -289,7 +307,10 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
-  const getCalIcon = () => {
+  /**
+   * All these replaceMui[Element] functions return some HTML that replaces the default HTML from the package
+   */
+  const replaceMuiCalIcon = (): JSX.Element => {
     return (
       <Icon
         name="calendar"
@@ -299,11 +320,11 @@ export const Datepicker: FC<DatepickerProps> = ({
     );
   };
 
-  const getArrowIcon = (isLeft: boolean) => {
+  const replaceMuiArrowIcon = (isLeft: boolean): JSX.Element => {
     return <Icon name={`${isLeft ? 'arrowLongLeftBold' : 'arrowLongRightBold'}`} size="xs" />;
   };
 
-  const getCustomToolbar = (props: any) => {
+  const replaceMuiToolbar = (props: any) => {
     const { date, openView, setOpenView } = props;
     const toggleYearView = () => {
       openView === 'year' ? setOpenView('date') : setOpenView('year');
@@ -314,9 +335,9 @@ export const Datepicker: FC<DatepickerProps> = ({
     });
 
     if (openView === 'year') {
-      addOutlineFix(datepickerPopoverRef.current);
+      addOutlineListenerDatepickerPopover(datepickerPopoverRef.current);
     } else {
-      removeOutlineFix(datepickerPopoverRef.current);
+      removeOutlineListenerDatepickerPopover(datepickerPopoverRef.current);
     }
 
     return (
@@ -354,7 +375,12 @@ export const Datepicker: FC<DatepickerProps> = ({
     );
   };
 
-  const getDayElement = (day: any, selected: any, isInCurrentMonth: any, dayComponent: any) => {
+  const replaceMuiDayElement = (
+    day: any,
+    selected: any,
+    isInCurrentMonth: any,
+    dayComponent: any,
+  ): JSX.Element => {
     const today = new Date();
     const dayDate = new Date(day);
     const selDate = new Date(selected);
@@ -379,12 +405,19 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
-  const getDateFormat = (inputString: string) => {
+  /**
+   * Replaces the datepicker format with a custom format
+   *
+   * Adds a dot (.) after number 2 and number 4 in the string
+   *
+   * Adds the unicode character to avoid the default formatting from Material
+   */
+  const replaceMuiDateFormat = (inputString: string): string => {
     const digits = (inputString.match(/\d+/g) || []).join('');
     let res = digits
       .split('')
       .reduce((num1, num2, index) => (index === 2 || index === 4 ? `${num1}.${num2}` : `${num1}${num2}`), '')
-      .substr(0, 10);
+      .substring(0, 9);
 
     if (res.length === 2 || res.length === 5) {
       res = `${res}.`;
@@ -395,12 +428,42 @@ export const Datepicker: FC<DatepickerProps> = ({
     return res;
   };
 
-  const disableDateWrapper = () => {
+  /**
+   * Returns a function for dates that should be disabled (sent into the Mui component)
+   * Gets the function through getProp for webcomponents
+   */
+  const disableDateWrapper = (): ((day: Date) => boolean) | undefined => {
     if (webcomponent) {
-      return webcomponent.getProps()['disabledate'];
+      return webcomponent.getProp('disableDate');
     }
     return disableDate;
   };
+
+  /**
+   * Overriding material theme
+   */
+  const materialTheme = createTheme({
+    props: {
+      MuiButtonBase: {
+        disableRipple: true,
+      },
+      MuiPopover: {
+        style: {
+          zIndex: 99999,
+        },
+      },
+      MuiInputBase: {
+        className: isDatepickerOpen ? 'Mui-focused' : undefined,
+      },
+    },
+  });
+
+  const datePickerClasses = classnames('ewc-datepicker', {
+    ['ewc-datepicker--error']: showError || (isErrorState && !hasFocus),
+    ['ewc-datepicker--compact']: isCompact !== false,
+    ['ewc-datepicker--unselected']: value === null,
+    ['ewc-datepicker--full-width']: isFullWidth,
+  });
 
   return (
     <div
@@ -430,7 +493,7 @@ export const Datepicker: FC<DatepickerProps> = ({
             value={selectedDate}
             placeholder={placeholder}
             format="dd.MM.yyyy"
-            rifmFormatter={getDateFormat}
+            rifmFormatter={replaceMuiDateFormat}
             disabled={isDisabled === true}
             fullWidth={isFullWidth === true}
             minDate={minDate ? minDate : undefined}
@@ -440,12 +503,12 @@ export const Datepicker: FC<DatepickerProps> = ({
             open={isDatepickerOpen}
             onOpen={handleOpenDatepicker}
             onClose={handleCloseDatepicker}
-            keyboardIcon={getCalIcon()}
-            leftArrowIcon={getArrowIcon(true)}
-            rightArrowIcon={getArrowIcon(false)}
-            ToolbarComponent={getCustomToolbar}
+            keyboardIcon={replaceMuiCalIcon()}
+            leftArrowIcon={replaceMuiArrowIcon(true)}
+            rightArrowIcon={replaceMuiArrowIcon(false)}
+            ToolbarComponent={replaceMuiToolbar}
             renderDay={(day: any, selectedDate: any, isInCurrentMonth: any, dayComponent: any) =>
-              getDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
+              replaceMuiDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
             }
             inputProps={{ ref: inputRef }}
             KeyboardButtonProps={{
