@@ -50,7 +50,7 @@ export class CMSTransformService {
     },
   };
 
-  constructor(private router: Router, private cmsTransformErrors: CMSTransformErrorsService) {}
+  constructor(private router: Router, private cmsTransformErrorsService: CMSTransformErrorsService) {}
 
   /**
    * Transforms a documentation page entry from Contentful to an object containing all the needed information to be shown on design.elvia.io by the Angular cms-page.component.
@@ -75,7 +75,7 @@ export class CMSTransformService {
       subMenuRoute = this.router.url.split('/')[1] + '/';
     }
     if (!data.fields.path) {
-      this.cmsTransformErrors.showErrorMessage('Documentation page', 'The page is missing a path.');
+      this.cmsTransformErrorsService.showErrorMessage('Documentation page', 'The page is missing a path.');
     }
 
     const description = data.fields.pageDescription
@@ -95,7 +95,7 @@ export class CMSTransformService {
       docUrl: data.fields.path && data.fields.path[locale],
       fullPath: data.fields.path && subMenuRoute + data.fields.path[locale],
       lastUpdated: data.sys.updatedAt,
-      errorMessages: this.cmsTransformErrors.errorMessages,
+      errorMessages: this.cmsTransformErrorsService.errorMessages,
     };
   }
 
@@ -165,7 +165,7 @@ export class CMSTransformService {
   }
 
   private getCenteredContent(data: ICenteredContent, locale: string) {
-    this.cmsTransformErrors.getCenteredContentErrors(data, locale);
+    this.cmsTransformErrorsService.getCenteredContentErrors(data, locale);
     if (!data.fields.content) {
       return;
     }
@@ -245,7 +245,7 @@ export class CMSTransformService {
       const subPath: string = data.fields.page[locale].fields.path[locale];
       linkPath = this.getFullPath(subPath, subMenu) + '#' + paragraphTitle;
       if (!linkPath) {
-        this.cmsTransformErrors.showErrorMessage(
+        this.cmsTransformErrorsService.showErrorMessage(
           'Link',
           `${subPath} is not an existing page that can be referenced.`,
         );
@@ -254,7 +254,7 @@ export class CMSTransformService {
     } else if (data.fields.urlNewTab) {
       linkPath = data.fields.urlNewTab[locale];
     } else {
-      this.cmsTransformErrors.showErrorMessage(
+      this.cmsTransformErrorsService.showErrorMessage(
         'Link',
         `${
           data.fields.title ? 'The link "' + data.fields.title[locale] + '"' : 'A link on your page'
@@ -271,7 +271,7 @@ export class CMSTransformService {
       : '';
     const linkPath = this.getLinkPath(data, locale, subMenu, paragraphTitle);
     if (!data.fields.title) {
-      this.cmsTransformErrors.showErrorMessage('Link', 'A link on your page is missing link text.');
+      this.cmsTransformErrorsService.showErrorMessage('Link', 'A link on your page is missing link text.');
     }
     if (!data.fields.title || !linkPath) {
       return;
@@ -308,7 +308,7 @@ export class CMSTransformService {
   }
 
   private getWhenToUse(data: IWhenToUse, locale: string): string {
-    this.cmsTransformErrors.getWhenToUseErrors(data, locale);
+    this.cmsTransformErrorsService.getWhenToUseErrors(data, locale);
     if (!data.fields.name || !data.fields.whenToUse || !data.fields.whenNotToUse) {
       return;
     }
@@ -357,7 +357,7 @@ export class CMSTransformService {
   }
 
   private getImage(data: IImage, locale: string, inGrid: boolean) {
-    this.cmsTransformErrors.getImageErrors(data, locale);
+    this.cmsTransformErrorsService.getImageErrors(data, locale);
     if (!data.fields.name || !data.fields.image || !data.fields.altText) {
       return;
     }
@@ -424,7 +424,7 @@ export class CMSTransformService {
     inGrid: boolean,
     inverted: boolean,
   ): string {
-    this.cmsTransformErrors.getDownloadContentErrors(data, locale);
+    this.cmsTransformErrorsService.getDownloadContentErrors(data, locale);
     if (!data.fields.name || !data.fields.displayImage || !data.fields.downloadableContent) {
       return;
     }
@@ -472,7 +472,7 @@ export class CMSTransformService {
   }
 
   private getGrid(data: IGrid, locale: string): string {
-    this.cmsTransformErrors.getGridErrors(data, locale);
+    this.cmsTransformErrorsService.getGridErrors(data, locale);
     if (!data.fields.name || !data.fields.gridElements) {
       return;
     }
@@ -483,7 +483,7 @@ export class CMSTransformService {
       elements.find((el) => el.sys.contentType.sys.id === 'image') &&
       elements.find((el) => el.sys.contentType.sys.id === 'downloadContent')
     ) {
-      this.cmsTransformErrors.showErrorMessage(
+      this.cmsTransformErrorsService.showErrorMessage(
         'Grid',
         'You have to choose between images or download content, both are not allowed',
         false,
@@ -496,7 +496,7 @@ export class CMSTransformService {
         nameArray.push(element.fields.name[locale]);
       });
       if (new Set(nameArray).size !== nameArray.length) {
-        this.cmsTransformErrors.showErrorMessage(
+        this.cmsTransformErrorsService.showErrorMessage(
           'Grid',
           `You have multiple download content entries with the same name. All grid elements needs to have unique download content names.`,
           false,
@@ -601,13 +601,13 @@ export class CMSTransformService {
         const subPath = card.fields.pageUrl[locale].fields.path[locale];
         fullPath = this.getFullPath(subPath, subMenu);
         if (!fullPath) {
-          this.cmsTransformErrors.showErrorMessage(
+          this.cmsTransformErrorsService.showErrorMessage(
             'LandingPage',
             `${subPath} is not an existing page that can be referenced.`,
           );
         }
       } else {
-        this.cmsTransformErrors.showErrorMessage(
+        this.cmsTransformErrorsService.showErrorMessage(
           'LandingPage',
           `The card "${card.fields.title}" is missing page url reference.`,
         );
