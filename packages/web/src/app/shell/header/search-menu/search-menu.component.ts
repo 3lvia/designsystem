@@ -10,6 +10,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { SearchItem } from './search-menu.interface';
 import { SearchService } from '../../../core/services/search.service';
 import Fuse from 'fuse.js';
+import { getColor } from '@elvia/elvis-colors';
 
 @Component({
   selector: 'app-search-menu',
@@ -57,6 +58,21 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     const search = document.getElementById('search-field');
     search.focus();
 
+    this.initializeSearchItems();
+    this.searchService.initializeSearch(this.searchItems, {
+      includeScore: true,
+      includeMatches: true,
+      threshold: 0.4,
+      minMatchCharLength: 1,
+      keys: [
+        { name: 'title', weight: 1 },
+        { name: 'description', weight: 0.5 },
+      ],
+    });
+    this.checkIfPrideMonth();
+  }
+
+  initializeSearchItems(): void {
     this.searchItems = this.searchItems.concat(
       componentsDocPages.map((docPage) => {
         return {
@@ -76,24 +92,13 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
           fragmentPath: docPage.fragmentPath,
         };
       }),
-      this.getSearchOptionsFromCMS(),
+      this.getSearchItemsFromCMS(),
     );
     this.searchItems = this.removeDuplicateSearchItems(this.searchItems);
     this.searchItems = this.removeSearchItemsWithoutPath(this.searchItems);
-    this.searchService.initializeSearch(this.searchItems, {
-      includeScore: true,
-      includeMatches: true,
-      threshold: 0.4,
-      minMatchCharLength: 1,
-      keys: [
-        { name: 'title', weight: 1 },
-        { name: 'description', weight: 0.5 },
-      ],
-    });
-    this.checkIfPrideMonth();
   }
 
-  getSearchOptionsFromCMS(): SearchItem[] {
+  getSearchItemsFromCMS(): SearchItem[] {
     const mappedCMSItems: SearchItem[] = [];
     this.mainMenu.pages.forEach((subMenu) => {
       subMenu.entry.fields.pages[Locale[this.locale]].forEach((documentationPage: IDocumentationPage) => {
@@ -104,7 +109,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         }
 
         if (
-          !this.searchItems.find((item) => item.title === documentationPage.fields.title[Locale[this.locale]])
+          !mappedCMSItems.find((item) => item.title === documentationPage.fields.title[Locale[this.locale]])
         ) {
           mappedCMSItems.push({
             title: documentationPage.fields.title[Locale[this.locale]],
@@ -130,6 +135,9 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     return items.filter((item) => item.absolutePath);
   }
 
+  /**
+   * Gets called every time the content of the search field is changed.
+   */
   onSearch(): void {
     this.activeResults = this.searchService.search(this.searchString);
 
@@ -141,21 +149,6 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     } else {
       this.showResults = false;
     }
-  }
-
-  encodeHTML(txt: string): string {
-    return txt
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/&/g, '&amp;')
-      .replace(/'/g, '&apos;')
-      .replace(/"/g, '&quot;');
-  }
-
-  createHTMLElement(txt: string): HTMLDivElement {
-    const div = document.createElement('div');
-    div.innerHTML = txt;
-    return div;
   }
 
   highlightResultGreen(): void {
@@ -187,9 +180,9 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     match.indices.forEach((matchIndices, index, items) => {
       if (matchIndices[1] - matchIndices[0] > 0) {
         newTitleString +=
-          "<span style='background: #29d305'>" +
+          this.getHighlightTag('open') +
           title.substring(matchIndices[0], matchIndices[1] + 1) +
-          '</span>';
+          this.getHighlightTag('close');
       } else {
         newTitleString += title.substring(matchIndices[0], matchIndices[1] + 1);
       }
@@ -204,6 +197,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   }
 
   replaceDescriptionString(match: Fuse.FuseResultMatch, description: string): void {
+    // match.indices holds two values: the start and end indices of the match.
     if (!description) {
       return;
     }
@@ -211,15 +205,17 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     let newDescriptionString = description.substring(0, match.indices[0][0]);
     // Add each match, and the part of the description between matches
     match.indices.forEach((matchIndices, index, items) => {
+      // Only highlight if more than one character
       if (matchIndices[1] - matchIndices[0] > 0) {
         newDescriptionString +=
-          "<span style='background: #29d305'>" +
+          this.getHighlightTag('open') +
           description.substring(matchIndices[0], matchIndices[1] + 1) +
-          '</span>';
+          this.getHighlightTag('close');
       } else {
         newDescriptionString += description.substring(matchIndices[0], matchIndices[1] + 1);
       }
 
+      // If not the last match, add the part of the description upto next match
       if (index !== match.indices.length - 1) {
         newDescriptionString += description.substring(matchIndices[1] + 1, items[index + 1][0]);
       }
@@ -230,12 +226,14 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       description.length,
     );
 
+    // Limit the length of the shown description
     if (description.length > 165) {
       const descriptionPadding = 30;
       const startIndex = Math.max(match.indices[0][0] - descriptionPadding, 0);
       const endIndex = Math.max(
         match.indices[match.indices.length - 1][1] +
-          match.indices.length * ("<span style='background: #29d305'>".length + '</span>'.length) +
+          match.indices.length *
+            (this.getHighlightTag('open').length + this.getHighlightTag('close').length) +
           descriptionPadding,
         startIndex + 165,
       );
@@ -253,7 +251,28 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     this.activeResults = [];
   }
 
-  checkIfPrideMonth(): void {
+  /**
+   * Used to create IDs for the description HTML elements.
+   */
+  encodeHTML(txt: string): string {
+    return txt
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/&/g, '&amp;')
+      .replace(/'/g, '&apos;')
+      .replace(/"/g, '&quot;')
+      .replace(/\s/g, '-');
+  }
+
+  private getHighlightTag(pos: 'open' | 'close') {
+    if (pos === 'open') {
+      return `<span style='background: ${getColor('elvia-charge')}'>`;
+    } else {
+      return '</span>';
+    }
+  }
+
+  private checkIfPrideMonth(): void {
     const currentMonth = new Date().getMonth();
     if (currentMonth === 5) {
       this.isPrideMonth = true;
