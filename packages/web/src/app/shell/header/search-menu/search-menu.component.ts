@@ -50,10 +50,6 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  closeSearch(): void {
-    this.onDestroy.next();
-  }
-
   ngOnInit(): void {
     const search = document.getElementById('search-field');
     search.focus();
@@ -72,7 +68,45 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     this.checkIfPrideMonth();
   }
 
-  initializeSearchItems(): void {
+  /**
+   * Gets called every time the content of the search field is changed.
+   */
+  onSearch(): void {
+    this.activeResults = this.searchService.search(this.searchString);
+
+    if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
+      this.showResults = true;
+      setTimeout(() => {
+        this.highlightSearchMatches();
+      });
+    } else {
+      this.showResults = false;
+    }
+  }
+
+  closeSearch(): void {
+    this.onDestroy.next();
+  }
+
+  clearSearch(): void {
+    this.searchString = '';
+    this.activeResults = [];
+  }
+
+  /**
+   * Used to create IDs for the description HTML elements.
+   */
+  encodeHTML(txt: string): string {
+    return txt
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/&/g, '&amp;')
+      .replace(/'/g, '&apos;')
+      .replace(/"/g, '&quot;')
+      .replace(/\s/g, '-');
+  }
+
+  private initializeSearchItems(): void {
     this.searchItems = this.searchItems.concat(
       componentsDocPages.map((docPage) => {
         return {
@@ -98,7 +132,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     this.searchItems = this.removeSearchItemsWithoutPath(this.searchItems);
   }
 
-  getSearchItemsFromCMS(): SearchItem[] {
+  private getSearchItemsFromCMS(): SearchItem[] {
     const mappedCMSItems: SearchItem[] = [];
     this.mainMenu.pages.forEach((subMenu) => {
       subMenu.entry.fields.pages[Locale[this.locale]].forEach((documentationPage: IDocumentationPage) => {
@@ -123,7 +157,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     return mappedCMSItems;
   }
 
-  removeDuplicateSearchItems(items: SearchItem[]): SearchItem[] {
+  private removeDuplicateSearchItems(items: SearchItem[]): SearchItem[] {
     const seen = {};
     return items.filter((item) => {
       const title = item.title.replace(' ', '').toLocaleLowerCase();
@@ -131,33 +165,22 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     });
   }
 
-  removeSearchItemsWithoutPath(items: SearchItem[]): SearchItem[] {
+  private removeSearchItemsWithoutPath(items: SearchItem[]): SearchItem[] {
     return items.filter((item) => item.absolutePath);
   }
 
-  /**
-   * Gets called every time the content of the search field is changed.
-   */
-  onSearch(): void {
-    this.activeResults = this.searchService.search(this.searchString);
-
-    if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
-      this.showResults = true;
-      setTimeout(() => {
-        this.highlightResultGreen();
-      });
-    } else {
-      this.showResults = false;
-    }
-  }
-
-  highlightResultGreen(): void {
+  private highlightSearchMatches(): void {
     this.searchService.searchResults.forEach((resultItem) => {
       resultItem.matches.forEach((match) => {
         if (match.key === 'title') {
-          this.replaceTitleString(match, resultItem.item.title);
+          const titleElement = document.getElementById('search_' + resultItem.item.title);
+          titleElement.innerHTML = this.getHighlightedTitleString(match, resultItem.item.title);
         } else if (match.key === 'description') {
-          this.replaceDescriptionString(match, resultItem.item.description);
+          const descriptionElement = document.getElementById(this.encodeHTML(resultItem.item.description));
+          descriptionElement.innerHTML = this.getHighlightedDescriptionString(
+            match,
+            resultItem.item.description,
+          );
         }
       });
       // If there are no matches for 'description', just insert the description without any highlighting
@@ -175,42 +198,34 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     });
   }
 
-  replaceTitleString(match: Fuse.FuseResultMatch, title: string): void {
+  private getHighlightedTitleString(match: Fuse.FuseResultMatch, title: string): string {
     let newTitleString = title.substring(0, match.indices[0][0]);
+    // match.indices holds two values: the start and end indices of the match.
     match.indices.forEach((matchIndices, index, items) => {
-      if (matchIndices[1] - matchIndices[0] > 0) {
-        newTitleString +=
-          this.getHighlightTag('open') +
-          title.substring(matchIndices[0], matchIndices[1] + 1) +
-          this.getHighlightTag('close');
-      } else {
-        newTitleString += title.substring(matchIndices[0], matchIndices[1] + 1);
-      }
+      newTitleString += this.addHighlightBackground(title.substring(matchIndices[0], matchIndices[1] + 1));
 
       if (index !== match.indices.length - 1) {
         newTitleString += title.substring(matchIndices[1] + 1, items[index + 1][0]);
       }
     });
     newTitleString += title.substring(match.indices[match.indices.length - 1][1] + 1, title.length);
-    const titleElement = document.getElementById('search_' + title);
-    titleElement.innerHTML = newTitleString;
+    return newTitleString;
   }
 
-  replaceDescriptionString(match: Fuse.FuseResultMatch, description: string): void {
-    // match.indices holds two values: the start and end indices of the match.
+  private getHighlightedDescriptionString(match: Fuse.FuseResultMatch, description: string): string {
     if (!description) {
       return;
     }
     // Add any part of the description that is before the first match
     let newDescriptionString = description.substring(0, match.indices[0][0]);
     // Add each match, and the part of the description between matches
+    // match.indices holds two values: the start and end indices of the match.
     match.indices.forEach((matchIndices, index, items) => {
-      // Only highlight if more than one character
+      // Only highlight in description if more than one character
       if (matchIndices[1] - matchIndices[0] > 0) {
-        newDescriptionString +=
-          this.getHighlightTag('open') +
-          description.substring(matchIndices[0], matchIndices[1] + 1) +
-          this.getHighlightTag('close');
+        newDescriptionString += this.addHighlightBackground(
+          description.substring(matchIndices[0], matchIndices[1] + 1),
+        );
       } else {
         newDescriptionString += description.substring(matchIndices[0], matchIndices[1] + 1);
       }
@@ -232,8 +247,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       const startIndex = Math.max(match.indices[0][0] - descriptionPadding, 0);
       const endIndex = Math.max(
         match.indices[match.indices.length - 1][1] +
-          match.indices.length *
-            (this.getHighlightTag('open').length + this.getHighlightTag('close').length) +
+          match.indices.length * this.addHighlightBackground('').length +
           descriptionPadding,
         startIndex + 165,
       );
@@ -241,35 +255,11 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       const postfix = endIndex < newDescriptionString.length - 1 ? '...' : '';
       newDescriptionString = prefix + newDescriptionString.substring(startIndex, endIndex) + postfix;
     }
-
-    const descriptionElement = document.getElementById(this.encodeHTML(description));
-    descriptionElement.innerHTML = newDescriptionString;
+    return newDescriptionString;
   }
 
-  removeSearch(): void {
-    this.searchString = '';
-    this.activeResults = [];
-  }
-
-  /**
-   * Used to create IDs for the description HTML elements.
-   */
-  encodeHTML(txt: string): string {
-    return txt
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/&/g, '&amp;')
-      .replace(/'/g, '&apos;')
-      .replace(/"/g, '&quot;')
-      .replace(/\s/g, '-');
-  }
-
-  private getHighlightTag(pos: 'open' | 'close') {
-    if (pos === 'open') {
-      return `<span style='background: ${getColor('elvia-charge')}'>`;
-    } else {
-      return '</span>';
-    }
+  private addHighlightBackground(str: string) {
+    return `<span style='background: ${getColor('elvia-charge')}'>${str}</span>`;
   }
 
   private checkIfPrideMonth(): void {
