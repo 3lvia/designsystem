@@ -88,11 +88,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
   const dropdownRef = useRef<HTMLSpanElement>(null);
 
   const selectId = uniqueId('ewc-dropdown-');
-
   /** Default value for the select all-option. */
   const selectAllOption: DropdownItem = { label: 'Alle', value: '*' };
 
-  // styling functions for react select
+  /** Styling functions for react select */
   const decideControlBorder = (disabled: boolean, error: boolean) => {
     if (disabled) {
       return `1px solid ${getColor('disabled')}`;
@@ -136,7 +135,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
     return getColor('black');
   };
 
-  /** Decide color of background of a checkbox inside a multiselect dropdown */
+  /** Decide color of background of a checkbox inside a multi-select dropdown */
   const decideBackgroundColor = (focused: boolean, selected: boolean, currentOptionLabel: string): string => {
     if (focused || selected) {
       return getColor('elvia-charge');
@@ -318,7 +317,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
     }),
   };
 
-  // helper function to determine if options array have valid icon attributes.
+  /** Helper function to determine if the options array have valid icon attributes (all or none should have icon). */
   const allOptionsHaveIconAttribute = (): boolean => {
     if (items.length > 0) {
       for (const dropdownItem of items) {
@@ -331,7 +330,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
     return false;
   };
 
-  // Custom components for Elvia dropdown
+  /** Custom components for Elvia dropdown */
   const ElviaDropdownIndicator = (props: DropdownIndicatorProps) => {
     return (
       <components.DropdownIndicator {...props}>
@@ -391,6 +390,13 @@ const Dropdown: React.FC<DropdownProps> = function ({
     );
   };
 
+  const ElviaPlaceholder = (props: PlaceholderProps) => {
+    if (menuIsOpen && isSearchable) {
+      return null;
+    }
+    return <components.Placeholder {...props}>{props.children}</components.Placeholder>;
+  };
+
   const ElviaMultiValue = (props: MultiValueProps): any => {
     if (menuIsOpen && isSearchable) {
       return null;
@@ -411,13 +417,6 @@ const Dropdown: React.FC<DropdownProps> = function ({
     return !props.index && `${props.getValue().length} valgte`;
   };
 
-  const ElviaPlaceholder = (props: PlaceholderProps) => {
-    if (menuIsOpen && isSearchable) {
-      return null;
-    }
-    return <components.Placeholder {...props}>{props.children}</components.Placeholder>;
-  };
-
   const ElviaSingleValue = (props: SingleValueProps) => {
     return (
       <components.SingleValue {...props}>
@@ -435,7 +434,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
     );
   };
 
-  /** Object containing all components overriden in react-select by Elvis dropdown */
+  /** Object containing all components overridden in react-select by Elvis dropdown */
   const overrideComponents = {
     DropdownIndicator: ElviaDropdownIndicator,
     Option: ElviaOption,
@@ -447,26 +446,25 @@ const Dropdown: React.FC<DropdownProps> = function ({
     SingleValue: ElviaSingleValue,
   };
 
-  // handle focus on dropdown, running on first render only (on mount)
+  /** Start listener for adding and removing outline on dropdown when elements in focus */
   useEffect(() => {
-    // Start outline listener
     if (dropdownRef && dropdownRef.current) {
       toolbox.outlineListener(dropdownRef.current);
     }
     return () => {
-      // Remove outline listener
       if (dropdownRef && dropdownRef.current) {
         toolbox.outlineListener(dropdownRef.current, true);
       }
     };
   }, []);
 
-  // Needed for webcomponent -> To update the default value
+  /** Needed for webcomponent -> To update the default value */
   useEffect(() => {
     setCurrentVal(value);
     updateValue(value);
   }, [value]);
 
+  /** Update current value of dropdown and call updateValue to dispatch the new values*/
   const onChangeHandler = (event: Parameters<NonNullable<DropdownProps['valueOnChange']>>[0]) => {
     if (hasSelectAllOption && isMulti && Array.isArray(event)) {
       // Handle the logic for the "select all"-button in all different situations
@@ -524,7 +522,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
     }
   };
 
-  /** Call valueOnChange (React) or dispatch on change-event (webcomponent) */
+  /** Dispatch valueOnChange events */
   const updateValue = (event: Parameters<NonNullable<DropdownProps['valueOnChange']>>[0]) => {
     // return if value undefined, need this check on initation to remove value undefined callback
     if (event === undefined) {
