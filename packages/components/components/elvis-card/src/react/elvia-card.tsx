@@ -76,11 +76,11 @@ const Card: FC<CardProps> = ({
 
   const [isHovering, setIsHovering] = useState(false);
 
+  /** Get all slots and place them correctly */
   useEffect(() => {
     if (!webcomponent) {
       return;
     }
-    // Get slotted items from web component
     if (cardIcon.current && webcomponent.getSlot('icon')) {
       cardIcon.current.innerHTML = '';
       cardIcon.current.appendChild(webcomponent.getSlot('icon'));
@@ -95,7 +95,7 @@ const Card: FC<CardProps> = ({
     }
   }, [webcomponent]);
 
-  // Change icon on hover if iconHover slot is used
+  /** Change icon on hover if iconHover slot is used */
   useEffect(() => {
     if (!webcomponent) {
       return;

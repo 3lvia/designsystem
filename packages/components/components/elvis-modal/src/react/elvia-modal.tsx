@@ -83,9 +83,7 @@ export const ModalComponent: FC<ModalProps> = function ({
   const hasSecondaryButton =
     !!secondaryButton || !!(webcomponent && !!webcomponent.getSlot('secondaryButton'));
 
-  /**
-   * Dispatch onClose events
-   */
+  /** Dispatch onClose events */
   const handleOnClose = (): void => {
     if (!isShowing) {
       return;
@@ -107,9 +105,7 @@ export const ModalComponent: FC<ModalProps> = function ({
   useKeyPress('Escape', handleOnClose);
   hasLockBodyScroll && useLockBodyScroll(isShowing);
 
-  /**
-   * When the modal is closed add focus back to the element that had focus when the modal was opened.
-   */
+  /** When the modal is closed add focus back to the element that had focus when the modal was opened. */
   useEffect(() => {
     const originalFocusedElement = document.activeElement as HTMLElement;
     return () => {
@@ -117,9 +113,7 @@ export const ModalComponent: FC<ModalProps> = function ({
     };
   }, []);
 
-  /**
-   * Get all slots and place them correctly
-   */
+  /** Get all slots and place them correctly */
   useEffect(() => {
     if (!isShowing) {
       return;

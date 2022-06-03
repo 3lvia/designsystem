@@ -469,7 +469,6 @@ const Pagination: FC<PaginationProps> = function ({
       if (!webcomponent && dropdownSelectedItemIndexOnChange) {
         dropdownSelectedItemIndexOnChange(selectedIndex);
       } else if (webcomponent) {
-        // True -> Prevents rerender
         webcomponent.setProps({ dropdownSelectedItemIndex: selectedIndex }, true);
       }
     }
@@ -494,7 +493,6 @@ const Pagination: FC<PaginationProps> = function ({
     if (!webcomponent && valueOnChange) {
       valueOnChange(newValue);
     } else if (webcomponent) {
-      // True -> Prevents rerender
       webcomponent.setProps({ value: newValue }, true);
     }
   };
