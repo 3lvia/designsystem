@@ -502,6 +502,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     docUrl: Pages.Color,
     absolutePath: '/brand/' + Pages.Color,
     status: DocPageStatus.Done,
+    type: 'Brand',
     figmaUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=0%3A1',
   },
   {
@@ -518,11 +519,16 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/brand/' + Pages.Icon,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=0%3A1',
+    type: 'Brand',
   },
   {
     title: 'Layout',
     figmaUrl: 'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8936%3A67993',
     docUrl: 'layout',
+    absolutePath: '/brand/' + 'layout',
+    description:
+      'Layout provides rules to give designs consistent rhythm in the application, as well as across applications to ensure a holistic design in Elvia. The layout consist of grid, spacing and box design.',
+    type: 'Brand',
   },
   {
     title: 'Typography',
@@ -533,6 +539,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/brand/' + Pages.Typography,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography?node-id=0%3A1',
+    type: 'Brand',
   },
   {
     title: 'Utility Classes',
@@ -542,6 +549,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     docUrl: Pages.Utilities,
     absolutePath: '/tools/' + Pages.Utilities,
     status: DocPageStatus.Done,
+    type: 'Tools',
   },
   {
     title: "What's new?",
@@ -560,6 +568,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     docUrl: Pages.Contact,
     absolutePath: '/about/' + Pages.Contact,
     status: DocPageStatus.New,
+    type: 'About',
   },
   {
     title: 'Contribute',
