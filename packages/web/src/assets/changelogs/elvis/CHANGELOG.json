@@ -6,7 +6,10 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Accordion group fix, removing flex from content container."]
+          "changes": ["Accordion group fix, removing flex from content container."],
+          "fixes": [
+            "If you are using <span class=\"code-text\">flex-direction: row</span> inside the accordion group, this might break if you have not defined <span class=\"code-text\">display: flex</span> yourself."
+          ]
         }
       ]
     },
