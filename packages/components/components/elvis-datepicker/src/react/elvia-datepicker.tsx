@@ -417,7 +417,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     let res = digits
       .split('')
       .reduce((num1, num2, index) => (index === 2 || index === 4 ? `${num1}.${num2}` : `${num1}${num2}`), '')
-      .substring(0, 9);
+      .substring(0, 10);
 
     if (res.length === 2 || res.length === 5) {
       res = `${res}.`;
