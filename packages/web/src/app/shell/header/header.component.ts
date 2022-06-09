@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { GlobalService } from 'src/app/core/services/global.service';
 import { MobileMenuService } from 'src/app/core/services/mobile-menu.service';
 import { OverlayRef } from '@angular/cdk/overlay';
@@ -64,6 +64,14 @@ export class HeaderComponent {
     this.checkIfPrideMonth();
   }
 
+  @HostListener('document:keydown.escape')
+  closeSearchMenuOnEsc(): void {
+    if (!this.searchMenuOpen) {
+      return;
+    }
+    this.closeSearchMenu();
+  }
+
   checkIfPrideMonth(): void {
     const currentMonth = new Date().getMonth();
     if (currentMonth === 5) {
@@ -89,17 +97,23 @@ export class HeaderComponent {
   }
 
   openSearchMenu(): void {
+    if (this.searchMenuOpen) {
+      return;
+    }
     this.searchMenuOpen = true;
     this.searchOverlay = this.searchMenu.setupOverlay();
     const compInstance = this.searchMenu.openOverlay(this.searchOverlay, SearchMenuComponent);
     this.searchOverlay.backdropClick().subscribe(() => {
-      this.searchMenu.detach(this.searchOverlay);
-      this.searchMenuOpen = false;
+      this.closeSearchMenu();
     });
     compInstance.onDestroy$.subscribe(() => {
-      this.searchMenu.detach(this.searchOverlay);
-      this.searchMenuOpen = false;
+      this.closeSearchMenu();
     });
+  }
+
+  closeSearchMenu(): void {
+    this.searchMenu.detach(this.searchOverlay);
+    this.searchMenuOpen = false;
   }
 
   testInternalHeader(): void {
