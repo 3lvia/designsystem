@@ -2,7 +2,7 @@
     functions = "functions"
 
 [build.environment]
-    YARN_VERSION = "3.2.0"
+    YARN_VERSION = "3.2.1"
 
 [context.deploy-preview]
     # ignore all PRs opened by `dependabot` (with last commit made by `dependabot`)
