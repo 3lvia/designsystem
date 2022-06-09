@@ -94,7 +94,7 @@ describe('Elvis Card', () => {
 
     it('should not switch icon on hover', function (done) {
       expect(cardIcon.at(0).text()).toBe('Icon');
-      wrapper.simulate('mouseenter');
+      wrapper.simulate('pointerenter');
       expect(cardIcon.at(0).text()).toBe('Icon');
       done();
     });
@@ -177,9 +177,9 @@ describe('Elvis Card', () => {
 
     it('should switch icon on hover', function (done) {
       expect(cardIcon.at(0).text()).toBe('Icon');
-      wrapper.simulate('mouseenter');
+      wrapper.simulate('pointerenter');
       expect(cardIcon.at(0).text()).toBe('IconHover');
-      wrapper.simulate('mouseleave');
+      wrapper.simulate('pointerleave');
       expect(cardIcon.at(0).text()).toBe('Icon');
       done();
     });
