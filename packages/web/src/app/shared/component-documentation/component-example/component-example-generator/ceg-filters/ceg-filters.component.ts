@@ -152,11 +152,11 @@ export class CegFiltersComponent implements OnInit {
 
   getDependentElements(propName: string): (CegFormGroup | CegFormGroupOption)[] {
     const dependentElements: (CegFormGroup | CegFormGroupOption)[] = [];
-    this.formGroupList.filter((element) => {
+    this.formGroupList.forEach((element) => {
       if (!element.dependency) {
         return;
       }
-      element.dependency.filter((dependency) => {
+      element.dependency.forEach((dependency) => {
         if (dependency && dependency.name === propName) {
           dependentElements.push(element);
         } else if ('formGroupOptions' in element) {
