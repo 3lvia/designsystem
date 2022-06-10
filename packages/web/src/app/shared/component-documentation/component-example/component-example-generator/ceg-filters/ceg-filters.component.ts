@@ -9,8 +9,8 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../../example-code.service';
-import { CegFormGroupOption, CegFormGroup, FormState } from '../ceg.interface';
-import { debounce } from 'lodash';
+import { CegFormGroup, CegFormGroupOption, FormState } from '../ceg.interface';
+import debounce from 'lodash/debounce';
 import { VisibleFieldsPipe } from './ceg-filters-visibility.pipe';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 
@@ -128,11 +128,6 @@ export class CegFiltersComponent implements OnInit {
     };
     this.checkIfHasVisibleFilters();
     this.removeNonVisibleProp(key);
-  }
-
-  checkIfVisible(formField: CegFormGroup | CegFormGroupOption): boolean {
-    const visibleFieldPipe = new VisibleFieldsPipe();
-    return visibleFieldPipe.transform(formField, this.formStates);
   }
 
   removeNonVisibleProp(propName: string): void {
@@ -255,6 +250,11 @@ export class CegFiltersComponent implements OnInit {
       this.replaceOldProps(attr, '' + this.counterNumber, formGroup.type);
     }
     this.updateNewCode();
+  }
+
+  private checkIfVisible(formField: CegFormGroup | CegFormGroupOption): boolean {
+    const visibleFieldPipe = new VisibleFieldsPipe();
+    return visibleFieldPipe.transform(formField, this.formStates);
   }
 
   private addNewProps(attr: string, newValue: string, type: string): void {
