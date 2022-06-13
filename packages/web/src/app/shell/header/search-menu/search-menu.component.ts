@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages';
 import packageJson from '@elvia/elvis/package.json';
@@ -11,6 +11,7 @@ import { SearchItem } from './search-menu.interface';
 import { SearchService } from '../../../core/services/search.service';
 import Fuse from 'fuse.js';
 import { getColor } from '@elvia/elvis-colors';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-menu',
@@ -37,6 +38,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     private cmsService: CMSService,
     private localizationService: LocalizationService,
     private searchService: SearchService<SearchItem>,
+    private router: Router,
   ) {
     this.localizationService.listenLocalization().subscribe((locale) => {
       this.locale = locale;
@@ -44,6 +46,32 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         this.mainMenu = data;
       });
     });
+  }
+
+  @HostListener('document:keydown.enter')
+  navigateToFirstSearchResultOnEnter(): void {
+    if (this.activeResults.length === 0) {
+      return;
+    }
+    // If any link is focused, navigate to it instead of first search result
+    if (document.activeElement instanceof HTMLAnchorElement) {
+      const newHref = document.activeElement.href.split(window.location.origin)[1];
+      this.router.navigate([newHref]);
+      this.closeSearch();
+      return;
+    }
+    // If the clear search-button is focused, click it instead of thefirst search result
+    if (document.activeElement === document.getElementById('search-clear-button')) {
+      document.getElementById('search-clear-button').click();
+      return;
+    }
+    this.router.navigate([this.activeResults[0].absolutePath]);
+    this.closeSearch();
+  }
+
+  @HostListener('document:keydown.escape')
+  closeSearchMenuOnEsc(): void {
+    this.closeSearch();
   }
 
   ngOnDestroy(): void {
@@ -91,6 +119,8 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   clearSearch(): void {
     this.searchString = '';
     this.activeResults = [];
+    const search = document.getElementById('search-field');
+    search.focus();
   }
 
   /**

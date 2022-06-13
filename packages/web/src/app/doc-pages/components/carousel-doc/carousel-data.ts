@@ -66,7 +66,7 @@ export const carouselData: ComponentData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom css classes that can be added to the carousel.',
+      description: 'Custom CSS classes that can be added to the carousel.',
     },
     inlineStyle: {
       isRequired: false,

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { GlobalService } from 'src/app/core/services/global.service';
 import { MobileMenuService } from 'src/app/core/services/mobile-menu.service';
 import { OverlayRef } from '@angular/cdk/overlay';
@@ -62,14 +62,6 @@ export class HeaderComponent {
     });
 
     this.checkIfPrideMonth();
-  }
-
-  @HostListener('document:keydown.escape')
-  closeSearchMenuOnEsc(): void {
-    if (!this.searchMenuOpen) {
-      return;
-    }
-    this.closeSearchMenu();
   }
 
   checkIfPrideMonth(): void {

@@ -9,22 +9,22 @@ const modalData: ComponentData = {
     isShowing: {
       isRequired: true,
       type: 'boolean',
-      description: 'Controls if the modal is showing or not',
+      description: 'Controls if the modal is showing or not.',
     },
     heading: {
       isRequired: false,
       type: 'string',
-      description: 'Title for the modal',
+      description: 'Heading for the modal.',
     },
     content: {
       isRequired: true,
       type: 'HTMLElement',
-      description: 'Text, images, tables or any other content (slot in webcomponent)',
+      description: 'Text, images, tables or any other content (slot in webcomponent).',
     },
     illustration: {
       isRequired: false,
       type: 'HTMLElement',
-      description: 'Illustration/image to be shown in the modal (slot in webcomponent)',
+      description: 'Illustration/image to be shown in the modal (slot in webcomponent).',
       cegDisplayName: 'Illustration',
       cegType: 'boolean',
       cegFormType: 'toggle',
@@ -35,17 +35,17 @@ const modalData: ComponentData = {
     primaryButton: {
       isRequired: false,
       type: 'HTMLElement',
-      description: 'Primary button placed to the right in the modal (slot in webcomponent)',
+      description: 'Primary button placed to the right in the modal (slot in webcomponent).',
     },
     secondaryButton: {
       isRequired: false,
       type: 'HTMLElement',
-      description: 'Secondary button placed to the right in the modal (slot in webcomponent)',
+      description: 'Secondary button placed to the right in the modal (slot in webcomponent).',
     },
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom css classes that could be added to the modal',
+      description: 'Custom css classes that could be added to the modal.',
     },
     hasCloseButton: {
       isRequired: false,
