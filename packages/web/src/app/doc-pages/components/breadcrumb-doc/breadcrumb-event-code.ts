@@ -8,7 +8,7 @@ const breadcrumbEventCode = {
     {text: 'Components'},
     {text: 'Breadcrumbs'},
   ]}
-  onLinkClick={(event) => handleOnChange(event)}
+  onLinkClick={(event) => handleRoutingOnClick(event)}
 ></Breadcrumb>`,
   codeAngular: `<elvia-breadcrumb 
   [items]="[
@@ -16,7 +16,7 @@ const breadcrumbEventCode = {
     {text: 'Components'},
     {text: 'Breadcrumbs'},
   ]"
-  (onLinkClick)="handleOnChange($event)"
+  (onLinkClick)="handleRoutingOnClick($event.detail.value)"
 ></elvia-breadcrumb>`,
   codeVue: `<elvia-breadcrumb 
   :items="[
@@ -24,7 +24,7 @@ const breadcrumbEventCode = {
     {text: 'Components'},
     {text: 'Breadcrumbs'},
   ]"
-  @items-on-change="handleOnChange($event)"
+  @items-on-change="handleRoutingOnClick($event.detail.value)"
 ></elvia-breadcrumb>`,
   codeNativeHTML: `<elvia-breadcrumb id="example-elvia-breadcrumb-2"></elvia-breadcrumb>`,
   codeNativeScript: `  const breadcrumb = document.getElementById('example-elvia-breadcrumb-2');
