@@ -80,7 +80,7 @@
   },
   "resolutions": {
     "@types/react": "17.0.39",
-    "@elvia/elvis-toolbox": "portal:./packages/components/components/elvis-toolbox"
+    "@angular-devkit/build-angular": "13.3.6"
   },
   "packageManager": "yarn@3.2.1"
 }
