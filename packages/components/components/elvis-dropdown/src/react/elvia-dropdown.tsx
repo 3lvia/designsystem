@@ -315,6 +315,11 @@ const Dropdown: React.FC<DropdownProps> = function ({
       height: decideValueContainerHeight(),
       whiteSpace: 'nowrap',
     }),
+    input: (provided) => ({
+      ...provided,
+      padding: 0,
+      margin: 0,
+    }),
   };
 
   /** Helper function to determine if the options array have valid icon attributes (all or none should have icon). */

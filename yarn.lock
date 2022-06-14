@@ -2693,6 +2693,7 @@ __metadata:
     "@elvia/elvis-toolbox": ^1.3.1
     "@elvia/elvis-typography": ^2.1.0
     "@types/lodash.isequal": ^4.5.5
+    "@types/lodash.uniqueid": ^4.0.1
     lodash.isequal: ^4.5.0
     lodash.uniqueid: 4.0.1
     react: ^16.8.0 || ^17.0.0
@@ -4836,6 +4837,15 @@ __metadata:
   dependencies:
     "@types/lodash": "*"
   checksum: 8c28dae574d0d15d316b8412f1edf7628398f0d1d34bec978af9d8b9f1286749492c23680817e74c6bd15e14b45b0006c79b320ebd260f9b8c0ac85668e0c409
+  languageName: node
+  linkType: hard
+
+"@types/lodash.uniqueid@npm:^4.0.1":
+  version: 4.0.7
+  resolution: "@types/lodash.uniqueid@npm:4.0.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 30e537775e312f1bd559608f03d952bae1b7b46211e47e05e176d99bd1d08a1059f2c91f43ddf9fcf2ad56c2fb30c0b8052a8a68bb5b9df924e4b058191dfeeb
   languageName: node
   linkType: hard
 
