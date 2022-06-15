@@ -49,7 +49,7 @@ export class v2PlaygroundComponent {
   isModalShowing = false;
 
   // Pagination
-  defaultPaginationValue = { firstElementIndex: 1, lastElementIndex: 10 };
+  defaultPaginationValue = { start: 1, end: 10 };
 
   // Popover
   isPopoverShowing = false;
