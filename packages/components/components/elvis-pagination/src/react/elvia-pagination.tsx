@@ -1,15 +1,15 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Icon } from '@elvia/elvis-icon/react';
-import { DropdownItem, VisibleElements, PaginationLabel } from './elvia-pagination.types';
+import { DropdownOption, SelectionNumber, PaginationLabel } from './elvia-pagination.types';
 import {
   Paginator,
-  PaginatorPage,
-  PaginatorDots,
+  PaginatorNumber,
   PaginatorInfoAmount,
   PaginatorInfoContainer,
   PaginatorInfoDropdown,
   PaginatorInfoText,
+  PaginatorDots,
   PaginatorNumbersArea,
   PaginatorSelectorArea,
   PaginatorSelectorArrowBtn,
@@ -19,16 +19,16 @@ import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import { config } from './config';
 
 export interface PaginationProps {
-  value: VisibleElements;
+  value: SelectionNumber;
   numberOfElements: number;
   lastNumberLimit?: number;
   alignment?: 'left' | 'right';
-  dropdownItems: DropdownItem[];
+  dropdownItems: DropdownOption[];
   dropdownMenuPosition: string;
   dropdownSelectedItemIndex: number;
   dropdownSelectedItemIndexOnChange?: (value: number) => void;
   labelOptions?: PaginationLabel;
-  valueOnChange?: (value: VisibleElements) => void;
+  valueOnChange?: (value: SelectionNumber) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
@@ -62,7 +62,7 @@ export interface PaginationProps {
   labelOf?: string;
 }
 
-const defaultPaginationOptions: DropdownItem[] = [
+const defaultPaginationOptions: DropdownOption[] = [
   {
     value: '10',
     label: '10',
@@ -81,15 +81,14 @@ const defaultPaginationOptions: DropdownItem[] = [
   },
 ];
 
-const defaultLabelOptions: PaginationLabel = {
+const defaultPaginationLabel: PaginationLabel = {
   displaying: 'Viser',
   of: 'av',
   label: 'elementer',
 };
 
 const Pagination: FC<PaginationProps> = function ({
-  // Value represents the current visible elements decided by the pagination
-  value = { firstElementIndex: undefined, lastElementIndex: undefined },
+  value = { start: undefined, end: undefined },
   numberOfElements = 0,
   lastNumberLimit,
   alignment = 'left',
@@ -106,310 +105,418 @@ const Pagination: FC<PaginationProps> = function ({
 }) {
   // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(config, arguments[0]);
-  const [selectedPageNumber, setSelectedPageNumber] = useState(1);
-  const [selectedDropdownValue, setSelectedDropdownValue] = useState(
-    dropdownItems[dropdownSelectedItemIndex],
-  );
-  const [showPaginationNumbers, setShowPaginationNumbers] = useState(true);
-  /** Calculate number of pages based on total elements divided by amount of elements showing. */
-  const [numberOfPages, setNumberOfPages] = useState(
-    Math.ceil(numberOfElements / parseInt(selectedDropdownValue.value)),
-  );
+
+  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[dropdownSelectedItemIndex]);
+  const [showPaginationMenu, setShowPaginationMenu] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [selectedNumber, setSelectedNumber] = useState(1);
+
   const [labelOptionsState, setLabelOptionsState] = useState<PaginationLabel>({
-    ...defaultLabelOptions,
+    ...defaultPaginationLabel,
     ...labelOptions,
   });
-  /** Number of pages that can be navigated to at each end before dots are displayed instead of numbers */
-  const breakingPointNumber = 4;
-  const isMobile = windowWidth < 768;
-
-  /** If selectedDropdownValue is not a number, hide the pagination TODO: Varsle bruker? */
-  if (isNaN(parseInt(selectedDropdownValue.value))) {
-    setNumberOfPages(0);
-    setShowPaginationNumbers(false);
-  }
-
   useEffect(() => {
-    updateSelectedPageByVisibleElements(value);
-  }, [value]);
-
-  useEffect(() => {
-    setLabelOptionsState({ ...defaultLabelOptions, ...labelOptions });
+    setLabelOptionsState({ ...defaultPaginationLabel, ...labelOptions });
   }, [labelOptions]);
 
   useEffect(() => {
-    if (numberOfElements !== 0) {
-      handleDropdownValueChange(selectedDropdownValue);
-    }
+    updateValue(selectedNumber);
+  }, [selectedNumber, currentDisplayAmount]);
+
+  useEffect(() => {
+    onDropdownChangeHandler(currentDisplayAmount);
   }, [numberOfElements]);
 
   useEffect(() => {
-    dispatchVisibleElementsValueEvent(selectedPageNumber);
-  }, [selectedPageNumber, selectedDropdownValue]);
-
-  useEffect(() => {
-    setNumberOfPages(Math.ceil(numberOfElements / parseInt(selectedDropdownValue.value)));
-  }, [numberOfElements, selectedDropdownValue]);
-
-  useEffect(() => {
-    setSelectedDropdownValue(dropdownItems[dropdownSelectedItemIndex]);
+    setCurrentDisplayAmount(dropdownItems[dropdownSelectedItemIndex]);
   }, [dropdownItems, dropdownSelectedItemIndex]);
 
   useEffect(() => {
-    setWindowDimensions();
+    setWindowWidth(window.innerWidth);
   }, []);
 
   useEffect(() => {
-    window.addEventListener('resize', setWindowDimensions);
+    const getWindowDimensions = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', getWindowDimensions);
     return () => {
-      window.removeEventListener('resize', setWindowDimensions);
+      window.removeEventListener('resize', getWindowDimensions);
     };
   });
 
-  const setWindowDimensions = () => {
-    setWindowWidth(window.innerWidth);
+  // calculate amount of selection numbers, based on total pages
+  let selectorAmount = Math.ceil(numberOfElements / parseInt(currentDisplayAmount.value));
+  if (isNaN(parseInt(currentDisplayAmount.value))) {
+    selectorAmount = 0;
+    setShowPaginationMenu(false);
+  }
+  // create array from numbers
+  const selectionNumbers = Array.from(Array(selectorAmount + 1).keys()).slice(1);
+
+  const activeNumber = (chosenNumber: number): boolean => {
+    return selectedNumber === chosenNumber;
+  };
+  // update selected number on arrow click
+  const updateSelectedPageLeft = (): void => {
+    setSelectedNumber((preSelectedNumn) => preSelectedNumn - 1);
+  };
+  const updateSelectedPageRight = (): void => {
+    setSelectedNumber((preSelectedNumn) => preSelectedNumn + 1);
   };
 
-  const shouldHaveLeftArrow = (): boolean => {
-    return showPaginationNumbers && selectedPageNumber > 1;
+  const isLeftArrow = (): boolean => {
+    if (showPaginationMenu) {
+      return selectedNumber > 1;
+    }
+    return false;
   };
-  const shouldHaveRightArrow = (): boolean => {
-    return showPaginationNumbers && selectedPageNumber < numberOfPages;
-  };
-
-  /** Update visible elements value and dispatch value events */
-  const dispatchVisibleElementsValueEvent = (selectedPageNumber: number): void => {
-    if (selectedPageNumber <= 0 || selectedPageNumber > numberOfPages) {
-      return;
+  const isRightArrow = (): boolean => {
+    if (showPaginationMenu) {
+      return selectedNumber < selectionNumbers.length;
     }
-
-    const firstElementIndex =
-      parseInt(selectedDropdownValue.value) * selectedPageNumber - parseInt(selectedDropdownValue.value) + 1;
-    let lastElement = firstElementIndex + parseInt(selectedDropdownValue.value) - 1;
-    // TODO: Test om man slipper denne ekstra sjekken
-    if (selectedPageNumber === numberOfPages) {
-      lastElement = numberOfElements;
-    }
-
-    const newValue = { firstElementIndex: firstElementIndex, lastElementIndex: lastElement };
-
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(newValue);
-    } else if (webcomponent) {
-      webcomponent.setProps({ value: newValue }, true);
-    }
+    return false;
   };
 
-  /** Update selected page when value (visible elements) changed */
-  const updateSelectedPageByVisibleElements = (visibleElements: VisibleElements): void => {
-    if (visibleElements.firstElementIndex == undefined || visibleElements.lastElementIndex == undefined) {
-      return;
-    }
-    const numberOfVisibleElements = visibleElements.lastElementIndex - visibleElements.firstElementIndex + 1;
-
-    if (visibleElements.lastElementIndex === numberOfElements) {
-      setSelectedPageNumber(numberOfPages);
+  const getAriaLabel = (NumberInArray: number): string => {
+    if (NumberInArray === selectedNumber) {
+      return 'Valgt side';
     } else {
-      setSelectedPageNumber(Math.ceil(visibleElements.lastElementIndex / numberOfVisibleElements));
+      return 'Velg side ' + NumberInArray;
     }
   };
 
-  /** -- PAGES -- */
-  const getAriaLabel = (pageNumber: number): string => {
-    return pageNumber === selectedPageNumber ? 'Valgt side' : 'Velg side ' + pageNumber;
-  };
+  // Visible numbers in paginator
+  const PaginatorNumbers = (): JSX.Element => {
+    const visibleNumbers = [];
+    const isShowAll = false;
+    const isMobile = windowWidth < 768;
 
-  const getPageElement = (pageNumber: number, pageIndex: number): JSX.Element => {
-    const isFirstPage = pageNumber === 1;
-    const isLastPage = pageNumber === numberOfPages;
-    return (
-      <PaginatorPage
-        isFirst={isFirstPage}
-        isLast={isLastPage}
-        key={pageIndex}
-        onClick={() => setSelectedPageNumber(pageNumber)}
-        selected={isSelectedPageNumber(pageNumber)}
-        aria-label={getAriaLabel(pageNumber)}
-        aria-current={pageNumber === selectedPageNumber}
-      >
-        {pageNumber}
-      </PaginatorPage>
-    );
-  };
-
-  const getDotsElement = (dotKey: string, isVisible: boolean): JSX.Element => {
-    return (
-      <PaginatorDots key={dotKey} hide={!isVisible}>
-        ...
-      </PaginatorDots>
-    );
-  };
-
-  const isSelectedPageNumber = (pageNumber: number): boolean => {
-    return pageNumber === selectedPageNumber;
-  };
-  const areNumbersAtBeginning = (pageNumber: number): boolean => {
-    return pageNumber <= breakingPointNumber;
-  };
-  const areNumbersInCenter = (pageNumber: number): boolean => {
-    return pageNumber > breakingPointNumber && pageNumber < numberOfPages - 2;
-  };
-  const areNumbersAtEnd = (pageNumber: number): boolean => {
-    return pageNumber >= numberOfPages - 2;
-  };
-
-  const isNumberFirstOrLast = (pageNumber: number): boolean => {
-    return pageNumber === 1 || pageNumber === numberOfPages;
-  };
-  const isNumberAtBeginningVisible = (pageNumber: number, maxValue: number): boolean => {
-    return pageNumber <= maxValue && !isNumberFirstOrLast(pageNumber);
-  };
-  const isNumberInCenterVisible = (pageNumber: number, proximityRange: number): boolean => {
-    return (
-      pageNumber >= selectedPageNumber - proximityRange &&
-      pageNumber <= selectedPageNumber + proximityRange &&
-      !isNumberFirstOrLast(pageNumber)
-    );
-  };
-  const isNumberAtEndVisible = (pageNumber: number, proximityRange: number): boolean => {
-    return pageNumber >= numberOfPages - proximityRange && !isNumberFirstOrLast(pageNumber);
-  };
-
-  const shouldHaveVisibleFirstDots = (): boolean => {
-    return (
-      (selectedPageNumber > 4 && numberOfPages > 7 && !isMobile) ||
-      (selectedPageNumber > 3 && numberOfPages > 4 && isMobile)
-    );
-  };
-  const shouldHaveVisibleLastDots = (): boolean => {
-    return (
-      (selectedPageNumber < numberOfPages - 3 && numberOfPages > 7 && !isMobile) ||
-      (selectedPageNumber < numberOfPages - 2 && numberOfPages > 5 && isMobile)
-    );
-  };
-
-  /** Returns the numbers and dots that should be visible inside the paginator as a JSX element */
-  const PaginatorNumbersAndDots = (): JSX.Element => {
-    const visibleNumbersAndDots = [];
-
-    const getBetweenNumberAtBeginning = (pageNumber: number, pageIndex: number): JSX.Element | null => {
-      if (
-        (isNumberAtBeginningVisible(pageNumber, 6) && !isMobile) ||
-        (isNumberAtBeginningVisible(pageNumber, 4) && isMobile && selectedPageNumber !== 4) ||
-        (isMobile &&
-          selectedPageNumber === 4 &&
-          pageNumber >= selectedPageNumber - 1 &&
-          pageNumber <= selectedPageNumber + 1 &&
-          pageNumber < 6)
-      ) {
-        return getPageElement(pageNumber, pageIndex);
-      }
-      return null;
+    const paginatorNumber = (NumberInArray: number, indexNumber: number) => {
+      return [
+        <PaginatorNumber
+          isFirst={false}
+          isLast={false}
+          key={indexNumber}
+          noShow={false}
+          onClick={() => setSelectedNumber(NumberInArray)}
+          selected={activeNumber(NumberInArray)}
+          aria-label={getAriaLabel(NumberInArray)}
+          aria-current={NumberInArray === selectedNumber}
+        >
+          {NumberInArray}
+        </PaginatorNumber>,
+      ];
     };
 
-    const getBetweenNumberInCenter = (pageNumber: number, pageIndex: number): JSX.Element | null => {
-      if (
-        (isNumberInCenterVisible(pageNumber, 2) && !isMobile) ||
-        (isNumberInCenterVisible(pageNumber, 1) && isMobile)
-      ) {
-        return getPageElement(pageNumber, pageIndex);
-      }
-      return null;
+    // helper functions to determine what numbers get added to visible array
+    const getNumbersWhenSelectedBetween1and5 = (selectionNumber: number): boolean => {
+      return selectionNumber === 1 || selectionNumber < 5;
     };
 
-    const getBetweenNumberAtEnd = (pageNumber: number, pageIndex: number): JSX.Element | null => {
-      if (
-        (isNumberAtEndVisible(pageNumber, 5) && !isMobile) ||
-        (isNumberAtEndVisible(pageNumber, 3) && isMobile)
-      ) {
-        return getPageElement(pageNumber, pageIndex);
+    const centerNumbersWhenBetween1And5DisplayCheck = (
+      numberInArray: number,
+      SelectionArrayLenght: number,
+      maxValue: number,
+    ): boolean => {
+      if (numberInArray > 1 && numberInArray <= maxValue && numberInArray !== SelectionArrayLenght) {
+        return true;
       }
-      return null;
+      return false;
     };
 
-    const getBetweenPageNumbers = (): (JSX.Element | null)[] => {
-      const pageNumbersArray = Array.from(Array(numberOfPages + 1).keys()).slice(1);
-      if (areNumbersAtBeginning(selectedPageNumber)) {
-        return pageNumbersArray.map((pageNumber, pageIndex) => {
-          return getBetweenNumberAtBeginning(pageNumber, pageIndex);
-        });
-      } else if (areNumbersInCenter(selectedPageNumber)) {
-        return pageNumbersArray.map((pageNumber, pageIndex) => {
-          return getBetweenNumberInCenter(pageNumber, pageIndex);
-        });
-      } else if (areNumbersAtEnd(selectedPageNumber)) {
-        return pageNumbersArray.map((pageNumber, pageIndex) => {
-          return getBetweenNumberAtEnd(pageNumber, pageIndex);
-        });
+    const centerNumbersWhenBetween1And5 = (
+      NumberInArray: number,
+      SelectionArrayLenght: number,
+      mobile: boolean,
+      indexNumber: number,
+    ) => {
+      if (centerNumbersWhenBetween1And5DisplayCheck(NumberInArray, SelectionArrayLenght, 6) && !mobile) {
+        return paginatorNumber(NumberInArray, indexNumber);
+      } else if (
+        centerNumbersWhenBetween1And5DisplayCheck(NumberInArray, SelectionArrayLenght, 4) &&
+        mobile &&
+        selectedNumber !== 4
+      ) {
+        return paginatorNumber(NumberInArray, indexNumber);
+      } else if (
+        mobile &&
+        selectedNumber === 4 &&
+        NumberInArray >= selectedNumber - 1 &&
+        NumberInArray <= selectedNumber + 1 &&
+        NumberInArray < 6
+      ) {
+        return paginatorNumber(NumberInArray, indexNumber);
       }
       return [];
     };
 
-    const getFirstPageNumber = (): JSX.Element => {
-      return getPageElement(1, 0);
+    const centerNumbersWhenLeast5OrHigherDisplayCheck = (
+      numberInArray: number,
+      SelectionArrayLenght: number,
+      proximityRange: number,
+    ): boolean => {
+      if (
+        numberInArray >= selectedNumber - proximityRange &&
+        numberInArray <= selectedNumber + proximityRange &&
+        numberInArray !== SelectionArrayLenght &&
+        numberInArray !== 1
+      ) {
+        return true;
+      }
+      return false;
     };
 
-    const getLastPageNumber = (): JSX.Element | null => {
-      // TODO: Handle all user errors at one place
-      if (numberOfElements <= parseInt(selectedDropdownValue.value)) {
+    const centerNumbersWhenLeast5OrHigher = (
+      NumberInArray: number,
+      SelectionArrayLenght: number,
+      mobile: boolean,
+      indexNumber: number,
+    ) => {
+      if (centerNumbersWhenLeast5OrHigherDisplayCheck(NumberInArray, SelectionArrayLenght, 2) && !mobile) {
+        return paginatorNumber(NumberInArray, indexNumber);
+      } else if (
+        centerNumbersWhenLeast5OrHigherDisplayCheck(NumberInArray, SelectionArrayLenght, 1) &&
+        mobile
+      ) {
+        return paginatorNumber(NumberInArray, indexNumber);
+      }
+      return [];
+    };
+
+    const isSelectedNumberNearEnd = (selectionNumber: number) => {
+      return selectionNumber >= selectionNumbers.length - 2;
+    };
+
+    const getNumbersWhenInProximityOfLastNumberDisplayCheck = (
+      numberInArray: number,
+      SelectionArrayLenght: number,
+      proximityRange: number,
+    ): boolean => {
+      if (
+        numberInArray >= SelectionArrayLenght - proximityRange &&
+        numberInArray !== SelectionArrayLenght &&
+        numberInArray !== 1
+      ) {
+        return true;
+      }
+      return false;
+    };
+
+    const getNumbersWhenInProximityOfLastNumber = (
+      NumberInArray: number,
+      SelectionArrayLenght: number,
+      mobile: boolean,
+      indexNumber: number,
+    ) => {
+      if (
+        getNumbersWhenInProximityOfLastNumberDisplayCheck(NumberInArray, SelectionArrayLenght, 5) &&
+        !mobile
+      ) {
+        return paginatorNumber(NumberInArray, indexNumber);
+      } else if (
+        getNumbersWhenInProximityOfLastNumberDisplayCheck(NumberInArray, SelectionArrayLenght, 3) &&
+        mobile
+      ) {
+        return paginatorNumber(NumberInArray, indexNumber);
+      }
+      return [];
+    };
+
+    // functions that return jsx elements in form of visible numbers to the selectorArray
+    const getFirstNumber = () => {
+      return (
+        <PaginatorNumber
+          isFirst={true}
+          isLast={false}
+          key={'firstPaginationNumber'}
+          noShow={false}
+          onClick={() => setSelectedNumber(1)}
+          selected={activeNumber(1)}
+          aria-label={'Velg side ' + 1}
+          aria-current={1 === selectedNumber}
+        >
+          {1}
+        </PaginatorNumber>
+      );
+    };
+
+    const getFirstDots = () => {
+      let noDots = true;
+      let key = 'noShowFirstDots';
+      if (selectedNumber >= 5 && selectionNumbers.length >= 8 && !isMobile) {
+        noDots = false;
+        key = 'firstDots';
+      } else if (selectedNumber >= 4 && selectionNumbers.length >= 5 && isMobile) {
+        noDots = false;
+        key = 'firstDotsMobile';
+      }
+      return (
+        <PaginatorDots key={key} noDots={noDots}>
+          ...
+        </PaginatorDots>
+      );
+    };
+
+    const getCenterNumbers = (): Array<any> => {
+      // Initiate when selected number is 1 or below 5
+      if (getNumbersWhenSelectedBetween1and5(selectedNumber)) {
+        return selectionNumbers.map((number, index) => {
+          return [centerNumbersWhenBetween1And5(number, selectionNumbers.length, isMobile, index)];
+        });
+      }
+      // if currentSelection is at least 5 or higher
+      if (selectedNumber >= 5 && selectedNumber < selectionNumbers.length - 2) {
+        return selectionNumbers.map((number, index) => {
+          // if selected numbers is 2+/- away from first or last selectable number
+          return [centerNumbersWhenLeast5OrHigher(number, selectionNumbers.length, isMobile, index)];
+        });
+      }
+      // If selected number is i proximity of last selectable number
+      if (isSelectedNumberNearEnd(selectedNumber)) {
+        return selectionNumbers.map((number, index) => {
+          return [getNumbersWhenInProximityOfLastNumber(number, selectionNumbers.length, isMobile, index)];
+        });
+      }
+
+      return [
+        <PaginatorNumber
+          isFirst={false}
+          isLast={false}
+          key={'noShowCenterumbers'}
+          noShow={true}
+          selected={false}
+        ></PaginatorNumber>,
+      ];
+    };
+    const getLastDots = () => {
+      let noDots = true;
+      let key = 'noShowLastDots';
+      if (selectedNumber < selectionNumbers.length - 3 && selectionNumbers.length > 7 && !isMobile) {
+        noDots = false;
+        key = 'lastDots';
+      } else if (selectedNumber < selectionNumbers.length - 3 && selectionNumbers.length > 5 && isMobile) {
+        noDots = false;
+        key = 'lastDotsMobile';
+      }
+      return (
+        <PaginatorDots key={key} noDots={noDots}>
+          ...
+        </PaginatorDots>
+      );
+    };
+    const getLastNumber = () => {
+      if (numberOfElements <= parseInt(currentDisplayAmount.value)) {
         return null;
       }
       if (lastNumberLimit !== undefined) {
-        if (lastNumberLimit <= numberOfElements && !(selectedPageNumber >= numberOfPages - 3)) {
+        if (lastNumberLimit <= numberOfElements && !(selectedNumber >= selectionNumbers.length - 3)) {
           return null;
         }
       }
 
-      return getPageElement(numberOfPages, numberOfPages - 1);
+      return (
+        <PaginatorNumber
+          isFirst={false}
+          isLast={true}
+          key={'lastPaginationNumber'}
+          noShow={false}
+          onClick={() => setSelectedNumber(selectionNumbers.length)}
+          selected={activeNumber(selectionNumbers.length)}
+          aria-label={'Velg side ' + selectionNumbers.length}
+          aria-current={selectionNumbers.length === selectedNumber}
+        >
+          {selectionNumbers.length}
+        </PaginatorNumber>
+      );
     };
 
-    visibleNumbersAndDots.push(
-      getFirstPageNumber(),
-      getDotsElement('first-dots', shouldHaveVisibleFirstDots()),
-      getBetweenPageNumbers(),
-      getDotsElement('last-dots', shouldHaveVisibleLastDots()),
-      getLastPageNumber(),
-    );
+    // get visible numbers
+    if (!isShowAll) {
+      const firstNumbers = getFirstNumber();
+      const firstDots = getFirstDots();
+      const centerNumbers = getCenterNumbers();
+      const lastDots = getLastDots();
+      const lastNumbers = getLastNumber();
+      visibleNumbers.push(firstNumbers, firstDots);
+      centerNumbers.forEach((paginatorNumbers) => {
+        if (paginatorNumbers.length != 0) {
+          visibleNumbers.push(paginatorNumbers);
+        }
+      });
+      visibleNumbers.push(lastDots, lastNumbers);
+    }
 
-    return <PaginatorNumbersArea>{visibleNumbersAndDots}</PaginatorNumbersArea>;
+    return <PaginatorNumbersArea>{visibleNumbers}</PaginatorNumbersArea>;
   };
 
-  /** -- DROPDOWN -- */
-  /** Dropdown item is not valid if the value is not a number */
-  const isValidDropdownItem = (dropdownItem: DropdownItem): boolean => {
-    return !isNaN(parseInt(dropdownItem.value));
-  };
-
-  const isValidSelectedPageNumber = (): boolean => {
-    return selectedPageNumber > 0 && selectedPageNumber <= numberOfPages;
-  };
-
-  /** Update pagination values and dispatch dropdownSelectedItemIndex events */
-  const handleDropdownValueChange = (newSelectedDropdownValue: DropdownItem): void => {
-    // Don't update or dispatch new event if the value is identical to previous value.
-    if (newSelectedDropdownValue === selectedDropdownValue) {
+  const onDropdownChangeHandler = (selectionRange: DropdownOption) => {
+    if (isNaN(parseInt(selectionRange.value)) || numberOfElements === 0) {
+      setShowPaginationMenu(false);
       return;
     }
-    if (!isValidDropdownItem(newSelectedDropdownValue)) {
-      setShowPaginationNumbers(false);
+    if (!showPaginationMenu) {
+      setShowPaginationMenu(true);
+    }
+    setCurrentDisplayAmount(selectionRange);
+    // Check if current selection number in avalailable selectionNumbers array
+    const isSelectedInRange = selectionNumbers.includes(selectedNumber);
+    if (!isSelectedInRange) {
+      setSelectedNumber(selectionNumbers.length);
+    }
+    if (selectionRange !== currentDisplayAmount) {
+      const selectedIndex = dropdownItems.indexOf(selectionRange);
+      if (!webcomponent && dropdownSelectedItemIndexOnChange) {
+        dropdownSelectedItemIndexOnChange(selectedIndex);
+      } else if (webcomponent) {
+        // True -> Prevents rerender
+        webcomponent.setProps({ dropdownSelectedItemIndex: selectedIndex }, true);
+      }
+    }
+  };
+
+  // set rangevalue and return in valueOnChange function
+  const updateValue = (value: number) => {
+    if (!selectionNumbers.includes(value)) {
       return;
     }
-    if (!showPaginationNumbers) {
-      setShowPaginationNumbers(true);
-    }
-    if (!isValidSelectedPageNumber) {
-      setSelectedPageNumber(numberOfPages);
-    }
-    setSelectedDropdownValue(newSelectedDropdownValue);
 
-    const selectedIndex = dropdownItems.indexOf(newSelectedDropdownValue);
-    if (!webcomponent && dropdownSelectedItemIndexOnChange) {
-      dropdownSelectedItemIndexOnChange(selectedIndex);
+    const startRange =
+      parseInt(currentDisplayAmount.value) * value - parseInt(currentDisplayAmount.value) + 1;
+    let endRange;
+    endRange = startRange + parseInt(currentDisplayAmount.value) - 1;
+    if (value === selectionNumbers.length) {
+      endRange = numberOfElements;
+    }
+
+    const newValue = { start: startRange, end: endRange };
+
+    if (!webcomponent && valueOnChange) {
+      valueOnChange(newValue);
     } else if (webcomponent) {
-      webcomponent.setProps({ dropdownSelectedItemIndex: selectedIndex }, true);
+      // True -> Prevents rerender
+      webcomponent.setProps({ value: newValue }, true);
     }
   };
+
+  const valueRangeToSelectedNumber = (value: SelectionNumber) => {
+    if (value.start != undefined || value.end != undefined) {
+      const valueGap = value.end - value.start + 1;
+
+      if (numberOfElements === value.end) {
+        setSelectedNumber(selectionNumbers.length);
+      } else {
+        setSelectedNumber(Math.ceil(value.end / valueGap));
+      }
+    }
+  };
+
+  // set rangevalue and return in valueOnChange function
+  useEffect(() => {
+    if (value.start != undefined || value.end != undefined) {
+      valueRangeToSelectedNumber(value);
+    }
+  }, [value]);
 
   return (
     <Paginator
@@ -427,8 +534,8 @@ const Pagination: FC<PaginationProps> = function ({
             placeholder=""
             items={dropdownItems}
             menuPosition={dropdownMenuPosition}
-            value={selectedDropdownValue}
-            valueOnChange={(event: any) => handleDropdownValueChange(event)}
+            value={currentDisplayAmount}
+            valueOnChange={(event: any) => onDropdownChangeHandler(event)}
             data-testid="dropdown"
           ></Dropdown>
         </PaginatorInfoDropdown>
@@ -438,17 +545,17 @@ const Pagination: FC<PaginationProps> = function ({
       </PaginatorInfoContainer>
       <PaginatorSelectorArea role="navigation">
         <PaginatorSelectorArrowBtn
-          visible={shouldHaveLeftArrow()}
-          onClick={() => setSelectedPageNumber(selectedPageNumber - 1)}
+          visible={isLeftArrow()}
+          onClick={updateSelectedPageLeft}
           data-testid="selector-arrow-btn-left"
           aria-label="Forrige side"
         >
           <Icon name="arrowLongLeft" size="xs" />
         </PaginatorSelectorArrowBtn>
-        {showPaginationNumbers ? <PaginatorNumbersAndDots data-testid="paginators" /> : null}
+        {showPaginationMenu ? <PaginatorNumbers data-testid="paginators" /> : null}
         <PaginatorSelectorArrowBtn
-          visible={shouldHaveRightArrow()}
-          onClick={() => setSelectedPageNumber(selectedPageNumber + 1)}
+          visible={isRightArrow()}
+          onClick={updateSelectedPageRight}
           data-testid="selector-arrow-btn-right"
           aria-label="Neste side"
         >

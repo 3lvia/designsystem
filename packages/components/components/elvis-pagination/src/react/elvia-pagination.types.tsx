@@ -1,11 +1,13 @@
-export interface DropdownItem {
+export type DropdownOption = {
   value: string;
   label: string;
-}
-export interface VisibleElements {
-  firstElementIndex: number | undefined;
-  lastElementIndex: number | undefined;
-}
+};
+
+export type SelectionNumber = {
+  start: number;
+  end: number;
+};
+
 export interface PaginationLabel {
   displaying?: string;
   of?: string;

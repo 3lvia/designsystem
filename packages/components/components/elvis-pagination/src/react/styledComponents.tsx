@@ -104,7 +104,8 @@ export const PaginatorNumbersArea = styled.div`
   user-select: none;
 `;
 
-type PaginatorPageProps = {
+type PaginatorNumberProps = {
+  noShow: boolean;
   selected: boolean;
   isFirst: boolean;
   isLast: boolean;
@@ -113,7 +114,7 @@ type PaginatorPageProps = {
   children?: number;
 };
 
-export const PaginatorPage = styled.button<PaginatorPageProps>`
+export const PaginatorNumber = styled.button<PaginatorNumberProps>`
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 13px;
   font-style: normal;
@@ -122,7 +123,7 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
   letter-spacing: 0.2px;
   text-align: center;
 
-  display: flex;
+  display: ${(props: { noShow: boolean }) => (props.noShow ? 'none' : 'flex')};
   justify-content: center;
   align-items: center;
   background: transparent;
@@ -148,7 +149,7 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
 `;
 
 type PaginatorDotsProps = {
-  hide: boolean;
+  noDots: boolean;
 };
 
 export const PaginatorDots = styled.div<PaginatorDotsProps>`
@@ -159,6 +160,6 @@ export const PaginatorDots = styled.div<PaginatorDotsProps>`
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;
-  display: ${(props: { hide: boolean }) => (props.hide ? 'none' : 'inherit')};
-  width: ${(props: { hide: boolean }) => (props.hide ? '0px' : '20px')};
+  display: ${(props: { noDots: boolean }) => (props.noDots ? 'none' : 'inherit')};
+  width: ${(props: { noDots: boolean }) => (props.noDots ? '0px' : '20px')};
 `;
