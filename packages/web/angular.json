@@ -1,5 +1,8 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "../../node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "packageManager": "yarn"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -19,7 +22,11 @@
           "options": {
             "preserveSymlinks": true,
             "outputPath": "dist/elvia-designsystem",
-            "allowedCommonJsDependencies": ["hoist-non-react-statics", "@elvia/elvis-toolbox"],
+            "allowedCommonJsDependencies": [
+              "hoist-non-react-statics",
+              "@elvia/elvis-toolbox",
+              "@elvia/elvis-colors"
+            ],
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",

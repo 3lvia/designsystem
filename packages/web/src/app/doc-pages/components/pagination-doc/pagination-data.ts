@@ -16,7 +16,7 @@ export const paginationData: ComponentData = {
     numberOfElements: {
       isRequired: true,
       type: 'number',
-      description: 'Total amount of rows/objects in a table that is display',
+      description: 'Total amount of rows/objects in a table that is display.',
       default: 0,
     },
     lastNumberLimit: {
@@ -27,14 +27,14 @@ export const paginationData: ComponentData = {
     },
     dropdownMenuPosition: {
       isRequired: false,
-      type: 'string',
-      description: `Set the position of the dropdown menu, can be either 'top', 'bottom' or 'auto'`,
+      type: 'top | bottom | auto',
+      description: `Set the position of the dropdown menu.`,
       default: 'bottom',
     },
     alignment: {
       isRequired: false,
       type: 'left | right',
-      description: 'Alignment of the paginator',
+      description: 'Alignment of the paginator.',
       default: 'left',
     },
     dropdownItems: {
@@ -63,7 +63,7 @@ export const paginationData: ComponentData = {
     dropdownSelectedItemIndexOnChange: {
       isRequired: false,
       type: '(value: number) => CustomEvent',
-      description: `Gets called every time a new value in the pagination dropdown is chosen, returns the index of the chosen value from the available dropdownItems`,
+      description: `Gets called every time a new value in the pagination dropdown is chosen, returns the index of the chosen value from the available dropdownItems.`,
     },
     labelOptions: {
       isRequired: false,
@@ -78,12 +78,12 @@ export const paginationData: ComponentData = {
     valueOnChange: {
       isRequired: false,
       type: '(value: object) => CustomEvent',
-      description: `Gets called every time a selection range is updated and return a value object with start and end key value pairs`,
+      description: `Gets called every time a selection range is updated and return a value object with start and end key value pairs.`,
     },
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom css classes that can be added to the pagination.',
+      description: 'Custom CSS classes that can be added to the pagination.',
     },
     inlineStyle: {
       isRequired: false,
@@ -100,11 +100,11 @@ export const paginationData: ComponentData = {
 </Pagination>`,
   codeAngular: `<elvia-pagination
   [numberOfElements]="156"
-  (valueOnChange)="handleOnChange(event.detail.value)">
+  (valueOnChange)="handleOnChange($event.detail.value)">
 </elvia-pagination>`,
   codeVue: `<elvia-pagination
   :numberOfElements="156"
-  @value-on-change="handleOnChange(event.detail.value)">
+  @value-on-change="handleOnChange($event.detail.value)">
 </elvia-pagination>`,
   codeNativeHTML: `<elvia-pagination
   id="example-elvia-pagination"

@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "14.06.22",
+      "version": "3.0.4 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed bug where the placeholder text would jump out of its position for searchable dropdown"
+          ]
+        }
+      ]
+    },
+    {
       "date": "25.05.22",
       "version": "3.0.3 ",
       "changelog": [

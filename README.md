@@ -93,13 +93,17 @@ Setup for development environment:
 
 0. Clone repository, checkout new branch from master, and run `yarn`.
 1. Navigate to `packages/web/contentful` and follow the instructions in the `.env.template` file.
-2. Run `yarn build:colors` and `yarn build:typography` at root to build the two token packages. These are also
+2. Building projects:
+   1. Run `yarn build:web` to build the web project.
+   2. Run `yarn build:components` to build the components (includes more steps than start:components like testing).
+   3. Run `yarn build:colors` and `yarn build:typography` at root to build the two token packages. These are also
    built once (not watched) when using `yarn start:components`.
 3. Running projects:
    1. Run `yarn start:web` at root to run the main documentation page (design.elvia.io).
    2. Run `yarn start:components` at root to run watch for the components (every time components are changed).
-   3. Run `yarn start:react` at root to run the react test-project (testing components).
-   4. Run `yarn start:vue` at root to run the vue test-project (testing components).
+   3. Run `yarn start:elvis` at root to run watch for the style-library components (every time elvis-components are changed).
+   4. Run `yarn start:react` at root to run the react test-project (testing components).
+   5. Run `yarn start:vue` at root to run the vue test-project (testing components).
 
 ### Start developing
 

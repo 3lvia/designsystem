@@ -89,17 +89,23 @@ export class HeaderComponent {
   }
 
   openSearchMenu(): void {
+    if (this.searchMenuOpen) {
+      return;
+    }
     this.searchMenuOpen = true;
     this.searchOverlay = this.searchMenu.setupOverlay();
     const compInstance = this.searchMenu.openOverlay(this.searchOverlay, SearchMenuComponent);
     this.searchOverlay.backdropClick().subscribe(() => {
-      this.searchMenu.detach(this.searchOverlay);
-      this.searchMenuOpen = false;
+      this.closeSearchMenu();
     });
     compInstance.onDestroy$.subscribe(() => {
-      this.searchMenu.detach(this.searchOverlay);
-      this.searchMenuOpen = false;
+      this.closeSearchMenu();
     });
+  }
+
+  closeSearchMenu(): void {
+    this.searchMenu.detach(this.searchOverlay);
+    this.searchMenuOpen = false;
   }
 
   testInternalHeader(): void {
