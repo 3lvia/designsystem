@@ -312,9 +312,12 @@ const Dropdown: React.FC<DropdownProps> = function ({
       lineHeight: '22px',
       paddingLeft: isCompact ? '8px' : '15px',
       paddingRight: '2px',
+      paddingTop: 0,
+      paddingBottom: 0,
       height: decideValueContainerHeight(),
       whiteSpace: 'nowrap',
     }),
+
     input: (provided) => ({
       ...provided,
       padding: 0,
