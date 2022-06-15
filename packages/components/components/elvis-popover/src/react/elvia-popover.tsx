@@ -112,7 +112,7 @@ const Popover: FC<PopoverProps> = function ({
   /**
    * Start listener for escape and set popover visibility to false when clicked
    *
-   * Define max possible content width for the popover
+   * Define max possible width for the popover
    */
   useEffect(() => {
     const closeOnEscape = (keydown: KeyboardEvent) => {
@@ -131,9 +131,7 @@ const Popover: FC<PopoverProps> = function ({
     };
   });
 
-  /**
-   * Get all slots and place them correctly
-   */
+  /** Get all slots and place them correctly */
   useEffect(() => {
     if (!webcomponent) {
       return;
@@ -159,9 +157,7 @@ const Popover: FC<PopoverProps> = function ({
     setPopoverVisibility((prePopoverVisibility) => !prePopoverVisibility);
   };
 
-  /**
-   * Initializing horizontal position
-   */
+  /** Initializing horizontal position */
   const setInitialPosition = useCallback(() => {
     if (horizontalPosition === 'left') {
       updateHorizontalPositionStyle('none', '0', 'auto');
@@ -172,9 +168,7 @@ const Popover: FC<PopoverProps> = function ({
     }
   }, [horizontalPosition]);
 
-  /**
-   * Set the styling for the current position with the style attributes
-   */
+  /** Set the styling for the current position with the style attributes */
   const updateHorizontalPositionStyle = (transform: string, right: string, left: string): void => {
     if (!popoverContentRef.current) {
       return;
@@ -184,9 +178,7 @@ const Popover: FC<PopoverProps> = function ({
     popoverContentRef.current.style.left = left;
   };
 
-  /**
-   * Get correct dimensions (screen size) based on device
-   */
+  /** Get correct dimensions (screen size) based on device */
   const getCorrectDimensions = (): { screenHeight: number; screenWidth: number } | null => {
     if (typeof window === 'undefined' || typeof navigator === 'undefined') {
       return null;
@@ -198,16 +190,12 @@ const Popover: FC<PopoverProps> = function ({
     }
   };
 
-  /**
-   * Get current width of scrollbar if visible
-   */
+  /** Get current width of scrollbar if visible */
   const getScrollbarWidth = (): number => {
     return window.innerWidth - document.documentElement.clientWidth;
   };
 
-  /**
-   * Returns true if there is not enough space for the popover horizontally
-   */
+  /** Returns true if there is not enough space for the popover horizontally */
   const hasConflictHorizontally = (
     isPosXCenter: boolean,
     conflictSide: string,
@@ -229,9 +217,7 @@ const Popover: FC<PopoverProps> = function ({
     return popoverMinSpace >= popoverActualSpace;
   };
 
-  /**
-   * Returns true if there is not enough space for the popover to be on top of the trigger
-   */
+  /** Returns true if there is not enough space for the popover to be on top of the trigger */
   const hasConflictTop = (): boolean => {
     if (!popoverContentRef.current || !popoverTriggerRef.current || !popoverVisibility) {
       return false;
@@ -242,9 +228,7 @@ const Popover: FC<PopoverProps> = function ({
     return !isRoomTop;
   };
 
-  /**
-   * Returns true if there is not enough space for the popover to below the trigger
-   */
+  /** Returns true if there is not enough space for the popover to below the trigger */
   const hasConflictBottom = (): boolean => {
     const dimensions = getCorrectDimensions();
     if (
@@ -264,9 +248,7 @@ const Popover: FC<PopoverProps> = function ({
     return !isRoomBottom && isRoomTop;
   };
 
-  /**
-   * Resolves horizontal position conflicts by setting right and left style properties
-   */
+  /** Resolves horizontal position conflicts by setting right and left style properties */
   const resolveHorizontalConflict = (): void => {
     const dimensions = getCorrectDimensions();
     if (!popoverContentRef.current || !popoverTriggerRef.current || dimensions === null) {
@@ -310,10 +292,11 @@ const Popover: FC<PopoverProps> = function ({
     }
   };
 
-  /**
-   * Resolves vertical position conflicts by defining top and bottom style attributes
-   */
+  /** Resolves vertical position conflicts by defining top and bottom style attributes */
   const resolveVerticalConflicts = (): void => {
+    console.log('VERTICAL RESOLUTION');
+    console.log('Conflict top: ', hasConflictTop());
+    console.log('Conflict bottom: ', hasConflictBottom());
     if (hasConflictTop() && popoverContentRef.current && popoverTriggerRef.current) {
       popoverContentRef.current.style.top = popoverTriggerRef.current.getBoundingClientRect().height + 'px';
       popoverContentRef.current.style.bottom = 'auto';
@@ -328,9 +311,7 @@ const Popover: FC<PopoverProps> = function ({
     }
   };
 
-  /**
-   * Resize the popover based on the content of the popover and the current available dimensions (screen size)
-   */
+  /** Resize the popover based on the content of the popover and the current available dimensions (screen size) */
   const resizePopoverToFitScreen = (): void => {
     const dimensions = getCorrectDimensions();
     defineFixedArea();
@@ -345,16 +326,13 @@ const Popover: FC<PopoverProps> = function ({
     }
   };
 
-  /**
-   * Get trigger position and define a fixed area based on that position
-   */
+  /** Get trigger position and define a fixed area based on that position */
   const defineFixedArea = (): void => {
-    console.log('Defined fixed area');
     if (popoverTriggerRef.current === null) {
       return;
     }
 
-    console.log('Actually defining');
+    console.log('Defining fixed area');
     const triggerElementPosition = popoverTriggerRef.current.getBoundingClientRect();
 
     if (popoverFixedAreaRef.current != null) {
@@ -365,9 +343,6 @@ const Popover: FC<PopoverProps> = function ({
     }
   };
 
-  /**
-   * Remove all styling set for the fixed area
-   */
   const removeFixedAreaStyles = (): void => {
     if (popoverContentRef.current && popoverFixedAreaRef.current) {
       popoverContentRef.current.style.top = '';
@@ -377,18 +352,14 @@ const Popover: FC<PopoverProps> = function ({
     }
   };
 
-  /**
-   * Resize popover and resolve positioning conflicts
-   */
+  /** Resize popover and resolve positioning conflicts */
   const updatePosition = useCallback(() => {
     resizePopoverToFitScreen();
     resolveHorizontalConflict();
     resolveVerticalConflicts();
   }, [horizontalPosition]);
 
-  /**
-   * Dispatch onOpen and onClose event
-   */
+  /** Dispatch onOpen and onClose events */
   const dispatchPopoverVisibilityEvents = (popoverVisibility: boolean): void => {
     if (popoverVisibility) {
       if (!webcomponent && onOpen) {
@@ -429,10 +400,10 @@ const Popover: FC<PopoverProps> = function ({
     updatePosition();
 
     const updateFixedAreaPositionOnScroll = () => {
-      console.log('Inside');
       if (popoverFixedAreaRef.current && popoverTriggerRef.current) {
-        console.log('Updating');
+        console.log('Updating on scroll');
         popoverFixedAreaRef.current.style.top = popoverTriggerRef.current.getBoundingClientRect().top + 'px';
+        resolveVerticalConflicts();
       }
     };
     document.addEventListener('scroll', updateFixedAreaPositionOnScroll);
