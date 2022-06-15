@@ -82,17 +82,13 @@ const Tabs: FC<TabsProps> = ({
     };
   });
 
-  /**
-   * When value changes, currValue and tabInFocus should be updated
-   */
+  /** When value changes, currValue and tabInFocus should be updated */
   useEffect(() => {
     setCurrValue(value);
     setTabInFocus(value);
   }, [value]);
 
-  /**
-   * Updates the active tab and triggering valueOnChange events.
-   */
+  /** Updates the active tab and triggering valueOnChange events. */
   const updateValue = (value: number): void => {
     setCurrValue(value);
     if (!webcomponent && valueOnChange) {
@@ -155,9 +151,7 @@ const Tabs: FC<TabsProps> = ({
     }
   };
 
-  /**
-   * Takes a direction (left or right) and scrolls a set amount in that direction within the tabs
-   */
+  /** Takes a direction (left or right) and scrolls a set amount in that direction within the tabs */
   const scrollSideways = (direction: string): void => {
     let scrollAmount = 0;
     const slideTimer = () => {

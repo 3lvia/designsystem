@@ -35,7 +35,6 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
     if (!webcomponent) {
       valueOnChange && valueOnChange(value);
     } else if (webcomponent) {
-      // True -> Prevents rerender
       webcomponent.setProps({ value: value }, true);
     }
   };

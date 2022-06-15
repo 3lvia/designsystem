@@ -110,7 +110,6 @@ export const Carousel: FC<CarouselProps> = function ({
 
   /**
    * Get all slotted items from the webcomponent
-   *
    * Convert slots to items and add them to the carousel, and set lengthOfItems from result
    */
   useEffect(() => {
@@ -126,9 +125,7 @@ export const Carousel: FC<CarouselProps> = function ({
     }
   }, [webcomponent]);
 
-  /**
-   * If items are provided (not as slots), set lengthOfItems
-   */
+  /** If items are provided (not as slots), set lengthOfItems */
   useEffect(() => {
     if (items !== undefined) {
       setCarouselItems(items);
@@ -162,9 +159,7 @@ export const Carousel: FC<CarouselProps> = function ({
     return newItems;
   };
 
-  /**
-   * Handles mobile events
-   */
+  /** Handles mobile events */
   const handleMouseDown = (e: MouseEvent | TouchEvent): void => {
     const clientX = 'changedTouches' in e ? e.changedTouches[0].clientX : e.clientX;
     if (!itemsRef.current) {
@@ -192,22 +187,17 @@ export const Carousel: FC<CarouselProps> = function ({
     }
   };
 
-  /**
-   * Dispatch valueOnChange events
-   */
+  /** Dispatch valueOnChange events */
   const updateValue = (updateValueIndex: number): void => {
     setIndex(updateValueIndex);
     if (!webcomponent && valueOnChange) {
       valueOnChange(updateValueIndex);
     } else if (webcomponent) {
-      // True -> Prevents rerender
       webcomponent.setProps({ value: updateValueIndex }, true);
     }
   };
 
-  /**
-   * Update the value of the carousel by fading in the next element
-   */
+  /** Update the value of the carousel by fading in the next element */
   const handleValueChange = (
     handleValueChangeIndex: number,
     direction: 'left' | 'right',
@@ -236,9 +226,7 @@ export const Carousel: FC<CarouselProps> = function ({
     );
   };
 
-  /**
-   * Dispatch onFinish events (when the checkmark button is clicked)
-   */
+  /** Dispatch onFinish events (when the checkmark button is clicked) */
   const triggerOnFinish = (): void => {
     if (!webcomponent) {
       onFinish && onFinish();
@@ -247,9 +235,7 @@ export const Carousel: FC<CarouselProps> = function ({
     }
   };
 
-  /**
-   * Returns icons for the arrow-buttons depending on the hover state of the buttons
-   */
+  /** Returns icons for the arrow-buttons depending on the hover state of the buttons */
   const getCarouselLeftButtonIcon = (): string => {
     return isHoveringLeftButton ? 'arrowLeftCircleFilledColor' : 'arrowLeftCircleColor';
   };
