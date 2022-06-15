@@ -22,7 +22,8 @@ type PaginatorProps = {
 export const Paginator = styled.div<PaginatorProps>`
   display: flex;
   align-items: center;
-  justify-content: ${(props: { isRightAligned: boolean }) => (props.isRightAligned ? 'flex-end' : 'start')};
+  justify-content: ${(props: { isRightAligned: boolean }) =>
+    props.isRightAligned ? 'flex-end' : 'flex-start'};
   min-width: 325px;
   user-select: none;
 
@@ -30,7 +31,9 @@ export const Paginator = styled.div<PaginatorProps>`
     flex-direction: column-reverse;
     height: auto;
     justify-content: center;
-    align-items: start;
+    align-items: ${(props: { isRightAligned: boolean }) =>
+      props.isRightAligned ? 'flex-end' : 'flex-start'};
+    min-width: 294px;
   }
 `;
 export const PaginatorInfoContainer = styled.div`
@@ -160,5 +163,5 @@ export const PaginatorDots = styled.div<PaginatorDotsProps>`
   letter-spacing: 0.2px;
   text-align: center;
   display: ${(props: { hide: boolean }) => (props.hide ? 'none' : 'inherit')};
-  width: ${(props: { hide: boolean }) => (props.hide ? '0px' : '20px')};
+  width: ${(props: { hide: boolean }) => (props.hide ? '0px' : 'unset')};
 `;

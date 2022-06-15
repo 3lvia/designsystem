@@ -32,7 +32,7 @@ describe('Elvis Pagination', () => {
       done();
     });
     it('should not be right aligned', function (done) {
-      expect(paginator.at(0).getDOMNode()).toHaveStyle(`justify-content: start`);
+      expect(paginator.at(0).getDOMNode()).toHaveStyle(`justify-content: flex-start`);
       done();
     });
     it('should have hidden left arrow', function (done) {
