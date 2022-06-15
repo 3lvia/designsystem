@@ -9,7 +9,7 @@ export const chipData: ComponentData = {
     type: {
       isRequired: false,
       type: 'removable | legend | choice',
-      description: 'Which type of chip should be displayed',
+      description: 'Which type of chip should be displayed.',
       default: '"removable"',
       cegDefault: 0,
       cegType: 'string',
@@ -20,12 +20,12 @@ export const chipData: ComponentData = {
       isRequired: true,
       type: 'string',
       description:
-        'Aria label should be added for accessibility. Check out the code example in top for inspiration',
+        'Aria label should be added for accessibility. See the code example in top for inspiration.',
     },
     color: {
       isRequired: false,
       type: 'blue | green | orange | purple | red | violet',
-      description: 'Set a background color of the chip',
+      description: 'Set a background color of the chip.',
       default: 'green',
       cegDisplayName: 'Color',
       cegDefault: 'green',
@@ -37,7 +37,7 @@ export const chipData: ComponentData = {
     isDisabled: {
       isRequired: false,
       type: 'boolean',
-      description: 'Set the chip as disabled',
+      description: 'Set the chip as disabled.',
       default: 'false',
       cegDisplayName: 'Disabled',
       cegType: 'boolean',
@@ -48,17 +48,17 @@ export const chipData: ComponentData = {
     value: {
       isRequired: true,
       type: 'string',
-      description: 'The value displayed in the chip',
+      description: 'The value displayed in the chip.',
     },
     isLoading: {
       isRequired: false,
       type: 'boolean',
-      description: 'Sets the chip to have loading state. Only works for legend type',
+      description: 'Sets the chip to have loading state. Only works for legend type.',
     },
     isSelected: {
       isRequired: false,
       type: 'boolean',
-      description: 'Sets the chip to have the selected state. Optional on legend and choice types',
+      description: 'Sets the chip to have the selected state. Optional on legend and choice types.',
     },
     isSelectedOnChange: {
       isRequired: false,
@@ -74,7 +74,7 @@ export const chipData: ComponentData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom css classes that can be added to the chip.',
+      description: 'Custom CSS classes that can be added to the chip.',
     },
     inlineStyle: {
       isRequired: false,

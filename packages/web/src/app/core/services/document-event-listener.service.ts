@@ -13,6 +13,7 @@ export class DocumentEventListenerService {
     p: 'patterns',
     t: 'tools',
     d: 'dev',
+    s: '',
   };
   private lastGPress: number;
   constructor(private router: Router) {}
@@ -35,7 +36,14 @@ export class DocumentEventListenerService {
     if (keyPressed in this.keyboardPaths) {
       const now = new Date().getTime();
       if (now - this.lastGPress <= 1000) {
-        this.router.navigate([this.keyboardPaths[keyPressed]]);
+        if (keyPressed === 's') {
+          const searchButton = document.getElementById('search-button');
+          setTimeout(() => {
+            searchButton.click();
+          });
+        } else {
+          this.router.navigate([this.keyboardPaths[keyPressed]]);
+        }
       }
     }
   }
