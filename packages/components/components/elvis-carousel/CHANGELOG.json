@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "31.05.22",
+      "version": "2.0.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Renamed 'onHide' event to 'onFinish' for the webcomponents also."]
+        }
+      ]
+    },
+    {
       "date": "24.05.22",
       "version": "2.0.1 ",
       "changelog": [

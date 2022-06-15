@@ -179,12 +179,12 @@ export default interface ComponentData extends ComponentDataCode {
    * Component name (package name). Prefixed with 'elvis'.
    * @example 'elvis-component'
    */
-  name: string;
+  name: `elvis-${string}`;
   /**
    * Component name for the DOM (Custom element). Prefixed with 'elvia-'.
    * @example 'elvia-component'
    */
-  elementNameW: string;
+  elementNameW: `elvia-${string}`;
   /**
    * Component name for the DOM (React).
    * @example 'Component'
@@ -207,19 +207,19 @@ export default interface ComponentData extends ComponentDataCode {
   /**
    * Command to install the component from npm.
    */
-  package: string;
+  package: `npm install ${string}`;
   /**
    * Code to import component in React.
    * @example
    * "import { Component } from '@elvia/elvis-component/react';"
    */
-  codeImportReact: string;
+  codeImportReact: `import { ${string} } from '@elvia/elvis-${string}/react';`;
   /**
    * Code to import component as Web Component.
    * @example
    * "import '@elvia/elvis-component';"
    */
-  codeImportWebComponent: string;
+  codeImportWebComponent: `import '@elvia/elvis-${string}';`;
 
   does?: string[];
   donts?: string[];

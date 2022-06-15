@@ -9,6 +9,7 @@ import { spacingItems } from './spacing';
 })
 export class LayoutDocComponent {
   figmaUrl = getDocPagesNotFromCMS('layout').figmaUrl;
+  description = getDocPagesNotFromCMS('layout').description;
   spacingItems = spacingItems;
 
   doCodeCSS = `padding: var(--e-spacing-16);

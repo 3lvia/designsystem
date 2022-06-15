@@ -10,7 +10,7 @@ export const tabsData: ComponentData = {
     items: {
       isRequired: true,
       type: 'string[]',
-      description: 'Items getting converted to tabs.',
+      description: 'Items shown as tabs.',
       cegDisplayName: 'Tabs',
     },
     value: {
@@ -27,7 +27,7 @@ export const tabsData: ComponentData = {
     isInverted: {
       isRequired: false,
       type: 'boolean',
-      description: 'Decides if tabs should be inverted',
+      description: 'Decides if tabs should be inverted.',
       default: 'false',
       cegDefault: 0,
       cegType: 'boolean',
@@ -50,7 +50,8 @@ export const tabsData: ComponentData = {
     valueOnChange: {
       isRequired: false,
       type: '(value: number) => CustomEvent',
-      description: 'Gets called every time the value is changed.',
+      description:
+        'Gets called every time the value is changed. Value is the index of the clicked tab in items.',
     },
   },
   package: 'npm install @elvia/elvis-tabs',
@@ -80,7 +81,7 @@ export const tabsData: ComponentData = {
     exampleContents.words.random['eng-GBR'][2] +
     `']" 
   [ariaLabel]="'Simple tablist example'"
-  (valueOnChange)="handleOnChange(event.detail.value)"
+  (valueOnChange)="handleOnChange($event.detail.value)"
 ></elvia-tabs>`,
   codeVue:
     `<elvia-tabs 
@@ -93,7 +94,7 @@ export const tabsData: ComponentData = {
     exampleContents.words.random['eng-GBR'][2] +
     `']" 
   :ariaLabel="'Simple tablist example'"
-  @value-on-change="handleOnChange(event.detail.value)"
+  @value-on-change="handleOnChange($event.detail.value)"
 ></elvia-tabs>`,
   codeNativeHTML: `<elvia-tabs 
   id="example-elvia-tabs"

@@ -10,12 +10,12 @@ const boxData: ComponentData = {
     content: {
       isRequired: true,
       type: 'string | HTMLElement',
-      description: 'Text, images, tables or any other content (slot in webcomponent)',
+      description: 'Text, images, tables or any other content (slot in webcomponent).',
     },
     title: {
       isRequired: false,
       type: `string | HTMLElement`,
-      description: `Title for the box (slot in webcomponent)`,
+      description: `Title for the box (slot in webcomponent).`,
       cegDisplayName: 'Title',
       cegType: 'boolean',
       cegFormType: 'toggle',
@@ -47,7 +47,7 @@ const boxData: ComponentData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom css classes that can be added to the box.',
+      description: 'Custom CSS classes that can be added to the box.',
     },
     inlineStyle: {
       isRequired: false,

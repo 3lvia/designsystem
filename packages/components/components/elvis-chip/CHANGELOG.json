@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.06.22",
+      "version": "2.1.1 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Rebuilt the component to fix missing files. "]
+        }
+      ]
+    },
+    {
       "date": "20.05.22",
       "version": "2.1.0 ",
       "changelog": [
