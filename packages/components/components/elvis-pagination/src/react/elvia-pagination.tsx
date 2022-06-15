@@ -88,8 +88,8 @@ const defaultLabelOptions: PaginationLabel = {
 };
 
 const Pagination: FC<PaginationProps> = function ({
-  // Value represents the current visible elements decided by the pagination
-  value = { firstElementIndex: undefined, lastElementIndex: undefined },
+  // Value represents the current visible elements in the pagination
+  value = { start: undefined, end: undefined },
   numberOfElements = 0,
   lastNumberLimit,
   alignment = 'left',
@@ -186,13 +186,13 @@ const Pagination: FC<PaginationProps> = function ({
 
     const firstElementIndex =
       parseInt(selectedDropdownValue.value) * selectedPageNumber - parseInt(selectedDropdownValue.value) + 1;
-    let lastElement = firstElementIndex + parseInt(selectedDropdownValue.value) - 1;
+    let lastElementIndex = firstElementIndex + parseInt(selectedDropdownValue.value) - 1;
     // TODO: Test om man slipper denne ekstra sjekken
     if (selectedPageNumber === numberOfPages) {
-      lastElement = numberOfElements;
+      lastElementIndex = numberOfElements;
     }
 
-    const newValue = { firstElementIndex: firstElementIndex, lastElementIndex: lastElement };
+    const newValue = { start: firstElementIndex, end: lastElementIndex };
 
     if (!webcomponent && valueOnChange) {
       valueOnChange(newValue);
@@ -203,15 +203,15 @@ const Pagination: FC<PaginationProps> = function ({
 
   /** Update selected page when value (visible elements) changed */
   const updateSelectedPageByVisibleElements = (visibleElements: VisibleElements): void => {
-    if (visibleElements.firstElementIndex == undefined || visibleElements.lastElementIndex == undefined) {
+    if (visibleElements.start == undefined || visibleElements.end == undefined) {
       return;
     }
-    const numberOfVisibleElements = visibleElements.lastElementIndex - visibleElements.firstElementIndex + 1;
+    const numberOfVisibleElements = visibleElements.end - visibleElements.start + 1;
 
-    if (visibleElements.lastElementIndex === numberOfElements) {
+    if (visibleElements.end === numberOfElements) {
       setSelectedPageNumber(numberOfPages);
     } else {
-      setSelectedPageNumber(Math.ceil(visibleElements.lastElementIndex / numberOfVisibleElements));
+      setSelectedPageNumber(Math.ceil(visibleElements.end / numberOfVisibleElements));
     }
   };
 
