@@ -3,8 +3,8 @@ export interface DropdownItem {
   label: string;
 }
 export interface VisibleElements {
-  firstElementIndex: number | undefined;
-  lastElementIndex: number | undefined;
+  start: number | undefined;
+  end: number | undefined;
 }
 export interface PaginationLabel {
   displaying?: string;

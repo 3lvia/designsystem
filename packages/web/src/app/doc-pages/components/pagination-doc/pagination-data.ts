@@ -9,7 +9,8 @@ export const paginationData: ComponentData = {
     value: {
       isRequired: false,
       type: 'object',
-      description: 'Value range of currently selected pagination, {start: number, end: number}',
+      description:
+        'The range of elements that should be visible in the paginator from star. "start" represents first element index and "end" represents last element index. {start: number, end: number}',
       cegDisplayName: 'value',
       default: '{ start: undefined, end: undefined }',
     },
