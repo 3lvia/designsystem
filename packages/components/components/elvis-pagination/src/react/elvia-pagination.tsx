@@ -271,7 +271,7 @@ const Pagination: FC<PaginationProps> = function ({
   const shouldHaveVisibleLastDots = (): boolean => {
     return (
       selectedPageNumber <=
-        numberOfPages - (isMobile ? MAX_POSSIBLE_PAGE_NUMBERS_MO : VISIBLE_DOTS_BREAKING_POINT) &&
+        numberOfPages - (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
       numberOfPages > (isMobile ? MAX_POSSIBLE_PAGE_NUMBERS_MO : MAX_POSSIBLE_PAGE_NUMBERS)
     );
   };
