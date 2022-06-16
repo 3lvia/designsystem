@@ -41,14 +41,12 @@ const Accordion: FC<AccordionProps> = ({
   const accordionRef = useRef<HTMLSpanElement>(null);
   const accordionText = useRef<HTMLDivElement>(null);
 
-  // Outline listener for focus only on tab keydown
+  /** Start outline listener */
   useEffect(() => {
-    // Start outline listener
     if (accordionRef && accordionRef.current) {
       toolbox.outlineListener(accordionRef.current);
     }
     return () => {
-      // Remove outline listenes
       if (accordionRef && accordionRef.current) {
         toolbox.outlineListener(accordionRef.current, true);
       }

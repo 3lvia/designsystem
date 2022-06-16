@@ -1,10 +1,17 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages';
-import { DocPage } from 'src/app/shared/doc-pages.interface';
 import packageJson from '@elvia/elvis/package.json';
-import { LocalizationService } from 'src/app/core/services/localization.service';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
+import { IDocumentationPage } from 'contentful/types';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { SearchItem } from './search-menu.interface';
+import { SearchService } from '../../../core/services/search.service';
+import Fuse from 'fuse.js';
+import { getColor } from '@elvia/elvis-colors';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-menu',
@@ -12,190 +19,283 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
   styleUrls: ['./search-menu.component.scss'],
 })
 export class SearchMenuComponent implements OnInit, OnDestroy {
-  mainMenu: any;
+  mainMenu: CMSMenu;
   version = packageJson.version;
   showResults = false;
   resultOfMoreThanTwo = false;
   searchString = '';
-  elvisItems: DocPage[] = [];
-  activeResults: DocPage[] = [];
-
-  indexOfResultDescription = 0;
-  indexStartLimit = 0;
-  maxTotalCharacters = 0;
-  charactersBeforeEllipses = 0;
+  searchItems: SearchItem[] = [];
+  activeResults: SearchItem[] = [];
+  isPrideMonth = false;
 
   private onDestroy = new Subject<void>();
-
   private onDestroy$ = this.onDestroy.asObservable();
 
   private subscriptions: Subscription = new Subscription();
+  private locale: Locale;
 
-  constructor(private cmsService: CMSService, private localizationService: LocalizationService) {
+  constructor(
+    private cmsService: CMSService,
+    private localizationService: LocalizationService,
+    private searchService: SearchService<SearchItem>,
+    private router: Router,
+  ) {
     this.localizationService.listenLocalization().subscribe((locale) => {
+      this.locale = locale;
       this.cmsService.getMenu(locale).then((data) => {
         this.mainMenu = data;
       });
     });
   }
 
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
+  @HostListener('document:keydown.enter')
+  navigateToFirstSearchResultOnEnter(): void {
+    if (this.activeResults.length === 0) {
+      return;
+    }
+    // If any link is focused, navigate to it instead of first search result
+    if (document.activeElement instanceof HTMLAnchorElement) {
+      const newHref = document.activeElement.href.split(window.location.origin)[1];
+      this.router.navigate([newHref]);
+      this.closeSearch();
+      return;
+    }
+    // If the clear search-button is focused, click it instead of thefirst search result
+    if (document.activeElement === document.getElementById('search-clear-button')) {
+      document.getElementById('search-clear-button').click();
+      return;
+    }
+    this.router.navigate([this.activeResults[0].absolutePath]);
+    this.closeSearch();
   }
 
-  closeSearch(): void {
-    this.onDestroy.next();
+  @HostListener('document:keydown.escape')
+  closeSearchMenuOnEsc(): void {
+    this.closeSearch();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   ngOnInit(): void {
     const search = document.getElementById('search-field');
     search.focus();
-    this.elvisItems = this.elvisItems.concat(componentsDocPages, docPagesNotFromCMS);
+
+    this.initializeSearchItems();
+    this.searchService.initializeSearch(this.searchItems, {
+      includeScore: true,
+      includeMatches: true,
+      threshold: 0.4,
+      minMatchCharLength: 1,
+      keys: [
+        { name: 'title', weight: 1 },
+        { name: 'description', weight: 0.5 },
+      ],
+    });
+    this.checkIfPrideMonth();
   }
 
+  /**
+   * Gets called every time the content of the search field is changed.
+   */
   onSearch(): void {
-    // Adding all titles that contain searchString to results
-    this.activeResults = this.elvisItems.filter((item: any) =>
-      item.title.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()),
-    );
-    // Adding all descriptions that contain searchString to results
-    this.activeResults = this.activeResults.concat(
-      this.elvisItems.filter((item: any) => this.containsSearchString(item)),
-    );
+    this.activeResults = this.searchService.search(this.searchString);
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
       this.showResults = true;
       setTimeout(() => {
-        this.highlightResultGreen();
+        this.highlightSearchMatches();
       });
     } else {
       this.showResults = false;
     }
   }
 
-  containsSearchString(item: DocPage): boolean {
-    if (!item.description) {
-      return;
-    }
-    return (
-      !item.title.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()) &&
-      item.description.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase())
-    );
+  closeSearch(): void {
+    this.onDestroy.next();
   }
 
-  removeSearch(): void {
+  clearSearch(): void {
     this.searchString = '';
     this.activeResults = [];
+    const search = document.getElementById('search-field');
+    search.focus();
   }
 
+  /**
+   * Used to create IDs for the description HTML elements.
+   */
   encodeHTML(txt: string): string {
-    txt = txt.replace(/</g, '&lt;');
-    txt = txt.replace(/>/g, '&gt;');
-    txt = txt.replace(/&/g, '&amp;');
-    txt = txt.replace(/'/g, '&apos;');
-    txt = txt.replace(/"/g, '&quot;');
-    return txt;
+    return txt
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/&/g, '&amp;')
+      .replace(/'/g, '&apos;')
+      .replace(/"/g, '&quot;')
+      .replace(/\s/g, '-');
   }
 
-  createHTMLElement(txt: string): any {
-    const div = document.createElement('div');
-    div.innerHTML = txt;
-    return div;
+  private initializeSearchItems(): void {
+    this.searchItems = this.searchItems.concat(
+      componentsDocPages.map((docPage) => {
+        return {
+          title: docPage.title,
+          description: docPage.description?.replace(/<.*?>/g, ''),
+          type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
+          absolutePath: docPage.absolutePath,
+          fragmentPath: docPage.fragmentPath,
+        };
+      }),
+      docPagesNotFromCMS.map((docPage) => {
+        return {
+          title: docPage.title,
+          description: docPage.description?.replace(/<.*?>/g, ''),
+          type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
+          absolutePath: docPage.absolutePath,
+          fragmentPath: docPage.fragmentPath,
+        };
+      }),
+      this.getSearchItemsFromCMS(),
+    );
+    this.searchItems = this.removeDuplicateSearchItems(this.searchItems);
+    this.searchItems = this.removeSearchItemsWithoutPath(this.searchItems);
   }
 
-  highlightResultGreen(): void {
-    this.activeResults.forEach((resultItem) => {
-      this.replaceTitleString(resultItem);
-      this.replaceDescriptionString(resultItem);
+  private getSearchItemsFromCMS(): SearchItem[] {
+    const mappedCMSItems: SearchItem[] = [];
+    this.mainMenu.pages.forEach((subMenu) => {
+      subMenu.entry.fields.pages[Locale[this.locale]].forEach((documentationPage: IDocumentationPage) => {
+        let description: string | undefined;
+        if (documentationPage.fields.pageDescription) {
+          description = documentToHtmlString(documentationPage.fields.pageDescription[Locale[this.locale]]);
+          description = description.replace(/<.*?>/g, '');
+        }
+
+        if (
+          !mappedCMSItems.find((item) => item.title === documentationPage.fields.title[Locale[this.locale]])
+        ) {
+          mappedCMSItems.push({
+            title: documentationPage.fields.title[Locale[this.locale]],
+            description: description,
+            type: subMenu.title.substring(0, subMenu.title.length - (subMenu.title.endsWith('s') ? 1 : 0)),
+            absolutePath: subMenu.path + '/' + documentationPage.fields.path[Locale[this.locale]],
+          });
+        }
+      });
+    });
+    return mappedCMSItems;
+  }
+
+  private removeDuplicateSearchItems(items: SearchItem[]): SearchItem[] {
+    const seen = {};
+    return items.filter((item) => {
+      const title = item.title.replace(' ', '').toLocaleLowerCase();
+      return seen[title] ? false : (seen[title] = true);
     });
   }
 
-  replaceTitleString(resultItem: DocPage): void {
-    const indexOfResult = resultItem.title.toLocaleLowerCase().indexOf(this.searchString.toLocaleLowerCase());
-    if (indexOfResult < 0) {
-      return;
-    }
-    const newTitleString =
-      resultItem.title.substring(0, indexOfResult) +
-      "<span style='background: #29d305'>" +
-      resultItem.title.substring(indexOfResult, indexOfResult + this.searchString.length) +
-      '</span>' +
-      resultItem.title.substring(indexOfResult + this.searchString.length);
-    const title = document.getElementById('search_' + resultItem.title);
-    title.innerHTML = newTitleString;
+  private removeSearchItemsWithoutPath(items: SearchItem[]): SearchItem[] {
+    return items.filter((item) => item.absolutePath);
   }
 
-  replaceDescriptionString(resultItem: DocPage): void {
-    this.setDescriptionResultStringIndices(resultItem);
-    const description = document.getElementById(this.encodeHTML(resultItem.description));
-    description.innerHTML = '';
-    if (this.indexOfResultDescription < 0) {
-      description.appendChild(
-        this.createHTMLElement(resultItem.description.substring(0, this.maxTotalCharacters)),
+  private highlightSearchMatches(): void {
+    this.searchService.searchResults.forEach((resultItem) => {
+      resultItem.matches.forEach((match) => {
+        if (match.key === 'title') {
+          const titleElement = document.getElementById('search_' + resultItem.item.title);
+          titleElement.innerHTML = this.getHighlightedTitleString(match, resultItem.item.title);
+        } else if (match.key === 'description') {
+          const descriptionElement = document.getElementById(this.encodeHTML(resultItem.item.description));
+          descriptionElement.innerHTML = this.getHighlightedDescriptionString(
+            match,
+            resultItem.item.description,
+          );
+        }
+      });
+      // If there are no matches for 'description', just insert the description without any highlighting
+      if (!resultItem.matches.find((item) => item.key === 'description')) {
+        if (!resultItem.item.description) {
+          return;
+        }
+        const descriptionElement = document.getElementById(this.encodeHTML(resultItem.item.description));
+        let description = resultItem.item.description;
+        if (description.length > 165) {
+          description = description.substring(0, 165) + '...';
+        }
+        descriptionElement.innerHTML = description;
+      }
+    });
+  }
+
+  private getHighlightedTitleString(match: Fuse.FuseResultMatch, title: string): string {
+    let newTitleString = title.substring(0, match.indices[0][0]);
+    // match.indices holds two values: the start and end indices of the match.
+    match.indices.forEach((matchIndices, index, items) => {
+      newTitleString += this.addHighlightBackground(title.substring(matchIndices[0], matchIndices[1] + 1));
+
+      if (index !== match.indices.length - 1) {
+        newTitleString += title.substring(matchIndices[1] + 1, items[index + 1][0]);
+      }
+    });
+    newTitleString += title.substring(match.indices[match.indices.length - 1][1] + 1, title.length);
+    return newTitleString;
+  }
+
+  private getHighlightedDescriptionString(match: Fuse.FuseResultMatch, description: string): string {
+    if (!description) {
+      return;
+    }
+    // Add any part of the description that is before the first match
+    let newDescriptionString = description.substring(0, match.indices[0][0]);
+    // Add each match, and the part of the description between matches
+    // match.indices holds two values: the start and end indices of the match.
+    match.indices.forEach((matchIndices, index, items) => {
+      // Only highlight in description if more than one character
+      if (matchIndices[1] - matchIndices[0] > 0) {
+        newDescriptionString += this.addHighlightBackground(
+          description.substring(matchIndices[0], matchIndices[1] + 1),
+        );
+      } else {
+        newDescriptionString += description.substring(matchIndices[0], matchIndices[1] + 1);
+      }
+
+      // If not the last match, add the part of the description upto next match
+      if (index !== match.indices.length - 1) {
+        newDescriptionString += description.substring(matchIndices[1] + 1, items[index + 1][0]);
+      }
+    });
+    // Add the part after the last match
+    newDescriptionString += description.substring(
+      match.indices[match.indices.length - 1][1] + 1,
+      description.length,
+    );
+
+    // Limit the length of the shown description
+    if (description.length > 165) {
+      const descriptionPadding = 30;
+      const startIndex = Math.max(match.indices[0][0] - descriptionPadding, 0);
+      const endIndex = Math.max(
+        match.indices[match.indices.length - 1][1] +
+          match.indices.length * this.addHighlightBackground('').length +
+          descriptionPadding,
+        startIndex + 165,
       );
-      return;
+      const prefix = startIndex > 0 ? '...' : '';
+      const postfix = endIndex < newDescriptionString.length - 1 ? '...' : '';
+      newDescriptionString = prefix + newDescriptionString.substring(startIndex, endIndex) + postfix;
     }
-    const newDescriptionString = this.constructHighlightedString(resultItem);
-    description.appendChild(this.createHTMLElement(newDescriptionString));
-  }
-
-  constructHighlightedString(resultItem: DocPage): string {
-    let newDescriptionString = '';
-    let startOfString = 0;
-    let endOfString = this.maxTotalCharacters;
-    const startOfColor = this.indexOfResultDescription;
-    const endOfColor = this.indexOfResultDescription + this.searchString.length;
-
-    if (this.indexOfResultDescription >= 0 && this.indexOfResultDescription > this.indexStartLimit) {
-      newDescriptionString = '...';
-      startOfString = this.indexOfResultDescription - this.charactersBeforeEllipses;
-      endOfString = this.indexOfResultDescription + this.maxTotalCharacters - this.charactersBeforeEllipses;
-    }
-    newDescriptionString =
-      newDescriptionString +
-      resultItem.description.substring(startOfString, startOfColor) +
-      "<span style='background: #29d305'>" +
-      resultItem.description.substring(startOfColor, endOfColor) +
-      '</span>' +
-      resultItem.description.substring(endOfColor, endOfString);
-    if (resultItem.description.length > endOfString) {
-      newDescriptionString = newDescriptionString + '...';
-    }
-
     return newDescriptionString;
   }
 
-  setDescriptionResultStringIndices(resultItem: DocPage): void {
-    // If string contains link, adding all characters of link and not cutting it off
-    const indexOfLinkStart = resultItem.description.toLocaleLowerCase().indexOf('<a');
-    const indexOfLinkEnd = resultItem.description.toLocaleLowerCase().indexOf('>', indexOfLinkStart);
-    const numberOfLinkCharacter = indexOfLinkEnd - indexOfLinkStart;
+  private addHighlightBackground(str: string) {
+    return `<span style='background: ${getColor('elvia-charge')}'>${str}</span>`;
+  }
 
-    this.indexOfResultDescription = resultItem.description
-      .toLocaleLowerCase()
-      .indexOf(this.searchString.toLocaleLowerCase());
-    this.indexStartLimit = 50;
-    this.maxTotalCharacters = 165 + numberOfLinkCharacter;
-    this.charactersBeforeEllipses = 48 + numberOfLinkCharacter;
-    if (screen.width < 770) {
-      this.indexStartLimit = 30;
-      this.maxTotalCharacters = 80 + numberOfLinkCharacter;
-      this.charactersBeforeEllipses = 28 + numberOfLinkCharacter;
-    } else if (screen.width < 1022) {
-      this.maxTotalCharacters = 170 + numberOfLinkCharacter;
-    }
-
-    // If the search result is in the link skip marking inside the link
-    if (this.indexOfResultDescription > indexOfLinkStart && this.indexOfResultDescription < indexOfLinkEnd) {
-      // tslint:disable-next-line: max-line-length
-      this.indexOfResultDescription = resultItem.description
-        .toLocaleLowerCase()
-        .indexOf(this.searchString.toLocaleLowerCase(), indexOfLinkEnd);
-      if (screen.width < 770) {
-        this.charactersBeforeEllipses = 28 + numberOfLinkCharacter + this.searchString.length;
-      } else {
-        this.charactersBeforeEllipses = 48 + numberOfLinkCharacter + this.searchString.length;
-      }
+  private checkIfPrideMonth(): void {
+    const currentMonth = new Date().getMonth();
+    if (currentMonth === 5) {
+      this.isPrideMonth = true;
     }
   }
 }

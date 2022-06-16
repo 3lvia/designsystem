@@ -26,7 +26,7 @@ const accordionData: ComponentData = {
     content: {
       isRequired: true,
       type: 'string | HTMLElement',
-      description: 'Text, images, tables or any other content (use slot in webcomponent if not just text)',
+      description: 'Text, images, tables or any other content (use slot in webcomponent if not just text).',
     },
     openLabel: {
       isRequired: false,
@@ -41,7 +41,7 @@ const accordionData: ComponentData = {
     labelPosition: {
       isRequired: false,
       type: '“left” | “center” | “right”',
-      description: 'Horizontal position of label & button',
+      description: 'Horizontal position of label and button.',
       default: '"center"',
       cegDisplayName: 'position',
       cegDefault: 'center',
@@ -52,7 +52,7 @@ const accordionData: ComponentData = {
     size: {
       isRequired: false,
       type: '“small” | “medium” | “large”',
-      description: 'Size of accordion label & button',
+      description: 'Size of accordion label and button.',
       default: '"medium"',
       cegDisplayName: 'Size',
       cegDefault: 'medium',
@@ -73,7 +73,7 @@ const accordionData: ComponentData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom css classes that can be added to the accordion.',
+      description: 'Custom CSS classes that can be added to the accordion.',
     },
     inlineStyle: {
       isRequired: false,

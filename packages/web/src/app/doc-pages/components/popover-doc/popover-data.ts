@@ -7,10 +7,20 @@ const popoverData: ComponentData = {
   elementNameW: 'elvia-popover',
   elementNameR: 'Popover',
   attributes: {
+    content: {
+      isRequired: true,
+      type: 'string | HTMLElement',
+      description: 'Text, images, tables or any other content (use slot in webcomponent if not just text).',
+    },
+    trigger: {
+      isRequired: true,
+      type: 'HTMLElement',
+      description: 'The element the user clicks to open the popover.',
+    },
     heading: {
       isRequired: false,
       type: 'string',
-      description: 'Header of content',
+      description: 'Heading of content.',
       cegDisplayName: 'Header',
       cegType: 'string',
       cegFormType: 'toggle',
@@ -21,7 +31,7 @@ const popoverData: ComponentData = {
     hasCloseButton: {
       isRequired: false,
       type: 'boolean',
-      description: 'Determines if the close button in the upper right corner should be visible',
+      description: 'Determines if the close button in the upper right corner should be visible.',
       default: 'true',
       cegDisplayName: 'Close button',
       cegType: 'boolean',
@@ -59,21 +69,11 @@ const popoverData: ComponentData = {
       type: '() => void',
       description: 'Callback for every time the popover is being closed.',
     },
-    content: {
-      isRequired: true,
-      type: 'string | HTMLElement',
-      description: 'Text, images, tables or any other content (use slot in webcomponent if not just text)',
-    },
-    trigger: {
-      isRequired: true,
-      type: 'HTMLElement',
-      description: 'The element the user clicks to open the popover',
-    },
     verticalPosition: {
       isRequired: false,
-      type: '“bottom” | “top”',
-      description: 'Position vertically',
-      default: '“top”',
+      type: 'bottom | top',
+      description: 'Position vertically.',
+      default: 'top',
       cegDisplayName: 'Vertical position',
       cegDefault: 'top',
       cegType: 'string',
@@ -82,9 +82,9 @@ const popoverData: ComponentData = {
     },
     horizontalPosition: {
       isRequired: false,
-      type: '“left” | “center” | “right”',
-      description: 'Position horizontally',
-      default: '“center”',
+      type: 'left | center | right',
+      description: 'Position horizontally.',
+      default: 'center',
       cegDisplayName: 'Horizontal position',
       cegDefault: 'center',
       cegType: 'string',
@@ -101,7 +101,7 @@ const popoverData: ComponentData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom css classes that can be added to the popover.',
+      description: 'Custom CSS classes that can be added to the popover.',
     },
     inlineStyle: {
       isRequired: false,

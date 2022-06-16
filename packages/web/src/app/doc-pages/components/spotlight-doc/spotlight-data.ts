@@ -16,7 +16,7 @@ const spotlightData: ComponentData = {
     radius: {
       isRequired: false,
       type: 'number',
-      description: 'Radius for the spotlight circle',
+      description: 'Radius for the spotlight circle.',
       default: '200',
     },
     hasLockBodyScroll: {
@@ -28,7 +28,7 @@ const spotlightData: ComponentData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom css classes that can be added to the Spotlight.',
+      description: 'Custom CSS classes that can be added to the Spotlight.',
     },
     inlineStyle: {
       isRequired: false,

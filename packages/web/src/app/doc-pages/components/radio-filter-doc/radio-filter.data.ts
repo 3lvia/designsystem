@@ -30,7 +30,7 @@ const radioFilterData = {
     groupAriaLabel: {
       isRequired: false,
       type: 'string',
-      description: 'Arialabel for the whole radio filter group',
+      description: 'Aria label for the whole radio filter group.',
       default: 'Filtreringsknapper',
     },
     valueOnChange: {
@@ -42,7 +42,7 @@ const radioFilterData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom css classes that can be added to the radio filter.',
+      description: 'Custom CSS classes that can be added to the radio filter.',
     },
     inlineStyle: {
       isRequired: false,

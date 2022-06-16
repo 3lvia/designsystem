@@ -23,6 +23,7 @@ export class HeaderComponent {
   devMode = false;
   mainMenu: any;
   menuContentLoader = true;
+  isPrideMonth = false;
 
   constructor(
     private globalService: GlobalService,
@@ -59,6 +60,15 @@ export class HeaderComponent {
         this.hideInternalHeader();
       }
     });
+
+    this.checkIfPrideMonth();
+  }
+
+  checkIfPrideMonth(): void {
+    const currentMonth = new Date().getMonth();
+    if (currentMonth === 5) {
+      this.isPrideMonth = true;
+    }
   }
 
   hideContentLoader(evt: Event): void {
@@ -79,17 +89,23 @@ export class HeaderComponent {
   }
 
   openSearchMenu(): void {
+    if (this.searchMenuOpen) {
+      return;
+    }
     this.searchMenuOpen = true;
     this.searchOverlay = this.searchMenu.setupOverlay();
     const compInstance = this.searchMenu.openOverlay(this.searchOverlay, SearchMenuComponent);
     this.searchOverlay.backdropClick().subscribe(() => {
-      this.searchMenu.detach(this.searchOverlay);
-      this.searchMenuOpen = false;
+      this.closeSearchMenu();
     });
     compInstance.onDestroy$.subscribe(() => {
-      this.searchMenu.detach(this.searchOverlay);
-      this.searchMenuOpen = false;
+      this.closeSearchMenu();
     });
+  }
+
+  closeSearchMenu(): void {
+    this.searchMenu.detach(this.searchOverlay);
+    this.searchMenuOpen = false;
   }
 
   testInternalHeader(): void {

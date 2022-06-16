@@ -79,6 +79,8 @@
     "zone.js": "~0.11.4"
   },
   "resolutions": {
-    "@types/react": "17.0.39"
-  }
+    "@types/react": "17.0.39",
+    "@angular-devkit/build-angular": "13.3.6"
+  },
+  "packageManager": "yarn@3.2.1"
 }

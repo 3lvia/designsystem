@@ -24,11 +24,11 @@ const Box: FC<BoxProps> = ({
   const boxContent = useRef<HTMLDivElement>(null);
   const boxTitle = useRef<HTMLDivElement>(null);
 
+  /** Get all slots and place them correctly */
   useEffect(() => {
     if (!webcomponent) {
       return;
     }
-    // Get slotted items from web component
     if (boxContent.current && webcomponent.getSlot('content')) {
       boxContent.current.innerHTML = '';
       boxContent.current.appendChild(webcomponent.getSlot('content'));

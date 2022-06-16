@@ -7,55 +7,13 @@
       <h3>Test your component here</h3>
       <!--Normal version-->
       <div class="e-bg-white">
-        <h3>Popover</h3>
-        <elvia-popover type="list" :isSelectable="true" verticalPosition="top">
-          <button slot="trigger" class="e-btn">Show popover</button>
-          <div slot="content" class="ewc-popover__list">
-            <button>
-              <span>Dato nyeste</span>
-            </button>
-            <button>
-              <span>Dato eldste</span>
-            </button>
-            <a>
-              <span>Relevans</span>
-            </a>
-          </div>
-        </elvia-popover>
-        <elvia-popover type="list" :hasDivider="true">
-          <button slot="trigger" class="e-btn">Show popover</button>
-          <div slot="content" class="ewc-popover__list">
-            <div class="ewc-popover__list-group">
-              <h1>Title 1</h1>
-              <button class="ewc-popover__list-item--selected">
-                <elvia-icon name="edit" size="xs"></elvia-icon>
-                <span>Rediger</span>
-              </button>
-              <button>
-                <elvia-icon name="bin" size="xs"></elvia-icon>
-                <span>Slett</span>
-              </button>
-              <a>
-                <elvia-icon name="download" size="xs"></elvia-icon>
-                <span>Last ned</span>
-              </a>
-            </div>
-            <div class="ewc-popover__list-group">
-              <h1>Title 2</h1>
-              <button>
-                <elvia-icon name="edit" size="xs"></elvia-icon>
-                <span>Rediger</span>
-              </button>
-              <button>
-                <elvia-icon name="bin" size="xs"></elvia-icon>
-                <span>Slett</span>
-              </button>
-              <a>
-                <elvia-icon name="download" size="xs"></elvia-icon>
-                <span>Last ned</span>
-              </a>
-            </div>
-          </div>
+        <elvia-popover
+          heading="BankID"
+          horizontalPosition="left"
+          content=" Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle
+            privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang."
+        >
+          <div slot="trigger"><button class="e-btn">Right top</button></div>
         </elvia-popover>
       </div>
       <!--Inverted version-->
@@ -206,12 +164,12 @@
     <!--Popover-->
     <div class="example-wrapper">
       <h3>Popover</h3>
-      <elvia-popover heading="BankID" horizontalPosition="right">
+      <!-- <elvia-popover heading="BankID" horizontalPosition="right">
         <div slot="trigger"><button class="e-btn">Right top</button></div>
         <div slot="content">
           Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
         </div>
-      </elvia-popover>
+      </elvia-popover> -->
     </div>
 
     <!--Progress linear-->
