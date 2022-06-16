@@ -2,12 +2,15 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "15.06.22",
+      "date": "16.06.22",
       "version": "3.0.2",
       "changelog": [
         {
           "type": "patch",
-          "changes": ["A lot of code refactoring to make the component more simple and understandable."]
+          "changes": [
+            "A lot of code refactoring to make the component more simple and understandable.",
+            "Changed the layout of how many numbers are displayed, to make it smoother and not jump around when selecting numbers."
+          ]
         }
       ]
     },

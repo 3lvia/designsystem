@@ -106,6 +106,24 @@ const Pagination: FC<PaginationProps> = function ({
 }) {
   // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(config, arguments[0]);
+
+  // The number 2 represents the space for the last number and the dots
+  const MAX_POSSIBLE_PAGE_NUMBERS = 9;
+  const MAX_POSSIBLE_PAGE_NUMBERS_MO = 7;
+  /** How many pages that should be displayed between the dots when there are dots on both sides */
+  const NUM_OF_PAGES_BETWEEN_DOTS = 5;
+  const NUM_OF_PAGES_BETWEEN_DOTS_MO = 3;
+
+  /** How many pages that can be displayed on each end before dots. 2 represents the space for the dots and the last or first number*/
+  const NUM_OF_PAGES_BEFORE_DOTS = MAX_POSSIBLE_PAGE_NUMBERS - 2;
+  const NUM_OF_PAGES_BEFORE_DOTS_MO = MAX_POSSIBLE_PAGE_NUMBERS_MO - 2;
+  /** How many pages that should visible on each side of the selected page when in center (Dots are visible on both sides) */
+  const NUM_OF_PAGES_BESIDE_SELECTED = Math.floor(NUM_OF_PAGES_BETWEEN_DOTS / 2);
+  const NUM_OF_PAGES_BESIDE_SELECTED_MO = Math.floor(NUM_OF_PAGES_BETWEEN_DOTS_MO / 2);
+  /** How many pages that can be navigated to at each end before dots are displayed instead of numbers */
+  const VISIBLE_DOTS_BREAKING_POINT = NUM_OF_PAGES_BEFORE_DOTS - NUM_OF_PAGES_BESIDE_SELECTED;
+  const VISIBLE_DOTS_BREAKING_POINT_MO = NUM_OF_PAGES_BEFORE_DOTS_MO - NUM_OF_PAGES_BESIDE_SELECTED_MO;
+
   const [selectedPageNumber, setSelectedPageNumber] = useState(1);
   const [selectedDropdownValue, setSelectedDropdownValue] = useState(
     dropdownItems[dropdownSelectedItemIndex],
@@ -120,8 +138,6 @@ const Pagination: FC<PaginationProps> = function ({
     ...defaultLabelOptions,
     ...labelOptions,
   });
-  /** Number of pages that can be navigated to at each end before dots are displayed instead of numbers */
-  const breakingPointNumber = 4;
   const isMobile = windowWidth < 768;
 
   /** If selectedDropdownValue is not a number, hide the pagination TODO: Varsle bruker? */
@@ -246,108 +262,82 @@ const Pagination: FC<PaginationProps> = function ({
     );
   };
 
+  const shouldHaveVisibleFirstDots = (): boolean => {
+    return (
+      selectedPageNumber > (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
+      numberOfPages > (isMobile ? MAX_POSSIBLE_PAGE_NUMBERS_MO : MAX_POSSIBLE_PAGE_NUMBERS)
+    );
+  };
+  const shouldHaveVisibleLastDots = (): boolean => {
+    return (
+      selectedPageNumber <=
+        numberOfPages - (isMobile ? MAX_POSSIBLE_PAGE_NUMBERS_MO : VISIBLE_DOTS_BREAKING_POINT) &&
+      numberOfPages > (isMobile ? MAX_POSSIBLE_PAGE_NUMBERS_MO : MAX_POSSIBLE_PAGE_NUMBERS)
+    );
+  };
+
   const isSelectedPageNumber = (pageNumber: number): boolean => {
     return pageNumber === selectedPageNumber;
-  };
-  const areNumbersAtBeginning = (pageNumber: number): boolean => {
-    return pageNumber <= breakingPointNumber;
-  };
-  const areNumbersInCenter = (pageNumber: number): boolean => {
-    return pageNumber > breakingPointNumber && pageNumber < numberOfPages - 2;
-  };
-  const areNumbersAtEnd = (pageNumber: number): boolean => {
-    return pageNumber >= numberOfPages - 2;
   };
 
   const isNumberFirstOrLast = (pageNumber: number): boolean => {
     return pageNumber === 1 || pageNumber === numberOfPages;
   };
-  const isNumberAtBeginningVisible = (pageNumber: number, maxValue: number): boolean => {
-    return pageNumber <= maxValue && !isNumberFirstOrLast(pageNumber);
-  };
-  const isNumberInCenterVisible = (pageNumber: number, proximityRange: number): boolean => {
-    return (
-      pageNumber >= selectedPageNumber - proximityRange &&
-      pageNumber <= selectedPageNumber + proximityRange &&
-      !isNumberFirstOrLast(pageNumber)
-    );
-  };
-  const isNumberAtEndVisible = (pageNumber: number, proximityRange: number): boolean => {
-    return pageNumber >= numberOfPages - proximityRange && !isNumberFirstOrLast(pageNumber);
+  const areAllPageNumbersVisible = (): boolean => {
+    return numberOfPages === (isMobile ? MAX_POSSIBLE_PAGE_NUMBERS_MO : MAX_POSSIBLE_PAGE_NUMBERS);
   };
 
-  const shouldHaveVisibleFirstDots = (): boolean => {
+  const isNumberAtBeginningAndVisible = (pageNumber: number): boolean => {
     return (
-      (selectedPageNumber > 4 && numberOfPages > 7 && !isMobile) ||
-      (selectedPageNumber > 3 && numberOfPages > 4 && isMobile)
+      selectedPageNumber <= (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
+      pageNumber <= (isMobile ? NUM_OF_PAGES_BEFORE_DOTS_MO : NUM_OF_PAGES_BEFORE_DOTS)
     );
   };
-  const shouldHaveVisibleLastDots = (): boolean => {
+  const isNumberInCenterAndVisible = (pageNumber: number): boolean => {
     return (
-      (selectedPageNumber < numberOfPages - 3 && numberOfPages > 7 && !isMobile) ||
-      (selectedPageNumber < numberOfPages - 2 && numberOfPages > 5 && isMobile)
+      selectedPageNumber > (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
+      selectedPageNumber <=
+        numberOfPages - (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
+      pageNumber >=
+        selectedPageNumber - (isMobile ? NUM_OF_PAGES_BESIDE_SELECTED_MO : NUM_OF_PAGES_BESIDE_SELECTED) &&
+      pageNumber <=
+        selectedPageNumber + (isMobile ? NUM_OF_PAGES_BESIDE_SELECTED_MO : NUM_OF_PAGES_BESIDE_SELECTED)
+    );
+  };
+  const isNumberAtEndAndVisible = (pageNumber: number): boolean => {
+    return (
+      selectedPageNumber >
+        numberOfPages - (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
+      pageNumber > numberOfPages - (isMobile ? NUM_OF_PAGES_BEFORE_DOTS_MO : NUM_OF_PAGES_BEFORE_DOTS)
     );
   };
 
   /** Returns the numbers and dots that should be visible inside the paginator as a JSX element */
   const PaginatorNumbersAndDots = (): JSX.Element => {
     const visibleNumbersAndDots = [];
-
-    const getBetweenNumberAtBeginning = (pageNumber: number, pageIndex: number): JSX.Element | null => {
-      if (
-        (isNumberAtBeginningVisible(pageNumber, 6) && !isMobile) ||
-        (isNumberAtBeginningVisible(pageNumber, 4) && isMobile && selectedPageNumber !== 4) ||
-        (isMobile &&
-          selectedPageNumber === 4 &&
-          pageNumber >= selectedPageNumber - 1 &&
-          pageNumber <= selectedPageNumber + 1 &&
-          pageNumber < 6)
-      ) {
-        return getPageElement(pageNumber, pageIndex);
-      }
-      return null;
-    };
-
-    const getBetweenNumberInCenter = (pageNumber: number, pageIndex: number): JSX.Element | null => {
-      if (
-        (isNumberInCenterVisible(pageNumber, 2) && !isMobile) ||
-        (isNumberInCenterVisible(pageNumber, 1) && isMobile)
-      ) {
-        return getPageElement(pageNumber, pageIndex);
-      }
-      return null;
-    };
-
-    const getBetweenNumberAtEnd = (pageNumber: number, pageIndex: number): JSX.Element | null => {
-      if (
-        (isNumberAtEndVisible(pageNumber, 5) && !isMobile) ||
-        (isNumberAtEndVisible(pageNumber, 3) && isMobile)
-      ) {
-        return getPageElement(pageNumber, pageIndex);
-      }
-      return null;
-    };
-
-    const getBetweenPageNumbers = (): (JSX.Element | null)[] => {
-      const pageNumbersArray = Array.from(Array(numberOfPages + 1).keys()).slice(1);
-      if (areNumbersAtBeginning(selectedPageNumber)) {
-        return pageNumbersArray.map((pageNumber, pageIndex) => {
-          return getBetweenNumberAtBeginning(pageNumber, pageIndex);
-        });
-      } else if (areNumbersInCenter(selectedPageNumber)) {
-        return pageNumbersArray.map((pageNumber, pageIndex) => {
-          return getBetweenNumberInCenter(pageNumber, pageIndex);
-        });
-      } else if (areNumbersAtEnd(selectedPageNumber)) {
-        return pageNumbersArray.map((pageNumber, pageIndex) => {
-          return getBetweenNumberAtEnd(pageNumber, pageIndex);
-        });
-      }
-      return [];
-    };
+    const pageNumbersArray = Array.from(Array(numberOfPages + 1).keys()).slice(1);
+    const betweenPageNumbers: JSX.Element[] = [];
 
     const getFirstPageNumber = (): JSX.Element => {
       return getPageElement(1, 0);
+    };
+
+    const getBetweenPageNumbers = (): (JSX.Element | null)[] => {
+      pageNumbersArray.forEach((pageNumber, pageIndex) => {
+        if (isNumberFirstOrLast(pageNumber)) {
+          return;
+        } else if (areAllPageNumbersVisible()) {
+          betweenPageNumbers.push(getPageElement(pageNumber, pageIndex));
+        } else if (isNumberAtBeginningAndVisible(pageNumber)) {
+          betweenPageNumbers.push(getPageElement(pageNumber, pageIndex));
+        } else if (isNumberInCenterAndVisible(pageNumber)) {
+          betweenPageNumbers.push(getPageElement(pageNumber, pageIndex));
+        } else if (isNumberAtEndAndVisible(pageNumber)) {
+          betweenPageNumbers.push(getPageElement(pageNumber, pageIndex));
+        }
+      });
+
+      return betweenPageNumbers;
     };
 
     const getLastPageNumber = (): JSX.Element | null => {
