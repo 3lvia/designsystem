@@ -126,6 +126,7 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;
+  color: ${colors.elviaBlack};
 
   display: flex;
   justify-content: center;
