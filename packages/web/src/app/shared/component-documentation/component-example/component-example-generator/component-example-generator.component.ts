@@ -211,7 +211,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
    * @returns
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  keepOriginalOrder(left: KeyValue<any, any>, right: KeyValue<any, any>): number {
+  keepOriginalOrder(left: KeyValue<any, any>, _right: KeyValue<any, any>): number {
     return left.key;
   }
 
