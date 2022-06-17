@@ -19,10 +19,13 @@ type PaginatorProps = {
   isRightAligned: boolean;
 };
 
+const paddingNumbers = '1px';
+
 export const Paginator = styled.div<PaginatorProps>`
   display: flex;
   align-items: center;
-  justify-content: ${(props: { isRightAligned: boolean }) => (props.isRightAligned ? 'flex-end' : 'start')};
+  justify-content: ${(props: { isRightAligned: boolean }) =>
+    props.isRightAligned ? 'flex-end' : 'flex-start'};
   min-width: 325px;
   user-select: none;
 
@@ -30,7 +33,9 @@ export const Paginator = styled.div<PaginatorProps>`
     flex-direction: column-reverse;
     height: auto;
     justify-content: center;
-    align-items: start;
+    align-items: ${(props: { isRightAligned: boolean }) =>
+      props.isRightAligned ? 'flex-end' : 'flex-start'};
+    min-width: 294px;
   }
 `;
 export const PaginatorInfoContainer = styled.div`
@@ -104,8 +109,7 @@ export const PaginatorNumbersArea = styled.div`
   user-select: none;
 `;
 
-type PaginatorNumberProps = {
-  noShow: boolean;
+type PaginatorPageProps = {
   selected: boolean;
   isFirst: boolean;
   isLast: boolean;
@@ -114,7 +118,7 @@ type PaginatorNumberProps = {
   children?: number;
 };
 
-export const PaginatorNumber = styled.button<PaginatorNumberProps>`
+export const PaginatorPage = styled.button<PaginatorPageProps>`
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 13px;
   font-style: normal;
@@ -122,8 +126,9 @@ export const PaginatorNumber = styled.button<PaginatorNumberProps>`
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;
+  color: ${colors.elviaBlack};
 
-  display: ${(props: { noShow: boolean }) => (props.noShow ? 'none' : 'flex')};
+  display: flex;
   justify-content: center;
   align-items: center;
   background: transparent;
@@ -132,8 +137,8 @@ export const PaginatorNumber = styled.button<PaginatorNumberProps>`
   width: 36px;
   height: 36px;
   margin: 0 4px;
-  margin-left: ${(props: { isFirst: boolean }) => (props.isFirst ? '0px' : '4px')};
-  margin-right: ${(props: { isLast: boolean }) => (props.isLast ? '0px' : '4px')};
+  margin-left: ${(props: { isFirst: boolean }) => (props.isFirst ? '0px' : paddingNumbers)};
+  margin-right: ${(props: { isLast: boolean }) => (props.isLast ? '0px' : paddingNumbers)};
   border-radius: 50%;
   cursor: pointer;
 
@@ -149,17 +154,21 @@ export const PaginatorNumber = styled.button<PaginatorNumberProps>`
 `;
 
 type PaginatorDotsProps = {
-  noDots: boolean;
+  hide: boolean;
 };
 
 export const PaginatorDots = styled.div<PaginatorDotsProps>`
   font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
-  letter-spacing: 0.2px;
+  letter-spacing: 1.2px;
   text-align: center;
-  display: ${(props: { noDots: boolean }) => (props.noDots ? 'none' : 'inherit')};
-  width: ${(props: { noDots: boolean }) => (props.noDots ? '0px' : '20px')};
+  display: ${(props: { hide: boolean }) => (props.hide ? 'none' : 'flex')};
+  justify-content: center;
+  align-items: center;
+  width: ${(props: { hide: boolean }) => (props.hide ? '0px' : '36px')};
+  height: 36px;
+  margin: ${(props: { hide: boolean }) => (props.hide ? '0px' : `0 ${paddingNumbers}`)};
 `;

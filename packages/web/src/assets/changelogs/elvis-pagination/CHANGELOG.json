@@ -2,8 +2,21 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.06.22",
+      "version": "3.0.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "A lot of code refactoring to make the component more simple and understandable.",
+            "Changed the layout of how many numbers are displayed, to make it smoother and not jump around when selecting numbers."
+          ]
+        }
+      ]
+    },
+    {
       "date": "24.05.22",
-      "version": "3.0.1 ",
+      "version": "3.0.1",
       "changelog": [
         {
           "type": "patch",

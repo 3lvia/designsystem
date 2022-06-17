@@ -32,7 +32,7 @@ describe('Elvis Pagination', () => {
       done();
     });
     it('should not be right aligned', function (done) {
-      expect(paginator.at(0).getDOMNode()).toHaveStyle(`justify-content: start`);
+      expect(paginator.at(0).getDOMNode()).toHaveStyle(`justify-content: flex-start`);
       done();
     });
     it('should have hidden left arrow', function (done) {
@@ -90,7 +90,7 @@ describe('Elvis Pagination', () => {
     it('should have hidden right arrow after clicking last paginator number', function (done) {
       paginatorNumbers
         .at(0)
-        .findWhere((node) => node.key() === 'lastPaginationNumber')
+        .findWhere((node) => node.key() === '9')
         .simulate('click');
       expect(selectorArrowRight.at(0).getDOMNode()).toHaveStyle(`visibility: hidden`);
       done();
