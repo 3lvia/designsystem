@@ -222,11 +222,11 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     Object.entries(this.customTextProps).forEach(([prop, value]) => {
       // Remove empty props, otherwise update
       if (value.value) {
-        this.updateSelected(prop, value.value.toString(), 'string', true);
+        this.updateSelected(prop, value.value.toString(), 'string');
       } else {
         this.removeProps(prop);
-        this.updateExampleCode();
       }
+      this.updateExampleCode();
     });
   }
 
