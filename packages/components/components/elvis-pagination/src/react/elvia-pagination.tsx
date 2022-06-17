@@ -107,16 +107,16 @@ const Pagination: FC<PaginationProps> = function ({
   // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(config, arguments[0]);
 
-  // The number 2 represents the space for the last number and the dots
-  const MAX_POSSIBLE_PAGE_NUMBERS = 9;
-  const MAX_POSSIBLE_PAGE_NUMBERS_MO = 7;
+  /** Max page numbers that can be visible at the same time */
+  const MAX_VISIBLE_PAGE_NUMBERS = 9;
+  const MAX_VISIBLE_PAGE_NUMBERS_MO = 7;
   /** How many pages that should be displayed between the dots when there are dots on both sides */
   const NUM_OF_PAGES_BETWEEN_DOTS = 5;
   const NUM_OF_PAGES_BETWEEN_DOTS_MO = 3;
 
-  /** How many pages that can be displayed on each end before dots. 2 represents the space for the dots and the last or first number*/
-  const NUM_OF_PAGES_BEFORE_DOTS = MAX_POSSIBLE_PAGE_NUMBERS - 2;
-  const NUM_OF_PAGES_BEFORE_DOTS_MO = MAX_POSSIBLE_PAGE_NUMBERS_MO - 2;
+  /** How many pages that can be displayed on each end before/after dots. 2 represents the space for the dots and the last or first number*/
+  const NUM_OF_PAGES_BEFORE_DOTS = MAX_VISIBLE_PAGE_NUMBERS - 2;
+  const NUM_OF_PAGES_BEFORE_DOTS_MO = MAX_VISIBLE_PAGE_NUMBERS_MO - 2;
   /** How many pages that should visible on each side of the selected page when in center (Dots are visible on both sides) */
   const NUM_OF_PAGES_BESIDE_SELECTED = Math.floor(NUM_OF_PAGES_BETWEEN_DOTS / 2);
   const NUM_OF_PAGES_BESIDE_SELECTED_MO = Math.floor(NUM_OF_PAGES_BETWEEN_DOTS_MO / 2);
@@ -265,14 +265,14 @@ const Pagination: FC<PaginationProps> = function ({
   const shouldHaveVisibleFirstDots = (): boolean => {
     return (
       selectedPageNumber > (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
-      numberOfPages > (isMobile ? MAX_POSSIBLE_PAGE_NUMBERS_MO : MAX_POSSIBLE_PAGE_NUMBERS)
+      numberOfPages > (isMobile ? MAX_VISIBLE_PAGE_NUMBERS_MO : MAX_VISIBLE_PAGE_NUMBERS)
     );
   };
   const shouldHaveVisibleLastDots = (): boolean => {
     return (
       selectedPageNumber <=
         numberOfPages - (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
-      numberOfPages > (isMobile ? MAX_POSSIBLE_PAGE_NUMBERS_MO : MAX_POSSIBLE_PAGE_NUMBERS)
+      numberOfPages > (isMobile ? MAX_VISIBLE_PAGE_NUMBERS_MO : MAX_VISIBLE_PAGE_NUMBERS)
     );
   };
 
@@ -284,7 +284,7 @@ const Pagination: FC<PaginationProps> = function ({
     return pageNumber === 1 || pageNumber === numberOfPages;
   };
   const areAllPageNumbersVisible = (): boolean => {
-    return numberOfPages === (isMobile ? MAX_POSSIBLE_PAGE_NUMBERS_MO : MAX_POSSIBLE_PAGE_NUMBERS);
+    return numberOfPages === (isMobile ? MAX_VISIBLE_PAGE_NUMBERS_MO : MAX_VISIBLE_PAGE_NUMBERS);
   };
 
   const isNumberAtBeginningAndVisible = (pageNumber: number): boolean => {
