@@ -57,9 +57,23 @@ export interface AttributeTypeCEG {
    * Also requires `'cegCounterMax'`, `'cegCounterMin'`, `'cegStepValue'`, and `'cegCounterType'`.
    * See the component Progressbar for an example.
    *
+   * `'custom-text` will show the prop as an input field inside the 'Customize text'-popover.
+   *
    * `'iconName'` is only used for the icon documentation.
    */
-  cegFormType?: 'type' | 'background' | 'radio' | 'checkbox' | 'toggle' | 'counter' | 'iconName';
+  cegFormType?:
+    | 'type'
+    | 'background'
+    | 'radio'
+    | 'checkbox'
+    | 'toggle'
+    | 'counter'
+    | 'custom-text'
+    | 'iconName';
+  /**
+   * Decides what kind of text input to use for the property inside 'Customize text'-popover. Only applies to `cegFormType = 'custom-text'`.
+   */
+  cegCustomTextType?: 'input' | 'textarea';
   /**
    * Options for the prop in the dropdown and the value sent in as the attribute in the code.
    *

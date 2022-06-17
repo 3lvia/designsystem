@@ -5,9 +5,10 @@ import { ComponentExampleCodeModule } from '../component-example-code/component-
 import { CegFiltersModule } from './ceg-filters/ceg-filters.module';
 import '@elvia/elvis-dropdown';
 import '@elvia/elvis-popover';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule, ComponentExampleCodeModule, CegFiltersModule],
+  imports: [CommonModule, ComponentExampleCodeModule, CegFiltersModule, FormsModule],
   declarations: [ComponentExampleGeneratorComponent],
   exports: [ComponentExampleGeneratorComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

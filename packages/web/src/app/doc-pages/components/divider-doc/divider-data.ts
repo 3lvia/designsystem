@@ -23,7 +23,6 @@ export const dividerData: ComponentData = {
       description:
         'Title displayed together with a divider. Send in as slot in webcomponent and HTMLElement in React.',
       default: 'Title',
-      cegDisplayName: 'Title',
     },
     typography: {
       isRequired: false,

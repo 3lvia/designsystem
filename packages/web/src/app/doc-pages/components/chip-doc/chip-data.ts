@@ -49,6 +49,10 @@ export const chipData: ComponentData = {
       isRequired: true,
       type: 'string',
       description: 'The value displayed in the chip.',
+      cegType: 'string',
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'input',
+      cegDefault: '2022',
     },
     isLoading: {
       isRequired: false,
@@ -87,7 +91,6 @@ export const chipData: ComponentData = {
   codeImportReact: `import { Chip } from '@elvia/elvis-chip/react';`,
   codeImportWebComponent: `import '@elvia/elvis-chip';`,
   codeReact: `<Chip 
-  value={2022} 
   isSelected={true}
   ariaLabel={"Fjern filtrering for 2022"}
   onDelete={(event) => handleOnDelete(event)}
@@ -96,7 +99,6 @@ export const chipData: ComponentData = {
 </Chip>
 `,
   codeAngular: `<elvia-chip 
-  [value]="2022" 
   [isSelected]="true"
   [ariaLabel]="'Fjern filtrering for 2022'" 
   (onDelete)="handleOnDelete($event.detail.value)"
@@ -105,7 +107,6 @@ export const chipData: ComponentData = {
 </elvia-chip>
   `,
   codeVue: `<elvia-chip 
-  :value="2022" 
   :isSelected="true"
   :ariaLabel="'Fjern filtrering for 2022'" 
   @on-delete="handleOnDelete($event.detail.value)"
@@ -120,7 +121,6 @@ export const chipData: ComponentData = {
 </elvia-chip>
 `,
   codeNativeScript: `  const chip = document.getElementById('example-elvia-chip');
-  chip.setProps({value: 2022 });
   chip.setProps({ariaLabel: 'Fjern filtrering for 2022' });
   chip.addEventListener('onDelete', () => {
     console.log('Used in REMOVABLE chips - Remove element from DOM');

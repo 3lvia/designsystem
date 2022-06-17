@@ -63,3 +63,8 @@ export type DropdownEvent = CustomEvent<{
     label: string;
   };
 }>;
+
+export interface SideFilterEvent {
+  name: string;
+  value: string;
+}

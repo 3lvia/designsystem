@@ -49,14 +49,31 @@
     @include breakpoint-up(Mobile) {
       width: 100%;
     }
-    .ceg-dropdown {
-      width: 50%;
-      &:not(:last-of-type) {
-        margin-right: 16px;
+    .ceg-dropdown-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 72.5%;
+      @include breakpoint-up(Mobile) {
+        width: 100%;
       }
-      &:not(:first-of-type) {
-        margin-left: 16px;
+      .ceg-dropdown {
+        width: 50%;
+        &:not(:last-of-type) {
+          margin-right: 16px;
+        }
+        &:not(:first-of-type) {
+          margin-left: 16px;
+        }
       }
+    }
+    .ceg-customize-popover {
+      @include breakpoint-up(Mobile) {
+        display: none;
+      }
+      padding-left: 24px;
+      margin-top: auto;
+      margin-bottom: auto;
     }
   }
 
@@ -71,6 +88,15 @@
       display: block;
       position: absolute;
       right: 8px;
+      top: 8px;
+    }
+  }
+  .ceg-customize-popover-mobile {
+    display: none;
+    @include breakpoint-up(Mobile) {
+      display: block;
+      position: absolute;
+      right: 56px;
       top: 8px;
     }
   }

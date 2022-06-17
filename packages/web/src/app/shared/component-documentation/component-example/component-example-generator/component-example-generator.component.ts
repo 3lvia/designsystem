@@ -5,7 +5,8 @@ import { ExampleCodeService } from '../../example-code.service';
 import * as ElvisIcons from '@elvia/elvis-assets-icons';
 import ComponentData, { AttributeType } from 'src/app/doc-pages/components/component-data.interface';
 import ComponentTypeData from 'src/app/doc-pages/components/component-type-data.interface';
-import { CegFormGroup, DropdownEvent } from './ceg.interface';
+import { CegFormGroup, DropdownEvent, SideFilterEvent } from './ceg.interface';
+import { KeyValue } from '@angular/common';
 
 @Component({
   selector: 'app-component-example-generator',
@@ -36,6 +37,16 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   codeVue: ComponentData['codeVue'];
   codeNative: ComponentData['codeNativeHTML'];
   dynamicCode: SafeHtml;
+
+  customTextProps: {
+    [prop: string]: {
+      value: AttributeType['cegDefault'];
+      type: AttributeType['cegCustomTextType'];
+      active: boolean;
+    };
+  } = {};
+  hasCustomTextProps = false;
+  showCustomTextPopover = false;
 
   enableFilters = true;
   hasSideFilters = true;
@@ -82,6 +93,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
     this.initializeSideFilterFormGroups();
     this.initializeTopFilters();
+    setTimeout(() => {
+      this.initializeCustomTextProps();
+    }, 200);
   }
 
   ngAfterContentInit(): void {
@@ -127,6 +141,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     } else {
       this.updateSelected('name', value, 'string');
     }
+    setTimeout(() => {
+      this.initializeCustomTextProps();
+    });
   }
 
   updateSelectedTypeCustom(event: DropdownEvent): void {
@@ -150,6 +167,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         this.updateExampleCode();
       }, 100);
     }, 100);
+    setTimeout(() => {
+      this.initializeCustomTextProps();
+    });
   }
 
   updateSelectedBg(event: DropdownEvent): void {
@@ -162,11 +182,95 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
   }
 
-  updateSelected(attr: string, newValue: string, cegType: string, updateExampleCode?: boolean): void {
+  /**
+   * Gets called every time there is a change in the side filters. Toggles the visibility of the prop in the *Customize text*-popover.
+   * @param event Contains the name of the prop changed and its new value, or whether to turn on or off the `cegDefault`.
+   */
+  updateSideFilter(event: SideFilterEvent): void {
+    if (event.name.toLowerCase() in this.customTextProps) {
+      this.customTextProps[event.name.toLowerCase()].active =
+        !this.customTextProps[event.name.toLowerCase()].active;
+
+      // Reset value to default
+      let componentData: ComponentData;
+      if (this.typesData) {
+        const selectedTypeIndex = this.typeOptions.find((option) => option.label === this.selectedType).value;
+        componentData = this.typesData[selectedTypeIndex];
+      } else {
+        componentData = this.componentData;
+      }
+      this.customTextProps[event.name.toLowerCase()].value =
+        componentData.attributes[event.name.toLowerCase()].cegDefault;
+    }
+  }
+
+  /**
+   * Used to order the elements in the *Customize text*-popover.
+   * @param left
+   * @param right
+   * @returns
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  keepOriginalOrder(left: KeyValue<any, any>, right: KeyValue<any, any>): number {
+    return left.key;
+  }
+
+  /**
+   * Updates the content in the CEG to reflect what is in the `this.customTextProps`-object.
+   */
+  updateCustomTextProps(): void {
+    Object.entries(this.customTextProps).forEach(([prop, value]) => {
+      // Remove empty props, otherwise update
+      if (value.value) {
+        this.updateSelected(prop, value.value.toString(), 'string', true);
+      } else {
+        this.removeProps(prop);
+        this.updateExampleCode();
+      }
+    });
+  }
+
+  /**
+   * Initializes `this.customTextProps` to hold the props that should have customizable text.
+   *
+   * If `typesData` is provided, it will use attribute information from there instead (see `card-simple-code.ts` and `card-detail-code.ts` for examples).
+   */
+  private initializeCustomTextProps(): void {
+    let componentData: ComponentData;
+    if (this.typesData) {
+      const selectedTypeIndex = this.typeOptions.find((option) => option.label === this.selectedType).value;
+      componentData = this.typesData[selectedTypeIndex];
+    } else {
+      componentData = this.componentData;
+    }
+
+    if (!componentData.attributes) {
+      this.showCustomTextPopover = false;
+      return;
+    }
+
+    this.customTextProps = {};
+    Object.entries(componentData.attributes).forEach(([attribute, attributeData]) => {
+      if (attributeData.cegFormType === 'custom-text') {
+        this.customTextProps[attribute] = {
+          value: attributeData.cegDefault ?? '',
+          type: attributeData.cegCustomTextType ?? 'input',
+          active: true,
+        };
+      }
+    });
+    setTimeout(() => {
+      this.updateCustomTextProps();
+    });
+    this.hasCustomTextProps = Object.keys(this.customTextProps).length > 0;
+    this.showCustomTextPopover = true;
+  }
+
+  private updateSelected(attr: string, newValue: string, cegType: string, updateExampleCode?: boolean): void {
     const updateCode = updateExampleCode ? updateExampleCode : true;
     const elNameR = this.componentData.elementNameR;
     const elNameW = this.componentData.elementNameW;
-    if (this.codeAngular.includes(attr)) {
+    if (this.codeAngular.includes(`[${attr}]`)) {
       this.codeReact = this.cegService.replaceOldProp(this.codeReact, attr, newValue, 'react', cegType);
       this.codeAngular = this.cegService.replaceOldProp(this.codeAngular, attr, newValue, 'angular', cegType);
       this.codeVue = this.cegService.replaceOldProp(this.codeVue, attr, newValue, 'vue', cegType);
@@ -374,6 +478,13 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     if (this.componentData.codeNativeScript) {
       setTimeout(() => eval(this.componentData.codeNativeScript), 200);
     }
+  }
+
+  private removeProps(attr: string): void {
+    this.codeReact = this.cegService.removeProp(this.codeReact, attr);
+    this.codeAngular = this.cegService.removeProp(this.codeAngular, attr);
+    this.codeVue = this.cegService.removeProp(this.codeVue, attr);
+    this.codeNative = this.cegService.removeProp(this.codeNative, attr);
   }
 
   // CEG code-view updates

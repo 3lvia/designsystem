@@ -3,15 +3,22 @@ import ComponentTypeData from '../component-type-data.interface';
 
 const popoverInformativeCode: ComponentTypeData = {
   type: 'informative',
-  codeReact:
-    `<Popover
-  heading={"` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `"}
-  content={"` +
-    exampleContents.texts.md['eng-GBR'].description +
-    `"}
-    verticalPosition={"top"}
+  attributes: {
+    heading: {
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'input',
+      cegDefault: exampleContents.texts.md['eng-GBR'].title,
+      cegType: 'string',
+    },
+    content: {
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'textarea',
+      cegDefault: exampleContents.texts.md['eng-GBR'].description,
+      cegType: 'string',
+    },
+  },
+  codeReact: `<Popover
+  verticalPosition={"top"}
   onOpen={() => popoverOnOpen()}
   onClose={() => popoverOnClose()}
   trigger={
@@ -24,14 +31,7 @@ const popoverInformativeCode: ComponentTypeData = {
   }
 ></Popover>
 `,
-  codeAngular:
-    `<elvia-popover 
-  [heading]="'` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `'"
-  [content]="'` +
-    exampleContents.texts.md['eng-GBR'].description +
-    `'"
+  codeAngular: `<elvia-popover 
   [verticalPosition]="'top'"
   (onOpen)="popoverOnOpen()"
   (onClose)="popoverOnClose()"
@@ -44,14 +44,7 @@ const popoverInformativeCode: ComponentTypeData = {
   </button>
 </elvia-popover>
 `,
-  codeVue:
-    `<elvia-popover 
-  :heading="'` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `'"
-  :content="'` +
-    exampleContents.texts.md['eng-GBR'].description +
-    `'"
+  codeVue: `<elvia-popover 
   :verticalPosition="'top'"
   @on-open="popoverOnOpen()"
   @on-close="popoverOnClose()"
@@ -64,13 +57,8 @@ const popoverInformativeCode: ComponentTypeData = {
   </button>
 </elvia-popover>
 `,
-  codeNativeHTML:
-    `<elvia-popover 
+  codeNativeHTML: `<elvia-popover 
   id="example-elvia-popover"
-  heading="` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `"
-  content=${JSON.stringify(exampleContents.texts.md['eng-GBR'].description)}
   verticalPosition="top"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">

@@ -3,49 +3,35 @@ import ComponentTypeData from '../component-type-data.interface';
 
 const cardDetailCode: ComponentTypeData = {
   type: 'detail',
-  codeReact:
-    `<Card 
+  attributes: {
+    header: {
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'input',
+      cegDefault: exampleContents.texts.lg['eng-GBR'].title,
+      cegType: 'string',
+    },
+    description: {
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'textarea',
+      cegDefault: exampleContents.texts.lg['eng-GBR'].description,
+      cegType: 'string',
+    },
+  },
+  codeReact: `<Card 
   type={"detail"}
-  header={"` +
-    exampleContents.texts.lg['eng-GBR'].title +
-    `"}
-  description={"` +
-    exampleContents.texts.lg['eng-GBR'].description +
-    `"}
 ></Card>
 `,
-  codeAngular:
-    `<elvia-card
+  codeAngular: `<elvia-card
   [type]="'detail'"
-  [header]="'` +
-    exampleContents.texts.lg['eng-GBR'].title +
-    `'"
-  [description]="'` +
-    exampleContents.texts.lg['eng-GBR'].description +
-    `'"
 >
 </elvia-card>
 `,
-  codeVue:
-    `<elvia-card 
+  codeVue: `<elvia-card 
   :type="'detail'"
-  :header="'` +
-    exampleContents.texts.lg['eng-GBR'].title +
-    `'" 
-  :description="'` +
-    exampleContents.texts.lg['eng-GBR'].description +
-    `'"
 >
 </elvia-card>`,
-  codeNativeHTML:
-    `<elvia-card
+  codeNativeHTML: `<elvia-card
   type="detail"
-  header="` +
-    exampleContents.texts.lg['eng-GBR'].title +
-    `"
-  description="` +
-    exampleContents.texts.lg['eng-GBR'].description +
-    `"
 >
 </elvia-card>
 `,
