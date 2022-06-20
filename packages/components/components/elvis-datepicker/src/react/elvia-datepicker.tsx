@@ -13,6 +13,7 @@ import isValid from 'date-fns/isValid';
 import isSameDay from 'date-fns/isSameDay';
 import isAfter from 'date-fns/isAfter';
 import isBefore from 'date-fns/isBefore';
+import formatISO from 'date-fns/formatISO';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 export interface DatepickerProps {
@@ -27,6 +28,7 @@ export interface DatepickerProps {
   minDate?: Date;
   maxDate?: Date;
   valueOnChange?: (value: Date | null) => void;
+  valueOnChangeISOString?: (value: string | null) => void;
   onOpen?: () => void;
   onClose?: () => void;
   webcomponent?: ElvisComponentWrapper;
@@ -56,6 +58,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   minDate,
   maxDate,
   valueOnChange,
+  valueOnChangeISOString,
   onOpen,
   onClose,
   webcomponent,
@@ -138,10 +141,13 @@ export const Datepicker: FC<DatepickerProps> = ({
     hasValidation && validateDate(date);
     setSelectedDate(date);
 
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(date);
+    const dateISO = date ? formatISO(date, { representation: 'date' }) : null;
+    if (!webcomponent) {
+      valueOnChange?.(date);
+      valueOnChangeISOString?.(dateISO);
     } else if (webcomponent) {
       webcomponent.setProps({ value: date }, true);
+      webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
     }
   };
 

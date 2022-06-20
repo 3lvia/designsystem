@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "30.06.22",
+      "version": "2.10.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added a new prop (or event for web components) <span class=\"code-text\">valueOnChangeISOString</span> that gives the chosen date as a string in ISO format without including time."
+          ]
+        }
+      ]
+    },
+    {
       "date": "03.06.22",
       "version": "2.9.2",
       "changelog": [
