@@ -95,7 +95,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     this.initializeTopFilters();
     setTimeout(() => {
       this.initializeCustomTextProps();
-    }, 200);
+    }, 250);
   }
 
   ngAfterContentInit(): void {
@@ -141,9 +141,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     } else {
       this.updateSelected('name', value, 'string');
     }
-    setTimeout(() => {
-      this.initializeCustomTextProps();
-    });
   }
 
   updateSelectedTypeCustom(event: DropdownEvent): void {
