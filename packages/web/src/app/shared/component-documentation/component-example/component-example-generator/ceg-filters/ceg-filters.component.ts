@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../../example-code.service';
-import { CegFormGroup, CegFormGroupOption, FormState, SideFilterEvent } from '../ceg.interface';
+import { CegFormGroup, CegFormGroupOption, FormState, CegSideFilterEvent } from '../ceg.interface';
 import debounce from 'lodash/debounce';
 import { VisibleFieldsPipe } from './ceg-filters-visibility.pipe';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
@@ -25,7 +25,7 @@ export class CegFiltersComponent implements OnInit {
   @Input() desktop = true;
   @Input() topFilterFormStates = {};
   @Output() hasVisibleFilters = new EventEmitter<boolean>();
-  @Output() propValueChange = new EventEmitter<SideFilterEvent>();
+  @Output() propValueChange = new EventEmitter<CegSideFilterEvent>();
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
   codeVueSub: Subscription;

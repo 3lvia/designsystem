@@ -5,7 +5,7 @@ import { ExampleCodeService } from '../../example-code.service';
 import * as ElvisIcons from '@elvia/elvis-assets-icons';
 import ComponentData, { AttributeType } from 'src/app/doc-pages/components/component-data.interface';
 import ComponentTypeData from 'src/app/doc-pages/components/component-type-data.interface';
-import { CegFormGroup, DropdownEvent, SideFilterEvent } from './ceg.interface';
+import { CegFormGroup, DropdownEvent, CegSideFilterEvent, CegFormGroupOption } from './ceg.interface';
 import { KeyValue } from '@angular/common';
 
 @Component({
@@ -186,10 +186,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
    * Gets called every time there is a change in the side filters. Toggles the visibility of the prop in the *Customize text*-popover.
    * @param event Contains the name of the prop changed and its new value, or whether to turn on or off the `cegDefault`.
    */
-  updateSideFilter(event: SideFilterEvent): void {
-    if (event.name.toLowerCase() in this.customTextProps) {
-      this.customTextProps[event.name.toLowerCase()].active =
-        !this.customTextProps[event.name.toLowerCase()].active;
+  updateSideFilter(event: CegSideFilterEvent): void {
+    const propName = event.name.toLowerCase();
+    if (propName in this.customTextProps) {
+      this.customTextProps[propName].active = !this.customTextProps[propName].active;
 
       // Reset value to default
       let componentData: ComponentData;
@@ -199,15 +199,14 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       } else {
         componentData = this.componentData;
       }
-      this.customTextProps[event.name.toLowerCase()].value =
-        componentData.attributes[event.name.toLowerCase()].cegDefault;
+      this.customTextProps[propName].value = componentData.attributes[propName].cegDefault;
     }
   }
 
   /**
    * Used to order the elements in the *Customize text*-popover.
    * @param left
-   * @param right
+   * @param _right
    * @returns
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -233,7 +232,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   /**
    * Initializes `this.customTextProps` to hold the props that should have customizable text.
    *
-   * If `typesData` is provided, it will use attribute information from there instead (see `card-simple-code.ts` and `card-detail-code.ts` for examples).
+   * If `typesData` is provided, it will use attribute information from there instead (see `card-simple-code.ts` and `card-detail-code.ts`, or `popover-informative-code.ts`, for examples).
    */
   private initializeCustomTextProps(): void {
     let componentData: ComponentData;
@@ -317,8 +316,8 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       }
       const formType = prop.cegFormType;
       if (formType === 'radio') {
-        const formGroupOptions = [];
-        let formOption;
+        const formGroupOptions: CegFormGroupOption[] = [];
+        let formOption: CegFormGroupOption;
         prop.cegOptions.forEach((option) => {
           formOption = {
             name: option,
@@ -337,7 +336,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         };
         this.formGroupList.push(formGroupObject);
       } else if (formType === 'checkbox') {
-        const checkboxObject = {
+        const checkboxObject: typeof this.allCheckboxes[0] = {
           propName: propKey,
           ...prop,
         };
@@ -365,7 +364,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           type: prop.cegType,
           defaultValue: prop.cegDefault,
           propName: propKey,
-          propSlot: prop.cegSlot,
           counterMax: prop.cegCounterMax,
           counterMin: prop.cegCounterMin,
           counterStepValue: prop.cegStepValue,

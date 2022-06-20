@@ -25,7 +25,6 @@ interface CegFormGroupToggle {
 interface CegFormGroupCounter {
   formType: 'counter';
   label: ComponentData['attributes'][0]['cegDisplayName'];
-  propSlot: ComponentData['attributes'][0]['cegSlot'];
   counterMax: ComponentData['attributes'][0]['cegCounterMax'];
   counterMin: ComponentData['attributes'][0]['cegCounterMin'];
   counterStepValue: ComponentData['attributes'][0]['cegStepValue'];
@@ -44,7 +43,7 @@ export type CegFormGroup = CegFormGroupCommon &
 
 export interface CegFormGroupOption {
   name: string;
-  defaultValue: string;
+  defaultValue: boolean;
   propValue?: string;
   propName?: string;
   dependency?: ComponentData['attributes'][0]['cegDependency'];
@@ -64,7 +63,16 @@ export type DropdownEvent = CustomEvent<{
   };
 }>;
 
-export interface SideFilterEvent {
+/**
+ * Type of event emitted from `ceg-filters.component` to `component-example-generator.component` whenever a side filter is changed.
+ */
+export interface CegSideFilterEvent {
+  /**
+   * Name of changed prop.
+   */
   name: string;
+  /**
+   * Either the new chosen value, or `'true'` or `'false'` if the side filter changes visibility of the prop.
+   */
   value: string;
 }

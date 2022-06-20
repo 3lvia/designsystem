@@ -48,7 +48,7 @@
       <elvia-popover [verticalPosition]="'bottom'" [horizontalPosition]="'right'">
         <button slot="trigger" class="e-btn e-btn--tertiary e-btn--sm">
           <span class="e-btn__icon"><elvia-icon name="edit" size="xs"></elvia-icon></span>
-          <span class="e-btn__title">Customize text</span>
+          <span class="e-btn__title ceg-customize-popover-trigger">Customize text</span>
         </button>
         <div slot="content" className="ewc-popover__text">
           <div *ngFor="let property of customTextProps | keyvalue: keepOriginalOrder; let last = last">
