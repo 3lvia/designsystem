@@ -8,13 +8,11 @@ const cardDetailCode: ComponentTypeData = {
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: exampleContents.texts.lg['eng-GBR'].title,
-      cegType: 'string',
     },
     description: {
       cegFormType: 'custom-text',
       cegCustomTextType: 'textarea',
       cegDefault: exampleContents.texts.lg['eng-GBR'].description,
-      cegType: 'string',
     },
   },
   codeReact: `<Card 

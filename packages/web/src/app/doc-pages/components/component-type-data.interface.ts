@@ -11,7 +11,7 @@ export default interface ComponentTypeData extends Omit<ComponentDataCode, 'code
    * The attributes should also be defined in the main `component-data.ts` to be documented in the property table.
    *
    * Attributes defined here will be used only for the *Custom text*-popover in the CEG.
-   * This requires `cegFormType='custom-text'` and `cegType='text'`, and the fields `cegCustomTextType` and `cegDefault` should be set.
+   * This requires `cegFormType='custom-text'`, and the fields `cegCustomTextType` and `cegDefault` should be set.
    */
   attributes?: {
     [attribute: string]: AttributeTypeCEG;

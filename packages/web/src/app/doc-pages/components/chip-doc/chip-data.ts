@@ -49,7 +49,6 @@ export const chipData: ComponentData = {
       isRequired: true,
       type: 'string',
       description: 'The value displayed in the chip.',
-      cegType: 'string',
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: '2022',

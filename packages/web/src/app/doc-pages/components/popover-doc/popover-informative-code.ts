@@ -8,13 +8,11 @@ const popoverInformativeCode: ComponentTypeData = {
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: exampleContents.texts.md['eng-GBR'].title,
-      cegType: 'string',
     },
     content: {
       cegFormType: 'custom-text',
       cegCustomTextType: 'textarea',
       cegDefault: exampleContents.texts.md['eng-GBR'].description,
-      cegType: 'string',
     },
   },
   codeReact: `<Popover

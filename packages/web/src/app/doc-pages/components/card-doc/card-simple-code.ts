@@ -7,13 +7,11 @@ const cardSimpleCode: ComponentTypeData = {
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: 'Safety',
-      cegType: 'string',
     },
     description: {
       cegFormType: 'custom-text',
       cegCustomTextType: 'textarea',
       cegDefault: '',
-      cegType: 'string',
     },
   },
   codeReact: `<Card 

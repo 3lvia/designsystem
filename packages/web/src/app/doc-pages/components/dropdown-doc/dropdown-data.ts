@@ -89,7 +89,6 @@ export const dropdownData: ComponentData = {
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: 'Label',
-      cegType: 'string',
     },
     menuPosition: {
       isRequired: false,
@@ -110,7 +109,6 @@ export const dropdownData: ComponentData = {
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: 'Placeholder',
-      cegType: 'string',
     },
     valueOnChange: {
       isRequired: false,
