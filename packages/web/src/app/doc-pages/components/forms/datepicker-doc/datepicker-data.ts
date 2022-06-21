@@ -18,6 +18,11 @@ const datepickerData: ComponentData = {
       description:
         'Gets called every time the value is changed. Returns null if input field is empty, or Invalid Date if input is not a valid date.',
     },
+    valueOnChangeISOString: {
+      isRequired: false,
+      type: '(value: string | null) => CustomEvent',
+      description: `Gets called every time the value is changed. Returns a string containing the chosen date, without time, in ISO format (e.g. '2022-06-20'), or null if no date is selected.`,
+    },
     label: {
       isRequired: false,
       type: 'string',
