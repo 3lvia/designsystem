@@ -13,7 +13,6 @@
         src="./../../../assets/logo/elvia_pride_rgb.svg"
         alt="Elvia Logo"
         (load)="hideContentLoader($event)"
-        class="pride-logo"
       />
     </a>
     <div
@@ -141,12 +140,7 @@
             <!--LOGO-->
             <div class="e-header__top-bar-desktop__logo">
               <img src="./../../../assets/logo/elvia_positive_4.svg" alt="Elvia Logo" *ngIf="!isPrideMonth" />
-              <img
-                src="./../../../assets/logo/e_pride_rgb.svg"
-                alt="Elvia Logo"
-                *ngIf="isPrideMonth"
-                class="pride-logo-internal"
-              />
+              <img src="./../../../assets/logo/e_pride_rgb.svg" alt="Elvia Logo" *ngIf="isPrideMonth" />
             </div>
             <!--APP-->
             <div class="e-header__top-bar-desktop__app">
