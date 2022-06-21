@@ -139,14 +139,17 @@ export const Datepicker: FC<DatepickerProps> = ({
    */
   const handleDateChange = (date: Date | null): void => {
     hasValidation && validateDate(date);
-    setSelectedDate(date);
 
-    const dateISO = date ? formatISO(date, { representation: 'date' }) : null;
+    // Set time component of the selected date to 0 by creating a new date object.
+    const newDate = date ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : null;
+    setSelectedDate(newDate);
+
+    const dateISO = newDate ? formatISO(newDate, { representation: 'date' }) : null;
     if (!webcomponent) {
-      valueOnChange?.(date);
+      valueOnChange?.(newDate);
       valueOnChangeISOString?.(dateISO);
     } else if (webcomponent) {
-      webcomponent.setProps({ value: date }, true);
+      webcomponent.setProps({ value: newDate }, true);
       webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
     }
   };

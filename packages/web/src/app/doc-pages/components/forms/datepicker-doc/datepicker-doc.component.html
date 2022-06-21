@@ -72,8 +72,9 @@
       <span class="code-text">'2022-06-20'</span>
       ). When using
       <span class="code-text">valueOnChange</span>
-      , be wary that the returned date object also contains the current time of day when it was chosen, which
-      may cause problems for time zone changes or when switching daylight saving time.
+      , the returned date object will contain the selected date, with the time set to
+      <span class="code-text">00:00:00</span>
+      .
     </ng-container>
   </app-component-section>
 

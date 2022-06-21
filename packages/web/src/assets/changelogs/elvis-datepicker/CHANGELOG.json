@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added a new prop (or event for web components) <span class=\"code-text\">valueOnChangeISOString</span> that gives the chosen date as a string in ISO format without including time."
+            "Added a new event prop <span class=\"code-text\">valueOnChangeISOString</span> that gives the chosen date as a string in ISO format without including time."
           ]
         }
       ]
