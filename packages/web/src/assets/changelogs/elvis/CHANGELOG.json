@@ -1,6 +1,18 @@
 {
   "content": [
     {
+      "version": "8.4.5",
+      "date": "June 22, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug causing nested accordion icons to rotate along with the outermost accordion when opened."
+          ]
+        }
+      ]
+    },
+    {
       "version": "8.4.4",
       "date": "June 1, 2022",
       "changelog": [
