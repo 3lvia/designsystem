@@ -16,7 +16,7 @@ jobs:
         with:
           cache: 'yarn'
       - name: Install
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Run Percy on Elvis
         run: |
           cd packages/elvis
