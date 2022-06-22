@@ -1,6 +1,23 @@
 {
   "content": [
     {
+      "version": "8.5.0",
+      "date": "June 23, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added multiple new flex classes and a couple border-radius classes",
+            "Added shadow classes."
+          ],
+          "components": [
+            { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" },
+            { "displayName": "Shadow", "url": "https://design.elvia.io/brand/shadow" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "8.4.5",
       "date": "June 22, 2022",
       "changelog": [
@@ -8,6 +25,9 @@
           "type": "bug_fix",
           "changes": [
             "Fixed a bug causing nested accordion icons to rotate along with the outermost accordion when opened."
+          ],
+          "components": [
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -21,6 +41,9 @@
           "changes": ["Accordion group fix, removing flex from content container."],
           "fixes": [
             "If you are using <span class=\"code-text\">flex-direction: row</span> inside the accordion group, this might break if you have not defined <span class=\"code-text\">display: flex</span> yourself."
+          ],
+          "components": [
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]

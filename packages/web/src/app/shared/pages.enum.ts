@@ -54,6 +54,7 @@ export enum Pages {
   Contribute = 'contribute',
   Faq = 'faq',
   Changelog = 'changelog',
+  Shadow = 'shadow',
 
   // Dev
   DevelopmentStart = 'dev',

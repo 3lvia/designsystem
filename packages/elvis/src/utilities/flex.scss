@@ -18,6 +18,12 @@
 .e-justify-content-end {
   justify-content: flex-end;
 }
+.e-justify-content-between {
+  justify-content: space-between;
+}
+.e-justify-content-around {
+  justify-content: space-around;
+}
 
 .e-align-items-center {
   align-items: center;
@@ -27,4 +33,20 @@
 }
 .e-align-items-end {
   align-items: flex-end;
+}
+
+.e-gap-8 {
+  gap: 8px;
+}
+.e-gap-16 {
+  gap: 16px;
+}
+.e-gap-24 {
+  gap: 24px;
+}
+.e-gap-32 {
+  gap: 32px;
+}
+.e-gap-40 {
+  gap: 40px;
 }

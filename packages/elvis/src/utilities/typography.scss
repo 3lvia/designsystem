@@ -1,6 +1,6 @@
-@use "sass:map";
-@use "../variables/typography";
-@use "./breakpoints.scss";
+@use 'sass:map';
+@use '../variables/typography';
+@use './breakpoints.scss';
 
 @each $label, $map in typography.$typography {
   $family: map.get($map, family);

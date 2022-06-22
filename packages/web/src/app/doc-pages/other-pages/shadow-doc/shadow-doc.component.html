@@ -1,0 +1,52 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Shadow</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      We have three different shadows; soft, medium and hard. Soft are mostly used on grey background, while
+      medium and hard should be used on white background.
+      <app-component-subsection [sectionTitle]="'Soft'">
+        <ng-container ngProjectAs="sectionContent">
+          <div
+            class="e-mt-40 e-p-40 e-br-8 e-w-50 e-flex e-flex-direction-column e-justify-content-center e-align-items-center e-gap-24 e-text-md e-shadow-3"
+          >
+            <elvia-icon name="han"></elvia-icon>
+            Ønsker du detaljert informasjon om strømforbruket ditt?
+          </div>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Medium'">
+        <ng-container ngProjectAs="sectionContent">
+          <div
+            class="e-mt-40 e-p-40 e-br-8 e-w-50 e-flex e-flex-direction-column e-justify-content-center e-align-items-center e-gap-24 e-text-md e-shadow-6"
+          >
+            <elvia-icon name="han"></elvia-icon>
+            Ønsker du detaljert informasjon om strømforbruket ditt?
+          </div>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Hard'">
+        <ng-container ngProjectAs="sectionContent">
+          <div
+            class="e-mt-40 e-p-40 e-br-8 e-w-50 e-flex e-flex-direction-column e-justify-content-center e-align-items-center e-gap-24 e-text-md e-shadow-8"
+          >
+            <elvia-icon name="han"></elvia-icon>
+            Ønsker du detaljert informasjon om strømforbruket ditt?
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+</div>

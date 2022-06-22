@@ -1020,6 +1020,8 @@
 		},
 		"e-sr-only": {},
 		"e-border-none": {},
+		"e-br-4": {},
+		"e-br-8": {},
 		"e-grid-gutters-ext": {},
 		"e-grid-gutters-vertical": {},
 		"e-grid-gutters-int": {},
@@ -1089,9 +1091,16 @@
 		"e-justify-content-center": {},
 		"e-justify-content-start": {},
 		"e-justify-content-end": {},
+		"e-justify-content-between": {},
+		"e-justify-content-around": {},
 		"e-align-items-center": {},
 		"e-align-items-start": {},
-		"e-align-items-end": {}
+		"e-align-items-end": {},
+		"e-gap-8": {},
+		"e-gap-16": {},
+		"e-gap-24": {},
+		"e-gap-32": {},
+		"e-gap-40": {}
 	},
 	"flat": {
 		"e-icon": {},
@@ -1872,6 +1881,8 @@
 		"e-segmented-controls--sm": {},
 		"e-sr-only": {},
 		"e-border-none": {},
+		"e-br-4": {},
+		"e-br-8": {},
 		"e-grid-gutters-ext": {},
 		"e-grid-gutters-vertical": {},
 		"e-grid-gutters-int": {},
@@ -1941,8 +1952,15 @@
 		"e-justify-content-center": {},
 		"e-justify-content-start": {},
 		"e-justify-content-end": {},
+		"e-justify-content-between": {},
+		"e-justify-content-around": {},
 		"e-align-items-center": {},
 		"e-align-items-start": {},
-		"e-align-items-end": {}
+		"e-align-items-end": {},
+		"e-gap-8": {},
+		"e-gap-16": {},
+		"e-gap-24": {},
+		"e-gap-32": {},
+		"e-gap-40": {}
 	}
 }

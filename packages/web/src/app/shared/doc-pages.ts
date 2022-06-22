@@ -495,6 +495,17 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/about/' + Pages.Changelog,
   },
   {
+    title: 'Shadow',
+    // tslint:disable-next-line: max-line-length
+    description:
+      'Shadow is used to make an element stand out from the surface to create depth. Choosing a shadow is up to each scenario - but the shadow should be "experienced" and should not be prominent.',
+    docUrl: Pages.Shadow,
+    absolutePath: '/brand/' + Pages.Shadow,
+    status: DocPageStatus.Done,
+    type: 'Brand',
+    figmaUrl: 'https://www.figma.com/file/E2yRkpqSSuRnq8RDXO4Mly/Shadow?node-id=90%3A24',
+  },
+  {
     title: 'Colors',
     // tslint:disable-next-line: max-line-length
     description:

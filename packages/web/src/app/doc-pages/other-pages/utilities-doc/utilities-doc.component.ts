@@ -24,7 +24,11 @@ export class UtilitiesDocComponent {
     },
     {
       title: 'Border',
-      classes: [{ className: 'e-border-none', description: 'Removes the border.', styling: 'border: none' }],
+      classes: [
+        { className: 'e-border-none', description: 'Removes the border.', styling: 'border: none' },
+        { className: 'e-br-4', description: 'Gives the border radius 4.', styling: 'border-radius: 4px' },
+        { className: 'e-br-8', description: 'Gives the border radius 8.', styling: 'border-radius: 8px' },
+      ],
     },
     {
       title: 'Color',
@@ -112,6 +116,16 @@ export class UtilitiesDocComponent {
           styling: 'justify-content: flex-end',
         },
         {
+          className: 'e-justify-content-between',
+          description: 'Distributes space between and around content items.',
+          styling: 'justify-content: space-between',
+        },
+        {
+          className: 'e-justify-content-around',
+          description: 'Distributes space between and around content items.',
+          styling: 'justify-content: space-around',
+        },
+        {
           className: 'e-align-items-center',
           description: 'Aligns the items.',
           styling: 'align-items: center',
@@ -125,6 +139,11 @@ export class UtilitiesDocComponent {
           className: 'e-align-items-end',
           description: 'Aligns the items.',
           styling: 'align-items: flex-end',
+        },
+        {
+          className: 'e-gap-number',
+          description: 'Decides the gap between flex elements, from 0-40 following 8px multiplication.',
+          styling: 'gap: {number}px',
         },
       ],
     },
@@ -173,72 +192,72 @@ export class UtilitiesDocComponent {
         {
           className: 'e-p-number',
           description: 'Set padding in all directions, from 0-72 following 8px multiplication.',
-          styling: 'padding: number',
+          styling: 'padding: {number}px',
         },
         {
           className: 'e-pl-number',
           description: 'Set padding left, from 0-72 following 8px multiplication.',
-          styling: 'padding-left: number',
+          styling: 'padding-left: {number}px',
         },
         {
           className: 'e-pr-number',
           description: 'Set padding right, from 0-72 following 8px multiplication.',
-          styling: 'padding-right: number',
+          styling: 'padding-right: {number}px',
         },
         {
           className: 'e-pt-number',
           description: 'Set padding top, from 0-72 following 8px multiplication.',
-          styling: 'padding-top: number',
+          styling: 'padding-top: {number}px',
         },
         {
           className: 'e-pb-number',
           description: 'Set padding bottom, from 0-72 following 8px multiplication.',
-          styling: 'padding-bottom: number',
+          styling: 'padding-bottom: {number}px',
         },
         {
           className: 'e-px-number',
           description: 'Set padding left and right, from 0-72 following 8px multiplication.',
-          styling: 'padding-left: number; padding-right: number;',
+          styling: 'padding-left: {number}px; padding-right: {number}px;',
         },
         {
           className: 'e-py-number',
           description: 'Set padding top and bottom, from 0-72 following 8px multiplication.',
-          styling: 'padding-top: number; padding-bottom: number;',
+          styling: 'padding-top: {number}px; padding-bottom: {number}px;',
         },
         {
           className: 'e-m-number',
           description: 'Set margin in all directions, from 0-72 following 8px multiplication.',
-          styling: 'margin: number',
+          styling: 'margin: {number}px',
         },
         {
           className: 'e-ml-number',
           description: 'Set margin left, from 0-72 following 8px multiplication.',
-          styling: 'margin-left: number',
+          styling: 'margin-left: {number}px',
         },
         {
           className: 'e-mr-number',
           description: 'Set margin right, from 0-72 following 8px multiplication.',
-          styling: 'margin-right: number',
+          styling: 'margin-right: {number}px',
         },
         {
           className: 'e-mt-number',
           description: 'Set margin top, from 0-72 following 8px multiplication.',
-          styling: 'margin-top: number',
+          styling: 'margin-top: {number}px',
         },
         {
           className: 'e-mb-number',
           description: 'Set margin bottom, from 0-72 following 8px multiplication.',
-          styling: 'margin-bottom: number',
+          styling: 'margin-bottom: {number}px',
         },
         {
           className: 'e-mx-number',
           description: 'Set margin left and right, from 0-72 following 8px multiplication.',
-          styling: 'margin-left: number; margin-right: number;',
+          styling: 'margin-left: {number}px; margin-right: {number}px;',
         },
         {
           className: 'e-my-number',
           description: 'Set margin top and bottom, from 0-72 following 8px multiplication.',
-          styling: 'margin-top: number; margin-bottom: number;',
+          styling: 'margin-top: {number}px; margin-bottom: {number}px;',
         },
         {
           className: 'e-m-nnumber',
