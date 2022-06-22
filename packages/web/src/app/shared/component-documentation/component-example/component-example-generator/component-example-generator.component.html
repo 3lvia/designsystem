@@ -5,41 +5,76 @@
       typeOptions.length !== 0 ||
       bgOptions.length !== 0 ||
       iconsOptions.length !== 0 ||
-      (typesData && typesData.length !== 0)
+      (typesData && typesData.length !== 0) ||
+      (hasCustomTextProps && showCustomTextPopover)
     "
     class="ceg-top-filters"
   >
-    <div *ngIf="typeOptions.length !== 0 && !typesData" class="ceg-dropdown">
-      <elvia-dropdown
-        [items]="typeOptions"
-        [value]="typeOptions[defaultType]"
-        label="Type"
-        (valueOnChange)="updateFormStates('type', $event); updateSelectedType($event)"
-      ></elvia-dropdown>
+    <div class="ceg-dropdown-wrapper">
+      <div *ngIf="typeOptions.length !== 0 && !typesData" class="ceg-dropdown">
+        <elvia-dropdown
+          [items]="typeOptions"
+          [value]="typeOptions[defaultType]"
+          label="Type"
+          (valueOnChange)="updateFormStates('type', $event); updateSelectedType($event)"
+        ></elvia-dropdown>
+      </div>
+      <div *ngIf="iconsOptions.length !== 0 && !typesData" class="ceg-dropdown">
+        <elvia-dropdown
+          [items]="iconsOptions"
+          [value]="defaultIcon"
+          label="Icon name"
+          (valueOnChange)="updateFormStates('name', $event); updateSelectedType($event, true)"
+        ></elvia-dropdown>
+      </div>
+      <div *ngIf="typesData && typesData.length !== 0" class="ceg-dropdown">
+        <elvia-dropdown
+          [items]="typeOptions"
+          [value]="typeOptions[0]"
+          label="Type"
+          (valueOnChange)="updateFormStates('type', $event); updateSelectedTypeCustom($event)"
+        ></elvia-dropdown>
+      </div>
+      <div *ngIf="bgOptions.length !== 0" class="ceg-dropdown">
+        <elvia-dropdown
+          [items]="bgOptions"
+          [value]="bgOptions[defaultBg]"
+          label="Background"
+          (valueOnChange)="updateFormStates(bgObj.propName, $event); updateSelectedBg($event)"
+        ></elvia-dropdown>
+      </div>
     </div>
-    <div *ngIf="iconsOptions.length !== 0 && !typesData" class="ceg-dropdown">
-      <elvia-dropdown
-        [items]="iconsOptions"
-        [value]="defaultIcon"
-        label="Icon name"
-        (valueOnChange)="updateFormStates('name', $event); updateSelectedType($event, true)"
-      ></elvia-dropdown>
-    </div>
-    <div *ngIf="typesData && typesData.length !== 0" class="ceg-dropdown">
-      <elvia-dropdown
-        [items]="typeOptions"
-        [value]="typeOptions[0]"
-        label="Type"
-        (valueOnChange)="updateFormStates('type', $event); updateSelectedTypeCustom($event)"
-      ></elvia-dropdown>
-    </div>
-    <div *ngIf="bgOptions.length !== 0" class="ceg-dropdown">
-      <elvia-dropdown
-        [items]="bgOptions"
-        [value]="bgOptions[defaultBg]"
-        label="Background"
-        (valueOnChange)="updateFormStates(bgObj.propName, $event); updateSelectedBg($event)"
-      ></elvia-dropdown>
+    <div class="ceg-customize-popover" *ngIf="hasCustomTextProps && showCustomTextPopover">
+      <elvia-popover [verticalPosition]="'bottom'" [horizontalPosition]="'right'">
+        <button slot="trigger" class="e-btn e-btn--tertiary e-btn--sm">
+          <span class="e-btn__icon"><elvia-icon name="edit" size="xs"></elvia-icon></span>
+          <span class="e-btn__title ceg-customize-popover-trigger">Customize text</span>
+        </button>
+        <div slot="content" className="ewc-popover__text">
+          <div *ngFor="let property of customTextProps | keyvalue: keepOriginalOrder; let last = last">
+            <div class="e-form-field" [ngClass]="{ 'e-mb-16': !last }" *ngIf="property.value.active">
+              <label [for]="property.key" class="e-form-field__label">{{ property.key | titlecase }}</label>
+              <div class="e-input" style="width: 300px">
+                <input
+                  *ngIf="property.value.type === 'input'"
+                  type="text"
+                  [id]="property.key"
+                  [(ngModel)]="customTextProps[property.key].value"
+                  (ngModelChange)="updateCustomTextProps()"
+                  autocomplete="off"
+                />
+                <textarea
+                  *ngIf="property.value.type === 'textarea'"
+                  type="text"
+                  [id]="property.key"
+                  [(ngModel)]="customTextProps[property.key].value"
+                  (ngModelChange)="updateCustomTextProps()"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </elvia-popover>
     </div>
   </div>
 
@@ -74,7 +109,46 @@
         [formGroupList]="formGroupList"
         [topFilterFormStates]="topFilterFormStates"
         (hasVisibleFilters)="hasSideFilters = $event"
+        (propValueChange)="updateSideFilter($event)"
       ></app-ceg-filters>
+    </div>
+    <div class="ceg-customize-popover-mobile" *ngIf="hasCustomTextProps">
+      <elvia-popover [horizontalPosition]="'left'" [verticalPosition]="'bottom'">
+        <button slot="trigger" class="e-btn e-btn--icon" aria-label="Open customize text popover">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--edit" *ngIf="selectedBg !== 'Dark grey'" aria-hidden="true"></i>
+            <i
+              class="e-icon e-icon--edit e-icon--inverted"
+              *ngIf="selectedBg === 'Dark grey'"
+              aria-hidden="true"
+            ></i>
+          </span>
+        </button>
+        <div slot="content" className="ewc-popover__text">
+          <div *ngFor="let property of customTextProps | keyvalue: keepOriginalOrder; let last = last">
+            <div class="e-form-field" [ngClass]="{ 'e-mb-16': !last }" *ngIf="property.value.active">
+              <label [for]="property.key" class="e-form-field__label">{{ property.key | titlecase }}</label>
+              <div class="e-input" style="width: 300px">
+                <input
+                  *ngIf="property.value.type === 'input'"
+                  type="text"
+                  [id]="property.key"
+                  [(ngModel)]="customTextProps[property.key].value"
+                  (ngModelChange)="updateCustomTextProps()"
+                  autocomplete="off"
+                />
+                <textarea
+                  *ngIf="property.value.type === 'textarea'"
+                  type="text"
+                  [id]="property.key"
+                  [(ngModel)]="customTextProps[property.key].value"
+                  (ngModelChange)="updateCustomTextProps()"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </elvia-popover>
     </div>
     <div
       class="ceg-side-filters-mobile"
@@ -99,6 +173,7 @@
               [desktop]="false"
               [topFilterFormStates]="topFilterFormStates"
               (hasVisibleFilters)="hasSideFilters = $event"
+              (propValueChange)="updateSideFilter($event)"
             ></app-ceg-filters>
           </div>
         </div>

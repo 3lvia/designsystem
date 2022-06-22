@@ -21,7 +21,7 @@ const popoverData: ComponentData = {
       isRequired: false,
       type: 'string',
       description: 'Heading of content.',
-      cegDisplayName: 'Header',
+      cegDisplayName: 'Heading',
       cegType: 'string',
       cegFormType: 'toggle',
       cegDefault: true,

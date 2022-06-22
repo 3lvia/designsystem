@@ -86,6 +86,9 @@ export const dropdownData: ComponentData = {
       isRequired: false,
       type: 'string',
       description: 'Label value for the dropdown element.',
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'input',
+      cegDefault: 'Label',
     },
     menuPosition: {
       isRequired: false,
@@ -103,6 +106,9 @@ export const dropdownData: ComponentData = {
       isRequired: false,
       type: 'string',
       description: 'Placeholder value for the dropdown menu.',
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'input',
+      cegDefault: 'Placeholder',
     },
     valueOnChange: {
       isRequired: false,
@@ -132,8 +138,6 @@ export const dropdownData: ComponentData = {
     { value: 'Finland', label: 'Finland' },
     { value: 'Island', label: 'Island' }
   ]} 
-  label={"Label"}
-  placeholder={"Placeholder"}
   valueOnChange={(event) => updateSelectedList(event)}
 ></Dropdown>
 `,
@@ -145,8 +149,6 @@ export const dropdownData: ComponentData = {
     { value: 'Finland', label: 'Finland' },
     { value: 'Island', label: 'Island' }
   ]"
-  [label]="'Label'"
-  [placeholder]="'Placeholder'"
   (valueOnChange)="updateSelectedList($event.detail.value)"
 ></elvia-dropdown>
 `,
@@ -158,8 +160,6 @@ export const dropdownData: ComponentData = {
     { value: 'Finland', label: 'Finland' },
     { value: 'Island', label: 'Island' }
   ]"
-  :label="'Label'"
-  :placeholder="'Placeholder'"
   @value-on-change="updateSelectedList($event.detail.value)"
 ></elvia-dropdown>
 `,
@@ -175,8 +175,6 @@ export const dropdownData: ComponentData = {
     { value: 'Finland', label: 'Finland' },
     { value: 'Island', label: 'Island' }
   ];
-  dropdown.setProps({label: 'Label' });
-  dropdown.setProps({placeholder: 'Placeholder' });
   dropdown.setProps({items: items});
   dropdown.addEventListener('valueOnChange', (event) => {
     console.log('Do what you want with selected elements: ', event.detail.value);

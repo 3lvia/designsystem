@@ -96,7 +96,7 @@ const popoverListCode: ComponentTypeData = {
 </elvia-popover>
 `,
   codeNativeHTML: `<elvia-popover 
-  id="example-elvia-popover-list"
+  id="example-elvia-popover"
   type="list"
   verticalPosition="top"
   horizontalPosition="center"

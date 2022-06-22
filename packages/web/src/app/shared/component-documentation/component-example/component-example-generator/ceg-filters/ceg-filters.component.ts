@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../../example-code.service';
-import { CegFormGroup, CegFormGroupOption, FormState } from '../ceg.interface';
+import { CegFormGroup, CegFormGroupOption, FormState, CegSideFilterEvent } from '../ceg.interface';
 import debounce from 'lodash/debounce';
 import { VisibleFieldsPipe } from './ceg-filters-visibility.pipe';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
@@ -25,14 +25,15 @@ export class CegFiltersComponent implements OnInit {
   @Input() desktop = true;
   @Input() topFilterFormStates = {};
   @Output() hasVisibleFilters = new EventEmitter<boolean>();
+  @Output() propValueChange = new EventEmitter<CegSideFilterEvent>();
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
   codeVueSub: Subscription;
   codeNativeSub: Subscription;
-  codeReact: string;
-  codeAngular: string;
-  codeVue: string;
-  codeNative: string;
+  codeReact: ComponentData['codeReact'];
+  codeAngular: ComponentData['codeAngular'];
+  codeVue: ComponentData['codeVue'];
+  codeNative: ComponentData['codeNativeHTML'];
 
   counterNumber: number;
   emptyLineRegex = /^\s*[\r\n]/gm;
@@ -46,16 +47,16 @@ export class CegFiltersComponent implements OnInit {
     this.codeAngular = this.componentData.codeAngular;
     this.codeNative = this.componentData.codeNativeHTML;
     this.codeVue = this.componentData.codeVue ? this.componentData.codeVue : '';
-    this.codeAngularSub = this.cegService.listenCodeAngular().subscribe((code: string) => {
+    this.codeAngularSub = this.cegService.listenCodeAngular().subscribe((code) => {
       this.codeAngular = code;
     });
-    this.codeReactSub = this.cegService.listenCodeReact().subscribe((code: string) => {
+    this.codeReactSub = this.cegService.listenCodeReact().subscribe((code) => {
       this.codeReact = code;
     });
-    this.codeVueSub = this.cegService.listenCodeVue().subscribe((code: string) => {
+    this.codeVueSub = this.cegService.listenCodeVue().subscribe((code) => {
       this.codeVue = code;
     });
-    this.codeNativeSub = this.cegService.listenCodeNative().subscribe((code: string) => {
+    this.codeNativeSub = this.cegService.listenCodeNative().subscribe((code) => {
       this.codeNative = code;
     });
 
@@ -119,6 +120,7 @@ export class CegFiltersComponent implements OnInit {
       value = (event.target as HTMLInputElement).checked.toString();
     }
     this.updateFormStates(formField.propName, value);
+    this.propValueChange.emit({ name: formField.propName, value: value });
   }
 
   updateFormStates(key: string, value: string | number | boolean): void {
