@@ -49,7 +49,7 @@ export enum Pages {
   Color = 'color',
   Icon = 'icon',
   Typography = 'typography',
-  Utilities = 'utilities',
+  Utilities = 'utility-classes',
   Contact = 'contact',
   Contribute = 'contribute',
   Faq = 'faq',

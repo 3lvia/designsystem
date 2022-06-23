@@ -12,7 +12,7 @@
     <ng-container ngProjectAs="sectionContent">
       We have three different shadows; soft, medium and hard. Soft are mostly used on grey background, while
       medium and hard should be used on white background.
-      <app-component-subsection [sectionTitle]="'Soft'">
+      <app-component-subsection [sectionTitle]="'Soft'" [sectionClass]="'e-shadow-3'">
         <ng-container ngProjectAs="sectionContent">
           <div
             class="e-mt-40 e-p-40 e-br-8 e-w-50 e-flex e-flex-direction-column e-justify-content-center e-align-items-center e-gap-24 e-text-md e-shadow-3"
@@ -22,7 +22,7 @@
           </div>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Medium'">
+      <app-component-subsection [sectionTitle]="'Medium'" [sectionClass]="'e-shadow-6'">
         <ng-container ngProjectAs="sectionContent">
           <div
             class="e-mt-40 e-p-40 e-br-8 e-w-50 e-flex e-flex-direction-column e-justify-content-center e-align-items-center e-gap-24 e-text-md e-shadow-6"
@@ -32,7 +32,7 @@
           </div>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Hard'">
+      <app-component-subsection [sectionTitle]="'Hard'" [sectionClass]="'e-shadow-8'">
         <ng-container ngProjectAs="sectionContent">
           <div
             class="e-mt-40 e-p-40 e-br-8 e-w-50 e-flex e-flex-direction-column e-justify-content-center e-align-items-center e-gap-24 e-text-md e-shadow-8"

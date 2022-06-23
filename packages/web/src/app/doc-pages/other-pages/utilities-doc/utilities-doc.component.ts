@@ -8,7 +8,7 @@ import { UtilityGroup } from './utility.interface';
   styleUrls: ['./utilities-doc.component.scss'],
 })
 export class UtilitiesDocComponent {
-  description = getDocPagesNotFromCMS('utilities').description;
+  description = getDocPagesNotFromCMS('utility-classes').description;
   utilityGroups: UtilityGroup[] = [
     {
       title: 'Accessibility',
