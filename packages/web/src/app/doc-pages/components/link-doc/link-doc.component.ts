@@ -40,13 +40,13 @@ export class LinkDocComponent {
   example2Inverted = `<div style="font-size: 20px; e-text-white">This is an <a class="e-link e-link--inline e-link--inverted" href="https://design.elvia.io/components/link#Overview">inline link</a></div>
 `;
 
-  exampleNewTab = `<a class="e-link e-link--new-tab" href="https://design.elvia.io/components/link#Overview" target="_blank">
+  exampleNewTab = `<a class="e-link e-link--new-tab" href="https://design.elvia.io/components/link#Overview" target="_blank" rel="noopener">
   <span class="e-link__title">New tab link</span>
   <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
 </a>
 `;
 
-  exampleNewTabInverted = `<a class="e-link e-link--new-tab e-link--inverted" href="https://design.elvia.io/components/link#Overview" target="_blank">
+  exampleNewTabInverted = `<a class="e-link e-link--new-tab e-link--inverted" href="https://design.elvia.io/components/link#Overview" target="_blank" rel="noopener">
   <span class="e-link__title">New tab link</span>
   <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold e-icon--inverted" aria-hidden="true"></i></span>
 </a>
