@@ -44,9 +44,6 @@ $grey-05: #f4f4f4;
   &:not(.ewc-popover--hide) {
     .ewc-popover__trigger {
       z-index: 110;
-      button {
-        background: $green !important;
-      }
     }
   }
 
