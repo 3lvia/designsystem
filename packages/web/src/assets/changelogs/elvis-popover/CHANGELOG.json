@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "22.06.22",
+      "version": "5.0.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fixed onClose event not being triggered and refactored the code a lot."]
+        }
+      ]
+    },
+    {
       "date": "23.05.22",
       "version": "5.0.0 ",
       "changelog": [
