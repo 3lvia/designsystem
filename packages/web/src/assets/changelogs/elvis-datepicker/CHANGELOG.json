@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.06.22",
+      "version": "2.10.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that caused the date picker to crash when trying to manually write a date in the input field."
+          ]
+        }
+      ]
+    },
+    {
       "date": "21.06.22",
       "version": "2.10.0",
       "changelog": [
