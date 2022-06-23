@@ -9,9 +9,9 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 export class ShadowDocComponent {
   figmaUrl = getDocPagesNotFromCMS('shadow').figmaUrl;
   description = getDocPagesNotFromCMS('shadow').description;
-  does = ['Behind a solid surface together with example cards.'];
+  does = ['Behind overlays like popover and modal.'];
   donts = [
-    'Should not be applied to typography or icons.',
-    'Don’t use a lot of shadows on the same surface, since we want our visual profile to be have a more flat expression.',
+    'Should not be applied to typography or icons. ',
+    'Don’t use a lot of shadows on the same surface, since our visual profile have a flat visual expression.',
   ];
 }
