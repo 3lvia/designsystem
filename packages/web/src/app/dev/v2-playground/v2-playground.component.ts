@@ -81,4 +81,11 @@ export class v2PlaygroundComponent {
     const values = [...this.deletableChipsList];
     this.deletableChipsList = values.filter((value) => value.value !== event);
   };
+
+  popoverOnOpen = (): void => {
+    console.log('Popover opened');
+  };
+  popoverOnClose = (): void => {
+    console.log('Popover closed');
+  };
 }
