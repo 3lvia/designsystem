@@ -116,7 +116,7 @@ const Popover: FC<PopoverProps> = function ({
       popoverText.current.innerHTML = '';
       popoverText.current.appendChild(webcomponent.getSlot('content'));
     }
-  }, [webcomponent]);
+  }, [webcomponent, type]);
 
   /**
    * Dispatch onOpen and onClose events.
