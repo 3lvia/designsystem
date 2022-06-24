@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "8.4.6",
+      "date": "June 24, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug that was introduced in version 8.4.5 that broke group accordions."],
+          "components": [
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "8.4.5",
       "date": "June 22, 2022",
       "changelog": [
@@ -8,6 +21,9 @@
           "type": "bug_fix",
           "changes": [
             "Fixed a bug causing nested accordion icons to rotate along with the outermost accordion when opened."
+          ],
+          "components": [
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -21,6 +37,9 @@
           "changes": ["Accordion group fix, removing flex from content container."],
           "fixes": [
             "If you are using <span class=\"code-text\">flex-direction: row</span> inside the accordion group, this might break if you have not defined <span class=\"code-text\">display: flex</span> yourself."
+          ],
+          "components": [
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
