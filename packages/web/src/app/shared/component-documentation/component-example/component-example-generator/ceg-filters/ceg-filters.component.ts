@@ -9,10 +9,11 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../../example-code.service';
-import { CegFormGroup, CegFormGroupOption, FormState, CegSideFilterEvent } from '../ceg.interface';
+import { CegFormGroup, CegFormGroupOption, FormState, CegSideFilterEvent, CegCodes } from '../ceg.interface';
 import debounce from 'lodash/debounce';
 import { VisibleFieldsPipe } from './ceg-filters-visibility.pipe';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
+import { CegCodeUpdaterService } from 'src/app/core/services/ceg-code-updater.service';
 
 @Component({
   selector: 'app-ceg-filters',
@@ -30,34 +31,37 @@ export class CegFiltersComponent implements OnInit {
   codeReactSub: Subscription;
   codeVueSub: Subscription;
   codeNativeSub: Subscription;
-  codeReact: ComponentData['codeReact'];
-  codeAngular: ComponentData['codeAngular'];
-  codeVue: ComponentData['codeVue'];
-  codeNative: ComponentData['codeNativeHTML'];
+  cegCodes: CegCodes;
 
   counterNumber: number;
   emptyLineRegex = /^\s*[\r\n]/gm;
 
   formStates: FormState = {};
 
-  constructor(private cegService: ExampleCodeService, private cd: ChangeDetectorRef) {}
+  constructor(
+    private cegService: ExampleCodeService,
+    private cegCodeUpdaterService: CegCodeUpdaterService,
+    private cd: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
-    this.codeReact = this.componentData.codeReact;
-    this.codeAngular = this.componentData.codeAngular;
-    this.codeNative = this.componentData.codeNativeHTML;
-    this.codeVue = this.componentData.codeVue ? this.componentData.codeVue : '';
+    this.cegCodes = {
+      react: this.componentData.codeReact,
+      angular: this.componentData.codeAngular,
+      native: this.componentData.codeNativeHTML,
+      vue: this.componentData.codeVue ? this.componentData.codeVue : '',
+    };
     this.codeAngularSub = this.cegService.listenCodeAngular().subscribe((code) => {
-      this.codeAngular = code;
+      this.cegCodes.angular = code;
     });
     this.codeReactSub = this.cegService.listenCodeReact().subscribe((code) => {
-      this.codeReact = code;
+      this.cegCodes.react = code;
     });
     this.codeVueSub = this.cegService.listenCodeVue().subscribe((code) => {
-      this.codeVue = code;
+      this.cegCodes.vue = code;
     });
     this.codeNativeSub = this.cegService.listenCodeNative().subscribe((code) => {
-      this.codeNative = code;
+      this.cegCodes.native = code;
     });
 
     this.initializeFormStates();
@@ -70,7 +74,7 @@ export class CegFiltersComponent implements OnInit {
     if (this.codeReactSub) {
       this.codeReactSub.unsubscribe();
     }
-    if (this.codeVue) {
+    if (this.codeVueSub) {
       this.codeVueSub.unsubscribe();
     }
     if (this.codeNativeSub) {
@@ -134,14 +138,19 @@ export class CegFiltersComponent implements OnInit {
 
   removeNonVisibleProp(propName: string): void {
     const dependentElements = this.getDependentElements(propName);
-    if (!dependentElements || !this.codeAngular) {
+    if (!dependentElements || !this.cegCodes?.angular) {
       return;
     }
     dependentElements.forEach((element) => {
       const visibility = this.checkIfVisible(element);
-      if (!visibility && this.codeAngular.includes(element.propName)) {
-        this.removeProps(element.propName);
-        this.removeSlotAndProp(element.propName, 'propSlot' in element ? element.propSlot : undefined);
+      if (!visibility && this.cegCodes.angular.includes(element.propName)) {
+        this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, element.propName);
+        this.cegCodes = this.cegCodeUpdaterService.removeSlotAndProp(
+          this.cegCodes,
+          this.componentData,
+          element.propName,
+          'propSlot' in element ? element.propSlot : undefined,
+        );
         this.updateNewCode();
       }
     });
@@ -201,16 +210,27 @@ export class CegFiltersComponent implements OnInit {
 
   // CEG code-view updates
   updateNewCode(): void {
-    this.cegService.updateAllCode(this.codeReact, this.codeAngular, this.codeVue, this.codeNative);
+    this.cegService.updateAllCode(
+      this.cegCodes.react,
+      this.cegCodes.angular,
+      this.cegCodes.vue,
+      this.cegCodes.native,
+    );
   }
 
   updateRadioProp(attr: string, newValue: string, type: string): void {
     if (newValue === 'none') {
-      this.removeProps(attr);
-    } else if (this.codeAngular.includes(attr)) {
-      this.replaceOldProps(attr, newValue, type);
+      this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, attr);
+    } else if (this.cegCodes.angular.includes(attr)) {
+      this.cegCodes = this.cegCodeUpdaterService.replaceOldProps(this.cegCodes, attr, newValue, type);
     } else {
-      this.addNewProps(attr, newValue, type);
+      this.cegCodes = this.cegCodeUpdaterService.addNewProps(
+        this.cegCodes,
+        this.componentData,
+        attr,
+        newValue,
+        type,
+      );
     }
     this.updateNewCode();
   }
@@ -223,16 +243,32 @@ export class CegFiltersComponent implements OnInit {
     const newValue = formGroupOption ? formGroupOption.propValue : formGroup.propValue;
     const slot = 'propSlot' in formGroup ? formGroup.propSlot : undefined;
     if (slot !== undefined) {
-      if (this.codeAngular.includes(attr)) {
-        this.removeSlotAndProp(attr, slot);
+      if (this.cegCodes.angular.includes(attr)) {
+        this.cegCodes = this.cegCodeUpdaterService.removeSlotAndProp(
+          this.cegCodes,
+          this.componentData,
+          attr,
+          slot,
+        );
       } else {
-        this.addSlotAndProp(attr, slot);
+        this.cegCodes = this.cegCodeUpdaterService.addSlotAndProp(
+          this.cegCodes,
+          this.componentData,
+          attr,
+          slot,
+        );
       }
     } else {
-      if (this.codeAngular.includes(attr)) {
-        this.removeProps(attr);
+      if (this.cegCodes.angular.includes(attr)) {
+        this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, attr);
       } else {
-        this.addNewProps(attr, newValue + '', formGroup.type);
+        this.cegCodes = this.cegCodeUpdaterService.addNewProps(
+          this.cegCodes,
+          this.componentData,
+          attr,
+          newValue + '',
+          formGroup.type,
+        );
       }
     }
     this.updateNewCode();
@@ -248,8 +284,13 @@ export class CegFiltersComponent implements OnInit {
       this.counterNumber += stepValue;
     }
 
-    if (this.codeAngular.includes(attr)) {
-      this.replaceOldProps(attr, '' + this.counterNumber, formGroup.type);
+    if (this.cegCodes.angular.includes(attr)) {
+      this.cegCodes = this.cegCodeUpdaterService.replaceOldProps(
+        this.cegCodes,
+        attr,
+        '' + this.counterNumber,
+        formGroup.type,
+      );
     }
     this.updateNewCode();
   }
@@ -257,47 +298,6 @@ export class CegFiltersComponent implements OnInit {
   private checkIfVisible(formField: CegFormGroup | CegFormGroupOption): boolean {
     const visibleFieldPipe = new VisibleFieldsPipe();
     return visibleFieldPipe.transform(formField, this.formStates);
-  }
-
-  private addNewProps(attr: string, newValue: string, type: string): void {
-    const elNameR = this.componentData.elementNameR;
-    const elNameW = this.componentData.elementNameW;
-    this.codeReact = this.cegService.addNewProp(this.codeReact, attr, newValue, 'react', type, elNameR);
-    this.codeAngular = this.cegService.addNewProp(this.codeAngular, attr, newValue, 'angular', type, elNameW);
-    this.codeVue = this.cegService.addNewProp(this.codeVue, attr, newValue, 'vue', type, elNameW);
-    this.codeNative = this.cegService.addNewProp(this.codeNative, attr, newValue, 'native', type, elNameW);
-  }
-
-  private replaceOldProps(attr: string, newValue: string, type: string): void {
-    this.codeReact = this.cegService.replaceOldProp(this.codeReact, attr, newValue, 'react', type);
-    this.codeAngular = this.cegService.replaceOldProp(this.codeAngular, attr, newValue, 'angular', type);
-    this.codeVue = this.cegService.replaceOldProp(this.codeVue, attr, newValue, 'vue', type);
-    this.codeNative = this.cegService.replaceOldProp(this.codeNative, attr, newValue, 'native', type);
-  }
-
-  private removeProps(attr: string): void {
-    this.codeReact = this.cegService.removeProp(this.codeReact, attr);
-    this.codeAngular = this.cegService.removeProp(this.codeAngular, attr);
-    this.codeVue = this.cegService.removeProp(this.codeVue, attr);
-    this.codeNative = this.cegService.removeProp(this.codeNative, attr);
-  }
-
-  private addSlotAndProp(attr: string, value: string): void {
-    const elNameR = this.componentData.elementNameR;
-    const elNameW = this.componentData.elementNameW;
-    this.codeReact = this.cegService.addNewSlotAndProp(this.codeReact, attr, value, 'react', elNameR);
-    this.codeAngular = this.cegService.addNewSlotAndProp(this.codeAngular, attr, value, 'angular', elNameW);
-    this.codeVue = this.cegService.addNewSlotAndProp(this.codeVue, attr, value, 'vue', elNameW);
-    this.codeNative = this.cegService.addNewSlotAndProp(this.codeNative, attr, value, 'native', elNameW);
-  }
-
-  private removeSlotAndProp(attr: string, value: string): void {
-    const elNameR = this.componentData.elementNameR;
-    const elNameW = this.componentData.elementNameW;
-    this.codeReact = this.cegService.removeSlotAndProp(this.codeReact, attr, value, 'react', elNameR);
-    this.codeAngular = this.cegService.removeSlotAndProp(this.codeAngular, attr, value, 'angular', elNameW);
-    this.codeVue = this.cegService.removeSlotAndProp(this.codeVue, attr, value, 'vue', elNameW);
-    this.codeNative = this.cegService.removeSlotAndProp(this.codeNative, attr, value, 'native', elNameW);
   }
 
   private isNotAcceptedCounterValue(formGroup: CegFormGroup, stepValue: number): boolean {
