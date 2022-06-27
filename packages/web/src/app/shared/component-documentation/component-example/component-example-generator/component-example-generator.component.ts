@@ -313,6 +313,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
   }
 
+  /**
+   * Called during `ngOnInit` to initialize the forms for the CEG side filters. Populates the `this.formGroupList`-object from `this.componentData.attributes`.
+   */
   private initializeSideFilterFormGroups(): void {
     const props = this.componentData.attributes;
     let checkboxIndex: number = undefined;
@@ -330,20 +333,18 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       }
       const formType = prop.cegFormType;
       if (formType === 'radio') {
-        const formGroupOptions: CegFormGroupOption[] = [];
-        let formOption: CegFormGroupOption;
-        prop.cegOptions.forEach((option) => {
-          formOption = {
+        const formGroupOptions = prop.cegOptions.map((option) => {
+          const formOption: CegFormGroupOption = {
             name: option,
             defaultValue: prop.cegDefault === option,
           };
-          formGroupOptions.splice(index, 0, formOption);
+          return formOption;
         });
         const formGroupObject: CegFormGroup = {
           formType: formType,
           label: prop.cegDisplayName,
           type: prop.cegType,
-          formGroupOptions,
+          formGroupOptions: formGroupOptions,
           propName: propKey,
           dependency: prop.cegDependency,
           defaultValue: prop.cegDefault,
@@ -390,6 +391,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     this.initializeCheckboxFormGroups(checkboxIndex);
   }
 
+  /**
+   * Called by `this.initializeSideFilterFormGroups` to initialize the checkboxes in the CEG side filters.
+   */
   private initializeCheckboxFormGroups(checkboxIndex: number): void {
     const checkboxGroups = this.sortCheckboxesByGroup(this.allCheckboxes);
     const checkboxList = [];
