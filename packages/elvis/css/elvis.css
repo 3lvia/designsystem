@@ -6970,6 +6970,55 @@ input:focus {
   background-color: #262626;
 }
 
+.e-thumbnail {
+  position: relative;
+  padding: 0px;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.e-thumbnail img {
+  width: var(--e-spacing-56);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-fit: cover;
+  vertical-align: bottom;
+  border-radius: 8px;
+  position: relative;
+  border-radius: 8px;
+}
+.e-thumbnail::after {
+  --offset: 8px;
+  content: "";
+  display: block;
+  width: calc(100% + var(--offset));
+  height: calc(100% + var(--offset));
+  position: absolute;
+  top: calc(var(--offset) / 2 * -1);
+  left: calc(var(--offset) / 2 * -1);
+  border-radius: calc(var(--e-spacing-8) + var(--offset) / 2);
+  border: 2px solid var(--e-green);
+  box-sizing: border-box;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: 0.1s all ease;
+}
+.e-thumbnail.e-thumbnail--hover::after, .e-thumbnail:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+.e-thumbnail.e-thumbnail--selected::after {
+  border: 2px solid var(--e-black);
+  opacity: 1;
+  transform: scale(1);
+}
+
 .e-tooltip {
   position: relative;
   display: inline-block;

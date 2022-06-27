@@ -931,6 +931,12 @@
 				"e-tag--yellow": {}
 			}
 		},
+		"e-thumbnail": {
+			"modifier": {
+				"e-thumbnail--hover": {},
+				"e-thumbnail--selected": {}
+			}
+		},
 		"e-tooltip": {
 			"element": {
 				"e-tooltip__content": {
@@ -1803,6 +1809,9 @@
 		"e-tag--orange": {},
 		"e-label--yellow": {},
 		"e-tag--yellow": {},
+		"e-thumbnail": {},
+		"e-thumbnail--hover": {},
+		"e-thumbnail--selected": {},
 		"e-tooltip": {},
 		"e-tooltip__content": {},
 		"e-tooltip__content--bottom": {},

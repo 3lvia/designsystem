@@ -1,0 +1,46 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Thumbnail</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div class="e-my-48" class="component-preview-temp component-preview-animation">
+    <div class="e-flex e-gap-24">
+      <button class="e-thumbnail">
+        <img
+          src="assets/holidayIllustrations/ChristmasIllustration.png"
+          alt="Designsystem christmas illustration"
+        />
+      </button>
+      <button class="e-thumbnail e-thumbnail--selected">
+        <img
+          src="assets/holidayIllustrations/ChristmasIllustration.png"
+          alt="Designsystem christmas illustration"
+        />
+      </button>
+    </div>
+    <div class="e-w-100">
+      <!-- <app-component-example-v1 [showPreview]="false" [codeHTML]="overviewExample"></app-component-example-v1> -->
+    </div>
+  </div>
+
+  <!--TYPE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <!-- <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
+          <app-when-to-use [whens]="doesExample1"></app-when-to-use> -->
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-thumbnail'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-thumbnail'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
+</div>
