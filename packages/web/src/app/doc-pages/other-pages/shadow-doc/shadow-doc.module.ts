@@ -6,6 +6,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import '@elvia/elvis-icon';
+import { CopyModule } from 'src/app/shared/copy/copy.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import '@elvia/elvis-icon';
     ComponentSectionModule,
     ComponentSubsectionModule,
     WhenToUseModule,
+    CopyModule,
   ],
   declarations: [ShadowDocComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

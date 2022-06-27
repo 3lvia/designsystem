@@ -8,61 +8,38 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-component-section [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      We have three different shadows; soft, medium and hard. Soft are mostly used on grey background, while
-      medium and hard should be used on white background.
-      <app-component-subsection [sectionTitle]="'Soft'" [sectionClass]="'e-shadow-3'">
-        <ng-container ngProjectAs="sectionContent">
-          This is an example of soft shadow used on a modal.
-          <div class="e-mt-40 e-p-48 e-br-8 e-flex e-flex-direction-column e-gap-32 e-shadow-3">
-            <h2 class="e-title-md">Title of content</h2>
-            <div class="e-text-lg">
-              Body text comes here and can go over several lines. It looks like this and when it is two.
-            </div>
-            <div class="e-flex e-gap-24">
-              <button class="e-btn e-btn--secondary e-w-100">Cancel</button>
-              <button class="e-btn e-btn--primary e-w-100">Primary action</button>
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Medium'" [sectionClass]="'e-shadow-6'">
-        <ng-container ngProjectAs="sectionContent">
-          This is an example of medium shadow used on a popover list.
+  <div class="display-container e-mt-40">
+    <div class="display-card" style="min-width: 200px" *ngFor="let item of shadows">
+      <app-copy [message]="item.className">
+        <ng-container ngProjectAs="copyContent">
           <div
-            class="e-mt-40 e-br-8 e-flex e-flex-direction-column e-shadow-6 e-text-md"
-            style="width: 216px"
+            [ngClass]="[item.styling]"
+            style="text-align: center; padding: 14px"
+            class="display-card-circle"
           >
-            <div style="padding: 10px 16px">Norway</div>
-            <div style="padding: 10px 16px">Sweden</div>
-            <div style="padding: 10px 16px">Denmark</div>
-            <div style="padding: 10px 16px">Finland</div>
-            <div style="padding: 10px 16px">Iceland</div>
+            <div class="e-title-caps">{{ item.title }}</div>
           </div>
         </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Hard'" [sectionClass]="'e-shadow-8'">
-        <ng-container ngProjectAs="sectionContent">
-          This is an example of hard shadow used on a popover.
-          <div class="e-mt-40 e-p-32 e-br-8 e-shadow-8" style="width: 316px; position: relative">
-            <button
-              class="e-btn e-btn--icon e-btn--sm"
-              aria-label="Beskrivelse av ikon-knapp"
-              style="position: absolute; top: 8px; right: 8px"
-            >
-              <span class="e-btn__icon">
-                <i class="e-icon e-icon--close e-icon--inverted" aria-hidden="true"></i>
-                <i class="e-icon e-icon--close" aria-hidden="true"></i>
-              </span>
-            </button>
-            <h2 class="e-text-sm-strong e-m-0">Title</h2>
-            <div class="e-text-md">Text</div>
+      </app-copy>
+      <div class="display-text-content">
+        <div class="display-card-sub-title e-text-info">
+          <div class="sub-title e-title-caps">Name</div>
+          <div class="sub-content">
+            {{ item.className }}
           </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
+        </div>
+        <div class="display-card-sub-title e-text-info">
+          <div class="sub-title e-title-caps">Blur</div>
+          <div class="sub-content">{{ item.blur }}</div>
+        </div>
+        <div class="display-card-sub-title e-text-info">
+          <div class="sub-title e-title-caps">Opacity</div>
+          <div class="sub-content">{{ item.opacity }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
