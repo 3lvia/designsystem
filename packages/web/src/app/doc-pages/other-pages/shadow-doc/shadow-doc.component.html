@@ -1,0 +1,48 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Shadow</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <div class="display-container e-mt-40">
+    <div class="display-card" style="min-width: 200px" *ngFor="let item of shadows">
+      <app-copy [message]="item.className">
+        <ng-container ngProjectAs="copyContent">
+          <div
+            [ngClass]="[item.styling]"
+            style="text-align: center; padding: 14px"
+            class="display-card-circle"
+          >
+            <div class="e-title-caps">{{ item.title }}</div>
+          </div>
+        </ng-container>
+      </app-copy>
+      <div class="display-text-content">
+        <div class="display-card-sub-title e-text-info">
+          <div class="sub-title e-title-caps">Name</div>
+          <div class="sub-content">
+            {{ item.className }}
+          </div>
+        </div>
+        <div class="display-card-sub-title e-text-info">
+          <div class="sub-title e-title-caps">Blur</div>
+          <div class="sub-content">{{ item.blur }}</div>
+        </div>
+        <div class="display-card-sub-title e-text-info">
+          <div class="sub-title e-title-caps">Opacity</div>
+          <div class="sub-content">{{ item.opacity }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+</div>

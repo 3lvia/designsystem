@@ -7,6 +7,7 @@ import { FaqDocModule } from './faq-doc/faq-doc.module';
 import { GetStartedDocModule } from './get-started-doc/get-started-doc.module';
 import { IconDocModule } from './icon-doc/icon-doc.module';
 import { LayoutDocModule } from './layout-doc/layout-doc.module';
+import { ShadowDocModule } from './shadow-doc/shadow-doc.module';
 import { TheDesignSystemDocModule } from './the-design-system-doc/the-design-system-doc.module';
 import { TypographyDocModule } from './typography-doc/typography-doc.module';
 import { UtilitiesDocModule } from './utilities-doc/utilities-doc.module';
@@ -24,6 +25,7 @@ import { UtilitiesDocModule } from './utilities-doc/utilities-doc.module';
     ChangelogModule,
     ContactModule,
     TheDesignSystemDocModule,
+    ShadowDocModule,
   ],
 })
 export class OtherPagesModule {}

@@ -56,6 +56,7 @@ import { UtilitiesDocComponent } from './doc-pages/other-pages/utilities-doc/uti
 import { TheDesignSystemDocComponent } from './doc-pages/other-pages/the-design-system-doc/the-design-system-doc.component';
 import { SpotlightDocComponent } from './doc-pages/components/spotlight-doc/spotlight-doc.component';
 import { ThumbnailDocComponent } from './doc-pages/components/thumbnail-doc/thumbnail-doc.component';
+import { ShadowDocComponent } from './doc-pages/other-pages/shadow-doc/shadow-doc.component';
 
 const routes: Routes = [
   {
@@ -118,6 +119,10 @@ const routes: Routes = [
           {
             path: 'layout',
             component: LayoutDocComponent,
+          },
+          {
+            path: 'shadow',
+            component: ShadowDocComponent,
           },
           {
             path: 'typography',

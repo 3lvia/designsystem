@@ -102,7 +102,9 @@ const Popover: FC<PopoverProps> = function ({
     }
   });
 
-  /** Get all slots and place them correctly */
+  /** Get all slots and place them correctly.
+   * **NB**: `type` is in the dependency list because this component has slots that depend on the type.
+   */
   useEffect(() => {
     if (!webcomponent) {
       return;
@@ -116,7 +118,7 @@ const Popover: FC<PopoverProps> = function ({
       popoverText.current.innerHTML = '';
       popoverText.current.appendChild(webcomponent.getSlot('content'));
     }
-  }, [webcomponent]);
+  }, [webcomponent, type]);
 
   /**
    * Dispatch onOpen and onClose events.
