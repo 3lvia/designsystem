@@ -79,7 +79,8 @@
     }
 
     &.e-accordion__item--open {
-      > .e-accordion__icon {
+      > .e-accordion__icon,
+      > .e-accordion__label > .e-accordion__icon {
         @include helpers.keyframes(rotate-center-back) {
           0% {
             @include helpers.transform(rotate(0));
@@ -93,7 +94,8 @@
         -webkit-animation: rotate-center-back 0.2s ease-in-out both;
         animation: rotate-center-back 0.2s ease-in-out both;
       }
-      > .e-accordion__content {
+      > .e-accordion__content,
+      > .e-accordion__label > .e-accordion__content {
         pointer-events: auto;
         max-height: 10000px;
         opacity: 1;

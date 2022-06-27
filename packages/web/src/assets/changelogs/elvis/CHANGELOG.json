@@ -2,7 +2,7 @@
   "content": [
     {
       "version": "8.5.0",
-      "date": "June 23, 2022",
+      "date": "June 27, 2022",
       "changelog": [
         {
           "type": "new_feature",
@@ -13,6 +13,19 @@
           "components": [
             { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" },
             { "displayName": "Shadow", "url": "https://design.elvia.io/brand/shadow" }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "8.4.6",
+      "date": "June 24, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug that was introduced in version 8.4.5 that broke group accordions."],
+          "components": [
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]

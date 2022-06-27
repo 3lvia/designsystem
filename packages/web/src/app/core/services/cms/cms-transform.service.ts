@@ -290,7 +290,7 @@ export class CMSTransformService {
             ${isAction && !isInline ? 'e-link--action' : ''} 
             ${isExternal ? 'e-link--new-tab' : ''} 
           '
-          ${isExternal ? 'target="_blank"' : ''}
+          ${isExternal ? 'target="_blank" rel="noopener"' : ''}
         >
           <span class="e-link__title">${linkText}</span>
           ${
