@@ -228,13 +228,17 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   /**
    * Used to order the elements in the *Customize text*-popover.
-   * @param left
+   * @param _left
    * @param _right
    * @returns
    */
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  keepOriginalOrder(left: KeyValue<any, any>, _right: KeyValue<any, any>): number {
-    return left.key;
+  keepOriginalOrderInCustomTextPopover(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    _left: KeyValue<string, typeof this.customTextProps[0]>,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    _right: KeyValue<string, typeof this.customTextProps[0]>,
+  ): 1 {
+    return 1;
   }
 
   /**
