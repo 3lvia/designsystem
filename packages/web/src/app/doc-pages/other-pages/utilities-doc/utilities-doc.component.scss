@@ -1,22 +1,41 @@
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 @import '@elvia/elvis/src/variables/colors.scss';
 
-.utilityContainer {
+.utility-container {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 130%;
+  margin-right: -30%;
   h3 {
     margin: 0;
   }
 
+  @include breakpoint-up(MinDesktop) {
+    width: 120%;
+    margin-right: -20%;
+  }
   @include breakpoint-up(Tablet) {
+    width: 100%;
+    margin-right: 0%;
     flex-direction: column;
     h3 {
       margin-bottom: 24px;
     }
   }
 }
-
+.divider-style {
+  height: 1px;
+  width: 130%;
+  margin-right: -30%;
+  @include breakpoint-up(MinDesktop) {
+    width: 120%;
+    margin-right: -20%;
+  }
+  @include breakpoint-up(Tablet) {
+    width: 100%;
+    margin-right: 0%;
+  }
+}
 .tableRow {
   display: flex;
   justify-content: space-between;
@@ -42,14 +61,15 @@
 }
 
 .class {
-  width: 25%;
+  width: 30%;
   height: fit-content;
   margin-right: 16px;
+  line-break: normal;
   @include breakpoint-up(MinDesktop) {
-    width: 38%;
+    width: 40%;
   }
   @include breakpoint-up(Tablet) {
-    width: 25%;
+    width: 40%;
   }
   @include breakpoint-up(Mobile) {
     width: 100%;
@@ -58,12 +78,12 @@
 
 .description {
   display: flex;
-  width: 50%;
+  width: 45%;
   @include breakpoint-up(MinDesktop) {
-    width: 37%;
+    width: 35%;
   }
   @include breakpoint-up(Tablet) {
-    width: 50%;
+    width: 40%;
   }
   @include breakpoint-up(Mobile) {
     width: 100%;
@@ -71,7 +91,7 @@
 }
 
 .cssContent {
-  width: 25%;
+  width: 20%;
   margin-left: 16px;
   @include breakpoint-up(Mobile) {
     width: 100%;

@@ -510,6 +510,38 @@ body {
   align-items: flex-end;
 }
 
+.e-shadow-none {
+  box-shadow: "none" !important;
+}
+
+:root {
+  --e-shadow-none: none;
+}
+
+.e-shadow-soft {
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.03) !important;
+}
+
+:root {
+  --e-shadow-soft: 0px 0px 50px rgba(0, 0, 0, 0.03);
+}
+
+.e-shadow-medium {
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06) !important;
+}
+
+:root {
+  --e-shadow-medium: 0px 0px 40px rgba(0, 0, 0, 0.06);
+}
+
+.e-shadow-hard {
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+:root {
+  --e-shadow-hard: 0px 0px 30px rgba(0, 0, 0, 0.08);
+}
+
 .e-alert {
   display: inline-flex;
   box-sizing: border-box;
@@ -8420,6 +8452,14 @@ input:focus {
   border: none;
 }
 
+.e-br-4 {
+  border-radius: 4px;
+}
+
+.e-br-8 {
+  border-radius: 8px;
+}
+
 /*!
  * Bootstrap Grid v4.6.1 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -12050,25 +12090,6 @@ THE SOFTWARE.
   }
 }
 
-.e-shadow-none {
-  box-shadow: "none";
-}
-.e-shadow-3 {
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.03);
-}
-.e-shadow-6 {
-  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
-}
-.e-shadow-8 {
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
-}
-
-:root {
-  --e-shadow-3: 0px 0px 50px rgba(0, 0, 0, 0.03);
-  --e-shadow-6: 0px 0px 40px rgba(0, 0, 0, 0.06);
-  --e-shadow-8: 0px 0px 30px rgba(0, 0, 0, 0.08);
-}
-
 .e-title-lg {
   font-family: Red Hat Display, Verdana, sans-serif;
   font-size: 44px;
@@ -12670,6 +12691,14 @@ THE SOFTWARE.
   justify-content: flex-end;
 }
 
+.e-justify-content-between {
+  justify-content: space-between;
+}
+
+.e-justify-content-around {
+  justify-content: space-around;
+}
+
 .e-align-items-center {
   align-items: center;
 }
@@ -12680,4 +12709,24 @@ THE SOFTWARE.
 
 .e-align-items-end {
   align-items: flex-end;
+}
+
+.e-gap-8 {
+  gap: 8px;
+}
+
+.e-gap-16 {
+  gap: 16px;
+}
+
+.e-gap-24 {
+  gap: 24px;
+}
+
+.e-gap-32 {
+  gap: 32px;
+}
+
+.e-gap-40 {
+  gap: 40px;
 }
