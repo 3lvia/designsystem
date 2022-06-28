@@ -1,24 +1,20 @@
-@use "../variables/shadows";
-@use "../utilities/helpers";
+@use 'sass:list';
+@use 'sass:map';
+@use '../variables/shadows';
 
-.e-shadow {
-  &-none {
-    box-shadow: 'none';
+@each $label, $value in shadows.$shadowVariables {
+  // Making CSS classes for shadow-variables
+  .e {
+    &-shadow-#{$label} {
+      box-shadow: $value !important;
+    }
   }
-  &-3 {
-    box-shadow: shadows.$e-shadow-3;
-  }
-  &-6 {
-    box-shadow: shadows.$e-shadow-6;
-  }
-  &-8 {
-    box-shadow: shadows.$e-shadow-8;
+  // Making CSS variables for shadow-variables
+  :root {
+    --e-shadow-#{$label}: #{$value};
   }
 }
 
-// Making CSS-variables for shadow-variables
-:root {
-  --e-shadow-3: #{shadows.$e-shadow-3};
-  --e-shadow-6: #{shadows.$e-shadow-6};
-  --e-shadow-8: #{shadows.$e-shadow-8};
+@function getShadow($name, $shadow-set: shadows.$shadowVariables) {
+  @return map.get($shadow-set, $name);
 }

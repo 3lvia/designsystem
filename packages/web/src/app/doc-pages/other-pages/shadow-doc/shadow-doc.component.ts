@@ -16,8 +16,8 @@ export class ShadowDocComponent {
   ];
 
   shadows = [
-    { title: 'Soft', className: 'e-shadow-3', blur: '50', opacity: '3%', styling: 'e-shadow-3' },
-    { title: 'Medium', className: 'e-shadow-6', blur: '40', opacity: '6%', styling: 'e-shadow-6' },
-    { title: 'Hard', className: 'e-shadow-8', blur: '30', opacity: '8%', styling: 'e-shadow-8' },
+    { title: 'Soft', className: 'e-shadow-soft', blur: '50', opacity: '3%' },
+    { title: 'Medium', className: 'e-shadow-medium', blur: '40', opacity: '6%' },
+    { title: 'Hard', className: 'e-shadow-hard', blur: '30', opacity: '8%' },
   ];
 }
