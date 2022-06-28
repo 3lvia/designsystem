@@ -1,5 +1,6 @@
 @use '../variables/colors';
 @use '../utilities/helpers';
+@use '../utilities/outline.scss';
 
 .e-thumbnail {
   position: relative;
@@ -13,6 +14,7 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+
   img {
     width: var(--e-spacing-56);
     aspect-ratio: 1/1;
@@ -23,6 +25,7 @@
     position: relative;
     border-radius: 8px;
   }
+
   &::after {
     --offset: 8px;
     content: '';
@@ -38,7 +41,7 @@
 
     opacity: 0;
     transform: scale(0.9);
-    transition: 0.1s all ease;
+    transition: 0.15s all ease;
   }
   &.e-thumbnail--hover,
   &:hover {

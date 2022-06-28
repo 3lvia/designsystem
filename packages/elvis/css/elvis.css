@@ -7010,7 +7010,7 @@ input:focus {
   box-sizing: border-box;
   opacity: 0;
   transform: scale(0.9);
-  transition: 0.1s all ease;
+  transition: 0.15s all ease;
 }
 .e-thumbnail.e-thumbnail--hover::after, .e-thumbnail:hover::after {
   opacity: 1;
