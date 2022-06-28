@@ -13,9 +13,9 @@
       <app-copy [message]="item.className">
         <ng-container ngProjectAs="copyContent">
           <div
-            [ngClass]="[item.styling]"
+            [ngClass]="[item.className]"
             style="text-align: center; padding: 14px"
-            class="display-card-circle"
+            class="display-card-circle primary"
           >
             <div class="e-title-caps">{{ item.title }}</div>
           </div>
@@ -23,7 +23,7 @@
       </app-copy>
       <div class="display-text-content">
         <div class="display-card-sub-title e-text-info">
-          <div class="sub-title e-title-caps">Name</div>
+          <div class="sub-title e-title-caps">Class</div>
           <div class="sub-content">
             {{ item.className }}
           </div>

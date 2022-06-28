@@ -1,6 +1,6 @@
-@use "sass:list";
-@use "sass:map";
-@use "../variables/spacing";
+@use 'sass:list';
+@use 'sass:map';
+@use '../variables/spacing';
 
 // Making margin and padding classes for all spacing
 @each $label, $map in spacing.$spacing {
@@ -86,7 +86,7 @@
         margin-bottom: -$value !important;
       }
     }
-    // Making CSS-variables for shadow-variables
+    // Making CSS variables for spacing-variables
     :root {
       --e-spacing-#{$label}: #{$value};
     }
