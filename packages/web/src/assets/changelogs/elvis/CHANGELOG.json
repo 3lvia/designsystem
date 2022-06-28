@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "8.6.0",
+      "date": "June 29, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added new thumbnail class."],
+          "components": [
+            { "displayName": "Thumbnail", "url": "https://design.elvia.io/components/thumbnail" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "8.5.0",
       "date": "June 27, 2022",
       "changelog": [
