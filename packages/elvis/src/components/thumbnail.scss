@@ -43,17 +43,16 @@
     transform: scale(0.9);
     transition: 0.15s all ease;
   }
-  &.e-thumbnail--hover,
-  &:hover {
+  &.e-thumbnail---selected {
     &::after {
+      border: 2px solid var(--e-black);
       opacity: 1;
       transform: scale(1);
     }
   }
-
-  &.e-thumbnail--selected {
+  &.e-thumbnail---hover,
+  &:hover {
     &::after {
-      border: 2px solid var(--e-black);
       opacity: 1;
       transform: scale(1);
     }

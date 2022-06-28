@@ -936,9 +936,9 @@
 			}
 		},
 		"e-thumbnail": {
-			"modifier": {
-				"e-thumbnail--hover": {},
-				"e-thumbnail--selected": {}
+			"psuedo": {
+				"e-thumbnail---selected": {},
+				"e-thumbnail---hover": {}
 			}
 		},
 		"e-tooltip": {
@@ -1823,8 +1823,8 @@
 		"e-label--yellow": {},
 		"e-tag--yellow": {},
 		"e-thumbnail": {},
-		"e-thumbnail--hover": {},
-		"e-thumbnail--selected": {},
+		"e-thumbnail---selected": {},
+		"e-thumbnail---hover": {},
 		"e-tooltip": {},
 		"e-tooltip__content": {},
 		"e-tooltip__content--bottom": {},

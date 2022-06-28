@@ -7044,12 +7044,12 @@ input:focus {
   transform: scale(0.9);
   transition: 0.15s all ease;
 }
-.e-thumbnail.e-thumbnail--hover::after, .e-thumbnail:hover::after {
+.e-thumbnail.e-thumbnail---selected::after {
+  border: 2px solid var(--e-black);
   opacity: 1;
   transform: scale(1);
 }
-.e-thumbnail.e-thumbnail--selected::after {
-  border: 2px solid var(--e-black);
+.e-thumbnail.e-thumbnail---hover::after, .e-thumbnail:hover::after {
   opacity: 1;
   transform: scale(1);
 }

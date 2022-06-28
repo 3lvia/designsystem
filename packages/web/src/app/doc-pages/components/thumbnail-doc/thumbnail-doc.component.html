@@ -1,3 +1,6 @@
+<button class="e-thumbnail">
+  <img src="assets/thumbnail/image-3.png" alt="Thumbnail example image 4" />
+</button>
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">Thumbnail</ng-container>
@@ -5,13 +8,12 @@
     {{ description }}
   </ng-container>
 </app-component-header>
-
 <!--BODY-->
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
     <div class="e-flex e-gap-8">
-      <button class="e-thumbnail">
+      <button class="e-thumbnail e-thumbnail---selected">
         <img src="assets/thumbnail/image.png" alt="Thumbnail example image 1" />
       </button>
       <button class="e-thumbnail">
@@ -20,22 +22,17 @@
       <button class="e-thumbnail">
         <img src="assets/thumbnail/image-2.png" alt="Thumbnail example image 3" />
       </button>
-      <button class="e-thumbnail e-thumbnail--selected">
+      <button class="e-thumbnail">
         <img src="assets/thumbnail/image-3.png" alt="Thumbnail example image 4" />
       </button>
     </div>
     <div class="e-w-100">
-      <!-- <app-component-example-v1 [showPreview]="false" [codeHTML]="overviewExample"></app-component-example-v1> -->
+      <app-component-example-v1
+        [showPreview]="false"
+        [codeHTML]="thumbnailExample"
+      ></app-component-example-v1>
     </div>
   </div>
-
-  <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <!-- <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
-          <app-when-to-use [whens]="doesExample1"></app-when-to-use> -->
-    </ng-container>
-  </app-component-section>
 
   <!--PROPERTIES-->
   <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-thumbnail'">
