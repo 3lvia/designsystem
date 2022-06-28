@@ -1,6 +1,6 @@
 @use '../variables/typography.scss';
 @use '../variables/colors';
-@use '../variables/shadows';
+@use '../utilities/shadows';
 @use '../utilities/icons.scss';
 @use '../utilities/breakpoints';
 @use '../utilities/helpers';
@@ -268,7 +268,7 @@ $toast-max-width: 400px;
   &.e-alert--toast {
     border-radius: 8px;
     border-color: colors.color('elvia-charge');
-    box-shadow: shadows.$e-shadow-6;
+    box-shadow: shadows.getShadow('medium');
     max-width: $toast-max-width;
     padding: $toast-padding;
 

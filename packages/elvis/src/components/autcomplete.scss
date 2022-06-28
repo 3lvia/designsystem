@@ -1,5 +1,5 @@
 @use '../variables/typography.scss';
-@use '../variables/shadows.scss';
+@use '../utilities/shadows.scss';
 @use '../variables/colors';
 @use '../utilities/helpers.scss';
 
@@ -17,7 +17,7 @@ $autocomplete-padding-item-compact: 6px 10px;
   margin-top: 4px;
   border: 1px solid colors.color('grey-10');
   border-radius: 4px;
-  box-shadow: shadows.$e-shadow-6;
+  box-shadow: shadows.getShadow('medium');
   z-index: 100;
   text-align: left;
 

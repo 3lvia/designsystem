@@ -12,7 +12,7 @@
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
       <div *ngFor="let group of utilityGroups">
-        <div class="utilityContainer">
+        <div class="utility-container">
           <h3 class="rowTitle e-title-xs elvis-anchor elvis-anchor-title" *ngIf="group.path">
             <a class="e-link e-link--lg" [routerLink]="[group.path]" [fragment]="group.fragment">
               {{ group.title }}
@@ -35,7 +35,7 @@
             </div>
           </div>
         </div>
-        <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
+        <div class="e-bg-grey-10 e-my-48 divider-style"></div>
       </div>
     </ng-container>
   </app-component-subsection>

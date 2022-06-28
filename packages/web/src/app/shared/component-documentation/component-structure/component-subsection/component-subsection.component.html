@@ -6,6 +6,13 @@
     <span *ngIf="figmaOnly" class="e-ml-16 component-section__label">
       <label class="e-label e-label--orange">Figma only</label>
     </span>
+    <span *ngIf="sectionClass != ''" class="e-ml-16 component-section__class">
+      <app-copy [message]="sectionClass">
+        <ng-container ngProjectAs="copyContent">
+          <span class="code-text">{{ sectionClass }}</span>
+        </ng-container>
+      </app-copy>
+    </span>
   </h3>
   <div class="component-section__content e-text-body">
     <ng-content select="sectionContent"></ng-content>

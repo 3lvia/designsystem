@@ -144,13 +144,25 @@ export const Datepicker: FC<DatepickerProps> = ({
     const newDate = date ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : null;
     setSelectedDate(newDate);
 
-    const dateISO = newDate ? formatISO(newDate, { representation: 'date' }) : null;
+    handleValueOnChangeISOString(newDate);
     if (!webcomponent) {
       valueOnChange?.(newDate);
-      valueOnChangeISOString?.(dateISO);
-    } else if (webcomponent) {
+    } else {
       webcomponent.setProps({ value: newDate }, true);
-      webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
+    }
+  };
+
+  /**
+   * Handle valueOnChangeISOString event. If newDate is not valid, formatISO crashes the component.
+   */
+  const handleValueOnChangeISOString = (newDate: Date | null): void => {
+    if (isValid(newDate)) {
+      const dateISO = newDate ? formatISO(newDate, { representation: 'date' }) : null;
+      if (!webcomponent) {
+        valueOnChangeISOString?.(dateISO);
+      } else {
+        webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
+      }
     }
   };
 

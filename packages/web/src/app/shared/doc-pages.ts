@@ -452,7 +452,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     title: 'Contact',
     // tslint:disable-next-line: max-line-length
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
         <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a>`,
@@ -464,11 +464,11 @@ export const docPagesNotFromCMS: DocPage[] = [
     title: 'Contribute',
     // tslint:disable-next-line: max-line-length
     description: `To contribute, or if you have any question, you can contact us on slack:
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
         <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a> or fill out our
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
+      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://forms.office.com/r/xJaMyF9Bxf" >
         <span class="e-link__title">request form</span>
         <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a>`,
@@ -480,7 +480,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     title: 'FAQ',
     // tslint:disable-next-line: max-line-length
     description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
         <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a>`,
@@ -493,6 +493,17 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: 'The latest news, updates, and changes to the design system.',
     docUrl: Pages.Changelog,
     absolutePath: '/about/' + Pages.Changelog,
+  },
+  {
+    title: 'Shadow',
+    // tslint:disable-next-line: max-line-length
+    description:
+      'Shadow is used to make an element stand out from the surface to create depth. Choosing a shadow is up to each scenario - but the shadow should be "experienced" and should not be prominent. Elvia have a flat design, so shadow should be used carefully and only on overlays.',
+    docUrl: Pages.Shadow,
+    absolutePath: '/brand/' + Pages.Shadow,
+    status: DocPageStatus.Done,
+    type: 'Brand',
+    figmaUrl: 'https://www.figma.com/file/E2yRkpqSSuRnq8RDXO4Mly/Shadow?node-id=90%3A24',
   },
   {
     title: 'Colors',
@@ -510,7 +521,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     // tslint:disable-next-line: max-line-length
     description: `In our icon library, you’ll find all available icons in the design system, 
     as well guides on how to use them. Missing a specific icon? Let us know on our slack channel 
-  <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank">
+  <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" rel="noopener">
   <span class="e-link__title">#designsystemet</span>
   <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
 </a>
@@ -561,7 +572,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     title: 'Contact',
     // tslint:disable-next-line: max-line-length
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
     </a>`,
@@ -574,7 +585,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     title: 'Contribute',
     // tslint:disable-next-line: max-line-length
     description: `To contribute, or if you have any question, you can contact us on slack:
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
     </a>`,
