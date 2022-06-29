@@ -2,6 +2,8 @@
 @use '../utilities/helpers';
 @use '../utilities/outline.scss';
 
+$border-radius: 8px;
+
 .e-thumbnail {
   position: relative;
   padding: 0px;
@@ -15,11 +17,11 @@
   user-select: none;
 
   img {
-    width: var(--e-spacing-56);
+    width: 56px;
     aspect-ratio: 1/1;
     object-fit: cover;
     vertical-align: bottom;
-    border-radius: 8px;
+    border-radius: $border-radius;
   }
 
   &::after {
@@ -31,8 +33,8 @@
     position: absolute;
     top: calc(var(--offset) / 2 * -1);
     left: calc(var(--offset) / 2 * -1);
-    border-radius: calc(var(--e-spacing-8) + var(--offset) / 2);
-    border: 2px solid var(--e-green);
+    border-radius: calc($border-radius + var(--offset) / 2);
+    border: 2px solid colors.color('elvia-charge');
     box-sizing: border-box;
 
     opacity: 0;
@@ -41,7 +43,7 @@
   }
   &.e-thumbnail---selected {
     &::after {
-      border: 2px solid var(--e-black);
+      border: 2px solid colors.color('black');
       opacity: 1;
       transform: scale(1);
     }
