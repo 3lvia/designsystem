@@ -14,16 +14,18 @@ const emptyDateRange: DateRange = {
 };
 
 export interface DatepickerRangeProps {
-  isCompact?: boolean;
   value?: DateRange;
   valueOnChange?: (value: DateRange) => void;
+  isCompact?: boolean;
+  hasAutoOpenEndDatepicker?: boolean;
   webcomponent?: ElvisComponentWrapper;
 }
 
 export const DatepickerRange: FC<DatepickerRangeProps> = ({
-  isCompact,
   value,
   valueOnChange,
+  isCompact,
+  hasAutoOpenEndDatepicker,
   webcomponent,
 }) => {
   const [hoveredDateRange, setHoveredDateRange] = useState<DateRange>(value ?? emptyDateRange);
@@ -43,19 +45,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
       setSelectedDateRange(value);
     }
   }, [value]);
-
-  // const handleSelectedDateRangeChange = (value: DateRange) => {
-  //   if (isEqual(value, selectedDateRange)) {
-  //     return;
-  //   }
-  //   setSelectedDateRange(value);
-
-  //   if (!webcomponent) {
-  //     valueOnChange?.(selectedDateRange);
-  //   } else {
-  //     webcomponent.setProps({ value: selectedDateRange }, true);
-  //   }
-  // };
 
   /**
    * Handles events fired when one of the day elements inside the datepicker is hovered. This is used to add the grey "selected date range"-background.
@@ -115,12 +104,33 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   const handleStartDatepickerValueOnChange = (value: Date | null) => {
-    setHoveredDateRange((current) => {
-      return { ...current, start: value };
-    });
-    setSelectedDateRange((current) => {
-      return { ...current, start: value };
-    });
+    // If start datepicker is set to a date after the end datepicker, set the end date to null.
+    if (value && selectedDateRange?.end && value > selectedDateRange.end) {
+      setHoveredDateRange({ start: value, end: null });
+      setSelectedDateRange({ start: value, end: null });
+    } else {
+      setHoveredDateRange((current) => {
+        return { ...current, start: value };
+      });
+      setSelectedDateRange((current) => {
+        return { ...current, start: value };
+      });
+    }
+  };
+
+  const handleEndDatepickerValueOnChange = (value: Date | null) => {
+    // If end datepicker is set to a date before the start date, set both to end datepicker value.
+    if (value && selectedDateRange?.start && value < selectedDateRange.start) {
+      setHoveredDateRange({ start: value, end: value });
+      setSelectedDateRange({ start: value, end: value });
+    } else {
+      setHoveredDateRange((current) => {
+        return { ...current, end: value };
+      });
+      setSelectedDateRange((current) => {
+        return { ...current, end: value };
+      });
+    }
   };
 
   return (
@@ -132,9 +142,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         value={selectedDateRange.start}
         valueOnChange={handleStartDatepickerValueOnChange}
         onClose={() => {
-          setTimeout(() => {
-            setEndDatepickerIsOpen(true);
-          }, 100);
+          hasAutoOpenEndDatepicker &&
+            setTimeout(() => {
+              setEndDatepickerIsOpen(true);
+            }, 100);
         }}
         onReset={() => {
           setHoveredDateRange(emptyDateRange);
@@ -146,15 +157,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         isCompact={isCompact}
         hasSelectDateOnOpen={false}
         value={selectedDateRange.end}
-        minDate={hoveredDateRange.start}
-        valueOnChange={(selectedDate: Date | null) => {
-          setHoveredDateRange((current) => {
-            return { ...current, end: selectedDate };
-          });
-          setSelectedDateRange((current) => {
-            return { ...current, end: selectedDate };
-          });
-        }}
+        valueOnChange={handleEndDatepickerValueOnChange}
         onClose={() => setEndDatepickerIsOpen(false)}
         onOpen={() => setEndDatepickerIsOpen(true)}
         onReset={() => {

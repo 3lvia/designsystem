@@ -17,6 +17,7 @@ import formatISO from 'date-fns/formatISO';
 import isWithinInterval from 'date-fns/isWithinInterval';
 import startOfWeek from 'date-fns/startOfWeek';
 import endOfWeek from 'date-fns/endOfWeek';
+import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 import isEqual from 'lodash/isEqual';
 export interface DateRange {
@@ -453,6 +454,7 @@ export const Datepicker: FC<DatepickerProps> = ({
       ['ewc-datepicker__day-start-of-week']: isSameDay(dayDate, firstDayOfWeek),
       ['ewc-datepicker__day-start-of-month']: dayDate.getDate() === 1,
       ['ewc-datepicker__day-end-of-week']: isSameDay(dayDate, lastDayOfWeek),
+      ['ewc-datepicker__day-end-of-month']: isSameDay(dayDate, lastDayOfMonth(dayDate)),
     });
     if (isInCurrentMonth) {
       if (!dayComponent.props.disabled) {

@@ -195,8 +195,9 @@ module.exports = [
     name: 'elvis-datepicker-range',
     elementName: 'elvia-datepicker-range',
     attributes: [
-      { name: 'isCompact', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'value', type: 'object', propType: 'object | undefined' },
+      { name: 'isCompact', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'hasAutoOpenEndDatepicker', type: 'boolean', propType: 'boolean | undefined' },
     ],
     reactName: 'DatepickerRange',
     elementStyle: 'display: block;',

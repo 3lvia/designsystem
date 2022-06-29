@@ -104,6 +104,7 @@ function App() {
           {/* Normal version */}
           <div className="e-bg-white">
             <DatepickerRange
+            hasAutoOpenEndDatepicker
               // value={datepickerRangeValue}
               valueOnChange={(event) => console.log(event)}
             ></DatepickerRange>
