@@ -5,6 +5,7 @@ import { exampleContents } from 'src/app/shared/example-contents';
 @Component({
   selector: 'app-segmented-controls-doc',
   templateUrl: './segmented-controls-doc.component.html',
+  styleUrls: ['./segmented-controls-doc.component.scss'],
 })
 export class SegmentedControlsDocComponent {
   exampleContents = exampleContents;

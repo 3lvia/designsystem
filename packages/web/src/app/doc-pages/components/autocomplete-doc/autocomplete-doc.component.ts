@@ -4,6 +4,7 @@ import { getComponent } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-autocomplete-doc',
   templateUrl: './autocomplete-doc.component.html',
+  styleUrls: ['./autocomplete-doc.component.scss'],
 })
 export class AutocompleteDocComponent {
   figmaUrl = getComponent('autocomplete').figmaUrl;

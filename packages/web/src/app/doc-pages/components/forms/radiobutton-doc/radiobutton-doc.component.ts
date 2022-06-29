@@ -4,6 +4,7 @@ import { getComponent } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-radiobutton-doc',
   templateUrl: './radiobutton-doc.component.html',
+  styleUrls: ['./radiobutton-doc.component.scss'],
 })
 export class RadiobuttonDocComponent {
   figmaUrl = getComponent('radiobutton').figmaUrl;

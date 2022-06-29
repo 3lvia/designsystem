@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-modal-doc',
   templateUrl: './modal-doc.component.html',
+  styleUrls: ['./modal-doc.component.scss'],
 })
 export class ModalDocComponent {
   componentData = modalData;

@@ -5,6 +5,7 @@ import { GlobalService } from 'src/app/core/services/global.service';
 @Component({
   selector: 'app-header-doc',
   templateUrl: './header-doc.component.html',
+  styleUrls: ['./header-doc.component.scss'],
 })
 export class HeaderDocComponent {
   internalHeader = false;

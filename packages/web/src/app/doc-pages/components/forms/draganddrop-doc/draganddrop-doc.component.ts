@@ -4,6 +4,7 @@ import { getComponent } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-draganddrop-doc',
   templateUrl: './draganddrop-doc.component.html',
+  styleUrls: ['./draganddrop-doc.component.scss'],
 })
 export class DraganddropDocComponent {
   figmaUrl = getComponent('drag-and-drop').figmaUrl;

@@ -5,6 +5,7 @@ import changelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
 @Component({
   selector: 'app-changelog',
   templateUrl: './changelog.component.html',
+  styleUrls: ['./changelog.component.scss'],
 })
 export class ChangelogComponent {
   externalUrl = getDocPagesNotFromCMS('changelog').externalUrl;
