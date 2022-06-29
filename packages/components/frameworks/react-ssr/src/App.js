@@ -18,6 +18,7 @@ import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';
 
 function App() {
   const logValue = (component, value) => {
@@ -87,6 +88,11 @@ function App() {
   const tabsItems = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const [isChipLoading, setIsChipLoading] = useState(false);
 
+  const [datepickerRangeValue, setDatepickerRangeValue] = useState({
+    start: new Date(2022, 5, 5),
+    end: new Date(2022, 5, 11),
+  });
+
   return (
     <div className="App">
       <h1>React Preview</h1>
@@ -96,7 +102,12 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white"></div>
+          <div className="e-bg-white">
+            <DatepickerRange
+              // value={datepickerRangeValue}
+              valueOnChange={(event) => console.log(event)}
+            ></DatepickerRange>
+          </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>

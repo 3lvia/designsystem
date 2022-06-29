@@ -192,6 +192,20 @@ module.exports = [
     reactTypescriptDeclaration: true,
   },
   {
+    name: 'elvis-datepicker-range',
+    elementName: 'elvia-datepicker-range',
+    attributes: [
+      { name: 'isCompact', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'value', type: 'object', propType: 'object | undefined' },
+    ],
+    reactName: 'DatepickerRange',
+    elementStyle: 'display: block;',
+    // conditionalElementStyle: [{ name: 'isFullWidth', value: 'true', style: `width: 100%` }],
+    useWrapper: true,
+    slotItems: false,
+    reactTypescriptDeclaration: true,
+  },
+  {
     name: 'elvis-divider',
     elementName: 'elvia-divider',
     attributes: [

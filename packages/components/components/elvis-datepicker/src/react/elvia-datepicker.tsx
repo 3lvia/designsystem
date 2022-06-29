@@ -14,7 +14,15 @@ import isSameDay from 'date-fns/isSameDay';
 import isAfter from 'date-fns/isAfter';
 import isBefore from 'date-fns/isBefore';
 import formatISO from 'date-fns/formatISO';
+import isWithinInterval from 'date-fns/isWithinInterval';
+import startOfWeek from 'date-fns/startOfWeek';
+import endOfWeek from 'date-fns/endOfWeek';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import isEqual from 'lodash/isEqual';
+export interface DateRange {
+  start: Date | null;
+  end: Date | null;
+}
 
 export interface DatepickerProps {
   value?: Date | null;
@@ -31,6 +39,7 @@ export interface DatepickerProps {
   valueOnChangeISOString?: (value: string | null) => void;
   onOpen?: () => void;
   onClose?: () => void;
+  onReset?: () => void;
   webcomponent?: ElvisComponentWrapper;
   placeholder?: string;
   isOpen?: boolean;
@@ -44,6 +53,9 @@ export interface DatepickerProps {
   hasValidation: boolean;
   clearButtonText: string;
   disableDate?: (day: Date) => boolean;
+  hoveredDateRange?: DateRange;
+  onDateElementMouseOver?: (event: React.MouseEvent<HTMLButtonElement>, day: Date) => void;
+  onDatepickerPopoverMouseOver?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -61,6 +73,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   valueOnChangeISOString,
   onOpen,
   onClose,
+  onReset,
   webcomponent,
   placeholder = 'dd.mm.åååå',
   isOpen = false,
@@ -74,6 +87,9 @@ export const Datepicker: FC<DatepickerProps> = ({
   hasValidation = true,
   errorOnChange,
   disableDate,
+  hoveredDateRange,
+  onDateElementMouseOver,
+  onDatepickerPopoverMouseOver,
   ...rest
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
@@ -142,6 +158,7 @@ export const Datepicker: FC<DatepickerProps> = ({
 
     // Set time component of the selected date to 0 by creating a new date object.
     const newDate = date ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : null;
+    if (isEqual(selectedDate, newDate)) return;
     setSelectedDate(newDate);
 
     handleValueOnChangeISOString(newDate);
@@ -345,6 +362,16 @@ export const Datepicker: FC<DatepickerProps> = ({
     return <Icon name={`${isLeft ? 'arrowLongLeftBold' : 'arrowLongRightBold'}`} size="xs" />;
   };
 
+  const handleResetDatepickerOnClick = (): void => {
+    handleDateChange(null);
+    setShouldHaveSelected(false);
+    if (!webcomponent) {
+      onReset?.();
+    } else {
+      webcomponent.triggerEvent('onReset');
+    }
+  };
+
   const replaceMuiToolbar = (props: any) => {
     const { date, openView, setOpenView } = props;
     const toggleYearView = () => {
@@ -383,10 +410,7 @@ export const Datepicker: FC<DatepickerProps> = ({
           <button
             aria-label="Nullstill datovelger"
             className="ewc-datepicker__toolbar-clear"
-            onClick={() => {
-              handleDateChange(null);
-              setShouldHaveSelected(false);
-            }}
+            onClick={handleResetDatepickerOnClick}
           >
             <Icon name="reset" size="xs" inlineStyle={{ marginRight: '8px' }} />
             {clearButtonText}
@@ -398,23 +422,46 @@ export const Datepicker: FC<DatepickerProps> = ({
 
   const replaceMuiDayElement = (
     day: any,
-    selected: any,
-    isInCurrentMonth: any,
-    dayComponent: any,
+    selected: Date | null,
+    isInCurrentMonth: boolean,
+    dayComponent: JSX.Element,
   ): JSX.Element => {
     const today = new Date();
     const dayDate = new Date(day);
-    const selDate = new Date(selected);
-
+    const selDate = selected ? new Date(selected) : null;
+    const firstDayOfWeek = startOfWeek(dayDate, { weekStartsOn: 1 });
+    const lastDayOfWeek = endOfWeek(dayDate, { weekStartsOn: 1 });
+    const isInDateRange =
+      hoveredDateRange &&
+      hoveredDateRange.start &&
+      hoveredDateRange.end &&
+      hoveredDateRange.start <= hoveredDateRange.end &&
+      isWithinInterval(dayDate, {
+        start: hoveredDateRange.start,
+        end: selDate && selDate > hoveredDateRange.end ? selDate : hoveredDateRange.end,
+      });
     const dayClasses = classnames('ewc-datepicker__day', {
-      ['ewc-datepicker__day-selected']: isSameDay(dayDate, selDate) && shouldHaveSelected,
+      ['ewc-datepicker__day-selected']: selDate && isSameDay(dayDate, selDate) && shouldHaveSelected,
       ['ewc-datepicker__day-current']: isSameDay(dayDate, today),
       ['ewc-datepicker__day-disabled']: dayComponent.props.disabled,
+      ['ewc-datepicker__day-in-range']: isInDateRange,
+      ['ewc-datepicker__day-first-in-range']:
+        hoveredDateRange?.start && isSameDay(dayDate, hoveredDateRange.start),
+      ['ewc-datepicker__day-last-in-range']:
+        hoveredDateRange?.end &&
+        isSameDay(dayDate, selDate && hoveredDateRange.end < selDate ? selDate : hoveredDateRange.end),
+      ['ewc-datepicker__day-start-of-week']: isSameDay(dayDate, firstDayOfWeek),
+      ['ewc-datepicker__day-start-of-month']: dayDate.getDate() === 1,
+      ['ewc-datepicker__day-end-of-week']: isSameDay(dayDate, lastDayOfWeek),
     });
     if (isInCurrentMonth) {
       if (!dayComponent.props.disabled) {
         return (
-          <button aria-label={`Velg dato, ${format(day, 'd')}`} className={dayClasses}>
+          <button
+            aria-label={`Velg dato, ${format(day, 'd')}`}
+            className={dayClasses}
+            onMouseOver={(event) => onDateElementMouseOver?.(event, day)}
+          >
             {format(day, 'd')}
           </button>
         );
@@ -528,7 +575,7 @@ export const Datepicker: FC<DatepickerProps> = ({
             leftArrowIcon={replaceMuiArrowIcon(true)}
             rightArrowIcon={replaceMuiArrowIcon(false)}
             ToolbarComponent={replaceMuiToolbar}
-            renderDay={(day: any, selectedDate: any, isInCurrentMonth: any, dayComponent: any) =>
+            renderDay={(day, _selectedDate, isInCurrentMonth, dayComponent) =>
               replaceMuiDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
             }
             inputProps={{ ref: inputRef }}
@@ -547,6 +594,7 @@ export const Datepicker: FC<DatepickerProps> = ({
               anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
               transformOrigin: { horizontal: 'left', vertical: 'top' },
               ref: datepickerPopoverRef,
+              onMouseOver: (event) => onDatepickerPopoverMouseOver?.(event),
             }}
             InputAdornmentProps={{
               'aria-required': isRequired,

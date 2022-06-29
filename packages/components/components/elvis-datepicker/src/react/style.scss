@@ -483,27 +483,97 @@ $datepicker-max-width: 448px;
       align-items: center;
       justify-content: center;
       background: transparent;
-      border: 1px solid white;
+      box-sizing: border-box;
+      border: 1px solid transparent;
       border-radius: 50%;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+
+      // Before-elements are used to mark for date range
+      &.ewc-datepicker__day-in-range {
+        &::before {
+          content: '';
+          position: absolute;
+          z-index: -2;
+          height: 30px;
+          width: 40px;
+          background-color: $grey-05;
+          border-radius: 0;
+        }
+
+        &.ewc-datepicker__day-first-in-range::before {
+          width: 32px;
+          transform: translate(4px, 0);
+          border-top-left-radius: 50%;
+          border-bottom-left-radius: 50%;
+        }
+        &.ewc-datepicker__day-last-in-range::before {
+          width: 36px;
+          transform: translate(-2.5px, 0);
+          border-top-right-radius: 50%;
+          border-bottom-right-radius: 50%;
+        }
+        &.ewc-datepicker__day-start-of-week::before,
+        &.ewc-datepicker__day-start-of-month::before {
+          width: 36px;
+          transform: translate(2px, 0);
+          border-top-left-radius: 50%;
+          border-bottom-left-radius: 50%;
+        }
+        &.ewc-datepicker__day-end-of-week::before {
+          width: 36px;
+          transform: translate(-2.5px, 0);
+          border-top-right-radius: 50%;
+          border-bottom-right-radius: 50%;
+        }
+        &.ewc-datepicker__day-first-in-range {
+          font-weight: 500;
+        }
+        &.ewc-datepicker__day-first-in-range::after {
+          content: '';
+          position: absolute;
+          z-index: -1;
+          width: 32px;
+          height: 32px;
+          background-color: $green;
+          border-radius: 50%;
+          border: 1px solid white;
+        }
+        &.ewc-datepicker__day-first-in-range.ewc-datepicker__day-end-of-week::before,
+        &.ewc-datepicker__day-last-in-range.ewc-datepicker__day-start-of-week::before,
+        &.ewc-datepicker__day-last-in-range.ewc-datepicker__day-start-of-month::before {
+          background: transparent;
+        }
+        &.ewc-datepicker__day-first-in-range.ewc-datepicker__day-last-in-range::before {
+          visibility: hidden;
+        }
+      }
 
       // Selected day
       &.ewc-datepicker__day-selected,
       &.ewc-datepicker__day-current.ewc-datepicker__day-selected {
-        border: 1px solid white;
-        background: $green;
         font-weight: 500;
-        &:hover {
-          border: 1px solid $green;
-          background: $green;
-        }
+      }
+      &.ewc-datepicker__day-selected::after,
+      &.ewc-datepicker__day-current.ewc-datepicker__day-selected::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 32px;
+        height: 32px;
+        background-color: $green;
+        border-radius: 50%;
+        border: 1px solid white;
       }
       // Current day
       &.ewc-datepicker__day-current {
         position: relative;
         background: white;
         border: 1px solid transparent;
+        border-radius: 50%;
         font-weight: 400;
-        &::after {
+        &:not(.ewc-datepicker__day-first-in-range):not(.ewc-datepicker__day-selected)::after {
           content: '';
           position: absolute;
           border-radius: 50%;
@@ -513,9 +583,6 @@ $datepicker-max-width: 448px;
           top: 25px;
           left: 12.5px;
         }
-        &:hover {
-          border: 1px solid $green !important;
-        }
         &.ewc-datepicker__day-disabled {
           &::after {
             background: $text-disabled;
@@ -523,19 +590,17 @@ $datepicker-max-width: 448px;
         }
       }
 
-      // Hover
-      &:hover {
-        border: 1px solid $green;
-        background: white;
+      // Hover border
+      &:not(.ewc-datepicker__day-disabled):hover {
+        border-radius: 50%;
+        outline: 1px solid $green !important;
+        outline-offset: -1px;
         cursor: pointer;
       }
       // Disabled
       &.ewc-datepicker__day-disabled {
         color: $text-disabled;
         cursor: not-allowed;
-        &:hover {
-          border: 1px solid white !important;
-        }
       }
     }
 

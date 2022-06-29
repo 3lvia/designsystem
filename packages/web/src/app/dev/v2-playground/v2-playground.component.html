@@ -6,56 +6,10 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <elvia-popover
-        [type]="'list'"
-        [verticalPosition]="'top'"
-        [horizontalPosition]="'center'"
-        (onOpen)="popoverOnOpen()"
-        (onClose)="popoverOnClose()"
-        heading="BankID"
-        horizontalPosition="right"
-        verticalPosition="top"
-        width="200"
-      >
-        <button slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu">
-          <span class="e-btn__icon">
-            <i class="e-icon e-icon--more_menu e-icon--inverted" aria-hidden="true"></i>
-            <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
-          </span>
-        </button>
-        <div slot="content" class="ewc-popover__list">
-          <div class="ewc-popover__list-group">
-            <button>
-              <span>Be om tilgang</span>
-            </button>
-            <button>
-              <span>Legg til bruker</span>
-            </button>
-          </div>
-          <div class="ewc-popover__list-group">
-            <a>
-              <span>Endre passord</span>
-            </a>
-          </div>
-        </div>
-      </elvia-popover>
-      <elvia-popover
-        [type]="'informative'"
-        [content]="
-          'For safe and easy login on My page, you should log in with BankID. Here you can read more about logging in with BankID and functions on My page on Elvia.'
-        "
-        [heading]="'About login'"
-        [verticalPosition]="'top'"
-        (onOpen)="popoverOnOpen()"
-        (onClose)="popoverOnClose()"
-      >
-        <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
-          <span class="e-btn__icon">
-            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-            <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
-          </span>
-        </button>
-      </elvia-popover>
+      <h4>Datepicker range</h4>
+      <elvia-datepicker-range
+        (valueOnChange)="logValue('datepicker range', $event.detail.value)"
+      ></elvia-datepicker-range>
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
