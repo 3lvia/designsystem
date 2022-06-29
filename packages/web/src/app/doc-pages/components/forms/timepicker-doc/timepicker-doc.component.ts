@@ -4,7 +4,6 @@ import { getComponent } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-timepicker-doc',
   templateUrl: './timepicker-doc.component.html',
-  styleUrls: ['./timepicker-doc.component.scss'],
 })
 export class TimepickerDocComponent {
   figmaUrl = getComponent('time-picker').figmaUrl;

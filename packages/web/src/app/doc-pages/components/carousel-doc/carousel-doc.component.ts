@@ -6,7 +6,6 @@ import { exampleContents } from 'src/app/shared/example-contents';
 @Component({
   selector: 'app-carousel-doc',
   templateUrl: './carousel-doc.component.html',
-  styleUrls: ['./carousel-doc.component.scss'],
 })
 export class CarouselDocComponent {
   exampleContents = exampleContents;

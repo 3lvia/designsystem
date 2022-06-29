@@ -4,7 +4,6 @@ import { dividerData } from './divider-data';
 @Component({
   selector: 'app-divider-doc',
   templateUrl: './divider-doc.component.html',
-  styleUrls: ['./divider-doc.component.scss'],
 })
 export class DividerDocComponent {
   figmaUrl = getComponent('divider').figmaUrl;

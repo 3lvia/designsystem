@@ -9,7 +9,6 @@ import { cardDetailCode } from './card-detail-code';
 @Component({
   selector: 'app-card-doc',
   templateUrl: './card-doc.component.html',
-  styleUrls: ['./card-doc.component.scss'],
 })
 export class CardDocComponent {
   examples = exampleContents;

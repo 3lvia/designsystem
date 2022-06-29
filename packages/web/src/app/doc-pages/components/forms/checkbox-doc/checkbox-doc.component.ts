@@ -4,7 +4,6 @@ import { getComponent } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-checkbox-doc',
   templateUrl: './checkbox-doc.component.html',
-  styleUrls: ['./checkbox-doc.component.scss'],
 })
 export class CheckboxDocComponent {
   figmaUrl = getComponent('checkbox').figmaUrl;

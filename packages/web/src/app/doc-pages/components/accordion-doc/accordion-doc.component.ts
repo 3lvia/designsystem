@@ -6,7 +6,6 @@ import { accordionData } from './accodrion-data';
 @Component({
   selector: 'app-accordion-doc',
   templateUrl: './accordion-doc.component.html',
-  styleUrls: ['./accordion-doc.component.scss'],
 })
 export class AccordionDocComponent {
   @ViewChild('accordionLiveExample') accordionLiveExample: ElementRef;

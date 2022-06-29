@@ -5,7 +5,6 @@ import { exampleContents } from 'src/app/shared/example-contents';
 @Component({
   selector: 'app-tag-doc',
   templateUrl: './tag-doc.component.html',
-  styleUrls: ['./tag-doc.component.scss'],
 })
 export class TagDocComponent {
   figmaUrl = getComponent('tag').figmaUrl;

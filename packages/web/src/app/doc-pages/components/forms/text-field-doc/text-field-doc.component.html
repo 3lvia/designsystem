@@ -1,0 +1,187 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Text field</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div class="e-my-48" class="component-preview-temp component-preview-animation">
+    <div class="e-form-field">
+      <label class="e-form-field__label" for="normal">Label</label>
+      <div class="e-text-field">
+        <input id="normal" type="text" placeholder="Placeholder text" />
+      </div>
+    </div>
+    <div class="e-w-100">
+      <app-component-example-v1 [showPreview]="false" [codeHTML]="overviewExample"></app-component-example-v1>
+    </div>
+  </div>
+
+  <!-- TYPE -->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Normal'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Combined & Inlined'">
+        <ng-container ngProjectAs="sectionContent">
+          Use the e-combined-field class on the form-field element to keep two inputs for the same label.
+          <p>
+            Use the e-inlined-field class outside the form-field element to align inputs on the same line.
+            When the zip code is filled in, the post office should be filled in automatically.
+          </p>
+          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Textarea'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="example5"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- OPTIONS -->
+  <app-component-section [sectionTitle]="'Options'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'With button'">
+        <ng-container ngProjectAs="sectionContent">
+          The view_on icon button should be used when showing and hiding a password.
+          <app-component-example-v1 [codeHTML]="exampleIcon"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Without label'">
+        <ng-container ngProjectAs="sectionContent">
+          If you have an input field without a label, make sure that assistive tools are informed in some
+          other way with a description for the input.
+          <app-component-example-v1 [codeHTML]="exampleInputNoLabel"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Optional text fields'">
+        <ng-container ngProjectAs="sectionContent">
+          The e-form-field__label--optional class should be added to the label when the input is not required.
+          <app-component-example-v1 [codeHTML]="exampleOptional"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- SIZE -->
+  <app-component-section [sectionTitle]="'Size'">
+    <ng-container ngProjectAs="sectionContent">
+      There are two different sizes of text field. The width of the container should be proportional to the
+      expected user input and can be changes by setting the width on the container of the text field.
+      <app-component-subsection [sectionTitle]="'Normal'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Compact'">
+        <ng-container ngProjectAs="sectionContent">
+          Compact text fields are typically used in Elvia’s internal systems, where screen real estate is an
+          important factor. Regardless of which style you use for text fields, you should always stick with
+          the same type throughout the page and never mix the two.
+          <app-component-example-v1 [codeHTML]="exampleCompactInput"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+      <app-component-subsection [sectionTitle]="'Validation'">
+        <ng-container ngProjectAs="sectionContent">
+          By default, all fields must be required. Validation is based on the field being filled out.
+          Validation takes place along the way, and the user must also be presented with guidance or error
+          messages. Read more about
+          <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
+            input validation and behaviors here.
+          </a>
+          <div class="exampleContainer e-mt-24">
+            <div class="e-form-field">
+              <label class="e-form-field__label" for="invalid">Label</label>
+              <div class="e-text-field e-text-field---invalid">
+                <button class="e-btn e-btn--icon" (click)="showMockPassword()" aria-label="Vis/skjul passord">
+                  <span class="e-btn__icon">
+                    <i class="e-icon e-icon--view_on" aria-hidden="true" aria-hidden="true"></i>
+                  </span>
+                </button>
+                <input id="validationExample" type="password" value="Passord" invalid #validationExample />
+              </div>
+              <span class="e-form-field__error e-form-field__error--visible">
+                <span>
+                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs" aria-hidden="true"></i>
+                </span>
+                <span>Passord må inneholde både bokstaver og tall</span>
+              </span>
+            </div>
+          </div>
+          <app-component-example-v1
+            [showPreview]="false"
+            [codeHTML]="example4"
+            [codeTS]="example4TS"
+          ></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Patterns'">
+        <ng-container ngProjectAs="sectionContent">
+          Read more about how to use different forms and patterns in forms
+          <a class="e-link e-link--inline" [routerLink]="['/patterns/forms']">here</a>
+          .
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Label'">
+        <ng-container ngProjectAs="sectionContent">
+          Make sure to always add a label that is linked to the input, to make it clear for assistive tools
+          what the input is doing. Use the
+          <span class="code-text">e-form-field</span>
+          classes to get correct styling of labels.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'State'">
+        <ng-container ngProjectAs="sectionContent">
+          Remember to add attributes to the input-fields to the describe the current state of the input to
+          inform assistive technologies. For example
+          <span class="code-text">required</span>
+          ,
+          <span class="code-text">disabled</span>
+          , or
+          <span class="code-text">invalid</span>
+          .
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Validation'">
+        <ng-container ngProjectAs="sectionContent">
+          Remember to add validation classes to help users understand what needs to be corrected.
+          <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
+            Read more about how the validation should happen
+          </a>
+          .
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-text-field'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-text-field'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
+</div>

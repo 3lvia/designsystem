@@ -4,7 +4,6 @@ import { getComponent } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-toggle-doc',
   templateUrl: './toggle-doc.component.html',
-  styleUrls: ['./toggle-doc.component.scss'],
 })
 export class ToggleDocComponent {
   figmaUrl = getComponent('toggle').figmaUrl;

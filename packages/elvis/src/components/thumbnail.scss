@@ -9,7 +9,6 @@
   background: transparent;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -17,13 +16,10 @@
 
   img {
     width: var(--e-spacing-56);
+    border-radius: 8px;
     aspect-ratio: 1/1;
     object-fit: cover;
-    object-fit: cover;
     vertical-align: bottom;
-    border-radius: 8px;
-    position: relative;
-    border-radius: 8px;
   }
 
   &::after {

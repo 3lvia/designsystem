@@ -4,7 +4,6 @@ import { getComponent } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-button-doc',
   templateUrl: './button-doc.component.html',
-  styleUrls: ['./button-doc.component.scss'],
 })
 export class ButtonDocComponent {
   figmaUrl = getComponent('button').figmaUrl;

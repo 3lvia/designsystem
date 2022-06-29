@@ -4,7 +4,6 @@ import { getComponent } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-link-doc',
   templateUrl: './link-doc.component.html',
-  styleUrls: ['./link-doc.component.scss'],
 })
 export class LinkDocComponent {
   figmaUrl = getComponent('link').figmaUrl;

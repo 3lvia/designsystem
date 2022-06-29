@@ -4,7 +4,6 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-shadow-doc',
   templateUrl: './shadow-doc.component.html',
-  styleUrls: ['./shadow-doc.component.scss'],
 })
 export class ShadowDocComponent {
   figmaUrl = getDocPagesNotFromCMS('shadow').figmaUrl;

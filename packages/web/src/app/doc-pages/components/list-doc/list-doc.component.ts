@@ -5,7 +5,6 @@ import { exampleContents } from 'src/app/shared/example-contents';
 @Component({
   selector: 'app-list-doc',
   templateUrl: './list-doc.component.html',
-  styleUrls: ['./list-doc.component.scss'],
 })
 export class ListDocComponent {
   figmaUrl = getComponent('list').figmaUrl;
