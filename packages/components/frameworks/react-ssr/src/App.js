@@ -104,7 +104,7 @@ function App() {
           {/* Normal version */}
           <div className="e-bg-white">
             <DatepickerRange
-            hasAutoOpenEndDatepicker
+              hasAutoOpenEndDatepicker
               // value={datepickerRangeValue}
               valueOnChange={(event) => console.log(event)}
             ></DatepickerRange>
@@ -194,7 +194,7 @@ function App() {
         {/* DATEPICKER */}
         <div className="example-wrapper">
           <h3>Datepicker</h3>
-          <Datepicker isRequired maxDate={maxDate} hasSelectDateOnOpen={false}></Datepicker>
+          <Datepicker isRequired hasSelectDateOnOpen={false}></Datepicker>
         </div>
         {/* DIVIDER */}
         <div className="example-wrapper">

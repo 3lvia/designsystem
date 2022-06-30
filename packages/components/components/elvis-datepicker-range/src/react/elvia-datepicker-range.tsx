@@ -71,6 +71,26 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
+  const handleStartDatepickerMouseOver = (
+    event: MouseEvent<HTMLButtonElement> & { target: { classList: DOMTokenList; innerText: string } },
+    day: Date,
+  ) => {
+    const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
+
+    if (eventTargetIsDayElementInCalendar) {
+      setHoveredDateRange((current) => {
+        if (current.end) {
+          return {
+            ...current,
+            start: new Date(day),
+          };
+        } else {
+          return current;
+        }
+      });
+    }
+  };
+
   const handleEndDatepickerPopoverMouseOver = (
     event: MouseEvent<HTMLDivElement> & { target: { classList: DOMTokenList; innerText: string } },
   ) => {
@@ -95,6 +115,38 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           return {
             ...current,
             end: null,
+          };
+        } else {
+          return current;
+        }
+      });
+    }
+  };
+
+  const handleStartDatepickerPopoverMouseOver = (
+    event: MouseEvent<HTMLDivElement> & { target: { classList: DOMTokenList; innerText: string } },
+  ) => {
+    const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
+
+    if (eventTargetIsDayElementInCalendar) {
+      return;
+    } else if (selectedDateRange.start) {
+      setHoveredDateRange((current) => {
+        if (current.start) {
+          return {
+            ...current,
+            start: selectedDateRange.start,
+          };
+        } else {
+          return current;
+        }
+      });
+    } else {
+      setHoveredDateRange((current) => {
+        if (current.end) {
+          return {
+            ...current,
+            start: null,
           };
         } else {
           return current;
@@ -151,6 +203,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           setHoveredDateRange(emptyDateRange);
           setSelectedDateRange(emptyDateRange);
         }}
+        onDateElementMouseOver={handleStartDatepickerMouseOver}
+        onDatepickerPopoverMouseOver={handleStartDatepickerPopoverMouseOver}
+        hoveredDateRange={hoveredDateRange}
       ></Datepicker>
       <Datepicker
         label="Til dato"
@@ -161,7 +216,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         onClose={() => setEndDatepickerIsOpen(false)}
         onOpen={() => setEndDatepickerIsOpen(true)}
         onReset={() => {
-          console.log('reset');
           setHoveredDateRange(emptyDateRange);
           setSelectedDateRange(emptyDateRange);
         }}

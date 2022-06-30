@@ -2,7 +2,7 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "28.06.22",
+      "date": "30.06.22",
       "version": "2.11.0",
       "changelog": [
         {
@@ -10,7 +10,8 @@
           "changes": [
             "Addded support for Datepicker range.",
             "Added event <span class=\"code-text\">onReset</span> that triggers whenever the reset button inside the datepicker is clicked.",
-            "Added event <span class=\"code-text\">onDateElementMouseOver</span> that triggers whenever a date element inside the datepicker is moused over. This is used in the datepicker range component. "
+            "Added event <span class=\"code-text\">onDateElementMouseOver</span> that triggers whenever a date element inside the datepicker is moused over. This is used in the datepicker range component. ",
+            "Added event <span class=\"code-text\">onDatepickerPopoverMouseOver</span> that triggers whenever the datepicker popover is moused over. This is used in the datepicker range component. "
           ]
         },
         {

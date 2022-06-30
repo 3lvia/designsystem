@@ -439,7 +439,7 @@ export const Datepicker: FC<DatepickerProps> = ({
       hoveredDateRange.start <= hoveredDateRange.end &&
       isWithinInterval(dayDate, {
         start: hoveredDateRange.start,
-        end: selDate && selDate > hoveredDateRange.end ? selDate : hoveredDateRange.end,
+        end: hoveredDateRange.end,
       });
     const dayClasses = classnames('ewc-datepicker__day', {
       ['ewc-datepicker__day-selected']: selDate && isSameDay(dayDate, selDate) && shouldHaveSelected,
@@ -449,8 +449,7 @@ export const Datepicker: FC<DatepickerProps> = ({
       ['ewc-datepicker__day-first-in-range']:
         hoveredDateRange?.start && isSameDay(dayDate, hoveredDateRange.start),
       ['ewc-datepicker__day-last-in-range']:
-        hoveredDateRange?.end &&
-        isSameDay(dayDate, selDate && hoveredDateRange.end < selDate ? selDate : hoveredDateRange.end),
+        hoveredDateRange?.end && isSameDay(dayDate, hoveredDateRange.end),
       ['ewc-datepicker__day-start-of-week']: isSameDay(dayDate, firstDayOfWeek),
       ['ewc-datepicker__day-start-of-month']: dayDate.getDate() === 1,
       ['ewc-datepicker__day-end-of-week']: isSameDay(dayDate, lastDayOfWeek),
