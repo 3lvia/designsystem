@@ -9,18 +9,20 @@
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-flex e-flex-direction-column e-gap-16 e-align-items-center">
-      <img [src]="selectedImage" alt="Selected image" class="e-w-50" />
-      <div class="e-flex e-gap-8">
-        <button
-          *ngFor="let image of images"
-          class="e-thumbnail"
-          [ngClass]="{ 'e-thumbnail---selected': image.src === selectedImage }"
-          (click)="selectedImage = image.src"
-          aria-label="Thumbnail button that opens the image in a larger view"
-        >
-          <img [src]="image.src" alt="Thumbnail example image" />
-        </button>
+    <div class="e-flex e-align-items-center e-w-50">
+      <div class="e-flex e-flex-direction-column e-gap-16">
+        <img [src]="selectedImage" alt="Selected image" class="e-w-100" />
+        <div class="e-flex e-gap-8 e-align-items-left">
+          <button
+            *ngFor="let image of images"
+            class="e-thumbnail"
+            [ngClass]="{ 'e-thumbnail---selected': image.src === selectedImage }"
+            (click)="selectedImage = image.src"
+            aria-label="Thumbnail button that opens the image in a larger view"
+          >
+            <img [src]="image.src" alt="Thumbnail example image" />
+          </button>
+        </div>
       </div>
     </div>
     <div class="e-w-100">
