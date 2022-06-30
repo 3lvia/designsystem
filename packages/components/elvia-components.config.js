@@ -198,6 +198,7 @@ module.exports = [
       { name: 'value', type: 'object', propType: 'object | undefined' },
       { name: 'isCompact', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasAutoOpenEndDatepicker', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'labelOptions', type: 'object', propType: 'object | undefined' },
     ],
     reactName: 'DatepickerRange',
     elementStyle: 'display: block;',

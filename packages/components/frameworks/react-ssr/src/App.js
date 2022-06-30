@@ -105,8 +105,8 @@ function App() {
           <div className="e-bg-white">
             <DatepickerRange
               hasAutoOpenEndDatepicker
-              // value={datepickerRangeValue}
               valueOnChange={(event) => console.log(event)}
+              labelOptions={{ start: 'Start' }}
             ></DatepickerRange>
           </div>
           {/* Inverted version */}

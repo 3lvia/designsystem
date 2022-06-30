@@ -497,14 +497,15 @@ $datepicker-max-width: 448px;
       z-index: 1;
       cursor: pointer;
 
-      // Before-elements are used to mark for date range
+      // Before-elements are used to add grey background to date range
       &.ewc-datepicker__day-in-range {
         &::before {
           content: '';
           position: absolute;
           z-index: -2;
           height: 30px;
-          width: 40px;
+          width: 42px;
+          transform: translate(-1px, 0);
           background-color: $grey-05;
           border-radius: 0;
         }
@@ -590,21 +591,26 @@ $datepicker-max-width: 448px;
       }
 
       // Selected day
-      &.ewc-datepicker__day-selected,
-      &.ewc-datepicker__day-current.ewc-datepicker__day-selected {
+      &.ewc-datepicker__day-selected {
         font-weight: 500;
-      }
-      &.ewc-datepicker__day-selected::after,
-      &.ewc-datepicker__day-current.ewc-datepicker__day-selected::after {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        width: 32px;
-        height: 32px;
-        background-color: $green;
-        border-radius: 50%;
-        border: 1px solid white;
-        outline: none;
+        &.ewc-datepicker__day-current {
+          font-weight: 500;
+        }
+        &::after,
+        &.ewc-datepicker__day-current::after {
+          content: '';
+          position: absolute;
+          z-index: -1;
+          width: 32px;
+          height: 32px;
+          background-color: $green;
+          border-radius: 50%;
+          border: 1px solid white;
+          outline: none;
+        }
+        &.ewc-datepicker__day-first-in-range.ewc-datepicker__day-last-in-range::after {
+          border: 1px solid black;
+        }
       }
       // Current day
       &.ewc-datepicker__day-current {

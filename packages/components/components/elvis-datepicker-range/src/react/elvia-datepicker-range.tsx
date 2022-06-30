@@ -8,9 +8,19 @@ export interface DateRange {
   end: Date | null;
 }
 
+export interface LabelOptions {
+  start?: string;
+  end?: string;
+}
+
 const emptyDateRange: DateRange = {
   start: null,
   end: null,
+};
+
+const defaultLabelOptions: LabelOptions = {
+  start: 'Fra dato',
+  end: 'Til dato',
 };
 
 export interface DatepickerRangeProps {
@@ -18,6 +28,7 @@ export interface DatepickerRangeProps {
   valueOnChange?: (value: DateRange) => void;
   isCompact?: boolean;
   hasAutoOpenEndDatepicker?: boolean;
+  labelOptions?: LabelOptions;
   webcomponent?: ElvisComponentWrapper;
 }
 
@@ -26,6 +37,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   valueOnChange,
   isCompact,
   hasAutoOpenEndDatepicker,
+  labelOptions,
   webcomponent,
 }) => {
   const [hoveredDateRange, setHoveredDateRange] = useState<DateRange>(value ?? emptyDateRange);
@@ -46,11 +58,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   }, [value]);
 
-  /**
-   * Handles events fired when one of the day elements inside the datepicker is hovered. This is used to add the grey "selected date range"-background.
-   * @param event The event that was fired.
-   * @param day The hovered day.
-   */
   const handleEndDatepickerMouseOver = (
     event: MouseEvent<HTMLButtonElement> & { target: { classList: DOMTokenList; innerText: string } },
     day: Date,
@@ -95,26 +102,12 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     event: MouseEvent<HTMLDivElement> & { target: { classList: DOMTokenList; innerText: string } },
   ) => {
     const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
-
-    if (eventTargetIsDayElementInCalendar) {
-      return;
-    } else if (selectedDateRange.end) {
+    if (!eventTargetIsDayElementInCalendar) {
       setHoveredDateRange((current) => {
         if (current.start) {
           return {
             ...current,
             end: selectedDateRange.end,
-          };
-        } else {
-          return current;
-        }
-      });
-    } else {
-      setHoveredDateRange((current) => {
-        if (current.start) {
-          return {
-            ...current,
-            end: null,
           };
         } else {
           return current;
@@ -127,10 +120,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     event: MouseEvent<HTMLDivElement> & { target: { classList: DOMTokenList; innerText: string } },
   ) => {
     const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
-
-    if (eventTargetIsDayElementInCalendar) {
-      return;
-    } else if (selectedDateRange.start) {
+    if (!eventTargetIsDayElementInCalendar) {
       setHoveredDateRange((current) => {
         if (current.start) {
           return {
@@ -141,25 +131,14 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           return current;
         }
       });
-    } else {
-      setHoveredDateRange((current) => {
-        if (current.end) {
-          return {
-            ...current,
-            start: null,
-          };
-        } else {
-          return current;
-        }
-      });
     }
   };
 
   const handleStartDatepickerValueOnChange = (value: Date | null) => {
-    // If start datepicker is set to a date after the end datepicker, set the end date to null.
+    // If start datepicker is set to a date after the end datepicker, set the end date to value.
     if (value && selectedDateRange?.end && value > selectedDateRange.end) {
-      setHoveredDateRange({ start: value, end: null });
-      setSelectedDateRange({ start: value, end: null });
+      setHoveredDateRange({ start: value, end: value });
+      setSelectedDateRange({ start: value, end: value });
     } else {
       setHoveredDateRange((current) => {
         return { ...current, start: value };
@@ -188,7 +167,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   return (
     <DatepickerRangeWrapper>
       <Datepicker
-        label="Fra dato"
+        label={labelOptions?.start ?? defaultLabelOptions.start}
         isCompact={isCompact}
         hasSelectDateOnOpen={false}
         value={selectedDateRange.start}
@@ -208,7 +187,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         hoveredDateRange={hoveredDateRange}
       ></Datepicker>
       <Datepicker
-        label="Til dato"
+        label={labelOptions?.end ?? defaultLabelOptions.start}
         isCompact={isCompact}
         hasSelectDateOnOpen={false}
         value={selectedDateRange.end}
