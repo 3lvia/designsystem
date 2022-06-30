@@ -225,7 +225,7 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Text field',
     // tslint:disable-next-line: max-line-length
-    description: 'Text fields are boxes the user can type text or number into in a structured format.',
+    description: 'Text fields are input boxes the user can type text or number into in a structured format.',
     docUrl: Pages.Input,
     absolutePath: '/components/' + Pages.Input,
     status: DocPageStatus.Done,

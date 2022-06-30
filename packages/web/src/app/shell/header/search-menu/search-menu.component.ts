@@ -29,7 +29,6 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   isPrideMonth = false;
 
   private onDestroy = new Subject<void>();
-  private onDestroy$ = this.onDestroy.asObservable();
 
   private subscriptions: Subscription = new Subscription();
   private locale: Locale;
@@ -60,7 +59,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       this.closeSearch();
       return;
     }
-    // If the clear search-button is focused, click it instead of thefirst search result
+    // If the clear search-button is focused, click it instead of the first search result
     if (document.activeElement === document.getElementById('search-clear-button')) {
       document.getElementById('search-clear-button').click();
       return;
