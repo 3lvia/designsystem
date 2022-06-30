@@ -21,6 +21,7 @@ export enum Pages {
   Dropdown = 'dropdown',
   Toggle = 'toggle',
   Timepicker = 'time-picker',
+  Thumbnail = 'thumbnail',
   Datepicker = 'datepicker',
   DragAndDrop = 'drag-and-drop',
   FileUpload = 'file-upload',

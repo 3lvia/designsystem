@@ -120,14 +120,14 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
         tabs.push('Native');
       }
     }
+    if (this.codeHTML !== '') {
+      tabs.push('HTML');
+    }
     if (this.codeTS !== '') {
       tabs.push('Typescript');
     }
     if (this.isJS && this.codeTS != '') {
       tabs.push('Javascript');
-    }
-    if (this.codeHTML !== '') {
-      tabs.push('HTML');
     }
     if (this.codeCSS !== '') {
       tabs.push('CSS');
