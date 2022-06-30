@@ -51,7 +51,12 @@
           <span class="e-btn__title ceg-customize-popover-trigger">Customize text</span>
         </button>
         <div slot="content" className="ewc-popover__text">
-          <div *ngFor="let property of customTextProps | keyvalue: keepOriginalOrder; let last = last">
+          <div
+            *ngFor="
+              let property of customTextProps | keyvalue: keepOriginalOrderInCustomTextPopover;
+              let last = last
+            "
+          >
             <div class="e-form-field" [ngClass]="{ 'e-mb-16': !last }" *ngIf="property.value.active">
               <label [for]="property.key" class="e-form-field__label">{{ property.key | titlecase }}</label>
               <div class="e-input" style="width: 300px">
@@ -125,7 +130,12 @@
           </span>
         </button>
         <div slot="content" className="ewc-popover__text">
-          <div *ngFor="let property of customTextProps | keyvalue: keepOriginalOrder; let last = last">
+          <div
+            *ngFor="
+              let property of customTextProps | keyvalue: keepOriginalOrderInCustomTextPopover;
+              let last = last
+            "
+          >
             <div class="e-form-field" [ngClass]="{ 'e-mb-16': !last }" *ngIf="property.value.active">
               <label [for]="property.key" class="e-form-field__label">{{ property.key | titlecase }}</label>
               <div class="e-input" style="width: 300px">

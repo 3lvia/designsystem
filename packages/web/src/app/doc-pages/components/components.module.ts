@@ -30,6 +30,7 @@ import { BreadcrumbDocModule } from './breadcrumb-doc/breadcrumb-doc.module';
 import { TimepickerDocModule } from './forms/timepicker-doc/timepicker-doc.module';
 import { BoxDocModule } from './box-doc/box-doc.module';
 import { SpotlightDocModule } from './spotlight-doc/spotlight-doc.module';
+import { ThumbnailDocModule } from './thumbnail-doc/thumbnail-doc.module';
 
 @NgModule({
   imports: [
@@ -62,6 +63,7 @@ import { SpotlightDocModule } from './spotlight-doc/spotlight-doc.module';
     TabsDocModule,
     TableDocModule,
     TimepickerDocModule,
+    ThumbnailDocModule,
     TooltipDocModule,
     HeaderDocModule,
   ],

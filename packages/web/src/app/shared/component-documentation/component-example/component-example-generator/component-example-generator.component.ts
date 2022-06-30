@@ -5,8 +5,15 @@ import { ExampleCodeService } from '../../example-code.service';
 import * as ElvisIcons from '@elvia/elvis-assets-icons';
 import ComponentData, { AttributeType } from 'src/app/doc-pages/components/component-data.interface';
 import ComponentTypeData from 'src/app/doc-pages/components/component-type-data.interface';
-import { CegFormGroup, DropdownEvent, CegSideFilterEvent, CegFormGroupOption } from './ceg.interface';
+import {
+  CegFormGroup,
+  DropdownEvent,
+  CegSideFilterEvent,
+  CegFormGroupOption,
+  CegCodes,
+} from './ceg.interface';
 import { KeyValue } from '@angular/common';
+import { CegCodeUpdaterService } from 'src/app/core/services/ceg-code-updater.service';
 
 @Component({
   selector: 'app-component-example-generator',
@@ -32,10 +39,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   codeReactSub: Subscription;
   codeVueSub: Subscription;
   codeNativeSub: Subscription;
-  codeReact: ComponentData['codeReact'];
-  codeAngular: ComponentData['codeAngular'];
-  codeVue: ComponentData['codeVue'];
-  codeNative: ComponentData['codeNativeHTML'];
+  cegCodes: CegCodes;
   dynamicCode: SafeHtml;
 
   customTextProps: {
@@ -67,27 +71,33 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   topFilterFormStates: { [key: string]: string } = {};
 
-  constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) {}
+  constructor(
+    private cegService: ExampleCodeService,
+    private cegCodeUpdaterService: CegCodeUpdaterService,
+    private domSanitizer: DomSanitizer,
+  ) {}
 
   ngOnInit(): void {
-    this.codeAngular = this.componentData.codeAngular ? this.componentData.codeAngular : '';
-    this.codeReact = this.componentData.codeReact ? this.componentData.codeReact : '';
-    this.codeVue = this.componentData.codeVue ? this.componentData.codeVue : '';
-    this.codeNative = this.componentData.codeNativeHTML ? this.componentData.codeNativeHTML : '';
+    this.cegCodes = {
+      angular: this.componentData.codeAngular ? this.componentData.codeAngular : '',
+      react: this.componentData.codeReact ? this.componentData.codeReact : '',
+      vue: this.componentData.codeVue ? this.componentData.codeVue : '',
+      native: this.componentData.codeNativeHTML ? this.componentData.codeNativeHTML : '',
+    };
     if (this.inlineExample) {
       return;
     }
     this.codeAngularSub = this.cegService.listenCodeAngular().subscribe((code) => {
-      this.codeAngular = code;
+      this.cegCodes.angular = code;
     });
     this.codeReactSub = this.cegService.listenCodeReact().subscribe((code) => {
-      this.codeReact = code;
+      this.cegCodes.react = code;
     });
     this.codeVueSub = this.cegService.listenCodeVue().subscribe((code) => {
-      this.codeVue = code;
+      this.cegCodes.vue = code;
     });
     this.codeNativeSub = this.cegService.listenCodeNative().subscribe((code) => {
-      this.codeNative = code;
+      this.cegCodes.native = code;
       this.updateCegFrame(code);
     });
 
@@ -125,11 +135,19 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
   }
 
+  /**
+   * Called whenever any of the dropdowns in the CEG is changed.
+   */
   updateFormStates(propName: string, event: DropdownEvent): void {
     const value = event.detail.value.label;
     this.addToFormStates(propName, value);
   }
 
+  /**
+   * Called every time the dropdown controlling the type of a component is changed.
+   *
+   * **NB**: This method applies to components **not** using `typesData`!
+   */
   updateSelectedType(event: DropdownEvent, icon?: boolean): void {
     const label = event.detail.value.label;
     const value = event.detail.value.value;
@@ -143,15 +161,20 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
   }
 
+  /**
+   * Called every time the dropdown controlling the type of a component is changed.
+   *
+   * **NB**: This method applies to components using `typesData`!
+   */
   updateSelectedTypeCustom(event: DropdownEvent): void {
     const label = event.detail.value.label;
     this.typesData.forEach((element) => {
       if (element.type === label.toLowerCase()) {
         this.selectedType = label;
-        this.codeReact = element.codeReact;
-        this.codeAngular = element.codeAngular;
-        this.codeVue = element.codeVue ? element.codeVue : '';
-        this.codeNative = element.codeNativeHTML;
+        this.cegCodes.react = element.codeReact;
+        this.cegCodes.angular = element.codeAngular;
+        this.cegCodes.vue = element.codeVue ? element.codeVue : '';
+        this.cegCodes.native = element.codeNativeHTML;
       }
     });
     if (this.typePropExists) {
@@ -169,6 +192,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     });
   }
 
+  /**
+   * Called every time the dropdown controlling the background of a component is changed.
+   */
   updateSelectedBg(event: DropdownEvent): void {
     const label = event.detail.value.label;
     this.selectedBg = label;
@@ -202,13 +228,17 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   /**
    * Used to order the elements in the *Customize text*-popover.
-   * @param left
+   * @param _left
    * @param _right
    * @returns
    */
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  keepOriginalOrder(left: KeyValue<any, any>, _right: KeyValue<any, any>): number {
-    return left.key;
+  keepOriginalOrderInCustomTextPopover(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    _left: KeyValue<string, typeof this.customTextProps[0]>,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    _right: KeyValue<string, typeof this.customTextProps[0]>,
+  ): 1 {
+    return 1;
   }
 
   /**
@@ -218,9 +248,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     Object.entries(this.customTextProps).forEach(([prop, value]) => {
       // Remove empty props, otherwise update
       if (value.value) {
-        this.updateSelected(prop, value.value.toString(), 'string');
+        this.updateSelected(prop, value.value.toString(), 'string', false);
       } else {
-        this.removeProps(prop);
+        this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, prop);
       }
       this.updateExampleCode();
     });
@@ -262,33 +292,24 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     this.showCustomTextPopover = true;
   }
 
+  /**
+   * Updates the value of a property in the CEG codes.
+   * @param attr Name of the attribute to update.
+   * @param newValue New value of the attribute.
+   * @param cegType Type of the attribute (e.g. string, boolean).
+   * @param updateExampleCode Whether to update code examples in the CEG (default true).
+   */
   private updateSelected(attr: string, newValue: string, cegType: string, updateExampleCode?: boolean): void {
     const updateCode = updateExampleCode ? updateExampleCode : true;
-    const elNameR = this.componentData.elementNameR;
-    const elNameW = this.componentData.elementNameW;
-    if (this.codeAngular.includes(`[${attr}]`)) {
-      this.codeReact = this.cegService.replaceOldProp(this.codeReact, attr, newValue, 'react', cegType);
-      this.codeAngular = this.cegService.replaceOldProp(this.codeAngular, attr, newValue, 'angular', cegType);
-      this.codeVue = this.cegService.replaceOldProp(this.codeVue, attr, newValue, 'vue', cegType);
-      this.codeNative = this.cegService.replaceOldProp(this.codeNative, attr, newValue, 'native', cegType);
+    if (this.cegCodes.angular.includes(`[${attr}]`)) {
+      this.cegCodes = this.cegCodeUpdaterService.replaceOldProps(this.cegCodes, attr, newValue, cegType);
     } else {
-      this.codeReact = this.cegService.addNewProp(this.codeReact, attr, newValue, 'react', cegType, elNameR);
-      this.codeAngular = this.cegService.addNewProp(
-        this.codeAngular,
+      this.cegCodes = this.cegCodeUpdaterService.addNewProps(
+        this.cegCodes,
+        this.componentData,
         attr,
         newValue,
-        'angular',
         cegType,
-        elNameW,
-      );
-      this.codeVue = this.cegService.addNewProp(this.codeVue, attr, newValue, 'vue', cegType, elNameW);
-      this.codeNative = this.cegService.addNewProp(
-        this.codeNative,
-        attr,
-        newValue,
-        'native',
-        cegType,
-        elNameW,
       );
     }
     if (updateCode) {
@@ -296,6 +317,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
   }
 
+  /**
+   * Called during `ngOnInit` to initialize the forms for the CEG side filters. Populates the `this.formGroupList`-object from `this.componentData.attributes`.
+   */
   private initializeSideFilterFormGroups(): void {
     const props = this.componentData.attributes;
     let checkboxIndex: number = undefined;
@@ -313,20 +337,18 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       }
       const formType = prop.cegFormType;
       if (formType === 'radio') {
-        const formGroupOptions: CegFormGroupOption[] = [];
-        let formOption: CegFormGroupOption;
-        prop.cegOptions.forEach((option) => {
-          formOption = {
+        const formGroupOptions = prop.cegOptions.map((option) => {
+          const formOption: CegFormGroupOption = {
             name: option,
             defaultValue: prop.cegDefault === option,
           };
-          formGroupOptions.splice(index, 0, formOption);
+          return formOption;
         });
         const formGroupObject: CegFormGroup = {
           formType: formType,
           label: prop.cegDisplayName,
           type: prop.cegType,
-          formGroupOptions,
+          formGroupOptions: formGroupOptions,
           propName: propKey,
           dependency: prop.cegDependency,
           defaultValue: prop.cegDefault,
@@ -373,6 +395,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     this.initializeCheckboxFormGroups(checkboxIndex);
   }
 
+  /**
+   * Called by `this.initializeSideFilterFormGroups` to initialize the checkboxes in the CEG side filters.
+   */
   private initializeCheckboxFormGroups(checkboxIndex: number): void {
     const checkboxGroups = this.sortCheckboxesByGroup(this.allCheckboxes);
     const checkboxList = [];
@@ -447,6 +472,11 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
   }
 
+  /**
+   * Sorts CEG side filter checkboxes by their `cegDisplayGroup` property.
+   * All properties with the same `cegDisplayGroup` will be displayed under the same group.
+   * @returns Object where each key is a `cegDisplayGroup` and the value is an array of checkboxes with that `cegDisplayGroup`.
+   */
   private sortCheckboxesByGroup<T extends typeof this.allCheckboxes>(
     checkboxGroups: T,
   ): { [cegDisplayGroup: string]: T } {
@@ -475,18 +505,11 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
   }
 
-  private removeProps(attr: string): void {
-    this.codeReact = this.cegService.removeProp(this.codeReact, attr);
-    this.codeAngular = this.cegService.removeProp(this.codeAngular, attr);
-    this.codeVue = this.cegService.removeProp(this.codeVue, attr);
-    this.codeNative = this.cegService.removeProp(this.codeNative, attr);
-  }
-
   // CEG code-view updates
   private updateExampleCode(): void {
-    this.cegService.updateCodeReact(this.codeReact);
-    this.cegService.updateCodeAngular(this.codeAngular);
-    this.cegService.updateCodeVue(this.codeVue);
-    this.cegService.updateCodeNative(this.codeNative);
+    this.cegService.updateCodeReact(this.cegCodes.react);
+    this.cegService.updateCodeAngular(this.cegCodes.angular);
+    this.cegService.updateCodeVue(this.cegCodes.vue);
+    this.cegService.updateCodeNative(this.cegCodes.native);
   }
 }
