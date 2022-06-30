@@ -2,7 +2,6 @@ import React, { FC, useState, useRef, useEffect, CSSProperties } from 'react';
 import './style.scss';
 import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import toolbox from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import { getColor } from '@elvia/elvis-colors';
@@ -508,30 +507,12 @@ export const Datepicker: FC<DatepickerProps> = ({
     return disableDate;
   };
 
-  /**
-   * Overriding material theme
-   */
-  const materialTheme = createTheme({
-    props: {
-      MuiButtonBase: {
-        disableRipple: true,
-      },
-      MuiPopover: {
-        style: {
-          zIndex: 99999,
-        },
-      },
-      MuiInputBase: {
-        className: isDatepickerOpen ? 'Mui-focused' : undefined,
-      },
-    },
-  });
-
   const datePickerClasses = classnames('ewc-datepicker', {
     ['ewc-datepicker--error']: showError || (isErrorState && !hasFocus),
     ['ewc-datepicker--compact']: isCompact !== false,
     ['ewc-datepicker--unselected']: value === null,
     ['ewc-datepicker--full-width']: isFullWidth,
+    ['ewc-datepicker--open']: isDatepickerOpen,
   });
 
   return (
@@ -554,57 +535,61 @@ export const Datepicker: FC<DatepickerProps> = ({
         </label>
       )}
 
-      <ThemeProvider theme={materialTheme}>
-        <MuiPickersUtilsProvider utils={DateFnsUtils} locale={nbLocale}>
-          <KeyboardDatePicker
-            variant="inline"
-            autoOk={true}
-            value={selectedDate}
-            placeholder={placeholder}
-            format="dd.MM.yyyy"
-            rifmFormatter={replaceMuiDateFormat}
-            disabled={isDisabled === true}
-            fullWidth={isFullWidth === true}
-            minDate={minDate ? minDate : undefined}
-            maxDate={maxDate ? maxDate : undefined}
-            onChange={handleDateChange}
-            onFocus={onFocus}
-            open={isDatepickerOpen}
-            onOpen={handleOpenDatepicker}
-            onClose={handleCloseDatepicker}
-            keyboardIcon={replaceMuiCalIcon()}
-            leftArrowIcon={replaceMuiArrowIcon(true)}
-            rightArrowIcon={replaceMuiArrowIcon(false)}
-            ToolbarComponent={replaceMuiToolbar}
-            renderDay={(day, _selectedDate, isInCurrentMonth, dayComponent) =>
-              replaceMuiDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
-            }
-            inputProps={{ ref: inputRef }}
-            KeyboardButtonProps={{
-              'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
-            }}
-            leftArrowButtonProps={{
-              'aria-label': 'Vis forrige måned',
-            }}
-            rightArrowButtonProps={{
-              'aria-label': 'Vis neste måned',
-            }}
-            PopoverProps={{
-              'aria-modal': true,
-              'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
-              anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
-              transformOrigin: { horizontal: 'left', vertical: 'top' },
-              ref: datepickerPopoverRef,
-              onMouseOver: (event) => onDatepickerPopoverMouseOver?.(event),
-            }}
-            InputAdornmentProps={{
-              'aria-required': isRequired,
-            }}
-            initialFocusedDate={initialFocusedDate}
-            shouldDisableDate={disableDateWrapper()}
-          />
-        </MuiPickersUtilsProvider>
-      </ThemeProvider>
+      <MuiPickersUtilsProvider utils={DateFnsUtils} locale={nbLocale}>
+        <KeyboardDatePicker
+          variant="inline"
+          autoOk={true}
+          value={selectedDate}
+          placeholder={placeholder}
+          format="dd.MM.yyyy"
+          rifmFormatter={replaceMuiDateFormat}
+          disabled={isDisabled === true}
+          fullWidth={isFullWidth === true}
+          minDate={minDate ? minDate : undefined}
+          maxDate={maxDate ? maxDate : undefined}
+          onChange={handleDateChange}
+          onFocus={onFocus}
+          open={isDatepickerOpen}
+          onOpen={handleOpenDatepicker}
+          onClose={handleCloseDatepicker}
+          keyboardIcon={replaceMuiCalIcon()}
+          leftArrowIcon={replaceMuiArrowIcon(true)}
+          rightArrowIcon={replaceMuiArrowIcon(false)}
+          ToolbarComponent={replaceMuiToolbar}
+          renderDay={(day, _selectedDate, isInCurrentMonth, dayComponent) =>
+            replaceMuiDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
+          }
+          inputProps={{ ref: inputRef }}
+          KeyboardButtonProps={{
+            'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
+            disableRipple: true,
+          }}
+          leftArrowButtonProps={{
+            'aria-label': 'Vis forrige måned',
+            disableRipple: true,
+          }}
+          rightArrowButtonProps={{
+            'aria-label': 'Vis neste måned',
+            disableRipple: true,
+          }}
+          PopoverProps={{
+            style: {
+              zIndex: 99999,
+            },
+            'aria-modal': true,
+            'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
+            anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
+            transformOrigin: { horizontal: 'left', vertical: 'top' },
+            ref: datepickerPopoverRef,
+            onMouseOver: (event) => onDatepickerPopoverMouseOver?.(event),
+          }}
+          InputAdornmentProps={{
+            'aria-required': isRequired,
+          }}
+          initialFocusedDate={initialFocusedDate}
+          shouldDisableDate={disableDateWrapper()}
+        />
+      </MuiPickersUtilsProvider>
 
       {showError && (
         <div className="ewc-datepicker__error">

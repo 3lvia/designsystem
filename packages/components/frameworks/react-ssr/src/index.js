@@ -15,9 +15,9 @@ if (root && root.innerHTML !== '') {
   renderMethod = ReactDOM.render;
 }
 renderMethod(
-  // <React.StrictMode>
-  <App />,
-  // </React.StrictMode>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root'),
 );
 

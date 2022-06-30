@@ -17,7 +17,8 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed a bug that caused the <span class=\"code-text\">valueOnChange</span> event to fire when the <span class=\"code-text\">value</span> property was set on the component."
+            "Fixed a bug that caused the <span class=\"code-text\">valueOnChange</span> event to fire when the <span class=\"code-text\">value</span> property was set on the component.",
+            "Fixed a bug that caused the datepicker to add style tags to the <head> every time it was updated, sometimes causing the page to crash. "
           ]
         }
       ]

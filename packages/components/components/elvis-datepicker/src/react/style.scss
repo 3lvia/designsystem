@@ -134,6 +134,13 @@ $datepicker-max-width: 448px;
       }
     }
   }
+  &.ewc-datepicker--open {
+    .MuiInputBase-root {
+      border: 1px solid transparent;
+      outline: 2px solid #29d305 !important;
+      outline-offset: -1px;
+    }
+  }
 
   // INPUT BORDER
   .MuiInput-underline:after,
