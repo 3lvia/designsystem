@@ -9,19 +9,19 @@
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-flex e-gap-8">
-      <button class="e-thumbnail e-thumbnail---selected">
-        <img src="assets/thumbnail/image.png" alt="Thumbnail example image 1" />
-      </button>
-      <button class="e-thumbnail">
-        <img src="assets/thumbnail/image-1.png" alt="Thumbnail example image 2" />
-      </button>
-      <button class="e-thumbnail">
-        <img src="assets/thumbnail/image-2.png" alt="Thumbnail example image 3" />
-      </button>
-      <button class="e-thumbnail">
-        <img src="assets/thumbnail/image-3.png" alt="Thumbnail example image 4" />
-      </button>
+    <div class="e-flex e-flex-direction-column e-gap-16 e-align-items-center">
+      <img [src]="selectedImage" alt="Selected image" class="e-w-50" />
+      <div class="e-flex e-gap-8">
+        <button
+          *ngFor="let image of images"
+          class="e-thumbnail"
+          [ngClass]="{ 'e-thumbnail---selected': image.src === selectedImage }"
+          (click)="selectedImage = image.src"
+          aria-label="Thumbnail button that opens the image in a larger view"
+        >
+          <img [src]="image.src" alt="Thumbnail example image" />
+        </button>
+      </div>
     </div>
     <div class="e-w-100">
       <app-component-example-v1
@@ -30,6 +30,24 @@
       ></app-component-example-v1>
     </div>
   </div>
+
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'ARIA'">
+        <ng-container ngProjectAs="sectionContent">
+          <ul class="e-list">
+            <li>
+              <strong>Aria label:</strong>
+              Remember to always add a descriptive
+              <span class="code-text">aria-label</span>
+              to the thumbnail button.
+            </li>
+          </ul>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
 
   <!--PROPERTIES-->
   <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-thumbnail'">

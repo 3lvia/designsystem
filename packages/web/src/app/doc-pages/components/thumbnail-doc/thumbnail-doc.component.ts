@@ -9,18 +9,21 @@ export class ThumbnailDocComponent {
   figmaUrl = getComponent('thumbnail').figmaUrl;
   description = getComponent('thumbnail').description;
 
-  thumbnailExample = `<div class="e-flex e-gap-8">
-  <button class="e-thumbnail e-thumbnail---selected">
-    <img src="assets/thumbnail/image.png" alt="Thumbnail example image 1" />
-  </button>
-  <button class="e-thumbnail">
-    <img src="assets/thumbnail/image-1.png" alt="Thumbnail example image 2" />
-  </button>
-  <button class="e-thumbnail">
-    <img src="assets/thumbnail/image-2.png" alt="Thumbnail example image 3" />
-  </button>
-  <button class="e-thumbnail">
-    <img src="assets/thumbnail/image-3.png" alt="Thumbnail example image 4" />
-  </button>
-</div>`;
+  thumbnailExample = `<!--NB! This code is simplified to only include the CSS we provide.-->
+<button
+  class="e-thumbnail"
+  [ngClass]="{ 'e-thumbnail---selected': image === selectedImage }"
+  aria-label="Thumbnail button that opens the image in a larger view"
+>
+  <img src="assets/thumbnail/image.jpg" alt="Thumbnail example image" />
+</button>
+`;
+
+  selectedImage = 'assets/thumbnail/image-3.JPG';
+  images = [
+    { src: 'assets/thumbnail/image-3.JPG' },
+    { src: 'assets/thumbnail/image-1.JPG' },
+    { src: 'assets/thumbnail/image-2.JPG' },
+    { src: 'assets/thumbnail/image.JPG' },
+  ];
 }
