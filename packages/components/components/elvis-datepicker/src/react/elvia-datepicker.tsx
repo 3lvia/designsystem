@@ -28,7 +28,7 @@ export interface DatepickerProps {
   minDate?: Date;
   maxDate?: Date;
   valueOnChange?: (value: Date | null) => void;
-  valueOnChangeISOString?: (value: string | null) => void;
+  valueOnChangeISOString?: (value: string | Date | null) => void;
   onOpen?: () => void;
   onClose?: () => void;
   webcomponent?: ElvisComponentWrapper;
@@ -138,6 +138,9 @@ export const Datepicker: FC<DatepickerProps> = ({
    * Sets the selected date and dispatches the valueOnChange event
    */
   const handleDateChange = (date: Date | null): void => {
+    if (date?.toString() === selectedDate?.toString()) {
+      return;
+    }
     hasValidation && validateDate(date);
 
     // Set time component of the selected date to 0 by creating a new date object.
@@ -156,13 +159,11 @@ export const Datepicker: FC<DatepickerProps> = ({
    * Handle valueOnChangeISOString event. If newDate is not valid, formatISO crashes the component.
    */
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
-    if (isValid(newDate)) {
-      const dateISO = newDate ? formatISO(newDate, { representation: 'date' }) : null;
-      if (!webcomponent) {
-        valueOnChangeISOString?.(dateISO);
-      } else {
-        webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
-      }
+    const dateISO = newDate && isValid(newDate) ? formatISO(newDate, { representation: 'date' }) : newDate;
+    if (!webcomponent) {
+      valueOnChangeISOString?.(dateISO);
+    } else {
+      webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
     }
   };
 
