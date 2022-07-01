@@ -98,7 +98,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const handleEndDatepickerPopoverMouseOver = (
+  const handleEndDatepickerPopoverPointerMove = (
     event: MouseEvent<HTMLDivElement> & { target: { classList: DOMTokenList; innerText: string } },
   ) => {
     const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
@@ -116,7 +116,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const handleStartDatepickerPopoverMouseOver = (
+  const handleStartDatepickerPopoverPointerMove = (
     event: MouseEvent<HTMLDivElement> & { target: { classList: DOMTokenList; innerText: string } },
   ) => {
     const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
@@ -182,9 +182,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           setHoveredDateRange(emptyDateRange);
           setSelectedDateRange(emptyDateRange);
         }}
-        onDateElementMouseOver={handleStartDatepickerMouseOver}
-        onDatepickerPopoverMouseOver={handleStartDatepickerPopoverMouseOver}
-        hoveredDateRange={hoveredDateRange}
+        dateRangeProps={{
+          hoveredDateRange: hoveredDateRange,
+          onDateElementMouseOver: handleStartDatepickerMouseOver,
+          onDatepickerPopoverPointerMove: handleStartDatepickerPopoverPointerMove,
+        }}
       ></Datepicker>
       <Datepicker
         label={labelOptions?.end ?? defaultLabelOptions.start}
@@ -198,10 +200,12 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           setHoveredDateRange(emptyDateRange);
           setSelectedDateRange(emptyDateRange);
         }}
-        onDateElementMouseOver={handleEndDatepickerMouseOver}
-        onDatepickerPopoverMouseOver={handleEndDatepickerPopoverMouseOver}
         isOpen={endDatepickerIsOpen}
-        hoveredDateRange={hoveredDateRange}
+        dateRangeProps={{
+          hoveredDateRange: hoveredDateRange,
+          onDateElementMouseOver: handleEndDatepickerMouseOver,
+          onDatepickerPopoverPointerMove: handleEndDatepickerPopoverPointerMove,
+        }}
       ></Datepicker>
     </DatepickerRangeWrapper>
   );

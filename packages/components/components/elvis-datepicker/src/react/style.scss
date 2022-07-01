@@ -323,7 +323,7 @@ $datepicker-max-width: 448px;
         @extend %ewc-outline;
       }
     }
-    &-clear {
+    .ewc-datepicker__toolbar-clear {
       background: none;
       color: inherit;
       border: none;
@@ -344,9 +344,9 @@ $datepicker-max-width: 448px;
       font-size: 14px;
       line-height: 115%;
       font-weight: 500;
-    }
-    &-clear:hover {
-      border-color: $green;
+      &:hover {
+        border-color: $green;
+      }
     }
   }
 

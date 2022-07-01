@@ -24,6 +24,12 @@ export interface DateRange {
   end: Date | null;
 }
 
+interface DateRangeProps {
+  hoveredDateRange?: DateRange;
+  onDateElementMouseOver?: (event: React.MouseEvent<HTMLButtonElement>, day: Date) => void;
+  onDatepickerPopoverPointerMove?: (event: React.MouseEvent<HTMLDivElement>) => void;
+}
+
 export interface DatepickerProps {
   value?: Date | null;
   label?: string;
@@ -53,9 +59,7 @@ export interface DatepickerProps {
   hasValidation: boolean;
   clearButtonText: string;
   disableDate?: (day: Date) => boolean;
-  hoveredDateRange?: DateRange;
-  onDateElementMouseOver?: (event: React.MouseEvent<HTMLButtonElement>, day: Date) => void;
-  onDatepickerPopoverMouseOver?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  dateRangeProps?: DateRangeProps;
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -87,9 +91,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   hasValidation = true,
   errorOnChange,
   disableDate,
-  hoveredDateRange,
-  onDateElementMouseOver,
-  onDatepickerPopoverMouseOver,
+  dateRangeProps,
   ...rest
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
@@ -102,6 +104,11 @@ export const Datepicker: FC<DatepickerProps> = ({
   const datepickerRef = useRef<HTMLDivElement>(null);
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const hoveredDateRange = dateRangeProps?.hoveredDateRange;
+  const onDateElementMouseOver = dateRangeProps?.onDateElementMouseOver;
+  const onDatepickerPopoverPointerMove = dateRangeProps?.onDatepickerPopoverPointerMove;
+
   // Unicode character U+00AD - Hack used to avoid date-fns from formatting date before date is valid
   const unicodeChar = '­';
   const showError =
@@ -581,7 +588,7 @@ export const Datepicker: FC<DatepickerProps> = ({
             anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
             transformOrigin: { horizontal: 'left', vertical: 'top' },
             ref: datepickerPopoverRef,
-            onMouseOver: (event) => onDatepickerPopoverMouseOver?.(event),
+            onPointerMove: (event) => onDatepickerPopoverPointerMove?.(event),
           }}
           InputAdornmentProps={{
             'aria-required': isRequired,
