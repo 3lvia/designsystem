@@ -6,6 +6,7 @@ import { RadiobuttonDocModule } from './radiobutton-doc/radiobutton-doc.module';
 import { SegmentedControlsDocModule } from './segmented-controls-doc/segmented-controls-doc.module';
 import { DraganddropDocModule } from './draganddrop-doc/draganddrop-doc.module';
 import { DatepickerDocModule } from './datepicker-doc/datepicker-doc.module';
+import { DatepickerRangeDocModule } from './datepicker-range-doc/datepicker-range-doc.module';
 import { SearchDocModule } from './search-doc/search-doc.module';
 
 @NgModule({
@@ -13,6 +14,7 @@ import { SearchDocModule } from './search-doc/search-doc.module';
     CheckboxDocModule,
     ToggleDocModule,
     DatepickerDocModule,
+    DatepickerRangeDocModule,
     DraganddropDocModule,
     InputDocModule,
     RadiobuttonDocModule,

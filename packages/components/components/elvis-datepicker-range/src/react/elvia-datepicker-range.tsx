@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent, useEffect, useState } from 'react';
+import React, { CSSProperties, FC, MouseEvent, useEffect, useState } from 'react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { DatepickerRangeWrapper } from './styledComponents';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
@@ -26,23 +26,47 @@ const defaultLabelOptions: LabelOptions = {
 export interface DatepickerRangeProps {
   value?: DateRange;
   valueOnChange?: (value: DateRange) => void;
+  minDate?: Date;
+  maxDate?: Date;
   isCompact?: boolean;
+  isDisabled?: boolean;
+  isRequired?: boolean;
+  hasSelectDateOnOpen?: boolean;
   hasAutoOpenEndDatepicker?: boolean;
   labelOptions?: LabelOptions;
   webcomponent?: ElvisComponentWrapper;
+  className?: string;
+  inlineStyle?: { [style: string]: CSSProperties };
 }
 
 export const DatepickerRange: FC<DatepickerRangeProps> = ({
   value,
   valueOnChange,
+  minDate,
+  maxDate,
   isCompact,
+  isDisabled,
+  isRequired,
+  hasSelectDateOnOpen,
   hasAutoOpenEndDatepicker,
   labelOptions,
   webcomponent,
+  className,
+  inlineStyle,
 }) => {
   const [hoveredDateRange, setHoveredDateRange] = useState<DateRange>(value ?? emptyDateRange);
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>(value ?? emptyDateRange);
   const [endDatepickerIsOpen, setEndDatepickerIsOpen] = useState(false);
+
+  /** These props are passed through directly to both the underlying datepickers. */
+  const passThroughProps = {
+    minDate,
+    maxDate,
+    isCompact,
+    isDisabled,
+    isRequired,
+    hasSelectDateOnOpen,
+  };
 
   useEffect(() => {
     if (!webcomponent) {
@@ -165,11 +189,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   return (
-    <DatepickerRangeWrapper>
+    <DatepickerRangeWrapper className={className ?? undefined} style={inlineStyle}>
       <Datepicker
+        {...passThroughProps}
         label={labelOptions?.start ?? defaultLabelOptions.start}
-        isCompact={isCompact}
-        hasSelectDateOnOpen={false}
+        hasSelectDateOnOpen={hasSelectDateOnOpen}
         value={selectedDateRange.start}
         valueOnChange={handleStartDatepickerValueOnChange}
         onClose={() => {
@@ -189,9 +213,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         }}
       ></Datepicker>
       <Datepicker
-        label={labelOptions?.end ?? defaultLabelOptions.start}
-        isCompact={isCompact}
-        hasSelectDateOnOpen={false}
+        {...passThroughProps}
+        label={labelOptions?.end ?? defaultLabelOptions.end}
+        hasSelectDateOnOpen={hasSelectDateOnOpen}
         value={selectedDateRange.end}
         valueOnChange={handleEndDatepickerValueOnChange}
         onClose={() => setEndDatepickerIsOpen(false)}

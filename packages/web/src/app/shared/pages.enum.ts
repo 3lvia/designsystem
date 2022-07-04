@@ -22,6 +22,7 @@ export enum Pages {
   Toggle = 'toggle',
   Timepicker = 'time-picker',
   Datepicker = 'datepicker',
+  DatepickerRange = 'datepicker-range',
   DragAndDrop = 'drag-and-drop',
   FileUpload = 'file-upload',
   RadioFilter = 'radio-filter',

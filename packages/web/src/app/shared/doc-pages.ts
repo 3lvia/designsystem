@@ -172,6 +172,17 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
   },
   {
+    title: 'Date picker range',
+    // tslint:disable-next-line: max-line-length
+    description:
+      'Date picker range is a simple way for the user to quickly select a date range in a calendar dialog. It uses a separate date picker for the start and end date selection.',
+    docUrl: Pages.DatepickerRange,
+    absolutePath: '/components/' + Pages.DatepickerRange,
+    status: DocPageStatus.New,
+    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
+    type: 'Component',
+  },
+  {
     title: 'Drag & drop',
     // tslint:disable-next-line: max-line-length
     description: `Drag & drop is typically used in <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/components/${Pages.FileUpload}">File Upload</a> to show content area.`,
