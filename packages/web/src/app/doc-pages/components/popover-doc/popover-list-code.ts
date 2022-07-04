@@ -7,8 +7,8 @@ const popoverListCode: ComponentTypeData = {
   type={"list"}
   verticalPosition={"top"}
   horizontalPosition={"center"}
-  onOpen={() => isShowing=true}
-  onClose={() => isShowing=false}
+  onOpen={() => setIsShowing(true)}
+  onClose={() => setIsShowing(false)}
   trigger={
     <button className={'e-btn e-btn--icon e-btn--circled ' + (isShowing ? 'e-btn---selected' : '')}>
       <span className="e-btn__icon">

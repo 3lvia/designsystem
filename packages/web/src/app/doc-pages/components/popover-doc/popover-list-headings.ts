@@ -4,8 +4,8 @@ const popoverListHeadingsCode = {
 <Popover
   type={"list"}
   verticalPosition={"bottom"}
-  onOpen={() => isShowing = true}
-  onClose={() => isShowing = false}
+  onOpen={() => setIsShowing(true)}
+  onClose={() => setIsShowing(false)}
   trigger={
     <button className={'e-btn e-btn--icon e-btn--circled ' + (isShowing ? 'e-btn---selected' : '')} aria-label="More menu">
       <span className="e-btn__icon">

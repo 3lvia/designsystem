@@ -18,8 +18,8 @@ const popoverInformativeCode: ComponentTypeData = {
   codeReact: `{/* This example will only work once you have created a isShowing variable */}
 <Popover
   verticalPosition={"top"}
-  onOpen={() => isShowing = true}
-  onClose={() => isShowing = false}
+  onOpen={() => setIsShowing(true)}
+  onClose={() => setIsShowing(false)}
   trigger={
     <button className={'e-btn e-btn--icon e-btn--circled ' + (isShowing ? 'e-btn---selected' : '')} aria-label="Popover trigger">
       <span className="e-btn__icon">
@@ -33,8 +33,8 @@ const popoverInformativeCode: ComponentTypeData = {
   codeAngular: `<!-- This example will only work once you have created a isShowing variable -->
 <elvia-popover 
   [verticalPosition]="'top'"
-  (onOpen)="isShowing = true"
-  (onClose)="isShowing = false"
+  (onOpen)="setIsShowing = true"
+  (onClose)="setIsShowing = false"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" [ngClass]="'e-btn---selected': isShowing" aria-label="Popover trigger">
     <span class="e-btn__icon">
