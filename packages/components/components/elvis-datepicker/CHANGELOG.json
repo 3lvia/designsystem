@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "01.07.22",
+      "version": "2.10.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the <span class=\"code-text\">valueOnChangeISOString</span> prop did not return 'Invalid Date' or 'Null' when the value was not a valid ISO string."
+          ]
+        }
+      ]
+    },
+    {
       "date": "23.06.22",
       "version": "2.10.1",
       "changelog": [
