@@ -418,6 +418,12 @@ export const Datepicker: FC<DatepickerProps> = ({
             aria-label="Nullstill datovelger"
             className="ewc-datepicker__toolbar-clear"
             onClick={handleResetDatepickerOnClick}
+            onKeyDown={(e) =>
+              e.key === 'Enter' &&
+              setTimeout(() => {
+                handleResetDatepickerOnClick();
+              })
+            }
           >
             <Icon name="reset" size="xs" inlineStyle={{ marginRight: '8px' }} />
             {clearButtonText}
@@ -468,6 +474,7 @@ export const Datepicker: FC<DatepickerProps> = ({
             aria-label={`Velg dato, ${format(day, 'd')}`}
             className={dayClasses}
             onMouseOver={(event) => onDateElementMouseOver?.(event, day)}
+            tabIndex={-1}
           >
             {format(day, 'd')}
           </button>

@@ -137,7 +137,7 @@ $datepicker-max-width: 448px;
   &.ewc-datepicker--open {
     .MuiInputBase-root {
       border: 1px solid transparent;
-      outline: 2px solid #29d305 !important;
+      box-shadow: 0 0 0 2px $green;
       outline-offset: -1px;
     }
   }
@@ -497,17 +497,21 @@ $datepicker-max-width: 448px;
       z-index: 1;
       cursor: pointer;
 
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        height: 30px;
+        width: 43px;
+        transform: translate(-2px, 0);
+        background-color: transparent;
+        border-radius: 0;
+      }
+
       // Before-elements are used to add grey background to date range
       &.ewc-datepicker__day-in-range {
         &::before {
-          content: '';
-          position: absolute;
-          z-index: -2;
-          height: 30px;
-          width: 42px;
-          transform: translate(-1px, 0);
           background-color: $grey-05;
-          border-radius: 0;
         }
         &.ewc-datepicker__day-start-of-week::before,
         &.ewc-datepicker__day-start-of-month::before {
@@ -524,7 +528,7 @@ $datepicker-max-width: 448px;
           border-bottom-right-radius: 4px;
         }
         &.ewc-datepicker__day-first-in-range.ewc-datepicker__day-end-of-week::before {
-          width: 31px;
+          width: 30px;
           transform: translate(0, 0);
           border-top-left-radius: 50%;
           border-bottom-left-radius: 50%;
@@ -536,19 +540,19 @@ $datepicker-max-width: 448px;
           border-bottom-left-radius: 50%;
         }
         &.ewc-datepicker__day-last-in-range.ewc-datepicker__day-start-of-week::before {
-          width: 32px;
-          transform: translate(-0.5px, 0);
+          width: 31px;
+          transform: translate(-1px, 0);
           border-top-right-radius: 50%;
           border-bottom-right-radius: 50%;
         }
         &.ewc-datepicker__day-last-in-range::before {
           width: 36px;
-          transform: translate(-2.5px, 0);
+          transform: translate(-3px, 0);
           border-top-right-radius: 50%;
           border-bottom-right-radius: 50%;
         }
         &.ewc-datepicker__day-first-in-range.ewc-datepicker__day-last-in-range::before {
-          transform: translate(0.5px, 0);
+          transform: translate(0, 0);
           width: 30px;
           height: 30px;
           border-radius: 50%;
@@ -568,7 +572,6 @@ $datepicker-max-width: 448px;
           height: 30px;
           border-radius: 50%;
           border: 1px solid black;
-          outline: 1px solid white;
         }
       }
       &.ewc-datepicker__day-last-in-range {
@@ -586,7 +589,6 @@ $datepicker-max-width: 448px;
           height: 30px;
           border-radius: 50%;
           border: 1px solid black;
-          outline: 1px solid white;
         }
       }
 
@@ -601,12 +603,10 @@ $datepicker-max-width: 448px;
           content: '';
           position: absolute;
           z-index: -1;
-          width: 32px;
-          height: 32px;
+          width: 30px;
+          height: 30px;
           background-color: $green;
           border-radius: 50%;
-          border: 1px solid white;
-          outline: none;
         }
         &.ewc-datepicker__day-first-in-range.ewc-datepicker__day-last-in-range::after {
           border: 1px solid black;
@@ -638,9 +638,15 @@ $datepicker-max-width: 448px;
 
       // Hover border
       &:not(.ewc-datepicker__day-disabled):not(.ewc-datepicker__day-selected):hover {
-        border-radius: 50%;
-        outline: 1px solid $green !important;
-        outline-offset: -2px;
+        &::after {
+          content: '';
+          z-index: 2;
+          position: absolute;
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          border: 1px solid $green;
+        }
         cursor: pointer;
       }
       // Disabled
