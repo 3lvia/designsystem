@@ -167,7 +167,6 @@ export const Datepicker: FC<DatepickerProps> = ({
     } else {
       dateISO = 'Invalid Date';
     }
-    // const dateISOString = dateISO === null ? null : 'Invalid Date';
     if (!webcomponent) {
       valueOnChangeISOString?.(dateISO);
     } else {
