@@ -159,7 +159,7 @@ export const Datepicker: FC<DatepickerProps> = ({
    * Handle valueOnChangeISOString event. If newDate is not valid, formatISO crashes the component.
    */
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
-    let dateISO = newDate && isValid(newDate) ? formatISO(newDate, { representation: 'date' }) : newDate;
+    let dateISO;
     if (newDate && isValid(newDate)) {
       dateISO = formatISO(newDate, { representation: 'date' });
     } else if (newDate === null) {
