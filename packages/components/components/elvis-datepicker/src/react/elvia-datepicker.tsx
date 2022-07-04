@@ -159,12 +159,19 @@ export const Datepicker: FC<DatepickerProps> = ({
    * Handle valueOnChangeISOString event. If newDate is not valid, formatISO crashes the component.
    */
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
-    const dateISO = newDate && isValid(newDate) ? formatISO(newDate, { representation: 'date' }) : newDate;
-    const dateISOString = dateISO === null ? null : 'Invalid Date';
-    if (!webcomponent) {
-      valueOnChangeISOString?.(dateISOString);
+    let dateISO = newDate && isValid(newDate) ? formatISO(newDate, { representation: 'date' }) : newDate;
+    if (newDate && isValid(newDate)) {
+      dateISO = formatISO(newDate, { representation: 'date' });
+    } else if (newDate === null) {
+      dateISO = null;
     } else {
-      webcomponent.triggerEvent('valueOnChangeISOString', dateISOString);
+      dateISO = 'Invalid Date';
+    }
+    // const dateISOString = dateISO === null ? null : 'Invalid Date';
+    if (!webcomponent) {
+      valueOnChangeISOString?.(dateISO);
+    } else {
+      webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
     }
   };
 
