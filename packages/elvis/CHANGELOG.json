@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "8.7.0",
+      "date": "July 04, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added <span class=\"code-text\">e-btn---selected</span> classes that can be used when a button has a selected state."
+          ],
+          "components": [{ "displayName": "Button", "url": "https://design.elvia.io/components/button" }]
+        }
+      ]
+    },
+    {
       "version": "8.6.1",
       "date": "June 30, 2022",
       "changelog": [

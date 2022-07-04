@@ -201,6 +201,7 @@
 				"e-btn---focus": {},
 				"e-btn---disabled": {},
 				"e-btn---hover": {},
+				"e-btn---selected": {},
 				"e-btn---active": {}
 			},
 			"modifier": {
@@ -1266,6 +1267,7 @@
 		"e-btn--primary": {},
 		"e-btn---disabled": {},
 		"e-btn---hover": {},
+		"e-btn---selected": {},
 		"e-btn---active": {},
 		"e-btn--secondary": {},
 		"e-btn--tertiary": {},

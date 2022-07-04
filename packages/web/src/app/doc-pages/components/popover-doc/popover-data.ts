@@ -119,11 +119,14 @@ const popoverData: ComponentData = {
   codeVue: ``,
   codeNativeHTML: ``,
   codeNativeScript: `  const popover = document.getElementById('example-elvia-popover');
+  const popoverTrigger = document.getElementById('popover-trigger-button');
   popover.addEventListener('onOpen', () => {
     console.log('Do what you want when popover is opened.');
+    popoverTrigger.classList.add('e-btn---selected');
   });
   popover.addEventListener('onClose', () => {
     console.log('Do what you want when popover is closed.');
+    popoverTrigger.classList.remove('e-btn---selected');
   });
 `,
   changelog: changelogJson.content,
