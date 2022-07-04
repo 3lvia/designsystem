@@ -4,8 +4,8 @@ const popoverListIconsCode = {
 <Popover
   type={"list"}
   verticalPosition={"bottom"}
-  onClose={(event) => showingChanges(event)}
-  onPopover={(event) => showingChanges(event)}
+  onOpen={() => isShowing = true}
+  onClose={() => isShowing = false}
   trigger={
     <button className={'e-btn e-btn--icon e-btn--circled ' + (isShowing ? 'e-btn---selected' : '')} aria-label="More menu">
       <span className="e-btn__icon">
@@ -40,8 +40,8 @@ const popoverListIconsCode = {
 <elvia-popover 
   [type]="'list'"
   [verticalPosition]="'bottom'"
-  (onClose)="showingChanges($event.detail.value)"
-  (onPopover)="showingChanges($event.detail.value)"
+  (onOpen)="isShowing = true"
+  (onClose)="isShowing = false"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" [ngClass]="'e-btn---selected': isShowing" aria-label="More menu">
     <span class="e-btn__icon">
@@ -73,7 +73,8 @@ const popoverListIconsCode = {
 <elvia-popover 
   :type="'list'"
   :verticalPosition="'bottom'"
-  @is-showing-on-change="showingChanges($event.detail.value)"
+  @on-open="isShowing = true"
+  @on-close="isShowing = false"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" :class="[isActive ? isShowing : 'e-btn---selected']" aria-label="More menu">
     <span class="e-btn__icon">
