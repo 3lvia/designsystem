@@ -215,7 +215,7 @@ module.exports = [
     reactName: 'DatepickerRange',
     elementStyle: 'display: block;',
     conditionalElementStyle: [{ name: 'isFullWidth', value: 'true', style: `width: 100%` }],
-    dependentStyleSheet: '@elvia/elvis-datepicker/src/react/style.scss',
+    dependentStyleSheets: ['@elvia/elvis-datepicker/src/react/style.scss'],
     useWrapper: true,
     slotItems: false,
     reactTypescriptDeclaration: true,

@@ -77,10 +77,12 @@ function buildWebComponentsMagically() {
           if (fs.existsSync(sassFile)) {
             result = sass.compile(sassFile).css.toString();
           }
-          if (component.dependentStyleSheet) {
-            const dependentStylePath = resolve.sync(component.dependentStyleSheet);
-            const dependentStyle = sass.compile(dependentStylePath).css.toString();
-            result = dependentStyle + '\n' + result;
+          if (component.dependentStyleSheets) {
+            component.dependentStyleSheets.forEach((dependentStyleSheet) => {
+              const dependentStylePath = resolve.sync(dependentStyleSheet);
+              const dependentStyle = sass.compile(dependentStylePath).css.toString();
+              result = dependentStyle + '\n' + result;
+            });
           }
 
           const lowercaseAttr = component.attributes.map((attr) => attr.name.toLowerCase());

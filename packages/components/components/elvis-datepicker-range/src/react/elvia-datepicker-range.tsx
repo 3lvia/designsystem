@@ -2,7 +2,6 @@ import React, { CSSProperties, FC, MouseEvent, useEffect, useState } from 'react
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { DatepickerRangeWrapper } from './styledComponents';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
-import '@elvia/elvis-datepicker/dist/react/js/style.css';
 
 export interface DateRange {
   start: Date | null;
