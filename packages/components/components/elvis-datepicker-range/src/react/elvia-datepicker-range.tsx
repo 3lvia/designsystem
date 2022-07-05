@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC, MouseEvent, useEffect, useState } from 'react';
+import React, { CSSProperties, FC, PointerEvent, useEffect, useState } from 'react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { DatepickerRangeWrapper } from './styledComponents';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
@@ -93,12 +93,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     return disableDates;
   };
 
-  const handleEndDatepickerMouseOver = (
-    event: MouseEvent<HTMLButtonElement> & { target: { classList: DOMTokenList; innerText: string } },
-    day: Date,
-  ) => {
+  const handleEndDatepickerDateElementPointerMove = (event: PointerEvent<HTMLDivElement>, day: Date) => {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
     const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
-
     if (eventTargetIsDayElementInCalendar) {
       setHoveredDateRange((current) => {
         if (current.start) {
@@ -113,12 +112,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const handleStartDatepickerMouseOver = (
-    event: MouseEvent<HTMLButtonElement> & { target: { classList: DOMTokenList; innerText: string } },
-    day: Date,
-  ) => {
+  const handleStartDatepickerDateElementPointerMove = (event: PointerEvent<HTMLDivElement>, day: Date) => {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
     const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
-
     if (eventTargetIsDayElementInCalendar) {
       setHoveredDateRange((current) => {
         if (current.end) {
@@ -133,9 +131,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const handleEndDatepickerPopoverPointerMove = (
-    event: MouseEvent<HTMLDivElement> & { target: { classList: DOMTokenList; innerText: string } },
-  ) => {
+  const handleEndDatepickerPopoverPointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
     const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
     if (!eventTargetIsDayElementInCalendar) {
       setHoveredDateRange((current) => {
@@ -151,9 +150,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const handleStartDatepickerPopoverPointerMove = (
-    event: MouseEvent<HTMLDivElement> & { target: { classList: DOMTokenList; innerText: string } },
-  ) => {
+  const handleStartDatepickerPopoverPointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
     const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
     if (!eventTargetIsDayElementInCalendar) {
       setHoveredDateRange((current) => {
@@ -225,12 +225,12 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             }, 100);
         }}
         onReset={() => {
-          setHoveredDateRange(emptyDateRange);
-          setSelectedDateRange(emptyDateRange);
+          setHoveredDateRange({ ...selectedDateRange, start: null });
+          setSelectedDateRange({ ...selectedDateRange, start: null });
         }}
         dateRangeProps={{
           hoveredDateRange: hoveredDateRange,
-          onDateElementMouseOver: handleStartDatepickerMouseOver,
+          onDateElementPointerMove: handleStartDatepickerDateElementPointerMove,
           onDatepickerPopoverPointerMove: handleStartDatepickerPopoverPointerMove,
         }}
         disableDate={disableDatesWrapper()?.start}
@@ -244,13 +244,13 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         onClose={() => setEndDatepickerIsOpen(false)}
         onOpen={() => setEndDatepickerIsOpen(true)}
         onReset={() => {
-          setHoveredDateRange(emptyDateRange);
-          setSelectedDateRange(emptyDateRange);
+          setHoveredDateRange({ ...selectedDateRange, end: null });
+          setSelectedDateRange({ ...selectedDateRange, end: null });
         }}
         isOpen={endDatepickerIsOpen}
         dateRangeProps={{
           hoveredDateRange: hoveredDateRange,
-          onDateElementMouseOver: handleEndDatepickerMouseOver,
+          onDateElementPointerMove: handleEndDatepickerDateElementPointerMove,
           onDatepickerPopoverPointerMove: handleEndDatepickerPopoverPointerMove,
         }}
         disableDate={disableDatesWrapper()?.end}

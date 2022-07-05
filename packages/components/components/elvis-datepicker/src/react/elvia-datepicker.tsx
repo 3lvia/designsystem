@@ -26,8 +26,8 @@ export interface DateRange {
 
 interface DateRangeProps {
   hoveredDateRange?: DateRange;
-  onDateElementMouseOver?: (event: React.MouseEvent<HTMLButtonElement>, day: Date) => void;
-  onDatepickerPopoverPointerMove?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onDateElementPointerMove?: (event: React.PointerEvent<HTMLButtonElement>, day: Date) => void;
+  onDatepickerPopoverPointerMove?: (event: React.PointerEvent<HTMLDivElement>) => void;
 }
 
 export interface DatepickerProps {
@@ -106,7 +106,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   const inputRef = useRef<HTMLInputElement>(null);
 
   const hoveredDateRange = dateRangeProps?.hoveredDateRange;
-  const onDateElementMouseOver = dateRangeProps?.onDateElementMouseOver;
+  const onDateElementPointerMove = dateRangeProps?.onDateElementPointerMove;
   const onDatepickerPopoverPointerMove = dateRangeProps?.onDatepickerPopoverPointerMove;
 
   // Unicode character U+00AD - Hack used to avoid date-fns from formatting date before date is valid
@@ -481,7 +481,7 @@ export const Datepicker: FC<DatepickerProps> = ({
           <button
             aria-label={`Velg dato, ${format(day, 'd')}`}
             className={dayClasses}
-            onMouseOver={(event) => onDateElementMouseOver?.(event, day)}
+            onPointerMove={(event) => onDateElementPointerMove?.(event, day)}
             tabIndex={-1}
           >
             {format(day, 'd')}
