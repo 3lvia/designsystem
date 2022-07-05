@@ -170,32 +170,32 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const handleStartDatepickerValueOnChange = (value: Date | null) => {
-    // If start datepicker is set to a date after the end datepicker, set the end date to value.
-    if (value && selectedDateRange?.end && value > selectedDateRange.end) {
-      setHoveredDateRange({ start: value, end: value });
-      setSelectedDateRange({ start: value, end: value });
+  const handleStartDatepickerValueOnChange = (newValue: Date | null) => {
+    // If start datepicker is set to a date after the end datepicker, set the end date to newValue.
+    if (newValue && selectedDateRange?.end && newValue > selectedDateRange.end) {
+      setHoveredDateRange({ start: newValue, end: newValue });
+      setSelectedDateRange({ start: newValue, end: newValue });
     } else {
       setHoveredDateRange((current) => {
-        return { ...current, start: value };
+        return { ...current, start: newValue };
       });
       setSelectedDateRange((current) => {
-        return { ...current, start: value };
+        return { ...current, start: newValue };
       });
     }
   };
 
-  const handleEndDatepickerValueOnChange = (value: Date | null) => {
+  const handleEndDatepickerValueOnChange = (newValue: Date | null) => {
     // If end datepicker is set to a date before the start date, set both to end datepicker value.
-    if (value && selectedDateRange?.start && value < selectedDateRange.start) {
-      setHoveredDateRange({ start: value, end: value });
-      setSelectedDateRange({ start: value, end: value });
+    if (newValue && selectedDateRange?.start && newValue < selectedDateRange.start) {
+      setHoveredDateRange({ start: newValue, end: newValue });
+      setSelectedDateRange({ start: newValue, end: newValue });
     } else {
       setHoveredDateRange((current) => {
-        return { ...current, end: value };
+        return { ...current, end: newValue };
       });
       setSelectedDateRange((current) => {
-        return { ...current, end: value };
+        return { ...current, end: newValue };
       });
     }
   };

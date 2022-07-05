@@ -88,11 +88,6 @@ function App() {
   const tabsItems = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const [isChipLoading, setIsChipLoading] = useState(false);
 
-  const [datepickerRangeValue, setDatepickerRangeValue] = useState({
-    start: new Date(2022, 5, 5),
-    end: new Date(2022, 5, 11),
-  });
-
   return (
     <div className="App">
       <h1>React Preview</h1>
@@ -106,7 +101,6 @@ function App() {
             <DatepickerRange
               hasAutoOpenEndDatepicker
               valueOnChange={(event) => console.log(event)}
-              labelOptions={{ start: 'Start' }}
               disableDates={{ start: (day) => day.getDay() === 0, end: (day) => day.getDay() === 6 }}
             ></DatepickerRange>
           </div>

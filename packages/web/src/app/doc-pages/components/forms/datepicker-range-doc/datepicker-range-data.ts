@@ -78,6 +78,18 @@ const datepickerRangeData: ComponentData = {
       cegOption: 'false',
       cegDisplayGroup: 'Options',
     },
+    hasAutoOpenEndDatepicker: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Auto opens the end datepicker when the start datepicker is closed.',
+      default: 'false',
+      cegDisplayName: 'Auto open end datepicker',
+      cegType: 'boolean',
+      cegDefault: false,
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Options',
+    },
     minDate: {
       isRequired: false,
       type: 'Date',
