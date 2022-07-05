@@ -74,7 +74,7 @@
       width: 100%;
       pointer-events: none;
       overflow: hidden;
-      @include typography.typography('text-body');
+      @include typography.typography('text-lg');
       text-align: left;
     }
 
@@ -103,7 +103,7 @@
         transition: all 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32),
           opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
         font-size: inherit;
-        @include typography.typography('text-body');
+        @include typography.typography('text-lg');
       }
     }
 

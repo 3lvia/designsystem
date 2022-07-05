@@ -1,12 +1,13 @@
-@use "../variables/typography.scss";
+@use '../variables/typography.scss';
 @use './../variables/colors';
 @use './../variables/shadows';
-@use "../variables/shared-sizes";
+@use '../variables/shared-sizes';
 @use './form/input.scss';
-@use "../utilities/outline.scss";
-@use "../utilities/icons.scss";
+@use '../utilities/outline.scss';
+@use '../utilities/icons.scss';
 @use './autcomplete.scss';
 
+// TODO: Deprecate
 .e-dropdown {
   cursor: pointer;
   max-width: 448px;

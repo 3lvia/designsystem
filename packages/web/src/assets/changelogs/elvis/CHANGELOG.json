@@ -1,6 +1,20 @@
 {
   "content": [
     {
+      "version": "8.7.1",
+      "date": "July 05, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Replaced old typography names with the new ones in elvis.",
+            "Updated all components with font color and text align to avoid inheriting the wrong style."
+          ],
+          "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        }
+      ]
+    },
+    {
       "version": "8.7.0",
       "date": "July 04, 2022",
       "changelog": [

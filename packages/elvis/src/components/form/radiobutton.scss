@@ -11,23 +11,25 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
 .e-radio {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
-  @include typography.typography('text-option');
-
   display: flex;
   align-items: center;
   box-sizing: border-box;
   width: fit-content;
   position: relative;
+  cursor: pointer;
+
+  @include typography.typography('text-option');
+  color: colors.color('font-color');
   line-height: 24px;
   text-align: left;
-  cursor: pointer;
 
   &:not(:last-child) {
     margin-bottom: 8px;
   }
 
   &.e-radio--sm {
-    @include typography.typography('text-info');
+    @include typography.typography('text-sm');
+    color: colors.color('font-color');
 
     &:not(:last-child) {
       margin-bottom: 0px;

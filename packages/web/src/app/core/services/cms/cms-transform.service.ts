@@ -318,7 +318,7 @@ export class CMSTransformService {
     const whenNotsList = documentToHtmlString(data.fields.whenNotToUse[locale]).split('<p');
     whensList.forEach((when) => {
       returnStringWhen += `<li>${when
-        .replace('class="cms-paragraph e-text-body">', '')
+        .replace('class="cms-paragraph e-text-lg">', '')
         .replace('</p>', '')}</li>`;
     });
     whenNotsList.forEach((whenNot) => {
@@ -334,7 +334,7 @@ export class CMSTransformService {
         </div>
         <div>When to use:</div>
       </div>
-      <span class="e-text-description">
+      <span class="e-text-md">
         <ul>
           ${returnStringWhen}
         </ul>
@@ -347,7 +347,7 @@ export class CMSTransformService {
         </div>
         <div>When not to use:</div>
       </div>
-      <span class="e-text-description">
+      <span class="e-text-md">
         <ul>
           ${returnStringWhenNot}
         </ul>
@@ -535,7 +535,7 @@ export class CMSTransformService {
   }
 
   private getParagraph(paragraph: string): string {
-    return `<p class="cms-paragraph e-text-body">${paragraph}</p>`;
+    return `<p class="cms-paragraph e-text-lg">${paragraph}</p>`;
   }
 
   private getHeading1(heading: string): string {

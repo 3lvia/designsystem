@@ -1,6 +1,7 @@
 @use '../variables/colors';
-@use "../variables/typography";
+@use '../variables/typography';
 
+// TODO: Deprecate
 .e-divider {
   display: block;
   margin: 0;

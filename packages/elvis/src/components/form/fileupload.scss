@@ -20,6 +20,7 @@
 
   &__description {
     @include typography.typography('text-option');
+    color: colors.color('font-color');
     display: flex;
     width: 100%;
     justify-content: center;
@@ -53,6 +54,7 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 24px;
+      color: colors.color('font-color');
 
       &:disabled {
         color: colors.color('disabled');
