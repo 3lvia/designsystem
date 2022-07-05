@@ -161,6 +161,9 @@ export const Datepicker: FC<DatepickerProps> = ({
    * Sets the selected date and dispatches the valueOnChange event
    */
   const handleDateChange = (date: Date | null): void => {
+    if (date?.toString() === selectedDate?.toString()) {
+      return;
+    }
     hasValidation && validateDate(date);
 
     // Set time component of the selected date to 0 by creating a new date object.
@@ -180,13 +183,18 @@ export const Datepicker: FC<DatepickerProps> = ({
    * Handle valueOnChangeISOString event. If newDate is not valid, formatISO crashes the component.
    */
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
-    if (isValid(newDate)) {
-      const dateISO = newDate ? formatISO(newDate, { representation: 'date' }) : null;
-      if (!webcomponent) {
-        valueOnChangeISOString?.(dateISO);
-      } else {
-        webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
-      }
+    let dateISO;
+    if (newDate && isValid(newDate)) {
+      dateISO = formatISO(newDate, { representation: 'date' });
+    } else if (newDate === null) {
+      dateISO = null;
+    } else {
+      dateISO = 'Invalid Date';
+    }
+    if (!webcomponent) {
+      valueOnChangeISOString?.(dateISO);
+    } else {
+      webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
     }
   };
 

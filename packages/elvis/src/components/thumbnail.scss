@@ -1,0 +1,58 @@
+@use '../variables/colors';
+@use '../utilities/helpers';
+@use '../utilities/outline.scss';
+
+$border-radius: 8px;
+
+.e-thumbnail {
+  position: relative;
+  padding: 0px;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+
+  img {
+    width: 56px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    vertical-align: bottom;
+    border-radius: $border-radius;
+  }
+
+  &::after {
+    --offset: 8px;
+    content: '';
+    display: block;
+    width: calc(100% + var(--offset));
+    height: calc(100% + var(--offset));
+    position: absolute;
+    top: calc(var(--offset) / 2 * -1);
+    left: calc(var(--offset) / 2 * -1);
+    border-radius: calc($border-radius + var(--offset) / 2);
+    border: 2px solid colors.color('elvia-charge');
+    box-sizing: border-box;
+
+    opacity: 0;
+    transform: scale(0.9);
+    transition: 0.15s all ease;
+  }
+  &.e-thumbnail---selected {
+    &::after {
+      border: 2px solid colors.color('black');
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  &.e-thumbnail---hover,
+  &:hover {
+    &::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}

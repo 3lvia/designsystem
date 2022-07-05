@@ -194,6 +194,19 @@
     </ng-container>
   </app-component-section>
 
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Trigger'">
+        <ng-container ngProjectAs="sectionContent">
+          When the trigger is selected remember to add the
+          <span class="code-text">e-btn---selected</span>
+          class for the trigger.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--INSTALLATION-->
   <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">

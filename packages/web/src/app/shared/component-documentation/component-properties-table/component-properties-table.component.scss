@@ -1,5 +1,13 @@
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
+.properties-container {
+  margin-left: -72px;
+  width: calc(100% + 72px);
+  @include breakpoint-up(Tablet) {
+    margin-left: 0px;
+    width: 100%;
+  }
+}
 .e-table.e-table--compact td.table-code-text,
 .e-table.e-table--compact th.table-code-text {
   font-family: 'Red Hat Mono', Verdana, sans-serif;
@@ -7,13 +15,7 @@
 
 .e-table-container.desktop {
   display: block;
-  margin-left: -72px;
-  width: calc(100% + 72px);
   max-height: 80vh;
-  @include breakpoint-up(Tablet) {
-    margin-left: 0px;
-    width: 100%;
-  }
   @include breakpoint-up(Mobile) {
     display: none;
   }

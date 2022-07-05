@@ -76,3 +76,15 @@ export interface CegSideFilterEvent {
    */
   value: string;
 }
+
+/**
+ * All codes that are shown in the CEG.
+ *
+ * **NB**: Keys must correspond with languages used in `example-code.service.ts`.
+ */
+export interface CegCodes {
+  react: ComponentData['codeReact'];
+  angular: ComponentData['codeAngular'];
+  vue: ComponentData['codeVue'];
+  native: ComponentData['codeNativeHTML'];
+}
