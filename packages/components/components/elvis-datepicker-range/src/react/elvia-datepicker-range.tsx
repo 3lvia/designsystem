@@ -31,37 +31,37 @@ const defaultLabelOptions: LabelOptions = {
 export interface DatepickerRangeProps {
   value?: DateRange;
   valueOnChange?: (value: DateRange) => void;
-  minDate?: Date;
-  maxDate?: Date;
+  labelOptions?: LabelOptions;
   isCompact?: boolean;
   isFullWidth?: boolean;
   isDisabled?: boolean;
   isRequired?: boolean;
   hasSelectDateOnOpen?: boolean;
   hasAutoOpenEndDatepicker?: boolean;
-  labelOptions?: LabelOptions;
-  webcomponent?: ElvisComponentWrapper;
+  minDate?: Date;
+  maxDate?: Date;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   disableDates?: DisableDates;
+  webcomponent?: ElvisComponentWrapper;
 }
 
 export const DatepickerRange: FC<DatepickerRangeProps> = ({
   value,
   valueOnChange,
-  minDate,
-  maxDate,
+  labelOptions,
   isCompact,
   isFullWidth,
   isDisabled,
   isRequired,
   hasSelectDateOnOpen,
   hasAutoOpenEndDatepicker,
-  labelOptions,
-  webcomponent,
+  minDate,
+  maxDate,
   className,
   inlineStyle,
   disableDates,
+  webcomponent,
   ...rest
 }) => {
   const [hoveredDateRange, setHoveredDateRange] = useState<DateRange>(value ?? emptyDateRange);
@@ -79,6 +79,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   useEffect(() => {
     if (value) {
       setSelectedDateRange(value);
+    } else {
+      setSelectedDateRange(emptyDateRange);
     }
   }, [value]);
 
