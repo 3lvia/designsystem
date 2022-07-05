@@ -239,6 +239,10 @@ $toast-max-width: 400px;
       @include typography.typography('text-md-strong');
       color: colors.color('font-color');
       margin-bottom: 0px;
+      text-align: center;
+    }
+    .e-alert__text {
+      text-align: center;
     }
     .e-alert__close {
       justify-content: flex-end;

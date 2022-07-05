@@ -889,6 +889,10 @@ body {
   color: inherit;
   color: #000;
   margin-bottom: 0px;
+  text-align: center;
+}
+.e-alert.e-alert--local .e-alert__text, .e-alert:not(.e-alert--global):not(.e-alert--toast) .e-alert__text {
+  text-align: center;
 }
 .e-alert.e-alert--local .e-alert__close, .e-alert:not(.e-alert--global):not(.e-alert--toast) .e-alert__close {
   justify-content: flex-end;
