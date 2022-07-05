@@ -107,6 +107,7 @@ function App() {
               hasAutoOpenEndDatepicker
               valueOnChange={(event) => console.log(event)}
               labelOptions={{ start: 'Start' }}
+              disableDates={{ start: (day) => day.getDay() === 0, end: (day) => day.getDay() === 6 }}
             ></DatepickerRange>
           </div>
           {/* Inverted version */}

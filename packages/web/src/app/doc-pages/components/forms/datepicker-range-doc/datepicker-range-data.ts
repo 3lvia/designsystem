@@ -33,6 +33,17 @@ const datepickerRangeData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'Size',
     },
+    isFullWidth: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Gives the input 100% width (max = 448px).',
+      default: 'false',
+      cegDisplayName: 'Full width',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Size',
+    },
     isDisabled: {
       isRequired: false,
       type: 'boolean',
@@ -90,11 +101,11 @@ const datepickerRangeData: ComponentData = {
       description:
         "Custom CSS style object that can be added to the date picker range. Example: {marginTop: '8px', width: '100%'}",
     },
-    // disableDate: {
-    //   isRequired: false,
-    //   type: '(day: Date) => boolean',
-    //   description: 'Function that sets dates as disabled. Return true to disable a date.',
-    // },
+    disableDates: {
+      isRequired: false,
+      type: '{start: (day: Date) => boolean; end: (day: Date) => boolean}',
+      description: 'Object containing functions that set dates as disabled. Return true to disable a date.',
+    },
   },
   package: 'npm install @elvia/elvis-datepicker-range',
   codeImportReact: `import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';`,

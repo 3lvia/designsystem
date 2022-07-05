@@ -2,6 +2,7 @@ import React, { CSSProperties, FC, MouseEvent, useEffect, useState } from 'react
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { DatepickerRangeWrapper } from './styledComponents';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import '@elvia/elvis-datepicker/dist/react/js/style.css';
 
 export interface DateRange {
   start: Date | null;
@@ -11,6 +12,11 @@ export interface DateRange {
 export interface LabelOptions {
   start?: string;
   end?: string;
+}
+
+export interface DisableDates {
+  start?: (day: Date) => boolean;
+  end?: (day: Date) => boolean;
 }
 
 const emptyDateRange: DateRange = {
@@ -29,6 +35,7 @@ export interface DatepickerRangeProps {
   minDate?: Date;
   maxDate?: Date;
   isCompact?: boolean;
+  isFullWidth?: boolean;
   isDisabled?: boolean;
   isRequired?: boolean;
   hasSelectDateOnOpen?: boolean;
@@ -37,6 +44,7 @@ export interface DatepickerRangeProps {
   webcomponent?: ElvisComponentWrapper;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
+  disableDates?: DisableDates;
 }
 
 export const DatepickerRange: FC<DatepickerRangeProps> = ({
@@ -45,6 +53,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   minDate,
   maxDate,
   isCompact,
+  isFullWidth,
   isDisabled,
   isRequired,
   hasSelectDateOnOpen,
@@ -53,20 +62,12 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   webcomponent,
   className,
   inlineStyle,
+  disableDates,
+  ...rest
 }) => {
   const [hoveredDateRange, setHoveredDateRange] = useState<DateRange>(value ?? emptyDateRange);
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>(value ?? emptyDateRange);
   const [endDatepickerIsOpen, setEndDatepickerIsOpen] = useState(false);
-
-  /** These props are passed through directly to both the underlying datepickers. */
-  const passThroughProps = {
-    minDate,
-    maxDate,
-    isCompact,
-    isDisabled,
-    isRequired,
-    hasSelectDateOnOpen,
-  };
 
   useEffect(() => {
     if (!webcomponent) {
@@ -81,6 +82,17 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
       setSelectedDateRange(value);
     }
   }, [value]);
+
+  /**
+   * Returns functions for dates that should be disabled, one for start and one for end datepicker.
+   * Gets the functions through getProp for webcomponents.
+   */
+  const disableDatesWrapper = (): DisableDates | undefined => {
+    if (webcomponent) {
+      return webcomponent.getProp('disableDates');
+    }
+    return disableDates;
+  };
 
   const handleEndDatepickerMouseOver = (
     event: MouseEvent<HTMLButtonElement> & { target: { classList: DOMTokenList; innerText: string } },
@@ -188,8 +200,19 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
+  /** These props are passed through directly to both the underlying datepickers. */
+  const passThroughProps = {
+    minDate,
+    maxDate,
+    isCompact,
+    isFullWidth,
+    isDisabled,
+    isRequired,
+    hasSelectDateOnOpen,
+  };
+
   return (
-    <DatepickerRangeWrapper className={className ?? undefined} style={inlineStyle}>
+    <DatepickerRangeWrapper className={className ?? undefined} style={inlineStyle} {...rest}>
       <Datepicker
         {...passThroughProps}
         label={labelOptions?.start ?? defaultLabelOptions.start}
@@ -211,6 +234,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           onDateElementMouseOver: handleStartDatepickerMouseOver,
           onDatepickerPopoverPointerMove: handleStartDatepickerPopoverPointerMove,
         }}
+        disableDate={disableDatesWrapper()?.start}
       ></Datepicker>
       <Datepicker
         {...passThroughProps}
@@ -230,6 +254,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           onDateElementMouseOver: handleEndDatepickerMouseOver,
           onDatepickerPopoverPointerMove: handleEndDatepickerPopoverPointerMove,
         }}
+        disableDate={disableDatesWrapper()?.end}
       ></Datepicker>
     </DatepickerRangeWrapper>
   );

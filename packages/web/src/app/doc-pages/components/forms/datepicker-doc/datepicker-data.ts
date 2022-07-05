@@ -43,7 +43,7 @@ const datepickerData: ComponentData = {
     isFullWidth: {
       isRequired: false,
       type: 'boolean',
-      description: 'Gives the input 100% width (max = 343px).',
+      description: 'Gives the input 100% width (max = 448px).',
       default: 'false',
       cegDisplayName: 'Full width',
       cegType: 'boolean',
