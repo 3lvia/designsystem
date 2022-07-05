@@ -178,7 +178,7 @@ export const componentsDocPages: DocPage[] = [
       'Date picker range is a simple way for the user to quickly select a date range in a calendar dialog. It uses a separate date picker for the start and end date selection.',
     docUrl: Pages.DatepickerRange,
     absolutePath: '/components/' + Pages.DatepickerRange,
-    status: DocPageStatus.New,
+    status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
     type: 'Component',
   },
