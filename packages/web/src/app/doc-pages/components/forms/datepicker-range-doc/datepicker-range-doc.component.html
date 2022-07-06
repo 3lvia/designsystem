@@ -1,6 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">Date picker range</ng-container>
+  <ng-container ngProjectAs="headerTitle">Date Range Picker</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -14,8 +14,8 @@
   <!-- SIZE -->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      There are two different sizes of the datepicker range: normal and compact. Much like compact text
-      fields, the compact datepicker range is a version of the text field that’s primarily designed for
+      There are two different sizes of the date range picker: normal and compact. Much like compact text
+      fields, the compact date range picker is a version of the text field that’s primarily designed for
       internal systems, and shouldn’t be mixed with the other input style.
     </ng-container>
   </app-component-section>
@@ -30,11 +30,13 @@
               <span class="keyboard-button">Space</span>
               or
               <span class="keyboard-button">Enter</span>
-              to open or close the datepicker, as well as choosing different options inside the datepicker.
+              to open or close the individual date pickers, as well as to choose different options inside the
+              date picker.
             </div>
             <div>
               <span class="keyboard-button">Tab</span>
-              to navigate through the different options inside the datepicker.
+              to navigate through the different options inside the date picker, and to navigate between the
+              two date pickers.
             </div>
             <div>
               <span class="keyboard-button icon">
@@ -43,7 +45,7 @@
               <span class="keyboard-button icon" style="margin-left: 0px">
                 <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
               </span>
-              can be used to choose between dates inside the datepicker.
+              can be used to choose between dates inside the date picker.
             </div>
           </div>
         </ng-container>
@@ -53,7 +55,7 @@
 
   <!-- Implementation -->
   <app-component-section [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">Insert implementation details here</ng-container>
+    <ng-container ngProjectAs="sectionContent">TODO: Insert implementation details here</ng-container>
   </app-component-section>
 
   <!--INSTALLATION-->

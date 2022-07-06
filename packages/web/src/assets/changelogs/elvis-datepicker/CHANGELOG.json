@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Addded support for Date picker range.",
+            "Addded support for date picker range.",
             "Added event <span class=\"code-text\">onReset</span> that triggers whenever the reset button inside the datepicker is clicked.",
             "Added event <span class=\"code-text\">onDateElementMouseOver</span> that triggers whenever a date element inside the datepicker is moused over. This is used in the date picker range component. ",
             "Added event <span class=\"code-text\">onDatepickerPopoverMouseOver</span> that triggers whenever the datepicker popover is moused over. This is used in the date picker range component. "
