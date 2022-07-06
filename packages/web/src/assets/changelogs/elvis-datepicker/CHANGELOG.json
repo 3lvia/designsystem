@@ -15,6 +15,10 @@
           ]
         },
         {
+          "type": "patch",
+          "changes": ["Updated the logic for when to show error state in the datepicker."]
+        },
+        {
           "type": "bug_fix",
           "changes": [
             "Fixed a bug that caused the <span class=\"code-text\">valueOnChange</span> event to fire when the <span class=\"code-text\">value</span> property was set on the component.",

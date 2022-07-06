@@ -96,7 +96,8 @@ export const Datepicker: FC<DatepickerProps> = ({
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
   const [initialFocusedDate, setInitialFocusedDate] = useState<Date | null>(null);
-  const [currErrorMessage, setCurrErrorMessage] = useState('');
+  const [currentErrorMessage, setCurrentErrorMessage] = useState('');
+  const [hasShownError, setHasShownError] = useState(false);
   const [hasHadFocus, setHasHadFocus] = useState(false);
   const [hasFocus, setHasFocus] = useState(false);
   const [shouldHaveSelected, setShouldHaveSelected] = useState(true);
@@ -113,8 +114,16 @@ export const Datepicker: FC<DatepickerProps> = ({
   const unicodeChar = '­';
   const showError =
     (showValidationState || customError) &&
-    ((showValidation && currErrorMessage !== '') ||
-      (!hasFocus && (customError || (currErrorMessage !== '' && hasHadFocus))));
+    ((showValidation && currentErrorMessage !== '') ||
+      ((!hasFocus || hasShownError) && (customError || (currentErrorMessage !== '' && hasHadFocus))));
+
+  useEffect(() => {
+    if (showError) {
+      setHasShownError(true);
+    } else if (currentErrorMessage === '') {
+      setHasShownError(false);
+    }
+  }, [showError, currentErrorMessage]);
 
   useEffect(() => {
     setIsDatepickerOpen(isOpen);
@@ -251,13 +260,13 @@ export const Datepicker: FC<DatepickerProps> = ({
    * Set current error based on validation and dispatch errorOnChange event
    */
   const setCurrErrorMessageAndTriggerErrorOnChangeEvent = (error: string): void => {
-    if (error === currErrorMessage) {
+    if (error === currentErrorMessage) {
       return;
     }
     if (!hasHadFocus) {
       return;
     }
-    setCurrErrorMessage(error);
+    setCurrentErrorMessage(error);
 
     if (!webcomponent && errorOnChange) {
       errorOnChange(error);
@@ -275,9 +284,13 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
 
     if (!isValid(date)) {
-      if (date === null && isRequired) {
-        setCurrErrorMessageAndTriggerErrorOnChangeEvent('Velg en dato');
-      } else if (date !== null) {
+      if (date === null) {
+        if (isRequired) {
+          setCurrErrorMessageAndTriggerErrorOnChangeEvent('Velg en dato');
+        } else {
+          setCurrErrorMessageAndTriggerErrorOnChangeEvent('');
+        }
+      } else {
         setCurrErrorMessageAndTriggerErrorOnChangeEvent('Bruk dd.mm.åååå');
       }
     } else if (date && minDate && isBefore(date.setHours(0, 0, 0, 0), minDate.setHours(0, 0, 0, 0))) {
@@ -618,7 +631,7 @@ export const Datepicker: FC<DatepickerProps> = ({
           <Icon name="removeCircle" size="xs" color={getColor('red')} inlineStyle={{ marginTop: '4px' }} />
           <div className="ewc-datepicker__helper-text">
             {customError}
-            {currErrorMessage}
+            {currentErrorMessage}
           </div>
         </div>
       )}

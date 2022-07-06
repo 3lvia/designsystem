@@ -4,7 +4,7 @@ import ComponentData from '../../component-data.interface';
 const datepickerRangeData: ComponentData = {
   name: 'elvis-datepicker-range',
   elementNameW: 'elvia-datepicker-range',
-  elementNameR: 'Datepicker',
+  elementNameR: 'DatepickerRange',
   attributes: {
     value: {
       isRequired: false,
@@ -19,7 +19,7 @@ const datepickerRangeData: ComponentData = {
     },
     labelOptions: {
       isRequired: false,
-      type: '{start: string; end: string}',
+      type: '{start?: string; end?: string}',
       description: 'Labels of inputs.',
     },
     isCompact: {
@@ -57,8 +57,9 @@ const datepickerRangeData: ComponentData = {
     },
     isRequired: {
       isRequired: false,
-      type: 'boolean',
-      description: 'Required datepicker-fields cannot be empty.',
+      type: 'boolean | {start?: boolean; end?: boolean}',
+      description:
+        'Required datepicker-fields cannot be empty. If a boolean is passed, it will apply to both fields.',
       default: 'false',
       cegDisplayName: 'Required',
       cegType: 'boolean',
@@ -105,13 +106,13 @@ const datepickerRangeData: ComponentData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom CSS classes that can be added to the date picker range.',
+      description: 'Custom CSS classes that can be added to the datepicker range.',
     },
     inlineStyle: {
       isRequired: false,
       type: '{[cssProperty: string]: string}',
       description:
-        "Custom CSS style object that can be added to the date picker range. Example: {marginTop: '8px', width: '100%'}",
+        "Custom CSS style object that can be added to the datepicker range. Example: {marginTop: '8px', width: '100%'}",
     },
     disableDates: {
       isRequired: false,

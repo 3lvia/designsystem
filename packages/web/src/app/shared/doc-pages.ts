@@ -175,7 +175,7 @@ export const componentsDocPages: DocPage[] = [
     title: 'Date picker range',
     // tslint:disable-next-line: max-line-length
     description:
-      'Date picker range is a simple way for the user to quickly select a date range in a calendar dialog. It uses a separate date picker for the start and end date selection.',
+      'Date picker range is a simple way for the user to quickly select a date range in a calendar dialog. It uses two separate date pickers for the start and end date selection.',
     docUrl: Pages.DatepickerRange,
     absolutePath: '/components/' + Pages.DatepickerRange,
     status: DocPageStatus.Done,

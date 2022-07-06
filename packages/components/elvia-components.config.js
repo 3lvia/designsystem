@@ -204,7 +204,7 @@ module.exports = [
       { name: 'isCompact', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isFullWidth', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isDisabled', type: 'boolean', propType: 'boolean | undefined' },
-      { name: 'isRequired', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'isRequired', type: 'object', propType: 'object | undefined' },
       { name: 'hasSelectDateOnOpen', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasAutoOpenEndDatepicker', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'labelOptions', type: 'object', propType: 'object | undefined' },

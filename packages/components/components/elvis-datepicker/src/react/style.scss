@@ -5,6 +5,7 @@ $grey-10: #e9e9e9;
 $grey-05: #f4f4f4;
 $green: #29d305;
 $red: #ee0701;
+$outline: #0064fa;
 $red-hat-text: 'Red Hat Text', Verdana, sans-serif;
 $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
 $datepicker-max-width: 448px;
@@ -15,7 +16,7 @@ $datepicker-max-width: 448px;
   }
 }
 %ewc-outline {
-  outline: 2px solid #0064fa;
+  outline: 2px solid $outline;
   outline-offset: 2px;
 }
 
@@ -109,10 +110,10 @@ $datepicker-max-width: 448px;
       border-radius: 50%;
       margin-right: 8px;
       &:hover {
-        background-color: #29d305;
+        background-color: $green;
       }
       &.Mui-focusVisible {
-        outline: 2px solid #0064fa;
+        outline: 2px solid $outline;
         outline-offset: 4px;
       }
       &:active {
@@ -134,13 +135,6 @@ $datepicker-max-width: 448px;
       }
     }
   }
-  &.ewc-datepicker--open {
-    .MuiInputBase-root {
-      border: 1px solid transparent;
-      box-shadow: 0 0 0 2px $green;
-      outline-offset: -1px;
-    }
-  }
 
   // INPUT BORDER
   .MuiInput-underline:after,
@@ -159,19 +153,23 @@ $datepicker-max-width: 448px;
     transform: scaleX(1);
   }
 
+  // Error
+  &.ewc-datepicker--error {
+    .MuiInput-underline::after {
+      border: 2px solid $red !important;
+    }
+  }
+  &.ewc-datepicker--open {
+    .MuiInput-underline::after {
+      border: 2px solid $green !important;
+    }
+  }
   // Focus
-  .MuiInput-underline.Mui-focused:after {
-    border: 2px solid #29d305;
+  .MuiInput-underline.Mui-focused::after {
+    border: 2px solid $green !important;
   }
   .MuiInput-underline.Mui-focused {
     @extend %ewc-outline;
-  }
-
-  // Error
-  &.ewc-datepicker--error {
-    .MuiInput-underline:after {
-      border: 2px solid $red !important;
-    }
   }
 
   // COMPACT INPUT
@@ -431,10 +429,10 @@ $datepicker-max-width: 448px;
       padding: 8px;
       border-radius: 50%;
       &:hover {
-        background-color: #29d305;
+        background-color: $green;
       }
       &.Mui-focusVisible {
-        outline: 2px solid #0064fa;
+        outline: 2px solid $outline;
         outline-offset: 2px;
       }
       &:active {
