@@ -29,6 +29,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   isPrideMonth = false;
 
   private onDestroy = new Subject<void>();
+  private onDestroy$ = this.onDestroy.asObservable();
 
   private subscriptions: Subscription = new Subscription();
   private locale: Locale;
