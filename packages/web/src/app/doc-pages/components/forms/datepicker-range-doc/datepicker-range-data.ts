@@ -21,6 +21,7 @@ const datepickerRangeData: ComponentData = {
       isRequired: false,
       type: '{start?: string; end?: string}',
       description: 'Labels of inputs.',
+      default: '{start: "Fra dato", end: "Til dato"}',
     },
     isCompact: {
       isRequired: false,

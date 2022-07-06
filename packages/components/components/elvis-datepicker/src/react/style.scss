@@ -67,13 +67,6 @@ $datepicker-max-width: 448px;
     display: flex;
     align-items: flex-start;
     width: 100%;
-    .ewc-datepicker__icon--error {
-      min-height: 16px;
-      min-width: 16px;
-      max-height: 16px;
-      max-width: 16px;
-      margin-top: 4px;
-    }
     .ewc-datepicker__helper-text {
       margin-left: 8px;
     }
@@ -296,22 +289,6 @@ $datepicker-max-width: 448px;
         color: black;
 
         margin-right: 8px;
-      }
-      .ewc-datepicker__icon-dropdown {
-        position: relative;
-        height: 16px;
-        width: 16px;
-        &.rotate-forward {
-          @keyframes rotate-forward {
-            0% {
-              transform: rotate(0);
-            }
-            100% {
-              transform: rotate(180deg);
-            }
-          }
-          animation: rotate-forward 0.2s ease-in-out both;
-        }
       }
 
       &:hover {

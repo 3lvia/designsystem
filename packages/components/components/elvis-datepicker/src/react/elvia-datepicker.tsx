@@ -406,10 +406,6 @@ export const Datepicker: FC<DatepickerProps> = ({
       openView === 'year' ? setOpenView('date') : setOpenView('year');
     };
 
-    const dropdownIconClasses = classnames('ewc-datepicker__icon ewc-datepicker__icon-dropdown', {
-      ['rotate-forward']: openView === 'year',
-    });
-
     if (openView === 'year') {
       addOutlineListenerDatepickerPopover(datepickerPopoverRef.current);
     } else {
@@ -432,7 +428,7 @@ export const Datepicker: FC<DatepickerProps> = ({
           onClick={toggleYearView}
         >
           <div className="ewc-datepicker__toolbar-year">{format(date, 'yyyy', { locale: nbLocale })}</div>
-          <Icon name="arrowDownBold" size="xs" className={dropdownIconClasses} />
+          <Icon name={openView === 'year' ? 'arrowDownBold' : 'arrowUpBold'} size="xs" />
         </button>
         {openView === 'date' && (
           <button
@@ -610,6 +606,8 @@ export const Datepicker: FC<DatepickerProps> = ({
           PopoverProps={{
             style: {
               zIndex: 99999,
+              touchAction: 'none',
+              WebkitOverflowScrolling: 'touch',
             },
             'aria-modal': true,
             'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
