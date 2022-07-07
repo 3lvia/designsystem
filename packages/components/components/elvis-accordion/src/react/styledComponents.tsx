@@ -55,9 +55,12 @@ const decideButtonFontSize = (prop: AccordionSize) => {
 
 type AccordionButtonProps = {
   size: AccordionSize;
+  isFullWidth: boolean;
+  isContentOpen: boolean;
+  hasBoldLabel: boolean;
+  openDetailText: string;
   openLabel: string;
   closeLabel: string;
-  isContentOpen: boolean;
   onClick: any;
 };
 
@@ -67,16 +70,19 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   display: flex;
   padding: 0;
   font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: 500;
+  font-weight: ${(props: { hasBoldLabel: boolean; openDetailText: string }) =>
+    props.hasBoldLabel || props.openDetailText !== undefined ? '700' : '500'};
   font-size: ${(props: { size: AccordionSize }) => decideButtonFontSize(props.size)};
   line-height: ${(props: { size: AccordionSize }) => (props.size === 'small' ? '16px' : '24px')};
   text-align: left;
   cursor: pointer;
   color: ${colors.elviaBlack};
+  width: 100%;
+  justify-content: ${(props: { isFullWidth: boolean }) => (props.isFullWidth ? 'space-between' : 'inherit')};
 
   i {
     margin-left: ${(props: { openLabel: string; closeLabel: string }) => {
-      if (props.openLabel !== undefined || props.closeLabel !== undefined) {
+      if (props.openLabel !== '' || props.closeLabel !== '') {
         return '8px;';
       }
       return '0px;';
@@ -85,6 +91,20 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
     transform: ${(props: { isContentOpen: boolean }) =>
       (props.isContentOpen && ' rotate(180deg)') || (props.isContentOpen === false && ' rotate(0deg)')};
   }
+`;
+
+// type AccordionDetailTextProps = {
+
+// };
+export const AccordionDetailText = styled.span`
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  color: ${colors.elviaBlack};
+
+  margin-left: 8px;
 `;
 
 const decideContentMarginTop = (contentOpen: boolean, type: AccordionType, size: AccordionSize): string => {

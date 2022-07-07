@@ -1,20 +1,33 @@
 import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
 import toolbox from '@elvia/elvis-toolbox';
 import { AccordionLabelPosition, AccordionSize, AccordionType } from './elvia-accordion.types';
-import { AccordionArea, AccordionButtonArea, AccordionButton, AccordionContent } from './styledComponents';
+import {
+  AccordionArea,
+  AccordionButtonArea,
+  AccordionButton,
+  AccordionDetailText,
+  AccordionContent,
+} from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 export interface AccordionProps {
   content: string | HTMLElement;
+  isOpen?: boolean;
+  isFullWidth?: boolean;
   openLabel?: string;
   closeLabel?: string;
+  openDetailText?: string;
+  closeDetailText?: string;
   openAriaLabel?: string;
   closeAriaLabel?: string;
+  hasBoldLabel?: boolean;
   labelPosition: AccordionLabelPosition;
   size: AccordionSize;
   type: AccordionType;
   overflowHeight?: number;
+  onOpen: () => void;
+  onClose: () => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;
@@ -22,20 +35,27 @@ export interface AccordionProps {
 
 const Accordion: FC<AccordionProps> = ({
   content,
+  isOpen = false,
+  isFullWidth = false,
   openLabel,
   closeLabel,
+  openDetailText,
+  closeDetailText,
   openAriaLabel,
   closeAriaLabel,
+  hasBoldLabel = false,
   labelPosition = 'center',
   size = 'medium',
   type = 'normal',
   overflowHeight,
+  onOpen,
+  onClose,
   className,
   inlineStyle,
   webcomponent,
   ...rest
 }) => {
-  const [contentOpen, setContentOpen] = useState(false);
+  const [contentOpen, setContentOpen] = useState(isOpen);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
 
   const accordionRef = useRef<HTMLSpanElement>(null);
@@ -62,6 +82,31 @@ const Accordion: FC<AccordionProps> = ({
       accordionText.current.appendChild(webcomponent.getSlot('content'));
     }
   }, [webcomponent]);
+
+  useEffect(() => {
+    // if (!hasBeenInitiated) {
+    //   setHasBeenInitiated(true);
+    //   return;
+    // }
+    setContentOpen(isOpen);
+  }, [isOpen]);
+
+  const handleOnClick = () => {
+    setContentOpen((contentOpen) => !contentOpen);
+    if (contentOpen) {
+      if (!webcomponent && onOpen) {
+        onOpen();
+      } else if (webcomponent) {
+        webcomponent.triggerEvent('onOpen');
+      }
+    } else {
+      if (!webcomponent && onClose) {
+        onClose();
+      } else if (webcomponent) {
+        webcomponent.triggerEvent('onClose');
+      }
+    }
+  };
 
   const decideButtonAriaLabel = (): string => {
     if (contentOpen) {
@@ -94,17 +139,21 @@ const Accordion: FC<AccordionProps> = ({
         ) : null}
         <AccordionButtonArea labelPosition={labelPosition} type={type}>
           <AccordionButton
+            size={size}
+            isFullWidth={isFullWidth}
             isContentOpen={contentOpen}
+            hasBoldLabel={hasBoldLabel}
+            openDetailText={openDetailText}
             openLabel={openLabel ? openLabel : ''}
             closeLabel={closeLabel ? closeLabel : ''}
-            size={size}
-            onClick={() => setContentOpen((contentOpen) => !contentOpen)}
+            onClick={() => handleOnClick()}
             onMouseEnter={() => setIsHoveringButton(true)}
             onMouseLeave={() => setIsHoveringButton(false)}
             data-testid="accordion-button-label"
             aria-label={decideButtonAriaLabel()}
           >
             {!contentOpen ? openLabel : closeLabel}
+            <AccordionDetailText>{!contentOpen ? openDetailText : closeDetailText}</AccordionDetailText>
             <Icon
               name={isHoveringButton ? 'expandCircleFilledColor' : 'expandCircleColor'}
               size={size === 'small' ? 'xs' : 'sm'}

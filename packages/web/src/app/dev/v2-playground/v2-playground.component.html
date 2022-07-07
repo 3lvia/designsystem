@@ -5,7 +5,25 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <span>
+        <elvia-accordion
+          openDetailText="(1 av 15)"
+          closeDetailText="(1 av 15)"
+          hasBoldLabel="true"
+          openLabel="Label open"
+          closeLabel="Label close"
+          isOpen="true"
+          size="medium"
+          type="normal"
+        >
+          <div slot="content">
+            <h3>Hello there</h3>
+          </div>
+        </elvia-accordion>
+      </span>
+      <span>hello</span>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -13,11 +31,11 @@
   <!--Accordion-->
   <div class="example-wrapper">
     <h3>Accordion</h3>
-    <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="normal">
+    <!-- <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="normal">
       <div slot="content">
         <h3>Hello there</h3>
       </div>
-    </elvia-accordion>
+    </elvia-accordion> -->
   </div>
 
   <!--Box-->
