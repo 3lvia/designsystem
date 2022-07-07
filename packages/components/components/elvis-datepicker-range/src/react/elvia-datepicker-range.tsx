@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC, PointerEvent, useEffect, useRef, useState } from 'react';
+import React, { CSSProperties, FC, PointerEvent, useEffect, useState } from 'react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { DatepickerRangeWrapper } from './styledComponents';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
@@ -64,9 +64,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const [selectedDateRange, setSelectedDateRange] = useState(value ?? emptyDateRange);
   const [endDatepickerIsOpen, setEndDatepickerIsOpen] = useState(false);
   const [isRequiredState, setIsRequiredState] = useState<IsRequired>();
-
-  const startDatepickerRef = useRef<HTMLDivElement>(null);
-  const endDatepickerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof isRequired === 'boolean') {
@@ -228,7 +225,12 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   return (
-    <DatepickerRangeWrapper className={className ?? undefined} style={inlineStyle} {...rest}>
+    <DatepickerRangeWrapper
+      className={className ?? undefined}
+      style={inlineStyle}
+      data-testid="datepicker-range-wrapper"
+      {...rest}
+    >
       <Datepicker
         {...passThroughProps}
         label={labelOptions?.start ?? defaultLabelOptions.start}
@@ -252,7 +254,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           onDatepickerPopoverPointerMove: handleStartDatepickerPopoverPointerMove,
         }}
         disableDate={disableDatesWrapper()?.start}
-        ref={startDatepickerRef}
       ></Datepicker>
       <Datepicker
         {...passThroughProps}
@@ -274,7 +275,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           onDatepickerPopoverPointerMove: handleEndDatepickerPopoverPointerMove,
         }}
         disableDate={disableDatesWrapper()?.end}
-        ref={endDatepickerRef}
       ></Datepicker>
     </DatepickerRangeWrapper>
   );

@@ -2,6 +2,7 @@ import React, { FC, useState, useRef, useEffect, CSSProperties } from 'react';
 import './style.scss';
 import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
+import { ToolbarComponentProps } from '@material-ui/pickers/Picker/Picker';
 import toolbox from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import { getColor } from '@elvia/elvis-colors';
@@ -19,6 +20,7 @@ import endOfWeek from 'date-fns/endOfWeek';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 import isEqual from 'lodash/isEqual';
+
 export interface DateRange {
   start: Date | null;
   end: Date | null;
@@ -373,23 +375,6 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
-  /**
-   * All these replaceMui[Element] functions return some HTML that replaces the default HTML from the package
-   */
-  const replaceMuiCalIcon = (): JSX.Element => {
-    return (
-      <Icon
-        name="calendar"
-        color={isDisabled ? getColor('disabled') : undefined}
-        size={`${isCompact ? 'xs' : 'sm'}`}
-      />
-    );
-  };
-
-  const replaceMuiArrowIcon = (isLeft: boolean): JSX.Element => {
-    return <Icon name={`${isLeft ? 'arrowLongLeftBold' : 'arrowLongRightBold'}`} size="xs" />;
-  };
-
   const handleResetDatepickerOnClick = (): void => {
     handleDateChange(null);
     setShouldHaveSelected(false);
@@ -400,7 +385,10 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
-  const replaceMuiToolbar = (props: any) => {
+  /**
+   * Replaces the top toolbar inside the datepicker.
+   */
+  const replaceMuiToolbar = (props: ToolbarComponentProps) => {
     const { date, openView, setOpenView } = props;
     const toggleYearView = () => {
       openView === 'year' ? setOpenView('date') : setOpenView('year');
@@ -416,8 +404,8 @@ export const Datepicker: FC<DatepickerProps> = ({
       <div className="ewc-datepicker__toolbar">
         {shouldHaveSelected ? (
           <div className="ewc-datepicker__toolbar-today">
-            <span className="ewc-capitalize">{format(date, 'EEEE', { locale: nbLocale })}&#32;</span>
-            {format(date, 'd. MMMM', { locale: nbLocale })}
+            <span className="ewc-capitalize">{format(date as Date, 'EEEE', { locale: nbLocale })}&#32;</span>
+            {format(date as Date, 'd. MMMM', { locale: nbLocale })}
           </div>
         ) : (
           <div />
@@ -427,7 +415,9 @@ export const Datepicker: FC<DatepickerProps> = ({
           className="ewc-datepicker__toolbar-dropdown"
           onClick={toggleYearView}
         >
-          <div className="ewc-datepicker__toolbar-year">{format(date, 'yyyy', { locale: nbLocale })}</div>
+          <div className="ewc-datepicker__toolbar-year">
+            {format(date as Date, 'yyyy', { locale: nbLocale })}
+          </div>
           <Icon name={openView === 'year' ? 'arrowDownBold' : 'arrowUpBold'} size="xs" />
         </button>
         {openView === 'date' && (
@@ -450,8 +440,13 @@ export const Datepicker: FC<DatepickerProps> = ({
     );
   };
 
+  /**
+   * Replaces each day shown in the month view inside the datepicker.
+   *
+   * NB: Does not use the `selectedDate` given from the Mui datepicker, instead uses the one stored in the state `selectedDate`.
+   */
   const replaceMuiDayElement = (
-    day: any,
+    day: Date,
     selected: Date | null,
     isInCurrentMonth: boolean,
     dayComponent: JSX.Element,
@@ -583,12 +578,18 @@ export const Datepicker: FC<DatepickerProps> = ({
           open={isDatepickerOpen}
           onOpen={handleOpenDatepicker}
           onClose={handleCloseDatepicker}
-          keyboardIcon={replaceMuiCalIcon()}
-          leftArrowIcon={replaceMuiArrowIcon(true)}
-          rightArrowIcon={replaceMuiArrowIcon(false)}
+          keyboardIcon={
+            <Icon
+              name="calendar"
+              color={isDisabled ? getColor('disabled') : getColor('black')}
+              size={`${isCompact ? 'xs' : 'sm'}`}
+            />
+          }
+          leftArrowIcon={<Icon name="arrowLongLeftBold" size="xs" />}
+          rightArrowIcon={<Icon name="arrowLongRightBold" size="xs" />}
           ToolbarComponent={replaceMuiToolbar}
           renderDay={(day, _selectedDate, isInCurrentMonth, dayComponent) =>
-            replaceMuiDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
+            replaceMuiDayElement(day as Date, selectedDate, isInCurrentMonth, dayComponent)
           }
           inputProps={{ ref: inputRef }}
           KeyboardButtonProps={{
@@ -606,8 +607,6 @@ export const Datepicker: FC<DatepickerProps> = ({
           PopoverProps={{
             style: {
               zIndex: 99999,
-              touchAction: 'none',
-              WebkitOverflowScrolling: 'touch',
             },
             'aria-modal': true,
             'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',

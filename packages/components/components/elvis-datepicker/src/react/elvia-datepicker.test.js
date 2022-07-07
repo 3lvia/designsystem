@@ -97,7 +97,7 @@ describe('Elvis Datepicker', () => {
       expect(datepickerInput.getDOMNode()).toHaveClass('Mui-disabled');
       done();
     });
-    it('should have not be clickable', function (done) {
+    it('should not be clickable', function (done) {
       datepickerButton.simulate('click');
       expect(datepickerInput.getDOMNode()).toHaveProperty('value', '');
       done();
@@ -185,10 +185,13 @@ describe('Elvis Datepicker', () => {
     afterEach(() => {
       wrapper.unmount();
     });
-    it('should have className and inlineStyle', function (done) {
-      expect(datepickerWrapper.getDOMNode()).toHaveStyle('margin: 24px');
+    it('should have className', function (done) {
       expect(datepickerWrapper.getDOMNode()).toHaveClass('ewc-datepicker');
       expect(datepickerWrapper.getDOMNode()).toHaveClass('test-class');
+      done();
+    });
+    it('should have inlineStyle', function (done) {
+      expect(datepickerWrapper.getDOMNode()).toHaveStyle('margin: 24px');
       done();
     });
   });

@@ -2,29 +2,29 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "05.07.22",
+      "date": "07.07.22",
       "version": "2.11.0",
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
             "Addded support for date picker range.",
-            "Added event <span class=\"code-text\">onReset</span> that triggers whenever the reset button inside the datepicker is clicked.",
-            "Added event <span class=\"code-text\">onDateElementMouseOver</span> that triggers whenever a date element inside the datepicker is moused over. This is used in the date picker range component. ",
-            "Added event <span class=\"code-text\">onDatepickerPopoverMouseOver</span> that triggers whenever the datepicker popover is moused over. This is used in the date picker range component. "
+            "Added event <span class=\"code-text\">onReset</span> that triggers whenever the reset button inside the datepicker is clicked."
           ]
         },
         {
           "type": "patch",
-          "changes": ["Updated the logic for when to show error state in the datepicker."]
+          "changes": [
+            "Updated the logic for when to show error state in the datepicker.",
+            "Bumped the dependency on <span class=\"code-text\">@elvia/elvis-component-wrapper</span> to 2.3.3."
+          ]
         },
         {
           "type": "bug_fix",
           "changes": [
             "Fixed a bug that caused the <span class=\"code-text\">valueOnChange</span> event to fire when the <span class=\"code-text\">value</span> property was set on the component.",
-            "Fixed a bug that caused the datepicker to add style tags to the <head> every time it was updated, sometimes causing the page to crash. ",
-            "Fixed a bug that caused the datepicker to not reset when the reset button was triggered by the enter key.",
-            "Fixed a bug that caused the datepicker to not lock the scroll body on iOS."
+            "Fixed a bug that caused the datepicker to add style tags to the document head every time it was updated, sometimes causing the page to crash. ",
+            "Fixed a bug that caused the datepicker to not reset when the reset button was triggered by the enter key."
           ]
         }
       ]
