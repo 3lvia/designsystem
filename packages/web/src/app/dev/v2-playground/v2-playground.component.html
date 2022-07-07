@@ -8,7 +8,7 @@
     <div class="e-bg-white">
       <h4>Datepicker range</h4>
       <elvia-datepicker-range
-        (valueOnChange)="logValue('datepicker range', $event.detail.value)"
+        (valueOnChangeISOString)="logValue('datepicker range', $event.detail.value)"
         [disableDates]="datepickerRangeDisableDates"
         [isFullWidth]="true"
         [isRequired]="true"

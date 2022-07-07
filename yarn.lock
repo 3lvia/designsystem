@@ -28211,6 +28211,7 @@ __metadata:
     "@elvia/elvis-carousel": "*"
     "@elvia/elvis-chip": "*"
     "@elvia/elvis-datepicker": "*"
+    "@elvia/elvis-datepicker-range": "*"
     "@elvia/elvis-divider": "*"
     "@elvia/elvis-dropdown": "*"
     "@elvia/elvis-icon": "*"

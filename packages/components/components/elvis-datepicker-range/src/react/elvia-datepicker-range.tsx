@@ -3,6 +3,7 @@ import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { DatepickerRangeWrapper } from './styledComponents';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 import isValid from 'date-fns/isValid';
+import formatISO from 'date-fns/formatISO';
 
 export type BothDatepickers<T> = {
   start: T;
@@ -10,6 +11,7 @@ export type BothDatepickers<T> = {
 };
 
 export type DateRange = BothDatepickers<Date | null>;
+export type DateRangeString = BothDatepickers<string | null>;
 export type LabelOptions = Partial<BothDatepickers<string>>;
 export type DisableDates = Partial<BothDatepickers<(day: Date) => boolean>>;
 export type IsRequired = Partial<BothDatepickers<boolean>>;
@@ -27,6 +29,7 @@ const defaultLabelOptions: LabelOptions = {
 export interface DatepickerRangeProps {
   value?: DateRange;
   valueOnChange?: (value: DateRange) => void;
+  valueOnChangeISOString?: (value: DateRangeString) => void;
   labelOptions?: LabelOptions;
   isCompact?: boolean;
   isFullWidth?: boolean;
@@ -36,6 +39,8 @@ export interface DatepickerRangeProps {
   hasAutoOpenEndDatepicker?: boolean;
   minDate?: Date;
   maxDate?: Date;
+  // minSpan?: Date;
+  // maxSpan?: Date;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   disableDates?: DisableDates;
@@ -45,6 +50,7 @@ export interface DatepickerRangeProps {
 export const DatepickerRange: FC<DatepickerRangeProps> = ({
   value,
   valueOnChange,
+  valueOnChangeISOString,
   labelOptions,
   isCompact,
   isFullWidth,
@@ -73,7 +79,35 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   }, [isRequired]);
 
+  /**
+   * Handle valueOnChangeISOString event. If newDate.start/end is not valid, formatISO crashes the component.
+   */
+  const handleValueOnChangeISOString = (newDate: DateRange): void => {
+    const dateISO: DateRangeString = { start: null, end: null };
+    if (newDate.start && isValid(newDate.start)) {
+      dateISO.start = formatISO(newDate.start, { representation: 'date' });
+    } else if (newDate.start === null) {
+      dateISO.start = null;
+    } else {
+      dateISO.start = 'Invalid Date';
+    }
+    if (newDate.end && isValid(newDate.end)) {
+      dateISO.end = formatISO(newDate.end, { representation: 'date' });
+    } else if (newDate.end === null) {
+      dateISO.end = null;
+    } else {
+      dateISO.end = 'Invalid Date';
+    }
+
+    if (!webcomponent) {
+      valueOnChangeISOString?.(dateISO);
+    } else {
+      webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
+    }
+  };
+
   useEffect(() => {
+    handleValueOnChangeISOString(selectedDateRange);
     if (!webcomponent) {
       valueOnChange?.(selectedDateRange);
     } else {
