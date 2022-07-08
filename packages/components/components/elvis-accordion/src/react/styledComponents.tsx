@@ -40,10 +40,9 @@ export type AccordionButtonAreaProps = {
 
 export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
   display: inline-flex;
-  justify-content: ${(props: { labelPosition: AccordionLabelPosition }) =>
-    decideLabelPosition(props.labelPosition)};
+  justify-content: ${(props) => decideLabelPosition(props.labelPosition)};
   flex-direction: row;
-  margin-top: ${(props: { type: string }) => (props.type !== 'overflow' ? '0' : '16px')};
+  margin-top: ${(props) => (props.type !== 'overflow' ? '0' : '16px')};
   width: 100%;
 `;
 
@@ -77,20 +76,19 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   display: flex;
   padding: 0;
   font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: ${(props: { hasBoldLabel: boolean; openDetailText: string | undefined }) =>
-    !props.hasBoldLabel && props.openDetailText === undefined ? '400' : '500'};
-  font-size: ${(props: { size: AccordionSize }) => decideButtonFontSize(props.size)};
-  line-height: ${(props: { size: AccordionSize }) => (props.size === 'small' ? '16px' : '24px')};
+  font-weight: ${(props) => (!props.hasBoldLabel && props.openDetailText === undefined ? '400' : '500')};
+  font-size: ${(props) => decideButtonFontSize(props.size)};
+  line-height: ${(props) => (props.size === 'small' ? '16px' : '24px')};
   text-align: left;
   cursor: pointer;
   color: ${colors.elviaBlack};
-  width: ${(props: { isFullWidth: boolean }) => (props.isFullWidth ? '100%' : 'auto')};
-  justify-content: ${(props: { isFullWidth: boolean }) => (props.isFullWidth ? 'space-between' : 'inherit')};
+  width: ${(props) => (props.isFullWidth ? '100%' : 'auto')};
+  justify-content: ${(props) => (props.isFullWidth ? 'space-between' : 'inherit')};
   align-items: center;
 
   i {
     transition: transform 300ms;
-    transform: ${(props: { isContentOpen: boolean }) =>
+    transform: ${(props) =>
       (props.isContentOpen && ' rotate(180deg)') || (props.isContentOpen === false && ' rotate(0deg)')};
   }
 `;
@@ -102,13 +100,11 @@ type AccordionLabelProps = {
 };
 
 export const AccordionLabel = styled.div<AccordionLabelProps>`
-  display: ${(props: { openLabel: string }) => (props.openLabel ? 'flex' : 'none')};
+  display: ${(props) => (props.openLabel ? 'flex' : 'none')};
   flex-direction: row;
   align-items: baseline;
-  margin-left: ${(props: { isStartAligned: boolean | undefined; isFullWidth: boolean | undefined }) =>
-    props.isStartAligned && !props.isFullWidth ? '8px' : '0px'};
-  margin-right: ${(props: { isStartAligned: boolean | undefined; isFullWidth: boolean | undefined }) =>
-    props.isStartAligned && !props.isFullWidth ? '0px' : '8px'};
+  margin-left: ${(props) => (props.isStartAligned && !props.isFullWidth ? '8px' : '0px')};
+  margin-right: ${(props) => (props.isStartAligned && !props.isFullWidth ? '0px' : '8px')};
 `;
 
 export const AccordionLabelText = styled.div`
@@ -130,7 +126,7 @@ type AccordionDetailTextProps = {
 };
 
 export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
-  ${(props: { size: string }) => decideDetailTextSize(props.size)};
+  ${(props) => decideDetailTextSize(props.size)};
   display: flex;
   text-align: left;
   color: ${colors.elviaBlack};
@@ -212,22 +208,13 @@ export const AccordionContent = styled.div<AccordionContentProps>`
   background: transparent;
   font-size: 16px;
   line-height: inherit;
-  margin-top: ${(props: {
-    isContentOpen: boolean;
-    type: AccordionType;
-    size: AccordionSize;
-    hasContent?: boolean;
-  }) => decideContentMarginTop(props.isContentOpen, props.type, props.size)};
-  pointer-events: ${(props: { isContentOpen: boolean }) => (props.isContentOpen ? 'auto' : 'none')};
+  margin-top: ${(props) => decideContentMarginTop(props.isContentOpen, props.type, props.size)};
+  pointer-events: ${(props) => (props.isContentOpen ? 'auto' : 'none')};
   height: auto;
-  max-height: ${(props: { isContentOpen: boolean; type: AccordionType; overflowHeight?: number }) =>
-    decideContentMaxHeight(props.isContentOpen, props.type, props.overflowHeight)};
-  opacity: ${(props: { isContentOpen: boolean; type: AccordionType }) =>
-    decideContentOpacity(props.isContentOpen, props.type)};
-  overflow-y: ${(props: { isContentOpen: boolean; type: AccordionType }) =>
-    decideContentOverflowY(props.isContentOpen, props.type)};
-  transition: ${(props: { isContentOpen: boolean; type: AccordionType }) =>
-    decideContentTransition(props.isContentOpen, props.type)};
+  max-height: ${(props) => decideContentMaxHeight(props.isContentOpen, props.type, props.overflowHeight)};
+  opacity: ${(props) => decideContentOpacity(props.isContentOpen, props.type)};
+  overflow-y: ${(props) => decideContentOverflowY(props.isContentOpen, props.type)};
+  transition: ${(props) => decideContentTransition(props.isContentOpen, props.type)};
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
