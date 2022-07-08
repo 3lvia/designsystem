@@ -2325,6 +2325,7 @@ __metadata:
     "@elvia/elvis-component-wrapper": ^2.2.4
     "@elvia/elvis-icon": ^1.1.1
     "@elvia/elvis-toolbox": ^1.2.1
+    "@elvia/elvis-typography": ^2.2.0
     react: ^17.0.0
     react-dom: ^17.0.0
     react-is: ^16.8.0
@@ -2344,6 +2345,7 @@ __metadata:
     "@elvia/elvis-component-wrapper": ^2.2.4
     "@elvia/elvis-icon": ^1.1.1
     "@elvia/elvis-toolbox": ^1.2.1
+    "@elvia/elvis-typography": ^2.2.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
