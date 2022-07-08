@@ -82,24 +82,31 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     const search = document.getElementById('search-field');
     search.focus();
 
-    this.initializeSearchItems();
-    this.searchService.initializeSearch(this.searchItems, {
-      includeScore: true,
-      includeMatches: true,
-      threshold: 0.4,
-      minMatchCharLength: 1,
-      keys: [
-        { name: 'title', weight: 1 },
-        { name: 'description', weight: 0.5 },
-      ],
-    });
+    this.initializeSearchItems()
+      .then(() => {
+        this.searchService.initializeSearch(this.searchItems, {
+          includeScore: true,
+          includeMatches: true,
+          threshold: 0.4,
+          minMatchCharLength: 1,
+          keys: [
+            { name: 'title', weight: 1 },
+            { name: 'description', weight: 0.5 },
+          ],
+        });
+      })
+      // Call search once after initialized in case someone started typing before the search was initialized.
+      .then(() => this.onSearch());
     this.checkIfPrideMonth();
   }
 
   /**
-   * Gets called every time the content of the search field is changed.
+   * Gets called every time the content of the search field is changed. If the search is not yet initialized, return without performing any search.
    */
   onSearch(): void {
+    if (!this.searchService.isInitialized) {
+      return;
+    }
     this.activeResults = this.searchService.search(this.searchString);
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
@@ -136,7 +143,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       .replace(/\s/g, '-');
   }
 
-  private initializeSearchItems(): void {
+  private async initializeSearchItems(): Promise<void> {
     this.searchItems = this.searchItems.concat(
       componentsDocPages.map((docPage) => {
         return {
@@ -156,13 +163,17 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
           fragmentPath: docPage.fragmentPath,
         };
       }),
-      this.getSearchItemsFromCMS(),
+      await this.getSearchItemsFromCMS(),
     );
     this.searchItems = this.removeDuplicateSearchItems(this.searchItems);
     this.searchItems = this.removeSearchItemsWithoutPath(this.searchItems);
   }
 
-  private getSearchItemsFromCMS(): SearchItem[] {
+  private async getSearchItemsFromCMS(): Promise<SearchItem[]> {
+    await this.cmsService.getMenu(this.locale).then((data) => {
+      this.mainMenu = data;
+    });
+
     const mappedCMSItems: SearchItem[] = [];
     this.mainMenu.pages.forEach((subMenu) => {
       subMenu.entry.fields.pages[Locale[this.locale]].forEach((documentationPage: IDocumentationPage) => {
