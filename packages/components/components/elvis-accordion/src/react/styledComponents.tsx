@@ -217,7 +217,7 @@ export const AccordionContent = styled.div<AccordionContentProps>`
     type: AccordionType;
     size: AccordionSize;
     hasContent?: boolean;
-  }) => decideContentMarginTop(props.isContentOpen, props.type, props.size, props.hasContent)};
+  }) => decideContentMarginTop(props.isContentOpen, props.type, props.size)};
   pointer-events: ${(props: { isContentOpen: boolean }) => (props.isContentOpen ? 'auto' : 'none')};
   height: auto;
   max-height: ${(props: { isContentOpen: boolean; type: AccordionType; overflowHeight?: number }) =>
