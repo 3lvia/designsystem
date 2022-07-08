@@ -52,12 +52,18 @@ $toast-max-width: 400px;
       text-align: left;
       color: colors.color('font-color');
       margin-bottom: 2px;
+      @include breakpoints.breakpoint-up(Mobile) {
+        text-align: center;
+      }
     }
     .e-alert__text {
       @include typography.typography('text-md');
       text-align: left;
       color: colors.color('font-color');
       max-width: 758px;
+      @include breakpoints.breakpoint-up(Mobile) {
+        text-align: center;
+      }
       ul {
         margin: 0;
         margin-top: 8px;
@@ -259,7 +265,6 @@ $toast-max-width: 400px;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
       .e-alert__icon {
         margin-right: 0px;
         margin-top: 0px;
