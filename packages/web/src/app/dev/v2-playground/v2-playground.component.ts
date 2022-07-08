@@ -71,6 +71,9 @@ export class v2PlaygroundComponent {
   logValue = (component: string, value: Event): void => {
     console.log(component, ': ', value);
   };
+  log = (event: string): void => {
+    console.log(event);
+  };
 
   // Chips
   handleOnChange = (event: { target: { value: string }; detail: { value: boolean } }): void => {

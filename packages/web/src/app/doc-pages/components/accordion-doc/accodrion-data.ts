@@ -7,6 +7,12 @@ const accordionData: ComponentData = {
   elementNameW: 'elvia-accordion',
   elementNameR: 'Accordion',
   attributes: {
+    isOpen: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Determines if the accordion is open or closed.',
+      default: 'false',
+    },
     type: {
       isRequired: false,
       type: '“normal” | “overflow”',
@@ -28,15 +34,16 @@ const accordionData: ComponentData = {
       type: 'string | HTMLElement',
       description: 'Text, images, tables or any other content (use slot in webcomponent if not just text).',
     },
-    openLabel: {
+    isFullWidth: {
       isRequired: false,
-      type: `string`,
-      description: `Label for opening the accordion. Will also set the aria-label of the button opening the accordion. NB: the prop ariaLabelOpen has higher priority and will overwrite the aria-label.`,
-    },
-    closeLabel: {
-      isRequired: false,
-      type: `string`,
-      description: `Label for closing the accordion. Will also set the aria-label of the button closing the accordion. NB: the prop ariaLabelClose has higher priority and will overwrite the aria-label.`,
+      type: `boolean`,
+      description: `Determines if the accordion is full width.`,
+
+      cegDisplayName: 'Full width',
+      cegType: 'boolean',
+      cegFormType: 'toggle',
+      cegDefault: false,
+      cegOption: 'true',
     },
     labelPosition: {
       isRequired: false,
@@ -48,6 +55,7 @@ const accordionData: ComponentData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['left', 'center', 'right'],
+      cegDependency: [{ name: 'isFullWidth', value: 'false' }],
     },
     size: {
       isRequired: false,
@@ -60,6 +68,16 @@ const accordionData: ComponentData = {
       cegFormType: 'radio',
       cegOptions: ['small', 'medium', 'large'],
     },
+    openLabel: {
+      isRequired: false,
+      type: `string`,
+      description: `Label for opening the accordion. Will also set the aria-label of the button opening the accordion. NB: the prop ariaLabelOpen has higher priority and will overwrite the aria-label.`,
+    },
+    closeLabel: {
+      isRequired: false,
+      type: `string`,
+      description: `Label for closing the accordion. Will also set the aria-label of the button closing the accordion. NB: the prop ariaLabelClose has higher priority and will overwrite the aria-label.`,
+    },
     openAriaLabel: {
       isRequired: false,
       type: `string`,
@@ -69,6 +87,28 @@ const accordionData: ComponentData = {
       isRequired: false,
       type: `string`,
       description: `Aria-label for the button closing the accordion. `,
+    },
+    openDetailText: {
+      isRequired: false,
+      type: `string`,
+      description: `Detail text for the button opening the accordion. Will be displayed next to the label.`,
+    },
+    closeDetailText: {
+      isRequired: false,
+      type: `string`,
+      description: `Detail text for the button closing the accordion. Will be displayed next to the label.`,
+    },
+    isStartAligned: {
+      isRequired: false,
+      type: `boolean`,
+      description: `Determines if the accordion is full width.`,
+
+      cegDisplayName: 'Start aligned',
+      cegType: 'boolean',
+      cegFormType: 'toggle',
+      cegDefault: false,
+      cegOption: 'true',
+      cegDependency: [{ name: 'isFullWidth', value: 'false' }],
     },
     className: {
       isRequired: false,

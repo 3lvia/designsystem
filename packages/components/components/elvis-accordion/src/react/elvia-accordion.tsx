@@ -5,6 +5,8 @@ import {
   AccordionArea,
   AccordionButtonArea,
   AccordionButton,
+  AccordionLabel,
+  AccordionLabelText,
   AccordionDetailText,
   AccordionContent,
 } from './styledComponents';
@@ -22,6 +24,7 @@ export interface AccordionProps {
   openAriaLabel?: string;
   closeAriaLabel?: string;
   hasBoldLabel?: boolean;
+  isStartAligned?: boolean;
   labelPosition: AccordionLabelPosition;
   size: AccordionSize;
   type: AccordionType;
@@ -43,7 +46,8 @@ const Accordion: FC<AccordionProps> = ({
   closeDetailText,
   openAriaLabel,
   closeAriaLabel,
-  hasBoldLabel = false,
+  isStartAligned = false,
+  hasBoldLabel = true,
   labelPosition = 'center',
   size = 'medium',
   type = 'normal',
@@ -59,7 +63,7 @@ const Accordion: FC<AccordionProps> = ({
   const [isHoveringButton, setIsHoveringButton] = useState(false);
 
   const accordionRef = useRef<HTMLSpanElement>(null);
-  const accordionText = useRef<HTMLDivElement>(null);
+  const accordionContentRef = useRef<HTMLDivElement>(null);
 
   /** Start outline listener */
   useEffect(() => {
@@ -77,9 +81,9 @@ const Accordion: FC<AccordionProps> = ({
       return;
     }
     // Get slotted items from web component
-    if (accordionText.current && webcomponent.getSlot('content')) {
-      accordionText.current.innerHTML = '';
-      accordionText.current.appendChild(webcomponent.getSlot('content'));
+    if (accordionContentRef.current && webcomponent.getSlot('content')) {
+      accordionContentRef.current.innerHTML = '';
+      accordionContentRef.current.appendChild(webcomponent.getSlot('content'));
     }
   }, [webcomponent]);
 
@@ -92,8 +96,7 @@ const Accordion: FC<AccordionProps> = ({
   }, [isOpen]);
 
   const handleOnClick = () => {
-    setContentOpen((contentOpen) => !contentOpen);
-    if (contentOpen) {
+    if (!contentOpen) {
       if (!webcomponent && onOpen) {
         onOpen();
       } else if (webcomponent) {
@@ -106,6 +109,7 @@ const Accordion: FC<AccordionProps> = ({
         webcomponent.triggerEvent('onClose');
       }
     }
+    setContentOpen((contentOpen) => !contentOpen);
   };
 
   const decideButtonAriaLabel = (): string => {
@@ -114,6 +118,14 @@ const Accordion: FC<AccordionProps> = ({
     } else {
       return openAriaLabel ? openAriaLabel : openLabel ? openLabel : 'Åpne';
     }
+  };
+  const shouldShowRightIcon = (): boolean => {
+    return (isStartAligned && isFullWidth) || !isStartAligned;
+  };
+  const hasContent = (): boolean => {
+    const hasContentSlot: boolean = webcomponent !== undefined && webcomponent.getSlot('content') !== null;
+    const hasContentProp: boolean = content !== '' || content !== undefined;
+    return hasContentProp || hasContentSlot;
   };
 
   return (
@@ -125,16 +137,17 @@ const Accordion: FC<AccordionProps> = ({
         data-testid="accordion-area"
         {...rest}
       >
-        {type === 'overflow' ? (
+        {type === 'overflow' && hasContent() ? (
           <AccordionContent
-            overflowHeight={overflowHeight}
-            isContentOpen={contentOpen}
             type={type}
             size={size}
+            isContentOpen={contentOpen}
+            overflowHeight={overflowHeight}
+            hasContent={content ? true : false}
             data-testid="accordion-content-overflow"
           >
             {content && <div>{content}</div>}
-            {!content && <div ref={accordionText} />}
+            {!content && <div ref={accordionContentRef} />}
           </AccordionContent>
         ) : null}
         <AccordionButtonArea labelPosition={labelPosition} type={type}>
@@ -152,24 +165,40 @@ const Accordion: FC<AccordionProps> = ({
             data-testid="accordion-button-label"
             aria-label={decideButtonAriaLabel()}
           >
-            {!contentOpen ? openLabel : closeLabel}
-            <AccordionDetailText>{!contentOpen ? openDetailText : closeDetailText}</AccordionDetailText>
-            <Icon
-              name={isHoveringButton ? 'expandCircleFilledColor' : 'expandCircleColor'}
-              size={size === 'small' ? 'xs' : 'sm'}
-            />
+            {isStartAligned && !isFullWidth && (
+              <Icon
+                name={isHoveringButton ? 'expandCircleFilledColor' : 'expandCircleColor'}
+                size={size === 'small' ? 'xs' : 'sm'}
+              />
+            )}
+            <AccordionLabel
+              openLabel={openLabel ? openLabel : ''}
+              isStartAligned={isStartAligned}
+              isFullWidth={isFullWidth}
+            >
+              <AccordionLabelText>{!contentOpen ? openLabel : closeLabel}</AccordionLabelText>
+              <AccordionDetailText size={size}>
+                {!contentOpen ? openDetailText : closeDetailText}
+              </AccordionDetailText>
+            </AccordionLabel>
+            {shouldShowRightIcon() && (
+              <Icon
+                name={isHoveringButton ? 'expandCircleFilledColor' : 'expandCircleColor'}
+                size={size === 'small' ? 'xs' : 'sm'}
+              />
+            )}
           </AccordionButton>
         </AccordionButtonArea>
-        {type === 'normal' ? (
+        {type === 'normal' && hasContent() ? (
           <AccordionContent
-            isContentOpen={contentOpen}
             type={type}
             size={size}
+            isContentOpen={contentOpen}
             overflowHeight={overflowHeight}
             data-testid="accordion-content-normal"
           >
             {content && <div>{content}</div>}
-            {!content && <div ref={accordionText} />}
+            {!content && <div ref={accordionContentRef} />}
           </AccordionContent>
         ) : null}
       </AccordionArea>

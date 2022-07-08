@@ -2,6 +2,20 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "08.05.22",
+      "version": "3.0.0 ",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Accordion has width auto by default now, this might break your layout if your content was not taking up 100% before.",
+            "Added onOpen and onClose event.",
+            "Added the props isOpen, isFullWidth, isStartAligned, openDetailText and closeDetailText."
+          ]
+        }
+      ]
+    },
+    {
       "date": "03.05.22",
       "version": "2.4.0 ",
       "changelog": [

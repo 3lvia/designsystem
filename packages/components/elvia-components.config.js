@@ -54,6 +54,7 @@ module.exports = [
       { name: 'closeDetailText', type: 'string', propType: 'string | undefined' },
       { name: 'openAriaLabel', type: 'string', propType: 'string | undefined' },
       { name: 'closeAriaLabel', type: 'string', propType: 'string | undefined' },
+      { name: 'isStartAligned', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasBoldLabel', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'labelPosition', type: 'string', propType: 'string' },
       { name: 'size', type: 'string', propType: 'string' },
@@ -65,7 +66,7 @@ module.exports = [
     reactName: 'Accordion',
     useWrapper: true,
     slotItems: true,
-    elementStyle: `width: 100%;`,
+    conditionalElementStyle: [{ name: 'isFullWidth', value: 'true', style: `width: 100%` }],
     reactTypescriptDeclaration: true,
   },
   {

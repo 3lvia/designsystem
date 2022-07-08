@@ -24,6 +24,22 @@
     </ng-container>
   </app-component-section>
 
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Custom label'">
+        <ng-container ngProjectAs="sectionContent">
+          Sometimes you might need just the accordion button to place beside a different component. To do this
+          just remove the content and label props and you can place the button anywhere. Just use the events
+          <span class="code-text">onOpen</span>
+          and
+          <span class="code-text">onClose</span>
+          to control the state of the accordion.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--ACCESSIBILITY-->
   <app-component-section [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
