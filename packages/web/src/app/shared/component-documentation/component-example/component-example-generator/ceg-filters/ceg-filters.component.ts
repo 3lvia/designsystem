@@ -297,7 +297,7 @@ export class CegFiltersComponent implements OnInit {
 
   private checkIfVisible(formField: CegFormGroup | CegFormGroupOption): boolean {
     const visibleFieldPipe = new VisibleFieldsPipe();
-    return visibleFieldPipe.transform(formField, this.formStates);
+    return visibleFieldPipe.transform(formField, this.formStates, false);
   }
 
   private isNotAcceptedCounterValue(formGroup: CegFormGroup, stepValue: number): boolean {
