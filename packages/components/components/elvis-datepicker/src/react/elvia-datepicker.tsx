@@ -104,6 +104,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   const [hasFocus, setHasFocus] = useState(false);
   const [shouldHaveSelected, setShouldHaveSelected] = useState(true);
   const [isDatepickerOpen, setIsDatepickerOpen] = useState(isOpen);
+  const [isDirty, setIsDirty] = useState(false);
   const datepickerRef = useRef<HTMLDivElement>(null);
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -167,6 +168,25 @@ export const Datepicker: FC<DatepickerProps> = ({
       removeOutlineListenerDatepickerPopover(datepickerRef.current);
     };
   }, []);
+
+  /**
+   * Update error state when:
+   * - datepicker has had focus.
+   * - datepicker open state changes.
+   * - `isDirty` changes (because of timing issues inside `validateDate`).
+   */
+  useEffect(() => {
+    validateDate(selectedDate);
+  }, [hasHadFocus, isDatepickerOpen, isDirty]);
+
+  /**
+   * `isDirty` tracks if the user has interacted with the datepicker by either typing or selecting a date.
+   */
+  useEffect(() => {
+    if (selectedDate !== value) {
+      setIsDirty(true);
+    }
+  }, [selectedDate]);
 
   /**
    * Sets the selected date and dispatches the valueOnChange event
@@ -246,6 +266,8 @@ export const Datepicker: FC<DatepickerProps> = ({
    * Dispatch close event
    */
   const handleCloseDatepicker = (): void => {
+    updateFocusStates();
+    setHasFocus(false);
     setIsDatepickerOpen(false);
     if (!webcomponent && onClose) {
       onClose();
@@ -278,10 +300,15 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   /**
-   * Validates the date and finds the current error message if not valid
+   * Validates the date and finds the current error message if not valid.
+   *
+   * NB: Will not validate if `customError` is used, of if the datepicker is not dirty.
    */
   const validateDate = (date: Date | null): void => {
     if (customError) {
+      return;
+    }
+    if (!isDirty) {
       return;
     }
 
@@ -313,6 +340,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   const updateFocusStates = (): void => {
     setHasHadFocus(true);
     setHasFocus(true);
+    validateDate(selectedDate);
 
     const checkIfDatepickerHasFocus = () => {
       if (
