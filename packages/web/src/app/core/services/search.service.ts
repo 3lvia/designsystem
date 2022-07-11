@@ -6,6 +6,7 @@ import Fuse from 'fuse.js';
 })
 export class SearchService<T> {
   searchResults: Fuse.FuseResult<T>[];
+  isInitialized = false;
 
   private fuse: Fuse<T>;
 
@@ -28,6 +29,7 @@ export class SearchService<T> {
    */
   initializeSearch(searchItems: T[], searchOptions: Fuse.IFuseOptions<T>): void {
     this.fuse = new Fuse(searchItems, searchOptions);
+    this.isInitialized = true;
   }
 
   /**
@@ -38,5 +40,13 @@ export class SearchService<T> {
   search(searchString: string): T[] {
     this.searchResults = this.fuse.search(searchString);
     return this.searchResults.map((result) => result.item);
+  }
+
+  /**
+   * Replace the items to search through defined in `initializeSearch` with a new list.
+   * @param searchItems List containing the new items to search through.
+   */
+  updateSearchItems(searchItems: T[]): void {
+    this.fuse.setCollection(searchItems);
   }
 }
