@@ -189,6 +189,15 @@ export const Datepicker: FC<DatepickerProps> = ({
   }, [selectedDate]);
 
   /**
+   * Trigger `updateInputWithSelectedDate` when datepicker is opened by the `isOpen`-prop.
+   */
+  useEffect(() => {
+    if (isDatepickerOpen) {
+      updateInputWithSelectedDate();
+    }
+  }, [isDatepickerOpen]);
+
+  /**
    * Sets the selected date and dispatches the valueOnChange event
    */
   const handleDateChange = (date: Date | null): void => {
