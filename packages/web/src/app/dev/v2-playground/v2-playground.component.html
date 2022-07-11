@@ -5,42 +5,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white">
-      <!-- <elvia-accordion
-        type="overflow"
-        isFullWidth="true"
-        openLabel="Label open"
-        closeLabel="Label close"
-        size="medium"
-        type="normal"
-        (onOpen)="log('Open')"
-        (onClose)="log('Close')"
-        className="e-mb-56"
-      >
-        <div slot="content">
-          Hello there Hello there Hello there Hello there Hello there Hello there Hello there Hello there
-          Hello there Hello there Hello there Hello there Hello there Hello there Hello there Hello there
-          Hello there Hello there Hello there Hello there Hello there Hello there Hello there Hello there
-        </div>
-      </elvia-accordion> -->
-      <elvia-accordion
-        isOpen="true"
-        size="large"
-        type="normal"
-        (onOpen)="log('Open')"
-        (onClose)="log('Close')"
-      ></elvia-accordion>
-      <div class="e-flex e-gap-8 e-align-items-center">
-        <elvia-accordion
-          isOpen="true"
-          size="large"
-          type="normal"
-          (onOpen)="log('Open')"
-          (onClose)="log('Close')"
-        ></elvia-accordion>
-        <span>Custom label</span>
-      </div>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -48,11 +13,11 @@
   <!--Accordion-->
   <div class="example-wrapper">
     <h3>Accordion</h3>
-    <!-- <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="normal">
+    <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="normal">
       <div slot="content">
         <h3>Hello there</h3>
       </div>
-    </elvia-accordion> -->
+    </elvia-accordion>
   </div>
 
   <!--Box-->
