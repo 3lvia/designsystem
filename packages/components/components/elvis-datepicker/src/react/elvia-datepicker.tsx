@@ -595,6 +595,9 @@ export const Datepicker: FC<DatepickerProps> = ({
           KeyboardButtonProps={{
             'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
             disableRipple: true,
+            classes: {
+              root: isDatepickerOpen ? 'ewc-datepicker__keyboardbutton--open' : '',
+            },
           }}
           leftArrowButtonProps={{
             'aria-label': 'Vis forrige måned',
