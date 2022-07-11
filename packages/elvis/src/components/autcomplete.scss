@@ -28,7 +28,7 @@ $autocomplete-padding-item-compact: 6px 10px;
     width: 100%;
     padding: $autocomplete-padding-item;
     z-index: 100;
-    @include typography.typography('text-description');
+    @include typography.typography('text-md');
 
     @include helpers.hover() {
       &:hover {
@@ -47,7 +47,7 @@ $autocomplete-padding-item-compact: 6px 10px;
     .e-autocomplete {
       &__item {
         padding: $autocomplete-padding-item-compact;
-        @include typography.typography('text-info');
+        @include typography.typography('text-sm');
       }
     }
   }

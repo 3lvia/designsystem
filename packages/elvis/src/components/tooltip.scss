@@ -16,7 +16,7 @@ $tooltip-padding: 8px 10px;
   display: inline-block;
   box-sizing: border-box;
   line-height: 0;
-  // only focus effect is currently a visible toooltip.
+  // only focus effect is currently a visible tooltip.
   outline: none;
 
   &:hover,
@@ -35,13 +35,14 @@ $tooltip-padding: 8px 10px;
     padding: $tooltip-padding;
     border-radius: 4px;
     transition: 250ms;
-    // tooltip spesific font style
+
     font-family: 'Red Hat Text', Verdana, sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 19px;
     letter-spacing: 0.002em;
     color: colors.color('font-color-light');
+    text-align: left;
 
     // Defaults .e-tooltip_content---top if no direction class is applied.
     &:not(.e-tooltip__content--bottom) {
