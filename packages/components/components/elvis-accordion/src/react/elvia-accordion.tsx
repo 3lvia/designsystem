@@ -2,6 +2,7 @@ import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
 import toolbox from '@elvia/elvis-toolbox';
 import { AccordionLabelPosition, AccordionSize, AccordionType } from './elvia-accordion.types';
 import {
+  AccordionWrapper,
   AccordionArea,
   AccordionButtonArea,
   AccordionButton,
@@ -62,7 +63,7 @@ const Accordion: FC<AccordionProps> = ({
   const [contentOpen, setContentOpen] = useState(isOpen);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
 
-  const accordionRef = useRef<HTMLSpanElement>(null);
+  const accordionRef = useRef<HTMLDivElement>(null);
   const accordionContentRef = useRef<HTMLDivElement>(null);
 
   /** Start outline listener */
@@ -123,13 +124,15 @@ const Accordion: FC<AccordionProps> = ({
     return (isStartAligned && isFullWidth) || !isStartAligned;
   };
   const hasContent = (): boolean => {
-    const hasContentSlot: boolean = webcomponent !== undefined && webcomponent.getSlot('content') !== null;
-    const hasContentProp: boolean = content !== '' || content !== undefined;
+    const hasContentSlot: boolean =
+      webcomponent !== undefined && webcomponent.getSlot('content') !== undefined;
+    const hasContentProp: boolean = content !== '' && content !== undefined;
+
     return hasContentProp || hasContentSlot;
   };
 
   return (
-    <span ref={accordionRef}>
+    <AccordionWrapper ref={accordionRef}>
       <AccordionArea
         aria-expanded={contentOpen}
         className={`${className ? className : ''}`}
@@ -143,7 +146,7 @@ const Accordion: FC<AccordionProps> = ({
             size={size}
             isContentOpen={contentOpen}
             overflowHeight={overflowHeight}
-            hasContent={content ? true : false}
+            hasContent={hasContent()}
             data-testid="accordion-content-overflow"
           >
             {content && <div>{content}</div>}
@@ -202,7 +205,7 @@ const Accordion: FC<AccordionProps> = ({
           </AccordionContent>
         ) : null}
       </AccordionArea>
-    </span>
+    </AccordionWrapper>
   );
 };
 

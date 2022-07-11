@@ -8,7 +8,12 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "Accordion has width auto by default now, this might break your layout if your content was not taking up 100% before.",
+            "Accordion now has 'display:flex' and 'width:auto' by default, this might break your layout if your content was not taking up 100% before."
+          ]
+        },
+        {
+          "type": "new_feature",
+          "changes": [
             "Added onOpen and onClose event.",
             "Added the props isOpen, isFullWidth, isStartAligned, openDetailText and closeDetailText."
           ]

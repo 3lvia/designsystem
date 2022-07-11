@@ -13,6 +13,10 @@ const typography = {
   textMicro: getTypographyCss('text-micro'),
 };
 
+export const AccordionWrapper = styled.div`
+  display: flex;
+`;
+
 export const AccordionArea = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,7 +43,7 @@ export type AccordionButtonAreaProps = {
 };
 
 export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
-  display: inline-flex;
+  display: flex;
   justify-content: ${(props) => decideLabelPosition(props.labelPosition)};
   flex-direction: row;
   margin-top: ${(props) => (props.type !== 'overflow' ? '0' : '16px')};

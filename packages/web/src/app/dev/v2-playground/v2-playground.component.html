@@ -6,7 +6,7 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <elvia-accordion
+      <!-- <elvia-accordion
         type="overflow"
         isFullWidth="true"
         openLabel="Label open"
@@ -22,8 +22,15 @@
           Hello there Hello there Hello there Hello there Hello there Hello there Hello there Hello there
           Hello there Hello there Hello there Hello there Hello there Hello there Hello there Hello there
         </div>
-      </elvia-accordion>
-      <span>
+      </elvia-accordion> -->
+      <elvia-accordion
+        isOpen="true"
+        size="large"
+        type="normal"
+        (onOpen)="log('Open')"
+        (onClose)="log('Close')"
+      ></elvia-accordion>
+      <div class="e-flex e-gap-8 e-align-items-center">
         <elvia-accordion
           isOpen="true"
           size="large"
@@ -31,8 +38,8 @@
           (onOpen)="log('Open')"
           (onClose)="log('Close')"
         ></elvia-accordion>
-      </span>
-      <span>Custom label</span>
+        <span>Custom label</span>
+      </div>
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
