@@ -9,7 +9,7 @@ const datepickerData: ComponentData = {
     value: {
       isRequired: false,
       type: 'Date',
-      description: 'Preselected date',
+      description: 'Preselected date.',
       cegDisplayName: 'Value',
     },
     valueOnChange: {
@@ -18,16 +18,21 @@ const datepickerData: ComponentData = {
       description:
         'Gets called every time the value is changed. Returns null if input field is empty, or Invalid Date if input is not a valid date.',
     },
+    valueOnChangeISOString: {
+      isRequired: false,
+      type: '(value: string | null) => CustomEvent',
+      description: `Gets called every time the value is changed. Returns a string containing the chosen date, without time, in ISO format (e.g. '2022-06-20'), or null if no date is selected.`,
+    },
     label: {
       isRequired: false,
       type: 'string',
-      description: 'Label of input',
+      description: 'Label of input.',
       cegDisplayName: 'Label',
     },
     isCompact: {
       isRequired: false,
       type: 'boolean',
-      description: 'Compact size',
+      description: 'Compact size.',
       default: 'false',
       cegDisplayName: 'Compact',
       cegType: 'boolean',
@@ -38,7 +43,7 @@ const datepickerData: ComponentData = {
     isFullWidth: {
       isRequired: false,
       type: 'boolean',
-      description: 'Gives the input 100% width (max = 343px)',
+      description: 'Gives the input 100% width (max = 343px).',
       default: 'false',
       cegDisplayName: 'Full width',
       cegType: 'boolean',
@@ -49,7 +54,7 @@ const datepickerData: ComponentData = {
     isDisabled: {
       isRequired: false,
       type: 'boolean',
-      description: 'Disabled datepicker',
+      description: 'Disabled datepicker.',
       default: 'false',
       cegDisplayName: 'Disabled',
       cegType: 'boolean',
@@ -60,7 +65,7 @@ const datepickerData: ComponentData = {
     isRequired: {
       isRequired: false,
       type: 'boolean',
-      description: 'Required datepicker-fields cannot be empty',
+      description: 'Required datepicker-fields cannot be empty.',
       default: 'false',
       cegDisplayName: 'Required',
       cegType: 'boolean',
@@ -146,12 +151,12 @@ const datepickerData: ComponentData = {
       isRequired: false,
       type: 'boolean',
       default: 'false',
-      description: 'Controlled picker open state',
+      description: 'Controlled picker open state.',
     },
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom css classes that can be added to the datepicker.',
+      description: 'Custom CSS classes that can be added to the datepicker.',
     },
     inlineStyle: {
       isRequired: false,
@@ -180,7 +185,7 @@ const datepickerData: ComponentData = {
       isRequired: false,
       type: 'string',
       default: 'Nullstill',
-      description: 'Text to display in clear button.',
+      description: 'Text to display in clear date-button.',
     },
     disableDate: {
       isRequired: false,
@@ -196,11 +201,11 @@ const datepickerData: ComponentData = {
 ></Datepicker>
 `,
   codeAngular: `<elvia-datepicker
-  (valueOnChange)="handleOnChange(event.detail.value)"
+  (valueOnChange)="handleOnChange($event.detail.value)"
 ></elvia-datepicker>
 `,
   codeVue: `<elvia-datepicker
-  @value-on-change="handleOnChange(event.detail.value)"
+  @value-on-change="handleOnChange($event.detail.value)"
 ></elvia-datepicker>
 `,
   codeNativeHTML: `<elvia-datepicker

@@ -13,6 +13,7 @@ import isValid from 'date-fns/isValid';
 import isSameDay from 'date-fns/isSameDay';
 import isAfter from 'date-fns/isAfter';
 import isBefore from 'date-fns/isBefore';
+import formatISO from 'date-fns/formatISO';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 
 export interface DatepickerProps {
@@ -27,6 +28,7 @@ export interface DatepickerProps {
   minDate?: Date;
   maxDate?: Date;
   valueOnChange?: (value: Date | null) => void;
+  valueOnChangeISOString?: (value: string | null) => void;
   onOpen?: () => void;
   onClose?: () => void;
   webcomponent?: ElvisComponentWrapper;
@@ -56,6 +58,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   minDate,
   maxDate,
   valueOnChange,
+  valueOnChangeISOString,
   onOpen,
   onClose,
   webcomponent,
@@ -136,12 +139,30 @@ export const Datepicker: FC<DatepickerProps> = ({
    */
   const handleDateChange = (date: Date | null): void => {
     hasValidation && validateDate(date);
-    setSelectedDate(date);
 
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(date);
-    } else if (webcomponent) {
-      webcomponent.setProps({ value: date }, true);
+    // Set time component of the selected date to 0 by creating a new date object.
+    const newDate = date ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : null;
+    setSelectedDate(newDate);
+
+    handleValueOnChangeISOString(newDate);
+    if (!webcomponent) {
+      valueOnChange?.(newDate);
+    } else {
+      webcomponent.setProps({ value: newDate }, true);
+    }
+  };
+
+  /**
+   * Handle valueOnChangeISOString event. If newDate is not valid, formatISO crashes the component.
+   */
+  const handleValueOnChangeISOString = (newDate: Date | null): void => {
+    if (isValid(newDate)) {
+      const dateISO = newDate ? formatISO(newDate, { representation: 'date' }) : null;
+      if (!webcomponent) {
+        valueOnChangeISOString?.(dateISO);
+      } else {
+        webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
+      }
     }
   };
 
@@ -417,7 +438,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     let res = digits
       .split('')
       .reduce((num1, num2, index) => (index === 2 || index === 4 ? `${num1}.${num2}` : `${num1}${num2}`), '')
-      .substring(0, 9);
+      .substring(0, 10);
 
     if (res.length === 2 || res.length === 5) {
       res = `${res}.`;

@@ -10,7 +10,7 @@ export const progressbarData: ComponentData = {
     value: {
       isRequired: false,
       type: 'number',
-      description: 'The percentage value of completion',
+      description: 'The percentage value of completion.',
       default: '0',
       cegDisplayName: 'Loaded',
       cegType: 'number',
@@ -24,7 +24,7 @@ export const progressbarData: ComponentData = {
     isIndeterminate: {
       isRequired: false,
       type: 'boolean',
-      description: 'For indeterminate loading',
+      description: 'For indeterminate loading.',
       default: 'false',
       cegDisplayName: 'Indeterminate',
       cegType: 'boolean',
@@ -47,13 +47,13 @@ export const progressbarData: ComponentData = {
       isRequired: false,
       type: 'boolean',
       description:
-        'Use ariaValueText to better communicate to the user how far along the progressbar has come. E.g. "8% (34 minutes) remaining"',
+        'Use to better communicate to the user how far along the progressbar has come. E.g. "8% (34 minutes) remaining".',
       default: '"Progress is currently at {value}%."',
     },
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom css classes that can be added to the progressbar.',
+      description: 'Custom CSS classes that can be added to the progressbar.',
     },
     inlineStyle: {
       isRequired: false,

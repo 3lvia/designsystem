@@ -16,19 +16,19 @@ export const dropdownData: ComponentData = {
       isRequired: false,
       type: 'object',
       description:
-        'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string, icon?: string}',
+        'Set a defualt value to the dropdown. Has same key value pairs as an items object: {value: string, label: string, icon?: string}',
       default: 'undefined',
     },
     errorMessage: {
       isRequired: false,
       type: 'string',
-      description: 'Display a error message and red border on dropdown.',
+      description: 'Display an error message and red border on dropdown.',
       default: `''`,
     },
     isCompact: {
       isRequired: false,
       type: 'boolean',
-      description: 'Set the dropdown to a smaller elvia compact style',
+      description: 'Set the dropdown to a smaller Elvia compact style.',
       default: 'false',
       cegDisplayName: 'Compact',
       cegType: 'boolean',
@@ -39,7 +39,7 @@ export const dropdownData: ComponentData = {
     isDisabled: {
       isRequired: false,
       type: 'boolean',
-      description: 'Set dropdown to a disabled state',
+      description: 'Set dropdown to a disabled state.',
       default: 'false',
       cegDisplayName: 'Disabled',
       cegType: 'boolean',
@@ -62,7 +62,7 @@ export const dropdownData: ComponentData = {
     isMulti: {
       isRequired: false,
       type: 'boolean',
-      description: 'Set the dropdown to accept multiple values',
+      description: 'Set the dropdown to accept multiple values.',
       default: 'false',
       cegDisplayName: 'Multiselect',
       cegType: 'boolean',
@@ -85,34 +85,40 @@ export const dropdownData: ComponentData = {
     label: {
       isRequired: false,
       type: 'string',
-      description: 'Label value for the dropdown element',
+      description: 'Label value for the dropdown element.',
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'input',
+      cegDefault: 'Label',
     },
     menuPosition: {
       isRequired: false,
-      type: 'string',
-      description: `Set the position of the dropdown menu, can be either 'top', 'bottom' or 'auto'`,
-      default: `'auto'`,
+      type: 'top | bottom | auto',
+      description: `Set the position of the dropdown menu.`,
+      default: `auto`,
     },
     noOptionsMessage: {
       isRequired: false,
       type: 'string',
-      description: 'Text to display when there are no options',
+      description: 'Text to display when there are no options.',
       default: `'Ingen tilgjengelige valg'`,
     },
     placeholder: {
       isRequired: false,
       type: 'string',
-      description: 'Placeholder value for the dropdown menu',
+      description: 'Placeholder value for the dropdown menu.',
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'input',
+      cegDefault: 'Placeholder',
     },
     valueOnChange: {
       isRequired: false,
       type: '(options: Array<object>) => CustomEvent',
-      description: `Gets called every time an option(s) is selected and return an array of selected objects`,
+      description: `Gets called every time an option(s) is selected and return an array of selected objects.`,
     },
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom css classes that can be added to the dropdown.',
+      description: 'Custom CSS classes that can be added to the dropdown.',
     },
     inlineStyle: {
       isRequired: false,
@@ -132,8 +138,6 @@ export const dropdownData: ComponentData = {
     { value: 'Finland', label: 'Finland' },
     { value: 'Island', label: 'Island' }
   ]} 
-  label={"Label"}
-  placeholder={"Placeholder"}
   valueOnChange={(event) => updateSelectedList(event)}
 ></Dropdown>
 `,
@@ -145,8 +149,6 @@ export const dropdownData: ComponentData = {
     { value: 'Finland', label: 'Finland' },
     { value: 'Island', label: 'Island' }
   ]"
-  [label]="'Label'"
-  [placeholder]="'Placeholder'"
   (valueOnChange)="updateSelectedList($event.detail.value)"
 ></elvia-dropdown>
 `,
@@ -158,8 +160,6 @@ export const dropdownData: ComponentData = {
     { value: 'Finland', label: 'Finland' },
     { value: 'Island', label: 'Island' }
   ]"
-  :label="'Label'"
-  :placeholder="'Placeholder'"
   @value-on-change="updateSelectedList($event.detail.value)"
 ></elvia-dropdown>
 `,
@@ -175,8 +175,6 @@ export const dropdownData: ComponentData = {
     { value: 'Finland', label: 'Finland' },
     { value: 'Island', label: 'Island' }
   ];
-  dropdown.setProps({label: 'Label' });
-  dropdown.setProps({placeholder: 'Placeholder' });
   dropdown.setProps({items: items});
   dropdown.addEventListener('valueOnChange', (event) => {
     console.log('Do what you want with selected elements: ', event.detail.value);

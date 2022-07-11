@@ -2,6 +2,46 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.06.22",
+      "version": "2.10.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that caused the date picker to crash when trying to manually write a date in the input field."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "21.06.22",
+      "version": "2.10.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added a new event prop <span class=\"code-text\">valueOnChangeISOString</span> that gives the chosen date as a string in ISO format without including time."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "<span class=\"code-text\">valueOnChange</span> now gives the chosen date with time set to 00:00:00, instead of the time that the date was selected."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "03.06.22",
+      "version": "2.9.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug that made it impossible to write full dates into the datepicker."]
+        }
+      ]
+    },
+    {
       "date": "31.05.22",
       "version": "2.9.1",
       "changelog": [

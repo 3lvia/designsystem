@@ -57,9 +57,23 @@ export interface AttributeTypeCEG {
    * Also requires `'cegCounterMax'`, `'cegCounterMin'`, `'cegStepValue'`, and `'cegCounterType'`.
    * See the component Progressbar for an example.
    *
+   * `'custom-text'` will show the prop as an input field inside the 'Customize text'-popover.
+   *
    * `'iconName'` is only used for the icon documentation.
    */
-  cegFormType?: 'type' | 'background' | 'radio' | 'checkbox' | 'toggle' | 'counter' | 'iconName';
+  cegFormType?:
+    | 'type'
+    | 'background'
+    | 'radio'
+    | 'checkbox'
+    | 'toggle'
+    | 'counter'
+    | 'custom-text'
+    | 'iconName';
+  /**
+   * Decides what kind of text input to use for the property inside 'Customize text'-popover. Only applies to `cegFormType = 'custom-text'`.
+   */
+  cegCustomTextType?: 'input' | 'textarea';
   /**
    * Options for the prop in the dropdown and the value sent in as the attribute in the code.
    *
@@ -179,12 +193,12 @@ export default interface ComponentData extends ComponentDataCode {
    * Component name (package name). Prefixed with 'elvis'.
    * @example 'elvis-component'
    */
-  name: string;
+  name: `elvis-${string}`;
   /**
    * Component name for the DOM (Custom element). Prefixed with 'elvia-'.
    * @example 'elvia-component'
    */
-  elementNameW: string;
+  elementNameW: `elvia-${string}`;
   /**
    * Component name for the DOM (React).
    * @example 'Component'
@@ -207,19 +221,19 @@ export default interface ComponentData extends ComponentDataCode {
   /**
    * Command to install the component from npm.
    */
-  package: string;
+  package: `npm install ${string}`;
   /**
    * Code to import component in React.
    * @example
    * "import { Component } from '@elvia/elvis-component/react';"
    */
-  codeImportReact: string;
+  codeImportReact: `import { ${string} } from '@elvia/elvis-${string}/react';`;
   /**
    * Code to import component as Web Component.
    * @example
    * "import '@elvia/elvis-component';"
    */
-  codeImportWebComponent: string;
+  codeImportWebComponent: `import '@elvia/elvis-${string}';`;
 
   does?: string[];
   donts?: string[];

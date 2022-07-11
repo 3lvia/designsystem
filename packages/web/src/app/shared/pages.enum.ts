@@ -21,6 +21,7 @@ export enum Pages {
   Dropdown = 'dropdown',
   Toggle = 'toggle',
   Timepicker = 'time-picker',
+  Thumbnail = 'thumbnail',
   Datepicker = 'datepicker',
   DragAndDrop = 'drag-and-drop',
   FileUpload = 'file-upload',
@@ -49,11 +50,12 @@ export enum Pages {
   Color = 'color',
   Icon = 'icon',
   Typography = 'typography',
-  Utilities = 'utilities',
+  Utilities = 'utility-classes',
   Contact = 'contact',
   Contribute = 'contribute',
   Faq = 'faq',
   Changelog = 'changelog',
+  Shadow = 'shadow',
 
   // Dev
   DevelopmentStart = 'dev',

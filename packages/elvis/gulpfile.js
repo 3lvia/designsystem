@@ -39,6 +39,7 @@ gulp.task('watch', function () {
       './src/templates/**.*',
       './src/config/**.*',
       '!./src/config/icons.config.js',
+      './CHANGELOG.json',
     ],
     gulp.series('default'),
   );

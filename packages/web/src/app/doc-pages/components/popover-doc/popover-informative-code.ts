@@ -3,17 +3,22 @@ import ComponentTypeData from '../component-type-data.interface';
 
 const popoverInformativeCode: ComponentTypeData = {
   type: 'informative',
-  codeReact:
-    `<Popover
-  heading={"` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `"}
-  content={"` +
-    exampleContents.texts.md['eng-GBR'].description +
-    `"}
-    verticalPosition={"top"}
-  onOpen={(event) => showingChanges(event)}
-  onClose={(event) => showingChanges(event)}
+  attributes: {
+    heading: {
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'input',
+      cegDefault: exampleContents.texts.md['eng-GBR'].title,
+    },
+    content: {
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'textarea',
+      cegDefault: exampleContents.texts.md['eng-GBR'].description,
+    },
+  },
+  codeReact: `<Popover
+  verticalPosition={"top"}
+  onOpen={() => popoverOnOpen()}
+  onClose={() => popoverOnClose()}
   trigger={
     <button className="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
       <span className="e-btn__icon">
@@ -24,17 +29,10 @@ const popoverInformativeCode: ComponentTypeData = {
   }
 ></Popover>
 `,
-  codeAngular:
-    `<elvia-popover 
-  [heading]="'` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `'"
-  [content]="'` +
-    exampleContents.texts.md['eng-GBR'].description +
-    `'"
+  codeAngular: `<elvia-popover 
   [verticalPosition]="'top'"
-  (onOpen)="showingChanges($event.detail.value)"
-  (onClose)="showingChanges($event.detail.value)"
+  (onOpen)="popoverOnOpen()"
+  (onClose)="popoverOnClose()"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
     <span class="e-btn__icon">
@@ -44,16 +42,10 @@ const popoverInformativeCode: ComponentTypeData = {
   </button>
 </elvia-popover>
 `,
-  codeVue:
-    `<elvia-popover 
-  :heading="'` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `'"
-  :content="'` +
-    exampleContents.texts.md['eng-GBR'].description +
-    `'"
+  codeVue: `<elvia-popover 
   :verticalPosition="'top'"
-  @is-showing-on-change="showingChanges($event.detail.value)"
+  @on-open="popoverOnOpen()"
+  @on-close="popoverOnClose()"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">
     <span class="e-btn__icon">
@@ -63,13 +55,8 @@ const popoverInformativeCode: ComponentTypeData = {
   </button>
 </elvia-popover>
 `,
-  codeNativeHTML:
-    `<elvia-popover 
+  codeNativeHTML: `<elvia-popover 
   id="example-elvia-popover"
-  heading="` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `"
-  content=${JSON.stringify(exampleContents.texts.md['eng-GBR'].description)}
   verticalPosition="top"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger">

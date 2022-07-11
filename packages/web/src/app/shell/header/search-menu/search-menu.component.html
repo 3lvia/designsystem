@@ -2,7 +2,8 @@
 <div class="header">
   <div class="logo">
     <a class="header-top_logo" [routerLink]="['', 'home']">
-      <img src="./../../../assets/logo/elvia_positive_1.svg" alt="Elvia Logo" />
+      <img src="./../../../assets/logo/elvia_positive_1.svg" alt="Elvia Logo" *ngIf="!isPrideMonth" />
+      <img src="./../../../assets/logo/elvia_pride_rgb.svg" alt="Elvia Logo" *ngIf="isPrideMonth" />
     </a>
   </div>
 
@@ -82,7 +83,12 @@
             (keyup)="onSearch()"
           />
         </div>
-        <button class="e-btn e-btn--icon" (click)="removeSearch()" aria-label="Empty search field">
+        <button
+          class="e-btn e-btn--icon"
+          (click)="clearSearch()"
+          aria-label="Empty search field"
+          id="search-clear-button"
+        >
           <span class="e-btn__icon">
             <i class="e-icon e-icon--close-bold" aria-hidden="true" aria-hidden="true"></i>
           </span>
@@ -105,9 +111,9 @@
       >
         <div class="result-title">
           <div class="title item-title" [id]="'search_' + result.title">{{ result.title }}</div>
-          <label class="e-label" *ngIf="result.type === 'Component'">{{ result.type }}</label>
+          <label class="e-label" *ngIf="result.type">{{ result.type }}</label>
         </div>
-        <div class="result-content">
+        <div class="result-content" *ngIf="result.description">
           <div class="description-item" [id]="encodeHTML(result.description)"></div>
         </div>
       </a>

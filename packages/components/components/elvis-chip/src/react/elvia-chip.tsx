@@ -75,7 +75,6 @@ export const Chip: FC<BaseChipProps> = function ({
     if (!webcomponent) {
       isSelectedOnChange && isSelectedOnChange(newIsSelected);
     } else if (webcomponent) {
-      // True -> Prevents rerender
       webcomponent.setProps({ isSelected: newIsSelected }, true);
     }
   };

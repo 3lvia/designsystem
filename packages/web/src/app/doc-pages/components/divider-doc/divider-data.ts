@@ -9,9 +9,9 @@ export const dividerData: ComponentData = {
   attributes: {
     type: {
       isRequired: false,
-      type: '"simple" | "title" | "curved"',
-      description: 'A curved version of the divider, which follow the Elvia curve formula.',
-      default: '"simple"',
+      type: 'simple | title | curved',
+      description: 'Type of the divider. The curved version of the divider follows the Elvia curve formula.',
+      default: 'simple',
       cegDefault: 0,
       cegType: 'string',
       cegFormType: 'type',
@@ -22,14 +22,13 @@ export const dividerData: ComponentData = {
       type: 'HTMLElement',
       description:
         'Title displayed together with a divider. Send in as slot in webcomponent and HTMLElement in React.',
-      default: '"Title"',
-      cegDisplayName: 'Title',
+      default: 'Title',
     },
     typography: {
       isRequired: false,
-      type: '“medium” | “caps”',
-      description: 'Type of title',
-      default: '“medium”',
+      type: 'medium | caps',
+      description: 'Type of title typography.',
+      default: 'medium',
       cegDisplayName: 'Typography',
       cegDefault: 'medium',
       cegType: 'string',
@@ -40,7 +39,7 @@ export const dividerData: ComponentData = {
     isInverted: {
       isRequired: false,
       type: 'boolean',
-      description: 'If the divider is on a dark grey background this prop should be used.',
+      description: 'If the divider is on a dark grey background this prop should be set to true.',
       default: 'false',
       cegDefault: 0,
       cegType: 'boolean',
@@ -49,9 +48,9 @@ export const dividerData: ComponentData = {
     },
     orientation: {
       isRequired: false,
-      type: '"horizontal" | "vertical"',
+      type: 'horizontal | vertical',
       description: 'Change the orientation of the divider.',
-      default: '"horizontal"',
+      default: 'horizontal',
       cegDisplayName: 'Orientation',
       cegDefault: 'horizontal',
       cegType: 'string',
@@ -62,7 +61,7 @@ export const dividerData: ComponentData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom css classes that can be added to the divider.',
+      description: 'Custom CSS classes that can be added to the divider.',
     },
     inlineStyle: {
       isRequired: false,

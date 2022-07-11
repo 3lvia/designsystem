@@ -6,8 +6,8 @@ const popoverListCode: ComponentTypeData = {
   type={"list"}
   verticalPosition={"top"}
   horizontalPosition={"center"}
-  onOpen={(event) => showingChanges(event)}
-  onClose={(event) => showingChanges(event)}
+  onOpen={() => popoverOnOpen()}
+  onClose={() => popoverOnClose()}
   trigger={
     <button className="e-btn e-btn--icon e-btn--circled">
       <span className="e-btn__icon">
@@ -39,8 +39,8 @@ const popoverListCode: ComponentTypeData = {
   [type]="'list'"
   [verticalPosition]="'top'"
   [horizontalPosition]="'center'"
-  (onOpen)="showingChanges()"
-  (onClose)="showingChanges()"
+  (onOpen)="popoverOnOpen()"
+  (onClose)="popoverOnClose()"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu">
     <span class="e-btn__icon">
@@ -69,8 +69,8 @@ const popoverListCode: ComponentTypeData = {
   :type="'list'"
   :verticalPosition="'top'"
   :horizontalPosition="'center'"
-  @on-open="showingChanges()"
-  @on-close="showingChanges()"
+  @on-open="popoverOnOpen()"
+  @on-close="popoverOnClose()"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu">
     <span class="e-btn__icon">
@@ -96,7 +96,7 @@ const popoverListCode: ComponentTypeData = {
 </elvia-popover>
 `,
   codeNativeHTML: `<elvia-popover 
-  id="example-elvia-popover-list"
+  id="example-elvia-popover"
   type="list"
   verticalPosition="top"
   horizontalPosition="center"

@@ -1,17 +1,19 @@
-import { AfterContentInit, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../example-code.service';
 import * as ElvisIcons from '@elvia/elvis-assets-icons';
 import ComponentData, { AttributeType } from 'src/app/doc-pages/components/component-data.interface';
 import ComponentTypeData from 'src/app/doc-pages/components/component-type-data.interface';
-
-type DropdownEvent = CustomEvent<{
-  value: {
-    value: string;
-    label: string;
-  };
-}>;
+import {
+  CegFormGroup,
+  DropdownEvent,
+  CegSideFilterEvent,
+  CegFormGroupOption,
+  CegCodes,
+} from './ceg.interface';
+import { KeyValue } from '@angular/common';
+import { CegCodeUpdaterService } from 'src/app/core/services/ceg-code-updater.service';
 
 @Component({
   selector: 'app-component-example-generator',
@@ -19,8 +21,7 @@ type DropdownEvent = CustomEvent<{
   styleUrls: ['./component-example-generator.component.scss'],
 })
 export class ComponentExampleGeneratorComponent implements OnInit, AfterContentInit, OnDestroy {
-  @ViewChild('cegFrame') cegFrame;
-  @ViewChild('cegContent') cegContent;
+  @ViewChild('cegContent') cegContent: ElementRef<HTMLDivElement>;
   @Input() delayInnerHtml = false;
   @Input() componentData: ComponentData;
   @Input() typesData: ComponentTypeData[];
@@ -29,8 +30,8 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() hasPreview = true;
   @Input() inlineExample = false;
   @Input() accordionCustom = false;
-  @Input() overflowY;
-  @Input() overflowX;
+  @Input() overflowY: string;
+  @Input() overflowX: string;
   @Input() alignedTop = false;
   @Input() height = '340';
 
@@ -38,15 +39,22 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   codeReactSub: Subscription;
   codeVueSub: Subscription;
   codeNativeSub: Subscription;
-  codeReact: ComponentData['codeReact'];
-  codeAngular: ComponentData['codeAngular'];
-  codeVue: ComponentData['codeVue'];
-  codeNative: ComponentData['codeNativeHTML'];
+  cegCodes: CegCodes;
   dynamicCode: SafeHtml;
+
+  customTextProps: {
+    [prop: string]: {
+      value: AttributeType['cegDefault'];
+      type: AttributeType['cegCustomTextType'];
+      active: boolean;
+    };
+  } = {};
+  hasCustomTextProps = false;
+  showCustomTextPopover = false;
 
   enableFilters = true;
   hasSideFilters = true;
-  formGroupList = [];
+  formGroupList: CegFormGroup[] = [];
   allCheckboxes: (AttributeType & { propName: string })[] = [];
 
   iconsOptions: { value: string; label: string }[] = [];
@@ -63,32 +71,41 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   topFilterFormStates: { [key: string]: string } = {};
 
-  constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) {}
+  constructor(
+    private cegService: ExampleCodeService,
+    private cegCodeUpdaterService: CegCodeUpdaterService,
+    private domSanitizer: DomSanitizer,
+  ) {}
 
   ngOnInit(): void {
-    this.codeAngular = this.componentData.codeAngular ? this.componentData.codeAngular : '';
-    this.codeReact = this.componentData.codeReact ? this.componentData.codeReact : '';
-    this.codeVue = this.componentData.codeVue ? this.componentData.codeVue : '';
-    this.codeNative = this.componentData.codeNativeHTML ? this.componentData.codeNativeHTML : '';
+    this.cegCodes = {
+      angular: this.componentData.codeAngular ? this.componentData.codeAngular : '',
+      react: this.componentData.codeReact ? this.componentData.codeReact : '',
+      vue: this.componentData.codeVue ? this.componentData.codeVue : '',
+      native: this.componentData.codeNativeHTML ? this.componentData.codeNativeHTML : '',
+    };
     if (this.inlineExample) {
       return;
     }
     this.codeAngularSub = this.cegService.listenCodeAngular().subscribe((code) => {
-      this.codeAngular = code;
+      this.cegCodes.angular = code;
     });
     this.codeReactSub = this.cegService.listenCodeReact().subscribe((code) => {
-      this.codeReact = code;
+      this.cegCodes.react = code;
     });
     this.codeVueSub = this.cegService.listenCodeVue().subscribe((code) => {
-      this.codeVue = code;
+      this.cegCodes.vue = code;
     });
     this.codeNativeSub = this.cegService.listenCodeNative().subscribe((code) => {
-      this.codeNative = code;
+      this.cegCodes.native = code;
       this.updateCegFrame(code);
     });
 
     this.initializeSideFilterFormGroups();
     this.initializeTopFilters();
+    setTimeout(() => {
+      this.initializeCustomTextProps();
+    }, 250);
   }
 
   ngAfterContentInit(): void {
@@ -118,10 +135,194 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
   }
 
-  initializeSideFilterFormGroups(): void {
+  /**
+   * Called whenever any of the dropdowns in the CEG is changed.
+   */
+  updateFormStates(propName: string, event: DropdownEvent): void {
+    const value = event.detail.value.label;
+    this.addToFormStates(propName, value);
+  }
+
+  /**
+   * Called every time the dropdown controlling the type of a component is changed.
+   *
+   * **NB**: This method applies to components **not** using `typesData`!
+   */
+  updateSelectedType(event: DropdownEvent, icon?: boolean): void {
+    const label = event.detail.value.label;
+    const value = event.detail.value.value;
+    this.selectedType = label;
+    let newValue: string;
+    if (!icon || icon === undefined) {
+      newValue = label.toLowerCase();
+      this.updateSelected('type', newValue, 'string');
+    } else {
+      this.updateSelected('name', value, 'string');
+    }
+  }
+
+  /**
+   * Called every time the dropdown controlling the type of a component is changed.
+   *
+   * **NB**: This method applies to components using `typesData`!
+   */
+  updateSelectedTypeCustom(event: DropdownEvent): void {
+    const label = event.detail.value.label;
+    this.typesData.forEach((element) => {
+      if (element.type === label.toLowerCase()) {
+        this.selectedType = label;
+        this.cegCodes.react = element.codeReact;
+        this.cegCodes.angular = element.codeAngular;
+        this.cegCodes.vue = element.codeVue ? element.codeVue : '';
+        this.cegCodes.native = element.codeNativeHTML;
+      }
+    });
+    if (this.typePropExists) {
+      this.updateSelected('type', label.toLowerCase(), 'string', false);
+    }
+    this.enableFilters = false;
+    setTimeout(() => {
+      this.enableFilters = true;
+      setTimeout(() => {
+        this.updateExampleCode();
+      }, 100);
+    }, 100);
+    setTimeout(() => {
+      this.initializeCustomTextProps();
+    });
+  }
+
+  /**
+   * Called every time the dropdown controlling the background of a component is changed.
+   */
+  updateSelectedBg(event: DropdownEvent): void {
+    const label = event.detail.value.label;
+    this.selectedBg = label;
+    if (this.bgObj.cegOptions[this.bgObj.cegDefault as string] === label) {
+      this.updateSelected(this.bgObj.propName, this.bgObj.default as string, 'boolean');
+    } else {
+      this.updateSelected(this.bgObj.propName, '' + (this.bgObj.default == 'false'), 'boolean');
+    }
+  }
+
+  /**
+   * Gets called every time there is a change in the side filters. Toggles the visibility of the prop in the *Customize text*-popover.
+   * @param event Contains the name of the prop changed and its new value, or whether to turn on or off the `cegDefault`.
+   */
+  updateSideFilter(event: CegSideFilterEvent): void {
+    const propName = event.name.toLowerCase();
+    if (propName in this.customTextProps) {
+      this.customTextProps[propName].active = !this.customTextProps[propName].active;
+
+      // Reset value to default
+      let componentData: ComponentData;
+      if (this.typesData) {
+        const selectedTypeIndex = this.typeOptions.find((option) => option.label === this.selectedType).value;
+        componentData = this.typesData[selectedTypeIndex];
+      } else {
+        componentData = this.componentData;
+      }
+      this.customTextProps[propName].value = componentData.attributes[propName].cegDefault;
+    }
+  }
+
+  /**
+   * Used to order the elements in the *Customize text*-popover.
+   * @param _left
+   * @param _right
+   * @returns
+   */
+  keepOriginalOrderInCustomTextPopover(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    _left: KeyValue<string, typeof this.customTextProps[0]>,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    _right: KeyValue<string, typeof this.customTextProps[0]>,
+  ): 1 {
+    return 1;
+  }
+
+  /**
+   * Updates the content in the CEG to reflect what is in the `this.customTextProps`-object.
+   */
+  updateCustomTextProps(): void {
+    Object.entries(this.customTextProps).forEach(([prop, value]) => {
+      // Remove empty props, otherwise update
+      if (value.value) {
+        this.updateSelected(prop, value.value.toString(), 'string', false);
+      } else {
+        this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, prop);
+      }
+      this.updateExampleCode();
+    });
+  }
+
+  /**
+   * Initializes `this.customTextProps` to hold the props that should have customizable text.
+   *
+   * If `typesData` is provided, it will use attribute information from there instead (see `card-simple-code.ts` and `card-detail-code.ts`, or `popover-informative-code.ts`, for examples).
+   */
+  private initializeCustomTextProps(): void {
+    let componentData: ComponentData;
+    if (this.typesData) {
+      const selectedTypeIndex = this.typeOptions.find((option) => option.label === this.selectedType).value;
+      componentData = this.typesData[selectedTypeIndex];
+    } else {
+      componentData = this.componentData;
+    }
+
+    if (!componentData.attributes) {
+      this.showCustomTextPopover = false;
+      return;
+    }
+
+    this.customTextProps = {};
+    Object.entries(componentData.attributes).forEach(([attribute, attributeData]) => {
+      if (attributeData.cegFormType === 'custom-text') {
+        this.customTextProps[attribute] = {
+          value: attributeData.cegDefault ?? '',
+          type: attributeData.cegCustomTextType ?? 'input',
+          active: true,
+        };
+      }
+    });
+    setTimeout(() => {
+      this.updateCustomTextProps();
+    });
+    this.hasCustomTextProps = Object.keys(this.customTextProps).length > 0;
+    this.showCustomTextPopover = true;
+  }
+
+  /**
+   * Updates the value of a property in the CEG codes.
+   * @param attr Name of the attribute to update.
+   * @param newValue New value of the attribute.
+   * @param cegType Type of the attribute (e.g. string, boolean).
+   * @param updateExampleCode Whether to update code examples in the CEG (default true).
+   */
+  private updateSelected(attr: string, newValue: string, cegType: string, updateExampleCode?: boolean): void {
+    const updateCode = updateExampleCode ? updateExampleCode : true;
+    if (this.cegCodes.angular.includes(`[${attr}]`)) {
+      this.cegCodes = this.cegCodeUpdaterService.replaceOldProps(this.cegCodes, attr, newValue, cegType);
+    } else {
+      this.cegCodes = this.cegCodeUpdaterService.addNewProps(
+        this.cegCodes,
+        this.componentData,
+        attr,
+        newValue,
+        cegType,
+      );
+    }
+    if (updateCode) {
+      this.updateExampleCode();
+    }
+  }
+
+  /**
+   * Called during `ngOnInit` to initialize the forms for the CEG side filters. Populates the `this.formGroupList`-object from `this.componentData.attributes`.
+   */
+  private initializeSideFilterFormGroups(): void {
     const props = this.componentData.attributes;
-    let index = 0;
-    let checkboxIndex = undefined;
+    let checkboxIndex: number = undefined;
     const filteringAttributeKeys = Object.keys(this.componentData.attributes).filter((propKey) => {
       return (
         props[propKey].cegFormType &&
@@ -129,34 +330,32 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         props[propKey].cegFormType !== 'background'
       );
     });
-    filteringAttributeKeys.forEach((propKey) => {
+    filteringAttributeKeys.forEach((propKey, index) => {
       const prop = props[propKey];
       if (!prop.cegFormType) {
         return;
       }
       const formType = prop.cegFormType;
       if (formType === 'radio') {
-        const formGroupOptions = [];
-        let formOption;
-        prop.cegOptions.forEach((option) => {
-          formOption = {
+        const formGroupOptions = prop.cegOptions.map((option) => {
+          const formOption: CegFormGroupOption = {
             name: option,
             defaultValue: prop.cegDefault === option,
           };
-          formGroupOptions.splice(index, 0, formOption);
+          return formOption;
         });
-        const formGroupObject = {
-          label: prop.cegDisplayName,
+        const formGroupObject: CegFormGroup = {
           formType: formType,
+          label: prop.cegDisplayName,
           type: prop.cegType,
-          formGroupOptions,
+          formGroupOptions: formGroupOptions,
           propName: propKey,
           dependency: prop.cegDependency,
           defaultValue: prop.cegDefault,
         };
         this.formGroupList.push(formGroupObject);
       } else if (formType === 'checkbox') {
-        const checkboxObject = {
+        const checkboxObject: typeof this.allCheckboxes[0] = {
           propName: propKey,
           ...prop,
         };
@@ -165,9 +364,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           checkboxIndex = index;
         }
       } else if (formType === 'toggle') {
-        const formGroupObject = {
-          label: prop.cegDisplayName,
+        const formGroupObject: CegFormGroup = {
           formType: formType,
+          label: prop.cegDisplayName,
           type: prop.cegType,
           defaultValue: prop.cegDefault,
           propValue: prop.cegOption,
@@ -178,13 +377,12 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         };
         this.formGroupList.push(formGroupObject);
       } else if (formType === 'counter') {
-        const formGroupObject = {
-          label: prop.cegDisplayName,
+        const formGroupObject: CegFormGroup = {
           formType: formType,
+          label: prop.cegDisplayName,
           type: prop.cegType,
           defaultValue: prop.cegDefault,
           propName: propKey,
-          propSlot: prop.cegSlot,
           counterMax: prop.cegCounterMax,
           counterMin: prop.cegCounterMin,
           counterStepValue: prop.cegStepValue,
@@ -193,39 +391,41 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         };
         this.formGroupList.push(formGroupObject);
       }
-      index++;
     });
     this.initializeCheckboxFormGroups(checkboxIndex);
   }
 
-  initializeCheckboxFormGroups(checkboxIndex: number): void {
+  /**
+   * Called by `this.initializeSideFilterFormGroups` to initialize the checkboxes in the CEG side filters.
+   */
+  private initializeCheckboxFormGroups(checkboxIndex: number): void {
     const checkboxGroups = this.sortCheckboxesByGroup(this.allCheckboxes);
     const checkboxList = [];
     Object.keys(checkboxGroups).forEach((checkboxGroupKey) => {
       const formGroupOptions = [];
       checkboxGroups[checkboxGroupKey].forEach((checkbox) => {
-        const formOption = {
+        const formOption: CegFormGroup = {
+          formType: 'checkbox',
           name: checkbox.cegDisplayName,
           defaultValue: checkbox.cegDefault ? checkbox.cegDefault : false,
           propName: checkbox.propName,
           propValue: checkbox.cegOption,
           dependency: checkbox.cegDependency,
           type: checkbox.cegType,
-          formType: 'checkbox',
         };
         formGroupOptions.push(formOption);
       });
-      const checkboxFormGroupObject = {
+      const checkboxFormGroupOption = {
         label: checkboxGroupKey,
         formType: 'checkbox',
         formGroupOptions,
       };
-      checkboxList.push(checkboxFormGroupObject);
+      checkboxList.push(checkboxFormGroupOption);
     });
     this.formGroupList.splice(checkboxIndex, 0, ...checkboxList);
   }
 
-  initializeTopFilters(): void {
+  private initializeTopFilters(): void {
     const props = this.componentData.attributes;
     Object.keys(props).forEach((propKey) => {
       const prop = props[propKey];
@@ -272,9 +472,16 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
   }
 
-  sortCheckboxesByGroup(checkboxGroups: any[]): [] {
+  /**
+   * Sorts CEG side filter checkboxes by their `cegDisplayGroup` property.
+   * All properties with the same `cegDisplayGroup` will be displayed under the same group.
+   * @returns Object where each key is a `cegDisplayGroup` and the value is an array of checkboxes with that `cegDisplayGroup`.
+   */
+  private sortCheckboxesByGroup<T extends typeof this.allCheckboxes>(
+    checkboxGroups: T,
+  ): { [cegDisplayGroup: string]: T } {
     const checkboxArrays = checkboxGroups.reduce((obj, value) => {
-      const key = `${value.cegDisplayGroup}`;
+      const key = value.cegDisplayGroup;
       if (obj[key] == null) {
         obj[key] = [];
       }
@@ -284,19 +491,14 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     return checkboxArrays;
   }
 
-  updateFormStates(propName: string, event: DropdownEvent): void {
-    const value = event.detail.value.label;
-    this.addToFormStates(propName, value);
-  }
-
-  addToFormStates(key: string, value: string | number | boolean): void {
+  private addToFormStates(key: string, value: string | number | boolean): void {
     this.topFilterFormStates = {
       ...this.topFilterFormStates,
       [key]: value.toString().toLowerCase(),
     };
   }
 
-  updateCegFrame(code: string): void {
+  private updateCegFrame(code: string): void {
     this.dynamicCode = this.domSanitizer.bypassSecurityTrustHtml(code);
     if (this.componentData.codeNativeScript) {
       setTimeout(() => eval(this.componentData.codeNativeScript), 200);
@@ -304,90 +506,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   }
 
   // CEG code-view updates
-  updateExampleCode(): void {
-    this.cegService.updateCodeReact(this.codeReact);
-    this.cegService.updateCodeAngular(this.codeAngular);
-    this.cegService.updateCodeVue(this.codeVue);
-    this.cegService.updateCodeNative(this.codeNative);
-  }
-
-  updateSelectedType(event: DropdownEvent, icon?: boolean): void {
-    const label = event.detail.value.label;
-    const value = event.detail.value.value;
-    this.selectedType = label;
-    let newValue: string;
-    if (!icon || icon === undefined) {
-      newValue = label.toLowerCase();
-      this.updateSelected('type', newValue, 'string');
-    } else {
-      this.updateSelected('name', value, 'string');
-    }
-  }
-
-  updateSelectedTypeCustom(event: DropdownEvent): void {
-    const label = event.detail.value.label;
-    this.typesData.forEach((element) => {
-      if (element.type === label.toLowerCase()) {
-        this.selectedType = label;
-        this.codeReact = element.codeReact;
-        this.codeAngular = element.codeAngular;
-        this.codeVue = element.codeVue ? element.codeVue : '';
-        this.codeNative = element.codeNativeHTML;
-      }
-    });
-    if (this.typePropExists) {
-      this.updateSelected('type', label.toLowerCase(), 'string', false);
-    }
-    this.enableFilters = false;
-    setTimeout(() => {
-      this.enableFilters = true;
-      setTimeout(() => {
-        this.updateExampleCode();
-      }, 100);
-    }, 100);
-  }
-
-  updateSelectedBg(event: DropdownEvent): void {
-    const label = event.detail.value.label;
-    this.selectedBg = label;
-    if (this.bgObj.cegOptions[this.bgObj.cegDefault as string] === label) {
-      this.updateSelected(this.bgObj.propName, this.bgObj.default as string, 'boolean');
-    } else {
-      this.updateSelected(this.bgObj.propName, '' + (this.bgObj.default == 'false'), 'boolean');
-    }
-  }
-
-  updateSelected(attr: string, newValue: string, cegType: string, updateExampleCode?: boolean): void {
-    const updateCode = updateExampleCode ? updateExampleCode : true;
-    const elNameR = this.componentData.elementNameR;
-    const elNameW = this.componentData.elementNameW;
-    if (this.codeAngular.includes(attr)) {
-      this.codeReact = this.cegService.replaceOldProp(this.codeReact, attr, newValue, 'react', cegType);
-      this.codeAngular = this.cegService.replaceOldProp(this.codeAngular, attr, newValue, 'angular', cegType);
-      this.codeVue = this.cegService.replaceOldProp(this.codeVue, attr, newValue, 'vue', cegType);
-      this.codeNative = this.cegService.replaceOldProp(this.codeNative, attr, newValue, 'native', cegType);
-    } else {
-      this.codeReact = this.cegService.addNewProp(this.codeReact, attr, newValue, 'react', cegType, elNameR);
-      this.codeAngular = this.cegService.addNewProp(
-        this.codeAngular,
-        attr,
-        newValue,
-        'angular',
-        cegType,
-        elNameW,
-      );
-      this.codeVue = this.cegService.addNewProp(this.codeVue, attr, newValue, 'vue', cegType, elNameW);
-      this.codeNative = this.cegService.addNewProp(
-        this.codeNative,
-        attr,
-        newValue,
-        'native',
-        cegType,
-        elNameW,
-      );
-    }
-    if (updateCode) {
-      this.updateExampleCode();
-    }
+  private updateExampleCode(): void {
+    this.cegService.updateCodeReact(this.cegCodes.react);
+    this.cegService.updateCodeAngular(this.cegCodes.angular);
+    this.cegService.updateCodeVue(this.cegCodes.vue);
+    this.cegService.updateCodeNative(this.cegCodes.native);
   }
 }

@@ -40,23 +40,23 @@ export class LinkDocComponent {
   example2Inverted = `<div style="font-size: 20px; e-text-white">This is an <a class="e-link e-link--inline e-link--inverted" href="https://design.elvia.io/components/link#Overview">inline link</a></div>
 `;
 
-  exampleNewTab = `<a class="e-link e-link--new-tab" href="https://design.elvia.io/components/link#Overview" target="_blank">
+  exampleNewTab = `<a class="e-link e-link--new-tab" href="https://design.elvia.io/components/link#Overview" target="_blank" rel="noopener">
   <span class="e-link__title">New tab link</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"  aria-hidden="true"></i></span>
+  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
 </a>
 `;
 
-  exampleNewTabInverted = `<a class="e-link e-link--new-tab e-link--inverted" href="https://design.elvia.io/components/link#Overview" target="_blank">
+  exampleNewTabInverted = `<a class="e-link e-link--new-tab e-link--inverted" href="https://design.elvia.io/components/link#Overview" target="_blank" rel="noopener">
   <span class="e-link__title">New tab link</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold e-icon--inverted"  aria-hidden="true"></i></span>
+  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold e-icon--inverted" aria-hidden="true"></i></span>
 </a>
 `;
 
   exampleAction = `<a class="e-link e-link--action" href="https://design.elvia.io/components/link#Overview">
   <span class="e-link__title">Action link</span>
   <span class="e-link__icon">
-    <i class="e-icon e-icon--arrow_right_circle-color"  aria-hidden="true"></i>
-    <i class="e-icon e-icon--arrow_right_circle-filled-color"  aria-hidden="true"></i>
+    <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+    <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
   </span>  
 </a>
 `;
@@ -64,16 +64,16 @@ export class LinkDocComponent {
   exampleActionInverted = `<a class="e-link e-link--action e-link--inverted" href="https://design.elvia.io/components/link#Overview">
   <span class="e-link__title">Action link</span>
   <span class="e-link__icon">
-    <i class="e-icon e-icon--arrow_right_circle-color e-icon--inverted"  aria-hidden="true"></i>
-    <i class="e-icon e-icon--arrow_right_circle-filled-color e-icon--inverted"  aria-hidden="true"></i>
+    <i class="e-icon e-icon--arrow_right_circle-color e-icon--inverted" aria-hidden="true"></i>
+    <i class="e-icon e-icon--arrow_right_circle-filled-color e-icon--inverted" aria-hidden="true"></i>
   </span>  
 </a>
 `;
 
   exampleBack = `<a class="e-link e-link--back" href="https://design.elvia.io/components/link#Overview">
   <span class="e-link__icon">
-    <i class="e-icon e-icon--arrow_left_circle-color"  aria-hidden="true"></i>
-    <i class="e-icon e-icon--arrow_left_circle-filled-color"  aria-hidden="true"></i>
+    <i class="e-icon e-icon--arrow_left_circle-color" aria-hidden="true"></i>
+    <i class="e-icon e-icon--arrow_left_circle-filled-color" aria-hidden="true"></i>
   </span>  
   <span class="e-link__title">Back link</span>
 </a>
@@ -81,8 +81,8 @@ export class LinkDocComponent {
 
   exampleBackInverted = `<a class="e-link e-link--back e-link--inverted" href="https://design.elvia.io/components/link#Overview">
   <span class="e-link__icon">
-    <i class="e-icon e-icon--arrow_left_circle-color e-icon--inverted"  aria-hidden="true"></i>
-    <i class="e-icon e-icon--arrow_left_circle-filled-color e-icon--inverted"  aria-hidden="true"></i>
+    <i class="e-icon e-icon--arrow_left_circle-color e-icon--inverted" aria-hidden="true"></i>
+    <i class="e-icon e-icon--arrow_left_circle-filled-color e-icon--inverted" aria-hidden="true"></i>
   </span>  
   <span class="e-link__title">Back link</span>
 </a>
@@ -96,8 +96,8 @@ export class LinkDocComponent {
   >
     <div class="e-link__content">
       <span class="e-link__icon">
-        <i class="e-icon e-icon--electricity_safety"  aria-hidden="true"></i>
-        <i class="e-icon e-icon--electricity_safety-color"  aria-hidden="true"></i>
+        <i class="e-icon e-icon--electricity_safety" aria-hidden="true"></i>
+        <i class="e-icon e-icon--electricity_safety-color" aria-hidden="true"></i>
       </span>
       <div class="e-link__title">Label</div>
     </div>
@@ -112,8 +112,8 @@ export class LinkDocComponent {
   >
     <div class="e-link__content">
       <span class="e-link__icon">
-        <i class="e-icon e-icon--electricity_safety"  aria-hidden="true"></i>
-        <i class="e-icon e-icon--electricity_safety-color"  aria-hidden="true"></i>
+        <i class="e-icon e-icon--electricity_safety" aria-hidden="true"></i>
+        <i class="e-icon e-icon--electricity_safety-color" aria-hidden="true"></i>
       </span>
       <div class="e-link__title">Label</div>
       <div class="e-link__description">Description</div>

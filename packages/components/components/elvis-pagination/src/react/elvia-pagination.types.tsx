@@ -1,13 +1,11 @@
-export type DropdownOption = {
+export interface DropdownItem {
   value: string;
   label: string;
-};
-
-export type SelectionNumber = {
-  start: number;
-  end: number;
-};
-
+}
+export interface VisibleElements {
+  start: number | undefined;
+  end: number | undefined;
+}
 export interface PaginationLabel {
   displaying?: string;
   of?: string;
