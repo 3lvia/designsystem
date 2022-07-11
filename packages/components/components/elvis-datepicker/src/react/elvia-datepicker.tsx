@@ -121,6 +121,19 @@ export const Datepicker: FC<DatepickerProps> = ({
       ((!hasFocus || hasShownError) && (customError || (currentErrorMessage !== '' && hasHadFocus))));
 
   useEffect(() => {
+    console.log('isDirty', isDirty);
+  }, [isDirty]);
+  useEffect(() => {
+    console.log('showError', showError);
+  }, [showError]);
+  useEffect(() => {
+    console.log('currentErrorMessage', currentErrorMessage);
+  }, [currentErrorMessage]);
+  useEffect(() => {
+    console.log('hasFocus', hasFocus);
+  }, [hasFocus]);
+
+  useEffect(() => {
     if (showError) {
       setHasShownError(true);
     } else if (currentErrorMessage === '') {
@@ -183,7 +196,7 @@ export const Datepicker: FC<DatepickerProps> = ({
    * `isDirty` tracks if the user has interacted with the datepicker by either typing or selecting a date.
    */
   useEffect(() => {
-    if (selectedDate !== value) {
+    if (selectedDate !== null) {
       setIsDirty(true);
     }
   }, [selectedDate]);

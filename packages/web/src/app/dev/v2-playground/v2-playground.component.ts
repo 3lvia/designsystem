@@ -77,6 +77,11 @@ export class v2PlaygroundComponent {
     },
   };
 
+  datepickerRangeValue = {
+    start: new Date(),
+    end: new Date(2022, 6, 20),
+  };
+
   logValue = (component: string, value: Event): void => {
     console.log(component, ': ', value);
   };
