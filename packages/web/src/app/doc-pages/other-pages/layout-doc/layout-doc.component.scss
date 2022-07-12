@@ -182,7 +182,7 @@
       align-items: center;
       justify-content: center;
       margin-right: 16px;
-      @include typography.typography('text-caps');
+      @include typography.typography('title-caps');
     }
   }
 }

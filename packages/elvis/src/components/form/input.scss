@@ -34,6 +34,7 @@ $form-input-padding-compact-active: 3px 9px;
     width: 100%;
     padding: $form-input-padding;
     @include typography.typography('text-option');
+    color: colors.color('font-color');
   }
 
   > textarea {
@@ -116,7 +117,8 @@ $form-input-padding-compact-active: 3px 9px;
   input,
   textarea {
     padding: $form-input-padding-compact;
-    @include typography.typography('text-info');
+    @include typography.typography('text-sm');
+    color: colors.color('font-color');
   }
 
   &.e-input---invalid input,

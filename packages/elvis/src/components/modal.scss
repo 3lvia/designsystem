@@ -10,6 +10,7 @@ $modal-desktop-padding: 48px;
 
 $modal-mobile-padding: 32px;
 
+// TODO: Deprecate
 .e-modal {
   display: flex;
   justify-content: center;
@@ -63,7 +64,7 @@ $modal-mobile-padding: 32px;
       @include typography.typography('title-md');
     }
     .e-modal__text {
-      @include typography.typography('text-body');
+      @include typography.typography('text-lg');
       color: colors.color('font-color');
       padding-top: 32px;
     }

@@ -1,7 +1,8 @@
-@use "../variables/typography.scss";
-@use "../variables/colors";
-@use "../utilities/helpers";
+@use '../variables/typography.scss';
+@use '../variables/colors';
+@use '../utilities/helpers';
 
+// TODO: Deprecate
 .e-pagination {
   display: flex;
   flex-direction: row;
