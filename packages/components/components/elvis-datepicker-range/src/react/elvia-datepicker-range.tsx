@@ -39,8 +39,6 @@ export interface DatepickerRangeProps {
   hasAutoOpenEndDatepicker?: boolean;
   minDate?: Date;
   maxDate?: Date;
-  // minSpan?: Date;
-  // maxSpan?: Date;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   disableDates?: DisableDates;
@@ -283,6 +281,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           setSelectedDateRange({ ...selectedDateRange, start: null });
         }}
         dateRangeProps={{
+          selectedDateRange: selectedDateRange,
           hoveredDateRange: hoveredDateRange,
           onDateElementPointerMove: handleStartDatepickerDateElementPointerMove,
           onDatepickerPopoverPointerMove: handleStartDatepickerPopoverPointerMove,
@@ -304,6 +303,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         }}
         isOpen={endDatepickerIsOpen}
         dateRangeProps={{
+          selectedDateRange: selectedDateRange,
           hoveredDateRange: hoveredDateRange,
           onDateElementPointerMove: handleEndDatepickerDateElementPointerMove,
           onDatepickerPopoverPointerMove: handleEndDatepickerPopoverPointerMove,

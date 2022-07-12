@@ -539,33 +539,11 @@ $datepicker-max-width: 448px;
         &:not(&:hover) {
           font-weight: 500;
         }
-
-        &:not(&:hover):not(.ewc-datepicker__day-selected)::after {
-          content: '';
-          box-sizing: border-box;
-          position: absolute;
-          z-index: -1;
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          border: 1px solid black;
-        }
       }
       &.ewc-datepicker__day-last-in-range {
         &.ewc-datepicker__day-first-in-range,
         &:not(:hover) {
           font-weight: 500;
-        }
-
-        &:not(:hover):not(.ewc-datepicker__day-selected)::after {
-          content: '';
-          box-sizing: border-box;
-          position: absolute;
-          z-index: -1;
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          border: 1px solid black;
         }
       }
 
@@ -582,11 +560,21 @@ $datepicker-max-width: 448px;
           z-index: -1;
           width: 30px;
           height: 30px;
-          background-color: $green;
           border-radius: 50%;
+          background-color: $green;
         }
-        &.ewc-datepicker__day-first-in-range.ewc-datepicker__day-last-in-range::after {
-          border: 1px solid black;
+      }
+      // Other selected day in range
+      &.ewc-datepicker__day-other-selected-date::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid black;
+        &:hover::after {
+          border: 1px solid $green;
         }
       }
       // Current day
@@ -610,6 +598,9 @@ $datepicker-max-width: 448px;
           &::after {
             background: $text-disabled;
           }
+        }
+        &:not(.ewc-datepicker__day-disabled):not(.ewc-datepicker__day-in-range):not(.ewc-datepicker__day-selected):hover {
+          border: 1px solid $green;
         }
       }
 

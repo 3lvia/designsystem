@@ -26,7 +26,8 @@ export interface DateRange {
   end: Date | null;
 }
 
-interface DateRangeProps {
+export interface DateRangeProps {
+  selectedDateRange?: DateRange;
   hoveredDateRange?: DateRange;
   onDateElementPointerMove?: (event: React.PointerEvent<HTMLButtonElement>, day: Date) => void;
   onDatepickerPopoverPointerMove?: (event: React.PointerEvent<HTMLDivElement>) => void;
@@ -61,6 +62,10 @@ export interface DatepickerProps {
   hasValidation: boolean;
   clearButtonText: string;
   disableDate?: (day: Date) => boolean;
+  /**
+   * This is used for internal purposes, and should not be used by the user.
+   * @internal
+   */
   dateRangeProps?: DateRangeProps;
 }
 
@@ -104,11 +109,11 @@ export const Datepicker: FC<DatepickerProps> = ({
   const [hasFocus, setHasFocus] = useState(false);
   const [shouldHaveSelected, setShouldHaveSelected] = useState(true);
   const [isDatepickerOpen, setIsDatepickerOpen] = useState(isOpen);
-  const [isDirty, setIsDirty] = useState(false);
   const datepickerRef = useRef<HTMLDivElement>(null);
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const selectedDateRange = dateRangeProps?.selectedDateRange;
   const hoveredDateRange = dateRangeProps?.hoveredDateRange;
   const onDateElementPointerMove = dateRangeProps?.onDateElementPointerMove;
   const onDatepickerPopoverPointerMove = dateRangeProps?.onDatepickerPopoverPointerMove;
@@ -173,20 +178,10 @@ export const Datepicker: FC<DatepickerProps> = ({
    * Update error state when:
    * - datepicker has had focus.
    * - datepicker open state changes.
-   * - `isDirty` changes (because of timing issues inside `validateDate`).
    */
   useEffect(() => {
     validateDate(selectedDate);
-  }, [hasHadFocus, isDatepickerOpen, isDirty]);
-
-  /**
-   * `isDirty` tracks if the user has interacted with the datepicker by either typing or selecting a date.
-   */
-  useEffect(() => {
-    if (selectedDate !== null) {
-      setIsDirty(true);
-    }
-  }, [selectedDate]);
+  }, [hasHadFocus, isDatepickerOpen]);
 
   /**
    * Trigger `updateInputWithSelectedDate` when datepicker is opened by the `isOpen`-prop.
@@ -315,9 +310,6 @@ export const Datepicker: FC<DatepickerProps> = ({
    */
   const validateDate = (date: Date | null): void => {
     if (customError) {
-      return;
-    }
-    if (!isDirty) {
       return;
     }
 
@@ -493,6 +485,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     const selDate = selected ? new Date(selected) : null;
     const firstDayOfWeek = startOfWeek(dayDate, { weekStartsOn: 1 });
     const lastDayOfWeek = endOfWeek(dayDate, { weekStartsOn: 1 });
+    const endOfMonth = lastDayOfMonth(dayDate);
     const isInDateRange =
       hoveredDateRange &&
       hoveredDateRange.start &&
@@ -502,6 +495,10 @@ export const Datepicker: FC<DatepickerProps> = ({
         start: hoveredDateRange.start,
         end: hoveredDateRange.end,
       });
+    const otherSelectedDate =
+      selDate && selectedDateRange?.start && isSameDay(selDate, selectedDateRange?.start)
+        ? selectedDateRange?.end
+        : selectedDateRange?.start;
     const dayClasses = classnames('ewc-datepicker__day', {
       ['ewc-datepicker__day-selected']: selDate && isSameDay(dayDate, selDate) && shouldHaveSelected,
       ['ewc-datepicker__day-current']: isSameDay(dayDate, today),
@@ -514,7 +511,8 @@ export const Datepicker: FC<DatepickerProps> = ({
       ['ewc-datepicker__day-start-of-week']: isSameDay(dayDate, firstDayOfWeek),
       ['ewc-datepicker__day-start-of-month']: dayDate.getDate() === 1,
       ['ewc-datepicker__day-end-of-week']: isSameDay(dayDate, lastDayOfWeek),
-      ['ewc-datepicker__day-end-of-month']: isSameDay(dayDate, lastDayOfMonth(dayDate)),
+      ['ewc-datepicker__day-end-of-month']: isSameDay(dayDate, endOfMonth),
+      ['ewc-datepicker__day-other-selected-date']: otherSelectedDate && isSameDay(dayDate, otherSelectedDate),
     });
     if (isInCurrentMonth) {
       if (!dayComponent.props.disabled) {
@@ -608,8 +606,8 @@ export const Datepicker: FC<DatepickerProps> = ({
           rifmFormatter={replaceMuiDateFormat}
           disabled={isDisabled === true}
           fullWidth={isFullWidth === true}
-          minDate={minDate ? minDate : undefined}
-          maxDate={maxDate ? maxDate : undefined}
+          minDate={minDate ?? undefined}
+          maxDate={maxDate ?? undefined}
           onChange={handleDateChange}
           onFocus={onFocus}
           open={isDatepickerOpen}
