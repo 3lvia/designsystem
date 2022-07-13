@@ -26,7 +26,11 @@ export interface DateRange {
   end: Date | null;
 }
 
-export interface DateRangeProps {
+/**
+ * Props that are specific to the date range picker component.
+ * @internal
+ */
+export interface DatepickerRangeProps {
   selectedDateRange?: DateRange;
   hoveredDateRange?: DateRange;
   onDateElementPointerMove?: (event: React.PointerEvent<HTMLButtonElement>, day: Date) => void;
@@ -59,14 +63,15 @@ export interface DatepickerProps {
   showValidationState: boolean;
   isErrorState?: boolean;
   errorOnChange?: (error: string) => void;
-  hasValidation: boolean;
+  hasValidation?: boolean;
+  hasErrorPlaceholderElement?: boolean;
   clearButtonText: string;
   disableDate?: (day: Date) => boolean;
   /**
    * This is used for internal purposes, and should not be used by the user.
    * @internal
    */
-  dateRangeProps?: DateRangeProps;
+  dateRangeProps?: DatepickerRangeProps;
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -96,6 +101,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   clearButtonText = 'Nullstill',
   isErrorState,
   hasValidation = true,
+  hasErrorPlaceholderElement = true,
   errorOnChange,
   disableDate,
   dateRangeProps,
@@ -669,6 +675,9 @@ export const Datepicker: FC<DatepickerProps> = ({
             {currentErrorMessage}
           </div>
         </div>
+      )}
+      {!showError && hasErrorPlaceholderElement && showValidationState && (
+        <div className="ewc-datepicker__error-placeholder"></div>
       )}
     </div>
   );

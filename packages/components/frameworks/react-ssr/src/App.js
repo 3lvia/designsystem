@@ -98,11 +98,24 @@ function App() {
           <h3>Test your component here</h3>
           {/* Normal version */}
           <div className="e-bg-white">
+            <p>Dette er en helt vanlig datepicker, uten noen spesielle props satt på.</p>
+            <DatepickerRange valueOnChange={(event) => console.log(event)}></DatepickerRange>
+            <p>Denne datepickeren er helt vanlig, kun satt til kompakt.</p>
+            <DatepickerRange isCompact valueOnChange={(event) => console.log(event)}></DatepickerRange>
+            <p>Denne datepickeren er satt til å være vertikalt stacket, og full width.</p>
             <DatepickerRange
-              hasAutoOpenEndDatepicker
+              isFullWidth
+              isVertical
               valueOnChange={(event) => console.log(event)}
-              disableDates={{ start: (day) => day.getDay() === 0, end: (day) => day.getDay() === 6 }}
-              isRequired={true}
+            ></DatepickerRange>
+            <p>
+              Og til slutt, denne datepickeren er satt til å være vertikalt stacket, kompakt og full width.
+            </p>
+            <DatepickerRange
+              isFullWidth
+              isVertical
+              isCompact
+              valueOnChange={(event) => console.log(event)}
             ></DatepickerRange>
           </div>
           {/* Inverted version */}

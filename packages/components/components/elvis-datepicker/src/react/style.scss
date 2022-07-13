@@ -71,6 +71,14 @@ $datepicker-max-width: 448px;
       margin-left: 8px;
     }
   }
+  .ewc-datepicker__error-placeholder {
+    height: 26px;
+  }
+  &.ewc-datepicker--compact {
+    .ewc-datepicker__error-placeholder {
+      height: 26px;
+    }
+  }
 
   // INPUT
   .MuiInputBase-root {

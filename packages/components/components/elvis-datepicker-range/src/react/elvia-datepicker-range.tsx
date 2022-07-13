@@ -15,6 +15,8 @@ export type DateRangeString = BothDatepickers<string | null>;
 export type LabelOptions = Partial<BothDatepickers<string>>;
 export type DisableDates = Partial<BothDatepickers<(day: Date) => boolean>>;
 export type IsRequired = Partial<BothDatepickers<boolean>>;
+export type IsErrorState = Partial<BothDatepickers<boolean>>;
+export type CustomError = Partial<BothDatepickers<string>>;
 
 const emptyDateRange: DateRange = {
   start: null,
@@ -35,8 +37,13 @@ export interface DatepickerRangeProps {
   isFullWidth?: boolean;
   isDisabled?: boolean;
   isRequired?: IsRequired | boolean;
+  isVertical?: boolean;
   hasSelectDateOnOpen?: boolean;
   hasAutoOpenEndDatepicker?: boolean;
+  showValidationState?: boolean;
+  isErrorState?: IsErrorState;
+  customError?: CustomError;
+  errorOnChange?: (errors: CustomError) => void;
   minDate?: Date;
   maxDate?: Date;
   className?: string;
@@ -54,8 +61,13 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   isFullWidth,
   isDisabled,
   isRequired,
+  isVertical,
   hasSelectDateOnOpen,
   hasAutoOpenEndDatepicker,
+  showValidationState = true,
+  isErrorState,
+  customError,
+  errorOnChange,
   minDate,
   maxDate,
   className,
@@ -68,6 +80,19 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const [selectedDateRange, setSelectedDateRange] = useState(value ?? emptyDateRange);
   const [endDatepickerIsOpen, setEndDatepickerIsOpen] = useState(false);
   const [isRequiredState, setIsRequiredState] = useState<IsRequired>();
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>({ start: '', end: '' });
+
+  useEffect(() => {
+    const getWindowDimensions = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', getWindowDimensions);
+    return () => {
+      window.removeEventListener('resize', getWindowDimensions);
+    };
+  });
 
   useEffect(() => {
     if (typeof isRequired === 'boolean') {
@@ -76,6 +101,14 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
       setIsRequiredState(isRequired);
     }
   }, [isRequired]);
+
+  useEffect(() => {
+    if (!webcomponent) {
+      errorOnChange?.(currentErrorMessages);
+    } else {
+      webcomponent.triggerEvent('errorOnChange', currentErrorMessages);
+    }
+  }, [currentErrorMessages]);
 
   /**
    * Handle valueOnChangeISOString event. If newDate.start/end is not valid, formatISO crashes the component.
@@ -254,11 +287,14 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     isFullWidth,
     isDisabled,
     hasSelectDateOnOpen,
+    showValidationState,
+    hasErrorPlaceholderElement: windowWidth > 767 && !isVertical,
   };
 
   return (
     <DatepickerRangeWrapper
-      className={className ?? undefined}
+      isVertical={isVertical ?? false}
+      className={className}
       style={inlineStyle}
       data-testid="datepicker-range-wrapper"
       {...rest}
@@ -266,7 +302,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
       <Datepicker
         {...passThroughProps}
         label={labelOptions?.start ?? defaultLabelOptions.start}
-        hasSelectDateOnOpen={hasSelectDateOnOpen}
         value={selectedDateRange.start}
         valueOnChange={handleStartDatepickerValueOnChange}
         isRequired={isRequiredState?.start}
@@ -287,11 +322,15 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           onDatepickerPopoverPointerMove: handleStartDatepickerPopoverPointerMove,
         }}
         disableDate={disableDatesWrapper()?.start}
+        customError={customError?.start}
+        isErrorState={isErrorState?.start}
+        errorOnChange={(error: string) =>
+          setCurrentErrorMessages((current) => ({ ...current, start: error }))
+        }
       ></Datepicker>
       <Datepicker
         {...passThroughProps}
         label={labelOptions?.end ?? defaultLabelOptions.end}
-        hasSelectDateOnOpen={hasSelectDateOnOpen}
         value={selectedDateRange.end}
         valueOnChange={handleEndDatepickerValueOnChange}
         isRequired={isRequiredState?.end}
@@ -309,6 +348,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           onDatepickerPopoverPointerMove: handleEndDatepickerPopoverPointerMove,
         }}
         disableDate={disableDatesWrapper()?.end}
+        customError={customError?.end}
+        isErrorState={isErrorState?.end}
+        errorOnChange={(error: string) => setCurrentErrorMessages((current) => ({ ...current, end: error }))}
       ></Datepicker>
     </DatepickerRangeWrapper>
   );

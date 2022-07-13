@@ -9,10 +9,9 @@
       <h4>Datepicker range</h4>
       <elvia-datepicker-range
         (valueOnChangeISOString)="logValue('datepicker range', $event.detail.value)"
-        [disableDates]="datepickerRangeDisableDates"
-        [isFullWidth]="true"
-        [isRequired]="true"
-        [value]="datepickerRangeValue"
+        (errorOnChange)="logValue('error', $event.detail.value)"
+        [minDate]="datepickerRangeValue.start"
+        [maxDate]="datepickerRangeValue.end"
       ></elvia-datepicker-range>
     </div>
     <!--Inverted version-->

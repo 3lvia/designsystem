@@ -73,6 +73,18 @@ const datepickerRangeData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'Options',
     },
+    isVertical: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Set to true to force datepickers to stack vertically instead of horizontally. This is useful for devices with limited screen space.',
+      default: 'false',
+      cegDisplayName: 'Vertical',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Options',
+    },
     hasSelectDateOnOpen: {
       isRequired: false,
       type: 'boolean',
@@ -97,6 +109,7 @@ const datepickerRangeData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'Options',
     },
+
     minDate: {
       isRequired: false,
       type: 'Date',
@@ -109,6 +122,35 @@ const datepickerRangeData: ComponentData = {
       description: 'Makes date after this date disabled.',
       cegDisplayName: 'Max date',
     },
+    disableDates: {
+      isRequired: false,
+      type: '{start: (day: Date) => boolean; end: (day: Date) => boolean}',
+      description: 'Object containing functions that set dates as disabled. Return true to disable a date.',
+    },
+    showValidationState: {
+      isRequired: false,
+      default: 'true',
+      type: 'boolean',
+      description: 'Controlls whether the datepickers should show their internal validation state.',
+    },
+    isErrorState: {
+      isRequired: false,
+      default: 'true',
+      type: '{start?: boolean; end?: boolean}',
+      description: 'Force the datepickers to be in error state.',
+    },
+    customError: {
+      isRequired: false,
+      default: 'true',
+      type: '{start?: string; end?: string}',
+      description:
+        'Optional prop for adding an error-message. This prop will overwrite built-in error-messages and is always visible when sent in.',
+    },
+    errorOnChange: {
+      isRequired: false,
+      type: '(errors: {start?: string; end?: string}) => CustomEvent',
+      description: 'Gets called every time the internal date validation error is changed.',
+    },
     className: {
       isRequired: false,
       type: 'string',
@@ -119,11 +161,6 @@ const datepickerRangeData: ComponentData = {
       type: '{[cssProperty: string]: string}',
       description:
         "Custom CSS style object that can be added to the datepicker range. Example: {marginTop: '8px', width: '100%'}",
-    },
-    disableDates: {
-      isRequired: false,
-      type: '{start: (day: Date) => boolean; end: (day: Date) => boolean}',
-      description: 'Object containing functions that set dates as disabled. Return true to disable a date.',
     },
   },
   package: 'npm install @elvia/elvis-datepicker-range',
