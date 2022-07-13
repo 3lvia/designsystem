@@ -176,6 +176,7 @@ $loading-dot-sm: 8px;
       cursor: not-allowed;
     }
     &.e-btn---hover,
+    &.e-btn---selected,
     &.e-btn---active,
     &:active:not(:disabled):not(.e-btn--loading) {
       background: colors.color('elvia-charge');
@@ -268,6 +269,7 @@ $loading-dot-sm: 8px;
     }
 
     &.e-btn---hover,
+    &.e-btn---selected,
     &.e-btn---active,
     &:active:not(:disabled):not(.e-btn--loading) {
       background: colors.color('elvia-charge');
@@ -418,7 +420,8 @@ $loading-dot-sm: 8px;
       color: colors.color('disabled');
       cursor: not-allowed;
     }
-    &.e-btn---hover {
+    &.e-btn---hover,
+    &.e-btn---selected {
       border-color: colors.color('elvia-charge');
       background: none;
       .e-btn__icon i {
@@ -435,7 +438,8 @@ $loading-dot-sm: 8px;
       }
     }
 
-    &.e-btn---hover[class*='e-btn--inverted'] {
+    &.e-btn---hover[class*='e-btn--inverted'],
+    &.e-btn---selected[class*='e-btn--inverted'] {
       .e-btn__icon {
         i {
           visibility: hidden;
@@ -486,6 +490,7 @@ $loading-dot-sm: 8px;
         color: colors.color('font-color-light');
       }
       &.e-btn---hover,
+      &.e-btn---selected,
       &.e-btn---active,
       &:active:not(:disabled):not(.e-btn--loading) {
         background: colors.color('elvia-on');
@@ -536,6 +541,7 @@ $loading-dot-sm: 8px;
       cursor: not-allowed;
     }
     &.e-btn---hover,
+    &.e-btn---selected,
     &.e-btn---active,
     &:active:not(:disabled):not(.e-btn--loading) {
       background: colors.color('elvia-off');
@@ -737,6 +743,7 @@ $loading-dot-sm: 8px;
       }
 
       &.e-btn---hover,
+      &.e-btn---selected,
       &.e-btn---active,
       &:active:not(:disabled) {
         background: transparent;
@@ -770,6 +777,7 @@ $loading-dot-sm: 8px;
     }
 
     &.e-btn---hover,
+    &.e-btn---selected,
     &.e-btn---active,
     &:active:not(:disabled):not(.e-btn--loading) {
       background: colors.color('elvia-charge');

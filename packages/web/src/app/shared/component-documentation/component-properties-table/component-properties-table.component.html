@@ -1,61 +1,66 @@
-<div class="e-table-container desktop">
-  <table
-    class="e-table e-table--sticky-column-header e-table--compact"
-    *ngIf="componentProps"
-    aria-label="Properties details and descriptions"
-  >
-    <thead>
-      <tr>
-        <th scope="col">Prop</th>
-        <th scope="col">Type</th>
-        <th scope="col">Description</th>
-        <th scope="col">Default</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let prop of componentProps">
-        <th scope="row" class="table-code-text">
-          <span>{{ prop.attribute }}</span>
-          <span *ngIf="prop.isRequired">*</span>
-        </th>
-        <td class="table-code-text">{{ prop.type }}</td>
-        <td class="e-table__cell--multiline-small">{{ prop.description }}</td>
-        <td class="table-code-text" *ngIf="prop.default">{{ prop.default }}</td>
-        <td class="table-code-text" *ngIf="!prop.default">-</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="properties-container">
+  <div class="e-table-container desktop">
+    <table
+      class="e-table e-table--sticky-column-header e-table--compact"
+      *ngIf="componentProps"
+      aria-label="Properties details and descriptions"
+    >
+      <thead>
+        <tr>
+          <th scope="col">Prop</th>
+          <th scope="col">Type</th>
+          <th scope="col">Description</th>
+          <th scope="col">Default</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of componentProps">
+          <th scope="row" class="table-code-text">
+            <span>{{ prop.attribute }}</span>
+            <span *ngIf="prop.isRequired">*</span>
+          </th>
+          <td class="table-code-text">{{ prop.type }}</td>
+          <td class="e-table__cell--multiline-small">{{ prop.description }}</td>
+          <td class="table-code-text" *ngIf="prop.default">{{ prop.default }}</td>
+          <td class="table-code-text" *ngIf="!prop.default">-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="e-table-container mobile properties-mobile">
+    <table
+      class="e-table-mobile e-table-mobile--sticky-header e-table-mobile--compact"
+      aria-label="Beskrivelse av tabellen"
+    >
+      <thead>
+        <tr>
+          <th class="e-table-mobile__cell" scope="col">Prop</th>
+          <th class="e-table-mobile__cell" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let prop of componentProps">
+        <tr>
+          <th class="e-table-mobile__cell" scope="col">{{ prop.attribute }}</th>
+          <th class="e-table-mobile__cell" scope="col"></th>
+        </tr>
+        <tr>
+          <th class="e-table-mobile__cell" scope="row">Type</th>
+          <td class="e-table-mobile__cell">{{ prop.type }}</td>
+        </tr>
+        <tr>
+          <th class="e-table-mobile__cell" scope="row">Description</th>
+          <td class="e-table-mobile__cell">{{ prop.description }}</td>
+        </tr>
+        <tr>
+          <th class="e-table-mobile__cell" scope="row">Default</th>
+          <td class="e-table-mobile__cell" *ngIf="prop.default">{{ prop.default }}</td>
+          <td class="e-table-mobile__cell" *ngIf="!prop.default">-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="e-table__footnote e-table__footnote--compact">* Required - Properties that must be present</div>
+  <div class="e-table__footnote e-table__footnote--compact">
+    All HTML DOM Events (e.g. click, focus, mouseover) are available to use on the component if needed.
+  </div>
 </div>
-<div class="e-table-container mobile properties-mobile">
-  <table
-    class="e-table-mobile e-table-mobile--sticky-header e-table-mobile--compact"
-    aria-label="Beskrivelse av tabellen"
-  >
-    <thead>
-      <tr>
-        <th class="e-table-mobile__cell" scope="col">Prop</th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let prop of componentProps">
-      <tr>
-        <th class="e-table-mobile__cell" scope="col">{{ prop.attribute }}</th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">Type</th>
-        <td class="e-table-mobile__cell">{{ prop.type }}</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">Description</th>
-        <td class="e-table-mobile__cell">{{ prop.description }}</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">Default</th>
-        <td class="e-table-mobile__cell" *ngIf="prop.default">{{ prop.default }}</td>
-        <td class="e-table-mobile__cell" *ngIf="!prop.default">-</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="e-table__footnote e-table__footnote--compact">* Required - Properties that must be present</div>

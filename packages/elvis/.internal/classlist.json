@@ -201,6 +201,7 @@
 				"e-btn---focus": {},
 				"e-btn---disabled": {},
 				"e-btn---hover": {},
+				"e-btn---selected": {},
 				"e-btn---active": {}
 			},
 			"modifier": {
@@ -935,6 +936,12 @@
 				"e-tag--yellow": {}
 			}
 		},
+		"e-thumbnail": {
+			"psuedo": {
+				"e-thumbnail---selected": {},
+				"e-thumbnail---hover": {}
+			}
+		},
 		"e-tooltip": {
 			"element": {
 				"e-tooltip__content": {
@@ -1260,6 +1267,7 @@
 		"e-btn--primary": {},
 		"e-btn---disabled": {},
 		"e-btn---hover": {},
+		"e-btn---selected": {},
 		"e-btn---active": {},
 		"e-btn--secondary": {},
 		"e-btn--tertiary": {},
@@ -1816,6 +1824,9 @@
 		"e-tag--orange": {},
 		"e-label--yellow": {},
 		"e-tag--yellow": {},
+		"e-thumbnail": {},
+		"e-thumbnail---selected": {},
+		"e-thumbnail---hover": {},
 		"e-tooltip": {},
 		"e-tooltip__content": {},
 		"e-tooltip__content--bottom": {},

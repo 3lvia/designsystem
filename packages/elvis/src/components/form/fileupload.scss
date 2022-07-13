@@ -20,6 +20,7 @@
 
   &__description {
     @include typography.typography('text-option');
+    color: colors.color('font-color');
     display: flex;
     width: 100%;
     justify-content: center;
@@ -45,7 +46,6 @@
       border-radius: 0px;
       padding: 0px;
       padding-bottom: 3.5px;
-      color: colors.color('font-color');
       cursor: pointer;
 
       font-family: 'Red Hat Display', Verdana, sans-serif;
@@ -53,6 +53,7 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 24px;
+      color: colors.color('font-color');
 
       &:disabled {
         color: colors.color('disabled');

@@ -1,13 +1,64 @@
 {
   "content": [
     {
-      "version": "8.5.1",
-      "date": "June 11, 2022",
+      "version": "8.7.2",
+      "date": "June 13, 2022",
       "changelog": [
         {
           "type": "patch",
           "changes": ["Fixed toggle disabled state so that the cursor becomes disabled."],
           "components": [{ "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }]
+        }
+      ]
+    },
+    {
+      "version": "8.7.1",
+      "date": "July 05, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Replaced old typography names with the new ones in elvis.",
+            "Updated all components with font color and text align to avoid inheriting the wrong style."
+          ],
+          "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        }
+      ]
+    },
+    {
+      "version": "8.7.0",
+      "date": "July 04, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added <span class=\"code-text\">e-btn---selected</span> classes that can be used when a button has a selected state."
+          ],
+          "components": [{ "displayName": "Button", "url": "https://design.elvia.io/components/button" }]
+        }
+      ]
+    },
+    {
+      "version": "8.6.1",
+      "date": "June 30, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Small table fix for the <span class=\"code-text\">e-table--no-stripes</span> class."],
+          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
+        }
+      ]
+    },
+    {
+      "version": "8.6.0",
+      "date": "June 30, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added new thumbnail class."],
+          "components": [
+            { "displayName": "Thumbnail", "url": "https://design.elvia.io/components/thumbnail" }
+          ]
         }
       ]
     },
