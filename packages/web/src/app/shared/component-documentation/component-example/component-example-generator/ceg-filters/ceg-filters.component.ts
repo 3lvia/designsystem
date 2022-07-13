@@ -185,27 +185,30 @@ export class CegFiltersComponent implements OnInit {
     });
   }
 
+  addDependentElements(
+    list: (CegFormGroup | CegFormGroupOption)[],
+    el: CegFormGroup | CegFormGroupOption,
+    propName: string,
+  ): (CegFormGroup | CegFormGroupOption)[] {
+    el.dependency.forEach((dependency) => {
+      if (dependency && dependency.name === propName) {
+        list.push(el);
+      }
+    });
+    return list;
+  }
+
   getDependentElements(propName: string): (CegFormGroup | CegFormGroupOption)[] {
-    const dependentElements: (CegFormGroup | CegFormGroupOption)[] = [];
+    let dependentElements: (CegFormGroup | CegFormGroupOption)[] = [];
     this.formGroupList.forEach((element) => {
-      if (!element.dependency) {
-        if ('formGroupOptions' in element) {
-          element.formGroupOptions.forEach((el) => {
-            if (el.dependency) {
-              el.dependency.forEach((dependency) => {
-                if (dependency && dependency.name === propName) {
-                  dependentElements.push(el);
-                }
-              });
-            }
-          });
-        }
-      } else {
-        element.dependency.forEach((dependency) => {
-          if (dependency && dependency.name === propName) {
-            dependentElements.push(element);
+      if (!element.dependency && 'formGroupOptions' in element) {
+        element.formGroupOptions.forEach((el) => {
+          if (el.dependency) {
+            dependentElements = this.addDependentElements(dependentElements, el, propName);
           }
         });
+      } else {
+        dependentElements = this.addDependentElements(dependentElements, element, propName);
       }
     });
     return dependentElements;
