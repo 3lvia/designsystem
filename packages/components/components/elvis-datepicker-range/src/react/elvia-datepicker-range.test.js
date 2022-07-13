@@ -24,6 +24,24 @@ describe('Elvis DatepickerRange', () => {
       expect(wrapper.find(Datepicker).length).toBe(2);
       done();
     });
+    it('should have horizontal stacking', function (done) {
+      expect(datepickerRangeWrapper.at(0).getDOMNode()).toHaveStyle('flex-direction: row');
+      done();
+    });
+  });
+  describe('', () => {
+    beforeEach(() => {
+      wrapper = mount(<DatepickerRange isVertical></DatepickerRange>);
+      datepickerRangeWrapper = wrapper.find({ 'data-testid': 'datepicker-range-wrapper' });
+    });
+    afterEach(() => {
+      wrapper.unmount();
+    });
+
+    it('should have vertical stacking', function (done) {
+      expect(datepickerRangeWrapper.at(0).getDOMNode()).toHaveStyle('flex-direction: column');
+      done();
+    });
   });
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {

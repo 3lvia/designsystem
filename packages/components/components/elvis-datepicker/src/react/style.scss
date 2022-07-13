@@ -607,7 +607,8 @@ $datepicker-max-width: 448px;
             background: $text-disabled;
           }
         }
-        &:not(.ewc-datepicker__day-disabled):not(.ewc-datepicker__day-in-range):not(.ewc-datepicker__day-selected):hover {
+        // Hover border specific for current day
+        &:not(.ewc-datepicker__day-disabled):not(.ewc-datepicker__day-in-range):not(.ewc-datepicker__day-selected):not(.ewc-datepicker__day-first-in-range):not(.ewc-datepicker__day-last-in-range):hover {
           border: 1px solid $green;
         }
       }
