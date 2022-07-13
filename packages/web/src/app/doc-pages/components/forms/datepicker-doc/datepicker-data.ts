@@ -141,6 +141,11 @@ const datepickerData: ComponentData = {
       type: '() => void',
       description: 'Callback for every time the datepicker is being closed.',
     },
+    onReset: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Callback for every time the datepicker reset button is clicked.',
+    },
     placeholder: {
       isRequired: false,
       type: 'string',
@@ -180,6 +185,12 @@ const datepickerData: ComponentData = {
       default: 'true',
       type: '(error: string) => void',
       description: 'Gets called every time the internal date validation error is changed. ',
+    },
+    hasErrorPlaceholderElement: {
+      isRequired: false,
+      default: 'true',
+      type: 'boolean',
+      description: 'Whether the datepicker has a placeholder element for the error message. ',
     },
     clearButtonText: {
       isRequired: false,

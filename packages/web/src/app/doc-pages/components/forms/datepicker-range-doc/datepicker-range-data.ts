@@ -71,19 +71,7 @@ const datepickerRangeData: ComponentData = {
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
-      cegDisplayGroup: 'Options',
-    },
-    isVertical: {
-      isRequired: false,
-      type: 'boolean',
-      description:
-        'Set to true to force datepickers to stack vertically instead of horizontally. This is useful for devices with limited screen space.',
-      default: 'false',
-      cegDisplayName: 'Vertical',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Options',
+      cegDisplayGroup: 'State',
     },
     hasSelectDateOnOpen: {
       isRequired: false,
@@ -109,7 +97,18 @@ const datepickerRangeData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'Options',
     },
-
+    isVertical: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Set to true to force datepickers to stack vertically instead of horizontally. This is useful for devices with limited screen space.',
+      default: 'false',
+      cegDisplayName: 'Vertical',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Options',
+    },
     minDate: {
       isRequired: false,
       type: 'Date',
