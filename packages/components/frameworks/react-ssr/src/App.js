@@ -203,7 +203,7 @@ function App() {
         {/* DATEPICKER */}
         <div className="example-wrapper">
           <h3>Datepicker</h3>
-          <Datepicker isRequired hasSelectDateOnOpen={false}></Datepicker>
+          <Datepicker valueOnChange={(value) => console.log(value)} hasSelectDateOnOpen={false}></Datepicker>
         </div>
         {/* DIVIDER */}
         <div className="example-wrapper">

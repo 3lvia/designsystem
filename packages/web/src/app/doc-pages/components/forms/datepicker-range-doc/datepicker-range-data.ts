@@ -103,7 +103,7 @@ const datepickerRangeData: ComponentData = {
       description:
         'Set to true to force datepickers to stack vertically instead of horizontally. This is useful for devices with limited screen space.',
       default: 'false',
-      cegDisplayName: 'Vertical',
+      cegDisplayName: 'Vertical Stacking',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',

@@ -35,6 +35,7 @@ export interface DatepickerRangeProps {
   hoveredDateRange?: DateRange;
   onDateElementPointerMove?: (event: React.PointerEvent<HTMLButtonElement>, day: Date) => void;
   onDatepickerPopoverPointerMove?: (event: React.PointerEvent<HTMLDivElement>) => void;
+  whichRangePicker?: 'start' | 'end';
 }
 
 export interface DatepickerProps {
@@ -108,6 +109,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   ...rest
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
+  const [hasChangeToEmit, setHasChangeToEmit] = useState(false);
   const [initialFocusedDate, setInitialFocusedDate] = useState<Date | null>(null);
   const [currentErrorMessage, setCurrentErrorMessage] = useState('');
   const [hasShownError, setHasShownError] = useState(false);
@@ -123,6 +125,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   const hoveredDateRange = dateRangeProps?.hoveredDateRange;
   const onDateElementPointerMove = dateRangeProps?.onDateElementPointerMove;
   const onDatepickerPopoverPointerMove = dateRangeProps?.onDatepickerPopoverPointerMove;
+  const whichRangePicker = dateRangeProps?.whichRangePicker;
 
   // Unicode character U+00AD - Hack used to avoid date-fns from formatting date before date is valid
   const unicodeChar = '­';
@@ -159,6 +162,14 @@ export const Datepicker: FC<DatepickerProps> = ({
   useEffect(() => {
     updateCaretPositionWhenDotIsAdded();
   }, [selectedDate]);
+
+  /**
+   * When there are changes to the selected date and they has not been emitted yet,
+   * emit the change once the datepicker does not have focus.
+   */
+  useEffect(() => {
+    !hasFocus && emitValueOnChangeEvents();
+  }, [hasChangeToEmit, hasFocus]);
 
   /**
    * Start outline listener
@@ -212,11 +223,21 @@ export const Datepicker: FC<DatepickerProps> = ({
     if (isEqual(selectedDate, newDate)) return;
     setSelectedDate(newDate);
 
-    handleValueOnChangeISOString(newDate);
-    if (!webcomponent) {
-      valueOnChange?.(newDate);
-    } else {
-      webcomponent.setProps({ value: newDate }, true);
+    setHasChangeToEmit(true);
+  };
+
+  /**
+   * Emits a new valueOnChange event.
+   */
+  const emitValueOnChangeEvents = (): void => {
+    if (hasChangeToEmit) {
+      handleValueOnChangeISOString(selectedDate);
+      if (!webcomponent) {
+        valueOnChange?.(selectedDate);
+      } else {
+        webcomponent.setProps({ value: selectedDate }, true);
+      }
+      setHasChangeToEmit(false);
     }
   };
 
@@ -502,9 +523,7 @@ export const Datepicker: FC<DatepickerProps> = ({
         end: hoveredDateRange.end,
       });
     const otherSelectedDate =
-      selDate && selectedDateRange?.start && isSameDay(selDate, selectedDateRange?.start)
-        ? selectedDateRange?.end
-        : selectedDateRange?.start;
+      whichRangePicker && whichRangePicker === 'start' ? selectedDateRange?.end : selectedDateRange?.start;
     const dayClasses = classnames('ewc-datepicker__day', {
       ['ewc-datepicker__day-selected']: selDate && isSameDay(dayDate, selDate) && shouldHaveSelected,
       ['ewc-datepicker__day-current']: isSameDay(dayDate, today),

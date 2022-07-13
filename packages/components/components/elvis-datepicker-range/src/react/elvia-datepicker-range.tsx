@@ -28,6 +28,11 @@ const defaultLabelOptions: LabelOptions = {
   end: 'Til dato',
 };
 
+const emptyErrorMessage: CustomError = {
+  start: '',
+  end: '',
+};
+
 export interface DatepickerRangeProps {
   value?: DateRange;
   valueOnChange?: (value: DateRange) => void;
@@ -81,7 +86,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const [endDatepickerIsOpen, setEndDatepickerIsOpen] = useState(false);
   const [isRequiredState, setIsRequiredState] = useState<IsRequired>();
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>({ start: '', end: '' });
+  const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>(emptyErrorMessage);
 
   useEffect(() => {
     const getWindowDimensions = () => {
@@ -242,12 +247,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   const handleStartDatepickerValueOnChange = (newValue: Date | null) => {
-    // If newValue is an invalid date, do not update any states
-    if (newValue && !isValid(newValue)) {
-      return;
-    }
     // If start datepicker is set to a date after the end datepicker, set the end date to newValue.
-    else if (newValue && selectedDateRange?.end && newValue > selectedDateRange.end) {
+    if (newValue && selectedDateRange?.end && newValue > selectedDateRange.end) {
       setHoveredDateRange({ start: newValue, end: newValue });
       setSelectedDateRange({ start: newValue, end: newValue });
     } else {
@@ -261,12 +262,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   const handleEndDatepickerValueOnChange = (newValue: Date | null) => {
-    // If newValue is an invalid date, do not update any states
-    if (newValue && !isValid(newValue)) {
-      return;
-    }
     // If end datepicker is set to a date before the start date, set both to end datepicker value.
-    else if (newValue && selectedDateRange?.start && newValue < selectedDateRange.start) {
+    if (newValue && selectedDateRange?.start && newValue < selectedDateRange.start) {
       setHoveredDateRange({ start: newValue, end: newValue });
       setSelectedDateRange({ start: newValue, end: newValue });
     } else {
@@ -320,6 +317,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           hoveredDateRange: hoveredDateRange,
           onDateElementPointerMove: handleStartDatepickerDateElementPointerMove,
           onDatepickerPopoverPointerMove: handleStartDatepickerPopoverPointerMove,
+          whichRangePicker: 'start',
         }}
         disableDate={disableDatesWrapper()?.start}
         customError={customError?.start}
@@ -346,6 +344,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           hoveredDateRange: hoveredDateRange,
           onDateElementPointerMove: handleEndDatepickerDateElementPointerMove,
           onDatepickerPopoverPointerMove: handleEndDatepickerPopoverPointerMove,
+          whichRangePicker: 'end',
         }}
         disableDate={disableDatesWrapper()?.end}
         customError={customError?.end}

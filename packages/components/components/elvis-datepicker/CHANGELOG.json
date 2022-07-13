@@ -25,6 +25,7 @@
         {
           "type": "patch",
           "changes": [
+            "The <span class=\"code-text\">valueOnChange</span> event now triggers once the datepicker no longer has focus.",
             "Updated the logic for when to show error state in the datepicker.",
             "Bumped the dependency on <span class=\"code-text\">@elvia/elvis-component-wrapper</span> to 2.3.3."
           ]
