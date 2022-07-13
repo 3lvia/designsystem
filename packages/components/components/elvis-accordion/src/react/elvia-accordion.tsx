@@ -60,8 +60,10 @@ const Accordion: FC<AccordionProps> = ({
   webcomponent,
   ...rest
 }) => {
-  const [contentOpen, setContentOpen] = useState(isOpen);
+  const [isOpenState, setIsOpenState] = useState(isOpen);
+  const [hasBeenInitiated, setHasBeenInitiated] = useState(false);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
+  const [hasContent, setHasContent] = useState(false);
 
   const accordionRef = useRef<HTMLDivElement>(null);
   const accordionContentRef = useRef<HTMLDivElement>(null);
@@ -77,27 +79,43 @@ const Accordion: FC<AccordionProps> = ({
       }
     };
   }, []);
+
   useEffect(() => {
     if (!webcomponent) {
       return;
     }
     // Get slotted items from web component
     if (accordionContentRef.current && webcomponent.getSlot('content')) {
+      setHasContent(true);
       accordionContentRef.current.innerHTML = '';
       accordionContentRef.current.appendChild(webcomponent.getSlot('content'));
     }
   }, [webcomponent]);
 
   useEffect(() => {
-    // if (!hasBeenInitiated) {
-    //   setHasBeenInitiated(true);
-    //   return;
-    // }
-    setContentOpen(isOpen);
+    console.log(isOpenState, ' changed');
+    if (!hasBeenInitiated) {
+      setHasBeenInitiated(true);
+      return;
+    }
+    setIsOpenState((prevIsOpenState) => !prevIsOpenState);
   }, [isOpen]);
 
+  useEffect(() => {
+    type === 'single' ? setHasContent(false) : setHasContent(true);
+  }, [type]);
+
+  useEffect(() => {
+    if (content) {
+      setHasContent(true);
+    }
+  }, [content]);
+
   const handleOnClick = () => {
-    if (!contentOpen) {
+    if (type === 'single') {
+      return;
+    }
+    if (!isOpenState) {
       if (!webcomponent && onOpen) {
         onOpen();
       } else if (webcomponent) {
@@ -110,11 +128,11 @@ const Accordion: FC<AccordionProps> = ({
         webcomponent.triggerEvent('onClose');
       }
     }
-    setContentOpen((contentOpen) => !contentOpen);
+    setIsOpenState((prevIsOpenState) => !prevIsOpenState);
   };
 
   const decideButtonAriaLabel = (): string => {
-    if (contentOpen) {
+    if (isOpenState) {
       return closeAriaLabel ? closeAriaLabel : closeLabel ? closeLabel : 'Lukk';
     } else {
       return openAriaLabel ? openAriaLabel : openLabel ? openLabel : 'Åpne';
@@ -123,30 +141,23 @@ const Accordion: FC<AccordionProps> = ({
   const shouldShowRightIcon = (): boolean => {
     return (isStartAligned && isFullWidth) || !isStartAligned;
   };
-  const hasContent = (): boolean => {
-    const hasContentSlot: boolean =
-      webcomponent !== undefined && webcomponent.getSlot('content') !== undefined;
-    const hasContentProp: boolean = content !== '' && content !== undefined;
-
-    return hasContentProp || hasContentSlot;
-  };
 
   return (
     <AccordionWrapper ref={accordionRef}>
       <AccordionArea
-        aria-expanded={contentOpen}
+        aria-expanded={isOpenState}
         className={`${className ? className : ''}`}
         style={inlineStyle}
         data-testid="accordion-area"
         {...rest}
       >
-        {type === 'overflow' && hasContent() ? (
+        {type === 'overflow' ? (
           <AccordionContent
             type={type}
             size={size}
-            isContentOpen={contentOpen}
+            isOpenState={isOpenState}
             overflowHeight={overflowHeight}
-            hasContent={hasContent()}
+            hasContent={hasContent}
             data-testid="accordion-content-overflow"
           >
             {content && <div>{content}</div>}
@@ -157,7 +168,7 @@ const Accordion: FC<AccordionProps> = ({
           <AccordionButton
             size={size}
             isFullWidth={isFullWidth}
-            isContentOpen={contentOpen}
+            isOpenState={isOpenState}
             hasBoldLabel={hasBoldLabel}
             openDetailText={openDetailText}
             openLabel={openLabel ? openLabel : ''}
@@ -175,13 +186,14 @@ const Accordion: FC<AccordionProps> = ({
               />
             )}
             <AccordionLabel
+              hasLabel={type !== 'single'}
               openLabel={openLabel ? openLabel : ''}
               isStartAligned={isStartAligned}
               isFullWidth={isFullWidth}
             >
-              <AccordionLabelText>{!contentOpen ? openLabel : closeLabel}</AccordionLabelText>
-              <AccordionDetailText size={size}>
-                {!contentOpen ? openDetailText : closeDetailText}
+              <AccordionLabelText>{!isOpenState ? openLabel : closeLabel}</AccordionLabelText>
+              <AccordionDetailText size={size} openDetailText={openDetailText}>
+                {!isOpenState ? openDetailText : closeDetailText}
               </AccordionDetailText>
             </AccordionLabel>
             {shouldShowRightIcon() && (
@@ -192,11 +204,12 @@ const Accordion: FC<AccordionProps> = ({
             )}
           </AccordionButton>
         </AccordionButtonArea>
-        {type === 'normal' && hasContent() ? (
+        {type === 'normal' ? (
           <AccordionContent
             type={type}
             size={size}
-            isContentOpen={contentOpen}
+            isOpenState={isOpenState}
+            hasContent={hasContent}
             overflowHeight={overflowHeight}
             data-testid="accordion-content-normal"
           >

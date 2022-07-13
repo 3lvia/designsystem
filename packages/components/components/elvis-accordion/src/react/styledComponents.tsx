@@ -15,12 +15,14 @@ const typography = {
 
 export const AccordionWrapper = styled.div`
   display: flex;
+  // width: 100%;
 `;
 
 export const AccordionArea = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  // align-items: flex-start;
+  width: 100%;
 `;
 
 const decideLabelPosition = (prop: AccordionLabelPosition) => {
@@ -66,7 +68,7 @@ const decideButtonFontSize = (prop: AccordionSize) => {
 type AccordionButtonProps = {
   size: AccordionSize;
   isFullWidth: boolean;
-  isContentOpen: boolean;
+  isOpenState: boolean;
   hasBoldLabel: boolean;
   openDetailText: string | undefined;
   openLabel: string;
@@ -93,18 +95,19 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   i {
     transition: transform 300ms;
     transform: ${(props) =>
-      (props.isContentOpen && ' rotate(180deg)') || (props.isContentOpen === false && ' rotate(0deg)')};
+      (props.isOpenState && ' rotate(180deg)') || (props.isOpenState === false && ' rotate(0deg)')};
   }
 `;
 
 type AccordionLabelProps = {
+  hasLabel: boolean;
   openLabel: string;
   isStartAligned: boolean | undefined;
   isFullWidth: boolean | undefined;
 };
 
 export const AccordionLabel = styled.div<AccordionLabelProps>`
-  display: ${(props) => (props.openLabel ? 'flex' : 'none')};
+  display: ${(props) => (props.openLabel && props.hasLabel ? 'flex' : 'none')};
   flex-direction: row;
   align-items: baseline;
   margin-left: ${(props) => (props.isStartAligned && !props.isFullWidth ? '8px' : '0px')};
@@ -127,6 +130,7 @@ const decideDetailTextSize = (size: string): string => {
 
 type AccordionDetailTextProps = {
   size: string;
+  openDetailText: string | undefined;
 };
 
 export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
@@ -134,11 +138,16 @@ export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
   display: flex;
   text-align: left;
   color: ${colors.elviaBlack};
-  margin-left: 8px;
+  margin-left: ${(props) => (props.openDetailText !== undefined ? '8px;' : '0px;')};
 `;
 
-const decideContentMarginTop = (contentOpen: boolean, type: AccordionType, size: AccordionSize): string => {
-  if (type === 'overflow') {
+const decideContentMarginTop = (
+  contentOpen: boolean,
+  type: AccordionType,
+  size: AccordionSize,
+  hasContent: boolean,
+): string => {
+  if (type === 'overflow' || !hasContent) {
     return '0px';
   }
   if (contentOpen) {
@@ -200,25 +209,27 @@ const decideContentTransition = (contentOpen: boolean, type: AccordionType): str
 };
 
 type AccordionContentProps = {
-  isContentOpen: boolean;
+  isOpenState: boolean;
   type: AccordionType;
   size: AccordionSize;
   overflowHeight?: number;
-  hasContent?: boolean;
+  hasContent: boolean;
 };
 
 export const AccordionContent = styled.div<AccordionContentProps>`
-  display: block;
+  display: ${(props) => (props.hasContent ? 'block' : 'none')};
   background: transparent;
   font-size: 16px;
   line-height: inherit;
-  margin-top: ${(props) => decideContentMarginTop(props.isContentOpen, props.type, props.size)};
-  pointer-events: ${(props) => (props.isContentOpen ? 'auto' : 'none')};
+  margin-top: ${(props) =>
+    decideContentMarginTop(props.isOpenState, props.type, props.size, props.hasContent)};
+  pointer-events: ${(props) => (props.isOpenState ? 'auto' : 'none')};
   height: auto;
-  max-height: ${(props) => decideContentMaxHeight(props.isContentOpen, props.type, props.overflowHeight)};
-  opacity: ${(props) => decideContentOpacity(props.isContentOpen, props.type)};
-  overflow-y: ${(props) => decideContentOverflowY(props.isContentOpen, props.type)};
-  transition: ${(props) => decideContentTransition(props.isContentOpen, props.type)};
+  max-height: ${(props) => decideContentMaxHeight(props.isOpenState, props.type, props.overflowHeight)};
+  width: 100%;
+  opacity: ${(props) => decideContentOpacity(props.isOpenState, props.type)};
+  overflow-y: ${(props) => decideContentOverflowY(props.isOpenState, props.type)};
+  transition: ${(props) => decideContentTransition(props.isOpenState, props.type)};
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {

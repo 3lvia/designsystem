@@ -64,10 +64,10 @@ module.exports = [
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
     ],
     reactName: 'Accordion',
-    useWrapper: false,
+    useWrapper: true,
     slotItems: true,
-    elementStyle: 'display: flex;',
-    conditionalElementStyle: [{ name: 'isFullWidth', value: 'true', style: `width: 100%` }],
+    elementStyle: 'width: 100%;',
+    conditionalElementStyle: [{ name: 'type', value: 'single', style: `width: auto;` }],
     reactTypescriptDeclaration: true,
   },
   {

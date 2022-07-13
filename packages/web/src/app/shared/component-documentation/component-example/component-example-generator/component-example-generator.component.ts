@@ -141,6 +141,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   updateFormStates(propName: string, event: DropdownEvent): void {
     const value = event.detail.value.label;
     this.addToFormStates(propName, value);
+    this.updateCustomTextVisibility();
   }
 
   /**
@@ -256,6 +257,46 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     });
   }
 
+  removeAllCustomTextProps(): void {
+    Object.keys(this.customTextProps).forEach((prop) => {
+      this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, prop);
+    });
+  }
+
+  getCustomTextLabel(propName: string): string {
+    return propName.replace(/([a-z])([A-Z])/g, '$1 $2');
+  }
+
+  updateCustomTextVisibility(): void {
+    Object.keys(this.componentData.attributes).forEach((attribute) => {
+      if (this.componentData.attributes[attribute].cegFormType === 'custom-text') {
+        this.showCustomTextPopover = this.isCustomTextVisible(this.componentData.attributes[attribute]);
+        if (!this.showCustomTextPopover) {
+          this.removeAllCustomTextProps();
+        } else {
+          this.updateCustomTextProps();
+        }
+      }
+    });
+  }
+
+  isCustomTextVisible(attributeData: AttributeType): boolean {
+    let isCustomTextVisible = false;
+    if (attributeData.cegDependency) {
+      attributeData.cegDependency.forEach((dependency) => {
+        if (dependency.value.includes(this.topFilterFormStates[dependency.name])) {
+          isCustomTextVisible = true;
+          return;
+        } else {
+          isCustomTextVisible = false;
+        }
+      });
+    } else {
+      isCustomTextVisible = true;
+    }
+    return isCustomTextVisible;
+  }
+
   /**
    * Initializes `this.customTextProps` to hold the props that should have customizable text.
    *
@@ -276,8 +317,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
 
     this.customTextProps = {};
+    let isCustomTextVisible = false;
     Object.entries(componentData.attributes).forEach(([attribute, attributeData]) => {
       if (attributeData.cegFormType === 'custom-text') {
+        isCustomTextVisible = this.isCustomTextVisible(attributeData);
         this.customTextProps[attribute] = {
           value: attributeData.cegDefault ?? '',
           type: attributeData.cegCustomTextType ?? 'input',
@@ -289,7 +332,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       this.updateCustomTextProps();
     });
     this.hasCustomTextProps = Object.keys(this.customTextProps).length > 0;
-    this.showCustomTextPopover = true;
+    this.showCustomTextPopover = isCustomTextVisible;
   }
 
   /**

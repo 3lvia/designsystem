@@ -3,18 +3,13 @@
   "content": [
     {
       "date": "08.05.22",
-      "version": "3.0.0 ",
+      "version": "2.5.0 ",
       "changelog": [
-        {
-          "type": "breaking_changes",
-          "changes": [
-            "Accordion now has 'display:flex' and 'width:auto' by default, this might break your layout if your content was not taking up 100% before."
-          ]
-        },
         {
           "type": "new_feature",
           "changes": [
             "Added onOpen and onClose event.",
+            "Added prop buttonOnly for having the accordion button alone without label and content, that can be used next to something custom.",
             "Added the props isOpen, isFullWidth, isStartAligned, openDetailText and closeDetailText."
           ]
         }
