@@ -125,6 +125,7 @@ export class CegFiltersComponent implements OnInit {
     }
     this.updateFormStates(formField.propName, value);
     this.propValueChange.emit({ name: formField.propName, value: value });
+    this.restoreDefaultStateIfDependent(formField, formField.propName);
   }
 
   updateFormStates(key: string, value: string | number | boolean): void {
@@ -144,15 +145,43 @@ export class CegFiltersComponent implements OnInit {
     dependentElements.forEach((element) => {
       const visibility = this.checkIfVisible(element);
       if (!visibility && this.cegCodes.angular.includes(element.propName)) {
-        this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, element.propName);
-        this.cegCodes = this.cegCodeUpdaterService.removeSlotAndProp(
-          this.cegCodes,
-          this.componentData,
-          element.propName,
-          'propSlot' in element ? element.propSlot : undefined,
-        );
-        this.updateNewCode();
+        this.removePropFromCode(element);
       }
+    });
+  }
+
+  removePropFromCode(element: CegFormGroup | CegFormGroupOption): void {
+    this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, element.propName);
+    this.cegCodes = this.cegCodeUpdaterService.removeSlotAndProp(
+      this.cegCodes,
+      this.componentData,
+      element.propName,
+      'propSlot' in element ? element.propSlot : undefined,
+    );
+    this.updateNewCode();
+  }
+
+  restoreDefaultStateIfDependent(formField: CegFormGroup | CegFormGroupOption, propName: string): void {
+    const dependentElements = this.getDependentElements(propName);
+    if (!dependentElements) {
+      return;
+    }
+    dependentElements.forEach((element) => {
+      if (element.formType !== 'checkbox' || formField.formType !== 'checkbox') {
+        return;
+      }
+      element.dependency.forEach((dependency) => {
+        if (dependency.value.toString() !== this.formStates[propName].toString()) {
+          const checkboxToUpdate = document.getElementById(
+            element.propName + '-' + this.desktop,
+          ) as HTMLInputElement;
+          const defaultValue = element.defaultValue === 'true' || element.defaultValue === true;
+          checkboxToUpdate.checked = defaultValue;
+          this.updateFormStates(element.propName, element.defaultValue);
+          this.removePropFromCode(element);
+          this.propValueChange.emit({ name: element.propName, value: defaultValue.toString() });
+        }
+      });
     });
   }
 
@@ -160,19 +189,24 @@ export class CegFiltersComponent implements OnInit {
     const dependentElements: (CegFormGroup | CegFormGroupOption)[] = [];
     this.formGroupList.forEach((element) => {
       if (!element.dependency) {
-        return;
-      }
-      element.dependency.forEach((dependency) => {
-        if (dependency && dependency.name === propName) {
-          dependentElements.push(element);
-        } else if ('formGroupOptions' in element) {
-          element.formGroupOptions.forEach((element) => {
-            if (element.name && element.name == propName) {
-              dependentElements.push(element);
+        if ('formGroupOptions' in element) {
+          element.formGroupOptions.forEach((el) => {
+            if (el.dependency) {
+              el.dependency.forEach((dependency) => {
+                if (dependency && dependency.name === propName) {
+                  dependentElements.push(el);
+                }
+              });
             }
           });
         }
-      });
+      } else {
+        element.dependency.forEach((dependency) => {
+          if (dependency && dependency.name === propName) {
+            dependentElements.push(element);
+          }
+        });
+      }
     });
     return dependentElements;
   }

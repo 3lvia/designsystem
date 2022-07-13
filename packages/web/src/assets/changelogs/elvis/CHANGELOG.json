@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "8.5.1",
+      "date": "June 11, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fixed toggle disabled state so that the cursor becomes disabled."],
+          "components": [{ "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }]
+        }
+      ]
+    },
+    {
       "version": "8.5.0",
       "date": "June 27, 2022",
       "changelog": [

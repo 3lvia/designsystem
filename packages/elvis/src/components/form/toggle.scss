@@ -107,6 +107,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   // Disabled
   &.e-toggle---disabled,
   input:disabled {
+    cursor: not-allowed;
     &.e-toggle__input::before {
       background-color: colors.color('disabled');
       cursor: not-allowed;

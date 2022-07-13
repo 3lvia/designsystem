@@ -7197,6 +7197,10 @@ input:focus {
   outline: 2px solid #0064fa;
   outline-offset: 2px;
 }
+.e-toggle.e-toggle---disabled,
+.e-toggle input:disabled {
+  cursor: not-allowed;
+}
 .e-toggle.e-toggle---disabled.e-toggle__input::before,
 .e-toggle input:disabled.e-toggle__input::before {
   background-color: #bdbdbd;
