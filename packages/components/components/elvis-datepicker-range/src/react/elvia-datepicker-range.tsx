@@ -303,6 +303,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         valueOnChange={handleStartDatepickerValueOnChange}
         isRequired={isRequiredState?.start}
         onClose={() => {
+          setHoveredDateRange(selectedDateRange);
           hasAutoOpenEndDatepicker &&
             setTimeout(() => {
               setEndDatepickerIsOpen(true);
@@ -332,7 +333,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         value={selectedDateRange.end}
         valueOnChange={handleEndDatepickerValueOnChange}
         isRequired={isRequiredState?.end}
-        onClose={() => setEndDatepickerIsOpen(false)}
+        onClose={() => {
+          setHoveredDateRange(selectedDateRange);
+          setEndDatepickerIsOpen(false);
+        }}
         onOpen={() => setEndDatepickerIsOpen(true)}
         onReset={() => {
           setHoveredDateRange({ ...selectedDateRange, end: null });
