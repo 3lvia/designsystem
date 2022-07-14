@@ -8,6 +8,7 @@ import '@elvia/elvis-card';
 import '@elvia/elvis-carousel';
 import '@elvia/elvis-chip';
 import '@elvia/elvis-datepicker';
+import '@elvia/elvis-datepicker-range';
 import '@elvia/elvis-divider';
 import '@elvia/elvis-dropdown';
 import '@elvia/elvis-icon';

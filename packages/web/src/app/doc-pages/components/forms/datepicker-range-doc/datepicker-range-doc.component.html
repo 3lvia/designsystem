@@ -1,6 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">Date Picker</ng-container>
+  <ng-container ngProjectAs="headerTitle">Date Range Picker</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -14,9 +14,20 @@
   <!-- SIZE -->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      There are two different sizes of the date picker; normal and compact. Much like compact text fields, the
-      compact date picker picker is a version of the text field that’s primarily designed for internal
-      systems, and shouldn’t be mixed with the other input style.
+      There are two different sizes of the date range picker; normal and compact. Just like compact text
+      fields, the compact date range picker is primarily designed for internal systems. Don't mix normal and
+      compact size inputs in one layout - choose one or the other and be consistent in your choice throughout
+      the design.
+    </ng-container>
+    <ng-container ngProjectAs="sectionContent">
+      <p>
+        When the screen size becomes smaller than 767px, the date pickers will stack vertically instead of
+        horizontally. When needed, force vertical stacking by setting the
+        <span class="code-text">isVertical</span>
+        property to
+        <span class="code-text">true</span>
+        .
+      </p>
     </ng-container>
   </app-component-section>
 
@@ -30,11 +41,13 @@
               <span class="keyboard-button">Space</span>
               or
               <span class="keyboard-button">Enter</span>
-              to open or close the datepicker, as well as choosing different options inside the datepicker.
+              to open or close the individual date pickers, as well as to choose different options inside the
+              date picker.
             </div>
             <div>
               <span class="keyboard-button">Tab</span>
-              to navigate through the different options inside the datepicker.
+              to navigate through the different options inside the date picker, and to navigate between the
+              two date pickers.
             </div>
             <div>
               <span class="keyboard-button icon">
@@ -43,29 +56,11 @@
               <span class="keyboard-button icon" style="margin-left: 0px">
                 <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
               </span>
-              can be used to choose between dates inside the datepicker.
+              can be used to choose between dates inside the date picker.
             </div>
           </div>
         </ng-container>
       </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
-  <!-- Implementation -->
-  <app-component-section [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">
-      The date picker component supports getting the selected date in two different ways: as a date object
-      through
-      <span class="code-text">valueOnChange</span>
-      , or as an ISO formated string (without containing time) through
-      <span class="code-text">valueOnChangeISOString</span>
-      (e.g.
-      <span class="code-text">'2022-06-20'</span>
-      ). When using
-      <span class="code-text">valueOnChange</span>
-      , the returned date object will contain the selected date, with the time set to
-      <span class="code-text">00:00:00</span>
-      .
     </ng-container>
   </app-component-section>
 

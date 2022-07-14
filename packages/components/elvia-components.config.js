@@ -24,6 +24,10 @@ attributes: object[] -
 reactName: string - The name of the component in React
 elementStyle: string - Styling for the DOM element (web component HTMLElement) itself
 
+dependentStyleSheet: If the component depends on the style sheet from another component when used as a web component, the path
+to the style sheet is added here. E.g. '@elvia/elvis-datepicker/src/react/style.scss'. It will be added to the style tag
+of the web component.
+
 useWrapper: boolean - If the React element should be injected into a wrapper instead of directly into the element.
 In most cases this should be true, however sometimes we want to have more control over the styling of the custom element itself. 
 In those cases removing that wrapper is useful. NB! The wrapper can not be removed if the component is using slots, because the 
@@ -180,13 +184,43 @@ module.exports = [
       { name: 'clearButtonText', type: 'string', propType: 'string' },
       { name: 'isErrorState', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'hasValidation', type: 'boolean', propType: 'boolean' },
-      { name: 'disableDate', type: 'string', propType: '(Date) => boolean' },
+      { name: 'disableDate', type: 'function', propType: '(Date) => boolean | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
     ],
     reactName: 'Datepicker',
     elementStyle: 'display: block; max-width: 448px;',
     conditionalElementStyle: [{ name: 'isFullWidth', value: 'true', style: `width: 100%` }],
+    useWrapper: true,
+    slotItems: false,
+    reactTypescriptDeclaration: true,
+  },
+  {
+    name: 'elvis-datepicker-range',
+    elementName: 'elvia-datepicker-range',
+    attributes: [
+      { name: 'value', type: 'object', propType: 'object | undefined' },
+      { name: 'labelOptions', type: 'object', propType: 'object | undefined' },
+      { name: 'isCompact', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'isFullWidth', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'isDisabled', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'isRequired', type: 'object', propType: 'object | undefined' },
+      { name: 'isVertical', type: 'object', propType: 'object | undefined' },
+      { name: 'hasSelectDateOnOpen', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'hasAutoOpenEndDatepicker', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'showValidationState', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'isErrorState', type: 'object', propType: 'object | undefined' },
+      { name: 'customError', type: 'object', propType: 'object | undefined' },
+      { name: 'minDate', type: 'Date', propType: 'Date | undefined' },
+      { name: 'maxDate', type: 'Date', propType: 'Date | undefined' },
+      { name: 'disableDates', type: 'function', propType: 'object | undefined' },
+      { name: 'className', type: 'string', propType: 'string | undefined' },
+      { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
+    ],
+    reactName: 'DatepickerRange',
+    elementStyle: 'display: block;',
+    conditionalElementStyle: [{ name: 'isFullWidth', value: 'true', style: `width: 100%` }],
+    dependentStyleSheets: ['@elvia/elvis-datepicker/src/react/style.scss'],
     useWrapper: true,
     slotItems: false,
     reactTypescriptDeclaration: true,

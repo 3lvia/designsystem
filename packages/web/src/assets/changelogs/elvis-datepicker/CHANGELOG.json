@@ -2,6 +2,46 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "14.07.22",
+      "version": "3.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The <span class=\"code-text\">valueOnChange</span> and <span class=\"code-text\">valueOnChangeISOString</span> events now trigger once the datepicker no longer has focus.",
+            "By default, the datepicker now has an error placeholder below it that takes up space. The height of the datepicker has therefore changed. If the internal validation of the datepicker is turned of by the <span class=\"code-text\">showValidationState</span> property, the error placeholder will not be shown."
+          ],
+          "fixes": [
+            "If you wish to remove the error placeholder, you can do so by setting the <span class=\"code-text\">hasErrorPlaceholderElement</span> property to <span class=\"code-text\">false</span>."
+          ]
+        },
+        {
+          "type": "new_feature",
+          "changes": [
+            "Addded support for date picker range.",
+            "Added event <span class=\"code-text\">onReset</span> that triggers whenever the reset button inside the datepicker is clicked.",
+            "Added new prop <span class=\"code-text\">hasErrorPlaceholderElement</span> that adds a placeholder element where the error message would be displayed whenever there is no error. This is to avoid the height of the datepicker from changing when an error is shown. Defaults to true."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Updated the logic for when to show error state in the datepicker.",
+            "Bumped the dependency on <span class=\"code-text\">@elvia/elvis-component-wrapper</span> to 2.3.3."
+          ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that caused the <span class=\"code-text\">valueOnChange</span> event to fire when the <span class=\"code-text\">value</span> property was set on the component.",
+            "Fixed a bug that caused the datepicker to add style tags to the document head every time it was updated, sometimes causing the page to crash. ",
+            "Fixed a bug that caused the datepicker to not reset when the reset button was triggered by the enter key.",
+            "Fixed a bug that caused the datepicker to not select todays date if the <span class=\"code-text\">isOpen</span> prop was used to open the date picker, even though <span class=\"code-text\">hasSelectDateOnOpen</span> was set to <span class=\"code-text\">true</span>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "01.07.22",
       "version": "2.10.2",
       "changelog": [

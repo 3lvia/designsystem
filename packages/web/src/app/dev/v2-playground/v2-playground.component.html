@@ -141,6 +141,11 @@
     <h3>DatePicker</h3>
     <elvia-datepicker [value]="date"></elvia-datepicker>
   </div>
+  <!--Date ramnge picker-->
+  <div class="example-wrapper">
+    <h3>Date range picker</h3>
+    <elvia-datepicker-range (errorOnChange)="logValue('error', $event.detail.value)"></elvia-datepicker-range>
+  </div>
 
   <!--Divider-->
   <div class="example-wrapper">

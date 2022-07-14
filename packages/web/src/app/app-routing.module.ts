@@ -57,6 +57,7 @@ import { TheDesignSystemDocComponent } from './doc-pages/other-pages/the-design-
 import { SpotlightDocComponent } from './doc-pages/components/spotlight-doc/spotlight-doc.component';
 import { ThumbnailDocComponent } from './doc-pages/components/thumbnail-doc/thumbnail-doc.component';
 import { ShadowDocComponent } from './doc-pages/other-pages/shadow-doc/shadow-doc.component';
+import { DatepickerRangeDocComponent } from './doc-pages/components/forms/datepicker-range-doc/datepicker-range-doc.component';
 
 const routes: Routes = [
   {
@@ -209,6 +210,10 @@ const routes: Routes = [
           {
             path: Pages.Datepicker,
             component: DatepickerDocComponent,
+          },
+          {
+            path: Pages.DatepickerRange,
+            component: DatepickerRangeDocComponent,
           },
           {
             path: Pages.DragAndDrop,
