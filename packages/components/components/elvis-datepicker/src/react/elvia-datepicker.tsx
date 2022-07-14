@@ -33,7 +33,7 @@ export interface DateRange {
 export interface DatepickerRangeProps {
   selectedDateRange?: DateRange;
   hoveredDateRange?: DateRange;
-  onDateElementPointerMove?: (event: React.PointerEvent<HTMLButtonElement>, day: Date) => void;
+  onDateElementPointerMove?: (day: Date, event?: React.PointerEvent<HTMLButtonElement>) => void;
   onDatepickerPopoverPointerMove?: (event: React.PointerEvent<HTMLDivElement>) => void;
   whichRangePicker?: 'start' | 'end';
 }
@@ -170,6 +170,15 @@ export const Datepicker: FC<DatepickerProps> = ({
   useEffect(() => {
     !hasFocus && emitValueOnChangeEvents();
   }, [hasChangeToEmit, hasFocus]);
+
+  /**
+   * Used to update hovered date range highlight when user changes date with keyboard.
+   */
+  useEffect(() => {
+    if (selectedDate) {
+      onDateElementPointerMove?.(selectedDate);
+    }
+  }, [selectedDate]);
 
   /**
    * Start outline listener
@@ -545,7 +554,7 @@ export const Datepicker: FC<DatepickerProps> = ({
           <button
             aria-label={`Velg dato, ${format(day, 'd')}`}
             className={dayClasses}
-            onPointerMove={(event) => onDateElementPointerMove?.(event, day)}
+            onPointerMove={(event) => onDateElementPointerMove?.(day, event)}
             tabIndex={-1}
           >
             {format(day, 'd')}

@@ -170,12 +170,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     return disableDates;
   };
 
-  const handleEndDatepickerDateElementPointerMove = (event: PointerEvent<HTMLDivElement>, day: Date) => {
-    if (!(event.target instanceof Element)) {
-      return;
-    }
-    const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
-    if (eventTargetIsDayElementInCalendar) {
+  const handleEndDatepickerDateElementPointerMove = (day: Date, event?: PointerEvent<HTMLDivElement>) => {
+    const isPointerEventAndTargetIsDayElementInCalendar =
+      event && event.target instanceof Element && event.target.classList.contains('ewc-datepicker__day');
+
+    if (isPointerEventAndTargetIsDayElementInCalendar || !event) {
       setHoveredDateRange((current) => {
         if (current.start) {
           return {
@@ -189,12 +188,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const handleStartDatepickerDateElementPointerMove = (event: PointerEvent<HTMLDivElement>, day: Date) => {
-    if (!(event.target instanceof Element)) {
-      return;
-    }
-    const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
-    if (eventTargetIsDayElementInCalendar) {
+  const handleStartDatepickerDateElementPointerMove = (day: Date, event?: PointerEvent<HTMLDivElement>) => {
+    const isPointerEventAndTargetIsDayElementInCalendar =
+      event && event.target instanceof Element && event.target.classList.contains('ewc-datepicker__day');
+
+    if (isPointerEventAndTargetIsDayElementInCalendar || !event) {
       setHoveredDateRange((current) => {
         if (current.end) {
           return {

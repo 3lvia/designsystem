@@ -3,6 +3,18 @@
   "content": [
     {
       "date": "14.07.22",
+      "version": "3.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fix for <span class=\"code-text\">@elvia/elvispicker-range</span>. Fixed a bug that caused selected date range hightlighting to not work when changing the date with the keyboard."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "14.07.22",
       "version": "3.0.0",
       "changelog": [
         {
