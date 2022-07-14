@@ -206,7 +206,7 @@ const Accordion: FC<AccordionProps> = ({
             </AccordionLabel>
             {shouldShowRightIcon() && (
               <Icon
-                name={isHoveringButton ? 'expandCircleFilledColor' : 'expandCircleColor'}
+                name={isHoveringButton || isHovered ? 'expandCircleFilledColor' : 'expandCircleColor'}
                 size={size === 'small' ? 'xs' : 'sm'}
               />
             )}
