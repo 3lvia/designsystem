@@ -6,16 +6,7 @@
       <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
       <h3>Test your component here</h3>
       <!--Normal version-->
-      <div class="e-bg-white">
-        <h3>Date Range picker</h3>
-        <elvia-datepicker-range
-          @value-on-change-i-s-o-string="logValue('range', $event.detail.value)"
-          :disableDates="{
-            start: (day) => (day.getDay() === 0) | (day.getDay() === 6),
-            end: (day) => (day.getDay() === 0) | (day.getDay() === 6),
-          }"
-        ></elvia-datepicker-range>
-      </div>
+      <div class="e-bg-white"></div>
       <!--Inverted version-->
       <div class="e-bg-grey"></div>
     </div>
@@ -105,6 +96,14 @@
         label="Fra dato"
         :disableDate="(day) => day.getDay() === 0 || day.getDay() === 6"
       ></elvia-datepicker>
+    </div>
+
+    <!--Date range picker-->
+    <div class="example-wrapper">
+      <h3>Date range picker</h3>
+      <elvia-datepicker-range
+        @value-on-change="logValue('range', $event.detail.value)"
+      ></elvia-datepicker-range>
     </div>
 
     <!--Divider-->

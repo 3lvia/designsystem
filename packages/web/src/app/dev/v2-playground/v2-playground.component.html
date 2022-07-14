@@ -5,15 +5,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white">
-      <h4>Datepicker range</h4>
-      <elvia-datepicker-range
-        (valueOnChangeISOString)="logValue('datepicker range', $event.detail.value)"
-        (errorOnChange)="logValue('error', $event.detail.value)"
-        [minDate]="datepickerRangeValue.start"
-        [maxDate]="datepickerRangeValue.end"
-      ></elvia-datepicker-range>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -148,6 +140,11 @@
   <div class="example-wrapper">
     <h3>DatePicker</h3>
     <elvia-datepicker [value]="date"></elvia-datepicker>
+  </div>
+  <!--Date ramnge picker-->
+  <div class="example-wrapper">
+    <h3>Date range picker</h3>
+    <elvia-datepicker-range (errorOnChange)="logValue('error', $event.detail.value)"></elvia-datepicker-range>
   </div>
 
   <!--Divider-->

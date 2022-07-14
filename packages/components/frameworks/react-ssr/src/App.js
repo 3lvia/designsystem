@@ -97,27 +97,7 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white">
-            <p>Dette er en helt vanlig datepicker, uten noen spesielle props satt på.</p>
-            <DatepickerRange valueOnChange={(event) => console.log(event)}></DatepickerRange>
-            <p>Denne datepickeren er helt vanlig, kun satt til kompakt.</p>
-            <DatepickerRange isCompact valueOnChange={(event) => console.log(event)}></DatepickerRange>
-            <p>Denne datepickeren er satt til å være vertikalt stacket, og full width.</p>
-            <DatepickerRange
-              isFullWidth
-              isVertical
-              valueOnChange={(event) => console.log(event)}
-            ></DatepickerRange>
-            <p>
-              Og til slutt, denne datepickeren er satt til å være vertikalt stacket, kompakt og full width.
-            </p>
-            <DatepickerRange
-              isFullWidth
-              isVertical
-              isCompact
-              valueOnChange={(event) => console.log(event)}
-            ></DatepickerRange>
-          </div>
+          <div className="e-bg-white"></div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>
@@ -204,6 +184,11 @@ function App() {
         <div className="example-wrapper">
           <h3>Datepicker</h3>
           <Datepicker valueOnChange={(value) => console.log(value)} hasSelectDateOnOpen={false}></Datepicker>
+        </div>
+        {/* DATE RANGE PICKER */}
+        <div className="example-wrapper">
+          <h3>Date range picker</h3>
+          <DatepickerRange valueOnChange={(event) => console.log(event)}></DatepickerRange>
         </div>
         {/* DIVIDER */}
         <div className="example-wrapper">
