@@ -11,6 +11,7 @@ describe('Elvis Datepicker', () => {
   let datepickerLabel;
   let datepickerInput;
   let datepickerButton;
+  let datepickerErrorPlaceholder;
 
   describe('Default', () => {
     beforeEach(() => {
@@ -19,6 +20,7 @@ describe('Elvis Datepicker', () => {
       datepickerWrapper = wrapper.find({ 'data-testid': 'datepicker-wrapper' });
       datepickerInput = wrapper.find('.MuiInputBase-input.MuiInput-input.MuiInputBase-inputAdornedEnd').at(0);
       datepickerButton = wrapper.find('.MuiIconButton-root').at(0);
+      datepickerErrorPlaceholder = wrapper.find({ 'data-testid': 'datepicker-error-placeholder' }).at(0);
     });
     afterEach(() => {
       wrapper.unmount();
@@ -38,6 +40,10 @@ describe('Elvis Datepicker', () => {
     it('should have date selected when button is clicked', function (done) {
       datepickerButton.simulate('click');
       expect(datepickerInput.getDOMNode()).not.toHaveProperty('value', '');
+      done();
+    });
+    it('should have error placeholder element', function (done) {
+      expect(datepickerErrorPlaceholder.getDOMNode()).toHaveClass('ewc-datepicker__error-placeholder');
       done();
     });
   });
@@ -124,24 +130,35 @@ describe('Elvis Datepicker', () => {
       expect(datepickerWrapper.getDOMNode()).not.toHaveClass('ewc-datepicker--error');
       done();
     });
-    // TODO: Find a way to test this
-    // it('should have class error when not filled in', function (done) {
-    //   datepickerInput.simulate('click');
-    //   datepickerLabel.simulate('click');
-    //   expect(datepickerWrapper.getDOMNode()).toHaveClass('ewc-datepicker--error');
-    //   done();
-    // });
+  });
+  describe('Does not have error placeholder element', () => {
+    beforeEach(() => {
+      wrapper = mount(<Datepicker hasErrorPlaceholderElement={false}></Datepicker>);
+      datepickerErrorPlaceholder = wrapper.find({ 'data-testid': 'datepicker-error-placeholder' }).at(0);
+    });
+    afterEach(() => {
+      wrapper.unmount();
+    });
+    it('should not have error placeholder element', function (done) {
+      expect(datepickerErrorPlaceholder.length).toBe(0);
+      done();
+    });
   });
   describe('Custom error = Feil', () => {
     beforeEach(() => {
       wrapper = mount(<Datepicker customError="Feil"></Datepicker>);
       datepickerWrapper = wrapper.find({ 'data-testid': 'datepicker-wrapper' });
+      datepickerErrorPlaceholder = wrapper.find({ 'data-testid': 'datepicker-error-placeholder' }).at(0);
     });
     afterEach(() => {
       wrapper.unmount();
     });
     it('should have error class', function (done) {
       expect(datepickerWrapper.getDOMNode()).toHaveClass('ewc-datepicker--error');
+      done();
+    });
+    it('should not have error placeholder element when custom error', function (done) {
+      expect(datepickerErrorPlaceholder.length).toBe(0);
       done();
     });
   });

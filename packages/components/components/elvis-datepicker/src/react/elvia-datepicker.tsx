@@ -696,7 +696,7 @@ export const Datepicker: FC<DatepickerProps> = ({
         </div>
       )}
       {!showError && hasErrorPlaceholderElement && showValidationState && (
-        <div className="ewc-datepicker__error-placeholder"></div>
+        <div className="ewc-datepicker__error-placeholder" data-testid="datepicker-error-placeholder"></div>
       )}
     </div>
   );
