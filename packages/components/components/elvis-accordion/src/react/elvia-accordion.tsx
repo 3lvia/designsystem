@@ -17,6 +17,7 @@ import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-
 export interface AccordionProps {
   content: string | HTMLElement;
   isOpen?: boolean;
+  isHovered?: boolean;
   isFullWidth?: boolean;
   openLabel?: string;
   closeLabel?: string;
@@ -40,6 +41,7 @@ export interface AccordionProps {
 const Accordion: FC<AccordionProps> = ({
   content,
   isOpen = false,
+  isHovered = false,
   isFullWidth = false,
   openLabel,
   closeLabel,
@@ -61,7 +63,7 @@ const Accordion: FC<AccordionProps> = ({
   ...rest
 }) => {
   const [isOpenState, setIsOpenState] = useState(isOpen);
-  const [hasBeenInitiated, setHasBeenInitiated] = useState(false);
+  // const [hasBeenInitiated, setHasBeenInitiated] = useState(false);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
   const [hasContent, setHasContent] = useState(false);
 
@@ -92,14 +94,17 @@ const Accordion: FC<AccordionProps> = ({
     }
   }, [webcomponent]);
 
-  useEffect(() => {
-    console.log(isOpenState, ' changed');
-    if (!hasBeenInitiated) {
-      setHasBeenInitiated(true);
-      return;
-    }
-    setIsOpenState((prevIsOpenState) => !prevIsOpenState);
-  }, [isOpen]);
+  // useEffect(() => {
+  //   console.log(isOpenState, ' before');
+  //   console.log(hasBeenInitiated, ' Initiated');
+  //   if (!hasBeenInitiated) {
+  //     console.log('INITIATE');
+  //     setHasBeenInitiated((preHasBeenInitiated) => !preHasBeenInitiated);
+  //     return;
+  //   }
+  //   console.log(isOpenState, ' changed');
+  //   setIsOpenState((prevIsOpenState) => !prevIsOpenState);
+  // }, [isOpen]);
 
   useEffect(() => {
     type === 'single' ? setHasContent(false) : setHasContent(true);
@@ -141,6 +146,9 @@ const Accordion: FC<AccordionProps> = ({
   const shouldShowRightIcon = (): boolean => {
     return (isStartAligned && isFullWidth) || !isStartAligned;
   };
+  const shouldShowLeftIcon = (): boolean => {
+    return isStartAligned && !isFullWidth;
+  };
 
   return (
     <AccordionWrapper ref={accordionRef}>
@@ -179,9 +187,9 @@ const Accordion: FC<AccordionProps> = ({
             data-testid="accordion-button-label"
             aria-label={decideButtonAriaLabel()}
           >
-            {isStartAligned && !isFullWidth && (
+            {shouldShowLeftIcon() && (
               <Icon
-                name={isHoveringButton ? 'expandCircleFilledColor' : 'expandCircleColor'}
+                name={isHoveringButton || isHovered ? 'expandCircleFilledColor' : 'expandCircleColor'}
                 size={size === 'small' ? 'xs' : 'sm'}
               />
             )}

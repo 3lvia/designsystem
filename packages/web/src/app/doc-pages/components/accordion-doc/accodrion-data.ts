@@ -19,6 +19,18 @@ const accordionData: ComponentData = {
       cegOption: 'true',
       cegDependency: [{ name: 'type', value: ['single'] }],
     },
+    isHovered: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Adds the hover style to the accordion button when set to true.',
+      default: 'false',
+      cegDisplayName: 'Hovered',
+      cegType: 'boolean',
+      cegFormType: 'toggle',
+      cegDefault: false,
+      cegOption: 'true',
+      cegDependency: [{ name: 'type', value: ['single'] }],
+    },
     type: {
       isRequired: false,
       type: '“normal” | “overflow” | “single”',

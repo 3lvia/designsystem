@@ -47,6 +47,7 @@ module.exports = [
     attributes: [
       { name: 'content', type: 'string', propType: 'string | HTMLElement' },
       { name: 'isOpen', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'isHovered', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isFullWidth', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'openLabel', type: 'string', propType: 'string | undefined' },
       { name: 'closeLabel', type: 'string', propType: 'string | undefined' },

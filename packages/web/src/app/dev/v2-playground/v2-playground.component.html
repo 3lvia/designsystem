@@ -7,9 +7,23 @@
     <!--Normal version-->
     <div class="e-bg-white">
       <h3>Uten content og label</h3>
-      <elvia-accordion size="medium" type="normal" content="lol"></elvia-accordion>
+      <!-- <elvia-accordion
+        (onOpen)="onOpen()"
+        (onClose)="onClose()"
+        isOpen="true"
+        size="medium"
+        type="normal"
+        content="lol"
+      ></elvia-accordion> -->
       <div class="e-flex e-gap-8" (click)="contentOpen = !contentOpen" style="cursor: pointer">
-        <elvia-accordion size="medium" type="single" isOpen="contentOpen" onlyButton="true"></elvia-accordion>
+        <elvia-accordion
+          size="medium"
+          type="single"
+          isOpen="contentOpen"
+          onlyButton="true"
+          (onOpen)="onOpen()"
+          (onClose)="onClose()"
+        ></elvia-accordion>
         <img src="./../../../assets/feedback/smiley-in-love 1.svg" alt="Feedback emoji - happy" />
       </div>
       <div *ngIf="contentOpen">
