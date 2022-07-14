@@ -2,12 +2,13 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "13.07.22",
+      "date": "14.07.22",
       "version": "3.0.0",
       "changelog": [
         {
           "type": "breaking_changes",
           "changes": [
+            "The <span class=\"code-text\">valueOnChange</span> and <span class=\"code-text\">valueOnChangeISOString</span> events now trigger once the datepicker no longer has focus.",
             "By default, the datepicker now has an error placeholder below it that takes up space. The height of the datepicker has therefore changed. If the internal validation of the datepicker is turned of by the <span class=\"code-text\">showValidationState</span> property, the error placeholder will not be shown."
           ],
           "fixes": [
@@ -25,7 +26,6 @@
         {
           "type": "patch",
           "changes": [
-            "The <span class=\"code-text\">valueOnChange</span> event now triggers once the datepicker no longer has focus.",
             "Updated the logic for when to show error state in the datepicker.",
             "Bumped the dependency on <span class=\"code-text\">@elvia/elvis-component-wrapper</span> to 2.3.3."
           ]
