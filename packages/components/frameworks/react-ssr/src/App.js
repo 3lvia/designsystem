@@ -18,6 +18,7 @@ import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';
 
 function App() {
   const logValue = (component, value) => {
@@ -182,7 +183,12 @@ function App() {
         {/* DATEPICKER */}
         <div className="example-wrapper">
           <h3>Datepicker</h3>
-          <Datepicker isRequired maxDate={maxDate} hasSelectDateOnOpen={false}></Datepicker>
+          <Datepicker valueOnChange={(value) => console.log(value)} hasSelectDateOnOpen={false}></Datepicker>
+        </div>
+        {/* DATE RANGE PICKER */}
+        <div className="example-wrapper">
+          <h3>Date range picker</h3>
+          <DatepickerRange valueOnChange={(event) => console.log(event)}></DatepickerRange>
         </div>
         {/* DIVIDER */}
         <div className="example-wrapper">

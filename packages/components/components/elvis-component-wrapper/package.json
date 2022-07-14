@@ -1,10 +1,11 @@
 {
   "name": "@elvia/elvis-component-wrapper",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "",
   "license": "MIT",
   "author": "",
   "main": "./dist/elvia-component.js",
+  "types": "./dist/elvia-component.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,13 +1,14 @@
 @use '../../variables/colors.scss';
 @use '../../variables/animation.scss';
-@use "../../variables/shared-sizes";
-@use "input";
+@use '../../variables/shared-sizes';
+@use 'input';
 
 $form-select-padding: input.$form-input-padding;
 $form-select-border-radius: shared-sizes.$border-radius;
 $form-select-border: input.$form-input-border;
 $form-select-icon-margin: 14px;
 
+// TODO: Deprecate
 .e-select {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;

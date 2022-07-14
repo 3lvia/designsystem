@@ -19,11 +19,11 @@ export const carouselData: ComponentData = {
       type: 'boolean',
       description: 'Decides if looping through the items should be possible, hides the arrows at the if not.',
       default: 'true',
-      cegDisplayName: 'Loop',
+      cegDisplayName: 'Turn off loop',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'false',
-      cegDefault: true,
+      cegDefault: false,
       cegDisplayGroup: 'Options',
     },
     hasConfirmationCheckmark: {
@@ -37,7 +37,7 @@ export const carouselData: ComponentData = {
       cegFormType: 'checkbox',
       cegOption: 'true',
       cegDisplayGroup: 'Options',
-      cegDependency: [{ name: 'loop', value: 'false' }],
+      cegDependency: [{ name: 'loop', value: 'true' }],
     },
     onFinish: {
       isRequired: false,

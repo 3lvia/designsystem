@@ -30,7 +30,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: inherit;
+  color: colors.color('font-color');
 
   // Larger touch-target
   &::after {
@@ -107,6 +107,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   // Disabled
   &.e-toggle---disabled,
   input:disabled {
+    cursor: not-allowed;
     &.e-toggle__input::before {
       background-color: colors.color('disabled');
       cursor: not-allowed;
@@ -119,7 +120,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
 
   // Inverted
   &.e-toggle--inverted {
-    color: colors.color('white');
+    color: colors.color('font-color-light');
 
     .e-toggle__input::before {
       height: $toggle-inverted-height;

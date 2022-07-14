@@ -1,6 +1,7 @@
-@use "../variables/colors";
-@use "../utilities/helpers";
+@use '../variables/colors';
+@use '../utilities/helpers';
 
+// TODO: Deprecate
 .e-progress {
   display: flex;
   width: 100%;

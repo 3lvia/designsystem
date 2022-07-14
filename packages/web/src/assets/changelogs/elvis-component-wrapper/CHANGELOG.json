@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "14.07.22",
+      "version": "2.3.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added explicit support for function type properties. "]
+        }
+      ]
+    },
+    {
       "date": "05.05.22",
       "version": "2.3.2",
       "changelog": [

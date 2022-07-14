@@ -17,12 +17,14 @@
   }
 
   &__description {
-    @include typography.typography('text-label');
     display: flex;
     width: 100%;
     justify-content: center;
     margin-bottom: 22px;
     margin-top: 8px;
+
+    @include typography.typography('text-label');
+    color: colors.color('font-color');
   }
 
   &__action {

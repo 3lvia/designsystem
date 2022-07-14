@@ -44,6 +44,7 @@ export type CegFormGroup = CegFormGroupCommon &
 export interface CegFormGroupOption {
   name: string;
   defaultValue: boolean;
+  formType?: ComponentData['attributes'][0]['cegFormType'];
   propValue?: string;
   propName?: string;
   dependency?: ComponentData['attributes'][0]['cegDependency'];

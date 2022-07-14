@@ -267,6 +267,9 @@ export class ElvisComponentWrapper extends HTMLElement {
     if (attrType === 'string' || attrType.indexOf('|') !== -1) {
       return stringToConvert;
     }
+    if (attrType === 'function') {
+      return stringToConvert;
+    }
     if (attrType === 'boolean') {
       return stringToConvert.toLowerCase() === 'true' ? true : false;
     }

@@ -77,7 +77,7 @@
 
         .text {
           display: flex;
-          @include typography('text-caps');
+          @include typography('title-caps');
         }
 
         .links-icon {

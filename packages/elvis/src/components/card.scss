@@ -57,9 +57,9 @@ $card-actions-button-spacing: 25px;
     margin-bottom: 16px;
 
     &.e-card__title--above {
-      @include typography.typography('text-caps');
+      @include typography.typography('title-caps');
       position: absolute;
-      // line height 17px from text-caps typography and 8px margin to get -25px to top attribute
+      // line height 17px from title-caps typography and 8px margin to get -25px to top attribute
       top: -25px;
       left: 8px;
     }
@@ -67,6 +67,6 @@ $card-actions-button-spacing: 25px;
 
   &__content {
     display: block;
-    @include typography.typography('text-description');
+    @include typography.typography('text-md');
   }
 }

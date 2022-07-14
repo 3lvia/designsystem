@@ -48,6 +48,8 @@ $grey10: colors.color('grey-10');
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 16px;
   line-height: 26px;
+  color: inherit;
+  text-align: left;
   &.e-table__footnote--compact {
     font-size: 14px;
   }
@@ -76,12 +78,13 @@ $grey10: colors.color('grey-10');
     th,
     td {
       text-align: left;
+      color: colors.color('font-color');
     }
   }
 
   td,
   th {
-    @include typography.typography('text-description');
+    @include typography.typography('text-md');
     text-align: left;
     padding: $table-padding;
     background: colors.color('white');
@@ -136,7 +139,8 @@ $grey10: colors.color('grey-10');
     }
     td,
     th {
-      @include typography.typography('text-info');
+      @include typography.typography('text-sm');
+      color: colors.color('font-color');
       padding: $table-compact-padding;
       line-height: 21px;
     }
@@ -182,16 +186,19 @@ $grey10: colors.color('grey-10');
     th,
     td {
       text-align: left;
+      color: colors.color('font-color');
     }
     @extend %header-style;
     th {
       @include typography.typography('title-xs');
+      color: colors.color('font-color');
     }
   }
 
   th,
   td {
-    @include typography.typography('text-description');
+    @include typography.typography('text-md');
+    color: colors.color('font-color');
     line-height: 27px;
     padding: $table-padding;
     text-align: left;
@@ -241,12 +248,14 @@ $grey10: colors.color('grey-10');
     }
     td,
     th {
-      @include typography.typography('text-info');
+      @include typography.typography('text-sm');
+      color: colors.color('font-color');
       padding: $table-compact-padding;
       line-height: 21px;
     }
     tbody tr:first-of-type th {
       @include typography.typography('text-sm-strong');
+      color: colors.color('font-color');
     }
   }
 

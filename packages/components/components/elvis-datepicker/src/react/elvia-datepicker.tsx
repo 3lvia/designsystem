@@ -2,7 +2,7 @@ import React, { FC, useState, useRef, useEffect, CSSProperties } from 'react';
 import './style.scss';
 import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import { ToolbarComponentProps } from '@material-ui/pickers/Picker/Picker';
 import toolbox from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import { getColor } from '@elvia/elvis-colors';
@@ -14,7 +14,29 @@ import isSameDay from 'date-fns/isSameDay';
 import isAfter from 'date-fns/isAfter';
 import isBefore from 'date-fns/isBefore';
 import formatISO from 'date-fns/formatISO';
+import isWithinInterval from 'date-fns/isWithinInterval';
+import startOfWeek from 'date-fns/startOfWeek';
+import endOfWeek from 'date-fns/endOfWeek';
+import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import isEqual from 'lodash/isEqual';
+
+export interface DateRange {
+  start: Date | null;
+  end: Date | null;
+}
+
+/**
+ * Props that are specific to the date range picker component.
+ * @internal
+ */
+export interface DatepickerRangeProps {
+  selectedDateRange?: DateRange;
+  hoveredDateRange?: DateRange;
+  onDateElementPointerMove?: (event: React.PointerEvent<HTMLButtonElement>, day: Date) => void;
+  onDatepickerPopoverPointerMove?: (event: React.PointerEvent<HTMLDivElement>) => void;
+  whichRangePicker?: 'start' | 'end';
+}
 
 export interface DatepickerProps {
   value?: Date | null;
@@ -31,6 +53,7 @@ export interface DatepickerProps {
   valueOnChangeISOString?: (value: string | null) => void;
   onOpen?: () => void;
   onClose?: () => void;
+  onReset?: () => void;
   webcomponent?: ElvisComponentWrapper;
   placeholder?: string;
   isOpen?: boolean;
@@ -41,9 +64,15 @@ export interface DatepickerProps {
   showValidationState: boolean;
   isErrorState?: boolean;
   errorOnChange?: (error: string) => void;
-  hasValidation: boolean;
+  hasValidation?: boolean;
+  hasErrorPlaceholderElement?: boolean;
   clearButtonText: string;
   disableDate?: (day: Date) => boolean;
+  /**
+   * This is used for internal purposes, and should not be used by the user.
+   * @internal
+   */
+  dateRangeProps?: DatepickerRangeProps;
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
@@ -61,6 +90,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   valueOnChangeISOString,
   onOpen,
   onClose,
+  onReset,
   webcomponent,
   placeholder = 'dd.mm.åååå',
   isOpen = false,
@@ -72,13 +102,17 @@ export const Datepicker: FC<DatepickerProps> = ({
   clearButtonText = 'Nullstill',
   isErrorState,
   hasValidation = true,
+  hasErrorPlaceholderElement = true,
   errorOnChange,
   disableDate,
+  dateRangeProps,
   ...rest
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
+  const [hasChangeToEmit, setHasChangeToEmit] = useState(false);
   const [initialFocusedDate, setInitialFocusedDate] = useState<Date | null>(null);
-  const [currErrorMessage, setCurrErrorMessage] = useState('');
+  const [currentErrorMessage, setCurrentErrorMessage] = useState('');
+  const [hasShownError, setHasShownError] = useState(false);
   const [hasHadFocus, setHasHadFocus] = useState(false);
   const [hasFocus, setHasFocus] = useState(false);
   const [shouldHaveSelected, setShouldHaveSelected] = useState(true);
@@ -86,12 +120,27 @@ export const Datepicker: FC<DatepickerProps> = ({
   const datepickerRef = useRef<HTMLDivElement>(null);
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const selectedDateRange = dateRangeProps?.selectedDateRange;
+  const hoveredDateRange = dateRangeProps?.hoveredDateRange;
+  const onDateElementPointerMove = dateRangeProps?.onDateElementPointerMove;
+  const onDatepickerPopoverPointerMove = dateRangeProps?.onDatepickerPopoverPointerMove;
+  const whichRangePicker = dateRangeProps?.whichRangePicker;
+
   // Unicode character U+00AD - Hack used to avoid date-fns from formatting date before date is valid
   const unicodeChar = '­';
   const showError =
     (showValidationState || customError) &&
-    ((showValidation && currErrorMessage !== '') ||
-      (!hasFocus && (customError || (currErrorMessage !== '' && hasHadFocus))));
+    ((showValidation && currentErrorMessage !== '') ||
+      ((!hasFocus || hasShownError) && (customError || (currentErrorMessage !== '' && hasHadFocus))));
+
+  useEffect(() => {
+    if (showError) {
+      setHasShownError(true);
+    } else if (currentErrorMessage === '') {
+      setHasShownError(false);
+    }
+  }, [showError, currentErrorMessage]);
 
   useEffect(() => {
     setIsDatepickerOpen(isOpen);
@@ -115,6 +164,14 @@ export const Datepicker: FC<DatepickerProps> = ({
   }, [selectedDate]);
 
   /**
+   * When there are changes to the selected date and they has not been emitted yet,
+   * emit the change once the datepicker does not have focus.
+   */
+  useEffect(() => {
+    !hasFocus && emitValueOnChangeEvents();
+  }, [hasChangeToEmit, hasFocus]);
+
+  /**
    * Start outline listener
    *
    * Set initial focused date based on minDate and maxDate
@@ -135,6 +192,24 @@ export const Datepicker: FC<DatepickerProps> = ({
   }, []);
 
   /**
+   * Update error state when:
+   * - datepicker has had focus.
+   * - datepicker open state changes.
+   */
+  useEffect(() => {
+    validateDate(selectedDate);
+  }, [hasHadFocus, isDatepickerOpen]);
+
+  /**
+   * Trigger `updateInputWithSelectedDate` when datepicker is opened by the `isOpen`-prop.
+   */
+  useEffect(() => {
+    if (isDatepickerOpen) {
+      updateInputWithSelectedDate();
+    }
+  }, [isDatepickerOpen]);
+
+  /**
    * Sets the selected date and dispatches the valueOnChange event
    */
   const handleDateChange = (date: Date | null): void => {
@@ -145,13 +220,24 @@ export const Datepicker: FC<DatepickerProps> = ({
 
     // Set time component of the selected date to 0 by creating a new date object.
     const newDate = date ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : null;
+    if (isEqual(selectedDate, newDate)) return;
     setSelectedDate(newDate);
 
-    handleValueOnChangeISOString(newDate);
-    if (!webcomponent) {
-      valueOnChange?.(newDate);
-    } else {
-      webcomponent.setProps({ value: newDate }, true);
+    setHasChangeToEmit(true);
+  };
+
+  /**
+   * Emits a new valueOnChange event.
+   */
+  const emitValueOnChangeEvents = (): void => {
+    if (hasChangeToEmit) {
+      handleValueOnChangeISOString(selectedDate);
+      if (!webcomponent) {
+        valueOnChange?.(selectedDate);
+      } else {
+        webcomponent.setProps({ value: selectedDate }, true);
+      }
+      setHasChangeToEmit(false);
     }
   };
 
@@ -211,6 +297,8 @@ export const Datepicker: FC<DatepickerProps> = ({
    * Dispatch close event
    */
   const handleCloseDatepicker = (): void => {
+    updateFocusStates();
+    setHasFocus(false);
     setIsDatepickerOpen(false);
     if (!webcomponent && onClose) {
       onClose();
@@ -227,13 +315,13 @@ export const Datepicker: FC<DatepickerProps> = ({
    * Set current error based on validation and dispatch errorOnChange event
    */
   const setCurrErrorMessageAndTriggerErrorOnChangeEvent = (error: string): void => {
-    if (error === currErrorMessage) {
+    if (error === currentErrorMessage) {
       return;
     }
     if (!hasHadFocus) {
       return;
     }
-    setCurrErrorMessage(error);
+    setCurrentErrorMessage(error);
 
     if (!webcomponent && errorOnChange) {
       errorOnChange(error);
@@ -243,7 +331,9 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   /**
-   * Validates the date and finds the current error message if not valid
+   * Validates the date and finds the current error message if not valid.
+   *
+   * NB: Will not validate if `customError` is used, of if the datepicker is not dirty.
    */
   const validateDate = (date: Date | null): void => {
     if (customError) {
@@ -251,9 +341,13 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
 
     if (!isValid(date)) {
-      if (date === null && isRequired) {
-        setCurrErrorMessageAndTriggerErrorOnChangeEvent('Velg en dato');
-      } else if (date !== null) {
+      if (date === null) {
+        if (isRequired) {
+          setCurrErrorMessageAndTriggerErrorOnChangeEvent('Velg en dato');
+        } else {
+          setCurrErrorMessageAndTriggerErrorOnChangeEvent('');
+        }
+      } else {
         setCurrErrorMessageAndTriggerErrorOnChangeEvent('Bruk dd.mm.åååå');
       }
     } else if (date && minDate && isBefore(date.setHours(0, 0, 0, 0), minDate.setHours(0, 0, 0, 0))) {
@@ -274,6 +368,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   const updateFocusStates = (): void => {
     setHasHadFocus(true);
     setHasFocus(true);
+    validateDate(selectedDate);
 
     const checkIfDatepickerHasFocus = () => {
       if (
@@ -336,32 +431,24 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
+  const handleResetDatepickerOnClick = (): void => {
+    handleDateChange(null);
+    setShouldHaveSelected(false);
+    if (!webcomponent) {
+      onReset?.();
+    } else {
+      webcomponent.triggerEvent('onReset');
+    }
+  };
+
   /**
-   * All these replaceMui[Element] functions return some HTML that replaces the default HTML from the package
+   * Replaces the top toolbar inside the datepicker.
    */
-  const replaceMuiCalIcon = (): JSX.Element => {
-    return (
-      <Icon
-        name="calendar"
-        color={isDisabled ? getColor('disabled') : undefined}
-        size={`${isCompact ? 'xs' : 'sm'}`}
-      />
-    );
-  };
-
-  const replaceMuiArrowIcon = (isLeft: boolean): JSX.Element => {
-    return <Icon name={`${isLeft ? 'arrowLongLeftBold' : 'arrowLongRightBold'}`} size="xs" />;
-  };
-
-  const replaceMuiToolbar = (props: any) => {
+  const replaceMuiToolbar = (props: ToolbarComponentProps) => {
     const { date, openView, setOpenView } = props;
     const toggleYearView = () => {
       openView === 'year' ? setOpenView('date') : setOpenView('year');
     };
-
-    const dropdownIconClasses = classnames('ewc-datepicker__icon ewc-datepicker__icon-dropdown', {
-      ['rotate-forward']: openView === 'year',
-    });
 
     if (openView === 'year') {
       addOutlineListenerDatepickerPopover(datepickerPopoverRef.current);
@@ -373,8 +460,8 @@ export const Datepicker: FC<DatepickerProps> = ({
       <div className="ewc-datepicker__toolbar">
         {shouldHaveSelected ? (
           <div className="ewc-datepicker__toolbar-today">
-            <span className="ewc-capitalize">{format(date, 'EEEE', { locale: nbLocale })}&#32;</span>
-            {format(date, 'd. MMMM', { locale: nbLocale })}
+            <span className="ewc-capitalize">{format(date as Date, 'EEEE', { locale: nbLocale })}&#32;</span>
+            {format(date as Date, 'd. MMMM', { locale: nbLocale })}
           </div>
         ) : (
           <div />
@@ -384,17 +471,22 @@ export const Datepicker: FC<DatepickerProps> = ({
           className="ewc-datepicker__toolbar-dropdown"
           onClick={toggleYearView}
         >
-          <div className="ewc-datepicker__toolbar-year">{format(date, 'yyyy', { locale: nbLocale })}</div>
-          <Icon name="arrowDownBold" size="xs" className={dropdownIconClasses} />
+          <div className="ewc-datepicker__toolbar-year">
+            {format(date as Date, 'yyyy', { locale: nbLocale })}
+          </div>
+          <Icon name={openView === 'year' ? 'arrowDownBold' : 'arrowUpBold'} size="xs" />
         </button>
         {openView === 'date' && (
           <button
             aria-label="Nullstill datovelger"
             className="ewc-datepicker__toolbar-clear"
-            onClick={() => {
-              handleDateChange(null);
-              setShouldHaveSelected(false);
-            }}
+            onClick={handleResetDatepickerOnClick}
+            onKeyDown={(e) =>
+              e.key === 'Enter' &&
+              setTimeout(() => {
+                handleResetDatepickerOnClick();
+              })
+            }
           >
             <Icon name="reset" size="xs" inlineStyle={{ marginRight: '8px' }} />
             {clearButtonText}
@@ -404,25 +496,58 @@ export const Datepicker: FC<DatepickerProps> = ({
     );
   };
 
+  /**
+   * Replaces each day shown in the month view inside the datepicker.
+   *
+   * NB: Does not use the `selectedDate` given from the Mui datepicker, instead uses the one stored in the state `selectedDate`.
+   */
   const replaceMuiDayElement = (
-    day: any,
-    selected: any,
-    isInCurrentMonth: any,
-    dayComponent: any,
+    day: Date,
+    selected: Date | null,
+    isInCurrentMonth: boolean,
+    dayComponent: JSX.Element,
   ): JSX.Element => {
     const today = new Date();
     const dayDate = new Date(day);
-    const selDate = new Date(selected);
-
+    const selDate = selected ? new Date(selected) : null;
+    const firstDayOfWeek = startOfWeek(dayDate, { weekStartsOn: 1 });
+    const lastDayOfWeek = endOfWeek(dayDate, { weekStartsOn: 1 });
+    const endOfMonth = lastDayOfMonth(dayDate);
+    const isInDateRange =
+      hoveredDateRange &&
+      hoveredDateRange.start &&
+      hoveredDateRange.end &&
+      hoveredDateRange.start <= hoveredDateRange.end &&
+      isWithinInterval(dayDate, {
+        start: hoveredDateRange.start,
+        end: hoveredDateRange.end,
+      });
+    const otherSelectedDate =
+      whichRangePicker && whichRangePicker === 'start' ? selectedDateRange?.end : selectedDateRange?.start;
     const dayClasses = classnames('ewc-datepicker__day', {
-      ['ewc-datepicker__day-selected']: isSameDay(dayDate, selDate) && shouldHaveSelected,
+      ['ewc-datepicker__day-selected']: selDate && isSameDay(dayDate, selDate) && shouldHaveSelected,
       ['ewc-datepicker__day-current']: isSameDay(dayDate, today),
       ['ewc-datepicker__day-disabled']: dayComponent.props.disabled,
+      ['ewc-datepicker__day-in-range']: isInDateRange,
+      ['ewc-datepicker__day-first-in-range']:
+        hoveredDateRange?.start && isSameDay(dayDate, hoveredDateRange.start),
+      ['ewc-datepicker__day-last-in-range']:
+        hoveredDateRange?.end && isSameDay(dayDate, hoveredDateRange.end),
+      ['ewc-datepicker__day-start-of-week']: isSameDay(dayDate, firstDayOfWeek),
+      ['ewc-datepicker__day-start-of-month']: dayDate.getDate() === 1,
+      ['ewc-datepicker__day-end-of-week']: isSameDay(dayDate, lastDayOfWeek),
+      ['ewc-datepicker__day-end-of-month']: isSameDay(dayDate, endOfMonth),
+      ['ewc-datepicker__day-other-selected-date']: otherSelectedDate && isSameDay(dayDate, otherSelectedDate),
     });
     if (isInCurrentMonth) {
       if (!dayComponent.props.disabled) {
         return (
-          <button aria-label={`Velg dato, ${format(day, 'd')}`} className={dayClasses}>
+          <button
+            aria-label={`Velg dato, ${format(day, 'd')}`}
+            className={dayClasses}
+            onPointerMove={(event) => onDateElementPointerMove?.(event, day)}
+            tabIndex={-1}
+          >
             {format(day, 'd')}
           </button>
         );
@@ -468,30 +593,12 @@ export const Datepicker: FC<DatepickerProps> = ({
     return disableDate;
   };
 
-  /**
-   * Overriding material theme
-   */
-  const materialTheme = createTheme({
-    props: {
-      MuiButtonBase: {
-        disableRipple: true,
-      },
-      MuiPopover: {
-        style: {
-          zIndex: 99999,
-        },
-      },
-      MuiInputBase: {
-        className: isDatepickerOpen ? 'Mui-focused' : undefined,
-      },
-    },
-  });
-
   const datePickerClasses = classnames('ewc-datepicker', {
     ['ewc-datepicker--error']: showError || (isErrorState && !hasFocus),
     ['ewc-datepicker--compact']: isCompact !== false,
     ['ewc-datepicker--unselected']: value === null,
     ['ewc-datepicker--full-width']: isFullWidth,
+    ['ewc-datepicker--open']: isDatepickerOpen,
   });
 
   return (
@@ -514,65 +621,82 @@ export const Datepicker: FC<DatepickerProps> = ({
         </label>
       )}
 
-      <ThemeProvider theme={materialTheme}>
-        <MuiPickersUtilsProvider utils={DateFnsUtils} locale={nbLocale}>
-          <KeyboardDatePicker
-            variant="inline"
-            autoOk={true}
-            value={selectedDate}
-            placeholder={placeholder}
-            format="dd.MM.yyyy"
-            rifmFormatter={replaceMuiDateFormat}
-            disabled={isDisabled === true}
-            fullWidth={isFullWidth === true}
-            minDate={minDate ? minDate : undefined}
-            maxDate={maxDate ? maxDate : undefined}
-            onChange={handleDateChange}
-            onFocus={onFocus}
-            open={isDatepickerOpen}
-            onOpen={handleOpenDatepicker}
-            onClose={handleCloseDatepicker}
-            keyboardIcon={replaceMuiCalIcon()}
-            leftArrowIcon={replaceMuiArrowIcon(true)}
-            rightArrowIcon={replaceMuiArrowIcon(false)}
-            ToolbarComponent={replaceMuiToolbar}
-            renderDay={(day: any, selectedDate: any, isInCurrentMonth: any, dayComponent: any) =>
-              replaceMuiDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
-            }
-            inputProps={{ ref: inputRef }}
-            KeyboardButtonProps={{
-              'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
-            }}
-            leftArrowButtonProps={{
-              'aria-label': 'Vis forrige måned',
-            }}
-            rightArrowButtonProps={{
-              'aria-label': 'Vis neste måned',
-            }}
-            PopoverProps={{
-              'aria-modal': true,
-              'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
-              anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
-              transformOrigin: { horizontal: 'left', vertical: 'top' },
-              ref: datepickerPopoverRef,
-            }}
-            InputAdornmentProps={{
-              'aria-required': isRequired,
-            }}
-            initialFocusedDate={initialFocusedDate}
-            shouldDisableDate={disableDateWrapper()}
-          />
-        </MuiPickersUtilsProvider>
-      </ThemeProvider>
+      <MuiPickersUtilsProvider utils={DateFnsUtils} locale={nbLocale}>
+        <KeyboardDatePicker
+          variant="inline"
+          autoOk={true}
+          value={selectedDate}
+          placeholder={placeholder}
+          format="dd.MM.yyyy"
+          rifmFormatter={replaceMuiDateFormat}
+          disabled={isDisabled === true}
+          fullWidth={isFullWidth === true}
+          minDate={minDate ?? undefined}
+          maxDate={maxDate ?? undefined}
+          onChange={handleDateChange}
+          onFocus={onFocus}
+          open={isDatepickerOpen}
+          onOpen={handleOpenDatepicker}
+          onClose={handleCloseDatepicker}
+          keyboardIcon={
+            <Icon
+              name="calendar"
+              color={isDisabled ? getColor('disabled') : getColor('black')}
+              size={`${isCompact ? 'xs' : 'sm'}`}
+            />
+          }
+          leftArrowIcon={<Icon name="arrowLongLeftBold" size="xs" />}
+          rightArrowIcon={<Icon name="arrowLongRightBold" size="xs" />}
+          ToolbarComponent={replaceMuiToolbar}
+          renderDay={(day, _selectedDate, isInCurrentMonth, dayComponent) =>
+            replaceMuiDayElement(day as Date, selectedDate, isInCurrentMonth, dayComponent)
+          }
+          inputProps={{ ref: inputRef }}
+          KeyboardButtonProps={{
+            'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
+            disableRipple: true,
+            classes: {
+              root: isDatepickerOpen ? 'ewc-datepicker__keyboardbutton--open' : '',
+            },
+          }}
+          leftArrowButtonProps={{
+            'aria-label': 'Vis forrige måned',
+            disableRipple: true,
+          }}
+          rightArrowButtonProps={{
+            'aria-label': 'Vis neste måned',
+            disableRipple: true,
+          }}
+          PopoverProps={{
+            style: {
+              zIndex: 99999,
+            },
+            'aria-modal': true,
+            'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
+            anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
+            transformOrigin: { horizontal: 'left', vertical: 'top' },
+            ref: datepickerPopoverRef,
+            onPointerMove: (event) => onDatepickerPopoverPointerMove?.(event),
+          }}
+          InputAdornmentProps={{
+            'aria-required': isRequired,
+          }}
+          initialFocusedDate={initialFocusedDate}
+          shouldDisableDate={disableDateWrapper()}
+        />
+      </MuiPickersUtilsProvider>
 
       {showError && (
         <div className="ewc-datepicker__error">
           <Icon name="removeCircle" size="xs" color={getColor('red')} inlineStyle={{ marginTop: '4px' }} />
           <div className="ewc-datepicker__helper-text">
             {customError}
-            {currErrorMessage}
+            {currentErrorMessage}
           </div>
         </div>
+      )}
+      {!showError && hasErrorPlaceholderElement && showValidationState && (
+        <div className="ewc-datepicker__error-placeholder" data-testid="datepicker-error-placeholder"></div>
       )}
     </div>
   );

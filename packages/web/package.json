@@ -36,6 +36,7 @@
     "@elvia/elvis-carousel": "portal:../components/components/elvis-carousel",
     "@elvia/elvis-chip": "portal:../components/components/elvis-chip",
     "@elvia/elvis-datepicker": "portal:../components/components/elvis-datepicker",
+    "@elvia/elvis-datepicker-range": "portal:../components/components/elvis-datepicker-range",
     "@elvia/elvis-dropdown": "portal:../components/components/elvis-dropdown",
     "@elvia/elvis-icon": "portal:../components/components/elvis-icon",
     "@elvia/elvis-modal": "portal:../components/components/elvis-modal",
@@ -67,8 +68,8 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^13.3.7",
-    "@angular/cli": "^13.3.7",
+    "@angular-devkit/build-angular": "^13.3.8",
+    "@angular/cli": "^13.3.8",
     "@angular/compiler-cli": "^13.2.4",
     "@angular/language-service": "^13.2.4",
     "@types/jasmine": "3.10.3",

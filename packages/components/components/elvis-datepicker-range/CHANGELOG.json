@@ -1,0 +1,27 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "14.07.22",
+      "version": "1.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that caused the shown date range to be wrong if a datepicker was closed with the escape key."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "14.07.22",
+      "version": "1.0.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["New component released."]
+        }
+      ]
+    }
+  ]
+}

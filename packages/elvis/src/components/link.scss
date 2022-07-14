@@ -423,7 +423,7 @@ $grey-ten: colors.color('grey-10');
           font-size: 16px;
         }
         .e-link__description {
-          @include typography.typography('text-info');
+          @include typography.typography('text-sm');
         }
       }
       @include helpers.hover() {
