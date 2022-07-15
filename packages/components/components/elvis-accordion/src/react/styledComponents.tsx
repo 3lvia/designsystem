@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { AccordionLabelPosition, AccordionSize, AccordionType } from './elvia-accordion.types';
 import { getTypographyCss } from '@elvia/elvis-typography';
@@ -76,6 +76,15 @@ type AccordionButtonProps = {
   onClick: any;
 };
 
+// const rotateUpAnimation = keyframes`
+//  0% { transform: rotate(0deg) }
+//  100% { transform: rotate(180deg) }
+// `;
+// const rotateDownAnimation = keyframes`
+//  0% { transform: rotate(180deg)  }
+//  100% { transform: rotate(0deg) }
+// `;
+
 export const AccordionButton = styled.button<AccordionButtonProps>`
   border: none;
   background: transparent;
@@ -93,9 +102,14 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   align-items: center;
 
   i {
-    transition: transform 300ms;
-    transform: ${(props) =>
-      (props.isOpenState && ' rotate(180deg)') || (props.isOpenState === false && ' rotate(0deg)')};
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-out;
+
+    ${(props) =>
+      props.isOpenState &&
+      css`
+        transform: rotate(180deg);
+      `};
   }
 `;
 

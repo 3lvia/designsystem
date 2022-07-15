@@ -58,6 +58,7 @@ import { SpotlightDocComponent } from './doc-pages/components/spotlight-doc/spot
 import { ThumbnailDocComponent } from './doc-pages/components/thumbnail-doc/thumbnail-doc.component';
 import { ShadowDocComponent } from './doc-pages/other-pages/shadow-doc/shadow-doc.component';
 import { DatepickerRangeDocComponent } from './doc-pages/components/forms/datepicker-range-doc/datepicker-range-doc.component';
+import { AccordionGroupDocComponent } from './doc-pages/components/accordion-group-doc/accordion-group-doc.component';
 
 const routes: Routes = [
   {
@@ -147,6 +148,10 @@ const routes: Routes = [
         path: 'components',
         component: CMSPageComponent,
         children: [
+          {
+            path: Pages.AccordionGroup,
+            component: AccordionGroupDocComponent,
+          },
           {
             path: Pages.Accordion,
             component: AccordionDocComponent,

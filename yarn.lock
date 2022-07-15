@@ -3473,6 +3473,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@elvia/elvis-accordion@portal:../../components/elvis-accordion::locator=vue-preview%40workspace%3Apackages%2Fcomponents%2Fframeworks%2Fvue-test":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-accordion@portal:../../components/elvis-accordion::locator=vue-preview%40workspace%3Apackages%2Fcomponents%2Fframeworks%2Fvue-test"
+  dependencies:
+    "@elvia/elvis-colors": ^1.2.0
+    "@elvia/elvis-component-wrapper": ^2.2.4
+    "@elvia/elvis-icon": ^1.1.1
+    "@elvia/elvis-toolbox": ^1.2.1
+    "@elvia/elvis-typography": ^2.2.0
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
+  languageName: node
+  linkType: soft
+
 "@elvia/elvis-accordion@portal:../components/components/elvis-accordion::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-accordion@portal:../components/components/elvis-accordion::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
@@ -29374,7 +29391,7 @@ __metadata:
   resolution: "vue-preview@workspace:packages/components/frameworks/vue-test"
   dependencies:
     "@elvia/elvis": "*"
-    "@elvia/elvis-accordion": "*"
+    "@elvia/elvis-accordion": "portal:../../components/elvis-accordion"
     "@elvia/elvis-box": "*"
     "@elvia/elvis-breadcrumb": "*"
     "@elvia/elvis-card": "*"

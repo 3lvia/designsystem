@@ -28,6 +28,9 @@ function App() {
     setSpotlightPos({ vertical: '600', horizontal: '600' });
   };
 
+  // Accordion
+  const [isOpenContent, setIsOpenContent] = useState(false);
+
   // Breadcrumb
   const breadcrumbsNoUrl = [
     {
@@ -104,7 +107,9 @@ function App() {
         {/* ACCORDION */}
         <div className="example-wrapper">
           <h3>Accordion</h3>
+          <button onClick={() => setIsOpenContent((prevIsOpen) => !prevIsOpen)}>Trigger animation</button>
           <Accordion
+            isOpen={isOpenContent}
             type={'overflow'}
             openLabel={'Show'}
             closeLabel={'Hide'}

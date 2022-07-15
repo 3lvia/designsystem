@@ -9,7 +9,7 @@ export class v2PlaygroundComponent {
   // Accordion
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';
   accordionHtmlContent = `<div>HTML content<div>`;
-  contentOpen = false;
+  isOpen = false;
 
   // Breadcrumb
   breadcrumbsTestNoUrl = [{ text: 'Elvia.no' }, { text: 'Nettleie' }, { text: 'Elvias leveringsplikt' }];
@@ -78,11 +78,11 @@ export class v2PlaygroundComponent {
 
   // Accordion
   onOpen = (): void => {
-    this.contentOpen = true;
+    this.isOpen = true;
     console.log('Trigger onOpen');
   };
   onClose = (): void => {
-    this.contentOpen = false;
+    this.isOpen = false;
     console.log('Trigger onClose');
   };
   // Chips

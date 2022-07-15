@@ -17,7 +17,7 @@ import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-
 export interface AccordionProps {
   content: string | HTMLElement;
   isOpen?: boolean;
-  isHovered?: boolean;
+  isHovering?: boolean;
   isFullWidth?: boolean;
   openLabel?: string;
   closeLabel?: string;
@@ -41,7 +41,7 @@ export interface AccordionProps {
 const Accordion: FC<AccordionProps> = ({
   content,
   isOpen = false,
-  isHovered = false,
+  isHovering = false,
   isFullWidth = false,
   openLabel,
   closeLabel,
@@ -94,17 +94,17 @@ const Accordion: FC<AccordionProps> = ({
     }
   }, [webcomponent]);
 
-  // useEffect(() => {
-  //   console.log(isOpenState, ' before');
-  //   console.log(hasBeenInitiated, ' Initiated');
-  //   if (!hasBeenInitiated) {
-  //     console.log('INITIATE');
-  //     setHasBeenInitiated((preHasBeenInitiated) => !preHasBeenInitiated);
-  //     return;
-  //   }
-  //   console.log(isOpenState, ' changed');
-  //   setIsOpenState((prevIsOpenState) => !prevIsOpenState);
-  // }, [isOpen]);
+  useEffect(() => {
+    console.log('IsOpen updated');
+    // console.log(hasBeenInitiated, ' Initiated');
+    // if (!hasBeenInitiated) {
+    //   console.log('INITIATE');
+    //   setHasBeenInitiated((preHasBeenInitiated) => !preHasBeenInitiated);
+    //   return;
+    // }
+    // console.log(isOpenState, ' changed');
+    setIsOpenState(isOpen);
+  }, [isOpen]);
 
   useEffect(() => {
     type === 'single' ? setHasContent(false) : setHasContent(true);
@@ -189,7 +189,7 @@ const Accordion: FC<AccordionProps> = ({
           >
             {shouldShowLeftIcon() && (
               <Icon
-                name={isHoveringButton || isHovered ? 'expandCircleFilledColor' : 'expandCircleColor'}
+                name={isHoveringButton || isHovering ? 'expandCircleFilledColor' : 'expandCircleColor'}
                 size={size === 'small' ? 'xs' : 'sm'}
               />
             )}
@@ -206,7 +206,7 @@ const Accordion: FC<AccordionProps> = ({
             </AccordionLabel>
             {shouldShowRightIcon() && (
               <Icon
-                name={isHoveringButton || isHovered ? 'expandCircleFilledColor' : 'expandCircleColor'}
+                name={isHoveringButton || isHovering ? 'expandCircleFilledColor' : 'expandCircleColor'}
                 size={size === 'small' ? 'xs' : 'sm'}
               />
             )}

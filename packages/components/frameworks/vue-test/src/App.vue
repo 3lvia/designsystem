@@ -6,7 +6,26 @@
       <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
       <h3>Test your component here</h3>
       <!--Normal version-->
-      <div class="e-bg-white"></div>
+      <div class="e-bg-white">
+        <button class="e-btn" @click="openAccordion = !openAccordion">toggle</button>
+        {{ openAccordion }}
+        <elvia-accordion
+          openLabel="Show"
+          closeLabel="Hide"
+          size="medium"
+          type="overflow"
+          :isOpen="true"
+          :overflowHeight="10"
+        >
+          <div slot="content">
+            Webcomponentent content for the Accordion componenWebcomponentent content for the Accordion
+            componenWebcomponentent content for the Accordion componenWebcomponentent content for the
+            Accordion componenWebcomponentent content for the Accordion componenWebcomponentent content for
+            the Accordion componenWebcomponentent content for the Accordion componenWebcomponentent content
+            for the Accordion component
+          </div>
+        </elvia-accordion>
+      </div>
       <!--Inverted version-->
       <div class="e-bg-grey"></div>
     </div>
@@ -14,7 +33,7 @@
     <!--Accordion-->
     <div class="example-wrapper">
       <h3>Accordion</h3>
-      <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="overflow" :overflowHeight="10">
+      <!-- <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="overflow" :overflowHeight="10">
         <div slot="content">
           Webcomponentent content for the Accordion componenWebcomponentent content for the Accordion
           componenWebcomponentent content for the Accordion componenWebcomponentent content for the Accordion
@@ -22,7 +41,7 @@
           componenWebcomponentent content for the Accordion componenWebcomponentent content for the Accordion
           component
         </div>
-      </elvia-accordion>
+      </elvia-accordion> -->
     </div>
 
     <!--Box-->
@@ -216,6 +235,8 @@ export default {
   name: 'App',
   data: function () {
     return {
+      // Accordion
+      openAccordion: false,
       // Breadcrumb
       breadcrumbsTest: [
         { href: 'https://elvia.no', text: 'Elvia.no' },

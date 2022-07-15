@@ -5,125 +5,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white">
-      <h3>Uten content og label</h3>
-      <!-- <elvia-accordion
-        (onOpen)="onOpen()"
-        (onClose)="onClose()"
-        isOpen="true"
-        size="medium"
-        type="normal"
-        content="lol"
-      ></elvia-accordion> -->
-      <div class="e-flex e-gap-8" (click)="contentOpen = !contentOpen" style="cursor: pointer">
-        <elvia-accordion
-          size="medium"
-          type="single"
-          isOpen="contentOpen"
-          onlyButton="true"
-          (onOpen)="onOpen()"
-          (onClose)="onClose()"
-        ></elvia-accordion>
-        <img src="./../../../assets/feedback/smiley-in-love 1.svg" alt="Feedback emoji - happy" />
-      </div>
-      <div *ngIf="contentOpen">
-        Random content Random content Random content Random content Random content
-      </div>
-      <h3>Med content</h3>
-      <elvia-accordion isStartAligned="true" openLabel="Show" closeLabel="Hide" size="large" type="normal">
-        <div slot="content">
-          <div>Hello hello hello</div>
-        </div>
-      </elvia-accordion>
-      <!-- <h3>Uten content</h3>
-      <elvia-accordion
-        openDetailText="Hello"
-        closeDetailText="Hello"
-        openLabel="Show"
-        closeLabel="Hide"
-        size="small"
-        type="normal"
-      ></elvia-accordion>
-      <elvia-accordion
-        openDetailText="Hello"
-        closeDetailText="Hello"
-        openLabel="Show"
-        closeLabel="Hide"
-        size="medium"
-        type="normal"
-      ></elvia-accordion>
-      <elvia-accordion
-        openDetailText="Hello"
-        closeDetailText="Hello"
-        openLabel="Show"
-        closeLabel="Hide"
-        size="large"
-        type="normal"
-      ></elvia-accordion>
-      <elvia-accordion
-        isFullWidth="true"
-        openLabel="Show"
-        closeLabel="Hide"
-        size="small"
-        type="normal"
-      ></elvia-accordion>
-      <elvia-accordion
-        isFullWidth="true"
-        openLabel="Show"
-        closeLabel="Hide"
-        size="medium"
-        type="normal"
-      ></elvia-accordion>
-      <elvia-accordion
-        isFullWidth="true"
-        openLabel="Show"
-        closeLabel="Hide"
-        size="large"
-        type="normal"
-      ></elvia-accordion>
-      <elvia-accordion
-        hasBoldLabel="false"
-        openLabel="Show"
-        closeLabel="Hide"
-        size="small"
-        type="normal"
-      ></elvia-accordion>
-      <elvia-accordion
-        hasBoldLabel="false"
-        openLabel="Show"
-        closeLabel="Hide"
-        size="medium"
-        type="normal"
-      ></elvia-accordion>
-      <elvia-accordion
-        hasBoldLabel="false"
-        openLabel="Show"
-        closeLabel="Hide"
-        size="large"
-        type="normal"
-      ></elvia-accordion>
-      <elvia-accordion
-        isStartAligned="true"
-        openLabel="Show"
-        closeLabel="Hide"
-        size="small"
-        type="normal"
-      ></elvia-accordion>
-      <elvia-accordion
-        isStartAligned="true"
-        openLabel="Show"
-        closeLabel="Hide"
-        size="medium"
-        type="normal"
-      ></elvia-accordion>
-      <elvia-accordion
-        isStartAligned="true"
-        openLabel="Show"
-        closeLabel="Hide"
-        size="large"
-        type="normal"
-      ></elvia-accordion> -->
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -131,11 +13,20 @@
   <!--Accordion-->
   <div class="example-wrapper">
     <h3>Accordion</h3>
-    <!-- <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="normal">
+    <button (click)="isOpen = !isOpen">helo</button>
+    <elvia-accordion
+      [isOpen]="isOpen"
+      openLabel="Show"
+      closeLabel="Hide"
+      size="medium"
+      type="normal"
+      (onOpen)="onOpen()"
+      (onClose)="onClose()"
+    >
       <div slot="content">
         <h3>Hello there</h3>
       </div>
-    </elvia-accordion> -->
+    </elvia-accordion>
   </div>
 
   <!--Box-->
@@ -333,6 +224,7 @@
   <!--Popover-->
   <div class="example-wrapper">
     <h3>Popover</h3>
+    <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Show popover</button>
     <elvia-popover
       [isShowing]="isPopoverShowing"
       (onOpen)="isPopoverShowing = true"
