@@ -25,8 +25,9 @@ export const Icon: React.FC<IconProps> = ({
       const newIcon = elvisIcons[icon].getIcon(color);
       return getSize(newIcon, size, customSize);
     } catch (error) {
-      console.error(`No icon found with the name ${icon} and color ${color}`);
-      return `No icon found with name ${icon} and color ${color}`;
+      const errorMessage = `No icon found with the name ${icon}${color ? ` and color ${color}` : ''}`;
+      console.error(errorMessage);
+      return errorMessage;
     }
   };
 
