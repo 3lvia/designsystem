@@ -21,28 +21,13 @@ export const Icon: React.FC<IconProps> = ({
   ...rest
 }) => {
   const getIcon = (icon: string, size: IconSizes, color?: string, customSize?: string): string => {
-    let newIcon = undefined;
-
-    // search and get requested icon in elvis/asses-icons
-    for (const elviaIcon in elvisIcons) {
-      if (elviaIcon === icon && color !== undefined) {
-        newIcon = elvisIcons[icon].getIcon(color);
-        break;
-      } else if (elviaIcon === icon && color === undefined) {
-        newIcon = elvisIcons[icon].getIcon();
-        break;
-      }
+    try {
+      const newIcon = elvisIcons[icon].getIcon(color);
+      return getSize(newIcon, size, customSize);
+    } catch (error) {
+      console.error(`No icon found with the name ${icon} and color ${color}`);
+      return `No icon found with name ${icon} and color ${color}`;
     }
-
-    // console error and return if no available icon from elvis/assets-icons package
-    if (newIcon === undefined) {
-      console.error(`No icon found with the name ${icon}`);
-      return `No icon found with name ${icon}`;
-    }
-
-    newIcon = getSize(newIcon, size, customSize);
-
-    return newIcon;
   };
 
   const getSize = (icon: string, size: string, customSize?: string): string => {
@@ -87,10 +72,18 @@ export const Icon: React.FC<IconProps> = ({
 
   const displayIcon = getIcon(name, size, color, customSize);
 
+  // Remove children from rest because dangerouslySetInnerHTML is used
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { children, ...restWithoutChildren } = rest;
+
   return (
-    <div style={inlineStyle} className={className ? className : ''} {...rest}>
-      <i dangerouslySetInnerHTML={{ __html: displayIcon }} aria-hidden="true" style={{ display: 'flex' }} />
-    </div>
+    <i
+      dangerouslySetInnerHTML={{ __html: displayIcon }}
+      aria-hidden="true"
+      style={{ display: 'flex', ...inlineStyle }}
+      className={className ? className : ''}
+      {...restWithoutChildren}
+    />
   );
 };
 
