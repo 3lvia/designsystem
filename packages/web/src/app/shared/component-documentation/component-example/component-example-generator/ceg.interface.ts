@@ -12,6 +12,7 @@ interface CegFormGroupRadio {
   formType: 'radio';
   label: ComponentData['attributes'][0]['cegDisplayName'];
   formGroupOptions: CegFormGroupOption[];
+  labelTypography?: ComponentData['attributes'][0]['cegLabelTypography'];
 }
 
 interface CegFormGroupToggle {
@@ -43,6 +44,7 @@ export type CegFormGroup = CegFormGroupCommon &
 
 export interface CegFormGroupOption {
   name: string;
+  label?: string;
   defaultValue: boolean;
   formType?: ComponentData['attributes'][0]['cegFormType'];
   propValue?: string;

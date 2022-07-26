@@ -1,9 +1,10 @@
 import changelogJson from 'src/assets/changelogs/elvis-icon/CHANGELOG.json';
+import ComponentData from '../../components/component-data.interface';
 
-const elvisIconData = {
-  name: 'elvia-icon',
+const elvisIconData: ComponentData = {
+  name: 'elvis-icon',
   elementNameW: 'elvia-icon',
-  elementNameR: 'ElvisIcon',
+  elementNameR: 'Icon',
   attributes: {
     name: {
       isRequired: true,
@@ -26,7 +27,13 @@ const elvisIconData = {
       type: `"xxs" ... =>  "xxl" | undefined`,
       description: `Standard size of icon, follows same sizing guide as css classes, e.g "xs" = 16px, "sm" = 24px `,
       default: '"sm"',
-      propertyTableMultiline: true,
+      cegDisplayName: 'Size',
+      cegType: 'string',
+      cegDefault: 'sm',
+      cegFormType: 'radio',
+      cegOptions: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
+      cegOptionsLabel: ['XS', 'Small', 'Medium', 'Large', 'XL', 'XXL'],
+      cegLabelTypography: 'capitalize',
     },
     customSize: {
       isRequired: false,

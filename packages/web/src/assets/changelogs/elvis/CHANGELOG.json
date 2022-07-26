@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "8.7.3",
+      "date": "July 26, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fixed an icon that was not working, <span class=\"code-text\">cookie</span>."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon#Overview" }]
+        }
+      ]
+    },
+    {
       "version": "8.7.2",
       "date": "June 13, 2022",
       "changelog": [

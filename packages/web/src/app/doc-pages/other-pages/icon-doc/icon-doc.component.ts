@@ -3,7 +3,7 @@ import { Icon } from 'src/app/shared/icon.interface';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
-import { elvisIconData } from './icon.data';
+import { elvisIconData } from './icon-data';
 
 @Component({
   selector: 'app-icon-doc',

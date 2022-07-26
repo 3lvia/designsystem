@@ -25,8 +25,15 @@
           [disabled]="!(formGroup | visibleFields: formStates:true)"
         />
         <span class="e-radio__mark"></span>
-        <span class="e-radio__label">
-          {{ formField.name }}
+        <span
+          class="e-radio__label"
+          [ngClass]="{
+            'e-uppercase': formGroup.labelTypography === 'uppercase',
+            'e-lowercase': formGroup.labelTypography === 'lowercase',
+            'e-capitalize': formGroup.labelTypography === 'capitalize'
+          }"
+        >
+          {{ formField.label ? formField.label : formField.name }}
         </span>
       </label>
     </div>
