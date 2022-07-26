@@ -32,6 +32,7 @@ const elvisIconData: ComponentData = {
       cegDefault: 'sm',
       cegFormType: 'radio',
       cegOptions: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
+      cegOptionsLabel: ['XS', 'Small', 'Medium', 'Large', 'XL', 'XXL'],
       cegLabelTypography: 'capitalize',
     },
     customSize: {

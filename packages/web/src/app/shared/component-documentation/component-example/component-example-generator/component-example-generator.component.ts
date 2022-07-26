@@ -346,11 +346,14 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       }
       const formType = prop.cegFormType;
       if (formType === 'radio') {
-        const formGroupOptions = prop.cegOptions.map((option) => {
+        const formGroupOptions = prop.cegOptions.map((option, i) => {
           const formOption: CegFormGroupOption = {
             name: option,
             defaultValue: prop.cegDefault === option,
           };
+          if (prop.cegOptionsLabel) {
+            formOption.label = prop.cegOptionsLabel[i];
+          }
           return formOption;
         });
         const formGroupObject: CegFormGroup = {

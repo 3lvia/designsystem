@@ -33,7 +33,7 @@
             'e-capitalize': formGroup.labelTypography === 'capitalize'
           }"
         >
-          {{ formField.name }}
+          {{ formField.label ? formField.label : formField.name }}
         </span>
       </label>
     </div>

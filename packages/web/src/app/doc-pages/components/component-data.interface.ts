@@ -80,6 +80,10 @@ export interface AttributeTypeCEG {
    * Used for `cegFormType =  'background' | 'radio' | 'type'`.
    */
   cegOptions?: string[];
+  /**
+   * Custom labels that can be displayed instead of the `cegOptions` values.
+   */
+  cegOptionsLabel?: string[];
 
   /**
    * The value that will be sent in with the prop. If a slot is sent in for web component, instead use the option `cegSlot`.
