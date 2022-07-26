@@ -104,6 +104,10 @@ export interface AttributeTypeCEG {
    */
   cegDisplayGroup?: string;
   /**
+   * The typography of the labels for the prop in the CEG. Only applies to `cegFormType='radio'`.
+   */
+  cegLabelTypography?: 'capitalize' | 'uppercase' | 'lowercase';
+  /**
    * Used to filter when a prop is available in the CEG.
    * Add the name of the prop it is dependent on and what value (or values) the prop should have for it to work.
    */
