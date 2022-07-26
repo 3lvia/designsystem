@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 2.3.4 (26.07.22)
+
+### Bug fix
+
+- Fixed one icon that was not working: `cookie`.
+
 ## 2.3.3 (03.05.22)
 
 ### Bug fix
