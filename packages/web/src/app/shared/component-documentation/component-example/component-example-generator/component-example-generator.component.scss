@@ -68,6 +68,9 @@
         &:only-child {
           width: 67%;
         }
+        &.ceg-dropdown-icon {
+          min-width: 270px;
+        }
       }
     }
     .ceg-customize-popover {
