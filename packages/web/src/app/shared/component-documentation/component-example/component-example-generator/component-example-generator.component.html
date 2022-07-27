@@ -19,7 +19,7 @@
           (valueOnChange)="updateFormStates('type', $event); updateSelectedType($event)"
         ></elvia-dropdown>
       </div>
-      <div *ngIf="iconsOptions.length !== 0 && !typesData" class="ceg-dropdown ceg-dropdown-icon">
+      <div *ngIf="iconsOptions.length !== 0 && !typesData" class="ceg-dropdown">
         <elvia-dropdown
           [items]="iconsOptions"
           [value]="defaultIcon"
