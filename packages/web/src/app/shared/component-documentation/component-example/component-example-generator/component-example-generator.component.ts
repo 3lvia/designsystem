@@ -60,7 +60,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   } = {};
   hasCustomTextProps = false;
   showCustomTextPopover = false;
+  customTextPopoverIsOpen = false;
 
+  mobileSideFilterPopoverIsOpen = false;
   enableFilters = true;
   hasSideFilters = true;
   formGroupList: CegFormGroup[] = [];
