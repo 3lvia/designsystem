@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "27.07.22",
+      "version": "3.0.6 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "The selected value in the dropdown now gets cut off with an ellipsis (...) if it is too long, instead of just cutting off without any indicator. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "15.06.22",
       "version": "3.0.5 ",
       "changelog": [

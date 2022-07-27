@@ -238,3 +238,8 @@ export const DropdownCheckboxLabel = styled.span`
   line-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px;' : '24px')};
   width: fit-content;
 `;
+
+export const DropdownSingleValueOverflowWrapper = styled.span`
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;

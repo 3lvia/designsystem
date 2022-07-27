@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, CSSProperties } from 'react';
+import React, { useState, useEffect, useRef, CSSProperties, useMemo } from 'react';
 import Select, {
   components,
   DropdownIndicatorProps,
@@ -18,6 +18,7 @@ import {
   DropdownErrorMessageText,
   DropdownErrorMessageWrapper,
   DropdownLabel,
+  DropdownSingleValueOverflowWrapper,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
@@ -152,7 +153,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   };
 
   const decideValueContainerHeight = (): string => {
-    if (allOptionsHaveIconAttribute() && !isMulti) {
+    if (allOptionsHaveIconAttribute && !isMulti) {
       return 'inherit';
     }
     return '22px';
@@ -324,19 +325,15 @@ const Dropdown: React.FC<DropdownProps> = function ({
       margin: 0,
     }),
   };
-
-  /** Helper function to determine if the options array have valid icon attributes (all or none should have icon). */
-  const allOptionsHaveIconAttribute = (): boolean => {
-    if (items.length > 0) {
-      for (const dropdownItem of items) {
-        if (dropdownItem.icon === undefined) {
-          return false;
-        }
-      }
-      return true;
-    }
-    return false;
-  };
+  /** Helper memoized variable to determine if the options array has valid icon attributes (all or none should have icon). */
+  const allOptionsHaveIconAttribute = useMemo((): boolean => {
+    return (
+      items.length > 0 &&
+      items.every((item) => {
+        return item.icon !== undefined;
+      })
+    );
+  }, [items]);
 
   /** Custom components for Elvia dropdown */
   const ElviaDropdownIndicator = (props: DropdownIndicatorProps) => {
@@ -355,7 +352,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
     if (!isMulti) {
       return (
         <components.Option {...props}>
-          {allOptionsHaveIconAttribute() ? (
+          {allOptionsHaveIconAttribute ? (
             <Icon
               inlineStyle={{ marginRight: '16px' }}
               name={(props.data as DropdownItem).icon}
@@ -428,7 +425,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   const ElviaSingleValue = (props: SingleValueProps) => {
     return (
       <components.SingleValue {...props}>
-        {allOptionsHaveIconAttribute() ? (
+        {allOptionsHaveIconAttribute ? (
           <Icon
             inlineStyle={{ marginRight: '16px' }}
             name={(props.data as DropdownItem).icon}
@@ -437,7 +434,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
         ) : (
           ''
         )}
-        {props.children}
+        <DropdownSingleValueOverflowWrapper>{props.children}</DropdownSingleValueOverflowWrapper>
       </components.SingleValue>
     );
   };
