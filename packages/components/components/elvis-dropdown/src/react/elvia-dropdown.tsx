@@ -325,18 +325,14 @@ const Dropdown: React.FC<DropdownProps> = function ({
       margin: 0,
     }),
   };
-
-  /** Helper memoized variable to determine if the options array have valid icon attributes (all or none should have icon). */
+  /** Helper memoized variable to determine if the options array has valid icon attributes (all or none should have icon). */
   const allOptionsHaveIconAttribute = useMemo((): boolean => {
-    if (items.length > 0) {
-      for (const dropdownItem of items) {
-        if (dropdownItem.icon === undefined) {
-          return false;
-        }
-      }
-      return true;
-    }
-    return false;
+    return (
+      items.length > 0 &&
+      items.every((item) => {
+        return item.icon !== undefined;
+      })
+    );
   }, [items]);
 
   /** Custom components for Elvia dropdown */
