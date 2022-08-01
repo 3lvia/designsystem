@@ -1,0 +1,15 @@
+components:
+  - packages/components/components/**/*
+
+elvis:
+  - packages/elvis/**/*
+
+tokens:
+  - packages/elvis-*/**/*
+
+design.elvia.io:
+  - packages/web/**/*
+
+dependencies:
+  - yarn.lock
+  - '*package.json'
