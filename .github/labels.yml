@@ -1,15 +1,16 @@
 components:
   - packages/components/components/**/*
 
+dependencies:
+  - yarn.lock
+  - package.json
+  - /**/*/package.json
+
+design.elvia.io:
+  - packages/web/**/*
+
 elvis:
   - packages/elvis/**/*
 
 tokens:
   - packages/elvis-*/**/*
-
-design.elvia.io:
-  - packages/web/**/*
-
-dependencies:
-  - yarn.lock
-  - '*package.json'

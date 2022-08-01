@@ -12,7 +12,7 @@ declare module '@elvia/elvis-colors' {
 
   /**
    * Get a contrast text color from elvis-colors.
-   * @param {string} colorName Name of color in elvis-colors package.
+   * @param {string} colorName Name of color in elvis-colors  package.
    * @returns {string} Hex value of the contrast text color corresponding to the requested color.
    */
   export function getContrastText(colorName: ElviaColor): string;
