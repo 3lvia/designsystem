@@ -73,7 +73,7 @@ export const Icon: React.FC<IconProps> = ({
 
   const displayIcon = getIcon(name, size, color, customSize);
 
-  // Remove children from rest because dangerouslySetInnerHTML is used to set content
+  // Remove children from rest because dangerouslySetInnerHTML is used
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { children, ...restWithoutChildren } = rest;
 
