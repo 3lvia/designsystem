@@ -5,7 +5,12 @@ dependencies:
   - yarn.lock
 
 design.elvia.io:
-  - packages/web/**/*
+  - any:
+      [
+        'packages/web/**/*',
+        '!packages/web/src/assets/changelogs/**/*',
+        '!packages/web/src/assets/js/elvis.js',
+      ]
 
 elvis:
   - packages/elvis/**/*

@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "01.08.22",
+      "version": "1.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that caused the hovered date range highlighting to sometimes not show up when using keyboard navigation."
+          ]
+        }
+      ]
+    },
+    {
       "date": "14.07.22",
       "version": "1.0.2",
       "changelog": [

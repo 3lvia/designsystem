@@ -164,7 +164,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   }, [selectedDate]);
 
   /**
-   * When there are changes to the selected date and they has not been emitted yet,
+   * When there are changes to the selected date and they have not been emitted yet,
    * emit the change once the datepicker does not have focus.
    */
   useEffect(() => {
@@ -231,7 +231,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     const newDate = date ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : null;
     if (isEqual(selectedDate, newDate)) return;
     setSelectedDate(newDate);
-
+    setShouldHaveSelected(true);
     setHasChangeToEmit(true);
   };
 
