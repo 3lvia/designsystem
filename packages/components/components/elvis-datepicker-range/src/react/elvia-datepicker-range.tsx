@@ -143,6 +143,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   useEffect(() => {
+    // Update hoveredDateRange, needed for keyboard navigation highlighting
+    setHoveredDateRange(selectedDateRange);
+
     handleValueOnChangeISOString(selectedDateRange);
     if (!webcomponent) {
       valueOnChange?.(selectedDateRange);
@@ -301,7 +304,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         valueOnChange={handleStartDatepickerValueOnChange}
         isRequired={isRequiredState?.start}
         onClose={() => {
-          setHoveredDateRange(selectedDateRange);
           hasAutoOpenEndDatepicker &&
             setTimeout(() => {
               setEndDatepickerIsOpen(true);
@@ -332,7 +334,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         valueOnChange={handleEndDatepickerValueOnChange}
         isRequired={isRequiredState?.end}
         onClose={() => {
-          setHoveredDateRange(selectedDateRange);
           setEndDatepickerIsOpen(false);
         }}
         onOpen={() => setEndDatepickerIsOpen(true)}
