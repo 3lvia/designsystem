@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-datepicker-range",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "web_component.js",
   "scripts": {
@@ -19,5 +19,10 @@
   "devDependencies": {
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0",
+    "react-is": "^16.8.0 || ^17.0.0"
   }
 }
