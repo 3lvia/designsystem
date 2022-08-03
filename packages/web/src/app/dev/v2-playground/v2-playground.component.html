@@ -5,7 +5,15 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <elvia-box
+        [hasBorder]="true"
+        inlineStyle="{ backgroundColor: 'teal', borderRadius: '8px', padding: '10px' }"
+      >
+        <h3 slot="title">Title</h3>
+        <div slot="content">Webcomponentent content for the box component</div>
+      </elvia-box>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -141,10 +149,10 @@
     <h3>DatePicker</h3>
     <elvia-datepicker [value]="date"></elvia-datepicker>
   </div>
-  <!--Date ramnge picker-->
+  <!--Date range picker-->
   <div class="example-wrapper">
     <h3>Date range picker</h3>
-    <elvia-datepicker-range (errorOnChange)="logValue('error', $event.detail.value)"></elvia-datepicker-range>
+    <elvia-datepicker-range></elvia-datepicker-range>
   </div>
 
   <!--Divider-->
