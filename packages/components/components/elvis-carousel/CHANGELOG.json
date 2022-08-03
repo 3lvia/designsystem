@@ -2,6 +2,25 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.08.22",
+      "version": "2.0.3 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug that caused the carousel element slide animation to trigger on page load."]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Refactored the code and improved the Typescript type safety. ",
+            "Now using <span class=\"code-text\">styled-components</span> keyframes for animations. ",
+            "Bumped the dependencies on <span class=\"code-text\">@elvia/elvis-colors</span>, <span class=\"code-text\">@elvia/elvis-component-wrapper</span>, <span class=\"code-text\">@elvia/elvis-icon</span>, and <span class=\"code-text\">@elvia/elvis-typography</span>. ",
+            "Removed the dependency on <span class=\"code-text\">classnames</span> package. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "31.05.22",
       "version": "2.0.2 ",
       "changelog": [
