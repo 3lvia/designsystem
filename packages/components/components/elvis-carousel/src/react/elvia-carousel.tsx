@@ -1,5 +1,4 @@
-import React, { FC, useState, useRef, useEffect, CSSProperties } from 'react';
-import classnames from 'classnames';
+import React, { FC, useState, useRef, useEffect, CSSProperties, TouchEvent, MouseEvent } from 'react';
 import {
   CarouselContainer,
   CarouselElements,
@@ -18,7 +17,7 @@ import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-
 import { carouselConfig, carouselItemConfig } from './config';
 import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 
-type CarouselItem = {
+export interface CarouselItem {
   /**
    * @deprecated Deprecated in version 2.0.0. Use heading instead.
    */
@@ -29,7 +28,8 @@ type CarouselItem = {
   element?: JSX.Element | string | HTMLElement;
   heading?: JSX.Element | string | HTMLElement;
   item: JSX.Element | string | HTMLElement;
-};
+}
+export type SlideDirection = 'left' | 'right';
 
 export interface CarouselProps {
   items: CarouselItem[] | number;
@@ -90,7 +90,7 @@ export const Carousel: FC<CarouselProps> = function ({
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
-  const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('left');
+  const [slideDirection, setSlideDirection] = useState<SlideDirection>('left');
   const [isHoveringRightButton, setIsHoveringRightButton] = useState(false);
   const [isHoveringLeftButton, setIsHoveringLeftButton] = useState(false);
 
@@ -160,7 +160,7 @@ export const Carousel: FC<CarouselProps> = function ({
   };
 
   /** Handles mobile events */
-  const handleMouseDown = (e: MouseEvent | TouchEvent): void => {
+  const handleMouseDown = (e: MouseEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>): void => {
     const clientX = 'changedTouches' in e ? e.changedTouches[0].clientX : e.clientX;
     if (!itemsRef.current) {
       return;
@@ -200,9 +200,15 @@ export const Carousel: FC<CarouselProps> = function ({
   /** Update the value of the carousel by fading in the next element */
   const handleValueChange = (
     handleValueChangeIndex: number,
-    direction: 'left' | 'right',
+    direction: SlideDirection,
     dotClick?: boolean,
   ): void => {
+    // If the function is triggered by change of the value prop or clicking one of the dots,
+    // and the value is the same as the current index, don't do anything.
+    // This is to prevent the carousel from animating on page load.
+    if (dotClick && handleValueChangeIndex === index) {
+      return;
+    }
     setIsDown(false);
     const oppositeDirection = direction === 'left' ? 'right' : 'left';
     setSlideDirection(oppositeDirection);
@@ -235,34 +241,20 @@ export const Carousel: FC<CarouselProps> = function ({
     }
   };
 
-  /** Returns icons for the arrow-buttons depending on the hover state of the buttons */
-  const getCarouselLeftButtonIcon = (): string => {
-    return isHoveringLeftButton ? 'arrowLeftCircleFilledColor' : 'arrowLeftCircleColor';
-  };
-
-  const getCarouselRightButtonIcon = (): string => {
-    return isHoveringRightButton ? 'arrowRightCircleFilledColor' : 'arrowRightCircleColor';
-  };
-  const getCarouselRightCheckButtonIcon = (): string => {
-    return isHoveringRightButton ? 'checkCircleFilledColor' : 'checkCircleColor';
-  };
-
-  const classNameContainer = classnames({
-    ['exit-animation']: hasAnimation && !fadeIn,
-    ['enter-animation']: hasAnimation && fadeIn,
-  });
-
   return (
     <CarouselContainer
-      slideDirection={slideDirection}
-      className={`${className ? className : ''}`}
+      className={className ?? ''}
       style={inlineStyle}
       data-testid="carousel-container"
       {...rest}
     >
       <CarouselElements>
         {typeof carouselItems === 'object' && (
-          <CarouselElementContainer className={classNameContainer}>
+          <CarouselElementContainer
+            slideDirection={slideDirection}
+            enterAnimation={hasAnimation && fadeIn}
+            exitAnimation={hasAnimation && !fadeIn}
+          >
             {typeof carouselItems[index].heading === 'string' && (
               <CarouselHeading data-testid="carousel-item-heading">
                 <h2 className="e-heading-sm">{carouselItems[index].heading}</h2>
@@ -273,12 +265,12 @@ export const Carousel: FC<CarouselProps> = function ({
             )}
             <CarouselElement
               ref={itemsRef}
-              onMouseDown={(e: MouseEvent) => handleMouseDown(e)}
+              onMouseDown={(e) => handleMouseDown(e)}
               onMouseUp={() => setIsDown(false)}
               onMouseLeave={() => setIsDown(false)}
-              onMouseMove={(e: MouseEvent) => handleMouseMove(e)}
-              onTouchStart={(e: TouchEvent) => handleMouseDown(e)}
-              onTouchMove={(e: TouchEvent) => handleMouseMove(e)}
+              onMouseMove={(e) => handleMouseMove(e)}
+              onTouchStart={(e) => handleMouseDown(e)}
+              onTouchMove={(e) => handleMouseMove(e)}
               onTouchEnd={() => setIsDown(false)}
               data-testid="carousel-item"
             >
@@ -297,10 +289,13 @@ export const Carousel: FC<CarouselProps> = function ({
           onMouseLeave={() => setIsHoveringLeftButton(false)}
           data-testid="carousel-left-arrow"
         >
-          <Icon name={getCarouselLeftButtonIcon()} size="md" />
+          <Icon
+            name={isHoveringLeftButton ? 'arrowLeftCircleFilledColor' : 'arrowLeftCircleColor'}
+            size="md"
+          />
         </CarouselLeftButton>
         <CarouselListOfDots data-testid="carousel-list-of-dots">
-          {Array.from(Array(lengthOfItems), (_e, listIndex: number) => (
+          {Array.from(Array(lengthOfItems), (_e, listIndex) => (
             <CarouselDot
               key={listIndex}
               isSelected={listIndex === index}
@@ -324,7 +319,7 @@ export const Carousel: FC<CarouselProps> = function ({
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-onboarding-checkmark"
           >
-            <Icon name={getCarouselRightCheckButtonIcon()} size="md" />
+            <Icon name={isHoveringRightButton ? 'checkCircleFilledColor' : 'checkCircleColor'} size="md" />
           </CarouselCheckButton>
         ) : (
           <CarouselRightButton
@@ -336,7 +331,10 @@ export const Carousel: FC<CarouselProps> = function ({
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-right-arrow"
           >
-            <Icon name={getCarouselRightButtonIcon()} size="md" />
+            <Icon
+              name={isHoveringRightButton ? 'arrowRightCircleFilledColor' : 'arrowRightCircleColor'}
+              size="md"
+            />
           </CarouselRightButton>
         )}
       </CarouselNavigationRow>
