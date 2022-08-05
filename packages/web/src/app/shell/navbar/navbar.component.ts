@@ -80,8 +80,10 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     });
     this.contentLoadedSubscription = this.cmsService.listenContentLoadedFromCMS().subscribe(() => {
       this.setNewActiveNavbarItem();
-      setTimeout(() => this.updateAnchorList(), 200);
-      this.updateNavbarHeight();
+      setTimeout(() => {
+        this.updateAnchorList();
+        this.updateNavbarHeight();
+      }, 200);
     });
     this.anchorPosSubscription = this.scrollService
       .listenAnchorAtCurrPos()
