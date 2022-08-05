@@ -1,5 +1,29 @@
 # Elvis-assets-icon
 
+## 2.4.0 (05.08.22)
+
+### New feature
+
+- New icons:
+  1. `access_control`
+  2. `access_control-color`
+  3. `exit_full_screen`
+  4. `exit_full_screen-color`
+  5. `full_screen`
+  6. `full_screen-color`
+  7. `sorting_alfabetical_a_to_z`
+  8. `sorting_alfabetical_z_to_a`
+  9. `sorting_date_earliest_to_latest`
+  10. `sorting_date_latest_to_earliest`
+  11. `sorting_number_high_to_low`
+  12. `sorting_number_low_to_high`
+  13. `sorting_time_earliest_to_latest`
+  14. `sorting_time_latest_to_earliest`
+  15. `transformer`
+  16. `transformer-color`
+  17. `transformer_change`
+  18. `transformer_change-color`
+
 ## 2.3.4 (26.07.22)
 
 ### Bug fix

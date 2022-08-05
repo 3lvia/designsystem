@@ -1,6 +1,8 @@
 declare type Icon = {
   getIcon: (color: string) => string;
 };
+export declare const accessControl: Icon;
+export declare const accessControlColor: Icon;
 export declare const addCircle: Icon;
 export declare const addCircleColor: Icon;
 export declare const addCircleFilled: Icon;
@@ -99,6 +101,8 @@ export declare const electricitySafety: Icon;
 export declare const electricitySafetyColor: Icon;
 export declare const electricityTower: Icon;
 export declare const elsmartColor: Icon;
+export declare const exitFullScreen: Icon;
+export declare const exitFullScreenColor: Icon;
 export declare const expandCircleColor: Icon;
 export declare const expandCircleFilledColor: Icon;
 export declare const extensionCord: Icon;
@@ -118,6 +122,8 @@ export declare const form: Icon;
 export declare const formColor: Icon;
 export declare const fullBattery: Icon;
 export declare const fullBatteryColor: Icon;
+export declare const fullScreen: Icon;
+export declare const fullScreenColor: Icon;
 export declare const freshchatColor: Icon;
 export declare const graphBar: Icon;
 export declare const graphBarColor: Icon;
@@ -238,8 +244,16 @@ export declare const solarPanel: Icon;
 export declare const solarPanelColor: Icon;
 export declare const sortingAscendingBold: Icon;
 export declare const sortingDescendingBold: Icon;
+export declare const sortingAlfabeticalAToZ: Icon;
+export declare const sortingAlfabeticalZToA: Icon;
+export declare const sortingDateEarliestToLatest: Icon;
+export declare const sortingDateLatestToEarliest: Icon;
 export declare const sortingBold: Icon;
 export declare const sorting2Bold: Icon;
+export declare const sortingNumberHighToLow: Icon;
+export declare const sortingNumberLowToHigh: Icon;
+export declare const sortingTimeEarliestToLatest: Icon;
+export declare const sortingTimeLatestToEarliest: Icon;
 export declare const starFilled: Icon;
 export declare const star: Icon;
 export declare const step1: Icon;
@@ -259,6 +273,10 @@ export declare const thirdParty: Icon;
 export declare const thumbnail: Icon;
 export declare const thumbnailColor: Icon;
 export declare const touchFingerColor: Icon;
+export declare const transformer: Icon;
+export declare const transformerColor: Icon;
+export declare const transformerChange: Icon;
+export declare const transformerChangeColor: Icon;
 export declare const treeFalling: Icon;
 export declare const treePowerline: Icon;
 export declare const treePowerlineColor: Icon;
@@ -283,6 +301,8 @@ export declare const wrench: Icon;
 export declare const zoomIn: Icon;
 export declare const zoomOut: Icon;
 export declare type IconName =
+  | 'accessControl'
+  | 'accessControlColor'
   | 'addCircle'
   | 'addCircleColor'
   | 'addCircleFilled'
@@ -381,6 +401,8 @@ export declare type IconName =
   | 'electricitySafetyColor'
   | 'electricityTower'
   | 'elsmartColor'
+  | 'exitFullScreen'
+  | 'exitFullScreenColor'
   | 'expandCircleColor'
   | 'expandCircleFilledColor'
   | 'extensionCord'
@@ -400,6 +422,8 @@ export declare type IconName =
   | 'formColor'
   | 'fullBattery'
   | 'fullBatteryColor'
+  | 'fullScreen'
+  | 'fullScreenColor'
   | 'freshchatColor'
   | 'graphBar'
   | 'graphBarColor'
@@ -520,8 +544,16 @@ export declare type IconName =
   | 'solarPanelColor'
   | 'sortingAscendingBold'
   | 'sortingDescendingBold'
+  | 'sortingAlfabeticalAToZ'
+  | 'sortingAlfabeticalZToA'
+  | 'sortingDateEarliestToLatest'
+  | 'sortingDateLatestToEarliest'
   | 'sortingBold'
   | 'sorting2Bold'
+  | 'sortingNumberHighToLow'
+  | 'sortingNumberLowToHigh'
+  | 'sortingTimeEarliestToLatest'
+  | 'sortingTimeLatestToEarliest'
   | 'starFilled'
   | 'star'
   | 'step1'
@@ -541,6 +573,10 @@ export declare type IconName =
   | 'thumbnail'
   | 'thumbnailColor'
   | 'touchFingerColor'
+  | 'transformer'
+  | 'transformerColor'
+  | 'transformerChange'
+  | 'transformerChangeColor'
   | 'treeFalling'
   | 'treePowerline'
   | 'treePowerlineColor'
