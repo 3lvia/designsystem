@@ -14,6 +14,16 @@ example:
 */
 module.exports = [
   {
+    name: 'access_control-outline',
+    terms: ['tilgangsstyring'],
+    thirdparty: { name: ['streamline'] },
+  },
+  {
+    name: 'access_control-outline-color',
+    terms: ['tilgangsstyring'],
+    thirdparty: { name: ['streamline'], duplicate: 'access_control-outline' },
+  },
+  {
     name: 'add_circle',
     terms: ['plus', '+', 'maximize', 'expand', 'create'],
     thirdparty: { name: ['streamline'] },
@@ -274,6 +284,8 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
   },
   { name: 'elsmart-color', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'exit_full_screen', terms: ['minimize', 'minimise'] },
+  { name: 'exit_full_screen-color', terms: ['minimize', 'minimise'] },
   { name: 'expand_circle-color', terms: [], thirdparty: { name: ['streamline'] } },
   {
     name: 'expand_circle-filled-color',
@@ -314,6 +326,9 @@ module.exports = [
     terms: ['electricity'],
     thirdparty: { name: ['streamline'], duplicate: ['full_battery'] },
   },
+  { name: 'full_screen', terms: ['expand', 'width', 'utvid', 'full skjerm', 'maximize'] },
+  { name: 'full_screen-color', terms: ['expand', 'width', 'utvid', 'full skjerm', 'maximize'] },
+
   { name: 'freshchat-color', terms: ['message', 'text', 'write'], thirdparty: { name: ['streamline'] } },
   { name: 'graph_bar', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'graph_bar-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['graph_bar'] } },
@@ -628,8 +643,40 @@ module.exports = [
     terms: ['sort', 'sorting', 'order', 'down'],
     thirdparty: { name: ['streamline'] },
   },
+  {
+    name: 'sorting_alfabetical_a_to_z',
+    terms: ['sort', 'sorting', 'alfabetical', 'arrow', 'ascending'],
+  },
+  {
+    name: 'sorting_alfabetical_z_to_a',
+    terms: ['sort', 'sorting', 'alfabetical', 'arrow', 'descending'],
+  },
+  {
+    name: 'sorting_date_earliest_to_latest',
+    terms: ['sort', 'sorting', 'date', 'arrow', 'ascending'],
+  },
+  {
+    name: 'sorting_date_latest_to_earliest',
+    terms: ['sort', 'sorting', 'date', 'arrow', 'descending'],
+  },
   { name: 'sorting-bold', terms: ['sort', 'sorting', 'order'], thirdparty: { name: ['streamline'] } },
   { name: 'sorting-2-bold', terms: ['sort', 'sorting', 'order', 'ascending'] },
+  {
+    name: 'sorting_number_high_to_low',
+    terms: ['sort', 'sorting', 'integer', 'arrow', 'descending'],
+  },
+  {
+    name: 'sorting_number_low_to_high',
+    terms: ['sort', 'sorting', 'integer', 'arrow', 'ascending'],
+  },
+  {
+    name: 'sorting_time_earliest_to_latest',
+    terms: ['sort', 'sorting', 'time', 'arrow', 'ascending'],
+  },
+  {
+    name: 'sorting_time_latest_to_earliest',
+    terms: ['sort', 'sorting', 'time', 'arrow', 'descending'],
+  },
   {
     name: 'star-filled',
     terms: ['favorite', 'favourite'],
@@ -673,6 +720,10 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['thumbnail'] },
   },
   { name: 'touch_finger-color', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'transformer', terms: ['trafo', 'transformator', 'electricity'] },
+  { name: 'transformer-color', terms: ['trafo', 'transformator', 'electricity'] },
+  { name: 'transformer_change', terms: ['trafo', 'transformator', 'transformatorbytte'] },
+  { name: 'transformer_change-color', terms: ['trafo', 'transformator', 'transformatorbytte'] },
   { name: 'tree_falling', terms: ['electricity'], thirdparty: { name: ['streamline'] } },
   { name: 'tree_powerline', terms: ['electricity'], thirdparty: { name: ['streamline'] } },
   {
