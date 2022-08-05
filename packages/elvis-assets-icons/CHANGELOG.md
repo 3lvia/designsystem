@@ -5,8 +5,8 @@
 ### New feature
 
 - New icons:
-  1. `access_control-outline`
-  2. `access_control-outline-color`
+  1. `access_control`
+  2. `access_control-color`
   3. `exit_full_screen`
   4. `exit_full_screen-color`
   5. `full_screen`

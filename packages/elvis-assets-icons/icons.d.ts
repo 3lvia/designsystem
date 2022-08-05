@@ -1,8 +1,8 @@
 declare type Icon = {
   getIcon: (color: string) => string;
 };
-export declare const accessControlOutline: Icon;
-export declare const accessControlOutlineColor: Icon;
+export declare const accessControl: Icon;
+export declare const accessControlColor: Icon;
 export declare const addCircle: Icon;
 export declare const addCircleColor: Icon;
 export declare const addCircleFilled: Icon;
@@ -301,8 +301,8 @@ export declare const wrench: Icon;
 export declare const zoomIn: Icon;
 export declare const zoomOut: Icon;
 export declare type IconName =
-  | 'accessControlOutline'
-  | 'accessControlOutlineColor'
+  | 'accessControl'
+  | 'accessControlColor'
   | 'addCircle'
   | 'addCircleColor'
   | 'addCircleFilled'

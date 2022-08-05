@@ -14,14 +14,14 @@ example:
 */
 module.exports = [
   {
-    name: 'access_control-outline',
+    name: 'access_control',
     terms: ['tilgangsstyring'],
     thirdparty: { name: ['streamline'] },
   },
   {
-    name: 'access_control-outline-color',
+    name: 'access_control-color',
     terms: ['tilgangsstyring'],
-    thirdparty: { name: ['streamline'], duplicate: 'access_control-outline' },
+    thirdparty: { name: ['streamline'], duplicate: 'access_control' },
   },
   {
     name: 'add_circle',

@@ -2,11 +2,11 @@
 // ADD OR REMOVE ICONS IN icons.config.js
 import { getColor } from '@elvia/elvis-colors';
 
-export const accessControlOutline = {
+export const accessControl = {
   getIcon: function (color) {
     let icon =
       '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.75 1.5A2.25 2.25 0 001.5 3.75V12h11.25a.75.75 0 010 1.5H1.629A2.25 2.25 0 003.75 15h7.5a.75.75 0 010 1.5H9.635l-.5 3h2.115a.75.75 0 010 1.5H6a.75.75 0 010-1.5h1.615l.5-3H3.75A3.75 3.75 0 010 12.75v-9A3.75 3.75 0 013.75 0h16.5A3.75 3.75 0 0124 3.75v6a.75.75 0 01-1.5 0v-6a2.25 2.25 0 00-2.25-2.25H3.75zM18.034 19.92a.75.75 0 001.5 0V19a.75.75 0 00-1.5 0v.92z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M22.5 14.25v.878A2.251 2.251 0 0124 17.25v4.5A2.25 2.25 0 0121.75 24h-6a2.25 2.25 0 01-2.25-2.25v-4.5c0-.98.626-1.813 1.5-2.122v-.878a3.75 3.75 0 017.5 0zm-7.5 3a.75.75 0 01.75-.75h6a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-6a.75.75 0 01-.75-.75v-4.5zm6-3V15h-4.5v-.75a2.25 2.25 0 014.5 0z" fill="#000"/></svg>';
-    let iconName = 'access_control-outline';
+    let iconName = 'access_control';
     icon = icon.replace('<svg ', '<svg viewBox="0 0 24 24" aria-hidden="true" ');
     if (!color) {
       return icon;
@@ -30,11 +30,11 @@ export const accessControlOutline = {
     return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
   },
 };
-export const accessControlOutlineColor = {
+export const accessControlColor = {
   getIcon: function (color) {
     let icon =
       '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.75 16.5a.75.75 0 00-.75.75v4.5c0 .414.336.75.75.75h6a.75.75 0 00.75-.75v-4.5a.75.75 0 00-.75-.75h-6zm-2.25.75A2.25 2.25 0 0115.75 15h6A2.25 2.25 0 0124 17.25v4.5A2.25 2.25 0 0121.75 24h-6a2.25 2.25 0 01-2.25-2.25v-4.5z" fill="#29D305"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16.098 11.598A3.75 3.75 0 0122.5 14.25v1.5a.75.75 0 01-.75.75h-6a.75.75 0 01-.75-.75v-1.5a3.75 3.75 0 011.098-2.652zM18.75 12a2.25 2.25 0 00-2.25 2.25V15H21v-.75A2.25 2.25 0 0018.75 12z" fill="#29D305"/><path d="M2.159 2.159A2.25 2.25 0 013.75 1.5h16.5a2.25 2.25 0 012.25 2.25v6a.75.75 0 001.5 0v-6A3.75 3.75 0 0020.25 0H3.75A3.75 3.75 0 000 3.75v9a3.75 3.75 0 003.75 3.75h4.365l-.5 3H6A.75.75 0 006 21h5.25a.75.75 0 000-1.5H9.135l.5-3h1.615a.75.75 0 000-1.5h-7.5a2.25 2.25 0 01-2.121-1.5H12.75a.75.75 0 000-1.5H1.5V3.75c0-.597.237-1.169.659-1.591zM18.784 20.67a.75.75 0 01-.75-.75V19a.75.75 0 011.5 0v.92a.75.75 0 01-.75.75z" fill="#000"/></svg>';
-    let iconName = 'access_control-outline-color';
+    let iconName = 'access_control-color';
     icon = icon.replace('<svg ', '<svg viewBox="0 0 24 24" aria-hidden="true" ');
     if (!color) {
       return icon;
