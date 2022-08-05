@@ -24,23 +24,30 @@ syncContentfulEntries();
 
 async function syncContentfulEntries() {
   await cleanup();
-  getContentfulEntries({ locale: '*', limit: 1000, skip: 0, include: 10 });
+  await getContentfulEntries({ locale: '*', limit: 1000, skip: 0, include: 10 });
   // Max 8MB per contentfulClient.getEntries call, reduce limit if requests get too big.
   // https://stackoverflow.com/questions/57532345/react-application-requiring-access-to-3000-entries-from-contentful-api
   // https://www.contentfulcommunity.com/t/contentful-api-how-to-get-all-entries-from-a-contenttype/2847/2
 }
 
-function getContentfulEntries(query) {
-  contentfulClient.getEntries(query).then((entries) => {
-    entries.items.forEach((item) => {
-      fs.writeFileSync(`dist/entries/${item.sys.id}.json`, createFileContentFromEntry(item));
+async function getContentfulEntries(query) {
+  return contentfulClient
+    .getEntries(query)
+    .then((entries) => {
+      entries.items.forEach((item) => {
+        fs.writeFileSync(`dist/entries/${item.sys.id}.json`, createFileContentFromEntry(item));
+      });
+      // If there are more entries left to get from Contentful, recursively call getContentfulEntries
+      if (entries.total > query.limit + query.skip) {
+        query.skip = query.skip + query.limit;
+        getContentfulEntries(query);
+      }
+      return Promise.resolve();
+    })
+    .catch((err) => {
+      console.log(err);
+      return Promise.reject(err);
     });
-    // If there are more entries left to get from Contentful, recursively call getContentfulEntries
-    if (entries.total > query.limit + query.skip) {
-      query.skip = query.skip + query.limit;
-      getContentfulEntries(query);
-    }
-  });
 }
 
 function createFileContentFromEntry(entry) {
