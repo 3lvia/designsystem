@@ -240,11 +240,16 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     const clientHeight = Number(removePostfix(navbarElement.style.height, 'px'));
     const bottomOfNavbar = clientHeight + navbarElement.scrollTop;
     const heightOfNavbar = navbarElement.scrollHeight;
-    const isAtBottomOfNavbar = bottomOfNavbar + 10 >= heightOfNavbar;
-    if (isAtBottomOfNavbar) {
-      navbarElement.classList.remove('navbar-bottom-blur');
+
+    const navbarBlurStartFraction = 0.9;
+    const isAtEndOfNavbar = bottomOfNavbar >= navbarBlurStartFraction * heightOfNavbar;
+    if (isAtEndOfNavbar) {
+      const remainingHeight = heightOfNavbar - bottomOfNavbar;
+      const remainingPercentage = (100 * remainingHeight) / heightOfNavbar;
+      const blurAmount = `${100 - remainingPercentage * (1 - navbarBlurStartFraction) * 20}%`;
+      document.documentElement.style.setProperty('--navbar-blur-amount', blurAmount);
     } else {
-      navbarElement.classList.add('navbar-bottom-blur');
+      document.documentElement.style.setProperty('--navbar-blur-amount', '80%');
     }
   }
 
