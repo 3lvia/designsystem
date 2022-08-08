@@ -1,9 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import ComponentData, { AttributeType } from 'src/app/doc-pages/components/component-data.interface';
-
-interface ComponentProp extends AttributeType {
-  attribute: string;
-}
 
 @Component({
   selector: 'app-component-properties-table',
@@ -11,8 +6,8 @@ interface ComponentProp extends AttributeType {
   styleUrls: ['./component-properties-table.component.scss'],
 })
 export class ComponentPropertiesTableComponent implements OnInit {
-  @Input() componentData: ComponentData;
-  componentProps: ComponentProp[] = [];
+  @Input() componentData;
+  componentProps = [];
 
   ngOnInit(): void {
     this.createPropArray();
@@ -20,11 +15,11 @@ export class ComponentPropertiesTableComponent implements OnInit {
 
   createPropArray(): void {
     Object.keys(this.componentData.attributes).forEach((attribute) => {
-      const componentProp: ComponentProp = {
+      const newObject = {
         attribute,
         ...this.componentData.attributes[attribute],
       };
-      this.componentProps.push(componentProp);
+      this.componentProps.push(newObject);
     });
   }
 }
