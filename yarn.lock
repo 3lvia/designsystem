@@ -3904,6 +3904,7 @@ __metadata:
     "@types/lodash.isequal": ^4.5.5
     "@types/react": ^17.0.39
     "@types/react-dom": ^17.0.13
+    json5: ^2.2.1
     lodash.isequal: ^4.5.0
     react: ^17.0.0
     react-dom: ^17.0.0

@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "08.08.22",
+      "version": "2.4.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Now using JSON5 to parse properties passed as objects. This allows for more flexibility in the way properties are written, such as the use of single quoted strings."
+          ]
+        }
+      ]
+    },
+    {
       "date": "14.07.22",
       "version": "2.3.3",
       "changelog": [

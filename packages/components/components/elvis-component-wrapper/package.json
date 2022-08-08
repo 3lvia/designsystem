@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-component-wrapper",
-  "version": "2.3.3",
+  "version": "2.4.0",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@elvia/elvis-toolbox": "^1.2.1",
+    "json5": "^2.2.1",
     "lodash.isequal": "^4.5.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
