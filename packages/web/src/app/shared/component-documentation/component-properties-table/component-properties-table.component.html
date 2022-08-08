@@ -1,4 +1,7 @@
 <div class="properties-container">
+  <div class="e-input properties-filter">
+    <input type="text" placeholder="Filter properties" [(ngModel)]="searchTerm" (keyup)="searchProps()" />
+  </div>
   <div class="e-table-container desktop">
     <table
       class="e-table e-table--sticky-column-header e-table--compact"
@@ -14,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let prop of componentProps">
+        <tr *ngFor="let prop of filteredComponentProps">
           <th scope="row" class="table-code-text">
             <span>{{ prop.attribute }}</span>
             <span *ngIf="prop.isRequired">*</span>
@@ -38,7 +41,7 @@
           <th class="e-table-mobile__cell" scope="col"></th>
         </tr>
       </thead>
-      <tbody *ngFor="let prop of componentProps">
+      <tbody *ngFor="let prop of filteredComponentProps">
         <tr>
           <th class="e-table-mobile__cell" scope="col">{{ prop.attribute }}</th>
           <th class="e-table-mobile__cell" scope="col"></th>
