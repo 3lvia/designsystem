@@ -260,6 +260,8 @@ module.exports = [
       { name: 'isMulti', type: 'boolean', propType: 'boolean' },
       { name: 'isSearchable', type: 'boolean', propType: 'boolean' },
       { name: 'hasSelectAllOption', type: 'boolean', propType: 'boolean' },
+      { name: 'selectAllOption', type: 'object', propType: 'object | undefined' },
+      { name: 'allOptionsSelectedLabel', type: 'string', propType: 'string | undefined' },
       { name: 'errorMessage', type: 'string', propType: 'string | undefined' },
       { name: 'label', type: 'string', propType: 'string | undefined' },
       { name: 'menuPosition', type: 'string', propType: 'string | undefined' },

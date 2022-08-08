@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
@@ -15,14 +15,18 @@ const typography = {
   textSm: getTypographyCss('text-sm'),
 };
 
-export const DropdownWrapper = styled.span`
+interface DropdownWrapperProps {
+  isDisabled: boolean;
+}
+
+export const DropdownWrapper = styled.span<DropdownWrapperProps>`
   display: block;
   position: relative;
   text-align: left;
   box-sizing: border-box;
   width: 100%;
   max-width: 448px;
-  cursor: ${(props: { isDisabled: boolean }) => (props.isDisabled ? 'not-allowed' : 'pointer')};
+  cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
   &:focus-within {
     .ewc-dropdown__control {
       border: 2px solid ${colors.elviaCharge};
@@ -33,19 +37,23 @@ export const DropdownWrapper = styled.span`
   }
 `;
 
-export const DropdownLabel = styled.label`
-  position: ${(props: { isCompact: boolean }) => props.isCompact && 'absolute'};
-  top:${(props: { isCompact: boolean }) => props.isCompact && '-5px'};
-  left:${(props: { isCompact: boolean }) => props.isCompact && '8px'};
-  background:${(props: { isCompact: boolean }) => props.isCompact && colors.elviaWhite};
-  padding${(props: { isCompact: boolean }) => props.isCompact && '0 3px'};
-  z-index: ${(props: { isCompact: boolean }) => props.isCompact && '1'};
+interface DropdownLabel {
+  isCompact: boolean;
+}
+
+export const DropdownLabel = styled.label<DropdownLabel>`
+  position: ${(props) => props.isCompact && 'absolute'};
+  top: ${(props) => props.isCompact && '-5px'};
+  left: ${(props) => props.isCompact && '8px'};
+  background: ${(props) => props.isCompact && colors.elviaWhite};
+  padding: ${(props) => props.isCompact && '0 3px'};
+  z-index: ${(props) => props.isCompact && '1'};
   display: flex;
   margin-bottom: 4px;
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-weight: 500;
-  font-size: ${(props: { isCompact: boolean }) => (props.isCompact ? '10px' : '16px')};
-  line-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '10px' : '23px')};
+  font-size: ${(props) => (props.isCompact ? '10px' : '16px')};
+  line-height: ${(props) => (props.isCompact ? '10px' : '23px')};
   color: ${colors.elviaBlack};
   text-align: left;
 `;
@@ -88,19 +96,20 @@ const generateCheckmarkBeforeElement = (params: {
   transform: string;
   transformOrigin: string;
 }) => {
-  return `
-  &::before {
-    content: '';
-    position: absolute;
-    top: ${params.top};
-    left: ${params.left};
-    height: ${params.height};
-    width: ${params.width};
-    background-color: ${colors.elviaBlack};
-    border-radius: 15px;
-    transform: ${params.transform};
-    transform-origin: ${params.transformOrigin};
-  }`;
+  return css`
+    &::before {
+      content: '';
+      position: absolute;
+      top: ${params.top};
+      left: ${params.left};
+      height: ${params.height};
+      width: ${params.width};
+      background-color: ${colors.elviaBlack};
+      border-radius: 15px;
+      transform: ${params.transform};
+      transform-origin: ${params.transformOrigin};
+    }
+  `;
 };
 
 const generateCheckmarkAfterElement = (params: {
@@ -111,19 +120,20 @@ const generateCheckmarkAfterElement = (params: {
   transform: string;
   transformOrigin: string;
 }) => {
-  return `
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: ${params.bottom};
-    left: ${params.left};
-    height: ${params.height};
-    width: ${params.width};
-    background-color: ${colors.elviaBlack};
-    border-radius: 15px;
-    transform: ${params.transform};
-    transform-origin: ${params.transformOrigin};
-  }`;
+  return css`
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: ${params.bottom};
+      left: ${params.left};
+      height: ${params.height};
+      width: ${params.width};
+      background-color: ${colors.elviaBlack};
+      border-radius: 15px;
+      transform: ${params.transform};
+      transform-origin: ${params.transformOrigin};
+    }
+  `;
 };
 
 const decideCheckMarkCompactAndSelectedStyle = (
@@ -133,96 +143,96 @@ const decideCheckMarkCompactAndSelectedStyle = (
 ) => {
   // Make compact line for "select all"-option when not everything is selected
   if (isCompact && isSelectAllWithPartialSelected) {
-    return `
-    background-color: ${colors.elviaCharge};
-    ${generateCheckmarkBeforeElement({
-      top: 'calc(50% - 1px)',
-      left: '-24%',
-      height: '2px',
-      width: '40%',
-      transform: 'translateX(8px)',
-      transformOrigin: '(left bottom)',
-    })}
+    return css`
+      background-color: ${colors.elviaCharge};
+      ${generateCheckmarkBeforeElement({
+        top: 'calc(50% - 1px)',
+        left: '-24%',
+        height: '2px',
+        width: '40%',
+        transform: 'translateX(8px)',
+        transformOrigin: '(left bottom)',
+      })}
     `;
   }
   // Make normal line for "select all"-option when not everything is selected
   if (!isCompact && isSelectAllWithPartialSelected) {
-    return `
-    background-color: ${colors.elviaCharge};
-    ${generateCheckmarkBeforeElement({
-      top: 'calc(50% - 1px)',
-      left: '-10%',
-      height: '2px',
-      width: '50%',
-      transform: 'translateX(8px)',
-      transformOrigin: '(left bottom)',
-    })}
+    return css`
+      background-color: ${colors.elviaCharge};
+      ${generateCheckmarkBeforeElement({
+        top: 'calc(50% - 1px)',
+        left: '-10%',
+        height: '2px',
+        width: '50%',
+        transform: 'translateX(8px)',
+        transformOrigin: '(left bottom)',
+      })}
     `;
   }
   // Make compact checkmark
   if (isCompact && isSelecteed) {
-    return `
-    background-color: ${colors.elviaCharge};
-    ${generateCheckmarkBeforeElement({
-      top: '50%',
-      left: '-45%',
-      height: '39%',
-      width: '2px',
-      transform: 'translateX(10px) rotate(-45deg)',
-      transformOrigin: '[left bottom]',
-    })}
-    ${generateCheckmarkAfterElement({
-      bottom: '40%',
-      left: '-45%',
-      height: '2px',
-      width: '80%',
-      transform: 'translateX(10px) rotate(-55deg)',
-      transformOrigin: '[left bottom]',
-    })}
+    return css`
+      background-color: ${colors.elviaCharge};
+      ${generateCheckmarkBeforeElement({
+        top: '50%',
+        left: '-45%',
+        height: '39%',
+        width: '2px',
+        transform: 'translateX(10px) rotate(-45deg)',
+        transformOrigin: '[left bottom]',
+      })}
+      ${generateCheckmarkAfterElement({
+        bottom: '40%',
+        left: '-45%',
+        height: '2px',
+        width: '80%',
+        transform: 'translateX(10px) rotate(-55deg)',
+        transformOrigin: '[left bottom]',
+      })}
     `;
   }
   // Make normal checkmark
   if (!isCompact && isSelecteed) {
-    return `
-    background-color: ${colors.elviaCharge};
-    ${generateCheckmarkBeforeElement({
-      top: '55%',
-      left: '-9%',
-      height: '30%',
-      width: '2px',
-      transform: 'translateX(8px) rotate(-45deg)',
-      transformOrigin: '(left bottom)',
-    })}
-    ${generateCheckmarkAfterElement({
-      bottom: '15%',
-      left: '-4%',
-      height: '2px',
-      width: '83%',
-      transform: 'translateX(10px) rotate(-55deg)',
-      transformOrigin: 'left bottom',
-    })}
+    return css`
+      background-color: ${colors.elviaCharge};
+      ${generateCheckmarkBeforeElement({
+        top: '55%',
+        left: '-9%',
+        height: '30%',
+        width: '2px',
+        transform: 'translateX(8px) rotate(-45deg)',
+        transformOrigin: '(left bottom)',
+      })}
+      ${generateCheckmarkAfterElement({
+        bottom: '15%',
+        left: '-4%',
+        height: '2px',
+        width: '83%',
+        transform: 'translateX(10px) rotate(-55deg)',
+        transformOrigin: 'left bottom',
+      })}
     `;
   }
-  return '';
+  return css``;
 };
 
-type DropdownCheckboxMarkProps = {
+interface DropdownCheckboxMarkProps {
   isCompact: boolean;
   isSelected: boolean;
   isSelectAllWithPartialSelected: boolean;
-};
+}
 
 export const DropdownCheckboxMark = styled.span<DropdownCheckboxMarkProps>`
   box-sizing: border-box;
-  min-width: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px' : '24px')};
-  min-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px' : '24px')};
-  max-width: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px' : '24px')};
-  max-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px' : '24px')};
+  min-width: ${(props) => (props.isCompact ? '16px' : '24px')};
+  min-height: ${(props) => (props.isCompact ? '16px' : '24px')};
+  max-width: ${(props) => (props.isCompact ? '16px' : '24px')};
+  max-height: ${(props) => (props.isCompact ? '16px' : '24px')};
   border-radius: 3px;
   border: 1px solid ${colors.elviaBlack};
   background: ${colors.elviaWhite};
   position: relative;
-  ${(props: { isCompact: boolean; isSelected: boolean; isSelectAllWithPartialSelected: boolean }) =>
+  ${(props) =>
     decideCheckMarkCompactAndSelectedStyle(
       props.isCompact,
       props.isSelected,
@@ -230,12 +240,16 @@ export const DropdownCheckboxMark = styled.span<DropdownCheckboxMarkProps>`
     )}
 `;
 
-export const DropdownCheckboxLabel = styled.span`
+interface DropdownCheckboxLabelProps {
+  isCompact: boolean;
+}
+
+export const DropdownCheckboxLabel = styled.span<DropdownCheckboxLabelProps>`
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-style: normal;
-  font-size: ${(props: { isCompact: boolean }) => (props.isCompact ? '14px' : '16px')};
+  font-size: ${(props) => (props.isCompact ? '14px' : '16px')};
   margin-left: 8px;
-  line-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px;' : '24px')};
+  line-height: ${(props) => (props.isCompact ? '16px;' : '24px')};
   width: fit-content;
 `;
 

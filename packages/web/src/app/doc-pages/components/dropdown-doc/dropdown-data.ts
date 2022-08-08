@@ -82,6 +82,21 @@ export const dropdownData: ComponentData = {
       cegDisplayGroup: 'Options',
       cegDependency: [{ name: 'isMulti', value: 'true' }],
     },
+    selectAllOption: {
+      isRequired: false,
+      type: '{label: string; value: string}',
+      description:
+        'Change the label and/or value of the select all-option. Only available in multiselect dropdown.',
+      default: '{label: "Alle", value: "*"}',
+      cegDisplayName: 'Select all option',
+    },
+    allOptionsSelectedLabel: {
+      isRequired: false,
+      type: 'string',
+      description:
+        'Change the label shown in the dropdown when all options are selected. Only available in multiselect dropdown.',
+      default: 'Alle',
+    },
     label: {
       isRequired: false,
       type: 'string',

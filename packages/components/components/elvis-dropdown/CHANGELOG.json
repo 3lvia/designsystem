@@ -2,6 +2,26 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "08.08.22",
+      "version": "3.1.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added new props: <span class=\"code-text\">selectAllOption</span> and <span class=\"code-text\">allOptionsSelectedLabel</span>."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Fixed the placement of the label for compact size dropdown.",
+            "Refactored the styled components.",
+            "Bumped the dependencies on <span class=\"code-text\">@elvia/elvis-colors</span>, <span class=\"code-text\">@elvia/elvis-component-wrapper</span>, <span class=\"code-text\">@elvia/elvis-icon</span>, and <span class=\"code-text\">@elvia/elvis-typography</span>. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "27.07.22",
       "version": "3.0.6 ",
       "changelog": [
