@@ -99,8 +99,8 @@ const Dropdown: React.FC<DropdownProps> = function ({
   /** Set the value shown as "Select all" */
   useEffect(() => {
     if (selectAllOption) {
-      setSelectAllOptionState((currentVal) => {
-        return { ...currentVal, ...selectAllOption };
+      setSelectAllOptionState((oldSelectAllOptionState) => {
+        return { ...oldSelectAllOptionState, ...selectAllOption };
       });
     }
   }, [selectAllOption]);
@@ -340,6 +340,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
       margin: 0,
     }),
   };
+
   /** Helper memoized variable to determine if the options array has valid icon attributes (all or none should have icon). */
   const allOptionsHaveIconAttribute = useMemo((): boolean => {
     return (
@@ -555,10 +556,9 @@ const Dropdown: React.FC<DropdownProps> = function ({
       hasSelectAllOption && Array.isArray(event)
         ? event.filter((option) => !isEqual(option, selectAllOptionState))
         : event;
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(eventToDispatch);
-    }
-    if (webcomponent) {
+    if (!webcomponent) {
+      valueOnChange?.(eventToDispatch);
+    } else {
       webcomponent.triggerEvent('valueOnChange', eventToDispatch);
     }
     return;

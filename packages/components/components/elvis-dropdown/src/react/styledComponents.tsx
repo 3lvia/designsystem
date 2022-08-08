@@ -37,11 +37,11 @@ export const DropdownWrapper = styled.span<DropdownWrapperProps>`
   }
 `;
 
-interface DropdownLabel {
+interface DropdownLabelProps {
   isCompact: boolean;
 }
 
-export const DropdownLabel = styled.label<DropdownLabel>`
+export const DropdownLabel = styled.label<DropdownLabelProps>`
   position: ${(props) => props.isCompact && 'absolute'};
   top: ${(props) => props.isCompact && '-5px'};
   left: ${(props) => props.isCompact && '8px'};
