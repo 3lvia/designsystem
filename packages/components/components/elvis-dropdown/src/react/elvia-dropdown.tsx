@@ -99,7 +99,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
   });
   const dropdownRef = useRef<HTMLSpanElement>(null);
 
-  /** Set the value shown as "Select all" */
+  /** Set the "Select all" option inside an open multiselect dropdown.
+   * Doing it this way adds support for supplying the prop as a partial prop
+   * (e.g. {label: 'Alle'} instead of {value: '*', label: 'Alle'}).
+   */
   useEffect(() => {
     if (selectAllOption) {
       setSelectAllOptionState((oldSelectAllOptionState) => {
