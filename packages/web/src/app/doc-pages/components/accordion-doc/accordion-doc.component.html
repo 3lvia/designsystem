@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
+<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
   <ng-container ngProjectAs="headerTitle">Accordion</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
