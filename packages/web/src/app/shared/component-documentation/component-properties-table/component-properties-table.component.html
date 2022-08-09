@@ -3,15 +3,19 @@
     <div class="e-search e-search--instant" [ngClass]="{ 'e-search--searched': searchTerm !== '' }">
       <div class="e-input">
         <input
-          aria-label="Filter properties"
+          aria-label="Search properties table"
           type="search"
-          placeholder="Filter properties"
+          placeholder="Search"
           [(ngModel)]="searchTerm"
           (ngModelChange)="searchProps()"
         />
       </div>
       <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
-      <button class="e-btn e-btn--icon e-btn--lg" (click)="clearSearchField()" aria-label="Tøm søkefelt">
+      <button
+        class="e-btn e-btn--icon e-btn--lg"
+        (click)="clearSearchField()"
+        aria-label="Clear search field"
+      >
         <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
       </button>
     </div>
@@ -19,8 +23,8 @@
   <div class="e-table-container desktop">
     <table
       class="e-table e-table--sticky-column-header e-table--sticky-header e-table--compact"
-      *ngIf="componentProps"
-      aria-label="Properties details and descriptions"
+      *ngIf="filteredComponentProps.length > 0"
+      aria-label="Property details and descriptions"
     >
       <thead>
         <tr>
@@ -43,11 +47,19 @@
         </tr>
       </tbody>
     </table>
+    <div class="no-properties-found" *ngIf="filteredComponentProps.length === 0">
+      <img class="" src="assets/no-results/no-results.svg" />
+      <span class="e-title-caps e-text-center">No results</span>
+    </div>
   </div>
-  <div class="e-table-container mobile properties-mobile">
+  <div
+    class="e-table-container mobile"
+    [ngClass]="{ 'properties-mobile': filteredComponentProps.length > 0 }"
+  >
     <table
       class="e-table-mobile e-table-mobile--sticky-header e-table-mobile--compact"
-      aria-label="Beskrivelse av tabellen"
+      *ngIf="filteredComponentProps.length > 0"
+      aria-label="Property details and descriptions"
     >
       <thead>
         <tr>
@@ -75,6 +87,10 @@
         </tr>
       </tbody>
     </table>
+    <div class="no-properties-found" *ngIf="filteredComponentProps.length === 0">
+      <img class="" src="assets/no-results/no-results.svg" />
+      <span>No results</span>
+    </div>
   </div>
   <div class="e-table__footnote e-table__footnote--compact">* Required - Properties that must be present</div>
   <div class="e-table__footnote e-table__footnote--compact">
