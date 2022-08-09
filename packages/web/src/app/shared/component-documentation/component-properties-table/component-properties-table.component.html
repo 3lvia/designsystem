@@ -7,7 +7,7 @@
           type="search"
           placeholder="Filter properties"
           [(ngModel)]="searchTerm"
-          (keyup)="searchProps()"
+          (ngModelChange)="searchProps()"
         />
       </div>
       <i class="e-icon e-icon--search-color" aria-hidden="true"></i>

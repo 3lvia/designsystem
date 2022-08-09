@@ -43,5 +43,14 @@
 @media (max-width: 768px) {
   .properties-filter {
     width: 100%;
+    max-width: 100%;
+    & .e-input {
+      width: 100%;
+      max-width: 100%;
+      & > input {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
   }
 }
