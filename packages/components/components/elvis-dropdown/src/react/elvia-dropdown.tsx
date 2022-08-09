@@ -422,7 +422,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
       return (
         <components.Placeholder {...props}>
           <DropdownPlaceholderWrapper>
-            <Icon name={placeholderIcon} color={getColor('grey-70')} size="xs" />
+            <Icon name={placeholderIcon} color={getColor('disabled')} size="xs" />
             {props.children}
           </DropdownPlaceholderWrapper>
         </components.Placeholder>
