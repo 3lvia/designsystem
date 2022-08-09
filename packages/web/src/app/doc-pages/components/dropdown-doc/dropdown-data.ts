@@ -125,6 +125,11 @@ export const dropdownData: ComponentData = {
       cegCustomTextType: 'input',
       cegDefault: 'Placeholder',
     },
+    placeholderIcon: {
+      isRequired: false,
+      type: 'string',
+      description: 'Name of icon to be used in the placeholder.',
+    },
     valueOnChange: {
       isRequired: false,
       type: '(options: Array<object>) => CustomEvent',

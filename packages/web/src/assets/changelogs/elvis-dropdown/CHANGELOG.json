@@ -2,13 +2,13 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "08.08.22",
+      "date": "09.08.22",
       "version": "3.1.0 ",
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
-            "Added new props: <span class=\"code-text\">selectAllOption</span> and <span class=\"code-text\">allOptionsSelectedLabel</span>."
+            "Added new props: <span class=\"code-text\">selectAllOption</span>, <span class=\"code-text\">allOptionsSelectedLabel</span>, and <span class=\"code-text\">placeholderIcon</span>."
           ]
         },
         {

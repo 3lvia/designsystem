@@ -267,6 +267,7 @@ module.exports = [
       { name: 'menuPosition', type: 'string', propType: 'string | undefined' },
       { name: 'noOptionsMessage', type: 'string', propType: 'string | undefined' },
       { name: 'placeholder', type: 'string', propType: 'string | undefined' },
+      { name: 'placeholderIcon', type: 'string', propType: 'string | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
     ],

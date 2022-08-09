@@ -19,6 +19,7 @@ import {
   DropdownErrorMessageWrapper,
   DropdownLabel,
   DropdownSingleValueOverflowWrapper,
+  DropdownPlaceholderWrapper,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
@@ -57,6 +58,7 @@ export interface DropdownProps {
   menuPosition?: DropdownMenuPosition;
   noOptionsMessage?: string;
   placeholder?: string;
+  placeholderIcon?: string;
   valueOnChange?: (selectedOptions: DropdownItem | Array<DropdownItem> | undefined) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
@@ -78,6 +80,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   menuPosition = 'auto',
   noOptionsMessage = 'Ingen tilgjengelige valg',
   placeholder = '',
+  placeholderIcon,
   valueOnChange,
   className,
   inlineStyle,
@@ -414,6 +417,16 @@ const Dropdown: React.FC<DropdownProps> = function ({
   const ElviaPlaceholder = (props: PlaceholderProps) => {
     if (menuIsOpen && isSearchable) {
       return null;
+    }
+    if (placeholderIcon) {
+      return (
+        <components.Placeholder {...props}>
+          <DropdownPlaceholderWrapper>
+            <Icon name={placeholderIcon} color={getColor('grey-70')} size="xs" />
+            {props.children}
+          </DropdownPlaceholderWrapper>
+        </components.Placeholder>
+      );
     }
     return <components.Placeholder {...props}>{props.children}</components.Placeholder>;
   };

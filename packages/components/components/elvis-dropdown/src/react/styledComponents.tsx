@@ -257,3 +257,9 @@ export const DropdownSingleValueOverflowWrapper = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
 `;
+
+export const DropdownPlaceholderWrapper = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
