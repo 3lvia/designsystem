@@ -1,6 +1,20 @@
 <div class="properties-container">
-  <div class="e-input properties-filter">
-    <input type="text" placeholder="Filter properties" [(ngModel)]="searchTerm" (keyup)="searchProps()" />
+  <div class="e-form-field properties-filter">
+    <div class="e-search e-search--instant" [ngClass]="{ 'e-search--searched': searchTerm !== '' }">
+      <div class="e-input">
+        <input
+          aria-label="Filter properties"
+          type="search"
+          placeholder="Filter properties"
+          [(ngModel)]="searchTerm"
+          (keyup)="searchProps()"
+        />
+      </div>
+      <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+      <button class="e-btn e-btn--icon e-btn--lg" (click)="clearSearchField()" aria-label="Tøm søkefelt">
+        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+      </button>
+    </div>
   </div>
   <div class="e-table-container desktop">
     <table

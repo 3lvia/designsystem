@@ -39,3 +39,9 @@
   margin-bottom: 8px;
   width: 50%;
 }
+
+@media (max-width: 768px) {
+  .properties-filter {
+    width: 100%;
+  }
+}

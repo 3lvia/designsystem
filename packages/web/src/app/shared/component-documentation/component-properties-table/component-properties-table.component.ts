@@ -46,6 +46,11 @@ export class ComponentPropertiesTableComponent implements OnInit {
     }
   }
 
+  clearSearchField(): void {
+    this.searchTerm = '';
+    this.searchProps();
+  }
+
   private initializeSearchService(): void {
     this.searchService.initializeSearch(this.componentProps, {
       threshold: 0.4,
