@@ -31,6 +31,10 @@
           display: flex;
           align-self: center;
         }
+        @include breakpoint-up(Mobile) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
       }
     }
     &__description {
