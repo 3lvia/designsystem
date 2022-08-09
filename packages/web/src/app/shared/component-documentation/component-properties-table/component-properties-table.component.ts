@@ -53,6 +53,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
         { name: 'attribute', weight: 1 },
         { name: 'description', weight: 0.5 },
         { name: 'type', weight: 0.4 },
+        { name: 'default', weight: 0.01 },
       ],
     });
   }
