@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "8.8.1",
+      "date": "August 9, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated the size of the selected-marker for radio buttons."],
+          "components": [
+            { "displayName": "Radiobutton", "url": "https://design.elvia.io/components/radiobutton#Overview" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "8.8.0",
       "date": "August 5, 2022",
       "changelog": [
