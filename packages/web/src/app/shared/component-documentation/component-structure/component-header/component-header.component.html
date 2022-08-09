@@ -19,6 +19,9 @@
         <div *ngIf="figmaOnly">
           <label class="e-label e-label--orange">Figma only</label>
         </div>
+        <div *ngIf="!figmaOnly && lastUpdated" class="doc-page-heading__date e-text-micro-light">
+          Last updated {{ lastUpdated }}
+        </div>
       </div>
       <div class="component-header__description component-header-description-animation">
         <span class="e-text-lead" #contentWrapper>
