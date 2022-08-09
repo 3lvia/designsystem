@@ -190,7 +190,7 @@ export class CegFiltersComponent implements OnInit {
     el: CegFormGroup | CegFormGroupOption,
     propName: string,
   ): (CegFormGroup | CegFormGroupOption)[] {
-    el.dependency.forEach((dependency) => {
+    el.dependency?.forEach((dependency) => {
       if (dependency && dependency.name === propName) {
         list.push(el);
       }
