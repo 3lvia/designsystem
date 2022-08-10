@@ -115,16 +115,14 @@ export class ComponentPropertiesTableComponent implements OnInit {
   private resetHighlightedHTML(): void {
     this.filteredComponentProps.forEach((prop) => {
       (['attribute', 'type', 'description', 'default'] as const).forEach((key) => {
-        if (!this.searchService.searchResults.find((result) => result.item.attribute === prop.attribute)) {
-          const element = document.getElementById(`property-row-${prop.attribute}-${key}`);
-          const elementMobile = document.getElementById(`property-row-${prop.attribute}-${key}-mobile`);
-          if (key === 'default') {
-            element.innerHTML = prop[key] ? prop[key].toString() : '-';
-            elementMobile.innerHTML = prop[key] ? prop[key].toString() : '-';
-          } else {
-            element.innerHTML = prop[key];
-            elementMobile.innerHTML = prop[key];
-          }
+        const element = document.getElementById(`property-row-${prop.attribute}-${key}`);
+        const elementMobile = document.getElementById(`property-row-${prop.attribute}-${key}-mobile`);
+        if (key === 'default') {
+          element.innerHTML = prop[key] ? prop[key].toString() : '-';
+          elementMobile.innerHTML = prop[key] ? prop[key].toString() : '-';
+        } else {
+          element.innerHTML = prop[key];
+          elementMobile.innerHTML = prop[key];
         }
       });
     });
