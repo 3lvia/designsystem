@@ -1,5 +1,5 @@
 <div class="properties-container">
-  <div class="e-form-field properties-filter">
+  <div class="e-form-field e-form-field--compact properties-filter">
     <div class="e-search e-search--instant" [ngClass]="{ 'e-search--searched': searchTerm !== '' }">
       <div class="e-input">
         <input
@@ -37,19 +37,24 @@
       <tbody>
         <tr *ngFor="let prop of filteredComponentProps">
           <th scope="row" class="table-code-text">
-            <span>{{ prop.attribute }}</span>
+            <span [id]="'property-row-' + prop.attribute + '-attribute'">{{ prop.attribute }}</span>
             <span *ngIf="prop.isRequired">*</span>
           </th>
-          <td class="table-code-text">{{ prop.type }}</td>
-          <td class="e-table__cell--multiline-small">{{ prop.description }}</td>
-          <td class="table-code-text" *ngIf="prop.default">{{ prop.default }}</td>
-          <td class="table-code-text" *ngIf="!prop.default">-</td>
+          <td class="table-code-text" [id]="'property-row-' + prop.attribute + '-type'">
+            {{ prop.type }}
+          </td>
+          <td class="e-table__cell--multiline-small" [id]="'property-row-' + prop.attribute + '-description'">
+            {{ prop.description }}
+          </td>
+          <td class="table-code-text" [id]="'property-row-' + prop.attribute + '-default'">
+            {{ prop.default ? prop.default : '-' }}
+          </td>
         </tr>
       </tbody>
     </table>
     <div class="no-properties-found" *ngIf="filteredComponentProps.length === 0">
       <img class="" src="assets/no-results/no-results.svg" />
-      <span class="e-title-caps e-text-center">No results</span>
+      <span class="e-title-caps e-text-center">No properties found matching your search</span>
     </div>
   </div>
   <div
@@ -69,27 +74,38 @@
       </thead>
       <tbody *ngFor="let prop of filteredComponentProps">
         <tr>
-          <th class="e-table-mobile__cell" scope="col">{{ prop.attribute }}</th>
+          <th
+            class="e-table-mobile__cell"
+            scope="col"
+            [id]="'property-row-' + prop.attribute + '-attribute-mobile'"
+          >
+            {{ prop.attribute }}
+          </th>
           <th class="e-table-mobile__cell" scope="col"></th>
         </tr>
         <tr>
           <th class="e-table-mobile__cell" scope="row">Type</th>
-          <td class="e-table-mobile__cell">{{ prop.type }}</td>
+          <td class="e-table-mobile__cell" [id]="'property-row-' + prop.attribute + '-type-mobile'">
+            {{ prop.type }}
+          </td>
         </tr>
         <tr>
           <th class="e-table-mobile__cell" scope="row">Description</th>
-          <td class="e-table-mobile__cell">{{ prop.description }}</td>
+          <td class="e-table-mobile__cell" [id]="'property-row-' + prop.attribute + '-description-mobile'">
+            {{ prop.description }}
+          </td>
         </tr>
         <tr>
           <th class="e-table-mobile__cell" scope="row">Default</th>
-          <td class="e-table-mobile__cell" *ngIf="prop.default">{{ prop.default }}</td>
-          <td class="e-table-mobile__cell" *ngIf="!prop.default">-</td>
+          <td class="e-table-mobile__cell" [id]="'property-row-' + prop.attribute + '-default-mobile'">
+            {{ prop.default ? prop.default : '-' }}
+          </td>
         </tr>
       </tbody>
     </table>
     <div class="no-properties-found" *ngIf="filteredComponentProps.length === 0">
-      <img class="" src="assets/no-results/no-results.svg" />
-      <span>No results</span>
+      <img src="assets/no-results/no-results.svg" />
+      <span>No properties found matching your search</span>
     </div>
   </div>
   <div class="e-table__footnote e-table__footnote--compact">* Required - Properties that must be present</div>
