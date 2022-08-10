@@ -66,9 +66,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
       resultItem.matches.forEach((match) => {
         try {
           const element = document.getElementById(`property-row-${resultItem.item.attribute}-${match.key}`);
-          element.innerHTML = this.encodeHTML(
-            this.getHighlightedHTMLString(match, resultItem.item[match.key]),
-          );
+          element.innerHTML = this.getHighlightedHTMLString(match, resultItem.item[match.key]);
         } catch (error) {
           console.log('id:', `property-row-${resultItem.item.attribute}-${match.key}`, error);
         }
@@ -95,18 +93,22 @@ export class ComponentPropertiesTableComponent implements OnInit {
       const [matchStart, matchEnd] = matchIndices;
       // Only highlight in description if more than one character
       if (matchEnd - matchStart > 0) {
-        highlightedValue += this.addHighlightBackground(value.substring(matchStart, matchEnd + 1));
+        highlightedValue += this.addHighlightBackground(
+          this.encodeHTML(value.substring(matchStart, matchEnd + 1)),
+        );
       } else {
-        highlightedValue += value.substring(matchStart, matchEnd + 1);
+        highlightedValue += this.encodeHTML(value.substring(matchStart, matchEnd + 1));
       }
 
       // If not the last match, add the part of the description upto next match
       if (index !== match.indices.length - 1) {
-        highlightedValue += value.substring(matchEnd + 1, items[index + 1][0]);
+        highlightedValue += this.encodeHTML(value.substring(matchEnd + 1, items[index + 1][0]));
       }
     });
     // Add the part after the last match
-    highlightedValue += value.substring(match.indices[match.indices.length - 1][1] + 1, value.length);
+    highlightedValue += this.encodeHTML(
+      value.substring(match.indices[match.indices.length - 1][1] + 1, value.length),
+    );
     return highlightedValue;
   }
 
