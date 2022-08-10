@@ -66,7 +66,9 @@ export class ComponentPropertiesTableComponent implements OnInit {
       resultItem.matches.forEach((match) => {
         try {
           const element = document.getElementById(`property-row-${resultItem.item.attribute}-${match.key}`);
-          element.innerHTML = this.getHighlightedHTMLString(match, resultItem.item[match.key]);
+          element.innerHTML = this.encodeHTML(
+            this.getHighlightedHTMLString(match, resultItem.item[match.key]),
+          );
         } catch (error) {
           console.log('id:', `property-row-${resultItem.item.attribute}-${match.key}`, error);
         }
@@ -118,14 +120,18 @@ export class ComponentPropertiesTableComponent implements OnInit {
         const element = document.getElementById(`property-row-${prop.attribute}-${key}`);
         const elementMobile = document.getElementById(`property-row-${prop.attribute}-${key}-mobile`);
         if (key === 'default') {
-          element.innerHTML = prop[key] ? prop[key].toString() : '-';
-          elementMobile.innerHTML = prop[key] ? prop[key].toString() : '-';
+          element.innerHTML = prop[key] ? this.encodeHTML(prop[key].toString()) : '-';
+          elementMobile.innerHTML = prop[key] ? this.encodeHTML(prop[key].toString()) : '-';
         } else {
-          element.innerHTML = prop[key];
-          elementMobile.innerHTML = prop[key];
+          element.innerHTML = this.encodeHTML(prop[key]);
+          elementMobile.innerHTML = this.encodeHTML(prop[key]);
         }
       });
     });
+  }
+
+  private encodeHTML(txt: string): string {
+    return txt.replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
   private initializeSearchService(): void {
