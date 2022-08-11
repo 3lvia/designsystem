@@ -90,7 +90,7 @@ function App() {
   // Spotlight
   const [spotlightIsShowing, setSpotlightIsShowing] = useState(false);
   const [spotlightState, setSpotlightState] = useState({
-    pos: { vertical: window.innerWidth / 2, horizontal: window.innerHeight / 2 },
+    pos: { vertical: window.innerWidth / 2 - 200, horizontal: window.innerHeight / 2 + 200 },
     size: 100,
   });
 

@@ -58,8 +58,10 @@ async function createIconModule() {
 // ADD OR REMOVE ICONS IN icons.config.js
 import { getColor } from '@elvia/elvis-colors';
 `;
-  let iconTypes = `declare type Icon = {
-  getIcon: (color?: string) => string;
+  let iconTypes = `import type { ElviaColor } from '@elvia/elvis-colors';
+
+declare type Icon = {
+  getIcon: (color?: ElviaColor | 'inverted') => string;
 };`;
   let iconNameType = `
 export declare type IconName =`;
