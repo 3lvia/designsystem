@@ -5,7 +5,7 @@ import { DividerArea, DividerTitle } from './styledComponents';
 
 export interface DividerProps {
   type?: DividerType;
-  title?: string | HTMLElement;
+  title?: string | JSX.Element;
   typography?: DividerTypography;
   isInverted?: boolean;
   orientation?: DividerOrientation;

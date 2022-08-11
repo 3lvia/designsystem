@@ -12,7 +12,7 @@ export interface PopoverProps {
    */
   header?: string;
   heading?: string;
-  content?: string | HTMLElement;
+  content?: string | JSX.Element;
   type?: 'informative' | 'list';
   /**
    * @deprecated Deprecated in version 5.0.0. Replaced by `isSelectable`.
@@ -31,7 +31,7 @@ export interface PopoverProps {
   posY?: 'top' | 'bottom';
   verticalPosition?: 'top' | 'bottom';
 
-  trigger?: HTMLElement;
+  trigger?: JSX.Element;
   /**
    * @deprecated Deprecated in version 5.0.0. Replaced by 'hasCloseButton'.
    */
@@ -44,7 +44,7 @@ export interface PopoverProps {
   isShowingOnChange?: (isShowing: boolean) => void;
   onOpen?: () => void;
   onClose?: () => void;
-  disableAutoClose: boolean;
+  disableAutoClose?: boolean;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;

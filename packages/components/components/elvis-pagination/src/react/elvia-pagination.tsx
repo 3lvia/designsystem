@@ -19,13 +19,13 @@ import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import { config } from './config';
 
 export interface PaginationProps {
-  value: VisibleElements;
-  numberOfElements: number;
+  value?: VisibleElements;
+  numberOfElements?: number;
   lastNumberLimit?: number;
   alignment?: 'left' | 'right';
-  dropdownItems: DropdownItem[];
-  dropdownMenuPosition: string;
-  dropdownSelectedItemIndex: number;
+  dropdownItems?: DropdownItem[];
+  dropdownMenuPosition?: string;
+  dropdownSelectedItemIndex?: number;
   dropdownSelectedItemIndexOnChange?: (value: number) => void;
   labelOptions?: PaginationLabel;
   valueOnChange?: (value: VisibleElements) => void;

@@ -61,12 +61,12 @@ export interface DatepickerProps {
   inlineStyle?: { [style: string]: CSSProperties };
   hasOptionalText?: boolean;
   showValidation?: boolean;
-  showValidationState: boolean;
+  showValidationState?: boolean;
   isErrorState?: boolean;
   errorOnChange?: (error: string) => void;
   hasValidation?: boolean;
   hasErrorPlaceholderElement?: boolean;
-  clearButtonText: string;
+  clearButtonText?: string;
   disableDate?: (day: Date) => boolean;
   /**
    * This is used for internal purposes, and should not be used by the user.

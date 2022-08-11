@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "11.08.2022",
+      "version": "2.1.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fixed types in the property interface of the component. "]
+        }
+      ]
+    },
+    {
       "date": "09.06.22",
       "version": "2.1.1 ",
       "changelog": [

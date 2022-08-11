@@ -26,8 +26,8 @@ export interface ModalProps {
    */
   title?: string;
   heading?: string;
-  content: HTMLElement;
-  illustration?: HTMLElement;
+  content: JSX.Element;
+  illustration?: JSX.Element;
   primaryButton?: JSX.Element;
   secondaryButton?: JSX.Element;
   className?: string;
@@ -44,8 +44,8 @@ export interface ModalProps {
   /**
    * @deprecated Removed in version 2.0.0. Replaced by `onClose()`.
    */
-  onHide: () => void;
-  onClose: () => void;
+  onHide?: () => void;
+  onClose?: () => void;
   webcomponent?: ElvisComponentWrapper;
 }
 

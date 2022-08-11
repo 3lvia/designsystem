@@ -25,7 +25,7 @@ export interface BaseChipProps {
    */
   selected?: boolean;
   isSelected?: boolean;
-  value: string;
+  value: string | number;
   onDelete?: (event: BaseChipProps['value']) => void;
   /**
    * @deprecated Removed in version 2.0.0. Replaced by `isSelectedOnChange()`.
@@ -62,7 +62,7 @@ export const Chip: FC<BaseChipProps> = function ({
     setIsSelectedState(isSelected);
   }, [isSelected]);
 
-  const handleOnDelete = (value: string) => {
+  const handleOnDelete = (value: BaseChipProps['value']) => {
     if (!webcomponent) {
       onDelete && onDelete(value);
     } else if (webcomponent) {

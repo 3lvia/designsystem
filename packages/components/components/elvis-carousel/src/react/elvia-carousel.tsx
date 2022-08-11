@@ -55,7 +55,7 @@ export interface CarouselProps {
   hasConfirmationCheckmark?: boolean;
   value?: number;
   valueOnChange?: (value: number) => void;
-  hasAnimation: boolean;
+  hasAnimation?: boolean;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
   webcomponent?: ElvisComponentWrapper;

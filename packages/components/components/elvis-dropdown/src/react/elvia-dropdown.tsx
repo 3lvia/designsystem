@@ -46,10 +46,10 @@ export interface DropdownProps {
    */
   defaultValue?: never;
   value?: DropdownItem | Array<DropdownItem> | undefined;
-  isCompact: boolean;
-  isDisabled: boolean;
-  isMulti: boolean;
-  isSearchable: boolean;
+  isCompact?: boolean;
+  isDisabled?: boolean;
+  isMulti?: boolean;
+  isSearchable?: boolean;
   hasSelectAllOption?: boolean;
   selectAllOption?: Partial<DropdownItem>;
   allOptionsSelectedLabel?: string;
@@ -114,7 +114,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   const selectId = uniqueId('ewc-dropdown-');
 
   /** Styling functions for react select */
-  const decideControlBorder = (disabled: boolean, error: boolean) => {
+  const decideControlBorder = (disabled?: boolean, error?: boolean) => {
     if (disabled) {
       return `1px solid ${getColor('disabled')}`;
     }
@@ -147,7 +147,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
     return getColor('grey-05');
   };
 
-  const decideSingleValueColor = (isMenuOpen: boolean, searchable: boolean, disabled: boolean) => {
+  const decideSingleValueColor = (isMenuOpen: boolean, searchable: boolean, disabled?: boolean) => {
     if (disabled) {
       return getColor('disabled');
     }
