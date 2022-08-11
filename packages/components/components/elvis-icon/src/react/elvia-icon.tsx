@@ -4,12 +4,13 @@ import * as elvisIcons from '@elvia/elvis-assets-icons';
 export type IconSizes = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 export interface IconProps {
-  name: string;
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  name: keyof typeof elvisIcons | (string & {});
   color?: string;
   size?: IconSizes;
   customSize?: string;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
 }
 export const Icon: React.FC<IconProps> = ({
   name,
@@ -20,9 +21,9 @@ export const Icon: React.FC<IconProps> = ({
   inlineStyle,
   ...rest
 }) => {
-  const getIcon = (icon: string, size: IconSizes, color?: string, customSize?: string): string => {
+  const getIcon = (icon: IconProps['name'], size: IconSizes, color?: string, customSize?: string): string => {
     try {
-      const newIcon = elvisIcons[icon].getIcon(color);
+      const newIcon = elvisIcons[icon as keyof typeof elvisIcons].getIcon(color);
       return getSize(newIcon, size, customSize);
     } catch (error) {
       const errorMessage = `No icon found with the name ${icon}${color ? ` and color ${color}` : ''}`;

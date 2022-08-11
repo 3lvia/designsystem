@@ -24,7 +24,7 @@ interface BreadcrumbLink {
   text: string;
 }
 
-interface BreadcrumbProps {
+export interface BreadcrumbProps {
   /**
    * @deprecated Deprecated in version 2.0.0. Use items instead.
    */
@@ -36,7 +36,7 @@ interface BreadcrumbProps {
   breadcrumbsOnChange?: (value: number) => void;
   onLinkClick?: (value: number) => void;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
 }
 

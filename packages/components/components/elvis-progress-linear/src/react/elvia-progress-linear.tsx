@@ -3,12 +3,12 @@ import './style.scss';
 import classnames from 'classnames';
 
 export interface ProgressbarProps {
-  value: number;
-  isIndeterminate: boolean;
-  isError: boolean;
+  value?: number;
+  isIndeterminate?: boolean;
+  isError?: boolean;
   className?: string;
-  ariaValueText: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  ariaValueText?: string;
+  inlineStyle?: CSSProperties;
 }
 
 const ProgressLinear: FC<ProgressbarProps> = ({

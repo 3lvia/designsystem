@@ -286,7 +286,7 @@ export interface CardProps {
    */
   hasBorder?: boolean;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
 }
 ```

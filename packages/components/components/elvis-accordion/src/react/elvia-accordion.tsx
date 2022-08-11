@@ -16,7 +16,7 @@ export interface AccordionProps {
   type: AccordionType;
   overflowHeight?: number;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
 }
 

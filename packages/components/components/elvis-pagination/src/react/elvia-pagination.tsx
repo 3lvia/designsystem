@@ -19,18 +19,18 @@ import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import { config } from './config';
 
 export interface PaginationProps {
-  value: VisibleElements;
-  numberOfElements: number;
+  value?: VisibleElements;
+  numberOfElements?: number;
   lastNumberLimit?: number;
   alignment?: 'left' | 'right';
-  dropdownItems: DropdownItem[];
-  dropdownMenuPosition: string;
-  dropdownSelectedItemIndex: number;
+  dropdownItems?: DropdownItem[];
+  dropdownMenuPosition?: string;
+  dropdownSelectedItemIndex?: number;
   dropdownSelectedItemIndexOnChange?: (value: number) => void;
   labelOptions?: PaginationLabel;
   valueOnChange?: (value: VisibleElements) => void;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
   /**
    * @deprecated Removed in version 3.0.0. Replaced by `alignment`.

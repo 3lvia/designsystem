@@ -11,7 +11,7 @@ export interface SpotlightProps {
   radius?: number;
   hasLockBodyScroll?: boolean;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
 }
 
 const Spotlight: FC<SpotlightProps> = ({

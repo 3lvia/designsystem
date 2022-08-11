@@ -1,5 +1,5 @@
 declare type Icon = {
-  getIcon: (color: string) => string;
+  getIcon: (color?: string) => string;
 };
 export declare const accessControl: Icon;
 export declare const accessControlColor: Icon;

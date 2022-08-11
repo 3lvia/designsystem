@@ -15,7 +15,7 @@ export interface BaseRadioFilterProps {
   groupAriaLabel?: string;
   valueOnChange?: (value: string) => void;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
 }
 

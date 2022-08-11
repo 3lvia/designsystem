@@ -52,7 +52,7 @@ export interface DatepickerRangeProps {
   minDate?: Date;
   maxDate?: Date;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   disableDates?: DisableDates;
   webcomponent?: ElvisComponentWrapper;
 }
@@ -173,7 +173,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     return disableDates;
   };
 
-  const handleEndDatepickerDateElementPointerMove = (day: Date, event?: PointerEvent<HTMLDivElement>) => {
+  const handleEndDatepickerDateElementPointerMove = (day: Date, event?: PointerEvent<HTMLButtonElement>) => {
     const isPointerEventAndTargetIsDayElementInCalendar =
       event && event.target instanceof Element && event.target.classList.contains('ewc-datepicker__day');
 
@@ -191,7 +191,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const handleStartDatepickerDateElementPointerMove = (day: Date, event?: PointerEvent<HTMLDivElement>) => {
+  const handleStartDatepickerDateElementPointerMove = (
+    day: Date,
+    event?: PointerEvent<HTMLButtonElement>,
+  ) => {
     const isPointerEventAndTargetIsDayElementInCalendar =
       event && event.target instanceof Element && event.target.classList.contains('ewc-datepicker__day');
 
@@ -323,9 +326,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         disableDate={disableDatesWrapper()?.start}
         customError={customError?.start}
         isErrorState={isErrorState?.start}
-        errorOnChange={(error: string) =>
-          setCurrentErrorMessages((current) => ({ ...current, start: error }))
-        }
+        errorOnChange={(error) => setCurrentErrorMessages((current) => ({ ...current, start: error }))}
       ></Datepicker>
       <Datepicker
         {...passThroughProps}
@@ -352,7 +353,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         disableDate={disableDatesWrapper()?.end}
         customError={customError?.end}
         isErrorState={isErrorState?.end}
-        errorOnChange={(error: string) => setCurrentErrorMessages((current) => ({ ...current, end: error }))}
+        errorOnChange={(error) => setCurrentErrorMessages((current) => ({ ...current, end: error }))}
       ></Datepicker>
     </DatepickerRangeWrapper>
   );
