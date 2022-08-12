@@ -105,7 +105,7 @@ const consoleWarnDeprecatedProp = (
  */
 export const warnDeprecatedProps = (config: ComponentConfig, props: { [propName: string]: any }): void => {
   // If not on localhost, don't console log deprecation warnings.
-  if (window.location.href.indexOf('localhost') === -1) {
+  if (window && window.location.href.indexOf('localhost') === -1) {
     return;
   }
   /** List of deprecated callbacks that have already been console warned. Used to avoid duplicated warnings. */
