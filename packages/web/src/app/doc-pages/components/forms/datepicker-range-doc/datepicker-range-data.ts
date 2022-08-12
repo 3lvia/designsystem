@@ -145,6 +145,12 @@ const datepickerRangeData: ComponentData = {
       description:
         'Optional prop for adding an error-message. This prop will overwrite built-in error-messages and is always visible when sent in.',
     },
+    hasErrorPlaceholderElement: {
+      isRequired: false,
+      default: 'true',
+      type: 'boolean',
+      description: 'Can be used to turn off the error placeholder element. ',
+    },
     errorOnChange: {
       isRequired: false,
       type: '(errors: {start?: string; end?: string}) => CustomEvent',

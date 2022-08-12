@@ -48,6 +48,7 @@ export interface DatepickerRangeProps {
   showValidationState?: boolean;
   isErrorState?: IsErrorState;
   customError?: CustomError;
+  hasErrorPlaceholderElement?: boolean;
   errorOnChange?: (errors: CustomError) => void;
   minDate?: Date;
   maxDate?: Date;
@@ -72,6 +73,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   showValidationState = true,
   isErrorState,
   customError,
+  hasErrorPlaceholderElement = true,
   errorOnChange,
   minDate,
   maxDate,
@@ -286,7 +288,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     isDisabled,
     hasSelectDateOnOpen,
     showValidationState,
-    hasErrorPlaceholderElement: windowWidth > 767 && !isVertical,
+    hasErrorPlaceholderElement: hasErrorPlaceholderElement && windowWidth > 767 && !isVertical,
   };
 
   return (
