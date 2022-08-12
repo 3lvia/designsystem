@@ -211,6 +211,7 @@ module.exports = [
       { name: 'showValidationState', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isErrorState', type: 'object', propType: 'object | undefined' },
       { name: 'customError', type: 'object', propType: 'object | undefined' },
+      { name: 'hasErrorPlaceholderElement', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'minDate', type: 'Date', propType: 'Date | undefined' },
       { name: 'maxDate', type: 'Date', propType: 'Date | undefined' },
       { name: 'disableDates', type: 'function', propType: 'object | undefined' },

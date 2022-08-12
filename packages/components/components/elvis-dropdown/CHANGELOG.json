@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "12.08.22",
+      "version": "3.1.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fixed the color of the icon in selected dropdown value when the dropdown is disabled."]
+        }
+      ]
+    },
+    {
       "date": "09.08.22",
       "version": "3.1.0 ",
       "changelog": [

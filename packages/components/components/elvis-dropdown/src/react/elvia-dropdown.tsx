@@ -425,7 +425,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
       return (
         <components.Placeholder {...props}>
           <DropdownPlaceholderWrapper>
-            <Icon name={placeholderIcon} color={getColor('disabled')} size="xs" />
+            <Icon name={placeholderIcon} color={getColor('placeholder')} size="xs" />
             {props.children}
           </DropdownPlaceholderWrapper>
         </components.Placeholder>
@@ -462,6 +462,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
             inlineStyle={{ marginRight: '16px' }}
             name={(props.data as DropdownItem).icon as string}
             size={isCompact ? 'xs' : 'sm'}
+            color={decideSingleValueColor(menuIsOpen, isSearchable, isDisabled)}
           />
         ) : (
           ''
