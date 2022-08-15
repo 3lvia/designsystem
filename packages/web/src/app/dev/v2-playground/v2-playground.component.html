@@ -7,7 +7,9 @@
     <!--Normal version-->
     <div class="e-bg-white">
       <elvia-dropdown
-        label="testing something"
+        [label]="'testing something'"
+        [isMulti]="true"
+        [hasSelectAllOption]="true"
         [placeholder]="'Select an option'"
         [placeholderIcon]="'arrowUp'"
         [items]="dropdownOptions"

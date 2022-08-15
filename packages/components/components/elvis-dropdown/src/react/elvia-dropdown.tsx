@@ -111,6 +111,11 @@ const Dropdown: React.FC<DropdownProps> = function ({
     }
   }, [selectAllOption]);
 
+  /** Memoized variable with all the items that are not disabled. Updates when `items` changes. */
+  const itemsNotDisabled = useMemo(() => {
+    return items.filter((item) => !item.isDisabled);
+  }, [items]);
+
   const selectId = uniqueId('ewc-dropdown-');
 
   /** Styling functions for react select */
@@ -403,13 +408,14 @@ const Dropdown: React.FC<DropdownProps> = function ({
       currentVal.length > 0 &&
       !props.isSelected;
     return (
-      <components.Option {...props}>
+      <components.Option {...props} isDisabled={optionIsDisabled}>
         <DropdownCheckbox>
           <DropdownCheckboxMark
             id="ewc-dropdown-checkbox__mark"
             isSelected={props.isSelected}
             isCompact={isCompact}
             isSelectAllWithPartialSelected={isSelectAllWithPartialSelected}
+            isDisabled={optionIsDisabled}
           />
           <DropdownCheckboxLabel isCompact={isCompact}>{props.children}</DropdownCheckboxLabel>
         </DropdownCheckbox>
@@ -528,8 +534,8 @@ const Dropdown: React.FC<DropdownProps> = function ({
           !currentVal.find((option) => isEqual(option, selectAllOptionState)) &&
           event.includes(selectAllOptionState))
       ) {
-        setCurrentVal([selectAllOptionState, ...items]);
-        updateValue([selectAllOptionState, ...items]);
+        setCurrentVal([selectAllOptionState, ...itemsNotDisabled]);
+        updateValue([selectAllOptionState, ...itemsNotDisabled]);
       } else if (
         // selectAllOption is selected, but becomes unselected => unselect all
         // Check that selectAllOption is currently selected
@@ -546,7 +552,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
         Array.isArray(currentVal) &&
         currentVal.find((option) => isEqual(option, selectAllOptionState)) &&
         // Check that not all elements in options are selected any more  (length + 1 because of selectAllOption being added)
-        event.length !== items.length + 1
+        event.length !== itemsNotDisabled.length + 1
       ) {
         // Filter out selectAllOption from the selected options
         const newSelectedValue = event.filter((option) => !isEqual(option, selectAllOptionState));
@@ -558,7 +564,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
         Array.isArray(currentVal) &&
         !currentVal.find((option) => isEqual(option, selectAllOptionState)) &&
         // Check that all options are selected
-        event.length == items.length
+        event.length == itemsNotDisabled.length
       ) {
         setCurrentVal([selectAllOptionState, ...event]);
         updateValue([selectAllOptionState, ...event]);

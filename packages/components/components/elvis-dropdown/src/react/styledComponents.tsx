@@ -141,6 +141,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
   isCompact: boolean,
   isSelecteed: boolean,
   isSelectAllWithPartialSelected: boolean,
+  // isDisabled: boolean
 ) => {
   // Make compact line for "select all"-option when not everything is selected
   if (isCompact && isSelectAllWithPartialSelected) {
@@ -221,6 +222,7 @@ interface DropdownCheckboxMarkProps {
   isCompact: boolean;
   isSelected: boolean;
   isSelectAllWithPartialSelected: boolean;
+  isDisabled: boolean;
 }
 
 export const DropdownCheckboxMark = styled.span<DropdownCheckboxMarkProps>`
@@ -230,7 +232,7 @@ export const DropdownCheckboxMark = styled.span<DropdownCheckboxMarkProps>`
   max-width: ${(props) => (props.isCompact ? '16px' : '24px')};
   max-height: ${(props) => (props.isCompact ? '16px' : '24px')};
   border-radius: 3px;
-  border: 1px solid ${colors.elviaBlack};
+  border: 1px solid ${(props) => (props.isDisabled ? colors.elviaDisabled : colors.elviaBlack)};
   background: ${colors.elviaWhite};
   position: relative;
   ${(props) =>
@@ -238,6 +240,7 @@ export const DropdownCheckboxMark = styled.span<DropdownCheckboxMarkProps>`
       props.isCompact,
       props.isSelected,
       props.isSelectAllWithPartialSelected,
+      // props.isDisabled,
     )}
 `;
 
