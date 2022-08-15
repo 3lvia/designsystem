@@ -8087,8 +8087,8 @@ input:focus {
 }
 .e-radio.e-radio---disabled-checked .e-radio__mark:before, .e-radio.e-radio---checked .e-radio__mark:before, .e-radio input:checked ~ .e-radio__mark:before {
   content: "";
-  height: 14px;
-  width: 14px;
+  height: 12px;
+  width: 12px;
   background-color: #000;
   border-radius: 50%;
   opacity: 1;
