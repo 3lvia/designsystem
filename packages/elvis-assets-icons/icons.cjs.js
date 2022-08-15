@@ -25,9 +25,9 @@ exports.accessControl = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.accessControlColor = {
@@ -53,9 +53,9 @@ exports.accessControlColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.addCircle = {
@@ -81,9 +81,9 @@ exports.addCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.addCircleColor = {
@@ -109,9 +109,9 @@ exports.addCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.addCircleFilled = {
@@ -137,9 +137,9 @@ exports.addCircleFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.addCircleFilledColor = {
@@ -165,9 +165,9 @@ exports.addCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.addPowermeter = {
@@ -193,9 +193,9 @@ exports.addPowermeter = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.addPowermeterColor = {
@@ -221,9 +221,9 @@ exports.addPowermeterColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.adjust = {
@@ -249,9 +249,9 @@ exports.adjust = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.agreementsColor = {
@@ -277,9 +277,9 @@ exports.agreementsColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.analyticsBars = {
@@ -305,9 +305,9 @@ exports.analyticsBars = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowCircleColor = {
@@ -333,9 +333,9 @@ exports.arrowCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowRightCircleColor = {
@@ -361,9 +361,9 @@ exports.arrowRightCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowCircleFilledColor = {
@@ -389,9 +389,9 @@ exports.arrowCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowRightCircleFilledColor = {
@@ -417,9 +417,9 @@ exports.arrowRightCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowRightCircle = {
@@ -445,9 +445,9 @@ exports.arrowRightCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowLeftCircle = {
@@ -473,9 +473,9 @@ exports.arrowLeftCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowLeftCircleColor = {
@@ -501,9 +501,9 @@ exports.arrowLeftCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowLeftCircleFilledColor = {
@@ -529,9 +529,9 @@ exports.arrowLeftCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowDown = {
@@ -557,9 +557,9 @@ exports.arrowDown = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowDownBold = {
@@ -585,9 +585,9 @@ exports.arrowDownBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowExternal = {
@@ -613,9 +613,9 @@ exports.arrowExternal = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowExternalBold = {
@@ -641,9 +641,9 @@ exports.arrowExternalBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowLeft = {
@@ -669,9 +669,9 @@ exports.arrowLeft = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowLeftBold = {
@@ -697,9 +697,9 @@ exports.arrowLeftBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowLongLeft = {
@@ -725,9 +725,9 @@ exports.arrowLongLeft = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowLongLeftBold = {
@@ -753,9 +753,9 @@ exports.arrowLongLeftBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowLongRight = {
@@ -781,9 +781,9 @@ exports.arrowLongRight = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowLong = {
@@ -809,9 +809,9 @@ exports.arrowLong = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowLongRightBold = {
@@ -837,9 +837,9 @@ exports.arrowLongRightBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowLongBold = {
@@ -865,9 +865,9 @@ exports.arrowLongBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowRight = {
@@ -893,9 +893,9 @@ exports.arrowRight = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowRightBold = {
@@ -921,9 +921,9 @@ exports.arrowRightBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowUp = {
@@ -949,9 +949,9 @@ exports.arrowUp = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.arrowUpBold = {
@@ -977,9 +977,9 @@ exports.arrowUpBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.attendance = {
@@ -1005,9 +1005,9 @@ exports.attendance = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.attachment = {
@@ -1033,9 +1033,9 @@ exports.attachment = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.attachmentColor = {
@@ -1061,9 +1061,9 @@ exports.attachmentColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.bin = {
@@ -1089,9 +1089,9 @@ exports.bin = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.bookmark = {
@@ -1117,9 +1117,9 @@ exports.bookmark = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.bookmarkFilled = {
@@ -1145,9 +1145,9 @@ exports.bookmarkFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.bookshelf = {
@@ -1173,9 +1173,9 @@ exports.bookshelf = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.box = {
@@ -1201,9 +1201,9 @@ exports.box = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.businessColor = {
@@ -1229,9 +1229,9 @@ exports.businessColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.cabin = {
@@ -1257,9 +1257,9 @@ exports.cabin = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.cable = {
@@ -1285,9 +1285,9 @@ exports.cable = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.calendar = {
@@ -1313,9 +1313,9 @@ exports.calendar = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.calendarClockColor = {
@@ -1341,9 +1341,9 @@ exports.calendarClockColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.calendarColor = {
@@ -1369,9 +1369,9 @@ exports.calendarColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.call = {
@@ -1397,9 +1397,9 @@ exports.call = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.carChargerColor = {
@@ -1425,9 +1425,9 @@ exports.carChargerColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.chainsaw = {
@@ -1453,9 +1453,9 @@ exports.chainsaw = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.chat = {
@@ -1481,9 +1481,9 @@ exports.chat = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.chargingBattery = {
@@ -1509,9 +1509,9 @@ exports.chargingBattery = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.charge = {
@@ -1537,9 +1537,9 @@ exports.charge = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.chargingBatteryColor = {
@@ -1565,9 +1565,9 @@ exports.chargingBatteryColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.check = {
@@ -1593,9 +1593,9 @@ exports.check = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.checkBold = {
@@ -1621,9 +1621,9 @@ exports.checkBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.checkCircle = {
@@ -1649,9 +1649,9 @@ exports.checkCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.checkCircleColor = {
@@ -1677,9 +1677,9 @@ exports.checkCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.checkCircleFilled = {
@@ -1705,9 +1705,9 @@ exports.checkCircleFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.checkCircleFilledColor = {
@@ -1733,9 +1733,9 @@ exports.checkCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.checkShield = {
@@ -1761,9 +1761,9 @@ exports.checkShield = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.checklistColor = {
@@ -1789,9 +1789,9 @@ exports.checklistColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.clock = {
@@ -1817,9 +1817,9 @@ exports.clock = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.close = {
@@ -1845,9 +1845,9 @@ exports.close = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.closeBold = {
@@ -1873,9 +1873,9 @@ exports.closeBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.closeMenu = {
@@ -1901,9 +1901,9 @@ exports.closeMenu = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.cloudUpload = {
@@ -1929,9 +1929,9 @@ exports.cloudUpload = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.cog = {
@@ -1957,9 +1957,9 @@ exports.cog = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.cookie = {
@@ -1985,9 +1985,9 @@ exports.cookie = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.costCutColor = {
@@ -2013,9 +2013,9 @@ exports.costCutColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.collapseCircleColor = {
@@ -2041,9 +2041,9 @@ exports.collapseCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.collapseCircleFilledColor = {
@@ -2069,9 +2069,9 @@ exports.collapseCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.configurations = {
@@ -2097,9 +2097,9 @@ exports.configurations = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.copy = {
@@ -2125,9 +2125,9 @@ exports.copy = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.crane = {
@@ -2153,9 +2153,9 @@ exports.crane = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.creditCard = {
@@ -2181,9 +2181,9 @@ exports.creditCard = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.cutElectricityPillar = {
@@ -2209,9 +2209,9 @@ exports.cutElectricityPillar = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.cutElectricityPillarColor = {
@@ -2237,9 +2237,9 @@ exports.cutElectricityPillarColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.dangerElectricityColor = {
@@ -2265,9 +2265,9 @@ exports.dangerElectricityColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.dashboard = {
@@ -2293,9 +2293,9 @@ exports.dashboard = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.dashboardColor = {
@@ -2321,9 +2321,9 @@ exports.dashboardColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.designProcessColor = {
@@ -2349,9 +2349,9 @@ exports.designProcessColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.diggingColor = {
@@ -2377,9 +2377,9 @@ exports.diggingColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.download = {
@@ -2405,9 +2405,9 @@ exports.download = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.dragHandle = {
@@ -2433,9 +2433,9 @@ exports.dragHandle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.edit = {
@@ -2461,9 +2461,9 @@ exports.edit = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.electricCabinet = {
@@ -2489,9 +2489,9 @@ exports.electricCabinet = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.electricCabinetColor = {
@@ -2517,9 +2517,9 @@ exports.electricCabinetColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.electricCarColor = {
@@ -2545,9 +2545,9 @@ exports.electricCarColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.electricHome = {
@@ -2573,9 +2573,9 @@ exports.electricHome = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.electricHomeColor = {
@@ -2601,9 +2601,9 @@ exports.electricHomeColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.electricalSystem = {
@@ -2629,9 +2629,9 @@ exports.electricalSystem = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.electricalSystemColor = {
@@ -2657,9 +2657,9 @@ exports.electricalSystemColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.electricityPillar = {
@@ -2685,9 +2685,9 @@ exports.electricityPillar = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.electricitySafety = {
@@ -2713,9 +2713,9 @@ exports.electricitySafety = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.electricitySafetyColor = {
@@ -2741,9 +2741,9 @@ exports.electricitySafetyColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.electricityTower = {
@@ -2769,9 +2769,9 @@ exports.electricityTower = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.elsmartColor = {
@@ -2797,9 +2797,9 @@ exports.elsmartColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.exitFullScreen = {
@@ -2825,9 +2825,9 @@ exports.exitFullScreen = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.exitFullScreenColor = {
@@ -2853,9 +2853,9 @@ exports.exitFullScreenColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.expandCircleColor = {
@@ -2881,9 +2881,9 @@ exports.expandCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.expandCircleFilledColor = {
@@ -2909,9 +2909,9 @@ exports.expandCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.extensionCord = {
@@ -2937,9 +2937,9 @@ exports.extensionCord = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.facebook = {
@@ -2965,9 +2965,9 @@ exports.facebook = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.feedback = {
@@ -2993,9 +2993,9 @@ exports.feedback = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.filter = {
@@ -3021,9 +3021,9 @@ exports.filter = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.filterFilled = {
@@ -3049,9 +3049,9 @@ exports.filterFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.flag = {
@@ -3077,9 +3077,9 @@ exports.flag = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.flagBold = {
@@ -3105,9 +3105,9 @@ exports.flagBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.flagBoldColor = {
@@ -3133,9 +3133,9 @@ exports.flagBoldColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.flagColor = {
@@ -3161,9 +3161,9 @@ exports.flagColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.folder = {
@@ -3189,9 +3189,9 @@ exports.folder = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.folderCreate = {
@@ -3217,9 +3217,9 @@ exports.folderCreate = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.folderOpen = {
@@ -3245,9 +3245,9 @@ exports.folderOpen = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.formCheckColor = {
@@ -3273,9 +3273,9 @@ exports.formCheckColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.form = {
@@ -3301,9 +3301,9 @@ exports.form = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.formColor = {
@@ -3329,9 +3329,9 @@ exports.formColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.fullBattery = {
@@ -3357,9 +3357,9 @@ exports.fullBattery = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.fullBatteryColor = {
@@ -3385,9 +3385,9 @@ exports.fullBatteryColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.fullScreen = {
@@ -3413,9 +3413,9 @@ exports.fullScreen = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.fullScreenColor = {
@@ -3441,9 +3441,9 @@ exports.fullScreenColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.freshchatColor = {
@@ -3469,9 +3469,9 @@ exports.freshchatColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.graphBar = {
@@ -3497,9 +3497,9 @@ exports.graphBar = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.graphBarColor = {
@@ -3525,9 +3525,9 @@ exports.graphBarColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.graphUp = {
@@ -3553,9 +3553,9 @@ exports.graphUp = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.groundFault = {
@@ -3581,9 +3581,9 @@ exports.groundFault = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.groundFaultColor = {
@@ -3609,9 +3609,9 @@ exports.groundFaultColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.hammerWrenchColor = {
@@ -3637,9 +3637,9 @@ exports.hammerWrenchColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.han = {
@@ -3665,9 +3665,9 @@ exports.han = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.hanColor = {
@@ -3693,9 +3693,9 @@ exports.hanColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.heating = {
@@ -3721,9 +3721,9 @@ exports.heating = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.home = {
@@ -3749,9 +3749,9 @@ exports.home = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.homeColor = {
@@ -3777,9 +3777,9 @@ exports.homeColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.houseRebuildingColor = {
@@ -3805,9 +3805,9 @@ exports.houseRebuildingColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.image = {
@@ -3833,9 +3833,9 @@ exports.image = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.imageAddColor = {
@@ -3861,9 +3861,9 @@ exports.imageAddColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.informationCircle = {
@@ -3889,9 +3889,9 @@ exports.informationCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.informationCircleColor = {
@@ -3917,9 +3917,9 @@ exports.informationCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.informationCircleFilledColor = {
@@ -3945,9 +3945,9 @@ exports.informationCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.installatorwebColor = {
@@ -3973,9 +3973,9 @@ exports.installatorwebColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.invoice = {
@@ -4001,9 +4001,9 @@ exports.invoice = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.invoiceColor = {
@@ -4029,9 +4029,9 @@ exports.invoiceColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.laptopColor = {
@@ -4057,9 +4057,9 @@ exports.laptopColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.layers = {
@@ -4085,9 +4085,9 @@ exports.layers = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.lighting = {
@@ -4113,9 +4113,9 @@ exports.lighting = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.list = {
@@ -4141,9 +4141,9 @@ exports.list = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.listColor = {
@@ -4169,9 +4169,9 @@ exports.listColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.listBulletsBold = {
@@ -4197,9 +4197,9 @@ exports.listBulletsBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.loading = {
@@ -4225,9 +4225,9 @@ exports.loading = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.lock = {
@@ -4253,9 +4253,9 @@ exports.lock = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.lockHierarchy = {
@@ -4281,9 +4281,9 @@ exports.lockHierarchy = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.logout = {
@@ -4309,9 +4309,9 @@ exports.logout = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.mail = {
@@ -4337,9 +4337,9 @@ exports.mail = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.mailErrorColor = {
@@ -4365,9 +4365,9 @@ exports.mailErrorColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.mailMonitorColor = {
@@ -4393,9 +4393,9 @@ exports.mailMonitorColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.mailSendColor = {
@@ -4421,9 +4421,9 @@ exports.mailSendColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.mapPinColor = {
@@ -4449,9 +4449,9 @@ exports.mapPinColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.media = {
@@ -4477,9 +4477,9 @@ exports.media = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.menu = {
@@ -4505,9 +4505,9 @@ exports.menu = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.menuBold = {
@@ -4533,9 +4533,9 @@ exports.menuBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.minus = {
@@ -4561,9 +4561,9 @@ exports.minus = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.minusBold = {
@@ -4589,9 +4589,9 @@ exports.minusBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.moneyColor = {
@@ -4617,9 +4617,9 @@ exports.moneyColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.moreMenu = {
@@ -4645,9 +4645,9 @@ exports.moreMenu = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.moveCircle = {
@@ -4673,9 +4673,9 @@ exports.moveCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.moveTruckColor = {
@@ -4701,9 +4701,9 @@ exports.moveTruckColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.newTabBold = {
@@ -4729,9 +4729,9 @@ exports.newTabBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.noteApprovedColor = {
@@ -4757,9 +4757,9 @@ exports.noteApprovedColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.noteCheckColor = {
@@ -4785,9 +4785,9 @@ exports.noteCheckColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.notificationBold = {
@@ -4813,9 +4813,9 @@ exports.notificationBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.openMenu = {
@@ -4841,9 +4841,9 @@ exports.openMenu = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.paperPlaneSpeedColor = {
@@ -4869,9 +4869,9 @@ exports.paperPlaneSpeedColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.paperPlane = {
@@ -4897,9 +4897,9 @@ exports.paperPlane = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.pauseCircleColor = {
@@ -4925,9 +4925,9 @@ exports.pauseCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.pauseCircleFilledColor = {
@@ -4953,9 +4953,9 @@ exports.pauseCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.phone = {
@@ -4981,9 +4981,9 @@ exports.phone = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.phoneComment = {
@@ -5009,9 +5009,9 @@ exports.phoneComment = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.phoneCommentColor = {
@@ -5037,9 +5037,9 @@ exports.phoneCommentColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.phoneImage = {
@@ -5065,9 +5065,9 @@ exports.phoneImage = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.pdfDocument = {
@@ -5093,9 +5093,9 @@ exports.pdfDocument = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.pieChart = {
@@ -5121,9 +5121,9 @@ exports.pieChart = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.pin = {
@@ -5149,9 +5149,9 @@ exports.pin = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.pinColor = {
@@ -5177,9 +5177,9 @@ exports.pinColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.pinFilled = {
@@ -5205,9 +5205,9 @@ exports.pinFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.pinFilledColor = {
@@ -5233,9 +5233,9 @@ exports.pinFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.playCircleColor = {
@@ -5261,9 +5261,9 @@ exports.playCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.playCircleFilledColor = {
@@ -5289,9 +5289,9 @@ exports.playCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.plus = {
@@ -5317,9 +5317,9 @@ exports.plus = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.plusBold = {
@@ -5345,9 +5345,9 @@ exports.plusBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.positionBold = {
@@ -5373,9 +5373,9 @@ exports.positionBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.positionBoldColor = {
@@ -5401,9 +5401,9 @@ exports.positionBoldColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.positionOffBold = {
@@ -5429,9 +5429,9 @@ exports.positionOffBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.power = {
@@ -5457,9 +5457,9 @@ exports.power = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.power2 = {
@@ -5485,9 +5485,9 @@ exports.power2 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powerOutage = {
@@ -5513,9 +5513,9 @@ exports.powerOutage = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powerOutage2 = {
@@ -5541,9 +5541,9 @@ exports.powerOutage2 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powerOutage2Color = {
@@ -5569,9 +5569,9 @@ exports.powerOutage2Color = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powerOutageColor = {
@@ -5597,9 +5597,9 @@ exports.powerOutageColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powerOutageMap = {
@@ -5625,9 +5625,9 @@ exports.powerOutageMap = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powerOutageOrangeColor = {
@@ -5653,9 +5653,9 @@ exports.powerOutageOrangeColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powerService = {
@@ -5681,9 +5681,9 @@ exports.powerService = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powerServiceColor = {
@@ -5709,9 +5709,9 @@ exports.powerServiceColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powerColor = {
@@ -5737,9 +5737,9 @@ exports.powerColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powerline = {
@@ -5765,9 +5765,9 @@ exports.powerline = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powerlineColor = {
@@ -5793,9 +5793,9 @@ exports.powerlineColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powermeterAms = {
@@ -5821,9 +5821,9 @@ exports.powermeterAms = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powermeterAmsColor = {
@@ -5849,9 +5849,9 @@ exports.powermeterAmsColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powermeterOld = {
@@ -5877,9 +5877,9 @@ exports.powermeterOld = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.powermeterColor = {
@@ -5905,9 +5905,9 @@ exports.powermeterColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.profile = {
@@ -5933,9 +5933,9 @@ exports.profile = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.profile2 = {
@@ -5961,9 +5961,9 @@ exports.profile2 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.profile2Color = {
@@ -5989,9 +5989,9 @@ exports.profile2Color = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.profileBold = {
@@ -6017,9 +6017,9 @@ exports.profileBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.questionCircle = {
@@ -6045,9 +6045,9 @@ exports.questionCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.questionCircleColor = {
@@ -6073,9 +6073,9 @@ exports.questionCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.questionCircleFilledColor = {
@@ -6101,9 +6101,9 @@ exports.questionCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.quotationColor = {
@@ -6129,9 +6129,9 @@ exports.quotationColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.refresh = {
@@ -6157,9 +6157,9 @@ exports.refresh = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.removeCircle = {
@@ -6185,9 +6185,9 @@ exports.removeCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.removeCircleColor = {
@@ -6213,9 +6213,9 @@ exports.removeCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.removeCircleFilled = {
@@ -6241,9 +6241,9 @@ exports.removeCircleFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.removeCircleFilledColor = {
@@ -6269,9 +6269,9 @@ exports.removeCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.renewableEnergy = {
@@ -6297,9 +6297,9 @@ exports.renewableEnergy = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.renewableEnergyColor = {
@@ -6325,9 +6325,9 @@ exports.renewableEnergyColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.reset = {
@@ -6353,9 +6353,9 @@ exports.reset = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.rotateRight = {
@@ -6381,9 +6381,9 @@ exports.rotateRight = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.rssBold = {
@@ -6409,9 +6409,9 @@ exports.rssBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.search = {
@@ -6437,9 +6437,9 @@ exports.search = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.searchColor = {
@@ -6465,9 +6465,9 @@ exports.searchColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.searchBold = {
@@ -6493,9 +6493,9 @@ exports.searchBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.searchBoldColor = {
@@ -6521,9 +6521,9 @@ exports.searchBoldColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.season = {
@@ -6549,9 +6549,9 @@ exports.season = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.selectArea = {
@@ -6577,9 +6577,9 @@ exports.selectArea = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.settingsVertical = {
@@ -6605,9 +6605,9 @@ exports.settingsVertical = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.shovel = {
@@ -6633,9 +6633,9 @@ exports.shovel = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.smartCity = {
@@ -6661,9 +6661,9 @@ exports.smartCity = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.smartCityColor = {
@@ -6689,9 +6689,9 @@ exports.smartCityColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.solarPanel = {
@@ -6717,9 +6717,9 @@ exports.solarPanel = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.solarPanelColor = {
@@ -6745,9 +6745,9 @@ exports.solarPanelColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.sortingAscendingBold = {
@@ -6773,9 +6773,9 @@ exports.sortingAscendingBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.sortingDescendingBold = {
@@ -6801,9 +6801,9 @@ exports.sortingDescendingBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.sortingAlfabeticalAToZ = {
@@ -6829,9 +6829,9 @@ exports.sortingAlfabeticalAToZ = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.sortingAlfabeticalZToA = {
@@ -6857,9 +6857,9 @@ exports.sortingAlfabeticalZToA = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.sortingDateEarliestToLatest = {
@@ -6885,9 +6885,9 @@ exports.sortingDateEarliestToLatest = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.sortingDateLatestToEarliest = {
@@ -6913,9 +6913,9 @@ exports.sortingDateLatestToEarliest = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.sortingBold = {
@@ -6941,9 +6941,9 @@ exports.sortingBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.sorting2Bold = {
@@ -6969,9 +6969,9 @@ exports.sorting2Bold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.sortingNumberHighToLow = {
@@ -6997,9 +6997,9 @@ exports.sortingNumberHighToLow = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.sortingNumberLowToHigh = {
@@ -7025,9 +7025,9 @@ exports.sortingNumberLowToHigh = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.sortingTimeEarliestToLatest = {
@@ -7053,9 +7053,9 @@ exports.sortingTimeEarliestToLatest = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.sortingTimeLatestToEarliest = {
@@ -7081,9 +7081,9 @@ exports.sortingTimeLatestToEarliest = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.starFilled = {
@@ -7109,9 +7109,9 @@ exports.starFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.star = {
@@ -7137,9 +7137,9 @@ exports.star = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.step1 = {
@@ -7165,9 +7165,9 @@ exports.step1 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.step2 = {
@@ -7193,9 +7193,9 @@ exports.step2 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.step3 = {
@@ -7221,9 +7221,9 @@ exports.step3 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.step4 = {
@@ -7249,9 +7249,9 @@ exports.step4 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.step5 = {
@@ -7277,9 +7277,9 @@ exports.step5 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.stove = {
@@ -7305,9 +7305,9 @@ exports.stove = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.subtractCircle = {
@@ -7333,9 +7333,9 @@ exports.subtractCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.subtractCircleFilled = {
@@ -7361,9 +7361,9 @@ exports.subtractCircleFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.subtractCircleFilledColor = {
@@ -7389,9 +7389,9 @@ exports.subtractCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.support = {
@@ -7417,9 +7417,9 @@ exports.support = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.sync = {
@@ -7445,9 +7445,9 @@ exports.sync = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.tagAdd = {
@@ -7473,9 +7473,9 @@ exports.tagAdd = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.tag = {
@@ -7501,9 +7501,9 @@ exports.tag = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.thirdParty = {
@@ -7529,9 +7529,9 @@ exports.thirdParty = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.thumbnail = {
@@ -7557,9 +7557,9 @@ exports.thumbnail = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.thumbnailColor = {
@@ -7585,9 +7585,9 @@ exports.thumbnailColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.touchFingerColor = {
@@ -7613,9 +7613,9 @@ exports.touchFingerColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.transformer = {
@@ -7641,9 +7641,9 @@ exports.transformer = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.transformerColor = {
@@ -7669,9 +7669,9 @@ exports.transformerColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.transformerChange = {
@@ -7697,9 +7697,9 @@ exports.transformerChange = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.transformerChangeColor = {
@@ -7725,9 +7725,9 @@ exports.transformerChangeColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.treeFalling = {
@@ -7753,9 +7753,9 @@ exports.treeFalling = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.treePowerline = {
@@ -7781,9 +7781,9 @@ exports.treePowerline = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.treePowerlineColor = {
@@ -7809,9 +7809,9 @@ exports.treePowerlineColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.unlock = {
@@ -7837,9 +7837,9 @@ exports.unlock = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.upload = {
@@ -7865,9 +7865,9 @@ exports.upload = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.userTestingColor = {
@@ -7893,9 +7893,9 @@ exports.userTestingColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.users = {
@@ -7921,9 +7921,9 @@ exports.users = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.viewOff = {
@@ -7949,9 +7949,9 @@ exports.viewOff = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.viewOn = {
@@ -7977,9 +7977,9 @@ exports.viewOn = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.warningCircle = {
@@ -8005,9 +8005,9 @@ exports.warningCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.warningCircleFilled = {
@@ -8033,9 +8033,9 @@ exports.warningCircleFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.warningElectricityColor = {
@@ -8061,9 +8061,9 @@ exports.warningElectricityColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.warningTriangle = {
@@ -8089,9 +8089,9 @@ exports.warningTriangle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.warningCircleFilledColor = {
@@ -8117,9 +8117,9 @@ exports.warningCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.waterHeater = {
@@ -8145,9 +8145,9 @@ exports.waterHeater = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.washingMachine = {
@@ -8173,9 +8173,9 @@ exports.washingMachine = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.webLibraryColor = {
@@ -8201,9 +8201,9 @@ exports.webLibraryColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.worker = {
@@ -8229,9 +8229,9 @@ exports.worker = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.workUnderLineColor = {
@@ -8257,9 +8257,9 @@ exports.workUnderLineColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.workerColor = {
@@ -8285,9 +8285,9 @@ exports.workerColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.wrench = {
@@ -8313,9 +8313,9 @@ exports.wrench = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.zoomIn = {
@@ -8341,9 +8341,9 @@ exports.zoomIn = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 exports.zoomOut = {
@@ -8369,8 +8369,8 @@ exports.zoomOut = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
