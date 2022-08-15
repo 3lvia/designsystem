@@ -6,6 +6,7 @@ const colors = {
   elviaCharge: getColor('elvia-charge'),
   elviaWhite: getColor('white'),
   elviaBlack: getColor('black'),
+  elviaDisabled: getColor('disabled'),
   elviaFocusOutline: getColor('focus-outline'),
 };
 
@@ -262,4 +263,20 @@ export const DropdownPlaceholderWrapper = styled.span`
   display: flex;
   align-items: center;
   gap: 8px;
+`;
+
+interface DropdownOptionWrapperProps {
+  isDisabled?: boolean;
+}
+export const DropdownOptionTextWrapper = styled.span<DropdownOptionWrapperProps>`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: ${(props) => (props.isDisabled ? colors.elviaDisabled : colors.elviaBlack)};
+
+  ${(props) =>
+    props.isDisabled &&
+    css`
+      cursor: not-allowed;
+    `}
 `;

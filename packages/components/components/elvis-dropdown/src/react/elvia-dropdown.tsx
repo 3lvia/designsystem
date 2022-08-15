@@ -20,6 +20,7 @@ import {
   DropdownLabel,
   DropdownSingleValueOverflowWrapper,
   DropdownPlaceholderWrapper,
+  DropdownOptionTextWrapper,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
@@ -33,11 +34,12 @@ export interface DropdownItem {
   value: string;
   label: string;
   icon?: string;
+  isDisabled?: boolean;
 }
 
 export interface DropdownProps {
   /**
-   * @deprecated Removed in version 3.0.0. Replaced by `value`.
+   * @deprecated Removed in version 3.0.0. Replaced by `items`.
    */
   options?: never;
   items: DropdownItem[];
@@ -137,7 +139,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
     return getColor('white');
   };
 
-  const decideOptionHoverBg = (selected: boolean, isMulti: boolean) => {
+  const decideOptionHoverBg = (selected: boolean, isMulti: boolean, optionIsDisabled: boolean) => {
+    if (optionIsDisabled) {
+      return getColor('white');
+    }
     if (selected && isMulti) {
       return getColor('grey-05');
     }
@@ -275,11 +280,11 @@ const Dropdown: React.FC<DropdownProps> = function ({
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: isCompact ? '18px' : '30px',
       border: '1px solid transparent',
-      cursor: 'pointer',
+      cursor: state.isDisabled ? 'not-allowed' : 'pointer',
       overflowX: 'hidden',
       textOverflow: 'ellipsis',
       '&:hover': {
-        backgroundColor: decideOptionHoverBg(state.isSelected, state.isMulti),
+        backgroundColor: decideOptionHoverBg(state.isSelected, state.isMulti, state.isDisabled),
         '#ewc-dropdown-checkbox__mark': {
           backgroundColor: getColor('elvia-charge'),
         },
@@ -371,19 +376,23 @@ const Dropdown: React.FC<DropdownProps> = function ({
   };
 
   const ElviaOption = (props: OptionProps) => {
+    const optionIsDisabled = (props.data as DropdownItem).isDisabled ?? false;
     if (!isMulti) {
       return (
-        <components.Option {...props}>
-          {allOptionsHaveIconAttribute ? (
-            <Icon
-              inlineStyle={{ marginRight: '16px' }}
-              name={(props.data as DropdownItem).icon}
-              size={isCompact ? 'xs' : 'sm'}
-            />
-          ) : (
-            ''
-          )}
-          {props.children}
+        <components.Option {...props} isDisabled={optionIsDisabled}>
+          <DropdownOptionTextWrapper isDisabled={optionIsDisabled}>
+            {allOptionsHaveIconAttribute ? (
+              <Icon
+                inlineStyle={{ marginRight: '16px' }}
+                name={(props.data as DropdownItem).icon}
+                size={isCompact ? 'xs' : 'sm'}
+                color={optionIsDisabled ? getColor('disabled') : undefined}
+              />
+            ) : (
+              ''
+            )}
+            {props.children}
+          </DropdownOptionTextWrapper>
         </components.Option>
       );
     }

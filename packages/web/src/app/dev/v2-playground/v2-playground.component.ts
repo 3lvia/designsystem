@@ -36,13 +36,14 @@ export class v2PlaygroundComponent {
 
   // Dropdown
   dropdownDefOptions = [
-    { value: '1', label: 'Option 1' },
-    { value: '2', label: 'Option 2' },
+    { value: '1', label: 'Option 1', icon: 'arrowUp' },
+    { value: '2', label: 'Option 2', icon: 'arrowDown' },
   ];
   dropdownOptions = [
-    { value: '1', label: 'Option 1' },
-    { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3' },
+    { value: '1', label: 'Option 1', icon: 'arrowUp' },
+    { value: '2', label: 'Option 2', icon: 'arrowDown' },
+    { value: '3', label: 'Option 3', icon: 'arrowLeft', isDisabled: true },
+    { value: '4', label: 'Option 4', icon: 'arrowRight' },
   ];
 
   // Modal
