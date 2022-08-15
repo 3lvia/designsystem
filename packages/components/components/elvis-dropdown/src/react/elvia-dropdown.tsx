@@ -19,8 +19,6 @@ import {
   DropdownErrorMessageWrapper,
   DropdownLabel,
   DropdownSingleValueOverflowWrapper,
-  DropdownPlaceholderWrapper,
-  DropdownOptionTextWrapper,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
@@ -271,8 +269,9 @@ const Dropdown: React.FC<DropdownProps> = function ({
       ...provided,
       display: 'flex',
       alignItems: 'center',
+      gap: '8px',
       backgroundColor: decideOptionBg(state.isFocused, state.isSelected, state.isMulti),
-      color: getColor('black'),
+      color: state.isDisabled ? getColor('disabled') : getColor('black'),
       height: '100%',
       paddingTop: '7px',
       paddingBottom: '7px',
@@ -307,7 +306,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
       lineHeight: '22px',
       color: isDisabled ? getColor('disabled') : getColor('grey-70'),
       margin: '0px',
-      display: 'block',
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: '8px',
       overflowX: 'hidden',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
@@ -380,19 +382,17 @@ const Dropdown: React.FC<DropdownProps> = function ({
     if (!isMulti) {
       return (
         <components.Option {...props} isDisabled={optionIsDisabled}>
-          <DropdownOptionTextWrapper isDisabled={optionIsDisabled}>
-            {allOptionsHaveIconAttribute ? (
-              <Icon
-                inlineStyle={{ marginRight: '16px' }}
-                name={(props.data as DropdownItem).icon}
-                size={isCompact ? 'xs' : 'sm'}
-                color={optionIsDisabled ? getColor('disabled') : undefined}
-              />
-            ) : (
-              ''
-            )}
-            {props.children}
-          </DropdownOptionTextWrapper>
+          {allOptionsHaveIconAttribute ? (
+            <Icon
+              inlineStyle={{ marginRight: '16px' }}
+              name={(props.data as DropdownItem).icon}
+              size={isCompact ? 'xs' : 'sm'}
+              color={optionIsDisabled ? getColor('disabled') : undefined}
+            />
+          ) : (
+            ''
+          )}
+          {props.children}
         </components.Option>
       );
     }
@@ -433,10 +433,12 @@ const Dropdown: React.FC<DropdownProps> = function ({
     if (placeholderIcon) {
       return (
         <components.Placeholder {...props}>
-          <DropdownPlaceholderWrapper>
-            <Icon name={placeholderIcon} color={getColor('placeholder')} size="xs" />
-            {props.children}
-          </DropdownPlaceholderWrapper>
+          <Icon
+            name={placeholderIcon}
+            color={isDisabled ? getColor('disabled') : getColor('placeholder')}
+            size="xs"
+          />
+          {props.children}
         </components.Placeholder>
       );
     }
