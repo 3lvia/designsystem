@@ -5,19 +5,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white">
-      <elvia-progress-linear
-        [isIndeterminate]="indeterminate"
-        [value]="40"
-        [isError]="progressError"
-      ></elvia-progress-linear>
-      <elvia-progress-linear
-        [isIndeterminate]="indeterminate"
-        [value]="40"
-        [size]="'large'"
-        [isError]="progressError"
-      ></elvia-progress-linear>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -247,11 +235,11 @@
   <!--Progress linear-->
   <div class="example-wrapper">
     <h3>Progress linear</h3>
-    <!-- <elvia-progress-linear
+    <elvia-progress-linear
       [isIndeterminate]="indeterminate"
       [value]="progressValue"
       [isError]="progressError"
-    ></elvia-progress-linear> -->
+    ></elvia-progress-linear>
     <div style="margin-bottom: 32px; display: flex">
       <div style="display: flex; width: 100%; justify-content: space-between">
         <button class="e-btn" (click)="progressValue = progressValue + 10">Increase Progress</button>
