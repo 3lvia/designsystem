@@ -95,9 +95,9 @@ export const ${createCamelCase(icon.name)} = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };`;
     iconTypes =
@@ -164,9 +164,9 @@ async function createCommonJSIconModule() {
             icon = icon.replace(/fillGreen/g, "fill='#29D305'");
             return icon;
           } else if (!color.startsWith('#')) {
-            return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+            return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
           }
-          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+          return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
       }
     }`;
     iconTypes =

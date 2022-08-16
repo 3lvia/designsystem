@@ -32,3 +32,43 @@
   max-height: 500px;
   overflow-y: scroll;
 }
+
+.properties-filter {
+  margin-top: -40px;
+  margin-left: auto;
+  margin-bottom: 16px;
+  width: 50%;
+}
+
+.no-properties-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px;
+
+  width: 100%;
+  & img {
+    width: 75px;
+  }
+  & span {
+    text-align: center;
+    margin: 0 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .properties-filter {
+    margin-top: -24px;
+    width: 100%;
+    max-width: 100%;
+    & .e-input {
+      width: 100%;
+      max-width: 100%;
+      & > input {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}

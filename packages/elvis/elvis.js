@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (fill) {
       fill = fill.replace('#', '%23');
-      icon = icon.replace(/fill='([^']*)'/g, "fill='" + fill + "'");
+      icon = icon.replace(/fill='black'/g, "fill='" + fill + "'");
     }
 
     return icon;

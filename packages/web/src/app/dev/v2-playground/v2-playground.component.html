@@ -6,15 +6,17 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <elvia-dropdown
-        label="testing something"
-        [placeholder]="'Select an option'"
-        [placeholderIcon]="'arrowUp'"
-        [items]="dropdownOptions"
-      ></elvia-dropdown>
+      <i class="e-icon e-icon--remove_circle-filled e-icon--sm e-icon--color-red"></i>
+      <i class="e-icon e-icon--check_circle-filled e-icon--sm e-icon--color-green"></i>
+      <i class="e-icon e-icon--add_circle e-icon--sm e-icon--color-orange"></i>
+      <elvia-icon name="removeCircleFilled" color="red"></elvia-icon>
     </div>
     <!--Inverted version-->
-    <div class="e-bg-grey"></div>
+    <div class="e-bg-grey">
+      <i class="e-icon e-icon--remove_circle-filled e-icon--sm e-icon--color-red e-icon--inverted"></i>
+      <i class="e-icon e-icon--check_circle-filled e-icon--sm e-icon--color-green e-icon--inverted"></i>
+      <i class="e-icon e-icon--add_circle e-icon--sm e-icon--color-orange"></i>
+    </div>
   </div>
 
   <!--Accordion-->
