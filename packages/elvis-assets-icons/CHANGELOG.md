@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 2.4.2 (16.08.22)
+
+### Patch
+
+- Fixed the type declaration for the `getIcon`-function.
+
 ## 2.4.1 (15.08.22)
 
 ### Bug fix

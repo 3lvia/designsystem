@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.08.22",
+      "version": "3.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Reworked the way the component is declared as a module, and how types are exported for React. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "02.08.22",
       "version": "3.0.3",
       "changelog": [

@@ -6,11 +6,11 @@ import { useHover } from '@react-aria/interactions';
 
 import classnames from 'classnames';
 import { getColor } from '@elvia/elvis-colors';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import config from './config';
 
-export interface BaseChipProps {
+export interface ChipProps {
   ariaLabel?: string;
   color?: ColorType;
   /**
@@ -25,19 +25,19 @@ export interface BaseChipProps {
    */
   selected?: boolean;
   isSelected?: boolean;
-  value: string;
-  onDelete?: (event: BaseChipProps['value']) => void;
+  value: string | number;
+  onDelete?: (event: ChipProps['value']) => void;
   /**
    * @deprecated Removed in version 2.0.0. Replaced by `isSelectedOnChange()`.
    */
   valueOnChange?: (event: { value: string; isSelected: boolean }) => void;
-  isSelectedOnChange?: (isSelected: NonNullable<BaseChipProps['isSelected']>) => void;
+  isSelectedOnChange?: (isSelected: NonNullable<ChipProps['isSelected']>) => void;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
 }
 
-export const Chip: FC<BaseChipProps> = function ({
+export const Chip: FC<ChipProps> = function ({
   ariaLabel,
   color = 'green',
   isDisabled = false,
@@ -62,7 +62,7 @@ export const Chip: FC<BaseChipProps> = function ({
     setIsSelectedState(isSelected);
   }, [isSelected]);
 
-  const handleOnDelete = (value: string) => {
+  const handleOnDelete = (value: ChipProps['value']) => {
     if (!webcomponent) {
       onDelete && onDelete(value);
     } else if (webcomponent) {
