@@ -4,10 +4,10 @@ import classnames from 'classnames';
 
 export interface ProgressbarProps {
   value: number;
-  isIndeterminate: boolean;
-  isError: boolean;
-  ariaValueText: string;
-  size: 'medium' | 'large';
+  isIndeterminate?: boolean;
+  isError?: boolean;
+  ariaValueText?: string;
+  size?: 'medium' | 'large';
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
 }
