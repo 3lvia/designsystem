@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC, PointerEvent, useEffect, useState } from 'react';
-import { Datepicker } from '@elvia/elvis-datepicker/react';
+import { Datepicker, DatepickerProps } from '@elvia/elvis-datepicker/react';
 import { DatepickerRangeWrapper } from './styledComponents';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 import isValid from 'date-fns/isValid';
@@ -12,11 +12,11 @@ export type BothDatepickers<T> = {
 
 export type DateRange = BothDatepickers<Date | null>;
 export type DateRangeString = BothDatepickers<string | null>;
-export type LabelOptions = Partial<BothDatepickers<string>>;
-export type DisableDates = Partial<BothDatepickers<(day: Date) => boolean>>;
-export type IsRequired = Partial<BothDatepickers<boolean>>;
-export type IsErrorState = Partial<BothDatepickers<boolean>>;
-export type CustomError = Partial<BothDatepickers<string>>;
+export type LabelOptions = Partial<BothDatepickers<DatepickerProps['label']>>;
+export type DisableDates = Partial<BothDatepickers<DatepickerProps['disableDate']>>;
+export type IsRequired = Partial<BothDatepickers<DatepickerProps['isRequired']>>;
+export type IsErrorState = Partial<BothDatepickers<DatepickerProps['isErrorState']>>;
+export type CustomError = Partial<BothDatepickers<DatepickerProps['customError']>>;
 
 const emptyDateRange: DateRange = {
   start: null,
@@ -283,7 +283,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   /** These props are passed through directly to both the underlying datepickers. */
-  const passThroughProps = {
+  const passThroughProps: Partial<DatepickerProps> = {
     minDate,
     maxDate,
     isCompact,

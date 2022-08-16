@@ -7,7 +7,7 @@ export interface Option {
   value: string;
 }
 
-export interface BaseRadioFilterProps {
+export interface RadioFilterProps {
   name: string;
   items: Option[];
   value: string;
@@ -19,7 +19,7 @@ export interface BaseRadioFilterProps {
   webcomponent?: ElvisComponentWrapper;
 }
 
-export const RadioFilter: FC<BaseRadioFilterProps> = ({
+export const RadioFilter: FC<RadioFilterProps> = ({
   ariaLabel,
   name,
   items,

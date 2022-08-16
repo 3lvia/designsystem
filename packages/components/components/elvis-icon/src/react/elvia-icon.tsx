@@ -6,7 +6,7 @@ export type IconSizes = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 export interface IconProps {
   // eslint-disable-next-line @typescript-eslint/ban-types
   name: keyof typeof elvisIcons | (string & {});
-  color?: string;
+  color?: Parameters<typeof elvisIcons[keyof typeof elvisIcons]['getIcon']>[0];
   size?: IconSizes;
   customSize?: string;
   className?: string;

@@ -2,7 +2,7 @@ import React, { CSSProperties, FC } from 'react';
 import './style.scss';
 import classnames from 'classnames';
 
-export interface ProgressbarProps {
+export interface ProgressLinearProps {
   value?: number;
   isIndeterminate?: boolean;
   isError?: boolean;
@@ -11,7 +11,7 @@ export interface ProgressbarProps {
   inlineStyle?: CSSProperties;
 }
 
-const ProgressLinear: FC<ProgressbarProps> = ({
+const ProgressLinear: FC<ProgressLinearProps> = ({
   value = 0,
   isIndeterminate,
   isError,
