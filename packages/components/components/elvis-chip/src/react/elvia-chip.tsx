@@ -6,7 +6,7 @@ import { useHover } from '@react-aria/interactions';
 
 import classnames from 'classnames';
 import { getColor } from '@elvia/elvis-colors';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import config from './config';
 

@@ -13,7 +13,7 @@ import {
   CardHoverArrow,
   CardCornerIcon,
 } from './styledComponents';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 const globalMinWidthSimple = 112;
 const globalMinWidthDetail = 250;

@@ -1,7 +1,7 @@
 import React, { CSSProperties, FC, PointerEvent, useEffect, useState } from 'react';
 import { Datepicker, DatepickerProps } from '@elvia/elvis-datepicker/react';
 import { DatepickerRangeWrapper } from './styledComponents';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import isValid from 'date-fns/isValid';
 import formatISO from 'date-fns/formatISO';
 

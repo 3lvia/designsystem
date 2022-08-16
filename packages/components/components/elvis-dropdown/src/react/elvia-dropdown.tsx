@@ -24,7 +24,7 @@ import {
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
 import { getColor } from '@elvia/elvis-colors';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import { config } from './config';
 

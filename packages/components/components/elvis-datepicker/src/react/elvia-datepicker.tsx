@@ -18,8 +18,8 @@ import isWithinInterval from 'date-fns/isWithinInterval';
 import startOfWeek from 'date-fns/startOfWeek';
 import endOfWeek from 'date-fns/endOfWeek';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 import isEqual from 'lodash/isEqual';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 interface DateRange {
   start: Date | null;

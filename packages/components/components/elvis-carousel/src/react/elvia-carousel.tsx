@@ -13,7 +13,7 @@ import {
   CarouselCheckButton,
 } from './StyledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { carouselConfig, carouselItemConfig } from './config';
 import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 
