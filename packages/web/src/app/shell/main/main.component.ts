@@ -32,7 +32,7 @@ export class MainComponent {
           this.bgClass = '';
           this.isNotFound = false;
         }
-        if (eventUrl === '/' || eventUrl === '/home') {
+        if (eventUrl === '/' || eventUrl.includes('/#') || eventUrl === '/home') {
           this.isHomePage = true;
         } else {
           this.isHomePage = false;
