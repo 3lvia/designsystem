@@ -48,6 +48,7 @@ export interface DatepickerRangeProps {
   showValidationState?: boolean;
   isErrorState?: IsErrorState;
   customError?: CustomError;
+  hasErrorPlaceholderElement?: boolean;
   errorOnChange?: (errors: CustomError) => void;
   minDate?: Date;
   maxDate?: Date;
@@ -72,6 +73,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   showValidationState = true,
   isErrorState,
   customError,
+  hasErrorPlaceholderElement = true,
   errorOnChange,
   minDate,
   maxDate,
@@ -143,6 +145,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   useEffect(() => {
+    // Update hoveredDateRange, needed for keyboard navigation highlighting
+    setHoveredDateRange(selectedDateRange);
+
     handleValueOnChangeISOString(selectedDateRange);
     if (!webcomponent) {
       valueOnChange?.(selectedDateRange);
@@ -170,12 +175,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     return disableDates;
   };
 
-  const handleEndDatepickerDateElementPointerMove = (event: PointerEvent<HTMLDivElement>, day: Date) => {
-    if (!(event.target instanceof Element)) {
-      return;
-    }
-    const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
-    if (eventTargetIsDayElementInCalendar) {
+  const handleEndDatepickerDateElementPointerMove = (day: Date, event?: PointerEvent<HTMLDivElement>) => {
+    const isPointerEventAndTargetIsDayElementInCalendar =
+      event && event.target instanceof Element && event.target.classList.contains('ewc-datepicker__day');
+
+    if (isPointerEventAndTargetIsDayElementInCalendar || !event) {
       setHoveredDateRange((current) => {
         if (current.start) {
           return {
@@ -189,12 +193,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const handleStartDatepickerDateElementPointerMove = (event: PointerEvent<HTMLDivElement>, day: Date) => {
-    if (!(event.target instanceof Element)) {
-      return;
-    }
-    const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
-    if (eventTargetIsDayElementInCalendar) {
+  const handleStartDatepickerDateElementPointerMove = (day: Date, event?: PointerEvent<HTMLDivElement>) => {
+    const isPointerEventAndTargetIsDayElementInCalendar =
+      event && event.target instanceof Element && event.target.classList.contains('ewc-datepicker__day');
+
+    if (isPointerEventAndTargetIsDayElementInCalendar || !event) {
       setHoveredDateRange((current) => {
         if (current.end) {
           return {
@@ -285,7 +288,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     isDisabled,
     hasSelectDateOnOpen,
     showValidationState,
-    hasErrorPlaceholderElement: windowWidth > 767 && !isVertical,
+    hasErrorPlaceholderElement: hasErrorPlaceholderElement && windowWidth > 767 && !isVertical,
   };
 
   return (
@@ -303,7 +306,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         valueOnChange={handleStartDatepickerValueOnChange}
         isRequired={isRequiredState?.start}
         onClose={() => {
-          setHoveredDateRange(selectedDateRange);
           hasAutoOpenEndDatepicker &&
             setTimeout(() => {
               setEndDatepickerIsOpen(true);
@@ -334,7 +336,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         valueOnChange={handleEndDatepickerValueOnChange}
         isRequired={isRequiredState?.end}
         onClose={() => {
-          setHoveredDateRange(selectedDateRange);
           setEndDatepickerIsOpen(false);
         }}
         onOpen={() => setEndDatepickerIsOpen(true)}

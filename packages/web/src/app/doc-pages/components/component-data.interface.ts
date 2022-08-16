@@ -80,6 +80,10 @@ export interface AttributeTypeCEG {
    * Used for `cegFormType =  'background' | 'radio' | 'type'`.
    */
   cegOptions?: string[];
+  /**
+   * Custom labels that can be displayed instead of the `cegOptions` values.
+   */
+  cegOptionsLabel?: string[];
 
   /**
    * The value that will be sent in with the prop. If a slot is sent in for web component, instead use the option `cegSlot`.
@@ -103,6 +107,10 @@ export interface AttributeTypeCEG {
    * Used to group toggles and checkboxes together in groups. The group will be given a name of this prop.
    */
   cegDisplayGroup?: string;
+  /**
+   * The typography of the labels for the prop in the CEG. Only applies to `cegFormType='radio'`.
+   */
+  cegLabelTypography?: 'capitalize' | 'uppercase' | 'lowercase';
   /**
    * Used to filter when a prop is available in the CEG.
    * Add the name of the prop it is dependent on and what value (or values) the prop should have for it to work.

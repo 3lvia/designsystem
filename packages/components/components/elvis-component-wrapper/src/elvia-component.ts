@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import isEqual from 'lodash.isequal';
 import toolbox from '@elvia/elvis-toolbox';
+import JSON5 from 'json5';
 
 export class ElvisComponentWrapper extends HTMLElement {
   protected _data: { [propName: string]: any };
@@ -278,13 +279,13 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
     if (attrType === 'object') {
       try {
-        return JSON.parse(stringToConvert);
+        return JSON5.parse(stringToConvert);
       } catch (error) {
         this.logErrorMessage(
           'convertString',
           ': The property "' +
             attrName +
-            '" is not a valid JSON object. This is probably because the JSON object is containing single quotes instead of double quotes.',
+            '" is not a valid JSON/JSON5 object, and could not be parsed. The parser used is JSON5.',
         );
       }
     }

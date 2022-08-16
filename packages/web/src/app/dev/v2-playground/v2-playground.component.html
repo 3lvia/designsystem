@@ -7,7 +7,11 @@
     <!--Normal version-->
     <div class="e-bg-white"></div>
     <!--Inverted version-->
-    <div class="e-bg-grey"></div>
+    <div class="e-bg-grey">
+      <i class="e-icon e-icon--remove_circle-filled e-icon--sm e-icon--color-red e-icon--inverted"></i>
+      <i class="e-icon e-icon--check_circle-filled e-icon--sm e-icon--color-green e-icon--inverted"></i>
+      <i class="e-icon e-icon--add_circle e-icon--sm e-icon--color-orange"></i>
+    </div>
   </div>
 
   <!--Accordion-->
@@ -150,10 +154,10 @@
     <h3>DatePicker</h3>
     <elvia-datepicker [value]="date"></elvia-datepicker>
   </div>
-  <!--Date ramnge picker-->
+  <!--Date range picker-->
   <div class="example-wrapper">
     <h3>Date range picker</h3>
-    <elvia-datepicker-range (errorOnChange)="logValue('error', $event.detail.value)"></elvia-datepicker-range>
+    <elvia-datepicker-range></elvia-datepicker-range>
   </div>
 
   <!--Divider-->

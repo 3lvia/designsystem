@@ -15,6 +15,15 @@ import {
 import { KeyValue } from '@angular/common';
 import { CegCodeUpdaterService } from 'src/app/core/services/ceg-code-updater.service';
 
+interface DropdownOption {
+  value: string | number;
+  label: string;
+}
+interface DropdownIconOption extends DropdownOption {
+  value: string;
+  icon: string;
+}
+
 @Component({
   selector: 'app-component-example-generator',
   templateUrl: './component-example-generator.component.html',
@@ -51,20 +60,22 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   } = {};
   hasCustomTextProps = false;
   showCustomTextPopover = false;
+  customTextPopoverIsOpen = false;
 
+  mobileSideFilterPopoverIsOpen = false;
   enableFilters = true;
   hasSideFilters = true;
   formGroupList: CegFormGroup[] = [];
   allCheckboxes: (AttributeType & { propName: string })[] = [];
 
-  iconsOptions: { value: string; label: string }[] = [];
-  selectedIcon: { value: string; label: string };
-  defaultIcon: { value: string; label: string };
+  iconsOptions: DropdownIconOption[] = [];
+  selectedIcon: DropdownIconOption;
+  defaultIcon: DropdownIconOption;
 
-  typeOptions: { value: string | number; label: string }[] = [];
+  typeOptions: DropdownOption[] = [];
   selectedType: string;
   defaultType;
-  bgOptions: { value: number; label: string }[] = [];
+  bgOptions: DropdownOption[] = [];
   bgObj: AttributeType & { propName: string };
   selectedBg: string;
   defaultBg: string;
@@ -380,11 +391,14 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       }
       const formType = prop.cegFormType;
       if (formType === 'radio') {
-        const formGroupOptions = prop.cegOptions.map((option) => {
+        const formGroupOptions = prop.cegOptions.map((option, i) => {
           const formOption: CegFormGroupOption = {
             name: option,
             defaultValue: prop.cegDefault === option,
           };
+          if (prop.cegOptionsLabel) {
+            formOption.label = prop.cegOptionsLabel[i];
+          }
           return formOption;
         });
         const formGroupObject: CegFormGroup = {
@@ -395,6 +409,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           propName: propKey,
           dependency: prop.cegDependency,
           defaultValue: prop.cegDefault,
+          labelTypography: prop.cegLabelTypography,
         };
         this.formGroupList.push(formGroupObject);
       } else if (formType === 'checkbox') {
@@ -484,11 +499,11 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault as number]);
       } else if (formType === 'iconName') {
         this.selectedIcon = this.iconsOptions[0];
-        this.defaultIcon = { value: 'addCircle', label: 'Add Circle' };
+        this.defaultIcon = { value: 'addCircle', label: 'Add Circle', icon: 'addCircle' };
         for (const icon in ElvisIcons) {
           const labelName = icon.replace(/([A-Z])/g, ' $1');
           const finalLabel = labelName.charAt(0).toUpperCase() + labelName.slice(1);
-          this.iconsOptions.push({ value: icon, label: finalLabel });
+          this.iconsOptions.push({ value: icon, label: finalLabel, icon: icon });
         }
         this.addToFormStates(propKey, this.iconsOptions[0].value);
       } else if (formType === 'background') {

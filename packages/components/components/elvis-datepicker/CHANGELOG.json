@@ -2,6 +2,40 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "02.08.22",
+      "version": "3.0.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added missing peer dependencies to package.json."]
+        }
+      ]
+    },
+    {
+      "date": "01.08.22",
+      "version": "3.0.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that caused selected date hightlighting to not work when navigating the datepicker with the keyboard."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "14.07.22",
+      "version": "3.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fix for <span class=\"code-text\">@elvia/elvispicker-range</span>. Fixed a bug that caused selected date range hightlighting to not work when changing the date with the keyboard."
+          ]
+        }
+      ]
+    },
+    {
       "date": "14.07.22",
       "version": "3.0.0",
       "changelog": [

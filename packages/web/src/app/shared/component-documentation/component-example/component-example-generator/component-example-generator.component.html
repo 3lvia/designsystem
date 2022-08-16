@@ -19,7 +19,7 @@
           (valueOnChange)="updateFormStates('type', $event); updateSelectedType($event)"
         ></elvia-dropdown>
       </div>
-      <div *ngIf="iconsOptions.length !== 0 && !typesData" class="ceg-dropdown">
+      <div *ngIf="iconsOptions.length !== 0 && !typesData" class="ceg-dropdown ceg-dropdown-icon">
         <elvia-dropdown
           [items]="iconsOptions"
           [value]="defaultIcon"
@@ -45,8 +45,17 @@
       </div>
     </div>
     <div class="ceg-customize-popover" *ngIf="hasCustomTextProps && showCustomTextPopover">
-      <elvia-popover [verticalPosition]="'bottom'" [horizontalPosition]="'right'">
-        <button slot="trigger" class="e-btn e-btn--tertiary e-btn--sm">
+      <elvia-popover
+        [verticalPosition]="'bottom'"
+        [horizontalPosition]="'right'"
+        (onOpen)="customTextPopoverIsOpen = true"
+        (onClose)="customTextPopoverIsOpen = false"
+      >
+        <button
+          slot="trigger"
+          class="e-btn e-btn--tertiary e-btn--sm"
+          [ngClass]="{ 'e-btn---selected': customTextPopoverIsOpen }"
+        >
           <span class="e-btn__icon"><elvia-icon name="edit" size="xs"></elvia-icon></span>
           <span class="e-btn__title ceg-customize-popover-trigger">Customize text</span>
         </button>
@@ -120,8 +129,18 @@
       ></app-ceg-filters>
     </div>
     <div class="ceg-customize-popover-mobile" *ngIf="hasCustomTextProps">
-      <elvia-popover [horizontalPosition]="'left'" [verticalPosition]="'bottom'">
-        <button slot="trigger" class="e-btn e-btn--icon" aria-label="Open customize text popover">
+      <elvia-popover
+        [horizontalPosition]="'left'"
+        [verticalPosition]="'bottom'"
+        (onOpen)="customTextPopoverIsOpen = true"
+        (onClose)="customTextPopoverIsOpen = false"
+      >
+        <button
+          slot="trigger"
+          class="e-btn e-btn--icon"
+          [ngClass]="{ 'e-btn---selected': customTextPopoverIsOpen }"
+          aria-label="Open customize text popover"
+        >
           <span class="e-btn__icon">
             <i class="e-icon e-icon--edit" *ngIf="selectedBg !== 'Dark grey'" aria-hidden="true"></i>
             <i
@@ -166,8 +185,18 @@
       class="ceg-side-filters-mobile"
       *ngIf="formGroupList.length !== 0 && hasSideFilters && enableFilters"
     >
-      <elvia-popover [horizontalPosition]="'left'" [verticalPosition]="'bottom'">
-        <button slot="trigger" class="e-btn e-btn--icon" aria-label="Open side filter popover">
+      <elvia-popover
+        [horizontalPosition]="'left'"
+        [verticalPosition]="'bottom'"
+        (onOpen)="mobileSideFilterPopoverIsOpen = true"
+        (onClose)="mobileSideFilterPopoverIsOpen = false"
+      >
+        <button
+          slot="trigger"
+          class="e-btn e-btn--icon"
+          [ngClass]="{ 'e-btn---selected': mobileSideFilterPopoverIsOpen }"
+          aria-label="Open side filter popover"
+        >
           <span class="e-btn__icon">
             <i class="e-icon e-icon--list" *ngIf="selectedBg !== 'Dark grey'" aria-hidden="true"></i>
             <i

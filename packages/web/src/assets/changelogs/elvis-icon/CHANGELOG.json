@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "26.07.22",
+      "version": "1.2.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Removed an unnecessarry div element.", "Refactoring. "]
+        }
+      ]
+    },
+    {
       "date": "03.05.22",
       "version": "1.2.0 ",
       "changelog": [

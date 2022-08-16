@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, CSSProperties } from 'react';
+import React, { useState, useEffect, useRef, CSSProperties, useMemo } from 'react';
 import Select, {
   components,
   DropdownIndicatorProps,
@@ -18,6 +18,8 @@ import {
   DropdownErrorMessageText,
   DropdownErrorMessageWrapper,
   DropdownLabel,
+  DropdownSingleValueOverflowWrapper,
+  DropdownPlaceholderWrapper,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
@@ -48,12 +50,15 @@ export interface DropdownProps {
   isDisabled: boolean;
   isMulti: boolean;
   isSearchable: boolean;
-  hasSelectAllOption: boolean;
+  hasSelectAllOption?: boolean;
+  selectAllOption?: Partial<DropdownItem>;
+  allOptionsSelectedLabel?: string;
   errorMessage?: string;
   label?: string;
   menuPosition?: DropdownMenuPosition;
   noOptionsMessage?: string;
   placeholder?: string;
+  placeholderIcon?: string;
   valueOnChange?: (selectedOptions: DropdownItem | Array<DropdownItem> | undefined) => void;
   className?: string;
   inlineStyle?: { [style: string]: CSSProperties };
@@ -68,11 +73,14 @@ const Dropdown: React.FC<DropdownProps> = function ({
   isMulti,
   isSearchable = false,
   hasSelectAllOption = false,
+  selectAllOption,
+  allOptionsSelectedLabel = 'Alle',
   label,
   errorMessage = '',
   menuPosition = 'auto',
   noOptionsMessage = 'Ingen tilgjengelige valg',
   placeholder = '',
+  placeholderIcon,
   valueOnChange,
   className,
   inlineStyle,
@@ -85,11 +93,25 @@ const Dropdown: React.FC<DropdownProps> = function ({
   const [currentVal, setCurrentVal] = useState(value);
   const [isError, setIsError] = useState(false);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [selectAllOptionState, setSelectAllOptionState] = useState<DropdownItem>({
+    label: 'Alle',
+    value: '*',
+  });
   const dropdownRef = useRef<HTMLSpanElement>(null);
 
+  /** Set the "Select all" option inside an open multiselect dropdown.
+   * Doing it this way adds support for supplying the prop as a partial prop
+   * (e.g. {label: 'Alle'} instead of {value: '*', label: 'Alle'}).
+   */
+  useEffect(() => {
+    if (selectAllOption) {
+      setSelectAllOptionState((oldSelectAllOptionState) => {
+        return { ...oldSelectAllOptionState, ...selectAllOption };
+      });
+    }
+  }, [selectAllOption]);
+
   const selectId = uniqueId('ewc-dropdown-');
-  /** Default value for the select all-option. */
-  const selectAllOption: DropdownItem = { label: 'Alle', value: '*' };
 
   /** Styling functions for react select */
   const decideControlBorder = (disabled: boolean, error: boolean) => {
@@ -143,7 +165,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
       // "select all"-option should have green background if any options are selected
       Array.isArray(currentVal) &&
       currentVal.length > 0 &&
-      currentOptionLabel === selectAllOption.label
+      currentOptionLabel === selectAllOptionState.label
     ) {
       return getColor('elvia-charge');
     } else {
@@ -152,7 +174,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   };
 
   const decideValueContainerHeight = (): string => {
-    if (allOptionsHaveIconAttribute() && !isMulti) {
+    if (allOptionsHaveIconAttribute && !isMulti) {
       return 'inherit';
     }
     return '22px';
@@ -268,7 +290,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
       '.ewc-dropdown-checkbox .ewc-dropdown-checkbox__mark': {
         background: decideBackgroundColor(state.isFocused, state.isSelected, state.label),
       },
-      borderBottom: state.label === selectAllOption.label ? `1px solid ${getColor('grey-10')}` : '',
+      borderBottom: state.label === selectAllOptionState.label ? `1px solid ${getColor('grey-10')}` : '',
     }),
 
     placeholder: (provided) => ({
@@ -325,18 +347,15 @@ const Dropdown: React.FC<DropdownProps> = function ({
     }),
   };
 
-  /** Helper function to determine if the options array have valid icon attributes (all or none should have icon). */
-  const allOptionsHaveIconAttribute = (): boolean => {
-    if (items.length > 0) {
-      for (const dropdownItem of items) {
-        if (dropdownItem.icon === undefined) {
-          return false;
-        }
-      }
-      return true;
-    }
-    return false;
-  };
+  /** Helper memoized variable to determine if the options array has valid icon attributes (all or none should have icon). */
+  const allOptionsHaveIconAttribute = useMemo((): boolean => {
+    return (
+      items.length > 0 &&
+      items.every((item) => {
+        return item.icon !== undefined;
+      })
+    );
+  }, [items]);
 
   /** Custom components for Elvia dropdown */
   const ElviaDropdownIndicator = (props: DropdownIndicatorProps) => {
@@ -355,7 +374,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
     if (!isMulti) {
       return (
         <components.Option {...props}>
-          {allOptionsHaveIconAttribute() ? (
+          {allOptionsHaveIconAttribute ? (
             <Icon
               inlineStyle={{ marginRight: '16px' }}
               name={(props.data as DropdownItem).icon}
@@ -370,7 +389,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
     }
     const isSelectAllWithPartialSelected =
       hasSelectAllOption &&
-      props.children === selectAllOption.label &&
+      props.children === selectAllOptionState.label &&
       Array.isArray(currentVal) &&
       currentVal.length > 0 &&
       !props.isSelected;
@@ -402,6 +421,16 @@ const Dropdown: React.FC<DropdownProps> = function ({
     if (menuIsOpen && isSearchable) {
       return null;
     }
+    if (placeholderIcon) {
+      return (
+        <components.Placeholder {...props}>
+          <DropdownPlaceholderWrapper>
+            <Icon name={placeholderIcon} color={getColor('placeholder')} size="xs" />
+            {props.children}
+          </DropdownPlaceholderWrapper>
+        </components.Placeholder>
+      );
+    }
     return <components.Placeholder {...props}>{props.children}</components.Placeholder>;
   };
 
@@ -416,10 +445,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
     if (isMulti && hasSelectAllOption) {
       const allOptionsSelected =
         Array.isArray(currentVal) &&
-        currentVal.find((option) => isEqual(option, selectAllOption)) !== undefined;
+        currentVal.find((option) => isEqual(option, selectAllOptionState)) !== undefined;
 
       if (allOptionsSelected) {
-        return !props.index && `Alle`;
+        return !props.index && allOptionsSelectedLabel;
       }
     }
     return !props.index && `${props.getValue().length} valgte`;
@@ -428,16 +457,17 @@ const Dropdown: React.FC<DropdownProps> = function ({
   const ElviaSingleValue = (props: SingleValueProps) => {
     return (
       <components.SingleValue {...props}>
-        {allOptionsHaveIconAttribute() ? (
+        {allOptionsHaveIconAttribute ? (
           <Icon
             inlineStyle={{ marginRight: '16px' }}
             name={(props.data as DropdownItem).icon}
             size={isCompact ? 'xs' : 'sm'}
+            color={decideSingleValueColor(menuIsOpen, isSearchable, isDisabled)}
           />
         ) : (
           ''
         )}
-        {props.children}
+        <DropdownSingleValueOverflowWrapper>{props.children}</DropdownSingleValueOverflowWrapper>
       </components.SingleValue>
     );
   };
@@ -479,21 +509,23 @@ const Dropdown: React.FC<DropdownProps> = function ({
       if (
         // selectAllOption is not currently selected, but becomes selected => select all
         // currentVal is not an array, selectAllOption is not selected, and selectAllOption is in the new values from the event
-        (!Array.isArray(currentVal) && currentVal !== selectAllOption && event.includes(selectAllOption)) ||
+        (!Array.isArray(currentVal) &&
+          currentVal !== selectAllOptionState &&
+          event.includes(selectAllOptionState)) ||
         // currentVal is an array that does not have selectAllOption in it, and selectAllOption is in the new values from the event
         (Array.isArray(currentVal) &&
-          !currentVal.find((option) => isEqual(option, selectAllOption)) &&
-          event.includes(selectAllOption))
+          !currentVal.find((option) => isEqual(option, selectAllOptionState)) &&
+          event.includes(selectAllOptionState))
       ) {
-        setCurrentVal([selectAllOption, ...items]);
-        updateValue([selectAllOption, ...items]);
+        setCurrentVal([selectAllOptionState, ...items]);
+        updateValue([selectAllOptionState, ...items]);
       } else if (
         // selectAllOption is selected, but becomes unselected => unselect all
         // Check that selectAllOption is currently selected
         Array.isArray(currentVal) &&
-        currentVal.find((option) => isEqual(option, selectAllOption)) &&
+        currentVal.find((option) => isEqual(option, selectAllOptionState)) &&
         // Check that selectAllOption is no longer selected
-        !event.find((option) => isEqual(option, selectAllOption))
+        !event.find((option) => isEqual(option, selectAllOptionState))
       ) {
         setCurrentVal([]);
         updateValue([]);
@@ -501,24 +533,24 @@ const Dropdown: React.FC<DropdownProps> = function ({
         // selectAllOption is selected, but not all options are selected any more => unselect selectAllOption
         // Check that selectAllOption is selected
         Array.isArray(currentVal) &&
-        currentVal.find((option) => isEqual(option, selectAllOption)) &&
+        currentVal.find((option) => isEqual(option, selectAllOptionState)) &&
         // Check that not all elements in options are selected any more  (length + 1 because of selectAllOption being added)
         event.length !== items.length + 1
       ) {
         // Filter out selectAllOption from the selected options
-        const newSelectedValue = event.filter((option) => !isEqual(option, selectAllOption));
+        const newSelectedValue = event.filter((option) => !isEqual(option, selectAllOptionState));
         setCurrentVal(newSelectedValue);
         updateValue(newSelectedValue);
       } else if (
         // selectAllOption is not selected, but all options are selected => select selectAllOption
         // Check that selectAllOption is not selected
         Array.isArray(currentVal) &&
-        !currentVal.find((option) => isEqual(option, selectAllOption)) &&
+        !currentVal.find((option) => isEqual(option, selectAllOptionState)) &&
         // Check that all options are selected
         event.length == items.length
       ) {
-        setCurrentVal([selectAllOption, ...event]);
-        updateValue([selectAllOption, ...event]);
+        setCurrentVal([selectAllOptionState, ...event]);
+        updateValue([selectAllOptionState, ...event]);
       } else {
         setCurrentVal(event);
         updateValue(event);
@@ -539,12 +571,11 @@ const Dropdown: React.FC<DropdownProps> = function ({
     // Filter out selectAllOption from the dispatched selected options
     const eventToDispatch =
       hasSelectAllOption && Array.isArray(event)
-        ? event.filter((option) => !isEqual(option, selectAllOption))
+        ? event.filter((option) => !isEqual(option, selectAllOptionState))
         : event;
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(eventToDispatch);
-    }
-    if (webcomponent) {
+    if (!webcomponent) {
+      valueOnChange?.(eventToDispatch);
+    } else {
       webcomponent.triggerEvent('valueOnChange', eventToDispatch);
     }
     return;
@@ -588,7 +619,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
           }}
           onMenuClose={() => setMenuIsOpen(false)}
           onMenuOpen={() => setMenuIsOpen(true)}
-          options={items && isMulti && hasSelectAllOption ? [selectAllOption, ...items] : items}
+          options={items && isMulti && hasSelectAllOption ? [selectAllOptionState, ...items] : items}
           placeholder={placeholder}
           value={currentVal}
           styles={customElviaStyles}
