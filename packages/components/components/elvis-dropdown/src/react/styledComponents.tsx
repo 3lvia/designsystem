@@ -96,6 +96,7 @@ const generateCheckmarkBeforeElement = (params: {
   width: string;
   transform: string;
   transformOrigin: string;
+  backgroundColor: string;
 }) => {
   return css`
     &::before {
@@ -105,7 +106,7 @@ const generateCheckmarkBeforeElement = (params: {
       left: ${params.left};
       height: ${params.height};
       width: ${params.width};
-      background-color: ${colors.elviaBlack};
+      background-color: ${params.backgroundColor};
       border-radius: 15px;
       transform: ${params.transform};
       transform-origin: ${params.transformOrigin};
@@ -120,6 +121,7 @@ const generateCheckmarkAfterElement = (params: {
   width: string;
   transform: string;
   transformOrigin: string;
+  backgroundColor: string;
 }) => {
   return css`
     &::after {
@@ -129,7 +131,7 @@ const generateCheckmarkAfterElement = (params: {
       left: ${params.left};
       height: ${params.height};
       width: ${params.width};
-      background-color: ${colors.elviaBlack};
+      background-color: ${params.backgroundColor};
       border-radius: 15px;
       transform: ${params.transform};
       transform-origin: ${params.transformOrigin};
@@ -141,7 +143,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
   isCompact: boolean,
   isSelecteed: boolean,
   isSelectAllWithPartialSelected: boolean,
-  // isDisabled: boolean
+  isDisabled: boolean,
 ) => {
   // Make compact line for "select all"-option when not everything is selected
   if (isCompact && isSelectAllWithPartialSelected) {
@@ -154,6 +156,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
         width: '40%',
         transform: 'translateX(8px)',
         transformOrigin: '(left bottom)',
+        backgroundColor: isDisabled ? colors.elviaDisabled : colors.elviaBlack,
       })}
     `;
   }
@@ -168,6 +171,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
         width: '50%',
         transform: 'translateX(8px)',
         transformOrigin: '(left bottom)',
+        backgroundColor: isDisabled ? colors.elviaDisabled : colors.elviaBlack,
       })}
     `;
   }
@@ -182,6 +186,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
         width: '2px',
         transform: 'translateX(10px) rotate(-45deg)',
         transformOrigin: '[left bottom]',
+        backgroundColor: isDisabled ? colors.elviaDisabled : colors.elviaBlack,
       })}
       ${generateCheckmarkAfterElement({
         bottom: '40%',
@@ -190,6 +195,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
         width: '80%',
         transform: 'translateX(10px) rotate(-55deg)',
         transformOrigin: '[left bottom]',
+        backgroundColor: isDisabled ? colors.elviaDisabled : colors.elviaBlack,
       })}
     `;
   }
@@ -204,6 +210,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
         width: '2px',
         transform: 'translateX(8px) rotate(-45deg)',
         transformOrigin: '(left bottom)',
+        backgroundColor: isDisabled ? colors.elviaDisabled : colors.elviaBlack,
       })}
       ${generateCheckmarkAfterElement({
         bottom: '15%',
@@ -212,6 +219,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
         width: '83%',
         transform: 'translateX(10px) rotate(-55deg)',
         transformOrigin: 'left bottom',
+        backgroundColor: isDisabled ? colors.elviaDisabled : colors.elviaBlack,
       })}
     `;
   }
@@ -240,7 +248,7 @@ export const DropdownCheckboxMark = styled.span<DropdownCheckboxMarkProps>`
       props.isCompact,
       props.isSelected,
       props.isSelectAllWithPartialSelected,
-      // props.isDisabled,
+      props.isDisabled,
     )}
 `;
 

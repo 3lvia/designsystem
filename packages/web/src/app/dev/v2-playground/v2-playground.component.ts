@@ -38,6 +38,7 @@ export class v2PlaygroundComponent {
   dropdownDefOptions = [
     { value: '1', label: 'Option 1', icon: 'arrowUp' },
     { value: '2', label: 'Option 2', icon: 'arrowDown' },
+    { value: '3', label: 'Option 3', icon: 'arrowLeft' },
   ];
   dropdownOptions = [
     { value: '1', label: 'Option 1', icon: 'arrowUp' },
