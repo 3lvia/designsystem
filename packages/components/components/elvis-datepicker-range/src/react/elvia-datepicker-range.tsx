@@ -12,11 +12,11 @@ export type BothDatepickers<T> = {
 
 export type DateRange = BothDatepickers<Date | null>;
 export type DateRangeString = BothDatepickers<string | null>;
-export type LabelOptions = Partial<BothDatepickers<DatepickerProps['label']>>;
-export type DisableDates = Partial<BothDatepickers<DatepickerProps['disableDate']>>;
-export type IsRequired = Partial<BothDatepickers<DatepickerProps['isRequired']>>;
-export type IsErrorState = Partial<BothDatepickers<DatepickerProps['isErrorState']>>;
-export type CustomError = Partial<BothDatepickers<DatepickerProps['customError']>>;
+export type LabelOptions = Partial<BothDatepickers<string>>;
+export type DisableDates = Partial<BothDatepickers<(day: Date) => boolean>>;
+export type IsRequired = Partial<BothDatepickers<boolean>>;
+export type IsErrorState = Partial<BothDatepickers<boolean>>;
+export type CustomError = Partial<BothDatepickers<string>>;
 
 const emptyDateRange: DateRange = {
   start: null,
@@ -328,7 +328,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         disableDate={disableDatesWrapper()?.start}
         customError={customError?.start}
         isErrorState={isErrorState?.start}
-        errorOnChange={(error) => setCurrentErrorMessages((current) => ({ ...current, start: error }))}
+        errorOnChange={(error: string) =>
+          setCurrentErrorMessages((current) => ({ ...current, start: error }))
+        }
       ></Datepicker>
       <Datepicker
         {...passThroughProps}
@@ -355,7 +357,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         disableDate={disableDatesWrapper()?.end}
         customError={customError?.end}
         isErrorState={isErrorState?.end}
-        errorOnChange={(error) => setCurrentErrorMessages((current) => ({ ...current, end: error }))}
+        errorOnChange={(error: string) => setCurrentErrorMessages((current) => ({ ...current, end: error }))}
       ></Datepicker>
     </DatepickerRangeWrapper>
   );
