@@ -25,9 +25,9 @@ export const accessControl = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const accessControlColor = {
@@ -53,9 +53,9 @@ export const accessControlColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const addCircle = {
@@ -81,9 +81,9 @@ export const addCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const addCircleColor = {
@@ -109,9 +109,9 @@ export const addCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const addCircleFilled = {
@@ -137,9 +137,9 @@ export const addCircleFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const addCircleFilledColor = {
@@ -165,9 +165,9 @@ export const addCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const addPowermeter = {
@@ -193,9 +193,9 @@ export const addPowermeter = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const addPowermeterColor = {
@@ -221,9 +221,9 @@ export const addPowermeterColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const adjust = {
@@ -249,9 +249,9 @@ export const adjust = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const agreementsColor = {
@@ -277,9 +277,9 @@ export const agreementsColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const analyticsBars = {
@@ -305,9 +305,9 @@ export const analyticsBars = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowCircleColor = {
@@ -333,9 +333,9 @@ export const arrowCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowRightCircleColor = {
@@ -361,9 +361,9 @@ export const arrowRightCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowCircleFilledColor = {
@@ -389,9 +389,9 @@ export const arrowCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowRightCircleFilledColor = {
@@ -417,9 +417,9 @@ export const arrowRightCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowRightCircle = {
@@ -445,9 +445,9 @@ export const arrowRightCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowLeftCircle = {
@@ -473,9 +473,9 @@ export const arrowLeftCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowLeftCircleColor = {
@@ -501,9 +501,9 @@ export const arrowLeftCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowLeftCircleFilledColor = {
@@ -529,9 +529,9 @@ export const arrowLeftCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowDown = {
@@ -557,9 +557,9 @@ export const arrowDown = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowDownBold = {
@@ -585,9 +585,9 @@ export const arrowDownBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowExternal = {
@@ -613,9 +613,9 @@ export const arrowExternal = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowExternalBold = {
@@ -641,9 +641,9 @@ export const arrowExternalBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowLeft = {
@@ -669,9 +669,9 @@ export const arrowLeft = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowLeftBold = {
@@ -697,9 +697,9 @@ export const arrowLeftBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowLongLeft = {
@@ -725,9 +725,9 @@ export const arrowLongLeft = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowLongLeftBold = {
@@ -753,9 +753,9 @@ export const arrowLongLeftBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowLongRight = {
@@ -781,9 +781,9 @@ export const arrowLongRight = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowLong = {
@@ -809,9 +809,9 @@ export const arrowLong = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowLongRightBold = {
@@ -837,9 +837,9 @@ export const arrowLongRightBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowLongBold = {
@@ -865,9 +865,9 @@ export const arrowLongBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowRight = {
@@ -893,9 +893,9 @@ export const arrowRight = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowRightBold = {
@@ -921,9 +921,9 @@ export const arrowRightBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowUp = {
@@ -949,9 +949,9 @@ export const arrowUp = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const arrowUpBold = {
@@ -977,9 +977,9 @@ export const arrowUpBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const attendance = {
@@ -1005,9 +1005,9 @@ export const attendance = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const attachment = {
@@ -1033,9 +1033,9 @@ export const attachment = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const attachmentColor = {
@@ -1061,9 +1061,9 @@ export const attachmentColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const bin = {
@@ -1089,9 +1089,9 @@ export const bin = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const bookmark = {
@@ -1117,9 +1117,9 @@ export const bookmark = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const bookmarkFilled = {
@@ -1145,9 +1145,9 @@ export const bookmarkFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const bookshelf = {
@@ -1173,9 +1173,9 @@ export const bookshelf = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const box = {
@@ -1201,9 +1201,9 @@ export const box = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const businessColor = {
@@ -1229,9 +1229,9 @@ export const businessColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const cabin = {
@@ -1257,9 +1257,9 @@ export const cabin = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const cable = {
@@ -1285,9 +1285,9 @@ export const cable = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const calendar = {
@@ -1313,9 +1313,9 @@ export const calendar = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const calendarClockColor = {
@@ -1341,9 +1341,9 @@ export const calendarClockColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const calendarColor = {
@@ -1369,9 +1369,9 @@ export const calendarColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const call = {
@@ -1397,9 +1397,9 @@ export const call = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const carChargerColor = {
@@ -1425,9 +1425,9 @@ export const carChargerColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const chainsaw = {
@@ -1453,9 +1453,9 @@ export const chainsaw = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const chat = {
@@ -1481,9 +1481,9 @@ export const chat = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const chargingBattery = {
@@ -1509,9 +1509,9 @@ export const chargingBattery = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const charge = {
@@ -1537,9 +1537,9 @@ export const charge = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const chargingBatteryColor = {
@@ -1565,9 +1565,9 @@ export const chargingBatteryColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const check = {
@@ -1593,9 +1593,9 @@ export const check = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const checkBold = {
@@ -1621,9 +1621,9 @@ export const checkBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const checkCircle = {
@@ -1649,9 +1649,9 @@ export const checkCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const checkCircleColor = {
@@ -1677,9 +1677,9 @@ export const checkCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const checkCircleFilled = {
@@ -1705,9 +1705,9 @@ export const checkCircleFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const checkCircleFilledColor = {
@@ -1733,9 +1733,9 @@ export const checkCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const checkShield = {
@@ -1761,9 +1761,9 @@ export const checkShield = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const checklistColor = {
@@ -1789,9 +1789,9 @@ export const checklistColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const clock = {
@@ -1817,9 +1817,9 @@ export const clock = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const close = {
@@ -1845,9 +1845,9 @@ export const close = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const closeBold = {
@@ -1873,9 +1873,9 @@ export const closeBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const closeMenu = {
@@ -1901,9 +1901,9 @@ export const closeMenu = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const cloudUpload = {
@@ -1929,9 +1929,9 @@ export const cloudUpload = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const cog = {
@@ -1957,9 +1957,9 @@ export const cog = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const cookie = {
@@ -1985,9 +1985,9 @@ export const cookie = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const costCutColor = {
@@ -2013,9 +2013,9 @@ export const costCutColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const collapseCircleColor = {
@@ -2041,9 +2041,9 @@ export const collapseCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const collapseCircleFilledColor = {
@@ -2069,9 +2069,9 @@ export const collapseCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const configurations = {
@@ -2097,9 +2097,9 @@ export const configurations = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const copy = {
@@ -2125,9 +2125,9 @@ export const copy = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const crane = {
@@ -2153,9 +2153,9 @@ export const crane = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const creditCard = {
@@ -2181,9 +2181,9 @@ export const creditCard = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const cutElectricityPillar = {
@@ -2209,9 +2209,9 @@ export const cutElectricityPillar = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const cutElectricityPillarColor = {
@@ -2237,9 +2237,9 @@ export const cutElectricityPillarColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const dangerElectricityColor = {
@@ -2265,9 +2265,9 @@ export const dangerElectricityColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const dashboard = {
@@ -2293,9 +2293,9 @@ export const dashboard = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const dashboardColor = {
@@ -2321,9 +2321,9 @@ export const dashboardColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const designProcessColor = {
@@ -2349,9 +2349,9 @@ export const designProcessColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const diggingColor = {
@@ -2377,9 +2377,9 @@ export const diggingColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const download = {
@@ -2405,9 +2405,9 @@ export const download = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const dragHandle = {
@@ -2433,9 +2433,9 @@ export const dragHandle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const edit = {
@@ -2461,9 +2461,9 @@ export const edit = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const electricCabinet = {
@@ -2489,9 +2489,9 @@ export const electricCabinet = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const electricCabinetColor = {
@@ -2517,9 +2517,9 @@ export const electricCabinetColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const electricCarColor = {
@@ -2545,9 +2545,9 @@ export const electricCarColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const electricHome = {
@@ -2573,9 +2573,9 @@ export const electricHome = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const electricHomeColor = {
@@ -2601,9 +2601,9 @@ export const electricHomeColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const electricalSystem = {
@@ -2629,9 +2629,9 @@ export const electricalSystem = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const electricalSystemColor = {
@@ -2657,9 +2657,9 @@ export const electricalSystemColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const electricityPillar = {
@@ -2685,9 +2685,9 @@ export const electricityPillar = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const electricitySafety = {
@@ -2713,9 +2713,9 @@ export const electricitySafety = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const electricitySafetyColor = {
@@ -2741,9 +2741,9 @@ export const electricitySafetyColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const electricityTower = {
@@ -2769,9 +2769,9 @@ export const electricityTower = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const elsmartColor = {
@@ -2797,9 +2797,9 @@ export const elsmartColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const exitFullScreen = {
@@ -2825,9 +2825,9 @@ export const exitFullScreen = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const exitFullScreenColor = {
@@ -2853,9 +2853,9 @@ export const exitFullScreenColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const expandCircleColor = {
@@ -2881,9 +2881,9 @@ export const expandCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const expandCircleFilledColor = {
@@ -2909,9 +2909,9 @@ export const expandCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const extensionCord = {
@@ -2937,9 +2937,9 @@ export const extensionCord = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const facebook = {
@@ -2965,9 +2965,9 @@ export const facebook = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const feedback = {
@@ -2993,9 +2993,9 @@ export const feedback = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const filter = {
@@ -3021,9 +3021,9 @@ export const filter = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const filterFilled = {
@@ -3049,9 +3049,9 @@ export const filterFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const flag = {
@@ -3077,9 +3077,9 @@ export const flag = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const flagBold = {
@@ -3105,9 +3105,9 @@ export const flagBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const flagBoldColor = {
@@ -3133,9 +3133,9 @@ export const flagBoldColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const flagColor = {
@@ -3161,9 +3161,9 @@ export const flagColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const folder = {
@@ -3189,9 +3189,9 @@ export const folder = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const folderCreate = {
@@ -3217,9 +3217,9 @@ export const folderCreate = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const folderOpen = {
@@ -3245,9 +3245,9 @@ export const folderOpen = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const formCheckColor = {
@@ -3273,9 +3273,9 @@ export const formCheckColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const form = {
@@ -3301,9 +3301,9 @@ export const form = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const formColor = {
@@ -3329,9 +3329,9 @@ export const formColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const fullBattery = {
@@ -3357,9 +3357,9 @@ export const fullBattery = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const fullBatteryColor = {
@@ -3385,9 +3385,9 @@ export const fullBatteryColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const fullScreen = {
@@ -3413,9 +3413,9 @@ export const fullScreen = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const fullScreenColor = {
@@ -3441,9 +3441,9 @@ export const fullScreenColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const freshchatColor = {
@@ -3469,9 +3469,9 @@ export const freshchatColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const graphBar = {
@@ -3497,9 +3497,9 @@ export const graphBar = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const graphBarColor = {
@@ -3525,9 +3525,9 @@ export const graphBarColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const graphUp = {
@@ -3553,9 +3553,9 @@ export const graphUp = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const groundFault = {
@@ -3581,9 +3581,9 @@ export const groundFault = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const groundFaultColor = {
@@ -3609,9 +3609,9 @@ export const groundFaultColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const hammerWrenchColor = {
@@ -3637,9 +3637,9 @@ export const hammerWrenchColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const han = {
@@ -3665,9 +3665,9 @@ export const han = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const hanColor = {
@@ -3693,9 +3693,9 @@ export const hanColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const heating = {
@@ -3721,9 +3721,9 @@ export const heating = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const home = {
@@ -3749,9 +3749,9 @@ export const home = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const homeColor = {
@@ -3777,9 +3777,9 @@ export const homeColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const houseRebuildingColor = {
@@ -3805,9 +3805,9 @@ export const houseRebuildingColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const image = {
@@ -3833,9 +3833,9 @@ export const image = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const imageAddColor = {
@@ -3861,9 +3861,9 @@ export const imageAddColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const informationCircle = {
@@ -3889,9 +3889,9 @@ export const informationCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const informationCircleColor = {
@@ -3917,9 +3917,9 @@ export const informationCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const informationCircleFilledColor = {
@@ -3945,9 +3945,9 @@ export const informationCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const installatorwebColor = {
@@ -3973,9 +3973,9 @@ export const installatorwebColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const invoice = {
@@ -4001,9 +4001,9 @@ export const invoice = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const invoiceColor = {
@@ -4029,9 +4029,9 @@ export const invoiceColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const laptopColor = {
@@ -4057,9 +4057,9 @@ export const laptopColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const layers = {
@@ -4085,9 +4085,9 @@ export const layers = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const lighting = {
@@ -4113,9 +4113,9 @@ export const lighting = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const list = {
@@ -4141,9 +4141,9 @@ export const list = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const listColor = {
@@ -4169,9 +4169,9 @@ export const listColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const listBulletsBold = {
@@ -4197,9 +4197,9 @@ export const listBulletsBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const loading = {
@@ -4225,9 +4225,9 @@ export const loading = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const lock = {
@@ -4253,9 +4253,9 @@ export const lock = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const lockHierarchy = {
@@ -4281,9 +4281,9 @@ export const lockHierarchy = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const logout = {
@@ -4309,9 +4309,9 @@ export const logout = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const mail = {
@@ -4337,9 +4337,9 @@ export const mail = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const mailErrorColor = {
@@ -4365,9 +4365,9 @@ export const mailErrorColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const mailMonitorColor = {
@@ -4393,9 +4393,9 @@ export const mailMonitorColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const mailSendColor = {
@@ -4421,9 +4421,9 @@ export const mailSendColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const mapPinColor = {
@@ -4449,9 +4449,9 @@ export const mapPinColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const media = {
@@ -4477,9 +4477,9 @@ export const media = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const menu = {
@@ -4505,9 +4505,9 @@ export const menu = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const menuBold = {
@@ -4533,9 +4533,9 @@ export const menuBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const minus = {
@@ -4561,9 +4561,9 @@ export const minus = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const minusBold = {
@@ -4589,9 +4589,9 @@ export const minusBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const moneyColor = {
@@ -4617,9 +4617,9 @@ export const moneyColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const moreMenu = {
@@ -4645,9 +4645,9 @@ export const moreMenu = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const moveCircle = {
@@ -4673,9 +4673,9 @@ export const moveCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const moveTruckColor = {
@@ -4701,9 +4701,9 @@ export const moveTruckColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const newTabBold = {
@@ -4729,9 +4729,9 @@ export const newTabBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const noteApprovedColor = {
@@ -4757,9 +4757,9 @@ export const noteApprovedColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const noteCheckColor = {
@@ -4785,9 +4785,9 @@ export const noteCheckColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const notificationBold = {
@@ -4813,9 +4813,9 @@ export const notificationBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const openMenu = {
@@ -4841,9 +4841,9 @@ export const openMenu = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const paperPlaneSpeedColor = {
@@ -4869,9 +4869,9 @@ export const paperPlaneSpeedColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const paperPlane = {
@@ -4897,9 +4897,9 @@ export const paperPlane = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const pauseCircleColor = {
@@ -4925,9 +4925,9 @@ export const pauseCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const pauseCircleFilledColor = {
@@ -4953,9 +4953,9 @@ export const pauseCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const phone = {
@@ -4981,9 +4981,9 @@ export const phone = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const phoneComment = {
@@ -5009,9 +5009,9 @@ export const phoneComment = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const phoneCommentColor = {
@@ -5037,9 +5037,9 @@ export const phoneCommentColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const phoneImage = {
@@ -5065,9 +5065,9 @@ export const phoneImage = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const pdfDocument = {
@@ -5093,9 +5093,9 @@ export const pdfDocument = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const pieChart = {
@@ -5121,9 +5121,9 @@ export const pieChart = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const pin = {
@@ -5149,9 +5149,9 @@ export const pin = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const pinColor = {
@@ -5177,9 +5177,9 @@ export const pinColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const pinFilled = {
@@ -5205,9 +5205,9 @@ export const pinFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const pinFilledColor = {
@@ -5233,9 +5233,9 @@ export const pinFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const playCircleColor = {
@@ -5261,9 +5261,9 @@ export const playCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const playCircleFilledColor = {
@@ -5289,9 +5289,9 @@ export const playCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const plus = {
@@ -5317,9 +5317,9 @@ export const plus = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const plusBold = {
@@ -5345,9 +5345,9 @@ export const plusBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const positionBold = {
@@ -5373,9 +5373,9 @@ export const positionBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const positionBoldColor = {
@@ -5401,9 +5401,9 @@ export const positionBoldColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const positionOffBold = {
@@ -5429,9 +5429,9 @@ export const positionOffBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const power = {
@@ -5457,9 +5457,9 @@ export const power = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const power2 = {
@@ -5485,9 +5485,9 @@ export const power2 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powerOutage = {
@@ -5513,9 +5513,9 @@ export const powerOutage = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powerOutage2 = {
@@ -5541,9 +5541,9 @@ export const powerOutage2 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powerOutage2Color = {
@@ -5569,9 +5569,9 @@ export const powerOutage2Color = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powerOutageColor = {
@@ -5597,9 +5597,9 @@ export const powerOutageColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powerOutageMap = {
@@ -5625,9 +5625,9 @@ export const powerOutageMap = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powerOutageOrangeColor = {
@@ -5653,9 +5653,9 @@ export const powerOutageOrangeColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powerService = {
@@ -5681,9 +5681,9 @@ export const powerService = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powerServiceColor = {
@@ -5709,9 +5709,9 @@ export const powerServiceColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powerColor = {
@@ -5737,9 +5737,9 @@ export const powerColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powerline = {
@@ -5765,9 +5765,9 @@ export const powerline = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powerlineColor = {
@@ -5793,9 +5793,9 @@ export const powerlineColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powermeterAms = {
@@ -5821,9 +5821,9 @@ export const powermeterAms = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powermeterAmsColor = {
@@ -5849,9 +5849,9 @@ export const powermeterAmsColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powermeterOld = {
@@ -5877,9 +5877,9 @@ export const powermeterOld = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const powermeterColor = {
@@ -5905,9 +5905,9 @@ export const powermeterColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const profile = {
@@ -5933,9 +5933,9 @@ export const profile = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const profile2 = {
@@ -5961,9 +5961,9 @@ export const profile2 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const profile2Color = {
@@ -5989,9 +5989,9 @@ export const profile2Color = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const profileBold = {
@@ -6017,9 +6017,9 @@ export const profileBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const questionCircle = {
@@ -6045,9 +6045,9 @@ export const questionCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const questionCircleColor = {
@@ -6073,9 +6073,9 @@ export const questionCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const questionCircleFilledColor = {
@@ -6101,9 +6101,9 @@ export const questionCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const quotationColor = {
@@ -6129,9 +6129,9 @@ export const quotationColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const refresh = {
@@ -6157,9 +6157,9 @@ export const refresh = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const removeCircle = {
@@ -6185,9 +6185,9 @@ export const removeCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const removeCircleColor = {
@@ -6213,9 +6213,9 @@ export const removeCircleColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const removeCircleFilled = {
@@ -6241,9 +6241,9 @@ export const removeCircleFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const removeCircleFilledColor = {
@@ -6269,9 +6269,9 @@ export const removeCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const renewableEnergy = {
@@ -6297,9 +6297,9 @@ export const renewableEnergy = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const renewableEnergyColor = {
@@ -6325,9 +6325,9 @@ export const renewableEnergyColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const reset = {
@@ -6353,9 +6353,9 @@ export const reset = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const rotateRight = {
@@ -6381,9 +6381,9 @@ export const rotateRight = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const rssBold = {
@@ -6409,9 +6409,9 @@ export const rssBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const search = {
@@ -6437,9 +6437,9 @@ export const search = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const searchColor = {
@@ -6465,9 +6465,9 @@ export const searchColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const searchBold = {
@@ -6493,9 +6493,9 @@ export const searchBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const searchBoldColor = {
@@ -6521,9 +6521,9 @@ export const searchBoldColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const season = {
@@ -6549,9 +6549,9 @@ export const season = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const selectArea = {
@@ -6577,9 +6577,9 @@ export const selectArea = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const settingsVertical = {
@@ -6605,9 +6605,9 @@ export const settingsVertical = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const shovel = {
@@ -6633,9 +6633,9 @@ export const shovel = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const smartCity = {
@@ -6661,9 +6661,9 @@ export const smartCity = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const smartCityColor = {
@@ -6689,9 +6689,9 @@ export const smartCityColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const solarPanel = {
@@ -6717,9 +6717,9 @@ export const solarPanel = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const solarPanelColor = {
@@ -6745,9 +6745,9 @@ export const solarPanelColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const sortingAscendingBold = {
@@ -6773,9 +6773,9 @@ export const sortingAscendingBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const sortingDescendingBold = {
@@ -6801,9 +6801,9 @@ export const sortingDescendingBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const sortingAlfabeticalAToZ = {
@@ -6829,9 +6829,9 @@ export const sortingAlfabeticalAToZ = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const sortingAlfabeticalZToA = {
@@ -6857,9 +6857,9 @@ export const sortingAlfabeticalZToA = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const sortingDateEarliestToLatest = {
@@ -6885,9 +6885,9 @@ export const sortingDateEarliestToLatest = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const sortingDateLatestToEarliest = {
@@ -6913,9 +6913,9 @@ export const sortingDateLatestToEarliest = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const sortingBold = {
@@ -6941,9 +6941,9 @@ export const sortingBold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const sorting2Bold = {
@@ -6969,9 +6969,9 @@ export const sorting2Bold = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const sortingNumberHighToLow = {
@@ -6997,9 +6997,9 @@ export const sortingNumberHighToLow = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const sortingNumberLowToHigh = {
@@ -7025,9 +7025,9 @@ export const sortingNumberLowToHigh = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const sortingTimeEarliestToLatest = {
@@ -7053,9 +7053,9 @@ export const sortingTimeEarliestToLatest = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const sortingTimeLatestToEarliest = {
@@ -7081,9 +7081,9 @@ export const sortingTimeLatestToEarliest = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const starFilled = {
@@ -7109,9 +7109,9 @@ export const starFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const star = {
@@ -7137,9 +7137,9 @@ export const star = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const step1 = {
@@ -7165,9 +7165,9 @@ export const step1 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const step2 = {
@@ -7193,9 +7193,9 @@ export const step2 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const step3 = {
@@ -7221,9 +7221,9 @@ export const step3 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const step4 = {
@@ -7249,9 +7249,9 @@ export const step4 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const step5 = {
@@ -7277,9 +7277,9 @@ export const step5 = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const stove = {
@@ -7305,9 +7305,9 @@ export const stove = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const subtractCircle = {
@@ -7333,9 +7333,9 @@ export const subtractCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const subtractCircleFilled = {
@@ -7361,9 +7361,9 @@ export const subtractCircleFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const subtractCircleFilledColor = {
@@ -7389,9 +7389,9 @@ export const subtractCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const support = {
@@ -7417,9 +7417,9 @@ export const support = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const sync = {
@@ -7445,9 +7445,9 @@ export const sync = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const tagAdd = {
@@ -7473,9 +7473,9 @@ export const tagAdd = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const tag = {
@@ -7501,9 +7501,9 @@ export const tag = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const thirdParty = {
@@ -7529,9 +7529,9 @@ export const thirdParty = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const thumbnail = {
@@ -7557,9 +7557,9 @@ export const thumbnail = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const thumbnailColor = {
@@ -7585,9 +7585,9 @@ export const thumbnailColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const touchFingerColor = {
@@ -7613,9 +7613,9 @@ export const touchFingerColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const transformer = {
@@ -7641,9 +7641,9 @@ export const transformer = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const transformerColor = {
@@ -7669,9 +7669,9 @@ export const transformerColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const transformerChange = {
@@ -7697,9 +7697,9 @@ export const transformerChange = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const transformerChangeColor = {
@@ -7725,9 +7725,9 @@ export const transformerChangeColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const treeFalling = {
@@ -7753,9 +7753,9 @@ export const treeFalling = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const treePowerline = {
@@ -7781,9 +7781,9 @@ export const treePowerline = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const treePowerlineColor = {
@@ -7809,9 +7809,9 @@ export const treePowerlineColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const unlock = {
@@ -7837,9 +7837,9 @@ export const unlock = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const upload = {
@@ -7865,9 +7865,9 @@ export const upload = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const userTestingColor = {
@@ -7893,9 +7893,9 @@ export const userTestingColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const users = {
@@ -7921,9 +7921,9 @@ export const users = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const viewOff = {
@@ -7949,9 +7949,9 @@ export const viewOff = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const viewOn = {
@@ -7977,9 +7977,9 @@ export const viewOn = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const warningCircle = {
@@ -8005,9 +8005,9 @@ export const warningCircle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const warningCircleFilled = {
@@ -8033,9 +8033,9 @@ export const warningCircleFilled = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const warningElectricityColor = {
@@ -8061,9 +8061,9 @@ export const warningElectricityColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const warningTriangle = {
@@ -8089,9 +8089,9 @@ export const warningTriangle = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const warningCircleFilledColor = {
@@ -8117,9 +8117,9 @@ export const warningCircleFilledColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const waterHeater = {
@@ -8145,9 +8145,9 @@ export const waterHeater = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const washingMachine = {
@@ -8173,9 +8173,9 @@ export const washingMachine = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const webLibraryColor = {
@@ -8201,9 +8201,9 @@ export const webLibraryColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const worker = {
@@ -8229,9 +8229,9 @@ export const worker = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const workUnderLineColor = {
@@ -8257,9 +8257,9 @@ export const workUnderLineColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const workerColor = {
@@ -8285,9 +8285,9 @@ export const workerColor = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const wrench = {
@@ -8313,9 +8313,9 @@ export const wrench = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const zoomIn = {
@@ -8341,9 +8341,9 @@ export const zoomIn = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
 export const zoomOut = {
@@ -8369,8 +8369,8 @@ export const zoomOut = {
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
     } else if (!color.startsWith('#')) {
-      return icon.replace(/fill="([^"]*)"/g, 'fill="' + getColor(color) + '"');
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
-    return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
