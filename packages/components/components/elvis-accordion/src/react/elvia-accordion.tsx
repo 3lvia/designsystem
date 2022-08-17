@@ -63,7 +63,6 @@ const Accordion: FC<AccordionProps> = ({
   ...rest
 }) => {
   const [isOpenState, setIsOpenState] = useState(isOpen);
-  // const [hasBeenInitiated, setHasBeenInitiated] = useState(false);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
   const [hasContent, setHasContent] = useState(false);
 
@@ -95,14 +94,6 @@ const Accordion: FC<AccordionProps> = ({
   }, [webcomponent]);
 
   useEffect(() => {
-    console.log('IsOpen updated');
-    // console.log(hasBeenInitiated, ' Initiated');
-    // if (!hasBeenInitiated) {
-    //   console.log('INITIATE');
-    //   setHasBeenInitiated((preHasBeenInitiated) => !preHasBeenInitiated);
-    //   return;
-    // }
-    // console.log(isOpenState, ' changed');
     setIsOpenState(isOpen);
   }, [isOpen]);
 

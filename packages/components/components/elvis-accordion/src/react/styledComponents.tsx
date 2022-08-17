@@ -15,13 +15,11 @@ const typography = {
 
 export const AccordionWrapper = styled.div`
   display: flex;
-  // width: 100%;
 `;
 
 export const AccordionArea = styled.div`
   display: flex;
   flex-direction: column;
-  // align-items: flex-start;
   width: 100%;
 `;
 
@@ -75,15 +73,6 @@ type AccordionButtonProps = {
   closeLabel: string;
   onClick: any;
 };
-
-// const rotateUpAnimation = keyframes`
-//  0% { transform: rotate(0deg) }
-//  100% { transform: rotate(180deg) }
-// `;
-// const rotateDownAnimation = keyframes`
-//  0% { transform: rotate(180deg)  }
-//  100% { transform: rotate(0deg) }
-// `;
 
 export const AccordionButton = styled.button<AccordionButtonProps>`
   border: none;
