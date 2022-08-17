@@ -39,6 +39,7 @@ const spotlightData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-spotlight',
   codeImportReact: `import { Spotlight } from '@elvia/elvis-spotlight/react';`,
+  codeImportTypescriptInterface: `import { SpotlightProps } from '@elvia/elvis-spotlight/react';`,
   codeImportWebComponent: `import '@elvia/elvis-spotlight';`,
   codeReact: `<Spotlight
   position={{horizontal: 300, vertical: 300}}

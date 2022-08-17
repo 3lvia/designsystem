@@ -1,6 +1,7 @@
 import changelogJson from 'src/assets/changelogs/elvis-radio-filter/CHANGELOG.json';
+import ComponentData from '../component-data.interface';
 
-const radioFilterData = {
+const radioFilterData: ComponentData = {
   name: 'elvis-radio-filter',
   elementNameW: 'elvia-radio-filter',
   elementNameR: 'RadioFilter',
@@ -53,6 +54,7 @@ const radioFilterData = {
   },
   package: 'npm install @elvia/elvis-radio-filter',
   codeImportReact: `import { RadioFilter } from '@elvia/elvis-radio-filter/react';`,
+  codeImportTypescriptInterface: `import { RadioFilterProps } from '@elvia/elvis-radio-filter/react';`,
   codeImportWebComponent: `import '@elvia/elvis-radio-filter';`,
   codeReact: `<RadioFilter
   items={[

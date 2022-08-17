@@ -48,4 +48,23 @@
       </app-copy>
     </div>
   </li>
+  <ng-container *ngIf="componentData.codeImportTypescriptInterface">
+    <li>
+      <strong>Import types (optional):</strong>
+      <h4 class="e-title-caps e-mt-16 e-mb-8">Types</h4>
+      <div class="code-text">
+        <app-copy [message]="componentData.codeImportTypescriptInterface">
+          <ng-container ngProjectAs="copyContent">
+            <span class="code-text" style="line-height: 26px">
+              {{ componentData.codeImportTypescriptInterface }}
+            </span>
+          </ng-container>
+        </app-copy>
+      </div>
+      <div class="e-text-md">
+        Typescript interfaces for the component properties are available. They are exported from the React
+        export, but can be used in any project.
+      </div>
+    </li>
+  </ng-container>
 </ol>

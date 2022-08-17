@@ -32,6 +32,7 @@ const breadcrumbData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-breadcrumb',
   codeImportReact: `import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';`,
+  codeImportTypescriptInterface: `import { BreadcrumbProps } from '@elvia/elvis-breadcrumb/react';`,
   codeImportWebComponent: `import '@elvia/elvis-breadcrumb';`,
   codeReact: `<Breadcrumb 
   items={[
