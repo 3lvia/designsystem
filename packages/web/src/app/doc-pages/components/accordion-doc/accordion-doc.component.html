@@ -22,20 +22,21 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
-          Normal will always have the same position
-          <strong>above the content</strong>
-          . Normal shows either none or all of the content.
+          Normal will always have the same position above the content . Normal shows either none or all of the
+          content.
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Overflow'">
         <ng-container ngProjectAs="sectionContent">
-          Overflow is placed
-          <strong>below the content</strong>
-          and moves down if expanded. Overflow shows some of the content and can be expanded to show all.
+          Overflow is placed below the content and moves down if expanded. Overflow shows some of the content
+          and can be expanded to show all.
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Single'">
-        <ng-container ngProjectAs="sectionContent"></ng-container>
+        <ng-container ngProjectAs="sectionContent">
+          Single are an accordion without label and can be placed next to other elements, for example in an
+          list or table.
+        </ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>
