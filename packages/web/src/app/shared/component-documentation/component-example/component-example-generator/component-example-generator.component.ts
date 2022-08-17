@@ -297,7 +297,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       attributeData.cegDependency.forEach((dependency) => {
         if (dependency.value.includes(this.topFilterFormStates[dependency.name])) {
           isCustomTextVisible = true;
-          return;
         } else {
           isCustomTextVisible = false;
         }
