@@ -1,5 +1,7 @@
+import type { ElviaColor } from '@elvia/elvis-colors';
+
 declare type Icon = {
-  getIcon: (color: string) => string;
+  getIcon: (color?: ElviaColor | 'inverted') => string;
 };
 export declare const accessControl: Icon;
 export declare const accessControlColor: Icon;
