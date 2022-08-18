@@ -48,7 +48,7 @@ const accordionData: ComponentData = {
         'How much content (in pixels) to display before opening the accordion. Only affects accordion with type "overflow".',
     },
     content: {
-      isRequired: true,
+      isRequired: false,
       type: 'string | HTMLElement',
       description: 'Text, images, tables or any other content (use slot in webcomponent if not just text).',
     },

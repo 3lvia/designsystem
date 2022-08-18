@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "8.9.0",
+      "date": "August 18, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "All our typographies are now available through not only sm, md, lg etc. abbreviations, but also through the full size name; small, medium, large etc."
+          ],
+          "pages": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/icon#Overview" }]
+        }
+      ]
+    },
+    {
       "version": "8.8.2",
       "date": "August 15, 2022",
       "changelog": [

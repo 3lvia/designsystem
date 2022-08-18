@@ -15,7 +15,7 @@ import { Icon } from '@elvia/elvis-icon/react';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 export interface AccordionProps {
-  content: string | HTMLElement;
+  content?: string | JSX.Element;
   isOpen?: boolean;
   isHovering?: boolean;
   isFullWidth?: boolean;
@@ -27,12 +27,12 @@ export interface AccordionProps {
   closeAriaLabel?: string;
   hasBoldLabel?: boolean;
   isStartAligned?: boolean;
-  labelPosition: AccordionLabelPosition;
-  size: AccordionSize;
-  type: AccordionType;
+  labelPosition?: AccordionLabelPosition;
+  size?: AccordionSize;
+  type?: AccordionType;
   overflowHeight?: number;
-  onOpen: () => void;
-  onClose: () => void;
+  onOpen?: () => void;
+  onClose?: () => void;
   className?: string;
   inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
