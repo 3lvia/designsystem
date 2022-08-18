@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 2.4.3 (19.08.22)
+
+### Patch
+
+- Updated from gulp-svgo til gulp-svgmin. Fixes a bug that made svg not possible to open in Adobe programs.
+
 ## 2.4.2 (16.08.22)
 
 ### Patch

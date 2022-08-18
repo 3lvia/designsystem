@@ -1,6 +1,6 @@
 const del = require('del');
 const gulp = require('gulp');
-const svgo = require('gulp-svgo');
+const svgmin = require('gulp-svgmin');
 const icons = require('../config/icons.config');
 const path = require('path');
 const fs = require('fs');
@@ -36,7 +36,7 @@ function optimizeSVG() {
   const iconsToInclude = icons.map((i) => {
     return `icons/svg/src/${i.name}.svg`;
   });
-  return gulp.src(iconsToInclude, { allowEmpty: true }).pipe(svgo()).pipe(gulp.dest('icons/svg/dist'));
+  return gulp.src(iconsToInclude, { allowEmpty: true }).pipe(svgmin()).pipe(gulp.dest('icons/svg/dist'));
 }
 
 // Create icon module in icons.js and icons.d.ts
