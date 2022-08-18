@@ -205,7 +205,7 @@ const decideContentTransition = (contentOpen: boolean, type: AccordionType): str
     if (contentOpen) {
       return 'max-height 2s ease-in';
     } else {
-      return 'none';
+      return 'max-height 1s cubic-bezier(0,1.04,0,.91)';
     }
   }
   return 'all 0.3s ease-out';
