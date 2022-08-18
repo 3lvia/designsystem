@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "18.08.22",
+      "version": "3.2.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Updated design of the selected value in the input field for open dropdown when the dropdown is not multiselect, and is searchable. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "16.08.22",
       "version": "3.2.0",
       "changelog": [
