@@ -74,6 +74,7 @@ export const progressbarData: ComponentData = {
     },
   },
   codeImportReact: `import { ProgressLinear } from '@elvia/elvis-progress-linear/react';`,
+  codeImportTypescriptInterface: `import { ProgressLinearProps } from '@elvia/elvis-progress-linear/react';`,
   codeImportWebComponent: `import '@elvia/elvis-progress-linear';`,
   codeReact: `<ProgressLinear
   value={20}

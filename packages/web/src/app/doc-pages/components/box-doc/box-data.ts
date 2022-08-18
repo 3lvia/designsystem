@@ -58,6 +58,7 @@ const boxData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-box',
   codeImportReact: `import { Box } from '@elvia/elvis-box/react';`,
+  codeImportTypescriptInterface: `import { BoxProps } from '@elvia/elvis-box/react';`,
   codeImportWebComponent: `import '@elvia/elvis-box';`,
   codeReact: `<Box
   content={<div>
