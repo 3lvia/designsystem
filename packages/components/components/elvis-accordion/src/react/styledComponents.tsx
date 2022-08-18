@@ -179,7 +179,7 @@ const decideContentMaxHeight = (
     if (contentOpen) {
       return '10000px';
     } else {
-      return overflowHeight ? `${overflowHeight}px` : 'calc(2em * 1.2)';
+      return overflowHeight ? `${overflowHeight}px` : 'calc(2em * 1.3)';
     }
   }
 
