@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "8.9.0",
+      "date": "August 19, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added a full width class to input fields"],
+          "components": [{ "displayName": "Text fields", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "8.8.2",
       "date": "August 15, 2022",
       "changelog": [

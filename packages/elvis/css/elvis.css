@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&display=swap");
@@ -7724,6 +7725,11 @@ input:focus {
   position: relative;
   text-align: left;
   box-sizing: border-box;
+  /* 
+  Dersom form fieldet har modden width-full, så fjernes max-width fra alle input elementer som fielden inneholder.
+  Det er bare field som trenger denne modden, alle inputs kan las være i fred.
+
+  Tanke: Følger ikke DRY ettersom vi setter samme styles på flere elementer. Både parent og child. Samme gjelder for inline fileds. */
 }
 .e-form-field__label {
   display: block;
@@ -7816,6 +7822,9 @@ input:focus {
 .e-form-field.e-form-field--compact input:disabled {
   color: #bdbdbd;
 }
+.e-form-field.e-form-field--width-full .e-input, .e-form-field.e-form-field--width-full .e-input > input, .e-form-field.e-form-field--width-full .e-input > textarea, .e-form-field.e-form-field--width-full .e-input > div, .e-form-field.e-form-field--combined.e-form-field--width-full > .e-form-field__input {
+  max-width: unset;
+}
 
 .e-inlined-field {
   display: flex;
@@ -7838,6 +7847,13 @@ input:focus {
 }
 .e-inlined-field .e-form-field.e-form-field--medium {
   width: 140px;
+}
+.e-inlined-field .e-form-field.e-form-field--width-full {
+  max-width: unset;
+  width: 100%;
+}
+.e-inlined-field.e-inlined-field--width-full, .e-inlined-field.e-inlined-field--width-full .e-input, .e-inlined-field.e-inlined-field--width-full input {
+  max-width: unset;
 }
 
 .e-fileupload {

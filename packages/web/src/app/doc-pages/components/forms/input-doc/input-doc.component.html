@@ -71,6 +71,12 @@
           <app-component-example-v1 [codeHTML]="exampleOptional"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Full width'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="exampleFullwidth"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

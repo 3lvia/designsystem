@@ -142,6 +142,13 @@ showMockPassword() {
 </div>
 `;
 
+  exampleFullwidth = `<div class="e-form-field e-form-field--width-full">
+  <label class="e-form-field__label" for="normal">Label</label>
+  <div class="e-input">
+    <input id="normal" type="text" placeholder="Placeholder" />
+  </div>
+</div>`;
+
   showMockPassword(): void {
     if (this.validationExample.nativeElement.type === 'password') {
       this.validationExample.nativeElement.type = 'text';
