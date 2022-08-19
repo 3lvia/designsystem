@@ -142,12 +142,30 @@ showMockPassword() {
 </div>
 `;
 
-  exampleFullwidth = `<div class="e-form-field e-form-field--width-full">
-  <label class="e-form-field__label" for="normal">Label</label>
+  exampleFullwidth = `<!-- Normal field -->
+<div class="e-form-field e-form-field--width-full">
+  <label class="e-form-field__label" for="width-full">Label</label>
   <div class="e-input">
-    <input id="normal" type="text" placeholder="Placeholder" />
+    <input id="width-full" type="text" placeholder="Placeholder text" />
   </div>
-</div>`;
+</div>
+<!-- Inlined field -->
+<div class="e-inlined-field e-mt-24 e-inlined-field--width-full">
+  <div class="e-form-field e-form-field--medium">
+    <label class="e-form-field__label" for="zip">Zip code
+    </label>
+    <div class="e-input">
+      <input id="zip" type="text" placeholder="Zip code">
+    </div>
+  </div>
+  <div class="e-form-field">
+    <label class="e-form-field__label" for="city">City</label>
+    <div class="e-input">
+      <input id="city" type="text" placeholder="City">
+    </div>
+  </div>
+</div>
+  `;
 
   showMockPassword(): void {
     if (this.validationExample.nativeElement.type === 'password') {
