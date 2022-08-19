@@ -455,6 +455,9 @@ const Dropdown: React.FC<DropdownProps> = function ({
   };
 
   const ElviaSingleValue = (props: SingleValueProps) => {
+    if (menuIsOpen && isSearchable) {
+      return null;
+    }
     return (
       <components.SingleValue {...props}>
         {allOptionsHaveIconAttribute ? (
