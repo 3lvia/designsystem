@@ -382,6 +382,7 @@ module.exports = [
       { name: 'isIndeterminate', type: 'boolean', propType: 'boolean' },
       { name: 'isError', type: 'boolean', propType: 'boolean' },
       { name: 'ariaValueText', type: 'string', propType: 'string' },
+      { name: 'size', type: 'string', propType: 'string' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
     ],

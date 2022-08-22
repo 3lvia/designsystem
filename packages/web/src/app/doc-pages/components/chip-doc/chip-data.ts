@@ -88,6 +88,7 @@ export const chipData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-chip',
   codeImportReact: `import { Chip } from '@elvia/elvis-chip/react';`,
+  codeImportTypescriptInterface: `import { ChipProps } from '@elvia/elvis-chip/react';`,
   codeImportWebComponent: `import '@elvia/elvis-chip';`,
   codeReact: `<Chip 
   isSelected={true}

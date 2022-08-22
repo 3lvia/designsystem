@@ -2,6 +2,30 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "19.08.22",
+      "version": "3.2.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Updated design of the selected value in the input field for open dropdown when the dropdown is not multiselect, and is searchable. "
+          ]
+        }
+      ]
+    },
+    {
+      "date": "16.08.22",
+      "version": "3.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Reworked the way the component is declared as a module, and how types are exported for React. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "12.08.22",
       "version": "3.1.1 ",
       "changelog": [

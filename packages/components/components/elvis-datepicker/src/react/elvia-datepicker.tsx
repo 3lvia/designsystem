@@ -18,10 +18,10 @@ import isWithinInterval from 'date-fns/isWithinInterval';
 import startOfWeek from 'date-fns/startOfWeek';
 import endOfWeek from 'date-fns/endOfWeek';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
 import isEqual from 'lodash/isEqual';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
-export interface DateRange {
+interface DateRange {
   start: Date | null;
   end: Date | null;
 }
@@ -58,15 +58,15 @@ export interface DatepickerProps {
   placeholder?: string;
   isOpen?: boolean;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   hasOptionalText?: boolean;
   showValidation?: boolean;
-  showValidationState: boolean;
+  showValidationState?: boolean;
   isErrorState?: boolean;
   errorOnChange?: (error: string) => void;
   hasValidation?: boolean;
   hasErrorPlaceholderElement?: boolean;
-  clearButtonText: string;
+  clearButtonText?: string;
   disableDate?: (day: Date) => boolean;
   /**
    * This is used for internal purposes, and should not be used by the user.

@@ -77,6 +77,7 @@ export const carouselData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-carousel',
   codeImportReact: `import { Carousel } from '@elvia/elvis-carousel/react';`,
+  codeImportTypescriptInterface: `import { CarouselProps } from '@elvia/elvis-carousel/react';`,
   codeImportWebComponent: `import '@elvia/elvis-carousel';`,
   codeReact: `<Carousel
   items={[

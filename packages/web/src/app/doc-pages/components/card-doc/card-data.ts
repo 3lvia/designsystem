@@ -122,6 +122,7 @@ const cardData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-card',
   codeImportReact: `import { Card } from '@elvia/elvis-card/react';`,
+  codeImportTypescriptInterface: `import { CardProps } from '@elvia/elvis-card/react';`,
   codeImportWebComponent: `import '@elvia/elvis-card';`,
   changelog: changelogJson.content,
 

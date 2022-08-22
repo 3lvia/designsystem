@@ -112,6 +112,7 @@ const popoverData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-popover',
   codeImportReact: `import { Popover } from '@elvia/elvis-popover/react';`,
+  codeImportTypescriptInterface: `import { PopoverProps } from '@elvia/elvis-popover/react';`,
   codeImportWebComponent: `import '@elvia/elvis-popover';`,
   // Not used here, as there are separate files with code for each component type.
   codeReact: ``,

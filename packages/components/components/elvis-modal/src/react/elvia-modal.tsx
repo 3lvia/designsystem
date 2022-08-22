@@ -15,7 +15,7 @@ import { useClickOutside } from './useClickOutside';
 import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
 import { useFocusTrap } from './useFocusTrap';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import { config } from './config';
 
@@ -26,12 +26,12 @@ export interface ModalProps {
    */
   title?: string;
   heading?: string;
-  content: HTMLElement;
-  illustration?: HTMLElement;
+  content: JSX.Element;
+  illustration?: JSX.Element;
   primaryButton?: JSX.Element;
   secondaryButton?: JSX.Element;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   /**
    * @deprecated Removed in version 2.0.0. Replaced by `hasCloseButton`.
    */
@@ -44,8 +44,8 @@ export interface ModalProps {
   /**
    * @deprecated Removed in version 2.0.0. Replaced by `onClose()`.
    */
-  onHide: () => void;
-  onClose: () => void;
+  onHide?: () => void;
+  onClose?: () => void;
   webcomponent?: ElvisComponentWrapper;
 }
 

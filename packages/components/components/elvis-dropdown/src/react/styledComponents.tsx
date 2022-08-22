@@ -17,7 +17,7 @@ const typography = {
 };
 
 interface DropdownWrapperProps {
-  isDisabled: boolean;
+  isDisabled?: boolean;
 }
 
 export const DropdownWrapper = styled.span<DropdownWrapperProps>`
@@ -39,7 +39,7 @@ export const DropdownWrapper = styled.span<DropdownWrapperProps>`
 `;
 
 interface DropdownLabelProps {
-  isCompact: boolean;
+  isCompact?: boolean;
 }
 
 export const DropdownLabel = styled.label<DropdownLabelProps>`
@@ -140,10 +140,10 @@ const generateCheckmarkAfterElement = (params: {
 };
 
 const decideCheckMarkCompactAndSelectedStyle = (
-  isCompact: boolean,
-  isSelecteed: boolean,
-  isSelectAllWithPartialSelected: boolean,
-  isDisabled: boolean,
+  isCompact?: boolean,
+  isSelecteed?: boolean,
+  isSelectAllWithPartialSelected?: boolean,
+  isDisabled?: boolean,
 ) => {
   // Make compact line for "select all"-option when not everything is selected
   if (isCompact && isSelectAllWithPartialSelected) {
@@ -227,10 +227,10 @@ const decideCheckMarkCompactAndSelectedStyle = (
 };
 
 interface DropdownCheckboxMarkProps {
-  isCompact: boolean;
-  isSelected: boolean;
-  isSelectAllWithPartialSelected: boolean;
-  isDisabled: boolean;
+  isCompact?: boolean;
+  isSelected?: boolean;
+  isSelectAllWithPartialSelected?: boolean;
+  isDisabled?: boolean;
 }
 
 export const DropdownCheckboxMark = styled.span<DropdownCheckboxMarkProps>`
@@ -253,7 +253,7 @@ export const DropdownCheckboxMark = styled.span<DropdownCheckboxMarkProps>`
 `;
 
 interface DropdownCheckboxLabelProps {
-  isCompact: boolean;
+  isCompact?: boolean;
 }
 
 export const DropdownCheckboxLabel = styled.span<DropdownCheckboxLabelProps>`

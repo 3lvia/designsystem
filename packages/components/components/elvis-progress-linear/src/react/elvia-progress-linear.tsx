@@ -2,28 +2,31 @@ import React, { CSSProperties, FC } from 'react';
 import './style.scss';
 import classnames from 'classnames';
 
-export interface ProgressbarProps {
-  value: number;
-  isIndeterminate: boolean;
-  isError: boolean;
+export interface ProgressLinearProps {
+  value?: number;
+  isIndeterminate?: boolean;
+  isError?: boolean;
+  ariaValueText?: string;
+  size?: 'medium' | 'large';
   className?: string;
-  ariaValueText: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
 }
 
-const ProgressLinear: FC<ProgressbarProps> = ({
+const ProgressLinear: FC<ProgressLinearProps> = ({
   value = 0,
   isIndeterminate,
   isError,
   ariaValueText,
+  size = 'medium',
   className,
   inlineStyle,
   ...rest
 }) => {
-  const classes = classnames({
+  const classes = classnames('ewc-progress-linear', {
     ['ewc-progress-linear--range']: !isIndeterminate && !isError,
     ['ewc-progress-linear--indeterminate']: isIndeterminate && !isError,
     ['ewc-progress-linear--error']: isError,
+    ['ewc-progress-linear--lg']: size === 'large',
   });
 
   return (
@@ -37,8 +40,12 @@ const ProgressLinear: FC<ProgressbarProps> = ({
       aria-valuetext={ariaValueText ? ariaValueText : 'Progresjonen er nå på ' + value + '%.'}
       {...rest}
     >
-      <div className={'ewc-progress-linear'}>
-        <div className={classes} style={{ width: `${value}%` }} data-testid="progress-linear"></div>
+      <div className={classes} data-testid="progress-linear">
+        <div
+          className="ewc-progress-linear__progress"
+          style={{ width: `${value}%` }}
+          data-testid="progress-linear-progress"
+        ></div>
       </div>
     </div>
   );

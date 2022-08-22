@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.08.22",
+      "version": "5.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Reworked the way the component is declared as a module, and how types are exported for React. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "24.06.22",
       "version": "5.0.2",
       "changelog": [
@@ -36,7 +48,7 @@
             "Change prop <span class=\"code-text\">posX</span> => <span class=\"code-text\">horizontalPosition</span>.",
             "Change prop <span class=\"code-text\">posY</span> => <span class=\"code-text\">verticalPosition</span>.",
             "Change prop <span class=\"code-text\">selectable</span> => <span class=\"code-text\">isSelectable</span>.",
-            "Change prop <span class=\"code-text\">isShowingOnChange</span> => <span class=\"code-text\">onOpen</span> & <span class=\"code-text\">onOpen</span>."
+            "Change prop <span class=\"code-text\">isShowingOnChange</span> => <span class=\"code-text\">onOpen</span> & <span class=\"code-text\">onClose</span>."
           ]
         }
       ]

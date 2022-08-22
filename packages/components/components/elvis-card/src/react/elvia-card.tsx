@@ -13,7 +13,7 @@ import {
   CardHoverArrow,
   CardCornerIcon,
 } from './styledComponents';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 const globalMinWidthSimple = 112;
 const globalMinWidthDetail = 250;
@@ -22,20 +22,20 @@ const globalMaxWidth = 400;
 export interface CardProps {
   icon: string | JSX.Element;
   iconHover?: string | JSX.Element;
-  header: string;
+  header?: string;
   description?: string;
   borderColor?: BorderColor;
-  type: CardType;
-  shape: CardShape;
-  hasBorder: boolean;
-  width: string;
+  type?: CardType;
+  shape?: CardShape;
+  hasBorder?: boolean;
+  width?: string;
   minWidth?: number;
   maxWidth?: number;
-  maxDescriptionLines: number;
+  maxDescriptionLines?: number;
   label?: string;
   cornerIcon?: string | JSX.Element;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
 }
 

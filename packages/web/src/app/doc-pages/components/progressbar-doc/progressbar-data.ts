@@ -50,6 +50,17 @@ export const progressbarData: ComponentData = {
         'Use to better communicate to the user how far along the progressbar has come. E.g. "8% (34 minutes) remaining".',
       default: '"Progress is currently at {value}%."',
     },
+    size: {
+      isRequired: false,
+      type: '"medium" | "large"',
+      description: 'The size of the progressbar.',
+      default: '"medium"',
+      cegDisplayName: 'Size',
+      cegDefault: 'medium',
+      cegType: 'string',
+      cegFormType: 'radio',
+      cegOptions: ['medium', 'large'],
+    },
     className: {
       isRequired: false,
       type: 'string',
@@ -63,6 +74,7 @@ export const progressbarData: ComponentData = {
     },
   },
   codeImportReact: `import { ProgressLinear } from '@elvia/elvis-progress-linear/react';`,
+  codeImportTypescriptInterface: `import { ProgressLinearProps } from '@elvia/elvis-progress-linear/react';`,
   codeImportWebComponent: `import '@elvia/elvis-progress-linear';`,
   codeReact: `<ProgressLinear
   value={20}

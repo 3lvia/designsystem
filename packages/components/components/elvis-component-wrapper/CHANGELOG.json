@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.08.22",
+      "version": "2.4.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Bumped depencency on @elvia/elvis-toolbox. "]
+        }
+      ]
+    },
+    {
       "date": "08.08.22",
       "version": "2.4.0",
       "changelog": [

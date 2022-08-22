@@ -3,7 +3,7 @@ import toolbox from '@elvia/elvis-toolbox';
 import { AccordionLabelPosition, AccordionSize, AccordionType } from './elvia-accordion.types';
 import { AccordionArea, AccordionButtonArea, AccordionButton, AccordionContent } from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 export interface AccordionProps {
   content: string | HTMLElement;
@@ -16,7 +16,7 @@ export interface AccordionProps {
   type: AccordionType;
   overflowHeight?: number;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
 }
 

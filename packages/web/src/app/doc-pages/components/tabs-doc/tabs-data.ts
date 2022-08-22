@@ -56,6 +56,7 @@ export const tabsData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-tabs',
   codeImportReact: `import { Tabs } from '@elvia/elvis-tabs/react';`,
+  codeImportTypescriptInterface: `import { TabsProps } from '@elvia/elvis-tabs/react';`,
   codeImportWebComponent: `import '@elvia/elvis-tabs';`,
   codeReact:
     `<Tabs 
