@@ -64,9 +64,10 @@ const decideButtonFontSize = (prop: AccordionSize) => {
 };
 
 type AccordionButtonProps = {
-  size: AccordionSize;
   isFullWidth: boolean;
   isOpenState: boolean;
+  currType: AccordionType;
+  size: AccordionSize;
   hasBoldLabel: boolean;
   openDetailText: string | undefined;
   openLabel: string;
@@ -86,8 +87,9 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   text-align: left;
   cursor: pointer;
   color: ${colors.elviaBlack};
-  width: ${(props) => (props.isFullWidth ? '100%' : 'auto')};
-  justify-content: ${(props) => (props.isFullWidth ? 'space-between' : 'inherit')};
+  width: ${(props) => (props.isFullWidth && props.currType === 'normal' ? '100%' : 'auto')};
+  justify-content: ${(props) =>
+    props.isFullWidth && props.currType === 'normal' ? 'space-between' : 'inherit'};
   align-items: center;
 
   i {

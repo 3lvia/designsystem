@@ -61,7 +61,7 @@ const accordionData: ComponentData = {
       cegFormType: 'toggle',
       cegDefault: false,
       cegOption: 'true',
-      cegDependency: [{ name: 'type', value: ['normal', 'overflow'] }],
+      cegDependency: [{ name: 'type', value: ['normal'] }],
     },
     labelPosition: {
       isRequired: false,

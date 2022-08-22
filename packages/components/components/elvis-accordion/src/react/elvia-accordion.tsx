@@ -166,6 +166,7 @@ const Accordion: FC<AccordionProps> = ({
         <AccordionButtonArea labelPosition={labelPosition} type={type}>
           <AccordionButton
             size={size}
+            currType={type}
             isFullWidth={isFullWidth}
             isOpenState={isOpenState}
             hasBoldLabel={hasBoldLabel}
