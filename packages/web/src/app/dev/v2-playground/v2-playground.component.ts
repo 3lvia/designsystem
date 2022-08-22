@@ -9,6 +9,7 @@ export class v2PlaygroundComponent {
   // Accordion
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';
   accordionHtmlContent = `<div>HTML content<div>`;
+  isOpen = false;
 
   // Breadcrumb
   breadcrumbsTestNoUrl = [{ text: 'Elvia.no' }, { text: 'Nettleie' }, { text: 'Elvias leveringsplikt' }];
@@ -71,7 +72,19 @@ export class v2PlaygroundComponent {
   logValue = (component: string, value: Event): void => {
     console.log(component, ': ', value);
   };
+  log = (event: string): void => {
+    console.log(event);
+  };
 
+  // Accordion
+  onOpen = (): void => {
+    this.isOpen = true;
+    console.log('Trigger onOpen');
+  };
+  onClose = (): void => {
+    this.isOpen = false;
+    console.log('Trigger onClose');
+  };
   // Chips
   handleOnChange = (event: { target: { value: string }; detail: { value: boolean } }): void => {
     this.filteredValues = { ...this.filteredValues, [event.target.value]: event.detail.value };
@@ -82,6 +95,7 @@ export class v2PlaygroundComponent {
     this.deletableChipsList = values.filter((value) => value.value !== event);
   };
 
+  // Popover
   popoverOnOpen = (): void => {
     console.log('Popover opened');
   };

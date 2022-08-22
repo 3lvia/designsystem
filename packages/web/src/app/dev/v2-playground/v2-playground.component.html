@@ -17,7 +17,16 @@
   <!--Accordion-->
   <div class="example-wrapper">
     <h3>Accordion</h3>
-    <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="normal">
+    <button (click)="isOpen = !isOpen">helo</button>
+    <elvia-accordion
+      [isOpen]="isOpen"
+      openLabel="Show"
+      closeLabel="Hide"
+      size="medium"
+      type="normal"
+      (onOpen)="onOpen()"
+      (onClose)="onClose()"
+    >
       <div slot="content">
         <h3>Hello there</h3>
       </div>
@@ -219,6 +228,7 @@
   <!--Popover-->
   <div class="example-wrapper">
     <h3>Popover</h3>
+    <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Show popover</button>
     <elvia-popover
       [isShowing]="isPopoverShowing"
       (onOpen)="isPopoverShowing = true"

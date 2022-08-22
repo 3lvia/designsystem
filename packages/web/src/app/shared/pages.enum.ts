@@ -6,6 +6,7 @@ export enum Pages {
   // Component Pages
   ComponentsStart = 'components',
   OverviewComp = 'overview-comp',
+  AccordionGroup = 'accordion-group',
   Accordion = 'accordion',
   Alert = 'alert',
   Autocomplete = 'autocomplete',
