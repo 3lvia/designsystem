@@ -97,6 +97,7 @@ const modalData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-modal',
   codeImportReact: `import { Modal } from '@elvia/elvis-modal/react';`,
+  codeImportTypescriptInterface: `import { ModalProps } from '@elvia/elvis-modal/react';`,
   codeImportWebComponent: `import '@elvia/elvis-modal';`,
   codeReact: `<button onClick={() => setIsModalShowingState(true)} className="e-btn">Åpne modal</button>
 <Modal

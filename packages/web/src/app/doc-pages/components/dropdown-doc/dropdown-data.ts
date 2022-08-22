@@ -149,6 +149,7 @@ export const dropdownData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-dropdown',
   codeImportReact: `import { Dropdown } from '@elvia/elvis-dropdown/react';`,
+  codeImportTypescriptInterface: `import { DropdownProps } from '@elvia/elvis-dropdown/react';`,
   codeImportWebComponent: `import '@elvia/elvis-dropdown';`,
   codeReact: `<Dropdown 
   items={[

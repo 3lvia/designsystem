@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 
 @Component({
   selector: 'app-component-installation',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./component-installation.component.scss'],
 })
 export class ComponentInstallationComponent {
-  @Input() componentData;
+  @Input() componentData: ComponentData;
 }

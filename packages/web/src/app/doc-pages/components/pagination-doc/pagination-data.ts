@@ -95,6 +95,7 @@ export const paginationData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-pagination',
   codeImportReact: `import { Pagination } from '@elvia/elvis-pagination/react';`,
+  codeImportTypescriptInterface: `import { PaginationProps } from '@elvia/elvis-pagination/react';`,
   codeImportWebComponent: `import '@elvia/elvis-pagination';`,
   codeReact: `<Pagination numberOfElements={156}
   valueOnChange={(event) => handleOnChange(event)} >

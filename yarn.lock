@@ -3718,7 +3718,7 @@ __metadata:
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-prettier: ^4.0.0
-    gulp-svgo: ^2.1.1
+    gulp-svgmin: ^4.1.0
     sharp: ^0.30.2
   languageName: unknown
   linkType: soft
@@ -16157,12 +16157,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-svgo@npm:^2.1.1":
-  version: 2.2.1
-  resolution: "gulp-svgo@npm:2.2.1"
+"gulp-svgmin@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "gulp-svgmin@npm:4.1.0"
   dependencies:
-    svgo: ^1.0.0
-  checksum: fad270a150d2269b2feeb159d00031b8257e8546fa35f73e5056dc82b3a204aae652c034165fb7d1eb2dd3dfb566f648afbfd6f950cc22438bf344c5479e4a9d
+    lodash.clonedeep: ^4.5.0
+    plugin-error: ^1.0.1
+    svgo: ^2.7.0
+  checksum: 51b15926190547cd80b67ea0d76b28c40edf16e5fa67d9997a72d3860e67623ca2a90e89f2a47b8627d68fb8ba4e8b89a58aeaa22c1c808ddd8089a304b00caa
   languageName: node
   linkType: hard
 

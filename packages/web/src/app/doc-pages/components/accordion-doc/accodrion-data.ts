@@ -155,6 +155,7 @@ const accordionData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-accordion',
   codeImportReact: `import { Accordion } from '@elvia/elvis-accordion/react';`,
+  codeImportTypescriptInterface: `import { AccordionProps } from '@elvia/elvis-accordion/react';`,
   codeImportWebComponent: `import '@elvia/elvis-accordion';`,
   codeReact:
     `<Accordion
