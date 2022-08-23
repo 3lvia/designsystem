@@ -15,6 +15,9 @@ async function copyIconsConfig() {
 // ADD OR REMOVE ICONS IN icons.config.js in @elvia/elvis-assets-icons
 
   ${iconsConfig}`;
+  if (!fs.existsSync('src/config')) {
+    fs.mkdirSync('src/config', { recursive: true });
+  }
   fs.writeFileSync('src/config/icons.config.js', iconsConfig);
   return true;
 }
