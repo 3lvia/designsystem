@@ -152,12 +152,12 @@
   <!--Datepicker-->
   <div class="example-wrapper">
     <h3>DatePicker</h3>
-    <elvia-datepicker [value]="date"></elvia-datepicker>
+    <elvia-datepicker [value]="date" nonce="testnonce"></elvia-datepicker>
   </div>
   <!--Date range picker-->
   <div class="example-wrapper">
     <h3>Date range picker</h3>
-    <elvia-datepicker-range></elvia-datepicker-range>
+    <elvia-datepicker-range nonce="testnonce"></elvia-datepicker-range>
   </div>
 
   <!--Divider-->
@@ -228,7 +228,6 @@
   <!--Popover-->
   <div class="example-wrapper">
     <h3>Popover</h3>
-    <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Show popover</button>
     <elvia-popover
       [isShowing]="isPopoverShowing"
       (onOpen)="isPopoverShowing = true"
@@ -237,6 +236,7 @@
       horizontalPosition="right"
       verticalPosition="top"
       width="200"
+      nonce="testnonce"
     >
       <button slot="trigger" class="e-btn">Show popover</button>
       <div slot="content">
@@ -253,6 +253,7 @@
       [isIndeterminate]="indeterminate"
       [value]="progressValue"
       [isError]="progressError"
+      nonce="testnonce"
     ></elvia-progress-linear>
     <div style="margin-bottom: 32px; display: flex">
       <div style="display: flex; width: 100%; justify-content: space-between">
@@ -288,6 +289,10 @@
   <!--Tabs-->
   <div class="example-wrapper">
     <h3>Tabs</h3>
-    <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1"></elvia-tabs>
+    <elvia-tabs
+      [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
+      [value]="1"
+      nonce="testnonce"
+    ></elvia-tabs>
   </div>
 </div>

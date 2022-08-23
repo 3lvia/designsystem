@@ -154,8 +154,14 @@ export class ElvisComponentWrapper extends HTMLElement {
     if (this.webComponent.getComponentData().wrapperStyle) {
       this.mountPoint.style.cssText = this.webComponent.getComponentData().wrapperStyle;
     }
+    if (this.cssStyle === '') {
+      return;
+    }
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;
+    if (this.getProp('nonce')) {
+      styleTag.setAttribute('nonce', this.getProp('nonce'));
+    }
     this.appendChild(styleTag);
   }
 
