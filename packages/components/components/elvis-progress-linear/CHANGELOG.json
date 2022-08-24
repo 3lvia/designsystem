@@ -3,6 +3,21 @@
   "content": [
     {
       "date": "16.08.22",
+      "version": "2.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Removed bottom margin for the progressbar. Now it has no margin, which means spacing must be added manually."
+          ],
+          "fixes": [
+            "If you want the same margin as previously, use <span class=\"code-text\">margin-bottom: 40px</span>"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "16.08.22",
       "version": "1.5.0",
       "changelog": [
         {
