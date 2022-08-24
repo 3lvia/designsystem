@@ -3648,13 +3648,13 @@ __metadata:
     "@elvia/elvis-icon": 1.3.0
     "@elvia/elvis-toolbox": ^1.3.2
     "@elvia/elvis-typography": ^2.2.0
-    react: ^17.0.0
-    react-dom: ^17.0.0
-    react-is: ^16.8.0
+    react: ^17.0.0 || ^18.1.0
+    react-dom: ^17.0.0 || ^18.1.0
+    react-is: ^16.8.0  || ^17.0.0 || ^18.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
@@ -3670,8 +3670,8 @@ __metadata:
     "@elvia/elvis-typography": ^2.2.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: node
   linkType: soft
@@ -3687,8 +3687,8 @@ __metadata:
     "@elvia/elvis-typography": ^2.2.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: node
   linkType: soft
@@ -3727,13 +3727,13 @@ __metadata:
     "@elvia/elvis-colors": ^1.2.0
     "@elvia/elvis-component-wrapper": ^2.2.2
     "@elvia/elvis-typography": ^2.1.0
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0  || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0  || ^18.1.0
     react-is: ">= 16.8.0"
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0  || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0  || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
@@ -3747,8 +3747,8 @@ __metadata:
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0  || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0  || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: node
   linkType: soft
@@ -3762,13 +3762,13 @@ __metadata:
     "@elvia/elvis-icon": 1.3.0
     "@elvia/elvis-toolbox": ^1.3.2
     "@elvia/elvis-typography": ^2.1.0
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
@@ -3784,8 +3784,8 @@ __metadata:
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: node
   linkType: soft
@@ -3800,8 +3800,8 @@ __metadata:
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">=16.8.0"
   languageName: unknown
   linkType: soft
@@ -3816,8 +3816,8 @@ __metadata:
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">=16.8.0"
   languageName: node
   linkType: soft
@@ -3833,13 +3833,13 @@ __metadata:
     "@elvia/elvis-typography": ^2.2.0
     "@material-ui/core": ^4.12.3
     "@material-ui/icons": ^4.11.2
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
@@ -3857,8 +3857,8 @@ __metadata:
     "@material-ui/icons": ^4.11.2
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: node
   linkType: soft
@@ -3873,13 +3873,13 @@ __metadata:
     "@elvia/elvis-toolbox": ^1.3.2
     "@react-aria/interactions": ^3.8.4
     classnames: ^2.3.1
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
@@ -3896,8 +3896,8 @@ __metadata:
     classnames: ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: node
   linkType: soft
@@ -3925,8 +3925,8 @@ __metadata:
     "@types/react-dom": ^17.0.13
     json5: ^2.2.1
     lodash.isequal: ^4.5.0
-    react: ^17.0.0
-    react-dom: ^17.0.0
+    react: ^17.0.0 || ^18.1.0
+    react-dom: ^17.0.0 || ^18.1.0
   languageName: unknown
   linkType: soft
 
@@ -3971,8 +3971,8 @@ __metadata:
     jsdom-global: ^3.0.2
     merge-stream: ^2.0.0
     mocha: ^8.4.0
-    react: ^17.0.0-0
-    react-dom: ^17.0.0-0
+    react: ^17.0.0 || ^18.1.0
+    react-dom: ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
     sass: ^1.33.0
     sass-loader: ^10.0.2
@@ -3995,13 +3995,13 @@ __metadata:
     "@elvia/elvis-component-wrapper": ^2.3.3
     "@elvia/elvis-datepicker": ^3.1.0
     date-fns: ^2.27.0
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.1.0
   languageName: unknown
   linkType: soft
 
@@ -4016,9 +4016,9 @@ __metadata:
     date-fns: ^2.27.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.1.0
   languageName: node
   linkType: soft
 
@@ -4037,12 +4037,12 @@ __metadata:
     classnames: ^2.3.1
     date-fns: ^2.27.0
     prop-types: ^15.6.0
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.1.0
   languageName: unknown
   linkType: soft
 
@@ -4062,9 +4062,9 @@ __metadata:
     date-fns: ^2.27.0
     prop-types: ^15.6.0
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.1.0
   languageName: node
   linkType: soft
 
@@ -4076,9 +4076,9 @@ __metadata:
     "@elvia/elvis-component-wrapper": ^2.2.2
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.1.0
   languageName: unknown
   linkType: soft
 
@@ -4095,14 +4095,14 @@ __metadata:
     "@types/lodash.uniqueid": ^4.0.1
     lodash.isequal: ^4.5.0
     lodash.uniqueid: 4.0.1
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
     react-select: 5.2.2
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
@@ -4121,8 +4121,8 @@ __metadata:
     react-select: 5.2.2
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: node
   linkType: soft
@@ -4151,8 +4151,8 @@ __metadata:
   dependencies:
     "@webcomponents/webcomponentsjs": ^2.6.0
     classnames: ^2.3.1
-    react: ^17.0.0
-    react-dom: ^17.0.0
+    react: ^17.0.0 || ^18.1.0
+    react-dom: ^17.0.0 || ^18.1.0
     semver: ^7.3.5
   languageName: unknown
   linkType: soft
@@ -4168,13 +4168,13 @@ __metadata:
     "@elvia/elvis-typography": ^2.1.0
     "@material-ui/core": ^4.12.3
     "@material-ui/icons": ^4.11.2
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
@@ -4192,8 +4192,8 @@ __metadata:
     "@material-ui/icons": ^4.11.2
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: node
   linkType: soft
@@ -4208,13 +4208,13 @@ __metadata:
     "@elvia/elvis-icon": 1.3.0
     "@elvia/elvis-toolbox": ^1.3.2
     "@elvia/elvis-typography": ^2.1.0
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
@@ -4231,8 +4231,8 @@ __metadata:
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: node
   linkType: soft
@@ -4285,8 +4285,8 @@ __metadata:
     "@elvia/elvis-component-wrapper": ^2.2.2
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">=16.8.0"
   languageName: unknown
   linkType: soft
@@ -4296,13 +4296,13 @@ __metadata:
   resolution: "@elvia/elvis-spotlight@workspace:packages/components/components/elvis-spotlight"
   dependencies:
     "@elvia/elvis-component-wrapper": ^2.3.0
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
@@ -4314,8 +4314,8 @@ __metadata:
     "@elvia/elvis-component-wrapper": ^2.3.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
   languageName: node
   linkType: soft
@@ -4351,8 +4351,8 @@ __metadata:
     "@material-ui/icons": ^4.11.2
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">=16.8.0"
   languageName: unknown
   linkType: soft
@@ -6398,14 +6398,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.39":
-  version: 17.0.39
-  resolution: "@types/react@npm:17.0.39"
+"@types/react@npm:*":
+  version: 18.0.17
+  resolution: "@types/react@npm:18.0.17"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: bf04d3c2894559012710d595553e12b422d3b91cd8f4f7e122d8cb044ba9c2ba17f6e8a4e09581359cc5509ddc59cd8c8fabd6774f3505a40a45393f074d6e6e
+  checksum: 18cae64f5bfd6bb58fbd8ee2ba52ec82de844f114254e26de7b513e4b86621f643f9b71d7066958cd571b0d78cb86cbceda449c5289f9349ca573df29ab69252
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^17, @types/react@npm:^17.0.39":
+  version: 17.0.48
+  resolution: "@types/react@npm:17.0.48"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: b683fa33f751ced0b8c8715df9f40de15513c1d7ce66064a75cdfb8805cc913b0b214a2e7022ef0b724bd62a1e8651d040cd265dd0452bde03cca9b8e495742d
   languageName: node
   linkType: hard
 
@@ -13034,9 +13045,9 @@ __metadata:
     object-path: ">=0.11.5"
     prettier: ^2.0.5
     prismjs: ^1.24.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    react-is: ^17.0.2
+    react: ^17.0.2 || ^18.1.0
+    react-dom: ^17.0.2 || ^18.1.0
+    react-is: ^17.0.2 || ^18.1.0
     rxjs: ^6.5.5
     sass: ^1.33.0
     stylelint: ^10.0.1 || ^11.0.0 || ^12.0.0 || ^13.0.0
@@ -24874,16 +24885,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^16.8.0 || ^17.0.0, react-dom@npm:^17.0.0, react-dom@npm:^17.0.0-0, react-dom@npm:^17.0.2":
-  version: 17.0.2
-  resolution: "react-dom@npm:17.0.2"
+"react-dom@npm:^16.8.0 || ^17.0.0  || ^18.1.0, react-dom@npm:^16.8.0 || ^17.0.0 || ^18.1.0, react-dom@npm:^17.0.0 || ^18.1.0, react-dom@npm:^17.0.2 || ^18.1.0, react-dom@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "react-dom@npm:18.2.0"
   dependencies:
     loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-    scheduler: ^0.20.2
+    scheduler: ^0.23.0
   peerDependencies:
-    react: 17.0.2
-  checksum: 1c1eaa3bca7c7228d24b70932e3d7c99e70d1d04e13bb0843bbf321582bc25d7961d6b8a6978a58a598af2af496d1cedcfb1bf65f6b0960a0a8161cb8dab743c
+    react: ^18.2.0
+  checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
   languageName: node
   linkType: hard
 
@@ -24901,10 +24911,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.1, react-is@npm:^16.7.0, react-is@npm:^16.8.0":
+"react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-is@npm:^16.8.0  || ^17.0.0 || ^18.1.0, react-is@npm:^17.0.2 || ^18.1.0, react-is@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "react-is@npm:18.2.0"
+  checksum: e72d0ba81b5922759e4aff17e0252bd29988f9642ed817f56b25a3e217e13eea8a7f2322af99a06edb779da12d5d636e9fda473d620df9a3da0df2a74141d53e
   languageName: node
   linkType: hard
 
@@ -25055,10 +25072,10 @@ __metadata:
     eslint-plugin-react: ^7.27.0
     express: ^4.17.1
     ignore-styles: ^5.0.1
-    react: ^17.0.2
+    react: ^18.2.0
     react-app-polyfill: ^2.0.0
-    react-dom: ^17.0.2
-    react-is: ^17.0.2
+    react-dom: ^18.2.0
+    react-is: ^18.2.0
     react-scripts: 5.0.1
     web-vitals: ^1.0.1
     webpack: ^4.0.0 || ^5.0.0
@@ -25095,13 +25112,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^16.8.0 || ^17.0.0, react@npm:^17.0.0, react@npm:^17.0.0-0, react@npm:^17.0.2":
-  version: 17.0.2
-  resolution: "react@npm:17.0.2"
+"react@npm:^16.8.0 || ^17.0.0  || ^18.1.0, react@npm:^16.8.0 || ^17.0.0 || ^18.1.0, react@npm:^17.0.0 || ^18.1.0, react@npm:^17.0.2 || ^18.1.0, react@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "react@npm:18.2.0"
   dependencies:
     loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-  checksum: b254cc17ce3011788330f7bbf383ab653c6848902d7936a87b09d835d091e3f295f7e9dd1597c6daac5dc80f90e778c8230218ba8ad599f74adcc11e33b9d61b
+  checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
   languageName: node
   linkType: hard
 
@@ -25972,8 +25988,8 @@ __metadata:
     husky: ^4.2.5
     lint-staged: ^10.2.7
     prettier: ^2.0.5
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.1.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.1.0
     react-is: ">= 16.8.0"
     rxjs: ^6.5.3
     safe-json-stringify: ^1.2.0
@@ -26201,6 +26217,15 @@ __metadata:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
   checksum: c4b35cf967c8f0d3e65753252d0f260271f81a81e427241295c5a7b783abf4ea9e905f22f815ab66676f5313be0a25f47be582254db8f9241b259213e999b8fc
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.23.0":
+  version: 0.23.0
+  resolution: "scheduler@npm:0.23.0"
+  dependencies:
+    loose-envify: ^1.1.0
+  checksum: d79192eeaa12abef860c195ea45d37cbf2bbf5f66e3c4dcd16f54a7da53b17788a70d109ee3d3dde1a0fd50e6a8fc171f4300356c5aee4fc0171de526bf35f8a
   languageName: node
   linkType: hard
 
@@ -29652,9 +29677,9 @@ __metadata:
     css-loader: ^4.3.0
     eslint: ^6.7.2
     eslint-plugin-vue: ^7.0.0
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    react-is: ^17.0.2
+    react: ^17.0.2 || ^18.1.0
+    react-dom: ^17.0.2 || ^18.1.0
+    react-is: ^17.0.2 || ^18.1.0
     sass-loader: ^10.0.2
     vue: ^3.0.0
     vue-loader: 15.9.8

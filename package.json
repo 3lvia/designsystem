@@ -71,8 +71,8 @@
     "express": "^4.17.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.7",
-    "react": "^16.8.0 || ^17.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0",
+    "react": "^16.8.0 || ^17.0.0 || ^18.1.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.1.0",
     "react-is": ">= 16.8.0",
     "rxjs": "^6.5.3",
     "safe-json-stringify": "^1.2.0",
@@ -81,7 +81,6 @@
     "zone.js": "~0.11.4"
   },
   "resolutions": {
-    "@types/react": "17.0.39",
     "@angular-devkit/build-angular": "13.3.8"
   },
   "packageManager": "yarn@3.2.1"
