@@ -18,12 +18,12 @@ const modalData: ComponentData = {
     },
     content: {
       isRequired: true,
-      type: 'HTMLElement',
+      type: 'HTMLElement | JSX.Element',
       description: 'Text, images, tables or any other content (slot in webcomponent).',
     },
     illustration: {
       isRequired: false,
-      type: 'HTMLElement',
+      type: 'HTMLElement | JSX.Element',
       description: 'Illustration/image to be shown in the modal (slot in webcomponent).',
       cegDisplayName: 'Illustration',
       cegType: 'boolean',
@@ -34,12 +34,12 @@ const modalData: ComponentData = {
     },
     primaryButton: {
       isRequired: false,
-      type: 'HTMLElement',
+      type: 'HTMLElement | JSX.Element',
       description: 'Primary button placed to the right in the modal (slot in webcomponent).',
     },
     secondaryButton: {
       isRequired: false,
-      type: 'HTMLElement',
+      type: 'HTMLElement | JSX.Element',
       description: 'Secondary button placed to the right in the modal (slot in webcomponent).',
     },
     className: {

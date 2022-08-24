@@ -8,7 +8,7 @@ const cardData: ComponentData = {
   attributes: {
     icon: {
       isRequired: true,
-      type: 'string | HTMLElement',
+      type: 'string | HTMLElement | JSX.Element',
       description: 'Text or icon (use slot in webcomponent if not just text).',
     },
     shape: {
@@ -88,7 +88,7 @@ const cardData: ComponentData = {
     },
     iconHover: {
       isRequired: false,
-      type: 'string | HTMLElement',
+      type: 'string | HTMLElement | JSX.Element',
       description: 'Text or icon to swap icon for on hover (use slot in webcomponent if not just text).',
       cegDisplayName: 'Two-colored icon on hover',
       cegType: 'boolean',
@@ -99,7 +99,7 @@ const cardData: ComponentData = {
     },
     cornerIcon: {
       isRequired: false,
-      type: 'string | HTMLElement',
+      type: 'string | HTMLElement | JSX.Element',
       description: 'Icon on upper right corner of card (use slot in webcomponent).',
       cegDisplayName: 'Corner Icon',
       cegType: 'boolean',

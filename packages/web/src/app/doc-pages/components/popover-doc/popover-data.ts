@@ -9,12 +9,12 @@ const popoverData: ComponentData = {
   attributes: {
     content: {
       isRequired: true,
-      type: 'string | HTMLElement',
+      type: 'string | HTMLElement | JSX.Element',
       description: 'Text, images, tables or any other content (use slot in webcomponent if not just text).',
     },
     trigger: {
       isRequired: true,
-      type: 'HTMLElement',
+      type: 'HTMLElement | JSX.Element',
       description: 'The element the user clicks to open the popover.',
     },
     heading: {

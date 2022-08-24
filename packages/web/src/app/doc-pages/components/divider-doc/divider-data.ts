@@ -19,9 +19,9 @@ export const dividerData: ComponentData = {
     },
     title: {
       isRequired: false,
-      type: 'HTMLElement',
+      type: 'HTMLElement | JSX.Element',
       description:
-        'Title displayed together with a divider. Send in as slot in webcomponent and HTMLElement in React.',
+        'Title displayed together with a divider. Send in as slot in webcomponent and JSX.Element in React.',
       default: 'Title',
     },
     typography: {
