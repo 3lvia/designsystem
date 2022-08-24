@@ -9,12 +9,12 @@ const boxData: ComponentData = {
   attributes: {
     content: {
       isRequired: true,
-      type: 'string | HTMLElement',
+      type: 'string | HTMLElement | JSX.Element',
       description: 'Text, images, tables or any other content (slot in webcomponent).',
     },
     title: {
       isRequired: false,
-      type: `string | HTMLElement`,
+      type: `string | HTMLElement | JSX.Element`,
       description: `Title for the box (slot in webcomponent).`,
       cegDisplayName: 'Title',
       cegType: 'boolean',

@@ -49,7 +49,7 @@ const accordionData: ComponentData = {
     },
     content: {
       isRequired: false,
-      type: 'string | HTMLElement',
+      type: 'string | HTMLElement | JSX.Element',
       description: 'Text, images, tables or any other content (use slot in webcomponent if not just text).',
     },
     isFullWidth: {
