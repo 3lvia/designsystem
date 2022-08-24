@@ -159,9 +159,9 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;
-    if (this.getProp('nonce')) {
-      styleTag.setAttribute('nonce', this.getProp('nonce'));
-    }
+    // if (this.getProp('styleTagId')) {
+    //   styleTag.setAttribute('id', this.getProp('styleTagId'));
+    // }
     this.appendChild(styleTag);
   }
 

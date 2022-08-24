@@ -5,7 +5,9 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <button class="e-btn" (click)="findAllNonces()">Find nonces</button>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey">
       <i class="e-icon e-icon--remove_circle-filled e-icon--sm e-icon--color-red e-icon--inverted"></i>
@@ -152,12 +154,12 @@
   <!--Datepicker-->
   <div class="example-wrapper">
     <h3>DatePicker</h3>
-    <elvia-datepicker [value]="date" nonce="testnonce"></elvia-datepicker>
+    <elvia-datepicker [value]="date"></elvia-datepicker>
   </div>
   <!--Date range picker-->
   <div class="example-wrapper">
     <h3>Date range picker</h3>
-    <elvia-datepicker-range nonce="testnonce"></elvia-datepicker-range>
+    <elvia-datepicker-range></elvia-datepicker-range>
   </div>
 
   <!--Divider-->
@@ -236,7 +238,6 @@
       horizontalPosition="right"
       verticalPosition="top"
       width="200"
-      nonce="testnonce"
     >
       <button slot="trigger" class="e-btn">Show popover</button>
       <div slot="content">
@@ -253,7 +254,6 @@
       [isIndeterminate]="indeterminate"
       [value]="progressValue"
       [isError]="progressError"
-      nonce="testnonce"
     ></elvia-progress-linear>
     <div style="margin-bottom: 32px; display: flex">
       <div style="display: flex; width: 100%; justify-content: space-between">
@@ -289,10 +289,6 @@
   <!--Tabs-->
   <div class="example-wrapper">
     <h3>Tabs</h3>
-    <elvia-tabs
-      [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
-      [value]="1"
-      nonce="testnonce"
-    ></elvia-tabs>
+    <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1"></elvia-tabs>
   </div>
 </div>
