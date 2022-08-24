@@ -2,16 +2,6 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "24.08.22",
-      "version": "1.4.1",
-      "changelog": [
-        {
-          "type": "patch",
-          "changes": ["Added support for React 18"]
-        }
-      ]
-    },
-    {
       "date": "16.08.22",
       "version": "1.4.0",
       "changelog": [
