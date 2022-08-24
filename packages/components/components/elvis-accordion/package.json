@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-accordion",
-  "version": "2.6.1",
+  "version": "2.6.0",
   "description": "",
   "main": "web_component.js",
   "scripts": {
@@ -17,13 +17,13 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
-    "react": "^17.0.0 || ^18.1.0",
-    "react-dom": "^17.0.0 || ^18.1.0",
-    "react-is": "^16.8.0  || ^17.0.0 || ^18.1.0"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-is": "^16.8.0"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.1.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.1.0",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0",
     "react-is": ">= 16.8.0"
   }
 }

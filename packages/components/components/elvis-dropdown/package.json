@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-dropdown",
-  "version": "3.2.2",
+  "version": "3.2.1",
   "description": "",
   "main": "web_component.js",
   "scripts": {
@@ -22,13 +22,13 @@
   "devDependencies": {
     "@types/lodash.isequal": "^4.5.5",
     "@types/lodash.uniqueid": "^4.0.1",
-    "react": "^16.8.0 || ^17.0.0 || ^18.1.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.1.0",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0",
     "react-is": ">= 16.8.0"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.1.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.1.0",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0",
     "react-is": ">= 16.8.0"
   }
 }

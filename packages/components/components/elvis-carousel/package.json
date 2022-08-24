@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-carousel",
-  "version": "2.1.1",
+  "version": "2.1.0",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -19,13 +19,13 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.1.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.1.0",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0",
     "react-is": ">= 16.8.0"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.1.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.1.0",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0",
     "react-is": ">= 16.8.0"
   }
 }

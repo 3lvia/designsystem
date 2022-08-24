@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -7,14 +7,19 @@ import reportWebVitals from './reportWebVitals';
 import '@elvia/elvis/css/elvis.min.css';
 import '@elvia/elvis/elvis.js';
 
-const container = document.getElementById('root');
-const root = createRoot(container);
-root.render(
+const root = document.getElementById('root');
+let renderMethod;
+if (root && root.innerHTML !== '') {
+  renderMethod = ReactDOM.hydrate;
+} else {
+  renderMethod = ReactDOM.render;
+}
+renderMethod(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
+  document.getElementById('root'),
 );
-console.log('React version', React.version);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
