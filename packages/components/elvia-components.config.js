@@ -198,7 +198,7 @@ module.exports = [
     ],
     reactName: 'Datepicker',
     elementStyle: 'display: block; max-width: 448px;',
-    conditionalElementStyle: [{ name: 'isFullWidth', value: 'true', style: `width: 100%` }],
+    conditionalElementStyle: [{ name: 'isFullWidth', value: 'true', style: `width: 100%; max-width:unset;` }],
     useWrapper: true,
     slotItems: false,
     reactTypescriptDeclaration: true,
