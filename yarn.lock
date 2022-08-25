@@ -2956,8 +2956,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-progress-linear@workspace:packages/components/components/elvis-progress-linear"
   dependencies:
+    "@elvia/elvis-colors": ^1.4.1
     "@elvia/elvis-component-wrapper": ^2.2.2
-    classnames: ^2.3.1
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
 
@@ -2965,8 +2973,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-progress-linear@portal:../components/components/elvis-progress-linear::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
+    "@elvia/elvis-colors": ^1.4.1
     "@elvia/elvis-component-wrapper": ^2.2.2
-    classnames: ^2.3.1
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
   languageName: node
   linkType: soft
 
