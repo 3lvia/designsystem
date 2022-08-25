@@ -64,6 +64,8 @@ module.exports = [
       { name: 'labelPosition', type: 'string', propType: 'string' },
       { name: 'size', type: 'string', propType: 'string' },
       { name: 'type', type: 'string', propType: 'string' },
+      { name: 'spacingAboveContent', type: 'string', propType: 'string' },
+      { name: 'typography', type: 'string', propType: 'string' },
       { name: 'overflowHeight', type: 'number', propType: 'number | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },

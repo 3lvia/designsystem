@@ -89,6 +89,24 @@ const accordionData: ComponentData = {
       cegFormType: 'radio',
       cegOptions: ['small', 'medium', 'large'],
     },
+    typography: {
+      isRequired: false,
+      type: 'string',
+      description:
+        'The accordion uses a custom typography. If you want to use any of the design system typographies, pass the name of the typography here. Example: "text-md"',
+    },
+    spacingAboveContent: {
+      isRequired: false,
+      type: '"8" | "16" | "24"',
+      description:
+        'If you want to change det padding between the accordion button and the content below it, you can use this attribute. Example: spacingAboveContent: "16"',
+      default: '"8"',
+      cegDisplayName: 'Spacing above content',
+      cegDefault: '8',
+      cegType: 'string',
+      cegFormType: 'radio',
+      cegOptions: ['8', '16', '24'],
+    },
     openLabel: {
       isRequired: false,
       type: `string`,
