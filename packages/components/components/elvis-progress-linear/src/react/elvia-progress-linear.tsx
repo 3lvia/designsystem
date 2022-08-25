@@ -1,13 +1,13 @@
 import React, { CSSProperties, FC } from 'react';
-import './style.scss';
-import classnames from 'classnames';
+import { ProgressLinearSize } from './elvia-progress-linear.types';
+import { ProgressLinearWrapper, ProgressLinearProgress } from './styledComponents';
 
 export interface ProgressLinearProps {
   value?: number;
   isIndeterminate?: boolean;
   isError?: boolean;
   ariaValueText?: string;
-  size?: 'medium' | 'large';
+  size?: ProgressLinearSize;
   className?: string;
   inlineStyle?: CSSProperties;
 }
@@ -17,21 +17,13 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
   isIndeterminate,
   isError,
   ariaValueText,
-  size = 'medium',
-  className,
+  size = 'small',
   inlineStyle,
   ...rest
 }) => {
-  const classes = classnames('ewc-progress-linear', {
-    ['ewc-progress-linear--range']: !isIndeterminate && !isError,
-    ['ewc-progress-linear--indeterminate']: isIndeterminate && !isError,
-    ['ewc-progress-linear--error']: isError,
-    ['ewc-progress-linear--lg']: size === 'large',
-  });
-
   return (
-    <div
-      className={className ? className : ''}
+    <ProgressLinearWrapper
+      currSize={size}
       style={inlineStyle}
       data-testid="progress-wrapper"
       aria-valuenow={value}
@@ -40,14 +32,15 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
       aria-valuetext={ariaValueText ? ariaValueText : 'Progresjonen er nå på ' + value + '%.'}
       {...rest}
     >
-      <div className={classes} data-testid="progress-linear">
-        <div
-          className="ewc-progress-linear__progress"
-          style={{ width: `${value}%` }}
-          data-testid="progress-linear-progress"
-        ></div>
-      </div>
-    </div>
+      <ProgressLinearProgress
+        isIndeterminate={isIndeterminate}
+        isError={isError}
+        currSize={size}
+        style={{ width: `${value}%` }}
+        className="ewc-progress-linear__progress"
+        data-testid="progress-linear-progress"
+      ></ProgressLinearProgress>
+    </ProgressLinearWrapper>
   );
 };
 
