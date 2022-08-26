@@ -41,6 +41,10 @@ describe('Elvis Dropdown', () => {
       expect(dropdownError.length).toEqual(0);
       done();
     });
+    it('should not be full width', function (done) {
+      expect(dropdownWrapper.at(0).getDOMNode()).toHaveStyle('max-width: 448px');
+      done();
+    });
   });
 
   describe('Compact, disabled', () => {
@@ -73,6 +77,87 @@ describe('Elvis Dropdown', () => {
     });
     it('should have error message', function (done) {
       expect(dropdownError.at(0).text()).toBe('Error');
+      done();
+    });
+  });
+
+  describe('Full width', () => {
+    beforeEach(() => {
+      wrapper = mount(<Dropdown isFullWidth></Dropdown>);
+      dropdownWrapper = wrapper.find({ 'data-testid': 'wrapper' });
+      dropdownLabel = wrapper.find({ 'data-testid': 'label' });
+      dropdownError = wrapper.find({ 'data-testid': 'error' });
+    });
+    it('should be full width', function (done) {
+      expect(dropdownWrapper.at(0).getDOMNode()).not.toHaveStyle('max-width: 448px');
+      done();
+    });
+    it('should not be disabled', function (done) {
+      expect(dropdownWrapper.at(0).getDOMNode()).not.toHaveStyle('cursor: not-allowed');
+      done();
+    });
+    it('should not be compact', function (done) {
+      expect(dropdownLabel.at(0).getDOMNode()).not.toHaveStyle(
+        `position: absolute; top: -5px; left: 8px; font-size: 10px; line-height: 10px`,
+      );
+      done();
+    });
+    it('should not have error message', function (done) {
+      expect(dropdownError.length).toEqual(0);
+      done();
+    });
+  });
+
+  describe('Full width, compact', () => {
+    beforeEach(() => {
+      wrapper = mount(<Dropdown isFullWidth isCompact></Dropdown>);
+      dropdownWrapper = wrapper.find({ 'data-testid': 'wrapper' });
+      dropdownLabel = wrapper.find({ 'data-testid': 'label' });
+      dropdownError = wrapper.find({ 'data-testid': 'error' });
+    });
+    it('should be full width', function (done) {
+      expect(dropdownWrapper.at(0).getDOMNode()).not.toHaveStyle('max-width: 448px');
+      done();
+    });
+    it('should not be disabled', function (done) {
+      expect(dropdownWrapper.at(0).getDOMNode()).not.toHaveStyle('cursor: not-allowed');
+      done();
+    });
+    it('should be compact', function (done) {
+      expect(dropdownLabel.at(0).getDOMNode()).toHaveStyle(
+        `position: absolute; top: -5px; left: 8px; font-size: 10px; line-height: 10px`,
+      );
+      done();
+    });
+    it('should not have error message', function (done) {
+      expect(dropdownError.length).toEqual(0);
+      done();
+    });
+  });
+
+  describe('Full width, compact, disabled', () => {
+    beforeEach(() => {
+      wrapper = mount(<Dropdown isFullWidth isCompact isDisabled></Dropdown>);
+      dropdownWrapper = wrapper.find({ 'data-testid': 'wrapper' });
+      dropdownLabel = wrapper.find({ 'data-testid': 'label' });
+      dropdownError = wrapper.find({ 'data-testid': 'error' });
+    });
+    it('should be full width', function (done) {
+      expect(dropdownWrapper.at(0).getDOMNode()).not.toHaveStyle('max-width: 448px');
+      done();
+    });
+    it('should be disabled', function (done) {
+      expect(dropdownWrapper.at(0).getDOMNode()).toHaveStyle('cursor: not-allowed');
+      done();
+    });
+    it('should be compact', function (done) {
+      expect(dropdownLabel.at(0).getDOMNode()).toHaveStyle(
+        `position: absolute; top: -5px; left: 8px; font-size: 10px; line-height: 10px`,
+      );
+      done();
+    });
+    it('should not have error message', function (done) {
+      expect(dropdownError.length).toEqual(0);
       done();
     });
   });
