@@ -4,6 +4,7 @@ const fs = require('fs');
 const gulp = require('gulp');
 const prettier = require('gulp-prettier');
 const header = require('gulp-header');
+const tap = require('gulp-tap');
 const del = require('del');
 const typographies = require('./src/elviaTypography')['default'];
 
@@ -110,9 +111,30 @@ const generateElviaTypographyJson = async () => {
 };
 
 const copyElviaTypographyJs = async () => {
+  return gulp.src(['./src/elviaTypography.js']).pipe(header(WARNING)).pipe(gulp.dest('./dist/'));
+};
+const copyElviaTypographyDTs = async () => {
+  const typographyNamesAndAltLabels = [];
+  Object.keys(typographies).forEach((typography) => {
+    typographyNamesAndAltLabels.push(typography);
+    if (typographies[typography]['altLabels']) {
+      typographies[typography]['altLabels'].forEach((altLabel) => {
+        typographyNamesAndAltLabels.push(altLabel);
+      });
+    }
+  });
+  const typographyNameTypeString = typographyNamesAndAltLabels.map((name) => `'${name}'`).join('\n\t\t| ');
+
   return gulp
-    .src(['./src/elviaTypography.js', './src/elviaTypography.d.ts'])
+    .src(['./src/elviaTypography.d.ts'])
     .pipe(header(WARNING))
+    .pipe(
+      tap((file) => {
+        file.contents = Buffer.from(
+          String(file.contents).replace(/'{{INSERT_TYPOGRAPHY_NAMES}}'/, typographyNameTypeString),
+        );
+      }),
+    )
     .pipe(gulp.dest('./dist/'));
 };
 
@@ -141,6 +163,7 @@ gulp.task(
     generateElvisTypographyMapScss,
     generateElviaTypographyJson,
     copyElviaTypographyJs,
+    copyElviaTypographyDTs,
     formatPrettier,
     function (done) {
       console.log('Elvis-typography - Successfully built Elvis-typography! ');
