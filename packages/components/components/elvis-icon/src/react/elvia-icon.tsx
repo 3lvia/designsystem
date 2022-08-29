@@ -11,6 +11,7 @@ export interface IconProps {
   customSize?: string;
   className?: string;
   inlineStyle?: CSSProperties;
+  children?: React.ReactNode;
 }
 export const Icon: React.FC<IconProps> = ({
   name,
