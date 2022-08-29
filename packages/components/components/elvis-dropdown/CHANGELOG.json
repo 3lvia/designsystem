@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "29.08.22",
+      "version": "3.3.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Republish due to error in the previous version"]
+        }
+      ]
+    },
+    {
+      "date": "29.08.22",
       "version": "3.3.0",
       "changelog": [
         {
