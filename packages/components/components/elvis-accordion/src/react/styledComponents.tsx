@@ -6,7 +6,7 @@ import {
   AccordionSpacingAboveContent,
   AccordionType,
 } from './elvia-accordion.types';
-import { getTypographyCss } from '@elvia/elvis-typography';
+import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
 
 const colors = {
   elviaBlack: getColor('black'),
@@ -77,7 +77,7 @@ type AccordionButtonProps = {
   openDetailText: string | undefined;
   openLabel: string;
   closeLabel: string;
-  typography: string;
+  typography?: TypographyName;
   onClick: any;
 };
 

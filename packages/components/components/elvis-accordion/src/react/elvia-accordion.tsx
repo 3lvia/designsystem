@@ -37,7 +37,7 @@ export interface AccordionProps {
   type?: AccordionType;
   spacingAboveContent?: AccordionSpacingAboveContent;
   overflowHeight?: number;
-  typography: string;
+  typography?: string;
   onOpen?: () => void;
   onClose?: () => void;
   className?: string;
