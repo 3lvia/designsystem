@@ -14,7 +14,7 @@
           closeLabel="Hide"
           size="medium"
           type="overflow"
-          :isOpen="true"
+          :isOpen="openAccordion"
           :overflowHeight="10"
         >
           <div slot="content">

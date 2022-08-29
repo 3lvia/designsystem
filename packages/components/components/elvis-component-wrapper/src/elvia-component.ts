@@ -11,7 +11,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected webComponent: any;
   protected cssStyle: string;
   protected throttleRenderReactDOM;
-  protected reactRoot: Root;
+  private reactRoot: Root;
   private mountPoint!: HTMLSpanElement;
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
