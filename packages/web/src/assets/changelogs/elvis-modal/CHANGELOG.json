@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "26.08.22",
+      "version": "2.1.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Changed the shadow to medium."]
+        }
+      ]
+    },
+    {
       "date": "16.08.22",
       "version": "2.1.0",
       "changelog": [
