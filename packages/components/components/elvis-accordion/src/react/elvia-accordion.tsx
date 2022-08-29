@@ -1,5 +1,6 @@
 import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
 import toolbox from '@elvia/elvis-toolbox';
+import { TypographyName } from '@elvia/elvis-typography';
 import {
   AccordionLabelPosition,
   AccordionSize,
@@ -37,7 +38,7 @@ export interface AccordionProps {
   type?: AccordionType;
   spacingAboveContent?: AccordionSpacingAboveContent;
   overflowHeight?: number;
-  typography?: string;
+  typography?: TypographyName;
   onOpen?: () => void;
   onClose?: () => void;
   className?: string;
