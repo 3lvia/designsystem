@@ -2615,12 +2615,12 @@ __metadata:
   dependencies:
     "@elvia/elvis-toolbox": ^1.3.2
     "@types/lodash.isequal": ^4.5.5
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.13
+    "@types/react": ^18.0.17
+    "@types/react-dom": ^18.0.6
     json5: ^2.2.1
     lodash.isequal: ^4.5.0
-    react: ^17.0.0 || ^18.1.0
-    react-dom: ^17.0.0 || ^18.1.0
+    react: ^18.1.0
+    react-dom: ^18.1.0
   languageName: unknown
   linkType: soft
 
@@ -5081,12 +5081,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.13":
-  version: 17.0.17
-  resolution: "@types/react-dom@npm:17.0.17"
+"@types/react-dom@npm:^18.0.6":
+  version: 18.0.6
+  resolution: "@types/react-dom@npm:18.0.6"
   dependencies:
-    "@types/react": ^17
-  checksum: 23caf98aa03e968811560f92a2c8f451694253ebe16b670929b24eaf0e7fa62ba549abe9db0ac028a9d8a9086acd6ab9c6c773f163fa21224845edbc00ba6232
+    "@types/react": "*"
+  checksum: db571047af1a567631758700b9f7d143e566df939cfe5fbf7535347cc0c726a1cdbb5e3f8566d076e54cf708b6c1166689de194a9ba09ee35efc9e1d45911685
   languageName: node
   linkType: hard
 
@@ -5099,7 +5099,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
+"@types/react@npm:*, @types/react@npm:^18.0.17":
   version: 18.0.17
   resolution: "@types/react@npm:18.0.17"
   dependencies:
@@ -5107,17 +5107,6 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: 18cae64f5bfd6bb58fbd8ee2ba52ec82de844f114254e26de7b513e4b86621f643f9b71d7066958cd571b0d78cb86cbceda449c5289f9349ca573df29ab69252
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^17, @types/react@npm:^17.0.39":
-  version: 17.0.48
-  resolution: "@types/react@npm:17.0.48"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: b683fa33f751ced0b8c8715df9f40de15513c1d7ce66064a75cdfb8805cc913b0b214a2e7022ef0b724bd62a1e8651d040cd265dd0452bde03cca9b8e495742d
   languageName: node
   linkType: hard
 
@@ -23483,7 +23472,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^16.8.0 || ^17.0.0  || ^18.1.0, react-dom@npm:^16.8.0 || ^17.0.0 || ^18.1.0, react-dom@npm:^17.0.0 || ^18.1.0, react-dom@npm:^17.0.2 || ^18.1.0, react-dom@npm:^18.2.0":
+"react-dom@npm:^16.8.0 || ^17.0.0  || ^18.1.0, react-dom@npm:^16.8.0 || ^17.0.0 || ^18.1.0, react-dom@npm:^17.0.0 || ^18.1.0, react-dom@npm:^17.0.2 || ^18.1.0, react-dom@npm:^18.1.0, react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -23703,7 +23692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^16.8.0 || ^17.0.0  || ^18.1.0, react@npm:^16.8.0 || ^17.0.0 || ^18.1.0, react@npm:^17.0.0 || ^18.1.0, react@npm:^17.0.2 || ^18.1.0, react@npm:^18.2.0":
+"react@npm:^16.8.0 || ^17.0.0  || ^18.1.0, react@npm:^16.8.0 || ^17.0.0 || ^18.1.0, react@npm:^17.0.0 || ^18.1.0, react@npm:^17.0.2 || ^18.1.0, react@npm:^18.1.0, react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:

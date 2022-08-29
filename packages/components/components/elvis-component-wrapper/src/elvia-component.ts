@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot, Root } from 'react-dom/client';
 import isEqual from 'lodash.isequal';
 import toolbox from '@elvia/elvis-toolbox';
 import JSON5 from 'json5';
@@ -11,6 +11,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected webComponent: any;
   protected cssStyle: string;
   protected throttleRenderReactDOM;
+  protected reactRoot: Root;
   private mountPoint!: HTMLSpanElement;
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -182,14 +183,23 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
   }
 
+  protected createReactRoot(): void {
+    if (!this.reactRoot) {
+      if (!this.webComponent.getComponentData().useWrapper) {
+        this.reactRoot = createRoot(this);
+        return;
+      }
+      if (this.mountPoint) {
+        this.reactRoot = createRoot(this.mountPoint);
+      }
+    }
+  }
+
   protected renderReactDOM(): void {
     this.mapAttributesToData();
-    if (!this.webComponent.getComponentData().useWrapper) {
-      ReactDOM.render(this.createReactElement(this.createReactData()), this);
-      return;
-    }
-    if (this.mountPoint) {
-      ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
+    this.createReactRoot();
+    if (this.reactRoot) {
+      this.reactRoot.render(this.createReactElement(this.createReactData()));
     }
   }
 
