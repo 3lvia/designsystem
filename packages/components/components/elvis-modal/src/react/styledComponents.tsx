@@ -80,6 +80,7 @@ export const ModalWrapper = styled.div<WrapperProps>`
   border-radius: ${modalBorderRadius};
   overflow: hidden;
   background: ${colors.elviaOn};
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.03);
 
   ${(props: { hasIllustration: boolean }) =>
     props.hasIllustration &&
