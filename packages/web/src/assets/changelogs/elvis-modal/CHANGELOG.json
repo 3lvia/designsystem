@@ -2,7 +2,17 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "26.08.22",
+      "date": "29.08.22",
+      "version": "2.1.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Republish due to error in the previous version (2.1.1)."]
+        }
+      ]
+    },
+    {
+      "date": "29.08.22",
       "version": "2.1.1",
       "changelog": [
         {
