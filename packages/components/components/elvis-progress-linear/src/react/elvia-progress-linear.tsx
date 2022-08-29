@@ -18,6 +18,7 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
   isError,
   ariaValueText,
   size = 'small',
+  className,
   inlineStyle,
   ...rest
 }) => {
@@ -30,6 +31,7 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuetext={ariaValueText ? ariaValueText : 'Progresjonen er nå på ' + value + '%.'}
+      className={className ? className : ''}
       {...rest}
     >
       <ProgressLinearProgress
@@ -37,7 +39,6 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
         isError={isError}
         currSize={size}
         style={{ width: `${value}%` }}
-        className="ewc-progress-linear__progress"
         data-testid="progress-linear-progress"
       ></ProgressLinearProgress>
     </ProgressLinearWrapper>
