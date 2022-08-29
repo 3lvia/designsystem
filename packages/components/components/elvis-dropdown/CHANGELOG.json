@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "29.08.22",
+      "version": "3.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added isFullWidth-prop"]
+        }
+      ]
+    },
+    {
       "date": "19.08.22",
       "version": "3.2.1",
       "changelog": [
