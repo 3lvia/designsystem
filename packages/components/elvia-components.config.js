@@ -268,6 +268,7 @@ module.exports = [
       { name: 'defaultValue', type: 'object', propType: 'object | undefined' }, // DEPRECATED
       { name: 'isCompact', type: 'boolean', propType: 'boolean' },
       { name: 'isDisabled', type: 'boolean', propType: 'boolean' },
+      { name: 'isFullWidth', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isMulti', type: 'boolean', propType: 'boolean' },
       { name: 'isSearchable', type: 'boolean', propType: 'boolean' },
       { name: 'hasSelectAllOption', type: 'boolean', propType: 'boolean' },
@@ -284,6 +285,11 @@ module.exports = [
     ],
     slotItems: false,
     elementStyle: 'max-width: 448px; width: 100%; display: block;',
+
+    conditionalElementStyle: [
+      { name: 'isFullWidth', value: 'true', style: `width: 100%; max-width: unset;` },
+    ],
+
     reactName: 'Dropdown',
     useWrapper: false,
     reactTypescriptDeclaration: true,
