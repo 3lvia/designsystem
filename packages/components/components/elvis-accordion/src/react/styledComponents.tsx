@@ -163,7 +163,7 @@ const decideContentMarginTop = (
     return '0px';
   }
   if (contentOpen) {
-    return spacingAboveContent + 'px';
+    return spacingAboveContent;
   }
   return '0';
 };

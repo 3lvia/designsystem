@@ -61,7 +61,7 @@ const Accordion: FC<AccordionProps> = ({
   labelPosition = 'center',
   size = 'medium',
   type = 'normal',
-  spacingAboveContent = '8',
+  spacingAboveContent = '8px',
   overflowHeight,
   typography,
   onOpen,
