@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 2.5.0 (29.08.22)
+
+### New feature
+
+- Added a new icon: `new_tab`.
+
 ## 2.4.3 (19.08.22)
 
 ### Patch

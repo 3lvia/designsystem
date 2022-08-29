@@ -171,6 +171,7 @@ export declare const moneyColor: Icon;
 export declare const moreMenu: Icon;
 export declare const moveCircle: Icon;
 export declare const moveTruckColor: Icon;
+export declare const newTab: Icon;
 export declare const newTabBold: Icon;
 export declare const noteApprovedColor: Icon;
 export declare const noteCheckColor: Icon;
@@ -471,6 +472,7 @@ export declare type IconName =
   | 'moreMenu'
   | 'moveCircle'
   | 'moveTruckColor'
+  | 'newTab'
   | 'newTabBold'
   | 'noteApprovedColor'
   | 'noteCheckColor'
