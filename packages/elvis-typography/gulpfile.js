@@ -123,7 +123,7 @@ const copyElviaTypographyDTs = async () => {
       });
     }
   });
-  const typographyNameTypeString = typographyNamesAndAltLabels.map((name) => `'${name}'`).join('\n\t\t| ');
+  const typographyNameTypeString = typographyNamesAndAltLabels.map((name) => `'${name}'`).join('\n\t| ');
 
   return gulp
     .src(['./src/elviaTypography.d.ts'])

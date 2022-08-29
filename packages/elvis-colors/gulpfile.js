@@ -129,7 +129,7 @@ const copyElviaColorsDTs = async () => {
       }
     }
   }
-  const colorNameTypeString = colorNamesAndAltLabels.map((name) => `'${name}'`).join('\n\t\t| ');
+  const colorNameTypeString = colorNamesAndAltLabels.map((name) => `'${name}'`).join('\n\t| ');
 
   return gulp
     .src(['./src/elviaColors.d.ts'])
