@@ -1,7 +1,12 @@
 import styled, { css } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
-import { AccordionLabelPosition, AccordionSize, AccordionType } from './elvia-accordion.types';
-import { getTypographyCss } from '@elvia/elvis-typography';
+import {
+  AccordionLabelPosition,
+  AccordionSize,
+  AccordionSpacingAboveContent,
+  AccordionType,
+} from './elvia-accordion.types';
+import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
 
 const colors = {
   elviaBlack: getColor('black'),
@@ -72,6 +77,7 @@ type AccordionButtonProps = {
   openDetailText: string | undefined;
   openLabel: string;
   closeLabel: string;
+  typography?: TypographyName;
   onClick: any;
 };
 
@@ -84,6 +90,7 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   font-weight: ${(props) => (!props.hasBoldLabel && props.openDetailText === undefined ? '400' : '500')};
   font-size: ${(props) => decideButtonFontSize(props.size)};
   line-height: ${(props) => (props.size === 'small' ? '16px' : '24px')};
+  ${(props) => props.typography && getTypographyCss(props.typography)}
   text-align: left;
   cursor: pointer;
   color: ${colors.elviaBlack};
@@ -149,18 +156,14 @@ export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
 const decideContentMarginTop = (
   contentOpen: boolean,
   type: AccordionType,
-  size: AccordionSize,
   hasContent: boolean,
+  spacingAboveContent: AccordionSpacingAboveContent,
 ): string => {
   if (type === 'overflow' || !hasContent) {
     return '0px';
   }
   if (contentOpen) {
-    if (size === 'large') {
-      return '24px';
-    } else {
-      return '16px';
-    }
+    return spacingAboveContent;
   }
   return '0';
 };
@@ -216,7 +219,7 @@ const decideContentTransition = (contentOpen: boolean, type: AccordionType): str
 type AccordionContentProps = {
   isOpenState: boolean;
   type: AccordionType;
-  size: AccordionSize;
+  spacingAboveContent: AccordionSpacingAboveContent;
   overflowHeight?: number;
   hasContent: boolean;
 };
@@ -227,7 +230,7 @@ export const AccordionContent = styled.div<AccordionContentProps>`
   font-size: 16px;
   line-height: inherit;
   margin-top: ${(props) =>
-    decideContentMarginTop(props.isOpenState, props.type, props.size, props.hasContent)};
+    decideContentMarginTop(props.isOpenState, props.type, props.hasContent, props.spacingAboveContent)};
   pointer-events: ${(props) => (props.isOpenState ? 'auto' : 'none')};
   height: auto;
   max-height: ${(props) => decideContentMaxHeight(props.isOpenState, props.type, props.overflowHeight)};
