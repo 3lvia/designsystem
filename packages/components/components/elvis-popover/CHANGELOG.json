@@ -6,7 +6,7 @@
       "version": "5.1.1",
       "changelog": [
         {
-          "type": "bug_fix",
+          "type": "patch",
           "changes": ["Changed the shadow from hard to medium."]
         }
       ]
