@@ -2715,7 +2715,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^3.1.0, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
@@ -2738,6 +2738,29 @@ __metadata:
     react-is: ^16.8.0 || ^17.0.0
   languageName: unknown
   linkType: soft
+
+"@elvia/elvis-datepicker@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@elvia/elvis-datepicker@npm:3.1.0"
+  dependencies:
+    "@date-io/core": ^1.3.6
+    "@date-io/date-fns": ^1.3.13
+    "@elvia/elvis-colors": ^1.2.1
+    "@elvia/elvis-component-wrapper": ^2.3.3
+    "@elvia/elvis-icon": 1.3.0
+    "@elvia/elvis-toolbox": ^1.3.2
+    "@material-ui/core": 4.12.3
+    "@material-ui/pickers": 3.3.10
+    classnames: ^2.3.1
+    date-fns: ^2.27.0
+    prop-types: ^15.6.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ^16.8.0 || ^17.0.0
+  checksum: 4054e7db3b6bf3ae11126675ed22b8a0cb179beb97e5b2d00e61f471f25c292a53bacd793906f6aa486ea351c6ad947d98bb38725e3900d76cdfb7a0e1e3f29f
+  languageName: node
+  linkType: hard
 
 "@elvia/elvis-datepicker@portal:../components/components/elvis-datepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
   version: 0.0.0-use.local
