@@ -2833,10 +2833,21 @@ input:focus {
 .e-input.e-input--centered > input {
   justify-content: center;
 }
-.e-input .e-btn.e-btn--icon {
+.e-input .e-input__icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  color: #000;
+  width: 40px;
+  height: 40px;
+}
+.e-input .e-btn.e-btn--icon, .e-input .e-input__icon {
   position: absolute;
   right: 4px;
   top: 4px;
+}
+.e-input .e-btn.e-btn--icon {
   cursor: pointer;
 }
 .e-input.e-input---invalid > input, .e-input.e-input---invalid > textarea,
@@ -2864,6 +2875,10 @@ input:focus {
   opacity: 1;
   color: #bdbdbd;
   border-color: #bdbdbd;
+  cursor: not-allowed;
+}
+.e-input.e-input---readonly > input,
+.e-input > input:read-only {
   cursor: not-allowed;
 }
 .e-input input[type=date]::-webkit-calendar-picker-indicator,
@@ -2916,27 +2931,59 @@ input:focus {
   border: 2px solid #29d305;
   padding: 3px 9px;
 }
+.e-form-field.e-form-field--compact .e-input input[readonly],
+.e-input.e-input--compact input[readonly] {
+  /* DRY */
+  border-color: inherit;
+  cursor: not-allowed;
+}
 .e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon,
-.e-input.e-input--compact .e-btn.e-btn--icon {
+.e-form-field.e-form-field--compact .e-input .e-input__icon,
+.e-input.e-input--compact .e-btn.e-btn--icon,
+.e-input.e-input--compact .e-input__icon {
   top: 1px;
   right: 1px;
   width: 32px;
   height: 32px;
 }
 .e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon .e-btn__icon,
-.e-input.e-input--compact .e-btn.e-btn--icon .e-btn__icon {
+.e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon .e-input__icon,
+.e-form-field.e-form-field--compact .e-input .e-input__icon .e-btn__icon,
+.e-form-field.e-form-field--compact .e-input .e-input__icon .e-input__icon,
+.e-input.e-input--compact .e-btn.e-btn--icon .e-btn__icon,
+.e-input.e-input--compact .e-btn.e-btn--icon .e-input__icon,
+.e-input.e-input--compact .e-input__icon .e-btn__icon,
+.e-input.e-input--compact .e-input__icon .e-input__icon {
   width: 16px;
   height: 16px;
 }
 .e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon .e-btn__icon i,
-.e-input.e-input--compact .e-btn.e-btn--icon .e-btn__icon i {
+.e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon .e-input__icon i,
+.e-form-field.e-form-field--compact .e-input .e-input__icon .e-btn__icon i,
+.e-form-field.e-form-field--compact .e-input .e-input__icon .e-input__icon i,
+.e-input.e-input--compact .e-btn.e-btn--icon .e-btn__icon i,
+.e-input.e-input--compact .e-btn.e-btn--icon .e-input__icon i,
+.e-input.e-input--compact .e-input__icon .e-btn__icon i,
+.e-input.e-input--compact .e-input__icon .e-input__icon i {
   width: 16px;
   height: 16px;
 }
 .e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon .e-btn__icon i img,
 .e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon .e-btn__icon i i,
+.e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon .e-input__icon i img,
+.e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon .e-input__icon i i,
+.e-form-field.e-form-field--compact .e-input .e-input__icon .e-btn__icon i img,
+.e-form-field.e-form-field--compact .e-input .e-input__icon .e-btn__icon i i,
+.e-form-field.e-form-field--compact .e-input .e-input__icon .e-input__icon i img,
+.e-form-field.e-form-field--compact .e-input .e-input__icon .e-input__icon i i,
 .e-input.e-input--compact .e-btn.e-btn--icon .e-btn__icon i img,
-.e-input.e-input--compact .e-btn.e-btn--icon .e-btn__icon i i {
+.e-input.e-input--compact .e-btn.e-btn--icon .e-btn__icon i i,
+.e-input.e-input--compact .e-btn.e-btn--icon .e-input__icon i img,
+.e-input.e-input--compact .e-btn.e-btn--icon .e-input__icon i i,
+.e-input.e-input--compact .e-input__icon .e-btn__icon i img,
+.e-input.e-input--compact .e-input__icon .e-btn__icon i i,
+.e-input.e-input--compact .e-input__icon .e-input__icon i img,
+.e-input.e-input--compact .e-input__icon .e-input__icon i i {
   width: 16px;
   height: 16px;
 }

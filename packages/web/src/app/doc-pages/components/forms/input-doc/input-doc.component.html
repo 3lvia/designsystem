@@ -71,6 +71,29 @@
           <app-component-example-v1 [codeHTML]="exampleOptional"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Read-only'">
+        <ng-container ngProjectAs="sectionContent">
+          The
+          <span class="code-text">readonly</span>
+          attribute, when present, makes the element not mutable, meaning the user can not edit the input and
+          its value.
+          <div class="e-alert e-alert--info e-alert--no-title e-mt-16" role="alert">
+            <div class="e-alert__icon">
+              <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
+            </div>
+            <div class="e-alert__content">
+              <div class="e-alert__text">
+                <div>
+                  Note that a read-only input field will still be submitted by a form, but a disabled input
+                  field will not. It is, therefore, necessary to choose wisely between the two attributes.
+                </div>
+              </div>
+            </div>
+          </div>
+          <app-component-example-v1 [codeHTML]="readonlyExample"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

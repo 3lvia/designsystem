@@ -142,6 +142,18 @@ showMockPassword() {
 </div>
 `;
 
+  readonlyExample = `
+<div class="e-form-field">
+  <label class="e-form-field__label" for="readonlyExample">Read-only</label>
+  <div class="e-input e-input---readonly">
+    <span class="e-input__icon">
+    <i class="e-icon e-icon--lock" aria-hidden="true"></i>
+    </span>
+    <input id="readonlyExample" type="text" placeholder="Placeholder text" readonly />
+  </div>
+</div>
+`;
+
   showMockPassword(): void {
     if (this.validationExample.nativeElement.type === 'password') {
       this.validationExample.nativeElement.type = 'text';

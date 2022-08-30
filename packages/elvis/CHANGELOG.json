@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "8.10.0",
+      "date": "August 30, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added the ability to lock an input field with the <span class=\"codetext\">readonly</span> attribute."
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "8.9.0",
       "date": "August 22, 2022",
       "changelog": [
