@@ -8,7 +8,7 @@
         {
           "type": "patch",
           "changes": [
-            "Added support for CSP style nonce. It is added by setting the variable <span class=\"code-text\">window.__webpack_nonce_</span> in the document head to the nonce value."
+            "Added support for CSP style nonce. It is added by setting the variable <span class=\"code-text\">window.__webpack_nonce__</span> in the document head to the nonce value."
           ]
         }
       ]
