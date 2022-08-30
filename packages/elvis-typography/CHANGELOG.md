@@ -1,5 +1,11 @@
 # Elvia Typography Changelog
 
+## 2.3.1 (29.08.22)
+
+### Patch
+
+- Now generating up a Typescript union type for all the typography names.
+
 ## 2.3.0 (18.08.22)
 
 ### New feature
