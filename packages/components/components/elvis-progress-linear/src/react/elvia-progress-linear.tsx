@@ -1,46 +1,47 @@
 import React, { CSSProperties, FC } from 'react';
-import './style.scss';
-import classnames from 'classnames';
+import { ProgressLinearSize } from './elvia-progress-linear.types';
+import { ProgressLinearWrapper, ProgressLinearProgress } from './styledComponents';
 
-export interface ProgressbarProps {
-  value: number;
-  isIndeterminate: boolean;
-  isError: boolean;
+export interface ProgressLinearProps {
+  value?: number;
+  isIndeterminate?: boolean;
+  isError?: boolean;
+  ariaValueText?: string;
+  size?: ProgressLinearSize;
   className?: string;
-  ariaValueText: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
 }
 
-const ProgressLinear: FC<ProgressbarProps> = ({
+const ProgressLinear: FC<ProgressLinearProps> = ({
   value = 0,
   isIndeterminate,
   isError,
   ariaValueText,
+  size = 'small',
   className,
   inlineStyle,
   ...rest
 }) => {
-  const classes = classnames({
-    ['ewc-progress-linear--range']: !isIndeterminate && !isError,
-    ['ewc-progress-linear--indeterminate']: isIndeterminate && !isError,
-    ['ewc-progress-linear--error']: isError,
-  });
-
   return (
-    <div
-      className={className ? className : ''}
+    <ProgressLinearWrapper
+      currSize={size}
       style={inlineStyle}
       data-testid="progress-wrapper"
       aria-valuenow={value}
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuetext={ariaValueText ? ariaValueText : 'Progresjonen er nå på ' + value + '%.'}
+      className={className ? className : ''}
       {...rest}
     >
-      <div className={'ewc-progress-linear'}>
-        <div className={classes} style={{ width: `${value}%` }} data-testid="progress-linear"></div>
-      </div>
-    </div>
+      <ProgressLinearProgress
+        isIndeterminate={isIndeterminate}
+        isError={isError}
+        currSize={size}
+        style={{ width: `${value}%` }}
+        data-testid="progress-linear-progress"
+      ></ProgressLinearProgress>
+    </ProgressLinearWrapper>
   );
 };
 

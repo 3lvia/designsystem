@@ -31,9 +31,11 @@ import { TimepickerDocModule } from './forms/timepicker-doc/timepicker-doc.modul
 import { BoxDocModule } from './box-doc/box-doc.module';
 import { SpotlightDocModule } from './spotlight-doc/spotlight-doc.module';
 import { ThumbnailDocModule } from './thumbnail-doc/thumbnail-doc.module';
+import { AccordionGroupDocModule } from './accordion-group-doc/accordion-group-doc.module';
 
 @NgModule({
   imports: [
+    AccordionGroupDocModule,
     AccordionDocModule,
     AlertMessagesModule,
     AutocompleteDocModule,

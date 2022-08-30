@@ -1,5 +1,6 @@
 const ElviaTypography = {
   'title-lg': {
+    altLabels: ['title-large'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '44px',
     fontSizeMobile: '32px',
@@ -13,6 +14,7 @@ const ElviaTypography = {
   },
 
   'title-md': {
+    altLabels: ['title-medium'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '30px',
     fontSizeMobile: '24px',
@@ -26,6 +28,7 @@ const ElviaTypography = {
   },
 
   'title-sm': {
+    altLabels: ['title-small'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '24px',
     fontSizeMobile: '20px',
@@ -39,6 +42,7 @@ const ElviaTypography = {
   },
 
   'title-xs': {
+    altLabels: ['title-xsmall'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '18px',
     fontSizeMobile: '16px',
@@ -76,7 +80,7 @@ const ElviaTypography = {
   },
 
   'text-lg': {
-    altLabels: ['text-body'],
+    altLabels: ['text-large', 'text-body'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '20px',
     fontSizeMobile: '18px',
@@ -90,6 +94,7 @@ const ElviaTypography = {
   },
 
   'text-lg-strong': {
+    altLabels: ['text-large-strong'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '20px',
     fontSizeMobile: '18px',
@@ -103,6 +108,7 @@ const ElviaTypography = {
   },
 
   'text-lg-light': {
+    altLabels: ['text-large-light'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '20px',
     fontSizeMobile: '18px',
@@ -116,7 +122,7 @@ const ElviaTypography = {
   },
 
   'text-md': {
-    altLabels: ['text-description'],
+    altLabels: ['text-medium', 'text-description'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '16px',
     fontWeight: '400',
@@ -127,6 +133,7 @@ const ElviaTypography = {
     color: 'inherit',
   },
   'text-md-strong': {
+    altLabels: ['text-medium-strong'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '16px',
     fontWeight: '500',
@@ -137,6 +144,7 @@ const ElviaTypography = {
     color: 'inherit',
   },
   'text-md-light': {
+    altLabels: ['text-medium-light'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '16px',
     fontWeight: '400',
@@ -148,7 +156,7 @@ const ElviaTypography = {
   },
 
   'text-sm': {
-    altLabels: ['text-info'],
+    altLabels: ['text-small', 'text-info'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '14px',
     fontWeight: '400',
@@ -159,6 +167,7 @@ const ElviaTypography = {
     color: 'inherit',
   },
   'text-sm-strong': {
+    altLabels: ['text-small-strong'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '14px',
     fontWeight: '500',
@@ -169,6 +178,7 @@ const ElviaTypography = {
     color: 'inherit',
   },
   'text-sm-light': {
+    altLabels: ['text-small-light'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '14px',
     fontWeight: '400',

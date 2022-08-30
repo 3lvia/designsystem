@@ -1,5 +1,18 @@
 # Elvia Typography Changelog
 
+## 2.3.1 (29.08.22)
+
+### Patch
+
+- Now generating up a Typescript union type for all the typography names.
+
+## 2.3.0 (18.08.22)
+
+### New feature
+
+- All our typographies are now available through not only sm, md, lg etc. abbreviations, but also through the
+  full size name; small, medium, large etc.
+
 ## 2.2.0 (23.05.22)
 
 ### New feature

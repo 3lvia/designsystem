@@ -24,7 +24,7 @@ import {
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
 import { getColor } from '@elvia/elvis-colors';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import { config } from './config';
 
@@ -46,10 +46,11 @@ export interface DropdownProps {
    */
   defaultValue?: never;
   value?: DropdownItem | Array<DropdownItem> | undefined;
-  isCompact: boolean;
-  isDisabled: boolean;
-  isMulti: boolean;
-  isSearchable: boolean;
+  isCompact?: boolean;
+  isDisabled?: boolean;
+  isMulti?: boolean;
+  isFullWidth?: boolean;
+  isSearchable?: boolean;
   hasSelectAllOption?: boolean;
   selectAllOption?: Partial<DropdownItem>;
   allOptionsSelectedLabel?: string;
@@ -61,7 +62,7 @@ export interface DropdownProps {
   placeholderIcon?: string;
   valueOnChange?: (selectedOptions: DropdownItem | Array<DropdownItem> | undefined) => void;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
 }
 
@@ -71,6 +72,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   isCompact,
   isDisabled,
   isMulti,
+  isFullWidth,
   isSearchable = false,
   hasSelectAllOption = false,
   selectAllOption,
@@ -114,7 +116,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   const selectId = uniqueId('ewc-dropdown-');
 
   /** Styling functions for react select */
-  const decideControlBorder = (disabled: boolean, error: boolean) => {
+  const decideControlBorder = (disabled?: boolean, error?: boolean) => {
     if (disabled) {
       return `1px solid ${getColor('disabled')}`;
     }
@@ -147,7 +149,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
     return getColor('grey-05');
   };
 
-  const decideSingleValueColor = (isMenuOpen: boolean, searchable: boolean, disabled: boolean) => {
+  const decideSingleValueColor = (isMenuOpen: boolean, searchable: boolean, disabled?: boolean) => {
     if (disabled) {
       return getColor('disabled');
     }
@@ -184,7 +186,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   const customElviaStyles: StylesConfig = {
     container: (provided) => ({
       ...provided,
-      maxWidth: '448px',
+      maxWidth: isFullWidth ? '' : '448px',
     }),
 
     control: () => ({
@@ -377,7 +379,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
           {allOptionsHaveIconAttribute ? (
             <Icon
               inlineStyle={{ marginRight: '16px' }}
-              name={(props.data as DropdownItem).icon}
+              name={(props.data as DropdownItem).icon as string}
               size={isCompact ? 'xs' : 'sm'}
             />
           ) : (
@@ -455,12 +457,15 @@ const Dropdown: React.FC<DropdownProps> = function ({
   };
 
   const ElviaSingleValue = (props: SingleValueProps) => {
+    if (menuIsOpen && isSearchable) {
+      return null;
+    }
     return (
       <components.SingleValue {...props}>
         {allOptionsHaveIconAttribute ? (
           <Icon
             inlineStyle={{ marginRight: '16px' }}
-            name={(props.data as DropdownItem).icon}
+            name={(props.data as DropdownItem).icon as string}
             size={isCompact ? 'xs' : 'sm'}
             color={decideSingleValueColor(menuIsOpen, isSearchable, isDisabled)}
           />
@@ -591,7 +596,12 @@ const Dropdown: React.FC<DropdownProps> = function ({
 
   return (
     <div className={`${className ? className : ''}`} style={inlineStyle} {...rest}>
-      <DropdownWrapper isDisabled={isDisabled} ref={dropdownRef} data-testid="wrapper">
+      <DropdownWrapper
+        isFullWidth={isFullWidth}
+        isDisabled={isDisabled}
+        ref={dropdownRef}
+        data-testid="wrapper"
+      >
         <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
           {label}
         </DropdownLabel>

@@ -261,12 +261,12 @@ gulp.task(
   gulp.series(
     validate.validateElviaComponentsConfig,
     buildToolboxComponentToJS,
+    buildElviaComponentToJS,
+    buildElviaComponentTSDeclaration,
     TSX_to_JS,
     copyChangelogs,
     reactTypescriptDeclarations,
     buildWebComponentsMagically,
-    buildElviaComponentToJS,
-    buildElviaComponentTSDeclaration,
     runTests,
     function (done) {
       done();
@@ -280,11 +280,11 @@ gulp.task(
   gulp.series(
     validate.validateElviaComponentsConfig,
     buildToolboxComponentToJS,
+    buildElviaComponentToJS,
     TSX_to_JS,
     copyChangelogs,
     // reactTypescriptDeclarations, -- Currently disabled until we can make it take shorter time, remember to build before publish
     buildWebComponentsMagically,
-    buildElviaComponentToJS,
     function (done) {
       done();
       console.log('Successfully built Elvia Components!');
@@ -304,10 +304,10 @@ gulp.task('watch', function () {
     gulp.series(
       validate.validateElviaComponentsConfig,
       buildToolboxComponentToJS,
+      buildElviaComponentToJS,
       TSX_to_JS,
       copyChangelogs,
       buildWebComponentsMagically,
-      buildElviaComponentToJS,
       function (done) {
         done();
         console.log('Successfully built Elvia Components!');

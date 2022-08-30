@@ -1,16 +1,16 @@
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import React, { CSSProperties, useEffect, useRef } from 'react';
 import { DividerOrientation, DividerType, DividerTypography } from './elvia-divider.types';
 import { DividerArea, DividerTitle } from './styledComponents';
 
 export interface DividerProps {
   type?: DividerType;
-  title?: string | HTMLElement;
+  title?: string | JSX.Element;
   typography?: DividerTypography;
   isInverted?: boolean;
   orientation?: DividerOrientation;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
 }
 

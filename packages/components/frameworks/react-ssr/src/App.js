@@ -1,3 +1,4 @@
+// @ts-check
 import React, { useState } from 'react';
 import './App.scss';
 import { Accordion } from '@elvia/elvis-accordion/react';
@@ -17,7 +18,6 @@ import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
-import { getTypographyCss } from '@elvia/elvis-typography';
 import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';
 
 function App() {
@@ -25,8 +25,17 @@ function App() {
     console.log(component, ': ', value);
   };
   const updateSpotlight = () => {
-    setSpotlightPos({ vertical: '600', horizontal: '600' });
+    const { innerWidth, innerHeight } = window;
+    const newSize = 30 + Math.random() * 100;
+    const newPos = {
+      vertical: Math.random() * (innerHeight - 2 * newSize) + newSize,
+      horizontal: Math.random() * (innerWidth - 2 * newSize) + newSize,
+    };
+    setSpotlightState({ pos: newPos, size: newSize });
   };
+
+  // Accordion
+  const [isOpenContent, setIsOpenContent] = useState(false);
 
   // Breadcrumb
   const breadcrumbsNoUrl = [
@@ -82,7 +91,11 @@ function App() {
   ];
 
   // Spotlight
-  const [spotlightPos, setSpotlightPos] = useState({ verticalPosition: '500', horizontalPosition: '500' });
+  const [spotlightIsShowing, setSpotlightIsShowing] = useState(false);
+  const [spotlightState, setSpotlightState] = useState({
+    pos: { vertical: window.innerWidth / 2 - 200, horizontal: window.innerHeight / 2 + 200 },
+    size: 100,
+  });
 
   // Tabs
   const tabsItems = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
@@ -104,7 +117,9 @@ function App() {
         {/* ACCORDION */}
         <div className="example-wrapper">
           <h3>Accordion</h3>
+          <button onClick={() => setIsOpenContent((prevIsOpen) => !prevIsOpen)}>Trigger animation</button>
           <Accordion
+            isOpen={isOpenContent}
             type={'overflow'}
             openLabel={'Show'}
             closeLabel={'Hide'}
@@ -172,7 +187,7 @@ function App() {
               setIsChipLoading(!isChipLoading);
               setTimeout(() => {
                 setIsChipLoading(false);
-              }, [2000]);
+              }, 2000);
             }}
             isSelected={chipSelected}
             isLoading={isChipLoading}
@@ -275,13 +290,22 @@ function App() {
         {/* SPOTLIGHT */}
         <div className="example-wrapper">
           <h3>Spotlight</h3>
-          {/* <Spotlight position={spotlightPos} radius="40"></Spotlight> */}
+          {spotlightIsShowing && (
+            <Spotlight position={spotlightState.pos} radius={spotlightState.size}></Spotlight>
+          )}
+          <button
+            onClick={() => setSpotlightIsShowing((prevVal) => !prevVal)}
+            style={{ position: 'relative', zIndex: 999999 }}
+            className="e-btn e-mr-8"
+          >
+            Show spotlight
+          </button>
           <button
             onClick={updateSpotlight}
             style={{ position: 'relative', zIndex: 999999 }}
             className="e-btn"
           >
-            Update
+            Update spotlight
           </button>
         </div>
         {/* TABS */}

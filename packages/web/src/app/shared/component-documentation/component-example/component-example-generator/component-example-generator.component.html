@@ -67,7 +67,9 @@
             "
           >
             <div class="e-form-field" [ngClass]="{ 'e-mb-16': !last }" *ngIf="property.value.active">
-              <label [for]="property.key" class="e-form-field__label">{{ property.key | titlecase }}</label>
+              <label [for]="property.key" class="e-form-field__label">
+                {{ getCustomTextLabel(property.key) | titlecase }}
+              </label>
               <div class="e-input" style="width: 300px">
                 <input
                   *ngIf="property.value.type === 'input'"

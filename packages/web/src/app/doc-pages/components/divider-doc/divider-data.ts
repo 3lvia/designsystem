@@ -19,9 +19,9 @@ export const dividerData: ComponentData = {
     },
     title: {
       isRequired: false,
-      type: 'HTMLElement',
+      type: 'HTMLElement | JSX.Element',
       description:
-        'Title displayed together with a divider. Send in as slot in webcomponent and HTMLElement in React.',
+        'Title displayed together with a divider. Send in as slot in webcomponent and JSX.Element in React.',
       default: 'Title',
     },
     typography: {
@@ -71,6 +71,7 @@ export const dividerData: ComponentData = {
     },
   },
   codeImportReact: `import { Divider } from '@elvia/elvis-divider/react';`,
+  codeImportTypescriptInterface: `import { DividerProps } from '@elvia/elvis-divider/react';`,
   codeImportWebComponent: `import '@elvia/elvis-divider';`,
   codeReact: `<Divider
   title={<h2>Title</h2>}

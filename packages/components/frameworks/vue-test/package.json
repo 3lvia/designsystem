@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@elvia/elvis": "*",
-    "@elvia/elvis-accordion": "*",
+    "@elvia/elvis-accordion": "portal:../../components/elvis-accordion",
     "@elvia/elvis-box": "*",
     "@elvia/elvis-breadcrumb": "*",
     "@elvia/elvis-card": "*",

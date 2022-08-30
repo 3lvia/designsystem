@@ -40,6 +40,17 @@ export const homeMenu: DocPage[] = [
 
 export const componentsDocPages: DocPage[] = [
   {
+    title: 'Accordion group',
+    // tslint:disable-next-line: max-line-length
+    description:
+      'A group accordion with titles. Can be used to organize a lot of content and are easy for the user to scan and select what’s relevant. Example of use is as a FAQ section.',
+    docUrl: Pages.AccordionGroup,
+    absolutePath: '/components/' + Pages.AccordionGroup,
+    status: DocPageStatus.Done,
+    figmaUrl: 'https://www.figma.com/file/CTFyTP4zr2KuVjSXsgZO1s/Accordion?node-id=72%3A491',
+    type: 'Component',
+  },
+  {
     title: 'Accordion',
     // tslint:disable-next-line: max-line-length
     description:

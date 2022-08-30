@@ -7,7 +7,7 @@ import {
   BreadcrumbMobileWrapper,
 } from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import { breadcrumbConfig, breadcrumbLinkConfig } from './config';
 
@@ -24,7 +24,7 @@ interface BreadcrumbLink {
   text: string;
 }
 
-interface BreadcrumbProps {
+export interface BreadcrumbProps {
   /**
    * @deprecated Deprecated in version 2.0.0. Use items instead.
    */
@@ -36,7 +36,7 @@ interface BreadcrumbProps {
   breadcrumbsOnChange?: (value: number) => void;
   onLinkClick?: (value: number) => void;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
 }
 

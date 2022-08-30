@@ -237,6 +237,12 @@ export default interface ComponentData extends ComponentDataCode {
    */
   codeImportReact: `import { ${string} } from '@elvia/elvis-${string}/react';`;
   /**
+   * Code to import component property typescript interfaces.
+   * @example
+   * "import { ComponentProps } from '@elvia/elvis-component/react';"
+   */
+  codeImportTypescriptInterface?: `import { ${string} } from '@elvia/elvis-${string}/react';`;
+  /**
    * Code to import component as Web Component.
    * @example
    * "import '@elvia/elvis-component';"

@@ -35,6 +35,16 @@
           ></app-component-example-generator>
         </ng-container>
       </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Full width'">
+        <ng-container ngProjectAs="sectionContent">
+          <div>
+            The dropdown component can ignore its default 448px maximum width and expand to fill its parent's
+            width by using the
+            <span class="code-text">isFullWidth</span>
+            prop.
+          </div>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

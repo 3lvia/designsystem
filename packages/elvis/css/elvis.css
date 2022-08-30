@@ -12206,23 +12206,6 @@ THE SOFTWARE.
   }
 }
 
-.e-title-large {
-  font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 44px;
-  line-height: 53px;
-  font-weight: 900;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: inherit;
-}
-@media (max-width: 767px) {
-  .e-title-large {
-    font-size: 32px;
-    line-height: 34px;
-  }
-}
-
 .e-title-md {
   font-family: Red Hat Display, Verdana, sans-serif;
   font-size: 30px;
@@ -12235,23 +12218,6 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-title-md {
-    font-size: 24px;
-    line-height: 29px;
-  }
-}
-
-.e-title-medium {
-  font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 30px;
-  line-height: 36px;
-  font-weight: 700;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: inherit;
-}
-@media (max-width: 767px) {
-  .e-title-medium {
     font-size: 24px;
     line-height: 29px;
   }
@@ -12274,23 +12240,6 @@ THE SOFTWARE.
   }
 }
 
-.e-title-small {
-  font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 24px;
-  line-height: 29px;
-  font-weight: 700;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: inherit;
-}
-@media (max-width: 767px) {
-  .e-title-small {
-    font-size: 20px;
-    line-height: 24px;
-  }
-}
-
 .e-title-xs {
   font-family: Red Hat Display, Verdana, sans-serif;
   font-size: 18px;
@@ -12303,22 +12252,6 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-title-xs {
-    font-size: 16px;
-  }
-}
-
-.e-title-xsmall {
-  font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 18px;
-  line-height: 22px;
-  font-weight: 700;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: inherit;
-}
-@media (max-width: 767px) {
-  .e-title-xsmall {
     font-size: 16px;
   }
 }
@@ -12392,28 +12325,6 @@ THE SOFTWARE.
   font-weight: 500;
 }
 
-.e-text-large {
-  font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
-  font-weight: 400;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: inherit;
-}
-@media (max-width: 767px) {
-  .e-text-large {
-    font-size: 18px;
-    line-height: 29px;
-  }
-}
-
-.e-text-large b,
-.e-text-large strong {
-  font-weight: 500;
-}
-
 .e-text-body {
   font-family: Red Hat Text, Verdana, sans-serif;
   font-size: 20px;
@@ -12458,28 +12369,6 @@ THE SOFTWARE.
   font-weight: 500;
 }
 
-.e-text-large-strong {
-  font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
-  font-weight: 500;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: inherit;
-}
-@media (max-width: 767px) {
-  .e-text-large-strong {
-    font-size: 18px;
-    line-height: 29px;
-  }
-}
-
-.e-text-large-strong b,
-.e-text-large-strong strong {
-  font-weight: 500;
-}
-
 .e-text-lg-light {
   font-family: Red Hat Text, Verdana, sans-serif;
   font-size: 20px;
@@ -12502,28 +12391,6 @@ THE SOFTWARE.
   font-weight: 500;
 }
 
-.e-text-large-light {
-  font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
-  font-weight: 400;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: #515151;
-}
-@media (max-width: 767px) {
-  .e-text-large-light {
-    font-size: 18px;
-    line-height: 29px;
-  }
-}
-
-.e-text-large-light b,
-.e-text-large-light strong {
-  font-weight: 500;
-}
-
 .e-text-md {
   font-family: Red Hat Text, Verdana, sans-serif;
   font-size: 16px;
@@ -12536,21 +12403,6 @@ THE SOFTWARE.
 }
 .e-text-md b,
 .e-text-md strong {
-  font-weight: 500;
-}
-
-.e-text-medium {
-  font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
-  font-weight: 400;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: inherit;
-}
-.e-text-medium b,
-.e-text-medium strong {
   font-weight: 500;
 }
 
@@ -12584,21 +12436,6 @@ THE SOFTWARE.
   font-weight: 500;
 }
 
-.e-text-medium-strong {
-  font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
-  font-weight: 500;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: inherit;
-}
-.e-text-medium-strong b,
-.e-text-medium-strong strong {
-  font-weight: 500;
-}
-
 .e-text-md-light {
   font-family: Red Hat Text, Verdana, sans-serif;
   font-size: 16px;
@@ -12614,21 +12451,6 @@ THE SOFTWARE.
   font-weight: 500;
 }
 
-.e-text-medium-light {
-  font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
-  font-weight: 400;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: #515151;
-}
-.e-text-medium-light b,
-.e-text-medium-light strong {
-  font-weight: 500;
-}
-
 .e-text-sm {
   font-family: Red Hat Text, Verdana, sans-serif;
   font-size: 14px;
@@ -12641,21 +12463,6 @@ THE SOFTWARE.
 }
 .e-text-sm b,
 .e-text-sm strong {
-  font-weight: 500;
-}
-
-.e-text-small {
-  font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: inherit;
-}
-.e-text-small b,
-.e-text-small strong {
   font-weight: 500;
 }
 
@@ -12689,21 +12496,6 @@ THE SOFTWARE.
   font-weight: 500;
 }
 
-.e-text-small-strong {
-  font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 500;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: inherit;
-}
-.e-text-small-strong b,
-.e-text-small-strong strong {
-  font-weight: 500;
-}
-
 .e-text-sm-light {
   font-family: Red Hat Text, Verdana, sans-serif;
   font-size: 14px;
@@ -12716,21 +12508,6 @@ THE SOFTWARE.
 }
 .e-text-sm-light b,
 .e-text-sm-light strong {
-  font-weight: 500;
-}
-
-.e-text-small-light {
-  font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: #515151;
-}
-.e-text-small-light b,
-.e-text-small-light strong {
   font-weight: 500;
 }
 

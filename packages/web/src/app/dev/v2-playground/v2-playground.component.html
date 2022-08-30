@@ -5,24 +5,25 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white">
-      <i class="e-icon e-icon--remove_circle-filled e-icon--sm e-icon--color-red"></i>
-      <i class="e-icon e-icon--check_circle-filled e-icon--sm e-icon--color-green"></i>
-      <i class="e-icon e-icon--add_circle e-icon--sm e-icon--color-orange"></i>
-      <elvia-icon name="removeCircleFilled" color="red"></elvia-icon>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
-    <div class="e-bg-grey">
-      <i class="e-icon e-icon--remove_circle-filled e-icon--sm e-icon--color-red e-icon--inverted"></i>
-      <i class="e-icon e-icon--check_circle-filled e-icon--sm e-icon--color-green e-icon--inverted"></i>
-      <i class="e-icon e-icon--add_circle e-icon--sm e-icon--color-orange"></i>
-    </div>
+    <div class="e-bg-grey"></div>
   </div>
 
   <!--Accordion-->
   <div class="example-wrapper">
     <h3>Accordion</h3>
-    <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="normal">
+    <button (click)="isOpen = !isOpen">helo</button>
+    <elvia-accordion
+      [isOpen]="isOpen"
+      openLabel="Show"
+      closeLabel="Hide"
+      size="medium"
+      type="normal"
+      typography="title-caps"
+      (onOpen)="onOpen()"
+      (onClose)="onClose()"
+    >
       <div slot="content">
         <h3>Hello there</h3>
       </div>
@@ -224,6 +225,7 @@
   <!--Popover-->
   <div class="example-wrapper">
     <h3>Popover</h3>
+    <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Show popover</button>
     <elvia-popover
       [isShowing]="isPopoverShowing"
       (onOpen)="isPopoverShowing = true"

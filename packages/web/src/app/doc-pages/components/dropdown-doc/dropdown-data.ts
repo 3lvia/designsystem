@@ -47,6 +47,17 @@ export const dropdownData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'State',
     },
+    isFullWidth: {
+      isRequired: false,
+      type: 'boolean',
+      description: "Set the dropdown to fill 100% of its parent's container width.",
+      default: 'false',
+      cegDisplayName: 'Full width',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Options',
+    },
     isSearchable: {
       isRequired: false,
       type: 'boolean',
@@ -149,6 +160,7 @@ export const dropdownData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-dropdown',
   codeImportReact: `import { Dropdown } from '@elvia/elvis-dropdown/react';`,
+  codeImportTypescriptInterface: `import { DropdownProps } from '@elvia/elvis-dropdown/react';`,
   codeImportWebComponent: `import '@elvia/elvis-dropdown';`,
   codeReact: `<Dropdown 
   items={[

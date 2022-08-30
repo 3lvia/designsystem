@@ -3,16 +3,16 @@ import classNames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import './style.scss';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 export interface TabsProps {
   items: string[];
-  value: number;
-  isInverted: boolean;
-  hasManualActivation: boolean;
-  ariaLabel: string;
+  value?: number;
+  isInverted?: boolean;
+  hasManualActivation?: boolean;
+  ariaLabel?: string;
   valueOnChange?: (value: number) => void;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
 }
 

@@ -1,7 +1,7 @@
 import React, { CSSProperties, FC, PointerEvent, useEffect, useState } from 'react';
-import { Datepicker } from '@elvia/elvis-datepicker/react';
+import { Datepicker, DatepickerProps } from '@elvia/elvis-datepicker/react';
 import { DatepickerRangeWrapper } from './styledComponents';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper/src/elvia-component';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import isValid from 'date-fns/isValid';
 import formatISO from 'date-fns/formatISO';
 
@@ -53,7 +53,7 @@ export interface DatepickerRangeProps {
   minDate?: Date;
   maxDate?: Date;
   className?: string;
-  inlineStyle?: { [style: string]: CSSProperties };
+  inlineStyle?: CSSProperties;
   disableDates?: DisableDates;
   webcomponent?: ElvisComponentWrapper;
 }
@@ -175,7 +175,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     return disableDates;
   };
 
-  const handleEndDatepickerDateElementPointerMove = (day: Date, event?: PointerEvent<HTMLDivElement>) => {
+  const handleEndDatepickerDateElementPointerMove = (day: Date, event?: PointerEvent<HTMLButtonElement>) => {
     const isPointerEventAndTargetIsDayElementInCalendar =
       event && event.target instanceof Element && event.target.classList.contains('ewc-datepicker__day');
 
@@ -193,7 +193,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const handleStartDatepickerDateElementPointerMove = (day: Date, event?: PointerEvent<HTMLDivElement>) => {
+  const handleStartDatepickerDateElementPointerMove = (
+    day: Date,
+    event?: PointerEvent<HTMLButtonElement>,
+  ) => {
     const isPointerEventAndTargetIsDayElementInCalendar =
       event && event.target instanceof Element && event.target.classList.contains('ewc-datepicker__day');
 
@@ -280,7 +283,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   /** These props are passed through directly to both the underlying datepickers. */
-  const passThroughProps = {
+  const passThroughProps: Partial<DatepickerProps> = {
     minDate,
     maxDate,
     isCompact,

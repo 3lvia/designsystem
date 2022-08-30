@@ -1,5 +1,23 @@
 # Elvis-assets-icon
 
+## 2.5.0 (29.08.22)
+
+### New feature
+
+- Added a new icon: `new_tab`.
+
+## 2.4.3 (19.08.22)
+
+### Patch
+
+- Updated from gulp-svgo til gulp-svgmin. Fixes a bug that made svg not possible to open in Adobe programs.
+
+## 2.4.2 (16.08.22)
+
+### Patch
+
+- Fixed the type declaration for the `getIcon`-function.
+
 ## 2.4.1 (15.08.22)
 
 ### Bug fix

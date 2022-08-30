@@ -170,6 +170,7 @@ const datepickerRangeData: ComponentData = {
   },
   package: 'npm install @elvia/elvis-datepicker-range',
   codeImportReact: `import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';`,
+  codeImportTypescriptInterface: `import { DatepickerRangeProps } from '@elvia/elvis-datepicker-range/react';`,
   codeImportWebComponent: `import '@elvia/elvis-datepicker-range';`,
   codeReact: `<DatepickerRange
   valueOnChange={(event) => handleOnChange(event)}

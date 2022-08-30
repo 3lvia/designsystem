@@ -1,5 +1,7 @@
+import type { ElviaColor } from '@elvia/elvis-colors';
+
 declare type Icon = {
-  getIcon: (color: string) => string;
+  getIcon: (color?: ElviaColor | 'inverted') => string;
 };
 export declare const accessControl: Icon;
 export declare const accessControlColor: Icon;
@@ -169,6 +171,7 @@ export declare const moneyColor: Icon;
 export declare const moreMenu: Icon;
 export declare const moveCircle: Icon;
 export declare const moveTruckColor: Icon;
+export declare const newTab: Icon;
 export declare const newTabBold: Icon;
 export declare const noteApprovedColor: Icon;
 export declare const noteCheckColor: Icon;
@@ -469,6 +472,7 @@ export declare type IconName =
   | 'moreMenu'
   | 'moveCircle'
   | 'moveTruckColor'
+  | 'newTab'
   | 'newTabBold'
   | 'noteApprovedColor'
   | 'noteCheckColor'
