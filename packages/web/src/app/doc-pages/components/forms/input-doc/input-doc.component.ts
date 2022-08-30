@@ -144,12 +144,18 @@ showMockPassword() {
 
   readonlyExample = `
 <div class="e-form-field">
-  <label class="e-form-field__label" for="readonlyExample">Read-only</label>
+  <label class="e-form-field__label" for="normalreadonly">Kolonne</label>
   <div class="e-input e-input---readonly">
-    <span class="e-input__icon">
-    <i class="e-icon e-icon--lock" aria-hidden="true"></i>
-    </span>
-    <input id="readonlyExample" type="text" placeholder="Placeholder text" readonly />
+    <input id="normalreadonly" type="text" value="InstalledDate" readonly />
+  </div>
+</div>
+`;
+
+  readonlyCompactExample = `
+<div class="e-form-field e-form-field--compact">
+  <label class="e-form-field__label" for="compactreadonly">Kolonne</label>
+  <div class="e-input e-input---readonly">
+    <input id="compactreadonly" type="text" value="InstalledDate" readonly />
   </div>
 </div>
 `;

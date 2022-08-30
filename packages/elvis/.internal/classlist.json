@@ -291,9 +291,6 @@
 				"e-input--small": {},
 				"e-input--medium": {}
 			},
-			"element": {
-				"e-input__icon": {}
-			},
 			"psuedo": {
 				"e-input---invalid": {},
 				"e-input---focus": {},
@@ -1330,7 +1327,6 @@
 		"e-input": {},
 		"e-input--placeholder": {},
 		"e-input--centered": {},
-		"e-input__icon": {},
 		"e-input---invalid": {},
 		"e-input---focus": {},
 		"e-input---disabled": {},

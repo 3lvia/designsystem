@@ -57,25 +57,10 @@ $form-input-padding-compact-active: 3px 9px;
     justify-content: center;
   }
 
-  & .e-input__icon {
-    //kommer fra button.scss. Bidrar med riktig plassering og størrelse
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
-    color: colors.color('font-color');
-    width: 40px;
-    height: 40px;
-  }
-
-  .e-btn.e-btn--icon,
-  & .e-input__icon {
+  .e-btn.e-btn--icon {
     position: absolute;
     right: 4px;
     top: 4px;
-  }
-
-  .e-btn.e-btn--icon {
     cursor: pointer;
   }
 
@@ -111,8 +96,12 @@ $form-input-padding-compact-active: 3px 9px;
   }
 
   &.e-input---readonly > input,
-  > input:read-only {
+  &.e-input---readonly > input:focus,
+  > input:read-only,
+  > input:read-only:focus {
+    border: unset;
     cursor: not-allowed;
+    padding: $form-input-padding;
   }
 
   // removes default time&date icons in input fields
@@ -156,20 +145,21 @@ $form-input-padding-compact-active: 3px 9px;
     padding: $form-input-padding-compact-active;
   }
 
-  input[readonly] {
-    /* DRY */
-    border-color: inherit;
+  &.e-input---readonly > input,
+  &.e-input---readonly > input:focus,
+  > input:read-only,
+  > input:read-only:focus {
+    border: unset;
     cursor: not-allowed;
+    padding: $form-input-padding-compact-active;
   }
 
-  .e-btn.e-btn--icon,
-  .e-input__icon {
+  .e-btn.e-btn--icon {
     top: 1px;
     right: 1px;
     width: 32px;
     height: 32px;
-    .e-btn__icon,
-    .e-input__icon {
+    .e-btn__icon {
       width: 16px;
       height: 16px;
       i {
