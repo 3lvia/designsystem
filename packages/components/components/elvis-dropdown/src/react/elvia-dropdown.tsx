@@ -607,13 +607,9 @@ const Dropdown: React.FC<DropdownProps> = function ({
     [],
   );
 
-  useEffect(() => {
-    console.log('useEffect', cache);
-  }, [cache]);
-
   return (
     <CacheProvider value={cache}>
-      <div className={`${className ? className : ''}`} style={inlineStyle} {...rest}>
+      <div className={className ?? ''} style={inlineStyle} {...rest}>
         <DropdownWrapper
           isFullWidth={isFullWidth}
           isDisabled={isDisabled}
@@ -652,7 +648,6 @@ const Dropdown: React.FC<DropdownProps> = function ({
             value={currentVal}
             styles={customElviaStyles}
           ></Select>
-
           {isError ? <ElviaError errorMessage={errorMessage} data-testid="error"></ElviaError> : null}
         </DropdownWrapper>
       </div>
