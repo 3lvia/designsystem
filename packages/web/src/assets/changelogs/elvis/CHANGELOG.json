@@ -2,12 +2,15 @@
   "content": [
     {
       "version": "8.9.0",
-      "date": "August 19, 2022",
+      "date": "August 30, 2022",
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added a full width class to input fields"],
-          "components": [{ "displayName": "Text fields", "url": "https://design.elvia.io/components/input" }]
+          "changes": ["Added a full width class to input fields, including text input and search"],
+          "components": [
+            { "displayName": "Text fields", "url": "https://design.elvia.io/components/input" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" }
+          ]
         }
       ]
     },

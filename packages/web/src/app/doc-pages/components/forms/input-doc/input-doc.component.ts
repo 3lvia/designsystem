@@ -143,14 +143,14 @@ showMockPassword() {
 `;
 
   exampleFullwidth = `<!-- Normal field -->
-<div class="e-form-field e-form-field--width-full">
+<div class="e-form-field e-form-field--full-width">
   <label class="e-form-field__label" for="width-full">Label</label>
   <div class="e-input">
     <input id="width-full" type="text" placeholder="Placeholder text" />
   </div>
 </div>
 <!-- Inlined field -->
-<div class="e-inlined-field e-mt-24 e-inlined-field--width-full">
+<div class="e-inlined-field e-mt-24 e-inlined-field--full-width">
   <div class="e-form-field e-form-field--medium">
     <label class="e-form-field__label" for="zip">Zip code
     </label>

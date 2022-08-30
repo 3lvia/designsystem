@@ -283,7 +283,7 @@ clearExample(): void {
 
   searchFullWidth = `<!-- Instant -->
 <div class="e-title-caps e-mb-16">Instant</div>
-<div class="e-form-field e-form-field--width-full">
+<div class="e-form-field e-form-field--full-width">
   <div class="e-search e-search--instant">
     <div class="e-input">
       <input aria-label="Search" type="search" placeholder="Search" />
@@ -299,7 +299,7 @@ clearExample(): void {
 
 <!-- On submit -->
 <div class="e-title-caps e-mb-16 e-mt-24">On submit</div>
-<div class="e-inlined-field e-inlined-field--width-full">
+<div class="e-inlined-field e-inlined-field--full-width">
   <div class="e-form-field">
     <div class="e-search e-search--on-submit">
       <div class="e-input">

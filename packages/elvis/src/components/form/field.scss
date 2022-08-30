@@ -98,16 +98,12 @@
     }
   }
 
-  /* 
-Dersom form fieldet har modden width-full, så fjernes max-width fra alle input elementer som fielden inneholder.
-Det er bare field som trenger denne modden, alle inputs kan las være i fred.
-
-Tanke: Følger ikke DRY ettersom vi setter samme styles på flere elementer. Både parent og child. Samme gjelder for inline fileds. */
-  &.e-form-field--width-full .e-input,
-  &.e-form-field--width-full .e-input > input,
-  &.e-form-field--width-full .e-input > textarea,
-  &.e-form-field--width-full .e-input > div,
-  &.e-form-field--combined.e-form-field--width-full > .e-form-field__input {
+  /* Full width - Removes max width for all inputs */
+  &.e-form-field--full-width .e-input,
+  &.e-form-field--full-width .e-input > input,
+  &.e-form-field--full-width .e-input > textarea,
+  &.e-form-field--full-width .e-input > div,
+  &.e-form-field--combined.e-form-field--full-width > .e-form-field__input {
     max-width: unset;
   }
 }
@@ -136,15 +132,15 @@ Tanke: Følger ikke DRY ettersom vi setter samme styles på flere elementer. Bå
       width: 140px;
     }
 
-    &.e-form-field--width-full {
+    &.e-form-field--full-width {
       max-width: unset;
       width: 100%;
     }
   }
 
-  &.e-inlined-field--width-full,
-  &.e-inlined-field--width-full .e-input,
-  &.e-inlined-field--width-full input {
+  &.e-inlined-field--full-width,
+  &.e-inlined-field--full-width .e-input,
+  &.e-inlined-field--full-width input {
     max-width: unset;
   }
 }
