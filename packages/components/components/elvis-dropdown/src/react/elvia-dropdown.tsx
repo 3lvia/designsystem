@@ -596,13 +596,20 @@ const Dropdown: React.FC<DropdownProps> = function ({
     }
   }, [errorMessage]);
 
-  const cache = useMemo(() => {
-    return createCache({
-      key: 'elvia-dropdown',
-      nonce: 'testnonce',
-      prepend: true,
-    });
-  }, []);
+  // Cache is used for CSP nonce support
+  const cache = useMemo(
+    () =>
+      createCache({
+        key: 'elvia-dropdown',
+        nonce: window && (window as any).__webpack_nonce__ ? (window as any).__webpack_nonce__ : '',
+        prepend: true,
+      }),
+    [],
+  );
+
+  useEffect(() => {
+    console.log('useEffect', cache);
+  }, [cache]);
 
   return (
     <CacheProvider value={cache}>

@@ -102,13 +102,4 @@ export class v2PlaygroundComponent {
   popoverOnClose = (): void => {
     console.log('Popover closed');
   };
-  findAllNonces = (): void => {
-    const styleElements = document.querySelectorAll('style');
-    styleElements.forEach((element) => {
-      const nonce = element.getAttribute('nonce');
-      if (nonce) {
-        console.log('found:', nonce);
-      }
-    });
-  };
 }

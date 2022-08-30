@@ -159,15 +159,16 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;
-    // if (this.getProp('styleTagId')) {
-    //   styleTag.setAttribute('id', this.getProp('styleTagId'));
-    // }
+    // Add nonce to style tag for CSP support
+    if (window && (window as any).__webpack_nonce__) {
+      styleTag.setAttribute('nonce', (window as any).__webpack_nonce__);
+    }
     this.appendChild(styleTag);
   }
 
   protected createReactData(): Record<string, any> {
-    const reactData: { [key: string]: boolean } = {};
-    Object.keys(this._data).forEach((key: string) => {
+    const reactData: { [key: string]: any } = {};
+    Object.keys(this._data).forEach((key) => {
       reactData[this.mapNameToRealName(key)] = this._data[key];
     });
     return reactData;

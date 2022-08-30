@@ -84,13 +84,6 @@ function buildWebComponentsMagically() {
               result = dependentStyle + '\n' + result;
             });
           }
-          // If any style is to be added to a style-tag, add 'styleTagId' as an attribute (used for CSP support)
-          // if (result !== '') {
-          //   component.attributes = [
-          //     ...component.attributes,
-          //     { name: 'styleTagId', type: 'string', propType: 'string' },
-          //   ];
-          // }
 
           const lowercaseAttr = component.attributes.map((attr) => attr.name.toLowerCase());
 
