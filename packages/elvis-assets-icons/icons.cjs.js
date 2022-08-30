@@ -4706,6 +4706,34 @@ exports.moveTruckColor = {
     return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
   },
 };
+exports.newTab = {
+  getIcon: function (color) {
+    let icon =
+      '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.105 1.983C1.832 1.983 0 3.79 0 6.003V19.98C0 22.195 1.832 24 4.105 24h13.806c2.273 0 4.105-1.805 4.105-4.019v-4.15a.88.88 0 0 0-.892-.87.88.88 0 0 0-.892.87v4.15c0 1.266-1.045 2.281-2.32 2.281H4.104c-1.275 0-2.32-1.015-2.32-2.28V6.001c0-1.265 1.045-2.28 2.32-2.28H8.19a.88.88 0 0 0 .892-.87.88.88 0 0 0-.892-.869H4.105Z" fill="#000"/><path d="M12.17 10.536a.916.916 0 0 0 1.294 1.295l8.705-8.705v7.134a.916.916 0 1 0 1.831 0V.916a.911.911 0 0 0-.334-.707.909.909 0 0 0-.582-.209H13.74a.916.916 0 0 0 0 1.832h7.134l-8.704 8.704Z" fill="#000"/></svg>';
+    let iconName = 'new_tab';
+    icon = icon.replace('<svg ', '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+    if (!color) {
+      return icon;
+    }
+    if (color === 'inverted') {
+      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
+        icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
+      }
+      // -full-color check can be removed when new icons have been added
+      if (iconName.indexOf('-filled-color') > -1 || iconName.indexOf('-full-color') > -1) {
+        icon = icon.replace(/fill="#000"/g, "fillBlack'");
+      }
+      icon = icon.replace(/fill="#fff"/g, 'fillBlack');
+      icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+      icon = icon.replace(/fillBlack/g, "fill='black'");
+      icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+      return icon;
+    } else if (!color.startsWith('#')) {
+      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
+    }
+    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
+  },
+};
 exports.newTabBold = {
   getIcon: function (color) {
     let icon =

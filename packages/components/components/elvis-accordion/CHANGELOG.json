@@ -3,6 +3,20 @@
   "content": [
     {
       "date": "18.08.22",
+      "version": "2.7.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added <span class=\"code-text\">typography</span> prop, where wanted typography can be passed in.",
+            "New prop <span class=\"code-text\">spacingAboveContent</span> that allows to pass in custom padding between accordion button and content.",
+            "Padding between accordion button and content is now 8px."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "18.08.22",
       "version": "2.6.0",
       "changelog": [
         {
