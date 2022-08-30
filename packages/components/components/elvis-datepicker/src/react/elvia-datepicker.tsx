@@ -682,8 +682,8 @@ export const Datepicker: FC<DatepickerProps> = ({
             },
             'aria-modal': true,
             'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
-            anchorOrigin: { horizontal: 'left', vertical: 'bottom' }, //Her må det justeres slik at kalenderen dukker opp under knappen (bare ved full width). Å sette begge til right er gir ikke forventet resultat
-            transformOrigin: { horizontal: 'left', vertical: 'top' },
+            anchorOrigin: { horizontal: isFullWidth ? 'right' : 'left', vertical: 'bottom' },
+            transformOrigin: { horizontal: isFullWidth ? 246 : 'left', vertical: 'top' },
             ref: datepickerPopoverRef,
             onPointerMove: (event) => onDatepickerPopoverPointerMove?.(event),
           }}
