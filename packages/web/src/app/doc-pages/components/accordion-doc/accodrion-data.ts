@@ -49,7 +49,7 @@ const accordionData: ComponentData = {
     },
     content: {
       isRequired: false,
-      type: 'string | HTMLElement',
+      type: 'string | HTMLElement | JSX.Element',
       description: 'Text, images, tables or any other content (use slot in webcomponent if not just text).',
     },
     isFullWidth: {
@@ -88,6 +88,24 @@ const accordionData: ComponentData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['small', 'medium', 'large'],
+    },
+    typography: {
+      isRequired: false,
+      type: 'string',
+      description:
+        'The accordion uses a custom typography. If you want to use any of the design system typographies, pass the name of the typography here. Example: "text-md"',
+    },
+    spacingAboveContent: {
+      isRequired: false,
+      type: '"8px" | "16px" | "24px"',
+      description:
+        'If you want to change det padding between the accordion button and the content below it, you can use this attribute. Example: spacingAboveContent: "16px"',
+      default: '"8px"',
+      cegDisplayName: 'Spacing above content',
+      cegDefault: '8px',
+      cegType: 'string',
+      cegFormType: 'radio',
+      cegOptions: ['8px', '16px', '24px'],
     },
     openLabel: {
       isRequired: false,

@@ -51,6 +51,7 @@ export interface DropdownProps {
   isCompact?: boolean;
   isDisabled?: boolean;
   isMulti?: boolean;
+  isFullWidth?: boolean;
   isSearchable?: boolean;
   hasSelectAllOption?: boolean;
   selectAllOption?: Partial<DropdownItem>;
@@ -73,6 +74,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   isCompact,
   isDisabled,
   isMulti,
+  isFullWidth,
   isSearchable = false,
   hasSelectAllOption = false,
   selectAllOption,
@@ -186,7 +188,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   const customElviaStyles: StylesConfig = {
     container: (provided) => ({
       ...provided,
-      maxWidth: '448px',
+      maxWidth: isFullWidth ? '' : '448px',
     }),
 
     control: () => ({
@@ -605,7 +607,12 @@ const Dropdown: React.FC<DropdownProps> = function ({
   return (
     <CacheProvider value={cache}>
       <div className={`${className ? className : ''}`} style={inlineStyle} {...rest}>
-        <DropdownWrapper isDisabled={isDisabled} ref={dropdownRef} data-testid="wrapper">
+        <DropdownWrapper
+          isFullWidth={isFullWidth}
+          isDisabled={isDisabled}
+          ref={dropdownRef}
+          data-testid="wrapper"
+        >
           <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
             {label}
           </DropdownLabel>

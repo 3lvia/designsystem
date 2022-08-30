@@ -23,7 +23,8 @@ Read about the
 
 ### Technology
 
-- We use **SCSS** for our classes.
+- We use **SCSS** for our classes. With [ABEM](https://css-tricks.com/abem-useful-adaptation-bem/) as our
+  class naming convention.
 - We use **Percy** for visual regression testing for our CSS library.
 - We use **Figma** for sketching the components. Use
   [Elvia figma](https://www.figma.com/files/880078299274452916/project/5995782/%F0%9F%92%9A-Designsystemet?fuid=911220117114249697)

@@ -1,6 +1,12 @@
 import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
 import toolbox from '@elvia/elvis-toolbox';
-import { AccordionLabelPosition, AccordionSize, AccordionType } from './elvia-accordion.types';
+import { TypographyName } from '@elvia/elvis-typography';
+import {
+  AccordionLabelPosition,
+  AccordionSize,
+  AccordionSpacingAboveContent,
+  AccordionType,
+} from './elvia-accordion.types';
 import {
   AccordionWrapper,
   AccordionArea,
@@ -30,7 +36,9 @@ export interface AccordionProps {
   labelPosition?: AccordionLabelPosition;
   size?: AccordionSize;
   type?: AccordionType;
+  spacingAboveContent?: AccordionSpacingAboveContent;
   overflowHeight?: number;
+  typography?: TypographyName;
   onOpen?: () => void;
   onClose?: () => void;
   className?: string;
@@ -54,7 +62,9 @@ const Accordion: FC<AccordionProps> = ({
   labelPosition = 'center',
   size = 'medium',
   type = 'normal',
+  spacingAboveContent = '8px',
   overflowHeight,
+  typography,
   onOpen,
   onClose,
   className,
@@ -153,7 +163,7 @@ const Accordion: FC<AccordionProps> = ({
         {type === 'overflow' ? (
           <AccordionContent
             type={type}
-            size={size}
+            spacingAboveContent={spacingAboveContent}
             isOpenState={isOpenState}
             overflowHeight={overflowHeight}
             hasContent={hasContent}
@@ -173,6 +183,7 @@ const Accordion: FC<AccordionProps> = ({
             openDetailText={openDetailText}
             openLabel={openLabel ? openLabel : ''}
             closeLabel={closeLabel ? closeLabel : ''}
+            typography={typography}
             onClick={() => handleOnClick()}
             onMouseEnter={() => setIsHoveringButton(true)}
             onMouseLeave={() => setIsHoveringButton(false)}
@@ -207,7 +218,7 @@ const Accordion: FC<AccordionProps> = ({
         {type === 'normal' ? (
           <AccordionContent
             type={type}
-            size={size}
+            spacingAboveContent={spacingAboveContent}
             isOpenState={isOpenState}
             hasContent={hasContent}
             overflowHeight={overflowHeight}

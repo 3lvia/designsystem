@@ -9,11 +9,7 @@
       <button class="e-btn" (click)="findAllNonces()">Find nonces</button>
     </div>
     <!--Inverted version-->
-    <div class="e-bg-grey">
-      <i class="e-icon e-icon--remove_circle-filled e-icon--sm e-icon--color-red e-icon--inverted"></i>
-      <i class="e-icon e-icon--check_circle-filled e-icon--sm e-icon--color-green e-icon--inverted"></i>
-      <i class="e-icon e-icon--add_circle e-icon--sm e-icon--color-orange"></i>
-    </div>
+    <div class="e-bg-grey"></div>
   </div>
 
   <!--Accordion-->
@@ -26,6 +22,7 @@
       closeLabel="Hide"
       size="medium"
       type="normal"
+      typography="title-caps"
       (onOpen)="onOpen()"
       (onClose)="onClose()"
     >

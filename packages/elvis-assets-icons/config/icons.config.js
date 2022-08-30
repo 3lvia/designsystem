@@ -423,7 +423,12 @@ module.exports = [
   { name: 'more_menu', terms: ['actions', 'contextual', 'kebab', 'dots'] },
   { name: 'move_circle', terms: ['move', 'transfer'], thirdparty: { name: ['streamline'] } },
   { name: 'move_truck-color', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'new_tab-bold', terms: ['external', 'open', 'link'], thirdparty: { name: ['streamline'] } },
+  { name: 'new_tab', terms: ['external', 'open', 'link'], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'new_tab-bold',
+    terms: ['external', 'open', 'link'],
+    thirdparty: { name: ['streamline'], duplicate: ['new_tab'] },
+  },
   { name: 'note_approved-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'note_check-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'notification-bold', terms: ['alarm', 'bell', 'alert'], thirdparty: { name: ['streamline'] } },
