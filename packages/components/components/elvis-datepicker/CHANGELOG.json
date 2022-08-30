@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "25.08.22",
+      "version": "4.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The prop 'isFullWidth' now enables the components to fill the entire width available instead of the earlier 448px max width. If this new behavior is undesired, remove the isFullWidth prop from the component. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "16.08.22",
       "version": "3.1.0",
       "changelog": [
