@@ -51,7 +51,8 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
     color: colors.color('font-color');
   }
 
-  &.e-checkbox--compact {
+  &.e-checkbox--compact,
+  &.e-checkbox--sm {
     .e-checkbox__mark {
       min-width: $checkbox-mark-compact-size;
       min-height: $checkbox-mark-compact-size;
@@ -102,7 +103,8 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
         background: black;
       }
     }
-    &.e-checkbox--compact .e-checkbox__mark::before {
+    &.e-checkbox--compact .e-checkbox__mark::before,
+    &.e-checkbox--sm .e-checkbox__mark::before {
       left: calc(50% - 4px);
       width: 8px;
       top: calc(50%);
@@ -115,7 +117,8 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
     @extend %checkbox-mark;
   }
   // extends correct checkbox mark on compact checkboxes in pseudoclass
-  &.e-checkbox--compact[class$='e-checkbox---checked'] &__mark {
+  &.e-checkbox--compact[class$='e-checkbox---checked'] &__mark,
+  &.e-checkbox--sm[class$='e-checkbox---checked'] &__mark {
     @extend %checkbox-mark-compact;
   }
 
@@ -161,7 +164,8 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
     }
   }
   // extends correct checkbox mark on compact checkboxes in pseudoclass
-  &.e-checkbox--compact[class$='disabled-checked'] &__mark {
+  &.e-checkbox--compact[class$='disabled-checked'] &__mark,
+  &.e-checkbox--sm[class$='disabled-checked'] &__mark {
     @extend %checkbox-mark-compact;
   }
 
