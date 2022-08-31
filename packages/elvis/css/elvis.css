@@ -7724,6 +7724,7 @@ input:focus {
   position: relative;
   text-align: left;
   box-sizing: border-box;
+  /* Full width - Removes max width for all inputs */
 }
 .e-form-field__label {
   display: block;
@@ -7816,6 +7817,9 @@ input:focus {
 .e-form-field.e-form-field--compact input:disabled {
   color: #bdbdbd;
 }
+.e-form-field.e-form-field--full-width .e-input, .e-form-field.e-form-field--full-width .e-input > input, .e-form-field.e-form-field--full-width .e-input > textarea, .e-form-field.e-form-field--full-width .e-input > div, .e-form-field.e-form-field--combined.e-form-field--full-width > .e-form-field__input {
+  max-width: unset;
+}
 
 .e-inlined-field {
   display: flex;
@@ -7838,6 +7842,13 @@ input:focus {
 }
 .e-inlined-field .e-form-field.e-form-field--medium {
   width: 140px;
+}
+.e-inlined-field .e-form-field.e-form-field--full-width {
+  max-width: unset;
+  width: 100%;
+}
+.e-inlined-field.e-inlined-field--full-width, .e-inlined-field.e-inlined-field--full-width .e-input, .e-inlined-field.e-inlined-field--full-width input {
+  max-width: unset;
 }
 
 .e-fileupload {
