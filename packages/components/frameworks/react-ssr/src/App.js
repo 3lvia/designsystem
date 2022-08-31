@@ -110,7 +110,38 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white"></div>
+          <div className="e-bg-white e-flex e-gap-16">
+            <Card
+              header={'Title1'}
+              borderColor={'red'}
+              icon={<i className="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>}
+              iconHover={<i className="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>}
+              cornerIcon={<Icon name="unlock" size="xs" />}
+            />
+            <Card
+              header={'Title2'}
+              borderColor={'blue-berry'}
+              icon={<i className="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>}
+              iconHover={<i className="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>}
+              cornerIcon={<Icon name="unlock" size="xs" />}
+            />
+            <Card
+              header={'Title3'}
+              borderColor={'orange'}
+              icon={<i className="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>}
+              iconHover={<i className="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>}
+              cornerIcon={<Icon name="unlock" size="xs" />}
+            />
+          </div>
+          <Divider inlineStyle={{ margin: '16px -24px' }} />
+          <div className="e-bg-white e-flex e-gap-16">
+            <Card
+              type="detail"
+              header="Lorem ipsum dolor sin amet too long header bla more text here very much abcd ef long words and lines"
+              description="It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions."
+              tag={'Tag'}
+            />
+          </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>

@@ -10,21 +10,19 @@ describe('Elvis Card', () => {
   let cardIcon;
   let cardHeader;
   let cardDescription;
-  let cardLabel;
+  let cardTag;
   let cardHoverArrow;
   let cardCornerIcon;
 
   describe('Type = simple square', () => {
     beforeEach(() => {
-      wrapper = mount(
-        <Card icon={'Icon'} header={'Header'} description={'Description'} label={'Label'}></Card>,
-      );
+      wrapper = mount(<Card icon={'Icon'} header={'Header'} description={'Description'} tag={'Tag'}></Card>);
       cardArea = wrapper.find({ 'data-testid': 'card-area' });
       cardColoredLine = wrapper.find({ 'data-testid': 'card-colored-line' });
       cardIcon = wrapper.find({ 'data-testid': 'card-icon' });
       cardHeader = wrapper.find({ 'data-testid': 'card-header' });
       cardDescription = wrapper.find({ 'data-testid': 'card-description' });
-      cardLabel = wrapper.find({ 'data-testid': 'card-label' });
+      cardTag = wrapper.find({ 'data-testid': 'card-tag' });
       cardHoverArrow = wrapper.find({ 'data-testid': 'card-detail-hover-arrow' });
       cardCornerIcon = wrapper.find({ 'data-testid': 'card-corner-icon' });
     });
@@ -63,20 +61,6 @@ describe('Elvis Card', () => {
       done();
     });
 
-    // TODO: Figure out how to test css states (e.g. :hover)
-    // it('should not have top border with color on hover', function (done) {
-    //   wrapper.simulate('mouseenter');
-    //   expect(cardColoredLine.at(0).getDOMNode()).not.toHaveStyle(`border-top: 4px solid ${getColor('red')}`);
-    //   done();
-    // });
-
-    // it('should switch border on hover', function (done) {
-    //   expect(cardArea.at(0).getDOMNode()).toHaveStyle(`border: 1px solid ${getColor('grey-10')}`);
-    //   //   wrapper.simulate('mouseenter');
-    //   expect(cardArea.at(0).getDOMNode()).toHaveStyle(`border: 2px solid ${getColor('elvia-charge')}`);
-    //   done();
-    // });
-
     it('should not have corner icon', function (done) {
       expect(cardCornerIcon.length).toEqual(0);
       done();
@@ -87,8 +71,8 @@ describe('Elvis Card', () => {
       done();
     });
 
-    it('should not have label', function (done) {
-      expect(cardLabel.length).toEqual(0);
+    it('should not have tag', function (done) {
+      expect(cardTag.length).toEqual(0);
       done();
     });
 
@@ -123,7 +107,7 @@ describe('Elvis Card', () => {
           header={'Header'}
           description={'Description'}
           borderColor={'red'}
-          label={'Label'}
+          tag={'Tag'}
           width={'150px'}
           minWidth={150}
           maxWidth={350}
@@ -134,7 +118,7 @@ describe('Elvis Card', () => {
       cardIcon = wrapper.find({ 'data-testid': 'card-icon' });
       cardHeader = wrapper.find({ 'data-testid': 'card-header' });
       cardDescription = wrapper.find({ 'data-testid': 'card-description' });
-      cardLabel = wrapper.find({ 'data-testid': 'card-label' });
+      cardTag = wrapper.find({ 'data-testid': 'card-tag' });
       cardHoverArrow = wrapper.find({ 'data-testid': 'card-detail-hover-arrow' });
       cardCornerIcon = wrapper.find({ 'data-testid': 'card-corner-icon' });
     });
@@ -206,55 +190,12 @@ describe('Elvis Card', () => {
     });
   });
 
-  describe('Type = simple circle', () => {
-    beforeEach(() => {
-      wrapper = mount(
-        <Card
-          shape={'circle'}
-          icon={'Icon'}
-          header={'Header'}
-          description={'Description'}
-          borderColor={'red'}
-          cornerIcon={'CornerIcon'}
-        ></Card>,
-      );
-      cardArea = wrapper.find({ 'data-testid': 'card-area' });
-      cardColoredLine = wrapper.find({ 'data-testid': 'card-colored-line' });
-      cardHoverArrow = wrapper.find({ 'data-testid': 'card-detail-hover-arrow' });
-      cardCornerIcon = wrapper.find({ 'data-testid': 'card-corner-icon' });
-    });
-
-    afterEach(() => {
-      wrapper.unmount();
-    });
-
-    it('should have shape circle', function (done) {
-      expect(cardArea.at(0).getDOMNode()).toHaveStyle(`border-radius: 50%`);
-      done();
-    });
-
-    it('should not have top border with color', function (done) {
-      expect(cardColoredLine.length).toEqual(0);
-      done();
-    });
-
-    it('should not have corner icon', function (done) {
-      expect(cardCornerIcon.length).toEqual(0);
-      done();
-    });
-
-    it('should not have hover arrow', function (done) {
-      expect(cardHoverArrow.length).toEqual(0);
-      done();
-    });
-  });
-
   describe('Type = detail', () => {
     beforeEach(() => {
       wrapper = mount(
         <Card
           type={'detail'}
-          label={'Label'}
+          tag={'Tag'}
           description={'Description'}
           cornerIcon={'CornerIcon'}
           shape={'circle'}
@@ -263,7 +204,7 @@ describe('Elvis Card', () => {
       cardArea = wrapper.find({ 'data-testid': 'card-area' });
       cardIcon = wrapper.find({ 'data-testid': 'card-icon' });
       cardDescription = wrapper.find({ 'data-testid': 'card-description' });
-      cardLabel = wrapper.find({ 'data-testid': 'card-label' });
+      cardTag = wrapper.find({ 'data-testid': 'card-tag' });
       cardHoverArrow = wrapper.find({ 'data-testid': 'card-detail-hover-arrow' });
       cardCornerIcon = wrapper.find({ 'data-testid': 'card-corner-icon' });
     });
@@ -277,13 +218,13 @@ describe('Elvis Card', () => {
       done();
     });
 
-    it('should have label', function (done) {
-      expect(cardLabel.at(0).text()).toBe('Label');
+    it('should have tag', function (done) {
+      expect(cardTag.at(0).text()).toBe('Tag');
       done();
     });
 
-    it('should have label with styling', function (done) {
-      expect(cardLabel.at(0).getDOMNode()).toHaveStyle(
+    it('should have tag with styling', function (done) {
+      expect(cardTag.at(0).getDOMNode()).toHaveStyle(
         `padding: 4px 8px;
         border-radius: 4px;
         background: ${getColor('grey-10')}; 
@@ -309,7 +250,7 @@ describe('Elvis Card', () => {
     });
 
     it('should have default lines of description text', function (done) {
-      expect(cardDescription.at(0).getDOMNode()).toHaveStyle(`line-clamp: 5;`);
+      expect(cardDescription.at(0).getDOMNode()).toHaveStyle(`line-clamp: 3;`);
       done();
     });
   });
@@ -317,7 +258,7 @@ describe('Elvis Card', () => {
   describe('Type = detail, shorter description', () => {
     beforeEach(() => {
       wrapper = mount(
-        <Card type={'detail'} label={'Label'} description={'Description'} maxDescriptionLines={3}></Card>,
+        <Card type={'detail'} tag={'Tag'} description={'Description'} maxDescriptionLines={1}></Card>,
       );
       cardDescription = wrapper.find({ 'data-testid': 'card-description' });
       cardCornerIcon = wrapper.find({ 'data-testid': 'card-corner-icon' });
@@ -327,8 +268,8 @@ describe('Elvis Card', () => {
       wrapper.unmount();
     });
 
-    it('should have max 3 lines of description text', function (done) {
-      expect(cardDescription.at(0).getDOMNode()).toHaveStyle(`line-clamp: 3;`);
+    it('should have max 1 line of description text', function (done) {
+      expect(cardDescription.at(0).getDOMNode()).toHaveStyle(`line-clamp: 1;`);
       done();
     });
 
@@ -340,14 +281,7 @@ describe('Elvis Card', () => {
 
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      wrapper = mount(
-        <Card
-          label={'Label'}
-          description={'Description'}
-          className="test-class"
-          inlineStyle={{ margin: '24px' }}
-        ></Card>,
-      );
+      wrapper = mount(<Card className="test-class" inlineStyle={{ margin: '24px' }}></Card>);
       cardArea = wrapper.find({ 'data-testid': 'card-area' });
     });
 

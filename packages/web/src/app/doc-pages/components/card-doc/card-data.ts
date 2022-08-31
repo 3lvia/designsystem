@@ -11,18 +11,6 @@ const cardData: ComponentData = {
       type: 'string | HTMLElement | JSX.Element',
       description: 'Text or icon (use slot in webcomponent if not just text).',
     },
-    shape: {
-      isRequired: false,
-      type: 'square | circle',
-      description: 'Shapes of card.',
-      default: 'square',
-      cegDisplayName: 'Shape',
-      cegDefault: 'square',
-      cegType: 'string',
-      cegFormType: 'radio',
-      cegOptions: ['square', 'circle'],
-      cegDependency: [{ name: 'type', value: 'simple' }],
-    },
     header: {
       isRequired: false,
       type: 'string',
@@ -42,10 +30,7 @@ const cardData: ComponentData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['none', 'green', 'blue-berry', 'red', 'orange'],
-      cegDependency: [
-        { name: 'type', value: 'simple' },
-        { name: 'shape', value: 'square' },
-      ],
+      cegDependency: [{ name: 'type', value: 'simple' }],
     },
     hasBorder: {
       isRequired: false,
@@ -81,10 +66,10 @@ const cardData: ComponentData = {
       default: '5',
       description: 'Max number of text lines in description. Overflow is clamped with an ellipsis.',
     },
-    label: {
+    tag: {
       isRequired: false,
       type: 'string',
-      description: 'Label on bottom of card, only available on detail card.',
+      description: 'Tag on bottom of card, only available on detail card.',
     },
     iconHover: {
       isRequired: false,

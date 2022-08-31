@@ -14,6 +14,11 @@ const cardDetailCode: ComponentTypeData = {
       cegCustomTextType: 'textarea',
       cegDefault: exampleContents.texts.lg['eng-GBR'].description,
     },
+    tag: {
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'input',
+      cegDefault: '',
+    },
   },
   codeReact: `<Card 
   type={"detail"}
@@ -21,17 +26,14 @@ const cardDetailCode: ComponentTypeData = {
 `,
   codeAngular: `<elvia-card
   [type]="'detail'"
->
-</elvia-card>
+></elvia-card>
 `,
   codeVue: `<elvia-card 
   :type="'detail'"
->
-</elvia-card>`,
+></elvia-card>`,
   codeNativeHTML: `<elvia-card
   type="detail"
->
-</elvia-card>
+></elvia-card>
 `,
 };
 
