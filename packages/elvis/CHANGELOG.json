@@ -1,6 +1,23 @@
 {
   "content": [
     {
+      "version": "9.0.0",
+      "date": "August 27, 2022",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Renamed the sizes for radio buttons from Medium and Small to Normal and Compact. The class <span class=\"code-text\">e-radio--sm</span> is renamed to <span class=\"code-text\">e-radio--compact</span> and will need to be updated.",
+            "Renamed the sizes for checkboxes from Medium and Small to Normal and Compact. The class <span class=\"code-text\">e-checkbox--sm</span> is renamed to <span class=\"code-text\">e-checkbox--compact</span> and will need to be updated."
+          ],
+          "components": [
+            { "displayName": "Radiobutton", "url": "https://design.elvia.io/components/radiobutton" },
+            { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "8.10.0",
       "date": "August 27, 2022",
       "changelog": [

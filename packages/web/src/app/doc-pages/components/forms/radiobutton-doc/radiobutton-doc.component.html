@@ -30,14 +30,15 @@
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Medium'">
+      There are two sizes of radio buttons: Normal and Compact.
+      <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
+          <app-component-example-v1 [codeHTML]="exampleSizeNormal"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Small'">
+      <app-component-subsection [sectionTitle]="'Compact'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
+          <app-component-example-v1 [codeHTML]="exampleSizeCompact"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -46,7 +47,7 @@
   <!--STATES-->
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-example-v1 [interactable]="false" [codeHTML]="example3"></app-component-example-v1>
+      <app-component-example-v1 [interactable]="false" [codeHTML]="exampleStates"></app-component-example-v1>
     </ng-container>
   </app-component-section>
 

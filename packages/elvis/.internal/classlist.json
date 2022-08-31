@@ -995,7 +995,7 @@
 		},
 		"e-radio": {
 			"modifier": {
-				"e-radio--sm": {}
+				"e-radio--compact": {}
 			},
 			"element": {
 				"e-radio__mark": {},
@@ -1889,7 +1889,7 @@
 		"e-position-picker__description": {},
 		"e-position-picker__action": {},
 		"e-radio": {},
-		"e-radio--sm": {},
+		"e-radio--compact": {},
 		"e-radio__mark": {},
 		"e-radio__label": {},
 		"e-radio---disabled-checked": {},
