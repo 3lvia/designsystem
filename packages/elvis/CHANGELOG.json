@@ -7,8 +7,12 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "Renamed the sizes for radio buttons from Medium and Small to Normal and Compact. The class <span class=\"code-text\">e-radio--sm</span> is renamed to <span class=\"code-text\">e-radio--compact</span> and will need to be updated.",
-            "Renamed the sizes for checkboxes from Medium and Small to Normal and Compact. The class <span class=\"code-text\">e-checkbox--sm</span> is renamed to <span class=\"code-text\">e-checkbox--compact</span> and will need to be updated."
+            "Renamed the sizes for radio buttons from Medium and Small to Normal and Compact.",
+            "Renamed the sizes for checkboxes from Medium and Small to Normal and Compact."
+          ],
+          "fixes": [
+            "The class <span class=\"code-text\">e-radio--sm</span> is renamed to <span class=\"code-text\">e-radio--compact</span> and will need to be updated.",
+            "The class <span class=\"code-text\">e-checkbox--sm</span> is renamed to <span class=\"code-text\">e-checkbox--compact</span> and will need to be updated."
           ],
           "components": [
             { "displayName": "Radiobutton", "url": "https://design.elvia.io/components/radiobutton" },
