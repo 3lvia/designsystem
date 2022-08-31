@@ -890,7 +890,7 @@
 				"e-checkbox__label": {}
 			},
 			"modifier": {
-				"e-checkbox--sm": {},
+				"e-checkbox--compact": {},
 				"e-checkbox--indeterminate": {}
 			},
 			"psuedo": {
@@ -1854,7 +1854,7 @@
 		"e-toggle--inverted": {},
 		"e-checkbox__mark": {},
 		"e-checkbox__label": {},
-		"e-checkbox--sm": {},
+		"e-checkbox--compact": {},
 		"e-checkbox--indeterminate": {},
 		"e-checkbox---focus": {},
 		"e-checkbox---hover": {},

@@ -55,7 +55,7 @@ export class CheckboxDocComponent {
 `;
 
   exampleSizes = `<form>
-  <label class="e-form-field__label" for="nested-sm">Medium</label>
+  <label class="e-form-field__label" for="nested-compact">Normal</label>
   <label class="e-checkbox e-checkbox--indeterminate" for="elvis-checkbox-indeterminate-md">
     <input type="checkbox" id="elvis-checkbox-indeterminate-md">
     <span class="e-checkbox__mark"></span>
@@ -74,26 +74,26 @@ export class CheckboxDocComponent {
     </label>
   </div>
   <div class="e-form-field e-mt-40">
-  <label class="e-form-field__label" for="nested-sm">Small</label>
-  <label class="e-checkbox e-checkbox--sm e-checkbox--indeterminate" for="elvis-checkbox-indeterminate-sm">
-    <input type="checkbox" id="elvis-checkbox-indeterminate-sm">
+  <label class="e-form-field__label" for="nested-compact">Compact</label>
+  <label class="e-checkbox e-checkbox--compact e-checkbox--indeterminate" for="elvis-checkbox-indeterminate-compact">
+    <input type="checkbox" id="elvis-checkbox-indeterminate-compact">
     <span class="e-checkbox__mark"></span>
     <span class="e-checkbox__label">Indeterminate</span>
   </label>
-  <div class="e-form-field__nested e-form-field__nested--sm">
-    <label class="e-checkbox e-checkbox--sm" for="elvis-checkbox-nested-checked-sm">
-      <input type="checkbox" id="elvis-checkbox-nested-checked-sm" checked>
+  <div class="e-form-field__nested e-form-field__nested--compact">
+    <label class="e-checkbox e-checkbox--compact" for="elvis-checkbox-nested-checked-compact">
+      <input type="checkbox" id="elvis-checkbox-nested-checked-compact" checked>
       <span class="e-checkbox__mark"></span>
       <span class="e-checkbox__label">Checked</span>
     </label>
-    <label class="e-checkbox e-checkbox--sm" for="elvis-checkbox-nested-sm">
-      <input type="checkbox" id="elvis-checkbox-nested-sm">
+    <label class="e-checkbox e-checkbox--compact" for="elvis-checkbox-nested-compact">
+      <input type="checkbox" id="elvis-checkbox-nested-compact">
       <span class="e-checkbox__mark"></span>
       <span class="e-checkbox__label">Not checked</span>
     </label>
   </div>
 </div>
-<form>
+</form>
 `;
 
   exampleStates = `<label class="e-checkbox e-checkbox---checked" for="elvis-pseudo-checkbox-checked">
