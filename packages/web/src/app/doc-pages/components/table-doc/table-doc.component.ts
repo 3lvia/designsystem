@@ -729,7 +729,7 @@ export class TableDocComponent {
     <thead>
       <tr class="e-table__checkbox">
         <th scope="col">
-          <label class="e-checkbox e-checkbox--sm e-checkbox--indeterminate" for="overall-checkbox">
+          <label class="e-checkbox e-checkbox--compact e-checkbox--indeterminate" for="overall-checkbox">
             <input type="checkbox" id="overall-checkbox">
             <span class="e-checkbox__mark"></span>
           </label>
@@ -742,7 +742,7 @@ export class TableDocComponent {
     <tbody>
       <tr class="e-table__checkbox e-table__checkbox--selected">
         <td>
-          <label class="e-checkbox e-checkbox--sm" for="checkbox-first-cell">
+          <label class="e-checkbox e-checkbox--compact" for="checkbox-first-cell">
             <input type="checkbox" id="checkbox-first-cell" checked>
             <span class="e-checkbox__mark"></span>
           </label>
@@ -753,7 +753,7 @@ export class TableDocComponent {
       </tr>
       <tr class="e-table__checkbox">
         <td>
-          <label class="e-checkbox e-checkbox--sm" for="checkbox-second-cell">
+          <label class="e-checkbox e-checkbox--compact" for="checkbox-second-cell">
             <input type="checkbox" id="checkbox-second-cell">
             <span class="e-checkbox__mark"></span>
           </label>
@@ -764,7 +764,7 @@ export class TableDocComponent {
       </tr>
       <tr class="e-table__checkbox">
         <td>
-          <label class="e-checkbox e-checkbox--sm" for="checkbox-second-cell">
+          <label class="e-checkbox e-checkbox--compact" for="checkbox-second-cell">
             <input type="checkbox" id="checkbox-second-cell">
             <span class="e-checkbox__mark"></span>
           </label>

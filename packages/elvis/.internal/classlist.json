@@ -891,6 +891,7 @@
 				"e-checkbox__label": {}
 			},
 			"modifier": {
+				"e-checkbox--compact": {},
 				"e-checkbox--sm": {},
 				"e-checkbox--indeterminate": {}
 			},
@@ -1000,6 +1001,7 @@
 		},
 		"e-radio": {
 			"modifier": {
+				"e-radio--compact": {},
 				"e-radio--sm": {}
 			},
 			"element": {
@@ -1859,6 +1861,7 @@
 		"e-toggle--inverted": {},
 		"e-checkbox__mark": {},
 		"e-checkbox__label": {},
+		"e-checkbox--compact": {},
 		"e-checkbox--sm": {},
 		"e-checkbox--indeterminate": {},
 		"e-checkbox---focus": {},
@@ -1896,6 +1899,7 @@
 		"e-position-picker__description": {},
 		"e-position-picker__action": {},
 		"e-radio": {},
+		"e-radio--compact": {},
 		"e-radio--sm": {},
 		"e-radio__mark": {},
 		"e-radio__label": {},

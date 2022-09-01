@@ -9,7 +9,7 @@
     ]
   },
   "scripts": {
-    "start:web": "cd packages/web && yarn contentful && yarn start",
+    "start:web": "cd packages/elvis && yarn build && cd ../web && yarn contentful && yarn start",
     "start:components": "yarn build:colors && yarn build:typography && cd packages/components && yarn watch",
     "start:elvis": "cd packages/elvis && yarn watch",
     "start:react": "cd packages/components/frameworks/react-ssr && yarn start",
