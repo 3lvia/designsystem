@@ -2,6 +2,21 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "01.09.22",
+      "version": "2.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Removed default export of toolbox file, to make API surface and architecture more modular."
+          ],
+          "fixes": [
+            "Import the tool you use directly, instead of using a default import. `import toolbox from '@elvia/elvis-toolbox';` becomes `import { throttle } from '@elvia/elvis-toolbox';`"
+          ]
+        }
+      ]
+    },
+    {
       "date": "12.08.22",
       "version": "1.3.2",
       "changelog": [

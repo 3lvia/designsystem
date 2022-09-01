@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import isEqual from 'lodash.isequal';
-import toolbox from '@elvia/elvis-toolbox';
+import { throttle } from '@elvia/elvis-toolbox';
 import JSON5 from 'json5';
 
 export class ElvisComponentWrapper extends HTMLElement {
@@ -21,7 +21,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.webComponent = webComponent;
     this.reactComponent = reactComponent;
     this.cssStyle = cssStyle;
-    this.throttleRenderReactDOM = toolbox.throttle(this.renderReactDOM, 50, { trailing: true });
+    this.throttleRenderReactDOM = throttle(this.renderReactDOM, 50, { trailing: true });
   }
 
   get data(): ElvisComponentWrapper['_data'] {
