@@ -1,4 +1,5 @@
 #!/bin/bash
+echo
 echo 'Tokens - Building elvis-colors and elvis-typography'
 yarn build:tokens
 # TODO: Build components only when changed
