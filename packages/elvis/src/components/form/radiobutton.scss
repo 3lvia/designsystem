@@ -259,20 +259,18 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
     position: absolute;
     top: 0px;
   }
-  &.e-radio--compact,
-  &.e-radio--sm {
+
+  &.e-radio--sm,
+  &.e-radio--compact {
     .e-radio__mark {
       top: 3px;
+    }
+    .e-radio__label {
+      margin-left: 24px;
     }
   }
   &__label {
     flex-grow: 1;
     margin-left: 32px;
-  }
-  &.e-radio--compact,
-  &.e-radio--sm {
-    .e-radio__label {
-      margin-left: 24px;
-    }
   }
 }
