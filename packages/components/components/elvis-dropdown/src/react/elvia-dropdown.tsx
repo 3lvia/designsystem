@@ -8,7 +8,6 @@ import Select, {
   SingleValueProps,
   StylesConfig,
 } from 'react-select';
-import toolbox from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import {
   DropdownCheckbox,
@@ -25,7 +24,7 @@ import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
 import { getColor } from '@elvia/elvis-colors';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, outlineListener } from '@elvia/elvis-toolbox';
 import { config } from './config';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
@@ -492,11 +491,11 @@ const Dropdown: React.FC<DropdownProps> = function ({
   /** Start listener for adding and removing outline on dropdown when elements in focus */
   useEffect(() => {
     if (dropdownRef && dropdownRef.current) {
-      toolbox.outlineListener(dropdownRef.current);
+      outlineListener(dropdownRef.current);
     }
     return () => {
       if (dropdownRef && dropdownRef.current) {
-        toolbox.outlineListener(dropdownRef.current, true);
+        outlineListener(dropdownRef.current, true);
       }
     };
   }, []);

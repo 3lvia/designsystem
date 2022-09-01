@@ -3,7 +3,7 @@ import './style.scss';
 import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import { ToolbarComponentProps } from '@material-ui/pickers/Picker/Picker';
-import toolbox from '@elvia/elvis-toolbox';
+import { outlineListener } from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import { getColor } from '@elvia/elvis-colors';
 import DateFnsUtils from '@date-io/date-fns';
@@ -274,12 +274,12 @@ export const Datepicker: FC<DatepickerProps> = ({
    */
   const addOutlineListenerDatepickerPopover = (ref: HTMLDivElement | null): void => {
     if (ref) {
-      toolbox.outlineListener(ref);
+      outlineListener(ref);
     }
   };
   const removeOutlineListenerDatepickerPopover = (ref: HTMLDivElement | null): void => {
     if (ref) {
-      toolbox.outlineListener(ref, true);
+      outlineListener(ref, true);
     }
   };
 
