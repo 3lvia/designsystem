@@ -17,6 +17,25 @@ const defaultOptions: Options = {
   verticalPosition: 'bottom',
 };
 
+/**
+ * A React hook that allows creating an overlay that is positioned relative to an element.
+ * Should be used in combination with React portals.
+ *
+ * @param connectedElement The ref element that the overlay should be connected to.
+ * @param overlayContainer The overlay element.
+ * @param options An optional object for configuring the behavior of the overlay.
+ *
+ *
+ * @example
+ * export const Component: FC<Props> = () => {
+ *   const connectedElementRef = useRef<HTMLDivElement>(null);
+ *   const popoverRef = useRef<HTMLDivElement>(null);
+ *   const [isShowing, setIsShowing] = useConnectedOverlay(connectedElementRef, popoverRef);
+ *   ...
+ * }
+ *
+ * @since 2.1.0
+ */
 export const useConnectedOverlay = (
   connectedElement: RefObject<HTMLElement>,
   overlayContainer: RefObject<HTMLElement>,
