@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "01.09.22",
+      "version": "5.1.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Upgrade to toolbox v2.0.0"]
+        }
+      ]
+    },
+    {
       "date": "29.08.22",
       "version": "5.1.1",
       "changelog": [
