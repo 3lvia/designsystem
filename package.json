@@ -45,19 +45,16 @@
   "lint-staged": {
     "packages/elvis/**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
       "./scripts/elvis-pre-commit.sh",
-      "yarn prettier-elvis",
-      "git add"
+      "yarn prettier-elvis"
     ],
     "packages/web/**/*.+(js|ts|tsx)": [
       "yarn prettier-doc",
-      "yarn eslint",
-      "git add"
+      "yarn eslint"
     ],
     "packages/components/components/**/*.+(js|ts|tsx)": [
       "yarn prettier-comp",
       "yarn eslint",
-      "yarn test",
-      "git add"
+      "yarn test"
     ]
   },
   "engines": {
