@@ -5,6 +5,6 @@ echo 'Tokens - Building elvis-typography...'
 yarn build:typography
 # TODO: Build components only when changed
 echo 'Components - Building components...'
-yarn build:components:affected
+yarn build:components
 echo 'Web - Building web...'
 yarn build:web
