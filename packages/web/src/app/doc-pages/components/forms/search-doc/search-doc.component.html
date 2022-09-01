@@ -75,6 +75,20 @@
     </ng-container>
   </app-component-section>
 
+  <!-- OPTIONS -->
+  <app-component-section [sectionTitle]="'Options'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Full width'">
+        <ng-container ngProjectAs="sectionContent">
+          When a search field needs to take up the entire available width, give the field the
+          <span class="code-text">e-form-field—width-full</span>
+          class.
+          <app-component-example-v1 [codeHTML]="searchFullWidth"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">

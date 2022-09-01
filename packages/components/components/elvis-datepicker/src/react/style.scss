@@ -123,6 +123,7 @@ $datepicker-max-width: 448px;
 
     &.MuiInputBase-fullWidth {
       width: 100%;
+      max-width: unset;
     }
     &.Mui-disabled {
       border: 1px solid $text-disabled;
@@ -224,6 +225,8 @@ $datepicker-max-width: 448px;
   }
   // Full width
   &.ewc-datepicker--full-width {
+    max-width: unset;
+    min-width: 163px;
     width: 100%;
   }
 }
