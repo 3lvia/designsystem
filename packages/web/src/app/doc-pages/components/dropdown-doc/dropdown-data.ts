@@ -10,13 +10,13 @@ export const dropdownData: ComponentData = {
       isRequired: true,
       type: 'Array<object>',
       description:
-        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?: string}',
+        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?: string, isDisabled?: boolean}',
     },
     value: {
       isRequired: false,
       type: 'object',
       description:
-        'Set a defualt value to the dropdown. Has same key value pairs as an items object: {value: string, label: string, icon?: string}',
+        'Set a default value to the dropdown. Has same key value pairs as an items object: {value: string, label: string, icon?: string, isDisabled?: boolean}',
       default: 'undefined',
     },
     errorMessage: {
