@@ -9,11 +9,11 @@
     ]
   },
   "scripts": {
-    "build": "yarn && nx run-many --target=build:production",
+    "build": "yarn && yarn build:tokens && nx run-many --target=build:production",
     "build:web": "nx run elvia-designsystem:build",
-    "build:components": "yarn build:tokens && nx build @elvia/elvis-components",
+    "build:components": "nx build @elvia/elvis-components",
     "build:elvis": "nx build @elvia/elvis",
-    "build:tokens": "nx run-many --target=build --projects=@elvia/elvis-colors,@elvia/elvis-typography",
+    "build:tokens": "nx run-many --target=build --projects=@elvia/elvis-colors,@elvia/elvis-typography,@elvia/elvis-assets-icons",
     "build:colors": "nx build @elvia/elvis-colors",
     "build:typography": "nx build @elvia/elvis-typography",
     "build:icons": "nx build @elvia/elvis-assets-icons",

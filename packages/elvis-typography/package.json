@@ -7,8 +7,7 @@
   "main": "dist/elviaTypography.js",
   "style": "dist/elviaTypography.scss",
   "scripts": {
-    "build": "gulp",
-    "build:production": "gulp"
+    "build": "gulp"
   },
   "devDependencies": {
     "del": "^6.0.0",

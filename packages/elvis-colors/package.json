@@ -7,8 +7,7 @@
   "main": "dist/elviaColors.js",
   "style": "dist/elviaColors.scss",
   "scripts": {
-    "build": "gulp",
-    "build:production": "gulp"
+    "build": "gulp"
   },
   "dependencies": {
     "lodash.kebabcase": "^4.1.1"
