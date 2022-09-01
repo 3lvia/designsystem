@@ -13,7 +13,8 @@
   "nx": {
     "implicitDependencies": [
       "@elvia/elvis-colors",
-      "@elvia/elvis-typography"
+      "@elvia/elvis-typography",
+      "@elvia/elvis-assets-icons"
     ]
   },
   "dependencies": {

@@ -15,6 +15,11 @@
     "eject": "react-scripts eject",
     "ssr": "yarn build && node server/index.js"
   },
+  "nx": {
+    "implicitDependencies": [
+      "@elvia/elvis"
+    ]
+  },
   "dependencies": {
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
