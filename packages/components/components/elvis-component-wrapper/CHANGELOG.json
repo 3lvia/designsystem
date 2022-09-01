@@ -3,11 +3,24 @@
   "content": [
     {
       "date": "01.09.22",
-      "version": "2.4.2",
+      "version": "2.4.3",
       "changelog": [
         {
           "type": "patch",
           "changes": ["Upgrade to toolbox v2.0.0"]
+        }
+      ]
+    },
+    {
+      "date": "01.09.22",
+      "version": "2.4.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now only adding a style tag to webcomponents when there is style to be added.",
+            "Now adding the <span class=\"code-text\">window.__webpack_nonce__</span> variable as a nonce to style tags for CSP support."
+          ]
         }
       ]
     },

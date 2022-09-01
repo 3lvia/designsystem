@@ -682,8 +682,8 @@ export const Datepicker: FC<DatepickerProps> = ({
             },
             'aria-modal': true,
             'aria-label': selectedDate === null ? 'Velg dato' : 'Endre dato',
-            anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
-            transformOrigin: { horizontal: 'left', vertical: 'top' },
+            anchorOrigin: { horizontal: isFullWidth ? 'right' : 'left', vertical: 'bottom' },
+            transformOrigin: { horizontal: isFullWidth ? 246 : 'left', vertical: 'top' },
             ref: datepickerPopoverRef,
             onPointerMove: (event) => onDatepickerPopoverPointerMove?.(event),
           }}

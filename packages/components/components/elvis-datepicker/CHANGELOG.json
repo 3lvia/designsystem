@@ -3,11 +3,33 @@
   "content": [
     {
       "date": "01.09.22",
-      "version": "3.1.1",
+      "version": "4.0.2",
       "changelog": [
         {
           "type": "patch",
           "changes": ["Upgrade to toolbox v2.0.0"]
+        }
+      ]
+    },
+    {
+      "date": "30.08.22",
+      "version": "4.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Republish due to error in the previous version."]
+        }
+      ]
+    },
+    {
+      "date": "30.08.22",
+      "version": "4.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The prop 'isFullWidth' now enables the components to fill the entire width available instead of the earlier 448px max width. If this new behavior is undesired, remove the isFullWidth prop from the component. "
+          ]
         }
       ]
     },

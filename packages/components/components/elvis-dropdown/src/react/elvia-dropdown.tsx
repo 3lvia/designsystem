@@ -26,6 +26,8 @@ import { getColor } from '@elvia/elvis-colors';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { warnDeprecatedProps, outlineListener } from '@elvia/elvis-toolbox';
 import { config } from './config';
+import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 export interface DropdownItem {
@@ -593,50 +595,62 @@ const Dropdown: React.FC<DropdownProps> = function ({
     }
   }, [errorMessage]);
 
-  return (
-    <div className={`${className ? className : ''}`} style={inlineStyle} {...rest}>
-      <DropdownWrapper
-        isFullWidth={isFullWidth}
-        isDisabled={isDisabled}
-        ref={dropdownRef}
-        data-testid="wrapper"
-      >
-        <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
-          {label}
-        </DropdownLabel>
-        <Select
-          blurInputOnSelect={!isMulti}
-          classNamePrefix={'ewc-dropdown'}
-          closeMenuOnSelect={!isMulti}
-          components={overrideComponents}
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          //@ts-ignore
-          hasValue={false}
-          hideSelectedOptions={false}
-          inputId={selectId}
-          isDisabled={isDisabled}
-          isMulti={isMulti}
-          isSearchable={isSearchable}
-          menuIsOpen={menuIsOpen}
-          menuPlacement={menuPosition}
-          noOptionsMessage={() => noOptionsMessage}
-          onChange={onChangeHandler}
-          onKeyDown={(event) => {
-            if (event.code === 'Enter' && !menuIsOpen) {
-              setMenuIsOpen(true);
-            }
-          }}
-          onMenuClose={() => setMenuIsOpen(false)}
-          onMenuOpen={() => setMenuIsOpen(true)}
-          options={items && isMulti && hasSelectAllOption ? [selectAllOptionState, ...items] : items}
-          placeholder={placeholder}
-          value={currentVal}
-          styles={customElviaStyles}
-        ></Select>
+  // Cache is used for CSP nonce support
+  const cache = useMemo(
+    () =>
+      createCache({
+        key: 'elvia-dropdown',
+        nonce: window && (window as any).__webpack_nonce__ ? (window as any).__webpack_nonce__ : '',
+        prepend: true,
+      }),
+    [],
+  );
 
-        {isError ? <ElviaError errorMessage={errorMessage} data-testid="error"></ElviaError> : null}
-      </DropdownWrapper>
-    </div>
+  return (
+    <CacheProvider value={cache}>
+      <div className={className ?? ''} style={inlineStyle} {...rest}>
+        <DropdownWrapper
+          isFullWidth={isFullWidth}
+          isDisabled={isDisabled}
+          ref={dropdownRef}
+          data-testid="wrapper"
+        >
+          <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
+            {label}
+          </DropdownLabel>
+          <Select
+            blurInputOnSelect={!isMulti}
+            classNamePrefix={'ewc-dropdown'}
+            closeMenuOnSelect={!isMulti}
+            components={overrideComponents}
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+            hasValue={false}
+            hideSelectedOptions={false}
+            inputId={selectId}
+            isDisabled={isDisabled}
+            isMulti={isMulti}
+            isSearchable={isSearchable}
+            menuIsOpen={menuIsOpen}
+            menuPlacement={menuPosition}
+            noOptionsMessage={() => noOptionsMessage}
+            onChange={onChangeHandler}
+            onKeyDown={(event) => {
+              if (event.code === 'Enter' && !menuIsOpen) {
+                setMenuIsOpen(true);
+              }
+            }}
+            onMenuClose={() => setMenuIsOpen(false)}
+            onMenuOpen={() => setMenuIsOpen(true)}
+            options={items && isMulti && hasSelectAllOption ? [selectAllOptionState, ...items] : items}
+            placeholder={placeholder}
+            value={currentVal}
+            styles={customElviaStyles}
+          ></Select>
+          {isError ? <ElviaError errorMessage={errorMessage} data-testid="error"></ElviaError> : null}
+        </DropdownWrapper>
+      </div>
+    </CacheProvider>
   );
 };
 
