@@ -10,13 +10,6 @@
     "build": "gulp",
     "build:production": "gulp"
   },
-  "nx": {
-    "implicitDependencies": [
-      "@elvia/elvis-colors",
-      "@elvia/elvis-typography",
-      "@elvia/elvis-assets-icons"
-    ]
-  },
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-colors": "^1.4.1",

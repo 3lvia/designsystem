@@ -11,14 +11,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:production": "yarn build && mv ./build ../../../web/dist/react-preview",
+    "build:production": "yarn build && mv ./build ../../../web/dist/elvia-designsystem/react-preview",
     "eject": "react-scripts eject",
     "ssr": "yarn build && node server/index.js"
-  },
-  "nx": {
-    "implicitDependencies": [
-      "@elvia/elvis"
-    ]
   },
   "dependencies": {
     "@babel/core": "^7.18.10",
