@@ -18,7 +18,6 @@ import {
   DropdownErrorMessageWrapper,
   DropdownLabel,
   DropdownSingleValueOverflowWrapper,
-  DropdownPlaceholderWrapper,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
@@ -34,11 +33,12 @@ export interface DropdownItem {
   value: string;
   label: string;
   icon?: string;
+  isDisabled?: boolean;
 }
 
 export interface DropdownProps {
   /**
-   * @deprecated Removed in version 3.0.0. Replaced by `value`.
+   * @deprecated Removed in version 3.0.0. Replaced by `items`.
    */
   options?: never;
   items: DropdownItem[];
@@ -114,6 +114,11 @@ const Dropdown: React.FC<DropdownProps> = function ({
     }
   }, [selectAllOption]);
 
+  /** Memoized variable with all the items that are not disabled. Updates when `items` changes. */
+  const itemsNotDisabled = useMemo(() => {
+    return items.filter((item) => !item.isDisabled);
+  }, [items]);
+
   const selectId = uniqueId('ewc-dropdown-');
 
   /** Styling functions for react select */
@@ -140,7 +145,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
     return getColor('white');
   };
 
-  const decideOptionHoverBg = (selected: boolean, isMulti: boolean) => {
+  const decideOptionHoverBg = (selected: boolean, isMulti: boolean, optionIsDisabled: boolean) => {
+    if (optionIsDisabled) {
+      return getColor('white');
+    }
     if (selected && isMulti) {
       return getColor('grey-05');
     }
@@ -269,8 +277,9 @@ const Dropdown: React.FC<DropdownProps> = function ({
       ...provided,
       display: 'flex',
       alignItems: 'center',
+      gap: '8px',
       backgroundColor: decideOptionBg(state.isFocused, state.isSelected, state.isMulti),
-      color: getColor('black'),
+      color: state.isDisabled ? getColor('disabled') : getColor('black'),
       height: '100%',
       paddingTop: '7px',
       paddingBottom: '7px',
@@ -278,11 +287,11 @@ const Dropdown: React.FC<DropdownProps> = function ({
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: isCompact ? '18px' : '30px',
       border: '1px solid transparent',
-      cursor: 'pointer',
+      cursor: state.isDisabled ? 'not-allowed' : 'pointer',
       overflowX: 'hidden',
       textOverflow: 'ellipsis',
       '&:hover': {
-        backgroundColor: decideOptionHoverBg(state.isSelected, state.isMulti),
+        backgroundColor: decideOptionHoverBg(state.isSelected, state.isMulti, state.isDisabled),
         '#ewc-dropdown-checkbox__mark': {
           backgroundColor: getColor('elvia-charge'),
         },
@@ -305,7 +314,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
       lineHeight: '22px',
       color: isDisabled ? getColor('disabled') : getColor('grey-70'),
       margin: '0px',
-      display: 'block',
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: '8px',
       overflowX: 'hidden',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
@@ -374,14 +386,17 @@ const Dropdown: React.FC<DropdownProps> = function ({
   };
 
   const ElviaOption = (props: OptionProps) => {
+    const optionIsDisabled = (props.data as DropdownItem).isDisabled ?? false;
+
     if (!isMulti) {
       return (
-        <components.Option {...props}>
+        <components.Option {...props} isDisabled={optionIsDisabled}>
           {allOptionsHaveIconAttribute ? (
             <Icon
               inlineStyle={{ marginRight: '16px' }}
               name={(props.data as DropdownItem).icon as string}
               size={isCompact ? 'xs' : 'sm'}
+              color={optionIsDisabled ? getColor('disabled') : undefined}
             />
           ) : (
             ''
@@ -397,13 +412,14 @@ const Dropdown: React.FC<DropdownProps> = function ({
       currentVal.length > 0 &&
       !props.isSelected;
     return (
-      <components.Option {...props}>
+      <components.Option {...props} isDisabled={optionIsDisabled}>
         <DropdownCheckbox>
           <DropdownCheckboxMark
             id="ewc-dropdown-checkbox__mark"
             isSelected={props.isSelected}
             isCompact={isCompact}
             isSelectAllWithPartialSelected={isSelectAllWithPartialSelected}
+            isDisabled={optionIsDisabled}
           />
           <DropdownCheckboxLabel isCompact={isCompact}>{props.children}</DropdownCheckboxLabel>
         </DropdownCheckbox>
@@ -427,10 +443,12 @@ const Dropdown: React.FC<DropdownProps> = function ({
     if (placeholderIcon) {
       return (
         <components.Placeholder {...props}>
-          <DropdownPlaceholderWrapper>
-            <Icon name={placeholderIcon} color={getColor('placeholder')} size="xs" />
-            {props.children}
-          </DropdownPlaceholderWrapper>
+          <Icon
+            name={placeholderIcon}
+            color={isDisabled ? getColor('disabled') : getColor('placeholder')}
+            size="xs"
+          />
+          {props.children}
         </components.Placeholder>
       );
     }
@@ -523,8 +541,8 @@ const Dropdown: React.FC<DropdownProps> = function ({
           !currentVal.find((option) => isEqual(option, selectAllOptionState)) &&
           event.includes(selectAllOptionState))
       ) {
-        setCurrentVal([selectAllOptionState, ...items]);
-        updateValue([selectAllOptionState, ...items]);
+        setCurrentVal([selectAllOptionState, ...itemsNotDisabled]);
+        updateValue([selectAllOptionState, ...itemsNotDisabled]);
       } else if (
         // selectAllOption is selected, but becomes unselected => unselect all
         // Check that selectAllOption is currently selected
@@ -541,7 +559,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
         Array.isArray(currentVal) &&
         currentVal.find((option) => isEqual(option, selectAllOptionState)) &&
         // Check that not all elements in options are selected any more  (length + 1 because of selectAllOption being added)
-        event.length !== items.length + 1
+        event.length !== itemsNotDisabled.length + 1
       ) {
         // Filter out selectAllOption from the selected options
         const newSelectedValue = event.filter((option) => !isEqual(option, selectAllOptionState));
@@ -553,7 +571,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
         Array.isArray(currentVal) &&
         !currentVal.find((option) => isEqual(option, selectAllOptionState)) &&
         // Check that all options are selected
-        event.length == items.length
+        event.length == itemsNotDisabled.length
       ) {
         setCurrentVal([selectAllOptionState, ...event]);
         updateValue([selectAllOptionState, ...event]);
