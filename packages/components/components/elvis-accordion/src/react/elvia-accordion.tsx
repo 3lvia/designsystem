@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
-import toolbox from '@elvia/elvis-toolbox';
+import { outlineListener } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
 import {
   AccordionLabelPosition,
@@ -82,11 +82,11 @@ const Accordion: FC<AccordionProps> = ({
   /** Start outline listener */
   useEffect(() => {
     if (accordionRef && accordionRef.current) {
-      toolbox.outlineListener(accordionRef.current);
+      outlineListener(accordionRef.current);
     }
     return () => {
       if (accordionRef && accordionRef.current) {
-        toolbox.outlineListener(accordionRef.current, true);
+        outlineListener(accordionRef.current, true);
       }
     };
   }, []);

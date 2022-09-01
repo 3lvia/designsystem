@@ -1,4 +1,4 @@
-import { throttle } from 'lodash';
+import { throttle as lodashThrottle } from 'lodash';
 
 /**
  * Uses lodash throttle function: https://lodash.com/docs/4.17.15#throttle
@@ -9,8 +9,8 @@ import { throttle } from 'lodash';
  * @param options.trailing — Specify invoking on the trailing edge of the timeout.
  * @returns Returns the new throttled function.
  */
-const customThrottle = (func: () => void, limit: number, options?: { trailing: boolean }): any => {
-  return throttle(func, limit, options);
+export const throttle = (func: () => void, limit: number, options?: { trailing: boolean }): any => {
+  return lodashThrottle(func, limit, options);
 };
 
 /**
@@ -18,7 +18,7 @@ const customThrottle = (func: () => void, limit: number, options?: { trailing: b
  * @param element The element that should be able to obtain an outline.
  * @param destroy Destroys the listener that was started on the element when set to true.
  */
-const outlineListener = (element: HTMLElement | null, destroy?: boolean): void => {
+export const outlineListener = (element: HTMLElement | null, destroy?: boolean): void => {
   if (!element) {
     return;
   }
@@ -50,8 +50,6 @@ const outlineListener = (element: HTMLElement | null, destroy?: boolean): void =
   element.addEventListener('keydown', addOutline);
   element.addEventListener('mousedown', removeOutline, false);
 };
-
-export default { throttle: customThrottle, outlineListener: outlineListener };
 
 const consoleWarnDeprecatedProp = (
   name: string,
