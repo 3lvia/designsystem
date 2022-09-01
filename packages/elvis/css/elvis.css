@@ -8190,10 +8190,10 @@ input:focus {
   position: absolute;
   top: 0px;
 }
-.e-radio.e-radio--sm .e-radio__mark, .e-radio.e-radio--compact .e-radio__mark {
+.e-radio.e-radio--compact .e-radio__mark, .e-radio.e-radio--sm .e-radio__mark {
   top: 3px;
 }
-.e-radio.e-radio--sm .e-radio__label, .e-radio.e-radio--compact .e-radio__label {
+.e-radio.e-radio--compact .e-radio__label, .e-radio.e-radio--sm .e-radio__label {
   margin-left: 24px;
 }
 .e-radio__label {

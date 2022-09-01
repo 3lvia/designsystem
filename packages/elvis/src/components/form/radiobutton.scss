@@ -260,8 +260,8 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
     top: 0px;
   }
 
-  &.e-radio--sm,
-  &.e-radio--compact {
+  &.e-radio--compact,
+  &.e-radio--sm {
     .e-radio__mark {
       top: 3px;
     }
