@@ -8051,6 +8051,9 @@ input:focus {
   height: 16px;
   top: 3px;
 }
+.e-radio.e-radio--compact .e-radio__label, .e-radio.e-radio--sm .e-radio__label {
+  margin-left: 24px;
+}
 .e-radio:hover .e-radio__mark {
   background: #29d305;
 }
@@ -8201,9 +8204,6 @@ input:focus {
 .e-radio__mark {
   position: absolute;
   top: 0px;
-}
-.e-radio.e-radio--compact .e-radio__label, .e-radio.e-radio--sm .e-radio__label {
-  margin-left: 24px;
 }
 .e-radio__label {
   flex-grow: 1;
