@@ -6,9 +6,9 @@
   "author": "",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp watch",
     "build": "gulp",
-    "watch": "gulp watch"
+    "build:production": "gulp"
   },
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",

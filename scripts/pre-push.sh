@@ -1,13 +1,10 @@
 #!/bin/bash
-echo 'Building elvis-colors...'
+echo 'Tokens - Building elvis-colors...'
 yarn build:colors
-echo 'Building elvis-typography...'
+echo 'Tokens - Building elvis-typography...'
 yarn build:typography
 # TODO: Build components only when changed
-cd packages/components
 echo 'Components - Building components...'
-yarn build
-cd ../..
-cd packages/web 
+yarn build:components:affected
 echo 'Web - Building web...'
-yarn build
+yarn build:web

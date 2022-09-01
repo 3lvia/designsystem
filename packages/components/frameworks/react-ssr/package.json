@@ -3,10 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "workspaces": {
-    "nohoist": [
+    "installConfig.hoistingLimits": [
       "react-scripts",
       "react-scripts/**"
     ]
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:production": "yarn build && mv ./build ../../../web/dist/react-preview",
+    "eject": "react-scripts eject",
+    "ssr": "yarn build && node server/index.js"
   },
   "dependencies": {
     "@babel/core": "^7.18.10",
@@ -51,14 +58,6 @@
     "eslint-plugin-react": "^7.27.0",
     "webpack": "^4.0.0 || ^5.0.0",
     "webpack-dev-server": "3.11.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "ssr": "yarn build && node server/index.js",
-    "production": "yarn build && mv ./build ../../../web/dist/elvia-designsystem/react-preview"
   },
   "homepage": "./",
   "browserslist": {

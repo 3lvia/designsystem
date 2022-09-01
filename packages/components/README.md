@@ -119,15 +119,15 @@ specifications. The file explains how to add the props and the meaning of the ea
 #### Step 3 - Run the building tools
 
 Test the component by running the build and dev tools and adding the component to the test projects. We have
-one test project for each framework; Angular, Vue and React. When running `yarn watch` in
+one test project for each framework; Angular, Vue and React. When running `yarn start` in
 `packages/components` the projects should be updated every time a change has been saved.
 
-> NOTE! The first time you run the project you will need to run `yarn watch` or `yarn build` before starting
+> NOTE! The first time you run the project you will need to run `yarn start` or `yarn build` before starting
 > the Angular, Vue and React apps (dev servers). Otherwise you will get errors because the components deletes
-> everything in the dist folder before building the components again when running watch. If this happens,
+> everything in the dist folder before building the components again when running start. If this happens,
 > restart the local dev servers (Angular, Vue and React).
 
-1. Run `yarn watch` in `packages/components` so that the projects are updated every time a change is saved.
+1. Run `yarn start` in `packages/components` so that the projects are updated every time a change is saved.
 2. Run dev servers:
    - **React**: Run `yarn start:react` from root or go to `projects/components/frameworks/react-ssr` and run
      `yarn start`,

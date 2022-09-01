@@ -1,0 +1,38 @@
+{
+  "extends": "nx/presets/npm.json",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "test",
+          "build",
+          "eject",
+          "ssr",
+          "production",
+          "lint",
+          "build:production",
+          "watch",
+          "clean",
+          "test:watch",
+          "test:coverage",
+          "ng",
+          "contentful",
+          "contentful:production",
+          "contentful:types",
+          "dev",
+          "e2e"
+        ],
+        "accessToken": "ZjQzNGM3NmYtNTc5YS00OWI1LTkwYjktN2IzZDc0NjhkMjRmfHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build", "@elvia/elvis-components", "elvia-designsystem"]
+    }
+  },
+  "affected": {
+    "defaultBase": "master"
+  }
+}
