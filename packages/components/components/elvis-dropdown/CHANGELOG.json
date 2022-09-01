@@ -23,16 +23,6 @@
     },
     {
       "date": "01.09.22",
-      "version": "3.3.3",
-      "changelog": [
-        {
-          "type": "patch",
-          "changes": ["Upgrade to toolbox v2.0.0"]
-        }
-      ]
-    },
-    {
-      "date": "01.09.22",
       "version": "3.3.2",
       "changelog": [
         {
