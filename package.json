@@ -15,7 +15,7 @@
     "start:react": "cd packages/components/frameworks/react-ssr && yarn start",
     "start:vue": "cd packages/components/frameworks/vue-test && yarn start",
     "build:components": "yarn build:colors && yarn build:typography && cd packages/components && yarn build",
-    "build:web": "yarn && yarn build:colors && yarn build:typography && cd packages/elvis-assets-icons && yarn run build && cd ../elvis && yarn build && cd ../components && yarn run build:production && cd ../web && yarn run contentful:production && yarn run build:production && cd ../components/frameworks/react-ssr && yarn run production",
+    "build": "yarn && yarn build:colors && yarn build:typography && cd packages/elvis-assets-icons && yarn run build && cd ../elvis && yarn build && cd ../components && yarn run build:production && cd ../web && yarn run contentful:production && yarn run build:production && cd ../components/frameworks/react-ssr && yarn run production",
     "build:elvis": "cd packages/elvis && yarn build",
     "build:colors": "cd packages/elvis-colors && yarn build",
     "build:typography": "cd packages/elvis-typography && yarn build",
