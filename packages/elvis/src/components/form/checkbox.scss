@@ -103,12 +103,15 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
         background: black;
       }
     }
-    &.e-checkbox--compact .e-checkbox__mark::before,
-    &.e-checkbox--sm .e-checkbox__mark::before {
-      left: calc(50% - 4px);
-      width: 8px;
-      top: calc(50%);
-      height: 1px;
+
+    &.e-checkbox--compact,
+    &.e-checkbox--sm {
+      .e-checkbox__mark::before {
+        left: calc(50% - 4px);
+        width: 8px;
+        top: calc(50%);
+        height: 1px;
+      }
     }
   }
 
