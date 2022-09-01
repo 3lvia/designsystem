@@ -11,7 +11,7 @@ const cardData: ComponentData = {
       type: 'string | HTMLElement | JSX.Element',
       description: 'Text or icon (use slot in webcomponent if not just text).',
     },
-    header: {
+    heading: {
       isRequired: false,
       type: 'string',
       description: 'Card header.',

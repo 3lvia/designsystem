@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { getColor } from '@elvia/elvis-colors';
 import { CardType, BorderColor } from './elvia-card.types';
@@ -55,14 +55,22 @@ interface CardAreaProps {
 }
 
 export const CardArea = styled.div<CardAreaProps>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: relative;
   background: ${colors.white};
-  overflow: hidden;
   box-sizing: border-box;
 
   padding: 24px;
   ${(props) => decideCardAreaWidths(props.type, props.minWidth, props.maxWidth)};
   width: ${(props) => props.width};
+  ${(props) =>
+    props.type === 'simple' &&
+    css`
+      aspect-ratio: 1;
+    `}
 
   border-radius: 8px;
   border: ${(props) => (props.hasBorder ? `1px solid ${colors.grey10}` : `1px solid ${colors.grey05}`)};
@@ -77,21 +85,23 @@ export const CardArea = styled.div<CardAreaProps>`
 interface CardContentProps {
   type: CardType;
 }
+
 export const CardContent = styled.div<CardContentProps>`
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: ${(props) => (props.type === 'simple' ? 'center' : 'flex-start')};
+  align-items: ${(props) => (props.type === 'simple' ? 'center' : 'flex-start')};
   gap: 8px;
-  padding-top: 4px;
-  height: ${(props) => (props.type === 'detail' ? '140px' : 'min-content')};
-  overflow: hidden;
+  width: fit-content;
 `;
 
 interface CardHeaderProps {
   type: CardType;
+  isOverflowing: boolean;
 }
 
-export const CardHeader = styled.div<CardHeaderProps>`
+export const CardHeading = styled.div<CardHeaderProps>`
+  width: fit-content;
   ${(props) => (props.type === 'simple' ? typography.textSmStrong : typography.titleSm)};
   text-align: ${(props) => (props.type === 'simple' ? 'center' : 'left')};
   color: ${colors.black};
@@ -102,11 +112,12 @@ export const CardHeader = styled.div<CardHeaderProps>`
   -webkit-box-orient: vertical;
   word-break: break-word;
 
-  &:hover {
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-    overflow: visible;
-  }
+  ${(props) =>
+    props.isOverflowing &&
+    css`
+      &::after {
+      }
+    `}
 `;
 
 interface CardDescriptionProps {
@@ -114,7 +125,9 @@ interface CardDescriptionProps {
   maxDescriptionLines: number;
 }
 
-export const CardDescription = styled.div<CardDescriptionProps>`
+export const CardDescription = styled.p<CardDescriptionProps>`
+  padding: 0;
+  margin: 0;
   ${(props) => (props.type === 'simple' ? typography.textMicro : typography.textSm)};
   text-align: ${(props) => (props.type === 'simple' ? 'center' : 'left')};
   color: ${colors.black};
@@ -130,6 +143,7 @@ export const CardIcon = styled.div`
   text-align: center;
   color: ${colors.black};
   white-space: nowrap;
+  width: fit-content;
 
   transition: transform 0.3s ease-in-out;
   -webkit-transition: transform 0.3s ease-in-out;
@@ -137,6 +151,17 @@ export const CardIcon = styled.div`
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
+`;
+
+export const CardColoredLineContainer = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
 `;
 
 interface CardColoredLineProps {
@@ -158,6 +183,7 @@ export const CardColoredLine = styled.div<CardColoredLineProps>`
 
 export const CardTag = styled.span`
   position: relative;
+  margin-top: 8px;
   width: fit-content;
   padding: 4px 8px;
   border-radius: 4px;

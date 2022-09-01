@@ -1,23 +1,29 @@
 import React, { FC, useRef, useEffect, useState, CSSProperties } from 'react';
 import { Icon } from '@elvia/elvis-icon/react';
 import { CardType, BorderColor } from './elvia-card.types';
+import { useIsOverflowing } from './useIsOverflowing';
 import {
   CardArea,
   CardContent,
-  CardHeader,
+  CardHeading,
   CardDescription,
   CardIcon,
   CardColoredLine,
   CardTag,
   CardHoverArrow,
   CardCornerIcon,
+  CardColoredLineContainer,
 } from './styledComponents';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 export interface CardProps {
   icon?: string | JSX.Element;
   iconHover?: string | JSX.Element;
+  /**
+   * @deprecated Deprecated in version 2.0.0. Use `heading` instead.
+   */
   header?: string;
+  heading?: string;
   description?: string;
   borderColor?: BorderColor;
   type?: CardType;
@@ -44,12 +50,12 @@ export interface CardProps {
 const Card: FC<CardProps> = ({
   icon,
   iconHover,
-  header,
+  heading,
   description,
   borderColor,
   type = 'simple',
   hasBorder = true,
-  width = '100%',
+  width = 'fit-content',
   minWidth,
   maxWidth,
   maxDescriptionLines = 3,
@@ -66,6 +72,9 @@ const Card: FC<CardProps> = ({
 
   const iconRef = useRef<HTMLDivElement>(null);
   const cornerIconRef = useRef<HTMLDivElement>(null);
+
+  const headingRef = useRef<HTMLDivElement>(null);
+  const [headingIsOverflowing] = useIsOverflowing(headingRef);
 
   /** Get all slots and place them correctly */
   useEffect(() => {
@@ -124,21 +133,34 @@ const Card: FC<CardProps> = ({
       onPointerLeave={() => setIsHovering(false)}
       className={className ?? ''}
       style={inlineStyle}
+      title={type === 'simple' && headingIsOverflowing ? heading : undefined}
       {...rest}
     >
       {type === 'simple' && borderColor && (
-        <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
+        <CardColoredLineContainer>
+          <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
+        </CardColoredLineContainer>
       )}
       <CardContent type={type} data-testid="card-content">
         {type === 'simple' && (
-          <CardIcon onTransitionEnd={() => setIsAnimating(false)} data-testid="card-icon">
-            {!icon ? <div ref={iconRef} /> : isShowingHoverIcon && iconHover ? iconHover : icon}
+          <CardIcon
+            onTransitionEnd={() => setIsAnimating(false)}
+            data-testid="card-icon"
+            ref={iconRef ?? undefined}
+          >
+            {isShowingHoverIcon && iconHover ? iconHover : icon}
           </CardIcon>
         )}
-        {header && (
-          <CardHeader type={type} data-testid="card-header">
-            {header}
-          </CardHeader>
+        {heading && (
+          <CardHeading
+            ref={headingRef}
+            type={type}
+            isOverflowing={headingIsOverflowing}
+            data-testid="card-header"
+            title={type === 'detail' && headingIsOverflowing ? heading : undefined}
+          >
+            {heading}
+          </CardHeading>
         )}
         {description && (
           <CardDescription
@@ -149,8 +171,8 @@ const Card: FC<CardProps> = ({
             {description}
           </CardDescription>
         )}
+        {type === 'detail' && tag && <CardTag data-testid="card-tag">{tag}</CardTag>}
       </CardContent>
-      {type === 'detail' && tag && <CardTag data-testid="card-tag">{tag}</CardTag>}
       {type === 'detail' && (
         <CardHoverArrow data-testid="card-detail-hover-arrow">
           <Icon name="arrowLongRight" />
@@ -159,10 +181,8 @@ const Card: FC<CardProps> = ({
       {type === 'detail' && cornerIcon && (
         <CardCornerIcon data-testid="card-corner-icon">{cornerIcon}</CardCornerIcon>
       )}
-      {type === 'detail' && !cornerIcon && (
-        <CardCornerIcon data-testid="card-corner-icon">
-          <div ref={cornerIconRef}></div>
-        </CardCornerIcon>
+      {type === 'detail' && webcomponent && (
+        <CardCornerIcon data-testid="card-corner-icon" ref={cornerIconRef} />
       )}
     </CardArea>
   );

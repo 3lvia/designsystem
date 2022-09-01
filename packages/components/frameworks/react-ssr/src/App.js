@@ -112,24 +112,27 @@ function App() {
           {/* Normal version */}
           <div className="e-bg-white e-flex e-gap-16">
             <Card
-              header={'Title1'}
+              heading={'Title1 is a long title'}
+              description={'Long description that also needs to wrap because it is long'}
               borderColor={'red'}
-              icon={<i className="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>}
-              iconHover={<i className="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>}
+              icon={<Icon name="searchBold" size="xxl" />}
+              iconHover={<Icon name="searchBoldColor" size="xxl" />}
               cornerIcon={<Icon name="unlock" size="xs" />}
             />
             <Card
-              header={'Title2'}
+              heading={'Title2 is a long title'}
+              description={'Long description that also needs to wrap because it is long'}
               borderColor={'blue-berry'}
-              icon={<i className="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>}
-              iconHover={<i className="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>}
+              icon={<Icon name="searchBold" size="xxl" />}
+              iconHover={<Icon name="searchBoldColor" size="xxl" />}
               cornerIcon={<Icon name="unlock" size="xs" />}
             />
             <Card
-              header={'Title3'}
+              heading={'Title3 is a long title'}
+              description={'Long description that also needs to wrap because it is long'}
               borderColor={'orange'}
-              icon={<i className="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>}
-              iconHover={<i className="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>}
+              icon={<Icon name="searchBold" size="xxl" />}
+              iconHover={<Icon name="searchBoldColor" size="xxl" />}
               cornerIcon={<Icon name="unlock" size="xs" />}
             />
           </div>
@@ -137,7 +140,7 @@ function App() {
           <div className="e-bg-white e-flex e-gap-16">
             <Card
               type="detail"
-              header="Lorem ipsum dolor sin amet too long header bla more text here very much abcd ef long words and lines"
+              heading="Lorem ipsum dolor sin amet too long header bla more text here very much abcd ef long words and lines"
               description="It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions."
               tag={'Tag'}
             />
@@ -181,7 +184,7 @@ function App() {
         <div className="example-wrapper">
           <h3>Card</h3>
           <Card
-            header={'Title1'}
+            heading={'Title1'}
             borderColor={'red'}
             icon={<i className="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>}
             iconHover={<i className="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>}

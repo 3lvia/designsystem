@@ -3,7 +3,7 @@ import ComponentTypeData from '../component-type-data.interface';
 const cardSimpleCode: ComponentTypeData = {
   type: 'simple',
   attributes: {
-    header: {
+    heading: {
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: 'Safety',

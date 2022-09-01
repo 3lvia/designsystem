@@ -4,7 +4,7 @@ import ComponentTypeData from '../component-type-data.interface';
 const cardDetailCode: ComponentTypeData = {
   type: 'detail',
   attributes: {
-    header: {
+    heading: {
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: exampleContents.texts.lg['eng-GBR'].title,

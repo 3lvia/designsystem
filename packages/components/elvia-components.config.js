@@ -113,7 +113,8 @@ module.exports = [
     attributes: [
       { name: 'icon', type: 'string', propType: 'string | HTMLElement' },
       { name: 'iconHover', type: 'string', propType: 'string | HTMLElement | undefined' },
-      { name: 'header', type: 'string', propType: 'string' },
+      { name: 'header', type: 'string', propType: 'string' }, // Deprecated
+      { name: 'heading', type: 'string', propType: 'string' },
       { name: 'description', type: 'string', propType: 'string | undefined' },
       { name: 'borderColor', type: 'string', propType: 'string | undefined' },
       { name: 'type', type: 'string', propType: 'string' },
