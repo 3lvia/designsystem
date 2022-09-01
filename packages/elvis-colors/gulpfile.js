@@ -4,6 +4,7 @@ const fs = require('fs');
 const gulp = require('gulp');
 const prettier = require('gulp-prettier');
 const header = require('gulp-header');
+const tap = require('gulp-tap');
 const del = require('del');
 const colors = require('./src/elviaColors')['default'];
 
@@ -112,10 +113,34 @@ const generateElvisColorMapScss = async () => {
   fs.writeFileSync('./dist/colorMap.scss', content);
 };
 
-const copyElviaColors = async () => {
+const copyElviaColorsJs = async () => {
+  return gulp.src(['./src/elviaColors.js']).pipe(header(WARNING)).pipe(gulp.dest('./dist/'));
+};
+
+const copyElviaColorsDTs = async () => {
+  const colorNamesAndAltLabels = [];
+  for (const categoryLabel in colors) {
+    for (const colorLabel in colors[categoryLabel]) {
+      colorNamesAndAltLabels.push(colorLabel);
+      if (colors[categoryLabel][colorLabel]['alt-labels']) {
+        for (const altLabel in colors[categoryLabel][colorLabel]['alt-labels']) {
+          colorNamesAndAltLabels.push(colors[categoryLabel][colorLabel]['alt-labels'][altLabel]);
+        }
+      }
+    }
+  }
+  const colorNameTypeString = colorNamesAndAltLabels.map((name) => `'${name}'`).join('\n\t| ');
+
   return gulp
-    .src(['./src/elviaColors.js', './src/elviaColors.d.ts'])
+    .src(['./src/elviaColors.d.ts'])
     .pipe(header(WARNING))
+    .pipe(
+      tap((file) => {
+        file.contents = Buffer.from(
+          String(file.contents).replace(/'{{INSERT_COLOR_NAMES}}'/, colorNameTypeString),
+        );
+      }),
+    )
     .pipe(gulp.dest('./dist/'));
 };
 
@@ -143,7 +168,8 @@ gulp.task(
     generateElviaColorsJsonFile,
     generateElviaColorsScssFile,
     generateElvisColorMapScss,
-    copyElviaColors,
+    copyElviaColorsJs,
+    copyElviaColorsDTs,
     formatPrettier,
     function (done) {
       console.log('Elvis-colors - Successfully built Elvis-colors! ');

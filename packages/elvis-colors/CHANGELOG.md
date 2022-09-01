@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 1.4.2 (29.08.22)
+
+### Patch
+
+- Now generating up a Typescript union type for all the color names.
+
 ## 1.4.1 (11.05.22)
 
 ### Patch

@@ -2470,6 +2470,7 @@ __metadata:
     gulp: ^4.0.2
     gulp-header: ^2.0.9
     gulp-prettier: ^4.0.0
+    gulp-tap: ^2.0.0
     lodash.kebabcase: ^4.1.1
   languageName: unknown
   linkType: soft
@@ -2551,7 +2552,7 @@ __metadata:
     "@date-io/core": ^1.3.6
     "@date-io/date-fns": ^1.3.13
     "@elvia/elvis-component-wrapper": ^2.3.3
-    "@elvia/elvis-datepicker": ^3.1.0
+    "@elvia/elvis-datepicker": ^4.0.0
     date-fns: ^2.27.0
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -2570,7 +2571,7 @@ __metadata:
     "@date-io/core": ^1.3.6
     "@date-io/date-fns": ^1.3.13
     "@elvia/elvis-component-wrapper": ^2.3.3
-    "@elvia/elvis-datepicker": ^3.1.0
+    "@elvia/elvis-datepicker": ^4.0.0
     date-fns: ^2.27.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2580,7 +2581,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^3.1.0, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^4.0.0, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
@@ -2821,8 +2822,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-progress-linear@workspace:packages/components/components/elvis-progress-linear"
   dependencies:
+    "@elvia/elvis-colors": ^1.4.1
     "@elvia/elvis-component-wrapper": ^2.2.2
-    classnames: ^2.3.1
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
 
@@ -2830,8 +2839,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-progress-linear@portal:../components/components/elvis-progress-linear::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
+    "@elvia/elvis-colors": ^1.4.1
     "@elvia/elvis-component-wrapper": ^2.2.2
-    classnames: ^2.3.1
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
   languageName: node
   linkType: soft
 
@@ -2940,6 +2954,7 @@ __metadata:
     gulp: ^4.0.2
     gulp-header: ^2.0.9
     gulp-prettier: ^4.0.0
+    gulp-tap: ^2.0.0
   languageName: unknown
   linkType: soft
 
@@ -4248,9 +4263,9 @@ __metadata:
   linkType: hard
 
 "@sinclair/typebox@npm:^0.24.1":
-  version: 0.24.32
-  resolution: "@sinclair/typebox@npm:0.24.32"
-  checksum: c6aaa363a77e220442c451dff8bf67254183b807dcd779f0b23450080c390a0fa4e9ee5475fff6f96580829f6f20f5a35ae89e40c28f85c34501b55e5b44c635
+  version: 0.24.34
+  resolution: "@sinclair/typebox@npm:0.24.34"
+  checksum: 35adcc7698fe751951e75fefe748a1d6e928afa3e52c153d1984a9d47c2a4f39e89f6adf727daef5cc12a58c71c2a0f63e3d88d105e4435252cfb68231518687
   languageName: node
   linkType: hard
 
@@ -4934,9 +4949,9 @@ __metadata:
   linkType: hard
 
 "@types/minimatch@npm:*":
-  version: 5.1.1
-  resolution: "@types/minimatch@npm:5.1.1"
-  checksum: 75d7cc5b0964dab6993dbdc7a4d0f082459260fec3210baa907856fb2cf6bca7112717422b488b81953e07f8fc36466cdaa9e9684942b9210d240ddaa2fdf42a
+  version: 5.1.2
+  resolution: "@types/minimatch@npm:5.1.2"
+  checksum: 0391a282860c7cb6fe262c12b99564732401bdaa5e395bee9ca323c312c1a0f45efbf34dce974682036e857db59a5c9b1da522f3d6055aeead7097264c8705a8
   languageName: node
   linkType: hard
 
@@ -7973,14 +7988,14 @@ __metadata:
   linkType: hard
 
 "bonjour-service@npm:^1.0.11":
-  version: 1.0.13
-  resolution: "bonjour-service@npm:1.0.13"
+  version: 1.0.14
+  resolution: "bonjour-service@npm:1.0.14"
   dependencies:
     array-flatten: ^2.1.2
     dns-equal: ^1.0.0
     fast-deep-equal: ^3.1.3
     multicast-dns: ^7.2.5
-  checksum: aee186f542e0ec095d1f7fd8194182373ea4e854eef1182a3cb90e70c958deb6945de38f1a793bb43cc51f3a0044fa7eabee05a7ecb698c446aee80f00101124
+  checksum: 4a825bbf1824147ba8295a182fb3e86a8bae5159a08e2f118e829a0c988043a559f1f6e4eab425fe17ee9a1f080115d30430e78962e53f75bb03e2021ee7c5b2
   languageName: node
   linkType: hard
 
@@ -11492,9 +11507,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.202":
-  version: 1.4.237
-  resolution: "electron-to-chromium@npm:1.4.237"
-  checksum: 5f95ada8864dfa423e5fdc3ba69ee81d8229a6934079849b33125081d58f4d6243cc627bbfba8faea08fad2ed3e625cd6bcfcdfcbe6e984796e2bf9ca3ca2227
+  version: 1.4.239
+  resolution: "electron-to-chromium@npm:1.4.239"
+  checksum: 4e16eadc647d69353520a200953a76beb6557284172259703c483d4ec8302a331ff243d85b49da13d58c6c7e99f8917d26b529e6159cf69489fa62021ba25cac
   languageName: node
   linkType: hard
 
@@ -11757,9 +11772,9 @@ __metadata:
   linkType: hard
 
 "entities@npm:^4.2.0, entities@npm:^4.3.0":
-  version: 4.3.1
-  resolution: "entities@npm:4.3.1"
-  checksum: e8f6d2bac238494b2355e90551893882d2675142be7e7bdfcb15248ed0652a630678ba0e3a8dc750693e736cb6011f504c27dabeb4cd3330560092e88b105090
+  version: 4.4.0
+  resolution: "entities@npm:4.4.0"
+  checksum: 84d250329f4b56b40fa93ed067b194db21e8815e4eb9b59f43a086f0ecd342814f6bc483de8a77da5d64e0f626033192b1b4f1792232a7ea6b970ebe0f3187c2
   languageName: node
   linkType: hard
 
@@ -24803,15 +24818,15 @@ __metadata:
   linkType: hard
 
 "sass@npm:^1.33.0":
-  version: 1.54.7
-  resolution: "sass@npm:1.54.7"
+  version: 1.54.8
+  resolution: "sass@npm:1.54.8"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 4b6a10e93387e65dcbad2683d46b4249453ab8777c1bafab7a73ac3900a21fa91fa31d68df7a1b982c7e332a99b5574b1adc6168eb1ac6d7ebb28e18a65c4198
+  checksum: 72893b2dc6284a6194fc560a578da57ab0082130ee558a96bcb9893cc7b517b836dac6e17b3a52b040975e70b4cdefb1268907df955a706b5bf70e3860afcfba
   languageName: node
   linkType: hard
 

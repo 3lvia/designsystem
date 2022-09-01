@@ -52,14 +52,14 @@ export const progressbarData: ComponentData = {
     },
     size: {
       isRequired: false,
-      type: '"medium" | "large"',
+      type: '"small" | "medium"',
       description: 'The size of the progressbar.',
-      default: '"medium"',
+      default: '"small"',
       cegDisplayName: 'Size',
-      cegDefault: 'medium',
+      cegDefault: 'small',
       cegType: 'string',
       cegFormType: 'radio',
-      cegOptions: ['medium', 'large'],
+      cegOptions: ['small', 'medium'],
     },
     className: {
       isRequired: false,

@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-typography",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Elvia typography",
   "license": "MIT",
   "author": "",
@@ -14,6 +14,7 @@
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-header": "^2.0.9",
-    "gulp-prettier": "^4.0.0"
+    "gulp-prettier": "^4.0.0",
+    "gulp-tap": "^2.0.0"
   }
 }

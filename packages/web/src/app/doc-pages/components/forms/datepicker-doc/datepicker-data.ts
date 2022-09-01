@@ -43,13 +43,14 @@ const datepickerData: ComponentData = {
     isFullWidth: {
       isRequired: false,
       type: 'boolean',
-      description: 'Gives the input 100% width (max = 448px).',
+      description: 'Gives the input 100% width.',
       default: 'false',
       cegDisplayName: 'Full width',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
       cegDisplayGroup: 'Size',
+      cegDefault: false,
     },
     isDisabled: {
       isRequired: false,
