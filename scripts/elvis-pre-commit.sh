@@ -1,7 +1,7 @@
 #!/bin/bash
 echo 
 echo 'Elvis - Building package before commiting...'
-yarn run build:elvis
+yarn build:elvis
 cd ../..
 files=$(git ls-files -m | grep "packages/elvis" | wc -l | tr -d ' ')
 if [[ $files != "0" ]]; then
