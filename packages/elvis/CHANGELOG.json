@@ -1,7 +1,7 @@
 {
   "content": [
     {
-      "version": "8.11.0",
+      "version": "8.12.0",
       "date": "September 1, 2022",
       "changelog": [
         {
@@ -13,6 +13,20 @@
           "components": [
             { "displayName": "Radiobutton", "url": "https://design.elvia.io/components/radiobutton" },
             { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "8.11.0",
+      "date": "August 30, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added a full width class to input fields, including text input and search"],
+          "components": [
+            { "displayName": "Text fields", "url": "https://design.elvia.io/components/input" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" }
           ]
         }
       ]
