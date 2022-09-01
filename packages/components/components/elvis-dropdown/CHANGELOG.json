@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "01.09.22",
+      "version": "3.3.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Added support for CSP style nonce. It is added by setting the variable <span class=\"code-text\">window.__webpack_nonce__</span> in the document head to the nonce value."
+          ]
+        }
+      ]
+    },
+    {
       "date": "29.08.22",
       "version": "3.3.1",
       "changelog": [
