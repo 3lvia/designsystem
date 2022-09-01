@@ -31,6 +31,7 @@
     "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
     "lint-all": "yarn prettier-elvis && yarn prettier-doc && yarn prettier-comp && yarn eslint",
     "test": "nx test @elvia/elvis-components",
+    "test:start": "nx test:start @elvia/elvis-components",
     "test:staged": "cd packages/components; jest --bail --findRelatedTests",
     "publish": "yarn workspaces foreach -ipv --no-private npm publish --access public",
     "nx:graph": "yarn nx graph",
@@ -54,7 +55,7 @@
     "packages/components/components/**/*.+(js|ts|tsx)": [
       "yarn prettier-comp",
       "yarn eslint",
-      "yarn test"
+      "yarn test:staged"
     ]
   },
   "engines": {
