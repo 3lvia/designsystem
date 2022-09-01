@@ -84,6 +84,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
     .e-radio__mark {
       width: $form-radiobutton-compact-mark-size;
       height: $form-radiobutton-compact-mark-size;
+      top: 3px;
     }
   }
 
@@ -262,9 +263,6 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
 
   &.e-radio--compact,
   &.e-radio--sm {
-    .e-radio__mark {
-      top: 3px;
-    }
     .e-radio__label {
       margin-left: 24px;
     }
