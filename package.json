@@ -11,7 +11,7 @@
   "scripts": {
     "build": "yarn && yarn build:tokens && nx run-many --target=build:production --exclude=react-ssr,elvia-designsystem && yarn build:tokens && yarn build:elvis && nx build:production elvia-designsystem && nx build:production react-ssr",
     "build:web": "nx build elvia-designsystem",
-    "build:components": "yarn build:tokens && nx build @elvia/elvis-components",
+    "build:components": "nx build @elvia/elvis-components",
     "build:elvis": "nx build @elvia/elvis",
     "build:tokens": "nx run-many --target=build --projects=@elvia/elvis-colors,@elvia/elvis-typography,@elvia/elvis-assets-icons",
     "build:colors": "nx build @elvia/elvis-colors",
