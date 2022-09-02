@@ -13,6 +13,8 @@ import {
   CardHoverArrow,
   CardCornerIcon,
   CardColoredLineContainer,
+  CardHeadingTooltip,
+  CardHeadingContainer,
 } from './styledComponents';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
@@ -55,7 +57,7 @@ const Card: FC<CardProps> = ({
   borderColor,
   type = 'simple',
   hasBorder = true,
-  width = 'fit-content',
+  width = '100%',
   minWidth,
   maxWidth,
   maxDescriptionLines = 3,
@@ -66,7 +68,8 @@ const Card: FC<CardProps> = ({
   webcomponent,
   ...rest
 }) => {
-  const [isHovering, setIsHovering] = useState(false);
+  const [isHoveringArea, setIsHoveringArea] = useState(false);
+  const [isHoveringHeader, setIsHoveringHeader] = useState(false);
   const [isShowingHoverIcon, setIsShowingHoverIcon] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -110,16 +113,16 @@ const Card: FC<CardProps> = ({
     if (isAnimating) {
       setIsShowingHoverIcon(false);
     } else {
-      if (isHovering) {
+      if (isHoveringArea) {
         setIsShowingHoverIcon(true);
       } else {
         setIsShowingHoverIcon(false);
       }
     }
-  }, [isHovering, isAnimating]);
+  }, [isHoveringArea, isAnimating]);
   useEffect(() => {
     setIsAnimating(true);
-  }, [isHovering]);
+  }, [isHoveringArea]);
 
   return (
     <CardArea
@@ -129,11 +132,10 @@ const Card: FC<CardProps> = ({
       minWidth={minWidth}
       maxWidth={maxWidth}
       data-testid="card-area"
-      onPointerEnter={() => setIsHovering(true)}
-      onPointerLeave={() => setIsHovering(false)}
+      onPointerEnter={() => setIsHoveringArea(true)}
+      onPointerLeave={() => setIsHoveringArea(false)}
       className={className ?? ''}
       style={inlineStyle}
-      title={type === 'simple' && headingIsOverflowing ? heading : undefined}
       {...rest}
     >
       {type === 'simple' && borderColor && (
@@ -152,15 +154,23 @@ const Card: FC<CardProps> = ({
           </CardIcon>
         )}
         {heading && (
-          <CardHeading
-            ref={headingRef}
-            type={type}
-            isOverflowing={headingIsOverflowing}
-            data-testid="card-header"
-            title={type === 'detail' && headingIsOverflowing ? heading : undefined}
+          <CardHeadingContainer
+            onPointerEnter={() => setIsHoveringHeader(true)}
+            onPointerLeave={() => setIsHoveringHeader(false)}
           >
-            {heading}
-          </CardHeading>
+            <CardHeading ref={headingRef} type={type} data-testid="card-header">
+              {heading}
+            </CardHeading>
+            {headingIsOverflowing && (
+              <CardHeadingTooltip
+                type={type}
+                isShowing={type === 'simple' ? isHoveringArea : isHoveringHeader}
+                aria-hidden="true"
+              >
+                {heading}
+              </CardHeadingTooltip>
+            )}
+          </CardHeadingContainer>
         )}
         {description && (
           <CardDescription

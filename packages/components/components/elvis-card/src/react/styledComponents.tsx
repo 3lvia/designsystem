@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { getColor } from '@elvia/elvis-colors';
 import { CardType, BorderColor } from './elvia-card.types';
@@ -7,6 +7,7 @@ const colors = {
   black: getColor('black'),
   white: getColor('white'),
   charge: getColor('elvia-charge'),
+  grey80: getColor('grey-80'),
   grey10: getColor('grey-10'),
   grey05: getColor('grey-05'),
   green: getColor('green'),
@@ -40,7 +41,7 @@ const decideCardAreaWidths = (type: CardType, minWidth?: number, maxWidth?: numb
       : `min-width: ${globalMinWidthDetail}px;`;
   }
   cssValue += maxWidth
-    ? `max-width: min(${maxWidth}px, ${globalMaxWidth}px);`
+    ? `max-width: ${Math.max(maxWidth, globalMaxWidth)}px;`
     : `max-width: ${globalMaxWidth}px;`;
 
   return cssValue;
@@ -95,13 +96,17 @@ export const CardContent = styled.div<CardContentProps>`
   width: fit-content;
 `;
 
+export const CardHeadingContainer = styled.div`
+  position: relative;
+`;
+
 interface CardHeaderProps {
   type: CardType;
-  isOverflowing: boolean;
 }
 
-export const CardHeading = styled.div<CardHeaderProps>`
+export const CardHeading = styled.h3<CardHeaderProps>`
   width: fit-content;
+  margin: 0;
   ${(props) => (props.type === 'simple' ? typography.textSmStrong : typography.titleSm)};
   text-align: ${(props) => (props.type === 'simple' ? 'center' : 'left')};
   color: ${colors.black};
@@ -111,11 +116,59 @@ export const CardHeading = styled.div<CardHeaderProps>`
   line-clamp: ${(props) => (props.type === 'simple' ? 1 : 2)};
   -webkit-box-orient: vertical;
   word-break: break-word;
+`;
+
+const CardHeadingTooltipKeyframes = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+`;
+
+interface CardHeadingTooltipProps {
+  type: CardType;
+  isShowing: boolean;
+}
+
+export const CardHeadingTooltip = styled.div<CardHeadingTooltipProps>`
+  opacity: 0;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: auto;
+  border-radius: 4px;
+  background: ${colors.grey80};
+  padding: 8px 10px;
+
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.002em;
+  color: ${colors.white};
+  text-align: center;
+  word-break: break-word;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -7px;
+    border: 7px solid;
+    border-color: ${colors.grey80} transparent transparent transparent;
+  }
 
   ${(props) =>
-    props.isOverflowing &&
+    props.isShowing &&
     css`
-      &::after {
+      & {
+        animation: ${CardHeadingTooltipKeyframes} 200ms 500ms forwards;
       }
     `}
 `;
