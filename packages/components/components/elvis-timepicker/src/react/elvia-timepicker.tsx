@@ -1,5 +1,4 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import React, { CSSProperties, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   TimePickerContainer,
   TimePickerLabel,
@@ -10,20 +9,9 @@ import {
 } from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import { OverlayContainer } from './popup/overlayContainer';
-import { ChangeType, MinuteGranularity } from './elviaTimepicker.types';
+import { ChangeType, TimepickerProps } from './elviaTimepicker.types';
 import { useConnectedOverlay } from '@elvia/elvis-toolbox';
-
-export interface TimepickerProps {
-  value: Date;
-  valueOnChange: (value: Date) => void;
-  minuteGranularity: MinuteGranularity;
-  disabled: boolean;
-  isCompact: boolean;
-  label: string;
-  className: string;
-  inlineStyle: CSSProperties;
-  webcomponent: ElvisComponentWrapper;
-}
+import { useFocusTrap } from '@elvia/elvis-modal/dist/react/js/useFocusTrap';
 
 // Returns number always as two digits
 export const padDigit = (d: number): string => {
@@ -46,6 +34,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   const [time, setTime] = useState<Date | undefined>(value);
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
+  const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
   const [isShowing, setIsShowing] = useConnectedOverlay(connectedElementRef, popoverRef);
 
   const updateTime = (type: ChangeType, value: number): void => {
@@ -69,6 +58,28 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     }
   };
 
+  useEffect(() => {
+    if (!isShowing) {
+      return;
+    }
+
+    useFocusTrap(popoverRef);
+
+    const closeOnEsc = (ev: KeyboardEvent) => {
+      if (ev.key === 'Escape') {
+        setIsShowing(false);
+        openPopoverButtonRef.current?.focus();
+      }
+    };
+
+    window.addEventListener('keydown', closeOnEsc);
+
+    return () => {
+      useFocusTrap(popoverRef, true);
+      window.removeEventListener('keydown', closeOnEsc);
+    };
+  }, [isShowing]);
+
   return (
     <TimePickerContainer className={`${className ? className : ''}`} style={{ ...inlineStyle }} {...rest}>
       <TimePickerLabel>
@@ -81,7 +92,12 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             value={time ? `${padDigit(time.getHours())}:${padDigit(time.getMinutes())}` : ''}
             onChange={(ev) => console.log(ev.target.value)}
           />
-          <IconButton disabled={disabled} active={isShowing} onClick={() => setIsShowing(true)}>
+          <IconButton
+            disabled={disabled}
+            active={isShowing}
+            onClick={() => setIsShowing(true)}
+            ref={openPopoverButtonRef}
+          >
             <Icon name="clock" size={isCompact ? 'xs' : 'sm'} />
           </IconButton>
         </InputContainer>
