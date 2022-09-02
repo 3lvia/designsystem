@@ -152,13 +152,15 @@ export const CardIcon = styled.div`
 `;
 
 export const CardColoredLineContainer = styled.div`
+  box-sizing: border-box;
   position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  width: 100%;
   overflow: hidden;
+  top: -1px;
+  left: -1px;
+  height: calc(100% + 2px);
+  width: calc(100% + 2px);
   border-radius: inherit;
+  border: 1px solid transparent;
   pointer-events: none;
 `;
 
