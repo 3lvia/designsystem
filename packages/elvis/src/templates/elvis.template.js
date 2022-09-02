@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let mo = new MutationObserver(function (mutations) {
     for (let i = 0; i < mutations.length; i++) {
       injectIconIfEligible(mutations[i].target, mutations[i]);
+      checkDeprecatedElvisClass();
     }
   });
 
@@ -129,6 +130,30 @@ document.addEventListener('DOMContentLoaded', function () {
     return console.warn(`DEPRECATION WARNING: The Elvis class '${name}' has been deprecated since version ${version}. ${replacement ? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation} for more information.` : ''}`)
  }
 
+ /* Array containing classes that have been warned to the user. Helps avoid duplicated errors.*/
+ const warnedClasses = [];
+
+  /** Create an array with all the classes used in the DOM starting with 'e-'. 
+   * Use the filter to only include unique classes once. 
+   * Then compare the used classes to the deprecated classes list. 
+   * If deprecated classes are being used, warn the user in the console.
+   * https://stackoverflow.com/q/59162535/14447555 */
+function checkDeprecatedElvisClass() {
+    if (localhost) {
+      
+        const usedClasses = [].concat(...[...document.querySelectorAll('[class^="e-"]')].map(element => [...element.classList])).filter((className, index, array) => array.indexOf(className) == index).sort();
+        
+        usedClasses.forEach(usedClass => {
+          const depricatedClassisUsed = deprecatedElvisClasses.find(deprecatedElvisClass => deprecatedElvisClass.name === usedClass);
+          
+          if (depricatedClassisUsed && !warnedClasses.includes(depricatedClassisUsed.name)) {
+            warnedClasses.push(depricatedClassisUsed.name);
+            generateDeprecationWarning(depricatedClassisUsed);
+          }
+        });
+    }
+  }
+
   function setCorrectColor(classList, icon) {
     let fill;
 
@@ -183,6 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //[[INJECT_COLORS]]
   //[[INJECT_ICONS]]
+  //[[INJECT_DEPRECATED_ELVIS_CLASSES]]
 
   let lastReplace = 0;
   const throttleReplaceInterval = 500;
