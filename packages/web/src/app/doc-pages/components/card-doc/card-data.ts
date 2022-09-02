@@ -7,14 +7,14 @@ const cardData: ComponentData = {
   elementNameR: 'Card',
   attributes: {
     icon: {
-      isRequired: true,
+      isRequired: false,
       type: 'string | HTMLElement | JSX.Element',
       description: 'Text or icon (use slot in webcomponent if not just text).',
     },
     heading: {
       isRequired: false,
       type: 'string',
-      description: 'Card header.',
+      description: 'Card heading.',
     },
     description: {
       isRequired: false,
@@ -24,7 +24,7 @@ const cardData: ComponentData = {
     borderColor: {
       isRequired: false,
       type: 'green | blue-berry | red | orange',
-      description: 'Color on top of the card.',
+      description: 'Color on top of the card. Only applies to simple card. ',
       cegDisplayName: 'Border color',
       cegDefault: 'none',
       cegType: 'string',
@@ -57,19 +57,25 @@ const cardData: ComponentData = {
     maxWidth: {
       isRequired: false,
       type: 'number',
-      default: '400',
+      default: '175',
       description: 'Maximum width of card in px, cannot be more than 400.',
     },
     maxDescriptionLines: {
       isRequired: false,
       type: 'number',
-      default: '5',
+      default: '3',
       description: 'Max number of text lines in description. Overflow is clamped with an ellipsis.',
     },
     tag: {
       isRequired: false,
       type: 'string',
       description: 'Tag on bottom of card, only available on detail card.',
+      cegDisplayName: 'Tag',
+      cegType: 'string',
+      cegFormType: 'toggle',
+      cegDefault: true,
+      cegOption: 'Tag',
+      cegDependency: [{ name: 'type', value: 'detail' }],
     },
     iconHover: {
       isRequired: false,

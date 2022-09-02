@@ -24,7 +24,7 @@ export interface CardProps {
   /**
    * @deprecated Deprecated in version 2.0.0. Use `heading` instead.
    */
-  header?: string;
+  header?: never;
   heading?: string;
   description?: string;
   borderColor?: BorderColor;
@@ -59,7 +59,7 @@ const Card: FC<CardProps> = ({
   hasBorder = true,
   width = '100%',
   minWidth,
-  maxWidth,
+  maxWidth = 175,
   maxDescriptionLines = 3,
   tag,
   cornerIcon,

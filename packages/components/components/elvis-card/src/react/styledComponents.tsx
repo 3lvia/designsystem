@@ -41,7 +41,7 @@ const decideCardAreaWidths = (type: CardType, minWidth?: number, maxWidth?: numb
       : `min-width: ${globalMinWidthDetail}px;`;
   }
   cssValue += maxWidth
-    ? `max-width: ${Math.max(maxWidth, globalMaxWidth)}px;`
+    ? `max-width: ${Math.min(maxWidth, globalMaxWidth)}px;`
     : `max-width: ${globalMaxWidth}px;`;
 
   return cssValue;
@@ -201,16 +201,18 @@ export const CardTag = styled.span`
 
 export const CardHoverArrow = styled.div`
   position: absolute;
-  right: 16px;
-  bottom: 16px;
-  width: 40px;
-  height: 40px;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  bottom: 0;
+  width: 72px;
+  height: 72px;
   padding: 8px;
   border-radius: 50%;
-  background: ${colors.white};
+  background: radial-gradient(circle, ${colors.white} 20%, transparent 100%);
   display: none;
   ${CardArea}:hover & {
-    display: block;
+    display: flex;
   }
 `;
 
@@ -230,7 +232,7 @@ const CardHeadingTooltipKeyframes = keyframes`
     transform: translateY(10px);
   }
   100% {
-    opacity: 0.95;
+    opacity: 1;
     transform: translateY(0);
   }
 `;
