@@ -1,4 +1,5 @@
 const fs = require('fs');
+const deprecatedElvisClasses = require('@elvia/elvis/.internal/deprecated-classes.json');
 
 // Creating classlist.json
 async function createClassListOverview() {
@@ -131,4 +132,33 @@ function getChildren(parentToMatch) {
 
   return matches;
 }
+
+/** Generate a list of deprecated Elvis classes.
+ * Function uses data from packages/elvis/.internal/deprecated-classes.json
+ * */
+const injectDeprecatedElvisClasses = async () => {
+  let embeddedJs = `
+  let deprecatedElvisClasses = [`;
+  for (const className in deprecatedElvisClasses) {
+    embeddedJs += generateDeprecatedClass(className);
+
+    if (deprecatedElvisClasses[className].deprecateChildren === true) {
+      const children = getChildren(className);
+      children.forEach((child) => {
+        embeddedJs += generateDeprecatedClass(className, child);
+      });
+    }
+  }
+  embeddedJs += `
+];`;
+
+  const template = fs.readFileSync('elvis.js').toString();
+  const newContent = template.replace('//[[INJECT_DEPRECATED_ELVIS_CLASSES]]', embeddedJs);
+  fs.writeFileSync('elvis.js', newContent);
+  fs.writeFileSync('../web/src/assets/js/elvis.js', newContent);
+
+  return true;
+};
+
 exports.createClassListOverview = createClassListOverview;
+exports.injectDeprecatedElvisClasses = injectDeprecatedElvisClasses;
