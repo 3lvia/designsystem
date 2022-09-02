@@ -115,7 +115,7 @@ export const CardHeading = styled.h3<CardHeaderProps>`
   -webkit-line-clamp: ${(props) => (props.type === 'simple' ? 1 : 2)};
   line-clamp: ${(props) => (props.type === 'simple' ? 1 : 2)};
   -webkit-box-orient: vertical;
-  word-break: break-word;
+  overflow-wrap: break-word;
 `;
 
 const CardHeadingTooltipKeyframes = keyframes`
@@ -152,7 +152,7 @@ export const CardHeadingTooltip = styled.div<CardHeadingTooltipProps>`
   letter-spacing: 0.002em;
   color: ${colors.white};
   text-align: center;
-  word-break: break-word;
+  overflow-wrap: break-word;
 
   &::after {
     content: '';

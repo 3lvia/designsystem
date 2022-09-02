@@ -23,7 +23,7 @@ export interface OverflowDirection {
  *
  * @since 2.2.0
  */
-export const useIsOverflowing = <T extends Element>(
+export const useIsOverflowing = <T extends HTMLElement>(
   elementRef?: React.RefObject<T>,
 ): [OverflowDirection, React.RefObject<T>] => {
   const [isOverflowing, setIsOverflowing] = useState<OverflowDirection>({
@@ -37,8 +37,8 @@ export const useIsOverflowing = <T extends Element>(
     const { current } = ref;
     const trigger = () => {
       if (!current) return;
-      const hasOverflowVertical = current.scrollHeight > current.clientHeight;
-      const hasOverflowHorizontal = current.scrollWidth > current.clientWidth;
+      const hasOverflowVertical = current.scrollHeight - 1 > current.clientHeight;
+      const hasOverflowHorizontal = current.scrollWidth - 1 > current.clientWidth;
       setIsOverflowing({ horizontal: hasOverflowHorizontal, vertical: hasOverflowVertical });
     };
     if (current) {
