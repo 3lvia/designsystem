@@ -125,6 +125,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+ function generateDeprecationWarning({name, version, replacement}){
+    return console.warn(`DEPRECATION WARNING: The Elvis class '${name}' has been deprecated since version ${version}. ${replacement ? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation} for more information.` : ''}`)
+ }
+
   function setCorrectColor(classList, icon) {
     let fill;
 
