@@ -1,6 +1,6 @@
 #!/bin/bash
 # TODO: Build components only when changed
-echo 'Tokens - Building color, typography and icons...'
+echo 'Tokens - Building colors, typography and icons...'
 yarn build:tokens
 echo 'Components - Building components...'
 yarn build:components
