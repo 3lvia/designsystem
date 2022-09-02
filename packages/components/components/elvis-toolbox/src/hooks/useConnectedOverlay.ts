@@ -59,10 +59,9 @@ export const useConnectedOverlay = (
   const alignVertically = (
     overlay: CSSStyleDeclaration,
     hostRect: DOMRect,
-    opts: Options,
     scrollOffsetY: number,
     overlayRect: DOMRect,
-    windowRect: WindowRect,
+    window: WindowRect,
   ): void => {
     const alignBottom = () => {
       overlay.top = `${hostRect.bottom + opts.offset + scrollOffsetY}px`;
@@ -73,7 +72,7 @@ export const useConnectedOverlay = (
     };
 
     if (opts.verticalPosition === 'bottom') {
-      hostRect.bottom + opts.offset + overlayRect.height < windowRect.height ? alignBottom() : alignTop();
+      hostRect.bottom + opts.offset + overlayRect.height < window.height ? alignBottom() : alignTop();
     } else {
       hostRect.top - opts.offset - overlayRect.height > 0 ? alignTop() : alignBottom();
     }
@@ -84,44 +83,42 @@ export const useConnectedOverlay = (
     overlay.left = `${hostRect.left}px`;
   };
 
-  const alignOverlayWithConnectedElement = (): void => {
+  useEffect(() => {
     if (!isShowing) {
       return;
     }
 
-    const overlay = overlayContainer.current?.style;
-    const overlayRect = overlayContainer.current?.getBoundingClientRect();
-    const hostRect = connectedElement.current?.getBoundingClientRect();
-    const windowRect = getScreenDimensions();
-    const scrollOffsetY = window.scrollY;
-
-    if (overlay && overlayRect && hostRect && windowRect) {
-      alignVertically(overlay, hostRect, opts, scrollOffsetY, overlayRect, windowRect);
-      alignHorizontally(overlay, hostRect);
-
-      if (opts.alignWidths) {
-        overlay.width = `${hostRect.width}px`;
+    // This method needs to be inside the useEffect for the removeEventListener to work
+    const alignOverlayWithConnectedElement = (): void => {
+      if (!isShowing) {
+        return;
       }
-    }
-  };
 
-  useEffect(() => {
-    if (isShowing) {
-      alignOverlayWithConnectedElement();
-      window.addEventListener('scroll', alignOverlayWithConnectedElement);
-      window.addEventListener('resize', alignOverlayWithConnectedElement);
-    } else {
-      window.removeEventListener('scroll', alignOverlayWithConnectedElement);
-      window.removeEventListener('resize', alignOverlayWithConnectedElement);
-    }
-  }, [isShowing]);
+      const overlayStyle = overlayContainer.current?.style;
+      const overlayRect = overlayContainer.current?.getBoundingClientRect();
+      const hostRect = connectedElement.current?.getBoundingClientRect();
+      const windowRect = getScreenDimensions();
+      const scrollOffsetY = window.scrollY;
 
-  useEffect(() => {
-    return () => {
-      window.removeEventListener('scroll', alignOverlayWithConnectedElement);
-      window.removeEventListener('resize', alignOverlayWithConnectedElement);
+      if (overlayStyle && overlayRect && hostRect && windowRect) {
+        alignVertically(overlayStyle, hostRect, scrollOffsetY, overlayRect, windowRect);
+        alignHorizontally(overlayStyle, hostRect);
+
+        if (opts.alignWidths) {
+          overlayStyle.width = `${hostRect.width}px`;
+        }
+      }
     };
-  }, []);
+
+    alignOverlayWithConnectedElement();
+    window.addEventListener('resize', alignOverlayWithConnectedElement);
+    window.addEventListener('scroll', alignOverlayWithConnectedElement);
+
+    return () => {
+      window.removeEventListener('resize', alignOverlayWithConnectedElement);
+      window.removeEventListener('scroll', alignOverlayWithConnectedElement);
+    };
+  }, [isShowing]);
 
   return [isShowing, setIsShowing];
 };
