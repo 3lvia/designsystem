@@ -104,4 +104,21 @@ function psuedoIsOnElement(className) {
   return true;
 }
 
+function generateDeprecatedClass(className, child = false) {
+  return `
+    {
+      name: "${child ? child : className}",
+      version: "${deprecatedElvisClasses[className].version}",
+      ${
+        deprecatedElvisClasses[className].replacement
+          ? `replacement: {
+          name: "${deprecatedElvisClasses[className].replacement.name}",
+          type: "${deprecatedElvisClasses[className].replacement.type}",
+          documentation: "${deprecatedElvisClasses[className].replacement.documentation}",
+          }`
+          : ''
+      }
+      },`;
+}
+
 exports.createClassListOverview = createClassListOverview;
