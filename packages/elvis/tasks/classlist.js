@@ -121,4 +121,14 @@ function generateDeprecatedClass(className, child = false) {
       },`;
 }
 
+function getChildren(parentToMatch) {
+  const elvisCSS = fs.readFileSync('./css/elvis.css').toString();
+  const classlist = getAllClasses(elvisCSS);
+  const propertyNames = Object.keys(classlist.flat);
+  const matches = propertyNames.filter(
+    (className) => className.includes(parentToMatch) && className !== parentToMatch,
+  );
+
+  return matches;
+}
 exports.createClassListOverview = createClassListOverview;
