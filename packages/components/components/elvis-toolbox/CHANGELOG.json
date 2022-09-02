@@ -3,6 +3,18 @@
   "content": [
     {
       "date": "01.09.22",
+      "version": "2.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added reusable hook <span class=\"code-text\">useConnectedOverlay</span> to manage overlay positioning."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "01.09.22",
       "version": "2.0.0",
       "changelog": [
         {
@@ -11,7 +23,7 @@
             "Removed default export of toolbox file, to make API surface and architecture more modular."
           ],
           "fixes": [
-            "Import the tool you use directly, instead of using a default import. `import toolbox from '@elvia/elvis-toolbox';` becomes `import { throttle } from '@elvia/elvis-toolbox';`"
+            "Import the tool you use directly, instead of using a default import. <span class=\"code-text\">import toolbox from '@elvia/elvis-toolbox';</span> becomes <span class=\"code-text\">import { throttle } from '@elvia/elvis-toolbox';</span>"
           ]
         }
       ]
