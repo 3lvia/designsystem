@@ -44,9 +44,11 @@ export const useConnectedOverlay = (
   const opts: Options = { ...defaultOptions, ...options };
   const [isShowing, setIsShowing] = useState(false);
 
+  const isSsr = () => typeof window === 'undefined' || typeof navigator === 'undefined';
+
   /** Get screen dimensions based on device */
   const getScreenDimensions = (): WindowRect | null => {
-    if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+    if (isSsr()) {
       return null;
     }
     if (navigator.userAgent.toLowerCase().includes('android')) {
@@ -111,6 +113,11 @@ export const useConnectedOverlay = (
     };
 
     alignOverlayWithConnectedElement();
+
+    if (isSsr()) {
+      return;
+    }
+
     window.addEventListener('resize', alignOverlayWithConnectedElement);
     window.addEventListener('scroll', alignOverlayWithConnectedElement);
 
