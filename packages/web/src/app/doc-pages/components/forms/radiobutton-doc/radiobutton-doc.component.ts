@@ -32,7 +32,7 @@ export class RadiobuttonDocComponent {
   </label>
 </form>`;
 
-  example1 = `<form class="e-form_field">
+  exampleSizeNormal = `<form class="e-form_field">
   <label class="e-radio" for="ex1_1">
     <input type="radio" id="ex1_1" name="example1_1" value="value1" checked />
     <span class="e-radio__mark"></span>
@@ -45,20 +45,20 @@ export class RadiobuttonDocComponent {
   </label>
 </form>`;
 
-  example2 = `<form class="e-form_field">
-  <label class="e-radio e-radio--sm" for="optionSmall1">
-    <input type="radio" id="optionSmall1" name="example2_1" value="value1" checked />
+  exampleSizeCompact = `<form class="e-form_field">
+  <label class="e-radio e-radio--compact" for="optionCompact1">
+    <input type="radio" id="optionCompact1" name="example2_1" value="value1" checked />
     <span class="e-radio__mark"></span>
     <span class="e-radio__label">Selected</span>
   </label>
-  <label class="e-radio e-radio--sm" for="optionSmall2">
-    <input type="radio" id="optionSmall2" name="example2_1" value="value2"/>
+  <label class="e-radio e-radio--compact" for="optionCompact2">
+    <input type="radio" id="optionCompact2" name="example2_1" value="value2"/>
     <span class="e-radio__mark"></span>
     <span class="e-radio__label">Normal</span>
   </label>
 </form>`;
 
-  example3 = `<form class="e-form_field">
+  exampleStates = `<form class="e-form_field">
   <label class="e-radio e-radio---hover">
     <input type="radio" name="hover"/>
     <span class="e-radio__mark"></span>

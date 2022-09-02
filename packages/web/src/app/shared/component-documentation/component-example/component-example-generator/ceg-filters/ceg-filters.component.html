@@ -10,7 +10,7 @@
       <label class="e-form-field__label">{{ formGroup.label }}</label>
       <label
         *ngFor="let formField of formGroup.formGroupOptions; let i = index"
-        class="e-radio e-radio--sm"
+        class="e-radio e-radio--compact"
         for="{{ formGroup.label }}-{{ formField.name }}-{{ desktop }}"
         (change)="
           onInputValueChange(formGroup, undefined, formField.name);
@@ -79,7 +79,7 @@
           (change)="
             onInputValueChange(formField, $event, undefined); updateToggleCheckboxProp(formGroup, formField)
           "
-          class="e-checkbox e-checkbox--sm"
+          class="e-checkbox e-checkbox--compact"
           [ngClass]="{
             'e-ml-8': (formField | checkboxChildFields: componentData)
           }"

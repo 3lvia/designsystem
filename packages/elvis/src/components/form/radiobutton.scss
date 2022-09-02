@@ -4,7 +4,7 @@
 @use '../../utilities/helpers';
 
 $form-radiobutton-mark-size: 24px;
-$form-radiobutton-small-mark-size: 16px;
+$form-radiobutton-compact-mark-size: 16px;
 $form-radiobutton-mark-border-radius: 14px;
 $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
 
@@ -27,6 +27,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
     margin-bottom: 8px;
   }
 
+  &.e-radio--compact,
   &.e-radio--sm {
     @include typography.typography('text-sm');
     color: colors.color('font-color');
@@ -42,7 +43,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
 
       // states styles for input
       &:checked ~ #{$this}__mark {
-        @extend %radiobutton-mark--small;
+        @extend %radiobutton-mark--compact;
         border-color: colors.color('elvia-off');
       }
 
@@ -81,8 +82,13 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
     }
 
     .e-radio__mark {
-      width: $form-radiobutton-small-mark-size;
-      height: $form-radiobutton-small-mark-size;
+      width: $form-radiobutton-compact-mark-size;
+      height: $form-radiobutton-compact-mark-size;
+      top: 3px;
+    }
+
+    .e-radio__label {
+      margin-left: 24px;
     }
   }
 
@@ -153,7 +159,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
     }
   }
 
-  %radiobutton-mark--small {
+  %radiobutton-mark--compact {
     background-color: colors.color('elvia-charge');
     display: flex;
     align-items: center;
@@ -194,9 +200,10 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
       @extend %radiobutton-mark;
     }
   }
-  // extends correct radiomark for sm radiobuttons
+  // extends correct radiomark for compact radiobuttons
+  &.e-radio--compact[class$='e-radio---checked'] &__mark,
   &.e-radio--sm[class$='e-radio---checked'] &__mark {
-    @extend %radiobutton-mark--small;
+    @extend %radiobutton-mark--compact;
   }
 
   &.e-radio---disabled {
@@ -228,9 +235,10 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
       cursor: not-allowed;
     }
   }
-  // extends correct radiomark for sm radiobuttons
+  // extends correct radiomark for compact radiobuttons
+  &.e-radio--compact[class$='e-radio---disabled-checked'] &__mark,
   &.e-radio--sm[class$='e-radio---disabled-checked'] &__mark {
-    @extend %radiobutton-mark--small;
+    @extend %radiobutton-mark--compact;
   }
 
   &.e-radio---focus {
@@ -256,18 +264,9 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
     position: absolute;
     top: 0px;
   }
-  &.e-radio--sm {
-    .e-radio__mark {
-      top: 3px;
-    }
-  }
+
   &__label {
     flex-grow: 1;
     margin-left: 32px;
-  }
-  &.e-radio--sm {
-    .e-radio__label {
-      margin-left: 24px;
-    }
   }
 }
