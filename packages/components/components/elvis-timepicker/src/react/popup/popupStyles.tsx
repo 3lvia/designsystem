@@ -1,5 +1,12 @@
 import styled from 'styled-components';
+import { getTypographyCss } from '@elvia/elvis-typography';
+
 import { colors } from '../styledComponents';
+
+const typography = {
+  numberPickerTitle: getTypographyCss('text-sm'),
+  numberButton: getTypographyCss('text-md'),
+};
 
 export const OverlayContainer = styled.div`
   background-color: ${colors.elviaWhite};
@@ -26,12 +33,7 @@ export const NumberPickerContainer = styled.div`
 `;
 
 export const NumberPickerTitle = styled.h4`
-  font-family: inherit;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
-  letter-spacing: inherit;
-  color: inherit;
+  ${typography.numberPickerTitle}
   margin: 0;
   height: 40px;
   display: flex;
@@ -68,13 +70,8 @@ interface NumberButtonProps {
 }
 
 export const NumberButton = styled.button<NumberButtonProps>`
+  ${typography.numberButton}
   width: 100%;
-  font-family: inherit;
-  letter-spacing: inherit;
-  color: inherit;
-  font-size: inherit;
-  line-height: 28px;
-  font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
