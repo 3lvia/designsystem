@@ -1,7 +1,20 @@
 {
+  "e-divider": {
+    "deprecateChildren": true,
+    "version": "2.9.22",
+    "replacement": {
+      "name": "Divider",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/divider"
+    }
+  },
   "e-link--external": {
     "version": "7.4.0",
-    "replacedBy": "e-link--new-tab"
+    "replacement": {
+      "name": "e-link--new-tab",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/link#Type"
+    }
   },
   "e-table__sort-header": {
     "version": "7.5.0"
@@ -20,22 +33,43 @@
   },
   "e-fileupload---hover": {
     "version": "7.9.3",
-    "replacedBy": "e-fileupload--dragover"
+    "replacement": {
+      "name": "e-fileupload--dragover",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/file-upload#States"
+    }
   },
   "e-link--jumbo": {
     "version": "7.13.5",
-    "replacedBy": "Action group pattern"
+    "replacement": {
+      "name": "action group",
+      "type": "pattern",
+      "documentation": "https://design.elvia.io/patterns/groups"
+    }
   },
   "e-link--card": {
     "version": "7.13.5",
-    "replacedBy": "Card component"
+    "replacement": {
+      "name": "Card",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/card"
+    }
   },
   "e-card": {
+    "deprecateChildren": true,
     "version": "7.13.5",
-    "replacedBy": "Card component"
+    "replacement": {
+      "name": "Card",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/card"
+    }
   },
   "e-label": {
     "version": "8.4.1",
-    "replacedBy": "e-tag"
+    "replacement": {
+      "name": "e-tag",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/tag"
+    }
   }
 }

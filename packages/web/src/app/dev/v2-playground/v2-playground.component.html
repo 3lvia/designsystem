@@ -5,285 +5,55 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
-    <!--Inverted version-->
-    <div class="e-bg-grey"></div>
-  </div>
-
-  <!--Accordion-->
-  <div class="example-wrapper">
-    <h3>Accordion</h3>
-    <button (click)="isOpen = !isOpen">helo</button>
-    <elvia-accordion
-      [isOpen]="isOpen"
-      openLabel="Show"
-      closeLabel="Hide"
-      size="medium"
-      type="normal"
-      typography="title-caps"
-      (onOpen)="onOpen()"
-      (onClose)="onClose()"
-    >
-      <div slot="content">
-        <h3>Hello there</h3>
+    <div class="e-bg-white">
+      <i class="e-icon e-icon--chat e-icon--md" aria-hidden="true"></i>
+      <i class="e-icon e-icon--chat e-icon--md" aria-hidden="true"></i>
+      <div class="e-form-field e-form-field--combined">
+        <label class="e-form-field__label" for="phone">Phone</label>
+        <div class="e-form-field__input">
+          <div id="phone" class="e-input e-input--small e-dette-er-min">
+            <input type="text" value="+47" />
+          </div>
+          <div class="e-input">
+            <input type="text" placeholder="99 99 99 99" />
+          </div>
+        </div>
       </div>
-    </elvia-accordion>
-  </div>
 
-  <!--Box-->
-  <div class="example-wrapper">
-    <h3>Box</h3>
-    <div style="padding: 8px">
-      <elvia-box [hasBorder]="true">
-        <h3 slot="title">Title</h3>
-        <div slot="content">Webcomponentent content for the box component</div>
-      </elvia-box>
-    </div>
-  </div>
-
-  <!--Breadcrumb-->
-  <div class="example-wrapper">
-    <h3>Breadcrumbs</h3>
-    <elvia-breadcrumb [items]="breadcrumbsTestNoUrl"></elvia-breadcrumb>
-  </div>
-
-  <!--Card-->
-  <div class="example-wrapper">
-    <h3>Card</h3>
-    <div class="e-grid">
-      <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
-        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
-          <a [routerLink]="['/components/card']">
-            <elvia-card [header]="'Header'" [description]="'Hover me!'">
-              <div slot="icon">91</div>
-              <div slot="iconHover">92</div>
-              <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
-            </elvia-card>
-          </a>
+      <div class="e-inlined-field e-mt-24 e-link--external e-card--shadow-soft">
+        <div class="e-form-field e-form-field--medium">
+          <label class="e-form-field__label" for="zip">Zip code</label>
+          <div class="e-input">
+            <input id="zip" type="text" placeholder="Zip code" />
+          </div>
         </div>
-        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
-          <a [routerLink]="['/components/card']">
-            <elvia-card [header]="'Hover!'" [borderColor]="'red'">
-              <i slot="icon" class="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>
-              <i slot="iconHover" class="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>
-              <i slot="cornerIcon" class="e-icon e-icon--unlock e-icon--xs" aria-hidden="true"></i>
-            </elvia-card>
-          </a>
-        </div>
-        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
-          <a [routerLink]="['/components/card']">
-            <elvia-card
-              [header]="'Title3'"
-              [description]="'description3'"
-              [icon]="'3'"
-              [borderColor]="'green'"
-            ></elvia-card>
-          </a>
+        <div class="e-form-field">
+          <label class="e-form-field__label" for="city">City</label>
+          <div class="e-input">
+            <input id="city" type="text" placeholder="City" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!--Carousel-->
-  <div class="example-wrapper">
-    <h3>Carousel</h3>
-    <elvia-carousel [loop]="false" [hasConfirmationCheckmark]="true">
-      <div slot="title-1">
-        <h3 class="e-title-sm">title 1</h3>
+    <div class="e-inlined-field">
+      <div class="e-form-field e-form-field--width-auto">
+        <div class="e-search e-search--on-submit e-search--searched" style="width: 250px">
+          <div class="e-input">
+            <input aria-label="Search" type="search" placeholder="Search" value="Elvia" />
+          </div>
+          <button class="e-btn e-btn--icon" aria-label="Tøm søkefelt">
+            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+          </button>
+        </div>
       </div>
-      <div slot="item-1">
-        <img
-          alt="Carousel example image"
-          src="../../../../assets/carousel/el1.jpeg"
-          style="width: 100%; min-width: 278px; border-radius: 8px"
-        />
-      </div>
-      <div slot="title-2">
-        <h3 class="e-title-sm">title 2</h3>
-      </div>
-      <div slot="item-2">
-        <img
-          alt="Carousel example image"
-          src="../../../../assets/carousel/el2.jpeg"
-          style="width: 100%; min-width: 278px; border-radius: 8px"
-        />
-      </div>
-    </elvia-carousel>
-  </div>
-
-  <!--Chip-->
-  <div class="example-wrapper">
-    <h3>Deletable chips</h3>
-    <div style="display: flex; flex-direction: row">
-      <div *ngFor="let chip of deletableChipsList">
-        <elvia-chip
-          [value]="chip.value"
-          [color]="chip.color"
-          [ariaLabel]="'Fjern filtrering for ' + chip.value"
-          [isDisabled]="chip.isDisabled"
-          (onDelete)="handleOnDelete($event.detail.value)"
-          (isSelectedOnChange)="logValue('chip', $event.detail.value)"
-          [inlineStyle]="{ margin: '8px' }"
-        ></elvia-chip>
-      </div>
-    </div>
-    Value deleted: {{ deleteValue }}
-
-    <h3>Clickable chips</h3>
-    <div style="display: flex; flex-direction: row">
-      <div *ngFor="let chip of filteredKeys">
-        <elvia-chip
-          [value]="chip"
-          [isSelected]="filteredValues[chip]"
-          color="orange"
-          type="legend"
-          (isSelectedOnChange)="handleOnChange($event)"
-        ></elvia-chip>
-      </div>
-    </div>
-    Selected values:
-    <span *ngFor="let key of filteredKeys">
-      <span *ngIf="filteredValues[key]">{{ key }},</span>
-    </span>
-  </div>
-
-  <!--Datepicker-->
-  <div class="example-wrapper">
-    <h3>DatePicker</h3>
-    <elvia-datepicker [value]="date"></elvia-datepicker>
-  </div>
-  <!--Date range picker-->
-  <div class="example-wrapper">
-    <h3>Date range picker</h3>
-    <elvia-datepicker-range></elvia-datepicker-range>
-  </div>
-
-  <!--Divider-->
-  <div class="example-wrapper">
-    <h3>Divider</h3>
-    <elvia-divider type="title" typography="caps">
-      <h3 slot="title">Title</h3>
-    </elvia-divider>
-    <h3>Vertical divider</h3>
-    <div style="height: 100px">
-      <elvia-divider type="simple" orientation="vertical"></elvia-divider>
-    </div>
-  </div>
-
-  <!--Dropdown-->
-  <div class="example-wrapper">
-    <h3>Dropdown</h3>
-    <elvia-dropdown
-      [isMulti]="true"
-      [isCompact]="false"
-      [isDisabled]="false"
-      label="testing something"
-      [value]="dropdownDefOptions"
-      [items]="dropdownOptions"
-    ></elvia-dropdown>
-  </div>
-
-  <!--Icon-->
-  <div class="example-wrapper">
-    <h3>Icon</h3>
-    <elvia-icon name="arrowRightBold"></elvia-icon>
-    <elvia-icon name="arrowLeftBold"></elvia-icon>
-  </div>
-
-  <!--Modal-->
-  <div class="example-wrapper">
-    <h3>Modal</h3>
-    <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
-    <elvia-modal
-      (onClose)="isModalShowing = !isModalShowing"
-      [isShowing]="isModalShowing"
-      [heading]="'Redigere bidragsytere'"
-      [disableClose]="false"
-    >
-      <div slot="content">Content</div>
-      <button
-        slot="secondaryButton"
-        class="e-btn e-btn--secondary e-btn--lg"
-        (click)="isModalShowing = false"
-      >
-        Avbryt
+      <button class="e-btn e-btn--lg e-ml-16">
+        <span class="e-btn__icon e-card__title">
+          <i class="e-icon e-icon--search-color e-icon--inverted" aria-hidden="true"></i>
+          <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+        </span>
+        <span class="e-btn__title e-link--jumbo e-table__sort-icon">Search</span>
       </button>
-      <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Lagre</button>
-    </elvia-modal>
-  </div>
-
-  <!--Paginator-->
-  <div class="example-wrapper">
-    <h3>Paginator</h3>
-    <elvia-pagination
-      numberOfElements="156"
-      [value]="defaultPaginationValue"
-      [alignment]="'right'"
-      dropdownMenuPosition="top"
-    ></elvia-pagination>
-  </div>
-
-  <!--Popover-->
-  <div class="example-wrapper">
-    <h3>Popover</h3>
-    <elvia-popover
-      [isShowing]="isPopoverShowing"
-      (onOpen)="isPopoverShowing = true"
-      (onClose)="isPopoverShowing = false"
-      heading="BankID"
-      horizontalPosition="right"
-      verticalPosition="top"
-      width="200"
-    >
-      <button slot="trigger" class="e-btn">Show popover</button>
-      <div slot="content">
-        Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
-        <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
-      </div>
-    </elvia-popover>
-  </div>
-
-  <!--Progress linear-->
-  <div class="example-wrapper">
-    <h3>Progress linear</h3>
-    <elvia-progress-linear
-      [isIndeterminate]="indeterminate"
-      [value]="progressValue"
-      [isError]="progressError"
-    ></elvia-progress-linear>
-    <div style="margin-bottom: 32px; display: flex">
-      <div style="display: flex; width: 100%; justify-content: space-between">
-        <button class="e-btn" (click)="progressValue = progressValue + 10">Increase Progress</button>
-        <button class="e-btn" (click)="progressValue = progressValue - 10">Decrease Progress</button>
-        <button class="e-btn" (click)="indeterminate = !indeterminate">Toggle indeterminate</button>
-        <button class="e-btn" (click)="progressError = !progressError">Toggle error</button>
-      </div>
     </div>
-  </div>
-
-  <!--Radio filter-->
-  <div class="example-wrapper">
-    <h3>Radio filter</h3>
-    <elvia-radio-filter
-      [items]="[
-        { label: 'All', value: 'all' },
-        { label: 'Read', value: 'read' },
-        { label: 'Unread', value: 'unread' }
-      ]"
-      [value]="'read'"
-      [name]="'readRadioFilters'"
-      [ariaLabel]="'{value} filtrering valgt'"
-    ></elvia-radio-filter>
-  </div>
-
-  <!--Spotlight-->
-  <div class="example-wrapper">
-    <h3>Spotlight</h3>
-    <!-- <elvia-spotlight [position]="{ horizontal: 300, vertical: 300 }" [radius]="80"></elvia-spotlight> -->
-  </div>
-
-  <!--Tabs-->
-  <div class="example-wrapper">
-    <h3>Tabs</h3>
-    <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1"></elvia-tabs>
+    <div class="e-divider"><p>hallo</p></div>
   </div>
 </div>
