@@ -1,0 +1,15 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "02.09.22",
+      "version": "0.0.1-alpha ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of the time picker."]
+        }
+      ]
+    }
+  ]
+}
