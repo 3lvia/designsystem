@@ -1,7 +1,6 @@
 import React, { FC, useRef, useEffect, useState, CSSProperties } from 'react';
 import { Icon } from '@elvia/elvis-icon/react';
 import { CardType, BorderColor } from './elvia-card.types';
-import { useIsOverflowing } from './useIsOverflowing';
 import {
   CardArea,
   CardContent,
@@ -16,6 +15,7 @@ import {
   CardHeadingTooltip,
   CardHeadingContainer,
 } from './styledComponents';
+import { useIsOverflowing } from '@elvia/elvis-toolbox';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 export interface CardProps {
@@ -76,8 +76,7 @@ const Card: FC<CardProps> = ({
   const iconRef = useRef<HTMLDivElement>(null);
   const cornerIconRef = useRef<HTMLDivElement>(null);
 
-  const headingRef = useRef<HTMLDivElement>(null);
-  const [headingIsOverflowing] = useIsOverflowing(headingRef);
+  const [{ vertical: headingIsOverflowing }, headingRef] = useIsOverflowing<HTMLDivElement>();
 
   /** Get all slots and place them correctly */
   useEffect(() => {
