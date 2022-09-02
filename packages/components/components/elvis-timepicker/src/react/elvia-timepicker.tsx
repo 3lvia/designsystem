@@ -84,12 +84,12 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     <TimePickerContainer className={`${className ? className : ''}`} style={{ ...inlineStyle }} {...rest}>
       <TimePickerLabel>
         <LabelText>{label}</LabelText>
-        <InputContainer ref={connectedElementRef}>
+        <InputContainer ref={connectedElementRef} disabled={disabled}>
           <Input
             disabled={disabled}
             type="text"
             placeholder="tt.mm"
-            value={time ? `${padDigit(time.getHours())}:${padDigit(time.getMinutes())}` : ''}
+            value={time ? `${padDigit(time.getHours())}.${padDigit(time.getMinutes())}` : ''}
             onChange={(ev) => console.log(ev.target.value)}
           />
           <IconButton
@@ -98,7 +98,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             onClick={() => setIsShowing(true)}
             ref={openPopoverButtonRef}
           >
-            <Icon name="clock" size={isCompact ? 'xs' : 'sm'} />
+            <Icon name="clock" color={disabled ? 'grey-30' : 'black'} size={isCompact ? 'xs' : 'sm'} />
           </IconButton>
         </InputContainer>
       </TimePickerLabel>
