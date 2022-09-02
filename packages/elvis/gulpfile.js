@@ -21,6 +21,7 @@ gulp.task(
     classList.createClassListOverview,
     icons.generateIcons,
     // colors.injectColors must be called after icons.generateIcons
+    classList.injectDeprecatedElvisClasses,
     colors.injectColors,
     copyChangelogs,
     function (done) {
