@@ -27,12 +27,14 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
             numbers={hours}
             onSelect={(val) => onChange('hour', val)}
           />
-          <NumberPicker
-            title="Minutt"
-            currentValue={currentTime?.getMinutes()}
-            numbers={minutes}
-            onSelect={(val) => onChange('minute', val)}
-          />
+          {minuteGranularity !== '60' && (
+            <NumberPicker
+              title="Minutt"
+              currentValue={currentTime?.getMinutes()}
+              numbers={minutes}
+              onSelect={(val) => onChange('minute', val)}
+            />
+          )}
         </Container>
       </>,
       document.body,
