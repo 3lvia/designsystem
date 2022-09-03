@@ -1,4 +1,5 @@
 import { Dispatch, RefObject, SetStateAction, useEffect, useState } from 'react';
+import { isSsr } from '../isSsr';
 
 interface WindowRect {
   height: number;
@@ -43,8 +44,6 @@ export const useConnectedOverlay = (
 ): [boolean, Dispatch<SetStateAction<boolean>>] => {
   const opts: Options = { ...defaultOptions, ...options };
   const [isShowing, setIsShowing] = useState(false);
-
-  const isSsr = () => typeof window === 'undefined' || typeof navigator === 'undefined';
 
   /** Get screen dimensions based on device */
   const getScreenDimensions = (): WindowRect | null => {

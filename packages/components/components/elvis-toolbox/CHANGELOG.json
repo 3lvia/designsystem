@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.09.22",
+      "version": "2.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added method for checking server side rendering"]
+        }
+      ]
+    },
+    {
       "date": "02.09.22",
       "version": "2.2.0",
       "changelog": [
