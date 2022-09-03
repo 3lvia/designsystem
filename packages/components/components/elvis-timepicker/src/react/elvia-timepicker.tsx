@@ -31,7 +31,16 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
   const [isShowing, setIsShowing] = useConnectedOverlay(connectedElementRef, popoverRef);
 
-  const updateTime = (type: ChangeType, value: number): void => {
+  const updateValue = (newTime: Date): void => {
+    setTime(newTime);
+    if (!webcomponent && valueOnChange) {
+      valueOnChange(newTime);
+    } else if (webcomponent) {
+      webcomponent.setProps({ value: newTime }, true);
+    }
+  };
+
+  const setHourOrMinute = (type: ChangeType, value: number): void => {
     const newTime = time ? new Date(time) : new Date();
 
     if (!time) {
@@ -44,12 +53,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
       newTime.setMinutes(value);
     }
 
-    setTime(newTime);
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(newTime);
-    } else if (webcomponent) {
-      webcomponent.setProps({ value: newTime }, true);
-    }
+    updateValue(newTime);
   };
 
   useEffect(() => {
@@ -77,9 +81,9 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   return (
     <TimePickerContainer className={`${className ? className : ''}`} style={{ ...inlineStyle }} {...rest}>
       <TimePickerLabel>
-        <LabelText>{label}</LabelText>
+        <LabelText isCompact={isCompact}>{label}</LabelText>
         <InputContainer ref={connectedElementRef} disabled={disabled} isCompact={isCompact}>
-          <TimepickerInput time={time} disabled={disabled} />
+          <TimepickerInput time={time} disabled={disabled} isCompact={isCompact} onChange={updateValue} />
           <IconButton
             disabled={disabled}
             active={isShowing}
@@ -95,7 +99,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
         <OverlayContainer
           ref={popoverRef}
           onClose={() => setIsShowing(false)}
-          onChange={(type, value) => updateTime(type, value)}
+          onChange={(type, value) => setHourOrMinute(type, value)}
           currentTime={time}
           minuteGranularity={minuteGranularity}
         />

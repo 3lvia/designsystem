@@ -24,11 +24,32 @@ export const TimePickerContainer = styled.div`
 
 export const TimePickerLabel = styled.label`
   display: inline-block;
+  position: relative;
 `;
 
-export const LabelText = styled.div`
+interface LabelTextProps {
+  isCompact: boolean;
+}
+
+export const LabelText = styled.div<LabelTextProps>`
   ${typography.textLabel}
   margin-bottom: 5px;
+
+  ${(props) => {
+    if (props.isCompact) {
+      return `
+        font-size: 0.625rem;
+        background-color: ${colors.elviaWhite};
+        position: absolute;
+        margin-left: 7px;
+        top: -5px;
+        padding: 0 3px;
+        z-index: 1;
+        line-height: 100%;
+      `;
+    }
+    return '';
+  }}
 `;
 
 interface InputContainerProps {
@@ -42,26 +63,31 @@ export const InputContainer = styled.div<InputContainerProps>`
   gap: 8px;
   padding: ${(props) => (props.isCompact ? '0px 4px 0px 8px' : '0px 8px 0px 16px')};
   border: 1px solid ${colors.elviaBlack};
-  height: ${(props) => (props.isCompact ? '32px' : '48px')};
+  height: ${(props) => (props.isCompact ? '34px' : '48px')};
   border-radius: 4px;
   cursor: text;
 
-  ${(props) =>
-    props.disabled
-      ? `
-    cursor: not-allowed;
-    border-color: ${colors.grey30};
-  `
-      : `
-  &:hover,
   &:focus-within {
     border: 2px solid ${colors.elviaGreen};
-    padding: ${props.isCompact ? '0px 3px 0px 7px' : '0px 7px 0px 15px'};
+    padding: ${(props) => (props.isCompact ? '0px 3px 0px 7px' : '0px 7px 0px 15px')};
   }
-  `}
+
+  ${(props) => {
+    if (props.disabled) {
+      return `
+        cursor: not-allowed;
+        border-color: ${colors.grey30};
+      `;
+    }
+    return '';
+  }}
 `;
 
-export const Input = styled.input`
+interface InputProps {
+  isCompact: boolean;
+}
+
+export const Input = styled.input<Partial<InputProps>>`
   ${typography.textInput}
   width: 46px;
   min-width: 0;
@@ -69,6 +95,14 @@ export const Input = styled.input`
   border: none;
   background-color: transparent;
   cursor: inherit;
+
+  ${(props) => {
+    if (props.isCompact) {
+      return `
+        font-size: 14px;
+      `;
+    }
+  }}
 `;
 
 interface IconButtonProps {
