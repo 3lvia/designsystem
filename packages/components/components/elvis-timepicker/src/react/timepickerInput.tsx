@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
+import { isSsr } from '@elvia/elvis-toolbox';
 
 import { padDigit } from './padDigit';
 import { Input } from './styledComponents';
@@ -6,11 +7,21 @@ import { Input } from './styledComponents';
 interface Props {
   disabled?: boolean;
   time?: Date;
+  isCompact?: boolean;
+  onChange: (newValue: Date) => void;
 }
 
-export const TimepickerInput: React.FC<Props> = ({ disabled, time }) => {
+export const TimepickerInput: React.FC<Props> = ({ disabled, time, isCompact, onChange }) => {
   let previousValidValue = '';
   const [inputValue, setInputValue] = useState('');
+
+  const hasSelection = (): boolean => {
+    if (isSsr()) {
+      return false;
+    }
+
+    return !!window.getSelection() || !!document.getSelection();
+  };
 
   const parseInput = (ev: ChangeEvent<HTMLInputElement>): void => {
     const key = (ev.nativeEvent as InputEvent).data || '';
@@ -19,11 +30,7 @@ export const TimepickerInput: React.FC<Props> = ({ disabled, time }) => {
     const isModifierKey = ['deleteContentBackward', 'deleteContentForward'].includes(
       (ev.nativeEvent as InputEvent).inputType,
     );
-    const hasCharsSelected = (ev.target.selectionEnd || 0) - (ev.target.selectionStart || 0) > 0;
-    if (
-      (inputValue.length >= 5 && !isModifierKey && !hasCharsSelected) ||
-      !(isNumericValue || isModifierKey)
-    ) {
+    if ((inputValue.length >= 5 && !isModifierKey && !hasSelection()) || !(isNumericValue || isModifierKey)) {
       return;
     }
 
@@ -39,6 +46,15 @@ export const TimepickerInput: React.FC<Props> = ({ disabled, time }) => {
     }
   };
 
+  const emitNewValue = (): void => {
+    if (!time || previousValidValue !== getFormattedInputValue(time)) {
+      const parts = previousValidValue.split('.');
+      const newValue = time ? new Date(time) : new Date();
+      newValue.setHours(+parts[0], +parts[1], 0, 0);
+      onChange(newValue);
+    }
+  };
+
   const validateInputValue = (): void => {
     const parts = inputValue.split('.');
 
@@ -51,11 +67,17 @@ export const TimepickerInput: React.FC<Props> = ({ disabled, time }) => {
       setInputValue(newValue);
       previousValidValue = newValue;
     }
+
+    emitNewValue();
+  };
+
+  const getFormattedInputValue = (date: Date): string => {
+    return `${padDigit(date.getHours())}.${padDigit(date.getMinutes())}`;
   };
 
   useEffect(() => {
     if (time) {
-      setInputValue(`${padDigit(time.getHours())}.${padDigit(time.getMinutes())}`);
+      setInputValue(getFormattedInputValue(time));
     }
   }, [time]);
 
@@ -67,6 +89,7 @@ export const TimepickerInput: React.FC<Props> = ({ disabled, time }) => {
       value={inputValue}
       onChange={parseInput}
       onBlur={validateInputValue}
+      isCompact={isCompact}
     />
   );
 };

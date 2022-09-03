@@ -64,7 +64,8 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
   useEffect(() => {
     // Set scroll position on current value
     if (listRef.current) {
-      const index = loopedNumbers.indexOf(currentValue != null ? currentValue : numbers[0]);
+      // Search from index 1 to prevent matching the duplicated numbers at the start of the list
+      const index = loopedNumbers.indexOf(currentValue != null ? currentValue : numbers[0], 1);
 
       if (index !== -1) {
         listRef.current.scrollTo({
