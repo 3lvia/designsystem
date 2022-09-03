@@ -84,7 +84,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     <TimePickerContainer className={`${className ? className : ''}`} style={{ ...inlineStyle }} {...rest}>
       <TimePickerLabel>
         <LabelText>{label}</LabelText>
-        <InputContainer ref={connectedElementRef} disabled={disabled}>
+        <InputContainer ref={connectedElementRef} disabled={disabled} isCompact={isCompact}>
           <Input
             disabled={disabled}
             type="text"
@@ -97,6 +97,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             active={isShowing}
             onClick={() => setIsShowing(true)}
             ref={openPopoverButtonRef}
+            size={isCompact ? 'small' : 'medium'}
           >
             <Icon name="clock" color={disabled ? 'grey-30' : 'black'} size={isCompact ? 'xs' : 'sm'} />
           </IconButton>

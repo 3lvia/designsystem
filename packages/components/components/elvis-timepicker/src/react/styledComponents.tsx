@@ -33,13 +33,16 @@ export const LabelText = styled.div`
 
 interface InputContainerProps {
   disabled: boolean;
+  isCompact: boolean;
 }
 
 export const InputContainer = styled.div<InputContainerProps>`
   display: inline-flex;
+  align-items: center;
   gap: 8px;
-  padding: 4px 8px 4px 16px;
+  padding: ${(props) => (props.isCompact ? '0px 4px 0px 8px' : '0px 8px 0px 16px')};
   border: 1px solid ${colors.elviaBlack};
+  height: ${(props) => (props.isCompact ? '32px' : '48px')};
   border-radius: 4px;
   cursor: text;
 
@@ -53,7 +56,7 @@ export const InputContainer = styled.div<InputContainerProps>`
   &:hover,
   &:focus-within {
     border: 2px solid ${colors.elviaGreen};
-    padding: 3px 7px 3px 15px;
+    padding: ${props.isCompact ? '0px 3px 0px 7px' : '0px 7px 0px 15px'};
   }
   `}
 `;
