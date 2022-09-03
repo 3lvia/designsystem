@@ -3,7 +3,6 @@ import {
   TimePickerContainer,
   TimePickerLabel,
   InputContainer,
-  Input,
   IconButton,
   LabelText,
 } from './styledComponents';
@@ -12,12 +11,7 @@ import { OverlayContainer } from './popup/overlayContainer';
 import { ChangeType, TimepickerProps } from './elviaTimepicker.types';
 import { useConnectedOverlay } from '@elvia/elvis-toolbox';
 import { useFocusTrap } from '@elvia/elvis-modal/dist/react/js/useFocusTrap';
-
-// Returns number always as two digits
-export const padDigit = (d: number): string => {
-  const paddedNumber = `0${d}`;
-  return paddedNumber.substring(paddedNumber.length - 2);
-};
+import { TimepickerInput } from './timepickerInput';
 
 export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   value,
@@ -85,13 +79,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
       <TimePickerLabel>
         <LabelText>{label}</LabelText>
         <InputContainer ref={connectedElementRef} disabled={disabled} isCompact={isCompact}>
-          <Input
-            disabled={disabled}
-            type="text"
-            placeholder="tt.mm"
-            value={time ? `${padDigit(time.getHours())}.${padDigit(time.getMinutes())}` : ''}
-            onChange={(ev) => console.log(ev.target.value)}
-          />
+          <TimepickerInput time={time} disabled={disabled} />
           <IconButton
             disabled={disabled}
             active={isShowing}
