@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { padDigit } from '../elvia-timepicker';
+import React, { useEffect, useRef, useState } from 'react';
+import { padDigit } from '../padDigit';
 import { IconButton } from '../styledComponents';
 import {
   ArrowButtonContainer,
@@ -22,6 +22,22 @@ const numberButtonHeight = 48;
 
 export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, onSelect }) => {
   const listRef = useRef<HTMLDivElement>(null);
+  const [loopedNumbers, setLoopedNumbers] = useState<number[]>([]);
+
+  const loopScroll = () => {
+    if (listRef.current) {
+      if (listRef.current.scrollTop === 0) {
+        listRef.current.scroll({
+          top: numbers.length * numberButtonHeight,
+        });
+      } else if (
+        listRef.current.scrollTop ===
+        numberButtonHeight * loopedNumbers.length - numberButtonHeight * 3
+      ) {
+        listRef.current.scroll({ top: numberButtonHeight });
+      }
+    }
+  };
 
   const shuffleTo = (direction: 'next' | 'previous'): void => {
     if (currentValue == null) {
@@ -45,20 +61,23 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
     }
   };
 
-  const isSelected = (val: number): boolean => val === currentValue;
-
   useEffect(() => {
-    if (currentValue != null && listRef.current) {
-      const index = numbers.indexOf(currentValue);
+    // Set scroll position on current value
+    if (listRef.current) {
+      const index = loopedNumbers.indexOf(currentValue != null ? currentValue : numbers[0]);
 
       if (index !== -1) {
         listRef.current.scrollTo({
           top: index * numberButtonHeight - numberButtonHeight,
-          behavior: 'smooth',
         });
       }
     }
-  }, [currentValue]);
+  }, [currentValue, loopedNumbers]);
+
+  useEffect(() => {
+    const listClone = numbers.slice();
+    setLoopedNumbers([...listClone.slice(listClone.length - 2), ...listClone, ...listClone.slice(0, 2)]);
+  }, []);
 
   return (
     <NumberPickerContainer>
@@ -69,9 +88,14 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
           <Icon name="arrowUpBold" size="xs" />
         </IconButton>
       </ArrowButtonContainer>
-      <NumberListContainer ref={listRef}>
-        {numbers.map((number) => (
-          <NumberButton isSelected={isSelected(number)} key={number} onClick={() => onSelect(number)}>
+      <NumberListContainer ref={listRef} onScroll={loopScroll}>
+        {loopedNumbers.map((number, index) => (
+          <NumberButton
+            tabIndex={-1}
+            isSelected={number === currentValue}
+            key={index}
+            onClick={() => onSelect(number)}
+          >
             {padDigit(number)}
           </NumberButton>
         ))}
