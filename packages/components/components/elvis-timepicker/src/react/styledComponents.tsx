@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
@@ -38,7 +38,7 @@ export const LabelText = styled.div<BaseProps>`
 
   ${(props) => {
     if (props.isCompact) {
-      return `
+      return css`
         font-size: 0.625rem;
         background-color: ${colors.elviaWhite};
         position: absolute;
@@ -74,7 +74,7 @@ export const InputContainer = styled.div<InputContainerProps>`
 
   ${(props) => {
     if (props.disabled) {
-      return `
+      return css`
         cursor: not-allowed;
         border-color: ${colors.grey30};
       `;
@@ -94,7 +94,7 @@ export const Input = styled.input<Partial<BaseProps>>`
 
   ${(props) => {
     if (props.isCompact) {
-      return `
+      return css`
         font-size: 14px;
       `;
     }
