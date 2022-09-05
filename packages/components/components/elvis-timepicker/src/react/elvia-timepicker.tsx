@@ -9,8 +9,7 @@ import {
 import { Icon } from '@elvia/elvis-icon/react';
 import { OverlayContainer } from './popup/overlayContainer';
 import { ChangeType, TimepickerProps } from './elviaTimepicker.types';
-import { useConnectedOverlay } from '@elvia/elvis-toolbox';
-import { useFocusTrap } from '@elvia/elvis-modal/dist/react/js/useFocusTrap';
+import { useConnectedOverlay, useFocusTrap } from '@elvia/elvis-toolbox';
 import { TimepickerInput } from './timepickerInput';
 
 export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
