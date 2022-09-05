@@ -54,8 +54,7 @@
     ],
     "packages/components/components/**/*.+(js|ts|tsx)": [
       "yarn prettier-comp",
-      "yarn eslint",
-      "yarn test:staged"
+      "yarn eslint"
     ]
   },
   "engines": {
