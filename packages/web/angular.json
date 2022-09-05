@@ -21,7 +21,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "preserveSymlinks": true,
-            "outputPath": "dist/elvia-designsystem",
+            "outputPath": "packages/web/dist/elvia-designsystem",
             "allowedCommonJsDependencies": [
               "hoist-non-react-statics",
               "@elvia/elvis-toolbox",

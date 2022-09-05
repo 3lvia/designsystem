@@ -25,11 +25,11 @@
     "start:icons": "nx start @elvia/elvis-assets-icons",
     "contentful": "cd packages/web && yarn contentful",
     "contentful:production": "cd packages/web && yarn contentful:production",
-    "prettier-elvis": "prettier --write \"packages/elvis/**/*.js\"",
-    "prettier-doc": "prettier --write \"packages/web/src/**/*.ts\"",
-    "prettier-comp": "prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
+    "prettier:elvis": "prettier --write \"packages/elvis/**/*.js\"",
+    "prettier:web": "prettier --write \"packages/web/src/**/*.ts\"",
+    "prettier:components": "prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
     "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
-    "lint-all": "yarn prettier-elvis && yarn prettier-doc && yarn prettier-comp && yarn eslint",
+    "lint:all": "yarn prettier:elvis && yarn prettier:web && yarn prettier:components && yarn eslint",
     "test": "nx test @elvia/elvis-components",
     "test:start": "nx test:start @elvia/elvis-components",
     "test:staged": "cd packages/components; jest --bail --findRelatedTests",
@@ -46,14 +46,14 @@
   "lint-staged": {
     "packages/elvis/**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
       "./scripts/elvis-pre-commit.sh",
-      "yarn prettier-elvis"
+      "yarn prettier:elvis"
     ],
     "packages/web/**/*.+(js|ts|tsx)": [
-      "yarn prettier-doc",
+      "yarn prettier:web",
       "yarn eslint"
     ],
     "packages/components/components/**/*.+(js|ts|tsx)": [
-      "yarn prettier-comp",
+      "yarn prettier:components",
       "yarn eslint"
     ]
   },
