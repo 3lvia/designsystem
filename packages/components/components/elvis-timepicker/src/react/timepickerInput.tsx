@@ -48,10 +48,13 @@ export const TimepickerInput: React.FC<Props> = ({ disabled, time, isCompact, on
 
   const emitNewValue = (): void => {
     if (!time || previousValidValue !== getFormattedInputValue(time)) {
-      const parts = previousValidValue.split('.');
       const newValue = time ? new Date(time) : new Date();
-      newValue.setHours(+parts[0], +parts[1], 0, 0);
-      onChange(newValue);
+
+      if (previousValidValue) {
+        const parts = previousValidValue.split('.');
+        newValue.setHours(+parts[0], +parts[1], 0, 0);
+        onChange(newValue);
+      }
     }
   };
 
@@ -90,6 +93,7 @@ export const TimepickerInput: React.FC<Props> = ({ disabled, time, isCompact, on
       onChange={parseInput}
       onBlur={validateInputValue}
       isCompact={isCompact}
+      data-test="input"
     />
   );
 };
