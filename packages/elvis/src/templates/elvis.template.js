@@ -141,11 +141,15 @@ document.addEventListener('DOMContentLoaded', function () {
 function checkDeprecatedElvisClass() {
     if (localhost) {
       
+      // Get all the classes used in the DOM starting with 'e-'
         const usedClasses = [].concat(...[...document.querySelectorAll('[class^="e-"]')].map(element => [...element.classList])).filter((className, index, array) => array.indexOf(className) == index).sort();
         
+        // Loop through the used classes and check if they are deprecated
         usedClasses.forEach(usedClass => {
           const depricatedClassisUsed = deprecatedElvisClasses.find(deprecatedElvisClass => deprecatedElvisClass.name === usedClass);
           
+
+          // If the class is deprecated and has not been warned yet, warn the user.
           if (depricatedClassisUsed && !warnedClasses.includes(depricatedClassisUsed.name)) {
             warnedClasses.push(depricatedClassisUsed.name);
             generateDeprecationWarning(depricatedClassisUsed);

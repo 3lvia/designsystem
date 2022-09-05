@@ -105,6 +105,7 @@ function psuedoIsOnElement(className) {
   return true;
 }
 
+// Generate a string for a deprecated class
 function generateDeprecatedClass(className, child = false) {
   return `
     {
@@ -145,6 +146,7 @@ const injectDeprecatedElvisClasses = async () => {
     if (deprecatedElvisClasses[className].deprecateChildren === true) {
       const children = getChildren(className);
       children.forEach((child) => {
+        //sjekke her, ikke overkjør noen som allerede er deprecated
         embeddedJs += generateDeprecatedClass(className, child);
       });
     }
@@ -152,6 +154,7 @@ const injectDeprecatedElvisClasses = async () => {
   embeddedJs += `
 ];`;
 
+  // Write to file
   const template = fs.readFileSync('elvis.js').toString();
   const newContent = template.replace('//[[INJECT_DEPRECATED_ELVIS_CLASSES]]', embeddedJs);
   fs.writeFileSync('elvis.js', newContent);
