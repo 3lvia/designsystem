@@ -1,6 +1,7 @@
 [build]
     functions = "functions"
     command = "yarn build"
+    publish = "packages/web/dist/elvia-designsystem"
 
 [build.environment]
     YARN_VERSION = "3.2.1"
