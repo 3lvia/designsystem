@@ -56,9 +56,7 @@ describe('Elvis Timepicker', () => {
       let hoursList;
       let minutesList;
       let nextHourButton;
-      let prevHourButton;
       let nextMinuteButton;
-      let prevMinuteButton;
       let hourButtons;
       let minuteButtons;
 
@@ -69,9 +67,7 @@ describe('Elvis Timepicker', () => {
         hoursList = getElement(popover, 'div', 'Time-number-list');
         minutesList = getElement(popover, 'div', 'Minutt-number-list');
         nextHourButton = getElement(popover, 'button', 'Time-next-value-button');
-        prevHourButton = getElement(popover, 'button', 'Time-prev-value-button');
         nextMinuteButton = getElement(popover, 'button', 'Minutt-next-value-button');
-        prevMinuteButton = getElement(popover, 'button', 'Minutt-prev-value-button');
         hourButtons = getElement(popover, 'button', 'Time-number-button');
         minuteButtons = getElement(popover, 'button', 'Minutt-number-button');
       });
