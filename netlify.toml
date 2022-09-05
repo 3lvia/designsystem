@@ -1,6 +1,6 @@
 [build]
     functions = "functions"
-    command = "yarn build"
+    command = "yarn build:components"
 
 [build.environment]
     YARN_VERSION = "3.2.1"
