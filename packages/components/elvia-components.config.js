@@ -78,6 +78,19 @@ module.exports = [
     reactTypescriptDeclaration: true,
   },
   {
+    name: 'elvis-badge',
+    elementName: 'elvia-badge',
+    attributes: [
+      { name: 'badgeColor', type: 'string', propType: 'string | undefined' },
+      { name: 'isInverted', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'count', type: 'number', propType: 'number | undefined' },
+    ],
+    slotItems: true,
+    reactName: 'Badge',
+    useWrapper: true,
+    reactTypescriptDeclaration: true,
+  },
+  {
     name: 'elvis-box',
     elementName: 'elvia-box',
     attributes: [

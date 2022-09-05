@@ -10,6 +10,7 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
 
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-breadcrumb';
+import '@elvia/elvis-badge';
 import '@elvia/elvis-popover';
 import '@elvia/elvis-dropdown';
 import '@elvia/elvis-tabs';

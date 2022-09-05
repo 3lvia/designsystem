@@ -2414,6 +2414,34 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@elvia/elvis-badge@portal:../components/components/elvis-badge::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-badge@portal:../components/components/elvis-badge::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
+  dependencies:
+    "@elvia/elvis-colors": ^1.2.0
+    "@elvia/elvis-component-wrapper": ^2.2.2
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-is: ">=16.8.0"
+  languageName: node
+  linkType: soft
+
+"@elvia/elvis-badge@workspace:packages/components/components/elvis-badge":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-badge@workspace:packages/components/components/elvis-badge"
+  dependencies:
+    "@elvia/elvis-colors": ^1.2.0
+    "@elvia/elvis-component-wrapper": ^2.2.2
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-is: ">=16.8.0"
+  languageName: unknown
+  linkType: soft
+
 "@elvia/elvis-box@*, @elvia/elvis-box@workspace:packages/components/components/elvis-box":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-box@workspace:packages/components/components/elvis-box"
@@ -11602,6 +11630,7 @@ __metadata:
     "@elvia/elvis": "portal:../elvis"
     "@elvia/elvis-accordion": "portal:../components/components/elvis-accordion"
     "@elvia/elvis-assets-icons": "portal:../elvis-assets-icons"
+    "@elvia/elvis-badge": "portal:../components/components/elvis-badge"
     "@elvia/elvis-box": "portal:../components/components/elvis-box"
     "@elvia/elvis-breadcrumb": "portal:../components/components/elvis-breadcrumb"
     "@elvia/elvis-card": "portal:../components/components/elvis-card"
