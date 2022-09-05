@@ -30,8 +30,13 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
   const [isShowing, setIsShowing] = useConnectedOverlay(connectedElementRef, popoverRef);
 
-  const updateValue = (newTime: Date): void => {
+  const updateValue = (newTime: Date, emit = true): void => {
     setTime(newTime);
+
+    if (!emit) {
+      return;
+    }
+
     if (!webcomponent && valueOnChange) {
       valueOnChange(newTime);
     } else if (webcomponent) {
@@ -76,6 +81,11 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
       window.removeEventListener('keydown', closeOnEsc);
     };
   }, [isShowing]);
+
+  /**
+   * Needed for webcomponent -> To update the default value
+   */
+  useEffect(() => value && updateValue(value, false), [value]);
 
   return (
     <TimePickerContainer className={`${className ? className : ''}`} style={{ ...inlineStyle }} {...rest}>
