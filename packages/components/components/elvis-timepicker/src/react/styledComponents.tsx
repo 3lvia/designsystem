@@ -17,21 +17,22 @@ const typography = {
   textInput: getTypographyCss('text-md'),
 };
 
+interface BaseProps {
+  isCompact: boolean;
+}
+
 export const TimePickerContainer = styled.div`
   text-align: left;
   box-sizing: border-box;
 `;
 
-export const TimePickerLabel = styled.label`
+export const TimePickerLabel = styled.label<BaseProps>`
   display: inline-block;
   position: relative;
+  margin-top: ${(props) => (props.isCompact ? '5px' : '0px')};
 `;
 
-interface LabelTextProps {
-  isCompact: boolean;
-}
-
-export const LabelText = styled.div<LabelTextProps>`
+export const LabelText = styled.div<BaseProps>`
   ${typography.textLabel}
   margin-bottom: 5px;
 
@@ -52,9 +53,8 @@ export const LabelText = styled.div<LabelTextProps>`
   }}
 `;
 
-interface InputContainerProps {
+interface InputContainerProps extends BaseProps {
   disabled: boolean;
-  isCompact: boolean;
 }
 
 export const InputContainer = styled.div<InputContainerProps>`
@@ -83,11 +83,7 @@ export const InputContainer = styled.div<InputContainerProps>`
   }}
 `;
 
-interface InputProps {
-  isCompact: boolean;
-}
-
-export const Input = styled.input<Partial<InputProps>>`
+export const Input = styled.input<Partial<BaseProps>>`
   ${typography.textInput}
   width: 46px;
   min-width: 0;
@@ -102,6 +98,7 @@ export const Input = styled.input<Partial<InputProps>>`
         font-size: 14px;
       `;
     }
+    return '';
   }}
 `;
 

@@ -80,8 +80,10 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
 
   return (
     <TimePickerContainer className={`${className ? className : ''}`} style={{ ...inlineStyle }} {...rest}>
-      <TimePickerLabel>
-        <LabelText isCompact={isCompact}>{label}</LabelText>
+      <TimePickerLabel isCompact={isCompact}>
+        <LabelText data-test="label" isCompact={isCompact}>
+          {label}
+        </LabelText>
         <InputContainer ref={connectedElementRef} disabled={disabled} isCompact={isCompact}>
           <TimepickerInput time={time} disabled={disabled} isCompact={isCompact} onChange={updateValue} />
           <IconButton
@@ -90,6 +92,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             onClick={() => setIsShowing(true)}
             ref={openPopoverButtonRef}
             size={isCompact ? 'small' : 'medium'}
+            data-test="popover-toggle"
           >
             <Icon name="clock" color={disabled ? 'grey-30' : 'black'} size={isCompact ? 'xs' : 'sm'} />
           </IconButton>
