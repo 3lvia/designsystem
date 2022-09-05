@@ -2577,6 +2577,8 @@ __metadata:
     typescript-plugin-styled-components: ^2.0.0
     webpack: ^4.44.2
     webpack-cli: ^4.6.0
+  peerDependencies:
+    typescript: ^4.8.2
   languageName: unknown
   linkType: soft
 
