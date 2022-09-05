@@ -62,7 +62,7 @@ export interface DropdownProps {
   menuPosition?: DropdownMenuPosition;
   noOptionsMessage?: string;
   placeholder?: string;
-  placeholderIcon?: string;
+  placeholderIcon?: IconName;
   valueOnChange?: (selectedOptions: DropdownItem | Array<DropdownItem> | undefined) => void;
   hoveredItemOnChange?: (hoveredItem: DropdownItem | undefined) => void;
   className?: string;
@@ -411,7 +411,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
             {allOptionsHaveIconAttribute ? (
               <Icon
                 inlineStyle={{ marginRight: '16px' }}
-                name={(props.data as DropdownItem).icon as string}
+                name={(props.data as DropdownItem).icon as IconName}
                 size={isCompact ? 'xs' : 'sm'}
                 color={optionIsDisabled ? getColor('disabled') : undefined}
               />
