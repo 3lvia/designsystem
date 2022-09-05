@@ -5,7 +5,26 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white" style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
+      <div>
+        <elvia-timepicker></elvia-timepicker>
+      </div>
+      <div>
+        <elvia-timepicker label="Custom label"></elvia-timepicker>
+      </div>
+      <div>
+        <elvia-timepicker label=""></elvia-timepicker>
+      </div>
+      <div>
+        <elvia-timepicker isCompact="true"></elvia-timepicker>
+      </div>
+      <div>
+        <elvia-timepicker [value]="timepickerValue"></elvia-timepicker>
+      </div>
+      <div>
+        <elvia-timepicker disabled="true"></elvia-timepicker>
+      </div>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
