@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 import { colors } from '../styledComponents';
+import { listButtonHeight } from './buttonHeight';
 
 const typography = {
   numberPickerTitle: getTypographyCss('text-sm'),
@@ -49,9 +50,10 @@ export const HorizontalLine = styled.hr`
 
 export const NumberListContainer = styled.div`
   overflow: auto;
-  height: 144px;
+  height: ${listButtonHeight * 5}px;
   width: 100%;
   scroll-snap-type: y mandatory;
+  position: relative;
 
   &::-webkit-scrollbar {
     display: none;
@@ -62,7 +64,15 @@ export const ArrowButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  height: ${listButtonHeight}px;
+  position: sticky;
+  top: 0;
+  background: ${colors.elviaWhite};
+
+  &:last-of-type {
+    top: unset;
+    bottom: 0;
+  }
 `;
 
 interface NumberButtonProps {

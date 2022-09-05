@@ -10,6 +10,7 @@ import {
   NumberPickerTitle,
 } from './popupStyles';
 import { Icon } from '@elvia/elvis-icon/react';
+import { listButtonHeight } from './buttonHeight';
 
 interface Props {
   title: string;
@@ -17,8 +18,6 @@ interface Props {
   currentValue: number | undefined;
   onSelect: (value: number) => void;
 }
-
-const numberButtonHeight = 48;
 
 export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, onSelect }) => {
   const listRef = useRef<HTMLDivElement>(null);
@@ -28,13 +27,13 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
     if (listRef.current) {
       if (listRef.current.scrollTop === 0) {
         listRef.current.scroll({
-          top: numbers.length * numberButtonHeight,
+          top: numbers.length * listButtonHeight,
         });
       } else if (
         listRef.current.scrollTop ===
-        numberButtonHeight * loopedNumbers.length - numberButtonHeight * 3
+        listButtonHeight * loopedNumbers.length + listButtonHeight * 2 - listButtonHeight * 5
       ) {
-        listRef.current.scroll({ top: numberButtonHeight });
+        listRef.current.scroll({ top: listButtonHeight });
       }
     }
   };
@@ -69,7 +68,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
 
       if (index !== -1) {
         listRef.current.scrollTo({
-          top: index * numberButtonHeight - numberButtonHeight,
+          top: index * listButtonHeight - listButtonHeight,
         });
       }
     }
@@ -84,12 +83,12 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
     <NumberPickerContainer>
       <NumberPickerTitle>{title}</NumberPickerTitle>
       <HorizontalLine />
-      <ArrowButtonContainer>
-        <IconButton size="small" onClick={() => shuffleTo('previous')}>
-          <Icon name="arrowUpBold" size="xs" />
-        </IconButton>
-      </ArrowButtonContainer>
       <NumberListContainer ref={listRef} onScroll={loopScroll}>
+        <ArrowButtonContainer>
+          <IconButton size="small" onClick={() => shuffleTo('previous')}>
+            <Icon name="arrowUpBold" size="xs" />
+          </IconButton>
+        </ArrowButtonContainer>
         {loopedNumbers.map((number, index) => (
           <NumberButton
             tabIndex={-1}
@@ -100,12 +99,12 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
             {padDigit(number)}
           </NumberButton>
         ))}
+        <ArrowButtonContainer>
+          <IconButton size="small" onClick={() => shuffleTo('next')}>
+            <Icon name="arrowDownBold" size="xs" />
+          </IconButton>
+        </ArrowButtonContainer>
       </NumberListContainer>
-      <ArrowButtonContainer>
-        <IconButton size="small" onClick={() => shuffleTo('next')}>
-          <Icon name="arrowDownBold" size="xs" />
-        </IconButton>
-      </ArrowButtonContainer>
     </NumberPickerContainer>
   );
 };
