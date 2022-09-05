@@ -94,11 +94,11 @@ Setup for development environment:
 0. Clone repository, checkout new branch from master, and run `yarn`.
 1. Navigate to `packages/web/contentful` and follow the instructions in the `.env.template` file.
 2. Building projects:
-   1. Run `yarn build` to build the all projects for productions. This commando will run on push.
-   2. Run `yarn build:web` to build the web project.
-   3. Run `yarn build:components` to build the components (includes more steps than start:components like
+   1. Run `yarn build` to build all projects for productions. This commando will run on push.
+   1. Run `yarn build:web` to build the web project.
+   1. Run `yarn build:components` to build the components (includes more steps than start:components like
       testing).
-   4. Run `yarn build:tokens` at root to build the two token packages. These are also built once (not watched)
+   1. Run `yarn build:tokens` at root to build the two token packages. These are also built once (not watched)
       when using `yarn start:components`.
 3. Running projects:
    1. Run `yarn start:web` at root to run the main documentation page (design.elvia.io).
