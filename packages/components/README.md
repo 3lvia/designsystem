@@ -127,7 +127,8 @@ one test project for each framework; Angular, Vue and React. When running `yarn 
 > everything in the dist folder before building the components again when running start. If this happens,
 > restart the local dev servers (Angular, Vue and React).
 
-1. Run `yarn start` in `packages/components` so that the projects are updated every time a change is saved.
+1. Run `yarn start:components` from root or go to `projects/components` and run `yarn start` so that the
+   projects are updated every time a change is saved.
 2. Run dev servers:
    - **React**: Run `yarn start:react` from root or go to `projects/components/frameworks/react-ssr` and run
      `yarn start`,

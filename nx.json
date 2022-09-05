@@ -29,7 +29,7 @@
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": ["^build", "@elvia/elvis-components", "elvia-designsystem"]
+      "dependsOn": ["^build"]
     }
   },
   "affected": {

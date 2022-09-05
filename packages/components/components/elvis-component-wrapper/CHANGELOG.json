@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "01.09.22",
+      "version": "2.4.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Upgrade to toolbox v2.0.0"]
+        }
+      ]
+    },
+    {
+      "date": "01.09.22",
       "version": "2.4.2",
       "changelog": [
         {

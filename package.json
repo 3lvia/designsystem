@@ -9,16 +9,16 @@
     ]
   },
   "scripts": {
-    "build": "yarn && nx run-many --target=build:production",
-    "build:web": "nx run elvia-designsystem:build",
-    "build:components": "nx run @elvia/elvis-components:build",
-    "build:elvis": "nx run @elvia/elvis:build",
-    "build:tokens": "nx run-many --target=build --projects=@elvia/elvis-colors,@elvia/elvis-typography",
-    "build:colors": "nx run @elvia/elvis-colors:build",
-    "build:typography": "nx run @elvia/elvis-typography:build",
-    "build:icons": "nx run @elvia/elvis-assets-icons:build",
+    "build": "yarn && yarn build:tokens && nx run-many --target=build:production --projects=@elvia/elvis,@elvia/elvis-components,elvia-designsystem,react-ssr --parallel=1",
+    "build:web": "nx build elvia-designsystem",
+    "build:components": "nx build @elvia/elvis-components",
+    "build:elvis": "nx build @elvia/elvis",
+    "build:tokens": "nx run-many --target=build --projects=@elvia/elvis-colors,@elvia/elvis-typography,@elvia/elvis-assets-icons",
+    "build:colors": "nx build @elvia/elvis-colors",
+    "build:typography": "nx build @elvia/elvis-typography",
+    "build:icons": "nx build @elvia/elvis-assets-icons",
     "start:web": "yarn contentful && nx start elvia-designsystem",
-    "start:components": "yarn build:tokens && nx start @elvia/elvis-components",
+    "start:components": "nx start @elvia/elvis-components",
     "start:elvis": "nx start @elvia/elvis",
     "start:react": "nx start react-ssr",
     "start:vue": "nx start vue-preview",
@@ -54,8 +54,7 @@
     ],
     "packages/components/components/**/*.+(js|ts|tsx)": [
       "yarn prettier-comp",
-      "yarn eslint",
-      "yarn test:staged"
+      "yarn eslint"
     ]
   },
   "engines": {
