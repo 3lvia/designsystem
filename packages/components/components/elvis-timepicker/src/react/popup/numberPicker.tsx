@@ -66,7 +66,8 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
       // Search from index 1 to prevent matching the duplicated numbers at the start of the list
       const index = loopedNumbers.indexOf(currentValue != null ? currentValue : numbers[0], 1);
 
-      if (index !== -1) {
+      // Check if scrollTo exists due to function missing in tests
+      if (index !== -1 && listRef.current?.scrollTo) {
         listRef.current.scrollTo({
           top: index * listButtonHeight - listButtonHeight,
         });
@@ -80,12 +81,16 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
   }, []);
 
   return (
-    <NumberPickerContainer>
-      <NumberPickerTitle>{title}</NumberPickerTitle>
+    <NumberPickerContainer data-test={`${title}-number-list`}>
+      <NumberPickerTitle data-test="number-list-title">{title}</NumberPickerTitle>
       <HorizontalLine />
       <NumberListContainer ref={listRef} onScroll={loopScroll}>
         <ArrowButtonContainer>
-          <IconButton size="small" onClick={() => shuffleTo('previous')}>
+          <IconButton
+            size="small"
+            onClick={() => shuffleTo('previous')}
+            data-test={`${title}-prev-value-button`}
+          >
             <Icon name="arrowUpBold" size="xs" />
           </IconButton>
         </ArrowButtonContainer>
@@ -95,12 +100,14 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
             isSelected={number === currentValue}
             key={index}
             onClick={() => onSelect(number)}
+            data-test={`${title}-number-button`}
+            data-id={`${title}-${padDigit(number)}`}
           >
             {padDigit(number)}
           </NumberButton>
         ))}
         <ArrowButtonContainer>
-          <IconButton size="small" onClick={() => shuffleTo('next')}>
+          <IconButton size="small" onClick={() => shuffleTo('next')} data-test={`${title}-next-value-button`}>
             <Icon name="arrowDownBold" size="xs" />
           </IconButton>
         </ArrowButtonContainer>

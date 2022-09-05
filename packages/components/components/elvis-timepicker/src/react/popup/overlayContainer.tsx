@@ -19,8 +19,8 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
 
     return createPortal(
       <>
-        <Backdrop onClick={onClose} />
-        <Container ref={ref}>
+        <Backdrop onClick={onClose} data-test="backdrop" />
+        <Container ref={ref} data-test="popover">
           <NumberPicker
             title="Time"
             currentValue={currentTime?.getHours()}
