@@ -1,16 +1,6 @@
 import Timepicker from './elvia-timepicker.tsx';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import { getColor } from '@elvia/elvis-colors';
-
-const colors = {
-  elviaWhite: getColor('white'),
-  elviaBlack: getColor('black'),
-  grey10: getColor('grey-10'),
-  grey20: getColor('grey-20'),
-  grey90: getColor('grey-90'),
-};
 
 const getElement = (wrapper, elementType, dataAttribute) => {
   return wrapper.find(`${elementType}[data-test="${dataAttribute}"]`);

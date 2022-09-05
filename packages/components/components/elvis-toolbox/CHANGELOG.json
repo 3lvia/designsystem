@@ -2,7 +2,7 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "03.09.22",
+      "date": "06.09.22",
       "version": "2.3.0",
       "changelog": [
         {
@@ -12,25 +12,13 @@
       ]
     },
     {
-      "date": "02.09.22",
+      "date": "06.09.22",
       "version": "2.2.0",
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
             "Added reusable hook <span class=\"code-text\">useFocusTrap</span> to manage focus trapping."
-          ]
-        }
-      ]
-    },
-    {
-      "date": "01.09.22",
-      "version": "2.1.0",
-      "changelog": [
-        {
-          "type": "new_feature",
-          "changes": [
-            "Added reusable hook <span class=\"code-text\">useConnectedOverlay</span> to manage overlay positioning."
           ]
         }
       ]
