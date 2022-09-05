@@ -110,7 +110,7 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white e-flex e-gap-16">
+          <div className="e-bg-grey-05 e-flex e-gap-16 e-p-16" style={{ justifyContent: 'space-around' }}>
             <Card
               heading={'Title1 is a long title'}
               description={'Long description that also needs to wrap because it is long'}
@@ -118,6 +118,7 @@ function App() {
               icon={<Icon name="searchBold" size="xxl" />}
               iconHover={<Icon name="searchBoldColor" size="xxl" />}
               cornerIcon={<Icon name="unlock" size="xs" />}
+              hasBorder={false}
             />
             <Card
               heading={'Title2 is a long title'}
@@ -126,6 +127,7 @@ function App() {
               icon={<Icon name="searchBold" size="xxl" />}
               iconHover={<Icon name="searchBoldColor" size="xxl" />}
               cornerIcon={<Icon name="unlock" size="xs" />}
+              hasBorder={false}
             />
             <Card
               heading={'Title3 is a long title'}
@@ -134,19 +136,67 @@ function App() {
               icon={<Icon name="searchBold" size="xxl" />}
               iconHover={<Icon name="searchBoldColor" size="xxl" />}
               cornerIcon={<Icon name="unlock" size="xs" />}
+              hasBorder={false}
             />
           </div>
-          <Divider inlineStyle={{ margin: '16px -24px' }} />
-          <div className="e-bg-white e-flex e-gap-16">
+          <div className="e-bg-grey-05 e-flex e-gap-16 e-p-16" style={{ justifyContent: 'space-around' }}>
             <Card
               type="detail"
               heading="Lorem ipsum dolor sin amet too long header bla more text here very much abcd ef long words and lines"
               description="It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions."
-              tag={'Tag'}
+              hasBorder={false}
+            />
+            <Card
+              type="detail"
+              heading="Lorem ipsum dolor sin amet too long header bla more text here very much abcd ef long words and lines"
+              description="It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions."
+              hasBorder={false}
             />
           </div>
           {/* Inverted version */}
-          <div className="e-bg-grey"></div>
+          <div className="e-bg-grey e-flex e-gap-16 e-p-16" style={{ justifyContent: 'space-around' }}>
+            <Card
+              heading={'Title1 is a long title'}
+              description={'Long description that also needs to wrap because it is long'}
+              borderColor={'red'}
+              icon={<Icon name="searchBold" size="xxl" />}
+              iconHover={<Icon name="searchBoldColor" size="xxl" />}
+              cornerIcon={<Icon name="unlock" size="xs" />}
+              hasBorder={false}
+            />
+            <Card
+              heading={'Title2 is a long title'}
+              description={'Long description that also needs to wrap because it is long'}
+              borderColor={'blue-berry'}
+              icon={<Icon name="searchBold" size="xxl" />}
+              iconHover={<Icon name="searchBoldColor" size="xxl" />}
+              cornerIcon={<Icon name="unlock" size="xs" />}
+              hasBorder={false}
+            />
+            <Card
+              heading={'Title3 is a long title'}
+              description={'Long description that also needs to wrap because it is long'}
+              borderColor={'orange'}
+              icon={<Icon name="searchBold" size="xxl" />}
+              iconHover={<Icon name="searchBoldColor" size="xxl" />}
+              cornerIcon={<Icon name="unlock" size="xs" />}
+              hasBorder={false}
+            />
+          </div>
+          <div className="e-bg-grey e-flex e-gap-16 e-p-16" style={{ justifyContent: 'space-around' }}>
+            <Card
+              type="detail"
+              heading="Lorem ipsum dolor sin amet too long header bla more text here very much abcd ef long words and lines"
+              description="It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions."
+              hasBorder={false}
+            />
+            <Card
+              type="detail"
+              heading="Lorem ipsum dolor sin amet too long header bla more text here very much abcd ef long words and lines"
+              description="It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions."
+              hasBorder={false}
+            />
+          </div>
         </div>
         {/* ACCORDION */}
         <div className="example-wrapper">

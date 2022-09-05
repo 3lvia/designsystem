@@ -74,11 +74,11 @@ export const CardArea = styled.div<CardAreaProps>`
     `}
 
   border-radius: 8px;
-  border: ${(props) => (props.hasBorder ? `1px solid ${colors.grey10}` : `1px solid ${colors.grey05}`)};
+  border: ${(props) => (props.hasBorder ? `1px solid ${colors.grey10}` : 'none')};
 
   &:hover {
     border: 2px solid ${colors.charge};
-    padding: 23px;
+    padding: ${(props) => (props.hasBorder ? '23px' : '22px')};
     cursor: pointer;
   }
 `;
@@ -151,16 +151,20 @@ export const CardIcon = styled.div`
   }
 `;
 
-export const CardColoredLineContainer = styled.div`
+interface CardColoredLineContainerProps {
+  hasBorder?: boolean;
+}
+
+export const CardColoredLineContainer = styled.div<CardColoredLineContainerProps>`
   box-sizing: border-box;
   position: absolute;
   overflow: hidden;
-  top: -1px;
-  left: -1px;
-  height: calc(100% + 2px);
-  width: calc(100% + 2px);
+  top: ${(props) => (props.hasBorder ? '-1px' : '0')};
+  left: ${(props) => (props.hasBorder ? '-1px' : '0')};
+  height: ${(props) => (props.hasBorder ? 'calc(100% + 2px)' : '100%')};
+  width: ${(props) => (props.hasBorder ? 'calc(100% + 2px)' : '100%')};
   border-radius: inherit;
-  border: 1px solid transparent;
+  border: ${(props) => (props.hasBorder ? '1px solid transparent' : '0')};
   pointer-events: none;
 `;
 
@@ -216,13 +220,25 @@ export const CardHoverArrow = styled.div`
   }
 `;
 
-export const CardCornerIcon = styled.div`
+interface CardCornerIconProps {
+  hasBorder?: boolean;
+}
+
+export const CardCornerIcon = styled.div<CardCornerIconProps>`
   position: absolute;
   right: 16px;
   top: 16px;
   ${CardArea}:hover & {
-    right: 15px;
-    top: 15px;
+    ${(props) =>
+      props.hasBorder
+        ? css`
+            right: 15px;
+            top: 15px;
+          `
+        : css`
+            right: 14px;
+            top: 14px;
+          `}
   }
 `;
 

@@ -138,7 +138,7 @@ const Card: FC<CardProps> = ({
       {...rest}
     >
       {type === 'simple' && borderColor && (
-        <CardColoredLineContainer>
+        <CardColoredLineContainer hasBorder={hasBorder}>
           <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
         </CardColoredLineContainer>
       )}
@@ -187,11 +187,10 @@ const Card: FC<CardProps> = ({
           <Icon name="arrowLongRight" />
         </CardHoverArrow>
       )}
-      {type === 'detail' && cornerIcon && (
-        <CardCornerIcon data-testid="card-corner-icon">{cornerIcon}</CardCornerIcon>
-      )}
-      {type === 'detail' && webcomponent && (
-        <CardCornerIcon data-testid="card-corner-icon" ref={cornerIconRef} />
+      {type === 'detail' && (cornerIcon || cornerIconRef) && (
+        <CardCornerIcon hasBorder={hasBorder} ref={cornerIconRef ?? undefined} data-testid="card-corner-icon">
+          {cornerIcon}
+        </CardCornerIcon>
       )}
     </CardArea>
   );
