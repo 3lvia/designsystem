@@ -5,7 +5,10 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white e-flex e-flex-direction-column e-gap-16">
+      <elvia-dropdown [label]="'Normal size'" [items]="testItems"></elvia-dropdown>
+      <elvia-dropdown [label]="'Compact size'" [items]="testItems" [isCompact]="true"></elvia-dropdown>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>

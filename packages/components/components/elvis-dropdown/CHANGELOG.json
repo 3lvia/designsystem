@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.09.22",
+      "version": "3.5.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added support for status icons on each dropdown option.",
+            "Now dispatching an event <span class=\"code-text\">hoveredItemOnChange</span> when an option is hovered."
+          ]
+        }
+      ]
+    },
+    {
       "date": "30.08.22",
       "version": "3.4.0",
       "changelog": [

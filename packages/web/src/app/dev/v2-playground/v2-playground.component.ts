@@ -71,6 +71,14 @@ export class v2PlaygroundComponent {
     { label: 'Kiwi', isDisabled: true },
   ];
 
+  testItems = [
+    { value: 'Norge', label: 'Norge', icon: 'search' },
+    { value: 'Sverige', label: 'Sverige', statusIcon: 'addCircle', isDisabled: 'true', icon: 'solarPanel' },
+    { value: 'Danmark', label: 'Danmark', statusIcon: 'informationCircle', icon: 'removeCircle' },
+    { value: 'Finland', label: 'Finland', icon: 'star' },
+    { value: 'Island', label: 'Island', icon: 'thumbnail' },
+  ];
+
   logValue = (component: string, value: Event): void => {
     console.log(component, ': ', value);
   };
