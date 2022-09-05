@@ -31,8 +31,5 @@
     "build": {
       "dependsOn": ["^build"]
     }
-  },
-  "affected": {
-    "defaultBase": "master"
   }
 }

@@ -233,10 +233,6 @@ function buildToolboxComponentToJS() {
   return mergeStream(tsResult, tsResult.js).pipe(gulp.dest('../components/elvis-toolbox/dist'));
 }
 
-async function runTests() {
-  return exec('yarn run test');
-}
-
 // TODO: Find a way to do cleanup that does not trigger rebuild
 function cleanup() {
   return del(['../components/**/dist/**/*'], { force: true });
@@ -267,7 +263,6 @@ gulp.task(
     copyChangelogs,
     reactTypescriptDeclarations,
     buildWebComponentsMagically,
-    runTests,
     function (done) {
       done();
       console.log('Successfully built Elvia Components!');
