@@ -292,7 +292,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler-cli@npm:14.2.0":
+"@angular/compiler-cli@npm:^14.2.0":
   version: 14.2.0
   resolution: "@angular/compiler-cli@npm:14.2.0"
   dependencies:
@@ -12165,7 +12165,7 @@ __metadata:
     "@angular/cli": ^14.1.3
     "@angular/common": ^14.2.0
     "@angular/compiler": ^14.2.0
-    "@angular/compiler-cli": 14.2.0
+    "@angular/compiler-cli": ^14.2.0
     "@angular/core": ^14.2.0
     "@angular/forms": ^14.2.0
     "@angular/language-service": ^14.1.3
