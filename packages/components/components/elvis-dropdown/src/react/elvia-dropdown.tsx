@@ -424,12 +424,8 @@ const Dropdown: React.FC<DropdownProps> = function ({
               {(props.data as DropdownItem).status && (
                 <Icon
                   name={statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].name}
-                  size={isCompact ? 'xxs' : 'xs'}
-                  color={
-                    optionIsDisabled
-                      ? getColor('disabled')
-                      : statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].color
-                  }
+                  color={statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].color}
+                  size={'xs'}
                 />
               )}
             </DropdownOptionWrapper>
@@ -459,12 +455,8 @@ const Dropdown: React.FC<DropdownProps> = function ({
           {(props.data as DropdownItem).status && (
             <Icon
               name={statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].name}
-              size={isCompact ? 'xxs' : 'xs'}
-              color={
-                optionIsDisabled
-                  ? getColor('disabled')
-                  : statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].color
-              }
+              color={statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].color}
+              size={'xs'}
             />
           )}
         </DropdownOptionWrapper>
