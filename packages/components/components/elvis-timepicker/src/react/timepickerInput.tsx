@@ -1,5 +1,4 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { isSsr } from '@elvia/elvis-toolbox';
 
 import { padDigit } from './padDigit';
 import { Input } from './styledComponents';
@@ -15,22 +14,18 @@ export const TimepickerInput: React.FC<Props> = ({ disabled, time, isCompact, on
   let previousValidValue = '';
   const [inputValue, setInputValue] = useState('');
 
-  const hasSelection = (): boolean => {
-    if (isSsr()) {
-      return false;
-    }
-
-    return !!window.getSelection() || !!document.getSelection();
+  const isNumericValue = (value: string): boolean => {
+    return /^\d+$/.test(value);
   };
 
   const parseInput = (ev: ChangeEvent<HTMLInputElement>): void => {
     const key = (ev.nativeEvent as InputEvent).data || '';
 
-    const isNumericValue = /^\d+$/.test(key);
     const isModifierKey = ['deleteContentBackward', 'deleteContentForward'].includes(
       (ev.nativeEvent as InputEvent).inputType,
     );
-    if ((inputValue.length >= 5 && !isModifierKey && !hasSelection()) || !(isNumericValue || isModifierKey)) {
+
+    if ((inputValue.length >= 5 && !isModifierKey) || !(isNumericValue(key) || isModifierKey)) {
       return;
     }
 
@@ -59,17 +54,23 @@ export const TimepickerInput: React.FC<Props> = ({ disabled, time, isCompact, on
   };
 
   const validateInputValue = (): void => {
-    const parts = inputValue.split('.');
+    let [hour, minute] = inputValue.split('.');
 
-    if (parts.length !== 2) {
-      setInputValue(previousValidValue);
-    } else {
-      const validHour = +parts[0] % 24;
-      const validMinute = +parts[1] % 60;
-      const newValue = `${padDigit(validHour)}.${padDigit(validMinute)}`;
-      setInputValue(newValue);
-      previousValidValue = newValue;
+    if (!hour || !minute) {
+      if (inputValue.length >= 3 && inputValue.length <= 4 && isNumericValue(inputValue)) {
+        hour = inputValue.substring(0, 2);
+        minute = padDigit(+inputValue.substring(2));
+      } else {
+        setInputValue(previousValidValue);
+        return;
+      }
     }
+
+    const validHour = +hour % 24;
+    const validMinute = +minute % 60;
+    const newValue = `${padDigit(validHour)}.${padDigit(validMinute)}`;
+    setInputValue(newValue);
+    previousValidValue = newValue;
 
     emitNewValue();
   };
