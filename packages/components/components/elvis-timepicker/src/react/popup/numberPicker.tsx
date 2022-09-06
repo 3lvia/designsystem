@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
 import { padDigit } from '../padDigit';
 import { IconButton } from '../styledComponents';
 import {
@@ -61,6 +61,19 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
     }
   };
 
+  const onKeyDown = (event: KeyboardEvent<HTMLDivElement>): void => {
+    switch (event.key) {
+      case 'ArrowDown': {
+        shuffleTo('next');
+        break;
+      }
+      case 'ArrowUp': {
+        shuffleTo('previous');
+        break;
+      }
+    }
+  };
+
   useEffect(() => {
     // Set scroll position on current value
     if (listRef.current) {
@@ -85,10 +98,11 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
     <NumberPickerContainer data-test={`${title}-number-list`}>
       <NumberPickerTitle data-test="number-list-title">{title}</NumberPickerTitle>
       <HorizontalLine />
-      <NumberList ref={listRef} onScroll={loopScroll}>
+      <NumberList ref={listRef} tabIndex={0} onScroll={loopScroll} onKeyDown={onKeyDown}>
         <ArrowButtonContainer>
           <IconButton
             size="small"
+            tabIndex={-1}
             onClick={() => shuffleTo('previous')}
             data-test={`${title}-prev-value-button`}
           >
@@ -108,7 +122,12 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
           </NumberButton>
         ))}
         <ArrowButtonContainer>
-          <IconButton size="small" onClick={() => shuffleTo('next')} data-test={`${title}-next-value-button`}>
+          <IconButton
+            size="small"
+            tabIndex={-1}
+            onClick={() => shuffleTo('next')}
+            data-test={`${title}-next-value-button`}
+          >
             <Icon name="arrowDownBold" size="xs" />
           </IconButton>
         </ArrowButtonContainer>
