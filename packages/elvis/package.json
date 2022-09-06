@@ -7,6 +7,7 @@
   "main": "",
   "scripts": {
     "build": "gulp",
+    "build:production": "gulp",
     "start": "gulp watch"
   },
   "dependencies": {
