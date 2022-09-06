@@ -128,9 +128,10 @@ export const IconButton = styled.button<IconButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 100ms;
 
   &:not([disabled]):hover {
-    background-color: ${colors.elviaGreen};
+    background: ${colors.elviaGreen};
   }
 
   &[disabled] {
