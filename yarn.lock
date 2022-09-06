@@ -2966,6 +2966,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker"
+  dependencies:
+    "@elvia/elvis-colors": ^1.2.0
+    "@elvia/elvis-component-wrapper": ^2.2.2
+    "@elvia/elvis-toolbox": ^2.3.0
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-is: ">=16.8.0"
+  languageName: unknown
+  linkType: soft
+
 "@elvia/elvis-timepicker@portal:../components/components/elvis-timepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-timepicker@portal:../components/components/elvis-timepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
@@ -2979,21 +2994,6 @@ __metadata:
     react-dom: ">=16.8.0"
     react-is: ">=16.8.0"
   languageName: node
-  linkType: soft
-
-"@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker"
-  dependencies:
-    "@elvia/elvis-colors": ^1.2.0
-    "@elvia/elvis-component-wrapper": ^2.2.2
-    "@elvia/elvis-toolbox": ^2.3.0
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
-  languageName: unknown
   linkType: soft
 
 "@elvia/elvis-toolbox@^2.0.0, @elvia/elvis-toolbox@^2.3.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
@@ -24251,6 +24251,7 @@ __metadata:
     "@elvia/elvis-spotlight": "*"
     "@elvia/elvis-tabs": "*"
     "@elvia/elvis-testing": "*"
+    "@elvia/elvis-timepicker": "*"
     "@elvia/elvis-typography": "*"
     "@testing-library/dom": ">=7.21.4"
     "@testing-library/jest-dom": ^5.15.1
@@ -28889,6 +28890,7 @@ __metadata:
     "@elvia/elvis-spotlight": "*"
     "@elvia/elvis-tabs": "*"
     "@elvia/elvis-testing": "*"
+    "@elvia/elvis-timepicker": "*"
     "@vue/cli-plugin-babel": ~4.5.0
     "@vue/cli-service": 4.5.13
     "@vue/compiler-sfc": ^3.0.0
