@@ -37,6 +37,7 @@ export interface DropdownItem {
   icon?: IconName;
   isDisabled?: boolean;
   status?: DropdownItemStatus;
+  tooltip?: string;
 }
 
 export interface DropdownProps {
@@ -400,19 +401,17 @@ const Dropdown: React.FC<DropdownProps> = function ({
   };
 
   const ElviaOption = (props: OptionProps) => {
-    const optionIsDisabled = (props.data as DropdownItem).isDisabled ?? false;
+    const optionData = props.data as DropdownItem;
+    const optionIsDisabled = optionData.isDisabled ?? false;
 
     if (!isMulti) {
       return (
         <components.Option {...props} isDisabled={optionIsDisabled}>
-          <div
-            style={{ display: 'contents' }}
-            onPointerEnter={() => setHoveredItem(props.data as DropdownItem)}
-          >
+          <div style={{ display: 'contents' }} onPointerEnter={() => setHoveredItem(optionData)}>
             {allOptionsHaveIconAttribute ? (
               <Icon
                 inlineStyle={{ marginRight: '16px' }}
-                name={(props.data as DropdownItem).icon as IconName}
+                name={optionData.icon as IconName}
                 size={isCompact ? 'xs' : 'sm'}
                 color={optionIsDisabled ? getColor('disabled') : undefined}
               />
@@ -421,10 +420,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
             )}
             <DropdownOptionWrapper>
               {props.children}
-              {(props.data as DropdownItem).status && (
+              {optionData.status && (
                 <Icon
-                  name={statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].name}
-                  color={statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].color}
+                  name={statusToIconMap[optionData.status].name}
+                  color={statusToIconMap[optionData.status].color}
                   size={'xs'}
                 />
               )}
@@ -441,7 +440,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
       !props.isSelected;
     return (
       <components.Option {...props} isDisabled={optionIsDisabled}>
-        <DropdownOptionWrapper onPointerEnter={() => setHoveredItem(props.data as DropdownItem)}>
+        <DropdownOptionWrapper onPointerEnter={() => setHoveredItem(optionData)}>
           <DropdownCheckbox>
             <DropdownCheckboxMark
               id="ewc-dropdown-checkbox__mark"
@@ -452,10 +451,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
             />
             <DropdownCheckboxLabel isCompact={isCompact}>{props.children}</DropdownCheckboxLabel>
           </DropdownCheckbox>
-          {(props.data as DropdownItem).status && (
+          {optionData.status && (
             <Icon
-              name={statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].name}
-              color={statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].color}
+              name={statusToIconMap[optionData.status].name}
+              color={statusToIconMap[optionData.status].color}
               size={'xs'}
             />
           )}

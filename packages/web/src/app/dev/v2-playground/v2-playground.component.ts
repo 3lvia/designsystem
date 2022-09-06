@@ -72,11 +72,16 @@ export class v2PlaygroundComponent {
   ];
 
   testItems = [
-    { value: 'Norge', label: 'Norge', icon: 'search' },
-    { value: 'Sverige', label: 'Sverige', status: 'warning', icon: 'solarPanel' },
-    { value: 'Danmark', label: 'Danmark', status: 'error', isDisabled: 'true', icon: 'removeCircle' },
-    { value: 'Finland', label: 'Finland', status: 'info', icon: 'star' },
-    { value: 'Island', label: 'Island', icon: 'thumbnail' },
+    { value: 'Norge', label: 'Norge' },
+    { value: 'Sverige', label: 'Sverige', status: 'warning', tooltip: 'Test tooltip3' },
+    {
+      value: 'Danmark',
+      label: 'Danmark',
+      status: 'error',
+      isDisabled: 'true',
+    },
+    { value: 'Finland', label: 'Finland', status: 'info', tooltip: 'Test tooltip' },
+    { value: 'Island', label: 'Island' },
   ];
 
   logValue = (component: string, value: Event): void => {

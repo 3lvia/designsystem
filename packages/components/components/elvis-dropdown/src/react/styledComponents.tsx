@@ -3,11 +3,11 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 const colors = {
-  elviaCharge: getColor('elvia-charge'),
-  elviaWhite: getColor('white'),
-  elviaBlack: getColor('black'),
-  elviaDisabled: getColor('disabled'),
-  elviaFocusOutline: getColor('focus-outline'),
+  charge: getColor('elvia-charge'),
+  white: getColor('white'),
+  black: getColor('black'),
+  disabled: getColor('disabled'),
+  focusOutline: getColor('focus-outline'),
 };
 
 const typography = {
@@ -31,9 +31,9 @@ export const DropdownWrapper = styled.span<DropdownWrapperProps>`
   cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
   &:focus-within {
     .ewc-dropdown__control {
-      border: 2px solid ${colors.elviaCharge};
+      border: 2px solid ${colors.charge};
       padding: 0px;
-      outline: 2px solid ${colors.elviaFocusOutline};
+      outline: 2px solid ${colors.focusOutline};
       outline-offset: 2px;
     }
   }
@@ -47,7 +47,7 @@ export const DropdownLabel = styled.label<DropdownLabelProps>`
   position: ${(props) => props.isCompact && 'absolute'};
   top: ${(props) => props.isCompact && '-5px'};
   left: ${(props) => props.isCompact && '8px'};
-  background: ${(props) => props.isCompact && colors.elviaWhite};
+  background: ${(props) => props.isCompact && colors.white};
   padding: ${(props) => props.isCompact && '0 3px'};
   z-index: ${(props) => props.isCompact && '1'};
   display: flex;
@@ -56,7 +56,7 @@ export const DropdownLabel = styled.label<DropdownLabelProps>`
   font-weight: 500;
   font-size: ${(props) => (props.isCompact ? '10px' : '16px')};
   line-height: ${(props) => (props.isCompact ? '10px' : '23px')};
-  color: ${colors.elviaBlack};
+  color: ${colors.black};
   text-align: left;
 `;
 
@@ -149,7 +149,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
   // Make compact line for "select all"-option when not everything is selected
   if (isCompact && isSelectAllWithPartialSelected) {
     return css`
-      background-color: ${colors.elviaCharge};
+      background-color: ${colors.charge};
       ${generateCheckmarkBeforeElement({
         top: 'calc(50% - 1px)',
         left: '-24%',
@@ -157,14 +157,14 @@ const decideCheckMarkCompactAndSelectedStyle = (
         width: '40%',
         transform: 'translateX(8px)',
         transformOrigin: '(left bottom)',
-        backgroundColor: isDisabled ? colors.elviaDisabled : colors.elviaBlack,
+        backgroundColor: isDisabled ? colors.disabled : colors.black,
       })}
     `;
   }
   // Make normal line for "select all"-option when not everything is selected
   if (!isCompact && isSelectAllWithPartialSelected) {
     return css`
-      background-color: ${colors.elviaCharge};
+      background-color: ${colors.charge};
       ${generateCheckmarkBeforeElement({
         top: 'calc(50% - 1px)',
         left: '-10%',
@@ -172,14 +172,14 @@ const decideCheckMarkCompactAndSelectedStyle = (
         width: '50%',
         transform: 'translateX(8px)',
         transformOrigin: '(left bottom)',
-        backgroundColor: isDisabled ? colors.elviaDisabled : colors.elviaBlack,
+        backgroundColor: isDisabled ? colors.disabled : colors.black,
       })}
     `;
   }
   // Make compact checkmark
   if (isCompact && isSelecteed) {
     return css`
-      background-color: ${colors.elviaCharge};
+      background-color: ${colors.charge};
       ${generateCheckmarkBeforeElement({
         top: '50%',
         left: '-45%',
@@ -187,7 +187,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
         width: '2px',
         transform: 'translateX(10px) rotate(-45deg)',
         transformOrigin: '[left bottom]',
-        backgroundColor: isDisabled ? colors.elviaDisabled : colors.elviaBlack,
+        backgroundColor: isDisabled ? colors.disabled : colors.black,
       })}
       ${generateCheckmarkAfterElement({
         bottom: '40%',
@@ -196,14 +196,14 @@ const decideCheckMarkCompactAndSelectedStyle = (
         width: '80%',
         transform: 'translateX(10px) rotate(-55deg)',
         transformOrigin: '[left bottom]',
-        backgroundColor: isDisabled ? colors.elviaDisabled : colors.elviaBlack,
+        backgroundColor: isDisabled ? colors.disabled : colors.black,
       })}
     `;
   }
   // Make normal checkmark
   if (!isCompact && isSelecteed) {
     return css`
-      background-color: ${colors.elviaCharge};
+      background-color: ${colors.charge};
       ${generateCheckmarkBeforeElement({
         top: '55%',
         left: '-9%',
@@ -211,7 +211,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
         width: '2px',
         transform: 'translateX(8px) rotate(-45deg)',
         transformOrigin: '(left bottom)',
-        backgroundColor: isDisabled ? colors.elviaDisabled : colors.elviaBlack,
+        backgroundColor: isDisabled ? colors.disabled : colors.black,
       })}
       ${generateCheckmarkAfterElement({
         bottom: '15%',
@@ -220,7 +220,7 @@ const decideCheckMarkCompactAndSelectedStyle = (
         width: '83%',
         transform: 'translateX(10px) rotate(-55deg)',
         transformOrigin: 'left bottom',
-        backgroundColor: isDisabled ? colors.elviaDisabled : colors.elviaBlack,
+        backgroundColor: isDisabled ? colors.disabled : colors.black,
       })}
     `;
   }
@@ -241,8 +241,8 @@ export const DropdownCheckboxMark = styled.span<DropdownCheckboxMarkProps>`
   max-width: ${(props) => (props.isCompact ? '16px' : '24px')};
   max-height: ${(props) => (props.isCompact ? '16px' : '24px')};
   border-radius: 3px;
-  border: 1px solid ${(props) => (props.isDisabled ? colors.elviaDisabled : colors.elviaBlack)};
-  background: ${colors.elviaWhite};
+  border: 1px solid ${(props) => (props.isDisabled ? colors.disabled : colors.black)};
+  background: ${colors.white};
   position: relative;
   ${(props) =>
     decideCheckMarkCompactAndSelectedStyle(

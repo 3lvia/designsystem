@@ -29,18 +29,26 @@
             </a>
             for more information on the icon component
           </div>
-          <div class="e-mt-16">
+          <app-component-example-generator
+            [componentData]="dropdownIconsCode"
+            [inlineExample]="true"
+          ></app-component-example-generator>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Option status'">
+        <ng-container ngProjectAs="sectionContent">
+          <div>
             Furthermore, a status icon may be added to the right side of an option in the dropdown by adding a
             status to the dropdown option. The possible statuses are:
-            <span class="code-text">error</span>
+            <span class="code-text">info</span>
             ,
             <span class="code-text">warning</span>
             , and
-            <span class="code-text">info</span>
+            <span class="code-text">error</span>
             . It is not required that all options have a status for any to show up.
           </div>
           <app-component-example-generator
-            [componentData]="dropdownIconsCode"
+            [componentData]="dropdownStatusCode"
             [inlineExample]="true"
           ></app-component-example-generator>
         </ng-container>
