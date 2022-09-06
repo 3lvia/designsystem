@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "06.09.22",
+      "version": "2.3.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["<span class=\"code-text\">useFocusTrap</span> included buttons with tabindex -1."]
+        }
+      ]
+    },
+    {
+      "date": "06.09.22",
       "version": "2.3.0",
       "changelog": [
         {
