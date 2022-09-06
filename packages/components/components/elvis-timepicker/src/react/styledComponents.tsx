@@ -55,7 +55,15 @@ export const LabelText = styled.div<BaseProps>`
 
 interface InputContainerProps extends BaseProps {
   disabled: boolean;
+  isActive: boolean;
 }
+
+const setActiveBorder = (props: InputContainerProps) => {
+  return css`
+    border: 2px solid ${colors.elviaGreen};
+    padding: ${props.isCompact ? '0px 3px 0px 7px' : '0px 7px 0px 15px'};
+  `;
+};
 
 export const InputContainer = styled.div<InputContainerProps>`
   display: inline-flex;
@@ -68,8 +76,7 @@ export const InputContainer = styled.div<InputContainerProps>`
   cursor: text;
 
   &:focus-within {
-    border: 2px solid ${colors.elviaGreen};
-    padding: ${(props) => (props.isCompact ? '0px 3px 0px 7px' : '0px 7px 0px 15px')};
+    ${setActiveBorder}
   }
 
   ${(props) => {
@@ -78,6 +85,10 @@ export const InputContainer = styled.div<InputContainerProps>`
         cursor: not-allowed;
         border-color: ${colors.grey30};
       `;
+    }
+
+    if (props.isActive) {
+      return setActiveBorder(props);
     }
     return '';
   }}
