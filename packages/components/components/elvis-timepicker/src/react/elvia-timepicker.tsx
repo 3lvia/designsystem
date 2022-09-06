@@ -18,7 +18,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   label = 'Velg tid',
   minuteGranularity = '15',
   isCompact = false,
-  disabled = false,
+  isDisabled = false,
   className,
   inlineStyle,
   webcomponent,
@@ -84,7 +84,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   useEffect(() => value && updateValue(value, false), [value]);
 
   return (
-    <TimePickerContainer className={`${className ? className : ''}`} style={{ ...inlineStyle }} {...rest}>
+    <TimePickerContainer className={className ?? ''} style={{ ...inlineStyle }} {...rest}>
       <TimePickerLabel isCompact={isCompact}>
         {!!label && (
           <LabelText data-test="label" isCompact={isCompact}>
@@ -93,20 +93,20 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
         )}
         <InputContainer
           ref={connectedElementRef}
-          disabled={disabled}
+          disabled={isDisabled}
           isCompact={isCompact}
           isActive={isShowing}
         >
-          <TimepickerInput time={time} disabled={disabled} isCompact={isCompact} onChange={updateValue} />
+          <TimepickerInput time={time} disabled={isDisabled} isCompact={isCompact} onChange={updateValue} />
           <IconButton
-            disabled={disabled}
+            disabled={isDisabled}
             active={isShowing}
             onClick={() => setVisibility(true)}
             ref={openPopoverButtonRef}
             size={isCompact ? 'small' : 'medium'}
             data-test="popover-toggle"
           >
-            <Icon name="clock" color={disabled ? 'grey-30' : 'black'} size={isCompact ? 'xs' : 'sm'} />
+            <Icon name="clock" color={isDisabled ? 'disabled' : 'black'} size={isCompact ? 'xs' : 'sm'} />
           </IconButton>
         </InputContainer>
       </TimePickerLabel>

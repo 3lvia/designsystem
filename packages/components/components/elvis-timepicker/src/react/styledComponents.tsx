@@ -9,7 +9,7 @@ export const colors = {
   elviaGreen: getColor('green'),
   grey05: getColor('grey-05'),
   grey10: getColor('grey-10'),
-  grey30: getColor('grey-30'),
+  disabled: getColor('disabled'),
 };
 
 const typography = {
@@ -83,7 +83,7 @@ export const InputContainer = styled.div<InputContainerProps>`
     if (props.disabled) {
       return css`
         cursor: not-allowed;
-        border-color: ${colors.grey30};
+        border-color: ${colors.disabled};
       `;
     }
 

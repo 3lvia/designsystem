@@ -8,7 +8,7 @@ export interface TimepickerProps {
   value: Date;
   valueOnChange: (value: Date) => void;
   minuteGranularity: MinuteGranularity;
-  disabled: boolean;
+  isDisabled: boolean;
   isCompact: boolean;
   label: string;
   className: string;
