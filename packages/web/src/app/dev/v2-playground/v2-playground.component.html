@@ -5,26 +5,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white" style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
-      <div>
-        <elvia-timepicker></elvia-timepicker>
-      </div>
-      <div>
-        <elvia-timepicker label="Custom label"></elvia-timepicker>
-      </div>
-      <div>
-        <elvia-timepicker label=""></elvia-timepicker>
-      </div>
-      <div>
-        <elvia-timepicker isCompact="true"></elvia-timepicker>
-      </div>
-      <div>
-        <elvia-timepicker [value]="timepickerValue"></elvia-timepicker>
-      </div>
-      <div>
-        <elvia-timepicker disabled="true"></elvia-timepicker>
-      </div>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -304,5 +285,23 @@
   <div class="example-wrapper">
     <h3>Tabs</h3>
     <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1"></elvia-tabs>
+  </div>
+
+  <!--Timepicker-->
+  <div class="example-wrapper">
+    <h3>Timepicker</h3>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
+      <elvia-timepicker></elvia-timepicker>
+
+      <elvia-timepicker label="Custom label"></elvia-timepicker>
+
+      <elvia-timepicker label=""></elvia-timepicker>
+
+      <elvia-timepicker isCompact="true"></elvia-timepicker>
+
+      <elvia-timepicker [value]="timepickerValue"></elvia-timepicker>
+
+      <elvia-timepicker disabled="true"></elvia-timepicker>
+    </div>
   </div>
 </div>
