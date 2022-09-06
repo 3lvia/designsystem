@@ -51,6 +51,9 @@ function browserSupport() {
           'css-appearance',
           'css-resize',
           'intrinsic-width',
+          'css-sticky',
+          'css-masks',
+          'css-clip-path',
         ], // Optional things to ignore
         ignoreFiles: [],
       }),
