@@ -28,6 +28,7 @@ import { warnDeprecatedProps, outlineListener } from '@elvia/elvis-toolbox';
 import { config } from './config';
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
+import { DropdownItemStatus, statusToIconMap } from './statusToIconMap';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 export interface DropdownItem {
@@ -35,7 +36,7 @@ export interface DropdownItem {
   label: string;
   icon?: IconName;
   isDisabled?: boolean;
-  statusIcon?: IconName;
+  status?: DropdownItemStatus;
 }
 
 export interface DropdownProps {
@@ -420,11 +421,15 @@ const Dropdown: React.FC<DropdownProps> = function ({
             )}
             <DropdownOptionWrapper>
               {props.children}
-              {(props.data as DropdownItem).statusIcon && (
+              {(props.data as DropdownItem).status && (
                 <Icon
-                  name={(props.data as DropdownItem).statusIcon as IconName}
-                  size={isCompact ? 'xs' : 'sm'}
-                  color={optionIsDisabled ? getColor('disabled') : undefined}
+                  name={statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].name}
+                  size={isCompact ? 'xxs' : 'xs'}
+                  color={
+                    optionIsDisabled
+                      ? getColor('disabled')
+                      : statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].color
+                  }
                 />
               )}
             </DropdownOptionWrapper>
@@ -451,11 +456,15 @@ const Dropdown: React.FC<DropdownProps> = function ({
             />
             <DropdownCheckboxLabel isCompact={isCompact}>{props.children}</DropdownCheckboxLabel>
           </DropdownCheckbox>
-          {(props.data as DropdownItem).statusIcon && (
+          {(props.data as DropdownItem).status && (
             <Icon
-              name={(props.data as DropdownItem).statusIcon as IconName}
-              size={isCompact ? 'xs' : 'sm'}
-              color={optionIsDisabled ? getColor('disabled') : undefined}
+              name={statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].name}
+              size={isCompact ? 'xxs' : 'xs'}
+              color={
+                optionIsDisabled
+                  ? getColor('disabled')
+                  : statusToIconMap[(props.data as DropdownItem).status as DropdownItemStatus].color
+              }
             />
           )}
         </DropdownOptionWrapper>

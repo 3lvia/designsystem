@@ -73,9 +73,9 @@ export class v2PlaygroundComponent {
 
   testItems = [
     { value: 'Norge', label: 'Norge', icon: 'search' },
-    { value: 'Sverige', label: 'Sverige', statusIcon: 'addCircle', isDisabled: 'true', icon: 'solarPanel' },
-    { value: 'Danmark', label: 'Danmark', statusIcon: 'informationCircle', icon: 'removeCircle' },
-    { value: 'Finland', label: 'Finland', icon: 'star' },
+    { value: 'Sverige', label: 'Sverige', status: 'warning', icon: 'solarPanel' },
+    { value: 'Danmark', label: 'Danmark', status: 'error', icon: 'removeCircle' },
+    { value: 'Finland', label: 'Finland', status: 'informative', icon: 'star' },
     { value: 'Island', label: 'Island', icon: 'thumbnail' },
   ];
 
