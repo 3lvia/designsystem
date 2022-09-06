@@ -9,7 +9,9 @@
     ]
   },
   "scripts": {
-    "build": "yarn build:tokens && nx run-many --target=build:production --projects=@elvia/elvis,@elvia/elvis-components,elvia-designsystem,react-ssr --parallel=1",
+    "build": "yarn build:tokens && nx run-many --target=build:production --projects=@elvia/elvis,@elvia/elvis-components --parallel=1 && yarn build:web:prod && yarn build:react:prod",
+    "build:web:prod": "nx build:production elvis-designsystem --skip-nx-cache",
+    "build:react:prod": "nx build:production react-ssr",
     "build:web": "nx build elvia-designsystem",
     "build:components": "nx build @elvia/elvis-components",
     "build:elvis": "nx build @elvia/elvis",
