@@ -9,7 +9,7 @@
     ]
   },
   "scripts": {
-    "build": "yarn build:tokens && yarn build:elvis:prod && yarn build:components:prod && yarn build:web:prod",
+    "build": "yarn build:tokens && yarn build:elvis:prod && yarn build:components:prod && yarn contentful:production && yarn build:web:prod",
     "build:elvis:prod": "nx build:production @elvia/elvis",
     "build:components:prod": "nx build:production @elvia/elvis-components --skip-nx-cache",
     "build:web:prod": "nx run-many --target=build --projects=elvia-designsystem,react-ssr --parallel=1",
@@ -26,8 +26,8 @@
     "start:react": "nx start react-ssr",
     "start:vue": "nx start vue-preview",
     "start:icons": "nx start @elvia/elvis-assets-icons",
-    "contentful": "cd packages/web && yarn contentful",
-    "contentful:production": "cd packages/web && yarn contentful:production",
+    "contentful": "nx contentful elvia-designsystem",
+    "contentful:production": "nx contentful:production elvia-designsystem --skip-nx-cache",
     "prettier:elvis": "prettier --write \"packages/elvis/**/*.js\"",
     "prettier:web": "prettier --write \"packages/web/src/**/*.ts\"",
     "prettier:components": "prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
