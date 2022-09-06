@@ -46,6 +46,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
 
       if (index === -1) {
         onSelect(numbers[0]);
+        return;
       }
 
       if (direction === 'next' && index !== numbers.length - 1) {
