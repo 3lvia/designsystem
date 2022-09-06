@@ -6,9 +6,9 @@
   "author": "",
   "main": "",
   "scripts": {
-    "start": "gulp watch",
     "build": "gulp",
-    "build:production": "gulp"
+    "build:production": "gulp",
+    "start": "gulp watch"
   },
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",
