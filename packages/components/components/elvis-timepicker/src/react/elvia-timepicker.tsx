@@ -19,6 +19,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   minuteGranularity = '15',
   isCompact = false,
   isDisabled = false,
+  selectNowOnOpen = true,
   className,
   inlineStyle,
   webcomponent,
@@ -73,6 +74,10 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
       return;
     }
 
+    if (isShowing && selectNowOnOpen && !time) {
+      updateValue(new Date());
+    }
+
     useFocusTrap(popoverRef);
 
     return () => useFocusTrap(popoverRef, true);
@@ -105,6 +110,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             ref={openPopoverButtonRef}
             size={isCompact ? 'small' : 'medium'}
             data-test="popover-toggle"
+            type="button"
           >
             <Icon name="clock" color={isDisabled ? 'disabled' : 'black'} size={isCompact ? 'xs' : 'sm'} />
           </IconButton>

@@ -10,6 +10,7 @@ export interface TimepickerProps {
   minuteGranularity: MinuteGranularity;
   isDisabled: boolean;
   isCompact: boolean;
+  selectNowOnOpen: boolean;
   label: string;
   className: string;
   inlineStyle: CSSProperties;
