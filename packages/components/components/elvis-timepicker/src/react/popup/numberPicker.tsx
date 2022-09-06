@@ -5,7 +5,7 @@ import {
   ArrowButtonContainer,
   HorizontalLine,
   NumberButton,
-  NumberListContainer,
+  NumberList,
   NumberPickerContainer,
   NumberPickerTitle,
 } from './popupStyles';
@@ -85,7 +85,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
     <NumberPickerContainer data-test={`${title}-number-list`}>
       <NumberPickerTitle data-test="number-list-title">{title}</NumberPickerTitle>
       <HorizontalLine />
-      <NumberListContainer ref={listRef} onScroll={loopScroll}>
+      <NumberList ref={listRef} onScroll={loopScroll}>
         <ArrowButtonContainer>
           <IconButton
             size="small"
@@ -112,7 +112,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
             <Icon name="arrowDownBold" size="xs" />
           </IconButton>
         </ArrowButtonContainer>
-      </NumberListContainer>
+      </NumberList>
     </NumberPickerContainer>
   );
 };

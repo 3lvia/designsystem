@@ -11,12 +11,10 @@ const typography = {
 
 const fadeIn = keyframes`
   0% {
-    transform: scale(0.9);
     opacity: 0.3;
   }
   
   100% {
-    transform: scale(1);
     opacity: 1;
   }
   `;
@@ -85,7 +83,7 @@ export const HorizontalLine = styled.hr`
   margin: 0;
 `;
 
-export const NumberListContainer = styled.div`
+export const NumberList = styled.div`
   overflow: auto;
   height: ${listButtonHeight * 5}px;
   width: 100%;
@@ -103,11 +101,13 @@ export const ArrowButtonContainer = styled.div`
   justify-content: center;
   height: ${listButtonHeight}px;
   position: sticky;
-  top: 0;
   background: ${colors.elviaWhite};
 
+  &:first-of-type {
+    top: 0;
+  }
+
   &:last-of-type {
-    top: unset;
     bottom: 0;
   }
 `;
