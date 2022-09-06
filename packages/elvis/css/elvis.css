@@ -133,6 +133,7 @@ body {
 .e-accordion {
   display: inline-flex;
   width: 100%;
+  color: red;
 }
 .e-accordion__item {
   display: flex;
