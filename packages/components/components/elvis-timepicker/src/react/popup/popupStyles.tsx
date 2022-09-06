@@ -39,7 +39,7 @@ export const OverlayContainer = styled.div<OverlayContainerProps>`
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   position: absolute;
-  z-index: 108;
+  z-index: 1001;
   display: flex;
   animation: ${fadeIn} 300ms ease;
 
@@ -102,6 +102,7 @@ export const ArrowButtonContainer = styled.div`
   height: ${listButtonHeight}px;
   position: sticky;
   background: ${colors.elviaWhite};
+  border-radius: 4px;
 
   &:first-of-type {
     top: 0;
