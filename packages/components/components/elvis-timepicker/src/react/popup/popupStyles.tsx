@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 import { colors } from '../styledComponents';
@@ -9,13 +9,50 @@ const typography = {
   numberButton: getTypographyCss('text-md'),
 };
 
-export const OverlayContainer = styled.div`
+const fadeIn = keyframes`
+  0% {
+    transform: scale(0.9);
+    opacity: 0.3;
+  }
+  
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  `;
+
+const fadeOut = keyframes`
+  0% {
+    opacity: 1;
+  }
+  
+  100% {
+    transform: scale(0.9);
+    opacity: 0.0;
+  }
+`;
+
+interface OverlayContainerProps {
+  fadeOut: boolean;
+}
+
+export const OverlayContainer = styled.div<OverlayContainerProps>`
   background-color: ${colors.elviaWhite};
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   position: absolute;
   z-index: 108;
   display: flex;
+  animation: ${fadeIn} 300ms ease;
+
+  ${(props) => {
+    if (props.fadeOut) {
+      return css`
+        animation: ${fadeOut} 200ms ease;
+      `;
+    }
+    return '';
+  }}
 `;
 
 export const Backdrop = styled.div`

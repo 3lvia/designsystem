@@ -60,6 +60,14 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     updateValue(newTime);
   };
 
+  const setVisibility = (isShowing: boolean): void => {
+    setIsShowing(isShowing);
+
+    if (!isShowing) {
+      openPopoverButtonRef.current?.focus();
+    }
+  };
+
   useEffect(() => {
     if (!isShowing) {
       return;
@@ -67,19 +75,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
 
     useFocusTrap(popoverRef);
 
-    const closeOnEsc = (ev: KeyboardEvent) => {
-      if (ev.key === 'Escape') {
-        setIsShowing(false);
-        openPopoverButtonRef.current?.focus();
-      }
-    };
-
-    window.addEventListener('keydown', closeOnEsc);
-
-    return () => {
-      useFocusTrap(popoverRef, true);
-      window.removeEventListener('keydown', closeOnEsc);
-    };
+    return () => useFocusTrap(popoverRef, true);
   }, [isShowing]);
 
   /**
@@ -100,7 +96,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           <IconButton
             disabled={disabled}
             active={isShowing}
-            onClick={() => setIsShowing(true)}
+            onClick={() => setVisibility(true)}
             ref={openPopoverButtonRef}
             size={isCompact ? 'small' : 'medium'}
             data-test="popover-toggle"
@@ -112,7 +108,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
       {isShowing && (
         <OverlayContainer
           ref={popoverRef}
-          onClose={() => setIsShowing(false)}
+          onClose={() => setVisibility(false)}
           onChange={(type, value) => setHourOrMinute(type, value)}
           currentTime={time}
           minuteGranularity={minuteGranularity}

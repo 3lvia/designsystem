@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ChangeType, MinuteGranularity } from '../elviaTimepicker.types';
 import { NumberPicker } from './numberPicker';
@@ -14,13 +14,34 @@ interface Props {
 
 export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
   ({ onClose, onChange, minuteGranularity, currentTime }, ref) => {
+    const [fadeOut, setFadeOut] = useState(false);
     const hours = new Array(24).fill('').map((_, index) => index);
     const minutes = new Array(60 / +minuteGranularity).fill('').map((_, index) => index * +minuteGranularity);
 
+    const onAnimationEnd = () => {
+      if (fadeOut) {
+        onClose();
+      }
+    };
+
+    useEffect(() => {
+      const closeOnEsc = (ev: KeyboardEvent) => {
+        if (ev.key === 'Escape') {
+          setFadeOut(true);
+        }
+      };
+
+      window.addEventListener('keydown', closeOnEsc);
+
+      return () => {
+        window.removeEventListener('keydown', closeOnEsc);
+      };
+    }, []);
+
     return createPortal(
       <>
-        <Backdrop onClick={onClose} data-test="backdrop" />
-        <Container ref={ref} data-test="popover">
+        <Backdrop onClick={() => setFadeOut(true)} data-test="backdrop" />
+        <Container ref={ref} data-test="popover" fadeOut={fadeOut} onAnimationEnd={onAnimationEnd}>
           <NumberPicker
             title="Time"
             currentValue={currentTime?.getHours()}
