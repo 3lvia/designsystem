@@ -299,9 +299,15 @@
 
       <elvia-timepicker isCompact="true"></elvia-timepicker>
 
-      <elvia-timepicker [value]="timepickerValue"></elvia-timepicker>
+      <elvia-timepicker
+        label="Only hours"
+        [value]="timepickerValue"
+        minuteGranularity="60"
+      ></elvia-timepicker>
 
-      <elvia-timepicker disabled="true"></elvia-timepicker>
+      <elvia-timepicker isDisabled="true"></elvia-timepicker>
+
+      <elvia-timepicker label="Required" isRequired="true"></elvia-timepicker>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [figmaOnly]="true">
+<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
   <ng-container ngProjectAs="headerTitle">Time picker</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -7,19 +7,50 @@
 </app-component-header>
 
 <!--BODY-->
-<div class="page-body">
-  <!--Temporary-->
-  <div>
-    <div class="e-content-loader e-w-100" *ngIf="!loadedFigmaModel" style="width: 880px; height: 600px"></div>
-    <iframe
-      [ngClass]="!loadedFigmaModel ? 'e-none' : ''"
-      style="border: 1px solid rgba(0, 0, 0, 0.1)"
-      width="100%"
-      height="450"
-      src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F0hCktnFvRvSHVDntaaOSEu%2FInputs%3Fnode-id%3D4473%253A27459"
-      allowfullscreen
-      (load)="hideContentLoader($event)"
-      title="Embedded sketches of timepicker in Figma"
-    ></iframe>
-  </div>
+<div class="page-body e-mt-72">
+  <!--CEG-->
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does"></app-when-to-use>
+      <app-component-subsection [sectionTitle]="'Options'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-subsubsection [sectionTitle]="'Title outside'">
+            <ng-container ngProjectAs="sectionContent">
+              The title option can be used when a header is useful.
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Colored'">
+            <ng-container ngProjectAs="sectionContent">
+              The box with a colored line should be used if you want the box to take more attention, but
+              should not be used with multiple boxes on the same page.
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
+  <!--CHANGELOG-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
+    </ng-container>
+  </app-component-section>
 </div>
