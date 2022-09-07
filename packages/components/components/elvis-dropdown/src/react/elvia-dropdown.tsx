@@ -18,7 +18,8 @@ import {
   DropdownErrorMessageWrapper,
   DropdownLabel,
   DropdownSingleValueOverflowWrapper,
-  DropdownOptionWrapper,
+  DropdownOptionWithStatusWrapper,
+  DropdownOptionTooltip,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
@@ -401,34 +402,71 @@ const Dropdown: React.FC<DropdownProps> = function ({
   };
 
   const ElviaOption = (props: OptionProps) => {
+    const [isHoveringOption, setIsHoveringOption] = useState(false);
+    const iconPosRef = useRef<HTMLDivElement>(null);
+    const tooltipRef = useRef<HTMLDivElement>(null);
     const optionData = props.data as DropdownItem;
     const optionIsDisabled = optionData.isDisabled ?? false;
 
+    const handleOnPointerEnter = () => {
+      setIsHoveringOption(true);
+      setHoveredItem(optionData);
+    };
+    const handleOnPointerLeave = () => {
+      setIsHoveringOption(false);
+    };
+
     if (!isMulti) {
       return (
-        <components.Option {...props} isDisabled={optionIsDisabled}>
-          <div style={{ display: 'contents' }} onPointerEnter={() => setHoveredItem(optionData)}>
-            {allOptionsHaveIconAttribute ? (
-              <Icon
-                inlineStyle={{ marginRight: '16px' }}
-                name={optionData.icon as IconName}
-                size={isCompact ? 'xs' : 'sm'}
-                color={optionIsDisabled ? getColor('disabled') : undefined}
-              />
-            ) : (
-              ''
-            )}
-            <DropdownOptionWrapper>
-              {props.children}
-              {optionData.status && (
+        <components.Option
+          {...props}
+          innerProps={{
+            ...props['innerProps'],
+            onPointerEnter: handleOnPointerEnter,
+            onPointerLeave: handleOnPointerLeave,
+          }}
+          isDisabled={optionIsDisabled}
+        >
+          {allOptionsHaveIconAttribute ? (
+            <Icon
+              inlineStyle={{ marginRight: '16px' }}
+              name={optionData.icon as IconName}
+              size={isCompact ? 'xs' : 'sm'}
+              color={optionIsDisabled ? getColor('disabled') : undefined}
+            />
+          ) : (
+            ''
+          )}
+          <DropdownOptionWithStatusWrapper>
+            {props.children}
+            {optionData.status && (
+              <div style={{ display: 'relative' }} ref={iconPosRef}>
                 <Icon
                   name={statusToIconMap[optionData.status].name}
                   color={statusToIconMap[optionData.status].color}
                   size={'xs'}
                 />
-              )}
-            </DropdownOptionWrapper>
-          </div>
+              </div>
+            )}
+            {optionData.tooltip && (
+              <DropdownOptionTooltip
+                isShowing={isHoveringOption}
+                top={
+                  (iconPosRef.current?.getBoundingClientRect().bottom ?? 0) -
+                  (tooltipRef.current?.clientHeight ?? 0) -
+                  28
+                }
+                left={
+                  (iconPosRef.current?.getBoundingClientRect().right ?? 0) -
+                  (tooltipRef.current?.clientWidth ?? 0) / 2 -
+                  8
+                }
+                ref={tooltipRef}
+              >
+                {optionData.tooltip}
+              </DropdownOptionTooltip>
+            )}
+          </DropdownOptionWithStatusWrapper>
         </components.Option>
       );
     }
@@ -440,7 +478,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
       !props.isSelected;
     return (
       <components.Option {...props} isDisabled={optionIsDisabled}>
-        <DropdownOptionWrapper onPointerEnter={() => setHoveredItem(optionData)}>
+        <DropdownOptionWithStatusWrapper onPointerEnter={() => setHoveredItem(optionData)}>
           <DropdownCheckbox>
             <DropdownCheckboxMark
               id="ewc-dropdown-checkbox__mark"
@@ -458,7 +496,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
               size={'xs'}
             />
           )}
-        </DropdownOptionWrapper>
+        </DropdownOptionWithStatusWrapper>
       </components.Option>
     );
   };

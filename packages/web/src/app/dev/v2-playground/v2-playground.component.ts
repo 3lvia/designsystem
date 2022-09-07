@@ -73,12 +73,18 @@ export class v2PlaygroundComponent {
 
   testItems = [
     { value: 'Norge', label: 'Norge' },
-    { value: 'Sverige', label: 'Sverige', status: 'warning', tooltip: 'Test tooltip3' },
+    {
+      value: 'Sverige',
+      label: 'Sverige',
+      status: 'warning',
+      tooltip: 'Dette er en tooltip med ekstra info fordi det trengs mer informasjon her.',
+    },
     {
       value: 'Danmark',
       label: 'Danmark',
       status: 'error',
       isDisabled: 'true',
+      tooltip: 'Tooltip funker også på options som er disabled.',
     },
     { value: 'Finland', label: 'Finland', status: 'info', tooltip: 'Test tooltip' },
     { value: 'Island', label: 'Island' },
