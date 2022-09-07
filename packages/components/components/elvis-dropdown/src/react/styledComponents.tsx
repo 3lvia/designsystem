@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
@@ -277,58 +277,4 @@ export const DropdownOptionWithStatusWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-`;
-
-const CardHeadingTooltipKeyframes = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-interface DropdownOptionTooltipProps {
-  isShowing: boolean;
-  top: number;
-  left: number;
-}
-
-export const DropdownOptionTooltip = styled.div<DropdownOptionTooltipProps>`
-  opacity: 0;
-  position: fixed;
-  top: ${(props) => props.top}px;
-  left: ${(props) => props.left}px;
-  width: auto;
-  max-width: 175px;
-  border-radius: 4px;
-  background: ${colors.grey80};
-  padding: 8px 10px;
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  letter-spacing: 0.002em;
-  color: ${colors.white};
-  text-align: center;
-  overflow-wrap: break-word;
-  &::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -7px;
-    border: 7px solid;
-    border-color: ${colors.grey80} transparent transparent transparent;
-  }
-  ${(props) =>
-    props.isShowing &&
-    css`
-      & {
-        animation: ${CardHeadingTooltipKeyframes} 200ms 500ms forwards;
-      }
-    `}
 `;

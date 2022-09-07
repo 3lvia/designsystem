@@ -19,7 +19,6 @@ import {
   DropdownLabel,
   DropdownSingleValueOverflowWrapper,
   DropdownOptionWithStatusWrapper,
-  DropdownOptionTooltip,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
@@ -402,18 +401,11 @@ const Dropdown: React.FC<DropdownProps> = function ({
   };
 
   const ElviaOption = (props: OptionProps) => {
-    const [isHoveringOption, setIsHoveringOption] = useState(false);
-    const iconPosRef = useRef<HTMLDivElement>(null);
-    const tooltipRef = useRef<HTMLDivElement>(null);
     const optionData = props.data as DropdownItem;
     const optionIsDisabled = optionData.isDisabled ?? false;
 
     const handleOnPointerEnter = () => {
-      setIsHoveringOption(true);
       setHoveredItem(optionData);
-    };
-    const handleOnPointerLeave = () => {
-      setIsHoveringOption(false);
     };
 
     if (!isMulti) {
@@ -423,7 +415,6 @@ const Dropdown: React.FC<DropdownProps> = function ({
           innerProps={{
             ...props['innerProps'],
             onPointerEnter: handleOnPointerEnter,
-            onPointerLeave: handleOnPointerLeave,
           }}
           isDisabled={optionIsDisabled}
         >
@@ -440,31 +431,11 @@ const Dropdown: React.FC<DropdownProps> = function ({
           <DropdownOptionWithStatusWrapper>
             {props.children}
             {optionData.status && (
-              <div style={{ display: 'relative' }} ref={iconPosRef}>
-                <Icon
-                  name={statusToIconMap[optionData.status].name}
-                  color={statusToIconMap[optionData.status].color}
-                  size={'xs'}
-                />
-              </div>
-            )}
-            {optionData.tooltip && (
-              <DropdownOptionTooltip
-                isShowing={isHoveringOption}
-                top={
-                  (iconPosRef.current?.getBoundingClientRect().bottom ?? 0) -
-                  (tooltipRef.current?.clientHeight ?? 0) -
-                  28
-                }
-                left={
-                  (iconPosRef.current?.getBoundingClientRect().right ?? 0) -
-                  (tooltipRef.current?.clientWidth ?? 0) / 2 -
-                  8
-                }
-                ref={tooltipRef}
-              >
-                {optionData.tooltip}
-              </DropdownOptionTooltip>
+              <Icon
+                name={statusToIconMap[optionData.status].name}
+                color={statusToIconMap[optionData.status].color}
+                size={'xs'}
+              />
             )}
           </DropdownOptionWithStatusWrapper>
         </components.Option>
@@ -477,8 +448,15 @@ const Dropdown: React.FC<DropdownProps> = function ({
       currentVal.length > 0 &&
       !props.isSelected;
     return (
-      <components.Option {...props} isDisabled={optionIsDisabled}>
-        <DropdownOptionWithStatusWrapper onPointerEnter={() => setHoveredItem(optionData)}>
+      <components.Option
+        {...props}
+        innerProps={{
+          ...props['innerProps'],
+          onPointerEnter: handleOnPointerEnter,
+        }}
+        isDisabled={optionIsDisabled}
+      >
+        <DropdownOptionWithStatusWrapper>
           <DropdownCheckbox>
             <DropdownCheckboxMark
               id="ewc-dropdown-checkbox__mark"
