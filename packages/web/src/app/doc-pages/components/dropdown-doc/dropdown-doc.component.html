@@ -45,7 +45,7 @@
             only utilize it if necessery. Choose the correct status to secure a consistent and universal user
             experience.
 
-            <ul class="e-list e-list--icons">
+            <ul class="e-list e-list--icons e-mt-32">
               <li>
                 <span class="e-list__icon">
                   <i class="e-icon e-icon--remove_circle e-icon--color-error" aria-hidden="true"></i>
@@ -72,6 +72,17 @@
                 other options. Do not use if relevant for all options.
               </li>
             </ul>
+          </div>
+          <div class="e-mt-16">
+            To add a status to an option, simply add a key value pair of
+            <span class="code-text">status: string</span>
+            to the option. The available status options are
+            <span class="code-text">error</span>
+            ,
+            <span class="code-text">warning</span>
+            and
+            <span class="code-text">info</span>
+            .
           </div>
           <app-component-example-generator
             [componentData]="dropdownStatusCode"

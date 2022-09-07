@@ -1,12 +1,13 @@
 const dropdownStatusCode = {
   codeReact: `<Dropdown 
     items={[
-      { value: 'Norge', label: 'Norge', status: 'info' },
-      { value: 'Sverige', label: 'Sverige', status: 'warning' },
-      { value: 'Danmark', label: 'Danmark'},
-      { value: 'Finland', label: 'Finland', status: 'error' },
+      { value: 'Nord-Korea', label: 'Nord-Korea', status: 'warning' },
+      { value: 'Nord-Makedonia', label: 'Nord-Makedonia'},
+      { value: 'Norge', label: 'Norge' },
+      { value: 'Oman', label: 'Oman'},
+      { value: 'Russland', label: 'Russland', status: 'warning' },
     ]} 
-    value={{ value: 'Norge', label: 'Norge', status: 'info' }}
+    value={{ value: 'Nord-Makedonia', label: 'Nord-Makedonia'}}
     label={"Label"}
     placeholder={"Placeholder"}
     valueOnChange={(event) => updateSelectedList(event)}
@@ -14,12 +15,13 @@ const dropdownStatusCode = {
   `,
   codeAngular: `<elvia-dropdown
     [items]="[
-      { value: 'Norge', label: 'Norge', status: 'info' },
-      { value: 'Sverige', label: 'Sverige', status: 'warning' },
-      { value: 'Danmark', label: 'Danmark'},
-      { value: 'Finland', label: 'Finland', status: 'error' },
+      { value: 'Nord-Korea', label: 'Nord-Korea', status: 'warning' },
+      { value: 'Nord-Makedonia', label: 'Nord-Makedonia'},
+      { value: 'Norge', label: 'Norge' },
+      { value: 'Oman', label: 'Oman'},
+      { value: 'Russland', label: 'Russland', status: 'warning' },
     ]"
-    [value]="{ value: 'Norge', label: 'Norge', status: 'info' }"
+    [value]="{ value: 'Nord-Makedonia', label: 'Nord-Makedonia'}"
     [label]="'Label'"
     [placeholder]="'Placeholder'"
     (valueOnChange)="updateSelectedList($event.detail.value)"
@@ -27,12 +29,13 @@ const dropdownStatusCode = {
   `,
   codeVue: `<elvia-dropdown
     :items="[
-      { value: 'Norge', label: 'Norge', status: 'info' },
-      { value: 'Sverige', label: 'Sverige', status: 'warning' },
-      { value: 'Danmark', label: 'Danmark'},
-      { value: 'Finland', label: 'Finland', status: 'error' },
+      { value: 'Nord-Korea', label: 'Nord-Korea', status: 'warning' },
+      { value: 'Nord-Makedonia', label: 'Nord-Makedonia'},
+      { value: 'Norge', label: 'Norge' },
+      { value: 'Oman', label: 'Oman'},
+      { value: 'Russland', label: 'Russland', status: 'warning' },
     ]"
-    :value="{ value: 'Norge', label: 'Norge', status: 'info' }"
+    :value="{ value: 'Nord-Makedonia', label: 'Nord-Makedonia'}"
     :label="'Label'"
     :placeholder="'Placeholder'"
     @value-on-change="updateSelectedList($event.detail.value)"
@@ -44,15 +47,16 @@ const dropdownStatusCode = {
 
   codeNativeScript: `  const dropdown = document.getElementById('example-elvia-dropdown-status');
     const items = [
-      { value: 'Norge', label: 'Norge', status: 'info' },
-      { value: 'Sverige', label: 'Sverige', status: 'warning' },
-      { value: 'Danmark', label: 'Danmark'},
-      { value: 'Finland', label: 'Finland', status: 'error' },
+      { value: 'Nord-Korea', label: 'Nord-Korea', status: 'warning' },
+      { value: 'Nord-Makedonia', label: 'Nord-Makedonia'},
+      { value: 'Norge', label: 'Norge' },
+      { value: 'Oman', label: 'Oman'},
+      { value: 'Russland', label: 'Russland', status: 'warning' },
     ];
     dropdown.setProps({label: 'Label' });
     dropdown.setProps({placeholder: 'Placeholder' });
     dropdown.setProps({items: items});
-    dropdown.setProps({value: items[0]});
+    dropdown.setProps({value: items[1]});
     dropdown.addEventListener('valueOnChange', (event) => {
       console.log('Do what you want with selected elements: ', event.detail.value);
     });
