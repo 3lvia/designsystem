@@ -6,6 +6,11 @@ const getElement = (wrapper, elementType, dataAttribute) => {
   return wrapper.find(`${elementType}[data-test="${dataAttribute}"]`);
 };
 
+export const padDigit = (d) => {
+  const paddedNumber = `0${d}`;
+  return paddedNumber.substring(paddedNumber.length - 2);
+};
+
 describe('Elvis Timepicker', () => {
   describe('Basic', () => {
     let wrapper;
@@ -15,7 +20,7 @@ describe('Elvis Timepicker', () => {
     let popover;
 
     beforeEach(() => {
-      wrapper = mount(<Timepicker></Timepicker>);
+      wrapper = mount(<Timepicker selectNowOnOpen={false}></Timepicker>);
       label = getElement(wrapper, 'div', 'label');
       input = getElement(wrapper, 'input', 'input');
       popoverToggle = getElement(wrapper, 'button', 'popover-toggle');
@@ -72,26 +77,31 @@ describe('Elvis Timepicker', () => {
         minuteButtons = getElement(popover, 'button', 'Minutt-number-button');
       });
 
-      it('the popover opens', () => {
+      it('the popover opens', (done) => {
         expect(popover.getDOMNode()).toBeDefined();
+        done();
       });
 
-      it('the popover contains an hours list', () => {
+      it('the popover contains an hours list', (done) => {
         expect(hoursList.getDOMNode()).toBeDefined();
+        done();
       });
 
-      it('the popover contains an minutes list', () => {
+      it('the popover contains an minutes list', (done) => {
         expect(minutesList.getDOMNode()).toBeDefined();
+        done();
       });
 
-      it('the popover contains 28 hour buttons', () => {
+      it('the popover contains 28 hour buttons', (done) => {
         // 24 + 2 duplicates on each side for looping
+        done();
         expect(hourButtons.length).toBe(28);
       });
 
-      it('the popover contains 8 minute buttons', () => {
+      it('the popover contains 8 minute buttons', (done) => {
         // 4 + 2 duplicates on each side for looping
         expect(minuteButtons.length).toBe(8);
+        done();
       });
 
       describe('and the next-hour button is clicked', () => {
@@ -99,8 +109,9 @@ describe('Elvis Timepicker', () => {
           nextHourButton.simulate('click');
         });
 
-        it('the value in the input goes to the default setting', () => {
+        it('the value in the input goes to the default setting', (done) => {
           expect(input.getDOMNode().value).toBe('00.00');
+          done();
         });
 
         describe('and clicked again', () => {
@@ -108,8 +119,9 @@ describe('Elvis Timepicker', () => {
             nextHourButton.simulate('click');
           });
 
-          it('the hour increases by one', () => {
+          it('the hour increases by one', (done) => {
             expect(input.getDOMNode().value).toBe('01.00');
+            done();
           });
         });
 
@@ -118,8 +130,9 @@ describe('Elvis Timepicker', () => {
             nextMinuteButton.simulate('click');
           });
 
-          it('the minute increases by 15', () => {
+          it('the minute increases by 15', (done) => {
             expect(input.getDOMNode().value).toBe('00.15');
+            done();
           });
         });
       });
@@ -129,19 +142,9 @@ describe('Elvis Timepicker', () => {
           hourButtons.at(3).simulate('click');
         });
 
-        it('the hour is set to 01.00', () => {
+        it('the hour is set to 01.00', (done) => {
           expect(input.getDOMNode().value).toBe('01.00');
-        });
-      });
-
-      describe('and the backdrop is clicked', () => {
-        beforeEach(() => {
-          backdrop.simulate('click');
-          popover = getElement(wrapper, 'div', 'popover');
-        });
-
-        it('the popover is closed', () => {
-          expect(popover.length).toBe(0);
+          done();
         });
       });
     });
@@ -153,8 +156,9 @@ describe('Elvis Timepicker', () => {
         input.simulate('blur');
       });
 
-      it('the input value wraps to the correct hour', () => {
-        expect(input.getDOMNode().value).toBe('02.00');
+      it('a validation error is shown', (done) => {
+        expect(getElement(wrapper, 'span', 'error').text()).toBe('Ugyldig tid');
+        done();
       });
     });
   });
@@ -166,7 +170,7 @@ describe('Elvis Timepicker', () => {
     let popover;
 
     beforeEach(() => {
-      wrapper = mount(<Timepicker disabled={true}></Timepicker>);
+      wrapper = mount(<Timepicker isDisabled={true}></Timepicker>);
       input = getElement(wrapper, 'input', 'input');
       popoverToggle = getElement(wrapper, 'button', 'popover-toggle');
       popover = getElement(wrapper, 'div', 'popover');
@@ -176,12 +180,14 @@ describe('Elvis Timepicker', () => {
       wrapper.unmount();
     });
 
-    it('should have an disabled input field', () => {
+    it('should have an disabled input field', (done) => {
       expect(input.getDOMNode().disabled).toBe(true);
+      done();
     });
 
-    it('should have an disabled button', () => {
+    it('should have an disabled button', (done) => {
       expect(popoverToggle.getDOMNode().disabled).toBe(true);
+      done();
     });
 
     describe('When the popover trigger is clicked', () => {
@@ -189,8 +195,9 @@ describe('Elvis Timepicker', () => {
         popoverToggle.simulate('click');
       });
 
-      it('the popover does not open', () => {
+      it('the popover does not open', (done) => {
         expect(popover.length).toBe(0);
+        done();
       });
     });
   });
@@ -208,8 +215,38 @@ describe('Elvis Timepicker', () => {
       wrapper.unmount();
     });
 
-    it('should have a small popover toggle', () => {
+    it('should have a small popover toggle', (done) => {
       expect(popoverToggle.parent().prop('size')).toBe('small');
+      done();
+    });
+  });
+
+  describe('With default select on open', () => {
+    let wrapper;
+    let popoverToggle;
+
+    beforeEach(() => {
+      wrapper = mount(<Timepicker selectNowOnOpen={true}></Timepicker>);
+      popoverToggle = getElement(wrapper, 'button', 'popover-toggle');
+    });
+
+    afterEach(() => {
+      wrapper.unmount();
+    });
+
+    describe('When the popover trigger is clicked', () => {
+      let input;
+
+      beforeEach(() => {
+        popoverToggle.simulate('click');
+        input = getElement(wrapper, 'input', 'input');
+      });
+
+      it('the input receives a default value', (done) => {
+        const now = new Date();
+        expect(input.getDOMNode().value).toBe(`${padDigit(now.getHours())}.${padDigit(now.getMinutes())}`);
+        done();
+      });
     });
   });
 });
