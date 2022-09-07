@@ -483,6 +483,7 @@ module.exports = [
       { name: 'minuteGranularity', type: 'string', propType: 'string | undefined' },
       { name: 'isDisabled', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isCompact', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'isRequired', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'selectNowOnOpen', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'label', type: 'string', propType: 'string | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },

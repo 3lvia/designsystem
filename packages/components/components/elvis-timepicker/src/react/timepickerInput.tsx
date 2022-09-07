@@ -1,16 +1,26 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
+import { ErrorType } from './elviaTimepicker.types';
 
 import { padDigit } from './padDigit';
 import { Input } from './styledComponents';
 
 interface Props {
   disabled?: boolean;
+  required: boolean;
   time?: Date;
   isCompact?: boolean;
   onChange: (newValue: Date) => void;
+  onErrorChange: (error?: ErrorType) => void;
 }
 
-export const TimepickerInput: React.FC<Props> = ({ disabled, time, isCompact, onChange }) => {
+export const TimepickerInput: React.FC<Props> = ({
+  disabled,
+  required,
+  time,
+  isCompact,
+  onChange,
+  onErrorChange,
+}) => {
   let previousValidValue = '';
   const [inputValue, setInputValue] = useState('');
 
@@ -53,22 +63,37 @@ export const TimepickerInput: React.FC<Props> = ({ disabled, time, isCompact, on
     }
   };
 
+  const inputValueIsInvalid = (hour: string, minute: string): boolean => {
+    if (!hour.length) {
+      if (required) {
+        onErrorChange('required');
+      }
+      return true;
+    } else if (+hour >= 24 || +minute >= 60) {
+      onErrorChange('invalidTime');
+      return true;
+    }
+
+    return false;
+  };
+
   const validateInputValue = (): void => {
     let [hour, minute] = inputValue.split('.');
 
-    if (!hour || !minute) {
-      if (inputValue.length >= 3 && inputValue.length <= 4 && isNumericValue(inputValue)) {
-        hour = inputValue.substring(0, 2);
-        minute = padDigit(+inputValue.substring(2));
-      } else {
-        setInputValue(previousValidValue);
-        return;
-      }
+    if (inputValueIsInvalid(hour, minute)) {
+      return;
     }
 
-    const validHour = +hour % 24;
-    const validMinute = +minute % 60;
-    const newValue = `${padDigit(validHour)}.${padDigit(validMinute)}`;
+    onErrorChange(undefined);
+    if (inputValue.length <= 2 && isNumericValue(inputValue)) {
+      hour = inputValue;
+      minute = '';
+    } else if (inputValue.length >= 3 && inputValue.length <= 4 && isNumericValue(inputValue)) {
+      hour = inputValue.substring(0, 2);
+      minute = inputValue.substring(2);
+    }
+
+    const newValue = `${padDigit(+hour)}.${padDigit(+minute)}`;
     setInputValue(newValue);
     previousValidValue = newValue;
 
@@ -95,6 +120,8 @@ export const TimepickerInput: React.FC<Props> = ({ disabled, time, isCompact, on
       onBlur={validateInputValue}
       isCompact={isCompact}
       data-test="input"
+      aria-live="polite"
+      required={required}
     />
   );
 };

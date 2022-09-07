@@ -10,6 +10,7 @@ export const colors = {
   grey05: getColor('grey-05'),
   grey10: getColor('grey-10'),
   disabled: getColor('disabled'),
+  error: getColor('error'),
 };
 
 const typography = {
@@ -30,6 +31,7 @@ export const TimePickerLabel = styled.label<BaseProps>`
   display: inline-block;
   position: relative;
   margin-top: ${(props) => (props.isCompact ? '5px' : '0px')};
+  padding-bottom: 24px;
 `;
 
 export const LabelText = styled.div<BaseProps>`
@@ -56,11 +58,12 @@ export const LabelText = styled.div<BaseProps>`
 interface InputContainerProps extends BaseProps {
   disabled: boolean;
   isActive: boolean;
+  isInvalid: boolean;
 }
 
 const setActiveBorder = (props: InputContainerProps) => {
   return css`
-    border: 2px solid ${colors.elviaGreen};
+    border: 2px solid ${props.isInvalid ? colors.error : colors.elviaGreen};
     padding: ${props.isCompact ? '0px 3px 0px 7px' : '0px 7px 0px 15px'};
   `;
 };
@@ -74,12 +77,17 @@ export const InputContainer = styled.div<InputContainerProps>`
   height: ${(props) => (props.isCompact ? '34px' : '48px')};
   border-radius: 4px;
   cursor: text;
+  transition: border-color 150ms;
 
   &:focus-within {
     ${setActiveBorder}
   }
 
   ${(props) => {
+    if (props.isInvalid) {
+      return setActiveBorder(props);
+    }
+
     if (props.disabled) {
       return css`
         cursor: not-allowed;
