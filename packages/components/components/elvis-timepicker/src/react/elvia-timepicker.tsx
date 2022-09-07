@@ -19,7 +19,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   valueOnChange,
   errorOnChange,
   label = 'Velg tid',
-  minuteGranularity = '15',
+  minuteInterval = '15',
   isCompact = false,
   isDisabled = false,
   isRequired = false,
@@ -152,7 +152,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           onClose={() => setVisibility(false)}
           onChange={(type, value) => setHourOrMinute(type, value)}
           currentTime={time}
-          minuteGranularity={minuteGranularity}
+          minuteInterval={minuteInterval}
         />
       )}
     </TimePickerContainer>

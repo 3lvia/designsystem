@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ChangeType, MinuteGranularity } from '../elviaTimepicker.types';
+import { ChangeType, MinuteInterval } from '../elviaTimepicker.types';
 import { NumberPicker } from './numberPicker';
 
 import { Backdrop, OverlayContainer as Container } from './popupStyles';
@@ -8,15 +8,15 @@ import { Backdrop, OverlayContainer as Container } from './popupStyles';
 interface Props {
   onClose: () => void;
   onChange: (changeType: ChangeType, newValue: number) => void;
-  minuteGranularity: MinuteGranularity;
+  minuteInterval: MinuteInterval;
   currentTime: Date | undefined;
 }
 
 export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
-  ({ onClose, onChange, minuteGranularity, currentTime }, ref) => {
+  ({ onClose, onChange, minuteInterval, currentTime }, ref) => {
     const [fadeOut, setFadeOut] = useState(false);
     const hours = new Array(24).fill('').map((_, index) => index);
-    const minutes = new Array(60 / +minuteGranularity).fill('').map((_, index) => index * +minuteGranularity);
+    const minutes = new Array(60 / +minuteInterval).fill('').map((_, index) => index * +minuteInterval);
 
     const onAnimationEnd = () => {
       if (fadeOut) {
@@ -48,7 +48,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
             numbers={hours}
             onSelect={(val) => onChange('hour', val)}
           />
-          {minuteGranularity !== '60' && (
+          {minuteInterval !== '60' && (
             <NumberPicker
               title="Minutt"
               currentValue={currentTime?.getMinutes()}

@@ -480,7 +480,7 @@ module.exports = [
     elementName: 'elvia-timepicker',
     attributes: [
       { name: 'value', type: 'Date', propType: 'Date | undefined' },
-      { name: 'minuteGranularity', type: 'string', propType: 'string | undefined' },
+      { name: 'minuteInterval', type: 'string', propType: 'string | undefined' },
       { name: 'isDisabled', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isCompact', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isRequired', type: 'boolean', propType: 'boolean | undefined' },
