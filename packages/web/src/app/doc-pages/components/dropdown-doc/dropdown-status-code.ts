@@ -6,7 +6,7 @@ const dropdownStatusCode = {
       { value: 'Danmark', label: 'Danmark'},
       { value: 'Finland', label: 'Finland', status: 'error' },
     ]} 
-    value={{ value: 'Electricity tower', label: 'Electricity tower' }}
+    value={{ value: 'Norge', label: 'Norge', status: 'info' }}
     label={"Label"}
     placeholder={"Placeholder"}
     valueOnChange={(event) => updateSelectedList(event)}
@@ -19,7 +19,7 @@ const dropdownStatusCode = {
       { value: 'Danmark', label: 'Danmark'},
       { value: 'Finland', label: 'Finland', status: 'error' },
     ]"
-    [value]="{ value: 'Electricity tower', label: 'Electricity tower' }"
+    [value]="{ value: 'Norge', label: 'Norge', status: 'info' }"
     [label]="'Label'"
     [placeholder]="'Placeholder'"
     (valueOnChange)="updateSelectedList($event.detail.value)"
@@ -32,7 +32,7 @@ const dropdownStatusCode = {
       { value: 'Danmark', label: 'Danmark'},
       { value: 'Finland', label: 'Finland', status: 'error' },
     ]"
-    :value="{ value: 'Electricity tower', label: 'Electricity tower' }"
+    :value="{ value: 'Norge', label: 'Norge', status: 'info' }"
     :label="'Label'"
     :placeholder="'Placeholder'"
     @value-on-change="updateSelectedList($event.detail.value)"
@@ -52,7 +52,7 @@ const dropdownStatusCode = {
     dropdown.setProps({label: 'Label' });
     dropdown.setProps({placeholder: 'Placeholder' });
     dropdown.setProps({items: items});
-    dropdown.setProps({value: items[1]});
+    dropdown.setProps({value: items[0]});
     dropdown.addEventListener('valueOnChange', (event) => {
       console.log('Do what you want with selected elements: ', event.detail.value);
     });
