@@ -98,7 +98,13 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
     <NumberPickerContainer data-test={`${title}-number-list`}>
       <NumberPickerTitle data-test="number-list-title">{title}</NumberPickerTitle>
       <HorizontalLine />
-      <NumberList ref={listRef} tabIndex={0} onScroll={loopScroll} onKeyDown={onKeyDown}>
+      <NumberList
+        ref={listRef}
+        tabIndex={0}
+        onScroll={loopScroll}
+        onKeyDown={onKeyDown}
+        aria-label={`${title} valg. Bruk piltaster for å endre verdi.`}
+      >
         <ArrowButtonContainer>
           <IconButton
             size="small"
