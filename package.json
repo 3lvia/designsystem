@@ -39,7 +39,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "./scripts/elvis-pre-commit.sh && lint-staged",
+      "pre-commit": "lint-staged",
       "pre-push": "./scripts/pre-push.sh"
     }
   },
