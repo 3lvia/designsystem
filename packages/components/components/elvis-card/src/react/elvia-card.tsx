@@ -59,7 +59,7 @@ const Card: FC<CardProps> = ({
   hasBorder = true,
   width = '100%',
   minWidth,
-  maxWidth = 175,
+  maxWidth = 200,
   maxDescriptionLines = 3,
   tag,
   cornerIcon,
@@ -157,7 +157,7 @@ const Card: FC<CardProps> = ({
             onPointerEnter={() => setIsHoveringHeader(true)}
             onPointerLeave={() => setIsHoveringHeader(false)}
           >
-            <CardHeading ref={headingRef} type={type} data-testid="card-header">
+            <CardHeading ref={headingRef} type={type} data-testid="card-heading">
               {heading}
             </CardHeading>
             {headingIsOverflowing && (
