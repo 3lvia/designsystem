@@ -250,7 +250,8 @@ const Dropdown: React.FC<DropdownProps> = function ({
     menu: (provided) => ({
       ...provided,
       boxShadow: '0px 0px 40px rgba(0, 0, 0, 0.06);',
-      minWidth: '72px',
+      minWidth: '100%',
+      width: 'fit-content',
       zIndex: 100,
     }),
 
@@ -300,7 +301,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
       paddingBottom: '7px',
       paddingLeft: isCompact ? '9px' : '15px',
       fontSize: isCompact ? '14px' : '16px',
-      lineHeight: isCompact ? '18px' : '30px',
+      lineHeight: isCompact ? '18px' : '26px',
       border: '1px solid transparent',
       cursor: state.isDisabled ? 'not-allowed' : 'pointer',
       overflowX: 'hidden',

@@ -74,8 +74,10 @@ export class v2PlaygroundComponent {
   testItems = [
     { value: 'Norge', label: 'Norge' },
     {
-      value: 'Sverige',
-      label: 'Sverige',
+      value:
+        'SverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverige',
+      label:
+        'SverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverige',
       status: 'warning',
       tooltip: 'Dette er en tooltip med ekstra info fordi det trengs mer informasjon her.',
     },
