@@ -50,6 +50,10 @@ elviaComponents.forEach((component) => {
     devServer: {
       contentBase: 'dist',
     },
+    performance: {
+      maxAssetSize: 1100000,
+      maxEntrypointSize: 1100000,
+    },
   });
 });
 
@@ -61,6 +65,10 @@ builds.push({
   output: {
     filename: `elvia-loader.js`,
     path: path.resolve(__dirname, `./components/elvis-loader/dist/`),
+  },
+  performance: {
+    maxAssetSize: 500000,
+    maxEntrypointSize: 500000,
   },
 });
 
