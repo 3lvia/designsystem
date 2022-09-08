@@ -69,7 +69,7 @@ export const TimepickerInput: React.FC<Props> = ({
         onErrorChange('required');
       }
       return false;
-    } else if (+hour >= 24 || +minute >= 60) {
+    } else if ((+hour === 24 && +minute > 0) || +hour > 24 || +minute >= 60) {
       onErrorChange('invalidTime');
       return false;
     }
@@ -94,7 +94,8 @@ export const TimepickerInput: React.FC<Props> = ({
       minute = inputValue.substring(2);
     }
 
-    const newValue = `${padDigit(+hour)}.${padDigit(+minute)}`;
+    const normalizedHour = +hour === 24 ? 0 : +hour;
+    const newValue = `${padDigit(normalizedHour)}.${padDigit(+minute)}`;
     setInputValue(newValue);
     previousValidValue = newValue;
 
