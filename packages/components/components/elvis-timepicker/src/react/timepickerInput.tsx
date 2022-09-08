@@ -63,28 +63,29 @@ export const TimepickerInput: React.FC<Props> = ({
     }
   };
 
-  const inputValueIsInvalid = (hour: string, minute: string): boolean => {
+  const validateInputValue = (hour: string, minute: string): boolean => {
     if (!hour.length) {
       if (required) {
         onErrorChange('required');
       }
-      return true;
+      return false;
     } else if (+hour >= 24 || +minute >= 60) {
       onErrorChange('invalidTime');
-      return true;
-    }
-
-    return false;
-  };
-
-  const validateInputValue = (): void => {
-    let [hour, minute] = inputValue.split('.');
-
-    if (inputValueIsInvalid(hour, minute)) {
-      return;
+      return false;
     }
 
     onErrorChange(undefined);
+    return true;
+  };
+
+  const onBlur = (): void => {
+    let [hour, minute] = inputValue.split('.');
+
+    const isValid = validateInputValue(hour, minute);
+    if (!isValid) {
+      return;
+    }
+
     if (inputValue.length <= 2 && isNumericValue(inputValue)) {
       hour = inputValue;
       minute = '';
@@ -107,6 +108,7 @@ export const TimepickerInput: React.FC<Props> = ({
   useEffect(() => {
     if (time) {
       setInputValue(getFormattedInputValue(time));
+      onErrorChange(undefined);
     }
   }, [time]);
 
@@ -117,7 +119,7 @@ export const TimepickerInput: React.FC<Props> = ({
       placeholder="tt.mm"
       value={inputValue}
       onChange={parseInput}
-      onBlur={validateInputValue}
+      onBlur={onBlur}
       isCompact={isCompact}
       data-test="input"
       aria-live="polite"
