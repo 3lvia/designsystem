@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "ng": "ng",
     "build": "ng build",
     "build:production": "ng build --configuration production",
     "start": "ng serve",
