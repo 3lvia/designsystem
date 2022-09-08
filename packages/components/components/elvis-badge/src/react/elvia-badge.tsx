@@ -1,9 +1,10 @@
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import React, { CSSProperties, useEffect, useRef } from 'react';
 import { BadgeCircle } from './styledComponents';
-import { BadgeColor } from './elvia-badge.types';
+import { BadgeColor, BadgeType } from './elvia-badge.types';
 
 export interface BadgeProps {
+  type?: BadgeType;
   badgeColor?: BadgeColor;
   className?: string;
   content?: JSX.Element;
@@ -13,6 +14,7 @@ export interface BadgeProps {
 }
 
 const Badge: React.FC<BadgeProps> = ({
+  type = 'color',
   badgeColor = 'green',
   className,
   content,
@@ -36,8 +38,8 @@ const Badge: React.FC<BadgeProps> = ({
   }, [webcomponent]);
 
   //Determine if count is 99+ or not
-  const getCount = (count: number | undefined): string | undefined => {
-    if (!count) {
+  const getCount = (count: number | undefined) => {
+    if (!count || type === 'color') {
       return;
     }
     if (count > 99) {

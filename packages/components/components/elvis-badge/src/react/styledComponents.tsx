@@ -1,21 +1,23 @@
+import { BadgeColor } from './elvia-badge.types';
 import styled from 'styled-components';
-/* import { DividerType, DividerTypography, DividerOrientation } from './elvia-badge.types'; */
 import { getColor } from '@elvia/elvis-colors';
 
+//To-do: add colors for dark mode
 const colors = {
-  elviaWhite: getColor('white'),
   elviaBlack: getColor('black'),
   elviaCharge: getColor('green'),
   elviaRed: getColor('red'),
+  elviaWhite: getColor('white'),
 };
 
-interface DatepickerRangeWrapperProps {
-  readonly badgeColor: string;
+interface BadgeCircleProps {
+  readonly badgeColor: BadgeColor;
   readonly count: string | undefined;
 }
 
 // detemine the text color based on the background color
-const getTextColor = (badgeColor: string): string => {
+//to-do: add colors for dark mode
+const getTextColor = (badgeColor: BadgeColor) => {
   if (badgeColor === 'green' || badgeColor === 'white') {
     return colors.elviaBlack;
   }
@@ -23,21 +25,23 @@ const getTextColor = (badgeColor: string): string => {
   return colors.elviaWhite;
 };
 
-export const BadgeCircle = styled.div<DatepickerRangeWrapperProps>`
-  text-align: center;
-  height: 16px;
-  min-width: 16px;
+export const BadgeCircle = styled.div<BadgeCircleProps>`
   background-color: ${({ badgeColor }) => getColor(badgeColor)};
   border-radius: 50px;
+  color: ${({ badgeColor }) => getTextColor(badgeColor)}; //to-do add support for dark mode
+  display: grid;
   font-size: 9px;
   font-weight: 600;
+  height: 16px;
   line-height: 12px;
+  width: ${({ count }) => (count === '99+' ? 'unset' : '16px')};
   padding: ${({ count }) => (count === '99+' ? '2px 4px' : '2px 0px')};
-  user-select: none;
+  place-items: center;
   position: absolute;
-  z-index: 5; /* Endre denne og notere det i Z-index-filen */
-  top: 0;
   right: 0;
+  top: 0;
   transform: translate(50%, -50%);
-  color: ${({ badgeColor }) => getTextColor(badgeColor)};
+  user-select: none;
+  z-index: 10; /* Endre denne og notere det i Z-index-filen */
+  font-family: unset;
 `;
