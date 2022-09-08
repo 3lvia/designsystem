@@ -4,7 +4,7 @@ import ComponentData from '../../component-data.interface';
 export const timepickerData: ComponentData = {
   name: 'elvis-timepicker',
   elementNameW: 'elvia-timepicker',
-  elementNameR: 'Time picker',
+  elementNameR: 'Timepicker',
   attributes: {
     value: {
       isRequired: false,
@@ -29,6 +29,10 @@ export const timepickerData: ComponentData = {
       default: '"15"',
       description: 'The number of minute steps in list of minute options.',
       cegDisplayName: 'Minute interval',
+      cegDefault: '10',
+      cegType: 'string',
+      cegFormType: 'radio',
+      cegOptions: ['1', '5', '10', '15', '60'],
     },
     isDisabled: {
       isRequired: false,
@@ -98,10 +102,26 @@ export const timepickerData: ComponentData = {
   codeImportReact: `import { Timepicker } from '@elvia/elvis-timepicker/react';`,
   codeImportTypescriptInterface: `import { TimepickerProps } from '@elvia/elvis-timepicker/react';`,
   codeImportWebComponent: `import '@elvia/elvis-timepicker';`,
-  codeReact: `<Timepicker minuteInterval="10" />`,
-  codeAngular: `<elvia-timepicker minuteInterval="10"></elvia-timepicker>`,
-  codeVue: `<elvia-timepicker minuteInterval="10" />`,
-  codeNativeHTML: `<elvia-timepicker minuteInterval="10"></elvia-timepicker>`,
+  codeReact: `<Timepicker
+  minuteInterval="10"
+  valueOnChange={(event) => handleOnChange(event)}
+></Timepicker>`,
+  codeAngular: `<elvia-timepicker
+  minuteInterval="10"
+  (valueOnChange)="handleOnChange($event.detail.value)"
+></elvia-timepicker>`,
+  codeVue: `<elvia-timepicker
+  minuteInterval="10"
+  @value-on-change="handleOnChange($event.detail.value)"
+></elvia-timepicker>`,
+  codeNativeHTML: `<elvia-timepicker
+  id="example-elvia-timepicker"
+  minuteInterval="10"
+></elvia-timepicker>`,
+  codeNativeScript: `  const timepicker = document.getElementById('example-elvia-timepicker');
+  timepicker.addEventListener('valueOnChange', (event) => {
+    console.log(event.detail.value)
+  });
+`,
   changelog: changelogJson.content,
-  codeNativeScript: ``,
 };
