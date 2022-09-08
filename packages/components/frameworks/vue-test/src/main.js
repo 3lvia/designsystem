@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 
 import '@elvia/elvis-accordion';
+import '@elvia/elvis-badge';
 import '@elvia/elvis-box';
 import '@elvia/elvis-breadcrumb';
 import '@elvia/elvis-card';

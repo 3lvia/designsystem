@@ -15,6 +15,7 @@
     "@babel/register": "^7.18.9",
     "@elvia/elvis": "*",
     "@elvia/elvis-accordion": "*",
+    "@elvia/elvis-badge": "*",
     "@elvia/elvis-box": "*",
     "@elvia/elvis-breadcrumb": "*",
     "@elvia/elvis-carousel": "*",

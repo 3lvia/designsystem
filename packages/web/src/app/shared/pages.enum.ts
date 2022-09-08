@@ -12,6 +12,7 @@ export enum Pages {
   Autocomplete = 'autocomplete',
   Button = 'button',
   Breadcrumb = 'breadcrumb',
+  Badge = 'badge',
   Box = 'box',
   Card = 'card',
   Carousel = 'carousel',

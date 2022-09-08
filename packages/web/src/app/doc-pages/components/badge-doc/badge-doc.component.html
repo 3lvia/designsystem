@@ -1,0 +1,61 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
+  <ng-container ngProjectAs="headerTitle">Badge</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Colored'">
+        <ng-container ngProjectAs="sectionContent">
+          Colored badge are used to draw attention to an element. It can be a indicator of something new or
+          that the element have additional information.
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Numbered'">
+        <ng-container ngProjectAs="sectionContent">
+          Numbered badge is a numeric indicator that tells the user how many alerts, filters, or other content
+          there are.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      The badge component acts as a wrapper. You should only use badges on Icon Button or Thumbnails. Note how
+      the badge places itself relative to its content, meaning you can place a badge component within other
+      elements, such as the icon in an Icon Button element. Use slots to give the badge its content.
+      <!-- noe mer? -->
+      <app-component-example-generator
+        [componentData]="badgeIconCode"
+        [inlineExample]="true"
+      ></app-component-example-generator>
+    </ng-container>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="'Properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
+    </ng-container>
+  </app-component-section>
+</div>

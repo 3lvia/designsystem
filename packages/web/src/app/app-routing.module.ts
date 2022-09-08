@@ -43,6 +43,7 @@ import { v2PlaygroundComponent } from './dev/v2-playground/v2-playground.compone
 import { BreadcrumbDocComponent } from './doc-pages/components/breadcrumb-doc/breadcrumb-doc.component';
 import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { BoxDocComponent } from './doc-pages/components/box-doc/box-doc.component';
+import { BadgeDocComponent } from './doc-pages/components/badge-doc/badge-doc.component';
 import { ChangelogComponent } from './doc-pages/other-pages/changelog/changelog.component';
 import { ColorDocComponent } from './doc-pages/other-pages/color-doc/color-doc.component';
 import { IconDocComponent } from './doc-pages/other-pages/icon-doc/icon-doc.component';
@@ -163,6 +164,10 @@ const routes: Routes = [
           {
             path: Pages.Autocomplete,
             component: AutocompleteDocComponent,
+          },
+          {
+            path: Pages.Badge,
+            component: BadgeDocComponent,
           },
           {
             path: Pages.Box,
