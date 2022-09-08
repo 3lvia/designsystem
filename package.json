@@ -14,6 +14,7 @@
     "build:elvis:prod": "nx build:production @elvia/elvis",
     "build:components": "nx build @elvia/elvis-components",
     "build:components:prod": "nx build:production @elvia/elvis-components --skip-nx-cache",
+    "build:web": "nx build elvia-designsystem",
     "build:web:prod": "yarn contentful:production && nx run-many --target=build --projects=elvia-designsystem,react-ssr --parallel=1",
     "build:tokens": "nx run-many --target=build --projects=@elvia/elvis-colors,@elvia/elvis-typography,@elvia/elvis-assets-icons",
     "start:elvis": "nx start @elvia/elvis",
