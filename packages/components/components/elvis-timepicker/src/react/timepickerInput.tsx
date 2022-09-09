@@ -21,7 +21,6 @@ export const TimepickerInput: React.FC<Props> = ({
   onChange,
   onErrorChange,
 }) => {
-  let previousValidValue = '';
   const [inputValue, setInputValue] = useState('');
 
   const isNumericValue = (value: string): boolean => {
@@ -51,23 +50,19 @@ export const TimepickerInput: React.FC<Props> = ({
     }
   };
 
-  const emitNewValue = (): void => {
-    if (!time || previousValidValue !== getFormattedInputValue(time)) {
+  const emitNewValue = (formattedValue: string): void => {
+    if (!time || formattedValue !== getFormattedInputValue(time)) {
       const newValue = time ? new Date(time) : new Date();
 
-      if (previousValidValue) {
-        const parts = previousValidValue.split('.');
-        newValue.setHours(+parts[0], +parts[1], 0, 0);
-        onChange(newValue);
-      }
+      const parts = formattedValue.split('.');
+      newValue.setHours(+parts[0], +parts[1], 0, 0);
+      onChange(newValue);
     }
   };
 
   const validateInputValue = (hour: string, minute: string): boolean => {
-    if (!hour.length) {
-      if (required) {
-        onErrorChange('required');
-      }
+    if (!hour.length && required) {
+      onErrorChange('required');
       return false;
     } else if ((+hour === 24 && +minute > 0) || +hour > 24 || +minute >= 60) {
       onErrorChange('invalidTime');
@@ -86,7 +81,9 @@ export const TimepickerInput: React.FC<Props> = ({
       return;
     }
 
-    if (inputValue.length <= 2 && isNumericValue(inputValue)) {
+    if (!inputValue.length) {
+      return;
+    } else if (inputValue.length <= 2 && isNumericValue(inputValue)) {
       hour = inputValue;
       minute = '';
     } else if (inputValue.length >= 3 && inputValue.length <= 4 && isNumericValue(inputValue)) {
@@ -97,9 +94,7 @@ export const TimepickerInput: React.FC<Props> = ({
     const normalizedHour = +hour === 24 ? 0 : +hour;
     const newValue = `${padDigit(normalizedHour)}.${padDigit(+minute)}`;
     setInputValue(newValue);
-    previousValidValue = newValue;
-
-    emitNewValue();
+    emitNewValue(newValue);
   };
 
   const getFormattedInputValue = (date: Date): string => {
