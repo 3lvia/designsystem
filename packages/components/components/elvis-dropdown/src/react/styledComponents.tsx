@@ -272,32 +272,43 @@ export const DropdownSingleValueOverflowWrapper = styled.span`
   text-overflow: ellipsis;
 `;
 
-export const DropdownMenuLoadMoreButtonWrapper = styled.div`
+interface DropdownMenuLoadMorebuttonProps {
+  isLoading?: boolean;
+  isCompact?: boolean;
+}
+
+export const DropdownMenuLoadMoreButton = styled.button<DropdownMenuLoadMorebuttonProps>`
   width: 100%;
+  height: ${(props) => (props.isCompact ? '32px' : '48px')};
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+
+  border: none;
+  background: ${colors.elviaWhite};
+  ${(props) =>
+    props.isLoading
+      ? css`
+          cursor: wait;
+        `
+      : css`
+          cursor: pointer;
+        `}
 `;
 
-export const DropdownMenuLoadMoreButton = styled.button`
+export const DropdownMenuLoadMoreButtonContent = styled.span`
   width: fit-content;
-  height: 34px;
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   gap: 8px;
-  padding: 7px 0;
+  padding: 4px 0;
 
-  cursor: pointer;
-
-  border: none;
-  background: ${colors.elviaWhite};
   border-bottom: 2px solid transparent;
-
-  ${DropdownMenuLoadMoreButtonWrapper}:hover & {
+  ${DropdownMenuLoadMoreButton}:hover & {
     border-color: ${colors.elviaCharge};
   }
 `;

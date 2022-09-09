@@ -39,7 +39,6 @@ export class v2PlaygroundComponent {
   dropdownDefOptions = [
     { value: '1', label: 'Option 1' },
     { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3' },
   ];
   dropdownIsLoading = false;
   dropdownOptions = [
@@ -107,7 +106,6 @@ export class v2PlaygroundComponent {
   };
 
   dropdownChangeItems = (): void => {
-    console.log('Dropdown items changed');
     this.dropdownIsLoading = true;
     setTimeout(() => {
       const lastItem = this.dropdownDefOptions[this.dropdownDefOptions.length - 1];
@@ -115,6 +113,6 @@ export class v2PlaygroundComponent {
       console.log('newValue', newValue);
       this.dropdownDefOptions.push({ value: newValue, label: `Option ${newValue}` });
       this.dropdownIsLoading = false;
-    }, 500);
+    }, 2000);
   };
 }

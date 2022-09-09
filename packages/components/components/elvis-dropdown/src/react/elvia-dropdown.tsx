@@ -19,10 +19,10 @@ import {
   DropdownErrorMessageWrapper,
   DropdownLabel,
   DropdownSingleValueOverflowWrapper,
-  DropdownMenuLoadMoreButton,
+  DropdownMenuLoadMoreButtonContent,
   DropdownMenuLoadMoreButtonText,
   DropdownMenuLoadMoreButtonIcon,
-  DropdownMenuLoadMoreButtonWrapper,
+  DropdownMenuLoadMoreButton,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
@@ -512,14 +512,18 @@ const Dropdown: React.FC<DropdownProps> = function ({
       <components.MenuList {...props}>
         {props.children}
         {hasLoadMoreItemsButton && (
-          <DropdownMenuLoadMoreButtonWrapper>
-            <DropdownMenuLoadMoreButton onClick={handleLoadMoreButtonClick}>
+          <DropdownMenuLoadMoreButton
+            isCompact={isCompact}
+            isLoading={isLoadingMoreItems}
+            onClick={handleLoadMoreButtonClick}
+          >
+            <DropdownMenuLoadMoreButtonContent>
               <DropdownMenuLoadMoreButtonIcon isSpinning={isLoadingMoreItems}>
                 <Icon name={'sync'} size={'xs'} />
               </DropdownMenuLoadMoreButtonIcon>
               <DropdownMenuLoadMoreButtonText>Last inn flere</DropdownMenuLoadMoreButtonText>
-            </DropdownMenuLoadMoreButton>
-          </DropdownMenuLoadMoreButtonWrapper>
+            </DropdownMenuLoadMoreButtonContent>
+          </DropdownMenuLoadMoreButton>
         )}
       </components.MenuList>
     );
