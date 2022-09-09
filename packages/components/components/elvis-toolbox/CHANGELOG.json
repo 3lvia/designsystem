@@ -2,33 +2,14 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "06.09.22",
-      "version": "2.3.1",
-      "changelog": [
-        {
-          "type": "bug_fix",
-          "changes": ["<span class=\"code-text\">useFocusTrap</span> included buttons with tabindex -1."]
-        }
-      ]
-    },
-    {
-      "date": "06.09.22",
-      "version": "2.3.0",
-      "changelog": [
-        {
-          "type": "new_feature",
-          "changes": ["Added method for checking server side rendering"]
-        }
-      ]
-    },
-    {
-      "date": "06.09.22",
+      "date": "09.09.22",
       "version": "2.2.0",
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
-            "Added reusable hook <span class=\"code-text\">useFocusTrap</span> to manage focus trapping."
+            "Added reusable hook <span class=\"code-text\">useFocusTrap</span> to manage focus trapping.",
+            "Added method for checking server side rendering"
           ]
         }
       ]
