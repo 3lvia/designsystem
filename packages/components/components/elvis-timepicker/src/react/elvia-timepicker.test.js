@@ -57,7 +57,6 @@ describe('Elvis Timepicker', () => {
     });
 
     describe('When the popover trigger is clicked', () => {
-      let backdrop;
       let hoursList;
       let minutesList;
       let nextHourButton;
@@ -68,7 +67,6 @@ describe('Elvis Timepicker', () => {
       beforeEach(() => {
         popoverToggle.simulate('click');
         popover = getElement(wrapper, 'div', 'popover');
-        backdrop = getElement(wrapper, 'div', 'backdrop');
         hoursList = getElement(popover, 'div', 'Time-number-list');
         minutesList = getElement(popover, 'div', 'Minutt-number-list');
         nextHourButton = getElement(popover, 'button', 'Time-next-value-button');
