@@ -3,6 +3,18 @@
   "content": [
     {
       "date": "09.09.22",
+      "version": "2.2.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Replace dependency <span class=\"code-text\">lodash</span> with <span class=\"code-text\">lodash.throttle</span>"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "09.09.22",
       "version": "2.2.0",
       "changelog": [
         {

@@ -1,4 +1,4 @@
-import { throttle as lodashThrottle } from 'lodash';
+import lodashThrottle from 'lodash.throttle';
 
 /**
  * Uses lodash throttle function: https://lodash.com/docs/4.17.15#throttle
