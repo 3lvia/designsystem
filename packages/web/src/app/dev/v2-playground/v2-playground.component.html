@@ -5,38 +5,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white">
-      <elvia-popover
-        [isShowing]="isPopoverShowing"
-        (onOpen)="isPopoverShowing = true"
-        (onClose)="isPopoverShowing = false"
-        heading="BankID"
-        horizontalPosition="right"
-        verticalPosition="top"
-        width="200"
-      >
-        <button slot="trigger" class="e-btn">Show popover</button>
-        <div slot="content">
-          Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
-          <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
-          <elvia-popover
-            [isShowing]="isPopoverShowing2"
-            (onOpen)="isPopoverShowing2 = true"
-            (onClose)="isPopoverShowing2 = false"
-            heading="BankID"
-            horizontalPosition="right"
-            verticalPosition="top"
-            width="200"
-          >
-            <button slot="trigger" class="e-btn">Show popover</button>
-            <div slot="content">
-              Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
-              <button class="e-btn" (click)="isPopoverShowing2 = !isPopoverShowing2">Lukke popover</button>
-            </div>
-          </elvia-popover>
-        </div>
-      </elvia-popover>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -256,7 +225,7 @@
   <!--Popover-->
   <div class="example-wrapper">
     <h3>Popover</h3>
-    <!-- <elvia-popover
+    <elvia-popover
       [isShowing]="isPopoverShowing"
       (onOpen)="isPopoverShowing = true"
       (onClose)="isPopoverShowing = false"
@@ -270,7 +239,7 @@
         Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
         <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
       </div>
-    </elvia-popover> -->
+    </elvia-popover>
   </div>
 
   <!--Progress linear-->

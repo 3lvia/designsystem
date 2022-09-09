@@ -56,7 +56,6 @@ export class v2PlaygroundComponent {
 
   // Popover
   isPopoverShowing = false;
-  isPopoverShowing2 = false;
 
   // Progress linear
   progressValue = 0;
