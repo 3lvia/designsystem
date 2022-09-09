@@ -7,6 +7,14 @@
     <!--Normal version-->
     <div class="e-bg-white">
       <elvia-dropdown
+        [label]="'Normal'"
+        [items]="dropdownDefOptions"
+        (loadMoreItems)="dropdownChangeItems()"
+        [hasLoadMoreItemsButton]="true"
+        [isLoadingMoreItems]="dropdownIsLoading"
+      ></elvia-dropdown>
+      <elvia-dropdown
+        [label]="'Compact'"
         [items]="dropdownDefOptions"
         (loadMoreItems)="dropdownChangeItems()"
         [hasLoadMoreItemsButton]="true"
