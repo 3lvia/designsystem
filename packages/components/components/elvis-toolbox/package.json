@@ -1,14 +1,14 @@
 {
   "name": "@elvia/elvis-toolbox",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "",
   "license": "MIT",
   "author": "",
   "main": "./dist/index.js",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash.throttle": "^4.1.1"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.179"
+    "@types/lodash.throttle": "^4.1.7"
   }
 }
