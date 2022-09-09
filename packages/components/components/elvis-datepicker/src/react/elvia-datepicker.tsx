@@ -483,7 +483,7 @@ export const Datepicker: FC<DatepickerProps> = ({
           <div className="ewc-datepicker__toolbar-year">
             {format(date as Date, 'yyyy', { locale: nbLocale })}
           </div>
-          <Icon name={openView === 'year' ? 'arrowDownBold' : 'arrowUpBold'} size="xs" />
+          <Icon name={openView === 'year' ? 'arrowUpBold' : 'arrowDownBold'} size="xs" />
         </button>
         {openView === 'date' && (
           <button
