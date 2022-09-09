@@ -2,19 +2,36 @@ const badgeIconCode = {
   name: 'elvis-badge',
   elementNameW: 'elvia-badge',
   elementNameR: 'Badge',
-  codeReact: `<Badge content={
-    <i slot="content" class="e-icon e-icon--notification-bold e-icon--sm" aria-hidden="true"></i>
-} count={19} type={"numbered"} badgeColor="red"/>`,
-  codeAngular: `<elvia-badge [count]="19" [type]="numbered" [badgeColor]="red">
-    <i slot="content" class="e-icon e-icon--notification-bold e-icon--sm" aria-hidden="true"></i>
-  </elvia-badge>`,
-  codeVue: `<elvia-badge :count=19 :type="numbered" :badgeColor="red">
-    <i slot="content" class="e-icon e-icon--notification-bold e-icon--sm" aria-hidden="true"></i>
-  </elvia-badge>`,
-  codeNativeHTML: `<elvia-badge
-  count="19" type="numbered" badgeColor="red"
-><i slot="content" class="e-icon e-icon--notification-bold e-icon--sm" aria-hidden="true"></i>
-</elvia-badge>`,
+  codeReact: `<button class="e-btn e-btn--icon e-mr-8" aria-label="Beskrivelse av ikon-knapp">
+  <Badge content={
+    <span slot="content"class="e-btn__icon">
+      <i class="e-icon e-icon--notification-bold" aria-hidden="true"></i>
+    </span>
+  } count={12} type={"numbered"} badgeColor="red"/>
+</button>`,
+  /* Må bekreftes */
+  codeAngular: `<button class="e-btn e-btn--icon e-mr-8" aria-label="Beskrivelse av ikon-knapp">
+  <elvia-badge [badgeColor]="red" [type]="numbered" [count]="12">
+     <span slot="content"class="e-btn__icon">
+        <i class="e-icon e-icon--notification-bold" aria-hidden="true"></i>
+     </span>
+  </elvia-badge>
+</button>`,
+  /* Må Bekreftes */
+  codeVue: `<button class="e-btn e-btn--icon e-mr-8" aria-label="Beskrivelse av ikon-knapp">
+  <elvia-badge :badgeColor="red" :type="numbered" :count="12">
+     <span slot="content"class="e-btn__icon">
+        <i class="e-icon e-icon--notification-bold" aria-hidden="true"></i>
+     </span>
+  </elvia-badge>
+</button>`,
+  codeNativeHTML: `<button class="e-btn e-btn--icon e-mr-8" aria-label="Beskrivelse av ikon-knapp">
+  <elvia-badge badgeColor="red" type="numbered" count="12">
+     <span slot="content"class="e-btn__icon">
+        <i class="e-icon e-icon--notification-bold" aria-hidden="true"></i>
+     </span>
+  </elvia-badge>
+</button>`,
   codeNativeScript: ``,
 };
 

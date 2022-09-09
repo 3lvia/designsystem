@@ -9,8 +9,8 @@ export const badgeData: ComponentData = {
   attributes: {
     content: {
       isRequired: true,
-      type: 'string | HTMLElement', // Tells the user in what format they should add the prop
-      description: 'Thumbnail or Icon buttons. (use slot in webcomponent if not just text)', // Should describe what purpose the prop has in the component
+      type: 'string | HTMLElement',
+      description: 'Thumbnail or Icon buttons. (use slot in webcomponent if not just text)',
     },
     badgeColor: {
       isRequired: false,
@@ -18,11 +18,11 @@ export const badgeData: ComponentData = {
       description: 'The background color of the badge',
       default: '"green"',
 
-      cegDisplayName: 'Badge color', // Label for radiobutton group
-      cegDefault: 'green', // Name of default option
+      cegDisplayName: 'Badge color',
+      cegDefault: 'green',
       cegType: 'string',
       cegFormType: 'radio',
-      cegOptions: ['green', 'red', 'white', 'black'], // Represent each radio button and the value sent in with the attribute in the code.
+      cegOptions: ['green', 'red', 'white', 'black'],
     },
     count: {
       isRequired: false,
@@ -38,7 +38,7 @@ export const badgeData: ComponentData = {
       cegCounterMin: 0,
       cegStepValue: 1,
       cegCounterType: '',
-      /* cegDependency: [{ name: 'type', value: 'numbered' }], virker ikke? */
+      /* cegDependency: [{ name: 'type', value: 'numbered' }], virker ikke som forventet. må oppdateres */
     },
     type: {
       isRequired: false,
@@ -54,13 +54,12 @@ export const badgeData: ComponentData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom CSS classes that can be added to the divider.',
+      description: 'Custom CSS classes that can be added to the badge.' /* nødvendig? */,
     },
     inlineStyle: {
       isRequired: false,
       type: '{[cssProperty: string]: string}',
-      description:
-        "Custom CSS style object that can be added to the divider. Example: {marginTop: '8px', width: '100%'}",
+      description: 'Custom CSS style object that can be added to the badge.' /* nødvendig? */,
     },
   },
   codeImportReact: `import { Badge } from '@elvia/elvis-badge/react';`,
