@@ -11,5 +11,4 @@ export class TimepickerDocComponent {
   componentData = timepickerData;
   figmaUrl = getComponent('timepicker').figmaUrl;
   description = getComponent('timepicker').description;
-  does = ['Grouping content', 'To separate information from the rest of the page'];
 }

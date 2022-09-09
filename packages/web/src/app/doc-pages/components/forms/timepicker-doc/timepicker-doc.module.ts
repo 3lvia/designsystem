@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TimepickerDocComponent } from './timepicker-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
@@ -25,6 +25,5 @@ import { ComponentChangelogModule } from 'src/app/shared/component-documentation
     ComponentExampleGeneratorModule,
   ],
   declarations: [TimepickerDocComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TimepickerDocModule {}
