@@ -146,7 +146,7 @@ export const dropdownData: ComponentData = {
       type: '(options: Array<object>) => CustomEvent',
       description: `Gets called every time an option(s) is selected and returns an array of selected objects.`,
     },
-    hoveredItemOnChange: {
+    onItemHover: {
       isRequired: false,
       type: '(option: object) => CustomEvent',
       description: `Gets called every time an option is hovered and returns the hovered object.`,

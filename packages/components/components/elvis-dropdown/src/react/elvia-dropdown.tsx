@@ -37,7 +37,6 @@ export interface DropdownItem {
   icon?: IconName;
   isDisabled?: boolean;
   status?: DropdownItemStatus;
-  tooltip?: string;
 }
 
 export interface DropdownProps {
@@ -66,7 +65,7 @@ export interface DropdownProps {
   placeholder?: string;
   placeholderIcon?: IconName;
   valueOnChange?: (selectedOptions: DropdownItem | Array<DropdownItem> | undefined) => void;
-  hoveredItemOnChange?: (hoveredItem: DropdownItem | undefined) => void;
+  onItemHover?: (hoveredItem: DropdownItem | undefined) => void;
   className?: string;
   inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
@@ -90,7 +89,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   placeholder = '',
   placeholderIcon,
   valueOnChange,
-  hoveredItemOnChange,
+  onItemHover,
   className,
   inlineStyle,
   webcomponent,
@@ -123,9 +122,9 @@ const Dropdown: React.FC<DropdownProps> = function ({
 
   useEffect(() => {
     if (!webcomponent) {
-      hoveredItemOnChange?.(hoveredItem);
+      onItemHover?.(hoveredItem);
     } else {
-      webcomponent.triggerEvent('hoveredItemOnChange', hoveredItem);
+      webcomponent.triggerEvent('onItemHover', hoveredItem);
     }
   }, [hoveredItem]);
 
@@ -442,6 +441,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
         </components.Option>
       );
     }
+
     const isSelectAllWithPartialSelected =
       hasSelectAllOption &&
       props.children === selectAllOptionState.label &&
