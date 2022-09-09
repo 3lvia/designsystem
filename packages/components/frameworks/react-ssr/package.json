@@ -31,6 +31,7 @@
     "@elvia/elvis-spotlight": "*",
     "@elvia/elvis-tabs": "*",
     "@elvia/elvis-testing": "*",
+    "@elvia/elvis-timepicker": "*",
     "@elvia/elvis-typography": "*",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "12.1.2",

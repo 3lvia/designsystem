@@ -45,6 +45,7 @@
     "@elvia/elvis-progress-linear": "portal:../components/components/elvis-progress-linear",
     "@elvia/elvis-spotlight": "portal:../components/components/elvis-spotlight",
     "@elvia/elvis-tabs": "portal:../components/components/elvis-tabs",
+    "@elvia/elvis-timepicker": "portal:../components/components/elvis-timepicker",
     "@elvia/elvis-toolbox": "portal:../components/components/elvis-toolbox",
     "@elvia/elvis-typography": "portal:../elvis-typography",
     "@types/lodash.debounce": "^4.0.6",

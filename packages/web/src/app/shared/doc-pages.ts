@@ -441,7 +441,7 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Time picker',
     description:
-      'Time picker is a simple way for the user to quickly select a time in a dropdown dialog. It uses a text field and a visual dropdown.',
+      'The time picker is a simple way for the user to quickly select the time through a text field and a visual dropdown. The user can input the time manually or click on the clock icon to choose the hour and if needed, a preset interval of minutes.',
     docUrl: Pages.Timepicker,
     absolutePath: '/components/' + Pages.Timepicker,
     status: DocPageStatus.Done,

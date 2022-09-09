@@ -14,9 +14,8 @@ import { getColor } from '@elvia/elvis-colors';
 import { useClickOutside } from './useClickOutside';
 import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
-import { useFocusTrap } from './useFocusTrap';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, useFocusTrap } from '@elvia/elvis-toolbox';
 import { config } from './config';
 
 export interface ModalProps {

@@ -475,4 +475,23 @@ module.exports = [
     useWrapper: false,
     reactTypescriptDeclaration: false,
   },
+  {
+    name: 'elvis-timepicker',
+    elementName: 'elvia-timepicker',
+    attributes: [
+      { name: 'value', type: 'Date', propType: 'Date | undefined' },
+      { name: 'minuteInterval', type: 'string', propType: 'string | undefined' },
+      { name: 'isDisabled', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'isCompact', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'isRequired', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'selectNowOnOpen', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'label', type: 'string', propType: 'string | undefined' },
+      { name: 'className', type: 'string', propType: 'string | undefined' },
+      { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
+    ],
+    reactName: 'Timepicker',
+    slotItems: false,
+    useWrapper: true,
+    reactTypescriptDeclaration: true,
+  },
 ];

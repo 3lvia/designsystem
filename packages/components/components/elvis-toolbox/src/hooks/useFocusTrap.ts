@@ -7,11 +7,20 @@ export const useFocusTrap = (
   if (!focusTrapContainer.current) {
     return;
   }
-  const focusableItems = focusTrapContainer.current.querySelectorAll(
-    'a[href], button, textarea, input, select, details, [tabindex]:not([tabindex="-1"]',
-  );
-  const firstItem = focusableItems.item(0);
-  const lastItem = focusableItems.item(focusableItems.length - 1);
+  const focusableItems = Array.from(
+    focusTrapContainer.current.querySelectorAll(
+      'a[href], button, textarea, input, select, details, [tabindex]:not([tabindex="-1"]',
+    ),
+  ).filter((element) => {
+    return (
+      !element.hasAttribute('disabled') &&
+      !element.hasAttribute('aria-hidden') &&
+      element.getAttribute('tabindex') !== '-1'
+    );
+  });
+
+  const firstItem = focusableItems[0];
+  const lastItem = focusableItems[focusableItems.length - 1];
 
   const handleFirstItemTab = (e: KeyboardEvent) => {
     if (e.key === 'Tab' && e.shiftKey) {
