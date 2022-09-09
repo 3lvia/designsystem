@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
@@ -6,6 +6,7 @@ const colors = {
   elviaCharge: getColor('elvia-charge'),
   elviaWhite: getColor('white'),
   elviaBlack: getColor('black'),
+  elviaGrey05: getColor('grey-05'),
   elviaDisabled: getColor('disabled'),
   elviaFocusOutline: getColor('focus-outline'),
 };
@@ -269,4 +270,63 @@ export const DropdownCheckboxLabel = styled.span<DropdownCheckboxLabelProps>`
 export const DropdownSingleValueOverflowWrapper = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+export const DropdownMenuLoadMoreButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+`;
+
+export const DropdownMenuLoadMoreButton = styled.button`
+  width: fit-content;
+  height: 34px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+  padding: 7px 0;
+
+  cursor: pointer;
+
+  border: none;
+  background: ${colors.elviaWhite};
+  border-bottom: 2px solid transparent;
+
+  ${DropdownMenuLoadMoreButtonWrapper}:hover & {
+    border-color: ${colors.elviaCharge};
+  }
+`;
+
+export const DropdownMenuLoadMoreButtonText = styled.span`
+  font-family: 'Red Hat Display', Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+`;
+
+const spinningKeyframes = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+interface DropdownMenuLoadMoreButtonIconProps {
+  isSpinning?: boolean;
+}
+export const DropdownMenuLoadMoreButtonIcon = styled.div<DropdownMenuLoadMoreButtonIconProps>`
+  ${(props) =>
+    props.isSpinning &&
+    css`
+      animation: ${spinningKeyframes} 1s linear infinite;
+      animation-direction: reverse;
+    `}
 `;

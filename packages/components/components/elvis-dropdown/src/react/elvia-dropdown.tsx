@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, CSSProperties, useMemo } from 'reac
 import Select, {
   components,
   DropdownIndicatorProps,
+  MenuListProps,
   MultiValueProps,
   OptionProps,
   PlaceholderProps,
@@ -18,6 +19,10 @@ import {
   DropdownErrorMessageWrapper,
   DropdownLabel,
   DropdownSingleValueOverflowWrapper,
+  DropdownMenuLoadMoreButton,
+  DropdownMenuLoadMoreButtonText,
+  DropdownMenuLoadMoreButtonIcon,
+  DropdownMenuLoadMoreButtonWrapper,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
@@ -62,6 +67,9 @@ export interface DropdownProps {
   placeholder?: string;
   placeholderIcon?: string;
   valueOnChange?: (selectedOptions: DropdownItem | Array<DropdownItem> | undefined) => void;
+  hasLoadMoreItemsButton?: boolean;
+  loadMoreItems?: () => void;
+  isLoadingMoreItems?: boolean;
   className?: string;
   inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
@@ -85,6 +93,9 @@ const Dropdown: React.FC<DropdownProps> = function ({
   placeholder = '',
   placeholderIcon,
   valueOnChange,
+  hasLoadMoreItemsButton,
+  loadMoreItems,
+  isLoadingMoreItems,
   className,
   inlineStyle,
   webcomponent,
@@ -496,6 +507,32 @@ const Dropdown: React.FC<DropdownProps> = function ({
     );
   };
 
+  const ElviaMenuList = (props: MenuListProps) => {
+    return (
+      <components.MenuList {...props}>
+        {props.children}
+        {hasLoadMoreItemsButton && (
+          <DropdownMenuLoadMoreButtonWrapper>
+            <DropdownMenuLoadMoreButton onClick={handleLoadMoreButtonClick}>
+              <DropdownMenuLoadMoreButtonIcon isSpinning={isLoadingMoreItems}>
+                <Icon name={'sync'} size={'xs'} />
+              </DropdownMenuLoadMoreButtonIcon>
+              <DropdownMenuLoadMoreButtonText>Last inn flere</DropdownMenuLoadMoreButtonText>
+            </DropdownMenuLoadMoreButton>
+          </DropdownMenuLoadMoreButtonWrapper>
+        )}
+      </components.MenuList>
+    );
+  };
+
+  const handleLoadMoreButtonClick = () => {
+    if (!webcomponent) {
+      loadMoreItems?.();
+    } else {
+      webcomponent.triggerEvent('loadMoreItems');
+    }
+  };
+
   /** Object containing all components overridden in react-select by Elvis dropdown */
   const overrideComponents = {
     DropdownIndicator: ElviaDropdownIndicator,
@@ -506,6 +543,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
     MultiValueRemove: () => null,
     Placeholder: ElviaPlaceholder,
     SingleValue: ElviaSingleValue,
+    MenuList: ElviaMenuList,
   };
 
   /** Start listener for adding and removing outline on dropdown when elements in focus */
