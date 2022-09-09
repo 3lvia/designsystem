@@ -115,7 +115,7 @@ const accordionData: ComponentData = {
         'For overflow accordion, if you want to change det padding between the accordion button and the content below it, you can use this attribute. Example: spacingBelowContent: "16px".',
       default: '"8px"',
       cegDisplayName: 'Spacing below content',
-      cegDefault: '8px',
+      cegDefault: '16px',
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['8px', '16px', '24px'],
