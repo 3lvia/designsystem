@@ -111,6 +111,10 @@ export const Input = styled.input<Partial<BaseProps>>`
   background-color: transparent;
   cursor: inherit;
 
+  &:disabled {
+    color: ${colors.disabled};
+  }
+
   ${(props) => {
     if (props.isCompact) {
       return css`
