@@ -1,4 +1,5 @@
 import { Dispatch, RefObject, SetStateAction, useEffect, useState } from 'react';
+import { isSsr } from '../isSsr';
 
 interface WindowRect {
   height: number;
@@ -46,7 +47,7 @@ export const useConnectedOverlay = (
 
   /** Get screen dimensions based on device */
   const getScreenDimensions = (): WindowRect | null => {
-    if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+    if (isSsr()) {
       return null;
     }
     if (navigator.userAgent.toLowerCase().includes('android')) {
@@ -111,6 +112,11 @@ export const useConnectedOverlay = (
     };
 
     alignOverlayWithConnectedElement();
+
+    if (isSsr()) {
+      return;
+    }
+
     window.addEventListener('resize', alignOverlayWithConnectedElement);
     window.addEventListener('scroll', alignOverlayWithConnectedElement);
 

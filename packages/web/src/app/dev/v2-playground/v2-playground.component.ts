@@ -71,6 +71,9 @@ export class v2PlaygroundComponent {
     { label: 'Kiwi', isDisabled: true },
   ];
 
+  // Timepicker
+  timepickerValue = new Date();
+
   logValue = (component: string, value: Event): void => {
     console.log(component, ': ', value);
   };

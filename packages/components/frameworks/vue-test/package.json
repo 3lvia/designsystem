@@ -29,6 +29,7 @@
     "@elvia/elvis-spotlight": "*",
     "@elvia/elvis-tabs": "*",
     "@elvia/elvis-testing": "*",
+    "@elvia/elvis-timepicker": "*",
     "ansi-html-community": "^0.0.8",
     "core-js": "^3.20.2",
     "css-loader": "^4.3.0",

@@ -49,7 +49,6 @@
     "packages/components/components/**/*.+(js|ts|tsx)": [
       "yarn run prettier-comp",
       "yarn run eslint",
-      "yarn test:staged",
       "git add"
     ]
   },

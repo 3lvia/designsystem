@@ -21,7 +21,7 @@ export enum Pages {
   Divider = 'divider',
   Dropdown = 'dropdown',
   Toggle = 'toggle',
-  Timepicker = 'time-picker',
+  Timepicker = 'timepicker',
   Thumbnail = 'thumbnail',
   Datepicker = 'datepicker',
   DatepickerRange = 'datepicker-range',

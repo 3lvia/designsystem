@@ -2,6 +2,20 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.09.22",
+      "version": "4.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug that caused the year picker indicator icon to be flipped."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Fixed the version dependency of the <code>@elvia/elvis-icon</code> package."]
+        }
+      ]
+    },
+    {
       "date": "01.09.22",
       "version": "4.0.2",
       "changelog": [
