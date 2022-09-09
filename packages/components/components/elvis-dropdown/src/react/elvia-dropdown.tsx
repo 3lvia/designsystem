@@ -517,8 +517,8 @@ const Dropdown: React.FC<DropdownProps> = function ({
             isLoading={isLoadingMoreItems}
             onClick={handleLoadMoreButtonClick}
           >
-            <DropdownMenuLoadMoreButtonContent>
-              <DropdownMenuLoadMoreButtonIcon isSpinning={isLoadingMoreItems}>
+            <DropdownMenuLoadMoreButtonContent isLoading={isLoadingMoreItems}>
+              <DropdownMenuLoadMoreButtonIcon isLoading={isLoadingMoreItems}>
                 <Icon name={'sync'} size={'xs'} />
               </DropdownMenuLoadMoreButtonIcon>
               <DropdownMenuLoadMoreButtonText>Last inn flere</DropdownMenuLoadMoreButtonText>

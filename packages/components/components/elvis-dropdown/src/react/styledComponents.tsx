@@ -298,7 +298,11 @@ export const DropdownMenuLoadMoreButton = styled.button<DropdownMenuLoadMorebutt
         `}
 `;
 
-export const DropdownMenuLoadMoreButtonContent = styled.span`
+interface DropdownMenuLoadMoreButtonContentProps {
+  isLoading?: boolean;
+}
+
+export const DropdownMenuLoadMoreButtonContent = styled.span<DropdownMenuLoadMoreButtonContentProps>`
   width: fit-content;
   display: flex;
   justify-content: center;
@@ -309,7 +313,7 @@ export const DropdownMenuLoadMoreButtonContent = styled.span`
 
   border-bottom: 2px solid transparent;
   ${DropdownMenuLoadMoreButton}:hover & {
-    border-color: ${colors.elviaCharge};
+    border-color: ${(props) => (props.isLoading ? 'transparent' : colors.elviaCharge)};
   }
 `;
 
@@ -331,11 +335,11 @@ const spinningKeyframes = keyframes`
 `;
 
 interface DropdownMenuLoadMoreButtonIconProps {
-  isSpinning?: boolean;
+  isLoading?: boolean;
 }
 export const DropdownMenuLoadMoreButtonIcon = styled.div<DropdownMenuLoadMoreButtonIconProps>`
   ${(props) =>
-    props.isSpinning &&
+    props.isLoading &&
     css`
       animation: ${spinningKeyframes} 1s linear infinite;
       animation-direction: reverse;

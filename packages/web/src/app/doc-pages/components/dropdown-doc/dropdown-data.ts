@@ -146,6 +146,21 @@ export const dropdownData: ComponentData = {
       type: '(options: Array<object>) => CustomEvent',
       description: `Gets called every time an option(s) is selected and return an array of selected objects.`,
     },
+    hasLoadMoreItemsButton: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Add a button to the bottom of the dropdown menu to load more items.',
+    },
+    loadMoreItems: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Function to be called when the load more items button is clicked.',
+    },
+    isLoadingMoreItems: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Set the dropdown "Load more"-button to a loading state when loading more items.',
+    },
     className: {
       isRequired: false,
       type: 'string',
