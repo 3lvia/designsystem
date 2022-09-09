@@ -65,6 +65,7 @@ module.exports = [
       { name: 'size', type: 'string', propType: 'string' },
       { name: 'type', type: 'string', propType: 'string' },
       { name: 'spacingAboveContent', type: 'string', propType: 'string' },
+      { name: 'spacingBelowContent', type: 'string', propType: 'string' },
       { name: 'typography', type: 'string', propType: 'string' },
       { name: 'overflowHeight', type: 'number', propType: 'number | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
