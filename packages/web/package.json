@@ -3,16 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
     "build:production": "ng build --configuration production",
+    "start": "ng serve",
     "contentful": "cd contentful && node syncFromContentful.js",
     "contentful:production": "cd contentful && NODE_ENV=production node syncFromContentful.js",
-    "contentful:types": "cd contentful && contentful-typescript-codegen --output types.d.ts",
-    "dev": "yarn run contentful & yarn run start",
-    "test": "ng test",
-    "e2e": "ng e2e"
+    "contentful:types": "cd contentful && contentful-typescript-codegen --output types.d.ts"
   },
   "dependencies": {
     "@angular/animations": "^14.2.0",
@@ -55,7 +51,6 @@
     "glob": "^7.1.6",
     "lodash.debounce": "^4.0.8",
     "natural-compare-lite": "^1.4.0",
-    "ng-dynamic-component": "^10.0.0",
     "ngx-markdown": "^14.0.1",
     "prettier": "^2.0.5",
     "prismjs": "^1.24.1",
