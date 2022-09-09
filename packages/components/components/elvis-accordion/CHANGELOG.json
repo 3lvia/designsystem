@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.09.22",
+      "version": "2.8.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added <span class=\"code-text\">spacingBelowContent</span> prop that can be used on overflow accordion."
+          ]
+        }
+      ]
+    },
+    {
       "date": "01.09.22",
       "version": "2.7.1",
       "changelog": [
