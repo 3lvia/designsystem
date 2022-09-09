@@ -41,6 +41,18 @@
     </ng-container>
   </app-component-section>
 
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <ng-container ngProjectAs="sectionContent">
+        You can't rely on the badge's content being announced correctly. You should include a detailed
+        description, such as
+        <span class="code-text">aria-label</span>
+        .
+      </ng-container>
+    </ng-container>
+  </app-component-section>
+
   <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-installation [componentData]="componentData"></app-component-installation>

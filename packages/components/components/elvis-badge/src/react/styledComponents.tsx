@@ -34,7 +34,6 @@ export const BadgeCircle = styled.div<BadgeCircleProps>`
   font-weight: 600;
   height: 16px;
   line-height: 12px;
-  width: ${({ count }) => (count === '99+' ? 'unset' : '16px')};
   padding: ${({ count }) => (count === '99+' ? '2px 4px' : '2px 0px')};
   place-items: center;
   position: absolute;
@@ -42,6 +41,6 @@ export const BadgeCircle = styled.div<BadgeCircleProps>`
   top: 0;
   transform: translate(50%, -50%);
   user-select: none;
-  z-index: 10; /* Endre denne og notere det i Z-index-filen */
-  font-family: unset;
+  width: ${({ count }) => (count === '99+' ? 'unset' : '16px')};
+  z-index: 10;
 `;

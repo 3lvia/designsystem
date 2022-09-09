@@ -62,16 +62,6 @@ export const badgeData: ComponentData = {
       description:
         "Custom CSS style object that can be added to the divider. Example: {marginTop: '8px', width: '100%'}",
     },
-    isInverted: {
-      isRequired: false,
-      type: 'boolean',
-      description: 'If the divider is on a dark grey background this prop should be set to true.',
-      default: 'false',
-      cegDefault: 0,
-      cegType: 'boolean',
-      cegFormType: 'background',
-      cegOptions: ['White', 'Dark grey'],
-    },
   },
   codeImportReact: `import { Badge } from '@elvia/elvis-badge/react';`,
   codeImportTypescriptInterface: `import { BadgeProps } from '@elvia/elvis-badge/react';`,
