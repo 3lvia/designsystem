@@ -19,9 +19,11 @@
     "@material-ui/pickers": "3.3.10",
     "classnames": "^2.3.1",
     "date-fns": "^2.27.0",
+    "lodash.isequal": "^4.5.0",
     "prop-types": "^15.6.0"
   },
   "devDependencies": {
+    "@types/lodash.isequal": "^4.5.5",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
   },
