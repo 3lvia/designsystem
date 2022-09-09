@@ -11,9 +11,7 @@
           "contentful",
           "contentful:production",
           "test",
-          "test:start",
-          "nx:graph",
-          "nx:clear"
+          "test:start"
         ],
         "accessToken": "ZjQzNGM3NmYtNTc5YS00OWI1LTkwYjktN2IzZDc0NjhkMjRmfHJlYWQtd3JpdGU="
       }
