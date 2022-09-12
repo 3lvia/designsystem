@@ -9,7 +9,7 @@ import Select, {
   SingleValueProps,
   StylesConfig,
 } from 'react-select';
-import { Icon } from '@elvia/elvis-icon/react';
+import { Icon, IconName } from '@elvia/elvis-icon/react';
 import {
   DropdownCheckbox,
   DropdownCheckboxLabel,
@@ -19,6 +19,7 @@ import {
   DropdownErrorMessageWrapper,
   DropdownLabel,
   DropdownSingleValueOverflowWrapper,
+  DropdownOptionWithStatusWrapper,
   DropdownMenuLoadMoreButtonContent,
   DropdownMenuLoadMoreButtonText,
   DropdownMenuLoadMoreButtonIcon,
@@ -32,13 +33,15 @@ import { warnDeprecatedProps, outlineListener } from '@elvia/elvis-toolbox';
 import { config } from './config';
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
+import { DropdownItemStatus, statusToIconMap } from './statusToIconMap';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 export interface DropdownItem {
   value: string;
   label: string;
-  icon?: string;
+  icon?: IconName;
   isDisabled?: boolean;
+  status?: DropdownItemStatus;
 }
 
 export interface DropdownProps {
@@ -65,8 +68,9 @@ export interface DropdownProps {
   menuPosition?: DropdownMenuPosition;
   noOptionsMessage?: string;
   placeholder?: string;
-  placeholderIcon?: string;
+  placeholderIcon?: IconName;
   valueOnChange?: (selectedOptions: DropdownItem | Array<DropdownItem> | undefined) => void;
+  onItemHover?: (hoveredItem: DropdownItem | undefined) => void;
   hasLoadMoreItemsButton?: boolean;
   loadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
@@ -93,6 +97,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   placeholder = '',
   placeholderIcon,
   valueOnChange,
+  onItemHover,
   hasLoadMoreItemsButton,
   loadMoreItems,
   isLoadingMoreItems,
@@ -111,6 +116,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
     label: 'Alle',
     value: '*',
   });
+  const [hoveredItem, setHoveredItem] = useState<DropdownItem>();
   const dropdownRef = useRef<HTMLSpanElement>(null);
 
   /** Set the "Select all" option inside an open multiselect dropdown.
@@ -124,6 +130,14 @@ const Dropdown: React.FC<DropdownProps> = function ({
       });
     }
   }, [selectAllOption]);
+
+  useEffect(() => {
+    if (!webcomponent) {
+      onItemHover?.(hoveredItem);
+    } else {
+      webcomponent.triggerEvent('onItemHover', hoveredItem);
+    }
+  }, [hoveredItem]);
 
   /** Memoized variable with all the items that are not disabled. Updates when `items` changes. */
   const itemsNotDisabled = useMemo(() => {
@@ -246,7 +260,8 @@ const Dropdown: React.FC<DropdownProps> = function ({
     menu: (provided) => ({
       ...provided,
       boxShadow: '0px 0px 40px rgba(0, 0, 0, 0.06);',
-      minWidth: '72px',
+      minWidth: '100%',
+      width: 'fit-content',
       zIndex: 100,
     }),
 
@@ -296,7 +311,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
       paddingBottom: '7px',
       paddingLeft: isCompact ? '9px' : '15px',
       fontSize: isCompact ? '14px' : '16px',
-      lineHeight: isCompact ? '18px' : '30px',
+      lineHeight: isCompact ? '18px' : '26px',
       border: '1px solid transparent',
       cursor: state.isDisabled ? 'not-allowed' : 'pointer',
       overflowX: 'hidden',
@@ -397,25 +412,47 @@ const Dropdown: React.FC<DropdownProps> = function ({
   };
 
   const ElviaOption = (props: OptionProps) => {
-    const optionIsDisabled = (props.data as DropdownItem).isDisabled ?? false;
+    const optionData = props.data as DropdownItem;
+    const optionIsDisabled = optionData.isDisabled ?? false;
+
+    const handleOnPointerEnter = () => {
+      setHoveredItem(optionData);
+    };
 
     if (!isMulti) {
       return (
-        <components.Option {...props} isDisabled={optionIsDisabled}>
+        <components.Option
+          {...props}
+          innerProps={{
+            ...props['innerProps'],
+            onPointerEnter: handleOnPointerEnter,
+          }}
+          isDisabled={optionIsDisabled}
+        >
           {allOptionsHaveIconAttribute ? (
             <Icon
               inlineStyle={{ marginRight: '16px' }}
-              name={(props.data as DropdownItem).icon as string}
+              name={optionData.icon as IconName}
               size={isCompact ? 'xs' : 'sm'}
               color={optionIsDisabled ? getColor('disabled') : undefined}
             />
           ) : (
             ''
           )}
-          {props.children}
+          <DropdownOptionWithStatusWrapper>
+            {props.children}
+            {optionData.status && (
+              <Icon
+                name={statusToIconMap[optionData.status].name}
+                color={statusToIconMap[optionData.status].color}
+                size={'xs'}
+              />
+            )}
+          </DropdownOptionWithStatusWrapper>
         </components.Option>
       );
     }
+
     const isSelectAllWithPartialSelected =
       hasSelectAllOption &&
       props.children === selectAllOptionState.label &&
@@ -423,17 +460,33 @@ const Dropdown: React.FC<DropdownProps> = function ({
       currentVal.length > 0 &&
       !props.isSelected;
     return (
-      <components.Option {...props} isDisabled={optionIsDisabled}>
-        <DropdownCheckbox>
-          <DropdownCheckboxMark
-            id="ewc-dropdown-checkbox__mark"
-            isSelected={props.isSelected}
-            isCompact={isCompact}
-            isSelectAllWithPartialSelected={isSelectAllWithPartialSelected}
-            isDisabled={optionIsDisabled}
-          />
-          <DropdownCheckboxLabel isCompact={isCompact}>{props.children}</DropdownCheckboxLabel>
-        </DropdownCheckbox>
+      <components.Option
+        {...props}
+        innerProps={{
+          ...props['innerProps'],
+          onPointerEnter: handleOnPointerEnter,
+        }}
+        isDisabled={optionIsDisabled}
+      >
+        <DropdownOptionWithStatusWrapper>
+          <DropdownCheckbox>
+            <DropdownCheckboxMark
+              id="ewc-dropdown-checkbox__mark"
+              isSelected={props.isSelected}
+              isCompact={isCompact}
+              isSelectAllWithPartialSelected={isSelectAllWithPartialSelected}
+              isDisabled={optionIsDisabled}
+            />
+            <DropdownCheckboxLabel isCompact={isCompact}>{props.children}</DropdownCheckboxLabel>
+          </DropdownCheckbox>
+          {optionData.status && (
+            <Icon
+              name={statusToIconMap[optionData.status].name}
+              color={statusToIconMap[optionData.status].color}
+              size={'xs'}
+            />
+          )}
+        </DropdownOptionWithStatusWrapper>
       </components.Option>
     );
   };
@@ -495,7 +548,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
         {allOptionsHaveIconAttribute ? (
           <Icon
             inlineStyle={{ marginRight: '16px' }}
-            name={(props.data as DropdownItem).icon as string}
+            name={(props.data as DropdownItem).icon as IconName}
             size={isCompact ? 'xs' : 'sm'}
             color={decideSingleValueColor(menuIsOpen, isSearchable, isDisabled)}
           />

@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.09.22",
+      "version": "2.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added reusable hook <span class=\"code-text\">useFocusTrap</span> to manage focus trapping.",
+            "Added method for checking server side rendering"
+          ]
+        }
+      ]
+    },
+    {
       "date": "01.09.22",
       "version": "2.1.0",
       "changelog": [

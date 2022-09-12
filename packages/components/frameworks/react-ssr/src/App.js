@@ -18,6 +18,7 @@ import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
+import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';
 
 function App() {
@@ -312,6 +313,10 @@ function App() {
         <div className="example-wrapper">
           <h3>Tabs</h3>
           <Tabs items={tabsItems} value={2} valueOnChange={(event) => logValue('Tabs', event)}></Tabs>
+        </div>
+        <div className="example-wrapper">
+          <h3>Timepicker</h3>
+          <Timepicker />
         </div>
       </div>
     </div>

@@ -25,6 +25,7 @@ syncContentfulEntries();
 async function syncContentfulEntries() {
   await cleanup();
   await getContentfulEntries({ locale: '*', limit: 1000, skip: 0, include: 10 });
+  console.log('Successfully synced contentful entries');
   // Max 8MB per contentfulClient.getEntries call, reduce limit if requests get too big.
   // https://stackoverflow.com/questions/57532345/react-application-requiring-access-to-3000-entries-from-contentful-api
   // https://www.contentfulcommunity.com/t/contentful-api-how-to-get-all-entries-from-a-contenttype/2847/2
