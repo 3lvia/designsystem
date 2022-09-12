@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, CSSProperties, useMemo } from 'react';
+import React, { useState, useEffect, useRef, CSSProperties, useMemo, PointerEventHandler } from 'react';
 import Select, {
   components,
   DropdownIndicatorProps,
@@ -116,7 +116,6 @@ const Dropdown: React.FC<DropdownProps> = function ({
     label: 'Alle',
     value: '*',
   });
-  const [hoveredItem, setHoveredItem] = useState<DropdownItem>();
   const dropdownRef = useRef<HTMLSpanElement>(null);
 
   /** Set the "Select all" option inside an open multiselect dropdown.
@@ -130,14 +129,6 @@ const Dropdown: React.FC<DropdownProps> = function ({
       });
     }
   }, [selectAllOption]);
-
-  useEffect(() => {
-    if (!webcomponent) {
-      onItemHover?.(hoveredItem);
-    } else {
-      webcomponent.triggerEvent('onItemHover', hoveredItem);
-    }
-  }, [hoveredItem]);
 
   /** Memoized variable with all the items that are not disabled. Updates when `items` changes. */
   const itemsNotDisabled = useMemo(() => {
@@ -414,9 +405,12 @@ const Dropdown: React.FC<DropdownProps> = function ({
   const ElviaOption = (props: OptionProps) => {
     const optionData = props.data as DropdownItem;
     const optionIsDisabled = optionData.isDisabled ?? false;
-
-    const handleOnPointerEnter = () => {
-      setHoveredItem(optionData);
+    const handleOnPointerEnter: PointerEventHandler<HTMLDivElement> = () => {
+      if (!webcomponent) {
+        onItemHover?.(optionData);
+      } else {
+        webcomponent.triggerEvent('onItemHover', optionData);
+      }
     };
 
     if (!isMulti) {
@@ -570,7 +564,11 @@ const Dropdown: React.FC<DropdownProps> = function ({
             isLoading={isLoadingMoreItems}
             onClick={handleLoadMoreButtonClick}
           >
-            <DropdownMenuLoadMoreButtonContent isLoading={isLoadingMoreItems}>
+            <DropdownMenuLoadMoreButtonContent
+              // Could not get the loading prop to work with styled components for hover effect,
+              // so a data-attribute is used instead
+              data-loading={isLoadingMoreItems}
+            >
               <DropdownMenuLoadMoreButtonIcon isLoading={isLoadingMoreItems}>
                 <Icon name={'sync'} size={'xs'} />
               </DropdownMenuLoadMoreButtonIcon>

@@ -306,21 +306,18 @@ export const DropdownMenuLoadMoreButton = styled.button<DropdownMenuLoadMorebutt
         `}
 `;
 
-interface DropdownMenuLoadMoreButtonContentProps {
-  isLoading?: boolean;
-}
-
-export const DropdownMenuLoadMoreButtonContent = styled.span<DropdownMenuLoadMoreButtonContentProps>`
+export const DropdownMenuLoadMoreButtonContent = styled.span`
   width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   gap: 8px;
+  padding-bottom: 2px;
 
   border-bottom: 2px solid transparent;
-  ${DropdownMenuLoadMoreButton}:hover & {
-    border-color: ${(props) => (props.isLoading ? 'transparent' : colors.charge)};
+  ${DropdownMenuLoadMoreButton}:hover &:not([data-loading='true']) {
+    border-color: ${colors.charge};
   }
 `;
 

@@ -113,7 +113,6 @@ export class v2PlaygroundComponent {
     setTimeout(() => {
       const lastItem = this.dropdownDefOptions[this.dropdownDefOptions.length - 1];
       const newValue = (parseInt(lastItem.value) + 1).toString();
-      console.log('newValue', newValue);
       this.dropdownDefOptions.push({ value: newValue, label: `Option ${newValue}` });
       this.dropdownIsLoading = false;
     }, 2000);

@@ -3,13 +3,29 @@
   "content": [
     {
       "date": "12.09.22",
+      "version": "3.6.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added support for adding a button to the bottom of the dropdown item list that can be used to load more items."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Changed how the <span class=\"code-text\">onItemHover</span> is triggered."]
+        }
+      ]
+    },
+    {
+      "date": "12.09.22",
       "version": "3.5.0",
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
             "Added support for status icons on each dropdown option.",
-            "Now dispatching an event <span class=\"code-text\">hoveredItemOnChange</span> when an option is hovered."
+            "Now dispatching an event <span class=\"code-text\">onItemHover</span> when an option is hovered."
           ]
         },
         {
