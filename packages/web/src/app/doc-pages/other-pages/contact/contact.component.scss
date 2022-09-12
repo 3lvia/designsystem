@@ -25,10 +25,18 @@
     &.hilde {
       margin-top: -100px;
     }
+    &.tom {
+      margin-top: -100px;
+    }
+    &.erik {
+      margin-top: -270px;
+    }
     &.fride,
     &.trygve,
     &.viljar,
-    &.hilde {
+    &.hilde,
+    &.tom,
+    &.erik {
       @media (max-width: 1300px) {
         margin-top: 40px;
       }
@@ -98,6 +106,12 @@
       }
     }
     &.fride {
+      right: -6%;
+      @include breakpoint-up(Mobile) {
+        left: 0px;
+      }
+    }
+    &.tom {
       right: -6%;
       @include breakpoint-up(Mobile) {
         left: 0px;

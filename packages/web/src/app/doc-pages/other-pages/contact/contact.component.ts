@@ -8,33 +8,33 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 })
 export class ContactComponent {
   description = getDocPagesNotFromCMS('contact').description;
-  loadedImgMic = false;
-  loadedImgPat = false;
-  loadedImgFri = false;
-  loadedImgMar = false;
+  loadedImgFride = false;
+  loadedImgTrygve = false;
   loadedImgHil = false;
-  loadedImgKri = false;
+  loadedImgViljar = false;
+  loadedImgTom = false;
+  loadedImgErik = false;
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   hideContentLoader(evt: any, name: string): void {
     if (evt && evt.target) {
-      if (name === 'mic') {
-        this.loadedImgMic = true;
+      if (name === 'fride') {
+        this.loadedImgFride = true;
       }
-      if (name === 'pat') {
-        this.loadedImgPat = true;
+      if (name === 'trygve') {
+        this.loadedImgTrygve = true;
       }
-      if (name === 'fri') {
-        this.loadedImgFri = true;
-      }
-      if (name === 'mar') {
-        this.loadedImgMar = true;
-      }
-      if (name === 'hil') {
+      if (name === 'hilde') {
         this.loadedImgHil = true;
       }
-      if (name === 'kri') {
-        this.loadedImgKri = true;
+      if (name === 'viljar') {
+        this.loadedImgViljar = true;
+      }
+      if (name === 'tom') {
+        this.loadedImgTom = true;
+      }
+      if (name === 'erik') {
+        this.loadedImgErik = true;
       }
     }
   }
