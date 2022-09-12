@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "12.09.22",
+      "version": "4.0.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fix version dependency on <span class=\"code-text\">@elvia/elvis-icon</span>."]
+        }
+      ]
+    },
+    {
       "date": "09.09.22",
       "version": "4.0.3",
       "changelog": [
