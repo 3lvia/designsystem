@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "vue-cli-service serve --watch",
-    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "start": "vue-cli-service serve",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -29,6 +28,7 @@
     "@elvia/elvis-spotlight": "*",
     "@elvia/elvis-tabs": "*",
     "@elvia/elvis-testing": "*",
+    "@elvia/elvis-timepicker": "*",
     "ansi-html-community": "^0.0.8",
     "core-js": "^3.20.2",
     "css-loader": "^4.3.0",

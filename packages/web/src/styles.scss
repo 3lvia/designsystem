@@ -61,6 +61,8 @@ p {
     }
   }
 }
+
+code,
 .code-text {
   font-family: 'Red Hat Mono', Verdana, sans-serif;
   font-style: normal;
@@ -72,6 +74,7 @@ p {
   border-radius: 4px;
   padding: 0 2px;
 }
+
 .keyboard-button {
   padding: 6px 16px;
   margin-right: 8px;
@@ -85,6 +88,7 @@ p {
     padding: 9px 16px 4px 16px;
   }
 }
+
 .accessibility-keyboard-navigation {
   line-height: 34px;
   margin-top: 28px;
@@ -116,6 +120,7 @@ p {
     width: 100%;
   }
 }
+
 .overview-page-title-size {
   @include breakpoint-up(Tablet) {
     display: flex;

@@ -227,6 +227,12 @@
         :isInverted="false"
       ></elvia-tabs>
     </div>
+
+    <!--Timepicker-->
+    <div class="example-wrapper">
+      <h3>Timepicker</h3>
+      <elvia-timepicker @value-on-change="onTimepickerChange($event.detail.value)" label="Vue timepicker" />
+    </div>
   </div>
 </template>
 
@@ -295,6 +301,9 @@ export default {
       carouselValue = (carouselValue + 1) % 3;
       console.log('Carousel value: ', carouselValue);
       return carouselValue;
+    },
+    onTimepickerChange(e) {
+      console.log(e);
     },
   },
 };

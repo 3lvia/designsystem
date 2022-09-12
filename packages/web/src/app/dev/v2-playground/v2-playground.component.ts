@@ -71,26 +71,8 @@ export class v2PlaygroundComponent {
     { label: 'Kiwi', isDisabled: true },
   ];
 
-  testItems = [
-    { value: 'Norge', label: 'Norge' },
-    {
-      value:
-        'SverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverige',
-      label:
-        'SverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverigeSverige',
-      status: 'warning',
-      tooltip: 'Dette er en tooltip med ekstra info fordi det trengs mer informasjon her.',
-    },
-    {
-      value: 'Danmark',
-      label: 'Danmark',
-      status: 'error',
-      isDisabled: 'true',
-      tooltip: 'Tooltip funker også på options som er disabled.',
-    },
-    { value: 'Finland', label: 'Finland', status: 'info', tooltip: 'Test tooltip' },
-    { value: 'Island', label: 'Island' },
-  ];
+  // Timepicker
+  timepickerValue = new Date();
 
   logValue = (component: string, value: Event): void => {
     console.log(component, ': ', value);

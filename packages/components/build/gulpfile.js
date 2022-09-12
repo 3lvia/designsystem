@@ -234,7 +234,7 @@ function buildToolboxComponentToJS() {
 }
 
 async function runTests() {
-  return exec('yarn run test');
+  return exec('yarn test');
 }
 
 // TODO: Find a way to do cleanup that does not trigger rebuild

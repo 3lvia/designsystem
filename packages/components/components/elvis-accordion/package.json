@@ -1,11 +1,8 @@
 {
   "name": "@elvia/elvis-accordion",
-  "version": "2.7.2",
+  "version": "2.8.0",
   "description": "",
   "main": "web_component.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "",
   "license": "MIT",
   "dependencies": {

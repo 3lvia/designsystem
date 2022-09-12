@@ -2,12 +2,12 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "08.09.22",
+      "date": "07.09.22",
       "version": "2.1.4",
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Fix version dependency on <span class=\"code-text\">@elvia/elvis-icon</span>."]
+          "changes": ["Upgrade to toolbox v2.3.0"]
         }
       ]
     },

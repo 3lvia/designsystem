@@ -6,9 +6,6 @@
   "author": "",
   "main": "./dist/elvia-component.js",
   "types": "./dist/elvia-component.d.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "dependencies": {
     "@elvia/elvis-toolbox": "^2.0.0",
     "json5": "^2.2.1",
