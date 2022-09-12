@@ -6,7 +6,6 @@ const colors = {
   charge: getColor('elvia-charge'),
   white: getColor('white'),
   black: getColor('black'),
-  grey05: getColor('grey-05'),
   grey80: getColor('grey-80'),
   disabled: getColor('disabled'),
   focusOutline: getColor('focus-outline'),
@@ -318,7 +317,6 @@ export const DropdownMenuLoadMoreButtonContent = styled.span<DropdownMenuLoadMor
   align-items: center;
   flex-direction: row;
   gap: 8px;
-  padding: 4px 0;
 
   border-bottom: 2px solid transparent;
   ${DropdownMenuLoadMoreButton}:hover & {

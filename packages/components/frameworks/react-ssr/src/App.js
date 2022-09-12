@@ -58,15 +58,20 @@ function App() {
   maxDate.setDate(maxDate.getDate() - 1);
 
   // Dropdown
-  const defaultDropdownOptions = [
-    { value: 'norge', label: 'Norge' },
-    { value: 'sverige', label: 'Sverige' },
-  ];
+  const defaultDropdownOptions = [{ value: 'norge', label: 'Norge' }];
   const dropdownOptions = [
     { value: 'norge', label: 'Norge' },
     { value: 'sverige', label: 'Sverige' },
     { value: 'danmark', label: 'Danmark' },
   ];
+
+  const [isLoadingMoreItems, setIsLoadingMoreItems] = useState(false);
+  const loadMoreItems = () => {
+    setIsLoadingMoreItems(true);
+    setTimeout(() => {
+      setIsLoadingMoreItems(false);
+    }, 2000);
+  };
 
   // Modal
   const [isModalShowing, setIsModalShowingState] = useState(false);
@@ -214,7 +219,14 @@ function App() {
         {/* DROPDOWN */}
         <div className="example-wrapper">
           <h3>Dropdown</h3>
-          <Dropdown items={dropdownOptions} value={defaultDropdownOptions} label="test" isMulti></Dropdown>
+          <Dropdown
+            items={dropdownOptions}
+            value={defaultDropdownOptions}
+            label="test"
+            hasLoadMoreItemsButton
+            isLoadingMoreItems={isLoadingMoreItems}
+            loadMoreItems={loadMoreItems}
+          ></Dropdown>
         </div>
         {/* ICON */}
         <div className="example-wrapper">
