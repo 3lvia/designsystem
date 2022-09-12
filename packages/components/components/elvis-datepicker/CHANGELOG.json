@@ -11,7 +11,9 @@
         },
         {
           "type": "patch",
-          "changes": ["Fixed the version dependency of the <code>@elvia/elvis-icon</code> package."]
+          "changes": [
+            "Fixed the version dependency of the <span class=\"code-text\">@elvia/elvis-icon</span> package."
+          ]
         }
       ]
     },
