@@ -40,7 +40,6 @@ export class v2PlaygroundComponent {
     { value: '1', label: 'Option 1' },
     { value: '2', label: 'Option 2' },
   ];
-  dropdownIsLoading = false;
   dropdownOptions = [
     { value: '1', label: 'Option 1', icon: 'arrowUp' },
     { value: '2', label: 'Option 2', icon: 'arrowDown' },
@@ -106,15 +105,5 @@ export class v2PlaygroundComponent {
   };
   popoverOnClose = (): void => {
     console.log('Popover closed');
-  };
-
-  dropdownChangeItems = (): void => {
-    this.dropdownIsLoading = true;
-    setTimeout(() => {
-      const lastItem = this.dropdownDefOptions[this.dropdownDefOptions.length - 1];
-      const newValue = (parseInt(lastItem.value) + 1).toString();
-      this.dropdownDefOptions.push({ value: newValue, label: `Option ${newValue}` });
-      this.dropdownIsLoading = false;
-    }, 2000);
   };
 }
