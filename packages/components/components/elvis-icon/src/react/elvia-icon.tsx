@@ -1,11 +1,12 @@
 import React, { CSSProperties } from 'react';
 import * as elvisIcons from '@elvia/elvis-assets-icons';
-
+import { IconName } from '@elvia/elvis-assets-icons';
+export type { IconName } from '@elvia/elvis-assets-icons';
 export type IconSizes = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 export interface IconProps {
   // eslint-disable-next-line @typescript-eslint/ban-types
-  name: keyof typeof elvisIcons | (string & {});
+  name: IconName;
   color?: Parameters<typeof elvisIcons[keyof typeof elvisIcons]['getIcon']>[0];
   size?: IconSizes;
   customSize?: string;
