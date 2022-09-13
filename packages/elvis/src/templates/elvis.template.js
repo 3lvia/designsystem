@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   outlineFix();
 
+/* A MutationObserver that is watching for changes in the DOM. */
   let mo = new MutationObserver(function (mutations) {
     for (let i = 0; i < mutations.length; i++) {
       injectIconIfEligible(mutations[i].target, mutations[i]);
@@ -138,46 +139,34 @@ document.addEventListener('DOMContentLoaded', function () {
  * @example generateDeprecationWarning(usedDeprecatedClass);
  */
  function generateDeprecationWarning({name, version, replacement}){
-    return console.warn(`DEPRECATION WARNING: The Elvis class '${name}' has been deprecated since version ${version}. ${replacement ? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation} for more information.` : ''}`)
+    return console.warn(`Deprecation warning: The Elvis class '${name}' has been deprecated since version ${version}. ${replacement ? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation} for more information.` : ''}`)
  }
 
- /* Array containing classes that have been warned to the user. Helps avoid duplicated errors.*/
  /* Array containing classes that have been warned to the user. Helps avoid duplicated errors in the console.*/
  const warnedClasses = [];
- /**
-  * It takes an array of objects and a property name, and returns an object with the property values as
-  * keys and the objects that have that property value as the value
-  * @param {Array} objArray - The array of objects that you want to group.
-  * @param {string} property - The property of the object you want to group by.
-  * @returns An object with the property of the array as the key and the value as an array of the
-  * objects that have that property.
-  * @example groupedObj(deprecatedElvisClasses, "version");
-  */
 
   /** Create an array with all the classes used in the DOM starting with 'e-'. 
    * Use the filter to only include unique classes once. 
    * Then compare the used classes to the deprecated classes list. 
-   * If deprecated classes are being used, warn the user in the console.
-   * https://stackoverflow.com/q/59162535/14447555 */
+   * If deprecated classes are being used, warn the user in the console. */
 function checkDeprecatedElvisClass() {
-    if (localhost) {
-      
-      // Get all the classes used in the DOM starting with 'e-'
-        const usedClasses = [].concat(...[...document.querySelectorAll('[class^="e-"]')].map(element => [...element.classList])).filter((className, index, array) => array.indexOf(className) == index).sort();
-        
-        // Loop through the used classes and check if they are deprecated
-        usedClasses.forEach(usedClass => {
-          const depricatedClassisUsed = deprecatedElvisClasses.find(deprecatedElvisClass => deprecatedElvisClass.name === usedClass);
-          
+  if (localhost) {
+    
+    /* Getting all the classes that start with 'e-' and then it is filtering out the duplicates. https://stackoverflow.com/q/59162535/14447555*/
+    const usedClasses = [].concat(...[...document.querySelectorAll('[class^="e-"]')].map(element => [...element.classList])).filter((className, index, array) => array.indexOf(className) == index).sort();
+    
+    /* Checking if the used class is deprecated. */
+    usedClasses.forEach(usedClass => {
+      const usedDeprecatedClass = deprecatedElvisClasses.find(deprecatedElvisClass => deprecatedElvisClass.name === usedClass);
 
-          // If the class is deprecated and has not been warned yet, warn the user.
-          if (depricatedClassisUsed && !warnedClasses.includes(depricatedClassisUsed.name)) {
-            warnedClasses.push(depricatedClassisUsed.name);
-            generateDeprecationWarning(depricatedClassisUsed);
-          }
-        });
-    }
+      // If the class is deprecated and has not been warned yet, warn the user.
+      if (usedDeprecatedClass && !warnedClasses.includes(usedDeprecatedClass.name)) {
+        warnedClasses.push(usedDeprecatedClass.name);
+        generateDeprecationWarning(usedDeprecatedClass);
+      }
+    });
   }
+}
 
   function setCorrectColor(classList, icon) {
     let fill;
