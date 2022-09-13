@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "14.09.22",
+      "version": "2.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added horizontal alignment to <span class=\"code-text\">useConnectedOverlay</span> hook."
+          ]
+        }
+      ]
+    },
+    {
       "date": "09.09.22",
       "version": "2.2.0",
       "changelog": [

@@ -6,16 +6,21 @@ interface WindowRect {
   width: number;
 }
 
+type VerticalPosition = 'bottom' | 'center' | 'top';
+type HorizontalPosition = 'left' | 'center' | 'right';
+
 interface Options {
   offset: number;
   alignWidths: boolean;
-  verticalPosition: 'bottom' | 'top'; // TODO: Make a single type for this for the whole repo
+  verticalPosition: VerticalPosition;
+  horizontalPosition: HorizontalPosition;
 }
 
 const defaultOptions: Options = {
   offset: 8,
   alignWidths: true,
   verticalPosition: 'bottom',
+  horizontalPosition: 'center',
 };
 
 /**
@@ -41,7 +46,11 @@ export const useConnectedOverlay = (
   connectedElement: RefObject<HTMLElement>,
   overlayContainer: RefObject<HTMLElement>,
   options?: Partial<Options>,
-): [boolean, Dispatch<SetStateAction<boolean>>] => {
+): [
+  boolean,
+  Dispatch<SetStateAction<boolean>>,
+  (verticalPosition: VerticalPosition, horizontalPosition: HorizontalPosition) => void,
+] => {
   const opts: Options = { ...defaultOptions, ...options };
   const [isShowing, setIsShowing] = useState(false);
 
@@ -50,7 +59,7 @@ export const useConnectedOverlay = (
     if (isSsr()) {
       return null;
     }
-    if (navigator.userAgent.toLowerCase().includes('android')) {
+    if (navigator.userAgent.toLowerCase().includes('android') && window.visualViewport) {
       return { height: window.visualViewport.height, width: window.visualViewport.width };
     } else {
       return { height: window.innerHeight, width: window.innerWidth };
@@ -68,20 +77,76 @@ export const useConnectedOverlay = (
       overlay.top = `${hostRect.bottom + opts.offset + scrollOffsetY}px`;
     };
 
+    const alignCenter = () => {
+      overlay.top = `${hostRect.top + (hostRect.height - overlayRect.height) / 2 + scrollOffsetY}px`;
+    };
+
     const alignTop = () => {
       overlay.top = `${hostRect.top - opts.offset - overlayRect.height + scrollOffsetY}px`;
     };
 
     if (opts.verticalPosition === 'bottom') {
       hostRect.bottom + opts.offset + overlayRect.height < window.height ? alignBottom() : alignTop();
+    } else if (opts.verticalPosition === 'center') {
+      alignCenter();
     } else {
       hostRect.top - opts.offset - overlayRect.height > 0 ? alignTop() : alignBottom();
     }
   };
 
-  const alignHorizontally = (overlay: CSSStyleDeclaration, hostRect: DOMRect): void => {
-    // Extend useEffect to support horizontal positioning
-    overlay.left = `${hostRect.left}px`;
+  const alignHorizontally = (
+    overlay: CSSStyleDeclaration,
+    hostRect: DOMRect,
+    scrollOffsetX: number,
+    overlayRect: DOMRect,
+    window: WindowRect,
+  ): void => {
+    const alignLeft = () => {
+      overlay.left = `${hostRect.left - opts.offset - overlayRect.width + scrollOffsetX}px`;
+    };
+
+    const alignCenter = () => {
+      overlay.left = `${hostRect.left + (hostRect.width - overlayRect.width) / 2 + scrollOffsetX}px`;
+    };
+
+    const alignRight = () => {
+      overlay.left = `${hostRect.right + opts.offset + scrollOffsetX}px`;
+    };
+
+    if (opts.horizontalPosition === 'left') {
+      hostRect.left - opts.offset - overlayRect.width > 0 ? alignLeft() : alignRight();
+    } else if (opts.horizontalPosition === 'center') {
+      alignCenter();
+    } else {
+      hostRect.right + opts.offset + overlayRect.width < window.width ? alignRight() : alignLeft();
+    }
+  };
+
+  const positionPopover = (): void => {
+    const overlayStyle = overlayContainer.current?.style;
+    const overlayRect = overlayContainer.current?.getBoundingClientRect();
+    const hostRect = connectedElement.current?.getBoundingClientRect();
+    const windowRect = getScreenDimensions();
+    const scrollOffsetY = window.scrollY;
+    const scrollOffsetX = window.scrollX;
+
+    if (overlayStyle && overlayRect && hostRect && windowRect) {
+      alignVertically(overlayStyle, hostRect, scrollOffsetY, overlayRect, windowRect);
+      alignHorizontally(overlayStyle, hostRect, scrollOffsetX, overlayRect, windowRect);
+
+      if (opts.alignWidths) {
+        overlayStyle.width = `${hostRect.width}px`;
+      }
+    }
+  };
+
+  const updatePosition = (
+    verticalPosition: VerticalPosition,
+    horizontalPosition: HorizontalPosition,
+  ): void => {
+    opts.verticalPosition = verticalPosition;
+    opts.horizontalPosition = horizontalPosition;
+    positionPopover();
   };
 
   useEffect(() => {
@@ -95,20 +160,7 @@ export const useConnectedOverlay = (
         return;
       }
 
-      const overlayStyle = overlayContainer.current?.style;
-      const overlayRect = overlayContainer.current?.getBoundingClientRect();
-      const hostRect = connectedElement.current?.getBoundingClientRect();
-      const windowRect = getScreenDimensions();
-      const scrollOffsetY = window.scrollY;
-
-      if (overlayStyle && overlayRect && hostRect && windowRect) {
-        alignVertically(overlayStyle, hostRect, scrollOffsetY, overlayRect, windowRect);
-        alignHorizontally(overlayStyle, hostRect);
-
-        if (opts.alignWidths) {
-          overlayStyle.width = `${hostRect.width}px`;
-        }
-      }
+      positionPopover();
     };
 
     alignOverlayWithConnectedElement();
@@ -126,5 +178,5 @@ export const useConnectedOverlay = (
     };
   }, [isShowing]);
 
-  return [isShowing, setIsShowing];
+  return [isShowing, setIsShowing, updatePosition];
 };
