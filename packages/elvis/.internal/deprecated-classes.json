@@ -1,4 +1,74 @@
 {
+  "e-radio-filter": {
+    "deprecateChildren": true,
+    "version": "8.5.12",
+    "replacement": {
+      "name": "Ny link!",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/nynink"
+    }
+  },
+  "e-progress": {
+    "deprecateChildren": true,
+    "version": "8.5.12",
+    "replacement": {
+      "name": "Ny link!",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/nynink"
+    }
+  },
+  "e-popover": {
+    "deprecateChildren": true,
+    "version": "8.5.12",
+    "replacement": {
+      "name": "Ny link!",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/nynink"
+    }
+  },
+  "e-pagination": {
+    "deprecateChildren": true,
+    "version": "8.5.12",
+    "replacement": {
+      "name": "Ny link!",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/nynink"
+    }
+  },
+  "e-modal": {
+    "deprecateChildren": true,
+    "version": "8.5.12",
+    "replacement": {
+      "name": "Ny link!",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/nynink"
+    }
+  },
+  "e-dropdown": {
+    "version": "8.5.12",
+    "replacement": {
+      "name": "Ny link!",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/nynink"
+    }
+  },
+  "e-chip-container": {
+    "version": "8.5.12",
+    "replacement": {
+      "name": "Ny link!",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/nynink"
+    }
+  },
+  "e-select": {
+    "deprecateChildren": true,
+    "version": "2.9.22",
+    "replacement": {
+      "name": "Testing",
+      "type": "Testtype",
+      "documentation": "https://design.elvia.io/components/test"
+    }
+  },
   "e-divider": {
     "deprecateChildren": true,
     "version": "2.9.22",
@@ -40,7 +110,7 @@
     }
   },
   "e-link--jumbo": {
-    "version": "7.13.5",
+    "version": "8.5.12",
     "replacement": {
       "name": "action group",
       "type": "pattern",
