@@ -27,10 +27,10 @@ Read about the
   class naming convention.
 - We use **Percy** for visual regression testing for our CSS library.
 - We use **Figma** for sketching the components. Use
-  [Elvia figma](https://www.figma.com/files/880078299274452916/project/5995782/%F0%9F%92%9A-Designsystemet?fuid=911220117114249697)
+  [Elvia Figma](https://www.figma.com/files/880078299274452916/project/5995782/%F0%9F%92%9A-Designsystemet?fuid=911220117114249697)
   to get sketches of how the component should be styled and work.
 
-### Create or change CSS library
+### Create or change the CSS library
 
 > NOTE! The web project will not work properly before the
 > [setup in main project](https://github.com/3lvia/designsystem/blob/master/README.md) has been done.
@@ -49,7 +49,7 @@ Read about the
 #### Good to know
 
 - **Figma**: Use the
-  [Elvia figma](https://www.figma.com/files/880078299274452916/project/5995782/%F0%9F%92%9A-Designsystemet?fuid=911220117114249697)
+  [Elvia Figma](https://www.figma.com/files/880078299274452916/project/5995782/%F0%9F%92%9A-Designsystemet?fuid=911220117114249697)
   to get sketches of how the component should be styled and work.
 
 #### Step 0 - Before you begin
@@ -70,7 +70,7 @@ Read about the
 
 1. In `packages/elvis/src` choose between the `components`, `utilities` and `variables` folders depending on
    what you are creating.
-2. Create your classes, utilities or variables with the rules explained over in mind.
+2. Create your classes, utilities, or variables with the rules explained over in mind.
 
 #### Step 3 - Document the classes
 
@@ -78,20 +78,20 @@ The classes should be documented in the `packages/web` folder so that users of t
 information on how to use them.
 
 - Navigate to `packages/web/src/app/doc-pages/components` and find the component you want to add documentation
-  to or create a new module (like the ones existing all ready).
+  to or create a new module (like the ones existing already).
 
 #### Step 4 - Pull request and publish
 
 > NOTE! You will need to set up two-factor authentication with NPM to publish your changes.
 > [Elvia NPM](https://www.npmjs.com/org/elvia).
 
-1. **Update version**: When doing updates to Elvis remember to alway update the version in
+1. **Update version**: When doing updates to Elvis remember to always update the version in
    `packages/elvis/package.json`.
 2. **Document**: the changes / removal or new classes in the `CHANGELOG.json` file as well as at the correct
    documentation-page. E.g. `packages/web/src/app/doc-pages/components/button-doc`. Example of an update in
    CHANGELOG.json:
 
-   ```
+   ```json
    {
       "version": "8.3.1",
       "date": "April 20, 2022",
@@ -111,10 +111,10 @@ information on how to use them.
    ```
 
    The type should be "breaking_changes", "bug_fix", "new_feature" or "patch". Changes describes what changes
-   has been done, while fixes describes steps the user have to do to fix their code to be up to date.
-   Components links to all related components, pages links to all related pages.
+   have been done, while fixes describes steps the user has to do to fix their code to be up to date.
+   Components links to all related components, and pages links to all related pages.
 
-3. **Commit & push**: to your branch. Husky should run scripts before you are able to commit or push to ensure
+3. **Commit & push**: to your branch. Husky should run scripts before you can commit or push to ensure
    everything is built and all tests are running. If you are doing just documentation updates skip these
    scripts with `--no-verify`.
 4. **Pull request**: Create a pull request with all the changes at the
@@ -122,7 +122,25 @@ information on how to use them.
 5. **Preview**: Netlify will generate a preview link when the pull request is created. The link can be used to
    send a preview of the changes e.g. to designers or other developers. Find the link at the bottom of the
    checkpoint-list in the pull request.
-6. **Merge branch**: When the branch has been approved from one other member of the team, merge the changes
-   into master.
+6. **Merge branch**: When the branch has been approved by one other member of the team, merge the changes into
+   master.
 7. **Publish to NPM**: by navigating to `packages/elvis` in master (after pulling the updates) and use the
    command `npm publish --otp=<code>`.
+
+?. **Deprecate outdated classes**: To deprecate an Elvis class, add it to the `deprecated-classes.json` file
+located at `packages/elvis/.internal/deprecated-classes.json`.
+
+Additions to the deprecated classes list should follow the pre-defined structure. To get started quickly, copy
+an existing entry and change the values. Place new additions as the first element within the JSON object.
+
+```json
+    "e-deprecated-class": { //name of the deprecated class
+        "deprecateChildren": true, //if true; deprecates all other Elvis classes starting with the name defined above
+        "version": "2.0.0", //the version the class became deprecated
+        "replacement": {
+    	    "name": "e-better-replacement", //the name of the replacement
+    	    "type": "class", //the type of replacement (component, class, pattern etc...)
+    	    "documentation": "https://design.elvia.io/e-better-replacement" //link to documentation for the replacement
+        }
+    }
+```
