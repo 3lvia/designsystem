@@ -105,7 +105,14 @@ function psuedoIsOnElement(className) {
   return true;
 }
 
-// Generate a string for a deprecated class
+/**
+ * It takes a class name and returns a string that represents the class in the deprecatedElvisClasses
+ * object
+ * @param {string} className - The name of the class that is deprecated.
+ * @param {boolean} [child=false] - The name of the child class.
+ * @returns A string of JSON data.
+ * @example generateDeprecatedClass('e-card')
+ */
 function generateDeprecatedClass(className, child = false) {
   return `
     {
@@ -123,6 +130,14 @@ function generateDeprecatedClass(className, child = false) {
       },`;
 }
 
+/**
+ * It takes a class name as an argument, and returns an array of all the classes that contain that
+ * class name
+ * @param {string} parentToMatch - The class name you want to match.
+ * @returns An array of all the class names that match the parentToMatch argument.
+ * @example
+ * getChildren('e-card'); //returns [e-card--header, e-card--body, e-card--footer etc..]
+ */
 function getChildren(parentToMatch) {
   const elvisCSS = fs.readFileSync('./css/elvis.css').toString();
   const classlist = getAllClasses(elvisCSS);
@@ -134,19 +149,22 @@ function getChildren(parentToMatch) {
   return matches;
 }
 
-/** Generate a list of deprecated Elvis classes.
- * Function uses data from packages/elvis/.internal/deprecated-classes.json
- * */
+/**
+ * Generate an array (as a string) of deprecated classes and injects it into the elvis.js file.
+ * It uses data from packages/elvis/.internal/deprecated-classes.json
+ * @returns true.
+ * @async
+ */
 const injectDeprecatedElvisClasses = async () => {
   let embeddedJs = `
   let deprecatedElvisClasses = [`;
   for (const className in deprecatedElvisClasses) {
     embeddedJs += generateDeprecatedClass(className);
 
+    //if the deprecated class has deprecateChildren === treu, add all children to the generated string
     if (deprecatedElvisClasses[className].deprecateChildren === true) {
       const children = getChildren(className);
       children.forEach((child) => {
-        //sjekke her, ikke overkjør noen som allerede er deprecated
         //used to avoid duplicated deprecated classes
         if (Object.keys(deprecatedElvisClasses).includes(child)) {
           return;
@@ -158,7 +176,7 @@ const injectDeprecatedElvisClasses = async () => {
   embeddedJs += `
 ];`;
 
-  // Write to file
+  // Write to elvis.js at "//[[INJECT_DEPRECATED_ELVIS_CLASSES]]"
   const template = fs.readFileSync('elvis.js').toString();
   const newContent = template.replace('//[[INJECT_DEPRECATED_ELVIS_CLASSES]]', embeddedJs);
   fs.writeFileSync('elvis.js', newContent);
