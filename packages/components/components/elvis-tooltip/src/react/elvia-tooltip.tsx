@@ -13,6 +13,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   trigger,
   webcomponent,
 }) => {
+  let timeoutId = 0;
   const triggerRef = useRef<HTMLSpanElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
@@ -24,11 +25,15 @@ export const Tooltip: React.FC<TooltipProps> = ({
   });
 
   const onMouseEnter = (): void => {
-    setFadeOut(false);
-    setIsShowing(true);
+    window.clearTimeout(timeoutId);
+    timeoutId = window.setTimeout(() => {
+      setFadeOut(false);
+      setIsShowing(true);
+    }, 400);
   };
 
   const onMouseLeave = (): void => {
+    window.clearTimeout(timeoutId);
     setFadeOut(true);
   };
 

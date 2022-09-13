@@ -31,7 +31,7 @@ export const TooltipFadeOut = keyframes`
   
   to {
     opacity: 0;
-    transform: scale(0.6)
+    transform: scale(0.7)
   }
 `;
 
@@ -54,7 +54,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
   padding: 0.5rem 0.625rem;
   border-radius: 0.25rem;
   position: absolute;
-  animation: ${TooltipFadeIn} 200ms 500ms forwards;
+  animation: ${TooltipFadeIn} 200ms 1ms forwards;
   opacity: 0;
 
   &::after {
