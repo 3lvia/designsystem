@@ -4,7 +4,7 @@ import { CSSProperties } from 'react';
 export type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
 
 export interface TooltipProps {
-  disabled?: boolean;
+  isDisabled?: boolean;
   position?: TooltipPosition;
   message: string;
   trigger: string | JSX.Element;

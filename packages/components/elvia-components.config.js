@@ -500,7 +500,7 @@ module.exports = [
     elementName: 'elvia-tooltip',
     attributes: [
       { name: 'trigger', type: 'string', propType: 'string | HTMLElement' },
-      { name: 'disabled', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'isDisabled', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'position', type: 'string', propType: 'string | undefined' },
       { name: 'message', type: 'string', propType: 'string | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },

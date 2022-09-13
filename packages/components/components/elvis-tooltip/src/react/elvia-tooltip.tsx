@@ -6,7 +6,7 @@ import { arrowSize, TooltipPopup, TriggerContainer } from './styledComponents';
 
 export const Tooltip: React.FC<TooltipProps> = ({
   className,
-  disabled = false,
+  isDisabled = false,
   inlineStyle,
   message = '',
   position = 'top',
@@ -69,7 +69,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
         {trigger}
       </TriggerContainer>
       {isShowing &&
-        !disabled &&
+        !isDisabled &&
         createPortal(
           <TooltipPopup
             position={position}
