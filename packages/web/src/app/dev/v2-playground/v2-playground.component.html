@@ -5,7 +5,27 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <elvia-dropdown
+        [isCompact]="false"
+        [isDisabled]="false"
+        [label]="'Normal dropdown'"
+        [items]="dropdownOptions"
+        [hasLoadMoreItemsButton]="true"
+        [isLoadingMoreItems]="dropdownIsLoading"
+        (loadMoreItems)="dropdownAddOption()"
+      ></elvia-dropdown>
+      <div class="e-p-16"></div>
+      <elvia-dropdown
+        [isCompact]="true"
+        [isDisabled]="false"
+        [label]="'Compact dropdown'"
+        [items]="dropdownOptions"
+        [hasLoadMoreItemsButton]="true"
+        [isLoadingMoreItems]="dropdownIsLoading"
+        (loadMoreItems)="dropdownAddOption()"
+      ></elvia-dropdown>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>

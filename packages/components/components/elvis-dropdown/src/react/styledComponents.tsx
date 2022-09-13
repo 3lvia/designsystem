@@ -287,7 +287,7 @@ interface DropdownMenuLoadMorebuttonProps {
 
 export const DropdownMenuLoadMoreButton = styled.button<DropdownMenuLoadMorebuttonProps>`
   width: 100%;
-  height: ${(props) => (props.isCompact ? '32px' : '48px')};
+  height: ${(props) => (props.isCompact ? '32px' : '40px')};
 
   display: flex;
   justify-content: center;
@@ -308,6 +308,7 @@ export const DropdownMenuLoadMoreButton = styled.button<DropdownMenuLoadMorebutt
 
 export const DropdownMenuLoadMoreButtonContent = styled.span`
   width: fit-content;
+  height: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;

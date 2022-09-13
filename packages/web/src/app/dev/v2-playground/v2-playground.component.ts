@@ -41,11 +41,11 @@ export class v2PlaygroundComponent {
     { value: '2', label: 'Option 2' },
   ];
   dropdownOptions = [
-    { value: '1', label: 'Option 1', icon: 'arrowUp' },
-    { value: '2', label: 'Option 2', icon: 'arrowDown' },
-    { value: '3', label: 'Option 3', icon: 'arrowLeft', isDisabled: true },
-    { value: '4', label: 'Option 4', icon: 'arrowRight' },
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' },
   ];
+  dropdownIsLoading = false;
 
   // Modal
   isModalShowing = false;
@@ -105,5 +105,15 @@ export class v2PlaygroundComponent {
   };
   popoverOnClose = (): void => {
     console.log('Popover closed');
+  };
+
+  dropdownAddOption = (): void => {
+    this.dropdownIsLoading = true;
+    setTimeout(() => {
+      const newValue = parseInt(this.dropdownOptions[this.dropdownOptions.length - 1].value) + 1;
+      const newOption = { value: newValue.toString(), label: `Option ${newValue}` };
+      this.dropdownOptions.push(newOption);
+      this.dropdownIsLoading = false;
+    }, 2000);
   };
 }
