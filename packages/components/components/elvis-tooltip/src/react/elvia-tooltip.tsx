@@ -1,8 +1,8 @@
 import { useConnectedOverlay } from '@elvia/elvis-toolbox';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { TooltipPosition, TooltipProps } from './elviaTooltip.types';
-import { TooltipPopup, TriggerContainer } from './styledComponents';
+import { arrowSize, TooltipPopup, TriggerContainer } from './styledComponents';
 
 export const Tooltip: React.FC<TooltipProps> = ({
   className,
@@ -15,18 +15,27 @@ export const Tooltip: React.FC<TooltipProps> = ({
 }) => {
   const triggerRef = useRef<HTMLSpanElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
+  const [fadeOut, setFadeOut] = useState(false);
   const [isShowing, setIsShowing, updatePosition] = useConnectedOverlay(triggerRef, overlayRef, {
     alignWidths: false,
     verticalPosition: position === 'bottom' ? 'bottom' : position === 'top' ? 'top' : 'center',
     horizontalPosition: position === 'left' ? 'left' : position === 'right' ? 'right' : 'center',
+    offset: 8 + arrowSize,
   });
 
   const onMouseEnter = (): void => {
+    setFadeOut(false);
     setIsShowing(true);
   };
 
   const onMouseLeave = (): void => {
-    setIsShowing(false);
+    setFadeOut(true);
+  };
+
+  const onAnimationEnd = () => {
+    if (fadeOut) {
+      setIsShowing(false);
+    }
   };
 
   /** Get all slots and place them correctly */
@@ -40,6 +49,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     }
   }, [webcomponent]);
 
+  /** Update tooltip position */
   useEffect(() => {
     const newPosition: TooltipPosition = position || 'top';
     updatePosition(
@@ -61,6 +71,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
             ref={overlayRef}
             className={className ?? ''}
             style={{ ...inlineStyle }}
+            fadeOut={fadeOut}
+            onAnimationEnd={onAnimationEnd}
           >
             {message}
           </TooltipPopup>,

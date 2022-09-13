@@ -8,7 +8,10 @@
     <div class="e-bg-white">
       <p class="e-text-md">
         This is a text to test out the new
-        <elvia-tooltip message="It seems like this works!" [position]="tooltipPosition">
+        <elvia-tooltip
+          message="Click the trigger to update the position on the fly!"
+          [position]="tooltipPosition"
+        >
           <span slot="trigger" (click)="shuffleTooltipPosition()">tooltip!</span>
         </elvia-tooltip>
       </p>
