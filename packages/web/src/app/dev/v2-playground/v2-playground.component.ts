@@ -74,6 +74,21 @@ export class v2PlaygroundComponent {
   // Timepicker
   timepickerValue = new Date();
 
+  // Tooltip
+  tooltipPosition: 'top' | 'bottom' | 'left' | 'right' = 'top';
+
+  shuffleTooltipPosition = (): void => {
+    if (this.tooltipPosition === 'top') {
+      this.tooltipPosition = 'right';
+    } else if (this.tooltipPosition === 'right') {
+      this.tooltipPosition = 'bottom';
+    } else if (this.tooltipPosition === 'bottom') {
+      this.tooltipPosition = 'left';
+    } else {
+      this.tooltipPosition = 'top';
+    }
+  };
+
   logValue = (component: string, value: Event): void => {
     console.log(component, ': ', value);
   };

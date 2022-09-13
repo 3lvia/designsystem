@@ -5,7 +5,23 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <p class="e-text-md">
+        This is a text to test out the new
+        <elvia-tooltip message="It seems like this works!" [position]="tooltipPosition">
+          <span slot="trigger" (click)="shuffleTooltipPosition()">tooltip!</span>
+        </elvia-tooltip>
+      </p>
+
+      <elvia-datepicker
+        [value]="timepickerValue"
+        (valueOnChange)="timepickerValue = $event.target.value"
+      ></elvia-datepicker>
+      <elvia-timepicker
+        [value]="timepickerValue"
+        (valueOnChange)="timepickerValue = $event.target.value"
+      ></elvia-timepicker>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
