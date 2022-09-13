@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   outlineFix();
 
+/* A MutationObserver that is watching for changes in the DOM. */
   let mo = new MutationObserver(function (mutations) {
     for (let i = 0; i < mutations.length; i++) {
       injectIconIfEligible(mutations[i].target, mutations[i]);
@@ -126,37 +127,46 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+/**
+ * Generate a deprecation warning for the usage of a deprecated Elvis class.
+ * @param {Object} usedDeprecatedClass - The deprecated Elvis class
+ * @param {string} usedDeprecatedClass.name - The name of the deprecated Elvis class
+ * @param {string} usedDeprecatedClass.version - The version of the Elvis class became deprecated.
+ * @param {Object} usedDeprecatedClass.replacement - The replacement for the deprecated Elvis class
+ * @param {String} usedDeprecatedClass.replacement.name - The name of the replacement.
+ * @param {String} usedDeprecatedClass.replacement.type - The type of the replacement, such as a pattern, class or component.
+ * @param {String} usedDeprecatedClass.replacement.documentation - A link to the documentation for the replacement.
+ * @example generateDeprecationWarning(usedDeprecatedClass);
+ */
  function generateDeprecationWarning({name, version, replacement}){
-    return console.warn(`DEPRECATION WARNING: The Elvis class '${name}' has been deprecated since version ${version}. ${replacement ? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation} for more information.` : ''}`)
+    return console.warn(`Deprecation warning: The Elvis class '${name}' has been deprecated since version ${version}. ${replacement ? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation} for more information.` : ''}`)
  }
 
- /* Array containing classes that have been warned to the user. Helps avoid duplicated errors.*/
+ /* Array containing classes that have been warned to the user. Helps avoid duplicated errors in the console.*/
  const warnedClasses = [];
 
   /** Create an array with all the classes used in the DOM starting with 'e-'. 
    * Use the filter to only include unique classes once. 
    * Then compare the used classes to the deprecated classes list. 
-   * If deprecated classes are being used, warn the user in the console.
-   * https://stackoverflow.com/q/59162535/14447555 */
+   * If deprecated classes are being used, warn the user in the console. */
 function checkDeprecatedElvisClass() {
-    if (localhost) {
-      
-      // Get all the classes used in the DOM starting with 'e-'
-        const usedClasses = [].concat(...[...document.querySelectorAll('[class^="e-"]')].map(element => [...element.classList])).filter((className, index, array) => array.indexOf(className) == index).sort();
-        
-        // Loop through the used classes and check if they are deprecated
-        usedClasses.forEach(usedClass => {
-          const depricatedClassisUsed = deprecatedElvisClasses.find(deprecatedElvisClass => deprecatedElvisClass.name === usedClass);
-          
+  if (localhost) {
+    
+    /* Getting all the classes that start with 'e-' and then it is filtering out the duplicates. https://stackoverflow.com/q/59162535/14447555*/
+    const usedClasses = [].concat(...[...document.querySelectorAll('[class^="e-"]')].map(element => [...element.classList])).filter((className, index, array) => array.indexOf(className) == index).sort();
+    
+    /* Checking if the used class is deprecated. */
+    usedClasses.forEach(usedClass => {
+      const usedDeprecatedClass = deprecatedElvisClasses.find(deprecatedElvisClass => deprecatedElvisClass.name === usedClass);
 
-          // If the class is deprecated and has not been warned yet, warn the user.
-          if (depricatedClassisUsed && !warnedClasses.includes(depricatedClassisUsed.name)) {
-            warnedClasses.push(depricatedClassisUsed.name);
-            generateDeprecationWarning(depricatedClassisUsed);
-          }
-        });
-    }
+      // If the class is deprecated and has not been warned yet, warn the user.
+      if (usedDeprecatedClass && !warnedClasses.includes(usedDeprecatedClass.name)) {
+        warnedClasses.push(usedDeprecatedClass.name);
+        generateDeprecationWarning(usedDeprecatedClass);
+      }
+    });
   }
+}
 
   function setCorrectColor(classList, icon) {
     let fill;
@@ -765,6 +775,510 @@ function checkDeprecatedElvisClass() {
   
   let deprecatedElvisClasses = [
     {
+      name: "e-radio-filter",
+      version: "9.0.0",
+      replacement: {
+          name: "Radio Filter",
+          type: "component",
+          documentation: "https://design.elvia.io/components/radio-filter",
+          }
+      },
+    {
+      name: "e-radio-filter__label",
+      version: "9.0.0",
+      replacement: {
+          name: "Radio Filter",
+          type: "component",
+          documentation: "https://design.elvia.io/components/radio-filter",
+          }
+      },
+    {
+      name: "e-radio-filter---focus",
+      version: "9.0.0",
+      replacement: {
+          name: "Radio Filter",
+          type: "component",
+          documentation: "https://design.elvia.io/components/radio-filter",
+          }
+      },
+    {
+      name: "e-radio-filter---hover",
+      version: "9.0.0",
+      replacement: {
+          name: "Radio Filter",
+          type: "component",
+          documentation: "https://design.elvia.io/components/radio-filter",
+          }
+      },
+    {
+      name: "e-radio-filter---checked",
+      version: "9.0.0",
+      replacement: {
+          name: "Radio Filter",
+          type: "component",
+          documentation: "https://design.elvia.io/components/radio-filter",
+          }
+      },
+    {
+      name: "e-progress",
+      version: "9.0.0",
+      replacement: {
+          name: "Progressbar",
+          type: "component",
+          documentation: "https://design.elvia.io/components/progressbar",
+          }
+      },
+    {
+      name: "e-progress__bar",
+      version: "9.0.0",
+      replacement: {
+          name: "Progressbar",
+          type: "component",
+          documentation: "https://design.elvia.io/components/progressbar",
+          }
+      },
+    {
+      name: "e-progress__bar--loading",
+      version: "9.0.0",
+      replacement: {
+          name: "Progressbar",
+          type: "component",
+          documentation: "https://design.elvia.io/components/progressbar",
+          }
+      },
+    {
+      name: "e-progress__bar--error",
+      version: "9.0.0",
+      replacement: {
+          name: "Progressbar",
+          type: "component",
+          documentation: "https://design.elvia.io/components/progressbar",
+          }
+      },
+    {
+      name: "e-popover",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-popover__content",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-popover__close",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-popover__title",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-popover__text",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-popover--bottom",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-popover--left",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-popover--left-50",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-popover--right",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-popover--right-50",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-popover--w-200",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-popover--w-220",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-popover--w-240",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-popover--w-260",
+      version: "9.0.0",
+      replacement: {
+          name: "Popover",
+          type: "component",
+          documentation: "https://design.elvia.io/components/popover",
+          }
+      },
+    {
+      name: "e-pagination",
+      version: "9.0.0",
+      replacement: {
+          name: "Pagination",
+          type: "component",
+          documentation: "https://design.elvia.io/components/pagination",
+          }
+      },
+    {
+      name: "e-pagination__number-per-page",
+      version: "9.0.0",
+      replacement: {
+          name: "Pagination",
+          type: "component",
+          documentation: "https://design.elvia.io/components/pagination",
+          }
+      },
+    {
+      name: "e-pagination__dropdown",
+      version: "9.0.0",
+      replacement: {
+          name: "Pagination",
+          type: "component",
+          documentation: "https://design.elvia.io/components/pagination",
+          }
+      },
+    {
+      name: "e-pagination__choosing-page",
+      version: "9.0.0",
+      replacement: {
+          name: "Pagination",
+          type: "component",
+          documentation: "https://design.elvia.io/components/pagination",
+          }
+      },
+    {
+      name: "e-pagination__dots",
+      version: "9.0.0",
+      replacement: {
+          name: "Pagination",
+          type: "component",
+          documentation: "https://design.elvia.io/components/pagination",
+          }
+      },
+    {
+      name: "e-pagination__number",
+      version: "9.0.0",
+      replacement: {
+          name: "Pagination",
+          type: "component",
+          documentation: "https://design.elvia.io/components/pagination",
+          }
+      },
+    {
+      name: "e-pagination__arrow",
+      version: "9.0.0",
+      replacement: {
+          name: "Pagination",
+          type: "component",
+          documentation: "https://design.elvia.io/components/pagination",
+          }
+      },
+    {
+      name: "e-pagination__number--active",
+      version: "9.0.0",
+      replacement: {
+          name: "Pagination",
+          type: "component",
+          documentation: "https://design.elvia.io/components/pagination",
+          }
+      },
+    {
+      name: "e-pagination__number---hover",
+      version: "9.0.0",
+      replacement: {
+          name: "Pagination",
+          type: "component",
+          documentation: "https://design.elvia.io/components/pagination",
+          }
+      },
+    {
+      name: "e-pagination__arrow---hover",
+      version: "9.0.0",
+      replacement: {
+          name: "Pagination",
+          type: "component",
+          documentation: "https://design.elvia.io/components/pagination",
+          }
+      },
+    {
+      name: "e-modal",
+      version: "9.0.0",
+      replacement: {
+          name: "Modal",
+          type: "component",
+          documentation: "https://design.elvia.io/components/modal",
+          }
+      },
+    {
+      name: "e-modal__content",
+      version: "9.0.0",
+      replacement: {
+          name: "Modal",
+          type: "component",
+          documentation: "https://design.elvia.io/components/modal",
+          }
+      },
+    {
+      name: "e-modal__title",
+      version: "9.0.0",
+      replacement: {
+          name: "Modal",
+          type: "component",
+          documentation: "https://design.elvia.io/components/modal",
+          }
+      },
+    {
+      name: "e-modal__text",
+      version: "9.0.0",
+      replacement: {
+          name: "Modal",
+          type: "component",
+          documentation: "https://design.elvia.io/components/modal",
+          }
+      },
+    {
+      name: "e-modal__actions",
+      version: "9.0.0",
+      replacement: {
+          name: "Modal",
+          type: "component",
+          documentation: "https://design.elvia.io/components/modal",
+          }
+      },
+    {
+      name: "e-dropdown",
+      version: "9.0.0",
+      replacement: {
+          name: "Dropdown",
+          type: "component",
+          documentation: "https://design.elvia.io/components/dropdown",
+          }
+      },
+    {
+      name: "e-chip",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip-container",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip__label",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip__close",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip--yellow",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip---disabled",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip--orange",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip--red",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip--green-apple",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip--violet-grape",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip--blue-berry",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip--purple-plum",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip--orange-mango",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip--red-tomato",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip--green",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-chip---hover",
+      version: "9.0.0",
+      replacement: {
+          name: "Chip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/chip",
+          }
+      },
+    {
+      name: "e-select",
+      version: "9.0.0",
+      replacement: {
+          name: "Dropdown",
+          type: "component",
+          documentation: "https://design.elvia.io/components/dropdown",
+          }
+      },
+    {
       name: "e-divider",
       version: "2.9.22",
       replacement: {
@@ -854,7 +1368,7 @@ function checkDeprecatedElvisClass() {
       },
     {
       name: "e-link--jumbo",
-      version: "7.13.5",
+      version: "8.5.12",
       replacement: {
           name: "action group",
           type: "pattern",
