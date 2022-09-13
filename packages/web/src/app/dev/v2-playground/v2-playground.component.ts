@@ -43,7 +43,7 @@ export class v2PlaygroundComponent {
   dropdownOptions = [
     { value: '1', label: 'Option 1' },
     { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3' },
+    { value: '3', label: 'Option 3', isDisabled: 'true' },
   ];
   dropdownIsLoading = false;
 

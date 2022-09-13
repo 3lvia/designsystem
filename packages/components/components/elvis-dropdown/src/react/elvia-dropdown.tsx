@@ -310,7 +310,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
       '&:hover': {
         backgroundColor: decideOptionHoverBg(state.isSelected, state.isMulti, state.isDisabled),
         '#ewc-dropdown-checkbox__mark': {
-          backgroundColor: getColor('elvia-charge'),
+          backgroundColor: state.isDisabled ? getColor('white') : getColor('elvia-charge'),
         },
       },
       '#ewc-dropdown-checkbox__mark': {
