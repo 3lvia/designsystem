@@ -126,12 +126,33 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+/**
+ * Generate a deprecation warning for the usage of a deprecated Elvis class.
+ * @param {Object} usedDeprecatedClass - The deprecated Elvis class
+ * @param {string} usedDeprecatedClass.name - The name of the deprecated Elvis class
+ * @param {string} usedDeprecatedClass.version - The version of the Elvis class became deprecated.
+ * @param {Object} usedDeprecatedClass.replacement - The replacement for the deprecated Elvis class
+ * @param {String} usedDeprecatedClass.replacement.name - The name of the replacement.
+ * @param {String} usedDeprecatedClass.replacement.type - The type of the replacement, such as a pattern, class or component.
+ * @param {String} usedDeprecatedClass.replacement.documentation - A link to the documentation for the replacement.
+ * @example generateDeprecationWarning(usedDeprecatedClass);
+ */
  function generateDeprecationWarning({name, version, replacement}){
     return console.warn(`DEPRECATION WARNING: The Elvis class '${name}' has been deprecated since version ${version}. ${replacement ? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation} for more information.` : ''}`)
  }
 
  /* Array containing classes that have been warned to the user. Helps avoid duplicated errors.*/
+ /* Array containing classes that have been warned to the user. Helps avoid duplicated errors in the console.*/
  const warnedClasses = [];
+ /**
+  * It takes an array of objects and a property name, and returns an object with the property values as
+  * keys and the objects that have that property value as the value
+  * @param {Array} objArray - The array of objects that you want to group.
+  * @param {string} property - The property of the object you want to group by.
+  * @returns An object with the property of the array as the key and the value as an array of the
+  * objects that have that property.
+  * @example groupedObj(deprecatedElvisClasses, "version");
+  */
 
   /** Create an array with all the classes used in the DOM starting with 'e-'. 
    * Use the filter to only include unique classes once. 
