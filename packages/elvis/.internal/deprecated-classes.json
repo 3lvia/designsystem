@@ -1,72 +1,73 @@
 {
   "e-radio-filter": {
     "deprecateChildren": true,
-    "version": "8.5.12",
+    "version": "9.0.0",
     "replacement": {
-      "name": "Ny link!",
+      "name": "Radio Filter",
       "type": "component",
-      "documentation": "https://design.elvia.io/components/nynink"
+      "documentation": "https://design.elvia.io/components/radio-filter"
     }
   },
   "e-progress": {
     "deprecateChildren": true,
-    "version": "8.5.12",
+    "version": "9.0.0",
     "replacement": {
-      "name": "Ny link!",
+      "name": "Progressbar",
       "type": "component",
-      "documentation": "https://design.elvia.io/components/nynink"
+      "documentation": "https://design.elvia.io/components/progressbar"
     }
   },
   "e-popover": {
     "deprecateChildren": true,
-    "version": "8.5.12",
+    "version": "9.0.0",
     "replacement": {
-      "name": "Ny link!",
+      "name": "Popover",
       "type": "component",
-      "documentation": "https://design.elvia.io/components/nynink"
+      "documentation": "https://design.elvia.io/components/popover"
     }
   },
   "e-pagination": {
     "deprecateChildren": true,
-    "version": "8.5.12",
+    "version": "9.0.0",
     "replacement": {
-      "name": "Ny link!",
+      "name": "Pagination",
       "type": "component",
-      "documentation": "https://design.elvia.io/components/nynink"
+      "documentation": "https://design.elvia.io/components/pagination"
     }
   },
   "e-modal": {
     "deprecateChildren": true,
-    "version": "8.5.12",
+    "version": "9.0.0",
     "replacement": {
-      "name": "Ny link!",
+      "name": "Modal",
       "type": "component",
-      "documentation": "https://design.elvia.io/components/nynink"
+      "documentation": "https://design.elvia.io/components/modal"
     }
   },
   "e-dropdown": {
-    "version": "8.5.12",
+    "version": "9.0.0",
     "replacement": {
-      "name": "Ny link!",
+      "name": "Dropdown",
       "type": "component",
-      "documentation": "https://design.elvia.io/components/nynink"
+      "documentation": "https://design.elvia.io/components/dropdown"
     }
   },
-  "e-chip-container": {
-    "version": "8.5.12",
+  "e-chip": {
+    "deprecateChildren": true,
+    "version": "9.0.0",
     "replacement": {
-      "name": "Ny link!",
+      "name": "Chip",
       "type": "component",
-      "documentation": "https://design.elvia.io/components/nynink"
+      "documentation": "https://design.elvia.io/components/chip"
     }
   },
   "e-select": {
     "deprecateChildren": true,
-    "version": "2.9.22",
+    "version": "9.0.0",
     "replacement": {
-      "name": "Testing",
-      "type": "Testtype",
-      "documentation": "https://design.elvia.io/components/test"
+      "name": "Dropdown",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/dropdown"
     }
   },
   "e-divider": {
