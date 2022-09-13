@@ -147,6 +147,10 @@ const injectDeprecatedElvisClasses = async () => {
       const children = getChildren(className);
       children.forEach((child) => {
         //sjekke her, ikke overkjør noen som allerede er deprecated
+        //used to avoid duplicated deprecated classes
+        if (Object.keys(deprecatedElvisClasses).includes(child)) {
+          return;
+        }
         embeddedJs += generateDeprecatedClass(className, child);
       });
     }
