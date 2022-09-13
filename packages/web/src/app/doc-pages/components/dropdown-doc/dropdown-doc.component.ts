@@ -3,6 +3,7 @@ import { getComponent } from 'src/app/shared/doc-pages';
 import { dropdownData } from './dropdown-data';
 import { exampleContents } from 'src/app/shared/example-contents';
 import { dropdownIconsCode } from './dropdown-icons-code';
+import { dropdownStatusCode } from './dropdown-status-code';
 
 @Component({
   selector: 'app-dropdown-doc',
@@ -18,6 +19,7 @@ export class DropdownDocComponent {
   description = getComponent('dropdown').description;
 
   dropdownIconsCode = dropdownIconsCode;
+  dropdownStatusCode = dropdownStatusCode;
 
   isCompact = true;
   isDisabled = true;

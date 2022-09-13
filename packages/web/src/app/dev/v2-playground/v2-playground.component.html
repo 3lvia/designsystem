@@ -19,6 +19,29 @@
           </div>
         </div>
       </div>
+    <div class="e-bg-white e-flex e-flex-direction-column e-gap-16"></div>
+    <!--Inverted version-->
+    <div class="e-bg-grey"></div>
+  </div>
+
+  <!--Accordion-->
+  <div class="example-wrapper">
+    <h3>Accordion</h3>
+    <button (click)="isOpen = !isOpen">helo</button>
+    <elvia-accordion
+      [isOpen]="isOpen"
+      openLabel="Show"
+      closeLabel="Hide"
+      size="medium"
+      type="normal"
+      typography="title-caps"
+      (onOpen)="onOpen()"
+      (onClose)="onClose()"
+    >
+      <div slot="content">
+        <h3>Hello there</h3>
+
+      </div>
 
       <div class="e-inlined-field e-mt-24 e-link--external e-card--shadow-soft">
         <div class="e-form-field e-form-field--medium">
