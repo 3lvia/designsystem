@@ -12,7 +12,7 @@ const dropdownLoadMoreItemsCode = {
     isLoadingMoreItems={isLoadingMoreItems}
     loadMoreItems={() => loadMoreDropdownItems()}
 ></Dropdown>
-    `,
+`,
   codeAngular: `<elvia-dropdown
     [items]="[
         { value: 'Nord-Korea', label: 'Nord-Korea'},
@@ -26,7 +26,7 @@ const dropdownLoadMoreItemsCode = {
     [isLoadingMoreitems]="isLoadingMoreItems"
     (loadMoreItems)="loadMoreDropdownItems()"
 ></elvia-dropdown>
-    `,
+`,
   codeVue: `<elvia-dropdown
     :items="[
         { value: 'Nord-Korea', label: 'Nord-Korea'},
@@ -40,7 +40,7 @@ const dropdownLoadMoreItemsCode = {
     :isLoadingMoreitems="isLoadingMoreItems"
     @load-more-items="loadMoreDropdownItems()"
 ></elvia-dropdown>
-    `,
+`,
   codeNativeHTML: `<elvia-dropdown
     label="Label"
     placeholder="Placeholder"
@@ -59,19 +59,30 @@ const items = [
     { value: 'Sverige', label: 'Sverige' },
 ];
 dropdown.setProps({items: items});
+let timesLoadedMoreItems = 0;
 dropdown.addEventListener('loadMoreItems', () => {
     dropdown.setProps({isLoadingMoreItems: 'true'});
     setTimeout(() => {
         dropdown.setProps({isLoadingMoreItems: 'false'});
-        items.push({ value: 'Tyskland', label: 'Tyskland' });
-        items.push({ value: 'Ungarn', label: 'Ungarn' });
-        items.push({ value: 'USA', label: 'USA' });
-        items.push({ value: 'Vatikanstaten', label: 'Vatikanstaten' });
-        items.push({ value: 'Venezuela', label: 'Venezuela' });
+        if (timesLoadedMoreItems === 0) {
+            items.push({ value: 'Tyskland', label: 'Tyskland' });
+            items.push({ value: 'Ungarn', label: 'Ungarn' });
+            items.push({ value: 'USA', label: 'USA' });
+            items.push({ value: 'Vatikanstaten', label: 'Vatikanstaten' });
+        } else if (timesLoadedMoreItems === 1) {
+            items.push({ value: 'Venezuela', label: 'Venezuela' });
+            items.push({ value: 'Vietnam', label: 'Vietnam' });
+            items.push({ value: 'Østerrike', label: 'Østerrike' });
+            items.push({ value: 'Øst-Timor', label: 'Øst-Timor' });
+        }
         dropdown.setProps({items: items});
+        timesLoadedMoreItems++;
+        if (timesLoadedMoreItems > 1) {
+            dropdown.setProps({hasLoadMoreItemsButton: 'false'});
+        }
     }, 2000);
 });
-    `,
+`,
 };
 
 export { dropdownLoadMoreItemsCode };
