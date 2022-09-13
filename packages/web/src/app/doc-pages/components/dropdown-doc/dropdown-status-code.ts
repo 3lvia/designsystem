@@ -57,9 +57,6 @@ const dropdownStatusCode = {
     dropdown.setProps({placeholder: 'Placeholder' });
     dropdown.setProps({items: items});
     dropdown.setProps({value: items[1]});
-    dropdown.addEventListener('valueOnChange', (event) => {
-      console.log('Do what you want with selected elements: ', event.detail.value);
-    });
   `,
 };
 

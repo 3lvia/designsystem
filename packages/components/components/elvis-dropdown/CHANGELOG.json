@@ -13,7 +13,10 @@
         },
         {
           "type": "patch",
-          "changes": ["Changed how the <span class=\"code-text\">onItemHover</span> is triggered."]
+          "changes": [
+            "Changed how the <span class=\"code-text\">onItemHover</span> is triggered.",
+            "Fixed a wrong hover state for disabled dropdown item in multiselect dropdown."
+          ]
         }
       ]
     },
