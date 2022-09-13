@@ -11,19 +11,6 @@
   <!--CEG-->
   <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
-  <!--POSITION-->
-  <app-component-section [sectionTitle]="'Position'">
-    <ng-container ngProjectAs="sectionContent">
-      The default position for the tooltip is above the attached element. If you want the tooltip to appear in
-      the other directions, append the
-      <span class="code-text">e-tooltip__content--position</span>
-      class.
-      <app-component-subsection [sectionTitle]="'Top'">
-        <p>Foo</p>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
@@ -34,11 +21,9 @@
   <!--ACCESSIBILITY-->
   <app-component-section [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Tabindex'">
+      <app-component-subsection [sectionTitle]="'Keyboard focus'">
         <ng-container ngProjectAs="sectionContent">
-          If a tooltip is attached to a non focusable element, like an icon, remember to add the
-          <span class="code-text">tabindex</span>
-          tag with a value equal to 0 or higher.
+          A tooltip will appear immediately if attached to an element that receives keyboard focus.
         </ng-container>
       </app-component-subsection>
     </ng-container>

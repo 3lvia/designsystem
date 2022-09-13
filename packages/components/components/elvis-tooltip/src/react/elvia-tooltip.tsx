@@ -24,15 +24,18 @@ export const Tooltip: React.FC<TooltipProps> = ({
     offset: 8 + arrowSize,
   });
 
-  const onMouseEnter = (): void => {
+  const onOpen = (delay = true): void => {
     window.clearTimeout(timeoutId);
-    timeoutId = window.setTimeout(() => {
-      setFadeOut(false);
-      setIsShowing(true);
-    }, 400);
+    timeoutId = window.setTimeout(
+      () => {
+        setFadeOut(false);
+        setIsShowing(true);
+      },
+      delay ? 400 : 0,
+    );
   };
 
-  const onMouseLeave = (): void => {
+  const onClose = (): void => {
     window.clearTimeout(timeoutId);
     setFadeOut(true);
   };
@@ -65,7 +68,13 @@ export const Tooltip: React.FC<TooltipProps> = ({
 
   return (
     <>
-      <TriggerContainer onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} ref={triggerRef}>
+      <TriggerContainer
+        onMouseEnter={() => onOpen(true)}
+        onMouseLeave={onClose}
+        onFocus={() => onOpen(false)}
+        onBlur={onClose}
+        ref={triggerRef}
+      >
         {trigger}
       </TriggerContainer>
       {isShowing &&

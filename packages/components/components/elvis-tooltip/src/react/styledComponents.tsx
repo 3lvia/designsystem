@@ -36,7 +36,7 @@ export const TooltipFadeOut = keyframes`
 `;
 
 export const TriggerContainer = styled.span`
-  display: inline;
+  display: inline-block;
 `;
 
 export interface TooltipPopupProps {
