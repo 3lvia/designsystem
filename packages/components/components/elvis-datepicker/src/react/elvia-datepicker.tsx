@@ -18,7 +18,7 @@ import isWithinInterval from 'date-fns/isWithinInterval';
 import startOfWeek from 'date-fns/startOfWeek';
 import endOfWeek from 'date-fns/endOfWeek';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
-import isEqual from 'lodash/isEqual';
+import isEqual from 'lodash.isequal';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 interface DateRange {
@@ -483,7 +483,7 @@ export const Datepicker: FC<DatepickerProps> = ({
           <div className="ewc-datepicker__toolbar-year">
             {format(date as Date, 'yyyy', { locale: nbLocale })}
           </div>
-          <Icon name={openView === 'year' ? 'arrowDownBold' : 'arrowUpBold'} size="xs" />
+          <Icon name={openView === 'year' ? 'arrowUpBold' : 'arrowDownBold'} size="xs" />
         </button>
         {openView === 'date' && (
           <button
