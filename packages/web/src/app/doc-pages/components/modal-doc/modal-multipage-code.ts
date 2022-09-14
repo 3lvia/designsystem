@@ -11,7 +11,7 @@ const modalMultipageCode = {
   content={
     <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%'}}>
       <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-      <Carousel elements="4"></Carousel>
+      <Carousel items="4"></Carousel>
     </div>
   }
   illustration={
@@ -28,7 +28,7 @@ const modalMultipageCode = {
 >
   <div slot="content" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-    <elvia-carousel elements="4"></elvia-carousel>
+    <elvia-carousel items="4"></elvia-carousel>
   </div>
   <div slot="illustration">
     <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>
@@ -43,7 +43,7 @@ const modalMultipageCode = {
 >
   <div slot="content" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-    <elvia-carousel elements="4"></elvia-carousel>
+    <elvia-carousel items="4"></elvia-carousel>
   </div>
   <div slot="illustration">
     <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>
@@ -55,7 +55,7 @@ const modalMultipageCode = {
 >
   <div slot="content" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-    <elvia-carousel elements="4"></elvia-carousel>
+    <elvia-carousel items="4"></elvia-carousel>
   </div>
   <div slot="illustration">
     <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>

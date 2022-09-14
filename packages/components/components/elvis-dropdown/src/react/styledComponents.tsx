@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
@@ -278,4 +278,75 @@ export const DropdownOptionWithStatusWrapper = styled.div`
   justify-content: space-between;
   gap: 8px;
   width: 100%;
+`;
+
+interface DropdownMenuLoadMorebuttonProps {
+  isLoading?: boolean;
+  isCompact?: boolean;
+}
+
+export const DropdownMenuLoadMoreButton = styled.button<DropdownMenuLoadMorebuttonProps>`
+  width: 100%;
+  height: ${(props) => (props.isCompact ? '32px' : '40px')};
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  border: none;
+  background: ${colors.white};
+  ${(props) =>
+    props.isLoading
+      ? css`
+          cursor: wait;
+        `
+      : css`
+          cursor: pointer;
+        `}
+`;
+
+export const DropdownMenuLoadMoreButtonContent = styled.span`
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+  padding-bottom: 2px;
+
+  border-bottom: 2px solid transparent;
+  ${DropdownMenuLoadMoreButton}:hover &:not([data-loading='true']) {
+    border-color: ${colors.charge};
+  }
+`;
+
+export const DropdownMenuLoadMoreButtonText = styled.span`
+  font-family: 'Red Hat Display', Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+`;
+
+const spinningKeyframes = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+interface DropdownMenuLoadMoreButtonIconProps {
+  isLoading?: boolean;
+}
+export const DropdownMenuLoadMoreButtonIcon = styled.div<DropdownMenuLoadMoreButtonIconProps>`
+  ${(props) =>
+    props.isLoading &&
+    css`
+      animation: ${spinningKeyframes} 1s linear infinite;
+      animation-direction: reverse;
+    `}
 `;

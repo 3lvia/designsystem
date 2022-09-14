@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "14.09.22",
+      "version": "1.0.1 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Outdated dependency to @elvia/elvis-colors package"]
+        }
+      ]
+    },
+    {
       "date": "09.09.22",
       "version": "1.0.0 ",
       "changelog": [

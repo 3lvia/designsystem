@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef, CSSProperties, useMemo } from 'react';
+import React, { useState, useEffect, useRef, CSSProperties, useMemo, PointerEventHandler } from 'react';
 import Select, {
   components,
   DropdownIndicatorProps,
+  MenuListProps,
   MultiValueProps,
   OptionProps,
   PlaceholderProps,
@@ -19,6 +20,10 @@ import {
   DropdownLabel,
   DropdownSingleValueOverflowWrapper,
   DropdownOptionWithStatusWrapper,
+  DropdownMenuLoadMoreButtonContent,
+  DropdownMenuLoadMoreButtonText,
+  DropdownMenuLoadMoreButtonIcon,
+  DropdownMenuLoadMoreButton,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
@@ -66,6 +71,9 @@ export interface DropdownProps {
   placeholderIcon?: IconName;
   valueOnChange?: (selectedOptions: DropdownItem | Array<DropdownItem> | undefined) => void;
   onItemHover?: (hoveredItem: DropdownItem | undefined) => void;
+  hasLoadMoreItemsButton?: boolean;
+  onLoadMoreItems?: () => void;
+  isLoadingMoreItems?: boolean;
   className?: string;
   inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
@@ -90,6 +98,9 @@ const Dropdown: React.FC<DropdownProps> = function ({
   placeholderIcon,
   valueOnChange,
   onItemHover,
+  hasLoadMoreItemsButton,
+  onLoadMoreItems,
+  isLoadingMoreItems,
   className,
   inlineStyle,
   webcomponent,
@@ -105,7 +116,6 @@ const Dropdown: React.FC<DropdownProps> = function ({
     label: 'Alle',
     value: '*',
   });
-  const [hoveredItem, setHoveredItem] = useState<DropdownItem>();
   const dropdownRef = useRef<HTMLSpanElement>(null);
 
   /** Set the "Select all" option inside an open multiselect dropdown.
@@ -119,14 +129,6 @@ const Dropdown: React.FC<DropdownProps> = function ({
       });
     }
   }, [selectAllOption]);
-
-  useEffect(() => {
-    if (!webcomponent) {
-      onItemHover?.(hoveredItem);
-    } else {
-      webcomponent.triggerEvent('onItemHover', hoveredItem);
-    }
-  }, [hoveredItem]);
 
   /** Memoized variable with all the items that are not disabled. Updates when `items` changes. */
   const itemsNotDisabled = useMemo(() => {
@@ -308,7 +310,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
       '&:hover': {
         backgroundColor: decideOptionHoverBg(state.isSelected, state.isMulti, state.isDisabled),
         '#ewc-dropdown-checkbox__mark': {
-          backgroundColor: getColor('elvia-charge'),
+          backgroundColor: state.isDisabled ? getColor('white') : getColor('elvia-charge'),
         },
       },
       '#ewc-dropdown-checkbox__mark': {
@@ -403,9 +405,12 @@ const Dropdown: React.FC<DropdownProps> = function ({
   const ElviaOption = (props: OptionProps) => {
     const optionData = props.data as DropdownItem;
     const optionIsDisabled = optionData.isDisabled ?? false;
-
-    const handleOnPointerEnter = () => {
-      setHoveredItem(optionData);
+    const handleOnPointerEnter: PointerEventHandler<HTMLDivElement> = () => {
+      if (!webcomponent) {
+        onItemHover?.(optionData);
+      } else {
+        webcomponent.triggerEvent('onItemHover', optionData);
+      }
     };
 
     if (!isMulti) {
@@ -549,6 +554,40 @@ const Dropdown: React.FC<DropdownProps> = function ({
     );
   };
 
+  const ElviaMenuList = (props: MenuListProps) => {
+    return (
+      <components.MenuList {...props}>
+        {props.children}
+        {hasLoadMoreItemsButton && (
+          <DropdownMenuLoadMoreButton
+            isCompact={isCompact}
+            isLoading={isLoadingMoreItems}
+            onClick={handleLoadMoreButtonClick}
+          >
+            <DropdownMenuLoadMoreButtonContent
+              // Could not get the loading prop to work with styled components for hover effect,
+              // so a data-attribute is used instead
+              data-loading={isLoadingMoreItems}
+            >
+              <DropdownMenuLoadMoreButtonIcon isLoading={isLoadingMoreItems}>
+                <Icon name={'sync'} size={'xs'} />
+              </DropdownMenuLoadMoreButtonIcon>
+              <DropdownMenuLoadMoreButtonText>Last inn flere</DropdownMenuLoadMoreButtonText>
+            </DropdownMenuLoadMoreButtonContent>
+          </DropdownMenuLoadMoreButton>
+        )}
+      </components.MenuList>
+    );
+  };
+
+  const handleLoadMoreButtonClick = () => {
+    if (!webcomponent) {
+      onLoadMoreItems?.();
+    } else {
+      webcomponent.triggerEvent('onLoadMoreItems');
+    }
+  };
+
   /** Object containing all components overridden in react-select by Elvis dropdown */
   const overrideComponents = {
     DropdownIndicator: ElviaDropdownIndicator,
@@ -559,6 +598,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
     MultiValueRemove: () => null,
     Placeholder: ElviaPlaceholder,
     SingleValue: ElviaSingleValue,
+    MenuList: ElviaMenuList,
   };
 
   /** Start listener for adding and removing outline on dropdown when elements in focus */
