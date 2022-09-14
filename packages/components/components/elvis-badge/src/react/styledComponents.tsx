@@ -15,8 +15,11 @@ interface BadgeCircleProps {
   readonly count: string | undefined;
 }
 
-// detemine the text color based on the background color
-//to-do: add colors for dark mode
+/**
+ * If the badge color is green or white, return black, otherwise return white.
+ * @param {BadgeColor} badgeColor - The color of the badge.
+ * @returns The correct color of the text.
+ */
 const getTextColor = (badgeColor: BadgeColor) => {
   if (badgeColor === 'green' || badgeColor === 'white') {
     return colors.elviaBlack;

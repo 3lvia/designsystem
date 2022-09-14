@@ -37,7 +37,12 @@ const Badge: React.FC<BadgeProps> = ({
     }
   }, [webcomponent]);
 
-  //Determine if count is 99+ or not
+  /**
+   * If the count is undefined or the type is color, return undefined. If the count is greater than 99,
+   * return '99+'. Otherwise, return the count as a string.
+   * @param {number | undefined} count - The number of notifications.
+   * @returns The count is being returned as a string.
+   */
   const getCount = (count: number | undefined) => {
     if (!count || type === 'color') {
       return;
@@ -60,7 +65,7 @@ const Badge: React.FC<BadgeProps> = ({
       {...rest}
     >
       <div ref={contentRef ?? undefined}>{content}</div>
-      <BadgeCircle count={getCount(count)} badgeColor={badgeColor} role="status">
+      <BadgeCircle count={getCount(count)} badgeColor={badgeColor} role="status" data-testid="badge-circle">
         {getCount(count)}
       </BadgeCircle>
     </div>
