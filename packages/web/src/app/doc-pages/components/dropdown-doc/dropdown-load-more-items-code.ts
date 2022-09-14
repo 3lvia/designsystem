@@ -9,6 +9,8 @@ const dropdownLoadMoreItemsCode = {
   ]}
   label={'Label'}
   placeholder={'Placeholder'}
+  isSearchable={true}
+  isMulti={true}
   isLoadingMoreItems={isLoadingMoreItems}
   onLoadMoreItems={() => loadMoreDropdownItems()}
 ></Dropdown>
@@ -23,6 +25,8 @@ const dropdownLoadMoreItemsCode = {
   ]"
   [label]="'Label'"
   [placeholder]="'Placeholder'"
+  [isSearchable]="true"
+  [isMulti]="true"
   [isLoadingMoreitems]="isLoadingMoreItems"
   (onLoadMoreItems)="loadMoreDropdownItems()"
 ></elvia-dropdown>
@@ -37,6 +41,8 @@ const dropdownLoadMoreItemsCode = {
   ]"
   :label="'Label'"
   :placeholder="'Placeholder'"
+  :isSearchable="true"
+  :isMulti="true"
   :isLoadingMoreitems="isLoadingMoreItems"
   @load-more-items="loadMoreDropdownItems()"
 ></elvia-dropdown>
@@ -44,6 +50,8 @@ const dropdownLoadMoreItemsCode = {
   codeNativeHTML: `<elvia-dropdown
   label="Label"
   placeholder="Placeholder"
+  isSearchable="true"
+  isMulti="true"
   hasLoadMoreItemsButton="true"
   id="example-elvia-dropdown-loadmore"
 ></elvia-dropdown>`,
