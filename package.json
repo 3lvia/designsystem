@@ -26,7 +26,7 @@
     "contentful": "nx contentful elvia-designsystem",
     "contentful:production": "nx contentful:production elvia-designsystem --skip-nx-cache",
     "prettier:elvis": "prettier --write \"packages/elvis/**/*.js\"",
-    "prettier:components": "nx prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
+    "prettier:components": "prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
     "prettier:web": "prettier --write \"packages/web/src/**/*.ts\"",
     "lint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
     "lint:all": "yarn prettier:elvis && yarn prettier:web && yarn prettier:components && yarn eslint",
