@@ -6,7 +6,7 @@ export type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
 export interface TooltipProps {
   isDisabled?: boolean;
   position?: TooltipPosition;
-  message: string;
+  content: string | JSX.Element;
   trigger: string | JSX.Element;
   className?: string;
   inlineStyle?: CSSProperties;

@@ -6,11 +6,11 @@ export const tooltipData: ComponentData = {
   elementNameW: 'elvia-tooltip',
   elementNameR: 'Tooltip',
   attributes: {
-    message: {
+    content: {
       isRequired: true,
       type: 'string',
-      description: 'The message placed in the tooltip.',
-      cegDisplayName: 'Message',
+      description: 'The content placed in the tooltip.',
+      cegDisplayName: 'Content',
     },
     position: {
       isRequired: false,
@@ -56,7 +56,7 @@ export const tooltipData: ComponentData = {
   codeImportTypescriptInterface: `import { TooltipProps } from '@elvia/elvis-tooltip/react';`,
   codeImportWebComponent: `import '@elvia/elvis-tooltip';`,
   codeReact: `<Tooltip
-  message="I'm a tooltip!"
+  content="I'm a tooltip!"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
     <span class="e-btn__icon">
@@ -65,7 +65,7 @@ export const tooltipData: ComponentData = {
   </button>
 </Tooltip>`,
   codeAngular: `<elvia-tooltip
-  message="I'm a tooltip!"
+  content="I'm a tooltip!"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
     <span class="e-btn__icon">
@@ -74,7 +74,7 @@ export const tooltipData: ComponentData = {
   </button>
 </elvia-tooltip>`,
   codeVue: `<elvia-tooltip
-  message="I'm a tooltip!"
+  content="I'm a tooltip!"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
     <span class="e-btn__icon">
@@ -83,7 +83,7 @@ export const tooltipData: ComponentData = {
   </button>
 </elvia-tooltip>`,
   codeNativeHTML: `<elvia-tooltip
-  message="I'm a tooltip!"
+  content="I'm a tooltip!"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
     <span class="e-btn__icon">

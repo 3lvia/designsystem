@@ -49,7 +49,7 @@ export const useConnectedOverlay = (
 ): [
   boolean,
   Dispatch<SetStateAction<boolean>>,
-  (verticalPosition: VerticalPosition, horizontalPosition: HorizontalPosition) => void,
+  (verticalPosition?: VerticalPosition, horizontalPosition?: HorizontalPosition) => void,
 ] => {
   const opts: Options = { ...defaultOptions, ...options };
   const [isShowing, setIsShowing] = useState(false);
@@ -141,11 +141,15 @@ export const useConnectedOverlay = (
   };
 
   const updatePosition = (
-    verticalPosition: VerticalPosition,
-    horizontalPosition: HorizontalPosition,
+    verticalPosition?: VerticalPosition,
+    horizontalPosition?: HorizontalPosition,
   ): void => {
-    opts.verticalPosition = verticalPosition;
-    opts.horizontalPosition = horizontalPosition;
+    if (verticalPosition) {
+      opts.verticalPosition = verticalPosition;
+    }
+    if (horizontalPosition) {
+      opts.horizontalPosition = horizontalPosition;
+    }
     positionPopover();
   };
 

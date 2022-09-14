@@ -502,7 +502,7 @@ module.exports = [
       { name: 'trigger', type: 'string', propType: 'string | HTMLElement' },
       { name: 'isDisabled', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'position', type: 'string', propType: 'string | undefined' },
-      { name: 'message', type: 'string', propType: 'string | undefined' },
+      { name: 'content', type: 'string', propType: 'string | HTMLElement' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
     ],

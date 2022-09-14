@@ -1,6 +1,6 @@
-import { useConnectedOverlay } from '@elvia/elvis-toolbox';
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useConnectedOverlay } from '@elvia/elvis-toolbox';
 import { TooltipPosition, TooltipProps } from './elviaTooltip.types';
 import { arrowSize, TooltipPopup, TriggerContainer } from './styledComponents';
 
@@ -8,7 +8,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   className,
   isDisabled = false,
   inlineStyle,
-  message = '',
+  content = '',
   position = 'top',
   trigger,
   webcomponent,
@@ -46,7 +46,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     }
   };
 
-  /** Get all slots and place them correctly */
+  /** Get trigger slot */
   useEffect(() => {
     if (!webcomponent) {
       return;
@@ -65,6 +65,19 @@ export const Tooltip: React.FC<TooltipProps> = ({
       newPosition === 'left' ? 'left' : newPosition === 'right' ? 'right' : 'center',
     );
   }, [position]);
+
+  /** Get content slot when the overlayRef is populated */
+  useEffect(() => {
+    if (isShowing && overlayRef.current && webcomponent?.getSlot('content')) {
+      overlayRef.current.innerHTML = '';
+      overlayRef.current.appendChild(webcomponent.getSlot('content'));
+
+      /** We need to update the position, because the dimensions of the
+       * overlay has changed.
+       */
+      updatePosition();
+    }
+  }, [isShowing]);
 
   return (
     <>
@@ -88,7 +101,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
             fadeOut={fadeOut}
             onAnimationEnd={onAnimationEnd}
           >
-            {message}
+            {content}
           </TooltipPopup>,
           document.body,
         )}
