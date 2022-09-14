@@ -19,16 +19,13 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const overlayRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
   const [actualPosition, setActualPosition] = useState<TooltipPosition>(position);
-  const [isShowing, setIsShowing, verticalPosition, horizontalPosition, updatePosition] = useConnectedOverlay(
-    triggerRef,
-    overlayRef,
-    {
+  const { isShowing, setIsShowing, verticalPosition, horizontalPosition, updatePreferredPosition } =
+    useConnectedOverlay(triggerRef, overlayRef, {
       alignWidths: false,
       verticalPosition: position === 'bottom' ? 'bottom' : position === 'top' ? 'top' : 'center',
       horizontalPosition: position === 'left' ? 'left' : position === 'right' ? 'right' : 'center',
       offset: 8 + arrowSize,
-    },
-  );
+    });
 
   const onOpen = (delay = true): void => {
     window.clearTimeout(timeoutId);
@@ -67,7 +64,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   useEffect(() => {
     const newPosition: TooltipPosition = position || 'top';
     setActualPosition(newPosition);
-    updatePosition(
+    updatePreferredPosition(
       newPosition === 'bottom' ? 'bottom' : newPosition === 'top' ? 'top' : 'center',
       newPosition === 'left' ? 'left' : newPosition === 'right' ? 'right' : 'center',
     );
@@ -82,7 +79,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
       /** We need to update the position, because the dimensions of the
        * overlay has changed.
        */
-      updatePosition();
+      updatePreferredPosition();
     }
   }, [isShowing]);
 

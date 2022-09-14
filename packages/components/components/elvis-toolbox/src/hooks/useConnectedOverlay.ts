@@ -4,6 +4,7 @@ import { isSsr } from '../isSsr';
 interface WindowRect {
   height: number;
   width: number;
+  innerWidth: number;
 }
 
 type VerticalPosition = 'bottom' | 'center' | 'top';
@@ -22,6 +23,17 @@ const defaultOptions: Options = {
   verticalPosition: 'bottom',
   horizontalPosition: 'center',
 };
+
+interface OverlayApi {
+  isShowing: boolean;
+  setIsShowing: Dispatch<SetStateAction<boolean>>;
+  verticalPosition: VerticalPosition;
+  horizontalPosition: HorizontalPosition;
+  updatePreferredPosition: (
+    verticalPosition?: VerticalPosition,
+    horizontalPosition?: HorizontalPosition,
+  ) => void;
+}
 
 /**
  * A React hook that allows creating an overlay that is positioned relative to an element.
@@ -46,13 +58,8 @@ export const useConnectedOverlay = (
   connectedElement: RefObject<HTMLElement>,
   overlayContainer: RefObject<HTMLElement>,
   options?: Partial<Options>,
-): [
-  boolean,
-  Dispatch<SetStateAction<boolean>>,
-  VerticalPosition,
-  HorizontalPosition,
-  (verticalPosition?: VerticalPosition, horizontalPosition?: HorizontalPosition) => void,
-] => {
+): OverlayApi => {
+  const windowPadding = 8;
   const opts: Options = { ...defaultOptions, ...options };
   const [verticalPosition, setVerticalPosition] = useState<VerticalPosition>(opts.verticalPosition);
   const [horizontalPosition, setHorizontalPosition] = useState<HorizontalPosition>(opts.horizontalPosition);
@@ -64,9 +71,13 @@ export const useConnectedOverlay = (
       return null;
     }
     if (navigator.userAgent.toLowerCase().includes('android') && window.visualViewport) {
-      return { height: window.visualViewport.height, width: window.visualViewport.width };
+      return {
+        height: window.visualViewport.height,
+        width: window.visualViewport.width,
+        innerWidth: window.visualViewport.width,
+      };
     } else {
-      return { height: window.innerHeight, width: window.innerWidth };
+      return { height: window.innerHeight, width: window.innerWidth, innerWidth: document.body.clientWidth };
     }
   };
 
@@ -105,16 +116,23 @@ export const useConnectedOverlay = (
     overlay: CSSStyleDeclaration,
     hostRect: DOMRect,
     scrollOffsetX: number,
-    overlayRect: DOMRect,
+    overlayWidth: number,
     window: WindowRect,
   ): void => {
     const alignLeft = () => {
-      overlay.left = `${hostRect.left - opts.offset - overlayRect.width + scrollOffsetX}px`;
+      overlay.left = `${hostRect.left - opts.offset - overlayWidth + scrollOffsetX}px`;
       setHorizontalPosition('left');
     };
 
     const alignCenter = () => {
-      overlay.left = `${hostRect.left + (hostRect.width - overlayRect.width) / 2 + scrollOffsetX}px`;
+      const overlayLeft = hostRect.left + (hostRect.width - overlayWidth) / 2 + scrollOffsetX;
+      if (overlayLeft <= windowPadding) {
+        overlay.left = `${windowPadding}px`;
+      } else if (overlayLeft + overlayWidth >= window.innerWidth - windowPadding) {
+        overlay.left = `${window.innerWidth - overlayWidth - windowPadding}px`;
+      } else {
+        overlay.left = `${hostRect.left + (hostRect.width - overlayWidth) / 2 + scrollOffsetX}px`;
+      }
       setHorizontalPosition('center');
     };
 
@@ -124,11 +142,11 @@ export const useConnectedOverlay = (
     };
 
     if (opts.horizontalPosition === 'left') {
-      hostRect.left - opts.offset - overlayRect.width > 0 ? alignLeft() : alignRight();
+      hostRect.left - opts.offset - overlayWidth > 0 ? alignLeft() : alignRight();
     } else if (opts.horizontalPosition === 'center') {
       alignCenter();
     } else {
-      hostRect.right + opts.offset + overlayRect.width < window.width ? alignRight() : alignLeft();
+      hostRect.right + opts.offset + overlayWidth < window.width ? alignRight() : alignLeft();
     }
   };
 
@@ -141,12 +159,18 @@ export const useConnectedOverlay = (
     const scrollOffsetX = window.scrollX;
 
     if (overlayStyle && overlayRect && hostRect && windowRect) {
-      alignVertically(overlayStyle, hostRect, scrollOffsetY, overlayRect, windowRect);
-      alignHorizontally(overlayStyle, hostRect, scrollOffsetX, overlayRect, windowRect);
-
       if (opts.alignWidths) {
         overlayStyle.width = `${hostRect.width}px`;
       }
+
+      alignVertically(overlayStyle, hostRect, scrollOffsetY, overlayRect, windowRect);
+      alignHorizontally(
+        overlayStyle,
+        hostRect,
+        scrollOffsetX,
+        opts.alignWidths ? hostRect.width : overlayRect.width,
+        windowRect,
+      );
     }
   };
 
@@ -192,5 +216,5 @@ export const useConnectedOverlay = (
     };
   }, [isShowing]);
 
-  return [isShowing, setIsShowing, verticalPosition, horizontalPosition, updatePreferredPosition];
+  return { isShowing, setIsShowing, verticalPosition, horizontalPosition, updatePreferredPosition };
 };
