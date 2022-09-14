@@ -3,6 +3,18 @@
   "content": [
     {
       "date": "14.09.22",
+      "version": "1.0.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Bump <span class=\"code-text\">@elvia/elvis-toolbox</span> to version <span class=\"code-text\">2.3.0</span>"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "14.09.22",
       "version": "1.0.1 ",
       "changelog": [
         {
