@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useConnectedOverlay } from '@elvia/elvis-toolbox';
+import { useConnectedOverlay, useLongPress } from '@elvia/elvis-toolbox';
 import { TooltipPosition, TooltipProps } from './elviaTooltip.types';
 import { arrowSize, TooltipPopup, TriggerContainer } from './styledComponents';
 
@@ -19,6 +19,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const overlayRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
   const [actualPosition, setActualPosition] = useState<TooltipPosition>(position);
+  const { isLongPressed } = useLongPress(triggerRef);
   const { isShowing, setIsShowing, verticalPosition, horizontalPosition, updatePreferredPosition } =
     useConnectedOverlay(triggerRef, overlayRef, {
       alignWidths: false,
@@ -96,6 +97,15 @@ export const Tooltip: React.FC<TooltipProps> = ({
     );
   }, [verticalPosition, horizontalPosition]);
 
+  /** Support for long presses, which occurs on mobile devices */
+  useEffect(() => {
+    if (isLongPressed) {
+      onOpen();
+    } else {
+      onClose();
+    }
+  }, [isLongPressed]);
+
   return (
     <>
       <TriggerContainer
@@ -117,6 +127,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
             style={{ ...inlineStyle }}
             fadeOut={fadeOut}
             onAnimationEnd={onAnimationEnd}
+            aria-live="polite"
           >
             {content}
           </TooltipPopup>,
