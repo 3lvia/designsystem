@@ -236,6 +236,20 @@ async function createPNGs() {
 
   return true;
 }
+const makeDistFolder = async () => {
+  const dir = './dist/icons';
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+  return true;
+};
 
-const generateIcons = gulp.series(clean, optimizeSVG, createIconModule, createCommonJSIconModule, createPNGs);
+const generateIcons = gulp.series(
+  makeDistFolder,
+  clean,
+  optimizeSVG,
+  createIconModule,
+  createCommonJSIconModule,
+  createPNGs,
+);
 exports.generateIcons = generateIcons;
