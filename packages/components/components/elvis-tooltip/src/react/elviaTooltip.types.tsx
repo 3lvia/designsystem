@@ -5,6 +5,7 @@ export type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
 
 export interface TooltipProps {
   isDisabled?: boolean;
+  showDelay?: number;
   position?: TooltipPosition;
   content: string | JSX.Element;
   trigger: string | JSX.Element;

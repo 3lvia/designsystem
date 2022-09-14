@@ -10,6 +10,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   inlineStyle,
   content = '',
   position = 'top',
+  showDelay = 400,
   trigger,
   webcomponent,
 }) => {
@@ -36,7 +37,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
         setFadeOut(false);
         setIsShowing(true);
       },
-      delay ? 400 : 0,
+      delay ? showDelay : 0,
     );
   };
 

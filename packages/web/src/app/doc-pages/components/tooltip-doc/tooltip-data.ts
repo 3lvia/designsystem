@@ -11,6 +11,9 @@ export const tooltipData: ComponentData = {
       type: 'string',
       description: 'The content placed in the tooltip.',
       cegDisplayName: 'Content',
+      cegType: 'string',
+      cegFormType: 'custom-text',
+      cegDefault: "I'm a tooltip!",
     },
     position: {
       isRequired: false,
@@ -22,6 +25,21 @@ export const tooltipData: ComponentData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['top', 'right', 'bottom', 'left'],
+    },
+    showDelay: {
+      isRequired: false,
+      type: 'number',
+      description:
+        'The delay in ms before showing the tooltip. Note: When using keyboard, the delay is always 0.',
+      default: 400,
+      cegDisplayName: 'Show delay',
+      cegType: 'number',
+      cegFormType: 'counter',
+      cegDefault: 400,
+      cegCounterMax: 2000,
+      cegCounterMin: 0,
+      cegStepValue: 100,
+      cegCounterType: 'ms',
     },
     isDisabled: {
       isRequired: false,
@@ -56,7 +74,7 @@ export const tooltipData: ComponentData = {
   codeImportTypescriptInterface: `import { TooltipProps } from '@elvia/elvis-tooltip/react';`,
   codeImportWebComponent: `import '@elvia/elvis-tooltip';`,
   codeReact: `<Tooltip
-  content="I'm a tooltip!"
+  showDelay={400}
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
     <span class="e-btn__icon">
@@ -65,7 +83,7 @@ export const tooltipData: ComponentData = {
   </button>
 </Tooltip>`,
   codeAngular: `<elvia-tooltip
-  content="I'm a tooltip!"
+  [showDelay]="400"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
     <span class="e-btn__icon">
@@ -74,7 +92,7 @@ export const tooltipData: ComponentData = {
   </button>
 </elvia-tooltip>`,
   codeVue: `<elvia-tooltip
-  content="I'm a tooltip!"
+  :showDelay="400"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
     <span class="e-btn__icon">
@@ -83,7 +101,7 @@ export const tooltipData: ComponentData = {
   </button>
 </elvia-tooltip>`,
   codeNativeHTML: `<elvia-tooltip
-  content="I'm a tooltip!"
+  showDelay="400"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
     <span class="e-btn__icon">
