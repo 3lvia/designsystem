@@ -28,6 +28,7 @@ import '@elvia/elvis-icon';
 import '@elvia/elvis-radio-filter';
 import '@elvia/elvis-spotlight';
 import '@elvia/elvis-card';
+import '@elvia/elvis-timepicker';
 
 @NgModule({
   imports: [

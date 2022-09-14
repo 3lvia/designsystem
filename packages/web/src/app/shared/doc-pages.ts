@@ -452,7 +452,7 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Time picker',
     description:
-      'Time picker is a simple way for the user to quickly select a time in a dropdown dialog. It uses a text field and a visual dropdown.',
+      'The time picker is a simple way for the user to quickly select the time through a text field and a visual dropdown. The user can input the time manually or click on the clock icon to choose the hour and if needed, a preset interval of minutes.',
     docUrl: Pages.Timepicker,
     absolutePath: '/components/' + Pages.Timepicker,
     status: DocPageStatus.Done,
@@ -506,15 +506,14 @@ export const docPagesNotFromCMS: DocPage[] = [
   {
     title: 'Contribute',
     // tslint:disable-next-line: max-line-length
-    description: `To contribute, or if you have any question, you can contact us on slack:
+    description: `To contribute, or if you have any question, contact us on Slack:
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
         <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
-      </a> or fill out our
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://forms.office.com/r/xJaMyF9Bxf" >
-        <span class="e-link__title">request form</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
-      </a>`,
+      </a> or contact any of the 
+      <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/about/${Pages.Contact}" >
+        <span class="e-link__title">team members</span>
+      </a>directly.`,
     docUrl: Pages.Contribute,
     absolutePath: '/about/' + Pages.Contribute,
     status: DocPageStatus.Done,

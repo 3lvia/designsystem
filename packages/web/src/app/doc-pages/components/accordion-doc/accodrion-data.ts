@@ -99,13 +99,27 @@ const accordionData: ComponentData = {
       isRequired: false,
       type: '"8px" | "16px" | "24px"',
       description:
-        'If you want to change det padding between the accordion button and the content below it, you can use this attribute. Example: spacingAboveContent: "16px"',
+        'For normal accordion, if you want to change det padding between the accordion button and the content below it, you can use this attribute. Example: spacingAboveContent: "16px".',
       default: '"8px"',
       cegDisplayName: 'Spacing above content',
       cegDefault: '8px',
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['8px', '16px', '24px'],
+      cegDependency: [{ name: 'type', value: ['normal'] }],
+    },
+    spacingBelowContent: {
+      isRequired: false,
+      type: '"8px" | "16px" | "24px"',
+      description:
+        'For overflow accordion, if you want to change det padding between the accordion button and the content below it, you can use this attribute. Example: spacingBelowContent: "16px".',
+      default: '"8px"',
+      cegDisplayName: 'Spacing below content',
+      cegDefault: '16px',
+      cegType: 'string',
+      cegFormType: 'radio',
+      cegOptions: ['8px', '16px', '24px'],
+      cegDependency: [{ name: 'type', value: ['overflow'] }],
     },
     openLabel: {
       isRequired: false,

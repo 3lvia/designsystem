@@ -20,6 +20,7 @@ import '@elvia/elvis-progress-linear';
 import '@elvia/elvis-radio-filter';
 import '@elvia/elvis-spotlight';
 import '@elvia/elvis-tabs';
+import '@elvia/elvis-timepicker';
 
 const app = createApp(App);
 app.mount('#app');

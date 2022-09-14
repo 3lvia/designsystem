@@ -1,8 +1,0 @@
-{
-  "packages": [
-    "packages/*",
-    "packages/components/components/*",
-    "packages/components/frameworks/*"
-  ],
-  "version": "0.0.0"
-}

@@ -3,7 +3,7 @@ const dropdownIconsCode = {
   items={[
     { value: 'Powerline', label: 'Powerline', icon: 'powerline' },
     { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
-    { value: 'Cable', label: 'Cable', icon: 'cable' },
+    { value: 'Cable', label: 'Cable', icon: 'cable', status: 'warning' },
   ]} 
   value={{ value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' }}
   label={"Label"}
@@ -15,7 +15,7 @@ const dropdownIconsCode = {
   [items]="[
     { value: 'Powerline', label: 'Powerline', icon: 'powerline' },
     { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
-    { value: 'Cable', label: 'Cable', icon: 'cable' },
+    { value: 'Cable', label: 'Cable', icon: 'cable', status: 'warning' },
   ]"
   [value]="{ value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' }"
   [label]="'Label'"
@@ -27,7 +27,7 @@ const dropdownIconsCode = {
   :items="[
     { value: 'Powerline', label: 'Powerline', icon: 'powerline' },
     { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
-    { value: 'Cable', label: 'Cable', icon: 'cable' },
+    { value: 'Cable', label: 'Cable', icon: 'cable', status: 'warning' },
   ]"
   :value="{ value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' }"
   :label="'Label'"
@@ -43,7 +43,7 @@ const dropdownIconsCode = {
   const items = [
     { value: 'Powerline', label: 'Powerline', icon: 'powerline' },
     { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
-    { value: 'Cable', label: 'Cable', icon: 'cable' },
+    { value: 'Cable', label: 'Cable', icon: 'cable', status: 'warning' },
   ];
   dropdown.setProps({label: 'Label' });
   dropdown.setProps({placeholder: 'Placeholder' });

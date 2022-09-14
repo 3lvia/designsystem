@@ -3,7 +3,7 @@ import { getColor } from '@elvia/elvis-colors';
 import {
   AccordionLabelPosition,
   AccordionSize,
-  AccordionSpacingAboveContent,
+  AccordionSpacingContent,
   AccordionType,
 } from './elvia-accordion.types';
 import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
@@ -51,7 +51,6 @@ export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
   display: flex;
   justify-content: ${(props) => decideLabelPosition(props.labelPosition)};
   flex-direction: row;
-  margin-top: ${(props) => (props.type !== 'overflow' ? '0' : '16px')};
   width: 100%;
 `;
 
@@ -157,7 +156,7 @@ const decideContentMarginTop = (
   contentOpen: boolean,
   type: AccordionType,
   hasContent: boolean,
-  spacingAboveContent: AccordionSpacingAboveContent,
+  spacingAboveContent: AccordionSpacingContent,
 ): string => {
   if (type === 'overflow' || !hasContent) {
     return '0px';
@@ -219,7 +218,8 @@ const decideContentTransition = (contentOpen: boolean, type: AccordionType): str
 type AccordionContentProps = {
   isOpenState: boolean;
   type: AccordionType;
-  spacingAboveContent: AccordionSpacingAboveContent;
+  spacingAboveContent: AccordionSpacingContent;
+  spacingBelowContent: AccordionSpacingContent;
   overflowHeight?: number;
   hasContent: boolean;
 };
@@ -231,6 +231,7 @@ export const AccordionContent = styled.div<AccordionContentProps>`
   line-height: inherit;
   margin-top: ${(props) =>
     decideContentMarginTop(props.isOpenState, props.type, props.hasContent, props.spacingAboveContent)};
+  margin-bottom: ${(props) => (props.type === 'overflow' ? props.spacingBelowContent : 0)};
   pointer-events: ${(props) => (props.isOpenState ? 'auto' : 'none')};
   height: auto;
   max-height: ${(props) => decideContentMaxHeight(props.isOpenState, props.type, props.overflowHeight)};
