@@ -8,7 +8,8 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added horizontal alignment to <span class=\"code-text\">useConnectedOverlay</span> hook."
+            "Added horizontal alignment to <span class=\"code-text\">useConnectedOverlay</span> hook.",
+            "Added hook <span class=\"code-text\">useLongPress</span> to detect long presses on elements."
           ]
         }
       ]
