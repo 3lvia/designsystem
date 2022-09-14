@@ -17,12 +17,17 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const triggerRef = useRef<HTMLSpanElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
-  const [isShowing, setIsShowing, updatePosition] = useConnectedOverlay(triggerRef, overlayRef, {
-    alignWidths: false,
-    verticalPosition: position === 'bottom' ? 'bottom' : position === 'top' ? 'top' : 'center',
-    horizontalPosition: position === 'left' ? 'left' : position === 'right' ? 'right' : 'center',
-    offset: 8 + arrowSize,
-  });
+  const [actualPosition, setActualPosition] = useState<TooltipPosition>(position);
+  const [isShowing, setIsShowing, verticalPosition, horizontalPosition, updatePosition] = useConnectedOverlay(
+    triggerRef,
+    overlayRef,
+    {
+      alignWidths: false,
+      verticalPosition: position === 'bottom' ? 'bottom' : position === 'top' ? 'top' : 'center',
+      horizontalPosition: position === 'left' ? 'left' : position === 'right' ? 'right' : 'center',
+      offset: 8 + arrowSize,
+    },
+  );
 
   const onOpen = (delay = true): void => {
     window.clearTimeout(timeoutId);
@@ -57,9 +62,10 @@ export const Tooltip: React.FC<TooltipProps> = ({
     }
   }, [webcomponent]);
 
-  /** Update tooltip position */
+  /** Update position from new position-prop */
   useEffect(() => {
     const newPosition: TooltipPosition = position || 'top';
+    setActualPosition(newPosition);
     updatePosition(
       newPosition === 'bottom' ? 'bottom' : newPosition === 'top' ? 'top' : 'center',
       newPosition === 'left' ? 'left' : newPosition === 'right' ? 'right' : 'center',
@@ -79,6 +85,19 @@ export const Tooltip: React.FC<TooltipProps> = ({
     }
   }, [isShowing]);
 
+  /** Update arrow position when overlay hook adjusts position */
+  useEffect(() => {
+    setActualPosition(
+      verticalPosition === 'bottom'
+        ? 'bottom'
+        : horizontalPosition === 'left'
+        ? 'left'
+        : horizontalPosition === 'right'
+        ? 'right'
+        : 'top',
+    );
+  }, [verticalPosition, horizontalPosition]);
+
   return (
     <>
       <TriggerContainer
@@ -94,7 +113,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
         !isDisabled &&
         createPortal(
           <TooltipPopup
-            position={position}
+            position={actualPosition}
             ref={overlayRef}
             className={className ?? ''}
             style={{ ...inlineStyle }}

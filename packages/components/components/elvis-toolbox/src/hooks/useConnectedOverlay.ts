@@ -49,9 +49,13 @@ export const useConnectedOverlay = (
 ): [
   boolean,
   Dispatch<SetStateAction<boolean>>,
+  VerticalPosition,
+  HorizontalPosition,
   (verticalPosition?: VerticalPosition, horizontalPosition?: HorizontalPosition) => void,
 ] => {
   const opts: Options = { ...defaultOptions, ...options };
+  const [verticalPosition, setVerticalPosition] = useState<VerticalPosition>(opts.verticalPosition);
+  const [horizontalPosition, setHorizontalPosition] = useState<HorizontalPosition>(opts.horizontalPosition);
   const [isShowing, setIsShowing] = useState(false);
 
   /** Get screen dimensions based on device */
@@ -75,14 +79,17 @@ export const useConnectedOverlay = (
   ): void => {
     const alignBottom = () => {
       overlay.top = `${hostRect.bottom + opts.offset + scrollOffsetY}px`;
+      setVerticalPosition('bottom');
     };
 
     const alignCenter = () => {
       overlay.top = `${hostRect.top + (hostRect.height - overlayRect.height) / 2 + scrollOffsetY}px`;
+      setVerticalPosition('center');
     };
 
     const alignTop = () => {
       overlay.top = `${hostRect.top - opts.offset - overlayRect.height + scrollOffsetY}px`;
+      setVerticalPosition('top');
     };
 
     if (opts.verticalPosition === 'bottom') {
@@ -103,14 +110,17 @@ export const useConnectedOverlay = (
   ): void => {
     const alignLeft = () => {
       overlay.left = `${hostRect.left - opts.offset - overlayRect.width + scrollOffsetX}px`;
+      setHorizontalPosition('left');
     };
 
     const alignCenter = () => {
       overlay.left = `${hostRect.left + (hostRect.width - overlayRect.width) / 2 + scrollOffsetX}px`;
+      setHorizontalPosition('center');
     };
 
     const alignRight = () => {
       overlay.left = `${hostRect.right + opts.offset + scrollOffsetX}px`;
+      setHorizontalPosition('right');
     };
 
     if (opts.horizontalPosition === 'left') {
@@ -140,7 +150,7 @@ export const useConnectedOverlay = (
     }
   };
 
-  const updatePosition = (
+  const updatePreferredPosition = (
     verticalPosition?: VerticalPosition,
     horizontalPosition?: HorizontalPosition,
   ): void => {
@@ -182,5 +192,5 @@ export const useConnectedOverlay = (
     };
   }, [isShowing]);
 
-  return [isShowing, setIsShowing, updatePosition];
+  return [isShowing, setIsShowing, verticalPosition, horizontalPosition, updatePreferredPosition];
 };
