@@ -5,43 +5,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white e-flex e-flex-direction-column e-gap-16">
-      <p class="e-text-md">
-        This is a text to test out the new
-        <elvia-tooltip
-          content="This is a tooltip! The content is pretty long."
-          trigger="tooltip!"
-        ></elvia-tooltip>
-      </p>
-
-      <elvia-tooltip
-        content="This tooltip has a trigger through a slot. Click the button to toggle the tooltip position."
-        [position]="tooltipPosition"
-      >
-        <button
-          slot="trigger"
-          (click)="shuffleTooltipPosition()"
-          class="e-btn e-btn--icon e-btn--lg"
-          aria-label="Vis tooltip"
-        >
-          <span class="e-btn__icon">
-            <i class="e-icon e-icon--star" aria-hidden="true"></i>
-          </span>
-        </button>
-      </elvia-tooltip>
-
-      <elvia-tooltip isDisabled="true" content="This should not be visible">
-        <span slot="trigger">Disabled tooltip</span>
-      </elvia-tooltip>
-
-      <elvia-tooltip>
-        <p slot="content" class="e-text-md e-m-0 e-flex e-align-items-center">
-          <i class="e-icon e-icon--search-bold e-icon--xs e-icon--color-white e-mr-8" aria-hidden="true"></i>
-          This is custom content!
-        </p>
-        <div slot="trigger">Tooltip trigger with custom content</div>
-      </elvia-tooltip>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -340,6 +304,49 @@
       <elvia-timepicker isDisabled="true"></elvia-timepicker>
 
       <elvia-timepicker label="Required" isRequired="true"></elvia-timepicker>
+    </div>
+  </div>
+
+  <!--Tooltip-->
+  <div class="example-wrapper">
+    <h3>Tooltip</h3>
+
+    <div class="e-flex e-flex-direction-row e-gap-16">
+      <p class="e-text-md">
+        This is a text to test out the new
+        <elvia-tooltip
+          content="This is a tooltip! The content is pretty long."
+          trigger="tooltip!"
+        ></elvia-tooltip>
+      </p>
+
+      <elvia-tooltip
+        content="This tooltip has a trigger through a slot. Click the button to toggle the tooltip position."
+        [position]="tooltipPosition"
+      >
+        <button
+          slot="trigger"
+          (click)="shuffleTooltipPosition()"
+          class="e-btn e-btn--icon e-btn--lg"
+          aria-label="Vis tooltip"
+        >
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--star" aria-hidden="true"></i>
+          </span>
+        </button>
+      </elvia-tooltip>
+
+      <elvia-tooltip isDisabled="true" content="This should not be visible">
+        <span slot="trigger">Disabled tooltip</span>
+      </elvia-tooltip>
+
+      <elvia-tooltip>
+        <p slot="content" class="e-text-md e-m-0 e-flex e-align-items-center">
+          <i class="e-icon e-icon--search-bold e-icon--xs e-icon--color-white e-mr-8" aria-hidden="true"></i>
+          This is custom content!
+        </p>
+        <div slot="trigger">Tooltip trigger with custom content</div>
+      </elvia-tooltip>
     </div>
   </div>
 </div>
