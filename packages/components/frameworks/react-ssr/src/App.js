@@ -66,7 +66,7 @@ function App() {
   ];
 
   const [isLoadingMoreItems, setIsLoadingMoreItems] = useState(false);
-  const loadMoreItems = () => {
+  const onLoadMoreItems = () => {
     setIsLoadingMoreItems(true);
     setTimeout(() => {
       setIsLoadingMoreItems(false);
@@ -225,7 +225,7 @@ function App() {
             label="test"
             hasLoadMoreItemsButton
             isLoadingMoreItems={isLoadingMoreItems}
-            loadMoreItems={loadMoreItems}
+            onLoadMoreItems={onLoadMoreItems}
           ></Dropdown>
         </div>
         {/* ICON */}

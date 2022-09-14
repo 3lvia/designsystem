@@ -72,7 +72,7 @@ export interface DropdownProps {
   valueOnChange?: (selectedOptions: DropdownItem | Array<DropdownItem> | undefined) => void;
   onItemHover?: (hoveredItem: DropdownItem | undefined) => void;
   hasLoadMoreItemsButton?: boolean;
-  loadMoreItems?: () => void;
+  onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
   className?: string;
   inlineStyle?: CSSProperties;
@@ -99,7 +99,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
   valueOnChange,
   onItemHover,
   hasLoadMoreItemsButton,
-  loadMoreItems,
+  onLoadMoreItems,
   isLoadingMoreItems,
   className,
   inlineStyle,
@@ -582,9 +582,9 @@ const Dropdown: React.FC<DropdownProps> = function ({
 
   const handleLoadMoreButtonClick = () => {
     if (!webcomponent) {
-      loadMoreItems?.();
+      onLoadMoreItems?.();
     } else {
-      webcomponent.triggerEvent('loadMoreItems');
+      webcomponent.triggerEvent('onLoadMoreItems');
     }
   };
 

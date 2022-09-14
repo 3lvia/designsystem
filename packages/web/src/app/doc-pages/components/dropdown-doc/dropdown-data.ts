@@ -156,10 +156,10 @@ export const dropdownData: ComponentData = {
       type: 'boolean',
       description: 'Add a button to the bottom of the dropdown menu to load more items.',
     },
-    loadMoreItems: {
+    onLoadMoreItems: {
       isRequired: false,
       type: '() => void',
-      description: 'Function to be called when the load more items button is clicked.',
+      description: 'Function that is called when the "Load more"-button is clicked.',
     },
     isLoadingMoreItems: {
       isRequired: false,

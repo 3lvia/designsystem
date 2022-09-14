@@ -13,7 +13,7 @@
         [items]="dropdownOptions"
         [hasLoadMoreItemsButton]="true"
         [isLoadingMoreItems]="dropdownIsLoading"
-        (loadMoreItems)="dropdownAddOption()"
+        (onLoadMoreItems)="dropdownAddOption()"
       ></elvia-dropdown>
       <div class="e-p-16"></div>
       <elvia-dropdown
@@ -23,7 +23,7 @@
         [items]="dropdownOptions"
         [hasLoadMoreItemsButton]="true"
         [isLoadingMoreItems]="dropdownIsLoading"
-        (loadMoreItems)="dropdownAddOption()"
+        (onLoadMoreItems)="dropdownAddOption()"
       ></elvia-dropdown>
     </div>
     <!--Inverted version-->
