@@ -1,4 +1,5 @@
 // Following the standards: ISO 639-3/ISO 3166-3
+// Used in as component data to provide more real looking examples in our documentation.
 
 export const exampleContents = {
   texts: {

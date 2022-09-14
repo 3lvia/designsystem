@@ -1,6 +1,6 @@
 import { AfterContentInit, Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
 import { ScrollService } from 'src/app/core/services/scroll.service';
-import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
+import { NavbarAnchor } from 'src/app/shared/shared.interface';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
 import { combineLatest, fromEvent, Subscription } from 'rxjs';

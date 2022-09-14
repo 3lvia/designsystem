@@ -7,16 +7,12 @@ import { Component, Input, ViewChild, AfterViewInit, OnChanges, SimpleChanges, O
 })
 export class IframeScreenComponent implements OnInit, AfterViewInit, OnChanges {
   @ViewChild('iframeDesktop') iframeDesktop;
-  @ViewChild('iframeTablet') iframeTablet;
   @ViewChild('iframePhone') iframePhone;
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
   @Input() screenSize = 'desktop';
   @Input() overwriteHeight: number;
-  @Input() overwriteHeightTablet: number;
-  @Input() overwriteHeightPhone: number;
-  @Input() noPaddingX: boolean;
   now = new Date();
 
   code = '';
@@ -57,19 +53,6 @@ export class IframeScreenComponent implements OnInit, AfterViewInit, OnChanges {
         this.iframeDesktop.nativeElement.style.height = this.overwriteHeight + 'px';
       }
     }
-    if (this.screenSize === 'tablet') {
-      const doc = this.iframeTablet.nativeElement.contentWindow.document;
-      doc.open();
-      // tslint:disable-next-line:max-line-length
-      doc.write(
-        `<html><head>${window.document.head.innerHTML}</head><body><div style="overflow: auto;">${this.code}</div></body></html>`,
-      );
-      doc.close();
-      this.iframeTablet.nativeElement.style.height = '530px';
-      if (this.overwriteHeightTablet > 20) {
-        this.iframeTablet.nativeElement.style.height = this.overwriteHeightTablet + 'px';
-      }
-    }
     if (this.screenSize === 'phone') {
       const doc = this.iframePhone.nativeElement.contentWindow.document;
       doc.open();
@@ -79,8 +62,8 @@ export class IframeScreenComponent implements OnInit, AfterViewInit, OnChanges {
       );
       doc.close();
       this.iframePhone.nativeElement.style.height = '530px';
-      if (this.overwriteHeightPhone > 20) {
-        this.iframePhone.nativeElement.style.height = this.overwriteHeightPhone + 'px';
+      if (this.overwriteHeight > 20) {
+        this.iframePhone.nativeElement.style.height = this.overwriteHeight + 'px';
       }
     }
   }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { Pages } from './shared/pages.enum';
+import { Pages } from './shared/shared.enum';
 import { MainComponent } from './shell/main/main.component';
 import { HomeComponent } from './shell/home/home.component';
 import { ButtonDocComponent } from './doc-pages/components/button-doc/button-doc.component';
