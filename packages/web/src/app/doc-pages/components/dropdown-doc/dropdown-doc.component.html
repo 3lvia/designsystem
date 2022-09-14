@@ -100,11 +100,11 @@
           </div>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Load more items'">
+      <app-component-subsection [sectionTitle]="'Load more options'">
         <ng-container ngProjectAs="sectionContent">
           <div>
-            Use load more items if you have too many items to load and display everything from the start - if
-            not, consider our
+            Use the load more button if you have too many options to load and display everything from the
+            start - if not, consider our
             <a
               class="e-link e-link--inline"
               [routerLink]="['/components/autocomplete']"
@@ -112,30 +112,30 @@
             >
               autocomplete
             </a>
-            . Use it in similar scenarios if multiselection is required, as this feature is not supported in
-            autocomplete. Load more items is useful if the number of items is so great that it would
-            negatively impact the user experience due to slow loading time - utilize it to split up the data
-            at reasonable intervals. When using load more items, be mindful of the list sorting, displaying
-            the most important items at the top, readily available to the user and not hidden further down the
-            list. Making the input searchable is also recommended with a large number of items in the
-            dropdown.
+            . Also, make use of it in similar scenarios if multiselection is needed, as this feature is not
+            supported in autocomplete. The load more button is useful if the number of items is so large that
+            it would negatively impact the user experience due to slow loading time - utilize it to split up
+            the data at reasonable intervals. When using the load more button, be mindful of the list sorting,
+            displaying the most important options at the top, readily available to the user, and not hidden
+            further down the list. Making the input searchable is also recommended with a large number of
+            options.
           </div>
           <div class="e-mt-16">
             When the button is clicked, the
             <span class="code-text">onLoadMoreItems</span>
-            event is emitted. The dropdown component does not handle the loading of more items, it is up to
+            event is emitted. The dropdown component does not handle the loading of more options, it is up to
             the user to implement this functionality and update the
             <span class="code-text">items</span>
             prop. The button is hidden by default and can be shown by setting the
             <span class="code-text">hasLoadMoreItemsButton</span>
             prop to
             <span class="code-text">true</span>
-            . When items are loading, the prop
+            . When options are loading, the prop
             <span class="code-text">isLoadingMoreItems</span>
             should be set to
             <span class="code-text">true</span>
-            . This will show a spinner in the button. When there are no more items to load, the button should
-            be removed.
+            . This will show a spinner in the button. When there are no more options to load, the button
+            should be removed.
           </div>
           <app-component-example-generator
             [componentData]="dropdownLoadMoreItemsCode"
