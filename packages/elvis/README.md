@@ -51,6 +51,43 @@ Read about the
 - **Figma**: Use the
   [Elvia Figma](https://www.figma.com/files/880078299274452916/project/5995782/%F0%9F%92%9A-Designsystemet?fuid=911220117114249697)
   to get sketches of how the component should be styled and work.
+- **Deprecating outdated classes**:
+
+  To deprecate an Elvis class, add it to the `deprecated-classes.json` file located at
+  `packages/elvis/.internal/deprecated-classes.json`.
+
+  Additions to the deprecated classes list should follow the pre-defined structure. To get started quickly,
+  copy an existing entry and change the values. Place new additions as the first element within the JSON
+  object.
+
+  ```json
+      "e-deprecated-class": {
+          "deprecateChildren": true,
+          "version": "2.0.0",
+          "replacement": {
+      	    "name": "e-better-replacement",
+      	    "type": "class",
+      	    "documentation": "https://design.elvia.io/e-better-replacement"
+          },
+          "sunset": "March 2023"
+      }
+  ```
+
+  `e-deprecated-class`: name of the deprecated class.
+
+  `deprecateChildren`: Boolean. If true; deprecates all other Elvis classes containing the name defined above.
+
+  `version`: The version the class became deprecated.
+
+  `replacement`: A object containing information about the replacement (optional)
+
+  `replacement.name`: The name of the replacement
+
+  `replacement.type`: The type of replacement (component, class, pattern etc...)
+
+  `replacement.documentation`: A link to documentation for the replacement
+
+  `sunset`: A vague estimate of when the classes will be removed from Elvis (optional).
 
 #### Step 0 - Before you begin
 
