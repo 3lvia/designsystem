@@ -77,7 +77,7 @@ export declare type IconName =`;
       name: createCamelCase(icon.name),
       content:
         jsModule +
-        `export const ${createCamelCase(icon.name)} = {
+        `export default {
   getIcon: function (color) {
     let icon =
       '${fileContent}';
@@ -110,14 +110,14 @@ export declare type IconName =`;
       name: createCamelCase(icon.name),
       content:
         iconTypes +
-        `export declare const ${createCamelCase(icon.name)}: {
-  getIcon: (color?: ElviaColor | 'inverted') => string;
+        `export default {
+  getIcon: (color?: ElviaColor | 'inverted') => string
 };`,
     });
     iconNameType = iconNameType + `\n  | '${createCamelCase(icon.name)}'`;
     iconsIndexFile =
       iconsIndexFile +
-      `export { ${createCamelCase(icon.name)} } from './dist/icons/${createCamelCase(icon.name)}';
+      `export { default as ${createCamelCase(icon.name)} } from './dist/icons/${createCamelCase(icon.name)}';
 `;
   }
 
@@ -162,7 +162,7 @@ const getColor = require('@elvia/elvis-colors')['getColor'];
       name: createCamelCase(icon.name),
       content:
         jsModule +
-        `exports.${createCamelCase(icon.name)} = {
+        `exports.default = {
   getIcon: function(color) {
     let icon = '${fileContent}'
     let iconName = '${iconName}'
@@ -192,7 +192,9 @@ const getColor = require('@elvia/elvis-colors')['getColor'];
     });
     iconsIndexFile =
       iconsIndexFile +
-      `exports.${createCamelCase(icon.name)} = require('./dist/icons/${createCamelCase(icon.name)}.cjs');
+      `exports.${createCamelCase(icon.name)} = require('./dist/icons/${createCamelCase(
+        icon.name,
+      )}.cjs').default;
 `;
   }
 
