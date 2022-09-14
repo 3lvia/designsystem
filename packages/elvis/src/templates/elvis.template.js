@@ -136,10 +136,11 @@ document.addEventListener('DOMContentLoaded', function () {
  * @param {String} usedDeprecatedClass.replacement.name - The name of the replacement.
  * @param {String} usedDeprecatedClass.replacement.type - The type of the replacement, such as a pattern, class or component.
  * @param {String} usedDeprecatedClass.replacement.documentation - A link to the documentation for the replacement.
+ * @param {String} usedDeprecatedClass.sunset - the sunset date.
  * @example generateDeprecationWarning(usedDeprecatedClass);
  */
- function generateDeprecationWarning({name, version, replacement}){
-    return console.warn(`Deprecation warning: The Elvis class '${name}' has been deprecated since version ${version}. ${replacement ? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation} for more information.` : ''}`)
+ function generateDeprecationWarning({name, version, replacement, sunset}){
+    return console.warn(`Deprecation warning: The Elvis class '${name}' has been deprecated since version ${version}. ${sunset ? `The sunset date is set for ${sunset}.` : ''} ${replacement ? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation}.` : ''}`);
  }
 
  /* Array containing classes that have been warned to the user. Helps avoid duplicated errors in the console.*/

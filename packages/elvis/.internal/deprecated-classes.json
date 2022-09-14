@@ -6,7 +6,8 @@
       "name": "Radio Filter",
       "type": "component",
       "documentation": "https://design.elvia.io/components/radio-filter"
-    }
+    },
+    "sunset": "March 2023"
   },
   "e-progress": {
     "deprecateChildren": true,
@@ -15,7 +16,8 @@
       "name": "Progressbar",
       "type": "component",
       "documentation": "https://design.elvia.io/components/progressbar"
-    }
+    },
+    "sunset": "March 2023"
   },
   "e-popover": {
     "deprecateChildren": true,
@@ -24,7 +26,8 @@
       "name": "Popover",
       "type": "component",
       "documentation": "https://design.elvia.io/components/popover"
-    }
+    },
+    "sunset": "March 2023"
   },
   "e-pagination": {
     "deprecateChildren": true,
@@ -33,7 +36,8 @@
       "name": "Pagination",
       "type": "component",
       "documentation": "https://design.elvia.io/components/pagination"
-    }
+    },
+    "sunset": "March 2023"
   },
   "e-modal": {
     "deprecateChildren": true,
@@ -42,7 +46,8 @@
       "name": "Modal",
       "type": "component",
       "documentation": "https://design.elvia.io/components/modal"
-    }
+    },
+    "sunset": "March 2023"
   },
   "e-dropdown": {
     "version": "9.0.0",
@@ -50,7 +55,8 @@
       "name": "Dropdown",
       "type": "component",
       "documentation": "https://design.elvia.io/components/dropdown"
-    }
+    },
+    "sunset": "March 2023"
   },
   "e-chip": {
     "deprecateChildren": true,
@@ -59,7 +65,8 @@
       "name": "Chip",
       "type": "component",
       "documentation": "https://design.elvia.io/components/chip"
-    }
+    },
+    "sunset": "March 2023"
   },
   "e-select": {
     "deprecateChildren": true,
@@ -68,7 +75,8 @@
       "name": "Dropdown",
       "type": "component",
       "documentation": "https://design.elvia.io/components/dropdown"
-    }
+    },
+    "sunset": "March 2023"
   },
   "e-divider": {
     "deprecateChildren": true,
@@ -77,7 +85,8 @@
       "name": "Divider",
       "type": "component",
       "documentation": "https://design.elvia.io/components/divider"
-    }
+    },
+    "sunset": "March 2023"
   },
   "e-link--external": {
     "version": "7.4.0",

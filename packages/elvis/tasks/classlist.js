@@ -124,7 +124,12 @@ function generateDeprecatedClass(className, child = false) {
           name: "${deprecatedElvisClasses[className].replacement.name}",
           type: "${deprecatedElvisClasses[className].replacement.type}",
           documentation: "${deprecatedElvisClasses[className].replacement.documentation}",
-          }`
+          },`
+          : ''
+      }
+      ${
+        deprecatedElvisClasses[className].sunset
+          ? `sunset: "${deprecatedElvisClasses[className].sunset}"`
           : ''
       }
       },`;

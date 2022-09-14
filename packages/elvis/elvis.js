@@ -136,10 +136,11 @@ document.addEventListener('DOMContentLoaded', function () {
  * @param {String} usedDeprecatedClass.replacement.name - The name of the replacement.
  * @param {String} usedDeprecatedClass.replacement.type - The type of the replacement, such as a pattern, class or component.
  * @param {String} usedDeprecatedClass.replacement.documentation - A link to the documentation for the replacement.
+ * @param {String} usedDeprecatedClass.sunset - the sunset date.
  * @example generateDeprecationWarning(usedDeprecatedClass);
  */
- function generateDeprecationWarning({name, version, replacement}){
-    return console.warn(`Deprecation warning: The Elvis class '${name}' has been deprecated since version ${version}. ${replacement ? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation} for more information.` : ''}`)
+ function generateDeprecationWarning({name, version, replacement, sunset}){
+    return console.warn(`Deprecation warning: The Elvis class '${name}' has been deprecated since version ${version}. ${sunset ? `The sunset date is set for ${sunset}.` : ''} ${replacement ? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation}.` : ''}`);
  }
 
  /* Array containing classes that have been warned to the user. Helps avoid duplicated errors in the console.*/
@@ -781,7 +782,8 @@ function checkDeprecatedElvisClass() {
           name: "Radio Filter",
           type: "component",
           documentation: "https://design.elvia.io/components/radio-filter",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-radio-filter__label",
@@ -790,7 +792,8 @@ function checkDeprecatedElvisClass() {
           name: "Radio Filter",
           type: "component",
           documentation: "https://design.elvia.io/components/radio-filter",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-radio-filter---focus",
@@ -799,7 +802,8 @@ function checkDeprecatedElvisClass() {
           name: "Radio Filter",
           type: "component",
           documentation: "https://design.elvia.io/components/radio-filter",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-radio-filter---hover",
@@ -808,7 +812,8 @@ function checkDeprecatedElvisClass() {
           name: "Radio Filter",
           type: "component",
           documentation: "https://design.elvia.io/components/radio-filter",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-radio-filter---checked",
@@ -817,7 +822,8 @@ function checkDeprecatedElvisClass() {
           name: "Radio Filter",
           type: "component",
           documentation: "https://design.elvia.io/components/radio-filter",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-progress",
@@ -826,7 +832,8 @@ function checkDeprecatedElvisClass() {
           name: "Progressbar",
           type: "component",
           documentation: "https://design.elvia.io/components/progressbar",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-progress__bar",
@@ -835,7 +842,8 @@ function checkDeprecatedElvisClass() {
           name: "Progressbar",
           type: "component",
           documentation: "https://design.elvia.io/components/progressbar",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-progress__bar--loading",
@@ -844,7 +852,8 @@ function checkDeprecatedElvisClass() {
           name: "Progressbar",
           type: "component",
           documentation: "https://design.elvia.io/components/progressbar",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-progress__bar--error",
@@ -853,7 +862,8 @@ function checkDeprecatedElvisClass() {
           name: "Progressbar",
           type: "component",
           documentation: "https://design.elvia.io/components/progressbar",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover",
@@ -862,7 +872,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover__content",
@@ -871,7 +882,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover__close",
@@ -880,7 +892,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover__title",
@@ -889,7 +902,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover__text",
@@ -898,7 +912,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover--bottom",
@@ -907,7 +922,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover--left",
@@ -916,7 +932,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover--left-50",
@@ -925,7 +942,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover--right",
@@ -934,7 +952,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover--right-50",
@@ -943,7 +962,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover--w-200",
@@ -952,7 +972,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover--w-220",
@@ -961,7 +982,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover--w-240",
@@ -970,7 +992,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-popover--w-260",
@@ -979,7 +1002,8 @@ function checkDeprecatedElvisClass() {
           name: "Popover",
           type: "component",
           documentation: "https://design.elvia.io/components/popover",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-pagination",
@@ -988,7 +1012,8 @@ function checkDeprecatedElvisClass() {
           name: "Pagination",
           type: "component",
           documentation: "https://design.elvia.io/components/pagination",
-          }
+          },
+      
       },
     {
       name: "e-pagination__number-per-page",
@@ -997,7 +1022,8 @@ function checkDeprecatedElvisClass() {
           name: "Pagination",
           type: "component",
           documentation: "https://design.elvia.io/components/pagination",
-          }
+          },
+      
       },
     {
       name: "e-pagination__dropdown",
@@ -1006,7 +1032,8 @@ function checkDeprecatedElvisClass() {
           name: "Pagination",
           type: "component",
           documentation: "https://design.elvia.io/components/pagination",
-          }
+          },
+      
       },
     {
       name: "e-pagination__choosing-page",
@@ -1015,7 +1042,8 @@ function checkDeprecatedElvisClass() {
           name: "Pagination",
           type: "component",
           documentation: "https://design.elvia.io/components/pagination",
-          }
+          },
+      
       },
     {
       name: "e-pagination__dots",
@@ -1024,7 +1052,8 @@ function checkDeprecatedElvisClass() {
           name: "Pagination",
           type: "component",
           documentation: "https://design.elvia.io/components/pagination",
-          }
+          },
+      
       },
     {
       name: "e-pagination__number",
@@ -1033,7 +1062,8 @@ function checkDeprecatedElvisClass() {
           name: "Pagination",
           type: "component",
           documentation: "https://design.elvia.io/components/pagination",
-          }
+          },
+      
       },
     {
       name: "e-pagination__arrow",
@@ -1042,7 +1072,8 @@ function checkDeprecatedElvisClass() {
           name: "Pagination",
           type: "component",
           documentation: "https://design.elvia.io/components/pagination",
-          }
+          },
+      
       },
     {
       name: "e-pagination__number--active",
@@ -1051,7 +1082,8 @@ function checkDeprecatedElvisClass() {
           name: "Pagination",
           type: "component",
           documentation: "https://design.elvia.io/components/pagination",
-          }
+          },
+      
       },
     {
       name: "e-pagination__number---hover",
@@ -1060,7 +1092,8 @@ function checkDeprecatedElvisClass() {
           name: "Pagination",
           type: "component",
           documentation: "https://design.elvia.io/components/pagination",
-          }
+          },
+      
       },
     {
       name: "e-pagination__arrow---hover",
@@ -1069,7 +1102,8 @@ function checkDeprecatedElvisClass() {
           name: "Pagination",
           type: "component",
           documentation: "https://design.elvia.io/components/pagination",
-          }
+          },
+      
       },
     {
       name: "e-modal",
@@ -1078,7 +1112,8 @@ function checkDeprecatedElvisClass() {
           name: "Modal",
           type: "component",
           documentation: "https://design.elvia.io/components/modal",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-modal__content",
@@ -1087,7 +1122,8 @@ function checkDeprecatedElvisClass() {
           name: "Modal",
           type: "component",
           documentation: "https://design.elvia.io/components/modal",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-modal__title",
@@ -1096,7 +1132,8 @@ function checkDeprecatedElvisClass() {
           name: "Modal",
           type: "component",
           documentation: "https://design.elvia.io/components/modal",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-modal__text",
@@ -1105,7 +1142,8 @@ function checkDeprecatedElvisClass() {
           name: "Modal",
           type: "component",
           documentation: "https://design.elvia.io/components/modal",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-modal__actions",
@@ -1114,7 +1152,8 @@ function checkDeprecatedElvisClass() {
           name: "Modal",
           type: "component",
           documentation: "https://design.elvia.io/components/modal",
-          }
+          },
+      sunset: "March 2023"
       },
     {
       name: "e-dropdown",
@@ -1123,7 +1162,8 @@ function checkDeprecatedElvisClass() {
           name: "Dropdown",
           type: "component",
           documentation: "https://design.elvia.io/components/dropdown",
-          }
+          },
+      
       },
     {
       name: "e-chip",
@@ -1132,7 +1172,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip-container",
@@ -1141,7 +1182,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip__label",
@@ -1150,7 +1192,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip__close",
@@ -1159,7 +1202,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip--yellow",
@@ -1168,7 +1212,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip---disabled",
@@ -1177,7 +1222,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip--orange",
@@ -1186,7 +1232,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip--red",
@@ -1195,7 +1242,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip--green-apple",
@@ -1204,7 +1252,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip--violet-grape",
@@ -1213,7 +1262,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip--blue-berry",
@@ -1222,7 +1272,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip--purple-plum",
@@ -1231,7 +1282,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip--orange-mango",
@@ -1240,7 +1292,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip--red-tomato",
@@ -1249,7 +1302,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip--green",
@@ -1258,7 +1312,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-chip---hover",
@@ -1267,7 +1322,8 @@ function checkDeprecatedElvisClass() {
           name: "Chip",
           type: "component",
           documentation: "https://design.elvia.io/components/chip",
-          }
+          },
+      
       },
     {
       name: "e-select",
@@ -1276,7 +1332,8 @@ function checkDeprecatedElvisClass() {
           name: "Dropdown",
           type: "component",
           documentation: "https://design.elvia.io/components/dropdown",
-          }
+          },
+      
       },
     {
       name: "e-divider",
@@ -1285,7 +1342,8 @@ function checkDeprecatedElvisClass() {
           name: "Divider",
           type: "component",
           documentation: "https://design.elvia.io/components/divider",
-          }
+          },
+      
       },
     {
       name: "e-divider--inverted",
@@ -1294,7 +1352,8 @@ function checkDeprecatedElvisClass() {
           name: "Divider",
           type: "component",
           documentation: "https://design.elvia.io/components/divider",
-          }
+          },
+      
       },
     {
       name: "e-divider--title",
@@ -1303,7 +1362,8 @@ function checkDeprecatedElvisClass() {
           name: "Divider",
           type: "component",
           documentation: "https://design.elvia.io/components/divider",
-          }
+          },
+      
       },
     {
       name: "e-divider__title",
@@ -1312,7 +1372,8 @@ function checkDeprecatedElvisClass() {
           name: "Divider",
           type: "component",
           documentation: "https://design.elvia.io/components/divider",
-          }
+          },
+      
       },
     {
       name: "e-divider--curved",
@@ -1321,7 +1382,8 @@ function checkDeprecatedElvisClass() {
           name: "Divider",
           type: "component",
           documentation: "https://design.elvia.io/components/divider",
-          }
+          },
+      
       },
     {
       name: "e-link--external",
@@ -1330,31 +1392,37 @@ function checkDeprecatedElvisClass() {
           name: "e-link--new-tab",
           type: "class",
           documentation: "https://design.elvia.io/components/link#Type",
-          }
+          },
+      
       },
     {
       name: "e-table__sort-header",
       version: "7.5.0",
+      
       
       },
     {
       name: "e-table__sort-icon--inactive",
       version: "8.0.4",
       
+      
       },
     {
       name: "e-table__sort-icon--up",
       version: "8.0.4",
+      
       
       },
     {
       name: "e-table__sort-icon",
       version: "8.0.4",
       
+      
       },
     {
       name: "e-btn--icon.e-btn--danger",
       version: "7.8.0",
+      
       
       },
     {
@@ -1364,7 +1432,8 @@ function checkDeprecatedElvisClass() {
           name: "e-fileupload--dragover",
           type: "class",
           documentation: "https://design.elvia.io/components/file-upload#States",
-          }
+          },
+      
       },
     {
       name: "e-link--jumbo",
@@ -1373,7 +1442,8 @@ function checkDeprecatedElvisClass() {
           name: "action group",
           type: "pattern",
           documentation: "https://design.elvia.io/patterns/groups",
-          }
+          },
+      
       },
     {
       name: "e-link--card",
@@ -1382,7 +1452,8 @@ function checkDeprecatedElvisClass() {
           name: "Card",
           type: "component",
           documentation: "https://design.elvia.io/components/card",
-          }
+          },
+      
       },
     {
       name: "e-card",
@@ -1391,7 +1462,8 @@ function checkDeprecatedElvisClass() {
           name: "Card",
           type: "component",
           documentation: "https://design.elvia.io/components/card",
-          }
+          },
+      
       },
     {
       name: "e-card--text-only",
@@ -1400,7 +1472,8 @@ function checkDeprecatedElvisClass() {
           name: "Card",
           type: "component",
           documentation: "https://design.elvia.io/components/card",
-          }
+          },
+      
       },
     {
       name: "e-card--shadow-soft",
@@ -1409,7 +1482,8 @@ function checkDeprecatedElvisClass() {
           name: "Card",
           type: "component",
           documentation: "https://design.elvia.io/components/card",
-          }
+          },
+      
       },
     {
       name: "e-card--shadow-medium",
@@ -1418,7 +1492,8 @@ function checkDeprecatedElvisClass() {
           name: "Card",
           type: "component",
           documentation: "https://design.elvia.io/components/card",
-          }
+          },
+      
       },
     {
       name: "e-card--shadow-hard",
@@ -1427,7 +1502,8 @@ function checkDeprecatedElvisClass() {
           name: "Card",
           type: "component",
           documentation: "https://design.elvia.io/components/card",
-          }
+          },
+      
       },
     {
       name: "e-card--on-white",
@@ -1436,7 +1512,8 @@ function checkDeprecatedElvisClass() {
           name: "Card",
           type: "component",
           documentation: "https://design.elvia.io/components/card",
-          }
+          },
+      
       },
     {
       name: "e-card__title",
@@ -1445,7 +1522,8 @@ function checkDeprecatedElvisClass() {
           name: "Card",
           type: "component",
           documentation: "https://design.elvia.io/components/card",
-          }
+          },
+      
       },
     {
       name: "e-card__title--above",
@@ -1454,7 +1532,8 @@ function checkDeprecatedElvisClass() {
           name: "Card",
           type: "component",
           documentation: "https://design.elvia.io/components/card",
-          }
+          },
+      
       },
     {
       name: "e-card__content",
@@ -1463,7 +1542,8 @@ function checkDeprecatedElvisClass() {
           name: "Card",
           type: "component",
           documentation: "https://design.elvia.io/components/card",
-          }
+          },
+      
       },
     {
       name: "e-label",
@@ -1472,7 +1552,8 @@ function checkDeprecatedElvisClass() {
           name: "e-tag",
           type: "class",
           documentation: "https://design.elvia.io/components/tag",
-          }
+          },
+      
       },
 ];
 
