@@ -1,5 +1,12 @@
 # Elvis-assets-icon
 
+## 2.6.0 (14.09.22)
+
+### New feature
+
+- All icons are now defined in their own files to help reduce bundle size. The API of the package is
+  unchanged.
+
 ## 2.5.0 (29.08.22)
 
 ### New feature

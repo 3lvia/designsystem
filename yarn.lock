@@ -2266,7 +2266,6 @@ __metadata:
     "@elvia/elvis-colors": ^1.2.1
     del: ^6.0.0
     gulp: ^4.0.2
-    gulp-prettier: ^4.0.0
     gulp-svgmin: ^4.1.0
     sharp: ^0.30.2
   languageName: unknown
