@@ -45,7 +45,6 @@ export class v2PlaygroundComponent {
     { value: '2', label: 'Option 2' },
     { value: '3', label: 'Option 3', isDisabled: 'true' },
   ];
-  dropdownIsLoading = false;
 
   // Modal
   isModalShowing = false;
@@ -105,15 +104,5 @@ export class v2PlaygroundComponent {
   };
   popoverOnClose = (): void => {
     console.log('Popover closed');
-  };
-
-  dropdownAddOption = (): void => {
-    this.dropdownIsLoading = true;
-    setTimeout(() => {
-      const newValue = parseInt(this.dropdownOptions[this.dropdownOptions.length - 1].value) + 1;
-      const newOption = { value: newValue.toString(), label: `Option ${newValue}` };
-      this.dropdownOptions.push(newOption);
-      this.dropdownIsLoading = false;
-    }, 2000);
   };
 }
