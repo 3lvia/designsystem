@@ -55,6 +55,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
   border-radius: 0.25rem;
   position: absolute;
   animation: ${TooltipFadeIn} 200ms 1ms forwards;
+  max-width: 350px;
   opacity: 0;
 
   &::after {
