@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { tooltipData } from './tooltip-data';
+
 @Component({
   selector: 'app-tooltip-doc',
   templateUrl: './tooltip-doc.component.html',
