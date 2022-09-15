@@ -7,16 +7,6 @@ export const progressbarData: ComponentData = {
   elementNameR: 'ProgressLinear',
   package: 'npm install @elvia/elvis-progress-linear',
   attributes: {
-    // type: {
-    //   isRequired: false,
-    //   type: 'simple | title | curved',
-    //   description: 'Type of the divider. The curved version of the divider follows the Elvia curve formula.',
-    //   default: 'simple',
-    //   cegDefault: 0,
-    //   cegType: 'string',
-    //   cegFormType: 'type',
-    //   cegOptions: ['simple', 'title', 'curved'],
-    // },
     value: {
       isRequired: false,
       type: 'number',
@@ -30,10 +20,7 @@ export const progressbarData: ComponentData = {
       cegCounterMin: 0,
       cegStepValue: 10,
       cegCounterType: '%',
-      cegDependency: [
-        { name: 'isIndeterminate', value: 'false' },
-        // { name: 'type', value: 'simple' },
-      ],
+      cegDependency: [{ name: 'isIndeterminate', value: 'false' }],
     },
     isIndeterminate: {
       isRequired: false,
@@ -91,12 +78,16 @@ export const progressbarData: ComponentData = {
   codeImportTypescriptInterface: `import { ProgressLinearProps } from '@elvia/elvis-progress-linear/react';`,
   codeImportWebComponent: `import '@elvia/elvis-progress-linear';`,
   codeReact: `<ProgressLinear
+  value={20}
 ></ProgressLinear>`,
   codeAngular: `<elvia-progress-linear
+  [value]="20"
 ></elvia-progress-linear>`,
   codeVue: `<elvia-progress-linear
+  :value="20"
 ></elvia-progress-linear>`,
   codeNativeHTML: `<elvia-progress-linear
+  value="20"
 ></elvia-progress-linear>`,
   changelog: changelogJson.content,
   codeNativeScript: ``,
