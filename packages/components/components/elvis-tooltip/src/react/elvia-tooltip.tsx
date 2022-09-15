@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useConnectedOverlay, useLongPress } from '@elvia/elvis-toolbox';
+import { useConnectedOverlay } from '@elvia/elvis-toolbox';
 import { TooltipPosition, TooltipProps } from './elviaTooltip.types';
 import { arrowSize, TooltipPopup, TriggerContainer } from './styledComponents';
 import { mapPositionToHorizontalPosition, mapPositionToVerticalPosition } from './mapPosition';
@@ -20,7 +20,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const overlayRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
   const [actualPosition, setActualPosition] = useState<TooltipPosition>(position);
-  const { isLongPressed } = useLongPress(triggerRef);
   const { isShowing, setIsShowing, verticalPosition, horizontalPosition, updatePreferredPosition } =
     useConnectedOverlay(triggerRef, overlayRef, {
       alignWidths: false,
@@ -96,18 +95,15 @@ export const Tooltip: React.FC<TooltipProps> = ({
     setActualPosition(newActualPosition);
   }, [verticalPosition, horizontalPosition]);
 
-  /** Support for long presses, which occurs on mobile devices */
-  useEffect(() => {
-    if (isLongPressed) {
-      // onOpen(false);
-    } else {
-      onClose();
-    }
-  }, [isLongPressed]);
-
   return (
     <>
-      <TriggerContainer onMouseEnter={() => onOpen(true)} onMouseLeave={onClose} ref={triggerRef}>
+      <TriggerContainer
+        onMouseEnter={() => onOpen(true)}
+        onMouseLeave={onClose}
+        onFocus={() => onOpen(false)}
+        onBlur={onClose}
+        ref={triggerRef}
+      >
         {trigger}
       </TriggerContainer>
       {isShowing &&
