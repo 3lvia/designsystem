@@ -497,4 +497,21 @@ module.exports = [
     useWrapper: true,
     reactTypescriptDeclaration: true,
   },
+  {
+    name: 'elvis-tooltip',
+    elementName: 'elvia-tooltip',
+    attributes: [
+      { name: 'trigger', type: 'string', propType: 'string | HTMLElement' },
+      { name: 'isDisabled', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'position', type: 'string', propType: 'string | undefined' },
+      { name: 'showDelay', type: 'number', propType: 'number | undefined' },
+      { name: 'content', type: 'string', propType: 'string | HTMLElement' },
+      { name: 'className', type: 'string', propType: 'string | undefined' },
+      { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
+    ],
+    reactName: 'Tooltip',
+    slotItems: true,
+    useWrapper: true,
+    reactTypescriptDeclaration: true,
+  },
 ];

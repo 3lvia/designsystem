@@ -34,7 +34,12 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
-  const [isShowing, setIsShowing] = useConnectedOverlay(connectedElementRef, popoverRef);
+  const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
+    offset: 8,
+    horizontalPosition: 'center',
+    verticalPosition: 'bottom',
+    alignWidths: true,
+  });
 
   const updateValue = (newTime: Date, emit = true): void => {
     setTime(newTime);
