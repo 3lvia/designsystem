@@ -72,15 +72,14 @@ export const Icon: React.FC<IconProps> = ({
       color?: ElviaColor,
       customSize?: string,
     ): Promise<string> => {
-      try {
-        return import('@elvia/elvis-assets-icons')
-          .then((elvisAssetsIcons) => elvisAssetsIcons[iconName].getIcon(color))
-          .then((newIcon) => getSize(newIcon, size, customSize));
-      } catch (error) {
-        const errorMessage = `No icon found with the name ${iconName}${color ? ` and color ${color}` : ''}`;
-        console.error(errorMessage);
-        return errorMessage;
-      }
+      return import('@elvia/elvis-assets-icons')
+        .then((elvisAssetsIcons) => elvisAssetsIcons[iconName].getIcon(color))
+        .then((newIcon) => getSize(newIcon, size, customSize))
+        .catch(() => {
+          const errorMessage = `No icon found with the name ${iconName}${color ? ` and color ${color}` : ''}`;
+          console.error(errorMessage);
+          return errorMessage;
+        });
     };
 
     const updateIcon = async () => {
