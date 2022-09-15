@@ -11,27 +11,18 @@ iframe {
   .desktop {
     width: 1024px;
   }
-  .tablet {
-    width: 850px;
-    height: 637px;
-    z-index: 111;
-  }
   .phone {
     width: 400px;
     height: 637px;
   }
 }
 
-.phone,
-.tablet {
+.phone {
   position: relative;
   margin: auto;
   padding: 56px 15px;
   border-radius: 50px;
   border: 12px solid var(--e-grey-80);
-  &.no-padding-x {
-    padding: 56px 0px;
-  }
 
   &:before,
   &:after {

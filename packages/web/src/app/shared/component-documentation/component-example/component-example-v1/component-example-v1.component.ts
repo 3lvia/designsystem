@@ -1,63 +1,42 @@
 import { Component, Input, AfterViewInit, ViewChild, OnInit, ElementRef } from '@angular/core';
-import { heightDown } from 'src/app/shared/animations';
 
 @Component({
   selector: 'app-component-example-v1',
   templateUrl: './component-example-v1.component.html',
   styleUrls: ['./component-example-v1.component.scss'],
-  animations: [heightDown],
 })
 export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   @ViewChild('toggle') toggle: ElementRef;
   @ViewChild('defaultFrame') defaultFrame;
-  @Input() does = [];
-  @Input() donts = [];
   @Input() showPreview = true;
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
-  @Input() isJS = false;
   @Input() codeInverted = '';
-  @Input() showIframeScreens = false;
-  @Input() noPhone = false;
-  @Input() noTablet = false;
-  @Input() noDesktop = false;
+  @Input() isMobileExample = false;
   @Input() greyBg = false;
   @Input() darkGreyBg = false;
   @Input() overwriteHeight: number;
-  @Input() overwriteHeightTablet: number;
-  @Input() overwriteHeightPhone: number;
   @Input() showIframeDesktop = false;
-  @Input() noPaddingX = false;
-  @Input() noPaddingDesk = false;
   @Input() interactable = true;
   @Input() isInverted = false;
 
   code = '';
-  showTabs = true;
-  screenTabOpen = 'desktop';
-  codepen = '';
+  desktopScreenWidth: boolean;
   displayCode = '';
 
-  showIframe = false;
-  desktopScreenWidth: boolean;
-  activeTab = 0;
-  tabs = [];
-
   ngOnInit(): void {
-    this.updateVisibleTabs();
-    this.code = this.codeTS !== '' ? this.codeTS : this.codeHTML !== '' ? this.codeHTML : this.codeCSS;
+    if (this.codeTS !== '') {
+      this.code = this.codeTS;
+    } else if (this.codeHTML !== '') {
+      this.code = this.codeHTML;
+    } else {
+      this.code = this.codeCSS;
+    }
 
     this.displayCode = this.code;
-
-    if (!this.showIframeScreens) {
-      return;
-    }
-    if (this.showIframeDesktop) {
-      this.showIframe = true;
-    } else {
+    if (!this.showIframeDesktop) {
       this.desktopScreenWidth = this.isDesktop();
-      this.showIframe = !this.isDesktop();
       this.updateShowIframe();
       window.addEventListener('resize', () => {
         this.updateShowIframe();
@@ -84,7 +63,6 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
     if (isDesk === this.desktopScreenWidth) {
       return;
     }
-    this.showIframe = !this.showIframe;
     this.desktopScreenWidth = isDesk;
     setTimeout(() => {
       if (this.defaultFrame) {
@@ -95,11 +73,6 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
 
   isDesktop(): boolean {
     return window.innerWidth >= 1024;
-  }
-
-  setScreenTabOpen(screenTabOpen: string): void {
-    this.screenTabOpen = screenTabOpen;
-    setTimeout(() => this.updateDefaultFrame(), 10);
   }
 
   toggleInverted(): void {
@@ -117,49 +90,5 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
         this.displayCode = this.code;
       }
     }
-  }
-
-  // TABS
-  changeTab(index: number): void {
-    this.activeTab = index;
-    this.screenTabOpen = this.tabs[index];
-    setTimeout(() => this.updateDefaultFrame(), 10);
-  }
-
-  updateVisibleTabs(): void {
-    this.tabs = this.getTabs();
-    this.changeTab(this.activeTab);
-  }
-
-  getTabs(): any {
-    const tabs = [];
-    if (this.noPhone && this.noTablet) {
-      this.screenTabOpen = 'desktop';
-      tabs.push('desktop');
-      this.showTabs = false;
-    }
-    if (this.noPhone && this.noDesktop) {
-      this.screenTabOpen = 'tablet';
-      tabs.push('tablet');
-      this.showTabs = false;
-    }
-    if (this.noTablet && this.noDesktop) {
-      this.screenTabOpen = 'phone';
-      tabs.push('phone');
-      this.showTabs = false;
-    }
-    if (this.showTabs) {
-      if (!this.noDesktop) {
-        tabs.push('desktop');
-      }
-      if (!this.noTablet) {
-        tabs.push('tablet');
-      }
-      if (!this.noPhone) {
-        tabs.push('phone');
-      }
-    }
-
-    return tabs;
   }
 }

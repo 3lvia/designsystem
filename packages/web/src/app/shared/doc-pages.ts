@@ -1,6 +1,5 @@
-import { DocPage } from './doc-pages.interface';
-import { Pages } from './pages.enum';
-import { DocPageStatus } from './doc-page-status';
+import { DocPage } from './shared.interface';
+import { Pages, DocPageStatus } from './shared.enum';
 
 // Used for shortcuts at home page
 export const homeMenu: DocPage[] = [
@@ -495,15 +494,14 @@ export const docPagesNotFromCMS: DocPage[] = [
   {
     title: 'Contribute',
     // tslint:disable-next-line: max-line-length
-    description: `To contribute, or if you have any question, you can contact us on slack:
+    description: `To contribute, or if you have any question, contact us on Slack:
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
         <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
-      </a> or fill out our
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://forms.office.com/r/xJaMyF9Bxf" >
-        <span class="e-link__title">request form</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
-      </a>`,
+      </a> or contact any of the 
+      <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/about/${Pages.Contact}" >
+        <span class="e-link__title">team members</span>
+      </a>directly.`,
     docUrl: Pages.Contribute,
     absolutePath: '/about/' + Pages.Contribute,
     status: DocPageStatus.Done,

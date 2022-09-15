@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 2.5.1 (15.09.22)
+
+### Patch
+
+- Bumped dependency on `@elvia/elvis-colors` to make newer color labels work properly.
+
 ## 2.5.0 (29.08.22)
 
 ### New feature

@@ -1,5 +1,4 @@
-@import '../../../shared-sizes.scss';
-@import '../../../shared-animations';
+@import '../../../shared-animations.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 .component {
@@ -46,7 +45,6 @@
 }
 
 .anchors {
-  // @extend %scale-down-ver-top;
   display: none;
   margin-top: 40px;
   padding-left: 16px;

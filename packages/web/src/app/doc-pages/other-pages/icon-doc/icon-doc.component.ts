@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
-import { Icon } from 'src/app/shared/icon.interface';
+import { Icon } from './icon.interface';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';

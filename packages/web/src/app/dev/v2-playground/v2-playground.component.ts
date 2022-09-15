@@ -37,15 +37,13 @@ export class v2PlaygroundComponent {
 
   // Dropdown
   dropdownDefOptions = [
-    { value: '1', label: 'Option 1', icon: 'arrowUp' },
-    { value: '2', label: 'Option 2', icon: 'arrowDown' },
-    { value: '3', label: 'Option 3', icon: 'arrowLeft' },
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
   ];
   dropdownOptions = [
-    { value: '1', label: 'Option 1', icon: 'arrowUp' },
-    { value: '2', label: 'Option 2', icon: 'arrowDown' },
-    { value: '3', label: 'Option 3', icon: 'arrowLeft', isDisabled: true },
-    { value: '4', label: 'Option 4', icon: 'arrowRight' },
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3', isDisabled: 'true' },
   ];
 
   // Modal
@@ -73,6 +71,21 @@ export class v2PlaygroundComponent {
 
   // Timepicker
   timepickerValue = new Date();
+
+  // Tooltip
+  tooltipPosition: 'top' | 'bottom' | 'left' | 'right' = 'top';
+
+  shuffleTooltipPosition = (): void => {
+    if (this.tooltipPosition === 'top') {
+      this.tooltipPosition = 'right';
+    } else if (this.tooltipPosition === 'right') {
+      this.tooltipPosition = 'bottom';
+    } else if (this.tooltipPosition === 'bottom') {
+      this.tooltipPosition = 'left';
+    } else {
+      this.tooltipPosition = 'top';
+    }
+  };
 
   logValue = (component: string, value: Event): void => {
     console.log(component, ': ', value);

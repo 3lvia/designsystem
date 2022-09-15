@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
+<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
   <ng-container ngProjectAs="headerTitle">Tooltip</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -7,53 +7,9 @@
 </app-component-header>
 
 <!--BODY-->
-<div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="exampleContainer">
-      <span class="e-tooltip">
-        <button class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
-          <span class="e-btn__icon">
-            <i class="e-icon e-icon--star" aria-hidden="true" aria-hidden="true"></i>
-          </span>
-        </button>
-        <span class="e-tooltip__content">Favorite</span>
-      </span>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="example1"></app-component-example-v1>
-    </div>
-  </div>
-
-  <!--POSITION-->
-  <app-component-section [sectionTitle]="'Position'">
-    <ng-container ngProjectAs="sectionContent">
-      The default position for the tooltip is above the attached element. If you want the tooltip to appear in
-      the other directions, append the
-      <span class="code-text">e-tooltip__content--position</span>
-      class.
-      <app-component-subsection [sectionTitle]="'Top'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleTop"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Bottom'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleBottom"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Left'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleLeft"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Right'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleRight"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
+<div class="page-body e-mt-72">
+  <!--CEG-->
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
@@ -65,20 +21,32 @@
   <!--ACCESSIBILITY-->
   <app-component-section [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Tabindex'">
+      <app-component-subsection [sectionTitle]="'Keyboard focus'">
         <ng-container ngProjectAs="sectionContent">
-          If a tooltip is attached to a non focusable element, like an icon, remember to add the
-          <span class="code-text">tabindex</span>
-          tag with a value equal to 0 or higher.
+          A tooltip will appear immediately if attached to an element that receives keyboard focus.
         </ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>
 
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-tooltip'">
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-tooltip'"></app-component-properties>
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
+  <!--CHANGELOG-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>
