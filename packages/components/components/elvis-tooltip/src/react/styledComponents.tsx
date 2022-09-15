@@ -14,20 +14,24 @@ export const colors = {
 export const TooltipFadeIn = keyframes`
   from {
     opacity: 0;
+    transform: scale(0.8)
   }
   
   to {
     opacity: 1;
+    transform: scale(1)
   }
   `;
 
 export const TooltipFadeOut = keyframes`
   from {
     opacity: 1;
+    transform: scale(1)
   }
   
   to {
     opacity: 0;
+    transform: scale(0.7)
   }
 `;
 
