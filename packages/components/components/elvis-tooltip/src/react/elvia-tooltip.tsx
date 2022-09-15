@@ -99,7 +99,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   /** Support for long presses, which occurs on mobile devices */
   useEffect(() => {
     if (isLongPressed) {
-      onOpen();
+      // onOpen(false);
     } else {
       onClose();
     }
@@ -107,13 +107,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
 
   return (
     <>
-      <TriggerContainer
-        onMouseEnter={() => onOpen(true)}
-        onMouseLeave={onClose}
-        onFocus={() => onOpen(false)}
-        onBlur={onClose}
-        ref={triggerRef}
-      >
+      <TriggerContainer onMouseEnter={() => onOpen(true)} onMouseLeave={onClose} ref={triggerRef}>
         {trigger}
       </TriggerContainer>
       {isShowing &&
