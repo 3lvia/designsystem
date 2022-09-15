@@ -8,7 +8,8 @@
         {
           "type": "patch",
           "changes": [
-            "Bump <span class=\"code-text\">@elvia/elvis-toolbox</span> to version <span class=\"code-text\">2.3.0</span>"
+            "Bump <span class=\"code-text\">@elvia/elvis-toolbox</span> to version <span class=\"code-text\">3.0.0</span>",
+            "Bump <span class=\"code-text\">@elvia/elvis-icon</span> to version <span class=\"code-text\">1.3.2</span>"
           ]
         }
       ]
