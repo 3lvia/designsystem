@@ -8,8 +8,8 @@ export const tooltipData: ComponentData = {
   attributes: {
     content: {
       isRequired: true,
-      type: 'string',
-      description: 'The content placed in the tooltip.',
+      type: 'string | HTMLElement | JSX.Element',
+      description: 'Text, or rich content (use slot in web component if not just text).',
       cegDisplayName: 'Content',
       cegType: 'string',
       cegFormType: 'custom-text',
@@ -55,7 +55,7 @@ export const tooltipData: ComponentData = {
     trigger: {
       isRequired: true,
       type: 'HTMLElement | JSX.Element',
-      description: 'The element that receives the tooltip.',
+      description: 'The element that receives the tooltip. This is a slot when used as a web component.',
     },
     className: {
       isRequired: false,
