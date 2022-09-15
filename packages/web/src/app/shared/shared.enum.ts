@@ -1,3 +1,10 @@
+export enum DocPageStatus {
+  Done = 'Done',
+  Coming = 'Coming',
+  Ignore = 'Ignore',
+  Progress = 'In progress',
+}
+
 export enum Pages {
   // Home
   Index = '',

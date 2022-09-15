@@ -44,6 +44,7 @@
     "@elvia/elvis-tabs": "portal:../components/components/elvis-tabs",
     "@elvia/elvis-timepicker": "portal:../components/components/elvis-timepicker",
     "@elvia/elvis-toolbox": "portal:../components/components/elvis-toolbox",
+    "@elvia/elvis-tooltip": "portal:../components/components/elvis-tooltip",
     "@elvia/elvis-typography": "portal:../elvis-typography",
     "classlist.js": "^1.1.20150312",
     "contentful": "^8.5.8",

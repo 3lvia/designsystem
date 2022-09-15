@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { DocPageStatus } from '../../../doc-page-status';
-import { NavbarAnchor } from '../../../navbarAnchor.interface';
+import { DocPageStatus } from '../../../shared.enum';
+import { NavbarAnchor } from '../../../shared.interface';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { Router } from '@angular/router';
 

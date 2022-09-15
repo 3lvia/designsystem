@@ -12,10 +12,6 @@ export class LinkDocComponent {
   doExample = `<a class="e-link e-link--lg" href="https://design.elvia.io/components/link#Overview">Se vårt strømsbruddskart</a>`;
   dontExample = `<a class="e-link e-link--lg" href="https://design.elvia.io/components/link#Overview">Klikk her</a>`;
 
-  // tslint:disable-next-line:max-line-length
-  dontsExample8 = [
-    'On actions that could have disabled state. Links do not have an disabled state, and the e-btn disabled style will not be applied on links with disabled html syntax.',
-  ];
   doesExampleCard = [
     'When you want a more visual representation of content than a list view',
     'Shortcurts on the front page',

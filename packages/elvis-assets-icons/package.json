@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-assets-icons",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "Elvia icons",
   "license": "MIT",
   "author": "",
@@ -10,7 +10,7 @@
     "build": "gulp"
   },
   "dependencies": {
-    "@elvia/elvis-colors": "^1.2.1"
+    "@elvia/elvis-colors": "^1.4.2"
   },
   "devDependencies": {
     "del": "^6.0.0",
