@@ -84,7 +84,7 @@ export const badgeData: ComponentData = {
     aria-label="Thumbnail button that opens the image in a larger view"
     slot="content"
    >
-    <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+    <img src="../../../../assets/image.jpg" alt="Thumbnail example image" />
   </button>
 </elvia-badge>`,
   codeVue: `<elvia-badge
@@ -95,7 +95,7 @@ export const badgeData: ComponentData = {
     aria-label="Thumbnail button that opens the image in a larger view"
     slot="content"
    >
-    <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+    <img src="../../../../assets/image.jpg" alt="Thumbnail example image" />
   </button>
 </elvia-badge>`,
   codeNativeHTML: `<elvia-badge
