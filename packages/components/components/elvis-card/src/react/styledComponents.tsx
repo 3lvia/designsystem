@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { getColor } from '@elvia/elvis-colors';
 import { CardType, BorderColor } from './elvia-card.types';
@@ -240,59 +240,4 @@ export const CardCornerIcon = styled.div<CardCornerIconProps>`
             top: 14px;
           `}
   }
-`;
-
-const CardHeadingTooltipKeyframes = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-interface CardHeadingTooltipProps {
-  type: CardType;
-  isShowing: boolean;
-}
-
-export const CardHeadingTooltip = styled.div<CardHeadingTooltipProps>`
-  opacity: 0;
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 0;
-  width: auto;
-  border-radius: 4px;
-  background: ${colors.grey80};
-  padding: 8px 10px;
-
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  letter-spacing: 0.002em;
-  color: ${colors.white};
-  text-align: center;
-  overflow-wrap: break-word;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -7px;
-    border: 7px solid;
-    border-color: ${colors.grey80} transparent transparent transparent;
-  }
-
-  ${(props) =>
-    props.isShowing &&
-    css`
-      & {
-        animation: ${CardHeadingTooltipKeyframes} 200ms 500ms forwards;
-      }
-    `}
 `;

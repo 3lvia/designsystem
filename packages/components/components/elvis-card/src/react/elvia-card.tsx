@@ -12,11 +12,11 @@ import {
   CardHoverArrow,
   CardCornerIcon,
   CardColoredLineContainer,
-  CardHeadingTooltip,
   CardHeadingContainer,
 } from './styledComponents';
 import { useIsOverflowing } from '@elvia/elvis-toolbox';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { Tooltip } from '@elvia/elvis-tooltip/react';
 
 export interface CardProps {
   icon?: string | JSX.Element;
@@ -69,7 +69,6 @@ const Card: FC<CardProps> = ({
   ...rest
 }) => {
   const [isHoveringArea, setIsHoveringArea] = useState(false);
-  const [isHoveringHeader, setIsHoveringHeader] = useState(false);
   const [isShowingHoverIcon, setIsShowingHoverIcon] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -153,22 +152,16 @@ const Card: FC<CardProps> = ({
           </CardIcon>
         )}
         {heading && (
-          <CardHeadingContainer
-            onPointerEnter={() => setIsHoveringHeader(true)}
-            onPointerLeave={() => setIsHoveringHeader(false)}
-          >
-            <CardHeading ref={headingRef} type={type} data-testid="card-heading">
-              {heading}
-            </CardHeading>
-            {headingIsOverflowing && (
-              <CardHeadingTooltip
-                type={type}
-                isShowing={type === 'simple' ? isHoveringArea : isHoveringHeader}
-                aria-hidden="true"
-              >
-                {heading}
-              </CardHeadingTooltip>
-            )}
+          <CardHeadingContainer>
+            <Tooltip
+              trigger={
+                <CardHeading ref={headingRef} type={type} data-testid="card-heading">
+                  {heading}
+                </CardHeading>
+              }
+              content={heading}
+              isDisabled={!headingIsOverflowing}
+            ></Tooltip>
           </CardHeadingContainer>
         )}
         {description && (
