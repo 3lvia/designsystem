@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { useConnectedOverlay, useLongPress } from '@elvia/elvis-toolbox';
 import { TooltipPosition, TooltipProps } from './elviaTooltip.types';
 import { arrowSize, TooltipPopup, TriggerContainer } from './styledComponents';
+import { mapPositionToHorizontalPosition, mapPositionToVerticalPosition } from './mapPosition';
 
 export const Tooltip: React.FC<TooltipProps> = ({
   className,
@@ -23,8 +24,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const { isShowing, setIsShowing, verticalPosition, horizontalPosition, updatePreferredPosition } =
     useConnectedOverlay(triggerRef, overlayRef, {
       alignWidths: false,
-      verticalPosition: position === 'bottom' ? 'bottom' : position === 'top' ? 'top' : 'center',
-      horizontalPosition: position === 'left' ? 'left' : position === 'right' ? 'right' : 'center',
+      verticalPosition: mapPositionToVerticalPosition(position),
+      horizontalPosition: mapPositionToHorizontalPosition(position),
       offset: 8 + arrowSize,
     });
 
@@ -66,8 +67,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
     const newPosition: TooltipPosition = position || 'top';
     setActualPosition(newPosition);
     updatePreferredPosition(
-      newPosition === 'bottom' ? 'bottom' : newPosition === 'top' ? 'top' : 'center',
-      newPosition === 'left' ? 'left' : newPosition === 'right' ? 'right' : 'center',
+      mapPositionToVerticalPosition(newPosition),
+      mapPositionToHorizontalPosition(newPosition),
     );
   }, [position]);
 
@@ -86,15 +87,13 @@ export const Tooltip: React.FC<TooltipProps> = ({
 
   /** Update arrow position when overlay hook adjusts position */
   useEffect(() => {
-    setActualPosition(
-      verticalPosition === 'bottom'
-        ? 'bottom'
-        : horizontalPosition === 'left'
-        ? 'left'
-        : horizontalPosition === 'right'
-        ? 'right'
-        : 'top',
-    );
+    let newActualPosition: TooltipPosition = 'top';
+    if (horizontalPosition === 'left' || horizontalPosition === 'right') {
+      newActualPosition = horizontalPosition;
+    } else if (verticalPosition === 'bottom') {
+      newActualPosition = verticalPosition;
+    }
+    setActualPosition(newActualPosition);
   }, [verticalPosition, horizontalPosition]);
 
   /** Support for long presses, which occurs on mobile devices */

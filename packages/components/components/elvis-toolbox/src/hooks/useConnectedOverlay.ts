@@ -7,14 +7,14 @@ interface WindowRect {
   innerWidth: number;
 }
 
-type VerticalPosition = 'bottom' | 'center' | 'top';
-type HorizontalPosition = 'left' | 'center' | 'right';
+export type OverlayVerticalPosition = 'bottom' | 'center' | 'top';
+export type OverlayHorizontalPosition = 'left' | 'center' | 'right';
 
 interface Options {
   offset: number;
   alignWidths: boolean;
-  verticalPosition: VerticalPosition;
-  horizontalPosition: HorizontalPosition;
+  verticalPosition: OverlayVerticalPosition;
+  horizontalPosition: OverlayHorizontalPosition;
 }
 
 const defaultOptions: Options = {
@@ -27,11 +27,11 @@ const defaultOptions: Options = {
 interface OverlayApi {
   isShowing: boolean;
   setIsShowing: Dispatch<SetStateAction<boolean>>;
-  verticalPosition: VerticalPosition;
-  horizontalPosition: HorizontalPosition;
+  verticalPosition: OverlayVerticalPosition;
+  horizontalPosition: OverlayHorizontalPosition;
   updatePreferredPosition: (
-    verticalPosition?: VerticalPosition,
-    horizontalPosition?: HorizontalPosition,
+    verticalPosition?: OverlayVerticalPosition,
+    horizontalPosition?: OverlayHorizontalPosition,
   ) => void;
 }
 
@@ -61,8 +61,10 @@ export const useConnectedOverlay = (
 ): OverlayApi => {
   const windowPadding = 8;
   const opts: Options = { ...defaultOptions, ...options };
-  const [verticalPosition, setVerticalPosition] = useState<VerticalPosition>(opts.verticalPosition);
-  const [horizontalPosition, setHorizontalPosition] = useState<HorizontalPosition>(opts.horizontalPosition);
+  const [verticalPosition, setVerticalPosition] = useState<OverlayVerticalPosition>(opts.verticalPosition);
+  const [horizontalPosition, setHorizontalPosition] = useState<OverlayHorizontalPosition>(
+    opts.horizontalPosition,
+  );
   const [isShowing, setIsShowing] = useState(false);
 
   /** Get screen dimensions based on device */
@@ -175,8 +177,8 @@ export const useConnectedOverlay = (
   };
 
   const updatePreferredPosition = (
-    verticalPosition?: VerticalPosition,
-    horizontalPosition?: HorizontalPosition,
+    verticalPosition?: OverlayVerticalPosition,
+    horizontalPosition?: OverlayHorizontalPosition,
   ): void => {
     if (verticalPosition) {
       opts.verticalPosition = verticalPosition;
