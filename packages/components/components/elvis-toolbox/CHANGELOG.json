@@ -3,13 +3,17 @@
   "content": [
     {
       "date": "15.09.22",
-      "version": "2.3.0",
+      "version": "3.0.0",
       "changelog": [
         {
-          "type": "new_feature",
+          "type": "breaking_changes",
           "changes": [
             "Added horizontal alignment to <span class=\"code-text\">useConnectedOverlay</span> hook.",
+            "Redefined api for <span class=\"code-text\">useConnectedOverlay</span> to return an object",
             "Added hook <span class=\"code-text\">useLongPress</span> to detect long presses on elements."
+          ],
+          "fixes": [
+            "Change response from <span class=\"code-text\">useConnectedOverlay</span> to an object, instead of an array."
           ]
         }
       ]
