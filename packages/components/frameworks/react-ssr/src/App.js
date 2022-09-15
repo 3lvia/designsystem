@@ -9,6 +9,7 @@ import { Card } from '@elvia/elvis-card/react';
 import { Carousel } from '@elvia/elvis-carousel/react';
 import { Chip } from '@elvia/elvis-chip/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
+import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';
 import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Icon } from '@elvia/elvis-icon/react';
@@ -20,7 +21,6 @@ import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
-import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';
 
 function App() {
   const logValue = (component, value) => {
@@ -59,15 +59,20 @@ function App() {
   maxDate.setDate(maxDate.getDate() - 1);
 
   // Dropdown
-  const defaultDropdownOptions = [
-    { value: 'norge', label: 'Norge' },
-    { value: 'sverige', label: 'Sverige' },
-  ];
+  const defaultDropdownOptions = [{ value: 'norge', label: 'Norge' }];
   const dropdownOptions = [
     { value: 'norge', label: 'Norge' },
     { value: 'sverige', label: 'Sverige' },
     { value: 'danmark', label: 'Danmark' },
   ];
+
+  const [isLoadingMoreItems, setIsLoadingMoreItems] = useState(false);
+  const onLoadMoreItems = () => {
+    setIsLoadingMoreItems(true);
+    setTimeout(() => {
+      setIsLoadingMoreItems(false);
+    }, 2000);
+  };
 
   // Modal
   const [isModalShowing, setIsModalShowingState] = useState(false);
@@ -112,261 +117,9 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white">
-            {/* Thumbsnails */}
-            <div style={{ padding: '1rem', display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-              <Badge
-                content={
-                  <button
-                    className="e-thumbnail"
-                    aria-label="Thumbnail button that opens the image in a larger view"
-                  >
-                    <img src="https://picsum.photos/200" alt="Thumbnail example image" />
-                  </button>
-                }
-              />
-
-              <Badge
-                badgeColor={'red'}
-                content={
-                  <button
-                    className="e-thumbnail"
-                    aria-label="Thumbnail button that opens the image in a larger view"
-                  >
-                    <img src="https://picsum.photos/200?random" alt="Thumbnail example image" />
-                  </button>
-                }
-              />
-
-              <Badge
-                badgeColor={'black'}
-                content={
-                  <button
-                    className="e-thumbnail"
-                    aria-label="Thumbnail button that opens the image in a larger view"
-                  >
-                    <img src="https://picsum.photos/200?random" alt="Thumbnail example image" />
-                  </button>
-                }
-              />
-
-              <Badge
-                type={'numbered'}
-                count={Math.floor(Math.random() * 100 + 1)}
-                content={
-                  <button
-                    className="e-thumbnail"
-                    aria-label="Thumbnail button that opens the image in a larger view"
-                  >
-                    <img src="https://picsum.photos/60?random" alt="Thumbnail example image" />
-                  </button>
-                }
-              />
-
-              <Badge
-                badgeColor={'red'}
-                type={'numbered'}
-                count={Math.floor(Math.random() * 100 + 1)}
-                content={
-                  <button
-                    className="e-thumbnail"
-                    aria-label="Thumbnail button that opens the image in a larger view"
-                  >
-                    <img src="https://picsum.photos/60" alt="Thumbnail example image" />
-                  </button>
-                }
-              />
-
-              <Badge
-                badgeColor={'black'}
-                type={'numbered'}
-                count={Math.floor(Math.random() * 100 + 1)}
-                content={
-                  <button
-                    className="e-thumbnail"
-                    aria-label="Thumbnail button that opens the image in a larger view"
-                  >
-                    <img src="https://picsum.photos/80?random" alt="Thumbnail example image" />
-                  </button>
-                }
-              ></Badge>
-              <Badge
-                badgeColor={'red'}
-                type={'numbered'}
-                count={100}
-                content={
-                  <button
-                    className="e-thumbnail"
-                    aria-label="Thumbnail button that opens the image in a larger view"
-                  >
-                    <img src="https://picsum.photos/60?random" alt="Thumbnail example image" />
-                  </button>
-                }
-              ></Badge>
-
-              <Badge
-                badgeColor={'green'}
-                count={100}
-                type={'numbered'}
-                content={
-                  <button
-                    className="e-thumbnail"
-                    aria-label="Thumbnail button that opens the image in a larger view"
-                  >
-                    <img src="https://picsum.photos/60" alt="Thumbnail example image" />
-                  </button>
-                }
-              ></Badge>
-
-              <Badge
-                badgeColor={'black'}
-                count={100}
-                type={'numbered'}
-                content={
-                  <button
-                    className="e-thumbnail"
-                    aria-label="Thumbnail button that opens the image in a larger view"
-                  >
-                    <img src="https://picsum.photos/80?random" alt="Thumbnail example image" />
-                  </button>
-                }
-              ></Badge>
-            </div>
-
-            {/* ICONS */}
-            <div style={{ padding: '1rem', display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-              <Badge
-                type={'numbered'}
-                count={100}
-                badgeColor={'black'}
-                content={
-                  <button className="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
-                    <span className="e-btn__icon">
-                      <i className="e-icon e-icon--upload" aria-hidden="true"></i>
-                    </span>
-                  </button>
-                }
-              />
-
-              <button className="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
-                <span className="e-btn__icon">
-                  <i className="e-icon e-icon--upload" aria-hidden="true"></i>
-                </span>
-              </button>
-
-              <button
-                className="e-btn e-btn--icon"
-                aria-label="Beskrivelse av ikon-knapp"
-                onClick={() => console.log('hei hei her er jeg')}
-              >
-                <Badge
-                  count={Math.floor(Math.random() * 100 + 1)}
-                  type={'numbered'}
-                  badgeColor={'red'}
-                  content={
-                    <span className="e-btn__icon">
-                      <i className="e-icon e-icon--upload" aria-hidden="true"></i>
-                    </span>
-                  }
-                />
-              </button>
-
-              <button className="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
-                <Badge
-                  count={100}
-                  type={'numbered'}
-                  badgeColor={'black'}
-                  content={
-                    <span className="e-btn__icon">
-                      <i className="e-icon e-icon--profile" aria-hidden="true"></i>
-                    </span>
-                  }
-                />
-              </button>
-
-              <button className="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
-                <Badge
-                  content={
-                    <span className="e-btn__icon">
-                      <i className="e-icon e-icon--filter" aria-hidden="true"></i>
-                    </span>
-                  }
-                />
-              </button>
-            </div>
-          </div>
+          <div className="e-bg-white"></div>
           {/* Inverted version */}
-          <div className="e-bg-grey">
-            <button className="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
-              <Badge
-                content={
-                  <span className="e-btn__icon">
-                    <i className="e-icon e-icon--filter e-icon--inverted" aria-hidden="true"></i>
-                  </span>
-                }
-              />
-            </button>
-
-            <button className="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
-              <Badge
-                badgeColor={'white'}
-                content={
-                  <span className="e-btn__icon">
-                    <i className="e-icon e-icon--profile e-icon--inverted" aria-hidden="true"></i>
-                  </span>
-                }
-              />
-            </button>
-
-            <button className="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
-              <Badge
-                badgeColor={'red'}
-                content={
-                  <span className="e-btn__icon">
-                    <i className="e-icon e-icon--upload e-icon--inverted" aria-hidden="true"></i>
-                  </span>
-                }
-              />
-            </button>
-
-            <button className="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
-              <Badge
-                type={'numbered'}
-                count={Math.floor(Math.random() * 100 + 1)}
-                content={
-                  <span className="e-btn__icon">
-                    <i className="e-icon e-icon--call e-icon--inverted" aria-hidden="true"></i>
-                  </span>
-                }
-              />
-            </button>
-
-            <button className="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
-              <Badge
-                type={'numbered'}
-                count={Math.floor(Math.random() * 100 + 1)}
-                badgeColor={'white'}
-                content={
-                  <span className="e-btn__icon">
-                    <i className="e-icon e-icon--box e-icon--inverted" aria-hidden="true"></i>
-                  </span>
-                }
-              />
-            </button>
-
-            <button className="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
-              <Badge
-                type={'numbered'}
-                count={Math.floor(Math.random() * 100 + 1)}
-                badgeColor={'red'}
-                content={
-                  <span className="e-btn__icon">
-                    <i className="e-icon e-icon--filter e-icon--inverted" aria-hidden="true"></i>
-                  </span>
-                }
-              />
-            </button>
-          </div>
+          <div className="e-bg-grey"></div>
         </div>
         {/* ACCORDION */}
         <div className="example-wrapper">
@@ -385,10 +138,55 @@ function App() {
             }
           ></Accordion>
         </div>
+
+        {/* BADGE */}
+        <div className="example-wrapper">
+          <h3>Badge</h3>
+
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <Badge
+              content={
+                <button
+                  className="e-thumbnail"
+                  aria-label="Thumbnail button that opens the image in a larger view"
+                >
+                  <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+                </button>
+              }
+            />
+
+            <Badge
+              badgeColor={'red'}
+              type={'numbered'}
+              count={8}
+              content={
+                <button
+                  className="e-thumbnail"
+                  aria-label="Thumbnail button that opens the image in a larger view"
+                >
+                  <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+                </button>
+              }
+            />
+
+            <Badge
+              badgeColor={'black'}
+              type={'numbered'}
+              count={101}
+              content={
+                <button
+                  className="e-thumbnail"
+                  aria-label="Thumbnail button that opens the image in a larger view"
+                >
+                  <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+                </button>
+              }
+            />
+          </div>
+        </div>
         {/* BOX */}
         <div className="example-wrapper">
           <h3>Box</h3>
-
           <Box
             hasBorder={true}
             isColored={true}
@@ -396,6 +194,7 @@ function App() {
             content={<div>Heisann dette er en box component sendt med som node i react</div>}
           ></Box>
         </div>
+
         {/* BREADCRUMB */}
         <div className="example-wrapper">
           <h3>Breadcrumb</h3>
@@ -449,8 +248,6 @@ function App() {
             value="Selectable"
             color="red"
           ></Chip>
-
-          <Chip type={'choice'} value={2022} isSelected={true}></Chip>
         </div>
         {/* DATEPICKER */}
         <div className="example-wrapper">
@@ -470,8 +267,14 @@ function App() {
         {/* DROPDOWN */}
         <div className="example-wrapper">
           <h3>Dropdown</h3>
-
-          <Dropdown items={dropdownOptions} value={defaultDropdownOptions} label="test" isMulti></Dropdown>
+          <Dropdown
+            items={dropdownOptions}
+            value={defaultDropdownOptions}
+            label="test"
+            hasLoadMoreItemsButton
+            isLoadingMoreItems={isLoadingMoreItems}
+            onLoadMoreItems={onLoadMoreItems}
+          ></Dropdown>
         </div>
         {/* ICON */}
         <div className="example-wrapper">
@@ -482,11 +285,9 @@ function App() {
         {/* MODAL */}
         <div className="example-wrapper">
           <h3>Modal</h3>
-
           <button className="e-btn" onClick={() => setIsModalShowingState(true)}>
             Show modal
           </button>
-
           <Modal
             isShowing={isModalShowing}
             hasCloseButton
@@ -509,7 +310,7 @@ function App() {
           ></Pagination>
         </div>
         {/* POPOVER */}
-        {/* <div className="example-wrapper">
+        <div className="example-wrapper">
           <h3>Popover</h3>
           <Popover
             heading="BankID"
@@ -522,13 +323,11 @@ function App() {
             onOpen={() => setIsPopoverShowingState(true)}
             onClose={() => setIsPopoverShowingState(false)}
           ></Popover>
-        </div> */}
+        </div>
         {/* PROGRESS LINEAR */}
         <div className="example-wrapper">
           <h3>ProgressLinear</h3>
-
           <ProgressLinear value={progressValue}></ProgressLinear>
-
           <button className="e-btn e-mr-8" onClick={decreaseProgress}>
             Decrease
           </button>
@@ -539,7 +338,6 @@ function App() {
         {/* RADIO FILTER */}
         <div className="example-wrapper">
           <h3>Radio filter</h3>
-
           <RadioFilter
             items={radioFilterOptions}
             ariaLabel={`${selectedRadioFilter} filtrering valgt`}
