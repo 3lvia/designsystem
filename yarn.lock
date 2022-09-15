@@ -2702,6 +2702,7 @@ __metadata:
   resolution: "@elvia/elvis-icon@workspace:packages/components/components/elvis-icon"
   dependencies:
     "@elvia/elvis-assets-icons": ^2.4.2
+    "@elvia/elvis-colors": ^1.4.2
     "@elvia/elvis-component-wrapper": ^2.2.2
   languageName: unknown
   linkType: soft
@@ -2711,6 +2712,7 @@ __metadata:
   resolution: "@elvia/elvis-icon@portal:../components/components/elvis-icon::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-assets-icons": ^2.4.2
+    "@elvia/elvis-colors": ^1.4.2
     "@elvia/elvis-component-wrapper": ^2.2.2
   languageName: node
   linkType: soft
