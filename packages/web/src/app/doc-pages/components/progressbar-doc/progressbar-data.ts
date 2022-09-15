@@ -20,7 +20,10 @@ export const progressbarData: ComponentData = {
       cegCounterMin: 0,
       cegStepValue: 10,
       cegCounterType: '%',
-      cegDependency: [{ name: 'isIndeterminate', value: 'false' }],
+      cegDependency: [
+        { name: 'isIndeterminate', value: 'false' },
+        { name: 'isError', value: 'false' },
+      ],
     },
     isIndeterminate: {
       isRequired: false,
