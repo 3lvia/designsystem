@@ -295,6 +295,8 @@ module.exports = [
       { name: 'noOptionsMessage', type: 'string', propType: 'string | undefined' },
       { name: 'placeholder', type: 'string', propType: 'string | undefined' },
       { name: 'placeholderIcon', type: 'string', propType: 'string | undefined' },
+      { name: 'hasLoadMoreItemsButton', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'isLoadingMoreItems', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
     ],
