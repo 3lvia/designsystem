@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useConnectedOverlay } from '@elvia/elvis-toolbox';
+import { useConnectedOverlay, isSsr } from '@elvia/elvis-toolbox';
 import { TooltipPosition, TooltipProps } from './elviaTooltip.types';
 import { arrowSize, TooltipPopup, TriggerContainer } from './styledComponents';
 import { mapPositionToHorizontalPosition, mapPositionToVerticalPosition } from './mapPosition';
@@ -29,18 +29,25 @@ export const Tooltip: React.FC<TooltipProps> = ({
     });
 
   const onOpen = (delay = true): void => {
-    window.clearTimeout(timeoutId);
-    timeoutId = window.setTimeout(
-      () => {
-        setFadeOut(false);
-        setIsShowing(true);
-      },
-      delay ? showDelay : 0,
-    );
+    if (isSsr()) {
+      setFadeOut(false);
+      setIsShowing(true);
+    } else {
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(
+        () => {
+          setFadeOut(false);
+          setIsShowing(true);
+        },
+        delay ? showDelay : 0,
+      );
+    }
   };
 
   const onClose = (): void => {
-    window.clearTimeout(timeoutId);
+    if (!isSsr()) {
+      window.clearTimeout(timeoutId);
+    }
     setFadeOut(true);
   };
 
