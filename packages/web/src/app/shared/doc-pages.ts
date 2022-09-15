@@ -1,6 +1,5 @@
-import { DocPage } from './doc-pages.interface';
-import { Pages } from './pages.enum';
-import { DocPageStatus } from './doc-page-status';
+import { DocPage } from './shared.interface';
+import { Pages, DocPageStatus } from './shared.enum';
 
 // Used for shortcuts at home page
 export const homeMenu: DocPage[] = [
