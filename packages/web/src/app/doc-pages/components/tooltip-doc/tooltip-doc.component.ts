@@ -5,7 +5,6 @@ import { tooltipData } from './tooltip-data';
 @Component({
   selector: 'app-tooltip-doc',
   templateUrl: './tooltip-doc.component.html',
-  styleUrls: ['./tooltip-doc.component.scss'],
 })
 export class TooltipDocComponent {
   componentData = tooltipData;
