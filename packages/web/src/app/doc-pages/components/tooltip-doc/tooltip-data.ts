@@ -36,7 +36,7 @@ export const tooltipData: ComponentData = {
       cegType: 'number',
       cegFormType: 'counter',
       cegDefault: 400,
-      cegCounterMax: 2000,
+      cegCounterMax: 800,
       cegCounterMin: 0,
       cegStepValue: 100,
       cegCounterType: 'ms',
