@@ -26,6 +26,10 @@
       &.small {
         width: 22px;
       }
+      &.disabled {
+        color: var(--e-grey-30);
+        cursor: not-allowed;
+      }
     }
   }
 }
