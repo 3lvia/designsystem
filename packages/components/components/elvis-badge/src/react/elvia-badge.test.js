@@ -41,7 +41,6 @@ describe('Elvis Badge', () => {
       wrapper = mount(
         <Badge
           count={53}
-          type="numbered"
           content={
             <span className="e-btn__icon">
               <i className="e-icon e-icon--upload" aria-hidden="true"></i>
@@ -74,7 +73,6 @@ describe('Elvis Badge', () => {
       wrapper = mount(
         <Badge
           count={101}
-          type="numbered"
           content={
             <span className="e-btn__icon">
               <i className="e-icon e-icon--upload" aria-hidden="true"></i>
@@ -107,7 +105,6 @@ describe('Elvis Badge', () => {
       wrapper = mount(
         <Badge
           count={101}
-          type="numbered"
           badgeColor="red"
           content={
             <span className="e-btn__icon">

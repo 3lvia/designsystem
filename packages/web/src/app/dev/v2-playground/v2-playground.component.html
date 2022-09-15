@@ -30,6 +30,38 @@
     </elvia-accordion>
   </div>
 
+  <!-- Badge -->
+  <div class="example-wrapper">
+    <h3>Badge</h3>
+    <elvia-badge [count]="0">
+      <button
+        class="e-thumbnail"
+        aria-label="Thumbnail button that opens the image in a larger view"
+        slot="content"
+      >
+        <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+      </button>
+    </elvia-badge>
+    <elvia-badge [count]="10" [badgeColor]="'red'">
+      <button
+        class="e-thumbnail"
+        aria-label="Thumbnail button that opens the image in a larger view"
+        slot="content"
+      >
+        <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+      </button>
+    </elvia-badge>
+    <elvia-badge [count]="101" [badgeColor]="'black'">
+      <button
+        class="e-thumbnail"
+        aria-label="Thumbnail button that opens the image in a larger view"
+        slot="content"
+      >
+        <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+      </button>
+    </elvia-badge>
+  </div>
+
   <!--Box-->
   <div class="example-wrapper">
     <h3>Box</h3>

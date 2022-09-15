@@ -38,18 +38,6 @@ export const badgeData: ComponentData = {
       cegCounterMin: 0,
       cegStepValue: 1,
       cegCounterType: '',
-      /* cegDependency: [{ name: 'type', value: 'numbered' }], virker ikke som forventet. må oppdateres */
-    },
-    type: {
-      isRequired: false,
-      type: 'color | numbered',
-      description: 'The type of badge decides if the badge is only color or if it will contain a number too',
-      default: '"color"',
-
-      cegDefault: 0, // Default index from the options array
-      cegType: 'string', // The type of the values sent in with the attribute
-      cegFormType: 'type', // Name of the type of content (how to show it in the CEG)
-      cegOptions: ['color', 'numbered'], // Option in the dropdown and the value sent in with the attribute in the code.
     },
     className: {
       isRequired: false,

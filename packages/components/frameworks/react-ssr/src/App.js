@@ -157,7 +157,6 @@ function App() {
 
             <Badge
               badgeColor={'red'}
-              type={'numbered'}
               count={8}
               content={
                 <button
@@ -171,8 +170,19 @@ function App() {
 
             <Badge
               badgeColor={'black'}
-              type={'numbered'}
               count={101}
+              content={
+                <button
+                  className="e-thumbnail"
+                  aria-label="Thumbnail button that opens the image in a larger view"
+                >
+                  <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+                </button>
+              }
+            />
+
+            <Badge
+              badgeColor={'black'}
               content={
                 <button
                   className="e-thumbnail"

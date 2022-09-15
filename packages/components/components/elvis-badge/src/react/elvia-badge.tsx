@@ -1,10 +1,9 @@
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import React, { CSSProperties, useEffect, useRef } from 'react';
 import { BadgeCircle } from './styledComponents';
-import { BadgeColor, BadgeType } from './elvia-badge.types';
+import { BadgeColor } from './elvia-badge.types';
 
 export interface BadgeProps {
-  type?: BadgeType;
   badgeColor?: BadgeColor;
   className?: string;
   content?: JSX.Element;
@@ -14,7 +13,6 @@ export interface BadgeProps {
 }
 
 const Badge: React.FC<BadgeProps> = ({
-  type = 'color',
   badgeColor = 'green',
   className,
   content,
@@ -38,13 +36,13 @@ const Badge: React.FC<BadgeProps> = ({
   }, [webcomponent]);
 
   /**
-   * If the count is undefined or the type is color, return undefined. If the count is greater than 99,
+   * If the count is undefined return undefined. If the count is greater than 99,
    * return '99+'. Otherwise, return the count as a string.
    * @param {number | undefined} count - The number of notifications.
    * @returns The count is being returned as a string.
    */
   const getCount = (count: number | undefined) => {
-    if (!count || type === 'color') {
+    if (!count) {
       return;
     }
     if (count > 99) {

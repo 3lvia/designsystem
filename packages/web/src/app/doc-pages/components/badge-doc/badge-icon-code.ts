@@ -7,11 +7,11 @@ const badgeIconCode = {
     <span slot="content"class="e-btn__icon">
       <i class="e-icon e-icon--notification-bold" aria-hidden="true"></i>
     </span>
-  } count={12} type={"numbered"} badgeColor="red"/>
+  } count={12} badgeColor="red"/>
 </button>`,
   /* Må bekreftes */
   codeAngular: `<button class="e-btn e-btn--icon e-mr-8" aria-label="Beskrivelse av ikon-knapp">
-  <elvia-badge [badgeColor]="red" [type]="numbered" [count]="12">
+  <elvia-badge [badgeColor]="red" [count]="12">
      <span slot="content"class="e-btn__icon">
         <i class="e-icon e-icon--notification-bold" aria-hidden="true"></i>
      </span>
@@ -19,14 +19,14 @@ const badgeIconCode = {
 </button>`,
   /* Må Bekreftes */
   codeVue: `<button class="e-btn e-btn--icon e-mr-8" aria-label="Beskrivelse av ikon-knapp">
-  <elvia-badge :badgeColor="red" :type="numbered" :count="12">
+  <elvia-badge :badgeColor="red" :count="12">
      <span slot="content"class="e-btn__icon">
         <i class="e-icon e-icon--notification-bold" aria-hidden="true"></i>
      </span>
   </elvia-badge>
 </button>`,
   codeNativeHTML: `<button class="e-btn e-btn--icon e-mr-8" aria-label="Beskrivelse av ikon-knapp">
-  <elvia-badge badgeColor="red" type="numbered" count="12">
+  <elvia-badge badgeColor="red" count="12">
      <span slot="content"class="e-btn__icon">
         <i class="e-icon e-icon--notification-bold" aria-hidden="true"></i>
      </span>
