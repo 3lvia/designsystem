@@ -11,16 +11,7 @@
   <div *ngIf="screenSize === 'desktop'" class="desktop">
     <iframe #iframeDesktop src="about:blank" title="Iframe showing component on a desktop"></iframe>
   </div>
-  <div *ngIf="screenSize === 'tablet'" class="tablet">
-    <div class="tablet__elvia">Elvia</div>
-    <div class="tablet__notch">
-      <div class="speaker"></div>
-    </div>
-    <div class="tablet__camera"></div>
-    <div class="tablet__time">{{ now | date: 'hh:mm' }}</div>
-    <iframe #iframeTablet src="about:blank" title="Iframe showing component on a tablet"></iframe>
-  </div>
-  <div *ngIf="screenSize === 'phone'" class="phone" [ngClass]="{ 'no-padding-x': noPaddingX }">
+  <div *ngIf="screenSize === 'phone'" class="phone">
     <div class="phone__elvia">Elvia</div>
     <div class="phone__notch">
       <div class="speaker"></div>
