@@ -2263,7 +2263,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
-    "@elvia/elvis-colors": ^1.2.1
+    "@elvia/elvis-colors": ^1.4.2
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-svgmin: ^4.1.0
@@ -2275,7 +2275,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@portal:../elvis-assets-icons::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-colors": ^1.2.1
+    "@elvia/elvis-colors": ^1.4.2
   languageName: node
   linkType: soft
 

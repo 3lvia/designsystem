@@ -5,24 +5,6 @@
     [ngClass]="{ 'e-bg-grey': isInverted || darkGreyBg, 'e-bg-grey-05': greyBg }"
     *ngIf="showPreview"
   >
-    <!--Screen tabs-->
-    <div class="top-menu">
-      <div class="e-w-100 e-mb-24" *ngIf="showIframeScreens && showTabs">
-        <elvia-tabs
-          (valueOnChange)="changeTab($event.detail.value)"
-          [isInverted]="isInverted || darkGreyBg"
-          [items]="tabs"
-          [value]="activeTab"
-        ></elvia-tabs>
-      </div>
-      <div class="dark-mode-toggle e-mb-24" *ngIf="codeInverted != ''">
-        <label class="e-toggle" role="switch" [ngClass]="{ 'e-toggle--inverted': isInverted }">
-          Inverted
-          <input class="e-toggle__input" type="checkbox" (change)="toggleInverted()" [checked]="isInverted" />
-        </label>
-      </div>
-    </div>
-
     <!--Visual example-->
     <div
       class="component-preview component-preview-animation"
@@ -30,41 +12,24 @@
     >
       <div
         class="element"
-        *ngIf="!showIframeScreens || (!showIframe && screenTabOpen == 'desktop')"
         [ngClass]="{
           'e-bg-grey': isInverted || darkGreyBg,
-          'e-bg-grey-05': greyBg,
-          'no-padding-desk': noPaddingDesk
+          'e-bg-grey-05': greyBg
         }"
       >
-        <div #defaultFrame></div>
-      </div>
-      <div
-        class="element screens"
-        *ngIf="(showIframeScreens && showIframe) || (showIframeScreens && screenTabOpen != 'desktop')"
-        [ngClass]="{ 'e-bg-grey': isInverted || darkGreyBg, 'e-bg-grey-05': greyBg }"
-      >
-        <div [ngClass]="{ hide: screenTabOpen !== 'desktop' || noDesktop }">
+        <div *ngIf="!showIframeDesktop && !isMobileExample" #defaultFrame></div>
+        <div *ngIf="showIframeDesktop">
           <app-iframe-screen
             [codeHTML]="displayCode"
             [overwriteHeight]="overwriteHeight"
-            [overwriteHeightTablet]="overwriteHeightTablet"
-            [overwriteHeightPhone]="overwriteHeightPhone"
             [screenSize]="'desktop'"
           ></app-iframe-screen>
         </div>
-        <div [ngClass]="{ hide: screenTabOpen !== 'tablet' || noTablet }">
+        <div *ngIf="isMobileExample">
           <app-iframe-screen
             [codeHTML]="displayCode"
-            [screenSize]="'tablet'"
-            [noPaddingX]="noPaddingX"
-          ></app-iframe-screen>
-        </div>
-        <div [ngClass]="{ hide: screenTabOpen !== 'phone' || noPhone }">
-          <app-iframe-screen
-            [codeHTML]="displayCode"
+            [overwriteHeight]="overwriteHeight"
             [screenSize]="'phone'"
-            [noPaddingX]="noPaddingX"
           ></app-iframe-screen>
         </div>
       </div>
@@ -79,7 +44,6 @@
           [codeTS]="codeTS"
           [codeHTML]="codeHTML"
           [codeCSS]="codeCSS"
-          [isJS]="isJS"
           [codeInverted]="codeInverted"
           [isInverted]="isInverted"
           [noSubscriptions]="'true'"

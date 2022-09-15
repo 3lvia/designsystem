@@ -21,7 +21,6 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   @Input() codeVue = '';
   @Input() codeInverted = '';
   @Input() isInverted = false;
-  @Input() isJS = false;
   @Input() doDontComp = false;
   @Input() noSubscriptions = false;
 
@@ -125,9 +124,6 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     }
     if (this.codeTS !== '') {
       tabs.push('Typescript');
-    }
-    if (this.isJS && this.codeTS != '') {
-      tabs.push('Javascript');
     }
     if (this.codeCSS !== '') {
       tabs.push('CSS');
