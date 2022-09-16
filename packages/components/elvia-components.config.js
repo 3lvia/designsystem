@@ -429,6 +429,16 @@ module.exports = [
     reactTypescriptDeclaration: true,
   },
   {
+    name: 'elvis-slider',
+    elementName: 'elvia-slider',
+    attributes: [{ name: 'type', type: 'string', propType: 'string | undefined' }],
+    slotItems: true,
+    reactName: 'Slider',
+    /* conditionalElementStyle: [{ name: 'orientation', value: 'horizontal', style: `width: 100%;` }], */
+    useWrapper: true,
+    reactTypescriptDeclaration: true,
+  },
+  {
     name: 'elvis-spotlight',
     elementName: 'elvia-spotlight',
     attributes: [
