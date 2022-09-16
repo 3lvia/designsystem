@@ -16,6 +16,7 @@ import { Pagination } from '@elvia/elvis-pagination/react';
 import { Popover } from '@elvia/elvis-popover/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
+import { Slider } from '@elvia/elvis-slider/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
@@ -116,7 +117,25 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white"></div>
+          <div className="e-bg-white">
+            <h4>Simple</h4>
+            <Slider min={10} max={200} disabled={false} />
+
+            <div style={{ height: '3rem', margin: '1rem' }}></div>
+
+            <h4>Range</h4>
+            <Slider sliderType={'range'} min={0} max={500} disabled={false} />
+
+            <div style={{ height: '5rem', margin: '1rem' }}></div>
+            <Divider />
+            <h4>Disabled Simple</h4>
+            <Slider min={10} max={200} disabled={true} />
+
+            <div style={{ height: '3rem', margin: '1rem' }}></div>
+
+            <h4>Disabled Range</h4>
+            <Slider sliderType={'range'} min={0} max={500} disabled={true} />
+          </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>
