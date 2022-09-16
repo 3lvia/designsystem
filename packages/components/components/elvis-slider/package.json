@@ -1,0 +1,18 @@
+{
+  "name": "@elvia/elvis-slider",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "",
+  "main": "web_component.js",
+  "dependencies": {
+    "@elvia/elvis-colors": "^1.2.0",
+    "@elvia/elvis-component-wrapper": "^2.2.2",
+    "styled-components": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "react-is": ">=16.8.0"
+  }
+}
