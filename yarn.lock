@@ -2875,6 +2875,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@elvia/elvis-slider@workspace:packages/components/components/elvis-slider":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-slider@workspace:packages/components/components/elvis-slider"
+  dependencies:
+    "@elvia/elvis-colors": ^1.2.0
+    "@elvia/elvis-component-wrapper": ^2.2.2
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-is: ">=16.8.0"
+  languageName: unknown
+  linkType: soft
+
 "@elvia/elvis-spotlight@*, @elvia/elvis-spotlight@workspace:packages/components/components/elvis-spotlight":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-spotlight@workspace:packages/components/components/elvis-spotlight"
