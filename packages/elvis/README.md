@@ -56,9 +56,8 @@ Read about the
   To deprecate an Elvis class, add it to the `deprecated-classes.json` file located at
   `packages/elvis/.internal/deprecated-classes.json`.
 
-  Additions to the deprecated classes list should follow the pre-defined structure. To get started quickly,
-  copy an existing entry and change the values. Place new additions as the first element within the JSON
-  object.
+  To get started quickly, copy an existing entry and change the values. Place new additions as the first
+  element within the JSON object.
 
   ```json
       "e-deprecated-class": {
@@ -73,21 +72,12 @@ Read about the
       }
   ```
 
-  `e-deprecated-class`: name of the deprecated class.
+  Glossary:
 
-  `deprecateChildren`: Boolean. If true; deprecates all other Elvis classes containing the name defined above.
+  - `deprecateChildren`: If true, all other Elvis classes that include the name specified above will be
+    deprecated.
 
-  `version`: The version the class became deprecated.
-
-  `replacement`: A object containing information about the replacement (optional)
-
-  `replacement.name`: The name of the replacement
-
-  `replacement.type`: The type of replacement (component, class, pattern etc...)
-
-  `replacement.documentation`: A link to documentation for the replacement
-
-  `sunset`: A vague estimate of when the classes will be removed from Elvis (optional).
+  - `sunset`: An approximate date of when classes will be removed from Elvis (optional).
 
 #### Step 0 - Before you begin
 
@@ -163,21 +153,3 @@ information on how to use them.
    master.
 7. **Publish to NPM**: by navigating to `packages/elvis` in master (after pulling the updates) and use the
    command `npm publish --otp=<code>`.
-
-?. **Deprecate outdated classes**: To deprecate an Elvis class, add it to the `deprecated-classes.json` file
-located at `packages/elvis/.internal/deprecated-classes.json`.
-
-Additions to the deprecated classes list should follow the pre-defined structure. To get started quickly, copy
-an existing entry and change the values. Place new additions as the first element within the JSON object.
-
-```json
-    "e-deprecated-class": { //name of the deprecated class
-        "deprecateChildren": true, //if true; deprecates all other Elvis classes starting with the name defined above
-        "version": "2.0.0", //the version the class became deprecated
-        "replacement": {
-    	    "name": "e-better-replacement", //the name of the replacement
-    	    "type": "class", //the type of replacement (component, class, pattern etc...)
-    	    "documentation": "https://design.elvia.io/e-better-replacement" //link to documentation for the replacement
-        }
-    }
-```
