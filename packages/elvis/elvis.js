@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   outlineFix();
 
-/* A MutationObserver that is watching for changes in the DOM. */
+  /* A MutationObserver that is watching for changes in the DOM. */
   let mo = new MutationObserver(function (mutations) {
     for (let i = 0; i < mutations.length; i++) {
       injectIconIfEligible(mutations[i].target, mutations[i]);
@@ -127,49 +127,55 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-/**
- * Generate a deprecation warning for the usage of a deprecated Elvis class.
- * @param {Object} usedDeprecatedClass - The deprecated Elvis class
- * @param {string} usedDeprecatedClass.name - The name of the deprecated Elvis class
- * @param {string} usedDeprecatedClass.version - The version of the Elvis class became deprecated.
- * @param {Object} usedDeprecatedClass.replacement - The replacement for the deprecated Elvis class
- * @param {String} usedDeprecatedClass.replacement.name - The name of the replacement.
- * @param {String} usedDeprecatedClass.replacement.type - The type of the replacement, such as a pattern, class or component.
- * @param {String} usedDeprecatedClass.replacement.documentation - A link to the documentation for the replacement.
- * @param {String} usedDeprecatedClass.sunset - the sunset date.
- * @example generateDeprecationWarning(usedDeprecatedClass);
- */
- function generateDeprecationWarning({name, version, replacement, sunset}){
-  let sunsetString = sunset ? `The sunset date is set for ${sunset}.` : '';
-  let replacementString = replacement? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation}.` : '';
+  /**
+   * Generate a deprecation warning for the usage of a deprecated Elvis class.
+   * @param {Object} usedDeprecatedClass - The deprecated Elvis class
+   * @param {string} usedDeprecatedClass.name - The name of the deprecated Elvis class
+   * @param {string} usedDeprecatedClass.version - The version of the Elvis class became deprecated.
+   * @param {Object} usedDeprecatedClass.replacement - The replacement for the deprecated Elvis class
+   * @param {string} usedDeprecatedClass.replacement.name - The name of the replacement.
+   * @param {string} usedDeprecatedClass.replacement.type - The type of the replacement, such as a pattern, class or component.
+   * @param {string} usedDeprecatedClass.replacement.documentation - A link to the documentation for the replacement.
+   * @param {string} usedDeprecatedClass.sunset - the sunset date.
+   * @example generateDeprecationWarning(usedDeprecatedClass);
+   */
+  function generateDeprecationWarning({
+    name,
+    version,
+    replacement,
+    sunset
+  }) {
+    let sunsetString = sunset ? `The sunset date is set for ${sunset}.` : '';
+    let replacementString = replacement ? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation}.` : '';
+    
     return console.warn(`Deprecation warning: The Elvis class '${name}' has been deprecated since version ${version}. ${sunsetString} ${replacementString}`);
- }
+  }
 
- /* Array containing classes that have been warned to the user. Helps avoid duplicated errors in the console.*/
- const warnedClasses = [];
+  /* Array containing classes that have been warned to the user. Helps avoid duplicated errors in the console.*/
+  const warnedClasses = [];
 
   /** Create an array with all the classes used in the DOM starting with 'e-'. 
    * Use the filter to only include unique classes once. 
    * Then compare the used classes to the deprecated classes list. 
    * If deprecated classes are being used, warn the user in the console. */
-function checkDeprecatedElvisClass() {
-  if (localhost) {
-    
-    /* Getting all the classes that start with 'e-' and then it is filtering out the duplicates. https://stackoverflow.com/q/59162535/14447555*/
-    const usedClasses = [].concat(...[...document.querySelectorAll('[class^="e-"]')].map(element => [...element.classList])).filter((className, index, array) => array.indexOf(className) == index).sort();
-    
-    /* Checking if the used class is deprecated. */
-    usedClasses.forEach(usedClass => {
-      const usedDeprecatedClass = deprecatedElvisClasses.find(deprecatedElvisClass => deprecatedElvisClass.name === usedClass);
+  function checkDeprecatedElvisClass() {
+    if (localhost) {
 
-      // If the class is deprecated and has not been warned yet, warn the user.
-      if (usedDeprecatedClass && !warnedClasses.includes(usedDeprecatedClass.name)) {
-        warnedClasses.push(usedDeprecatedClass.name);
-        generateDeprecationWarning(usedDeprecatedClass);
-      }
-    });
+      /* Getting all the classes that start with 'e-' and then it is filtering out the duplicates. https://stackoverflow.com/q/59162535/14447555*/
+      const usedClasses = [].concat(...[...document.querySelectorAll('[class^="e-"]')].map(element => [...element.classList])).filter((className, index, array) => array.indexOf(className) == index).sort();
+
+      /* Checking if the used class is deprecated. */
+      usedClasses.forEach(usedClass => {
+        const usedDeprecatedClass = deprecatedElvisClasses.find(deprecatedElvisClass => deprecatedElvisClass.name === usedClass);
+
+        // If the class is deprecated and has not been warned yet, warn the user.
+        if (usedDeprecatedClass && !warnedClasses.includes(usedDeprecatedClass.name)) {
+          warnedClasses.push(usedDeprecatedClass.name);
+          generateDeprecationWarning(usedDeprecatedClass);
+        }
+      });
+    }
   }
-}
 
   function setCorrectColor(classList, icon) {
     let fill;
@@ -1338,69 +1344,23 @@ function checkDeprecatedElvisClass() {
       sunset: "March 2023"
       },
     {
-      name: "e-divider",
-      version: "2.9.22",
+      name: "e-link--jumbo",
+      version: "8.5.12",
       replacement: {
-          name: "Divider",
-          type: "component",
-          documentation: "https://design.elvia.io/components/divider",
+          name: "action group",
+          type: "pattern",
+          documentation: "https://design.elvia.io/patterns/groups",
           },
-      sunset: "March 2023"
+      
       },
     {
-      name: "e-divider--inverted",
-      version: "2.9.22",
+      name: "e-label",
+      version: "8.4.1",
       replacement: {
-          name: "Divider",
-          type: "component",
-          documentation: "https://design.elvia.io/components/divider",
-          },
-      sunset: "March 2023"
-      },
-    {
-      name: "e-divider--title",
-      version: "2.9.22",
-      replacement: {
-          name: "Divider",
-          type: "component",
-          documentation: "https://design.elvia.io/components/divider",
-          },
-      sunset: "March 2023"
-      },
-    {
-      name: "e-divider__title",
-      version: "2.9.22",
-      replacement: {
-          name: "Divider",
-          type: "component",
-          documentation: "https://design.elvia.io/components/divider",
-          },
-      sunset: "March 2023"
-      },
-    {
-      name: "e-divider--curved",
-      version: "2.9.22",
-      replacement: {
-          name: "Divider",
-          type: "component",
-          documentation: "https://design.elvia.io/components/divider",
-          },
-      sunset: "March 2023"
-      },
-    {
-      name: "e-link--external",
-      version: "7.4.0",
-      replacement: {
-          name: "e-link--new-tab",
+          name: "e-tag",
           type: "class",
-          documentation: "https://design.elvia.io/components/link#Type",
+          documentation: "https://design.elvia.io/components/tag",
           },
-      
-      },
-    {
-      name: "e-table__sort-header",
-      version: "7.5.0",
-      
       
       },
     {
@@ -1419,32 +1379,6 @@ function checkDeprecatedElvisClass() {
       name: "e-table__sort-icon",
       version: "8.0.4",
       
-      
-      },
-    {
-      name: "e-btn--icon.e-btn--danger",
-      version: "7.8.0",
-      
-      
-      },
-    {
-      name: "e-fileupload---hover",
-      version: "7.9.3",
-      replacement: {
-          name: "e-fileupload--dragover",
-          type: "class",
-          documentation: "https://design.elvia.io/components/file-upload#States",
-          },
-      
-      },
-    {
-      name: "e-link--jumbo",
-      version: "8.5.12",
-      replacement: {
-          name: "action group",
-          type: "pattern",
-          documentation: "https://design.elvia.io/patterns/groups",
-          },
       
       },
     {
@@ -1548,19 +1482,92 @@ function checkDeprecatedElvisClass() {
       
       },
     {
-      name: "e-label",
-      version: "8.4.1",
+      name: "e-fileupload---hover",
+      version: "7.9.3",
       replacement: {
-          name: "e-tag",
+          name: "e-fileupload--dragover",
           type: "class",
-          documentation: "https://design.elvia.io/components/tag",
+          documentation: "https://design.elvia.io/components/file-upload#States",
           },
       
+      },
+    {
+      name: "e-btn--icon.e-btn--danger",
+      version: "7.8.0",
+      
+      
+      },
+    {
+      name: "e-table__sort-header",
+      version: "7.5.0",
+      
+      
+      },
+    {
+      name: "e-link--external",
+      version: "7.4.0",
+      replacement: {
+          name: "e-link--new-tab",
+          type: "class",
+          documentation: "https://design.elvia.io/components/link#Type",
+          },
+      
+      },
+    {
+      name: "e-divider",
+      version: "2.9.22",
+      replacement: {
+          name: "Divider",
+          type: "component",
+          documentation: "https://design.elvia.io/components/divider",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-divider--inverted",
+      version: "2.9.22",
+      replacement: {
+          name: "Divider",
+          type: "component",
+          documentation: "https://design.elvia.io/components/divider",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-divider--title",
+      version: "2.9.22",
+      replacement: {
+          name: "Divider",
+          type: "component",
+          documentation: "https://design.elvia.io/components/divider",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-divider__title",
+      version: "2.9.22",
+      replacement: {
+          name: "Divider",
+          type: "component",
+          documentation: "https://design.elvia.io/components/divider",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-divider--curved",
+      version: "2.9.22",
+      replacement: {
+          name: "Divider",
+          type: "component",
+          documentation: "https://design.elvia.io/components/divider",
+          },
+      sunset: "March 2023"
       },
 ];
 
   let lastReplace = 0;
   const throttleReplaceInterval = 500;
+
   function replaceIcons() {
     // Simple throttle without handling the trailing case
     let ms = new Date().getTime();
