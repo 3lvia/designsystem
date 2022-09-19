@@ -5,7 +5,6 @@ import { badgeIconCode } from './badge-icon-code';
 @Component({
   selector: 'app-badge-doc',
   templateUrl: './badge-doc.component.html',
-  styleUrls: ['./badge-doc.component.scss'],
 })
 export class BadgeDocComponent {
   figmaUrl = getComponent('badge').figmaUrl;
