@@ -82,7 +82,6 @@ module.exports = [
     name: 'elvis-badge',
     elementName: 'elvia-badge',
     attributes: [
-      { name: 'type', type: 'string', propType: 'string | undefined' },
       { name: 'badgeColor', type: 'string', propType: 'string | undefined' },
       { name: 'count', type: 'number', propType: 'number | undefined' },
       { name: 'content', type: 'string', propType: 'string | HTMLElement' },
