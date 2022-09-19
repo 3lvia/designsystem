@@ -78,26 +78,21 @@
     },
     "sunset": "March 2023"
   },
-  "e-divider": {
-    "deprecateChildren": true,
-    "version": "2.9.22",
+  "e-link--jumbo": {
+    "version": "8.5.12",
     "replacement": {
-      "name": "Divider",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/divider"
-    },
-    "sunset": "March 2023"
-  },
-  "e-link--external": {
-    "version": "7.4.0",
-    "replacement": {
-      "name": "e-link--new-tab",
-      "type": "class",
-      "documentation": "https://design.elvia.io/components/link#Type"
+      "name": "action group",
+      "type": "pattern",
+      "documentation": "https://design.elvia.io/patterns/groups"
     }
   },
-  "e-table__sort-header": {
-    "version": "7.5.0"
+  "e-label": {
+    "version": "8.4.1",
+    "replacement": {
+      "name": "e-tag",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/tag"
+    }
   },
   "e-table__sort-icon--inactive": {
     "version": "8.0.4"
@@ -107,25 +102,6 @@
   },
   "e-table__sort-icon": {
     "version": "8.0.4"
-  },
-  "e-btn--icon.e-btn--danger": {
-    "version": "7.8.0"
-  },
-  "e-fileupload---hover": {
-    "version": "7.9.3",
-    "replacement": {
-      "name": "e-fileupload--dragover",
-      "type": "class",
-      "documentation": "https://design.elvia.io/components/file-upload#States"
-    }
-  },
-  "e-link--jumbo": {
-    "version": "8.5.12",
-    "replacement": {
-      "name": "action group",
-      "type": "pattern",
-      "documentation": "https://design.elvia.io/patterns/groups"
-    }
   },
   "e-link--card": {
     "version": "7.13.5",
@@ -144,12 +120,36 @@
       "documentation": "https://design.elvia.io/components/card"
     }
   },
-  "e-label": {
-    "version": "8.4.1",
+  "e-fileupload---hover": {
+    "version": "7.9.3",
     "replacement": {
-      "name": "e-tag",
+      "name": "e-fileupload--dragover",
       "type": "class",
-      "documentation": "https://design.elvia.io/components/tag"
+      "documentation": "https://design.elvia.io/components/file-upload#States"
     }
+  },
+  "e-btn--icon.e-btn--danger": {
+    "version": "7.8.0"
+  },
+  "e-table__sort-header": {
+    "version": "7.5.0"
+  },
+  "e-link--external": {
+    "version": "7.4.0",
+    "replacement": {
+      "name": "e-link--new-tab",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/link#Type"
+    }
+  },
+  "e-divider": {
+    "deprecateChildren": true,
+    "version": "2.9.22",
+    "replacement": {
+      "name": "Divider",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/divider"
+    },
+    "sunset": "March 2023"
   }
 }
