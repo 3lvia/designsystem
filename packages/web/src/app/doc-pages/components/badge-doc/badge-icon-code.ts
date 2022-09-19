@@ -9,7 +9,6 @@ const badgeIconCode = {
     </span>
   } count={12} badgeColor="red"/>
 </button>`,
-  /* Må bekreftes */
   codeAngular: `<button class="e-btn e-btn--icon e-mr-8" aria-label="Beskrivelse av ikon-knapp">
   <elvia-badge [badgeColor]="red" [count]="12">
      <span slot="content"class="e-btn__icon">
@@ -17,7 +16,6 @@ const badgeIconCode = {
      </span>
   </elvia-badge>
 </button>`,
-  /* Må Bekreftes */
   codeVue: `<button class="e-btn e-btn--icon e-mr-8" aria-label="Beskrivelse av ikon-knapp">
   <elvia-badge :badgeColor="red" :count="12">
      <span slot="content"class="e-btn__icon">
