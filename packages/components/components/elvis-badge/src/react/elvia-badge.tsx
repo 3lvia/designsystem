@@ -63,6 +63,7 @@ const Badge: React.FC<BadgeProps> = ({
       {...rest}
     >
       <div ref={contentRef ?? undefined}>{content}</div>
+      <div ref={contentRef}>{content}</div>
       <BadgeCircle count={getCount(count)} badgeColor={badgeColor} role="status" data-testid="badge-circle">
         {getCount(count)}
       </BadgeCircle>
