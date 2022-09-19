@@ -1,16 +1,6 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import React, { CSSProperties, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { BadgeCircle } from './styledComponents';
-import { BadgeColor } from './elvia-badge.types';
-
-export interface BadgeProps {
-  badgeColor?: BadgeColor;
-  className?: string;
-  content?: JSX.Element;
-  count?: number;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
-}
+import { BadgeProps } from './elvia-badge.types';
 
 const Badge: React.FC<BadgeProps> = ({
   badgeColor = 'green',
@@ -38,22 +28,24 @@ const Badge: React.FC<BadgeProps> = ({
   /**
    * If the count is undefined return undefined. If the count is greater than 99,
    * return '99+'. Otherwise, return the count as a string.
-   * @param {number | undefined} count - The number of notifications.
+   * @param {number | string | undefined} count - The number of notifications.
    * @returns The count is being returned as a string.
    */
-  const getCount = (count: number | undefined) => {
+  const getCount = (count: number | string | undefined) => {
     if (!count) {
       return;
     }
-    if (count > 99) {
+
+    if (+count > 99) {
       return '99+';
     }
+
     return count.toString();
   };
 
   return (
     <div
-      className={`${className ? className : ''}`}
+      className={`${className ?? ''}`}
       style={{
         width:
           'fit-content' /* This should possibly be changed if the component is to become more responsive in the future */,
@@ -62,7 +54,6 @@ const Badge: React.FC<BadgeProps> = ({
       }}
       {...rest}
     >
-      <div ref={contentRef ?? undefined}>{content}</div>
       <div ref={contentRef}>{content}</div>
       <BadgeCircle count={getCount(count)} badgeColor={badgeColor} role="status" data-testid="badge-circle">
         {getCount(count)}
