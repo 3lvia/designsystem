@@ -28,6 +28,11 @@ const getTextColor = (badgeColor: BadgeColor) => {
   return colors.elviaWhite;
 };
 
+export const BadgeContainer = styled.div`
+  width: fit-content;
+  position: relative;
+`;
+
 export const BadgeCircle = styled.div<BadgeCircleProps>`
   background-color: ${({ badgeColor }) => getColor(badgeColor)};
   border-radius: 50px;

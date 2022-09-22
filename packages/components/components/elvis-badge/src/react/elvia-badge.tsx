@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { BadgeCircle } from './styledComponents';
+import { BadgeCircle, BadgeContainer } from './styledComponents';
 import { BadgeProps } from './elvia-badge.types';
 
 const Badge: React.FC<BadgeProps> = ({
@@ -44,21 +44,12 @@ const Badge: React.FC<BadgeProps> = ({
   };
 
   return (
-    <div
-      className={`${className ?? ''}`}
-      style={{
-        width:
-          'fit-content' /* This should possibly be changed if the component is to become more responsive in the future */,
-        position: 'relative',
-        ...inlineStyle,
-      }}
-      {...rest}
-    >
+    <BadgeContainer className={`${className ?? ''}`} style={{ ...inlineStyle }} {...rest}>
       <div ref={contentRef}>{content}</div>
       <BadgeCircle count={getCount(count)} badgeColor={badgeColor} role="status" data-testid="badge-circle">
         {getCount(count)}
       </BadgeCircle>
-    </div>
+    </BadgeContainer>
   );
 };
 
