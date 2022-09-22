@@ -26,7 +26,6 @@ export const badgeData: ComponentData = {
     },
     count: {
       isRequired: false,
-      type: 'number | undefined',
       type: 'number | string | undefined',
       description: 'The number displayed inside the badge',
 
@@ -61,7 +60,7 @@ export const badgeData: ComponentData = {
       className="e-thumbnail"
       aria-label="Thumbnail button that opens the image in a larger view"
     >
-      <img src="../../../../assets/image.jpg" alt="Thumbnail example image" />
+      <img src="../../../../../assets/badge/image.jpg" alt="Thumbnail example image" />
     </button>
   }
 />`,
@@ -84,7 +83,7 @@ export const badgeData: ComponentData = {
     aria-label="Thumbnail button that opens the image in a larger view"
     slot="content"
    >
-    <img src="../../../../assets/image.jpg" alt="Thumbnail example image" />
+    <img src="../../../../../assets/badge/image.jpg" alt="Thumbnail example image" />
   </button>
 </elvia-badge>`,
   codeNativeHTML: `<elvia-badge
