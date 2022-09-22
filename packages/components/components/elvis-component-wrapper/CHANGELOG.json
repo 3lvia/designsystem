@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.09.22",
+      "version": "2.4.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Replace toolbox dependency with <span class=\"code-text\">lodash.throttle</span> directly"
+          ]
+        }
+      ]
+    },
+    {
       "date": "01.09.22",
       "version": "2.4.3",
       "changelog": [

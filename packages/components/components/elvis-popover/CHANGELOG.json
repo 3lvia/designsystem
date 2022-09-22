@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.09.22",
+      "version": "5.1.6",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Use throttle from <span class=\"code-text\">lodash.throttle</span> directly."]
+        }
+      ]
+    },
+    {
       "date": "12.09.22",
       "version": "5.1.5",
       "changelog": [
