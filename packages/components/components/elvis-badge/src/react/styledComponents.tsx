@@ -38,10 +38,10 @@ export const BadgeCircle = styled.div<BadgeCircleProps>`
   border-radius: 50px;
   color: ${({ badgeColor }) => getTextColor(badgeColor)}; //to-do add support for dark mode
   display: grid;
-  font-size: 9px;
+  font-size: 0.5625rem;
   font-weight: 600;
   height: 16px;
-  line-height: 12px;
+  line-height: 0.75rem;
   padding: ${({ count }) => (count === '99+' ? '2px 4px' : '2px 0px')};
   place-items: center;
   position: absolute;
