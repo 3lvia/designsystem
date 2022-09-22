@@ -1,0 +1,55 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
+  <ng-container ngProjectAs="headerTitle">Badge</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      The badge component acts as a wrapper. You should only use badges on Icon Button or Thumbnails. Note how
+      the badge places itself relative to its content, meaning you can place a badge component within other
+      elements, such as the icon in an Icon Button element. Use slots to give the badge its content.
+      <!-- noe mer? -->
+      <app-component-example-generator
+        [componentData]="badgeIconCode"
+        [inlineExample]="true"
+      ></app-component-example-generator>
+    </ng-container>
+  </app-component-section>
+
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <ng-container ngProjectAs="sectionContent">
+        You can't rely on the badge's content being announced correctly. You should include a detailed
+        description, such as
+        <span class="code-text">aria-label</span>
+        .
+      </ng-container>
+    </ng-container>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="'Properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
+    </ng-container>
+  </app-component-section>
+</div>

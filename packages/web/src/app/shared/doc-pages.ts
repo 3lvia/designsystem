@@ -83,6 +83,17 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
   },
   {
+    title: 'Badge',
+    // tslint:disable-next-line: max-line-length
+    description:
+      'A badge is a small visual indicator to communicate the status of an object, either as a numeric value or just a color. Examples of use are new notifications, unread messages or filter added.',
+    docUrl: Pages.Badge,
+    absolutePath: '/components/' + Pages.Badge,
+    status: DocPageStatus.Coming,
+    figmaUrl: 'https://www.figma.com/file/RDqaOx4hfYvZyQXtaqdkgA/Badge',
+    type: 'Component',
+  },
+  {
     title: 'Box',
     // tslint:disable-next-line: max-line-length
     description:

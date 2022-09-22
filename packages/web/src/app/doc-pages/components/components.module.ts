@@ -32,6 +32,7 @@ import { BoxDocModule } from './box-doc/box-doc.module';
 import { SpotlightDocModule } from './spotlight-doc/spotlight-doc.module';
 import { ThumbnailDocModule } from './thumbnail-doc/thumbnail-doc.module';
 import { AccordionGroupDocModule } from './accordion-group-doc/accordion-group-doc.module';
+import { BadgeDocModule } from './badge-doc/badge-doc.module';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { AccordionGroupDocModule } from './accordion-group-doc/accordion-group-d
     AccordionDocModule,
     AlertMessagesModule,
     AutocompleteDocModule,
+    BadgeDocModule,
     BoxDocModule,
     ButtonDocModule,
     BreadcrumbDocModule,
