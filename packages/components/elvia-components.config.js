@@ -83,7 +83,7 @@ module.exports = [
     elementName: 'elvia-badge',
     attributes: [
       { name: 'badgeColor', type: 'string', propType: 'string | undefined' },
-      { name: 'count', type: 'number', propType: 'number | undefined' },
+      { name: 'count', type: 'number', propType: 'number | string | undefined' },
       { name: 'content', type: 'string', propType: 'string | HTMLElement' },
     ],
     slotItems: true,

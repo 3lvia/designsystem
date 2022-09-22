@@ -27,6 +27,7 @@ export const badgeData: ComponentData = {
     count: {
       isRequired: false,
       type: 'number | undefined',
+      type: 'number | string | undefined',
       description: 'The number displayed inside the badge',
 
       //To-do: fikse at denne oppretter count prop-en dersom den ikke finnes fra
