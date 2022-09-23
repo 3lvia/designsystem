@@ -2,14 +2,14 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "23.09.22",
+      "date": "26.09.22",
       "version": "1.5.3",
       "changelog": [
         {
           "type": "patch",
           "changes": [
             "Use throttle from <span class=\"code-text\">lodash.throttle</span> directly.",
-            "Update dependency <span class=\"code-text\">@elvia/elvis-toolbox</span> to 3.0.1"
+            "Update dependency <span class=\"code-text\">@elvia/elvis-toolbox</span> to 4.0.0"
           ]
         }
       ]
