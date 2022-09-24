@@ -37,3 +37,5 @@ export type SliderErrors = {
   leftTextfield?: string;
   rightTextfield?: string;
 };
+
+export type TooltipPopupSides = 'left' | 'right';
