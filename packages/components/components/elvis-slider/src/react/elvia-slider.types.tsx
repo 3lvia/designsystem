@@ -5,13 +5,13 @@ export type SliderType = 'simple' | 'range';
 
 export interface SliderProps {
   className?: string;
-  disabled: boolean;
-  hasInputField: boolean;
+  disabled?: boolean;
+  hasInputField?: boolean;
   inlineStyle?: CSSProperties;
   max: number;
   min: number;
   sliderType?: SliderType;
-  step: number;
+  step?: number;
   webcomponent?: ElvisComponentWrapper;
 }
 
