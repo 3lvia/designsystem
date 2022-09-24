@@ -3,23 +3,23 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { TooltipPopupSides } from './elvia-slider.types';
 
+//#region Helpers
 const colors = {
   disabled: getColor('disabled'),
   elviaBlack: getColor('black'),
   elviaCharge: getColor('green'),
   elviaWhite: getColor('white'),
   error: getColor('red'),
-  grey10: getColor('grey-10'),
   grey20: getColor('grey-20'),
   grey30: getColor('grey-30'),
-  grey90: getColor('grey-90'),
 };
 
 const typography = {
   textInput: getTypographyCss('text-sm'),
 };
+//#endregion
 
-//#region Props
+//#region Types
 type StyledSliderProps = {
   sliderType: string;
 };
@@ -42,10 +42,9 @@ type SliderWrapperProps = {
 type InputFieldsContainerProps = {
   sliderType: string;
 };
-
 //#endregion
 
-//#region Pseudo elements
+//#region Slider + Slider pseudo elements
 const REMOVE_DEFAULT_STYLES = css`
   -moz-box-shadow: none;
   -webkit-appearance: none;
@@ -102,21 +101,19 @@ const DISABLED_THUMB = css`
   cursor: -webkit-not-allowed;
   cursor: not-allowed;
 `;
-
 //#endregion
 
-//#region Components
 export const SliderContainer = styled.div`
-  text-align: left;
   box-sizing: border-box;
+  text-align: left;
   width: 100%;
 `;
 
 export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
   align-items: flex-start;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
 
   > div {
     display: flex;
@@ -157,9 +154,9 @@ export const NumberInputContainer = styled.div`
 `;
 
 export const NumberInput = styled.input.attrs(() => ({
-  type: 'number',
-  pattern: '[-]?[0-9]*',
   inputMode: 'decimal',
+  pattern: '[-]?[0-9]*',
+  type: 'number',
 }))<NumberInputProps>`
   ${typography.textInput}
   -moz-appearance: textfield;
@@ -226,18 +223,17 @@ export const SliderWrapper = styled.div<SliderWrapperProps>`
 export const StyledSlider = styled.input.attrs(() => ({
   type: 'range',
 }))<StyledSliderProps>`
-  /* remove default styles */
   ${REMOVE_DEFAULT_STYLES}
 
   ::-webkit-slider-thumb {
     ${REMOVE_DEFAULT_STYLES}
   }
 
+  height: 0;
   pointer-events: ${(props) => (props.sliderType === 'simple' ? 'auto' : 'none')};
   position: absolute;
-  height: 0;
-  z-index: 3;
   transition-duration: 3s;
+  z-index: 3;
 
   ::-webkit-slider-thumb {
     ${THUMB};
@@ -321,7 +317,6 @@ export const SliderTrack = styled.div`
   z-index: 1;
 `;
 
-/* Uses the attrs method to avoid many new generation of classes */
 export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>((props) => ({
   style: {
     left: props.sliderType === 'range' ? `${props.trackWidth}px` : undefined,
@@ -334,10 +329,6 @@ export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>((props
   position: absolute;
   z-index: 2;
 `;
-
-//#endregion
-
-export const arrowSize = 6;
 
 export const TooltipFadeIn = keyframes`
   from {
@@ -399,9 +390,9 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
           transform-origin: center bottom;
 
           &::after {
-            border-left: ${arrowSize}px solid transparent;
-            border-right: ${arrowSize}px solid transparent;
-            border-top: ${arrowSize}px solid ${colors.elviaBlack};
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid ${colors.elviaBlack};
             top: 100%;
           }
         `;
@@ -420,7 +411,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
 `;
 
 /*
-Note that while we’re repeating code here, that’s necessary as you can’t comma-separate these type of selectors. 
+Note that while we’re repeating code in this file, that’s necessary as you can’t comma-separate the sliders pseudo elements type of selectors. 
 Browsers will drop the entire selector if it doesn’t understand a part of it.
 
 https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
