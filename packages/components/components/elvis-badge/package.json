@@ -1,15 +1,16 @@
 {
-  "name": "@elvia/elvis-timepicker",
-  "version": "1.0.2",
+  "name": "@elvia/elvis-badge",
+  "version": "1.0.0",
   "description": "",
   "license": "MIT",
   "author": "",
   "main": "web_component.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
-    "@elvia/elvis-colors": "^1.4.2",
+    "@elvia/elvis-colors": "^1.3.1",
     "@elvia/elvis-component-wrapper": "^2.2.2",
-    "@elvia/elvis-icon": "^1.3.2",
-    "@elvia/elvis-toolbox": "^3.0.0",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {
