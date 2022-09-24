@@ -1,90 +1,231 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
+import { getTypographyCss } from '@elvia/elvis-typography';
+import { TooltipPopupSides } from './elvia-slider.types';
 
 const colors = {
-  elviaWhite: getColor('white'),
+  disabled: getColor('disabled'),
   elviaBlack: getColor('black'),
   elviaCharge: getColor('green'),
+  elviaWhite: getColor('white'),
+  error: getColor('red'),
   grey10: getColor('grey-10'),
   grey20: getColor('grey-20'),
   grey30: getColor('grey-30'),
   grey90: getColor('grey-90'),
 };
 
-type StylesSliderProps = {
+const typography = {
+  textInput: getTypographyCss('text-sm'),
+};
+
+//#region Props
+type StyledSliderProps = {
   sliderType: string;
 };
 
 type SliderFilledTrackProps = {
-  trackWidth: string;
-  sliderType: string;
-  rangeTrackWidth: string;
   disabled: boolean;
+  rangeTrackWidth?: number;
+  sliderType: string;
+  trackWidth: number;
 };
 
-const REMOVE_DEFAULT_STYLES = `
+type NumberInputProps = {
+  max: number;
+};
+
+type SliderWrapperProps = {
+  leftOnTop: boolean;
+};
+
+type InputFieldsContainerProps = {
+  sliderType: string;
+};
+
+//#endregion
+
+//#region Pseudo elements
+const REMOVE_DEFAULT_STYLES = css`
+  -moz-box-shadow: none;
   -webkit-appearance: none;
+  -webkit-box-shadow: none;
   -webkit-tap-highlight-color: transparent;
+  box-shadow: none;
   margin: 0;
   padding: 0;
 `;
 
-const THUMB = `
+const THUMB = css`
   background-color: ${colors.elviaBlack};
-  border: solid 1.5px ${colors.elviaWhite};
   border-radius: 50%;
+  border: solid 1.5px ${colors.elviaWhite};
   cursor: pointer;
   height: 17px;
-  width: 17px;
+  opacity: 1;
   pointer-events: all;
   position: relative;
+  transition-duration: 0.15s;
   transition-property: height, width;
-  transition-duration: .15s;
+  width: 17px;
   z-index: 3;
 
   @media (hover: none) and (pointer: coarse) {
     border: solid 2px ${colors.elviaWhite};
     height: 25px;
     width: 25px;
-}
-`;
-
-const ACTIVE_THUMB = `
-background-color: ${colors.elviaCharge};
-border: solid 1px ${colors.elviaWhite};
-cursor: -webkit-grabbing;
-cursor: grabbing;
-  `;
-
-const FOCUS_OUTLINE_THUMB = `
-outline: 3px solid #0064fa;
-outline-offset: 1px;
-  `;
-
-const HOVER_THUMB = `
-border: solid 1px ${colors.elviaWhite};
-height: 20px;
-width: 20px;
-`;
-
-const DISABLED_THUMB = `
-background-color: ${colors.grey30};
-border: solid 1.5px ${colors.elviaWhite};
-cursor: -webkit-not-allowed;
-cursor: not-allowed;
-`;
-
-export const SliderWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  position: relative;
-
-  > * {
-    width: 100%;
   }
 `;
 
-export const StyledSlider = styled.input<StylesSliderProps>`
+const ACTIVE_THUMB = css`
+  background-color: ${colors.elviaCharge};
+  border: solid 1px ${colors.elviaWhite};
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+`;
+
+const FOCUS_OUTLINE_THUMB = css`
+  outline: 3px solid #0064fa;
+  outline-offset: 1px;
+`;
+
+const HOVER_THUMB = css`
+  border: solid 1px ${colors.elviaWhite};
+  height: 20px;
+  width: 20px;
+`;
+
+const DISABLED_THUMB = css`
+  background-color: ${colors.grey30};
+  opacity: 1;
+  border: solid 1.5px ${colors.elviaWhite};
+  cursor: -webkit-not-allowed;
+  cursor: not-allowed;
+`;
+
+//#endregion
+
+//#region Components
+export const SliderContainer = styled.div`
+  text-align: left;
+  box-sizing: border-box;
+  width: 100%;
+`;
+
+export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: flex-start;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  & > div:last-child {
+    ${(props) => {
+      if (props.sliderType === 'range') {
+        return 'align-items: flex-end;';
+      }
+      return '';
+    }}
+  }
+`;
+
+export const LabelText = styled.div`
+  background-color: ${colors.elviaWhite};
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 100%;
+  margin-left: 7px;
+  padding: 0 3px;
+  position: absolute;
+  text-transform: capitalize;
+  top: -7px;
+  z-index: 1;
+`;
+
+export const NumberInputContainer = styled.div`
+  box-sizing: border-box;
+  display: block;
+  margin-top: 7px;
+  position: relative;
+  text-align: left;
+`;
+
+export const NumberInput = styled.input.attrs(() => ({
+  type: 'number',
+  pattern: '[-]?[0-9]*',
+  inputMode: 'decimal',
+}))<NumberInputProps>`
+  ${typography.textInput}
+  -moz-appearance: textfield;
+  align-items: center;
+  background-color: ${colors.elviaWhite};
+  border-radius: 4px;
+  border: 1px solid ${colors.elviaBlack};
+  box-sizing: border-box;
+  display: flex;
+  max-width: 448px;
+  min-height: 34px;
+  min-width: 40px;
+  padding: 4px 10px;
+  position: relative;
+  text-align: left;
+  text-transform: unset;
+  width: ${(props) => props.max && props.max.toString().length * 17}px;
+
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  :focus {
+    border: 2px solid ${colors.elviaCharge};
+    padding: 3px 9px;
+  }
+
+  :disabled {
+    border-color: ${colors.disabled};
+    color: ${colors.disabled};
+    cursor: not-allowed;
+    user-select: none;
+  }
+
+  :disabled {
+    border-color: ${colors.disabled};
+    color: ${colors.disabled};
+    cursor: not-allowed;
+    user-select: none;
+  }
+
+  &[aria-invalid='true'] {
+    border: 2px solid ${colors.error};
+  }
+`;
+
+export const SliderWrapper = styled.div<SliderWrapperProps>`
+  align-items: center;
+  display: flex;
+  height: 2rem;
+  position: relative;
+
+  input[type='range'] {
+    width: 100%;
+  }
+
+  input[type='range']:first-child {
+    z-index: ${(props) => (props.leftOnTop ? 5 : 3)};
+  }
+`;
+
+export const StyledSlider = styled.input.attrs(() => ({
+  type: 'range',
+}))<StyledSliderProps>`
   /* remove default styles */
   ${REMOVE_DEFAULT_STYLES}
 
@@ -92,10 +233,11 @@ export const StyledSlider = styled.input<StylesSliderProps>`
     ${REMOVE_DEFAULT_STYLES}
   }
 
-  pointer-events: none;
+  pointer-events: ${(props) => (props.sliderType === 'simple' ? 'auto' : 'none')};
   position: absolute;
   height: 0;
   z-index: 3;
+  transition-duration: 3s;
 
   ::-webkit-slider-thumb {
     ${THUMB};
@@ -153,26 +295,128 @@ export const StyledSlider = styled.input<StylesSliderProps>`
   :disabled::-moz-range-thumb {
     ${DISABLED_THUMB}
   }
+
+  @media (hover: none) and (pointer: coarse) {
+    :active:enabled::-webkit-slider-thumb {
+      ${ACTIVE_THUMB}
+      height: 28px;
+      width: 28px;
+    }
+
+    /******** Firefox ********/
+    :active:enabled::-moz-range-thumb {
+      ${ACTIVE_THUMB}
+      height: 28px;
+      width: 28px;
+    }
+  }
 `;
 
 export const SliderTrack = styled.div`
-  position: absolute;
+  background-color: ${colors.grey20};
   border-radius: 50px;
   height: 3px;
-  background-color: ${colors.grey20};
+  position: absolute;
   width: 100%;
   z-index: 1;
 `;
-export const SliderFilledTrack = styled.div<SliderFilledTrackProps>`
-  position: absolute;
+
+/* Uses the attrs method to avoid many new generation of classes */
+export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>((props) => ({
+  style: {
+    left: props.sliderType === 'range' ? `${props.trackWidth}px` : undefined,
+    width: props.sliderType === 'simple' ? `${props.trackWidth}px` : `${props.rangeTrackWidth}px`,
+  },
+}))<SliderFilledTrackProps>`
+  background-color: ${(props) => (props.disabled ? colors.grey30 : colors.elviaBlack)};
   border-radius: 50px;
   height: 5px;
-  background-color: ${colors.elviaBlack};
-  background: ${(props) => (props.disabled ? colors.grey30 : colors.elviaBlack)};
-  width: ${(props) => (props.sliderType === 'simple' ? props.trackWidth : props.rangeTrackWidth)};
+  position: absolute;
   z-index: 2;
+`;
 
-  left: ${(props) => props.sliderType === 'range' && props.trackWidth};
+//#endregion
+
+export const arrowSize = 6;
+
+export const TooltipFadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  
+  to {
+    opacity: 1;
+  }
+  `;
+
+export const TooltipFadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  
+  to {
+    opacity: 0;
+  }
+`;
+
+export interface TooltipPopupProps {
+  position: 'top';
+  fadeOut: boolean;
+  side: TooltipPopupSides;
+}
+
+export const TooltipPopup = styled.div<TooltipPopupProps>`
+  ${getTypographyCss('text-sm')}
+  align-items: center;
+  animation: ${TooltipFadeIn} 200ms 1ms forwards;
+  background: ${colors.elviaBlack};
+  border-radius: 0.25rem;
+  color: ${colors.elviaWhite};
+  display: flex;
+  justify-content: center;
+  max-width: min(350px, 96%);
+  opacity: 0;
+  padding: 0.5rem 0.625rem;
+  position: absolute;
+  top: -46px;
+  user-select: none;
+
+  transform: ${(props) => (props.side === 'left' ? 'translateX(-50%)' : 'translateX(50%)')};
+  width: max-content;
+  min-width: 1.5rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+
+  ${(props) => {
+    switch (props.position) {
+      case 'top': {
+        return css`
+          transform-origin: center bottom;
+
+          &::after {
+            border-left: ${arrowSize}px solid transparent;
+            border-right: ${arrowSize}px solid transparent;
+            border-top: ${arrowSize}px solid ${colors.elviaBlack};
+            top: 100%;
+          }
+        `;
+      }
+    }
+  }}
+
+  ${(props) => {
+    if (props.fadeOut) {
+      return css`
+        animation: ${TooltipFadeOut} 200ms ease;
+      `;
+    }
+    return '';
+  }}
 `;
 
 /*
