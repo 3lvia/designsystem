@@ -431,10 +431,18 @@ module.exports = [
   {
     name: 'elvis-slider',
     elementName: 'elvia-slider',
-    attributes: [{ name: 'type', type: 'string', propType: 'string | undefined' }],
+    attributes: [
+      { name: 'className', type: 'string', propType: 'string | undefined' },
+      { name: 'disabled', type: 'boolean', propType: 'boolean' },
+      { name: 'hasInputField', type: 'boolean', propType: 'boolean' },
+      { name: 'sliderType', type: 'string', propType: 'string | undefined' },
+      { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
+      { name: 'max', type: 'number', propType: 'number' },
+      { name: 'min', type: 'number', propType: 'number' },
+      { name: 'step', type: 'number', propType: 'number' },
+    ],
     slotItems: true,
     reactName: 'Slider',
-    /* conditionalElementStyle: [{ name: 'orientation', value: 'horizontal', style: `width: 100%;` }], */
     useWrapper: true,
     reactTypescriptDeclaration: true,
   },
