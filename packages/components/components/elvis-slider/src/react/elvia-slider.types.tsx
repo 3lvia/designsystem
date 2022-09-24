@@ -19,3 +19,7 @@ export type Extrema = {
   minimum: number;
   maximum: number;
 };
+export type SliderValues = {
+  left: number;
+  right: number;
+};
