@@ -14,3 +14,8 @@ export interface SliderProps {
   step: number;
   webcomponent?: ElvisComponentWrapper;
 }
+
+export type Extrema = {
+  minimum: number;
+  maximum: number;
+};
