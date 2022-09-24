@@ -23,3 +23,8 @@ export type SliderValues = {
   left: number;
   right: number;
 };
+
+export type TextFieldsValues = {
+  left?: number | string;
+  right?: number | string;
+};
