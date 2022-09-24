@@ -33,3 +33,7 @@ export type ToolTipState = {
   left: boolean;
   right?: boolean;
 };
+export type SliderErrors = {
+  leftTextfield?: string;
+  rightTextfield?: string;
+};
