@@ -28,3 +28,8 @@ export type TextFieldsValues = {
   left?: number | string;
   right?: number | string;
 };
+
+export type ToolTipState = {
+  left: boolean;
+  right?: boolean;
+};
