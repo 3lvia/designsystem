@@ -118,10 +118,7 @@ export const Slider: React.FC<SliderProps> = ({
     };
   });
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    console.log('submit...');
-    e.preventDefault();
-  };
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => e.preventDefault();
 
   const inputFieldIsInvalid = (input: 'left' | 'right') => {
     if (input === 'left' && errors.leftTextfield) {
@@ -189,7 +186,6 @@ export const Slider: React.FC<SliderProps> = ({
     if (sliderType === 'range') {
       if (textFieldsValues.left == textFieldsValues.right) {
         errorMessage = 'Verdiene kan ikke være like';
-        console.error(errorMessage);
         setErrors({ ...errors, [`${name}Textfield`]: errorMessage });
         return;
       }
@@ -197,7 +193,6 @@ export const Slider: React.FC<SliderProps> = ({
       if (name === 'left') {
         if (+value > sliderValues.right) {
           errorMessage = 'Den nedre verdien kan ikke være større enn den øvre verdien';
-          console.error(errorMessage);
           setErrors({ ...errors, leftTextfield: errorMessage });
           return;
         }
@@ -215,27 +210,23 @@ export const Slider: React.FC<SliderProps> = ({
 
     if (+value > EXTREMA.maximum) {
       errorMessage = 'Verdien kan ikke være større enn maksimumsverdien';
-      console.error(errorMessage);
       setErrors({ ...errors, [`${name}Textfield`]: errorMessage });
       return;
     }
 
     if (+value < EXTREMA.minimum) {
       errorMessage = 'Verdien kan ikke være mindre enn minimumsverdien';
-      console.error(errorMessage);
       setErrors({ ...errors, [`${name}Textfield`]: errorMessage });
       return;
     }
 
     if (value === '' || !value) {
       errorMessage = 'Verdien kan ikke være tom';
-      console.error(errorMessage);
       setErrors({ ...errors, [`${name}Textfield`]: errorMessage });
       return;
     }
 
     //if input passes validation
-    console.info('validation pass');
     setSliderValues({ ...sliderValues, [name]: +value });
   };
 
