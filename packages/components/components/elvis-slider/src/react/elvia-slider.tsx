@@ -27,8 +27,6 @@ export const Slider: React.FC<SliderProps> = ({
   disabled = false,
   hasInputField = false,
   inlineStyle,
-  max,
-  min,
   max = 100,
   min = 0,
   sliderType = 'simple',
@@ -103,6 +101,11 @@ export const Slider: React.FC<SliderProps> = ({
   useEffect(() => {
     setTextFieldsValues({ ...textFieldsValues, left: sliderValues.left, right: sliderValues.right });
   }, [sliderValues]);
+
+  //ellers fungerer det ikke i angular??
+  useEffect(() => {
+    setSliderValues({ left: +min, right: +max });
+  }, [min, max]);
 
   /* https://stackoverflow.com/a/73248253/14447555 */
   const resizeObserver = new ResizeObserver(() => {
@@ -249,7 +252,7 @@ export const Slider: React.FC<SliderProps> = ({
               ref={sliderRef}
               sliderType={sliderType}
               step={step}
-              value={sliderValues.left}
+              value={+sliderValues.left}
               onTouchStart={() => setShowTooltip({ ...showTooltip, left: true })}
               onTouchEnd={() => setShowTooltip({ ...showTooltip, left: false })}
               onMouseOver={() => setShowTooltip({ ...showTooltip, left: true })}
@@ -282,7 +285,7 @@ export const Slider: React.FC<SliderProps> = ({
                   onChange={handleSliderValueChange}
                   sliderType={sliderType}
                   step={step}
-                  value={sliderValues.right}
+                  value={+sliderValues.right}
                   onTouchStart={() => setShowTooltip({ ...showTooltip, right: true })}
                   onTouchEnd={() => setShowTooltip({ ...showTooltip, right: false })}
                   onMouseOver={() => setShowTooltip({ ...showTooltip, right: true })}
