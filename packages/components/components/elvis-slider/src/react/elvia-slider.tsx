@@ -29,6 +29,8 @@ export const Slider: React.FC<SliderProps> = ({
   inlineStyle,
   max,
   min,
+  max = 100,
+  min = 0,
   sliderType = 'simple',
   step = 1,
   webcomponent,
