@@ -2903,18 +2903,34 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-slider@workspace:packages/components/components/elvis-slider":
+"@elvia/elvis-slider@*, @elvia/elvis-slider@workspace:packages/components/components/elvis-slider":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-slider@workspace:packages/components/components/elvis-slider"
   dependencies:
-    "@elvia/elvis-colors": ^1.2.0
+    "@elvia/elvis-colors": ^1.4.2
     "@elvia/elvis-component-wrapper": ^2.2.2
+    "@elvia/elvis-icon": ^1.3.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
     react-is: ">=16.8.0"
   languageName: unknown
+  linkType: soft
+
+"@elvia/elvis-slider@portal:../components/components/elvis-slider::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-slider@portal:../components/components/elvis-slider::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
+  dependencies:
+    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-component-wrapper": ^2.2.2
+    "@elvia/elvis-icon": ^1.3.1
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-is: ">=16.8.0"
+  languageName: node
   linkType: soft
 
 "@elvia/elvis-spotlight@*, @elvia/elvis-spotlight@workspace:packages/components/components/elvis-spotlight":
@@ -12390,6 +12406,7 @@ __metadata:
     "@elvia/elvis-pagination": "portal:../components/components/elvis-pagination"
     "@elvia/elvis-popover": "portal:../components/components/elvis-popover"
     "@elvia/elvis-progress-linear": "portal:../components/components/elvis-progress-linear"
+    "@elvia/elvis-slider": "portal:../components/components/elvis-slider"
     "@elvia/elvis-spotlight": "portal:../components/components/elvis-spotlight"
     "@elvia/elvis-tabs": "portal:../components/components/elvis-tabs"
     "@elvia/elvis-timepicker": "portal:../components/components/elvis-timepicker"
@@ -24574,6 +24591,7 @@ __metadata:
     "@elvia/elvis-pagination": "*"
     "@elvia/elvis-popover": "*"
     "@elvia/elvis-progress-linear": "*"
+    "@elvia/elvis-slider": "*"
     "@elvia/elvis-spotlight": "*"
     "@elvia/elvis-tabs": "*"
     "@elvia/elvis-testing": "*"
@@ -29235,6 +29253,7 @@ __metadata:
     "@elvia/elvis-popover": "*"
     "@elvia/elvis-progress-linear": "*"
     "@elvia/elvis-radio-filter": "*"
+    "@elvia/elvis-slider": "*"
     "@elvia/elvis-spotlight": "*"
     "@elvia/elvis-tabs": "*"
     "@elvia/elvis-testing": "*"
