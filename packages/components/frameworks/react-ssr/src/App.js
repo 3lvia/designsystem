@@ -2,12 +2,14 @@
 import React, { useState } from 'react';
 import './App.scss';
 import { Accordion } from '@elvia/elvis-accordion/react';
+import { Badge } from '@elvia/elvis-badge/react';
 import { Box } from '@elvia/elvis-box/react';
 import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';
 import { Card } from '@elvia/elvis-card/react';
 import { Carousel } from '@elvia/elvis-carousel/react';
 import { Chip } from '@elvia/elvis-chip/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
+import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';
 import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Icon } from '@elvia/elvis-icon/react';
@@ -19,7 +21,6 @@ import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
-import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';
 
 function App() {
   const logValue = (component, value) => {
@@ -221,6 +222,62 @@ function App() {
             }
           ></Accordion>
         </div>
+
+        {/* BADGE */}
+        <div className="example-wrapper">
+          <h3>Badge</h3>
+
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <Badge
+              content={
+                <button
+                  className="e-thumbnail"
+                  aria-label="Thumbnail button that opens the image in a larger view"
+                >
+                  <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+                </button>
+              }
+            />
+
+            <Badge
+              badgeColor={'red'}
+              count={8}
+              content={
+                <button
+                  className="e-thumbnail"
+                  aria-label="Thumbnail button that opens the image in a larger view"
+                >
+                  <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+                </button>
+              }
+            />
+
+            <Badge
+              badgeColor={'black'}
+              count={101}
+              content={
+                <button
+                  className="e-thumbnail"
+                  aria-label="Thumbnail button that opens the image in a larger view"
+                >
+                  <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+                </button>
+              }
+            />
+
+            <Badge
+              badgeColor={'black'}
+              content={
+                <button
+                  className="e-thumbnail"
+                  aria-label="Thumbnail button that opens the image in a larger view"
+                >
+                  <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+                </button>
+              }
+            />
+          </div>
+        </div>
         {/* BOX */}
         <div className="example-wrapper">
           <h3>Box</h3>
@@ -231,6 +288,7 @@ function App() {
             content={<div>Heisann dette er en box component sendt med som node i react</div>}
           ></Box>
         </div>
+
         {/* BREADCRUMB */}
         <div className="example-wrapper">
           <h3>Breadcrumb</h3>
