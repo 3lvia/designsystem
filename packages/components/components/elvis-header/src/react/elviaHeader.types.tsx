@@ -1,4 +1,5 @@
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { IconName } from '@elvia/elvis-icon/react';
 import { CSSProperties } from 'react';
 
 export interface UserMenuProps {
@@ -12,7 +13,7 @@ export interface MobileUserMenuProps extends UserMenuProps {
 
 export interface NavItem {
   url: string;
-  iconName: string;
+  iconName: IconName;
   name: string;
   disabled?: boolean;
 }
@@ -22,6 +23,7 @@ export interface HeaderProps extends MobileUserMenuProps {
   navItems: NavItem[];
   appContent: JSX.Element;
   onLogoClick: () => void;
+  onSideNavItemClick: (item: NavItem) => void;
   className?: string;
   inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;

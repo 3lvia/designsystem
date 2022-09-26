@@ -10,11 +10,11 @@ import {
   LogoContainer,
   PageContainer,
   PageTitle,
-  SideNav,
   SquareContainer,
 } from './styledComponents';
 import { MobileMenu } from './mobileMenu/mobileMenu';
 import { DesktopMenu } from './desktopMenu/desktopMenu';
+import { SideNav } from './sideNav/sideNav';
 
 export const Tooltip: React.FC<HeaderProps> = ({
   appTitle,
@@ -24,6 +24,7 @@ export const Tooltip: React.FC<HeaderProps> = ({
   navItems,
   appContent,
   onLogoClick,
+  onSideNavItemClick,
   className,
   inlineStyle,
   webcomponent,
@@ -41,14 +42,13 @@ export const Tooltip: React.FC<HeaderProps> = ({
       pageContainerElement.current.innerHTML = '';
       pageContainerElement.current.appendChild(webcomponent.getSlot('appContent'));
     }
-    console.log(navItems);
   }, [webcomponent]);
 
   return (
     <div className={className ?? ''} style={{ ...inlineStyle }}>
       <Header>
         <LogoContainer isGtMobile={isGtMobile}>
-          <IconButton onClick={onLogoClick}>
+          <IconButton onClick={() => onLogoClick && onLogoClick()}>
             <svg
               width="100%"
               height="100%"
@@ -79,7 +79,10 @@ export const Tooltip: React.FC<HeaderProps> = ({
         {isGtMobile && <DesktopMenu email={email} username={username}></DesktopMenu>}
       </Header>
       <PageContainer>
-        <SideNav></SideNav>
+        <SideNav
+          navItems={navItems}
+          onNavItemClick={(item) => onSideNavItemClick && onSideNavItemClick(item)}
+        ></SideNav>
         <AppContent ref={pageContainerElement}>{appContent}</AppContent>
       </PageContainer>
     </div>

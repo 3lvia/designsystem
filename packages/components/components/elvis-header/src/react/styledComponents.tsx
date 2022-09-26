@@ -159,6 +159,4 @@ export const Hr = styled.hr<Partial<HrProps>>`
 
 export const PageContainer = styled.div``;
 
-export const SideNav = styled.nav``;
-
 export const AppContent = styled.main``;

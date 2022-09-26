@@ -16,9 +16,9 @@ import { useFocusTrap } from '@elvia/elvis-toolbox';
 
 export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email }) => {
   const [userMenuIsOpen, setUserMenuIsOpen] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef(null);
-  const [fadeOut, setFadeOut] = useState(false);
 
   const onKeydown = (ev: KeyboardEvent): void => {
     if (ev.key === 'Escape') {
@@ -29,7 +29,6 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email }) => {
   const setIsShowing = (isShowing: boolean): void => {
     if (isShowing) {
       setFadeOut(false);
-      console.log(popoverRef);
       setUserMenuIsOpen(isShowing);
       window.addEventListener('keydown', onKeydown);
 

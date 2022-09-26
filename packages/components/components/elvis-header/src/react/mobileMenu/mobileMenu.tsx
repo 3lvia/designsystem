@@ -1,5 +1,6 @@
 import { Icon } from '@elvia/elvis-icon/react';
-import React, { useState } from 'react';
+import { useFocusTrap } from '@elvia/elvis-toolbox';
+import React, { useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { MobileUserMenuProps } from '../elviaHeader.types';
 import { Hr, AppTitle, Backdrop, IconButton } from '../styledComponents';
@@ -8,6 +9,8 @@ import { Email, MenuButton, MenuContainer, MenuTitle, UserGrid, Username } from 
 export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, username }) => {
   const [userMenuIsOpen, setUserMenuIsOpen] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
+  const triggerButtonRef = useRef<HTMLButtonElement>(null);
+  const popoverRef = useRef(null);
 
   const onKeydown = (ev: KeyboardEvent): void => {
     if (ev.key === 'Escape') {
@@ -20,9 +23,15 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, use
       setUserMenuIsOpen(isShowing);
       setFadeOut(false);
       window.addEventListener('keydown', onKeydown);
+
+      setTimeout(() => {
+        useFocusTrap(popoverRef);
+      });
     } else {
       setFadeOut(true);
+      useFocusTrap(popoverRef, true);
       window.removeEventListener('keydown', onKeydown);
+      triggerButtonRef.current?.focus();
     }
   };
 
@@ -40,6 +49,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, use
         aria-label="Åpne brukermeny"
         aria-expanded={userMenuIsOpen}
         aria-haspopup="dialog"
+        ref={triggerButtonRef}
       >
         <Icon
           name={userMenuIsOpen ? 'removeCircleColor' : 'moreMenu'}
@@ -51,7 +61,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, use
         createPortal(
           <>
             <Backdrop fadeOut={fadeOut} onClick={() => setIsShowing(false)} />
-            <MenuContainer fadeOut={fadeOut} onAnimationEnd={onAnimationEnd}>
+            <MenuContainer fadeOut={fadeOut} onAnimationEnd={onAnimationEnd} ref={popoverRef}>
               <section>
                 <MenuTitle>Applikasjon</MenuTitle>
                 <AppTitle>{appTitle}</AppTitle>
