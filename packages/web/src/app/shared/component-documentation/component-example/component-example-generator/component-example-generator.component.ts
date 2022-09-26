@@ -56,6 +56,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       value: AttributeType['cegDefault'];
       type: AttributeType['cegCustomTextType'];
       active: boolean;
+      order: number;
     };
   } = {};
   hasCustomTextProps = false;
@@ -244,17 +245,17 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   /**
    * Used to order the elements in the *Customize text*-popover.
-   * @param _left
-   * @param _right
+   * @param left
+   * @param right
    * @returns
    */
   keepOriginalOrderInCustomTextPopover(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _left: KeyValue<string, typeof this.customTextProps[0]>,
+    left: KeyValue<string, typeof this.customTextProps[0]>,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _right: KeyValue<string, typeof this.customTextProps[0]>,
-  ): 1 {
-    return 1;
+    right: KeyValue<string, typeof this.customTextProps[0]>,
+  ): number {
+    return left.value.order > right.value.order ? 1 : -1;
   }
 
   /**
@@ -332,13 +333,14 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
     this.customTextProps = {};
     let isCustomTextVisible = false;
-    Object.entries(componentData.attributes).forEach(([attribute, attributeData]) => {
+    Object.entries(componentData.attributes).forEach(([attribute, attributeData], idx) => {
       if (attributeData.cegFormType === 'custom-text') {
         isCustomTextVisible = this.isCustomTextVisible(attributeData);
         this.customTextProps[attribute] = {
           value: attributeData.cegDefault ?? '',
           type: attributeData.cegCustomTextType ?? 'input',
           active: true,
+          order: idx,
         };
       }
     });
