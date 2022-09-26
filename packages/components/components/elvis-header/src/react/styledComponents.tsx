@@ -22,6 +22,10 @@ interface BackdropProps {
   fadeOut: boolean;
 }
 
+interface ResponsiveProps {
+  isGtMobile: boolean;
+}
+
 export const Backdrop = styled.div<Partial<BackdropProps>>`
   background: ${(props) => (props.transparent ? 'transparent' : 'rgba(0, 0, 0, 0.5)')};
   position: absolute;
@@ -45,6 +49,7 @@ export const Backdrop = styled.div<Partial<BackdropProps>>`
 export const Header = styled.header`
   background-color: ${getColor('elvia-on')};
   height: ${toolbarHeight};
+  border-bottom: 2px solid ${getColor('grey-05')};
   display: flex;
   align-items: center;
   position: fixed;
@@ -61,11 +66,7 @@ export const SquareContainer = styled.div`
   justify-content: center;
 `;
 
-interface LogoContainerProps {
-  isGtMobile: boolean;
-}
-
-export const LogoContainer = styled(SquareContainer)<LogoContainerProps>`
+export const LogoContainer = styled(SquareContainer)<ResponsiveProps>`
   ${(props) => {
     if (props.isGtMobile) {
       return css`
@@ -80,15 +81,11 @@ export const LogoContainer = styled(SquareContainer)<LogoContainerProps>`
   }}
 `;
 
-interface PageTitleProps {
-  gtMobile: boolean;
-}
-
-export const PageTitle = styled.h1<PageTitleProps>`
+export const PageTitle = styled.h1<ResponsiveProps>`
   ${getTypographyCss('text-md-strong')};
 
   ${(props) => {
-    if (props.gtMobile) {
+    if (props.isGtMobile) {
       return css`
         margin: 0 auto 0 0;
       `;
@@ -108,6 +105,7 @@ export const TertiaryButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  cursor: pointer;
 
   &:not(:last-of-type) {
     margin-bottom: 1rem;
@@ -157,6 +155,18 @@ export const Hr = styled.hr<Partial<HrProps>>`
   }}
 `;
 
-export const PageContainer = styled.div``;
+export const AppContent = styled.main<ResponsiveProps>`
+  padding-top: ${toolbarHeight};
 
-export const AppContent = styled.main``;
+  ${(props) => {
+    if (props.isGtMobile) {
+      return css`
+        padding-left: ${toolbarHeight};
+      `;
+    }
+
+    return css`
+      padding-bottom: ${toolbarHeight};
+    `;
+  }}
+`;

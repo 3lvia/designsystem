@@ -8,7 +8,6 @@ import {
   Hr,
   IconButton,
   LogoContainer,
-  PageContainer,
   PageTitle,
   SquareContainer,
 } from './styledComponents';
@@ -70,7 +69,7 @@ export const Tooltip: React.FC<HeaderProps> = ({
             <Hr direction="vertical" isGtTablet={isGtTablet} />
           </>
         )}
-        <PageTitle gtMobile={isGtMobile}>{pageTitle}</PageTitle>
+        <PageTitle isGtMobile={isGtMobile}>{pageTitle}</PageTitle>
         {!isGtMobile && (
           <SquareContainer>
             <MobileMenu appTitle={appTitle} email={email} username={username}></MobileMenu>
@@ -78,13 +77,13 @@ export const Tooltip: React.FC<HeaderProps> = ({
         )}
         {isGtMobile && <DesktopMenu email={email} username={username}></DesktopMenu>}
       </Header>
-      <PageContainer>
-        <SideNav
-          navItems={navItems}
-          onNavItemClick={(item) => onSideNavItemClick && onSideNavItemClick(item)}
-        ></SideNav>
-        <AppContent ref={pageContainerElement}>{appContent}</AppContent>
-      </PageContainer>
+      <SideNav
+        navItems={navItems}
+        onNavItemClick={(item) => onSideNavItemClick && onSideNavItemClick(item)}
+      ></SideNav>
+      <AppContent ref={pageContainerElement} isGtMobile={isGtMobile}>
+        {appContent}
+      </AppContent>
     </div>
   );
 };

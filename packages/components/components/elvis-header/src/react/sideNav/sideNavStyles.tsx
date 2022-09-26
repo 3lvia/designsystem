@@ -16,7 +16,8 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
   flex-direction: column;
   overflow: hidden;
   will-change: max-width;
-  transition: max-width 0.4s ease;
+  transition: max-width 200ms ease;
+  width: 100%;
 
   ${(props) => {
     if (props.isGtMobile) {
@@ -25,6 +26,7 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
         top: ${toolbarHeight};
         bottom: 0;
         padding: 1rem 0.5rem;
+        border-right: 2px solid ${getColor('grey-05')};
       `;
     }
 
@@ -34,13 +36,14 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
       right: 0;
       height: ${toolbarHeight};
       padding: 0.5rem 1rem;
+      border-top: 2px solid ${getColor('grey-05')};
     `;
   }}
 
   ${(props) => {
     if (props.isExpanded && props.isGtMobile) {
       return css`
-        max-width: 30vw;
+        max-width: 270px;
       `;
     } else if (props.isGtMobile) {
       return css`
@@ -75,31 +78,6 @@ export const ButtonContainer = styled.div<ButtonContainerProps>`
   }}
 `;
 
-interface NavButtonProps {
-  isGtMobile?: boolean;
-}
-
-export const NavButton = styled.button<NavButtonProps>`
-  ${getTypographyCss('text-md')};
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  ${(props) => {
-    if (props.isGtMobile) {
-      return css`
-        padding-right: 2rem;
-      `;
-    }
-
-    return css``;
-  }}
-`;
-
 interface IconContainerProps {
   isActive?: boolean;
 }
@@ -123,6 +101,35 @@ export const IconContainer = styled.div<IconContainerProps>`
 
     return css``;
   }};
+`;
+
+interface NavButtonProps {
+  isGtMobile?: boolean;
+}
+
+export const NavButton = styled.button<NavButtonProps>`
+  ${getTypographyCss('text-md')};
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  ${(props) => {
+    if (props.isGtMobile) {
+      return css`
+        padding-right: 4rem;
+      `;
+    }
+
+    return css``;
+  }}
+
+  &:hover ${IconContainer} {
+    border: 1px solid ${getColor('green')};
+  }
 `;
 
 export const ToggleWidthButton = styled(NavButton)`

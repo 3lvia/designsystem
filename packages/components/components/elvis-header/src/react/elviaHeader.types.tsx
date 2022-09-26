@@ -15,7 +15,6 @@ export interface NavItem {
   url: string;
   iconName: IconName;
   name: string;
-  disabled?: boolean;
 }
 
 export interface HeaderProps extends MobileUserMenuProps {
