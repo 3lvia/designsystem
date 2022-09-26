@@ -35,6 +35,7 @@
     "@elvia/elvis-datepicker": "portal:../components/components/elvis-datepicker",
     "@elvia/elvis-datepicker-range": "portal:../components/components/elvis-datepicker-range",
     "@elvia/elvis-dropdown": "portal:../components/components/elvis-dropdown",
+    "@elvia/elvis-header": "portal:../components/components/elvis-header",
     "@elvia/elvis-icon": "portal:../components/components/elvis-icon",
     "@elvia/elvis-modal": "portal:../components/components/elvis-modal",
     "@elvia/elvis-pagination": "portal:../components/components/elvis-pagination",
