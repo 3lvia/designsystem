@@ -22,7 +22,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, use
     if (isShowing) {
       setUserMenuIsOpen(isShowing);
       setFadeOut(false);
-      window.addEventListener('keydown', onKeydown);
+      window?.addEventListener('keydown', onKeydown);
 
       setTimeout(() => {
         useFocusTrap(popoverRef);
@@ -30,7 +30,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, use
     } else {
       setFadeOut(true);
       useFocusTrap(popoverRef, true);
-      window.removeEventListener('keydown', onKeydown);
+      window?.removeEventListener('keydown', onKeydown);
       triggerButtonRef.current?.focus();
     }
   };
