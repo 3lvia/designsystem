@@ -1,7 +1,7 @@
 {
   "e-radio-filter": {
     "deprecateChildren": true,
-    "version": "9.0.0",
+    "version": "8.13.0",
     "replacement": {
       "name": "Radio Filter",
       "type": "component",
@@ -11,7 +11,7 @@
   },
   "e-progress": {
     "deprecateChildren": true,
-    "version": "9.0.0",
+    "version": "8.13.0",
     "replacement": {
       "name": "Progressbar",
       "type": "component",
@@ -21,7 +21,7 @@
   },
   "e-popover": {
     "deprecateChildren": true,
-    "version": "9.0.0",
+    "version": "8.13.0",
     "replacement": {
       "name": "Popover",
       "type": "component",
@@ -31,7 +31,7 @@
   },
   "e-pagination": {
     "deprecateChildren": true,
-    "version": "9.0.0",
+    "version": "8.13.0",
     "replacement": {
       "name": "Pagination",
       "type": "component",
@@ -41,7 +41,7 @@
   },
   "e-modal": {
     "deprecateChildren": true,
-    "version": "9.0.0",
+    "version": "8.13.0",
     "replacement": {
       "name": "Modal",
       "type": "component",
@@ -50,7 +50,7 @@
     "sunset": "March 2023"
   },
   "e-dropdown": {
-    "version": "9.0.0",
+    "version": "8.13.0",
     "replacement": {
       "name": "Dropdown",
       "type": "component",
@@ -60,7 +60,7 @@
   },
   "e-chip": {
     "deprecateChildren": true,
-    "version": "9.0.0",
+    "version": "8.13.0",
     "replacement": {
       "name": "Chip",
       "type": "component",
@@ -70,7 +70,7 @@
   },
   "e-select": {
     "deprecateChildren": true,
-    "version": "9.0.0",
+    "version": "8.13.0",
     "replacement": {
       "name": "Dropdown",
       "type": "component",
