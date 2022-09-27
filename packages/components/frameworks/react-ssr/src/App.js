@@ -117,7 +117,34 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white"></div>
+          <div className="e-bg-white">
+            <button onClick={() => setIsModalShowingState(true)} className="e-btn">
+              Åpne modal
+            </button>
+            <Modal
+              isShowing={isModalShowing}
+              onClose={() => setIsModalShowingState(false)}
+              heading="Title of content"
+              hasCloseButton={true}
+              content={
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%',
+                  }}
+                >
+                  <div>
+                    Body text comes here and can go over several lines. It looks like this when it is two
+                    lines.
+                  </div>
+                  <Carousel items={4}></Carousel>
+                </div>
+              }
+              illustration={<img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png" />}
+            ></Modal>
+          </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>
@@ -298,7 +325,7 @@ function App() {
           <button className="e-btn" onClick={() => setIsModalShowingState(true)}>
             Show modal
           </button>
-          <Modal
+          {/* <Modal
             isShowing={isModalShowing}
             hasCloseButton
             onClose={() => setIsModalShowingState(false)}
@@ -306,7 +333,7 @@ function App() {
             content={<div>Body text comes here and can go over several lines.</div>}
             primaryButton={<button className="e-btn e-btn--primary">Primary</button>}
             secondaryButton={<button className="e-btn e-btn--secondary">Secondary</button>}
-          ></Modal>
+          ></Modal> */}
         </div>
         {/* PAGINATION */}
         <div className="example-wrapper">
