@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { HeaderProps } from './elviaHeader.types';
 import { useBreakpoint } from '@elvia/elvis-toolbox';
 import {
@@ -30,7 +30,7 @@ export const Tooltip: React.FC<HeaderProps> = ({
 }) => {
   const isGtMobile = useBreakpoint('gt-mobile');
   const isGtTablet = useBreakpoint('gt-tablet');
-  let hasAppContent = !!appContent;
+  const [hasAppContent, setHasAppContent] = useState(!!appContent);
   const pageContainerElement = useRef<HTMLElement>(null);
 
   /** Get app content slot */
@@ -41,7 +41,7 @@ export const Tooltip: React.FC<HeaderProps> = ({
     if (pageContainerElement.current && webcomponent.getSlot('appContent')) {
       pageContainerElement.current.innerHTML = '';
       pageContainerElement.current.appendChild(webcomponent.getSlot('appContent'));
-      hasAppContent = true;
+      setHasAppContent(true);
     }
   }, [webcomponent]);
 

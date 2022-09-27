@@ -168,7 +168,6 @@ export const Hr = styled.hr<Partial<HrProps>>`
 
 interface AppContentProps extends ResponsiveProps {
   sidenavPadding: boolean;
-  hidden: boolean;
 }
 
 export const AppContent = styled.main<AppContentProps>`
@@ -184,16 +183,6 @@ export const AppContent = styled.main<AppContentProps>`
         padding-bottom: ${toolbarHeight};
       `;
     }
-    return css``;
-  }}
-
-  ${(props) => {
-    if (props.hidden) {
-      return css`
-        visibility: hidden;
-      `;
-    }
-
     return css``;
   }}
 `;
