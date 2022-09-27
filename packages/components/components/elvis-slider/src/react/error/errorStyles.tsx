@@ -19,14 +19,14 @@ const fadeIn = keyframes`
 `;
 
 export const ErrorContainer = styled.div`
-  align-items: center;
   animation: ${fadeIn} 200ms;
   display: flex;
   gap: 8px;
+  margin: 8px 0;
+  width: 100%;
 `;
 
 export const ErrorText = styled.span`
   ${getTypographyCss('text-micro')};
   color: ${colors.error};
-  /* white-space: nowrap; */
 `;
