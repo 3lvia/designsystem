@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { HeaderProps } from './elviaHeader.types';
-import { useDeviceCheck } from '@elvia/elvis-toolbox';
+import { useBreakpoint } from '@elvia/elvis-toolbox';
 import {
   AppContent,
   AppTitle,
@@ -28,8 +28,8 @@ export const Tooltip: React.FC<HeaderProps> = ({
   inlineStyle,
   webcomponent,
 }) => {
-  const isGtMobile = useDeviceCheck('gt-mobile');
-  const isGtTablet = useDeviceCheck('gt-tablet');
+  const isGtMobile = useBreakpoint('gt-mobile');
+  const isGtTablet = useBreakpoint('gt-tablet');
   const pageContainerElement = useRef<HTMLElement>(null);
 
   /** Get app content slot */

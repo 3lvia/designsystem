@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 type BreakPoint = 'gt-mobile' | 'gt-tablet';
 
-export const useDeviceCheck = (deviceType: BreakPoint): boolean => {
+export const useBreakpoint = (deviceType: BreakPoint): boolean => {
   const [matches, setMatches] = useState(false);
   let mediaQueryList: MediaQueryList | undefined;
 

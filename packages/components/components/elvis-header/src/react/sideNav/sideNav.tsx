@@ -1,5 +1,5 @@
 import { Icon } from '@elvia/elvis-icon/react';
-import { useDeviceCheck } from '@elvia/elvis-toolbox';
+import { useBreakpoint } from '@elvia/elvis-toolbox';
 import React, { useState } from 'react';
 import { NavItem } from '../elviaHeader.types';
 import {
@@ -16,7 +16,7 @@ interface Props {
 }
 
 export const SideNav: React.FC<Props> = ({ navItems = [], onNavItemClick }) => {
-  const isGtMobile = useDeviceCheck('gt-mobile');
+  const isGtMobile = useBreakpoint('gt-mobile');
   const [isExpanded, setIsExpanded] = useState(false);
 
   const isActive = (navItem: NavItem): boolean => {
