@@ -4,6 +4,7 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 export const toolbarHeight = '64px';
+export const headerZIndex = 109;
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -28,7 +29,7 @@ interface ResponsiveProps {
 
 export const Backdrop = styled.div<Partial<BackdropProps>>`
   background: ${(props) => (props.transparent ? 'transparent' : 'rgba(0, 0, 0, 0.5)')};
-  position: absolute;
+  position: fixed;
   top: ${toolbarHeight};
   bottom: 0;
   right: 0;
@@ -46,17 +47,26 @@ export const Backdrop = styled.div<Partial<BackdropProps>>`
   }}
 `;
 
-export const Header = styled.header`
+export const Header = styled.header<ResponsiveProps>`
   background-color: ${getColor('elvia-on')};
   height: ${toolbarHeight};
-  border-bottom: 2px solid ${getColor('grey-05')};
   display: flex;
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 3;
+  z-index: ${headerZIndex};
+
+  ${(props) => {
+    if (props.isGtMobile) {
+      return css`
+        border-bottom: 2px solid ${getColor('grey-05')};
+      `;
+    }
+
+    return css``;
+  }}
 `;
 
 export const SquareContainer = styled.div`
@@ -83,7 +93,7 @@ export const LogoContainer = styled(SquareContainer)<ResponsiveProps>`
 `;
 
 export const PageTitle = styled.h1<ResponsiveProps>`
-  ${getTypographyCss('text-md-strong')};
+  ${getTypographyCss('text-md')};
 
   ${(props) => {
     if (props.isGtMobile) {
@@ -158,6 +168,7 @@ export const Hr = styled.hr<Partial<HrProps>>`
 
 interface AppContentProps extends ResponsiveProps {
   sidenavPadding: boolean;
+  hidden: boolean;
 }
 
 export const AppContent = styled.main<AppContentProps>`
@@ -173,6 +184,16 @@ export const AppContent = styled.main<AppContentProps>`
         padding-bottom: ${toolbarHeight};
       `;
     }
+    return css``;
+  }}
+
+  ${(props) => {
+    if (props.hidden) {
+      return css`
+        visibility: hidden;
+      `;
+    }
+
     return css``;
   }}
 `;

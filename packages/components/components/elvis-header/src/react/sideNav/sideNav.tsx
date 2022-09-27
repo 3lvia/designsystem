@@ -38,7 +38,6 @@ export const SideNav: React.FC<Props> = ({ navItems = [], onNavItemClick }) => {
               role="link"
               key={navItem.url}
               onClick={() => onNavItemClick(navItem)}
-              isGtMobile={isGtMobile}
             >
               <IconContainer isActive={isActive(navItem)}>
                 <Icon name={navItem.iconName} color="black" size="sm" />

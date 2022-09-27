@@ -59,6 +59,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email }) => {
         aria-haspopup="dialog"
         ref={triggerButtonRef}
       >
+        <Icon name="profile" size="xs" />
         {username}
       </TriggerButton>
       {userMenuIsOpen &&

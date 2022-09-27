@@ -30,6 +30,7 @@ export const Tooltip: React.FC<HeaderProps> = ({
 }) => {
   const isGtMobile = useBreakpoint('gt-mobile');
   const isGtTablet = useBreakpoint('gt-tablet');
+  let hasAppContent = !!appContent;
   const pageContainerElement = useRef<HTMLElement>(null);
 
   /** Get app content slot */
@@ -40,12 +41,13 @@ export const Tooltip: React.FC<HeaderProps> = ({
     if (pageContainerElement.current && webcomponent.getSlot('appContent')) {
       pageContainerElement.current.innerHTML = '';
       pageContainerElement.current.appendChild(webcomponent.getSlot('appContent'));
+      hasAppContent = true;
     }
   }, [webcomponent]);
 
   return (
     <div className={className ?? ''} style={{ ...inlineStyle }}>
-      <Header>
+      <Header isGtMobile={isGtMobile}>
         <LogoContainer isGtMobile={isGtMobile}>
           <IconButton
             onClick={() => {
@@ -97,7 +99,12 @@ export const Tooltip: React.FC<HeaderProps> = ({
           }}
         ></SideNav>
       )}
-      <AppContent ref={pageContainerElement} isGtMobile={isGtMobile} sidenavPadding={navItems?.length}>
+      <AppContent
+        ref={pageContainerElement}
+        isGtMobile={isGtMobile}
+        sidenavPadding={navItems?.length}
+        hidden={!hasAppContent}
+      >
         {appContent}
       </AppContent>
     </div>

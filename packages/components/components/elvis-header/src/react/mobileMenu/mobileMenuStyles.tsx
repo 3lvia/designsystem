@@ -1,7 +1,7 @@
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
-import { TertiaryButton, toolbarHeight } from '../styledComponents';
+import { headerZIndex, TertiaryButton, toolbarHeight } from '../styledComponents';
 
 const fadeIn = keyframes`
   from {
@@ -32,14 +32,14 @@ interface MenuContainerProps {
 }
 
 export const MenuContainer = styled.div<MenuContainerProps>`
-  position: absolute;
+  position: fixed;
   top: ${toolbarHeight};
   padding: 8px 24px 62px;
   display: flex;
   flex-direction: column;
   gap: 24px;
   width: 100%;
-  z-index: 1;
+  z-index: ${headerZIndex};
   overflow: hidden;
   animation: ${fadeIn} 300ms ease;
   transform-origin: center top;

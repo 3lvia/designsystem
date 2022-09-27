@@ -21,7 +21,7 @@ export interface NavItem {
 export interface HeaderProps extends MobileUserMenuProps {
   pageTitle: string;
   navItems?: NavItem[];
-  appContent: JSX.Element;
+  appContent?: JSX.Element;
   onLogoClick?: () => void;
   onSideNavItemClick?: (item: NavItem) => void;
   className?: string;

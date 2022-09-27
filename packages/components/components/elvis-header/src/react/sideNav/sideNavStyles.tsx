@@ -1,7 +1,7 @@
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
-import { toolbarHeight } from '../styledComponents';
+import { headerZIndex, toolbarHeight } from '../styledComponents';
 
 interface SideNavContainerProps {
   isGtMobile: boolean;
@@ -12,7 +12,7 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
   background-color: ${getColor('elvia-on')};
   display: flex;
   position: fixed;
-  z-index: 1;
+  z-index: ${headerZIndex};
   flex-direction: column;
   overflow: hidden;
   will-change: max-width;
@@ -103,11 +103,7 @@ export const IconContainer = styled.div<IconContainerProps>`
   }};
 `;
 
-interface NavButtonProps {
-  isGtMobile?: boolean;
-}
-
-export const NavButton = styled.button<NavButtonProps>`
+export const NavButton = styled.button`
   ${getTypographyCss('text-md')};
   background: transparent;
   border: none;
@@ -116,16 +112,6 @@ export const NavButton = styled.button<NavButtonProps>`
   display: flex;
   align-items: center;
   gap: 1rem;
-
-  ${(props) => {
-    if (props.isGtMobile) {
-      return css`
-        padding-right: 4rem;
-      `;
-    }
-
-    return css``;
-  }}
 
   &:hover ${IconContainer} {
     border: 1px solid ${getColor('green')};

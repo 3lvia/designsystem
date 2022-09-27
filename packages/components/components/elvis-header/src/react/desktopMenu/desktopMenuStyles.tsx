@@ -1,7 +1,7 @@
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
-import { Hr, TertiaryButton } from '../styledComponents';
+import { headerZIndex, Hr, TertiaryButton } from '../styledComponents';
 
 const fadeIn = keyframes`
   from {
@@ -34,13 +34,13 @@ interface MenuContainerProps {
 export const MenuContainer = styled.div<MenuContainerProps>`
   background-color: ${getColor('elvia-on')};
   border-radius: 0.5rem;
-  position: absolute;
+  position: fixed;
   top: 72px;
   right: 1.5rem;
   padding: 32px;
   display: flex;
   flex-direction: column;
-  z-index: 1;
+  z-index: ${headerZIndex};
   animation: ${fadeIn} 300ms ease;
   transform-origin: 70% top;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
@@ -58,6 +58,25 @@ export const MenuContainer = styled.div<MenuContainerProps>`
 
 export const TriggerButton = styled(TertiaryButton)`
   margin-right: 1.5rem;
+  position: relative;
+  height: calc(100% - 8px); // Shows the full keyboard-focus outline without clipping
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 2px); // To revert the height-hack
+    height: 2px;
+    background-color: ${getColor('green')};
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+    transform-origin: center left;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
 `;
 
 export const MenuTitle = styled.div`
