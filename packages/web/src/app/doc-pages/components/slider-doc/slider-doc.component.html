@@ -1,0 +1,96 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
+  <ng-container ngProjectAs="headerTitle">Slider</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--CEG-->
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+  <!-- Hack for making divider loaded in from beginning in CEG - works fine outside CEG -->
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!-- TYPE -->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Simple'">
+        <ng-container ngProjectAs="sectionContent">
+          The simple slider allows users to set and select a single value from a range.
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Range'">
+        <ng-container ngProjectAs="sectionContent">
+          The range slider allows the user to specify a numeric range value that must be no less than a given
+          value and no greater than another given value.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--ACCESSIBILITY-->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="accessibility-keyboard-navigation">
+            <div>
+              <span class="keyboard-button icon" aria-label="Arrow up">
+                <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+              </span>
+              <span class="keyboard-button icon" style="margin-left: 0px" aria-label="Arrow down">
+                <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+              </span>
+              <span class="keyboard-button icon" style="margin-left: 0px" aria-label="Arrow left">
+                <i class="e-icon e-icon--arrow_left e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+              </span>
+              <span class="keyboard-button icon" style="margin-left: 0px" aria-label="Arrow right">
+                <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+              </span>
+              to increase/decrease the value for for the slider when the thumb is selected.
+            </div>
+            <div>
+              <span class="keyboard-button icon" aria-label="Arrow up">
+                <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+              </span>
+              <span class="keyboard-button icon" style="margin-left: 0px" aria-label="Arrow down">
+                <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+              </span>
+              to increase/decrease the value for for the slider when the number input is selected.
+            </div>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
+  <!--CHANGELOG-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
+    </ng-container>
+  </app-component-section>
+</div>
