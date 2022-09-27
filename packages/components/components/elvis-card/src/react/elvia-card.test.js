@@ -82,12 +82,12 @@ describe('Elvis Card', () => {
     });
 
     it('should have default minWidth', function (done) {
-      expect(cardArea.at(0).getDOMNode()).toHaveStyle(`min-width: 112px`);
+      expect(cardArea.at(0).getDOMNode()).toHaveStyle(`min-width: 150px`);
       done();
     });
 
     it('should have default maxWidth', function (done) {
-      expect(cardArea.at(0).getDOMNode()).toHaveStyle(`max-width: 200px`);
+      expect(cardArea.at(0).getDOMNode()).toHaveStyle(`max-width: 250px`);
       done();
     });
   });
@@ -102,7 +102,7 @@ describe('Elvis Card', () => {
           borderColor={'red'}
           width={'150px'}
           minWidth={150}
-          maxWidth={350}
+          maxWidth={200}
         ></Card>,
       );
       cardArea = wrapper.find({ 'data-testid': 'card-area' });
@@ -135,7 +135,7 @@ describe('Elvis Card', () => {
     });
 
     it('should have maxWidth', function (done) {
-      expect(cardArea.at(0).getDOMNode()).toHaveStyle(`max-width: 350px`);
+      expect(cardArea.at(0).getDOMNode()).toHaveStyle(`max-width: 200px`);
       done();
     });
   });
