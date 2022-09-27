@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { getColor } from '@elvia/elvis-colors';
 import { CardType, BorderColor } from './elvia-card.types';
@@ -25,9 +25,10 @@ const typography = {
   textMicro: getTypographyCss('text-micro'),
 };
 
-const globalMinWidthSimple = 112;
+const globalMinWidthSimple = 150;
+const globalMaxWidthSimple = 250;
 const globalMinWidthDetail = 250;
-const globalMaxWidth = 400;
+const globalMaxWidthDetail = 400;
 
 const decideCardAreaWidths = (type: CardType, minWidth?: number, maxWidth?: number) => {
   let cssValue = '';
@@ -35,15 +36,17 @@ const decideCardAreaWidths = (type: CardType, minWidth?: number, maxWidth?: numb
     cssValue += minWidth
       ? `min-width: ${Math.max(minWidth, globalMinWidthSimple)}px;`
       : `min-width: ${globalMinWidthSimple}px;`;
+    cssValue += maxWidth
+      ? `max-width: ${Math.min(maxWidth, globalMaxWidthSimple)}px;`
+      : `max-width: ${globalMaxWidthSimple}px;`;
   } else {
     cssValue += minWidth
       ? `min-width: ${Math.max(minWidth, globalMinWidthDetail)}px;`
       : `min-width: ${globalMinWidthDetail}px;`;
+    cssValue += maxWidth
+      ? `max-width: ${Math.min(maxWidth, globalMaxWidthDetail)}px;`
+      : `max-width: ${globalMaxWidthDetail}px;`;
   }
-  cssValue += maxWidth
-    ? `max-width: ${Math.min(maxWidth, globalMaxWidth)}px;`
-    : `max-width: ${globalMaxWidth}px;`;
-
   return cssValue;
 };
 
@@ -51,6 +54,7 @@ interface CardAreaProps {
   type: CardType;
   hasBorder: boolean;
   width: string;
+  height: string;
   minWidth?: number;
   maxWidth?: number;
 }
@@ -59,18 +63,21 @@ export const CardArea = styled.div<CardAreaProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: ${(props) => (props.type === 'simple' ? 'center' : 'flex-start')};
   position: relative;
   background: ${colors.white};
   box-sizing: border-box;
 
   padding: 24px;
   ${(props) => decideCardAreaWidths(props.type, props.minWidth, props.maxWidth)};
-  width: ${(props) => props.width};
+  ${(props) => css`
+    width: ${props.width};
+    height: ${props.height};
+  `}
   ${(props) =>
     props.type === 'simple' &&
     css`
-      aspect-ratio: 1;
+      aspect-ratio: 1 / 1;
     `}
 
   border-radius: 8px;
@@ -110,7 +117,7 @@ export const CardHeading = styled.h3<CardHeaderProps>`
   ${(props) => (props.type === 'simple' ? typography.textSmStrong : typography.titleSm)};
   text-align: ${(props) => (props.type === 'simple' ? 'center' : 'left')};
   color: ${colors.black};
-  display: -webkit-box;
+  display: flexbox;
   overflow: hidden;
   -webkit-line-clamp: ${(props) => (props.type === 'simple' ? 1 : 2)};
   line-clamp: ${(props) => (props.type === 'simple' ? 1 : 2)};
@@ -203,20 +210,31 @@ export const CardTag = styled.span`
   white-space: nowrap;
 `;
 
+const CardHoverArrowHoverKeyframe = keyframes`
+  0% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+`;
+
 export const CardHoverArrow = styled.div`
   position: absolute;
+  display: flex;
   align-items: center;
   justify-content: center;
   right: 0;
   bottom: 0;
   width: 72px;
   height: 72px;
-  padding: 8px;
   border-radius: 50%;
   background: radial-gradient(circle, ${colors.white} 20%, transparent 100%);
-  display: none;
+  opacity: 0;
   ${CardArea}:hover & {
-    display: flex;
+    animation: ${CardHoverArrowHoverKeyframe} 300ms ease forwards;
   }
 `;
 

@@ -9,23 +9,23 @@ export interface OverflowDirection {
  * Hook to determine if an element is overflowing.
  *
  * @param elementRef Ref to the element to check for overflow. If no `ref` is provided, the hook will create one and return it.
- * @returns A tuple of an object`{horizontal: boolean; vertical: boolean}` indicating whether the element is overflowing, and a `ref`. If a `ref` was provided, the returned `ref` will be the same as the one provided.
+ * @returns An object containing an object `{horizontal: boolean; vertical: boolean}` indicating whether the element is overflowing, and a `ref`. If `elementRef` was provided, the returned `ref` will be the same as the one provided.
  *
  * @example
  * export const Component: FC<Props> = () => {
  *   const elementRef = useRef<HTMLDivElement>(null);
- *   const [{ horizontal, vertical }] = useIsOverflowing(elementRef);
+ *   const { isOverflowing: { horizontal, vertical } } = useIsOverflowing(elementRef);
  *   // Without passing a ref, the hook will create one and return it.
- *   const [{ horizontal, vertical }, elementRef] = useIsOverflowing<HTMLDivElement>();
+ *   const { isOverflowing: { horizontal, vertical }, ref: elementRef } = useIsOverflowing<HTMLDivElement>();
  *   ...
- *   return (<div ref={elementRef}></div>)
+ *   return (<div ref={elementRef}>...</div>)
  * }
  *
- * @since 2.2.0
+ * @since 4.1.0
  */
 export const useIsOverflowing = <T extends HTMLElement>(
   elementRef?: React.RefObject<T>,
-): [OverflowDirection, React.RefObject<T>] => {
+): { isOverflowing: OverflowDirection; ref: React.RefObject<T> } => {
   const [isOverflowing, setIsOverflowing] = useState<OverflowDirection>({
     horizontal: false,
     vertical: false,
@@ -47,7 +47,7 @@ export const useIsOverflowing = <T extends HTMLElement>(
       }
       trigger();
     }
-  }, [ref]);
+  }, [ref, ref.current]);
 
-  return [isOverflowing, ref];
+  return { isOverflowing, ref };
 };

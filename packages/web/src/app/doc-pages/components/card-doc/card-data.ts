@@ -48,6 +48,12 @@ const cardData: ComponentData = {
       default: '100%',
       description: 'Override width of card. Any css length value is accepted (e.g. 150px, 20vw, 75%).',
     },
+    height: {
+      isRequired: false,
+      type: 'string',
+      default: '100%',
+      description: 'Override height of card. Any css length value is accepted (e.g. 150px, 20vw, 75%).',
+    },
     minWidth: {
       isRequired: false,
       type: 'number',
@@ -58,13 +64,14 @@ const cardData: ComponentData = {
       isRequired: false,
       type: 'number',
       default: '175',
-      description: 'Maximum width of card in px, cannot be more than 400.',
+      description: 'Maximum width of card in px, cannot be more than 250 (or 400 for detail type card).',
     },
     maxDescriptionLines: {
       isRequired: false,
       type: 'number',
       default: '3',
-      description: 'Max number of text lines in description. Overflow is clamped with an ellipsis.',
+      description:
+        'Max number of text lines in description. Overflow is clamped with an ellipsis. NB: This prop is only used for detail cards.',
     },
     tag: {
       isRequired: false,

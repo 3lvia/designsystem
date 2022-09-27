@@ -35,6 +35,7 @@ export interface CardProps {
   shape?: never;
   hasBorder?: boolean;
   width?: string;
+  height?: string;
   minWidth?: number;
   maxWidth?: number;
   maxDescriptionLines?: number;
@@ -58,8 +59,9 @@ const Card: FC<CardProps> = ({
   type = 'simple',
   hasBorder = true,
   width = '100%',
+  height = '100%',
   minWidth,
-  maxWidth = 200,
+  maxWidth,
   maxDescriptionLines = 3,
   tag,
   cornerIcon,
@@ -75,7 +77,10 @@ const Card: FC<CardProps> = ({
   const iconRef = useRef<HTMLDivElement>(null);
   const cornerIconRef = useRef<HTMLDivElement>(null);
 
-  const [{ vertical: headingIsOverflowing }, headingRef] = useIsOverflowing<HTMLDivElement>();
+  const {
+    isOverflowing: { vertical: headingIsOverflowing },
+    ref: headingRef,
+  } = useIsOverflowing<HTMLDivElement>();
 
   /** Get all slots and place them correctly */
   useEffect(() => {
@@ -90,7 +95,7 @@ const Card: FC<CardProps> = ({
       cornerIconRef.current.innerHTML = '';
       cornerIconRef.current.appendChild(webcomponent.getSlot('cornerIcon'));
     }
-  }, [webcomponent]);
+  }, [webcomponent, type]);
 
   /** Change icon on hover if iconHover slot is used */
   useEffect(() => {
@@ -127,6 +132,7 @@ const Card: FC<CardProps> = ({
       type={type}
       hasBorder={hasBorder}
       width={width}
+      height={height}
       minWidth={minWidth}
       maxWidth={maxWidth}
       data-testid="card-area"
