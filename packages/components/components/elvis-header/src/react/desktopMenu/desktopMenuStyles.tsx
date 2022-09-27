@@ -56,7 +56,11 @@ export const MenuContainer = styled.div<MenuContainerProps>`
   }};
 `;
 
-export const TriggerButton = styled(TertiaryButton)`
+interface TriggerButtonProps {
+  isActive: boolean;
+}
+
+export const TriggerButton = styled(TertiaryButton)<TriggerButtonProps>`
   margin-right: 1.5rem;
   position: relative;
   height: calc(100% - 8px); // Shows the full keyboard-focus outline without clipping
@@ -77,6 +81,17 @@ export const TriggerButton = styled(TertiaryButton)`
   &:hover::after {
     transform: scaleX(1);
   }
+
+  ${(props) => {
+    if (props.isActive) {
+      return css`
+        &::after {
+          transform: scaleX(1);
+        }
+      `;
+    }
+    return css``;
+  }}
 `;
 
 export const MenuTitle = styled.div`
