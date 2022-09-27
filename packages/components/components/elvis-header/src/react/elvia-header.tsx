@@ -102,7 +102,7 @@ export const Tooltip: React.FC<HeaderProps> = ({
       <AppContent
         ref={pageContainerElement}
         isGtMobile={isGtMobile}
-        sidenavPadding={navItems?.length}
+        sidenavPadding={!!navItems?.length}
         hidden={!hasAppContent}
       >
         {appContent}
