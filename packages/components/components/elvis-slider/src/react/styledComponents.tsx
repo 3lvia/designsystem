@@ -27,12 +27,13 @@ type StyledSliderProps = {
 type SliderFilledTrackProps = {
   disabled: boolean;
   rangeTrackWidth?: number;
-  sliderType: string;
+  type: string;
   trackWidth: number;
 };
 
 type NumberInputProps = {
   max: number;
+  width: number;
 };
 
 type SliderWrapperProps = {
@@ -40,7 +41,7 @@ type SliderWrapperProps = {
 };
 
 type InputFieldsContainerProps = {
-  sliderType: string;
+  type: string;
 };
 //#endregion
 
@@ -107,6 +108,7 @@ export const SliderContainer = styled.div`
   box-sizing: border-box;
   text-align: left;
   width: 100%;
+  min-width: 112px;
 `;
 
 export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
@@ -114,21 +116,6 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   display: flex;
   gap: 0.5rem;
   justify-content: space-between;
-
-  > div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  & > div:last-child {
-    ${(props) => {
-      if (props.sliderType === 'range') {
-        return 'align-items: flex-end;';
-      }
-      return '';
-    }}
-  }
 `;
 
 export const LabelText = styled.div`
@@ -140,9 +127,10 @@ export const LabelText = styled.div`
   margin-left: 7px;
   padding: 0 3px;
   position: absolute;
-  text-transform: capitalize;
   top: -7px;
+  user-select: none;
   z-index: 1;
+  white-space: nowrap;
 `;
 
 export const NumberInputContainer = styled.div`
@@ -155,7 +143,6 @@ export const NumberInputContainer = styled.div`
 
 export const NumberInput = styled.input.attrs(() => ({
   inputMode: 'decimal',
-  pattern: '[-]?[0-9]*',
   type: 'number',
 }))<NumberInputProps>`
   ${typography.textInput}
@@ -168,12 +155,12 @@ export const NumberInput = styled.input.attrs(() => ({
   display: flex;
   max-width: 448px;
   min-height: 34px;
-  min-width: 40px;
+  min-width: 50px;
   padding: 4px 10px;
   position: relative;
   text-align: left;
   text-transform: unset;
-  width: ${(props) => props.max && props.max.toString().length * 17}px;
+  width: ${(props) => Number(props.width) + 16}px;
 
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
@@ -319,8 +306,8 @@ export const SliderTrack = styled.div`
 
 export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>((props) => ({
   style: {
-    left: props.sliderType === 'range' ? `${props.trackWidth}px` : undefined,
-    width: props.sliderType === 'simple' ? `${props.trackWidth}px` : `${props.rangeTrackWidth}px`,
+    left: props.type === 'range' ? `${props.trackWidth}px` : undefined,
+    width: props.type === 'simple' ? `${props.trackWidth}px` : `${props.rangeTrackWidth}px`,
   },
 }))<SliderFilledTrackProps>`
   background-color: ${(props) => (props.disabled ? colors.grey30 : colors.elviaBlack)};
@@ -375,6 +362,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
   transform: ${(props) => (props.side === 'left' ? 'translateX(-50%)' : 'translateX(50%)')};
   width: max-content;
   min-width: 1.5rem;
+  z-index: 100;
 
   &::after {
     content: '';
