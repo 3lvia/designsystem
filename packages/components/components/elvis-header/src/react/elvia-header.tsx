@@ -85,17 +85,19 @@ export const Tooltip: React.FC<HeaderProps> = ({
         )}
         {isGtMobile && <DesktopMenu email={email} username={username}></DesktopMenu>}
       </Header>
-      <SideNav
-        navItems={navItems}
-        onNavItemClick={(item) => {
-          if (!webcomponent && onSideNavItemClick) {
-            onSideNavItemClick(item);
-          } else if (webcomponent) {
-            webcomponent.triggerEvent('onSideNavItemClick', item);
-          }
-        }}
-      ></SideNav>
-      <AppContent ref={pageContainerElement} isGtMobile={isGtMobile}>
+      {navItems?.length && (
+        <SideNav
+          navItems={navItems}
+          onNavItemClick={(item) => {
+            if (!webcomponent && onSideNavItemClick) {
+              onSideNavItemClick(item);
+            } else if (webcomponent) {
+              webcomponent.triggerEvent('onSideNavItemClick', item);
+            }
+          }}
+        ></SideNav>
+      )}
+      <AppContent ref={pageContainerElement} isGtMobile={isGtMobile} sidenavPadding={navItems?.length}>
         {appContent}
       </AppContent>
     </div>

@@ -156,18 +156,23 @@ export const Hr = styled.hr<Partial<HrProps>>`
   }}
 `;
 
-export const AppContent = styled.main<ResponsiveProps>`
+interface AppContentProps extends ResponsiveProps {
+  sidenavPadding: boolean;
+}
+
+export const AppContent = styled.main<AppContentProps>`
   padding-top: ${toolbarHeight};
 
   ${(props) => {
-    if (props.isGtMobile) {
+    if (props.isGtMobile && props.sidenavPadding) {
       return css`
         padding-left: ${toolbarHeight};
       `;
+    } else if (!props.isGtMobile && props.sidenavPadding) {
+      return css`
+        padding-bottom: ${toolbarHeight};
+      `;
     }
-
-    return css`
-      padding-bottom: ${toolbarHeight};
-    `;
+    return css``;
   }}
 `;
