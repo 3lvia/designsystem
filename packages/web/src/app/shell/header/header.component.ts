@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { GlobalService } from 'src/app/core/services/global.service';
 import { MobileMenuService } from 'src/app/core/services/mobile-menu.service';
 import { OverlayRef } from '@angular/cdk/overlay';
+import { NavItem } from '@elvia/elvis-header';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { SearchMenuComponent } from './search-menu/search-menu.component';
@@ -16,7 +17,7 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
 })
 export class HeaderComponent {
   version = packageJson.version;
-  internalHeader = false;
+  useInternalHeader = true;
   searchMenuOpen = false;
   searchOverlay: OverlayRef;
   headerLogoLoaded = false;
@@ -24,6 +25,12 @@ export class HeaderComponent {
   mainMenu: any;
   menuContentLoader = true;
   isPrideMonth = false;
+  navItems: NavItem[] = [
+    { iconName: 'dashboard', name: 'Overview', url: '/components' },
+    { iconName: 'search', name: 'Search', url: '/search' },
+    { iconName: 'pin', name: 'Analysis', url: '/analysis' },
+    { iconName: 'graphBar', name: 'Statistics', url: '/statistics' },
+  ];
 
   constructor(
     private globalService: GlobalService,
@@ -109,13 +116,13 @@ export class HeaderComponent {
   }
 
   testInternalHeader(): void {
-    this.internalHeader = true;
+    this.useInternalHeader = true;
     const element = document.querySelectorAll('.main-content')[0] as HTMLElement;
     element.classList.add('e-bg-grey-05');
   }
 
   hideInternalHeader(): void {
-    this.internalHeader = false;
+    this.useInternalHeader = false;
     const element = document.querySelectorAll('.main-content')[0] as HTMLElement;
     element.classList.remove('e-bg-grey-05');
   }
