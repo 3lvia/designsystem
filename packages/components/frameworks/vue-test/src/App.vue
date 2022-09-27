@@ -7,7 +7,9 @@
     :navItems="navItems"
     @onSideNavItemClick="navigate($event.detail.value)"
   >
-    <router-view slot="appContent" />
+    <div slot="appContent">
+      <router-view />
+    </div>
   </elvia-header>
 </template>
 
