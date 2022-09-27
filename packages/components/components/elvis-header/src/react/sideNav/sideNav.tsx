@@ -19,9 +19,12 @@ export const SideNav: React.FC<Props> = ({ navItems = [], onNavItemClick }) => {
   const isGtMobile = useDeviceCheck('gt-mobile');
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const isActive = (url: string): boolean => {
+  const isActive = (navItem: NavItem): boolean => {
     const currentUrl = location.pathname;
-    return currentUrl.startsWith(url);
+    if (navItem.strictMatching) {
+      return currentUrl === navItem.url;
+    }
+    return currentUrl.startsWith(navItem.url);
   };
 
   return (
@@ -37,7 +40,7 @@ export const SideNav: React.FC<Props> = ({ navItems = [], onNavItemClick }) => {
               onClick={() => onNavItemClick(navItem)}
               isGtMobile={isGtMobile}
             >
-              <IconContainer isActive={isActive(navItem.url)}>
+              <IconContainer isActive={isActive(navItem)}>
                 <Icon name={navItem.iconName} color="black" size="sm" />
               </IconContainer>
               {isGtMobile && <>{navItem.name}</>}

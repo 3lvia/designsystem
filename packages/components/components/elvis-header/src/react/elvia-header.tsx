@@ -47,7 +47,15 @@ export const Tooltip: React.FC<HeaderProps> = ({
     <div className={className ?? ''} style={{ ...inlineStyle }}>
       <Header>
         <LogoContainer isGtMobile={isGtMobile}>
-          <IconButton onClick={() => onLogoClick && onLogoClick()}>
+          <IconButton
+            onClick={() => {
+              if (!webcomponent && onLogoClick) {
+                onLogoClick();
+              } else if (webcomponent) {
+                webcomponent.triggerEvent('onLogoClick');
+              }
+            }}
+          >
             <svg
               width="100%"
               height="100%"
@@ -79,7 +87,13 @@ export const Tooltip: React.FC<HeaderProps> = ({
       </Header>
       <SideNav
         navItems={navItems}
-        onNavItemClick={(item) => onSideNavItemClick && onSideNavItemClick(item)}
+        onNavItemClick={(item) => {
+          if (!webcomponent && onSideNavItemClick) {
+            onSideNavItemClick(item);
+          } else if (webcomponent) {
+            webcomponent.triggerEvent('onSideNavItemClick', item);
+          }
+        }}
       ></SideNav>
       <AppContent ref={pageContainerElement} isGtMobile={isGtMobile}>
         {appContent}

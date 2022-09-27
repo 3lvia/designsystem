@@ -13,6 +13,7 @@ export interface MobileUserMenuProps extends UserMenuProps {
 
 export interface NavItem {
   url: string;
+  strictMatching?: boolean;
   iconName: IconName;
   name: string;
 }
@@ -21,8 +22,8 @@ export interface HeaderProps extends MobileUserMenuProps {
   pageTitle: string;
   navItems: NavItem[];
   appContent: JSX.Element;
-  onLogoClick: () => void;
-  onSideNavItemClick: (item: NavItem) => void;
+  onLogoClick?: () => void;
+  onSideNavItemClick?: (item: NavItem) => void;
   className?: string;
   inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
