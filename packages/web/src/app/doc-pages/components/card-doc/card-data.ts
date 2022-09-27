@@ -63,7 +63,7 @@ const cardData: ComponentData = {
     maxWidth: {
       isRequired: false,
       type: 'number',
-      default: '175',
+      default: '250 | 400',
       description: 'Maximum width of card in px, cannot be more than 250 (or 400 for detail type card).',
     },
     maxDescriptionLines: {

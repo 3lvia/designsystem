@@ -14,9 +14,10 @@ import {
   CardColoredLineContainer,
   CardHeadingContainer,
 } from './styledComponents';
-import { useIsOverflowing } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, useIsOverflowing } from '@elvia/elvis-toolbox';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
+import { cardConfig } from './config';
 
 export interface CardProps {
   icon?: string | JSX.Element;
@@ -50,7 +51,7 @@ export interface CardProps {
   webcomponent?: ElvisComponentWrapper;
 }
 
-const Card: FC<CardProps> = ({
+const Card: FC<CardProps> = function ({
   icon,
   iconHover,
   heading,
@@ -69,7 +70,10 @@ const Card: FC<CardProps> = ({
   inlineStyle,
   webcomponent,
   ...rest
-}) => {
+}) {
+  // eslint-disable-next-line prefer-rest-params
+  warnDeprecatedProps(cardConfig, arguments[0]);
+
   const [isHoveringArea, setIsHoveringArea] = useState(false);
   const [isShowingHoverIcon, setIsShowingHoverIcon] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
