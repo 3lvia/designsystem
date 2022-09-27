@@ -785,7 +785,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let deprecatedElvisClasses = [
     {
       name: "e-radio-filter",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Radio Filter",
           type: "component",
@@ -795,7 +795,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-radio-filter__label",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Radio Filter",
           type: "component",
@@ -805,7 +805,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-radio-filter---focus",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Radio Filter",
           type: "component",
@@ -815,7 +815,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-radio-filter---hover",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Radio Filter",
           type: "component",
@@ -825,7 +825,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-radio-filter---checked",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Radio Filter",
           type: "component",
@@ -835,7 +835,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-progress",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Progressbar",
           type: "component",
@@ -845,7 +845,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-progress__bar",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Progressbar",
           type: "component",
@@ -855,7 +855,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-progress__bar--loading",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Progressbar",
           type: "component",
@@ -865,7 +865,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-progress__bar--error",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Progressbar",
           type: "component",
@@ -875,7 +875,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -885,7 +885,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover__content",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -895,7 +895,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover__close",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -905,7 +905,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover__title",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -915,7 +915,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover__text",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -925,7 +925,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover--bottom",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -935,7 +935,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover--left",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -945,7 +945,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover--left-50",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -955,7 +955,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover--right",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -965,7 +965,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover--right-50",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -975,7 +975,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover--w-200",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -985,7 +985,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover--w-220",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -995,7 +995,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover--w-240",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -1005,7 +1005,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-popover--w-260",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Popover",
           type: "component",
@@ -1015,7 +1015,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-pagination",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Pagination",
           type: "component",
@@ -1025,7 +1025,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-pagination__number-per-page",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Pagination",
           type: "component",
@@ -1035,7 +1035,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-pagination__dropdown",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Pagination",
           type: "component",
@@ -1045,7 +1045,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-pagination__choosing-page",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Pagination",
           type: "component",
@@ -1055,7 +1055,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-pagination__dots",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Pagination",
           type: "component",
@@ -1065,7 +1065,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-pagination__number",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Pagination",
           type: "component",
@@ -1075,7 +1075,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-pagination__arrow",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Pagination",
           type: "component",
@@ -1085,7 +1085,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-pagination__number--active",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Pagination",
           type: "component",
@@ -1095,7 +1095,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-pagination__number---hover",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Pagination",
           type: "component",
@@ -1105,7 +1105,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-pagination__arrow---hover",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Pagination",
           type: "component",
@@ -1115,7 +1115,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-modal",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Modal",
           type: "component",
@@ -1125,7 +1125,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-modal__content",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Modal",
           type: "component",
@@ -1135,7 +1135,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-modal__title",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Modal",
           type: "component",
@@ -1145,7 +1145,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-modal__text",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Modal",
           type: "component",
@@ -1155,7 +1155,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-modal__actions",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Modal",
           type: "component",
@@ -1165,7 +1165,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-dropdown",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Dropdown",
           type: "component",
@@ -1175,7 +1175,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1185,7 +1185,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip-container",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1195,7 +1195,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip__label",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1205,7 +1205,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip__close",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1215,7 +1215,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip--yellow",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1225,7 +1225,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip---disabled",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1235,7 +1235,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip--orange",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1245,7 +1245,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip--red",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1255,7 +1255,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip--green-apple",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1265,7 +1265,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip--violet-grape",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1275,7 +1275,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip--blue-berry",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1285,7 +1285,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip--purple-plum",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1295,7 +1295,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip--orange-mango",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1305,7 +1305,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip--red-tomato",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1315,7 +1315,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip--green",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1325,7 +1325,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-chip---hover",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Chip",
           type: "component",
@@ -1335,7 +1335,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     {
       name: "e-select",
-      version: "9.0.0",
+      version: "8.13.0",
       replacement: {
           name: "Dropdown",
           type: "component",
