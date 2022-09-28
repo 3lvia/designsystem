@@ -17,7 +17,6 @@
 import { NavItem } from '@elvia/elvis-header';
 import { computed, defineComponent } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-
 export default defineComponent({
   setup() {
     const router = useRouter();

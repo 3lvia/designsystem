@@ -1,5 +1,5 @@
 <!-- Header  -->
-<div class="header" *ngIf="!useInternalHeader; else internalHeader">
+<header class="header" *ngIf="!useInternalHeader; else internalHeader">
   <div class="logo">
     <a [ngClass]="{ show: headerLogoLoaded }" class="header-logo-link" [routerLink]="['', 'home']">
       <img
@@ -29,7 +29,7 @@
       style="width: 500px; height: 32px"
     ></div>
   </div>
-  <div class="tabs" *ngIf="mainMenu">
+  <nav class="tabs" aria-label="tabs navigation" *ngIf="mainMenu">
     <a
       *ngFor="let menuItem of mainMenu.pages"
       class="tabs-links"
@@ -58,7 +58,7 @@
     >
       React
     </a>
-  </div>
+  </nav>
 
   <div class="external-links">
     <div class="tabs-links elvis-search e-mr-24" (click)="openSearchMenu()" id="search-button">
@@ -82,7 +82,7 @@
       <img src="../../../assets/icons/hamburger-menu.svg" alt="Mobile Menu Icon" />
     </button>
   </div>
-</div>
+</header>
 
 <ng-template #internalHeader>
   <elvia-header

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import Components from './Components.vue';
-import Tooltip from './Tooltip.vue';
+import Components from './views/Components.vue';
+import Tooltip from './views/Tooltip.vue';
 
 const router = createRouter({
   history: createWebHistory(),

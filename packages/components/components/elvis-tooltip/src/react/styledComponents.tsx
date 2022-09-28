@@ -58,6 +58,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
   max-width: min(350px, 96%);
   width: max-content;
   opacity: 0;
+  z-index: 99999;
 
   &::after {
     content: '';

@@ -1,5 +1,8 @@
 body {
   margin: 0;
+}
+
+#app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,6 +14,6 @@ body {
 }
 
 .example-wrapper {
-  border-bottom: 1px solid var(--e-green);
+  border-top: 1px solid var(--e-green);
   padding: 32px 32px 72px;
 }
