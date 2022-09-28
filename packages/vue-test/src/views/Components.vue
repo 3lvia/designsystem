@@ -99,7 +99,7 @@
       <elvia-datepicker
         :isCompact="false"
         label="Fra dato"
-        :disableDate="(day) => day.getDay() === 0 || day.getDay() === 6"
+        :disableDate="(day: Date) => day.getDay() === 0 || day.getDay() === 6"
       ></elvia-datepicker>
     </div>
 
@@ -246,9 +246,9 @@ export default defineComponent({
 
     // Chips
     const deletableChipsList = [
-      { value: 2022, color: 'green' },
-      { value: 2023, color: 'red' },
-      { value: 2024, color: 'blue' },
+      { value: 2022, color: 'green', isDisabled: false },
+      { value: 2023, color: 'red', isDisabled: false },
+      { value: 2024, color: 'blue', isDisabled: true },
     ];
 
     // Dropdown

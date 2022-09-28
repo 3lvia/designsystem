@@ -9,9 +9,9 @@ than 0. The table is based on the table originally created on
 | Datepicker   | 99999     | Datepicker åpnes helt ytterst i DOMen så må derfor ha høyeste index |
 | Modal        | 99999     |                                                                     |
 | Spotlight    | 99999     |                                                                     |
+| Tooltip      | 99999     |                                                                     |
 | Header       | 109       | Header skal over alt annet enn modal                                |
 | Dropdown     | 100       |                                                                     |
 | Popover      | 100       |                                                                     |
-| Tooltip      | 100       |                                                                     |
 | Autocomplete | 100       |                                                                     |
 | Badge        | 10        |                                                                     |

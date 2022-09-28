@@ -315,7 +315,7 @@ module.exports = [
     elementName: 'elvia-header',
     attributes: [
       { name: 'appTitle', type: 'string', propType: 'string' },
-      { name: 'pageTitle', type: 'string', propType: 'string' },
+      { name: 'pageTitle', type: 'string', propType: 'string | HTMLElement' },
       { name: 'username', type: 'string', propType: 'string' },
       { name: 'email', type: 'string', propType: 'string' },
       { name: 'navItems', type: 'object', propType: 'object' },
