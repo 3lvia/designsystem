@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "28.09.22",
+      "version": "1.0.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Missing z-index"]
+        }
+      ]
+    },
+    {
+      "date": "28.09.22",
       "version": "1.0.1",
       "changelog": [
         {
