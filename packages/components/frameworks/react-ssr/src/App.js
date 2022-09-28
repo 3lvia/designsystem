@@ -298,7 +298,7 @@ function App() {
           <button className="e-btn" onClick={() => setIsModalShowingState(true)}>
             Show modal
           </button>
-          {/* <Modal
+          <Modal
             isShowing={isModalShowing}
             hasCloseButton
             onClose={() => setIsModalShowingState(false)}
@@ -306,7 +306,7 @@ function App() {
             content={<div>Body text comes here and can go over several lines.</div>}
             primaryButton={<button className="e-btn e-btn--primary">Primary</button>}
             secondaryButton={<button className="e-btn e-btn--secondary">Secondary</button>}
-          ></Modal> */}
+          ></Modal>
         </div>
         {/* PAGINATION */}
         <div className="example-wrapper">
