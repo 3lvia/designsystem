@@ -32,6 +32,7 @@ export const Tooltip: React.FC<HeaderProps> = ({
   const isGtTablet = useBreakpoint('gt-tablet');
   const [hasAppContent, setHasAppContent] = useState(!!appContent);
   const pageContainerElement = useRef<HTMLElement>(null);
+  const pageTitleRef = useRef<HTMLElement>(null);
 
   /** Get app content slot */
   useEffect(() => {
@@ -42,6 +43,11 @@ export const Tooltip: React.FC<HeaderProps> = ({
       pageContainerElement.current.innerHTML = '';
       pageContainerElement.current.appendChild(webcomponent.getSlot('appContent'));
       setHasAppContent(true);
+    }
+
+    if (pageTitleRef.current && webcomponent?.getSlot('pageTitle')) {
+      pageTitleRef.current.innerHTML = '';
+      pageTitleRef.current.appendChild(webcomponent.getSlot('pageTitle'));
     }
   }, [webcomponent]);
 
@@ -79,7 +85,9 @@ export const Tooltip: React.FC<HeaderProps> = ({
             <Hr direction="vertical" isGtTablet={isGtTablet} />
           </>
         )}
-        <PageTitle isGtMobile={isGtMobile}>{pageTitle}</PageTitle>
+        <PageTitle isGtMobile={isGtMobile} ref={pageTitleRef}>
+          {pageTitle}
+        </PageTitle>
         {!isGtMobile && (
           <SquareContainer>
             <MobileMenu appTitle={appTitle} email={email} username={username}></MobileMenu>
