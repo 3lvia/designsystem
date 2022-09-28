@@ -24980,9 +24980,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-ssr@workspace:packages/react-ssr":
+"react-test-renderer@npm:^17.0.0":
+  version: 17.0.2
+  resolution: "react-test-renderer@npm:17.0.2"
+  dependencies:
+    object-assign: ^4.1.1
+    react-is: ^17.0.2
+    react-shallow-renderer: ^16.13.1
+    scheduler: ^0.20.2
+  peerDependencies:
+    react: 17.0.2
+  checksum: e6b5c6ed2a0bde2c34f1ab9523ff9bc4c141a271daf730d6b852374e83acc0155d58ab71a318251e953ebfa65b8bebb9c5dce3eba1ccfcbef7cc4e1e8261c401
+  languageName: node
+  linkType: hard
+
+"react-test@workspace:packages/react-test":
   version: 0.0.0-use.local
-  resolution: "react-ssr@workspace:packages/react-ssr"
+  resolution: "react-test@workspace:packages/react-test"
   dependencies:
     "@babel/core": ^7.18.10
     "@babel/preset-env": ^7.18.10
@@ -25028,20 +25042,6 @@ __metadata:
     webpack-dev-server: 3.11.2
   languageName: unknown
   linkType: soft
-
-"react-test-renderer@npm:^17.0.0":
-  version: 17.0.2
-  resolution: "react-test-renderer@npm:17.0.2"
-  dependencies:
-    object-assign: ^4.1.1
-    react-is: ^17.0.2
-    react-shallow-renderer: ^16.13.1
-    scheduler: ^0.20.2
-  peerDependencies:
-    react: 17.0.2
-  checksum: e6b5c6ed2a0bde2c34f1ab9523ff9bc4c141a271daf730d6b852374e83acc0155d58ab71a318251e953ebfa65b8bebb9c5dce3eba1ccfcbef7cc4e1e8261c401
-  languageName: node
-  linkType: hard
 
 "react-transition-group@npm:^4.0.0, react-transition-group@npm:^4.3.0, react-transition-group@npm:^4.4.0":
   version: 4.4.5

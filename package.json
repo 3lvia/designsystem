@@ -5,7 +5,7 @@
     "packages": [
       "packages/*",
       "packages/components/components/*",
-      "packages/react-ssr",
+      "packages/react-test",
       "packages/vue-test"
     ]
   },
@@ -16,12 +16,12 @@
     "build:components": "nx build @elvia/elvis-components",
     "build:components:prod": "nx build:production @elvia/elvis-components --skip-nx-cache",
     "build:web": "nx build elvia-designsystem",
-    "build:web:prod": "yarn contentful:production && nx run-many --target=build:production --projects=elvia-designsystem,react-ssr --parallel=1 --skip-nx-cache",
+    "build:web:prod": "yarn contentful:production && nx run-many --target=build:production --projects=elvia-designsystem,react-test --parallel=1 --skip-nx-cache",
     "build:tokens": "nx run-many --target=build --projects=@elvia/elvis-colors,@elvia/elvis-typography,@elvia/elvis-assets-icons",
     "start:elvis": "nx start @elvia/elvis",
     "start:components": "nx start @elvia/elvis-components",
     "start:web": "yarn contentful && nx start elvia-designsystem",
-    "start:react": "nx start react-ssr",
+    "start:react": "nx start react-test",
     "start:vue": "nx start vue-preview",
     "start:icons": "nx start @elvia/elvis-assets-icons",
     "contentful": "nx contentful elvia-designsystem",
