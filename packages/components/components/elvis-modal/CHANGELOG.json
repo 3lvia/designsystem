@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "28.09.22",
+      "version": "2.1.7",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Update dependency <span class=\"code-text\">@elvia/elvis-toolbox</span> to 4.0.1"]
+        }
+      ]
+    },
+    {
+      "date": "28.09.22",
       "version": "2.1.6",
       "changelog": [
         {

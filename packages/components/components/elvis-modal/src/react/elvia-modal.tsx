@@ -148,7 +148,7 @@ export const ModalComponent: FC<ModalProps> = function ({
     return () => {
       useFocusTrap(modalWrapperRef, true);
     };
-  }, [isShowing]);
+  }, [isShowing, webcomponent, modalText, modalText.current]);
 
   return (
     <Modal
