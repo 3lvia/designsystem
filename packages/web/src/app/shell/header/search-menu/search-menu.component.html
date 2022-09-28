@@ -1,5 +1,5 @@
 <!-- Header  -->
-<div class="header">
+<header class="header">
   <div class="logo">
     <a class="header-top_logo" [routerLink]="['', 'home']">
       <img src="./../../../assets/logo/elvia_positive_1.svg" alt="Elvia Logo" *ngIf="!isPrideMonth" />
@@ -47,7 +47,7 @@
       </button>
     </div>
   </div>
-</div>
+</header>
 
 <div
   class="content"
@@ -81,6 +81,7 @@
             id="search-field"
             autocomplete="off"
             (keyup)="onSearch()"
+            aria-label="Search through site content"
           />
         </div>
         <button
