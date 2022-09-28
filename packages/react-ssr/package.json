@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "react-scripts build",
-    "build:production": "yarn build && mv ./build ../../../web/dist/elvia-designsystem/react-preview",
+    "build:production": "yarn build && mv ./build ../web/dist/elvia-designsystem/react-preview",
     "start": "react-scripts start",
     "start:ssr": "yarn build && node server/index.js"
   },

@@ -5,7 +5,8 @@
     "packages": [
       "packages/*",
       "packages/components/components/*",
-      "packages/components/frameworks/*"
+      "packages/react-ssr",
+      "packages/vue-test"
     ]
   },
   "scripts": {
