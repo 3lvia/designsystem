@@ -1,18 +1,3 @@
-import { throttle as lodashThrottle } from 'lodash';
-
-/**
- * Uses lodash throttle function: https://lodash.com/docs/4.17.15#throttle
- *
- * @param func — The function to throttle.
- * @param limit — The number of milliseconds to throttle invocations to.
- * @param options — The options object.
- * @param options.trailing — Specify invoking on the trailing edge of the timeout.
- * @returns Returns the new throttled function.
- */
-export const throttle = (func: () => void, limit: number, options?: { trailing: boolean }): any => {
-  return lodashThrottle(func, limit, options);
-};
-
 /**
  * Starts a listener for mousedown and keydown keyboard events and adds or removes the outline of the element in focus.
  * @param element The element that should be able to obtain an outline.
