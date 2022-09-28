@@ -125,7 +125,7 @@ function App() {
             <div style={{ height: '3rem', margin: '1rem' }}></div>
 
             <h4>Range</h4>
-            <Slider sliderType={'range'} min={0} max={500} disabled={false} />
+            <Slider type={'range'} min={0} max={500} disabled={false} />
 
             <div style={{ height: '5rem', margin: '1rem' }}></div>
             <Divider />
@@ -135,7 +135,7 @@ function App() {
             <div style={{ height: '3rem', margin: '1rem' }}></div>
 
             <h4>Disabled Range</h4>
-            <Slider sliderType={'range'} min={0} max={500} disabled={true} />
+            <Slider type={'range'} min={0} max={500} disabled={true} />
           </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
