@@ -32,7 +32,7 @@ export const Tooltip: React.FC<HeaderProps> = ({
   const isGtTablet = useBreakpoint('gt-tablet');
   const [hasAppContent, setHasAppContent] = useState(!!appContent);
   const pageContainerElement = useRef<HTMLElement>(null);
-  const pageTitleRef = useRef<HTMLElement>(null);
+  const pageTitleRef = useRef<HTMLHeadingElement>(null);
 
   /** Get app content slot */
   useEffect(() => {
