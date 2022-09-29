@@ -1,17 +1,8 @@
 {
   "name": "@elvia/elvis-toolbox",
-  "version": "3.0.0",
+  "version": "4.1.0",
   "description": "",
   "license": "MIT",
   "author": "",
-  "main": "./dist/index.js",
-  "dependencies": {
-    "lodash": "^4.17.21"
-  },
-  "devDependencies": {
-    "@types/lodash": "^4.14.179"
-  },
-  "peerDependencies": {
-    "react": "^17.0.0"
-  }
+  "main": "./dist/index.js"
 }
