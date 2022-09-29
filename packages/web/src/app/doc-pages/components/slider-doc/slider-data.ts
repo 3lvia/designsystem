@@ -138,19 +138,23 @@ export const sliderData: ComponentData = {
   codeImportReact: `import { Slider } from '@elvia/elvis-slider/react';`,
   codeImportTypescriptInterface: `import { SliderProps } from '@elvia/elvis-slider/react';`,
   codeImportWebComponent: `import '@elvia/elvis-slider';`,
+  /* Bør testes om valueOnChange virker som forventet overalt */
   codeReact: `<Slider 
   min={1} 
   max={100}
+  valueOnChange={(event) => handleOnChange(event.detail.value)}
 ></Sldier>
 `,
   codeAngular: `<elvia-slider
   [min]="1"
   [max]="100"
+  (valueOnChange)="updateValue($event.detail.value)"
 ></elvia-slider>
 `,
   codeVue: `<elvia-slider
   :min="1"
   :max="100"
+  @value-on-change="updateValue($event.detail.value)"
 ></elvia-slider>
 `,
   codeNativeHTML: `<elvia-slider
