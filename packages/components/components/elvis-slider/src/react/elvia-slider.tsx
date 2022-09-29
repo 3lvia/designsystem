@@ -25,7 +25,7 @@ import { SliderError } from './error/sliderError';
 export const Slider: React.FC<SliderProps> = ({
   className,
   disabled = false,
-  displayTooptip = true,
+  displayTooltip = true,
   hasInputField = false,
   inlineStyle,
   label,
@@ -374,7 +374,7 @@ export const Slider: React.FC<SliderProps> = ({
           />
 
           {/* ↓ Show the left tooltip if the user hovers or clicks on the thumb ↓*/}
-          {showTooltip.left && !disabled && (displayTooptip || isTouchDevice()) && (
+          {showTooltip.left && !disabled && (displayTooltip || isTouchDevice()) && (
             <TooltipPopup
               data-testid="left-tooltip-popup"
               position="top"
@@ -410,7 +410,7 @@ export const Slider: React.FC<SliderProps> = ({
               />
 
               {/* ↓ Show the right tooltip if the user hovers or click on the thumb ↓*/}
-              {showTooltip.right && !disabled && (displayTooptip || isTouchDevice()) && (
+              {showTooltip.right && !disabled && (displayTooltip || isTouchDevice()) && (
                 <TooltipPopup
                   data-testid="right-tooltip-popup"
                   position="top"
@@ -442,7 +442,6 @@ export const Slider: React.FC<SliderProps> = ({
             <NumberInputContainer>
               <label>
                 <LabelText data-testid="left-label" ref={labelTextRef}>
-                  {label ? label : type === 'range' ? 'Fra' : 'Verdi'}
                   {getLabel('left')}
                 </LabelText>
                 {/* LEFT INPUT */}

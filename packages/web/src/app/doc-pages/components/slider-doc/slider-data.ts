@@ -33,7 +33,7 @@ export const sliderData: ComponentData = {
       cegType: 'boolean',
     },
 
-    displayTooptip: {
+    displayTooltip: {
       default: 'false',
       description:
         'Decides if a tooltip should be displayed when the user uses the slider. A tooltip is always displayed on devices with touch as their primary input method.',

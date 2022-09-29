@@ -11,7 +11,7 @@ type Value = {
 export interface SliderProps {
   className?: string;
   disabled?: boolean;
-  displayTooptip?: boolean;
+  displayTooltip?: boolean;
   hasInputField?: boolean;
   inlineStyle?: CSSProperties;
   label?: string;

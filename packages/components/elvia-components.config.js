@@ -447,7 +447,7 @@ module.exports = [
     attributes: [
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'disabled', type: 'boolean', propType: 'boolean' },
-      { name: 'displayTooptip', type: 'boolean', propType: 'boolean' },
+      { name: 'displayTooltip', type: 'boolean', propType: 'boolean' },
       { name: 'hasInputField', type: 'boolean', propType: 'boolean' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
       { name: 'max', type: 'number', propType: 'number' },
