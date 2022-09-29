@@ -2867,8 +2867,9 @@ input:focus {
   cursor: not-allowed;
 }
 .e-input.e-input---readonly > input, .e-input.e-input---readonly > input:focus, .e-input.e-input---readonly > input:read-only, .e-input.e-input---readonly > input:read-only:focus {
+  background: #fafafa;
   border: unset;
-  cursor: not-allowed;
+  color: #515151;
   padding: 12px 16px;
 }
 .e-input input[type=date]::-webkit-calendar-picker-indicator,
