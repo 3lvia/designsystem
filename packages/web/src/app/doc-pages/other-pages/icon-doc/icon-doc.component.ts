@@ -104,8 +104,7 @@ export class IconDocComponent implements OnInit {
   }
 
   getShortIconName(iconName: string): string {
-    let short = iconName.split('-').join(' ');
-    short = short.split('_').join(' ');
+    const short = iconName.split(/[-_]/).join(' ');
     return short.charAt(0).toUpperCase() + short.slice(1);
   }
 
