@@ -109,6 +109,8 @@ export const SliderContainer = styled.div`
   text-align: left;
   width: 100%;
   min-width: 112px;
+  position: relative;
+  margin-bottom: 24px;
 `;
 
 export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`

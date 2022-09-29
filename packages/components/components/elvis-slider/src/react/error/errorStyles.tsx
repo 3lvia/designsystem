@@ -24,6 +24,7 @@ export const ErrorContainer = styled.div`
   gap: 8px;
   margin: 8px 0;
   width: 100%;
+  position: absolute;
 `;
 
 export const ErrorText = styled.span`
