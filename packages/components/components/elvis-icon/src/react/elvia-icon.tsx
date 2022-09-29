@@ -5,7 +5,6 @@ export type { IconName } from '@elvia/elvis-assets-icons';
 export type IconSizes = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 export interface IconProps {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   name: IconName;
   color?: ElviaColor | 'inverted';
   size?: IconSizes;
