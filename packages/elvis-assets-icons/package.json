@@ -1,10 +1,11 @@
 {
   "name": "@elvia/elvis-assets-icons",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "description": "Elvia icons",
   "license": "MIT",
   "author": "",
   "main": "icons.js",
+  "types": "icons.d.ts",
   "scripts": {
     "start": "gulp watch",
     "build": "gulp"
@@ -15,7 +16,6 @@
   "devDependencies": {
     "del": "^6.0.0",
     "gulp": "^4.0.2",
-    "gulp-prettier": "^4.0.0",
     "gulp-svgmin": "^4.1.0",
     "sharp": "^0.30.2"
   }

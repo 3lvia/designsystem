@@ -1,20 +1,21 @@
 {
   "name": "@elvia/elvis-component-wrapper",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "",
   "license": "MIT",
   "author": "",
   "main": "./dist/elvia-component.js",
   "types": "./dist/elvia-component.d.ts",
   "dependencies": {
-    "@elvia/elvis-toolbox": "^2.0.0",
     "json5": "^2.2.1",
     "lodash.isequal": "^4.5.0",
+    "lodash.throttle": "^4.1.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
   "devDependencies": {
     "@types/lodash.isequal": "^4.5.5",
+    "@types/lodash.throttle": "^4.1.7",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.13"
   }

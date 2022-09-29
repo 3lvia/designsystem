@@ -8,7 +8,7 @@ $form-select-border-radius: shared-sizes.$border-radius;
 $form-select-border: input.$form-input-border;
 $form-select-icon-margin: 14px;
 
-// TODO: Deprecate
+// DEPRECATED
 .e-select {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;

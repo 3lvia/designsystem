@@ -60,13 +60,14 @@ export const tooltipData: ComponentData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom CSS classes that can be added to the tooltip.',
+      description:
+        'Custom CSS classes that can be added to the tooltip. NB: This applies to the content, not the trigger.',
     },
     inlineStyle: {
       isRequired: false,
       type: '{[cssProperty: string]: string}',
       description:
-        "Custom CSS style object that can be added to the tooltip. Example: {marginTop: '8px', width: '100%'}",
+        "Custom CSS style object that can be added to the tooltip. Example: {marginTop: '8px', width: '100%'}. NB: This applies to the content, not the trigger.",
     },
   },
   package: 'npm install @elvia/elvis-tooltip',
@@ -75,13 +76,14 @@ export const tooltipData: ComponentData = {
   codeImportWebComponent: `import '@elvia/elvis-tooltip';`,
   codeReact: `<Tooltip
   showDelay={400}
->
-  <button slot="trigger" class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
-    <span class="e-btn__icon">
-      <i class="e-icon e-icon--star" aria-hidden="true"></i>
-    </span>
-  </button>
-</Tooltip>`,
+  trigger={
+    <button class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--star" aria-hidden="true"></i>
+      </span>
+    </button>
+  }
+></Tooltip>`,
   codeAngular: `<elvia-tooltip
   [showDelay]="400"
 >

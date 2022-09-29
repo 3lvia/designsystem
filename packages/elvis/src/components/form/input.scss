@@ -95,6 +95,16 @@ $form-input-padding-compact-active: 3px 9px;
     cursor: not-allowed;
   }
 
+  &.e-input---readonly > input,
+  &.e-input---readonly > input:focus,
+  &.e-input---readonly > input:read-only,
+  &.e-input---readonly > input:read-only:focus {
+    background: colors.color('grey-02');
+    border: unset;
+    color: colors.color('text-light');
+    padding: $form-input-padding;
+  }
+
   // removes default time&date icons in input fields
   input[type='date']::-webkit-calendar-picker-indicator,
   input[type='time']::-webkit-calendar-picker-indicator {
@@ -133,6 +143,16 @@ $form-input-padding-compact-active: 3px 9px;
   > input:focus,
   > textarea:focus {
     border: 2px solid colors.color('elvia-charge');
+    padding: $form-input-padding-compact-active;
+  }
+
+  &.e-input---readonly > input,
+  &.e-input---readonly > input:focus,
+  &.e-input---readonly > input:read-only,
+  &.e-input---readonly > input:read-only:focus {
+    background: colors.color('grey-02');
+    border: unset;
+    color: colors.color('text-light');
     padding: $form-input-padding-compact-active;
   }
 

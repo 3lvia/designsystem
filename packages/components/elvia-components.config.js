@@ -79,6 +79,19 @@ module.exports = [
     reactTypescriptDeclaration: true,
   },
   {
+    name: 'elvis-badge',
+    elementName: 'elvia-badge',
+    attributes: [
+      { name: 'badgeColor', type: 'string', propType: 'string | undefined' },
+      { name: 'count', type: 'number', propType: 'number | string | undefined' },
+      { name: 'content', type: 'string', propType: 'string | HTMLElement' },
+    ],
+    slotItems: true,
+    reactName: 'Badge',
+    useWrapper: true,
+    reactTypescriptDeclaration: true,
+  },
+  {
     name: 'elvis-box',
     elementName: 'elvia-box',
     attributes: [
@@ -435,6 +448,7 @@ module.exports = [
       { name: 'position', type: 'object', propType: 'object' },
       { name: 'radius', type: 'number', propType: 'number' },
       { name: 'hasLockBodyScroll', type: 'boolean', propType: 'boolean' },
+      { name: 'transitionDuration', type: 'string', propType: 'boolean' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
     ],

@@ -1,5 +1,5 @@
 {
-  "name": "react-ssr",
+  "name": "react-test",
   "version": "0.1.0",
   "private": true,
   "workspaces": {
@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "react-scripts build",
-    "build:production": "yarn build && mv ./build ../../../web/dist/elvia-designsystem/react-preview",
+    "build:production": "yarn build && mv ./build ../web/dist/elvia-designsystem/react-preview",
     "start": "react-scripts start",
     "start:ssr": "yarn build && node server/index.js"
   },
@@ -21,6 +21,7 @@
     "@babel/register": "^7.18.9",
     "@elvia/elvis": "*",
     "@elvia/elvis-accordion": "*",
+    "@elvia/elvis-badge": "*",
     "@elvia/elvis-box": "*",
     "@elvia/elvis-breadcrumb": "*",
     "@elvia/elvis-carousel": "*",

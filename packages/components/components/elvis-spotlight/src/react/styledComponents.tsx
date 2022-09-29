@@ -9,6 +9,10 @@ export const SpotlightArea = styled.svg`
   height: 100vh;
 `;
 
-export const SpotlightCircle = styled.circle`
-  transition: all 350ms ease-in-out;
+interface SpotlightCircleProps {
+  transitionDuration: string;
+}
+
+export const SpotlightCircle = styled.circle<SpotlightCircleProps>`
+  transition: all ${(props) => props.transitionDuration} ease-in-out;
 `;
