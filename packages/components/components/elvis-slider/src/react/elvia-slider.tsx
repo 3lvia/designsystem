@@ -335,6 +335,17 @@ export const Slider: React.FC<SliderProps> = ({
     updateValue({ ...sliderValues, [name]: +value });
   };
 
+  const getLabel = (inputSide: 'left' | 'right') => {
+    if (label) {
+      return label;
+    }
+
+    if (inputSide === 'left' && type === 'range') {
+      return 'Fra';
+    }
+    return 'Verdi';
+  };
+
   return (
     <SliderContainer
       className={className ?? ''}
@@ -434,6 +445,7 @@ export const Slider: React.FC<SliderProps> = ({
               <label>
                 <LabelText data-testid="left-label" ref={labelTextRef}>
                   {label ? label : type === 'range' ? 'Fra' : 'Verdi'}
+                  {getLabel('left')}
                 </LabelText>
                 {/* LEFT INPUT */}
                 <NumberInput
