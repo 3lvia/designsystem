@@ -7,7 +7,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Elvis will now warn you if your pages use deprecated Elvis classes and recommend a replacement in the developer console."
+            "Elvis will now warn you in the developer console if your pages use deprecated Elvis classes and recommend a replacement."
           ]
         }
       ]
