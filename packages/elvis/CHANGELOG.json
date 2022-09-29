@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "8.14.0",
+      "date": "September 29, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added support for <span class=\"code-text\">readonly</span> attribute for text input fields."
+          ],
+          "components": [{ "displayName": "Text field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "8.13.0",
       "date": "September 29, 2022",
       "changelog": [

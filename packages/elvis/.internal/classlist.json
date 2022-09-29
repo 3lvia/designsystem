@@ -295,7 +295,8 @@
 			"psuedo": {
 				"e-input---invalid": {},
 				"e-input---focus": {},
-				"e-input---disabled": {}
+				"e-input---disabled": {},
+				"e-input---readonly": {}
 			}
 		},
 		"e-combined-field": {},
@@ -1336,6 +1337,7 @@
 		"e-input---invalid": {},
 		"e-input---focus": {},
 		"e-input---disabled": {},
+		"e-input---readonly": {},
 		"e-combined-field": {},
 		"e-input--compact": {},
 		"e-dropdown": {},
