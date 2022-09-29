@@ -170,8 +170,10 @@ showMockPassword() {
   readonlyExample = `
 <div class="e-form-field">
   <label class="e-form-field__label" for="normalreadonly">Kolonne</label>
+  <label class="e-form-field__label" for="normalreadonly">Country</label>
   <div class="e-input e-input---readonly">
     <input id="normalreadonly" type="text" value="InstalledDate" readonly />
+    <input id="normalreadonly" type="text" value="Norway" readonly />
   </div>
 </div>
 `;
