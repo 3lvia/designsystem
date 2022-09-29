@@ -4,9 +4,9 @@
 /tmp
 /out-tsc
 packages/web/src/assets/changelogs
-packages/elvis-assets-icons/icons.js
-packages/elvis-assets-icons/icons.d.ts
-packages/elvis-assets-icons/icons.cjs.js
+/packages/elvis-assets-icons/icons.js
+/packages/elvis-assets-icons/icons.d.ts
+/packages/elvis-assets-icons/icons.cjs.js
 
 # Only exists if Bazel was run
 /bazel-out
