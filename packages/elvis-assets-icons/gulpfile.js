@@ -2,20 +2,11 @@
 
 const icons = require('./tasks/icons.js');
 const gulp = require('gulp');
-const prettier = require('gulp-prettier');
-
-function validatePrettier() {
-  return src('icons.*').pipe(prettier.check());
-}
-
-function formatPrettier() {
-  return gulp.src('icons.*').pipe(prettier()).pipe(gulp.dest('.'));
-}
 
 // Run gulp tasks
 gulp.task(
   'default',
-  gulp.series(icons.generateIcons, formatPrettier, function (done) {
+  gulp.series(icons.generateIcons, function (done) {
     done();
     console.log('Elvis Icons built!');
   }),
