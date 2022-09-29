@@ -176,15 +176,6 @@ showMockPassword() {
 </div>
 `;
 
-  readonlyCompactExample = `
-<div class="e-form-field e-form-field--compact">
-  <label class="e-form-field__label" for="compactreadonly">Kolonne</label>
-  <div class="e-input e-input---readonly">
-    <input id="compactreadonly" type="text" value="InstalledDate" readonly />
-  </div>
-</div>
-`;
-
   showMockPassword(): void {
     if (this.validationExample.nativeElement.type === 'password') {
       this.validationExample.nativeElement.type = 'text';
