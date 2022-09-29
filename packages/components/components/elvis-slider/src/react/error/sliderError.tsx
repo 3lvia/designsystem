@@ -4,6 +4,7 @@ import { ErrorContainer, ErrorText } from './errorStyles';
 
 interface SliderErrorProps {
   errorMessage: string | undefined;
+  id: string | undefined;
 }
 
 export const SliderError: React.FC<SliderErrorProps> = ({ errorMessage }) => {

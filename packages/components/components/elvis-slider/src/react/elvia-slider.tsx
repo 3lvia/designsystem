@@ -178,10 +178,15 @@ export const Slider: React.FC<SliderProps> = ({
     if (value) {
       if (typeof value === 'number') {
         setSliderValues({ left: +value, right: +max });
+        return;
       } else {
         setSliderValues({ left: +value.min, right: +value.max });
+        return;
       }
     }
+
+    /* If the user does not given a default value, set the value to the min and max. */
+    setSliderValues({ left: +min, right: +max });
   }, [value]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => e.preventDefault();
@@ -326,7 +331,12 @@ export const Slider: React.FC<SliderProps> = ({
   };
 
   return (
-    <SliderContainer className={className ?? ''} style={{ ...inlineStyle }} {...rest}>
+    <SliderContainer
+      className={className ?? ''}
+      style={{ ...inlineStyle }}
+      {...rest}
+      data-testid="slider-container"
+    >
       <form onSubmit={handleSubmit}>
         <SliderWrapper leftOnTop={leftOnTop}>
           {/* ↓ The actual HTML input type=range ↓*/}
@@ -346,11 +356,13 @@ export const Slider: React.FC<SliderProps> = ({
             onMouseLeave={() => setShowTooltip({ ...showTooltip, left: false })}
             onFocus={() => setShowTooltip({ ...showTooltip, left: true })}
             onBlur={() => setShowTooltip({ ...showTooltip, left: false })}
+            data-testid="left-slider"
           />
 
           {/* ↓ Show the left tooltip if the user hovers or clicks on the thumb ↓*/}
           {showTooltip.left && !disabled && (displayTooptip || isTouchDevice()) && (
             <TooltipPopup
+              data-testid="left-tooltip-popup"
               position="top"
               side="left"
               fadeOut={false}
@@ -380,11 +392,13 @@ export const Slider: React.FC<SliderProps> = ({
                 onMouseLeave={() => setShowTooltip({ ...showTooltip, right: false })}
                 onFocus={() => setShowTooltip({ ...showTooltip, right: true })}
                 onBlur={() => setShowTooltip({ ...showTooltip, right: false })}
+                data-testid="right-slider"
               />
 
               {/* ↓ Show the right tooltip if the user hovers or click on the thumb ↓*/}
               {showTooltip.right && !disabled && (displayTooptip || isTouchDevice()) && (
                 <TooltipPopup
+                  data-testid="right-tooltip-popup"
                   position="top"
                   side="right"
                   fadeOut={false}
@@ -413,7 +427,9 @@ export const Slider: React.FC<SliderProps> = ({
           <InputFieldsContainer type={type}>
             <NumberInputContainer>
               <label>
-                <LabelText ref={labelTextRef}>{label ? label : type === 'range' ? 'fra' : 'verdi'}</LabelText>
+                <LabelText data-testid="left-label" ref={labelTextRef}>
+                  {label ? label : type === 'range' ? 'Fra' : 'Verdi'}
+                </LabelText>
                 {/* LEFT INPUT */}
                 <NumberInput
                   disabled={disabled}
@@ -425,8 +441,9 @@ export const Slider: React.FC<SliderProps> = ({
                   ref={leftTextInput}
                   value={textFieldsValues.left}
                   aria-invalid={`${inputFieldIsInvalid('left')}`}
-                  aria-errormessage={errors.rightTextfield}
+                  aria-errormessage={errors.rightTextfield ? 'left-error' : undefined}
                   width={textLabelWidth ? textLabelWidth : 40}
+                  data-testid="left-number-input"
                 ></NumberInput>
               </label>
             </NumberInputContainer>
@@ -434,7 +451,9 @@ export const Slider: React.FC<SliderProps> = ({
             {type === 'range' && (
               <NumberInputContainer>
                 <label>
-                  <LabelText ref={labelTextRef}>{label ? label : 'fra'}</LabelText>
+                  <LabelText data-testid="right-label" ref={labelTextRef}>
+                    {label ? label : 'Til'}
+                  </LabelText>
                   {/* RIGHT INPUT */}
                   <NumberInput
                     disabled={disabled}
@@ -445,8 +464,9 @@ export const Slider: React.FC<SliderProps> = ({
                     onChange={handleNumberInputValueChange}
                     value={textFieldsValues.right}
                     aria-invalid={`${inputFieldIsInvalid('right')}`}
-                    aria-errormessage={errors.rightTextfield}
+                    aria-errormessage={errors.rightTextfield ? 'right-error' : undefined}
                     width={textLabelWidth ? textLabelWidth : 40}
+                    data-testid="right-number-input"
                   ></NumberInput>
                 </label>
               </NumberInputContainer>
@@ -454,8 +474,8 @@ export const Slider: React.FC<SliderProps> = ({
           </InputFieldsContainer>
         )}
         {/* Show errors if they exist ↓ */}
-        {errors.leftTextfield && <SliderError errorMessage={errors.leftTextfield} />}
-        {errors.rightTextfield && <SliderError errorMessage={errors.rightTextfield} />}
+        {errors.leftTextfield && <SliderError id="left-error" errorMessage={errors.leftTextfield} />}
+        {errors.rightTextfield && <SliderError id="right-error" errorMessage={errors.rightTextfield} />}
       </form>
     </SliderContainer>
   );
