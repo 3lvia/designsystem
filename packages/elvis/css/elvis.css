@@ -2927,8 +2927,9 @@ input:focus {
 .e-input.e-input--compact.e-input---readonly > input:focus,
 .e-input.e-input--compact.e-input---readonly > input:read-only,
 .e-input.e-input--compact.e-input---readonly > input:read-only:focus {
+  background: #fafafa;
   border: unset;
-  cursor: not-allowed;
+  color: #515151;
   padding: 3px 9px;
 }
 .e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon,
