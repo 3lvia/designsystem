@@ -1,6 +1,18 @@
 {
   "content": [
     {
+      "version": "8.13.0",
+      "date": "September 29, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Elvis will now warn you in the developer console if your pages use deprecated Elvis classes and recommend a replacement."
+          ]
+        }
+      ]
+    },
+    {
       "version": "8.12.0",
       "date": "September 2, 2022",
       "changelog": [
