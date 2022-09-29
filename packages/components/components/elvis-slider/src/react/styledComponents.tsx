@@ -373,22 +373,14 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
     height: 0;
   }
 
-  ${(props) => {
-    switch (props.position) {
-      case 'top': {
-        return css`
-          transform-origin: center bottom;
+  transform-origin: center bottom;
 
-          &::after {
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-top: 6px solid ${colors.elviaBlack};
-            top: 100%;
-          }
-        `;
-      }
-    }
-  }}
+  &::after {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid ${colors.elviaBlack};
+    top: 100%;
+  }
 
   ${(props) => {
     if (props.fadeOut) {
