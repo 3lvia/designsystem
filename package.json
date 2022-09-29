@@ -5,7 +5,8 @@
     "packages": [
       "packages/*",
       "packages/components/components/*",
-      "packages/components/frameworks/*"
+      "packages/react-test",
+      "packages/vue-test"
     ]
   },
   "scripts": {
@@ -15,18 +16,18 @@
     "build:components": "nx build @elvia/elvis-components",
     "build:components:prod": "nx build:production @elvia/elvis-components --skip-nx-cache",
     "build:web": "nx build elvia-designsystem",
-    "build:web:prod": "yarn contentful:production && nx run-many --target=build --projects=elvia-designsystem,react-ssr --parallel=1",
+    "build:web:prod": "yarn contentful:production && nx run-many --target=build:production --projects=elvia-designsystem,react-test --parallel=1 --skip-nx-cache",
     "build:tokens": "nx run-many --target=build --projects=@elvia/elvis-colors,@elvia/elvis-typography,@elvia/elvis-assets-icons",
     "start:elvis": "nx start @elvia/elvis",
     "start:components": "nx start @elvia/elvis-components",
     "start:web": "yarn contentful && nx start elvia-designsystem",
-    "start:react": "nx start react-ssr",
+    "start:react": "nx start react-test",
     "start:vue": "nx start vue-preview",
     "start:icons": "nx start @elvia/elvis-assets-icons",
     "contentful": "nx contentful elvia-designsystem",
     "contentful:production": "nx contentful:production elvia-designsystem --skip-nx-cache",
     "prettier:elvis": "prettier --write \"packages/elvis/**/*.js\"",
-    "prettier:components": "nx prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
+    "prettier:components": "prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
     "prettier:web": "prettier --write \"packages/web/src/**/*.ts\"",
     "lint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
     "lint:all": "yarn prettier:elvis && yarn prettier:web && yarn prettier:components && yarn eslint",

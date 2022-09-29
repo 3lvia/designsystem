@@ -1,0 +1,76 @@
+{
+  "name": "react-test",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": {
+    "installConfig.hoistingLimits": [
+      "react-scripts",
+      "react-scripts/**"
+    ]
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "build:production": "yarn build && mv ./build ../web/dist/elvia-designsystem/react-preview",
+    "start": "react-scripts start",
+    "start:ssr": "yarn build && node server/index.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/register": "^7.18.9",
+    "@elvia/elvis": "*",
+    "@elvia/elvis-accordion": "*",
+    "@elvia/elvis-badge": "*",
+    "@elvia/elvis-box": "*",
+    "@elvia/elvis-breadcrumb": "*",
+    "@elvia/elvis-carousel": "*",
+    "@elvia/elvis-chip": "*",
+    "@elvia/elvis-datepicker": "*",
+    "@elvia/elvis-datepicker-range": "*",
+    "@elvia/elvis-divider": "*",
+    "@elvia/elvis-dropdown": "*",
+    "@elvia/elvis-icon": "*",
+    "@elvia/elvis-modal": "*",
+    "@elvia/elvis-pagination": "*",
+    "@elvia/elvis-popover": "*",
+    "@elvia/elvis-progress-linear": "*",
+    "@elvia/elvis-spotlight": "*",
+    "@elvia/elvis-tabs": "*",
+    "@elvia/elvis-testing": "*",
+    "@elvia/elvis-timepicker": "*",
+    "@elvia/elvis-typography": "*",
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/react": "12.1.2",
+    "@testing-library/user-event": "^12.1.10",
+    "express": "^4.17.1",
+    "ignore-styles": "^5.0.1",
+    "react": "^17.0.2",
+    "react-app-polyfill": "^2.0.0",
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/dom": ">=7.21.4",
+    "@vue/cli-service": "^5.0.1",
+    "eslint": "^7.1.0",
+    "eslint-plugin-react": "^7.27.0",
+    "webpack": "^4.0.0 || ^5.0.0",
+    "webpack-dev-server": "3.11.2"
+  },
+  "homepage": "./",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

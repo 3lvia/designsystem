@@ -1,6 +1,5 @@
-import { DocPage } from './doc-pages.interface';
-import { Pages } from './pages.enum';
-import { DocPageStatus } from './doc-page-status';
+import { DocPage } from './shared.interface';
+import { Pages, DocPageStatus } from './shared.enum';
 
 // Used for shortcuts at home page
 export const homeMenu: DocPage[] = [
@@ -81,6 +80,17 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Autocomplete,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2742%3A0',
+    type: 'Component',
+  },
+  {
+    title: 'Badge',
+    // tslint:disable-next-line: max-line-length
+    description:
+      'A badge is a small visual indicator to communicate the status of an object, either as a numeric value or just a color. Examples of use are new notifications, unread messages or filter added.',
+    docUrl: Pages.Badge,
+    absolutePath: '/components/' + Pages.Badge,
+    status: DocPageStatus.Coming,
+    figmaUrl: 'https://www.figma.com/file/RDqaOx4hfYvZyQXtaqdkgA/Badge',
     type: 'Component',
   },
   {

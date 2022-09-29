@@ -4,7 +4,7 @@ import { dropdownData } from './dropdown-data';
 import { exampleContents } from 'src/app/shared/example-contents';
 import { dropdownIconsCode } from './dropdown-icons-code';
 import { dropdownStatusCode } from './dropdown-status-code';
-
+import { dropdownLoadMoreItemsCode } from './dropdown-load-more-items-code';
 @Component({
   selector: 'app-dropdown-doc',
   templateUrl: './dropdown-doc.component.html',
@@ -20,6 +20,7 @@ export class DropdownDocComponent {
 
   dropdownIconsCode = dropdownIconsCode;
   dropdownStatusCode = dropdownStatusCode;
+  dropdownLoadMoreItemsCode = dropdownLoadMoreItemsCode;
 
   isCompact = true;
   isDisabled = true;

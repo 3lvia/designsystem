@@ -1,0 +1,77 @@
+{
+  "name": "vue-preview",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "vue-cli-service build",
+    "start": "vue-cli-service serve",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@elvia/elvis": "*",
+    "@elvia/elvis-accordion": "*",
+    "@elvia/elvis-badge": "*",
+    "@elvia/elvis-box": "*",
+    "@elvia/elvis-breadcrumb": "*",
+    "@elvia/elvis-card": "*",
+    "@elvia/elvis-carousel": "*",
+    "@elvia/elvis-chip": "*",
+    "@elvia/elvis-datepicker": "*",
+    "@elvia/elvis-datepicker-range": "*",
+    "@elvia/elvis-divider": "*",
+    "@elvia/elvis-dropdown": "*",
+    "@elvia/elvis-icon": "*",
+    "@elvia/elvis-modal": "*",
+    "@elvia/elvis-pagination": "*",
+    "@elvia/elvis-popover": "*",
+    "@elvia/elvis-progress-linear": "*",
+    "@elvia/elvis-radio-filter": "*",
+    "@elvia/elvis-spotlight": "*",
+    "@elvia/elvis-tabs": "*",
+    "@elvia/elvis-testing": "*",
+    "@elvia/elvis-timepicker": "*",
+    "core-js": "^3.25.3",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.5"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "^4.5.0",
+    "@vue/cli-service": "4.5.13",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "babel-eslint": "^10.1.0",
+    "css-loader": "^4.3.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
+    "sass": "~1.32.6",
+    "sass-loader": "^10.0.2",
+    "typescript": "^4.4.2",
+    "vue-loader": "15.9.8",
+    "webpack": "^5.12.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

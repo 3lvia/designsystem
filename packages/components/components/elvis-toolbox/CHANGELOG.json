@@ -2,6 +2,50 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.09.22",
+      "version": "4.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that caused the <span class=\"code-text\">useFocusTrap</span> hook to not work properly when a custom element was passed as content in the <span class=\"code-text\">elvia-modal</span> component."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "28.09.22",
+      "version": "4.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Remove function <span class=\"code-text\">throttle</span>, as it is only a re-export of <span class=\"code-text\">lodash.throttle</span>"
+          ],
+          "fixes": [
+            "Add <span class=\"code-text\">lodash.throttle</span> as a dependency and use method <span class=\"code-text\">throttle()</span> directly."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "15.09.22",
+      "version": "3.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Added horizontal alignment to <span class=\"code-text\">useConnectedOverlay</span> hook.",
+            "Redefined api for <span class=\"code-text\">useConnectedOverlay</span> to return an object",
+            "Added hook <span class=\"code-text\">useLongPress</span> to detect long presses on elements."
+          ],
+          "fixes": [
+            "Change response from <span class=\"code-text\">useConnectedOverlay</span> to an object, instead of an array."
+          ]
+        }
+      ]
+    },
+    {
       "date": "09.09.22",
       "version": "2.2.0",
       "changelog": [

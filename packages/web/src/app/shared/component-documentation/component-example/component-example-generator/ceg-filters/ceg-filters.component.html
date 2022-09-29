@@ -107,7 +107,7 @@
 
     <!--Counter-->
     <div
-      *ngIf="formGroup.formType === 'counter'"
+      *ngIf="formGroup.formType === 'counter' && (formGroup | visibleFields: formStates:false)"
       [ngClass]="{
         'ceg-filter-margin': i !== formGroupList.length - 1
       }"
@@ -116,14 +116,24 @@
       <div class="counter">
         <button
           class="e-btn e-btn--icon e-btn--circled e-btn--sm e-mr-8"
-          [disabled]="counterNumber === formGroup.counterMin"
-          (click)="updateCounterProp(formGroup, -formGroup.counterStepValue)"
+          [disabled]="counterNumber === formGroup.counterMin || !(formGroup | visibleFields: formStates:true)"
+          (click)="
+            onInputValueChange(formGroup, undefined, counterNumber ? counterNumber : formGroup.defaultValue);
+            updateCounterProp(
+              counterNumber ? counterNumber : formGroup.defaultValue,
+              formGroup,
+              -formGroup.counterStepValue
+            )
+          "
           aria-label="Subtract from count"
         >
           <span class="e-btn__icon">
             <i
               class="e-icon e-icon--subtract_circle"
-              [ngClass]="{ 'e-icon--color-disabled': counterNumber === formGroup.counterMin }"
+              [ngClass]="{
+                'e-icon--color-disabled':
+                  counterNumber === formGroup.counterMin || !(formGroup | visibleFields: formStates:true)
+              }"
               aria-hidden="true"
             ></i>
             <i class="e-icon e-icon e-icon--subtract_circle-filled-color" aria-hidden="true"></i>
@@ -131,28 +141,44 @@
         </button>
         <span
           class="counter__number e-text-md"
-          [ngClass]="{ small: formGroup.counterMax < 10 }"
+          [ngClass]="{
+            small: formGroup.counterMax < 10,
+            disabled: !(formGroup | visibleFields: formStates:true)
+          }"
           *ngIf="counterNumber !== undefined"
         >
           {{ counterNumber }}{{ formGroup.counterType }}
         </span>
         <span
           class="counter__number e-text-md"
-          [ngClass]="{ small: formGroup.counterMax < 10 }"
+          [ngClass]="{
+            small: formGroup.counterMax < 10,
+            disabled: !(formGroup | visibleFields: formStates:true)
+          }"
           *ngIf="counterNumber === undefined"
         >
           {{ formGroup.defaultValue }}{{ formGroup.counterType }}
         </span>
         <button
           class="e-btn e-btn--icon e-btn--circled e-btn--sm e-ml-8"
-          [disabled]="counterNumber === formGroup.counterMax"
-          (click)="updateCounterProp(formGroup, formGroup.counterStepValue)"
+          [disabled]="counterNumber === formGroup.counterMax || !(formGroup | visibleFields: formStates:true)"
+          (click)="
+            onInputValueChange(formGroup, undefined, counterNumber ? counterNumber : formGroup.defaultValue);
+            updateCounterProp(
+              counterNumber ? counterNumber : formGroup.defaultValue,
+              formGroup,
+              formGroup.counterStepValue
+            )
+          "
           aria-label="Add to count"
         >
           <span class="e-btn__icon">
             <i
               class="e-icon e-icon--add_circle"
-              [ngClass]="{ 'e-icon--color-disabled': counterNumber === formGroup.counterMax }"
+              [ngClass]="{
+                'e-icon--color-disabled':
+                  counterNumber === formGroup.counterMax || !(formGroup | visibleFields: formStates:true)
+              }"
               aria-hidden="true"
             ></i>
             <i class="e-icon e-icon e-icon--add_circle-filled-color" aria-hidden="true"></i>
