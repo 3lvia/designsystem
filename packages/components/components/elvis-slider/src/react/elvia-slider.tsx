@@ -154,6 +154,7 @@ export const Slider: React.FC<SliderProps> = ({
       min: newSliderValues.left,
       max: newSliderValues.right,
     };
+
     setSliderValues(newSliderValues);
     if (!webcomponent && valueOnChange) {
       valueOnChange(type === 'simple' ? newValue.min : newValue);
@@ -164,7 +165,9 @@ export const Slider: React.FC<SliderProps> = ({
 
   /* To avoid that text fields "are a step behind" */
   useEffect(() => {
-    setTextFieldsValues({ ...textFieldsValues, left: sliderValues.left, right: sliderValues.right });
+    if (hasInputField) {
+      setTextFieldsValues({ ...textFieldsValues, left: sliderValues.left, right: sliderValues.right });
+    }
   }, [sliderValues]);
 
   useEffect(() => {
@@ -226,13 +229,15 @@ export const Slider: React.FC<SliderProps> = ({
       /* Thumbs can not cross */
       if (name === 'left') {
         const newValue: number = Math.min(+value, sliderValues.right - 1);
-        setSliderValues({ ...sliderValues, ['left']: newValue });
+        /* setSliderValues({ ...sliderValues, ['left']: newValue }); */
+        updateValue({ ...sliderValues, ['left']: +newValue });
         return;
       }
 
       if (name === 'right') {
         const newValue: number = Math.max(+value, sliderValues.left + 1);
-        setSliderValues({ ...sliderValues, ['right']: newValue });
+        /* setSliderValues({ ...sliderValues, ['right']: newValue }); */
+        updateValue({ ...sliderValues, ['right']: +newValue });
         return;
       }
     }
@@ -327,7 +332,7 @@ export const Slider: React.FC<SliderProps> = ({
     }
 
     //if input passes all validation
-    setSliderValues({ ...sliderValues, [name]: +value });
+    updateValue({ ...sliderValues, [name]: +value });
   };
 
   return (
