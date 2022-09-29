@@ -8,11 +8,22 @@
   "scripts": {
     "build": "gulp --gulpfile build/gulpfile.js cleanup && gulp --gulpfile build/gulpfile.js && webpack --mode=production --stats=minimal  --config ./webpack.config.js",
     "build:production": "gulp --gulpfile build/gulpfile.js cleanup && gulp --gulpfile build/gulpfile.js production && webpack --mode=production --stats=minimal  --config ./webpack.config.js",
-    "watch": "concurrently \"webpack --watch --mode=production --stats=minimal \" \"gulp --gulpfile build/gulpfile.js watch\"",
+    "start": "concurrently \"webpack --watch --mode=production --stats=minimal \" \"gulp --gulpfile build/gulpfile.js watch\"",
     "clean": "gulp --gulpfile build/gulpfile.js cleanup",
     "test": "jest --config jest.config.js --colors",
-    "test:watch": "jest --config jest.config.js --watch --colors",
+    "test:start": "jest --config jest.config.js --watch --colors",
     "test:coverage": "jest --coverage --colors"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.18.10",
+    "@babel/plugin-transform-runtime": "^7.18.10",
+    "@babel/preset-typescript": "^7.18.6",
+    "ajv": "^8.8.2",
+    "babel-plugin-styled-components": "^1.13.3",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "jsdom-global": "^3.0.2",
+    "sass": "^1.33.0",
+    "sass-loader": "^10.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
@@ -56,15 +67,7 @@
     "webpack": "^4.44.2",
     "webpack-cli": "^4.6.0"
   },
-  "dependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.18.10",
-    "@babel/plugin-transform-runtime": "^7.18.10",
-    "@babel/preset-typescript": "^7.18.6",
-    "ajv": "^8.8.2",
-    "babel-plugin-styled-components": "^1.13.3",
-    "gulp-typescript": "^6.0.0-alpha.1",
-    "jsdom-global": "^3.0.2",
-    "sass": "^1.33.0",
-    "sass-loader": "^10.0.2"
+  "peerDependencies": {
+    "typescript": "^4.8.2"
   }
 }

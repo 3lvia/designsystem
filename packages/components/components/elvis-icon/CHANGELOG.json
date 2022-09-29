@@ -2,6 +2,30 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "15.09.22",
+      "version": "1.3.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Bumped dependency on <span class=\"code-text\">@elvia/elvis-assets-icons</span> to make newer color labels work."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "12.09.22",
+      "version": "1.3.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Added an export for the type <span class=\"code-text\">IconName</span> from @elvia/elvis-assets-icons."
+          ]
+        }
+      ]
+    },
+    {
       "date": "16.08.22",
       "version": "1.3.0",
       "changelog": [

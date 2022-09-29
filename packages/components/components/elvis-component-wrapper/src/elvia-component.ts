@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import isEqual from 'lodash.isequal';
-import toolbox from '@elvia/elvis-toolbox';
+import throttle from 'lodash.throttle';
 import JSON5 from 'json5';
 
 export class ElvisComponentWrapper extends HTMLElement {
@@ -21,7 +21,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.webComponent = webComponent;
     this.reactComponent = reactComponent;
     this.cssStyle = cssStyle;
-    this.throttleRenderReactDOM = toolbox.throttle(this.renderReactDOM, 50, { trailing: true });
+    this.throttleRenderReactDOM = throttle(this.renderReactDOM, 50, { trailing: true });
   }
 
   get data(): ElvisComponentWrapper['_data'] {
@@ -154,14 +154,21 @@ export class ElvisComponentWrapper extends HTMLElement {
     if (this.webComponent.getComponentData().wrapperStyle) {
       this.mountPoint.style.cssText = this.webComponent.getComponentData().wrapperStyle;
     }
+    if (this.cssStyle === '') {
+      return;
+    }
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;
+    // Add nonce to style tag for CSP support
+    if (window && (window as any).__webpack_nonce__) {
+      styleTag.setAttribute('nonce', (window as any).__webpack_nonce__);
+    }
     this.appendChild(styleTag);
   }
 
   protected createReactData(): Record<string, any> {
-    const reactData: { [key: string]: boolean } = {};
-    Object.keys(this._data).forEach((key: string) => {
+    const reactData: { [key: string]: any } = {};
+    Object.keys(this._data).forEach((key) => {
       reactData[this.mapNameToRealName(key)] = this._data[key];
     });
     return reactData;

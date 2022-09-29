@@ -16,13 +16,13 @@
             <div (click)="veryImportantFunction('fride', '🐡')" id="fride" class="profile-emoji">🐡</div>
             <div
               class="e-content-loader e-content-loader--circle profile-image-loader"
-              *ngIf="!loadedImgFri"
+              *ngIf="!loadedImgFride"
             ></div>
             <img
               alt="Fride"
               class="profile-image"
               src="./../../../../assets/contact/Fride.jpg"
-              (load)="hideContentLoader($event, 'fri')"
+              (load)="hideContentLoader($event, 'fride')"
             />
           </div>
           <div class="profile-info">
@@ -47,13 +47,13 @@
             <div (click)="veryImportantFunction('trygve', '🐐')" id="trygve" class="profile-emoji">🐐</div>
             <div
               class="e-content-loader e-content-loader--circle profile-image-loader"
-              *ngIf="!loadedImgMic"
+              *ngIf="!loadedImgTrygve"
             ></div>
             <img
               alt="Trygve"
               class="profile-image"
               src="./../../../../assets/contact/Trygve.png"
-              (load)="hideContentLoader($event, 'mic')"
+              (load)="hideContentLoader($event, 'trygve')"
             />
           </div>
           <div class="profile-info">
@@ -76,19 +76,19 @@
 
       <div class="contact-profile-container viljar">
         <div class="contact-profile viljar">
-          <div (click)="veryImportantFunction('viljar', '🦄')" id="viljar" class="profile-emoji right">
-            🦄
+          <div (click)="veryImportantFunction('viljar', '🦥')" id="viljar" class="profile-emoji right">
+            🦥
           </div>
           <div
             class="e-content-loader e-content-loader--circle profile-image-loader"
-            *ngIf="!loadedImgPat"
+            *ngIf="!loadedImgViljar"
           ></div>
           <div>
             <img
               alt="Viljar"
               class="profile-image"
               src="./../../../../assets/contact/Viljar.png"
-              (load)="hideContentLoader($event, 'pat')"
+              (load)="hideContentLoader($event, 'viljar')"
             />
           </div>
           <div class="profile-info">
@@ -121,7 +121,7 @@
               alt="Hilde"
               class="profile-image"
               src="./../../../../assets/contact/Hilde.jpg"
-              (load)="hideContentLoader($event, 'hil')"
+              (load)="hideContentLoader($event, 'hilde')"
             />
           </div>
           <div class="profile-info">
@@ -136,6 +136,68 @@
                   <img alt="" src="./../../../../assets/contact/figma-icon.svg" />
                 </span>
                 <span class="e-btn__title">Slack Hilde</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-profile-container tom">
+        <div class="contact-profile tom">
+          <div style="position: relative">
+            <div (click)="veryImportantFunction('tom', '🦅')" id="tom" class="profile-emoji">🦅</div>
+            <div
+              class="e-content-loader e-content-loader--circle profile-image-loader"
+              *ngIf="!loadedImgTom"
+            ></div>
+            <img
+              alt="tom"
+              class="profile-image"
+              src="./../../../../assets/contact/Tom.png"
+              (load)="hideContentLoader($event, 'tom')"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="e-title-caps">Developer</div>
+            <div class="e-title-sm e-mt-8">Tom Schrier</div>
+            <div class="e-text-md" style="margin-top: 4px; margin-bottom: 16px">tom.schrier@elvia.no</div>
+            <div class="profile-slack-button">
+              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U03MESY0YLD">
+                <span class="e-btn__icon">
+                  <img alt="" src="./../../../../assets/contact/figma-icon.svg" />
+                </span>
+                <span class="e-btn__title">Slack Tom</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-profile-container erik">
+        <div class="contact-profile">
+          <div style="position: relative">
+            <div (click)="veryImportantFunction('erik', '🐘')" id="erik" class="profile-emoji">🐘</div>
+            <div
+              class="e-content-loader e-content-loader--circle profile-image-loader"
+              *ngIf="!loadedImgErik"
+            ></div>
+            <img
+              alt="Erik"
+              class="profile-image"
+              src="assets/contact/Erik.png"
+              (load)="hideContentLoader($event, 'erik')"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="e-title-caps">Developer</div>
+            <div class="e-title-sm e-mt-8">Erik Tallang</div>
+            <div class="e-text-md" style="margin-top: 4px; margin-bottom: 16px">erik.tallang@elvia.no</div>
+            <div class="profile-slack-button">
+              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U018X0SN05C">
+                <span class="e-btn__icon">
+                  <img alt="" src="./../../../../assets/contact/figma-icon.svg" />
+                </span>
+                <span class="e-btn__title">Slack Erik</span>
               </a>
             </div>
           </div>

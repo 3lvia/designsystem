@@ -85,6 +85,7 @@
 			"modifier": {
 				"e-form-field--compact": {},
 				"e-form-field--combined": {},
+				"e-form-field--full-width": {},
 				"e-form-field--width-auto": {},
 				"e-form-field--small": {},
 				"e-form-field--medium": {}
@@ -891,6 +892,7 @@
 				"e-checkbox__label": {}
 			},
 			"modifier": {
+				"e-checkbox--compact": {},
 				"e-checkbox--sm": {},
 				"e-checkbox--indeterminate": {}
 			},
@@ -973,7 +975,11 @@
 				"e-dragdrop--dragover": {}
 			}
 		},
-		"e-inlined-field": {},
+		"e-inlined-field": {
+			"modifier": {
+				"e-inlined-field--full-width": {}
+			}
+		},
 		"e-fileupload": {
 			"element": {
 				"e-fileupload__icon": {},
@@ -996,6 +1002,7 @@
 		},
 		"e-radio": {
 			"modifier": {
+				"e-radio--compact": {},
 				"e-radio--sm": {}
 			},
 			"element": {
@@ -1856,6 +1863,7 @@
 		"e-toggle--inverted": {},
 		"e-checkbox__mark": {},
 		"e-checkbox__label": {},
+		"e-checkbox--compact": {},
 		"e-checkbox--sm": {},
 		"e-checkbox--indeterminate": {},
 		"e-checkbox---focus": {},
@@ -1876,10 +1884,12 @@
 		"e-form-field__input": {},
 		"e-input--small": {},
 		"e-input--medium": {},
+		"e-form-field--full-width": {},
 		"e-inlined-field": {},
 		"e-form-field--width-auto": {},
 		"e-form-field--small": {},
 		"e-form-field--medium": {},
+		"e-inlined-field--full-width": {},
 		"e-fileupload": {},
 		"e-fileupload__icon": {},
 		"e-fileupload__description": {},
@@ -1891,6 +1901,7 @@
 		"e-position-picker__description": {},
 		"e-position-picker__action": {},
 		"e-radio": {},
+		"e-radio--compact": {},
 		"e-radio--sm": {},
 		"e-radio__mark": {},
 		"e-radio__label": {},

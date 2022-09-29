@@ -97,6 +97,15 @@
       color: colors.color('disabled');
     }
   }
+
+  /* Full width - Removes max width for all inputs */
+  &.e-form-field--full-width .e-input,
+  &.e-form-field--full-width .e-input > input,
+  &.e-form-field--full-width .e-input > textarea,
+  &.e-form-field--full-width .e-input > div,
+  &.e-form-field--combined.e-form-field--full-width > .e-form-field__input {
+    max-width: unset;
+  }
 }
 
 .e-inlined-field {
@@ -122,5 +131,16 @@
     &.e-form-field--medium {
       width: 140px;
     }
+
+    &.e-form-field--full-width {
+      max-width: unset;
+      width: 100%;
+    }
+  }
+
+  &.e-inlined-field--full-width,
+  &.e-inlined-field--full-width .e-input,
+  &.e-inlined-field--full-width input {
+    max-width: unset;
   }
 }

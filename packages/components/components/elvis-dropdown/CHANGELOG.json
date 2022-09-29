@@ -2,6 +2,84 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.09.22",
+      "version": "3.6.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Update dependency <span class=\"code-text\">@elvia/elvis-toolbox</span> to 4.0.0"]
+        }
+      ]
+    },
+    {
+      "date": "14.09.22",
+      "version": "3.6.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added support for adding a button to the bottom of the dropdown item list that can be used to load more items."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Changed how the <span class=\"code-text\">onItemHover</span> is triggered.",
+            "Fixed a wrong hover state for disabled dropdown item in multiselect dropdown."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "12.09.22",
+      "version": "3.5.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added support for status icons on each dropdown option.",
+            "Now dispatching an event <span class=\"code-text\">onItemHover</span> when an option is hovered."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Fix version dependency on <span class=\"code-text\">@elvia/elvis-icon</span>."]
+        }
+      ]
+    },
+    {
+      "date": "30.08.22",
+      "version": "3.4.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for disabling dropdown options."]
+        }
+      ]
+    },
+    {
+      "date": "01.09.22",
+      "version": "3.3.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Upgrade to toolbox v2.0.0"]
+        }
+      ]
+    },
+    {
+      "date": "01.09.22",
+      "version": "3.3.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Added support for CSP style nonce. It is added by setting the variable <span class=\"code-text\">window.__webpack_nonce__</span> in the document head to the nonce value."
+          ]
+        }
+      ]
+    },
+    {
       "date": "29.08.22",
       "version": "3.3.1",
       "changelog": [

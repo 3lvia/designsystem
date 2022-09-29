@@ -2,6 +2,48 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.09.22",
+      "version": "2.8.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Update dependency <span class=\"code-text\">@elvia/elvis-toolbox</span> to 4.0.0"]
+        }
+      ]
+    },
+    {
+      "date": "12.09.22",
+      "version": "2.8.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fix version dependency on <span class=\"code-text\">@elvia/elvis-icon</span>."]
+        }
+      ]
+    },
+    {
+      "date": "09.09.22",
+      "version": "2.8.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added <span class=\"code-text\">spacingBelowContent</span> prop that can be used on overflow accordion."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "01.09.22",
+      "version": "2.7.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Upgrade to toolbox v2.0.0"]
+        }
+      ]
+    },
+    {
       "date": "18.08.22",
       "version": "2.7.0",
       "changelog": [

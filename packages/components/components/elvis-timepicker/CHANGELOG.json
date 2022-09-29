@@ -1,0 +1,48 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "28.09.22",
+      "version": "1.0.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Update dependency <span class=\"code-text\">@elvia/elvis-toolbox</span> to 4.0.0"]
+        }
+      ]
+    },
+    {
+      "date": "15.09.22",
+      "version": "1.0.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Bump <span class=\"code-text\">@elvia/elvis-toolbox</span> to version <span class=\"code-text\">3.0.0</span>",
+            "Bump <span class=\"code-text\">@elvia/elvis-icon</span> to version <span class=\"code-text\">1.3.2</span>"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "14.09.22",
+      "version": "1.0.1 ",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Outdated dependency to @elvia/elvis-colors package"]
+        }
+      ]
+    },
+    {
+      "date": "09.09.22",
+      "version": "1.0.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of the time picker."]
+        }
+      ]
+    }
+  ]
+}

@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useRef, CSSProperties, useMemo } from 'react';
+import React, { useState, useEffect, useRef, CSSProperties, useMemo, PointerEventHandler } from 'react';
 import Select, {
   components,
   DropdownIndicatorProps,
+  MenuListProps,
   MultiValueProps,
   OptionProps,
   PlaceholderProps,
   SingleValueProps,
   StylesConfig,
 } from 'react-select';
-import toolbox from '@elvia/elvis-toolbox';
-import { Icon } from '@elvia/elvis-icon/react';
+import { Icon, IconName } from '@elvia/elvis-icon/react';
 import {
   DropdownCheckbox,
   DropdownCheckboxLabel,
@@ -19,25 +19,34 @@ import {
   DropdownErrorMessageWrapper,
   DropdownLabel,
   DropdownSingleValueOverflowWrapper,
-  DropdownPlaceholderWrapper,
+  DropdownOptionWithStatusWrapper,
+  DropdownMenuLoadMoreButtonContent,
+  DropdownMenuLoadMoreButtonText,
+  DropdownMenuLoadMoreButtonIcon,
+  DropdownMenuLoadMoreButton,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import isEqual from 'lodash.isequal';
 import { getColor } from '@elvia/elvis-colors';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, outlineListener } from '@elvia/elvis-toolbox';
 import { config } from './config';
+import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
+import { DropdownItemStatus, statusToIconMap } from './statusToIconMap';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 export interface DropdownItem {
   value: string;
   label: string;
-  icon?: string;
+  icon?: IconName;
+  isDisabled?: boolean;
+  status?: DropdownItemStatus;
 }
 
 export interface DropdownProps {
   /**
-   * @deprecated Removed in version 3.0.0. Replaced by `value`.
+   * @deprecated Removed in version 3.0.0. Replaced by `items`.
    */
   options?: never;
   items: DropdownItem[];
@@ -59,8 +68,12 @@ export interface DropdownProps {
   menuPosition?: DropdownMenuPosition;
   noOptionsMessage?: string;
   placeholder?: string;
-  placeholderIcon?: string;
+  placeholderIcon?: IconName;
   valueOnChange?: (selectedOptions: DropdownItem | Array<DropdownItem> | undefined) => void;
+  onItemHover?: (hoveredItem: DropdownItem | undefined) => void;
+  hasLoadMoreItemsButton?: boolean;
+  onLoadMoreItems?: () => void;
+  isLoadingMoreItems?: boolean;
   className?: string;
   inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
@@ -84,6 +97,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
   placeholder = '',
   placeholderIcon,
   valueOnChange,
+  onItemHover,
+  hasLoadMoreItemsButton,
+  onLoadMoreItems,
+  isLoadingMoreItems,
   className,
   inlineStyle,
   webcomponent,
@@ -113,6 +130,11 @@ const Dropdown: React.FC<DropdownProps> = function ({
     }
   }, [selectAllOption]);
 
+  /** Memoized variable with all the items that are not disabled. Updates when `items` changes. */
+  const itemsNotDisabled = useMemo(() => {
+    return items.filter((item) => !item.isDisabled);
+  }, [items]);
+
   const selectId = uniqueId('ewc-dropdown-');
 
   /** Styling functions for react select */
@@ -139,7 +161,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
     return getColor('white');
   };
 
-  const decideOptionHoverBg = (selected: boolean, isMulti: boolean) => {
+  const decideOptionHoverBg = (selected: boolean, isMulti: boolean, optionIsDisabled: boolean) => {
+    if (optionIsDisabled) {
+      return getColor('white');
+    }
     if (selected && isMulti) {
       return getColor('grey-05');
     }
@@ -226,7 +251,8 @@ const Dropdown: React.FC<DropdownProps> = function ({
     menu: (provided) => ({
       ...provided,
       boxShadow: '0px 0px 40px rgba(0, 0, 0, 0.06);',
-      minWidth: '72px',
+      minWidth: '100%',
+      width: 'fit-content',
       zIndex: 100,
     }),
 
@@ -268,22 +294,23 @@ const Dropdown: React.FC<DropdownProps> = function ({
       ...provided,
       display: 'flex',
       alignItems: 'center',
+      gap: '8px',
       backgroundColor: decideOptionBg(state.isFocused, state.isSelected, state.isMulti),
-      color: getColor('black'),
+      color: state.isDisabled ? getColor('disabled') : getColor('black'),
       height: '100%',
       paddingTop: '7px',
       paddingBottom: '7px',
       paddingLeft: isCompact ? '9px' : '15px',
       fontSize: isCompact ? '14px' : '16px',
-      lineHeight: isCompact ? '18px' : '30px',
+      lineHeight: isCompact ? '18px' : '26px',
       border: '1px solid transparent',
-      cursor: 'pointer',
+      cursor: state.isDisabled ? 'not-allowed' : 'pointer',
       overflowX: 'hidden',
       textOverflow: 'ellipsis',
       '&:hover': {
-        backgroundColor: decideOptionHoverBg(state.isSelected, state.isMulti),
+        backgroundColor: decideOptionHoverBg(state.isSelected, state.isMulti, state.isDisabled),
         '#ewc-dropdown-checkbox__mark': {
-          backgroundColor: getColor('elvia-charge'),
+          backgroundColor: state.isDisabled ? getColor('white') : getColor('elvia-charge'),
         },
       },
       '#ewc-dropdown-checkbox__mark': {
@@ -304,7 +331,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
       lineHeight: '22px',
       color: isDisabled ? getColor('disabled') : getColor('grey-70'),
       margin: '0px',
-      display: 'block',
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: '8px',
       overflowX: 'hidden',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
@@ -373,22 +403,50 @@ const Dropdown: React.FC<DropdownProps> = function ({
   };
 
   const ElviaOption = (props: OptionProps) => {
+    const optionData = props.data as DropdownItem;
+    const optionIsDisabled = optionData.isDisabled ?? false;
+    const handleOnPointerEnter: PointerEventHandler<HTMLDivElement> = () => {
+      if (!webcomponent) {
+        onItemHover?.(optionData);
+      } else {
+        webcomponent.triggerEvent('onItemHover', optionData);
+      }
+    };
+
     if (!isMulti) {
       return (
-        <components.Option {...props}>
+        <components.Option
+          {...props}
+          innerProps={{
+            ...props['innerProps'],
+            onPointerEnter: handleOnPointerEnter,
+          }}
+          isDisabled={optionIsDisabled}
+        >
           {allOptionsHaveIconAttribute ? (
             <Icon
               inlineStyle={{ marginRight: '16px' }}
-              name={(props.data as DropdownItem).icon as string}
+              name={optionData.icon as IconName}
               size={isCompact ? 'xs' : 'sm'}
+              color={optionIsDisabled ? getColor('disabled') : undefined}
             />
           ) : (
             ''
           )}
-          {props.children}
+          <DropdownOptionWithStatusWrapper>
+            {props.children}
+            {optionData.status && (
+              <Icon
+                name={statusToIconMap[optionData.status].name}
+                color={statusToIconMap[optionData.status].color}
+                size={'xs'}
+              />
+            )}
+          </DropdownOptionWithStatusWrapper>
         </components.Option>
       );
     }
+
     const isSelectAllWithPartialSelected =
       hasSelectAllOption &&
       props.children === selectAllOptionState.label &&
@@ -396,16 +454,33 @@ const Dropdown: React.FC<DropdownProps> = function ({
       currentVal.length > 0 &&
       !props.isSelected;
     return (
-      <components.Option {...props}>
-        <DropdownCheckbox>
-          <DropdownCheckboxMark
-            id="ewc-dropdown-checkbox__mark"
-            isSelected={props.isSelected}
-            isCompact={isCompact}
-            isSelectAllWithPartialSelected={isSelectAllWithPartialSelected}
-          />
-          <DropdownCheckboxLabel isCompact={isCompact}>{props.children}</DropdownCheckboxLabel>
-        </DropdownCheckbox>
+      <components.Option
+        {...props}
+        innerProps={{
+          ...props['innerProps'],
+          onPointerEnter: handleOnPointerEnter,
+        }}
+        isDisabled={optionIsDisabled}
+      >
+        <DropdownOptionWithStatusWrapper>
+          <DropdownCheckbox>
+            <DropdownCheckboxMark
+              id="ewc-dropdown-checkbox__mark"
+              isSelected={props.isSelected}
+              isCompact={isCompact}
+              isSelectAllWithPartialSelected={isSelectAllWithPartialSelected}
+              isDisabled={optionIsDisabled}
+            />
+            <DropdownCheckboxLabel isCompact={isCompact}>{props.children}</DropdownCheckboxLabel>
+          </DropdownCheckbox>
+          {optionData.status && (
+            <Icon
+              name={statusToIconMap[optionData.status].name}
+              color={statusToIconMap[optionData.status].color}
+              size={'xs'}
+            />
+          )}
+        </DropdownOptionWithStatusWrapper>
       </components.Option>
     );
   };
@@ -426,10 +501,12 @@ const Dropdown: React.FC<DropdownProps> = function ({
     if (placeholderIcon) {
       return (
         <components.Placeholder {...props}>
-          <DropdownPlaceholderWrapper>
-            <Icon name={placeholderIcon} color={getColor('placeholder')} size="xs" />
-            {props.children}
-          </DropdownPlaceholderWrapper>
+          <Icon
+            name={placeholderIcon}
+            color={isDisabled ? getColor('disabled') : getColor('placeholder')}
+            size="xs"
+          />
+          {props.children}
         </components.Placeholder>
       );
     }
@@ -465,7 +542,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
         {allOptionsHaveIconAttribute ? (
           <Icon
             inlineStyle={{ marginRight: '16px' }}
-            name={(props.data as DropdownItem).icon as string}
+            name={(props.data as DropdownItem).icon as IconName}
             size={isCompact ? 'xs' : 'sm'}
             color={decideSingleValueColor(menuIsOpen, isSearchable, isDisabled)}
           />
@@ -475,6 +552,40 @@ const Dropdown: React.FC<DropdownProps> = function ({
         <DropdownSingleValueOverflowWrapper>{props.children}</DropdownSingleValueOverflowWrapper>
       </components.SingleValue>
     );
+  };
+
+  const ElviaMenuList = (props: MenuListProps) => {
+    return (
+      <components.MenuList {...props}>
+        {props.children}
+        {hasLoadMoreItemsButton && (
+          <DropdownMenuLoadMoreButton
+            isCompact={isCompact}
+            isLoading={isLoadingMoreItems}
+            onClick={handleLoadMoreButtonClick}
+          >
+            <DropdownMenuLoadMoreButtonContent
+              // Could not get the loading prop to work with styled components for hover effect,
+              // so a data-attribute is used instead
+              data-loading={isLoadingMoreItems}
+            >
+              <DropdownMenuLoadMoreButtonIcon isLoading={isLoadingMoreItems}>
+                <Icon name={'sync'} size={'xs'} />
+              </DropdownMenuLoadMoreButtonIcon>
+              <DropdownMenuLoadMoreButtonText>Last inn flere</DropdownMenuLoadMoreButtonText>
+            </DropdownMenuLoadMoreButtonContent>
+          </DropdownMenuLoadMoreButton>
+        )}
+      </components.MenuList>
+    );
+  };
+
+  const handleLoadMoreButtonClick = () => {
+    if (!webcomponent) {
+      onLoadMoreItems?.();
+    } else {
+      webcomponent.triggerEvent('onLoadMoreItems');
+    }
   };
 
   /** Object containing all components overridden in react-select by Elvis dropdown */
@@ -487,16 +598,17 @@ const Dropdown: React.FC<DropdownProps> = function ({
     MultiValueRemove: () => null,
     Placeholder: ElviaPlaceholder,
     SingleValue: ElviaSingleValue,
+    MenuList: ElviaMenuList,
   };
 
   /** Start listener for adding and removing outline on dropdown when elements in focus */
   useEffect(() => {
     if (dropdownRef && dropdownRef.current) {
-      toolbox.outlineListener(dropdownRef.current);
+      outlineListener(dropdownRef.current);
     }
     return () => {
       if (dropdownRef && dropdownRef.current) {
-        toolbox.outlineListener(dropdownRef.current, true);
+        outlineListener(dropdownRef.current, true);
       }
     };
   }, []);
@@ -522,8 +634,8 @@ const Dropdown: React.FC<DropdownProps> = function ({
           !currentVal.find((option) => isEqual(option, selectAllOptionState)) &&
           event.includes(selectAllOptionState))
       ) {
-        setCurrentVal([selectAllOptionState, ...items]);
-        updateValue([selectAllOptionState, ...items]);
+        setCurrentVal([selectAllOptionState, ...itemsNotDisabled]);
+        updateValue([selectAllOptionState, ...itemsNotDisabled]);
       } else if (
         // selectAllOption is selected, but becomes unselected => unselect all
         // Check that selectAllOption is currently selected
@@ -540,7 +652,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
         Array.isArray(currentVal) &&
         currentVal.find((option) => isEqual(option, selectAllOptionState)) &&
         // Check that not all elements in options are selected any more  (length + 1 because of selectAllOption being added)
-        event.length !== items.length + 1
+        event.length !== itemsNotDisabled.length + 1
       ) {
         // Filter out selectAllOption from the selected options
         const newSelectedValue = event.filter((option) => !isEqual(option, selectAllOptionState));
@@ -552,7 +664,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
         Array.isArray(currentVal) &&
         !currentVal.find((option) => isEqual(option, selectAllOptionState)) &&
         // Check that all options are selected
-        event.length == items.length
+        event.length == itemsNotDisabled.length
       ) {
         setCurrentVal([selectAllOptionState, ...event]);
         updateValue([selectAllOptionState, ...event]);
@@ -594,50 +706,62 @@ const Dropdown: React.FC<DropdownProps> = function ({
     }
   }, [errorMessage]);
 
-  return (
-    <div className={`${className ? className : ''}`} style={inlineStyle} {...rest}>
-      <DropdownWrapper
-        isFullWidth={isFullWidth}
-        isDisabled={isDisabled}
-        ref={dropdownRef}
-        data-testid="wrapper"
-      >
-        <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
-          {label}
-        </DropdownLabel>
-        <Select
-          blurInputOnSelect={!isMulti}
-          classNamePrefix={'ewc-dropdown'}
-          closeMenuOnSelect={!isMulti}
-          components={overrideComponents}
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          //@ts-ignore
-          hasValue={false}
-          hideSelectedOptions={false}
-          inputId={selectId}
-          isDisabled={isDisabled}
-          isMulti={isMulti}
-          isSearchable={isSearchable}
-          menuIsOpen={menuIsOpen}
-          menuPlacement={menuPosition}
-          noOptionsMessage={() => noOptionsMessage}
-          onChange={onChangeHandler}
-          onKeyDown={(event) => {
-            if (event.code === 'Enter' && !menuIsOpen) {
-              setMenuIsOpen(true);
-            }
-          }}
-          onMenuClose={() => setMenuIsOpen(false)}
-          onMenuOpen={() => setMenuIsOpen(true)}
-          options={items && isMulti && hasSelectAllOption ? [selectAllOptionState, ...items] : items}
-          placeholder={placeholder}
-          value={currentVal}
-          styles={customElviaStyles}
-        ></Select>
+  // Cache is used for CSP nonce support
+  const cache = useMemo(
+    () =>
+      createCache({
+        key: 'elvia-dropdown',
+        nonce: window && (window as any).__webpack_nonce__ ? (window as any).__webpack_nonce__ : '',
+        prepend: true,
+      }),
+    [],
+  );
 
-        {isError ? <ElviaError errorMessage={errorMessage} data-testid="error"></ElviaError> : null}
-      </DropdownWrapper>
-    </div>
+  return (
+    <CacheProvider value={cache}>
+      <div className={className ?? ''} style={inlineStyle} {...rest}>
+        <DropdownWrapper
+          isFullWidth={isFullWidth}
+          isDisabled={isDisabled}
+          ref={dropdownRef}
+          data-testid="wrapper"
+        >
+          <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
+            {label}
+          </DropdownLabel>
+          <Select
+            blurInputOnSelect={!isMulti}
+            classNamePrefix={'ewc-dropdown'}
+            closeMenuOnSelect={!isMulti}
+            components={overrideComponents}
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+            hasValue={false}
+            hideSelectedOptions={false}
+            inputId={selectId}
+            isDisabled={isDisabled}
+            isMulti={isMulti}
+            isSearchable={isSearchable}
+            menuIsOpen={menuIsOpen}
+            menuPlacement={menuPosition}
+            noOptionsMessage={() => noOptionsMessage}
+            onChange={onChangeHandler}
+            onKeyDown={(event) => {
+              if (event.code === 'Enter' && !menuIsOpen) {
+                setMenuIsOpen(true);
+              }
+            }}
+            onMenuClose={() => setMenuIsOpen(false)}
+            onMenuOpen={() => setMenuIsOpen(true)}
+            options={items && isMulti && hasSelectAllOption ? [selectAllOptionState, ...items] : items}
+            placeholder={placeholder}
+            value={currentVal}
+            styles={customElviaStyles}
+          ></Select>
+          {isError ? <ElviaError errorMessage={errorMessage} data-testid="error"></ElviaError> : null}
+        </DropdownWrapper>
+      </div>
+    </CacheProvider>
   );
 };
 

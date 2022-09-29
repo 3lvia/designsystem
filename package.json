@@ -5,29 +5,38 @@
     "packages": [
       "packages/*",
       "packages/components/components/*",
-      "packages/components/frameworks/*"
+      "packages/react-test",
+      "packages/vue-test"
     ]
   },
   "scripts": {
-    "start:web": "cd packages/web && yarn contentful && yarn start",
-    "start:components": "yarn build:colors && yarn build:typography && cd packages/components && yarn watch",
-    "start:elvis": "cd packages/elvis && yarn watch",
-    "start:react": "cd packages/components/frameworks/react-ssr && yarn start",
-    "start:vue": "cd packages/components/frameworks/vue-test && yarn start",
-    "build:components": "yarn build:colors && yarn build:typography && cd packages/components && yarn build",
-    "build:web": "yarn && yarn build:colors && yarn build:typography && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run build:production && cd ../web && yarn run contentful:production && yarn run build:production && cd ../components/frameworks/react-ssr && yarn run production",
-    "build:elvis": "cd packages/elvis && yarn build",
-    "build:colors": "cd packages/elvis-colors && yarn build",
-    "build:typography": "cd packages/elvis-typography && yarn build",
-    "contentful": "cd packages/web && yarn contentful",
-    "prettier-elvis": "yarn prettier --write \"packages/elvis/**/*.js\"",
-    "prettier-doc": "yarn prettier --write \"packages/web/src/**/*.ts\"",
-    "prettier-comp": "yarn prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
-    "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
-    "lint-all": "yarn run prettier-elvis && yarn run prettier-doc && yarn run prettier-comp && yarn run eslint",
-    "component-tests": "cd packages/components; yarn test && echo SUCCESS",
+    "build": "yarn build:tokens && yarn build:elvis:prod && yarn build:components:prod && yarn build:web:prod",
+    "build:elvis": "nx build @elvia/elvis",
+    "build:elvis:prod": "nx build:production @elvia/elvis",
+    "build:components": "nx build @elvia/elvis-components",
+    "build:components:prod": "nx build:production @elvia/elvis-components --skip-nx-cache",
+    "build:web": "nx build elvia-designsystem",
+    "build:web:prod": "yarn contentful:production && nx run-many --target=build:production --projects=elvia-designsystem,react-test --parallel=1 --skip-nx-cache",
+    "build:tokens": "nx run-many --target=build --projects=@elvia/elvis-colors,@elvia/elvis-typography,@elvia/elvis-assets-icons",
+    "start:elvis": "nx start @elvia/elvis",
+    "start:components": "nx start @elvia/elvis-components",
+    "start:web": "yarn contentful && nx start elvia-designsystem",
+    "start:react": "nx start react-test",
+    "start:vue": "nx start vue-preview",
+    "start:icons": "nx start @elvia/elvis-assets-icons",
+    "contentful": "nx contentful elvia-designsystem",
+    "contentful:production": "nx contentful:production elvia-designsystem --skip-nx-cache",
+    "prettier:elvis": "prettier --write \"packages/elvis/**/*.js\"",
+    "prettier:components": "prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
+    "prettier:web": "prettier --write \"packages/web/src/**/*.ts\"",
+    "lint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
+    "lint:all": "yarn prettier:elvis && yarn prettier:web && yarn prettier:components && yarn eslint",
+    "test": "nx test @elvia/elvis-components",
+    "test:start": "nx test:start @elvia/elvis-components",
     "test:staged": "cd packages/components; jest --bail --findRelatedTests",
-    "publish": "yarn workspaces foreach -ipv --no-private npm publish --access public"
+    "publish": "yarn workspaces foreach -ipv --no-private npm publish --access public",
+    "nx:graph": "yarn nx graph",
+    "nx:clear": "yarn nx clear-cache"
   },
   "husky": {
     "hooks": {
@@ -37,20 +46,15 @@
   },
   "lint-staged": {
     "packages/elvis/**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
-      "./scripts/elvis-pre-commit.sh",
-      "yarn run prettier-elvis",
-      "git add"
+      "yarn prettier:elvis"
     ],
     "packages/web/**/*.+(js|ts|tsx)": [
-      "yarn run prettier-doc",
-      "yarn run eslint",
-      "git add"
+      "yarn prettier:web",
+      "yarn lint"
     ],
     "packages/components/components/**/*.+(js|ts|tsx)": [
-      "yarn run prettier-comp",
-      "yarn run eslint",
-      "yarn test:staged",
-      "git add"
+      "yarn prettier:components",
+      "yarn lint"
     ]
   },
   "engines": {
@@ -61,6 +65,7 @@
   },
   "devDependencies": {
     "@date-io/core": "^1.3.6",
+    "@nrwl/nx-cloud": "^14.6.2",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "@vue/cli-plugin-eslint": "~5.0.0-rc.1",
@@ -71,6 +76,7 @@
     "express": "^4.17.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.7",
+    "nx": "^14.6.5",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0",
     "react-is": ">= 16.8.0",

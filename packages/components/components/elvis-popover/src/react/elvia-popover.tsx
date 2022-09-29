@@ -2,8 +2,9 @@ import React, { FC, useState, useEffect, useRef, useCallback, CSSProperties } fr
 import './style.scss';
 import classnames from 'classnames';
 import { Icon } from '@elvia/elvis-icon/react';
+import throttle from 'lodash.throttle';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import toolbox, { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, outlineListener } from '@elvia/elvis-toolbox';
 import { config } from './config';
 
 export interface PopoverProps {
@@ -89,9 +90,9 @@ const Popover: FC<PopoverProps> = function ({
 
   /** Start outline listener */
   useEffect(() => {
-    toolbox.outlineListener(popoverRef.current);
+    outlineListener(popoverRef.current);
     return () => {
-      toolbox.outlineListener(popoverRef.current, true);
+      outlineListener(popoverRef.current, true);
     };
   }, []);
 
@@ -400,7 +401,7 @@ const Popover: FC<PopoverProps> = function ({
     }
   };
 
-  const onResize = toolbox.throttle(() => {
+  const onResize = throttle(() => {
     resizePopoverToFitScreen();
     resolveHorizontalPosition();
   }, 150);

@@ -10,7 +10,7 @@ import {
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../../example-code.service';
 import { CegFormGroup, CegFormGroupOption, FormState, CegSideFilterEvent, CegCodes } from '../ceg.interface';
-import debounce from 'lodash/debounce';
+import debounce from 'lodash.debounce';
 import { VisibleFieldsPipe } from './ceg-filters-visibility.pipe';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 import { CegCodeUpdaterService } from 'src/app/core/services/ceg-code-updater.service';
@@ -116,15 +116,15 @@ export class CegFiltersComponent implements OnInit {
 
   onInputValueChange(
     formField: CegFormGroup | CegFormGroupOption,
-    event?: Event,
-    formFieldName?: string,
+    checkboxEvent?: Event,
+    currentValue?: string | number,
   ): void {
-    let value = formFieldName;
-    if (!formFieldName) {
-      value = (event.target as HTMLInputElement).checked.toString();
+    let value = currentValue;
+    if (currentValue === undefined) {
+      value = (checkboxEvent.target as HTMLInputElement).checked.toString();
     }
     this.updateFormStates(formField.propName, value);
-    this.propValueChange.emit({ name: formField.propName, value: value });
+    this.propValueChange.emit({ name: formField.propName, value: value.toString() });
     this.restoreDefaultStateIfDependent(formField, formField.propName);
   }
 
@@ -303,7 +303,7 @@ export class CegFiltersComponent implements OnInit {
           this.cegCodes,
           this.componentData,
           attr,
-          newValue + '',
+          newValue.toString(),
           formGroup.type,
         );
       }
@@ -311,21 +311,26 @@ export class CegFiltersComponent implements OnInit {
     this.updateNewCode();
   }
 
-  updateCounterProp(formGroup: CegFormGroup, stepValue: number): void {
+  updateCounterProp(oldValue: number, formGroup: CegFormGroup, stepValue: number): void {
     const attr = formGroup.propName;
-    if (this.isNotAcceptedCounterValue(formGroup, stepValue)) {
+    if (this.isNotAcceptedCounterValue(oldValue, formGroup, stepValue)) {
       return;
-    } else if (this.counterNumber === undefined) {
-      this.counterNumber = +formGroup.defaultValue + stepValue;
     } else {
-      this.counterNumber += stepValue;
+      this.counterNumber = oldValue + stepValue;
     }
-
     if (this.cegCodes.angular.includes(attr)) {
       this.cegCodes = this.cegCodeUpdaterService.replaceOldProps(
         this.cegCodes,
         attr,
-        '' + this.counterNumber,
+        this.counterNumber.toString(),
+        formGroup.type,
+      );
+    } else {
+      this.cegCodes = this.cegCodeUpdaterService.addNewProps(
+        this.cegCodes,
+        this.componentData,
+        attr,
+        this.counterNumber.toString(),
         formGroup.type,
       );
     }
@@ -337,14 +342,13 @@ export class CegFiltersComponent implements OnInit {
     return visibleFieldPipe.transform(formField, this.formStates, false);
   }
 
-  private isNotAcceptedCounterValue(formGroup: CegFormGroup, stepValue: number): boolean {
+  private isNotAcceptedCounterValue(newValue: number, formGroup: CegFormGroup, stepValue: number): boolean {
     if (formGroup.formType !== 'counter') {
       return;
     }
     return (
-      this.counterNumber !== undefined &&
-      (this.counterNumber + stepValue > formGroup.counterMax ||
-        this.counterNumber + stepValue < formGroup.counterMin)
+      newValue !== undefined &&
+      (newValue + stepValue > formGroup.counterMax || newValue + stepValue < formGroup.counterMin)
     );
   }
 }

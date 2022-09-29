@@ -2,6 +2,61 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.09.22",
+      "version": "5.1.6",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Use throttle from <span class=\"code-text\">lodash.throttle</span> directly.",
+            "Update dependency <span class=\"code-text\">@elvia/elvis-toolbox</span> to 4.0.0"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "12.09.22",
+      "version": "5.1.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fix version dependency on <span class=\"code-text\">@elvia/elvis-icon</span>."]
+        }
+      ]
+    },
+    {
+      "date": "09.09.22",
+      "version": "5.1.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where popover used inside another popover made the trigger z-index wrong."]
+        }
+      ]
+    },
+    {
+      "date": "01.09.22",
+      "version": "5.1.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Upgrade to toolbox v2.0.0"]
+        }
+      ]
+    },
+    {
+      "date": "01.09.22",
+      "version": "5.1.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Bumped the dependency on <span class=\"code-text\">@elvia/elvis-component-wrapper</span> to add support for CSP style nonce."
+          ]
+        }
+      ]
+    },
+    {
       "date": "29.08.22",
       "version": "5.1.1",
       "changelog": [

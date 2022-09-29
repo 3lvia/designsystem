@@ -28,6 +28,7 @@
               </a>
             </ng-container>
           </div>
+
           <div *ngIf="changelog.pages && changelog.pages.length > 0">
             Pages:
             <ng-container *ngFor="let component of changelog.pages; let last = last; let first = first">
@@ -56,7 +57,7 @@
 </ng-template>
 
 <!-- No accordion  -->
-<ng-container *ngIf="!hasAccordion; else accordionTemplate">
+<ng-container *ngIf="!hasAccordion || changelog.length <= 2; else accordionTemplate">
   <ng-container *ngTemplateOutlet="changelogTemplate"></ng-container>
 </ng-container>
 

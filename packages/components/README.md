@@ -119,28 +119,27 @@ specifications. The file explains how to add the props and the meaning of the ea
 #### Step 3 - Run the building tools
 
 Test the component by running the build and dev tools and adding the component to the test projects. We have
-one test project for each framework; Angular, Vue and React. When running `yarn watch` in
+one test project for each framework; Angular, Vue and React. When running `yarn start` in
 `packages/components` the projects should be updated every time a change has been saved.
 
-> NOTE! The first time you run the project you will need to run `yarn watch` or `yarn build` before starting
+> NOTE! The first time you run the project you will need to run `yarn start` or `yarn build` before starting
 > the Angular, Vue and React apps (dev servers). Otherwise you will get errors because the components deletes
-> everything in the dist folder before building the components again when running watch. If this happens,
+> everything in the dist folder before building the components again when running start. If this happens,
 > restart the local dev servers (Angular, Vue and React).
 
-1. Run `yarn watch` in `packages/components` so that the projects are updated every time a change is saved.
+1. Run `yarn start:components` from root or go to `packages/components` and run `yarn start` so that the
+   projects are updated every time a change is saved.
 2. Run dev servers:
-   - **React**: Run `yarn start:react` from root or go to `projects/components/frameworks/react-ssr` and run
-     `yarn start`,
-   - **Vue**: Run `yarn start:vue` from root or go to `projects/components/frameworks/vue-test` and run
-     `yarn start`.
-   - **Angular**: Run `yarn start:web` from root or go to `/projects/web` and run `yarn start`. In the title
+   - **React**: Run `yarn start:react` from root or go to `packages/react-test` and run `yarn start`,
+   - **Vue**: Run `yarn start:vue` from root or go to `packages/vue-test` and run `yarn start`.
+   - **Angular**: Run `yarn start:web` from root or go to `/packages/web` and run `yarn start`. In the title
      of the page there should be a "DEV" where you can preview the v2 components. The code is at path
      `../web/src/app/dev/v2-playground`.
 
 #### Step 5 - Import your new component to the projects
 
-1. Add your components to the package.json files: `web/package.json`, `frameworks/vue-test/package.json` and
-   `frameworks/react-ssr/package.json`.
+1. Add your components to the package.json files: `web/package.json`, `vue-test/package.json` and
+   `react-test/package.json`.
 
    ```
    "dependencies": {

@@ -1,10 +1,10 @@
 import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
-import toolbox from '@elvia/elvis-toolbox';
+import { outlineListener } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
 import {
   AccordionLabelPosition,
   AccordionSize,
-  AccordionSpacingAboveContent,
+  AccordionSpacingContent,
   AccordionType,
 } from './elvia-accordion.types';
 import {
@@ -36,7 +36,8 @@ export interface AccordionProps {
   labelPosition?: AccordionLabelPosition;
   size?: AccordionSize;
   type?: AccordionType;
-  spacingAboveContent?: AccordionSpacingAboveContent;
+  spacingAboveContent?: AccordionSpacingContent;
+  spacingBelowContent?: AccordionSpacingContent;
   overflowHeight?: number;
   typography?: TypographyName;
   onOpen?: () => void;
@@ -63,6 +64,7 @@ const Accordion: FC<AccordionProps> = ({
   size = 'medium',
   type = 'normal',
   spacingAboveContent = '8px',
+  spacingBelowContent = '16px',
   overflowHeight,
   typography,
   onOpen,
@@ -82,11 +84,11 @@ const Accordion: FC<AccordionProps> = ({
   /** Start outline listener */
   useEffect(() => {
     if (accordionRef && accordionRef.current) {
-      toolbox.outlineListener(accordionRef.current);
+      outlineListener(accordionRef.current);
     }
     return () => {
       if (accordionRef && accordionRef.current) {
-        toolbox.outlineListener(accordionRef.current, true);
+        outlineListener(accordionRef.current, true);
       }
     };
   }, []);
@@ -164,6 +166,7 @@ const Accordion: FC<AccordionProps> = ({
           <AccordionContent
             type={type}
             spacingAboveContent={spacingAboveContent}
+            spacingBelowContent={spacingBelowContent}
             isOpenState={isOpenState}
             overflowHeight={overflowHeight}
             hasContent={hasContent}
@@ -219,6 +222,7 @@ const Accordion: FC<AccordionProps> = ({
           <AccordionContent
             type={type}
             spacingAboveContent={spacingAboveContent}
+            spacingBelowContent={spacingBelowContent}
             isOpenState={isOpenState}
             hasContent={hasContent}
             overflowHeight={overflowHeight}

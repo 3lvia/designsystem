@@ -43,7 +43,7 @@ export class v2PlaygroundComponent {
   dropdownOptions = [
     { value: '1', label: 'Option 1' },
     { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3' },
+    { value: '3', label: 'Option 3', isDisabled: 'true' },
   ];
 
   // Modal
@@ -68,6 +68,24 @@ export class v2PlaygroundComponent {
     { label: 'Druer' },
     { label: 'Kiwi', isDisabled: true },
   ];
+
+  // Timepicker
+  timepickerValue = new Date();
+
+  // Tooltip
+  tooltipPosition: 'top' | 'bottom' | 'left' | 'right' = 'top';
+
+  shuffleTooltipPosition = (): void => {
+    if (this.tooltipPosition === 'top') {
+      this.tooltipPosition = 'right';
+    } else if (this.tooltipPosition === 'right') {
+      this.tooltipPosition = 'bottom';
+    } else if (this.tooltipPosition === 'bottom') {
+      this.tooltipPosition = 'left';
+    } else {
+      this.tooltipPosition = 'top';
+    }
+  };
 
   logValue = (component: string, value: Event): void => {
     console.log(component, ': ', value);

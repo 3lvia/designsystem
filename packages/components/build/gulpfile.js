@@ -229,12 +229,12 @@ function buildElviaComponentTSDeclaration() {
 
 function buildToolboxComponentToJS() {
   const tsConfig = typescript.createProject('../tsconfig.json');
-  const tsResult = gulp.src(['../components/elvis-toolbox/src/*.ts']).pipe(tsConfig());
+  const tsResult = gulp.src(['../components/elvis-toolbox/src/**/*.ts']).pipe(tsConfig());
   return mergeStream(tsResult, tsResult.js).pipe(gulp.dest('../components/elvis-toolbox/dist'));
 }
 
 async function runTests() {
-  return exec('yarn run test');
+  return exec('yarn test');
 }
 
 // TODO: Find a way to do cleanup that does not trigger rebuild

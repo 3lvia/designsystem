@@ -10,13 +10,13 @@ export const dropdownData: ComponentData = {
       isRequired: true,
       type: 'Array<object>',
       description:
-        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?: string}',
+        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?: string, isDisabled?: boolean, status?: string}',
     },
     value: {
       isRequired: false,
       type: 'object',
       description:
-        'Set a defualt value to the dropdown. Has same key value pairs as an items object: {value: string, label: string, icon?: string}',
+        'Set a default value to the dropdown. Has same key value pairs as an items object: {value: string, label: string, icon?: string, isDisabled?: boolean, status?: string}',
       default: 'undefined',
     },
     errorMessage: {
@@ -144,7 +144,27 @@ export const dropdownData: ComponentData = {
     valueOnChange: {
       isRequired: false,
       type: '(options: Array<object>) => CustomEvent',
-      description: `Gets called every time an option(s) is selected and return an array of selected objects.`,
+      description: `Gets called every time an option(s) is selected and returns an array of selected objects.`,
+    },
+    onItemHover: {
+      isRequired: false,
+      type: '(option: object) => CustomEvent',
+      description: `Gets called every time an option is hovered and returns the hovered object.`,
+    },
+    hasLoadMoreItemsButton: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Add a button to the bottom of the dropdown menu to load more items.',
+    },
+    onLoadMoreItems: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Function that is called when the "Load more"-button is clicked.',
+    },
+    isLoadingMoreItems: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Set the dropdown "Load more"-button to a loading state when loading more items.',
     },
     className: {
       isRequired: false,

@@ -2,6 +2,74 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.09.22",
+      "version": "4.0.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Update dependency <span class=\"code-text\">@elvia/elvis-toolbox</span> to 4.0.0"]
+        }
+      ]
+    },
+    {
+      "date": "12.09.22",
+      "version": "4.0.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fix version dependency on <span class=\"code-text\">@elvia/elvis-icon</span>."]
+        }
+      ]
+    },
+    {
+      "date": "09.09.22",
+      "version": "4.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug that caused the year picker indicator icon to be flipped."]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Fixed the version dependency of the <span class=\"code-text\">@elvia/elvis-icon</span> package."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "01.09.22",
+      "version": "4.0.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Upgrade to toolbox v2.0.0"]
+        }
+      ]
+    },
+    {
+      "date": "30.08.22",
+      "version": "4.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Republish due to error in the previous version."]
+        }
+      ]
+    },
+    {
+      "date": "30.08.22",
+      "version": "4.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The prop 'isFullWidth' now enables the components to fill the entire width available instead of the earlier 448px max width. If this new behavior is undesired, remove the isFullWidth prop from the component. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "16.08.22",
       "version": "3.1.0",
       "changelog": [

@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useState, useRef, CSSProperties } from 'react';
 import classNames from 'classnames';
-import toolbox from '@elvia/elvis-toolbox';
+import { outlineListener } from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import './style.scss';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import throttle from 'lodash.throttle';
 export interface TabsProps {
   items: string[];
   value?: number;
@@ -47,15 +48,15 @@ const Tabs: FC<TabsProps> = ({
       return;
     }
 
-    toolbox.outlineListener(tabsRef.current);
+    outlineListener(tabsRef.current);
 
-    const throttledResizeCount = toolbox.throttle(updateArrowVisibility, 100);
-    const throttledScrollCount = toolbox.throttle(updateArrowVisibility, 50);
+    const throttledResizeCount = throttle(updateArrowVisibility, 100);
+    const throttledScrollCount = throttle(updateArrowVisibility, 50);
     window.addEventListener('resize', throttledResizeCount);
     itemsRef.current.addEventListener('scroll', throttledScrollCount);
 
     return () => {
-      toolbox.outlineListener(tabsRef.current, true);
+      outlineListener(tabsRef.current, true);
 
       window.removeEventListener('resize', throttledResizeCount);
       if (itemsRef.current) {

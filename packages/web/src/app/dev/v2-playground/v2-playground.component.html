@@ -30,6 +30,38 @@
     </elvia-accordion>
   </div>
 
+  <!-- Badge -->
+  <div class="example-wrapper">
+    <h3>Badge</h3>
+    <elvia-badge [count]="0">
+      <button
+        class="e-thumbnail"
+        aria-label="Thumbnail button that opens the image in a larger view"
+        slot="content"
+      >
+        <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+      </button>
+    </elvia-badge>
+    <elvia-badge [count]="10" [badgeColor]="'red'">
+      <button
+        class="e-thumbnail"
+        aria-label="Thumbnail button that opens the image in a larger view"
+        slot="content"
+      >
+        <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+      </button>
+    </elvia-badge>
+    <elvia-badge [count]="101" [badgeColor]="'black'">
+      <button
+        class="e-thumbnail"
+        aria-label="Thumbnail button that opens the image in a larger view"
+        slot="content"
+      >
+        <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+      </button>
+    </elvia-badge>
+  </div>
+
   <!--Box-->
   <div class="example-wrapper">
     <h3>Box</h3>
@@ -225,7 +257,6 @@
   <!--Popover-->
   <div class="example-wrapper">
     <h3>Popover</h3>
-    <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Show popover</button>
     <elvia-popover
       [isShowing]="isPopoverShowing"
       (onOpen)="isPopoverShowing = true"
@@ -286,5 +317,68 @@
   <div class="example-wrapper">
     <h3>Tabs</h3>
     <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1"></elvia-tabs>
+  </div>
+
+  <!--Timepicker-->
+  <div class="example-wrapper">
+    <h3>Timepicker</h3>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
+      <elvia-timepicker></elvia-timepicker>
+
+      <elvia-timepicker label="Custom label"></elvia-timepicker>
+
+      <elvia-timepicker label=""></elvia-timepicker>
+
+      <elvia-timepicker isCompact="true"></elvia-timepicker>
+
+      <elvia-timepicker label="Only hours" [value]="timepickerValue" minuteInterval="60"></elvia-timepicker>
+
+      <elvia-timepicker isDisabled="true"></elvia-timepicker>
+
+      <elvia-timepicker label="Required" isRequired="true"></elvia-timepicker>
+    </div>
+  </div>
+
+  <!--Tooltip-->
+  <div class="example-wrapper">
+    <h3>Tooltip</h3>
+
+    <div class="e-flex e-flex-direction-row e-gap-16">
+      <p class="e-text-md">
+        This is a text to test out the new
+        <elvia-tooltip
+          content="This is a tooltip! The content is pretty long."
+          trigger="tooltip!"
+        ></elvia-tooltip>
+      </p>
+
+      <elvia-tooltip
+        content="This tooltip has a trigger through a slot. Click the button to toggle the tooltip position."
+        [position]="tooltipPosition"
+      >
+        <button
+          slot="trigger"
+          (click)="shuffleTooltipPosition()"
+          class="e-btn e-btn--icon e-btn--lg"
+          aria-label="Vis tooltip"
+        >
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--star" aria-hidden="true"></i>
+          </span>
+        </button>
+      </elvia-tooltip>
+
+      <elvia-tooltip isDisabled="true" content="This should not be visible">
+        <span slot="trigger">Disabled tooltip</span>
+      </elvia-tooltip>
+
+      <elvia-tooltip>
+        <p slot="content" class="e-text-md e-m-0 e-flex e-align-items-center">
+          <i class="e-icon e-icon--search-bold e-icon--xs e-icon--color-white e-mr-8" aria-hidden="true"></i>
+          This is custom content!
+        </p>
+        <div slot="trigger">Tooltip trigger with custom content</div>
+      </elvia-tooltip>
+    </div>
   </div>
 </div>
