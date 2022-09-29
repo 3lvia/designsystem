@@ -96,22 +96,19 @@
         <ng-container ngProjectAs="sectionContent">
           The
           <span class="code-text">readonly</span>
-          attribute makes the input immutable, meaning the user can not edit the input or its value.
-          <div class="e-alert e-alert--info e-alert--no-title e-mt-16" role="alert">
-            <div class="e-alert__icon">
-              <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
-            </div>
-            <div class="e-alert__content">
-              <div class="e-alert__text">
-                <div>
-                  Note that read-only input fields will still be submitted by a form, but disabled input
-                  fields will not. It is, therefore, necessary to choose wisely between the two attributes.
-                </div>
-              </div>
-            </div>
-          </div>
+          attribute makes the input immutable, meaning the user can not edit the input or its value. Use
+          <span class="code-text">readonly</span>
+          solely when the user cannot interact with the field, but the value is selected. Also, ensure to only
+          use
+          <span class="code-text">readonly</span>
+          if there are other interactive input elements in the form, filter, or similar.
+          <p>
+            Consider that if the input is a stand-alone element, use a regular text box instead. If the value
+            is not selected or active, use the
+            <span class="code-text">disabled</span>
+            attribute.
+          </p>
           <app-component-example-v1 [codeHTML]="readonlyExample"></app-component-example-v1>
-          <app-component-example-v1 [codeHTML]="readonlyCompactExample"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
