@@ -7,14 +7,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 
 global.ResizeObserver = require('resize-observer-polyfill'); //Used to fix "ResizeObserver is not defined" (https://github.com/ZeeCoder/use-resize-observer/issues/40#issuecomment-991256805).
 
-const colors = {
-  elviaWhite: getColor('white'),
-  elviaBlack: getColor('black'),
-  grey10: getColor('grey-10'),
-  grey20: getColor('grey-20'),
-  grey90: getColor('grey-90'),
-};
-
 //====================
 // Simple Slider
 //====================
