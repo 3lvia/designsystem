@@ -229,14 +229,12 @@ export const Slider: React.FC<SliderProps> = ({
       /* Thumbs can not cross */
       if (name === 'left') {
         const newValue: number = Math.min(+value, sliderValues.right - 1);
-        /* setSliderValues({ ...sliderValues, ['left']: newValue }); */
         updateValue({ ...sliderValues, ['left']: +newValue });
         return;
       }
 
       if (name === 'right') {
         const newValue: number = Math.max(+value, sliderValues.left + 1);
-        /* setSliderValues({ ...sliderValues, ['right']: newValue }); */
         updateValue({ ...sliderValues, ['right']: +newValue });
         return;
       }

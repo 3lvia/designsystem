@@ -170,22 +170,6 @@ describe('The simple slider with a input field', () => {
     expect(leftSliderInput).toHaveValue('20'); //see if the value was updated or not (it should update from 1 to 20)
   });
 
-  /* Does not seem to work. The value stays at 1, even after arrowup. Seems to work fine in dev environment */
-  /* test('should update the slider when the number input changes by keyboard navigation', async () => {
-    const user = userEvent.setup();
-    render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-    const leftSliderInput = screen.getByTestId('left-slider');
-    const leftNumberInput = screen.getByTestId('left-number-input');
-
-    await user.click(leftNumberInput);
-    expect(leftNumberInput).toHaveFocus();
-    await user.keyboard('{ArrowUp}');
-    leftNumberInput.blur();
-    screen.debug();
-
-    expect(leftNumberInput).toHaveValue('2');
-  }); */
-
   /* Using FireEvent here as type=range is not fully supported by UserEvent (?): https://github.com/testing-library/user-event/issues/871 */
   test('should update the number input when the slider value changes', () => {
     render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
