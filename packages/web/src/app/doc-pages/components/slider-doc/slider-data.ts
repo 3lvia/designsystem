@@ -56,7 +56,7 @@ export const sliderData: ComponentData = {
       type: 'boolean',
 
       cegDefault: false,
-      cegDependency: [{ name: 'type', value: 'simple' }],
+      cegDependency: [{ name: 'type', value: 'simple' }], //ser ikke ut til å fungere
       cegDisplayGroup: 'Options',
       cegDisplayName: 'Display percentage',
       cegFormType: 'checkbox',
@@ -156,8 +156,18 @@ export const sliderData: ComponentData = {
   codeNativeHTML: `<elvia-slider
   min=1
   max=100
+  id="example-elvia-slider"
 ></elvia-slider>
+
+<script>
+  
+</script>
+      
+`,
+  codeNativeScript: `  const slider = document.getElementById('example-elvia-slider');
+  slider.addEventListener('valueOnChange', (event) => {
+    console.log(event.detail.value);
+  });
 `,
   changelog: changelogJson.content,
-  codeNativeScript: ``,
 };
