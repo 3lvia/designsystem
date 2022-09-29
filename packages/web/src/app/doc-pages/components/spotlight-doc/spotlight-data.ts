@@ -25,6 +25,13 @@ const spotlightData: ComponentData = {
       description: 'Locks the body of your page so that you cant scroll while the spotlight is active.',
       default: 'true',
     },
+    transitionDuration: {
+      isRequired: false,
+      type: 'string',
+      description:
+        'The duration of the transition when the spotlight is moved. Can be any valid css duration.',
+      default: '350ms',
+    },
     className: {
       isRequired: false,
       type: 'string',
