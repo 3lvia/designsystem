@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useState, useRef, CSSProperties } from 'react';
 import classNames from 'classnames';
-import { outlineListener, throttle } from '@elvia/elvis-toolbox';
+import { outlineListener } from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import './style.scss';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import throttle from 'lodash.throttle';
 export interface TabsProps {
   items: string[];
   value?: number;

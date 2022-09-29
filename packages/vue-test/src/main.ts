@@ -1,6 +1,8 @@
 import { createApp } from 'vue';
 import App from './App.vue';
+import router from './router';
 
+import './styles.scss';
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-badge';
 import '@elvia/elvis-box';
@@ -23,5 +25,4 @@ import '@elvia/elvis-spotlight';
 import '@elvia/elvis-tabs';
 import '@elvia/elvis-timepicker';
 
-const app = createApp(App);
-app.mount('#app');
+createApp(App).use(router).mount('#app');
