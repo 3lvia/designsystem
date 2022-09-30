@@ -2630,7 +2630,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^2.2.2, @elvia/elvis-component-wrapper@^2.2.4, @elvia/elvis-component-wrapper@^2.3.0, @elvia/elvis-component-wrapper@^2.3.2, @elvia/elvis-component-wrapper@^2.3.3, @elvia/elvis-component-wrapper@^2.4.2, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
+"@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^2.2.2, @elvia/elvis-component-wrapper@^2.2.4, @elvia/elvis-component-wrapper@^2.3.0, @elvia/elvis-component-wrapper@^2.3.2, @elvia/elvis-component-wrapper@^2.3.3, @elvia/elvis-component-wrapper@^2.4.2, @elvia/elvis-component-wrapper@^2.4.4, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper"
   dependencies:
@@ -3035,8 +3035,9 @@ __metadata:
   resolution: "@elvia/elvis-slider@workspace:packages/components/components/elvis-slider"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^2.2.2
+    "@elvia/elvis-component-wrapper": ^2.4.4
     "@elvia/elvis-icon": ^1.3.1
+    "@elvia/elvis-toolbox": ^4.0.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ">=16.8.0"
@@ -3050,8 +3051,9 @@ __metadata:
   resolution: "@elvia/elvis-slider@portal:../components/components/elvis-slider::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^2.2.2
+    "@elvia/elvis-component-wrapper": ^2.4.4
     "@elvia/elvis-icon": ^1.3.1
+    "@elvia/elvis-toolbox": ^4.0.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ">=16.8.0"
