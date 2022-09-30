@@ -3,30 +3,25 @@ import { CSSProperties } from 'react';
 
 export type SliderType = 'simple' | 'range';
 
-type Value = {
-  min: number;
-  max: number;
-};
-
 export interface SliderProps {
   className?: string;
-  disabled?: boolean;
-  displayTooltip?: boolean;
   hasInputField?: boolean;
+  hasPercent?: boolean;
+  hasTooltip?: boolean;
+  hasHelpValues?: boolean;
   inlineStyle?: CSSProperties;
-  label?: string;
+  isDisabled?: boolean;
+  label?: string | LabelTextType;
   max?: number;
   min?: number;
-  percent?: boolean;
-  step?: number;
   type?: SliderType;
   unit?: string;
-  value?: number | Value;
-  valueOnChange?: (value: number | Value) => void;
+  value?: number | SliderValues;
+  valueOnChange?: (value: number | SliderValues) => void;
   webcomponent?: ElvisComponentWrapper;
 }
 
-export type Extrema = {
+export type Extremum = {
   minimum: number;
   maximum: number;
 };
@@ -45,9 +40,15 @@ export type ToolTipState = {
   left: boolean;
   right?: boolean;
 };
+
 export type SliderErrors = {
   leftTextfield?: string;
   rightTextfield?: string;
+};
+
+export type LabelTextType = {
+  left?: string;
+  right?: string;
 };
 
 export type TooltipPopupSides = 'left' | 'right';

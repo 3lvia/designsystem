@@ -33,7 +33,7 @@ export const sliderData: ComponentData = {
       cegType: 'boolean',
     },
 
-    displayTooltip: {
+    hasTooltip: {
       default: 'false',
       description:
         'Decides if a tooltip should be displayed when the user uses the slider. A tooltip is always displayed on devices with touch as their primary input method.',
@@ -48,7 +48,7 @@ export const sliderData: ComponentData = {
       cegType: 'boolean',
     },
 
-    percent: {
+    hasPercent: {
       default: 'false',
       description:
         'The tooltip should display the percentage of the distance between minimum and maximum values rather than the actual value itself. Only available on a simple slider.',
@@ -73,17 +73,20 @@ export const sliderData: ComponentData = {
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: '',
+      cegDependency: [{ name: 'hasInputField', value: 'true' }],
     },
 
     label: {
       isRequired: false,
-      description: 'A custom label displayed above the inputs. For example "Kilowatt hours"',
-      type: 'string',
+      description:
+        'A custom label displayed above the inputs. For example "Kilowatt hours". Labels can be set individually for range sliders by using a object: {left:"min", right:"max"}',
+      type: 'string | {left: string, right: string}',
       default: '',
 
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: '',
+      cegDependency: [{ name: 'type', value: 'simple' }],
     },
 
     /* TODO: Legge til max i CEG, men bare dersom counten til max aldri kan bli mindre enn min */
@@ -99,7 +102,7 @@ export const sliderData: ComponentData = {
     min: {
       default: 1,
       description:
-        'The lowest value allowed inside the slider. This value must be less than tahen the value of the max attribute.',
+        'The lowest value allowed inside the slider. This value must be less than the value of the max attribute.',
       isRequired: false,
       type: 'number',
     },
@@ -108,10 +111,10 @@ export const sliderData: ComponentData = {
       default: '{min: 1, max: 100}',
       description: 'The default value of the slider. An object for range sliders.',
       isRequired: false,
-      type: 'number',
+      type: 'number | {min: number, max: number}',
     },
 
-    disabled: {
+    isDisabled: {
       default: 'false',
       description: 'Set the slider to a disabled state.',
       isRequired: false,
@@ -134,16 +137,20 @@ export const sliderData: ComponentData = {
       isRequired: false,
       type: '{[cssProperty: string]: string}',
     },
+    valueOnChange: {
+      isRequired: false,
+      type: '(value: Number | object ) => CustomEvent' /* Ble dette riktig? */,
+      description: 'Gets called every time the value is changed. Only returns a value if the input is valid.',
+    },
   },
   codeImportReact: `import { Slider } from '@elvia/elvis-slider/react';`,
   codeImportTypescriptInterface: `import { SliderProps } from '@elvia/elvis-slider/react';`,
   codeImportWebComponent: `import '@elvia/elvis-slider';`,
-  /* Bør testes om valueOnChange virker som forventet overalt */
   codeReact: `<Slider 
   min={1} 
   max={100}
   valueOnChange={(event) => handleOnChange(event.detail.value)}
-></Sldier>
+></Slider>
 `,
   codeAngular: `<elvia-slider
   [min]="1"
@@ -162,15 +169,10 @@ export const sliderData: ComponentData = {
   max=100
   id="example-elvia-slider"
 ></elvia-slider>
-
-<script>
-  
-</script>
-      
 `,
   codeNativeScript: `  const slider = document.getElementById('example-elvia-slider');
   slider.addEventListener('valueOnChange', (event) => {
-    console.log(event.detail.value);
+    console.log('Elvia Slider value:',event.detail.value.min && event.detail.value.max ? event.detail.value.min+" and "+event.detail.value.max : event.detail.value);
   });
 `,
   changelog: changelogJson.content,

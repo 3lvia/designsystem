@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import { TooltipPopupSides } from './elvia-slider.types';
+import { TooltipPopupSides, SliderType } from './elvia-slider.types';
 
 //#region Helpers
 const colors = {
@@ -21,13 +21,13 @@ const typography = {
 
 //#region Types
 type StyledSliderProps = {
-  sliderType: string;
+  sliderType: SliderType;
 };
 
 type SliderFilledTrackProps = {
   disabled: boolean;
   rangeTrackWidth?: number;
-  type: string;
+  type: SliderType;
   trackWidth: number;
 };
 
@@ -41,7 +41,7 @@ type SliderWrapperProps = {
 };
 
 type InputFieldsContainerProps = {
-  type: string;
+  type: SliderType;
 };
 //#endregion
 
@@ -97,7 +97,7 @@ const HOVER_THUMB = css`
 
 const DISABLED_THUMB = css`
   background-color: ${colors.grey30};
-  opacity: 1;
+  opacity: 1 !important;
   border: solid 1.5px ${colors.elviaWhite};
   cursor: -webkit-not-allowed;
   cursor: not-allowed;
@@ -162,7 +162,7 @@ export const NumberInput = styled.input.attrs(() => ({
   position: relative;
   text-align: left;
   text-transform: unset;
-  width: ${(props) => Number(props.width) + 16}px;
+  width: ${(props) => Math.max(Number(props.width) + 16, props.max.toString().length * 13)}px;
 
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
@@ -173,13 +173,6 @@ export const NumberInput = styled.input.attrs(() => ({
   :focus {
     border: 2px solid ${colors.elviaCharge};
     padding: 3px 9px;
-  }
-
-  :disabled {
-    border-color: ${colors.disabled};
-    color: ${colors.disabled};
-    cursor: not-allowed;
-    user-select: none;
   }
 
   :disabled {

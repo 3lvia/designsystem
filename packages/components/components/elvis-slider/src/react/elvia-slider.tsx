@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useLayoutEffect, useMemo } from 'react';
 import { isSsr } from '@elvia/elvis-toolbox';
 import {
-  Extrema,
+  Extremum,
   SliderErrors,
   SliderProps,
   SliderValues,
@@ -23,16 +23,17 @@ import {
 
 import { SliderError } from './error/sliderError';
 
-export const Slider: React.FC<SliderProps> = ({
+const Slider: React.FC<SliderProps> = ({
   className,
-  disabled = false,
-  displayTooltip = true,
+  isDisabled = false,
+  hasTooltip = true,
   hasInputField = false,
+  hasHelpValues = false,
   inlineStyle,
   label,
   max = 100,
   min = 1,
-  percent = false,
+  hasPercent = false,
   type = 'simple',
   unit = '',
   value,
@@ -44,7 +45,7 @@ export const Slider: React.FC<SliderProps> = ({
   const sliderRef = useRef<HTMLInputElement>(null);
   const labelTextRef = useRef<HTMLInputElement>(null);
 
-  const EXTREMA: Extrema = {
+  const EXTREMUM: Extremum = {
     minimum: +min,
     maximum: +max,
   };
@@ -78,6 +79,7 @@ export const Slider: React.FC<SliderProps> = ({
     rightTextfield: undefined,
   });
 
+  //If the device is a touch device, return true
   const isTouchDevice = () => {
     if (isSsr()) return false;
 
@@ -114,7 +116,7 @@ export const Slider: React.FC<SliderProps> = ({
    */
   const thumbWidth = 20;
   const left =
-    ((sliderValues.left - EXTREMA.minimum) / (EXTREMA.maximum - EXTREMA.minimum)) *
+    ((sliderValues.left - EXTREMUM.minimum) / (EXTREMUM.maximum - EXTREMUM.minimum)) *
       (sliderWidth - thumbWidth / 2 - thumbWidth / 2) +
     thumbWidth / 2;
 
@@ -123,7 +125,7 @@ export const Slider: React.FC<SliderProps> = ({
 
   if (type === 'range' && sliderValues.right) {
     right =
-      ((sliderValues.right - EXTREMA.maximum) / (EXTREMA.minimum - EXTREMA.maximum)) *
+      ((sliderValues.right - EXTREMUM.maximum) / (EXTREMUM.minimum - EXTREMUM.maximum)) *
         (sliderWidth - thumbWidth / 2 - thumbWidth / 2) +
       thumbWidth / 2;
 
@@ -150,20 +152,20 @@ export const Slider: React.FC<SliderProps> = ({
     return function cleanup() {
       resizeObserver.disconnect();
     };
-  });
+  }, [sliderRef, labelTextRef]);
 
   /* Used for the web component to extract values. Also updates SliderValues state */
   const updateValue = (newSliderValues: SliderValues): void => {
     const newValue = {
-      min: newSliderValues.left,
-      max: newSliderValues.right,
+      left: newSliderValues.left,
+      right: newSliderValues.right,
     };
 
     setSliderValues(newSliderValues);
     if (!webcomponent && valueOnChange) {
-      valueOnChange(type === 'simple' ? newValue.min : newValue);
+      valueOnChange(type === 'simple' ? newValue.left : newValue);
     } else if (webcomponent) {
-      webcomponent.setProps({ value: type === 'simple' ? newValue.min : newValue }, true);
+      webcomponent.setProps({ value: type === 'simple' ? newValue.left : newValue }, true);
     }
   };
 
@@ -187,7 +189,7 @@ export const Slider: React.FC<SliderProps> = ({
         setSliderValues({ left: +value, right: +max });
         return;
       } else {
-        setSliderValues({ left: +value.min, right: +value.max });
+        setSliderValues({ left: +value.left, right: +value.right });
         return;
       }
     }
@@ -196,13 +198,7 @@ export const Slider: React.FC<SliderProps> = ({
     setSliderValues({ left: +min, right: +max });
   }, [value]);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => e.preventDefault();
-
-  /**
-   * Function to check if a input currently has errors assigned to it.
-   * @param {'left' | 'right'} input - 'left' | 'right'
-   * @returns A boolean value.
-   */
+  //Function to check if a input currently has errors assigned to it.
   const inputFieldIsInvalid = (input: 'left' | 'right') => {
     if (input === 'left' && errors.leftTextfield) {
       return true;
@@ -221,7 +217,6 @@ export const Slider: React.FC<SliderProps> = ({
    * on change handler for the sliders.
    * Used to update the values when the users use the thumbs on the slider to change values.
    * Includes validation for range type.
-   * @param event - React.FormEvent<HTMLInputElement>
    */
   const handleSliderValueChange = (event: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = event.target as HTMLInputElement;
@@ -245,7 +240,7 @@ export const Slider: React.FC<SliderProps> = ({
     }
 
     //used to prevent a bug where if the user changes the slider very fast it can give negative values
-    if (+value > EXTREMA.maximum || +value < EXTREMA.minimum) {
+    if (+value > EXTREMUM.maximum || +value < EXTREMUM.minimum) {
       return;
     }
 
@@ -278,58 +273,60 @@ export const Slider: React.FC<SliderProps> = ({
    * OnBlur handler for the number input fields.
    * Validates the input of the fields before sending the values to the Slider if validation passes.
    * Generates error messages if validation fails.
-   * @param event - React.FormEvent<HTMLInputElement>
    */
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     const { name, value, validity } = event.target as HTMLInputElement;
-    let errorMessage: string;
+
+    if (value === '' || !value) {
+      updateValue({ ...sliderValues, [name]: name === 'left' ? +min : +max });
+      return;
+    }
 
     if (type === 'range') {
       if (textFieldsValues.left == textFieldsValues.right) {
-        errorMessage = 'Verdiene kan ikke være like.';
-        setErrors({ ...errors, [`${name}Textfield`]: errorMessage });
+        setErrors({ ...errors, [`${name}Textfield`]: 'Verdiene kan ikke være like.' });
         return;
       }
 
       if (name === 'left') {
         if (+value > sliderValues.right) {
-          errorMessage = 'Den nedre verdien kan ikke være større enn den øvre verdien.';
-          setErrors({ ...errors, leftTextfield: errorMessage });
+          setErrors({
+            ...errors,
+            leftTextfield: 'Den nedre verdien kan ikke være større enn den øvre verdien.',
+          });
           return;
         }
       }
 
       if (name === 'right') {
         if (+value < sliderValues.left) {
-          errorMessage = 'Den øvre verdien kan ikke være mindre enn den nedre verdien.';
-          console.error(errorMessage);
-          setErrors({ ...errors, rightTextfield: errorMessage });
+          setErrors({
+            ...errors,
+            rightTextfield: 'Den øvre verdien kan ikke være mindre enn den nedre verdien.',
+          });
           return;
         }
       }
     }
 
     if (validity.rangeOverflow) {
-      errorMessage = `Verdien kan ikke være større enn ${EXTREMA.maximum}.`;
-      setErrors({ ...errors, [`${name}Textfield`]: errorMessage });
+      setErrors({
+        ...errors,
+        [`${name}Textfield`]: `Verdien kan ikke være større enn ${EXTREMUM.maximum.toLocaleString()}.`,
+      });
       return;
     }
 
     if (validity.rangeUnderflow) {
-      errorMessage = `Verdien kan ikke være mindre enn ${EXTREMA.minimum}.`;
-      setErrors({ ...errors, [`${name}Textfield`]: errorMessage });
-      return;
-    }
-
-    if (value === '' || !value) {
-      errorMessage = 'Verdien kan ikke være tom.';
-      setErrors({ ...errors, [`${name}Textfield`]: errorMessage });
+      setErrors({
+        ...errors,
+        [`${name}Textfield`]: `Verdien kan ikke være mindre enn ${EXTREMUM.minimum.toLocaleString()}.`,
+      });
       return;
     }
 
     if (!validity.valid || validity.badInput || validity.stepMismatch) {
-      errorMessage = 'Ugyldig verdi.';
-      setErrors({ ...errors, [`${name}Textfield`]: errorMessage });
+      setErrors({ ...errors, [`${name}Textfield`]: 'Ugyldig verdi.' });
       return;
     }
 
@@ -339,12 +336,19 @@ export const Slider: React.FC<SliderProps> = ({
 
   const getLabel = (inputSide: 'left' | 'right') => {
     if (label) {
-      return label;
+      if (typeof label === 'string') {
+        return label;
+      }
+
+      if (typeof label === 'object') {
+        return inputSide === 'left' ? label.left : label.right;
+      }
     }
 
-    if (inputSide === 'left' && type === 'range') {
-      return 'Fra';
+    if (type === 'range') {
+      return inputSide === 'left' ? 'Fra' : 'Til';
     }
+
     return 'Verdi';
   };
 
@@ -354,15 +358,20 @@ export const Slider: React.FC<SliderProps> = ({
       style={{ ...inlineStyle }}
       {...rest}
       data-testid="slider-container"
+      aria-disabled={isDisabled}
     >
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <SliderWrapper leftOnTop={leftOnTop}>
           {/* ↓ The actual HTML input type=range ↓*/}
           <StyledSlider
-            aria-label="Range start"
-            disabled={disabled}
-            max={EXTREMA.maximum}
-            min={EXTREMA.minimum}
+            aria-label="Slider start"
+            disabled={isDisabled}
+            max={EXTREMUM.maximum}
+            min={EXTREMUM.minimum}
             name="left"
             onChange={handleSliderValueChange}
             ref={sliderRef}
@@ -378,7 +387,7 @@ export const Slider: React.FC<SliderProps> = ({
           />
 
           {/* ↓ Show the left tooltip if the user hovers or clicks on the thumb ↓*/}
-          {showTooltip.left && !disabled && (displayTooltip || isTouchDevice()) && (
+          {showTooltip.left && !isDisabled && (hasTooltip || isTouchDevice()) && (
             <TooltipPopup
               data-testid="left-tooltip-popup"
               position="top"
@@ -388,7 +397,7 @@ export const Slider: React.FC<SliderProps> = ({
                 left: `${left}px`,
               }}
             >
-              {type === 'simple' && percent ? `${percentValue} %` : `${sliderValues.left}${unit}`}
+              {type === 'simple' && hasPercent ? `${percentValue} %` : `${sliderValues.left}${unit}`}
             </TooltipPopup>
           )}
 
@@ -396,10 +405,10 @@ export const Slider: React.FC<SliderProps> = ({
             <>
               {/* ↓ The actual HTML input type=range ↓*/}
               <StyledSlider
-                aria-label="Range end"
-                disabled={disabled}
-                max={EXTREMA.maximum}
-                min={EXTREMA.minimum}
+                aria-label="Slider end"
+                disabled={isDisabled}
+                max={EXTREMUM.maximum}
+                min={EXTREMUM.minimum}
                 name="right"
                 onChange={handleSliderValueChange}
                 sliderType={type}
@@ -414,7 +423,7 @@ export const Slider: React.FC<SliderProps> = ({
               />
 
               {/* ↓ Show the right tooltip if the user hovers or click on the thumb ↓*/}
-              {showTooltip.right && !disabled && (displayTooltip || isTouchDevice()) && (
+              {showTooltip.right && !isDisabled && (hasTooltip || isTouchDevice()) && (
                 <TooltipPopup
                   data-testid="right-tooltip-popup"
                   position="top"
@@ -436,8 +445,36 @@ export const Slider: React.FC<SliderProps> = ({
             trackWidth={left}
             type={type}
             rangeTrackWidth={middleFilled}
-            disabled={disabled}
+            disabled={isDisabled}
           ></SliderFilledTrack>
+          {hasHelpValues && (
+            <>
+              <p
+                style={{
+                  opacity: '0.5',
+                  position: 'absolute',
+                  top: '16px',
+                  fontSize: '14px',
+                  fontWeight: '400',
+                }}
+              >
+                {EXTREMUM.minimum}
+              </p>
+              <p
+                style={{
+                  opacity: '0.5',
+                  position: 'absolute',
+                  top: '16px',
+                  right: '0',
+                  textAlign: 'right',
+                  fontSize: '14px',
+                  fontWeight: '400',
+                }}
+              >
+                {EXTREMUM.maximum}
+              </p>
+            </>
+          )}
         </SliderWrapper>
 
         {hasInputField && (
@@ -450,10 +487,11 @@ export const Slider: React.FC<SliderProps> = ({
                 </LabelText>
                 {/* LEFT INPUT */}
                 <NumberInput
-                  disabled={disabled}
-                  max={EXTREMA.maximum}
-                  min={EXTREMA.minimum}
+                  disabled={isDisabled}
+                  max={EXTREMUM.maximum}
+                  min={EXTREMUM.minimum}
                   name="left"
+                  title=" "
                   onBlur={handleBlur}
                   onChange={handleNumberInputValueChange}
                   ref={leftTextInput}
@@ -470,13 +508,14 @@ export const Slider: React.FC<SliderProps> = ({
               <NumberInputContainer>
                 <label>
                   <LabelText data-testid="right-label" ref={labelTextRef}>
-                    {label ? label : 'Til'}
+                    {getLabel('right')}
                   </LabelText>
                   {/* RIGHT INPUT */}
                   <NumberInput
-                    disabled={disabled}
-                    max={EXTREMA.maximum}
-                    min={EXTREMA.minimum}
+                    title=" "
+                    disabled={isDisabled}
+                    max={EXTREMUM.maximum}
+                    min={EXTREMUM.minimum}
                     name="right"
                     onBlur={handleBlur}
                     onChange={handleNumberInputValueChange}
