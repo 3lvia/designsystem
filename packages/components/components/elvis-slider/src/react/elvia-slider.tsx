@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState, useRef, useLayoutEffect } from 'react';
+import React, { useEffect, useState, useRef, useLayoutEffect, useMemo } from 'react';
 import { isSsr } from '@elvia/elvis-toolbox';
 import {
   Extrema,
@@ -93,13 +93,15 @@ export const Slider: React.FC<SliderProps> = ({
     return false;
   };
 
-  /* percentValue is the percentage relative to the min and max values. Used when the "percent" prop is true. */
-  let percentValue: number | undefined;
-  if (type === 'simple' && percent) {
-    percentValue = Math.round(
-      ((sliderValues.left - EXTREMA.minimum) / (EXTREMA.maximum - EXTREMA.minimum)) * 100,
-    );
-  }
+  /* percentValue is the percentage relative to the min and max values. Used when the "hasPercent" prop is true. */
+  const percentValue = useMemo(() => {
+    if (type === 'simple' && hasPercent) {
+      return Math.round(
+        ((sliderValues.left - EXTREMUM.minimum) / (EXTREMUM.maximum - EXTREMUM.minimum)) * 100,
+      );
+    }
+    return;
+  }, [sliderValues.left, EXTREMUM]);
 
   /** CALCULATIONS FOR THE CUSTOM TRACK
    * - thumbWidth: Used to horizontally center the tooltip over the "thumb" of the slider.
