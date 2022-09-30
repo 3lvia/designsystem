@@ -298,11 +298,11 @@ $datepicker-max-width: 448px;
         margin-right: 8px;
       }
       // Rotate the year-dropdown icon when opened
-      i {
+      svg {
         transform: rotate(0deg);
         transition: transform 0.2s ease-out;
       }
-      &[data-isyearview='true'] i {
+      &[data-isyearview='true'] svg {
         transform: rotate(180deg);
       }
 
