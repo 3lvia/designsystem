@@ -1,4 +1,5 @@
 import React, { FormEvent, useEffect, useState, useRef, useLayoutEffect } from 'react';
+import { isSsr } from '@elvia/elvis-toolbox';
 import {
   Extrema,
   SliderErrors,
@@ -77,17 +78,18 @@ export const Slider: React.FC<SliderProps> = ({
     rightTextfield: undefined,
   });
 
-  /**
-   * If the device is a touch device, return true
-   * @returns A boolean value.
-   */
   const isTouchDevice = () => {
-    if (window.matchMedia('(pointer: coarse)').matches) {
-      return true;
+    if (isSsr()) return false;
+
+    if (!isSsr()) {
+      if (window.matchMedia('(pointer: coarse)').matches) {
+        return true;
+      }
+      if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        return true;
+      }
     }
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-      return true;
-    }
+
     return false;
   };
 
