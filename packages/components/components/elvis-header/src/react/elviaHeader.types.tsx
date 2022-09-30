@@ -16,6 +16,7 @@ export interface NavItem {
   strictMatching?: boolean;
   iconName: IconName;
   name: string;
+  isActive?: boolean;
 }
 
 export interface HeaderProps extends MobileUserMenuProps {

@@ -10,49 +10,45 @@ import {
   ToggleWidthButton,
 } from './sideNavStyles';
 
-interface NavItemWithActiveState extends NavItem {
-  isActive: boolean;
-}
-
 interface Props {
   navItems: NavItem[];
   onNavItemClick: (item: NavItem) => void;
 }
 
 export const SideNav: React.FC<Props> = ({ navItems = [], onNavItemClick }) => {
-  const [items, setItems] = useState<NavItemWithActiveState[]>([
-    ...navItems.map((item) => item as NavItemWithActiveState),
-  ]);
+  const [items, setItems] = useState<NavItem[]>(navItems.slice());
   const isGtMobile = useBreakpoint('gt-mobile');
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const setActiveState = () => {
+  const onItemClick = (item: NavItem): void => {
+    onNavItemClick(item);
     const listClone = items.slice();
-    const currentUrl = window.location.pathname;
-
-    listClone.forEach((navItem) => {
-      if (navItem.strictMatching) {
-        navItem.isActive = currentUrl === navItem.url;
-      } else {
-        navItem.isActive = currentUrl.startsWith(navItem.url);
-      }
-    });
-
+    listClone.forEach((item) => (item.isActive = false));
+    item.isActive = true;
     setItems(listClone);
   };
 
   useEffect(() => {
-    /**
-     * We use a mutation observer to detect page
-     * changes. This is a workaround since listening
-     * for route changes is impossible in vanilla js.
-     */
-    const observer = new MutationObserver(setActiveState);
+    const setActiveItemFromUrl = () => {
+      const listClone = items.slice();
+      const currentUrl = window.location.pathname;
 
-    observer.observe(document, { childList: true, subtree: true, attributes: false, characterData: false });
+      listClone.forEach((navItem) => {
+        if (navItem.strictMatching) {
+          navItem.isActive = currentUrl === navItem.url;
+        } else {
+          navItem.isActive = currentUrl.startsWith(navItem.url);
+        }
+      });
+
+      setItems(listClone);
+    };
+
+    setActiveItemFromUrl();
+    window.addEventListener('popstate', setActiveItemFromUrl);
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener('popstate', setActiveItemFromUrl);
     };
   }, []);
 
@@ -66,7 +62,7 @@ export const SideNav: React.FC<Props> = ({ navItems = [], onNavItemClick }) => {
               type="button"
               role="link"
               key={navItem.url}
-              onClick={() => onNavItemClick(navItem)}
+              onClick={() => onItemClick(navItem)}
             >
               <IconContainer isActive={navItem.isActive}>
                 <Icon name={navItem.iconName} color="black" size="sm" />
