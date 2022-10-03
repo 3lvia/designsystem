@@ -1,31 +1,10 @@
 <template>
-  <h1>Vue 3 Preview</h1>
-
   <div class="components-examples">
     <div class="example-wrapper">
       <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
       <h3>Test your component here</h3>
       <!--Normal version-->
-      <div class="e-bg-white">
-        <button class="e-btn" @click="openAccordion = !openAccordion">toggle</button>
-        {{ openAccordion }}
-        <elvia-accordion
-          openLabel="Show"
-          closeLabel="Hide"
-          size="medium"
-          type="overflow"
-          :isOpen="true"
-          :overflowHeight="10"
-        >
-          <div slot="content">
-            Webcomponentent content for the Accordion componenWebcomponentent content for the Accordion
-            componenWebcomponentent content for the Accordion componenWebcomponentent content for the
-            Accordion componenWebcomponentent content for the Accordion componenWebcomponentent content for
-            the Accordion componenWebcomponentent content for the Accordion componenWebcomponentent content
-            for the Accordion component
-          </div>
-        </elvia-accordion>
-      </div>
+      <div class="e-bg-white"></div>
       <!--Inverted version-->
       <div class="e-bg-grey"></div>
     </div>
@@ -33,7 +12,16 @@
     <!--Accordion-->
     <div class="example-wrapper">
       <h3>Accordion</h3>
-      <!-- <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="overflow" :overflowHeight="10">
+      <button class="e-btn" @click="openAccordion = !openAccordion">toggle</button>
+      {{ openAccordion }}
+      <elvia-accordion
+        openLabel="Show"
+        closeLabel="Hide"
+        size="medium"
+        type="overflow"
+        :isOpen="openAccordion"
+        :overflowHeight="10"
+      >
         <div slot="content">
           Webcomponentent content for the Accordion componenWebcomponentent content for the Accordion
           componenWebcomponentent content for the Accordion componenWebcomponentent content for the Accordion
@@ -41,7 +29,7 @@
           componenWebcomponentent content for the Accordion componenWebcomponentent content for the Accordion
           component
         </div>
-      </elvia-accordion> -->
+      </elvia-accordion>
     </div>
 
     <!--Box-->
@@ -86,9 +74,7 @@
         </div>
         <div slot="item-3">hei</div>
       </elvia-carousel>
-      <button @click="carouselValue = incrementCarouselStep(carouselValue)" class="e-btn e-btn--sm">
-        Increment step
-      </button>
+      <button @click="carouselValue = incrementCarouselStep()" class="e-btn e-btn--sm">Increment step</button>
     </div>
 
     <!--Chip-->
@@ -113,7 +99,7 @@
       <elvia-datepicker
         :isCompact="false"
         label="Fra dato"
-        :disableDate="(day) => day.getDay() === 0 || day.getDay() === 6"
+        :disableDate="(day: Date) => day.getDay() === 0 || day.getDay() === 6"
       ></elvia-datepicker>
     </div>
 
@@ -236,78 +222,99 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'App',
-  data: function () {
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+export default defineComponent({
+  setup() {
+    // Accordion
+    const openAccordion = ref(false);
+
+    // Breadcrumb
+    const breadcrumbsTest = [
+      { href: 'https://elvia.no', text: 'Elvia.no' },
+      { href: 'https://www.elvia.no/nettleie', text: 'Nettleie' },
+      { href: 'https://www.elvia.no/nettleie/elvias-leveringsplikt', text: 'Elvias leveringsplikt' },
+    ];
+
+    const breadcrumbsTestNoUrl = [
+      { text: 'Elvia.no' },
+      { text: 'Nettleie' },
+      { text: 'Elvias leveringsplikt' },
+    ];
+
+    const carouselValue = ref(0);
+
+    // Chips
+    const deletableChipsList = [
+      { value: 2022, color: 'green', isDisabled: false },
+      { value: 2023, color: 'red', isDisabled: false },
+      { value: 2024, color: 'blue', isDisabled: true },
+    ];
+
+    // Dropdown
+    const dropdownDefaultOption = { value: '675', label: 'Mast - Råte' };
+
+    const dropdownOptions = [
+      { value: '675', label: 'Mast - Råte' },
+      { value: '676', label: 'Mast - Hakkespettskade' },
+      { value: '677', label: 'Mast - Annen skade/ fremmedlegemer' },
+      { value: '678', label: 'Mast - Stag' },
+    ];
+
+    // Modal
+    const isModalShowing = false;
+
+    // Spotlight
+    const vPos = ref(200);
+    const hPos = ref(200);
+    const radius = ref(100);
+
+    // Pagination
+    const defaultPaginationValue = { start: 1, end: 10 };
+
+    const logValue = (component: string, value: unknown): void => {
+      console.log(component, ': ', value);
+    };
+
+    const moveSpotlight = () => {
+      if (vPos.value === 200) {
+        vPos.value = 500;
+        hPos.value = 500;
+        radius.value = 300;
+      } else {
+        vPos.value = 200;
+        hPos.value = 200;
+        radius.value = 100;
+      }
+    };
+
+    const incrementCarouselStep = () => {
+      carouselValue.value = (carouselValue.value + 1) % 3;
+      return carouselValue.value;
+    };
+
+    const onTimepickerChange = (e: string) => {
+      console.log(e);
+    };
+
     return {
-      // Accordion
-      openAccordion: false,
-      // Breadcrumb
-      breadcrumbsTest: [
-        { href: 'https://elvia.no', text: 'Elvia.no' },
-        { href: 'https://www.elvia.no/nettleie', text: 'Nettleie' },
-        { href: 'https://www.elvia.no/nettleie/elvias-leveringsplikt', text: 'Elvias leveringsplikt' },
-      ],
-      breadcrumbsTestNoUrl: [{ text: 'Elvia.no' }, { text: 'Nettleie' }, { text: 'Elvias leveringsplikt' }],
-      // Carousel
-      items: [
-        { item: this.carouselParagraph },
-        { title: 'Hei til ny tariff!', item: this.carouselParagraph },
-        { title: 'Strømbruddsvarsel', item: this.carouselParagraph },
-        { item: this.carouselParagraph },
-      ],
-      carouselValue: 0,
-      // Chips
-      deletableChipsList: [
-        { value: 2022, color: 'green' },
-        { value: 2023, color: 'red' },
-        { value: 2024, color: 'blue' },
-      ],
-      // Dropdown
-      dropdownDefaultOption: { value: '675', label: 'Mast - Råte' },
-      dropdownOptions: [
-        { value: '675', label: 'Mast - Råte' },
-        { value: '676', label: 'Mast - Hakkespettskade' },
-        { value: '677', label: 'Mast - Annen skade/ fremmedlegemer' },
-        { value: '678', label: 'Mast - Stag' },
-      ],
-      // Modal
-      isModalShowing: false,
-      // Spotlight
-      vPos: 200,
-      hPos: 200,
-      radius: 100,
-      // Pagination
-      defaultPaginationValue: { start: 1, end: 10 },
+      openAccordion,
+      breadcrumbsTest,
+      breadcrumbsTestNoUrl,
+      carouselValue,
+      deletableChipsList,
+      dropdownDefaultOption,
+      dropdownOptions,
+      isModalShowing,
+      vPos,
+      hPos,
+      radius,
+      defaultPaginationValue,
+      logValue,
+      moveSpotlight,
+      incrementCarouselStep,
+      onTimepickerChange,
     };
   },
-  methods: {
-    logValue(component, value) {
-      console.log(component, ': ', value);
-    },
-    moveSpotlight() {
-      if (this.$data.vPos === 200) {
-        this.$data.vPos = 500;
-        this.$data.hPos = 500;
-        this.$data.radius = 300;
-      } else {
-        this.$data.vPos = 200;
-        this.$data.hPos = 200;
-        this.$data.radius = 100;
-      }
-    },
-    incrementCarouselStep(carouselValue) {
-      carouselValue = (carouselValue + 1) % 3;
-      console.log('Carousel value: ', carouselValue);
-      return carouselValue;
-    },
-    onTimepickerChange(e) {
-      console.log(e);
-    },
-  },
-};
+});
 </script>
-<style scoped>
-@import './App.scss';
-</style>
