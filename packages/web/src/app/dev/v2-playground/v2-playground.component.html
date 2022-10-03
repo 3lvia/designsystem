@@ -315,32 +315,48 @@
       [type]="'simple'"
       [min]="0"
       [max]="100"
-      [disabled]="false"
+      [isDisabled]="false"
       [hasInputField]="false"
+    ></elvia-slider>
+    <elvia-slider
+      [type]="'simple'"
+      [min]="0"
+      [max]="100"
+      [isDisabled]="false"
+      [hasInputField]="false"
+      [hasHelpValues]="true"
     ></elvia-slider>
     <h5>With the tooltip disabled</h5>
     <elvia-slider
       [type]="'simple'"
       [min]="0"
       [max]="100"
-      [disabled]="false"
+      [isDisabled]="false"
       [hasInputField]="false"
-      [displayTooltip]="false"
+      [hasTooltip]="false"
     ></elvia-slider>
     <h5>With input</h5>
     <elvia-slider
       [type]="'simple'"
-      [min]="0"
-      [max]="100"
-      [disabled]="false"
+      [min]="1"
+      [max]="8000000"
+      [isDisabled]="false"
       [hasInputField]="true"
+    ></elvia-slider>
+    <elvia-slider
+      [type]="'simple'"
+      [min]="1"
+      [max]="8000000"
+      [isDisabled]="false"
+      [hasInputField]="true"
+      [hasHelpValues]="true"
     ></elvia-slider>
     <h5>With input and custom unit in tooptip</h5>
     <elvia-slider
       [type]="'simple'"
       [min]="0"
       [max]="100"
-      [disabled]="false"
+      [isDisabled]="false"
       [hasInputField]="true"
       [unit]="' kr'"
     ></elvia-slider>
@@ -349,7 +365,7 @@
       [type]="'simple'"
       [min]="0"
       [max]="100"
-      [disabled]="false"
+      [isDisabled]="false"
       [hasInputField]="true"
       [unit]="' kWh'"
       [label]="'Kilowattime'"
@@ -359,16 +375,16 @@
       [type]="'simple'"
       [min]="50"
       [max]="250"
-      [disabled]="false"
+      [isDisabled]="false"
       [hasInputField]="true"
-      [percent]="true"
+      [hasPercent]="true"
     ></elvia-slider>
     <h5>With a predefined value</h5>
     <elvia-slider
       [type]="'simple'"
       [min]="1"
       [max]="100"
-      [disabled]="false"
+      [isDisabled]="false"
       [hasInputField]="true"
       [value]="33"
     ></elvia-slider>
@@ -377,7 +393,7 @@
       [type]="'simple'"
       [min]="0"
       [max]="100"
-      [disabled]="true"
+      [isDisabled]="true"
       [hasInputField]="false"
     ></elvia-slider>
     <h5>Disabled with input</h5>
@@ -385,7 +401,7 @@
       [type]="'simple'"
       [min]="0"
       [max]="100"
-      [disabled]="true"
+      [isDisabled]="true"
       [hasInputField]="true"
     ></elvia-slider>
 
@@ -394,25 +410,41 @@
       [type]="'range'"
       [min]="0"
       [max]="100"
-      [disabled]="false"
+      [isDisabled]="false"
       [hasInputField]="false"
+    ></elvia-slider>
+    <elvia-slider
+      [type]="'range'"
+      [min]="0"
+      [max]="100"
+      [isDisabled]="false"
+      [hasInputField]="false"
+      [hasHelpValues]="true"
     ></elvia-slider>
     <h5>With input</h5>
     <elvia-slider
       [type]="'range'"
       [min]="0"
       [max]="100"
-      [disabled]="false"
+      [isDisabled]="false"
       [hasInputField]="true"
+    ></elvia-slider>
+    <elvia-slider
+      [type]="'range'"
+      [min]="0"
+      [max]="100"
+      [isDisabled]="false"
+      [hasInputField]="true"
+      [hasHelpValues]="true"
     ></elvia-slider>
     <h5>With input, and custom label</h5>
     <elvia-slider
       [type]="'range'"
       [min]="0"
       [max]="100"
-      [disabled]="false"
+      [isDisabled]="false"
       [hasInputField]="true"
-      [label]="'Kilowattime'"
+      [label]="{ left: 'Min', right: 'Maks' }"
       [unit]="' kWh'"
     ></elvia-slider>
     <h5>With predefined values</h5>
@@ -420,16 +452,16 @@
       [type]="'range'"
       [min]="0"
       [max]="100"
-      [disabled]="false"
+      [isDisabled]="false"
       [hasInputField]="true"
-      [value]="{ min: 33, max: 66 }"
+      [value]="{ left: 33, right: 66 }"
     ></elvia-slider>
     <h5>Disabled</h5>
     <elvia-slider
       [type]="'range'"
       [min]="0"
       [max]="100"
-      [disabled]="true"
+      [isDisabled]="true"
       [hasInputField]="false"
     ></elvia-slider>
     <h5>Disabled with input</h5>
@@ -437,7 +469,7 @@
       [type]="'range'"
       [min]="0"
       [max]="100"
-      [disabled]="true"
+      [isDisabled]="true"
       [hasInputField]="true"
     ></elvia-slider>
   </div>

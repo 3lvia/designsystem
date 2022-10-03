@@ -120,22 +120,42 @@ function App() {
           {/* Normal version */}
           <div className="e-bg-white">
             <h4>Simple</h4>
-            <Slider min={10} max={200} disabled={false} />
+            <Slider min={0} max={100000} isDisabled={false} />
+
+            <h4>Simple med help</h4>
+            <Slider min={0} max={100000} hasHelpValues={true} />
+
+            <h4>Simple med help og input</h4>
+            <h5>Midten</h5>
+            <Slider min={1000000} max={90000000000} hasInputField={true} hasHelpValues={true} />
+            <h5>Venstre</h5>
+            <Slider min={5000} max={9000} hasInputField={true} hasHelpValues={true} />
 
             <div style={{ height: '3rem', margin: '1rem' }}></div>
 
             <h4>Range</h4>
-            <Slider type={'range'} min={0} max={500} disabled={false} />
+            <Slider type={'range'} min={0} max={100000} isDisabled={false} hasHelpValues={true} />
+
+            <Slider
+              type={'range'}
+              min={0}
+              max={100000}
+              isDisabled={false}
+              hasInputField={true}
+              hasHelpValues={true}
+            />
+
+            <Slider type={'range'} min={0} max={100000} isDisabled={false} hasInputField={true} label=" " />
 
             <div style={{ height: '5rem', margin: '1rem' }}></div>
             <Divider />
             <h4>Disabled Simple</h4>
-            <Slider min={10} max={200} disabled={true} />
+            <Slider min={10} max={200} isDisabled={true} />
 
             <div style={{ height: '3rem', margin: '1rem' }}></div>
 
             <h4>Disabled Range</h4>
-            <Slider type={'range'} min={0} max={500} disabled={true} />
+            <Slider type={'range'} min={0} max={500} isDisabled={true} />
           </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
@@ -405,7 +425,7 @@ function App() {
         </div>
         <div className="example-wrapper">
           <h3>Timepicker</h3>
-          <Timepicker />
+          {/* <Timepicker /> */}
         </div>
       </div>
     </div>
