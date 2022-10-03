@@ -1,15 +1,16 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
+<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
   <ng-container ngProjectAs="headerTitle">Header</ng-container>
   <ng-container ngProjectAs="headerDescription">
-    <div>
-      {{ description }}
-    </div>
+    {{ description }}
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
-<div class="page-body">
+<div class="page-body e-mt-72">
+  <!--CEG-->
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
     <button class="e-btn e-mt-16" *ngIf="!internalHeader" (click)="testInternalHeader()">

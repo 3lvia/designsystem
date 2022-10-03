@@ -6,6 +6,7 @@ import { ComponentExampleV1Module } from 'src/app/shared/component-documentation
 import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
+import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
     ComponentPropertiesModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
+    ComponentExampleGeneratorModule,
   ],
   declarations: [HeaderDocComponent],
 })
