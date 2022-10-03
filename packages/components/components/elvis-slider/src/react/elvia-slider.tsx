@@ -9,6 +9,7 @@ import {
   ToolTipState,
 } from './elvia-slider.types';
 import {
+  HelpValue,
   InputFieldsContainer,
   LabelText,
   NumberInput,
@@ -25,15 +26,15 @@ import { SliderError } from './error/sliderError';
 
 const Slider: React.FC<SliderProps> = ({
   className,
-  isDisabled = false,
-  hasTooltip = true,
-  hasInputField = false,
   hasHelpValues = false,
+  hasInputField = false,
+  hasPercent = false,
+  hasTooltip = true,
   inlineStyle,
+  isDisabled = false,
   label,
   max = 100,
   min = 1,
-  hasPercent = false,
   type = 'simple',
   unit = '',
   value,
@@ -41,9 +42,11 @@ const Slider: React.FC<SliderProps> = ({
   webcomponent,
   ...rest
 }) => {
-  const leftTextInput = useRef<HTMLInputElement>(null);
+  const leftTextInputRef = useRef<HTMLInputElement>(null);
   const sliderRef = useRef<HTMLInputElement>(null);
   const labelTextRef = useRef<HTMLInputElement>(null);
+  const leftHelpTextRef = useRef<HTMLInputElement>(null);
+  const rightHelpTextRef = useRef<HTMLInputElement>(null);
 
   const EXTREMUM: Extremum = {
     minimum: +min,
@@ -52,6 +55,7 @@ const Slider: React.FC<SliderProps> = ({
 
   /* Used to set the z-index for the left thumb. */
   const [leftOnTop, setLeftOnTop] = useState<boolean>(false);
+  const [leftInputReplacesHelp, setLeftInputReplacesHelp] = useState<boolean>(false);
 
   /* The actual values of the HTML Range input(s) */
   const [sliderValues, setSliderValues] = useState<SliderValues>({ left: +min, right: +max });
@@ -70,6 +74,7 @@ const Slider: React.FC<SliderProps> = ({
 
   /* The width of the entire slider in the DOM. Used to calculate the size of our custom track */
   const [sliderWidth, setSliderWidth] = useState(0);
+  const [numberInputFieldContainerWidth, setNumberInputFieldContainerWidth] = useState(0);
 
   /*   The width of the text label. Used to make the compact number input field shrink to fit the label. */
   const [textLabelWidth, setTextLabelWidth] = useState(0);
@@ -102,7 +107,7 @@ const Slider: React.FC<SliderProps> = ({
         ((sliderValues.left - EXTREMUM.minimum) / (EXTREMUM.maximum - EXTREMUM.minimum)) * 100,
       );
     }
-    return;
+    return undefined;
   }, [sliderValues.left, EXTREMUM]);
 
   /** CALCULATIONS FOR THE CUSTOM TRACK
@@ -132,7 +137,7 @@ const Slider: React.FC<SliderProps> = ({
     middleFilled = sliderWidth - left - right;
   }
 
-  /* SHRINKING INPUT FIELDS */
+  /* measuring DOM elements */
   const resizeObserver = new ResizeObserver(() => {
     if (sliderRef.current !== null) {
       setSliderWidth(sliderRef.current.offsetWidth);
@@ -140,19 +145,55 @@ const Slider: React.FC<SliderProps> = ({
     if (labelTextRef.current !== null) {
       setTextLabelWidth(labelTextRef.current.offsetWidth);
     }
+
+    if (
+      leftHelpTextRef.current !== null &&
+      rightHelpTextRef.current !== null &&
+      leftTextInputRef.current !== null &&
+      sliderRef.current !== null
+    ) {
+      const total = Math.ceil(
+        leftHelpTextRef.current.offsetWidth +
+          rightHelpTextRef.current.offsetWidth +
+          leftTextInputRef.current.offsetWidth +
+          2 * 4, // 2 * 4px for Grid gap
+      );
+
+      setNumberInputFieldContainerWidth(total);
+    }
   });
 
   useLayoutEffect(() => {
     if (sliderRef.current !== null) {
       resizeObserver.observe(sliderRef.current);
     }
+
     if (labelTextRef.current !== null) {
       resizeObserver.observe(labelTextRef.current);
     }
+
+    if (leftHelpTextRef.current !== null) {
+      resizeObserver.observe(leftHelpTextRef.current);
+    }
+
+    if (rightHelpTextRef.current !== null) {
+      resizeObserver.observe(rightHelpTextRef.current);
+    }
+
+    if (leftTextInputRef.current !== null) {
+      resizeObserver.observe(leftTextInputRef.current);
+    }
+
     return function cleanup() {
       resizeObserver.disconnect();
     };
-  }, [sliderRef, labelTextRef]);
+  }, [
+    sliderRef.current,
+    labelTextRef.current,
+    leftHelpTextRef.current,
+    rightHelpTextRef.current,
+    leftTextInputRef.current,
+  ]);
 
   /* Used for the web component to extract values. Also updates SliderValues state */
   const updateValue = (newSliderValues: SliderValues): void => {
@@ -179,6 +220,15 @@ const Slider: React.FC<SliderProps> = ({
   useEffect(() => {
     setSliderValues({ left: +min, right: +max });
   }, [min, max]);
+
+  useEffect(() => {
+    if (sliderWidth < numberInputFieldContainerWidth - 10) {
+      //Tallene er alltid litt ulike, skjønner ikke hvorfor, så subtraherer 10
+      setLeftInputReplacesHelp(true);
+    } else if (sliderWidth > numberInputFieldContainerWidth) {
+      setLeftInputReplacesHelp(false);
+    }
+  }, [sliderWidth, numberInputFieldContainerWidth]);
 
   /** Used to set the default value of the slider.
    * If only a single number is given, give the number to the left thumb.
@@ -397,7 +447,9 @@ const Slider: React.FC<SliderProps> = ({
                 left: `${left}px`,
               }}
             >
-              {type === 'simple' && hasPercent ? `${percentValue} %` : `${sliderValues.left}${unit}`}
+              {type === 'simple' && hasPercent
+                ? `${percentValue} %`
+                : `${sliderValues.left.toLocaleString()}${unit}`}
             </TooltipPopup>
           )}
 
@@ -433,53 +485,36 @@ const Slider: React.FC<SliderProps> = ({
                     right: `${right}px`,
                   }}
                 >
-                  {`${sliderValues.right} ${unit}`}
+                  {`${sliderValues.right.toLocaleString()}${unit}`}
                 </TooltipPopup>
               )}
             </>
           )}
 
           {/* ↓ Our custom styled track ↓ */}
-          <SliderTrack></SliderTrack>
+          <SliderTrack />
           <SliderFilledTrack
             trackWidth={left}
             type={type}
             rangeTrackWidth={middleFilled}
             disabled={isDisabled}
           ></SliderFilledTrack>
-          {hasHelpValues && (
-            <>
-              <p
-                style={{
-                  opacity: '0.5',
-                  position: 'absolute',
-                  top: '16px',
-                  fontSize: '14px',
-                  fontWeight: '400',
-                }}
-              >
-                {EXTREMUM.minimum}
-              </p>
-              <p
-                style={{
-                  opacity: '0.5',
-                  position: 'absolute',
-                  top: '16px',
-                  right: '0',
-                  textAlign: 'right',
-                  fontSize: '14px',
-                  fontWeight: '400',
-                }}
-              >
-                {EXTREMUM.maximum}
-              </p>
-            </>
-          )}
         </SliderWrapper>
 
-        {hasInputField && (
-          /* ↓ HTML number input fields ↓ */
-          <InputFieldsContainer type={type}>
+        <InputFieldsContainer
+          leftInputPriority={leftInputReplacesHelp}
+          type={type}
+          hasHelpValues={hasHelpValues}
+        >
+          {hasHelpValues && !(type === 'range' && hasInputField) && (
+            <HelpValue ref={leftHelpTextRef}>
+              {Intl.NumberFormat('nb-NO', {
+                notation: 'compact',
+              }).format(EXTREMUM.minimum)}
+            </HelpValue>
+          )}
+          {hasInputField && (
+            /* ↓ HTML number input fields ↓ */
             <NumberInputContainer>
               <label>
                 <LabelText data-testid="left-label" ref={labelTextRef}>
@@ -494,43 +529,49 @@ const Slider: React.FC<SliderProps> = ({
                   title=" "
                   onBlur={handleBlur}
                   onChange={handleNumberInputValueChange}
-                  ref={leftTextInput}
+                  ref={leftTextInputRef}
                   value={textFieldsValues.left}
                   aria-invalid={`${inputFieldIsInvalid('left')}`}
                   aria-errormessage={errors.rightTextfield ? 'left-error' : undefined}
                   width={textLabelWidth ? textLabelWidth : 40}
                   data-testid="left-number-input"
-                ></NumberInput>
+                />
               </label>
             </NumberInputContainer>
+          )}
 
-            {type === 'range' && (
-              <NumberInputContainer>
-                <label>
-                  <LabelText data-testid="right-label" ref={labelTextRef}>
-                    {getLabel('right')}
-                  </LabelText>
-                  {/* RIGHT INPUT */}
-                  <NumberInput
-                    title=" "
-                    disabled={isDisabled}
-                    max={EXTREMUM.maximum}
-                    min={EXTREMUM.minimum}
-                    name="right"
-                    onBlur={handleBlur}
-                    onChange={handleNumberInputValueChange}
-                    value={textFieldsValues.right}
-                    aria-invalid={`${inputFieldIsInvalid('right')}`}
-                    aria-errormessage={errors.rightTextfield ? 'right-error' : undefined}
-                    width={textLabelWidth ? textLabelWidth : 40}
-                    data-testid="right-number-input"
-                  ></NumberInput>
-                </label>
-              </NumberInputContainer>
-            )}
-          </InputFieldsContainer>
-        )}
-        {/* Show errors if they exist ↓ */}
+          {hasInputField && type === 'range' && (
+            <NumberInputContainer>
+              <label>
+                <LabelText data-testid="right-label" ref={labelTextRef}>
+                  {getLabel('right')}
+                </LabelText>
+                {/* RIGHT INPUT */}
+                <NumberInput
+                  title=" "
+                  disabled={isDisabled}
+                  max={EXTREMUM.maximum}
+                  min={EXTREMUM.minimum}
+                  name="right"
+                  onBlur={handleBlur}
+                  onChange={handleNumberInputValueChange}
+                  value={textFieldsValues.right}
+                  aria-invalid={`${inputFieldIsInvalid('right')}`}
+                  aria-errormessage={errors.rightTextfield ? 'right-error' : undefined}
+                  width={textLabelWidth ? textLabelWidth : 40}
+                  data-testid="right-number-input"
+                />
+              </label>
+            </NumberInputContainer>
+          )}
+          {hasHelpValues && !(type === 'range' && hasInputField) && (
+            <HelpValue ref={rightHelpTextRef}>
+              {Intl.NumberFormat('nb-NO', {
+                notation: 'compact',
+              }).format(EXTREMUM.maximum)}
+            </HelpValue>
+          )}
+        </InputFieldsContainer>
         {errors.leftTextfield && <SliderError id="left-error" errorMessage={errors.leftTextfield} />}
         {errors.rightTextfield && <SliderError id="right-error" errorMessage={errors.rightTextfield} />}
       </form>
