@@ -15,7 +15,7 @@ const colors = {
 };
 
 const typography = {
-  textInput: getTypographyCss('text-sm'),
+  smallText: getTypographyCss('text-sm'),
 };
 //#endregion
 
@@ -41,7 +41,9 @@ type SliderWrapperProps = {
 };
 
 type InputFieldsContainerProps = {
+  leftInputPriority: boolean;
   type: SliderType;
+  hasHelpValues: boolean;
 };
 //#endregion
 
@@ -114,10 +116,45 @@ export const SliderContainer = styled.div`
 `;
 
 export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
-  align-items: flex-start;
-  display: flex;
-  gap: 0.5rem;
-  justify-content: space-between;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  gap: 4px;
+  align-items: center;
+
+  p:first-child {
+    text-align: left;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  p:last-child {
+    text-align: right;
+  }
+
+  div:first-of-type {
+    grid-row: 1 / 2;
+
+    ${(props) => {
+      if (props.leftInputPriority && props.type === 'simple') {
+        return css`
+          grid-column: 1 / 3;
+          align-self: center;
+        `;
+      } else if (props.type === 'simple' && props.hasHelpValues) {
+        return css`
+          display: flex;
+          justify-content: center;
+        `;
+      }
+      return '';
+    }}
+  }
+
+  div:not(:first-child):last-child {
+    background-color: lightgreen;
+    justify-self: end;
+  }
 `;
 
 export const LabelText = styled.div`
@@ -143,11 +180,17 @@ export const NumberInputContainer = styled.div`
   text-align: left;
 `;
 
+export const HelpValue = styled.p`
+  ${typography.smallText}
+  margin: 0;
+  width: 100%;
+`;
+
 export const NumberInput = styled.input.attrs(() => ({
   inputMode: 'decimal',
   type: 'number',
 }))<NumberInputProps>`
-  ${typography.textInput}
+  ${typography.smallText}
   -moz-appearance: textfield;
   align-items: center;
   background-color: ${colors.elviaWhite};
@@ -162,7 +205,7 @@ export const NumberInput = styled.input.attrs(() => ({
   position: relative;
   text-align: left;
   text-transform: unset;
-  width: ${(props) => Math.max(Number(props.width) + 16, props.max.toString().length * 13)}px;
+  width: ${(props) => Math.max(Number(props.width) + 16, props.max.toString().length * 15)}px;
 
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
