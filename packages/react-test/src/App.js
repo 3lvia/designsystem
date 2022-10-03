@@ -425,7 +425,7 @@ function App() {
         </div>
         <div className="example-wrapper">
           <h3>Timepicker</h3>
-          {/* <Timepicker /> */}
+          <Timepicker />
         </div>
       </div>
     </div>
