@@ -6,7 +6,7 @@ import { MobileUserMenuProps } from '../elviaHeader.types';
 import { Hr, AppTitle, Backdrop, IconButton } from '../styledComponents';
 import { Email, MenuButton, MenuContainer, MenuTitle, UserGrid, Username } from './mobileMenuStyles';
 
-export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, username }) => {
+export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, username, onSignOutClick }) => {
   const [userMenuIsOpen, setUserMenuIsOpen] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
@@ -75,7 +75,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, use
               </section>
               <Hr></Hr>
               <section>
-                <MenuButton>
+                <MenuButton onClick={onSignOutClick}>
                   <Icon name="logout" size="xs" color="black" />
                   Logg ut
                 </MenuButton>

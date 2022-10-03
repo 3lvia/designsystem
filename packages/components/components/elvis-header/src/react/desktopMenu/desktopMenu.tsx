@@ -14,7 +14,7 @@ import {
 import { Icon } from '@elvia/elvis-icon/react';
 import { useFocusTrap } from '@elvia/elvis-toolbox';
 
-export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email }) => {
+export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOutClick }) => {
   const [userMenuIsOpen, setUserMenuIsOpen] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
@@ -74,7 +74,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email }) => {
               </UserGrid>
               <MenuHr></MenuHr>
               <section>
-                <MenuButton>
+                <MenuButton onClick={onSignOutClick}>
                   <Icon name="logout" size="xs" color="black" />
                   Logg ut
                 </MenuButton>

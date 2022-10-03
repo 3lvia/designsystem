@@ -3,6 +3,7 @@ import { IconName } from '@elvia/elvis-icon/react';
 import { CSSProperties } from 'react';
 
 export interface UserMenuProps {
+  onSignOutClick?: () => void;
   username: string;
   email: string;
 }

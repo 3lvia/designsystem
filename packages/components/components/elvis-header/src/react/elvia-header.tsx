@@ -24,6 +24,7 @@ export const Tooltip: React.FC<HeaderProps> = ({
   appContent,
   onLogoClick,
   onSideNavItemClick,
+  onSignOutClick,
   className,
   inlineStyle,
   webcomponent,
@@ -90,10 +91,17 @@ export const Tooltip: React.FC<HeaderProps> = ({
         </PageTitle>
         {!isGtMobile && (
           <SquareContainer>
-            <MobileMenu appTitle={appTitle} email={email} username={username}></MobileMenu>
+            <MobileMenu
+              appTitle={appTitle}
+              email={email}
+              username={username}
+              onSignOutClick={onSignOutClick}
+            ></MobileMenu>
           </SquareContainer>
         )}
-        {isGtMobile && <DesktopMenu email={email} username={username}></DesktopMenu>}
+        {isGtMobile && (
+          <DesktopMenu email={email} username={username} onSignOutClick={onSignOutClick}></DesktopMenu>
+        )}
       </Header>
       {navItems?.length && (
         <SideNav
