@@ -2,6 +2,7 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 import { headerZIndex, toolbarHeight } from '../styledComponents';
+import { publicStyles } from './publicStyles';
 
 interface SideNavContainerProps {
   isGtMobile: boolean;
@@ -52,6 +53,10 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
     }
 
     return css``;
+  }}
+
+  ${(props) => {
+    return publicStyles(props.isGtMobile);
   }}
 `;
 

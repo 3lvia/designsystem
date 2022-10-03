@@ -23,7 +23,6 @@ export const Tooltip: React.FC<HeaderProps> = ({
   navItems,
   appContent,
   onLogoClick,
-  onSideNavItemClick,
   onSignOutClick,
   className,
   inlineStyle,
@@ -34,6 +33,7 @@ export const Tooltip: React.FC<HeaderProps> = ({
   const [hasAppContent, setHasAppContent] = useState(!!appContent);
   const pageContainerElement = useRef<HTMLElement>(null);
   const pageTitleRef = useRef<HTMLHeadingElement>(null);
+  const sidenavRef = useRef<HTMLElement>(null);
 
   /** Get app content slot */
   useEffect(() => {
@@ -49,6 +49,11 @@ export const Tooltip: React.FC<HeaderProps> = ({
     if (pageTitleRef.current && webcomponent?.getSlot('pageTitle')) {
       pageTitleRef.current.innerHTML = '';
       pageTitleRef.current.appendChild(webcomponent.getSlot('pageTitle'));
+    }
+
+    if (sidenavRef.current && webcomponent?.getSlot('navItems')) {
+      sidenavRef.current.innerHTML = '';
+      sidenavRef.current.appendChild(webcomponent.getSlot('navItems'));
     }
   }, [webcomponent]);
 
@@ -103,22 +108,11 @@ export const Tooltip: React.FC<HeaderProps> = ({
           <DesktopMenu email={email} username={username} onSignOutClick={onSignOutClick}></DesktopMenu>
         )}
       </Header>
-      {navItems?.length && (
-        <SideNav
-          navItems={navItems}
-          onNavItemClick={(item) => {
-            if (!webcomponent && onSideNavItemClick) {
-              onSideNavItemClick(item);
-            } else if (webcomponent) {
-              webcomponent.triggerEvent('onSideNavItemClick', item);
-            }
-          }}
-        ></SideNav>
-      )}
+      {navItems && <SideNav ref={sidenavRef}></SideNav>}
       <AppContent
         ref={pageContainerElement}
         isGtMobile={isGtMobile}
-        sidenavPadding={!!navItems?.length}
+        sidenavPadding={!!navItems}
         hidden={!hasAppContent}
       >
         {appContent}

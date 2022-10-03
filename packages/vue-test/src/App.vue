@@ -10,6 +10,19 @@
       <TooltipHeader v-if="pageTitle === 'Tooltip'" />
       <span v-else>{{ pageTitle }}</span>
     </div>
+    <div slot="navItems" class="e-sidenav__container">
+      <router-link
+        class="e-sidenav__item"
+        :to="navItem.url"
+        active-class="e-sidenav__item--active"
+        v-for="navItem in navItems"
+      >
+        <div class="e-sidenav__icon-container">
+          <elvia-icon :name="navItem.iconName" color="black" size="sm" />
+        </div>
+        {{ navItem.name }}
+      </router-link>
+    </div>
     <div slot="appContent">
       <router-view />
     </div>
@@ -48,24 +61,7 @@ export default defineComponent({
       return route.meta.title;
     });
 
-    const navigate = (navItem: NavItem): void => {
-      router.push(navItem.url);
-    };
-
-    watch(
-      () => route.path,
-      () => {
-        const clone = navItems.value.slice();
-        clone.forEach((item) => {
-          console.log(route.path);
-          item.isActive = item.url === route.path;
-        });
-
-        navItems.value = clone;
-      },
-    );
-
-    return { pageTitle, navItems, navigate };
+    return { pageTitle, navItems };
   },
 });
 </script>

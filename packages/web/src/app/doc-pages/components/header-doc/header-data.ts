@@ -45,9 +45,9 @@ export const headerData: ComponentData = {
     },
     navItems: {
       isRequired: false,
-      type: 'NavItem[]',
+      type: 'string | HTMLElement | JSX.Element',
       description: 'A list of nav items which is rendered in the side nav.',
-      default: '[]',
+      default: 'undefined',
     },
     appContent: {
       isRequired: false,
@@ -64,12 +64,6 @@ export const headerData: ComponentData = {
       isRequired: false,
       type: '() => void',
       description: 'An event that is triggered when the sign out button is clicked.',
-    },
-    onSideNavItemClick: {
-      isRequired: false,
-      type: '(item: NavItem) => void',
-      description:
-        'An event that is triggered when a sidenav item is clicked. Is used to perform navigation through your preferred framework.',
     },
     className: {
       isRequired: false,
