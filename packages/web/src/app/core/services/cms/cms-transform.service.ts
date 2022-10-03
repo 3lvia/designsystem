@@ -398,7 +398,11 @@ export class CMSTransformService {
           '
           style='${hasInlineText ? `display: inline; width: ${imgSize}` : 'max-width: 100%'}'
           src="${srcUrl}"
-          ${altText !== 'decorative' && altText !== '"decorative"' ? 'alt="' + altText + '"' : ''}
+          ${
+            altText !== 'decorative' && 'Decorative' && altText !== '"Decorative"'
+              ? 'alt="' + altText + '"'
+              : 'alt=""'
+          }
         />
         ${hasInlineText ? '' : '<br class="containerDivNewLine" />'} 
         <div 
@@ -432,6 +436,7 @@ export class CMSTransformService {
     const displayTitle: IDownloadContent['fields']['displayTitle'] = data.fields.displayTitle
       ? data.fields.displayTitle[locale]
       : undefined;
+    const altText = data.fields.displayImage[locale].fields.title[locale];
     const displayImage = 'https:' + data.fields.displayImage[locale].fields.file[locale].url;
     const asset = 'https:' + data.fields.downloadableContent[locale].fields.file[locale].url;
     const fileType = asset.split('.').pop();
@@ -449,6 +454,7 @@ export class CMSTransformService {
         <img
           class="cms-section__img normal-img"
           src="${displayImage}"
+          alt="${altText}"
         />
       </div>
       ${
@@ -582,10 +588,13 @@ export class CMSTransformService {
   }
 
   private getLandingPage(data: ILandingPage, locale: string) {
+    console.log(data.fields.overviewImage[locale].fields.title[locale]);
     const srcUrl = 'https:' + data.fields.overviewImage[locale].fields.file[locale].url;
     return `
       <div class="cms-landing-page">
-        <img class="cms-landing-page__img" src="${srcUrl}"></img>
+        <img class="cms-landing-page__img" src="${srcUrl}" alt="${
+      data.fields.overviewImage[locale].fields.title[locale]
+    }"></img>
         <div class="cms-landing-page__description e-text-lg">
           ${data.fields.description ? data.fields.description[locale] : ''}
         </div>
@@ -618,7 +627,7 @@ export class CMSTransformService {
         <a class="e-link e-link--card" href="${fullPath}">
           <div class="e-link__content">
             <div class="e-link__icon">
-              <img src="${iconUrl}"></img>
+              <img src="${iconUrl}" alt=""></img>
             </div>
             <div class="e-link__title">${cardTitle}</div>
           </div>
