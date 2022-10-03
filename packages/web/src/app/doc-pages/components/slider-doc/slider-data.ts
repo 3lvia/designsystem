@@ -33,6 +33,21 @@ export const sliderData: ComponentData = {
       cegType: 'boolean',
     },
 
+    hasHelpValues: {
+      default: 'false',
+      description:
+        'Decides if the slider should display its minimum and maximum values at each end of the slider. Not available of type="range" with hasInputField="true".',
+      isRequired: false,
+      type: 'boolean',
+
+      cegDefault: false,
+      cegDisplayGroup: 'Options',
+      cegDisplayName: 'Help values',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegType: 'boolean',
+    },
+
     hasTooltip: {
       default: 'false',
       description:
@@ -56,7 +71,10 @@ export const sliderData: ComponentData = {
       type: 'boolean',
 
       cegDefault: false,
-      cegDependency: [{ name: 'type', value: 'simple' }], //ser ikke ut til å fungere
+      cegDependency: [
+        { name: 'type', value: 'simple' },
+        { name: 'hasTooltip', value: 'true' },
+      ], //ser ikke ut til å fungere
       cegDisplayGroup: 'Options',
       cegDisplayName: 'Display percentage',
       cegFormType: 'checkbox',
