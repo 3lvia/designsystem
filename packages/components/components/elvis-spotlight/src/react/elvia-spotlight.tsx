@@ -1,14 +1,20 @@
 import React, { CSSProperties, FC } from 'react';
-import { SpotlightArea, SpotlightCircle } from './styledComponents';
+import { SpotlightArea, SpotlightCircle, SpotlightRect } from './styledComponents';
 import { useLockBodyScroll } from './useLockBodyScroll';
 
+export type SpotlightShape = 'circle' | 'square';
+
 export interface SpotlightPosition {
-  vertical: number | undefined;
-  horizontal: number | undefined;
+  vertical: number;
+  horizontal: number;
 }
 export interface SpotlightProps {
   position: SpotlightPosition | undefined;
+  shape: SpotlightShape;
   radius?: number;
+  width?: number;
+  height?: number;
+  borderRadius?: number;
   hasLockBodyScroll?: boolean;
   transitionDuration?: string;
   className?: string;
@@ -17,14 +23,18 @@ export interface SpotlightProps {
 
 const Spotlight: FC<SpotlightProps> = ({
   position,
+  shape = 'circle',
   radius = 200,
   hasLockBodyScroll = true,
   transitionDuration = '350ms',
+  width = 200,
+  height = 200,
+  borderRadius = 8,
   className,
   inlineStyle,
   ...rest
 }) => {
-  const hasPosition = position && position.horizontal && position.vertical;
+  const hasPosition = position && position.horizontal !== undefined && position.vertical !== undefined;
   useLockBodyScroll(hasLockBodyScroll);
 
   return hasPosition ? (
@@ -33,13 +43,26 @@ const Spotlight: FC<SpotlightProps> = ({
         <defs>
           <mask id="hole">
             <rect width="100%" height="100%" fill="white" />
-            <SpotlightCircle
-              transitionDuration={transitionDuration}
-              r={radius}
-              cx={position.horizontal}
-              cy={position.vertical}
-              fill="black"
-            />
+            {shape === 'circle' ? (
+              <SpotlightCircle
+                transitionDuration={transitionDuration}
+                r={radius}
+                cx={position.horizontal}
+                cy={position.vertical}
+                fill="black"
+              />
+            ) : (
+              <SpotlightRect
+                transitionDuration={transitionDuration}
+                width={width}
+                height={height}
+                x={position.horizontal}
+                y={position.vertical}
+                rx={borderRadius}
+                ry={borderRadius}
+                fill="black"
+              />
+            )}
           </mask>
         </defs>
         <rect fill="rgba(0,0,0,0.25)" width="100%" height="100%" mask="url(#hole)" />

@@ -13,11 +13,35 @@ const spotlightData: ComponentData = {
         'The position represents the center of the circle. The circle will be drawn around the position given.',
       default: '',
     },
+    shape: {
+      isRequired: false,
+      type: 'circle | square',
+      description: 'The shape of the spotlight.',
+      default: 'circle',
+    },
     radius: {
       isRequired: false,
       type: 'number',
-      description: 'Radius for the spotlight circle.',
+      description: 'Radius for the spotlight circle. Only applies to shape circle.',
       default: '200',
+    },
+    width: {
+      isRequired: false,
+      type: 'number',
+      description: 'Width for the spotlight square. Only applies to shape square.',
+      default: '200',
+    },
+    height: {
+      isRequired: false,
+      type: 'number',
+      description: 'Height for the spotlight square. Only applies to shape square.',
+      default: '200',
+    },
+    borderRadius: {
+      isRequired: false,
+      type: 'number',
+      description: 'Border radius for the spotlight square. Only applies to shape square.',
+      default: '8',
     },
     hasLockBodyScroll: {
       isRequired: false,
