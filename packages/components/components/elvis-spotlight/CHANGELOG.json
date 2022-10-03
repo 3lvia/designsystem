@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Spotlight now supports shape square. The new shape also has some new props: <span class=\"code-text\">borderRadius</span>, <span class=\"code-text\">height</span>, and <span class=\"code-text\">width</span>."
+            "Spotlight now supports shape rectangle. The new shape also has some new props: <span class=\"code-text\">borderRadius</span>, <span class=\"code-text\">height</span>, and <span class=\"code-text\">width</span>."
           ]
         }
       ]

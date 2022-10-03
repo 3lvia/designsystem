@@ -15,7 +15,7 @@ const spotlightData: ComponentData = {
     },
     shape: {
       isRequired: false,
-      type: 'circle | square',
+      type: 'circle | rectangle',
       description: 'The shape of the spotlight.',
       default: 'circle',
     },
@@ -28,19 +28,19 @@ const spotlightData: ComponentData = {
     width: {
       isRequired: false,
       type: 'number',
-      description: 'Width for the spotlight square. Only applies to shape square.',
+      description: 'Width for the spotlight rectangle. Only applies to shape rectangle.',
       default: '200',
     },
     height: {
       isRequired: false,
       type: 'number',
-      description: 'Height for the spotlight square. Only applies to shape square.',
+      description: 'Height for the spotlight rectangle. Only applies to shape rectangle.',
       default: '200',
     },
     borderRadius: {
       isRequired: false,
       type: 'number',
-      description: 'Border radius for the spotlight square. Only applies to shape square.',
+      description: 'Border radius for the spotlight rectangle. Only applies to shape rectangle.',
       default: '8',
     },
     hasLockBodyScroll: {

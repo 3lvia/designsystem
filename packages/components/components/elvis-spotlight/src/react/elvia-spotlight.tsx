@@ -2,19 +2,26 @@ import React, { CSSProperties, FC } from 'react';
 import { SpotlightArea, SpotlightCircle, SpotlightRect } from './styledComponents';
 import { useLockBodyScroll } from './useLockBodyScroll';
 
-export type SpotlightShape = 'circle' | 'square';
+export type SpotlightShape = 'circle' | 'rectangle';
 
 export interface SpotlightPosition {
   vertical: number;
   horizontal: number;
 }
-export interface SpotlightProps {
-  position: SpotlightPosition | undefined;
-  shape: SpotlightShape;
+
+interface SpotlightCircleProps {
   radius?: number;
+}
+
+interface SpotlightRectProps {
   width?: number;
   height?: number;
   borderRadius?: number;
+}
+
+export interface SpotlightProps extends SpotlightCircleProps, SpotlightRectProps {
+  position: SpotlightPosition | undefined;
+  shape: SpotlightShape;
   hasLockBodyScroll?: boolean;
   transitionDuration?: string;
   className?: string;

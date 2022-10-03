@@ -446,7 +446,11 @@ module.exports = [
     elementName: 'elvia-spotlight',
     attributes: [
       { name: 'position', type: 'object', propType: 'object' },
+      { name: 'shape', type: 'string', propType: 'string' },
       { name: 'radius', type: 'number', propType: 'number' },
+      { name: 'width', type: 'number', propType: 'number' },
+      { name: 'height', type: 'number', propType: 'number' },
+      { name: 'borderRadius', type: 'number', propType: 'number' },
       { name: 'hasLockBodyScroll', type: 'boolean', propType: 'boolean' },
       { name: 'transitionDuration', type: 'string', propType: 'boolean' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
