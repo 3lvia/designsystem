@@ -197,6 +197,7 @@ export const HelpValue = styled.p<HelperTextProps>`
   display: inline;
   width: fit-content;
   margin: 0;
+  ${typography.smallText}
 
   ${(props) => {
     return props.isDisabled
@@ -204,9 +205,7 @@ export const HelpValue = styled.p<HelperTextProps>`
           color: ${colors.disabled};
           user-select: none;
         `
-      : css`
-          ${typography.smallText}
-        `;
+      : '';
   }}
 `;
 
