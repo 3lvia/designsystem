@@ -124,7 +124,7 @@ export class CegFiltersComponent implements OnInit {
       value = (checkboxEvent.target as HTMLInputElement).checked.toString();
     }
     this.updateFormStates(formField.propName, value);
-    this.propValueChange.emit({ name: formField.propName, value: value.toString() });
+    this.propValueChange.emit({ name: formField.propName, value: value });
     this.restoreDefaultStateIfDependent(formField, formField.propName);
   }
 
@@ -179,7 +179,7 @@ export class CegFiltersComponent implements OnInit {
           checkboxToUpdate.checked = defaultValue;
           this.updateFormStates(element.propName, element.defaultValue);
           this.removePropFromCode(element);
-          this.propValueChange.emit({ name: element.propName, value: defaultValue.toString() });
+          this.propValueChange.emit({ name: element.propName, value: defaultValue });
         }
       });
     });

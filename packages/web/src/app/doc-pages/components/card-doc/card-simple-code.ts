@@ -7,6 +7,10 @@ const cardSimpleCode: ComponentTypeData = {
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: 'Safety',
+      cegDependency: [
+        { name: 'borderColor', value: ['green'] },
+        { name: 'shape', value: ['square'] },
+      ],
     },
     description: {
       cegFormType: 'custom-text',

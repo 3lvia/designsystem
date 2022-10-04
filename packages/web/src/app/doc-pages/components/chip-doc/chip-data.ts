@@ -52,6 +52,11 @@ export const chipData: ComponentData = {
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: '2022',
+      cegDependency: [
+        { name: 'type', value: ['removable'] },
+        { name: 'isDisabled', value: ['false'] },
+        { name: 'color', value: ['red', 'violet'] },
+      ],
     },
     isLoading: {
       isRequired: false,
