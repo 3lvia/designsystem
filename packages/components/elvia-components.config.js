@@ -316,10 +316,10 @@ module.exports = [
     attributes: [
       { name: 'appTitle', type: 'string', propType: 'string' },
       { name: 'pageTitle', type: 'string', propType: 'string | HTMLElement' },
+      { name: 'navItems', type: 'string', propType: 'string | HTMLElement' },
       { name: 'username', type: 'string', propType: 'string' },
       { name: 'email', type: 'string', propType: 'string' },
-      { name: 'navItems', type: 'object', propType: 'object' },
-      { name: 'content', type: 'string', propType: 'string | HTMLElement' },
+      { name: 'appContent', type: 'string', propType: 'string | HTMLElement' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
     ],
