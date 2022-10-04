@@ -16,7 +16,7 @@ import { useFocusTrap } from '@elvia/elvis-toolbox';
 
 export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOutClick }) => {
   const [userMenuIsOpen, setUserMenuIsOpen] = useState(false);
-  const [fadeOut, setFadeOut] = useState(false);
+  const [fadeOut, setFadeOut] = useState(true);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef(null);
 
@@ -54,7 +54,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
         aria-label="Åpne brukermeny"
         aria-expanded={userMenuIsOpen}
         aria-haspopup="dialog"
-        isActive={userMenuIsOpen}
+        isActive={!fadeOut}
         ref={triggerButtonRef}
       >
         <Icon name="profile" size="xs" />
