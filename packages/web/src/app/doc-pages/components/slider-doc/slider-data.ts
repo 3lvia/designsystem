@@ -84,7 +84,8 @@ export const sliderData: ComponentData = {
 
     unit: {
       isRequired: false,
-      description: 'The unit displayed in the tooltip. For example "kWh", "kr/mnd"',
+      description:
+        'A custom unit displayed in the tooltip. For example "kWh", "kr/mnd". The unit will be overwritten if hasPercent is set to true.',
       type: 'string',
       default: '',
 
@@ -97,7 +98,7 @@ export const sliderData: ComponentData = {
     label: {
       isRequired: false,
       description:
-        'A custom label displayed above the inputs. For example "Kilowatt hours". Labels can be set individually for range sliders by using a object: {left:"min", right:"max"}',
+        'A custom label displayed above the input(s). For example "Kilowatt hours". Labels can be set individually for range sliders by using a object: {left:"min", right:"max"}',
       type: 'string | {left: string, right: string}',
       default: '',
 
@@ -111,7 +112,7 @@ export const sliderData: ComponentData = {
     max: {
       default: 100,
       description:
-        'The greatest value allowed inside the slider. This value must be greater than the value of the min attribute.',
+        'The greatest value allowed inside the slider. This value must be greater than the value of the "min" attribute.',
       isRequired: false,
       type: 'number',
     },
@@ -120,7 +121,7 @@ export const sliderData: ComponentData = {
     min: {
       default: 1,
       description:
-        'The lowest value allowed inside the slider. This value must be less than the value of the max attribute.',
+        'The lowest value allowed inside the slider. This value must be less than the value of the "max" attribute.',
       isRequired: false,
       type: 'number',
     },
