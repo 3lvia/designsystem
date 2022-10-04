@@ -1,7 +1,7 @@
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
-import { headerZIndex, toolbarHeight } from '../styledComponents';
+import { headerZIndex, sidebarAnimation, sidebarMaxWidth, toolbarHeight } from '../styledComponents';
 import { publicStyles } from './publicStyles';
 
 interface SideNavContainerProps {
@@ -17,7 +17,7 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
   flex-direction: column;
   overflow: hidden;
   will-change: max-width;
-  transition: max-width 200ms ease;
+  transition: max-width ${sidebarAnimation};
   width: 100%;
 
   ${(props) => {
@@ -44,7 +44,7 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
   ${(props) => {
     if (props.isExpanded && props.isGtMobile) {
       return css`
-        max-width: 270px;
+        max-width: ${sidebarMaxWidth};
       `;
     } else if (props.isGtMobile) {
       return css`

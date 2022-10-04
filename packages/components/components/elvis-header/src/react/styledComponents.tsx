@@ -5,6 +5,8 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 
 export const toolbarHeight = '64px';
 export const headerZIndex = 109;
+export const sidebarMaxWidth = '280px';
+export const sidebarAnimation = '400ms cubic-bezier(0.71, 0, 0.31, 1)';
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -169,15 +171,17 @@ export const Hr = styled.hr<Partial<HrProps>>`
 
 interface AppContentProps extends ResponsiveProps {
   sidenavPadding: boolean;
+  isExpanded: boolean;
 }
 
 export const AppContent = styled.main<AppContentProps>`
   padding-top: ${toolbarHeight};
+  transition: padding-left ${sidebarAnimation};
 
   ${(props) => {
     if (props.isGtMobile && props.sidenavPadding) {
       return css`
-        padding-left: ${toolbarHeight};
+        padding-left: ${props.isExpanded ? sidebarMaxWidth : toolbarHeight};
       `;
     } else if (!props.isGtMobile && props.sidenavPadding) {
       return css`

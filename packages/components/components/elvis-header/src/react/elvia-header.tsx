@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { HeaderProps } from './elviaHeader.types';
 import { useBreakpoint } from '@elvia/elvis-toolbox';
 import {
@@ -30,6 +30,7 @@ export const Tooltip: React.FC<HeaderProps> = ({
 }) => {
   const isGtMobile = useBreakpoint('gt-mobile');
   const isGtTablet = useBreakpoint('gt-tablet');
+  const [isExpanded, setIsExpanded] = useState(false);
   const pageContainerElement = useRef<HTMLElement>(null);
   const pageTitleRef = useRef<HTMLHeadingElement>(null);
   const sidenavRef = useRef<HTMLElement>(null);
@@ -112,12 +113,19 @@ export const Tooltip: React.FC<HeaderProps> = ({
         )}
         {isGtMobile && <DesktopMenu email={email} username={username} onSignOutClick={onSignOutClick} />}
       </Header>
-      {hasNavItems() && <SideNav ref={sidenavRef} />}
+      {hasNavItems() && (
+        <SideNav
+          ref={sidenavRef}
+          onSideNavToggle={() => setIsExpanded(!isExpanded)}
+          isExpanded={isExpanded}
+        />
+      )}
       <AppContent
         ref={pageContainerElement}
         isGtMobile={isGtMobile}
         sidenavPadding={hasNavItems()}
         hidden={!hasAppContent()}
+        isExpanded={isExpanded}
       >
         {appContent}
       </AppContent>
