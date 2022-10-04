@@ -92,7 +92,10 @@ export const sliderData: ComponentData = {
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: '',
-      cegDependency: [{ name: 'hasInputField', value: 'true' }],
+      cegDependency: [
+        { name: 'hasTooltip', value: 'true' },
+        { name: 'hasPercent', value: 'false' },
+      ],
     },
 
     label: {
@@ -105,7 +108,7 @@ export const sliderData: ComponentData = {
       cegFormType: 'custom-text',
       cegCustomTextType: 'input',
       cegDefault: '',
-      cegDependency: [{ name: 'type', value: 'simple' }],
+      cegDependency: [{ name: 'hasInputField', value: 'true' }],
     },
 
     /* TODO: Legge til max i CEG, men bare dersom counten til max aldri kan bli mindre enn min */
@@ -127,10 +130,10 @@ export const sliderData: ComponentData = {
     },
 
     value: {
-      default: '{min: 1, max: 100}',
+      default: '{left: 1, right: 100}',
       description: 'The default value of the slider. An object for range sliders.',
       isRequired: false,
-      type: 'number | {min: number, max: number}',
+      type: 'number | {left: number, right: number}',
     },
 
     isDisabled: {
@@ -184,8 +187,8 @@ export const sliderData: ComponentData = {
 ></elvia-slider>
 `,
   codeNativeHTML: `<elvia-slider
-  min=1
-  max=100
+  min="1"
+  max="100"
   id="example-elvia-slider"
 ></elvia-slider>
 `,
