@@ -167,6 +167,15 @@ showMockPassword() {
 </div>
   `;
 
+  readonlyExample = `
+<div class="e-form-field">
+  <label class="e-form-field__label" for="normalreadonly">Country</label>
+  <div class="e-input e-input---readonly">
+    <input id="normalreadonly" type="text" value="Norway" readonly />
+  </div>
+</div>
+`;
+
   showMockPassword(): void {
     if (this.validationExample.nativeElement.type === 'password') {
       this.validationExample.nativeElement.type = 'text';

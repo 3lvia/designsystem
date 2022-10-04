@@ -10,6 +10,7 @@ export interface SpotlightProps {
   position: SpotlightPosition | undefined;
   radius?: number;
   hasLockBodyScroll?: boolean;
+  transitionDuration?: string;
   className?: string;
   inlineStyle?: CSSProperties;
 }
@@ -18,6 +19,7 @@ const Spotlight: FC<SpotlightProps> = ({
   position,
   radius = 200,
   hasLockBodyScroll = true,
+  transitionDuration = '350ms',
   className,
   inlineStyle,
   ...rest
@@ -31,7 +33,13 @@ const Spotlight: FC<SpotlightProps> = ({
         <defs>
           <mask id="hole">
             <rect width="100%" height="100%" fill="white" />
-            <SpotlightCircle r={radius} cx={position.horizontal} cy={position.vertical} fill="black" />
+            <SpotlightCircle
+              transitionDuration={transitionDuration}
+              r={radius}
+              cx={position.horizontal}
+              cy={position.vertical}
+              fill="black"
+            />
           </mask>
         </defs>
         <rect fill="rgba(0,0,0,0.25)" width="100%" height="100%" mask="url(#hole)" />
