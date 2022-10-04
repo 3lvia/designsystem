@@ -18,6 +18,11 @@ const spotlightData: ComponentData = {
       type: 'circle | rectangle',
       description: 'The shape of the spotlight.',
       default: 'circle',
+      cegDisplayName: 'Shape',
+      cegDefault: 'circle',
+      cegType: 'string',
+      cegFormType: 'radio',
+      cegOptions: ['circle', 'rectangle'],
     },
     radius: {
       isRequired: false,
@@ -25,23 +30,11 @@ const spotlightData: ComponentData = {
       description: 'Radius for the spotlight circle. Only applies to shape circle.',
       default: '200',
     },
-    width: {
+    rectangleProps: {
       isRequired: false,
-      type: 'number',
-      description: 'Width for the spotlight rectangle. Only applies to shape rectangle.',
-      default: '200',
-    },
-    height: {
-      isRequired: false,
-      type: 'number',
-      description: 'Height for the spotlight rectangle. Only applies to shape rectangle.',
-      default: '200',
-    },
-    borderRadius: {
-      isRequired: false,
-      type: 'number',
-      description: 'Border radius for the spotlight rectangle. Only applies to shape rectangle.',
-      default: '8',
+      type: '{width: number; height: number; borderRadius: number}',
+      description: 'Props for the spotlight rectangle. Only applies to shape rectangle.',
+      default: '{width: 200, height: 200, borderRadius: 8}',
     },
     hasLockBodyScroll: {
       isRequired: false,

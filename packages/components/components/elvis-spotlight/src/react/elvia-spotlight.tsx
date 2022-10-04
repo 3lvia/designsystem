@@ -9,19 +9,17 @@ export interface SpotlightPosition {
   horizontal: number;
 }
 
-interface SpotlightCircleProps {
-  radius?: number;
-}
-
-interface SpotlightRectProps {
+export interface SpotlightRectangleProps {
   width?: number;
   height?: number;
   borderRadius?: number;
 }
 
-export interface SpotlightProps extends SpotlightCircleProps, SpotlightRectProps {
+export interface SpotlightProps {
   position: SpotlightPosition | undefined;
   shape: SpotlightShape;
+  radius?: number;
+  rectangleProps?: SpotlightRectangleProps;
   hasLockBodyScroll?: boolean;
   transitionDuration?: string;
   className?: string;
@@ -34,9 +32,7 @@ const Spotlight: FC<SpotlightProps> = ({
   radius = 200,
   hasLockBodyScroll = true,
   transitionDuration = '350ms',
-  width = 200,
-  height = 200,
-  borderRadius = 8,
+  rectangleProps = { width: 200, height: 200, borderRadius: 8 },
   className,
   inlineStyle,
   ...rest
@@ -61,12 +57,12 @@ const Spotlight: FC<SpotlightProps> = ({
             ) : (
               <SpotlightRect
                 transitionDuration={transitionDuration}
-                width={width}
-                height={height}
+                width={rectangleProps.width}
+                height={rectangleProps.height}
                 x={position.horizontal}
                 y={position.vertical}
-                rx={borderRadius}
-                ry={borderRadius}
+                rx={rectangleProps.borderRadius}
+                ry={rectangleProps.borderRadius}
                 fill="black"
               />
             )}
