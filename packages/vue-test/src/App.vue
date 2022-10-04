@@ -1,11 +1,5 @@
 <template>
-  <elvia-header
-    appTitle="Vue 3 Preview"
-    username="Ragna Nordmann"
-    email="e325334@elvia.no"
-    :navItems="navItems"
-    @onSideNavItemClick="navigate($event.detail.value)"
-  >
+  <elvia-header appTitle="Vue 3 Preview" username="Ragna Nordmann" email="e325334@elvia.no">
     <div slot="pageTitle">
       <TooltipHeader v-if="pageTitle === 'Tooltip'" />
       <span v-else>{{ pageTitle }}</span>
@@ -30,15 +24,19 @@
 </template>
 
 <script lang="ts">
-import { NavItem } from '@elvia/elvis-header';
-import { computed, defineComponent, ref, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { computed, defineComponent, ref } from 'vue';
+import { useRoute } from 'vue-router';
 import TooltipHeader from './components/TooltipHeader.vue';
+
+interface NavItem {
+  url: string;
+  iconName: string;
+  name: string;
+}
 
 export default defineComponent({
   components: { TooltipHeader },
   setup() {
-    const router = useRouter();
     const route = useRoute();
 
     const navItems = ref<NavItem[]>([
@@ -46,14 +44,11 @@ export default defineComponent({
         url: '/',
         iconName: 'dashboard',
         name: 'Components',
-        strictMatching: true,
-        isActive: true,
       },
       {
         url: '/tooltip',
         iconName: 'touchFingerColor',
         name: 'Tooltip',
-        isActive: false,
       },
     ]);
 
