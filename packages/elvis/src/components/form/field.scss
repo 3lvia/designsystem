@@ -79,7 +79,7 @@
       z-index: 1;
       top: 0;
       left: 8px;
-      background-color: white;
+      background-color: colors.color('elvia-on');
       padding: 0 3px;
       height: 9px;
 
@@ -103,7 +103,7 @@
   &.e-form-field--compact:focus-within {
     .e-form-field__label {
       height: 10px;
-      border-bottom: 1px solid white;
+      border-bottom: 1px solid colors.color('elvia-on');
     }
   }
 
