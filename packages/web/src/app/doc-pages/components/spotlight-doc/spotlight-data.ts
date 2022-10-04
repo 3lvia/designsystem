@@ -10,7 +10,7 @@ const spotlightData: ComponentData = {
       isRequired: true,
       type: '{horizontal: number, vertical: number}',
       description:
-        'The position represents the center of the circle. The circle will be drawn around the position given.',
+        'The position represents the center of the circle, or the top left corner of the rectangle. The position is relative to the screen.',
       default: '',
     },
     shape: {
@@ -32,7 +32,7 @@ const spotlightData: ComponentData = {
     },
     rectangleProps: {
       isRequired: false,
-      type: '{width: number; height: number; borderRadius: number}',
+      type: '{width: number, height: number, borderRadius: number}',
       description: 'Props for the spotlight rectangle. Only applies to shape rectangle.',
       default: '{width: 200, height: 200, borderRadius: 8}',
     },
