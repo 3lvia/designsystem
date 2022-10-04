@@ -118,45 +118,7 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white">
-            <h4>Simple</h4>
-            <Slider min={0} max={100000} isDisabled={false} />
-
-            <h4>Simple med help</h4>
-            <Slider min={0} max={100000} hasHintValues={true} />
-
-            <h4>Simple med help og input</h4>
-            <h5>Midten</h5>
-            <Slider min={1000000} max={90000000000} hasInputField={true} hasHintValues={true} />
-            <h5>Venstre</h5>
-            <Slider min={5000} max={9000} hasInputField={true} hasHintValues={true} />
-
-            <div style={{ height: '3rem', margin: '1rem' }}></div>
-
-            <h4>Range</h4>
-            <Slider type={'range'} min={0} max={100000} isDisabled={false} hasHintValues={true} />
-
-            <Slider
-              type={'range'}
-              min={0}
-              max={100000}
-              isDisabled={false}
-              hasInputField={true}
-              hasHintValues={true}
-            />
-
-            <Slider type={'range'} min={0} max={100000} isDisabled={false} hasInputField={true} label=" " />
-
-            <div style={{ height: '5rem', margin: '1rem' }}></div>
-            <Divider />
-            <h4>Disabled Simple</h4>
-            <Slider min={10} max={200} isDisabled={true} />
-
-            <div style={{ height: '3rem', margin: '1rem' }}></div>
-
-            <h4>Disabled Range</h4>
-            <Slider type={'range'} min={0} max={500} isDisabled={true} />
-          </div>
+          <div className="e-bg-white"></div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>
@@ -396,6 +358,14 @@ function App() {
             value={selectedRadioFilter}
             name={'radioFilterTest'}
           ></RadioFilter>
+        </div>
+        {/* SLIDER */}
+        <div className="example-wrapper">
+          <h3>Slider</h3>
+          <h4>Simple</h4>
+          <Slider min={0} max={100} hasHintValues={true} />
+          <h4>Range</h4>
+          <Slider min={0} max={100} type={'range'} hasHintValues={true} />
         </div>
         {/* SPOTLIGHT */}
         <div className="example-wrapper">
