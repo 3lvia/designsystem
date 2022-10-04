@@ -43,7 +43,7 @@ type SliderWrapperProps = {
 type InputFieldsContainerProps = {
   leftInputPriority: boolean;
   type: SliderType;
-  hasHelpValues: boolean;
+  hasHintValues: boolean;
 };
 
 type HelperTextProps = {
@@ -154,7 +154,7 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
           grid-column: 1 / 3;
           align-self: center;
         `;
-      } else if (props.type === 'simple' && props.hasHelpValues) {
+      } else if (props.type === 'simple' && props.hasHintValues) {
         return css`
           display: flex;
           justify-content: center;

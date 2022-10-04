@@ -8,7 +8,7 @@ export interface SliderProps {
   hasInputField?: boolean;
   hasPercent?: boolean;
   hasTooltip?: boolean;
-  hasHelpValues?: boolean;
+  hasHintValues?: boolean;
   inlineStyle?: CSSProperties;
   isDisabled?: boolean;
   label?: string | LabelTextType;

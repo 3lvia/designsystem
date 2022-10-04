@@ -26,7 +26,7 @@ import { SliderError } from './error/sliderError';
 
 const Slider: React.FC<SliderProps> = ({
   className,
-  hasHelpValues = false,
+  hasHintValues = false,
   hasInputField = false,
   hasPercent = false,
   hasTooltip = true,
@@ -486,9 +486,9 @@ const Slider: React.FC<SliderProps> = ({
         <InputFieldsContainer
           leftInputPriority={leftInputReplacesHelp}
           type={type}
-          hasHelpValues={hasHelpValues}
+          hasHintValues={hasHintValues}
         >
-          {hasHelpValues && !(type === 'range' && hasInputField) && (
+          {hasHintValues && !(type === 'range' && hasInputField) && (
             <HelpValue isDisabled={isDisabled} ref={leftHelpTextRef}>
               {EXTREMUM.minimum.toLocaleString()}
             </HelpValue>
@@ -541,7 +541,7 @@ const Slider: React.FC<SliderProps> = ({
               </label>
             </NumberInputContainer>
           )}
-          {hasHelpValues && !(type === 'range' && hasInputField) && (
+          {hasHintValues && !(type === 'range' && hasInputField) && (
             <HelpValue isDisabled={isDisabled} ref={rightHelpTextRef}>
               {EXTREMUM.maximum.toLocaleString()}
             </HelpValue>

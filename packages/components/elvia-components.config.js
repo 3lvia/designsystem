@@ -446,7 +446,7 @@ module.exports = [
     elementName: 'elvia-slider',
     attributes: [
       { name: 'className', type: 'string', propType: 'string | undefined' },
-      { name: 'hasHelpValues', type: 'boolean', propType: 'boolean' },
+      { name: 'hasHintValues', type: 'boolean', propType: 'boolean' },
       { name: 'hasInputField', type: 'boolean', propType: 'boolean' },
       { name: 'hasPercent', type: 'boolean', propType: 'boolean' },
       { name: 'hasTooltip', type: 'boolean', propType: 'boolean' },

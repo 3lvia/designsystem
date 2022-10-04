@@ -123,18 +123,18 @@ function App() {
             <Slider min={0} max={100000} isDisabled={false} />
 
             <h4>Simple med help</h4>
-            <Slider min={0} max={100000} hasHelpValues={true} />
+            <Slider min={0} max={100000} hasHintValues={true} />
 
             <h4>Simple med help og input</h4>
             <h5>Midten</h5>
-            <Slider min={1000000} max={90000000000} hasInputField={true} hasHelpValues={true} />
+            <Slider min={1000000} max={90000000000} hasInputField={true} hasHintValues={true} />
             <h5>Venstre</h5>
-            <Slider min={5000} max={9000} hasInputField={true} hasHelpValues={true} />
+            <Slider min={5000} max={9000} hasInputField={true} hasHintValues={true} />
 
             <div style={{ height: '3rem', margin: '1rem' }}></div>
 
             <h4>Range</h4>
-            <Slider type={'range'} min={0} max={100000} isDisabled={false} hasHelpValues={true} />
+            <Slider type={'range'} min={0} max={100000} isDisabled={false} hasHintValues={true} />
 
             <Slider
               type={'range'}
@@ -142,7 +142,7 @@ function App() {
               max={100000}
               isDisabled={false}
               hasInputField={true}
-              hasHelpValues={true}
+              hasHintValues={true}
             />
 
             <Slider type={'range'} min={0} max={100000} isDisabled={false} hasInputField={true} label=" " />

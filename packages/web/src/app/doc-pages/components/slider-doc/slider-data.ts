@@ -33,7 +33,7 @@ export const sliderData: ComponentData = {
       cegType: 'boolean',
     },
 
-    hasHelpValues: {
+    hasHintValues: {
       default: 'false',
       description:
         'Decides if the slider should display its minimum and maximum values at each end of the slider. Not available of type="range" with hasInputField="true".',
