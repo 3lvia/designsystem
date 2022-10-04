@@ -1,6 +1,20 @@
 {
   "content": [
     {
+      "version": "8.14.1",
+      "date": "October 4, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Moved the label for compact inputs up to match the designs in Figma.",
+            "Padding was added over the compact inputs to prevent the label from overflowing."
+          ],
+          "components": [{ "displayName": "Text field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "8.14.0",
       "date": "September 29, 2022",
       "changelog": [
