@@ -338,7 +338,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       }
     });
     setTimeout(() => {
-      this.updateCustomTextProps();
+      this.updateCustomTextVisibility();
     });
     this.hasCustomTextProps = Object.keys(this.customTextProps).length > 0;
   }
