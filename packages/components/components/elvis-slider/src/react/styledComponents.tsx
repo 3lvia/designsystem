@@ -25,7 +25,7 @@ type StyledSliderProps = {
 };
 
 type SliderFilledTrackProps = {
-  disabled: boolean;
+  isDisabled: boolean;
   rangeTrackWidth?: number;
   type: SliderType;
   trackWidth: number;
@@ -33,7 +33,7 @@ type SliderFilledTrackProps = {
 
 type NumberInputProps = {
   max: number;
-  width: number;
+  label: string;
 };
 
 type SliderWrapperProps = {
@@ -44,6 +44,10 @@ type InputFieldsContainerProps = {
   leftInputPriority: boolean;
   type: SliderType;
   hasHelpValues: boolean;
+};
+
+type HelperTextProps = {
+  isDisabled: boolean;
 };
 //#endregion
 
@@ -115,21 +119,30 @@ export const SliderContainer = styled.div`
   margin-bottom: 24px;
 `;
 
+//Styling the helpVales and the inputs
 export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   display: grid;
-  grid-auto-columns: 1fr;
   grid-auto-flow: column;
-  gap: 4px;
+  gap: 8px;
   align-items: center;
+  justify-items: stretch;
+
+  ${(props) => {
+    return !props.leftInputPriority ? 'grid-auto-columns: 1fr;' : ''; //Keep all columns the same width, used to center the input field.
+  }}
 
   p:first-child {
     text-align: left;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    ${(props) => {
+      return props.leftInputPriority ? 'visibility: hidden;' : '';
+    }}
   }
 
   p:last-child {
     text-align: right;
+    justify-self: end;
   }
 
   div:first-of-type {
@@ -152,7 +165,6 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   }
 
   div:not(:first-child):last-child {
-    background-color: lightgreen;
     justify-self: end;
   }
 `;
@@ -180,10 +192,21 @@ export const NumberInputContainer = styled.div`
   text-align: left;
 `;
 
-export const HelpValue = styled.p`
-  ${typography.smallText}
+export const HelpValue = styled.p<HelperTextProps>`
+  display: inline;
+  width: fit-content;
   margin: 0;
-  width: 100%;
+
+  ${(props) => {
+    return props.isDisabled
+      ? css`
+          color: ${colors.disabled};
+          user-select: none;
+        `
+      : css`
+          ${typography.smallText}
+        `;
+  }}
 `;
 
 export const NumberInput = styled.input.attrs(() => ({
@@ -205,7 +228,7 @@ export const NumberInput = styled.input.attrs(() => ({
   position: relative;
   text-align: left;
   text-transform: unset;
-  width: ${(props) => Math.max(Number(props.width) + 16, props.max.toString().length * 15)}px;
+  width: ${(props) => Math.max(props.label.length, props.max.toString().length) + 2}ch;
 
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
@@ -348,7 +371,7 @@ export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>((props
     width: props.type === 'simple' ? `${props.trackWidth}px` : `${props.rangeTrackWidth}px`,
   },
 }))<SliderFilledTrackProps>`
-  background-color: ${(props) => (props.disabled ? colors.grey30 : colors.elviaBlack)};
+  background-color: ${(props) => (props.isDisabled ? colors.grey30 : colors.elviaBlack)};
   border-radius: 50px;
   height: 5px;
   position: absolute;

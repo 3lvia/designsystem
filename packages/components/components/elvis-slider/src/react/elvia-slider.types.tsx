@@ -47,8 +47,8 @@ export type SliderErrors = {
 };
 
 export type LabelTextType = {
-  left?: string;
-  right?: string;
+  left: string;
+  right: string;
 };
 
 export type TooltipPopupSides = 'left' | 'right';
