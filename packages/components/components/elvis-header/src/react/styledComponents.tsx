@@ -119,9 +119,26 @@ export const TertiaryButton = styled.button`
   justify-content: center;
   gap: 8px;
   cursor: pointer;
+  position: relative;
 
   &:not(:last-of-type) {
     margin-bottom: 16px;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 100ms;
+  }
+
+  &:hover:not([disabled]):after {
+    background-color: ${getColor('green')};
   }
 `;
 
