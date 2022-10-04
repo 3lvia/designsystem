@@ -1,5 +1,5 @@
 <app-header></app-header>
-<main class="main-content" style="overflow: hidden" [ngClass]="bgClass">
+<main id="main-content" class="main-content" style="overflow: hidden" [ngClass]="bgClass">
   <div [ngClass]="{ 'e-grid': !isHomePage }">
     <div [ngClass]="{ row: !isHomePage, 'row-reverse': isLandingPage }">
       <nav class="main-navbar" aria-label="main navigation" [ngClass]="{ hide: isHomePage }">

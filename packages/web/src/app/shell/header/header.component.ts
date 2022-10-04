@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { GlobalService } from 'src/app/core/services/global.service';
 import { MobileMenuService } from 'src/app/core/services/mobile-menu.service';
 import { OverlayRef } from '@angular/cdk/overlay';
-import { NavItem } from '@elvia/elvis-header';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
-import { NavigationEnd, Router } from '@angular/router';
 import { SearchMenuComponent } from './search-menu/search-menu.component';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import packageJson from '@elvia/elvis/package.json';
@@ -17,7 +14,6 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
 })
 export class HeaderComponent {
   version = packageJson.version;
-  useInternalHeader = true;
   searchMenuOpen = false;
   searchOverlay: OverlayRef;
   headerLogoLoaded = false;
@@ -25,18 +21,10 @@ export class HeaderComponent {
   mainMenu: any;
   menuContentLoader = true;
   isPrideMonth = false;
-  navItems: NavItem[] = [
-    { iconName: 'dashboard', name: 'Overview', url: '/components' },
-    { iconName: 'search', name: 'Search', url: '/search' },
-    { iconName: 'pin', name: 'Analysis', url: '/analysis' },
-    { iconName: 'graphBar', name: 'Statistics', url: '/statistics' },
-  ];
 
   constructor(
-    private globalService: GlobalService,
     private mobileMenu: MobileMenuService,
     private searchMenu: MobileMenuService,
-    private router: Router,
     private cmsService: CMSService,
     private localizationService: LocalizationService,
   ) {
@@ -54,19 +42,6 @@ export class HeaderComponent {
     ) {
       this.devMode = true;
     }
-
-    this.globalService.listenShowInternalHeader().subscribe((show) => {
-      if (show) {
-        this.testInternalHeader();
-      } else {
-        this.hideInternalHeader();
-      }
-    });
-    this.router.events.subscribe((ev) => {
-      if (ev instanceof NavigationEnd && ev.url !== '/components/header-doc') {
-        this.hideInternalHeader();
-      }
-    });
 
     this.checkIfPrideMonth();
   }
@@ -113,18 +88,6 @@ export class HeaderComponent {
   closeSearchMenu(): void {
     this.searchMenu.detach(this.searchOverlay);
     this.searchMenuOpen = false;
-  }
-
-  testInternalHeader(): void {
-    this.useInternalHeader = true;
-    const element = document.querySelectorAll('.main-content')[0] as HTMLElement;
-    element.classList.add('e-bg-grey-05');
-  }
-
-  hideInternalHeader(): void {
-    this.useInternalHeader = false;
-    const element = document.querySelectorAll('.main-content')[0] as HTMLElement;
-    element.classList.remove('e-bg-grey-05');
   }
 
   toggleElement(el: string, elClass: string): void {

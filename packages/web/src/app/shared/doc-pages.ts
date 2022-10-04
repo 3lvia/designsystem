@@ -247,7 +247,7 @@ export const componentsDocPages: DocPage[] = [
     title: 'Header',
     // tslint:disable-next-line: max-line-length
     description:
-      'Headers are used for navigation on the website and should be displayed at the top of the page. There are two types of headers available: one for external(coming) and one for internal systems.',
+      'Headers are used for navigation on the website and should be displayed at the top of the page. There are two types of headers available: one for external and one for internal systems.',
     docUrl: Pages.Header,
     absolutePath: '/components/' + Pages.Header,
     status: DocPageStatus.Done,

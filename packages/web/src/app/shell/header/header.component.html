@@ -1,5 +1,5 @@
 <!-- Header  -->
-<header class="header" *ngIf="!useInternalHeader; else internalHeader">
+<header class="header" id="header">
   <div class="logo">
     <a [ngClass]="{ show: headerLogoLoaded }" class="header-logo-link" [routerLink]="['', 'home']">
       <img
@@ -83,13 +83,3 @@
     </button>
   </div>
 </header>
-
-<ng-template #internalHeader>
-  <elvia-header
-    appTitle="Drops"
-    pageTitle="Maps and analysis"
-    username="Ragna Nordmann"
-    email="e55717@elvia.no"
-    [navItems]="navItems"
-  ></elvia-header>
-</ng-template>

@@ -11,128 +11,37 @@
   <!--CEG-->
   <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <button class="e-btn e-mt-16" *ngIf="!internalHeader" (click)="testInternalHeader()">
-      Test internal header
-    </button>
-    <button class="e-btn e-mt-16" *ngIf="internalHeader" (click)="hideInternalHeader()">
-      Hide internal header
-    </button>
-  </div>
-  <div class="e-mt-72">
-    <div class="e-alert e-alert--local e-alert--info" role="alert">
-      <div class="e-alert__icon">
-        <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-      </div>
-      <div class="e-alert__content">
-        <div class="e-alert__title">NB! This preview is not a finished working header.</div>
-        <div class="e-alert__text">
-          This header only shows some logic to visualize how it should look. Logic has to be applied for
-          opening, closing and choosing menus and items.
-          <ul>
-            <li>
-              The modifiers classes listed below should be added and removed when clicking menus and choosing
-              options.
-            </li>
-            <li>When clicking outside of any menu or if choosing any option the menus should close.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- IMPLEMENTATION -->
-  <app-component-section [sectionTitle]="'Implementation'">
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      The internal header contains a general top menu and a side navigation section. The navigation bar on the
-      side contain app-specific tabs, while the top menu gathers general navigation, such as the app switch
-      and any global settings.
-      <app-component-example-v1
-        [codeHTML]="internalHeaderExample"
-        [greyBg]="true"
-        [overwriteHeight]="500"
-        [showIframeDesktop]="true"
-      ></app-component-example-v1>
-
-      <app-component-subsection [sectionTitle]="'Side menu icons'">
+      <app-component-subsection sectionTitle="The internal header">
         <ng-container ngProjectAs="sectionContent">
-          When using icons in the sidebar of the header, you will need both a black-and-white and a
-          two-colored icon, for the active state. If you are using icons from the design system and a colored
-          version of the icons you have chosen does not exist, contact us and we will make it for you.
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Manually adding modifiers'">
-        <ng-container ngProjectAs="sectionContent">
-          To open a menu in the top-bar one or more of the following classes needs to be added.
-          <div class="e-table-container e-mt-16">
-            <table class="e-table" aria-label="Classes for showing and hiding header elements">
-              <thead>
-                <tr>
-                  <th scope="col">New class</th>
-                  <th scope="col">Where</th>
-                  <th scope="col">When</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">e-header__top-bar-desktop__app--open</th>
-                  <td>e-header__top-bar-desktop</td>
-                  <td>When opening app-menu</td>
-                </tr>
-                <tr>
-                  <th scope="row">e-header__top-bar-desktop__area--open</th>
-                  <td>e-header__top-bar-desktop</td>
-                  <td>When opening area-menu</td>
-                </tr>
-                <tr>
-                  <th scope="row">e-header__top-bar-desktop__user--open</th>
-                  <td>e-header__top-bar-desktop</td>
-                  <td>When opening user-menu</td>
-                </tr>
-                <tr>
-                  <th scope="row">e-header__sidebar--open</th>
-                  <td>e-header__sidebar</td>
-                  <td>When opening side-menu</td>
-                </tr>
-                <tr>
-                  <th scope="row">e-header--open</th>
-                  <td>e-header</td>
-                  <td>When opening top-menu on mobile</td>
-                </tr>
-                <tr>
-                  <th scope="row">e-header__top-bar-mobile__app--open</th>
-                  <td>e-header__top-bar-mobile</td>
-                  <td>When opening app-menu on mobile</td>
-                </tr>
-                <tr>
-                  <th scope="row">e-header__top-bar-mobile__area--open</th>
-                  <td>e-header__top-bar-mobile</td>
-                  <td>When opening area-menu on mobile</td>
-                </tr>
-                <tr>
-                  <th scope="row">e-header__top-bar-desktop__app-circle--active</th>
-                  <td>e-header__top-bar-desktop__app-circle</td>
-                  <td>Should always be present on 1 element</td>
-                </tr>
-                <tr>
-                  <th scope="row">e-header__sidebar__item--active</th>
-                  <td>e-header__sidebar__item</td>
-                  <td>Should always be present on 1 element</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          The internal header contains a general top menu and a side navigation section. The navigation bar on
+          the side contain app-specific tabs, while the top menu gathers general navigation, such as the app
+          switch and any global settings.
         </ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>
 
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-header'">
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-header'"></app-component-properties>
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
+  <!--CHANGELOG-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>
