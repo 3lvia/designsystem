@@ -44,7 +44,6 @@ const Slider: React.FC<SliderProps> = ({
 }) => {
   const leftTextInputRef = useRef<HTMLInputElement>(null);
   const sliderRef = useRef<HTMLInputElement>(null);
-  const labelTextRef = useRef<HTMLInputElement>(null);
   const leftHelpTextRef = useRef<HTMLInputElement>(null);
   const rightHelpTextRef = useRef<HTMLInputElement>(null);
 
@@ -75,9 +74,6 @@ const Slider: React.FC<SliderProps> = ({
   /* The width of the entire slider in the DOM. Used to calculate the size of our custom track */
   const [sliderWidth, setSliderWidth] = useState(0);
   const [numberInputFieldContainerWidth, setNumberInputFieldContainerWidth] = useState(0);
-
-  /*   The width of the text label. Used to make the compact number input field shrink to fit the label. */
-  const [textLabelWidth, setTextLabelWidth] = useState(0);
 
   const [errors, setErrors] = useState<SliderErrors>({
     leftTextfield: undefined,
@@ -142,9 +138,6 @@ const Slider: React.FC<SliderProps> = ({
     if (sliderRef.current !== null) {
       setSliderWidth(sliderRef.current.offsetWidth);
     }
-    if (labelTextRef.current !== null) {
-      setTextLabelWidth(labelTextRef.current.offsetWidth);
-    }
 
     if (
       leftHelpTextRef.current !== null &&
@@ -156,7 +149,7 @@ const Slider: React.FC<SliderProps> = ({
         leftHelpTextRef.current.offsetWidth +
           rightHelpTextRef.current.offsetWidth +
           leftTextInputRef.current.offsetWidth +
-          2 * 4, // 2 * 4px for Grid gap
+          2 * 8, // 2 * 4px for Grid gap
       );
 
       setNumberInputFieldContainerWidth(total);
@@ -166,10 +159,6 @@ const Slider: React.FC<SliderProps> = ({
   useLayoutEffect(() => {
     if (sliderRef.current !== null) {
       resizeObserver.observe(sliderRef.current);
-    }
-
-    if (labelTextRef.current !== null) {
-      resizeObserver.observe(labelTextRef.current);
     }
 
     if (leftHelpTextRef.current !== null) {
@@ -187,13 +176,7 @@ const Slider: React.FC<SliderProps> = ({
     return function cleanup() {
       resizeObserver.disconnect();
     };
-  }, [
-    sliderRef.current,
-    labelTextRef.current,
-    leftHelpTextRef.current,
-    rightHelpTextRef.current,
-    leftTextInputRef.current,
-  ]);
+  }, [sliderRef.current, leftHelpTextRef.current, rightHelpTextRef.current, leftTextInputRef.current]);
 
   /* Used for the web component to extract values. Also updates SliderValues state */
   const updateValue = (newSliderValues: SliderValues): void => {
@@ -222,10 +205,9 @@ const Slider: React.FC<SliderProps> = ({
   }, [min, max]);
 
   useEffect(() => {
-    if (sliderWidth < numberInputFieldContainerWidth - 10) {
-      //Tallene er alltid litt ulike, skjønner ikke hvorfor, så subtraherer 10
+    if (sliderWidth < numberInputFieldContainerWidth) {
       setLeftInputReplacesHelp(true);
-    } else if (sliderWidth > numberInputFieldContainerWidth) {
+    } else {
       setLeftInputReplacesHelp(false);
     }
   }, [sliderWidth, numberInputFieldContainerWidth]);
@@ -244,7 +226,7 @@ const Slider: React.FC<SliderProps> = ({
       }
     }
 
-    /* If the user does not given a default value, set the value to the min and max. */
+    /* If the user does not give a default value, set the value to the min and max. */
     setSliderValues({ left: +min, right: +max });
   }, [value]);
 
@@ -497,7 +479,7 @@ const Slider: React.FC<SliderProps> = ({
             trackWidth={left}
             type={type}
             rangeTrackWidth={middleFilled}
-            disabled={isDisabled}
+            isDisabled={isDisabled}
           ></SliderFilledTrack>
         </SliderWrapper>
 
@@ -507,19 +489,15 @@ const Slider: React.FC<SliderProps> = ({
           hasHelpValues={hasHelpValues}
         >
           {hasHelpValues && !(type === 'range' && hasInputField) && (
-            <HelpValue ref={leftHelpTextRef}>
-              {Intl.NumberFormat('nb-NO', {
-                notation: 'compact',
-              }).format(EXTREMUM.minimum)}
+            <HelpValue isDisabled={isDisabled} ref={leftHelpTextRef}>
+              {EXTREMUM.minimum.toLocaleString()}
             </HelpValue>
           )}
           {hasInputField && (
             /* ↓ HTML number input fields ↓ */
             <NumberInputContainer>
               <label>
-                <LabelText data-testid="left-label" ref={labelTextRef}>
-                  {getLabel('left')}
-                </LabelText>
+                <LabelText data-testid="left-label">{getLabel('left')}</LabelText>
                 {/* LEFT INPUT */}
                 <NumberInput
                   disabled={isDisabled}
@@ -533,7 +511,8 @@ const Slider: React.FC<SliderProps> = ({
                   value={textFieldsValues.left}
                   aria-invalid={`${inputFieldIsInvalid('left')}`}
                   aria-errormessage={errors.rightTextfield ? 'left-error' : undefined}
-                  width={textLabelWidth ? textLabelWidth : 40}
+                  /* width={textLabelWidth ? textLabelWidth : 40} */
+                  label={getLabel('left')}
                   data-testid="left-number-input"
                 />
               </label>
@@ -543,9 +522,7 @@ const Slider: React.FC<SliderProps> = ({
           {hasInputField && type === 'range' && (
             <NumberInputContainer>
               <label>
-                <LabelText data-testid="right-label" ref={labelTextRef}>
-                  {getLabel('right')}
-                </LabelText>
+                <LabelText data-testid="right-label">{getLabel('right')}</LabelText>
                 {/* RIGHT INPUT */}
                 <NumberInput
                   title=" "
@@ -558,17 +535,15 @@ const Slider: React.FC<SliderProps> = ({
                   value={textFieldsValues.right}
                   aria-invalid={`${inputFieldIsInvalid('right')}`}
                   aria-errormessage={errors.rightTextfield ? 'right-error' : undefined}
-                  width={textLabelWidth ? textLabelWidth : 40}
+                  label={getLabel('right')}
                   data-testid="right-number-input"
                 />
               </label>
             </NumberInputContainer>
           )}
           {hasHelpValues && !(type === 'range' && hasInputField) && (
-            <HelpValue ref={rightHelpTextRef}>
-              {Intl.NumberFormat('nb-NO', {
-                notation: 'compact',
-              }).format(EXTREMUM.maximum)}
+            <HelpValue isDisabled={isDisabled} ref={rightHelpTextRef}>
+              {EXTREMUM.maximum.toLocaleString()}
             </HelpValue>
           )}
         </InputFieldsContainer>
