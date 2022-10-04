@@ -182,6 +182,7 @@ export const LabelText = styled.div`
   user-select: none;
   z-index: 1;
   white-space: nowrap;
+  border-bottom: 1px solid ${colors.elviaWhite}; //to remove overflowing greenborder Safari iOS (16)
 `;
 
 export const NumberInputContainer = styled.div`
