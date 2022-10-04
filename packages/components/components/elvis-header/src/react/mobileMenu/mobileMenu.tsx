@@ -1,42 +1,18 @@
 import { Icon } from '@elvia/elvis-icon/react';
-import { useFocusTrap } from '@elvia/elvis-toolbox';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { MobileUserMenuProps } from '../elviaHeader.types';
 import { Hr, AppTitle, Backdrop, IconButton } from '../styledComponents';
+import { usePopoverHandler } from '../usePopoverHandler';
 import { Email, MenuButton, MenuContainer, MenuTitle, UserGrid, Username } from './mobileMenuStyles';
 
 export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, username, onSignOutClick }) => {
-  const [userMenuIsOpen, setUserMenuIsOpen] = useState(false);
-  const [fadeOut, setFadeOut] = useState(false);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef(null);
-
-  const onKeydown = (ev: KeyboardEvent): void => {
-    if (ev.key === 'Escape') {
-      setIsShowing(false);
-    }
-  };
-
-  const setIsShowing = (isShowing: boolean): void => {
-    if (isShowing) {
-      setUserMenuIsOpen(isShowing);
-      setFadeOut(false);
-      window?.addEventListener('keydown', onKeydown);
-      setTimeout(() => useFocusTrap(popoverRef));
-    } else {
-      setFadeOut(true);
-      useFocusTrap(popoverRef, true);
-      window?.removeEventListener('keydown', onKeydown);
-      setTimeout(() => triggerButtonRef.current?.focus());
-    }
-  };
-
-  const onAnimationEnd = (): void => {
-    if (fadeOut) {
-      setUserMenuIsOpen(false);
-    }
-  };
+  const { userMenuIsOpen, setIsShowing, onAnimationEnd, fadeOut } = usePopoverHandler(
+    triggerButtonRef,
+    popoverRef,
+  );
 
   return (
     <>

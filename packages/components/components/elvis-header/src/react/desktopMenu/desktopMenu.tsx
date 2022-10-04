@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Backdrop } from '../styledComponents';
 import { UserMenuProps } from '../elviaHeader.types';
 import { createPortal } from 'react-dom';
@@ -12,39 +12,15 @@ import {
   Username,
 } from './desktopMenuStyles';
 import { Icon } from '@elvia/elvis-icon/react';
-import { useFocusTrap } from '@elvia/elvis-toolbox';
+import { usePopoverHandler } from '../usePopoverHandler';
 
 export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOutClick }) => {
-  const [userMenuIsOpen, setUserMenuIsOpen] = useState(false);
-  const [fadeOut, setFadeOut] = useState(true);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef(null);
-
-  const onKeydown = (ev: KeyboardEvent): void => {
-    if (ev.key === 'Escape') {
-      setIsShowing(false);
-    }
-  };
-
-  const setIsShowing = (isShowing: boolean): void => {
-    if (isShowing) {
-      setFadeOut(false);
-      setUserMenuIsOpen(isShowing);
-      window?.addEventListener('keydown', onKeydown);
-      setTimeout(() => useFocusTrap(popoverRef));
-    } else {
-      setFadeOut(true);
-      useFocusTrap(popoverRef, true);
-      window?.removeEventListener('keydown', onKeydown);
-      setTimeout(() => triggerButtonRef.current?.focus());
-    }
-  };
-
-  const onAnimationEnd = (): void => {
-    if (fadeOut) {
-      setUserMenuIsOpen(false);
-    }
-  };
+  const { userMenuIsOpen, setIsShowing, onAnimationEnd, fadeOut } = usePopoverHandler(
+    triggerButtonRef,
+    popoverRef,
+  );
 
   return (
     <>
