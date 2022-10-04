@@ -12,7 +12,11 @@
         v-for="navItem in navItems"
       >
         <div class="e-sidenav__icon-container">
-          <elvia-icon :name="navItem.iconName" color="black" size="sm" />
+          <elvia-icon
+            :name="isActive(navItem.url) ? navItem.iconNameActive : navItem.iconName"
+            color="black"
+            size="sm"
+          />
         </div>
         {{ navItem.name }}
       </router-link>
@@ -31,6 +35,7 @@ import TooltipHeader from './components/TooltipHeader.vue';
 interface NavItem {
   url: string;
   iconName: string;
+  iconNameActive: string;
   name: string;
 }
 
@@ -43,11 +48,13 @@ export default defineComponent({
       {
         url: '/',
         iconName: 'dashboard',
+        iconNameActive: 'dashboardColor',
         name: 'Components',
       },
       {
         url: '/tooltip',
-        iconName: 'touchFingerColor',
+        iconName: 'search',
+        iconNameActive: 'searchColor',
         name: 'Tooltip',
       },
     ]);
@@ -56,7 +63,11 @@ export default defineComponent({
       return route.meta.title;
     });
 
-    return { pageTitle, navItems };
+    const isActive = (url: string): boolean => {
+      return route.path === url;
+    };
+
+    return { pageTitle, navItems, isActive };
   },
 });
 </script>
