@@ -26,7 +26,7 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
         left: 0;
         top: ${toolbarHeight};
         bottom: 0;
-        padding: 1rem 0.5rem;
+        padding: 16px 8px;
         border-right: 2px solid ${getColor('grey-05')};
       `;
     }
@@ -36,7 +36,7 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
       left: 0;
       right: 0;
       height: ${toolbarHeight};
-      padding: 0.5rem 1rem;
+      padding: 8px 16px;
       border-top: 2px solid ${getColor('grey-05')};
     `;
   }}
@@ -72,13 +72,13 @@ export const ButtonContainer = styled.div<ButtonContainerProps>`
     if (props.isGtMobile) {
       return css`
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 24px;
       `;
     }
 
     return css`
       flex-direction: row;
-      gap: 1rem;
+      gap: 16px;
     `;
   }}
 `;
@@ -116,7 +116,7 @@ export const NavButton = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 16px;
 
   &:hover ${IconContainer} {
     border: 1px solid ${getColor('green')};
@@ -125,5 +125,5 @@ export const NavButton = styled.button`
 
 export const ToggleWidthButton = styled(NavButton)`
   margin-top: auto;
-  gap: 2rem;
+  gap: 32px;
 `;

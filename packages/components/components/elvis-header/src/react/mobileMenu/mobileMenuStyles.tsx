@@ -74,14 +74,14 @@ export const MenuContainer = styled.div<MenuContainerProps>`
 export const MenuTitle = styled.div`
   ${getTypographyCss('text-sm')}
   color: ${getColor('text-light')};
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 `;
 
 export const UserGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 1fr);
-  gap: 0 0.5rem;
+  gap: 0 8px;
 `;
 
 export const ProfilePicture = styled.img`

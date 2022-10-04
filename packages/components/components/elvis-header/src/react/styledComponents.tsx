@@ -82,7 +82,7 @@ export const LogoContainer = styled(SquareContainer)<ResponsiveProps>`
     if (props.isGtMobile) {
       return css`
         width: unset;
-        padding: 19px 2rem 19px 19px;
+        padding: 19px 16px 19px 19px;
       `;
     }
 
@@ -115,11 +115,11 @@ export const TertiaryButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 8px;
   cursor: pointer;
 
   &:not(:last-of-type) {
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
   }
 `;
 
@@ -153,7 +153,7 @@ export const Hr = styled.hr<Partial<HrProps>>`
       return css`
         height: 100%;
         border-right-width: 1px;
-        margin: 0 ${props.isGtTablet ? '2rem' : '1.5rem'};
+        margin: 0 ${props.isGtTablet ? '32px' : '24px'};
         height: 20px;
       `;
     } else {

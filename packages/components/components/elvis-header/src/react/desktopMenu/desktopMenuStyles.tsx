@@ -33,10 +33,10 @@ interface MenuContainerProps {
 
 export const MenuContainer = styled.div<MenuContainerProps>`
   background-color: ${getColor('elvia-on')};
-  border-radius: 0.5rem;
+  border-radius: 8px;
   position: fixed;
   top: 72px;
-  right: 1.5rem;
+  right: 24px;
   padding: 32px;
   display: flex;
   flex-direction: column;
@@ -61,7 +61,7 @@ interface TriggerButtonProps {
 }
 
 export const TriggerButton = styled(TertiaryButton)<TriggerButtonProps>`
-  margin-right: 1.5rem;
+  margin-right: 24px;
   position: relative;
   height: calc(100% - 8px); // Shows the full keyboard-focus outline without clipping
 
@@ -96,7 +96,7 @@ export const TriggerButton = styled(TertiaryButton)<TriggerButtonProps>`
 
 export const MenuTitle = styled.div`
   ${getTypographyCss('text-sm-strong')}
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 `;
 
 export const AppTitle = styled.h1`
@@ -108,7 +108,7 @@ export const UserGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 1fr);
-  gap: 0 0.5rem;
+  gap: 0 8px;
 `;
 
 export const ProfilePicture = styled.img`
@@ -129,7 +129,7 @@ export const Email = styled.div`
 `;
 
 export const MenuHr = styled(Hr)`
-  margin: 1.5rem 0 1rem;
+  margin: 24px 0 16px;
 `;
 
 export const MenuButton = styled(TertiaryButton)`
