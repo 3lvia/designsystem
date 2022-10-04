@@ -138,6 +138,7 @@ export const IconButton = styled.button`
 export const AppTitle = styled.h1`
   ${getTypographyCss('title-caps')}
   margin: 0;
+  text-align: left;
 `;
 
 export interface HrProps {

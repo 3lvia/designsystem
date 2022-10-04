@@ -31,15 +31,12 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
       setFadeOut(false);
       setUserMenuIsOpen(isShowing);
       window?.addEventListener('keydown', onKeydown);
-
-      setTimeout(() => {
-        useFocusTrap(popoverRef);
-      });
+      setTimeout(() => useFocusTrap(popoverRef));
     } else {
       setFadeOut(true);
       useFocusTrap(popoverRef, true);
       window?.removeEventListener('keydown', onKeydown);
-      triggerButtonRef.current?.focus();
+      setTimeout(() => triggerButtonRef.current?.focus());
     }
   };
 

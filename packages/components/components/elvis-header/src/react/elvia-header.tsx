@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { HeaderProps } from './elviaHeader.types';
 import { useBreakpoint } from '@elvia/elvis-toolbox';
 import {
@@ -30,10 +30,17 @@ export const Tooltip: React.FC<HeaderProps> = ({
 }) => {
   const isGtMobile = useBreakpoint('gt-mobile');
   const isGtTablet = useBreakpoint('gt-tablet');
-  const [hasAppContent, setHasAppContent] = useState(!!appContent);
   const pageContainerElement = useRef<HTMLElement>(null);
   const pageTitleRef = useRef<HTMLHeadingElement>(null);
   const sidenavRef = useRef<HTMLElement>(null);
+
+  const hasNavItems = (): boolean => {
+    return !!webcomponent?.getSlot('navItems') || !!navItems;
+  };
+
+  const hasAppContent = (): boolean => {
+    return !!webcomponent?.getSlot('appContent') || !!appContent;
+  };
 
   /** Get app content slot */
   useEffect(() => {
@@ -43,15 +50,14 @@ export const Tooltip: React.FC<HeaderProps> = ({
     if (pageContainerElement.current && webcomponent.getSlot('appContent')) {
       pageContainerElement.current.innerHTML = '';
       pageContainerElement.current.appendChild(webcomponent.getSlot('appContent'));
-      setHasAppContent(true);
     }
 
-    if (pageTitleRef.current && webcomponent?.getSlot('pageTitle')) {
+    if (pageTitleRef.current && webcomponent.getSlot('pageTitle')) {
       pageTitleRef.current.innerHTML = '';
       pageTitleRef.current.appendChild(webcomponent.getSlot('pageTitle'));
     }
 
-    if (sidenavRef.current && webcomponent?.getSlot('navItems')) {
+    if (sidenavRef.current && webcomponent.getSlot('navItems')) {
       sidenavRef.current.innerHTML = '';
       sidenavRef.current.appendChild(webcomponent.getSlot('navItems'));
     }
@@ -101,19 +107,17 @@ export const Tooltip: React.FC<HeaderProps> = ({
               email={email}
               username={username}
               onSignOutClick={onSignOutClick}
-            ></MobileMenu>
+            />
           </SquareContainer>
         )}
-        {isGtMobile && (
-          <DesktopMenu email={email} username={username} onSignOutClick={onSignOutClick}></DesktopMenu>
-        )}
+        {isGtMobile && <DesktopMenu email={email} username={username} onSignOutClick={onSignOutClick} />}
       </Header>
-      {navItems && <SideNav ref={sidenavRef}></SideNav>}
+      {hasNavItems() && <SideNav ref={sidenavRef} />}
       <AppContent
         ref={pageContainerElement}
         isGtMobile={isGtMobile}
-        sidenavPadding={!!navItems}
-        hidden={!hasAppContent}
+        sidenavPadding={hasNavItems()}
+        hidden={!hasAppContent()}
       >
         {appContent}
       </AppContent>

@@ -23,15 +23,12 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, use
       setUserMenuIsOpen(isShowing);
       setFadeOut(false);
       window?.addEventListener('keydown', onKeydown);
-
-      setTimeout(() => {
-        useFocusTrap(popoverRef);
-      });
+      setTimeout(() => useFocusTrap(popoverRef));
     } else {
       setFadeOut(true);
       useFocusTrap(popoverRef, true);
       window?.removeEventListener('keydown', onKeydown);
-      triggerButtonRef.current?.focus();
+      setTimeout(() => triggerButtonRef.current?.focus());
     }
   };
 
