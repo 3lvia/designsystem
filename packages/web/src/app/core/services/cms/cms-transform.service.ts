@@ -398,11 +398,7 @@ export class CMSTransformService {
           '
           style='${hasInlineText ? `display: inline; width: ${imgSize}` : 'max-width: 100%'}'
           src="${srcUrl}"
-          ${
-            altText !== 'decorative' && 'Decorative' && altText !== '"Decorative"'
-              ? 'alt="' + altText + '"'
-              : 'alt=""'
-          }
+          ${altText.toLocaleLowerCase() !== 'decorative' ? 'alt="' + altText + '"' : 'alt=""'}
         />
         ${hasInlineText ? '' : '<br class="containerDivNewLine" />'} 
         <div 
@@ -588,7 +584,6 @@ export class CMSTransformService {
   }
 
   private getLandingPage(data: ILandingPage, locale: string) {
-    console.log(data.fields.overviewImage[locale].fields.title[locale]);
     const srcUrl = 'https:' + data.fields.overviewImage[locale].fields.file[locale].url;
     return `
       <div class="cms-landing-page">
