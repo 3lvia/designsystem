@@ -2,13 +2,13 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "03.10.22",
+      "date": "04.10.22",
       "version": "1.4.0",
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
-            "Spotlight now supports shape rectangle. The new shape also has some new props: <span class=\"code-text\">borderRadius</span>, <span class=\"code-text\">height</span>, and <span class=\"code-text\">width</span>."
+            "Spotlight now supports shape rectangle. The new shape also has some new props: <span class=\"code-text\">borderRadius</span>, <span class=\"code-text\">height</span>, and <span class=\"code-text\">width</span> available in the prop <span class=\"code-text\">rectangleProps</span>."
           ]
         }
       ]
