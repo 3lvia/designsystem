@@ -43,6 +43,14 @@ export const Tooltip: React.FC<HeaderProps> = ({
     return !!webcomponent?.getSlot('appContent') || !!appContent;
   };
 
+  const signOutClick = (): void => {
+    if (!webcomponent && onSignOutClick) {
+      onSignOutClick();
+    } else if (webcomponent) {
+      webcomponent.triggerEvent('onSignOutClick');
+    }
+  };
+
   /** Get app content slot */
   useEffect(() => {
     if (!webcomponent) {
@@ -103,15 +111,10 @@ export const Tooltip: React.FC<HeaderProps> = ({
         </PageTitle>
         {!isGtMobile && (
           <SquareContainer>
-            <MobileMenu
-              appTitle={appTitle}
-              email={email}
-              username={username}
-              onSignOutClick={onSignOutClick}
-            />
+            <MobileMenu appTitle={appTitle} email={email} username={username} onSignOutClick={signOutClick} />
           </SquareContainer>
         )}
-        {isGtMobile && <DesktopMenu email={email} username={username} onSignOutClick={onSignOutClick} />}
+        {isGtMobile && <DesktopMenu email={email} username={username} onSignOutClick={signOutClick} />}
       </Header>
       {hasNavItems() && (
         <SideNav
