@@ -97,15 +97,11 @@ export const IconContainer = styled.div<IconContainerProps>`
   flex: none;
   border: 1px solid transparent;
 
-  ${(props) => {
-    if (props.isActive) {
-      return css`
-        border-color: ${getColor('black')};
-      `;
-    }
-
-    return css``;
-  }};
+  ${(props) =>
+    props.isActive &&
+    css`
+      border-color: ${getColor('black')};
+    `}
 `;
 
 export const NavButton = styled.button`

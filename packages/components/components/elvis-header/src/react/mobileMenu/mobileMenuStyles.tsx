@@ -44,15 +44,11 @@ export const MenuContainer = styled.div<MenuContainerProps>`
   animation: ${fadeIn} 300ms ease;
   transform-origin: center top;
 
-  ${(props) => {
-    if (props.fadeOut) {
-      return css`
-        animation: ${fadeOut} 200ms ease;
-      `;
-    }
-
-    return css``;
-  }}
+  ${(props) =>
+    props.fadeOut &&
+    css`
+      animation: ${fadeOut} 200ms ease;
+    `}
 
   &::before {
     content: '';

@@ -38,15 +38,11 @@ export const Backdrop = styled.div<Partial<BackdropProps>>`
   left: 0;
   animation: ${fadeIn} 300ms;
 
-  ${(props) => {
-    if (props.fadeOut) {
-      return css`
-        animation: ${fadeOut} 200ms ease;
-      `;
-    }
-
-    return css``;
-  }}
+  ${(props) =>
+    props.fadeOut &&
+    css`
+      animation: ${fadeOut} 200ms ease;
+    `}
 `;
 
 export const Header = styled.header<ResponsiveProps>`
@@ -60,15 +56,11 @@ export const Header = styled.header<ResponsiveProps>`
   right: 0;
   z-index: ${headerZIndex};
 
-  ${(props) => {
-    if (props.isGtMobile) {
-      return css`
-        border-bottom: 2px solid ${getColor('grey-05')};
-      `;
-    }
-
-    return css``;
-  }}
+  ${(props) =>
+    props.isGtMobile &&
+    css`
+      border-bottom: 2px solid ${getColor('grey-05')};
+    `}
 `;
 
 export const SquareContainer = styled.div`

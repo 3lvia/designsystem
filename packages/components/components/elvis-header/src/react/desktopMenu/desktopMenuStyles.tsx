@@ -45,15 +45,11 @@ export const MenuContainer = styled.div<MenuContainerProps>`
   transform-origin: 70% top;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
 
-  ${(props) => {
-    if (props.fadeOut) {
-      return css`
-        animation: ${fadeOut} 200ms ease;
-      `;
-    }
-
-    return css``;
-  }};
+  ${(props) =>
+    props.fadeOut &&
+    css`
+      animation: ${fadeOut} 200ms ease;
+    `};
 `;
 
 interface TriggerButtonProps {
@@ -82,16 +78,13 @@ export const TriggerButton = styled(TertiaryButton)<TriggerButtonProps>`
     transform: scaleX(1);
   }
 
-  ${(props) => {
-    if (props.isActive) {
-      return css`
-        &::after {
-          transform: scaleX(1);
-        }
-      `;
-    }
-    return css``;
-  }}
+  ${(props) =>
+    props.isActive &&
+    css`
+      &::after {
+        transform: scaleX(1);
+      }
+    `}
 `;
 
 export const MenuTitle = styled.div`
