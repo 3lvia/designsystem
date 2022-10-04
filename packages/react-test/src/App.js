@@ -116,8 +116,8 @@ function App() {
       username="Kristine Leonardsen"
       pageTitle="Components"
       appContent={
-        <div className="App">
-          <h1>React Preview</h1>
+        <div className="App e-pt-40">
+          <h1 className="e-mt-0">React Preview</h1>
           <div className="components-examples">
             {/* CURRENTLY TESTING */}
             <div className="example-wrapper">

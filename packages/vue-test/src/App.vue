@@ -17,7 +17,7 @@
         {{ navItem.name }}
       </router-link>
     </div>
-    <div slot="appContent">
+    <div slot="appContent" class="e-bg-grey-05">
       <router-view />
     </div>
   </elvia-header>
