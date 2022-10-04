@@ -13,7 +13,7 @@ export const usePopoverHandler = (
   popoverRef: RefObject<HTMLElement>,
 ): ReturnType => {
   const [userMenuIsOpen, setUserMenuIsOpen] = useState(false);
-  const [fadeOut, setFadeOut] = useState(false);
+  const [fadeOut, setFadeOut] = useState(true);
 
   const onKeydown = (ev: KeyboardEvent): void => {
     if (ev.key === 'Escape') {
