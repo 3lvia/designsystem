@@ -74,7 +74,7 @@ export const sliderData: ComponentData = {
       cegDependency: [
         { name: 'type', value: 'simple' },
         { name: 'hasTooltip', value: 'true' },
-      ], //ser ikke ut til å fungere
+      ],
       cegDisplayGroup: 'Options',
       cegDisplayName: 'Display percentage',
       cegFormType: 'checkbox',
@@ -157,7 +157,7 @@ export const sliderData: ComponentData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: Number | object ) => CustomEvent' /* Ble dette riktig? */,
+      type: '(value: Number | object ) => CustomEvent',
       description: 'Gets called every time the value is changed. Only returns a value if the input is valid.',
     },
   },
