@@ -2622,7 +2622,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^2.2.2, @elvia/elvis-component-wrapper@^2.2.4, @elvia/elvis-component-wrapper@^2.3.0, @elvia/elvis-component-wrapper@^2.3.2, @elvia/elvis-component-wrapper@^2.3.3, @elvia/elvis-component-wrapper@^2.4.2, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
+"@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^2.2.2, @elvia/elvis-component-wrapper@^2.2.4, @elvia/elvis-component-wrapper@^2.3.0, @elvia/elvis-component-wrapper@^2.3.2, @elvia/elvis-component-wrapper@^2.3.3, @elvia/elvis-component-wrapper@^2.4.2, @elvia/elvis-component-wrapper@^2.4.4, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper"
   dependencies:
@@ -2652,6 +2652,8 @@ __metadata:
     "@babel/register": ^7.18.9
     "@elvia/elvis-component-wrapper": "*"
     "@testing-library/jest-dom": ^5.15.1
+    "@testing-library/react": 12.1.5
+    "@testing-library/user-event": 14.0.0
     "@types/jest": ^26.0.23
     "@types/styled-components": ^5.1.19
     "@wojtekmaj/enzyme-adapter-react-17": ^0.6.1
@@ -2682,6 +2684,7 @@ __metadata:
     react: ^17.0.0-0
     react-dom: ^17.0.0-0
     react-is: ">= 16.8.0"
+    resize-observer-polyfill: ^1.5.1
     sass: ^1.33.0
     sass-loader: ^10.0.2
     style-loader: ^1.2.1
@@ -3013,6 +3016,38 @@ __metadata:
     react-dom: ">=16.8.0"
     react-is: ">=16.8.0"
   languageName: unknown
+  linkType: soft
+
+"@elvia/elvis-slider@*, @elvia/elvis-slider@workspace:packages/components/components/elvis-slider":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-slider@workspace:packages/components/components/elvis-slider"
+  dependencies:
+    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-component-wrapper": ^2.4.4
+    "@elvia/elvis-icon": ^1.3.1
+    "@elvia/elvis-toolbox": ^4.0.0
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-is: ">=16.8.0"
+  languageName: unknown
+  linkType: soft
+
+"@elvia/elvis-slider@portal:../components/components/elvis-slider::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-slider@portal:../components/components/elvis-slider::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
+  dependencies:
+    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-component-wrapper": ^2.4.4
+    "@elvia/elvis-icon": ^1.3.1
+    "@elvia/elvis-toolbox": ^4.0.0
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-is: ">=16.8.0"
+  languageName: node
   linkType: soft
 
 "@elvia/elvis-spotlight@*, @elvia/elvis-spotlight@workspace:packages/components/components/elvis-spotlight":
@@ -4745,6 +4780,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/react@npm:12.1.5":
+  version: 12.1.5
+  resolution: "@testing-library/react@npm:12.1.5"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+    "@testing-library/dom": ^8.0.0
+    "@types/react-dom": <18.0.0
+  peerDependencies:
+    react: <18.0.0
+    react-dom: <18.0.0
+  checksum: 4abd0490405e709a7df584a0db604e508a4612398bb1326e8fa32dd9393b15badc826dcf6d2f7525437886d507871f719f127b9860ed69ddd204d1fa834f576a
+  languageName: node
+  linkType: hard
+
+"@testing-library/user-event@npm:14.0.0":
+  version: 14.0.0
+  resolution: "@testing-library/user-event@npm:14.0.0"
+  peerDependencies:
+    "@testing-library/dom": ">=7.21.4"
+  checksum: 171a40e680616e6a34299f9fb783dcadcd36f255256a53fe06cb71f4149715d8e5b84e65ea1c144af179f2e4b1799af92c79a8fc0c4c0ee2e94a713f2c476efd
+  languageName: node
+  linkType: hard
+
 "@testing-library/user-event@npm:^12.1.10":
   version: 12.8.3
   resolution: "@testing-library/user-event@npm:12.8.3"
@@ -5227,7 +5285,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.13":
+"@types/react-dom@npm:<18.0.0, @types/react-dom@npm:^17.0.13":
   version: 17.0.17
   resolution: "@types/react-dom@npm:17.0.17"
   dependencies:
@@ -12632,6 +12690,7 @@ __metadata:
     "@elvia/elvis-pagination": "portal:../components/components/elvis-pagination"
     "@elvia/elvis-popover": "portal:../components/components/elvis-popover"
     "@elvia/elvis-progress-linear": "portal:../components/components/elvis-progress-linear"
+    "@elvia/elvis-slider": "portal:../components/components/elvis-slider"
     "@elvia/elvis-spotlight": "portal:../components/components/elvis-spotlight"
     "@elvia/elvis-tabs": "portal:../components/components/elvis-tabs"
     "@elvia/elvis-timepicker": "portal:../components/components/elvis-timepicker"
@@ -24662,6 +24721,7 @@ __metadata:
     "@elvia/elvis-pagination": "*"
     "@elvia/elvis-popover": "*"
     "@elvia/elvis-progress-linear": "*"
+    "@elvia/elvis-slider": "*"
     "@elvia/elvis-spotlight": "*"
     "@elvia/elvis-tabs": "*"
     "@elvia/elvis-testing": "*"
@@ -25246,6 +25306,13 @@ __metadata:
   version: 1.0.0
   resolution: "requires-port@npm:1.0.0"
   checksum: eee0e303adffb69be55d1a214e415cf42b7441ae858c76dfc5353148644f6fd6e698926fc4643f510d5c126d12a705e7c8ed7e38061113bdf37547ab356797ff
+  languageName: node
+  linkType: hard
+
+"resize-observer-polyfill@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "resize-observer-polyfill@npm:1.5.1"
+  checksum: 57e7f79489867b00ba43c9c051524a5c8f162a61d5547e99333549afc23e15c44fd43f2f318ea0261ea98c0eb3158cca261e6f48d66e1ed1cd1f340a43977094
   languageName: node
   linkType: hard
 
@@ -29324,6 +29391,7 @@ __metadata:
     "@elvia/elvis-popover": "*"
     "@elvia/elvis-progress-linear": "*"
     "@elvia/elvis-radio-filter": "*"
+    "@elvia/elvis-slider": "*"
     "@elvia/elvis-spotlight": "*"
     "@elvia/elvis-tabs": "*"
     "@elvia/elvis-testing": "*"
