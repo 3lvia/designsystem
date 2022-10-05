@@ -1,3 +1,4 @@
+import { isSsr } from './isSsr';
 /**
  * Starts a listener for mousedown and keydown keyboard events and adds or removes the outline of the element in focus.
  * @param element The element that should be able to obtain an outline.
@@ -74,7 +75,7 @@ const consoleWarnDeprecatedProp = (
  *
  *
  * @example
- * export const Component: FC<Props> = function ({
+ * export const Component: React.FC<Props> = function ({
  *  prop1,
  *  prop2,
  *  prop3,
@@ -88,7 +89,7 @@ const consoleWarnDeprecatedProp = (
  */
 export const warnDeprecatedProps = (config: ComponentConfig, props: { [propName: string]: any }): void => {
   // If not on localhost, don't console log deprecation warnings.
-  if (window && window.location.href.indexOf('localhost') === -1) {
+  if (!isSsr() && window.location.href.indexOf('localhost') === -1) {
     return;
   }
   /** List of deprecated callbacks that have already been console warned. Used to avoid duplicated warnings. */
