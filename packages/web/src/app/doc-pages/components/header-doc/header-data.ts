@@ -87,6 +87,26 @@ export const headerData: ComponentData = {
       This is the page content
     </h1>
   }
+  navItems={
+    <Link to="/" class="e-sidenav__item e-sidenav__item--active">
+      <div class="e-sidenav__icon-container">
+        <elvia-icon name="dashboard" size="sm"></elvia-icon>
+      </div>
+      Dashbord
+    </Link>
+    <Link to="/search" class="e-sidenav__item">
+      <div class="e-sidenav__icon-container">
+        <elvia-icon name="search" size="sm"></elvia-icon>
+      </div>
+      Søk
+    </Link>
+    <Link to="/pin" class="e-sidenav__item">
+      <div class="e-sidenav__icon-container">
+        <elvia-icon name="pin" size="sm"></elvia-icon>
+      </div>
+      Analyse
+    </Link>
+  }
 ></Header>`,
   codeAngular: `<elvia-header
 >
@@ -95,6 +115,26 @@ export const headerData: ComponentData = {
       This is the page content
     </h1>
   </div>
+  <div slot="navItems" class="e-sidenav__container">
+    <a routerLink="/" class="e-sidenav__item e-sidenav__item--active">
+      <div class="e-sidenav__icon-container">
+        <elvia-icon name="dashboard" size="sm"></elvia-icon>
+      </div>
+      Dashbord
+    </a>
+    <a routerLink="/search" class="e-sidenav__item">
+      <div class="e-sidenav__icon-container">
+        <elvia-icon name="search" size="sm"></elvia-icon>
+      </div>
+      Søk
+    </a>
+    <a routerLink="/pin" class="e-sidenav__item">
+      <div class="e-sidenav__icon-container">
+        <elvia-icon name="pin" size="sm"></elvia-icon>
+      </div>
+      Analyse
+    </a>
+  </div>
 </elvia-header>`,
   codeVue: `<elvia-header
 >
@@ -102,6 +142,26 @@ export const headerData: ComponentData = {
     <h1 class="e-title-md">
       This is the page content
     </h1>
+  </div>
+  <div slot="navItems" class="e-sidenav__container">
+    <router-link to="/" class="e-sidenav__item e-sidenav__item--active">
+      <div class="e-sidenav__icon-container">
+        <elvia-icon name="dashboard" size="sm"></elvia-icon>
+      </div>
+      Dashbord
+    </router-link>
+    <router-link to="/search" class="e-sidenav__item">
+      <div class="e-sidenav__icon-container">
+        <elvia-icon name="search" size="sm"></elvia-icon>
+      </div>
+      Søk
+    </router-link>
+    <router-link to="/pin" class="e-sidenav__item">
+      <div class="e-sidenav__icon-container">
+        <elvia-icon name="pin" size="sm"></elvia-icon>
+      </div>
+      Analyse
+    </router-link>
   </div>
 </elvia-header>`,
   codeNativeHTML: `<button class="e-btn" id="header-trigger" style="position: relative;
@@ -138,7 +198,6 @@ const mainElement = document.getElementById('main-content');
 const headerTrigger = document.getElementById('header-trigger');
 
 headerTrigger.addEventListener('click', (event) => {
-  console.log(header.classList);
   if (header.classList.contains('e-none')) {
     header.classList.remove('e-none');
     externalHeader.classList.add('e-none');

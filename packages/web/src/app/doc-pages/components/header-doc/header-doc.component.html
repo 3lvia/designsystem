@@ -21,6 +21,40 @@
           switch and any global settings.
         </ng-container>
       </app-component-subsection>
+      <app-component-subsection sectionTitle="Sidenav items">
+        <ng-container ngProjectAs="sectionContent">
+          Since routing usually is performed by a framework-specific library, the DOM for the sidenav items is
+          written in your app. This enables use of routing-library features, such as setting active sidenav
+          item and changing icon between colored and grayscale if desired. See the examples in the CEG on how
+          the DOM structure should be like.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection sectionTitle="Active sidenav item">
+        <ng-container ngProjectAs="sectionContent">
+          The active state of sidenav items can be toggled with the CSS class
+          <span class="code-text no-wrap">e-sidenav__item--active</span>
+          and should be added to the link element that already has the class
+          <span class="code-text no-wrap">e-sidenav__item</span>
+          . The toggle of the active class depends on your framework or routing library, but most modern
+          routing libraries has an attribute for setting an active class on routes (see for example
+          <a
+            class="e-link e-link--inline"
+            href="https://angular.io/api/router/RouterLinkActive"
+            target="_blank"
+          >
+            routerLinkActive
+          </a>
+          for Angular or
+          <a
+            class="e-link e-link--inline"
+            href="https://router.vuejs.org/api/interfaces/routerlinkprops.html#activeclass"
+            target="_blank"
+          >
+            activeClass
+          </a>
+          for Vue).
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
