@@ -2,6 +2,22 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.10.22",
+      "version": "5.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Moved the label for the compact Datepicker up to match the designs in Figma.",
+            "Padding was added over the compact Datepicker to prevent the label from overflowing."
+          ],
+          "fixes": [
+            "The change impacts the total height of the compact Datepicker. Ensure to adjust the spacing and/or alignment in your design to account for the larger size."
+          ]
+        }
+      ]
+    },
+    {
       "date": "30.09.22",
       "version": "4.0.6",
       "changelog": [
