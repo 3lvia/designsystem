@@ -8353,6 +8353,7 @@ input:focus {
 }
 .e-form-field.e-form-field--compact .e-search--on-submit {
   font-size: 14px;
+  margin-top: -8px;
 }
 .e-form-field.e-form-field--compact .e-search--on-submit .e-input input,
 .e-form-field.e-form-field--compact .e-search--on-submit .e-input input:invalid,

@@ -139,6 +139,7 @@
     }
     .e-search--on-submit {
       font-size: 14px;
+      margin-top: -8px; //For hacky?
       .e-input {
         input,
         input:invalid,
