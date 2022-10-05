@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.10.22",
+      "version": "1.3.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Bumped dependency on <span class=\"code-text\">@elvia/elvis-assets-icons</span> to fix a problem with missing build files."
+          ]
+        }
+      ]
+    },
+    {
       "date": "15.09.22",
       "version": "1.3.2",
       "changelog": [
