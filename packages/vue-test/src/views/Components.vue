@@ -224,11 +224,11 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+
 export default defineComponent({
   setup() {
     // Accordion
     const openAccordion = ref(false);
-
     // Breadcrumb
     const breadcrumbsTest = [
       { href: 'https://elvia.no', text: 'Elvia.no' },
@@ -253,7 +253,6 @@ export default defineComponent({
 
     // Dropdown
     const dropdownDefaultOption = { value: '675', label: 'Mast - Råte' };
-
     const dropdownOptions = [
       { value: '675', label: 'Mast - Råte' },
       { value: '676', label: 'Mast - Hakkespettskade' },
