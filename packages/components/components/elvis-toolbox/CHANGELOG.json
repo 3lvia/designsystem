@@ -3,6 +3,18 @@
   "content": [
     {
       "date": "05.10.22",
+      "version": "4.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed the SSR check in the function <span class=\"code-text\">warnDeprecatedProps</span>."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "05.10.22",
       "version": "4.1.0",
       "changelog": [
         {
