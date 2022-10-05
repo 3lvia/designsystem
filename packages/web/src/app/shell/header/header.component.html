@@ -29,7 +29,7 @@
       style="width: 500px; height: 32px"
     ></div>
   </div>
-  <nav class="tabs" aria-label="tabs navigation" *ngIf="mainMenu">
+  <nav class="tabs" aria-label="tabs navigation" role="tablist" *ngIf="mainMenu">
     <a
       *ngFor="let menuItem of mainMenu.pages"
       class="tabs-links"
@@ -60,7 +60,7 @@
     </a>
   </nav>
 
-  <div class="external-links">
+  <div class="external-links" role="tablist">
     <div class="tabs-links elvis-search e-mr-24" (click)="openSearchMenu()" id="search-button">
       <span class="elvis-search__icon e-mr-8">
         <i class="e-icon e-icon--search-bold e-icon--xs e-icon--inverted" aria-hidden="true"></i>
