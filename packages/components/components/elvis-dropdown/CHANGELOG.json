@@ -2,6 +2,22 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.10.22",
+      "version": "4.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Moved the label for the compact Dropdown up to match the designs in Figma.",
+            "Padding was added over the compact Dropdown to prevent the label from overflowing."
+          ],
+          "fixes": [
+            "The change impacts the total height of the compact Dropdown. Ensure to adjust the spacing and/or alignment in your design to account for the larger size."
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.09.22",
       "version": "3.6.1",
       "changelog": [
