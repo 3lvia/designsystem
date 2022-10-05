@@ -19,6 +19,7 @@ import { Pagination } from '@elvia/elvis-pagination/react';
 import { Popover } from '@elvia/elvis-popover/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
+import { Slider } from '@elvia/elvis-slider/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
@@ -367,6 +368,14 @@ function App() {
                 value={selectedRadioFilter}
                 name={'radioFilterTest'}
               ></RadioFilter>
+            </div>
+            {/* SLIDER */}
+            <div className="example-wrapper">
+              <h3>Slider</h3>
+              <h4>Simple</h4>
+              <Slider min={0} max={100} hasHintValues={true} />
+              <h4>Range</h4>
+              <Slider min={0} max={100} type={'range'} hasHintValues={true} />
             </div>
             {/* SPOTLIGHT */}
             <div className="example-wrapper">

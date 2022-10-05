@@ -89,7 +89,7 @@ export const componentsDocPages: DocPage[] = [
       'A badge is a small visual indicator to communicate the status of an object, either as a numeric value or just a color. Examples of use are new notifications, unread messages or filter added.',
     docUrl: Pages.Badge,
     absolutePath: '/components/' + Pages.Badge,
-    status: DocPageStatus.Coming,
+    status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/RDqaOx4hfYvZyQXtaqdkgA/Badge',
     type: 'Component',
   },
@@ -395,6 +395,17 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
   },
   {
+    title: 'Slider',
+    // tslint:disable-next-line: max-line-length
+    description:
+      'A slider allows users to adjust the value by moving a handle along a track. It can be used as a visual tool in addition to a numeric input where the user can type exact value.',
+    docUrl: Pages.Slider,
+    absolutePath: '/components/' + Pages.Slider,
+    status: DocPageStatus.Coming,
+    figmaUrl: 'https://www.figma.com/file/Bpc4gmpy4T4eeWm51X5UmJ/Slider?node-id=0%3A1',
+    type: 'Component',
+  },
+  {
     title: 'Spotlight',
     // tslint:disable-next-line: max-line-length
     description:
@@ -520,7 +531,7 @@ export const docPagesNotFromCMS: DocPage[] = [
   {
     title: 'FAQ',
     // tslint:disable-next-line: max-line-length
-    description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
+    description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on Slack:
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
         <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
@@ -561,7 +572,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     title: 'Icons',
     // tslint:disable-next-line: max-line-length
     description: `In our icon library, you’ll find all available icons in the design system, 
-    as well guides on how to use them. Missing a specific icon? Let us know on our slack channel 
+    as well guides on how to use them. Missing a specific icon? Let us know on our Slack channel 
   <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" rel="noopener">
   <span class="e-link__title">#designsystemet</span>
   <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
@@ -612,7 +623,7 @@ export const docPagesNotFromCMS: DocPage[] = [
   {
     title: 'Contact',
     // tslint:disable-next-line: max-line-length
-    description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
+    description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on Slack at
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
@@ -625,7 +636,7 @@ export const docPagesNotFromCMS: DocPage[] = [
   {
     title: 'Contribute',
     // tslint:disable-next-line: max-line-length
-    description: `To contribute, or if you have any question, you can contact us on slack:
+    description: `To contribute, or if you have any question, you can contact us on Slack:
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
@@ -637,7 +648,7 @@ export const docPagesNotFromCMS: DocPage[] = [
   {
     title: 'FAQ',
     // tslint:disable-next-line: max-line-length
-    description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
+    description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on Slack:
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>

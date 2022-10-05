@@ -27,25 +27,54 @@
   <!--IMPLEMENTATION-->
   <app-component-section [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Radius'">
+      <app-component-subsection [sectionTitle]="'Circle'">
         <ng-container ngProjectAs="sectionContent">
-          To find the correct radius you need to find the largest measurement, either height or width of the
-          element. This formula can be helpful to find the correct radius:
-          <div class="code-text e-mt-40">radius = ((Math.max(width, height)/2) + 24px)</div>
+          For the circle shape, the position of the spotlight is determined by the center of the circle.
+          <app-component-subsubsection [sectionTitle]="'Position'">
+            <ng-container ngProjectAs="sectionContent">
+              To find the center of the element which is where the circle will start from, you can use these
+              formulas:
+              <div class="code-text e-mt-40">horizontal = rect.left + rect.width / 2</div>
+              <div class="code-text e-mt-16">vertical = rect.top + rect.height / 2</div>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Radius'">
+            <ng-container ngProjectAs="sectionContent">
+              To find the correct radius you need to find the largest measurement, either height or width of
+              the element. This formula can be helpful to find the correct radius:
+              <div class="code-text e-mt-40">radius = ((Math.max(width, height)/2) + 24px)</div>
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Position'">
+      <app-component-subsection [sectionTitle]="'Rectangle'">
         <ng-container ngProjectAs="sectionContent">
-          To find the center of the element which is where the circle will start from, you can use these
-          formulas:
-          <div class="code-text e-mt-40">horizontal = rect.left + rect.width / 2</div>
-          <div class="code-text e-mt-16">vertical = rect.top + rect.height / 2</div>
-          <div class="code-text e-mt-40">
-            Remember to also listen to the scroll-position and update position of the element if it is
-            possible to scroll on your page.
-          </div>
+          <app-component-subsubsection [sectionTitle]="'Position'">
+            <ng-container ngProjectAs="sectionContent">
+              For the rectangle shape, the position prop will correspond to the top left corner of the
+              spotlight. This corresponds with the
+              <span class="code-text">top</span>
+              and
+              <span class="code-text">left</span>
+              values from the
+              <span class="code-text">getBoundingClientRect()</span>
+              method on the element you wish to spotlight.
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Width and Height'">
+            <ng-container ngProjectAs="sectionContent">
+              The width and height of the rectangle will be the same as the width and height of the element
+              you wish to spotlight. Remember that to add the 24px padding to the spotlight, you will need to
+              add padding to the width and height of the rectangle, and offset the position by half of the
+              padding.
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
+      <div class="e-mt-40">
+        Remember to also listen to the scroll-position and update position of the element if it is possible to
+        scroll on your page.
+      </div>
     </ng-container>
   </app-component-section>
 

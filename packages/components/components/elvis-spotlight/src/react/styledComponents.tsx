@@ -16,3 +16,10 @@ interface SpotlightCircleProps {
 export const SpotlightCircle = styled.circle<SpotlightCircleProps>`
   transition: all ${(props) => props.transitionDuration} ease-in-out;
 `;
+interface SpotlightRectProps {
+  transitionDuration: string;
+}
+
+export const SpotlightRect = styled.rect<SpotlightRectProps>`
+  transition: all ${(props) => props.transitionDuration} ease-in-out;
+`;
