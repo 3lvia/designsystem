@@ -2,6 +2,22 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.10.22",
+      "version": "2.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Moved the label for the Slider with input(s) up to match the designs in Figma.",
+            "Padding was added over the Slider with input(s) to prevent the label from overflowing."
+          ],
+          "fixes": [
+            "The change impacts the total height of the Slider with input(s). Ensure to adjust the spacing and/or alignment in your design to account for the larger size."
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.09.22",
       "version": "1.0.3",
       "changelog": [

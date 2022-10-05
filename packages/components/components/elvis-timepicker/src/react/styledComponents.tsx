@@ -30,7 +30,7 @@ export const TimePickerContainer = styled.div`
 export const TimePickerLabel = styled.label<BaseProps>`
   display: inline-block;
   position: relative;
-  margin-top: ${(props) => (props.isCompact ? '5px' : '0px')};
+  padding-top: ${(props) => (props.isCompact ? '8px' : '0px')};
   padding-bottom: 24px;
 `;
 
@@ -45,7 +45,7 @@ export const LabelText = styled.div<BaseProps>`
         background-color: ${colors.elviaWhite};
         position: absolute;
         margin-left: 7px;
-        top: -5px;
+        top: 0;
         padding: 0 3px;
         z-index: 1;
         line-height: 100%;
