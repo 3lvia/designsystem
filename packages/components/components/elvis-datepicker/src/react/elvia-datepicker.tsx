@@ -479,11 +479,12 @@ export const Datepicker: FC<DatepickerProps> = ({
           aria-label="Åpne år-velger"
           className="ewc-datepicker__toolbar-dropdown"
           onClick={toggleYearView}
+          data-isyearview={openView === 'year'}
         >
           <div className="ewc-datepicker__toolbar-year">
             {format(date as Date, 'yyyy', { locale: nbLocale })}
           </div>
-          <Icon name={openView === 'year' ? 'arrowUpBold' : 'arrowDownBold'} size="xs" />
+          <Icon name={'arrowDownBold'} size="xs" />
         </button>
         {openView === 'date' && (
           <button

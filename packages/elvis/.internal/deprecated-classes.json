@@ -1,10 +1,98 @@
 {
-  "e-link--external": {
-    "version": "7.4.0",
-    "replacedBy": "e-link--new-tab"
+  "e-radio-filter": {
+    "deprecateChildren": true,
+    "version": "8.13.0",
+    "replacement": {
+      "name": "Radio Filter",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/radio-filter"
+    },
+    "sunset": "March 2023"
   },
-  "e-table__sort-header": {
-    "version": "7.5.0"
+  "e-progress": {
+    "deprecateChildren": true,
+    "version": "8.13.0",
+    "replacement": {
+      "name": "Progressbar",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/progressbar"
+    },
+    "sunset": "March 2023"
+  },
+  "e-popover": {
+    "deprecateChildren": true,
+    "version": "8.13.0",
+    "replacement": {
+      "name": "Popover",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/popover"
+    },
+    "sunset": "March 2023"
+  },
+  "e-pagination": {
+    "deprecateChildren": true,
+    "version": "8.13.0",
+    "replacement": {
+      "name": "Pagination",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/pagination"
+    },
+    "sunset": "March 2023"
+  },
+  "e-modal": {
+    "deprecateChildren": true,
+    "version": "8.13.0",
+    "replacement": {
+      "name": "Modal",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/modal"
+    },
+    "sunset": "March 2023"
+  },
+  "e-dropdown": {
+    "version": "8.13.0",
+    "replacement": {
+      "name": "Dropdown",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/dropdown"
+    },
+    "sunset": "March 2023"
+  },
+  "e-chip": {
+    "deprecateChildren": true,
+    "version": "8.13.0",
+    "replacement": {
+      "name": "Chip",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/chip"
+    },
+    "sunset": "March 2023"
+  },
+  "e-select": {
+    "deprecateChildren": true,
+    "version": "8.13.0",
+    "replacement": {
+      "name": "Dropdown",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/dropdown"
+    },
+    "sunset": "March 2023"
+  },
+  "e-link--jumbo": {
+    "version": "8.5.12",
+    "replacement": {
+      "name": "action group",
+      "type": "pattern",
+      "documentation": "https://design.elvia.io/patterns/groups"
+    }
+  },
+  "e-label": {
+    "version": "8.4.1",
+    "replacement": {
+      "name": "e-tag",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/tag"
+    }
   },
   "e-table__sort-icon--inactive": {
     "version": "8.0.4"
@@ -15,27 +103,53 @@
   "e-table__sort-icon": {
     "version": "8.0.4"
   },
-  "e-btn--icon.e-btn--danger": {
-    "version": "7.8.0"
+  "e-link--card": {
+    "version": "7.13.5",
+    "replacement": {
+      "name": "Card",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/card"
+    }
+  },
+  "e-card": {
+    "deprecateChildren": true,
+    "version": "7.13.5",
+    "replacement": {
+      "name": "Card",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/card"
+    }
   },
   "e-fileupload---hover": {
     "version": "7.9.3",
-    "replacedBy": "e-fileupload--dragover"
+    "replacement": {
+      "name": "e-fileupload--dragover",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/file-upload#States"
+    }
   },
-  "e-link--jumbo": {
-    "version": "7.13.5",
-    "replacedBy": "Action group pattern"
+  "e-btn--icon.e-btn--danger": {
+    "version": "7.8.0"
   },
-  "e-link--card": {
-    "version": "7.13.5",
-    "replacedBy": "Card component"
+  "e-table__sort-header": {
+    "version": "7.5.0"
   },
-  "e-card": {
-    "version": "7.13.5",
-    "replacedBy": "Card component"
+  "e-link--external": {
+    "version": "7.4.0",
+    "replacement": {
+      "name": "e-link--new-tab",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/link#Type"
+    }
   },
-  "e-label": {
-    "version": "8.4.1",
-    "replacedBy": "e-tag"
+  "e-divider": {
+    "deprecateChildren": true,
+    "version": "2.9.22",
+    "replacement": {
+      "name": "Divider",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/divider"
+    },
+    "sunset": "March 2023"
   }
 }

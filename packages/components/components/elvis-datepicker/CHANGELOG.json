@@ -2,6 +2,20 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "30.09.22",
+      "version": "4.0.6",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Fixed so that the 'year view'-icon is properly animated when the year view is opened/closed.",
+            "Removed unused dependency on <span class=\"code-text\">prop-types</span>.",
+            "Bumped dependency on <span class=\"code-text\">@elvia/elvis-colors</span>"
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.09.22",
       "version": "4.0.5",
       "changelog": [

@@ -472,6 +472,7 @@ module.exports = [
       { name: 'position', type: 'object', propType: 'object' },
       { name: 'radius', type: 'number', propType: 'number' },
       { name: 'hasLockBodyScroll', type: 'boolean', propType: 'boolean' },
+      { name: 'transitionDuration', type: 'string', propType: 'boolean' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
     ],
