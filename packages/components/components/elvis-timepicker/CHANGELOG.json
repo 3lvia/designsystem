@@ -8,11 +8,11 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "Moved the label for the Slider with input(s) up to match the designs in Figma.",
-            "Padding was added over the Slider with input(s) to prevent the label from overflowing."
+            "Moved the label for the compact Timepicker up to match the designs in Figma.",
+            "Padding was added over the compact Timepicker to prevent the label from overflowing."
           ],
           "fixes": [
-            "The change impacts the total height of the Slider with input(s). Ensure to adjust the spacing and/or alignment in your design to account for the larger size."
+            "The change impacts the total height of the compact Timepicker. Ensure to adjust the spacing and/or alignment in your design to account for the larger size."
           ]
         }
       ]
