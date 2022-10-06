@@ -431,7 +431,6 @@ const Popover: FC<PopoverProps> = function ({
       style={inlineStyle}
       ref={popoverRef}
       data-testid="popover-wrapper"
-      aria-modal="true"
       role="dialog"
       {...rest}
     >
@@ -448,7 +447,7 @@ const Popover: FC<PopoverProps> = function ({
 
         <div className="ewc-popover__fixed-content-area" ref={popoverFixedAreaRef}>
           <div className="ewc-popover__contentContainer">
-            <div className="ewc-popover__content" ref={popoverContentRef}>
+            <div className="ewc-popover__content" ref={popoverContentRef} aria-modal="true">
               {type === 'informative' && (
                 <div className="ewc-popover__content-area">
                   {hasCloseButton === true && (
