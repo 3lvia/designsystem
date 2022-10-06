@@ -26,6 +26,7 @@ import '@elvia/elvis-box';
 import '@elvia/elvis-modal';
 import '@elvia/elvis-icon';
 import '@elvia/elvis-radio-filter';
+import '@elvia/elvis-segmented-control';
 import '@elvia/elvis-spotlight';
 import '@elvia/elvis-card';
 import '@elvia/elvis-timepicker';

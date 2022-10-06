@@ -5,9 +5,9 @@ import { SegmentedControlContainer, SegmentedControlRadio, SegmentedControlInput
 import uniqueId from 'lodash.uniqueid';
 
 export const SegmentedControl: React.FC<SegmentedControlProps> = ({
-  controls,
+  items,
   value = 0,
-  size = 'large',
+  size = 'medium',
   type = 'text',
   valueOnChange,
   className,
@@ -27,7 +27,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   };
 
   const getMaxLengthOfLabel = (): number => {
-    return Math.max(...controls.map((control) => control.length));
+    return Math.max(...items.map((control) => control.length));
   };
 
   return (
@@ -41,7 +41,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
         className={className ?? ''}
         style={{ ...inlineStyle }}
       >
-        {controls.map((control, index) => (
+        {items.map((control, index) => (
           <SegmentedControlRadio
             scType={type}
             size={size}

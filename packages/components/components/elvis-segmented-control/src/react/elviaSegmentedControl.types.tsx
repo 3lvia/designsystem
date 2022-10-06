@@ -3,10 +3,10 @@ import { CSSProperties } from 'react';
 import { IconName } from '@elvia/elvis-assets-icons';
 
 export interface SegmentedControlProps {
-  controls: string[] | IconName[];
-  value: number;
-  size: 'large' | 'medium' | 'small';
+  items: string[] | IconName[];
+  value?: number;
   type?: 'text' | 'icon';
+  size?: 'large' | 'medium' | 'small';
   valueOnChange?: (value: number) => void;
   className?: string;
   inlineStyle?: CSSProperties;
