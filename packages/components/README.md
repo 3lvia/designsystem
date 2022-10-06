@@ -213,7 +213,12 @@ Example of an update
     },
 ```
 
-#### Step 8 - Pull request and publish
+
+#### Step 8 - Deprecating old classes
+If the component you have created is a replacement for an component that allready existed in elvis (the style library), this class needs to be deprecated.
+- To deprecate the class read the guidelines in the [Elvis README](https://github.com/3lvia/designsystem/blob/master/packages/elvis/README.md#good-to-know).
+
+#### Step 9 - Pull request and publish
 
 > NOTE! You will need to set up two-factor authentication with NPM to publish your changes.
 > [Elvia NPM](https://www.npmjs.com/org/elvia).

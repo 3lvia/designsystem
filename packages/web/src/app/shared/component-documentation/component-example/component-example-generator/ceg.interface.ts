@@ -77,7 +77,7 @@ export interface CegSideFilterEvent {
   /**
    * Either the new chosen value, or `'true'` or `'false'` if the side filter changes visibility of the prop.
    */
-  value: string;
+  value: string | number | boolean;
 }
 
 /**

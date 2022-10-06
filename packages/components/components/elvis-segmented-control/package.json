@@ -6,10 +6,10 @@
   "author": "",
   "main": "web_component.js",
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "^2.2.2",
     "@elvia/elvis-colors": "^1.4.2",
-    "@elvia/elvis-typography": "^2.3.1",
+    "@elvia/elvis-component-wrapper": "^2.2.2",
     "@elvia/elvis-icon": "^1.3.1",
+    "@elvia/elvis-typography": "^2.3.1",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {
