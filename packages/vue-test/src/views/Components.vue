@@ -165,17 +165,6 @@
       ></elvia-pagination>
     </div>
 
-    <!--Popover-->
-    <div class="example-wrapper">
-      <h3>Popover</h3>
-      <elvia-popover heading="BankID" horizontalPosition="right">
-        <div slot="trigger"><button class="e-btn">Right top</button></div>
-        <div slot="content">
-          Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
-        </div>
-      </elvia-popover>
-    </div>
-
     <!--Progress linear-->
     <div class="example-wrapper">
       <h3>Progress linear</h3>
