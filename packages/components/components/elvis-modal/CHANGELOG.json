@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.10.22",
+      "version": "2.1.8",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug that caused some event listeners to sometimes not be properly removed."]
+        }
+      ]
+    },
+    {
       "date": "28.09.22",
       "version": "2.1.7",
       "changelog": [
