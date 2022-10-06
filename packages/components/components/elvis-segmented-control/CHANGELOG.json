@@ -1,0 +1,45 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "28.09.22",
+      "version": "1.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Previous build did not include changes"]
+        }
+      ]
+    },
+    {
+      "date": "28.09.22",
+      "version": "1.0.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Missing z-index"]
+        }
+      ]
+    },
+    {
+      "date": "28.09.22",
+      "version": "1.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Update dependency <span class=\"code-text\">@elvia/elvis-toolbox</span> to 4.0.0"]
+        }
+      ]
+    },
+    {
+      "date": "15.09.22",
+      "version": "1.0.0 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of the tooltip component."]
+        }
+      ]
+    }
+  ]
+}

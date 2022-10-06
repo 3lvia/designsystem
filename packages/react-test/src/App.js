@@ -18,6 +18,7 @@ import { Pagination } from '@elvia/elvis-pagination/react';
 import { Popover } from '@elvia/elvis-popover/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
+import { SegmentedControl } from '@elvia/elvis-segmented-control/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
@@ -117,7 +118,21 @@ function App() {
           {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
           <h3>Test your component here</h3>
           {/* Normal version */}
-          <div className="e-bg-white"></div>
+          <div className="e-bg-white">
+            <SegmentedControl
+              controls={['Different', 'Length', 'Woords']}
+              value={0}
+              valueOnChange={(value) => console.log(value)}
+            ></SegmentedControl>
+            <div className="e-mt-8">
+              <SegmentedControl
+                type="icon"
+                controls={['thumbnail', 'list']}
+                value={0}
+                valueOnChange={(value) => console.log(value)}
+              ></SegmentedControl>
+            </div>
+          </div>
           {/* Inverted version */}
           <div className="e-bg-grey"></div>
         </div>
@@ -357,6 +372,14 @@ function App() {
             value={selectedRadioFilter}
             name={'radioFilterTest'}
           ></RadioFilter>
+        </div>
+        {/* SEGMENTED CONTROL */}
+        <div className="example-wrapper">
+          <h3>Segmented Control</h3>
+          {/* <SegmentedControl
+            controls={radioFilterOptions}
+            ariaLabel={`${selectedRadioFilter} filtrering valgt`}
+          ></SegmentedControl> */}
         </div>
         {/* SPOTLIGHT */}
         <div className="example-wrapper">

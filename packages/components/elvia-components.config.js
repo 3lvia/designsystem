@@ -442,6 +442,22 @@ module.exports = [
     reactTypescriptDeclaration: true,
   },
   {
+    name: 'elvis-segmented-control',
+    elementName: 'elvia-segmented-control',
+    attributes: [
+      { name: 'controls', type: 'string', propType: 'object' },
+      { name: 'value', type: 'number', propType: 'number' },
+      { name: 'size', type: 'string', propType: 'string' },
+      { name: 'type', type: 'string', propType: 'string | undefined' },
+      { name: 'className', type: 'string', propType: 'string | undefined' },
+      { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
+    ],
+    reactName: 'SegmentedControl',
+    slotItems: false,
+    useWrapper: false,
+    reactTypescriptDeclaration: true,
+  },
+  {
     name: 'elvis-spotlight',
     elementName: 'elvia-spotlight',
     attributes: [
