@@ -57,6 +57,12 @@ export default defineComponent({
         iconNameActive: 'searchColor',
         name: 'Tooltip',
       },
+      {
+        url: '/popover',
+        iconName: 'invoice',
+        iconNameActive: 'invoiceColor',
+        name: 'Popover',
+      },
     ]);
 
     const pageTitle = computed(() => {
