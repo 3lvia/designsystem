@@ -222,7 +222,7 @@
             <!--CONTENT-->
             <div class="e-stepper__content">
               <div class="e-stepper__title">{{ shortActiveTitle }}</div>
-              <form class="e-form-field" *ngIf="shortChosenNum == 1">
+              <form class="e-form-field" *ngIf="shortChosenNum === 1">
                 <label class="e-radio" for="option1">
                   <input type="radio" id="option1" name="example1" value="value1" checked />
                   <span class="e-radio__mark"></span>
@@ -234,7 +234,7 @@
                   <span class="e-radio__label">PayPal</span>
                 </label>
               </form>
-              <div class="e-form-field" *ngIf="shortChosenNum == 2">
+              <div class="e-form-field" *ngIf="shortChosenNum === 2">
                 <label class="e-form-field__label" for="more">Card number</label>
                 <div class="e-form-field__input e-mb-24">
                   <div class="e-input">
@@ -265,13 +265,13 @@
                   </div>
                 </div>
               </div>
-              <div class="e-form-field e-mb-24" *ngIf="shortChosenNum == 3">
+              <div class="e-form-field e-mb-24" *ngIf="shortChosenNum === 3">
                 <label class="e-form-field__label" for="normal">Email</label>
                 <div class="e-input">
                   <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
                 </div>
               </div>
-              <div class="e-form-field e-form-field--combined" *ngIf="shortChosenNum == 3">
+              <div class="e-form-field e-form-field--combined" *ngIf="shortChosenNum === 3">
                 <label class="e-form-field__label" for="phone">Phone</label>
                 <div class="e-form-field__input">
                   <div id="phone" class="e-input e-input--small">
@@ -282,7 +282,7 @@
                   </div>
                 </div>
               </div>
-              <div class="e-form-field" *ngIf="shortChosenNum == 4">
+              <div class="e-form-field" *ngIf="shortChosenNum === 4">
                 <label class="e-form-field__label" for="more">More</label>
                 <div class="e-form-field__input">
                   <div class="e-input e-mb-24">
@@ -296,14 +296,14 @@
                 </button>
                 <button
                   class="e-btn e-btn--primary"
-                  *ngIf="shortChosenNum != 4"
+                  *ngIf="shortChosenNum !== 4"
                   (click)="newShortStep(shortChosenNum + 1)"
                 >
                   Next
                 </button>
                 <button
                   class="e-btn e-btn--primary"
-                  *ngIf="shortChosenNum == 4"
+                  *ngIf="shortChosenNum === 4"
                   (click)="newShortStep(shortChosenNum + 1)"
                 >
                   Submit
@@ -340,7 +340,7 @@
             <!--CONTENT-->
             <div class="e-stepper__content">
               <div class="e-stepper__title">{{ forcedActiveTitle }}</div>
-              <form class="e-form-field" *ngIf="forcedChosenNum == 1">
+              <form class="e-form-field" *ngIf="forcedChosenNum === 1">
                 <label class="e-radio" for="option1">
                   <input type="radio" id="option1" name="example1" value="value1" checked />
                   <span class="e-radio__mark"></span>
@@ -352,7 +352,7 @@
                   <span class="e-radio__label">PayPal</span>
                 </label>
               </form>
-              <div class="e-form-field" *ngIf="forcedChosenNum == 2">
+              <div class="e-form-field" *ngIf="forcedChosenNum === 2">
                 <label class="e-form-field__label" for="more">Card number</label>
                 <div class="e-form-field__input e-mb-24">
                   <div class="e-input">
@@ -380,13 +380,13 @@
                   </div>
                 </div>
               </div>
-              <div class="e-form-field e-mb-24" *ngIf="forcedChosenNum == 3">
+              <div class="e-form-field e-mb-24" *ngIf="forcedChosenNum === 3">
                 <label class="e-form-field__label" for="normal">Email</label>
                 <div class="e-input">
                   <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
                 </div>
               </div>
-              <div class="e-form-field e-form-field--combined" *ngIf="forcedChosenNum == 3">
+              <div class="e-form-field e-form-field--combined" *ngIf="forcedChosenNum === 3">
                 <label class="e-form-field__label" for="phone">Phone</label>
                 <div class="e-form-field__input">
                   <div id="phone" class="e-input e-input--small">
@@ -397,7 +397,7 @@
                   </div>
                 </div>
               </div>
-              <div class="e-form-field" *ngIf="forcedChosenNum == 4">
+              <div class="e-form-field" *ngIf="forcedChosenNum === 4">
                 <label class="e-form-field__label" for="more">More</label>
                 <div class="e-form-field__input">
                   <div class="e-input e-mb-24">
@@ -411,14 +411,14 @@
                 </button>
                 <button
                   class="e-btn e-btn--primary"
-                  *ngIf="forcedChosenNum != 4"
+                  *ngIf="forcedChosenNum !== 4"
                   (click)="newForcedStep(forcedChosenNum + 1)"
                 >
                   Next
                 </button>
                 <button
                   class="e-btn e-btn--primary"
-                  *ngIf="forcedChosenNum == 4"
+                  *ngIf="forcedChosenNum === 4"
                   (click)="newForcedStep(forcedChosenNum + 1)"
                 >
                   Submit
@@ -507,7 +507,7 @@
             <!--CONTENT-->
             <div class="e-stepper__content special-stepper">
               <div class="e-stepper__title">{{ activeTitle }}</div>
-              <form class="e-form-field" *ngIf="chosenNum == 1">
+              <form class="e-form-field" *ngIf="chosenNum === 1">
                 <label class="e-radio" for="option1">
                   <input type="radio" id="option1" name="example1" value="value1" checked />
                   <span class="e-radio__mark"></span>
@@ -519,7 +519,7 @@
                   <span class="e-radio__label">PayPal</span>
                 </label>
               </form>
-              <div class="e-form-field" *ngIf="chosenNum == 2">
+              <div class="e-form-field" *ngIf="chosenNum === 2">
                 <label class="e-form-field__label" for="more">Card number</label>
                 <div class="e-form-field__input e-mb-24">
                   <div class="e-input">
@@ -550,13 +550,13 @@
                   </div>
                 </div>
               </div>
-              <div class="e-form-field e-mb-24" *ngIf="chosenNum == 3">
+              <div class="e-form-field e-mb-24" *ngIf="chosenNum === 3">
                 <label class="e-form-field__label" for="normal">Email</label>
                 <div class="e-input">
                   <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
                 </div>
               </div>
-              <div class="e-form-field e-form-field--combined" *ngIf="chosenNum == 3">
+              <div class="e-form-field e-form-field--combined" *ngIf="chosenNum === 3">
                 <label class="e-form-field__label" for="phone">Phone</label>
                 <div class="e-form-field__input">
                   <div id="phone" class="e-input e-input--small">
@@ -567,7 +567,7 @@
                   </div>
                 </div>
               </div>
-              <div class="e-form-field" *ngIf="chosenNum == 4">
+              <div class="e-form-field" *ngIf="chosenNum === 4">
                 <label class="e-form-field__label" for="more">More</label>
                 <div class="e-form-field__input">
                   <div class="e-input e-mb-24">
@@ -575,7 +575,7 @@
                   </div>
                 </div>
               </div>
-              <div class="e-form-field" *ngIf="chosenNum == 5">
+              <div class="e-form-field" *ngIf="chosenNum === 5">
                 <label class="e-form-field__label" for="more">More</label>
                 <div class="e-form-field__input">
                   <div class="e-input e-mb-24">
@@ -583,7 +583,7 @@
                   </div>
                 </div>
               </div>
-              <div class="e-form-field" *ngIf="chosenNum == 6">
+              <div class="e-form-field" *ngIf="chosenNum === 6">
                 <label class="e-form-field__label" for="more">More</label>
                 <div class="e-form-field__input">
                   <div class="e-input e-mb-24">
@@ -591,7 +591,7 @@
                   </div>
                 </div>
               </div>
-              <div class="e-form-field" *ngIf="chosenNum == 7">
+              <div class="e-form-field" *ngIf="chosenNum === 7">
                 <label class="e-form-field__label" for="more">More</label>
                 <div class="e-form-field__input">
                   <div class="e-input e-mb-24">
@@ -602,10 +602,10 @@
 
               <div class="e-stepper__actions">
                 <button class="e-btn e-btn--secondary" (click)="newStep(chosenNum - 1)">Back</button>
-                <button class="e-btn e-btn--primary" *ngIf="chosenNum != 7" (click)="newStep(chosenNum + 1)">
+                <button class="e-btn e-btn--primary" *ngIf="chosenNum !== 7" (click)="newStep(chosenNum + 1)">
                   Next
                 </button>
-                <button class="e-btn e-btn--primary" *ngIf="chosenNum == 7" (click)="newStep(chosenNum + 1)">
+                <button class="e-btn e-btn--primary" *ngIf="chosenNum === 7" (click)="newStep(chosenNum + 1)">
                   Submit
                 </button>
               </div>
@@ -635,8 +635,8 @@
               </div>
 
               <!--CONTENT-->
-              <div class="e-stepper__content" *ngIf="step.number == shortChosenNum">
-                <form class="e-form-field" *ngIf="step.number == 1">
+              <div class="e-stepper__content" *ngIf="step.number === shortChosenNum">
+                <form class="e-form-field" *ngIf="step.number === 1">
                   <label class="e-radio" for="option1">
                     <input type="radio" id="option1" name="example1" value="value1" checked />
                     <span class="e-radio__mark"></span>
@@ -648,7 +648,7 @@
                     <span class="e-radio__label">PayPal</span>
                   </label>
                 </form>
-                <div class="e-form-field" *ngIf="step.number == 2">
+                <div class="e-form-field" *ngIf="step.number === 2">
                   <label class="e-form-field__label" for="more">Card number</label>
                   <div class="e-form-field__input e-mb-24">
                     <div class="e-input">
@@ -680,13 +680,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="e-form-field e-mb-24" *ngIf="step.number == 3">
+                <div class="e-form-field e-mb-24" *ngIf="step.number === 3">
                   <label class="e-form-field__label" for="normal">Email</label>
                   <div class="e-input">
                     <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
                   </div>
                 </div>
-                <div class="e-form-field e-form-field--combined" *ngIf="step.number == 3">
+                <div class="e-form-field e-form-field--combined" *ngIf="step.number === 3">
                   <label class="e-form-field__label" for="phone">Phone</label>
                   <div class="e-form-field__input">
                     <div id="phone" class="e-input e-input--small">
@@ -697,7 +697,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="e-form-field" *ngIf="step.number == 4">
+                <div class="e-form-field" *ngIf="step.number === 4">
                   <label class="e-form-field__label" for="more">More</label>
                   <div class="e-form-field__input">
                     <div class="e-input e-mb-24">
@@ -711,14 +711,14 @@
                   </button>
                   <button
                     class="e-btn e-btn--primary"
-                    *ngIf="shortChosenNum != 4"
+                    *ngIf="shortChosenNum !== 4"
                     (click)="newShortStep(shortChosenNum + 1)"
                   >
                     Next
                   </button>
                   <button
                     class="e-btn e-btn--primary"
-                    *ngIf="shortChosenNum == 4"
+                    *ngIf="shortChosenNum === 4"
                     (click)="newShortStep(shortChosenNum + 1)"
                   >
                     Submit
@@ -751,8 +751,8 @@
               </div>
 
               <!--CONTENT-->
-              <div class="e-stepper__content" *ngIf="step.number == forcedChosenNum">
-                <form class="e-form-field" *ngIf="step.number == 1">
+              <div class="e-stepper__content" *ngIf="step.number === forcedChosenNum">
+                <form class="e-form-field" *ngIf="step.number === 1">
                   <label class="e-radio" for="option1">
                     <input type="radio" id="option1" name="example1" value="value1" checked />
                     <span class="e-radio__mark"></span>
@@ -764,7 +764,7 @@
                     <span class="e-radio__label">PayPal</span>
                   </label>
                 </form>
-                <div class="e-form-field" *ngIf="step.number == 2">
+                <div class="e-form-field" *ngIf="step.number === 2">
                   <label class="e-form-field__label" for="more">Card number</label>
                   <div class="e-form-field__input e-mb-24">
                     <div class="e-input">
@@ -792,13 +792,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="e-form-field e-mb-24" *ngIf="step.number == 3">
+                <div class="e-form-field e-mb-24" *ngIf="step.number === 3">
                   <label class="e-form-field__label" for="normal">Email</label>
                   <div class="e-input">
                     <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
                   </div>
                 </div>
-                <div class="e-form-field e-form-field--combined" *ngIf="step.number == 3">
+                <div class="e-form-field e-form-field--combined" *ngIf="step.number === 3">
                   <label class="e-form-field__label" for="phone">Phone</label>
                   <div class="e-form-field__input">
                     <div id="phone" class="e-input e-input--small">
@@ -809,7 +809,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="e-form-field" *ngIf="step.number == 4">
+                <div class="e-form-field" *ngIf="step.number === 4">
                   <label class="e-form-field__label" for="more">More</label>
                   <div class="e-form-field__input">
                     <div class="e-input e-mb-24">
@@ -823,14 +823,14 @@
                   </button>
                   <button
                     class="e-btn e-btn--primary"
-                    *ngIf="forcedChosenNum != 4"
+                    *ngIf="forcedChosenNum !== 4"
                     (click)="newForcedStep(forcedChosenNum + 1)"
                   >
                     Next
                   </button>
                   <button
                     class="e-btn e-btn--primary"
-                    *ngIf="forcedChosenNum == 4"
+                    *ngIf="forcedChosenNum === 4"
                     (click)="newForcedStep(forcedChosenNum + 1)"
                   >
                     Submit
@@ -864,8 +864,8 @@
               </div>
 
               <!--CONTENT-->
-              <div class="e-stepper__content" *ngIf="step.number == chosenNum">
-                <form class="e-form-field" *ngIf="step.number == 1">
+              <div class="e-stepper__content" *ngIf="step.number === chosenNum">
+                <form class="e-form-field" *ngIf="step.number === 1">
                   <label class="e-radio" for="option1">
                     <input type="radio" id="option1" name="example1" value="value1" checked />
                     <span class="e-radio__mark"></span>
@@ -877,7 +877,7 @@
                     <span class="e-radio__label">PayPal</span>
                   </label>
                 </form>
-                <div class="e-form-field" *ngIf="step.number == 2">
+                <div class="e-form-field" *ngIf="step.number === 2">
                   <label class="e-form-field__label" for="more">Card number</label>
                   <div class="e-form-field__input e-mb-24">
                     <div class="e-input">
@@ -909,13 +909,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="e-form-field e-mb-24" *ngIf="step.number == 3">
+                <div class="e-form-field e-mb-24" *ngIf="step.number === 3">
                   <label class="e-form-field__label" for="normal">Email</label>
                   <div class="e-input">
                     <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
                   </div>
                 </div>
-                <div class="e-form-field e-form-field--combined" *ngIf="step.number == 3">
+                <div class="e-form-field e-form-field--combined" *ngIf="step.number === 3">
                   <label class="e-form-field__label" for="phone">Phone</label>
                   <div class="e-form-field__input">
                     <div id="phone" class="e-input e-input--small">
@@ -930,14 +930,14 @@
                   <button class="e-btn e-btn--secondary" (click)="newStep(chosenNum - 1)">Back</button>
                   <button
                     class="e-btn e-btn--primary"
-                    *ngIf="chosenNum != 7"
+                    *ngIf="chosenNum !== 7"
                     (click)="newStep(chosenNum + 1)"
                   >
                     Next
                   </button>
                   <button
                     class="e-btn e-btn--primary"
-                    *ngIf="chosenNum == 7"
+                    *ngIf="chosenNum === 7"
                     (click)="newStep(chosenNum + 1)"
                   >
                     Submit
@@ -974,8 +974,8 @@
               </div>
 
               <!--CONTENT-->
-              <div class="e-stepper__content" *ngIf="step.number == chosenNum">
-                <div class="e-form-field" *ngIf="step.number == 4">
+              <div class="e-stepper__content" *ngIf="step.number === chosenNum">
+                <div class="e-form-field" *ngIf="step.number === 4">
                   <label class="e-form-field__label" for="more">More</label>
                   <div class="e-form-field__input">
                     <div class="e-input e-mb-24">
@@ -987,14 +987,14 @@
                   <button class="e-btn e-btn--secondary" (click)="newStep(chosenNum - 1)">Back</button>
                   <button
                     class="e-btn e-btn--primary"
-                    *ngIf="chosenNum != 7"
+                    *ngIf="chosenNum !== 7"
                     (click)="newStep(chosenNum + 1)"
                   >
                     Next
                   </button>
                   <button
                     class="e-btn e-btn--primary"
-                    *ngIf="chosenNum == 7"
+                    *ngIf="chosenNum === 7"
                     (click)="newStep(chosenNum + 1)"
                   >
                     Submit
@@ -1028,8 +1028,8 @@
               </div>
 
               <!--CONTENT-->
-              <div class="e-stepper__content" *ngIf="step.number == chosenNum">
-                <div class="e-form-field" *ngIf="step.number == 5">
+              <div class="e-stepper__content" *ngIf="step.number === chosenNum">
+                <div class="e-form-field" *ngIf="step.number === 5">
                   <label class="e-form-field__label" for="more">More</label>
                   <div class="e-form-field__input">
                     <div class="e-input e-mb-24">
@@ -1037,7 +1037,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="e-form-field" *ngIf="step.number == 6">
+                <div class="e-form-field" *ngIf="step.number === 6">
                   <label class="e-form-field__label" for="more">More</label>
                   <div class="e-form-field__input">
                     <div class="e-input e-mb-24">
@@ -1045,7 +1045,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="e-form-field" *ngIf="step.number == 7">
+                <div class="e-form-field" *ngIf="step.number === 7">
                   <label class="e-form-field__label" for="more">More</label>
                   <div class="e-form-field__input">
                     <div class="e-input e-mb-24">
@@ -1057,14 +1057,14 @@
                   <button class="e-btn e-btn--secondary" (click)="newStep(chosenNum - 1)">Back</button>
                   <button
                     class="e-btn e-btn--primary"
-                    *ngIf="chosenNum != 7"
+                    *ngIf="chosenNum !== 7"
                     (click)="newStep(chosenNum + 1)"
                   >
                     Next
                   </button>
                   <button
                     class="e-btn e-btn--primary"
-                    *ngIf="chosenNum == 7"
+                    *ngIf="chosenNum === 7"
                     (click)="newStep(chosenNum + 1)"
                   >
                     Submit
