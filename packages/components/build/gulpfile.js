@@ -13,6 +13,7 @@ const typescript = require('gulp-typescript');
 const validate = require('./validateConfig.js');
 const filter = require('gulp-filter');
 const cache = require('gulp-cached');
+const sourcemaps = require('gulp-sourcemaps');
 let components = require('../elvia-components.config');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
@@ -147,6 +148,7 @@ function TSX_to_JS() {
       gulp
         .src([`../components/${component.name}/src/react/**/*.ts*`, '!../components/**/*.d.ts*'])
         .pipe(cache('TSX_to_JS'))
+        .pipe(sourcemaps.init())
         .pipe(
           babel({
             presets: [
@@ -173,6 +175,7 @@ function TSX_to_JS() {
             }
           }),
         )
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(`../components/${component.name}/dist/react/js/`)),
       gulp
         .src([`../components/${component.name}/src/react/**/*.d.ts`])
