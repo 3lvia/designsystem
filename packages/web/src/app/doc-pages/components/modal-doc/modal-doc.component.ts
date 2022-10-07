@@ -20,11 +20,11 @@ export class ModalDocComponent {
   modalMultipageCode = modalMultipageCode;
   figmaUrl = getComponent('modal').figmaUrl;
   description = getComponent('modal').description;
-  // tslint:disable-next-line:max-line-length
+  // eslint-disable-next-line max-len
   does = [
     'Where we need the user to make an active choice before continuing, or when a wrong decision can be critical.',
   ];
-  // tslint:disable-next-line:max-line-length
+  // eslint-disable-next-line max-len
   donts = [
     'Be careful with the use of modals, as it can be disruptive to have something lying across the screen many times in a row.',
   ];

@@ -480,7 +480,7 @@ export class StepperDocComponent implements OnInit {
   centerSteps: Step[] = [];
   lastSteps: Step[] = [];
 
-  // tslint:disable-next-line: max-line-length
+  // eslint-disable-next-line max-len
   does = [
     'Use a stepper in a process that’s split up in clear steps, where the user could benefit from a overview and/or navigation between the steps',
   ];

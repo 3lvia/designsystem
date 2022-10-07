@@ -49,7 +49,7 @@ export class IframeScreenComponent implements OnInit, AfterViewInit, OnChanges {
     if (this.screenSize === 'desktop') {
       const doc = this.iframeDesktop.nativeElement.contentWindow.document;
       doc.open();
-      // tslint:disable-next-line:max-line-length
+      // eslint-disable-next-line max-len
       doc.write(
         `<html><head>${window.document.head.innerHTML}</head><body><div style="overflow: auto;">${this.code}</div></body></html>`,
       );
@@ -62,7 +62,7 @@ export class IframeScreenComponent implements OnInit, AfterViewInit, OnChanges {
     if (this.screenSize === 'phone') {
       const doc = this.iframePhone.nativeElement.contentWindow.document;
       doc.open();
-      // tslint:disable-next-line:max-line-length
+      // eslint-disable-next-line max-len
       doc.write(
         `<html><head>${window.document.head.innerHTML}</head><body><div style="overflow: auto;">${this.code}</div></body></html>`,
       );
