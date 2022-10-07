@@ -16,6 +16,12 @@ const cardData: ComponentData = {
       type: 'string',
       description: 'Card heading.',
     },
+    headingLevel: {
+      isRequired: false,
+      type: 'h1 | h2 | h3 | h4 | h5 | h6',
+      default: 'h3',
+      description: 'Defines the HTML heading used on the card heading.',
+    },
     description: {
       isRequired: false,
       type: 'string',

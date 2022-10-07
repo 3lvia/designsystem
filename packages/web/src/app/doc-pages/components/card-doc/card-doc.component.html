@@ -92,6 +92,13 @@
           to ensure correct HTML markup.
         </ng-container>
       </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Section Heading elements'">
+        <ng-container ngProjectAs="sectionContent">
+          Assign the correct heading level to the card heading using the
+          <span class="code-text">headingLevel</span>
+          attribute. Do not skip one or more heading levels.
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

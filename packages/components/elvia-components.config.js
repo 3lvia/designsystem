@@ -129,6 +129,7 @@ module.exports = [
       { name: 'iconHover', type: 'string', propType: 'string | HTMLElement | undefined' },
       { name: 'header', type: 'string', propType: 'string' }, // Deprecated
       { name: 'heading', type: 'string', propType: 'string' },
+      { name: 'headingLevel', type: 'string', propType: 'string | undefined' },
       { name: 'description', type: 'string', propType: 'string | undefined' },
       { name: 'borderColor', type: 'string', propType: 'string | undefined' },
       { name: 'type', type: 'string', propType: 'string' },
