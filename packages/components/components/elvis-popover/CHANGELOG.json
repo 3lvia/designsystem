@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "10.10.22",
+      "version": "5.1.8",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["The header inside the popover is now more semantically correct."]
+        }
+      ]
+    },
+    {
       "date": "06.10.22",
       "version": "5.1.7",
       "changelog": [
