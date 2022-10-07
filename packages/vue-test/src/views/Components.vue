@@ -4,16 +4,7 @@
       <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
       <h3>Test your component here</h3>
       <!--Normal version-->
-      <div>
-        <!-- <elvia-segmented-control
-          :items='[{name: "Weekly"}, {name: "Monthly"}, {name: "Yearly"}]'
-          @value-on-change="logValue('Segmented', $event.detail.value)"
-        ></elvia-segmented-control> -->
-        <elvia-segmented-control
-          :items="[{ name: 'Weekly' }, { name: 'Monthly' }, { name: 'Yearly' }]"
-          @value-on-change="logValue('Segmented', $event.detail.value)"
-        ></elvia-segmented-control>
-      </div>
+      <div></div>
       <!--Inverted version-->
       <div class="e-bg-grey"></div>
     </div>
@@ -193,6 +184,23 @@
         :name="'readRadioFilters'"
         :ariaLabel="'{value} filtrering valgt'"
       ></elvia-radio-filter> -->
+    </div>
+
+    <!--Spotlight-->
+    <div class="example-wrapper">
+      <h3>Segmented Control</h3>
+      <elvia-segmented-control
+        :items="[{ name: 'Weekly' }, { name: 'Monthly' }, { name: 'Yearly' }]"
+        @value-on-change="logValue('Segmented', $event.detail.value)"
+      ></elvia-segmented-control>
+      <elvia-segmented-control
+        :type="'icon'"
+        :items="[
+          { name: 'thumbnail', altLabel: 'Label' },
+          { name: 'list', altLabel: 'Label' },
+        ]"
+        @value-on-change="logValue('Segmented', $event.detail.value)"
+      ></elvia-segmented-control>
     </div>
 
     <!--Spotlight-->

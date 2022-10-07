@@ -66,11 +66,6 @@ const getControlBorder = (scType: string, isSelected: boolean, isHovering?: bool
   }
 };
 
-// const ee = (widthOfContainer: number): number => {
-//   console.log('Hei: ', widthOfContainer);
-//   return widthOfContainer;
-// };
-
 export const SegmentedControlContainer = styled.div<SegmentedControlContainerProps>`
   display: grid;
   grid-auto-columns: 1fr;
