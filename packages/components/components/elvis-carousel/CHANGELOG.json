@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "10.10.22",
+      "version": "2.1.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Fixed a bug where the different types of headings would shift the carousel up and down due to inconsistent padding"
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.09.22",
       "version": "2.1.3",
       "changelog": [
