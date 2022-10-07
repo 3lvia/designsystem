@@ -18,6 +18,18 @@
       ]
     },
     {
+      "date": "07.10.22",
+      "version": "1.0.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Missing required dependency to <span class=\"code-text\">@elvia/elvis-typography</span>"
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.09.22",
       "version": "1.0.3",
       "changelog": [

@@ -2,6 +2,40 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.10.22",
+      "version": "4.1.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Missing dependency to <span class=\"code-text\">tslib</span>."]
+        }
+      ]
+    },
+    {
+      "date": "05.10.22",
+      "version": "4.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed the SSR check in the function <span class=\"code-text\">warnDeprecatedProps</span>."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "05.10.22",
+      "version": "4.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Hook <span class=\"code-text\">useBreakpoints</span> to check for breakpoints through code."
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.09.22",
       "version": "4.0.1",
       "changelog": [

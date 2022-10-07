@@ -14,6 +14,7 @@ import '@elvia/elvis-datepicker';
 import '@elvia/elvis-datepicker-range';
 import '@elvia/elvis-divider';
 import '@elvia/elvis-dropdown';
+import '@elvia/elvis-header';
 import '@elvia/elvis-icon';
 import '@elvia/elvis-modal';
 import '@elvia/elvis-pagination';
@@ -24,5 +25,6 @@ import '@elvia/elvis-slider';
 import '@elvia/elvis-spotlight';
 import '@elvia/elvis-tabs';
 import '@elvia/elvis-timepicker';
+import '@elvia/elvis-tooltip';
 
 createApp(App).use(router).mount('#app');

@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "06.10.22",
+      "version": "5.1.7",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Popover breaks screen readers on Safari on iOS and Mac."]
+        }
+      ]
+    },
+    {
       "date": "28.09.22",
       "version": "5.1.6",
       "changelog": [

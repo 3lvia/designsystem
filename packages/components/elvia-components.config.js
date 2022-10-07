@@ -311,6 +311,24 @@ module.exports = [
     reactTypescriptDeclaration: true,
   },
   {
+    name: 'elvis-header',
+    elementName: 'elvia-header',
+    attributes: [
+      { name: 'appTitle', type: 'string', propType: 'string' },
+      { name: 'pageTitle', type: 'string', propType: 'string | HTMLElement' },
+      { name: 'navItems', type: 'string', propType: 'string | HTMLElement' },
+      { name: 'username', type: 'string', propType: 'string' },
+      { name: 'email', type: 'string', propType: 'string' },
+      { name: 'appContent', type: 'string', propType: 'string | HTMLElement' },
+      { name: 'className', type: 'string', propType: 'string | undefined' },
+      { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
+    ],
+    reactName: 'Header',
+    slotItems: true,
+    useWrapper: true,
+    reactTypescriptDeclaration: true,
+  },
+  {
     name: 'elvis-icon',
     elementName: 'elvia-icon',
     attributes: [
@@ -470,7 +488,9 @@ module.exports = [
     elementName: 'elvia-spotlight',
     attributes: [
       { name: 'position', type: 'object', propType: 'object' },
+      { name: 'shape', type: 'string', propType: 'string' },
       { name: 'radius', type: 'number', propType: 'number' },
+      { name: 'rectangleProps', type: 'object', propType: 'object' },
       { name: 'hasLockBodyScroll', type: 'boolean', propType: 'boolean' },
       { name: 'transitionDuration', type: 'string', propType: 'boolean' },
       { name: 'className', type: 'string', propType: 'string | undefined' },

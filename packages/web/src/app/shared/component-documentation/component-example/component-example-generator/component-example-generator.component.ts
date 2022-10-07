@@ -81,6 +81,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   defaultBg: string;
 
   topFilterFormStates: { [key: string]: string } = {};
+  sideFilterFormStates: { [key: string]: string | number | boolean } = {};
 
   constructor(
     private cegService: ExampleCodeService,
@@ -226,20 +227,28 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
    * @param event Contains the name of the prop changed and its new value, or whether to turn on or off the `cegDefault`.
    */
   updateSideFilter(event: CegSideFilterEvent): void {
+    this.sideFilterFormStates[event.name] = event.value;
     const propName = event.name.toLowerCase();
     if (propName in this.customTextProps) {
-      this.customTextProps[propName].active = !this.customTextProps[propName].active;
+      this.customTextProps[propName].active = this.customTextPropShouldBeVisible(propName);
 
       // Reset value to default
-      let componentData: ComponentData;
-      if (this.typesData) {
-        const selectedTypeIndex = this.typeOptions.find((option) => option.label === this.selectedType).value;
-        componentData = this.typesData[selectedTypeIndex];
-      } else {
-        componentData = this.componentData;
-      }
+      const componentData = this.getComponentDataForCurrentType();
       this.customTextProps[propName].value = componentData.attributes[propName].cegDefault;
+    } else {
+      Object.keys(this.customTextProps).forEach((key) => {
+        this.componentData.attributes[key].cegDependency?.forEach((dependency) => {
+          if (dependency.name === event.name) {
+            if (dependency.value.includes(event.value.toString())) {
+              this.customTextProps[key].active = this.customTextPropShouldBeVisible(key);
+            } else {
+              this.customTextProps[key].active = false;
+            }
+          }
+        });
+      });
     }
+    this.updateCustomTextVisibility();
   }
 
   /**
@@ -282,33 +291,28 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     return propName.replace(/([a-z])([A-Z])/g, '$1 $2');
   }
 
-  updateCustomTextVisibility(): void {
-    Object.keys(this.componentData.attributes).forEach((attribute) => {
-      if (this.componentData.attributes[attribute].cegFormType === 'custom-text') {
-        this.showCustomTextPopover = this.isCustomTextVisible(this.componentData.attributes[attribute]);
-        if (!this.showCustomTextPopover) {
-          this.removeAllCustomTextProps();
-        } else {
-          this.updateCustomTextProps();
-        }
-      }
-    });
-  }
-
-  isCustomTextVisible(attributeData: AttributeType): boolean {
-    let isCustomTextVisible = false;
-    if (attributeData.cegDependency) {
-      attributeData.cegDependency.forEach((dependency) => {
-        if (dependency.value.includes(this.topFilterFormStates[dependency.name])) {
-          isCustomTextVisible = true;
-        } else {
-          isCustomTextVisible = false;
-        }
-      });
-    } else {
-      isCustomTextVisible = true;
+  /**
+   * Updates the *Customize text*-popover by checking if any of the `custom-text`-attributes
+   * have their dependencies met.
+   *
+   * Will set the `this.showCustomTextPopover`-variable to `true` if any of the `custom-text`-attributes
+   * are visible, and update the code in the CEG.
+   */
+  private updateCustomTextVisibility(): void {
+    const componentData = this.getComponentDataForCurrentType();
+    if (!componentData.attributes) {
+      this.showCustomTextPopover = false;
+      return;
     }
-    return isCustomTextVisible;
+
+    this.showCustomTextPopover = Object.keys(componentData.attributes)
+      .filter((attribute) => componentData.attributes[attribute].cegFormType === 'custom-text')
+      .some((attribute) => this.customTextPropShouldBeVisible(attribute));
+    if (!this.showCustomTextPopover) {
+      this.removeAllCustomTextProps();
+    } else {
+      this.updateCustomTextProps();
+    }
   }
 
   /**
@@ -317,36 +321,68 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
    * If `typesData` is provided, it will use attribute information from there instead (see `card-simple-code.ts` and `card-detail-code.ts`, or `popover-informative-code.ts`, for examples).
    */
   private initializeCustomTextProps(): void {
-    let componentData: ComponentData;
-    if (this.typesData) {
-      const selectedTypeIndex = this.typeOptions.find((option) => option.label === this.selectedType).value;
-      componentData = this.typesData[selectedTypeIndex];
-    } else {
-      componentData = this.componentData;
-    }
-
+    const componentData = this.getComponentDataForCurrentType();
     if (!componentData.attributes) {
       this.showCustomTextPopover = false;
       return;
     }
 
     this.customTextProps = {};
-    let isCustomTextVisible = false;
     Object.entries(componentData.attributes).forEach(([attribute, attributeData]) => {
       if (attributeData.cegFormType === 'custom-text') {
-        isCustomTextVisible = this.isCustomTextVisible(attributeData);
         this.customTextProps[attribute] = {
           value: attributeData.cegDefault ?? '',
           type: attributeData.cegCustomTextType ?? 'input',
-          active: true,
+          active: this.customTextPropShouldBeVisible(attribute),
         };
       }
     });
     setTimeout(() => {
-      this.updateCustomTextProps();
+      this.updateCustomTextVisibility();
     });
     this.hasCustomTextProps = Object.keys(this.customTextProps).length > 0;
-    this.showCustomTextPopover = isCustomTextVisible;
+  }
+
+  /**
+   * Checks if a props `cegDependency`-values are met.
+   * @param propName The name of the prop to check.
+   * @returns Whether the `cegDependency`-values are met (i.e. whether the prop should be visible in the customize text-popover).
+   * @modifies `this.customTextProps[propName].active` will be set to the same value as the return value.
+   */
+  private customTextPropShouldBeVisible(propName: string): boolean {
+    const componentData = this.getComponentDataForCurrentType();
+    if (!(componentData.attributes && componentData.attributes[propName])) {
+      return false;
+    }
+
+    // Type "toggle" should turn on or off a custom text prop's visibility in the popover
+    if (this.componentData.attributes[propName].cegFormType === 'toggle') {
+      // cast the side filter state to boolean (could be string or boolean)
+      const newValue = this.sideFilterFormStates[propName].toString().toLowerCase() === 'true';
+      if (this.customTextProps[propName]) {
+        this.customTextProps[propName].active = newValue;
+      }
+      return newValue;
+    }
+
+    if (componentData.attributes[propName].cegDependency) {
+      for (const dependency of componentData.attributes[propName].cegDependency) {
+        if (
+          !dependency.value.includes(this.topFilterFormStates[dependency.name]) &&
+          !dependency.value.includes(this.sideFilterFormStates[dependency.name]?.toString())
+        ) {
+          if (this.customTextProps[propName]) {
+            this.customTextProps[propName].active = false;
+          }
+          return false;
+        }
+      }
+    }
+
+    if (this.customTextProps[propName]) {
+      this.customTextProps[propName].active = true;
+    }
+    return true;
   }
 
   /**
@@ -454,6 +490,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       }
     });
     this.initializeCheckboxFormGroups(checkboxIndex);
+    this.initializeSideFilterFormStates();
   }
 
   /**
@@ -484,6 +521,47 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       checkboxList.push(checkboxFormGroupOption);
     });
     this.formGroupList.splice(checkboxIndex, 0, ...checkboxList);
+  }
+
+  /**
+   * Initializes an object `this.sideFilterFormStates` that contains the form states for the CEG side filters.
+   * The object is updated by an event from the `ceg-filters`-component.
+   *
+   * **NB**: Changing the object will **not** update the form states.
+   */
+  private initializeSideFilterFormStates(): void {
+    this.formGroupList.forEach((formGroup) => {
+      if (formGroup.formType === 'radio') {
+        formGroup.formGroupOptions.forEach((option) => {
+          if (option.defaultValue) {
+            this.sideFilterFormStates[formGroup.propName] = option.name;
+          }
+        });
+      } else if (formGroup.formType === 'checkbox') {
+        formGroup.formGroupOptions.forEach((option) => {
+          this.sideFilterFormStates[option.propName] = option.defaultValue;
+        });
+      } else if (formGroup.formType === 'toggle') {
+        this.sideFilterFormStates[formGroup.propName] = formGroup.defaultValue;
+      } else if (formGroup.formType === 'counter') {
+        this.sideFilterFormStates[formGroup.propName] = formGroup.defaultValue;
+      }
+    });
+  }
+
+  /**
+   *
+   * @returns An object containing the component's `ComponentData`, or `ComponentTypeData` if using separate component data for each component type.
+   */
+  private getComponentDataForCurrentType(): ComponentData | ComponentTypeData {
+    if (this.typesData) {
+      const selectedTypeIndex = (
+        this.typeOptions.find((option) => option.label === this.selectedType) ?? this.typeOptions[0]
+      ).value;
+      return this.typesData[selectedTypeIndex];
+    } else {
+      return this.componentData;
+    }
   }
 
   private initializeTopFilters(): void {
