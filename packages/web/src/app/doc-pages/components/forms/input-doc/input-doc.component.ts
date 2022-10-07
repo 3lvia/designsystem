@@ -83,20 +83,20 @@ export class InputDocComponent {
 `;
 
   example4 = ` <div class="e-form-field">
-  <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
+  <label class="e-form-field__label" for="validationExample">Invalid input field with error-message</label>
   <div class="e-input e-input---invalid">
     <button class="e-btn e-btn--icon" (click)="showMockPassword()" aria-label="Vis/skjul passord">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--view_on"  aria-hidden="true"></i>
       </span>
     </button>
-    <input id="validationExample" type="password" value="Passord" required invalid #validationExample />
+    <input id="validationExample" type="password" value="Passord" required invalid #validationExample aria-invalid="true" aria-errormessage="error-message-example"/>
   </div>
   <span class="e-form-field__error e-form-field__error--visible">
     <span>
       <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"  aria-hidden="true"></i>
     </span>
-    <span>Passord må inneholde både bokstaver og tall</span>
+    <span id="error-message-example">Passord må inneholde både bokstaver og tall</span>
   </span>
 </div>
 `;
