@@ -183,9 +183,9 @@
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Patterns'">
         <ng-container ngProjectAs="sectionContent">
-          Read more about how to use different forms and patterns in forms
-          <a class="e-link e-link--inline" [routerLink]="['/patterns/forms']">here</a>
-          .
+          Read more about how to use different forms and patterns in forms on our
+          <a class="e-link e-link--inline" [routerLink]="['/patterns/forms']">forms</a>
+          page.
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -212,8 +212,26 @@
           , or
           <span class="code-text">invalid</span>
           .
+
+          <p>
+            During a
+            <span class="code-text">invalid</span>
+            state, ensure to set
+            <span class="code-text">aria-invalid</span>
+            to
+            <span class="code-text">true</span>
+            and set the
+            <span class="code-text">aria-errormessage</span>
+            attribute to the
+            <span class="code-text">id</span>
+            of the element containing the error message text for that input. When
+            <span class="code-text">aria-errormessage</span>
+            is used, the element it refers to must be visible in order for users to see or hear the error
+            message.
+          </p>
         </ng-container>
       </app-component-subsection>
+
       <app-component-subsection [sectionTitle]="'Validation'">
         <ng-container ngProjectAs="sectionContent">
           Remember to add validation classes to help users understand what needs to be corrected.
