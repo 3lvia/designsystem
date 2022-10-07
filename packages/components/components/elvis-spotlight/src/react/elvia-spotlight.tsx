@@ -17,7 +17,7 @@ export interface SpotlightRectangleProps {
 
 export interface SpotlightProps {
   position: SpotlightPosition | undefined;
-  shape: SpotlightShape;
+  shape?: SpotlightShape;
   radius?: number;
   rectangleProps?: SpotlightRectangleProps;
   hasLockBodyScroll?: boolean;
