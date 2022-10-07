@@ -6,10 +6,13 @@
       <!--Normal version-->
       <div>
         <!-- <elvia-segmented-control
-          :items="['Weekly', 'Monthly', 'Yearly']"
+          :items='[{name: "Weekly"}, {name: "Monthly"}, {name: "Yearly"}]'
           @value-on-change="logValue('Segmented', $event.detail.value)"
         ></elvia-segmented-control> -->
-        <elvia-segmented-control items='["Weekly", "Monthly", "Yearly"]'></elvia-segmented-control>
+        <elvia-segmented-control
+          :items="[{ name: 'Weekly' }, { name: 'Monthly' }, { name: 'Yearly' }]"
+          @value-on-change="logValue('Segmented', $event.detail.value)"
+        ></elvia-segmented-control>
       </div>
       <!--Inverted version-->
       <div class="e-bg-grey"></div>
@@ -180,7 +183,7 @@
     <!--Radio filter-->
     <div class="example-wrapper">
       <h3>Radio Filter</h3>
-      <elvia-radio-filter
+      <!-- <elvia-radio-filter
         :items="[
           { label: 'All', value: 'all' },
           { label: 'Read', value: 'read' },
@@ -189,7 +192,7 @@
         :value="'read'"
         :name="'readRadioFilters'"
         :ariaLabel="'{value} filtrering valgt'"
-      ></elvia-radio-filter>
+      ></elvia-radio-filter> -->
     </div>
 
     <!--Spotlight-->

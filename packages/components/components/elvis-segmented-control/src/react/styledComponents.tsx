@@ -66,6 +66,11 @@ const getControlBorder = (scType: string, isSelected: boolean, isHovering?: bool
   }
 };
 
+// const ee = (widthOfContainer: number): number => {
+//   console.log('Hei: ', widthOfContainer);
+//   return widthOfContainer;
+// };
+
 export const SegmentedControlContainer = styled.div<SegmentedControlContainerProps>`
   display: grid;
   grid-auto-columns: 1fr;
@@ -90,7 +95,7 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
         left: ${(props.widthOfContainer / props.numberOfControls) * props.selectedIndex + 'px'};
         border-radius: 100px;
         background-color: ${colors.elviaBlack};
-        transition: all 250ms ${controlAnimation};
+        transition: left 250ms ${controlAnimation};
       }
     `}
 `;

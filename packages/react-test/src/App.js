@@ -128,7 +128,7 @@ function App() {
               {/* Normal version */}
               <div className="e-bg-white">
                 <SegmentedControl
-                  items={['Different', 'Length', 'Woords']}
+                  items={[{ name: 'Different' }, { name: 'Length' }, { name: 'Woords' }]}
                   size={'medium'}
                   value={0}
                   valueOnChange={(value) => console.log(value)}
@@ -136,7 +136,7 @@ function App() {
                 <div className="e-mt-8">
                   <SegmentedControl
                     type="icon"
-                    items={['thumbnail', 'list']}
+                    items={[{ name: 'thumbnail' }, { name: 'list' }]}
                     size={'large'}
                     value={0}
                     valueOnChange={(value) => console.log(value)}
