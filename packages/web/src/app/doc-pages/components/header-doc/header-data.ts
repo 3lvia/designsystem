@@ -88,23 +88,23 @@ export const headerData: ComponentData = {
     </h1>
   }
   navItems={
-    <Link to="/" class="e-sidenav__item e-sidenav__item--active">
+    <Link to="/" class="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
       <div class="e-sidenav__icon-container">
         <elvia-icon name="dashboard" size="sm"></elvia-icon>
       </div>
-      Dashbord
+      <div class="e-sidenav__item-text">Dashbord</div>
     </Link>
-    <Link to="/search" class="e-sidenav__item">
+    <Link to="/search" class="e-sidenav__item" aria-label="Søk">
       <div class="e-sidenav__icon-container">
         <elvia-icon name="search" size="sm"></elvia-icon>
       </div>
-      Søk
+      <div class="e-sidenav__item-text">Søk</div>
     </Link>
-    <Link to="/pin" class="e-sidenav__item">
+    <Link to="/pin" class="e-sidenav__item" aria-label="Analyse">
       <div class="e-sidenav__icon-container">
         <elvia-icon name="pin" size="sm"></elvia-icon>
       </div>
-      Analyse
+      <div class="e-sidenav__item-text">Analyse</div>
     </Link>
   }
 ></Header>`,
@@ -116,23 +116,23 @@ export const headerData: ComponentData = {
     </h1>
   </div>
   <div slot="navItems" class="e-sidenav__container">
-    <a routerLink="/" class="e-sidenav__item e-sidenav__item--active">
+    <a routerLink="/" class="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
       <div class="e-sidenav__icon-container">
         <elvia-icon name="dashboard" size="sm"></elvia-icon>
       </div>
-      Dashbord
+      <div class="e-sidenav__item-text">Dashbord</div>
     </a>
-    <a routerLink="/search" class="e-sidenav__item">
+    <a routerLink="/search" class="e-sidenav__item" aria-label="Søk">
       <div class="e-sidenav__icon-container">
         <elvia-icon name="search" size="sm"></elvia-icon>
       </div>
-      Søk
+      <div class="e-sidenav__item-text">Søk</div>
     </a>
-    <a routerLink="/pin" class="e-sidenav__item">
+    <a routerLink="/pin" class="e-sidenav__item" aria-label="Analyse">
       <div class="e-sidenav__icon-container">
         <elvia-icon name="pin" size="sm"></elvia-icon>
       </div>
-      Analyse
+      <div class="e-sidenav__item-text">Analyse</div>
     </a>
   </div>
 </elvia-header>`,
@@ -144,23 +144,23 @@ export const headerData: ComponentData = {
     </h1>
   </div>
   <div slot="navItems" class="e-sidenav__container">
-    <router-link to="/" class="e-sidenav__item e-sidenav__item--active">
+    <router-link to="/" class="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
       <div class="e-sidenav__icon-container">
         <elvia-icon name="dashboard" size="sm"></elvia-icon>
       </div>
-      Dashbord
+      <div class="e-sidenav__item-text">Dashbord</div>
     </router-link>
-    <router-link to="/search" class="e-sidenav__item">
+    <router-link to="/search" class="e-sidenav__item" aria-label="Søk">
       <div class="e-sidenav__icon-container">
         <elvia-icon name="search" size="sm"></elvia-icon>
       </div>
-      Søk
+      <div class="e-sidenav__item-text">Søk</div>
     </router-link>
-    <router-link to="/pin" class="e-sidenav__item">
+    <router-link to="/pin" class="e-sidenav__item" aria-label="Analyse">
       <div class="e-sidenav__icon-container">
         <elvia-icon name="pin" size="sm"></elvia-icon>
       </div>
-      Analyse
+      <div class="e-sidenav__item-text">Analyse</div>
     </router-link>
   </div>
 </elvia-header>`,
@@ -171,23 +171,23 @@ export const headerData: ComponentData = {
   id="internal-header"
 >
   <div slot="navItems" class="e-sidenav__container">
-    <a href="#" class="e-sidenav__item e-sidenav__item--active">
+    <a href="#" class="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
       <div class="e-sidenav__icon-container">
         <elvia-icon name="dashboard" size="sm"></elvia-icon>
       </div>
-      Dashbord
+      <div class="e-sidenav__item-text">Dashbord</div>
     </a>
-    <a href="#" class="e-sidenav__item">
+    <a href="#" class="e-sidenav__item" aria-label="Søk">
       <div class="e-sidenav__icon-container">
         <elvia-icon name="search" size="sm"></elvia-icon>
       </div>
-      Søk
+      <div class="e-sidenav__item-text">Søk</div>
     </a>
-    <a href="#" class="e-sidenav__item">
+    <a href="#" class="e-sidenav__item" aria-label="Analyse">
       <div class="e-sidenav__icon-container">
         <elvia-icon name="pin" size="sm"></elvia-icon>
       </div>
-      Analyse
+      <div class="e-sidenav__item-text">Analyse</div>
     </a>
   </div>
 </elvia-header>`,
