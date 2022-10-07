@@ -7,13 +7,13 @@ Available typography reflect the typography classes availabe at
 
 ### Recommended @Use
 
-Insert at top of your scss file :<br>
+Insert at top of your SCSS file:<br>
 
 ```scss
 @use '@elvia/elvis-typography/src/elviaTypography.scss';
 ```
 
-Remember to also import the correct typographies from the Google font api. If you are using the @elvia/elvis
+Remember to also import the correct typographies from the Google Fonts API. If you are using the @elvia/elvis
 package you don't have to do this, because they are already imported there.
 
 ```scss
@@ -33,7 +33,7 @@ const typography = getTypography('text-md');
 ```
 
 It is also possible to use the function `getTypographyCss()`. It takes the name of the requested typography as
-input, and returns a string containing all the css for the typography, including a breakpoint for mobile font
+input, and returns a string containing all the CSS for the typography, including a breakpoint for mobile font
 properties if there are any.
 
 ```js
