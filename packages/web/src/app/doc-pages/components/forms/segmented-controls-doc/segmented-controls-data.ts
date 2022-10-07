@@ -8,9 +8,9 @@ export const segmentedControlData: ComponentData = {
   attributes: {
     items: {
       isRequired: true,
-      type: 'string | IconName ',
+      type: 'SegmentedControl: {name: string | IconName, ariaLabel?: string}',
       description:
-        'The items represents the controls in the segmented control. When using the icon type, the items should be provided as an IconName e.g. "thumbnail"',
+        'The items represents the controls in the segmented control. When using the icon type, the items should be provided as an IconName e.g. "thumbnail" and should have an ariaLabel to describe the icon.',
     },
     value: {
       isRequired: false,

@@ -2,11 +2,19 @@ import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { CSSProperties } from 'react';
 import { IconName } from '@elvia/elvis-assets-icons';
 
+export type Type = 'text' | 'icon';
+export type Size = 'large' | 'medium' | 'small';
+
+export interface SegmentedControl {
+  name: string | IconName;
+  ariaLabel?: string;
+}
+
 export interface SegmentedControlProps {
-  items: string[] | IconName[];
+  items: SegmentedControl[];
   value?: number;
-  type?: 'text' | 'icon';
-  size?: 'large' | 'medium' | 'small';
+  type?: Type;
+  size?: Size;
   valueOnChange?: (value: number) => void;
   className?: string;
   inlineStyle?: CSSProperties;

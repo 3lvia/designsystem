@@ -6,12 +6,15 @@
     <!--Normal version-->
     <div class="e-bg-white">
       <elvia-segmented-control
-        [items]="['Different', 'Length', 'Woords']"
+        [items]="[{ name: 'Different' }, { name: 'Length' }, { name: 'Woords' }]"
         (valueOnChange)="logValue('Segmented', $event.detail.value)"
       ></elvia-segmented-control>
       <elvia-segmented-control
         [type]="'icon'"
-        [items]="['thumbnail', 'list']"
+        [items]="[
+          { name: 'thumbnail', ariaLabel: 'Helo' },
+          { name: 'list', ariaLabel: 'HEElo' }
+        ]"
         (valueOnChange)="logValue('Segmented', $event.detail.value)"
       ></elvia-segmented-control>
     </div>

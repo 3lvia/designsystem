@@ -53,19 +53,20 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
           size={size}
           isSelected={index === selectedIndex}
           key={index}
-          htmlFor={control + index}
+          htmlFor={control.name + index}
+          aria-label={type === 'icon' ? control.ariaLabel : ''}
         >
           <SegmentedControlInput
             type="radio"
-            id={control + index}
+            id={control.name + index}
             name={segmentedControlName}
             checked={index === selectedIndex}
             onChange={() => setSelected(index)}
           ></SegmentedControlInput>
-          {type === 'text' && control}
+          {type === 'text' && control.name}
           {type === 'icon' && (
             <Icon
-              name={(index === selectedIndex ? control + 'Color' : control) as IconName}
+              name={(index === selectedIndex ? control.name + 'Color' : control.name) as IconName}
               size={size === 'large' ? 'sm' : 'xs'}
             />
           )}
