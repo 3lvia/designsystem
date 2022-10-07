@@ -87,7 +87,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const [selectedDateRange, setSelectedDateRange] = useState(value ?? emptyDateRange);
   const [endDatepickerIsOpen, setEndDatepickerIsOpen] = useState(false);
   const [isRequiredState, setIsRequiredState] = useState<IsRequired>();
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(0);
   const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>(emptyErrorMessage);
 
   useEffect(() => {
@@ -99,7 +99,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     return () => {
       window.removeEventListener('resize', getWindowDimensions);
     };
-  });
+  }, []);
 
   useEffect(() => {
     if (typeof isRequired === 'boolean') {

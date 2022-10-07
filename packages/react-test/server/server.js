@@ -3,7 +3,8 @@ import fs from 'fs';
 import path from 'path';
 
 import React from 'react';
-import ReactDOMServer from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
+import { ServerStyleSheet } from 'styled-components';
 
 import App from '../src/App';
 
@@ -11,15 +12,30 @@ const PORT = 8000;
 
 const app = express();
 
-app.use('^/$', (req, res, next) => {
+app.get('/', (_req, res) => {
   fs.readFile(path.resolve('./build/index.html'), 'utf-8', (err, data) => {
     if (err) {
       console.log(err);
       return res.status(500).send('Some error happened');
     }
-    return res.send(
-      data.replace('<div id="root"></div>', `<div id="root">${ReactDOMServer.renderToString(<App />)}</div>`),
-    );
+
+    const sheet = new ServerStyleSheet();
+    try {
+      const html = renderToString(sheet.collectStyles(<App />));
+      const style = sheet.getStyleTags();
+      console.log('style', style);
+
+      return res.send(
+        data
+          .replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+          .replace('<style id="scroot"></style>', style),
+      );
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send('Some error happened');
+    } finally {
+      sheet.seal();
+    }
   });
 });
 

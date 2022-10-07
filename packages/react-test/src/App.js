@@ -102,7 +102,7 @@ function App() {
   // Spotlight
   const [spotlightIsShowing, setSpotlightIsShowing] = useState(false);
   const [spotlightState, setSpotlightState] = useState({
-    pos: { vertical: window.innerWidth / 2 - 200, horizontal: window.innerHeight / 2 + 200 },
+    pos: { vertical: 100, horizontal: 100 },
     size: 100,
   });
 
@@ -381,7 +381,11 @@ function App() {
             <div className="example-wrapper">
               <h3>Spotlight</h3>
               {spotlightIsShowing && (
-                <Spotlight position={spotlightState.pos} radius={spotlightState.size}></Spotlight>
+                <Spotlight
+                  shape="circle"
+                  position={spotlightState.pos}
+                  radius={spotlightState.size}
+                ></Spotlight>
               )}
               <button
                 onClick={() => setSpotlightIsShowing((prevVal) => !prevVal)}

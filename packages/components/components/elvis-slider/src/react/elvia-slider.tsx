@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useLayoutEffect, useMemo } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { isSsr } from '@elvia/elvis-toolbox';
 import {
   Extremum,
@@ -134,47 +134,51 @@ const Slider: React.FC<SliderProps> = ({
   }
 
   /* measuring DOM elements */
-  const resizeObserver = new ResizeObserver(() => {
-    if (sliderRef.current !== null) {
-      setSliderWidth(sliderRef.current.offsetWidth);
-    }
+  const [resizeObserver] = useState(() => {
+    if (isSsr()) return null;
 
-    if (
-      leftHelpTextRef.current !== null &&
-      rightHelpTextRef.current !== null &&
-      leftTextInputRef.current !== null &&
-      sliderRef.current !== null
-    ) {
-      const total = Math.ceil(
-        leftHelpTextRef.current.offsetWidth +
-          rightHelpTextRef.current.offsetWidth +
-          leftTextInputRef.current.offsetWidth +
-          2 * 8, // 2 * 4px for Grid gap
-      );
+    return new ResizeObserver(() => {
+      if (sliderRef.current !== null) {
+        setSliderWidth(sliderRef.current.offsetWidth);
+      }
 
-      setNumberInputFieldContainerWidth(total);
-    }
+      if (
+        leftHelpTextRef.current !== null &&
+        rightHelpTextRef.current !== null &&
+        leftTextInputRef.current !== null &&
+        sliderRef.current !== null
+      ) {
+        const total = Math.ceil(
+          leftHelpTextRef.current.offsetWidth +
+            rightHelpTextRef.current.offsetWidth +
+            leftTextInputRef.current.offsetWidth +
+            2 * 8, // 2 * 4px for Grid gap
+        );
+
+        setNumberInputFieldContainerWidth(total);
+      }
+    });
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (sliderRef.current !== null) {
-      resizeObserver.observe(sliderRef.current);
+      resizeObserver !== null && resizeObserver.observe(sliderRef.current);
     }
 
     if (leftHelpTextRef.current !== null) {
-      resizeObserver.observe(leftHelpTextRef.current);
+      resizeObserver !== null && resizeObserver.observe(leftHelpTextRef.current);
     }
 
     if (rightHelpTextRef.current !== null) {
-      resizeObserver.observe(rightHelpTextRef.current);
+      resizeObserver !== null && resizeObserver.observe(rightHelpTextRef.current);
     }
 
     if (leftTextInputRef.current !== null) {
-      resizeObserver.observe(leftTextInputRef.current);
+      resizeObserver !== null && resizeObserver.observe(leftTextInputRef.current);
     }
 
     return function cleanup() {
-      resizeObserver.disconnect();
+      resizeObserver !== null && resizeObserver.disconnect();
     };
   }, [sliderRef.current, leftHelpTextRef.current, rightHelpTextRef.current, leftTextInputRef.current]);
 

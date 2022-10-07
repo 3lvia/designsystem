@@ -24,7 +24,7 @@ export interface PaginationProps {
   lastNumberLimit?: number;
   alignment?: 'left' | 'right';
   dropdownItems?: DropdownItem[];
-  dropdownMenuPosition?: string;
+  dropdownMenuPosition?: 'top' | 'bottom' | 'auto';
   dropdownSelectedItemIndex?: number;
   dropdownSelectedItemIndexOnChange?: (value: number) => void;
   labelOptions?: PaginationLabel;
@@ -133,7 +133,7 @@ const Pagination: FC<PaginationProps> = function ({
   const [numberOfPages, setNumberOfPages] = useState(
     Math.ceil(numberOfElements / parseInt(selectedDropdownValue.value)),
   );
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(0);
   const [labelOptionsState, setLabelOptionsState] = useState<PaginationLabel>({
     ...defaultLabelOptions,
     ...labelOptions,

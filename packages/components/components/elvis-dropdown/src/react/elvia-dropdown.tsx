@@ -711,7 +711,10 @@ const Dropdown: React.FC<DropdownProps> = function ({
     () =>
       createCache({
         key: 'elvia-dropdown',
-        nonce: window && (window as any).__webpack_nonce__ ? (window as any).__webpack_nonce__ : '',
+        nonce:
+          typeof window !== 'undefined' && (window as any).__webpack_nonce__
+            ? (window as any).__webpack_nonce__
+            : '',
         prepend: true,
       }),
     [],
