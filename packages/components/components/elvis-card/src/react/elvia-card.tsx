@@ -1,6 +1,6 @@
 import React, { FC, useRef, useEffect, useState, CSSProperties } from 'react';
 import { Icon } from '@elvia/elvis-icon/react';
-import { CardType, BorderColor } from './elvia-card.types';
+import { CardType, BorderColor, HeadingLevel } from './elvia-card.types';
 import {
   CardArea,
   CardContent,
@@ -27,6 +27,7 @@ export interface CardProps {
    */
   header?: never;
   heading?: string;
+  headingLevel?: HeadingLevel;
   description?: string;
   borderColor?: BorderColor;
   type?: CardType;
@@ -55,6 +56,7 @@ const Card: FC<CardProps> = function ({
   icon,
   iconHover,
   heading,
+  headingLevel = 'h3',
   description,
   borderColor,
   type = 'simple',
@@ -165,7 +167,7 @@ const Card: FC<CardProps> = function ({
           <CardHeadingContainer>
             <Tooltip
               trigger={
-                <CardHeading ref={headingRef} type={type} data-testid="card-heading">
+                <CardHeading as={headingLevel} ref={headingRef} type={type} data-testid="card-heading">
                   {heading}
                 </CardHeading>
               }
