@@ -3,12 +3,12 @@
   "content": [
     {
       "date": "10.10.22",
-      "version": "2.1.4",
+      "version": "2.1.5",
       "changelog": [
         {
           "type": "patch",
           "changes": [
-            "Fixed a bug where the different types of headings would shift the carousel up and down due to inconsistent padding"
+            "Fixed a visual bug where the different types of headings would shift the carousel up and down due to inconsistent padding."
           ]
         }
       ]
