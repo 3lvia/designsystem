@@ -4,5 +4,8 @@
   "description": "",
   "license": "MIT",
   "author": "",
-  "main": "./dist/index.js"
+  "main": "./dist/index.js",
+  "dependencies": {
+    "tslib": "^2.4.0"
+  }
 }
