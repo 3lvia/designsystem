@@ -1,27 +1,19 @@
 <h1>Angular Preview</h1>
-
 <div class="components-examples">
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <!-- <elvia-segmented-control
-        [items]="['thumbnail', 'list']"
-        value="1"
+      <elvia-segmented-control
+        [items]="['Different', 'Length', 'Woords']"
         (valueOnChange)="logValue('Segmented', $event.detail.value)"
       ></elvia-segmented-control>
       <elvia-segmented-control
         [type]="'icon'"
         [items]="['thumbnail', 'list']"
-        value="1"
         (valueOnChange)="logValue('Segmented', $event.detail.value)"
-      ></elvia-segmented-control> -->
-      <!-- <elvia-segmented-control
-        items="['thumbnail', 'list']"
-        id="example-elvia-segmented-control"
-        value="1"
-      ></elvia-segmented-control> -->
+      ></elvia-segmented-control>
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
@@ -324,6 +316,17 @@
       [name]="'readRadioFilters'"
       [ariaLabel]="'{value} filtrering valgt'"
     ></elvia-radio-filter>
+  </div>
+
+  <!--Segmented control-->
+  <div class="example-wrapper">
+    <h3>Segmented control</h3>
+    <!-- <elvia-segmented-control
+      [type]="'icon'"
+      [items]="['thumbnail', 'list']"
+      value="1"
+      (valueOnChange)="logValue('Segmented', $event.detail.value)"
+    ></elvia-segmented-control> -->
   </div>
 
   <!--Slider-->

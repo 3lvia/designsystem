@@ -463,7 +463,7 @@ module.exports = [
     name: 'elvis-segmented-control',
     elementName: 'elvia-segmented-control',
     attributes: [
-      { name: 'items', type: 'string', propType: 'object' },
+      { name: 'items', type: 'object', propType: 'object' },
       { name: 'value', type: 'number', propType: 'number | undefined' },
       { name: 'type', type: 'string', propType: 'string | undefined' },
       { name: 'size', type: 'string', propType: 'string | undefined' },

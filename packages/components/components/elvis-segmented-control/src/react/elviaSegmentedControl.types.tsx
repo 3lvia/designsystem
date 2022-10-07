@@ -18,12 +18,12 @@ export interface SegmentedControlContainerProps {
   scType: string;
   size: string;
   selectedIndex: number;
-  maxLengthOfLabel: number;
+  widthOfContainer: number;
+  numberOfControls: number;
 }
 
-export interface SegmentedControlRadioProps {
+export interface SegmentedControlLabelProps {
   scType: string;
   size: string;
   isSelected: boolean;
-  maxLengthOfLabel: number;
 }

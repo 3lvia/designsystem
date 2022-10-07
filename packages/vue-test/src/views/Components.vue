@@ -4,7 +4,13 @@
       <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
       <h3>Test your component here</h3>
       <!--Normal version-->
-      <div class="e-bg-white"></div>
+      <div>
+        <!-- <elvia-segmented-control
+          :items="['Weekly', 'Monthly', 'Yearly']"
+          @value-on-change="logValue('Segmented', $event.detail.value)"
+        ></elvia-segmented-control> -->
+        <elvia-segmented-control items='["Weekly", "Monthly", "Yearly"]'></elvia-segmented-control>
+      </div>
       <!--Inverted version-->
       <div class="e-bg-grey"></div>
     </div>

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import { SegmentedControlContainerProps, SegmentedControlRadioProps } from './elviaSegmentedControl.types';
+import { SegmentedControlContainerProps, SegmentedControlLabelProps } from './elviaSegmentedControl.types';
 
 const colors = {
   elviaWhite: getColor('white'),
@@ -26,17 +26,7 @@ const fontSizeMedium = '14px';
 const fontSizeSmall = '14px';
 const controlAnimation = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
-const getVerticalSpacing = (size: string): number => {
-  if (size === 'large') {
-    return buttonPaddingXLarge * 2;
-  } else if (size === 'medium') {
-    return buttonPaddingXMedium * 2;
-  } else {
-    return buttonPaddingXSmall * 2;
-  }
-};
-
-const buttonPaddingget = (size: string, scType: string) => {
+const buttonPadding = (size: string, scType: string) => {
   if (scType === 'icon') {
     if (size === 'large') {
       return `${iconButtonPaddingLarge}px`;
@@ -66,23 +56,6 @@ const getFontSize = (size: string) => {
   }
 };
 
-const getControlWidth = (maxLengthOfLabel: number, size: string, scType: string): string => {
-  if (scType === 'icon') {
-    return 'content';
-  } else {
-    return `calc(${maxLengthOfLabel}ch + ${getVerticalSpacing(size)}px)`;
-  }
-};
-
-const getSelectedStartPos = (
-  maxLengthOfLabel: number,
-  size: string,
-  selectedIndex: number,
-  scType: string,
-): string => {
-  return `calc(${selectedIndex} * ${getControlWidth(maxLengthOfLabel, size, scType)})`;
-};
-
 const getControlBorder = (scType: string, isSelected: boolean, isHovering?: boolean): string => {
   if (scType === 'icon' && isSelected) {
     return 'inset 0 0 0 1px black';
@@ -94,27 +67,27 @@ const getControlBorder = (scType: string, isSelected: boolean, isHovering?: bool
 };
 
 export const SegmentedControlContainer = styled.div<SegmentedControlContainerProps>`
-  display: flex;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
   position: relative;
-  width: fit-content;
+  width: max-content;
   border: ${(props) => (props.scType === 'text' ? '1px solid black' : 'none')};
   border-radius: 100px;
   gap: ${(props) => (props.scType === 'text' ? '0' : '8px')};
+  background: ${colors.elviaWhite};
 
-  ${typography.textMedium}
-  font-size: ${(props) => getFontSize(props.size)};
-  text-align: center;
-
+  // Selected control background
   ${(props) =>
     props.scType === 'text' &&
     css`
       &::after {
-        position: absolute;
         content: '';
-        width: ${getControlWidth(props.maxLengthOfLabel, props.size, props.scType)};
+        position: absolute;
+        width: ${props.widthOfContainer / props.numberOfControls + 'px'};
         height: 100%;
         top: 0;
-        left: ${getSelectedStartPos(props.maxLengthOfLabel, props.size, props.selectedIndex, props.scType)};
+        left: ${(props.widthOfContainer / props.numberOfControls) * props.selectedIndex + 'px'};
         border-radius: 100px;
         background-color: ${colors.elviaBlack};
         transition: all 250ms ${controlAnimation};
@@ -122,15 +95,18 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
     `}
 `;
 
-export const SegmentedControlRadio = styled.label<SegmentedControlRadioProps>`
+export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   position: relative;
-  width: ${(props) => getControlWidth(props.maxLengthOfLabel, props.size, props.scType)};
+  white-space: nowrap;
   background-color: transparent;
-  padding: ${(props) => buttonPaddingget(props.size, props.scType)};
+  padding: ${(props) => buttonPadding(props.size, props.scType)};
   box-shadow: ${(props) => getControlBorder(props.scType, props.isSelected)};
   border-radius: 100px;
   z-index: 10;
 
+  ${typography.textMedium}
+  font-size: ${(props) => getFontSize(props.size)};
+  text-align: center;
   color: ${(props) => (props.isSelected ? colors.elviaWhite : colors.elviaBlack)};
   text-shadow: ${(props) => (props.isSelected ? '0 0 0 white, 0 0 0.5px white' : '0')};
   transition: color 300ms ${controlAnimation};

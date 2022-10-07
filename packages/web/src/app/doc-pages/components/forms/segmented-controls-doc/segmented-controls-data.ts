@@ -25,10 +25,6 @@ export const segmentedControlData: ComponentData = {
       type: '"text" | "icon" ',
       description: 'Type of the segmented control.',
       default: '"text"',
-      cegDefault: 0,
-      cegType: 'string',
-      cegFormType: 'type',
-      cegOptions: ['text', 'icon'],
     },
     size: {
       isRequired: false,
@@ -62,27 +58,12 @@ export const segmentedControlData: ComponentData = {
   codeImportReact: `import { SegmentedControl } from '@elvia/elvis-segmented-control/react';`,
   codeImportTypescriptInterface: `import { SegmentedControlProps } from '@elvia/elvis-segmented-control/react';`,
   codeImportWebComponent: `import '@elvia/elvis-segmented-control';`,
-  codeReact: `<SegmentedControl
-  items={['thumbnail', 'list']}
-  valueOnChange={(event) => handleOnChange(event)}
-></SegmentedControl>`,
-  codeAngular: `<elvia-segmented-control
-  [items]="['thumbnail', 'list']"
-  (valueOnChange)="handleOnChange($event.detail.value)"
-></elvia-segmented-control>`,
-  codeVue: `<elvia-segmented-control
-  :items="['thumbnail', 'list']"
-  @value-on-change="handleOnChange($event.detail.value)"
-></elvia-segmented-control>`,
-  codeNativeHTML: `<elvia-segmented-control
-  id="example-elvia-segmented-control"
-></elvia-segmented-control>`,
-  codeNativeScript: `  const segmentedControl = document.getElementById('example-elvia-segmented-control');
-  const items = ['thumbnail', 'list']
-  segmentedControl.setProps({items: items})
-  segmentedControl.addEventListener('valueOnChange', (event) => {
-    console.log(event.detail.value)
-  });
-`,
   changelog: changelogJson.content,
+
+  // Not used here, as there are separate files with code for each component type.
+  codeReact: ``,
+  codeAngular: ``,
+  codeVue: ``,
+  codeNativeHTML: ``,
+  codeNativeScript: ``,
 };

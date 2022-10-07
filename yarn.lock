@@ -29441,6 +29441,7 @@ __metadata:
     "@elvia/elvis-popover": "*"
     "@elvia/elvis-progress-linear": "*"
     "@elvia/elvis-radio-filter": "*"
+    "@elvia/elvis-segmented-control": "*"
     "@elvia/elvis-slider": "*"
     "@elvia/elvis-spotlight": "*"
     "@elvia/elvis-tabs": "*"

@@ -129,7 +129,7 @@ function App() {
               <div className="e-bg-white">
                 <SegmentedControl
                   items={['Different', 'Length', 'Woords']}
-                  size={'large'}
+                  size={'medium'}
                   value={0}
                   valueOnChange={(value) => console.log(value)}
                 ></SegmentedControl>
