@@ -153,7 +153,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
       );
     });
   };
-  let breadcrumb;
+  let breadcrumb: JSX.Element | JSX.Element[];
   if (windowWidth !== undefined) {
     breadcrumb = windowWidth < 768 ? MobileBreadcrumb() : DesktopBreadcrumb();
   } else {
