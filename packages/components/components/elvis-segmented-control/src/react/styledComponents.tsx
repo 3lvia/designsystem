@@ -75,7 +75,7 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
   border: ${(props) => (props.scType === 'text' ? '1px solid black' : 'none')};
   border-radius: 100px;
   gap: ${(props) => (props.scType === 'text' ? '0' : '8px')};
-  background: ${colors.elviaWhite};
+  background: ${(props) => (props.scType === 'text' ? colors.elviaWhite : 'transparent')};
 
   // Selected control background
   ${(props) =>

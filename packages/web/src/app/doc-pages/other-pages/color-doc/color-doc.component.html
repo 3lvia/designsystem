@@ -26,10 +26,10 @@
                 style="text-align: center; padding: 14px"
                 class="display-card-circle"
               >
-                <div class="e-title-caps" *ngIf="item.title == 'white'">Elvia On</div>
-                <div class="e-title-caps" *ngIf="item.title == 'green'">Elvia Charge</div>
-                <div class="e-title-caps" *ngIf="item.title == 'black'">Elvia Off</div>
-                <div class="e-title-caps" *ngIf="item.title == 'grey'">Elvia Dark</div>
+                <div class="e-title-caps" *ngIf="item.title === 'white'">Elvia On</div>
+                <div class="e-title-caps" *ngIf="item.title === 'green'">Elvia Charge</div>
+                <div class="e-title-caps" *ngIf="item.title === 'black'">Elvia Off</div>
+                <div class="e-title-caps" *ngIf="item.title === 'grey'">Elvia Dark</div>
               </div>
             </ng-container>
           </app-copy>

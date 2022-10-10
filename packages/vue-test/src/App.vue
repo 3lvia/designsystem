@@ -18,7 +18,7 @@
             size="sm"
           />
         </div>
-        {{ navItem.name }}
+        <div class="e-sidenav__item-text">{{ navItem.name }}</div>
       </router-link>
     </div>
     <div slot="appContent" class="e-bg-grey-05">

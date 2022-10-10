@@ -173,6 +173,7 @@ $datepicker-max-width: 448px;
   // COMPACT INPUT
   &.ewc-datepicker--compact {
     width: 133px;
+    padding-top: 8px;
     // LABEL
     .ewc-datepicker__label {
       font-family: $red-hat-text;
@@ -183,7 +184,7 @@ $datepicker-max-width: 448px;
 
       display: inline-block;
       position: absolute;
-      top: -5px;
+      top: 0;
       background: white;
       margin-left: 7px;
       padding: 0 3px;

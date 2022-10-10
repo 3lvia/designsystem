@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
 import { HighlightService } from 'src/app/core/services/highlight.service';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { VersionService } from 'src/app/core/services/version.service';
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './component-example-code.component.html',
   styleUrls: ['./component-example-code.component.scss'],
 })
-export class ComponentExampleCodeComponent implements OnInit, OnChanges {
+export class ComponentExampleCodeComponent implements OnInit, OnChanges, OnDestroy {
   @Input() componentData;
   @Input() inlineExample;
   @Input() codeTS = '';

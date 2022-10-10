@@ -191,7 +191,9 @@ export const ModalIllustration = styled.div`
   }
 `;
 
-export const ModalHeading = styled.div`
+export const ModalHeading = styled.h2`
+  margin: 0;
+  padding: 0;
   ${typography.titleMd}
   font-size: ${(props: { hasIllustration: boolean }) =>
     props.hasIllustration ? modalDesktopWithIllustrationTitleFontSize : titleFontSize};

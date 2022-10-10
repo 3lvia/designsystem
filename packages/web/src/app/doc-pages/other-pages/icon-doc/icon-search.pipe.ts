@@ -8,7 +8,7 @@ export class IconSearchPipe implements PipeTransform {
   static filter(IconList: Array<{ [key: string]: any }>, searchTerm: string): Array<{ [key: string]: any }> {
     const compare = searchTerm.toLowerCase();
 
-    // tslint:disable-next-line: no-shadowed-variable
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     function checkInside(IconList: any, searchTerm: string) {
       if (typeof IconList === 'string' && IconList.toString().toLowerCase().includes(compare)) {
         return true;

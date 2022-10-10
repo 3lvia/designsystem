@@ -20,7 +20,6 @@ export class PopoverDocComponent {
   loadedPopoverStructure = false;
   figmaUrl = getComponent('popover').figmaUrl;
   description = getComponent('popover').description;
-  // tslint:disable-next-line:max-line-length
   does = [
     'To provide additional information',
     'Secondary/tertiary information',

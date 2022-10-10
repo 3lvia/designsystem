@@ -1,6 +1,6 @@
 <!--PROPERTIES-->
 
-<div class="e-mt-72" *ngIf="elements.length > 0 || modifiers.length != 0 || psuedos.length != 0">
+<div class="e-mt-72" *ngIf="elements.length > 0 || modifiers.length !== 0 || psuedos.length !== 0">
   <div *ngIf="container">
     <h3 class="e-title-sm e-mt-72 e-mb-16">Container</h3>
     <ul class="e-list">
@@ -14,7 +14,7 @@
     </ul>
   </div>
 
-  <div *ngIf="elements.length != 0">
+  <div *ngIf="elements.length !== 0">
     <h3 class="e-title-sm e-mt-72 e-mb-16">Elements</h3>
     <ul class="e-list">
       <div *ngFor="let el of elements">
@@ -29,7 +29,7 @@
     </ul>
   </div>
 
-  <div *ngIf="allElementModifiers.length != 0">
+  <div *ngIf="allElementModifiers.length !== 0">
     <h4 class="e-title-xs e-mt-48 e-mb-8">Element modifiers</h4>
     <ul class="e-list">
       <div *ngFor="let elMod of allElementModifiers" class="prop-element">
@@ -44,7 +44,7 @@
     </ul>
   </div>
 
-  <div *ngIf="modifiers.length != 0">
+  <div *ngIf="modifiers.length !== 0">
     <h3 class="e-title-sm e-mt-72 e-mb-16">Modifiers</h3>
     <ul class="e-list">
       <div *ngFor="let mod of modifiers" class="prop-element">
@@ -59,7 +59,7 @@
     </ul>
   </div>
 
-  <div *ngIf="psuedos.length != 0">
+  <div *ngIf="psuedos.length !== 0">
     <h3 class="e-title-sm e-mt-72 e-mb-16">Pseudos</h3>
     <ul class="e-list">
       <div *ngFor="let psu of psuedos" class="prop-element">

@@ -25,7 +25,7 @@
 
       <span class="e-tooltip__content">Copied!</span>
     </span>
-    <span class="e-ml-16" *ngIf="propertiesClass != ''">
+    <span class="e-ml-16" *ngIf="propertiesClass !== ''">
       <app-copy [message]="propertiesClass">
         <ng-container ngProjectAs="copyContent">
           <span class="code-text">{{ propertiesClass }}</span>
