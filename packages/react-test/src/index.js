@@ -12,7 +12,7 @@ let renderMethod;
 if (root && root.innerHTML !== '') {
   renderMethod = ReactDOM.hydrate;
 } else {
-  renderMethod = (app) => ReactDOM.render(<StrictMode>{app}</StrictMode>);
+  renderMethod = (app) => ReactDOM.render(<React.StrictMode>{app}</React.StrictMode>);
 }
 renderMethod(<App />, document.getElementById('root'));
 
