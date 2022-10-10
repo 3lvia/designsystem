@@ -2804,7 +2804,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^4.0.0, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
@@ -2826,6 +2826,29 @@ __metadata:
     react-is: ^16.8.0 || ^17.0.0
   languageName: unknown
   linkType: soft
+
+"@elvia/elvis-datepicker@npm:^4.0.0":
+  version: 4.0.6
+  resolution: "@elvia/elvis-datepicker@npm:4.0.6"
+  dependencies:
+    "@date-io/core": ^1.3.6
+    "@date-io/date-fns": ^1.3.13
+    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-component-wrapper": ^2.3.3
+    "@elvia/elvis-icon": ^1.3.1
+    "@elvia/elvis-toolbox": ^4.0.0
+    "@material-ui/core": 4.12.3
+    "@material-ui/pickers": 3.3.10
+    classnames: ^2.3.1
+    date-fns: ^2.27.0
+    lodash.isequal: ^4.5.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ^16.8.0 || ^17.0.0
+  checksum: 3581a318528a35bb7e050e33999a66e6c3538781988e141ae6fb6372fee3574e1d6324f1e2d1db9b6a2e20bdad313b75527d9700acacb7f452216ec888f8a554
+  languageName: node
+  linkType: hard
 
 "@elvia/elvis-datepicker@portal:../components/components/elvis-datepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
   version: 0.0.0-use.local
@@ -2863,7 +2886,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^3.0.0, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
+"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
   dependencies:
@@ -2887,6 +2910,27 @@ __metadata:
     react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
+
+"@elvia/elvis-dropdown@npm:^3.0.0":
+  version: 3.6.1
+  resolution: "@elvia/elvis-dropdown@npm:3.6.1"
+  dependencies:
+    "@elvia/elvis-colors": ^1.4.1
+    "@elvia/elvis-component-wrapper": ^2.3.3
+    "@elvia/elvis-icon": ^1.3.1
+    "@elvia/elvis-toolbox": ^4.0.0
+    "@elvia/elvis-typography": ^2.2.0
+    lodash.isequal: ^4.5.0
+    lodash.uniqueid: 4.0.1
+    react-select: 5.2.2
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
+  checksum: 26427a417a8f8db41b377986ced74d51cb3274f11e131d68ad064564716237a807a22671db054bf7745422a9940ac02cd80d2caf27cf6fe14b4e3517db73015c
+  languageName: node
+  linkType: hard
 
 "@elvia/elvis-dropdown@portal:../components/components/elvis-dropdown::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
   version: 0.0.0-use.local
