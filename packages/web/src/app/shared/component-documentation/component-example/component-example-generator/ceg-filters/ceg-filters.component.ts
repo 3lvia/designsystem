@@ -6,6 +6,8 @@ import {
   Output,
   SimpleChanges,
   EventEmitter,
+  OnDestroy,
+  OnChanges,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../../example-code.service';
@@ -20,7 +22,7 @@ import { CegCodeUpdaterService } from 'src/app/core/services/ceg-code-updater.se
   templateUrl: './ceg-filters.component.html',
   styleUrls: ['./ceg-filters.component.scss'],
 })
-export class CegFiltersComponent implements OnInit {
+export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
   @Input() componentData: ComponentData;
   @Input() formGroupList: CegFormGroup[];
   @Input() desktop = true;

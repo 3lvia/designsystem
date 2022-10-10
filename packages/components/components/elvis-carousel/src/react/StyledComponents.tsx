@@ -105,9 +105,15 @@ export const CarouselElement = styled.div`
 `;
 
 export const CarouselHeading = styled.div`
-  margin-top: 0;
-  * {
-    margin-top: 0;
+  margin: 0 0 16px 0;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
   }
 `;
 
