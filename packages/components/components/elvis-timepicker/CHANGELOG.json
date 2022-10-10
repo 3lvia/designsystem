@@ -2,6 +2,22 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "10.10.22",
+      "version": "2.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Moved the label for the compact Timepicker up to match the designs in Figma.",
+            "Padding was added over the compact Timepicker to prevent the label from overflowing."
+          ],
+          "fixes": [
+            "The change impacts the total height of the compact Timepicker and other compact input elements from the Elvia design system. Ensure to adjust the spacing and/or alignment in your design to account for the larger size of all compact input elements."
+          ]
+        }
+      ]
+    },
+    {
       "date": "07.10.22",
       "version": "1.0.4",
       "changelog": [
