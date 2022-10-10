@@ -84,9 +84,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
     }
   };
 
-  if (childrenLength === 0) {
-    return null;
-  }
+  // if (childrenLength === 0) {
+  //   return <div style={{ height: '22px' }}></div>;
+  // }
 
   const MobileBreadcrumb = () => {
     return (
