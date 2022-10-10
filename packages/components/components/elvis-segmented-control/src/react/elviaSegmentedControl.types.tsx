@@ -6,12 +6,15 @@ export type Type = 'text' | 'icon';
 export type Size = 'large' | 'medium' | 'small';
 
 export interface SegmentedControl {
-  name: string | IconName;
-  ariaLabel?: string;
+  name: string;
+}
+export interface IconSegmentedControl {
+  name: IconName;
+  ariaLabel: string;
 }
 
 export interface SegmentedControlProps {
-  items: SegmentedControl[];
+  items: SegmentedControl[] | IconSegmentedControl[];
   value?: number;
   type?: Type;
   size?: Size;

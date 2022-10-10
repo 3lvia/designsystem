@@ -29,11 +29,11 @@ const controlAnimation = 'cubic-bezier(0.71, 0, 0.31, 1)';
 const buttonPadding = (size: string, scType: string) => {
   if (scType === 'icon') {
     if (size === 'large') {
-      return `${iconButtonPaddingLarge}px`;
+      return `${iconButtonPaddingLarge - 1}px`;
     } else if (size === 'medium') {
-      return `${iconButtonPaddingMedium}px`;
+      return `${iconButtonPaddingMedium - 1}px`;
     } else {
-      return `${iconButtonPaddingSmall}px`;
+      return `${iconButtonPaddingSmall - 1}px`;
     }
   } else {
     if (size === 'large') {
@@ -58,11 +58,11 @@ const getFontSize = (size: string) => {
 
 const getControlBorder = (scType: string, isSelected: boolean, isHovering?: boolean): string => {
   if (scType === 'icon' && isSelected) {
-    return 'inset 0 0 0 1px black';
+    return '1px solid black';
   } else if (scType === 'icon' && isHovering) {
-    return 'inset 0 0 0 1px ' + colors.elviaCharge;
+    return '1px solid ' + colors.elviaCharge;
   } else {
-    return 'none';
+    return '1px solid transparent';
   }
 };
 
@@ -100,7 +100,7 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   white-space: nowrap;
   background-color: transparent;
   padding: ${(props) => buttonPadding(props.size, props.scType)};
-  box-shadow: ${(props) => getControlBorder(props.scType, props.isSelected)};
+  border: ${(props) => getControlBorder(props.scType, props.isSelected)};
   border-radius: 100px;
   z-index: 10;
 
@@ -110,12 +110,12 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   color: ${(props) => (props.isSelected ? colors.elviaWhite : colors.elviaBlack)};
   text-shadow: ${(props) => (props.isSelected ? '0 0 0 white, 0 0 0.5px white' : '0')};
 
-  transition: color 250ms ${controlAnimation}, box-shadow 200ms linear;
+  transition: color 250ms ${controlAnimation}, border 200ms linear;
 
   &:hover {
     text-shadow: ${(props) =>
       props.isSelected ? '0 0 0 white, 0 0 0.5px white' : '0 0 0 black, 0 0 0.5px black'};
-    box-shadow: ${(props) => getControlBorder(props.scType, props.isSelected, true)};
+    border: ${(props) => getControlBorder(props.scType, props.isSelected, true)};
   }
 `;
 

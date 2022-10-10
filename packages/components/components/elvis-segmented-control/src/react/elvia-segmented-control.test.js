@@ -7,65 +7,72 @@ import { render, screen } from '@testing-library/react';
 //========================
 // Text Segmented Control
 //========================
-describe('Elvia Slider', () => {
-  describe('The default text segmented control', () => {
-    const type = 'text';
+// describe('Elvia Slider', () => {
+//   describe('The default text segmented control', () => {
+//     const type = 'text';
 
-    //==================== RENDERING ====================
-    test('should contain a single input type=range', () => {
-      render(<SegmentedControl type={type} items={[{}]} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
+//==================== RENDERING ====================
+// test('should have type=text', () => {
+//   render(
+//     <SegmentedControl type={'text'} items={[{ name: 'Weekly', name: 'Monthly', name: 'Yearly' }]} />,
+//   );
+//   const segmentedControlContainer = screen.getByTestId('segmented-control-container');
 
-      expect(leftSliderInput).toBeInTheDocument();
-      expect(leftSliderInput).toHaveAttribute('type', 'range');
-      expect(screen.getAllByRole('slider')).toHaveLength(1);
-    });
+//   expect(segmentedControlContainer).toBeInTheDocument();
+//   expect(segmentedControlContainer).toHaveAttribute('type', 'text');
+// });
+// test('should have size=medium', () => {
+//   render(<SegmentedControl type={'text'} items={[{ name: 'Weekly', name: 'Monthly', name: 'Yearly' }]} />);
+//   const segmentedControlContainer = screen.getByTestId('segmented-control-container');
 
-    //========== MIMICKING USER INTERACTIONS ==========
+//   expect(segmentedControlContainer).toHaveAttribute('size', 'medium');
+// });
 
-    test('should display the tooptip containing the value on hover', async () => {
-      const user = userEvent.setup();
-      render(<SegmentedControl type={type} min={min} max={max} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
+//========== MIMICKING USER INTERACTIONS ==========
 
-      expect(leftSliderInput).toBeEnabled();
+// test('should display the tooptip containing the value on hover', async () => {
+//   const user = userEvent.setup();
+//   render(<SegmentedControl type={type} />);
+//   const leftSliderInput = screen.getByTestId('left-slider');
 
-      await user.hover(leftSliderInput);
-      const leftTooltipPopup = await screen.findByTestId('left-tooltip-popup');
-      expect(leftTooltipPopup).toBeInTheDocument();
-      expect(leftTooltipPopup).toHaveTextContent(min);
-    });
-  });
+//   expect(leftSliderInput).toBeEnabled();
 
-  //====================
-  // Icon Segmented Control
-  //====================
-  describe('The icon segmented control', () => {
-    const type = 'icon';
+//   await user.hover(leftSliderInput);
+//   const leftTooltipPopup = await screen.findByTestId('left-tooltip-popup');
+//   expect(leftTooltipPopup).toBeInTheDocument();
+//   expect(leftTooltipPopup).toHaveTextContent(min);
+// });
+// });
 
-    //==================== RENDERING ====================
-    test('should contain a single input type=range', () => {
-      render(<SegmentedControl type={type} items={[{}]} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
+//====================
+// Icon Segmented Control
+//====================
+// describe('The icon segmented control', () => {
+//   const type = 'icon';
 
-      expect(leftSliderInput).toBeInTheDocument();
-      expect(leftSliderInput).toHaveAttribute('type', 'range');
-      expect(screen.getAllByRole('slider')).toHaveLength(1);
-    });
+//==================== RENDERING ====================
+// test('should contain a single input type=range', () => {
+//   render(<SegmentedControl type={type} items={[{}]} />);
+//   const leftSliderInput = screen.getByTestId('left-slider');
 
-    //========== MIMICKING USER INTERACTIONS ==========
+//   expect(leftSliderInput).toBeInTheDocument();
+//   expect(leftSliderInput).toHaveAttribute('type', 'range');
+//   expect(screen.getAllByRole('slider')).toHaveLength(1);
+// });
 
-    test('should display the tooptip containing the value on hover', async () => {
-      const user = userEvent.setup();
-      render(<SegmentedControl type={type} min={min} max={max} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
+//========== MIMICKING USER INTERACTIONS ==========
 
-      expect(leftSliderInput).toBeEnabled();
+// test('should display the tooptip containing the value on hover', async () => {
+//   const user = userEvent.setup();
+//   render(<SegmentedControl type={type} min={min} max={max} />);
+//   const leftSliderInput = screen.getByTestId('left-slider');
 
-      await user.hover(leftSliderInput);
-      const leftTooltipPopup = await screen.findByTestId('left-tooltip-popup');
-      expect(leftTooltipPopup).toBeInTheDocument();
-      expect(leftTooltipPopup).toHaveTextContent(min);
-    });
-  });
-});
+//   expect(leftSliderInput).toBeEnabled();
+
+//   await user.hover(leftSliderInput);
+//   const leftTooltipPopup = await screen.findByTestId('left-tooltip-popup');
+//   expect(leftTooltipPopup).toBeInTheDocument();
+//   expect(leftTooltipPopup).toHaveTextContent(min);
+// });
+// });
+// });

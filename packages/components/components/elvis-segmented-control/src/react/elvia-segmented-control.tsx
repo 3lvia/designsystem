@@ -49,6 +49,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       role="radiogroup"
       className={className ?? ''}
       style={{ ...inlineStyle }}
+      data-testid="segmented-control-container"
     >
       {items &&
         items.map((control, index) => (
