@@ -464,9 +464,9 @@ const Popover: FC<PopoverProps> = function ({
                     </div>
                   )}
                   {heading && (
-                    <div className="ewc-popover__header" data-testid="popover-header">
+                    <h3 className="ewc-popover__header" data-testid="popover-header">
                       {heading}
-                    </div>
+                    </h3>
                   )}
                 </div>
               )}

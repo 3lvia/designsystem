@@ -14,7 +14,6 @@ export class RadioFilterDocComponent {
   figmaUrl = getComponent('radio-filter').figmaUrl;
   description = getComponent('radio-filter').description;
 
-  // tslint:disable-next-line: max-line-length
   whens = [
     'Filter/toggle between different views of same content',
     'When you want to have all options visible at all times and not hidden in a dropdown.',

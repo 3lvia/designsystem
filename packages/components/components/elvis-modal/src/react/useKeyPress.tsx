@@ -13,24 +13,23 @@ type Handler = (event: PossibleEvent) => void;
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function useKeyPress(targetKey: string, handler?: Handler | null) {
   const [keyPressed, setKeyPressed] = useState(false);
-
-  function downHandler(event: KeyboardEvent) {
-    if (event.key === targetKey) {
-      setKeyPressed(true);
-      if (!handler) {
-        return;
-      }
-      handler(event);
-    }
-  }
-
-  const upHandler = ({ key }: KeyboardEvent) => {
-    if (key === targetKey) {
-      setKeyPressed(false);
-    }
-  };
-
   useEffect(() => {
+    function downHandler(event: KeyboardEvent) {
+      if (event.key === targetKey) {
+        setKeyPressed(true);
+        if (!handler) {
+          return;
+        }
+        handler(event);
+      }
+    }
+
+    const upHandler = ({ key }: KeyboardEvent) => {
+      if (key === targetKey) {
+        setKeyPressed(false);
+      }
+    };
+
     window.addEventListener('keydown', downHandler);
     window.addEventListener('keyup', upHandler);
     return () => {

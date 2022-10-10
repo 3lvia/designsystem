@@ -1,4 +1,5 @@
 import { getColor } from '@elvia/elvis-colors';
+import { getTypographyCss } from '@elvia/elvis-typography';
 import { css, FlattenInterpolation, ThemeProps } from 'styled-components';
 
 export const publicStyles = (isGtMobile: boolean): FlattenInterpolation<ThemeProps<any>> => {
@@ -22,13 +23,7 @@ export const publicStyles = (isGtMobile: boolean): FlattenInterpolation<ThemePro
     }
 
     .e-sidenav__item {
-      font-family: 'Red Hat Text', Verdana, sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 28px;
-      letter-spacing: unset;
-      font-style: unset;
-      text-transform: unset;
+      ${getTypographyCss('text-md')}
       text-decoration: none;
       color: inherit;
       background: transparent;
@@ -42,6 +37,17 @@ export const publicStyles = (isGtMobile: boolean): FlattenInterpolation<ThemePro
       &:hover .e-sidenav__icon-container {
         border: 1px solid ${getColor('green')};
       }
+    }
+
+    .e-sidenav__item-text {
+      ${() =>
+        isGtMobile
+          ? css`
+              display: inline-block;
+            `
+          : css`
+              display: none;
+            `}
     }
 
     .e-sidenav__icon-container {

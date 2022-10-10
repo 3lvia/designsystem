@@ -73,13 +73,15 @@
 
   &.e-form-field--compact {
     position: relative;
+    padding-top: 8px;
     .e-form-field__label {
       position: absolute;
       z-index: 1;
-      top: -5px;
+      top: 0;
       left: 8px;
-      background: colors.color('elvia-on');
+      background-color: colors.color('elvia-on');
       padding: 0 3px;
+      height: 9px;
 
       font-family: 'Red Hat Text', Verdana, sans-serif;
       font-weight: 500;
@@ -95,6 +97,14 @@
 
     input:disabled {
       color: colors.color('disabled');
+    }
+  }
+
+  //prevent label to not cover green border when focused
+  &.e-form-field--compact:focus-within {
+    .e-form-field__label {
+      height: 10px;
+      border-bottom: 1px solid colors.color('elvia-on');
     }
   }
 

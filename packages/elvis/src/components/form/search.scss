@@ -112,6 +112,7 @@
   &.e-form-field--compact {
     .e-search--instant {
       font-size: 14px;
+      margin-top: -8px;
       .e-input {
         input,
         input:invalid,
@@ -139,6 +140,7 @@
     }
     .e-search--on-submit {
       font-size: 14px;
+      margin-top: -8px;
       .e-input {
         input,
         input:invalid,

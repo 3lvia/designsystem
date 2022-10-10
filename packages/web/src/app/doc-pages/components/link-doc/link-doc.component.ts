@@ -32,7 +32,6 @@ export class LinkDocComponent {
   example2 = `<div style="font-size: 20px;">This is an <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">inline link</a></div>
 `;
 
-  // tslint:disable-next-line: max-line-length
   example2Inverted = `<div style="font-size: 20px; e-text-white">This is an <a class="e-link e-link--inline e-link--inverted" href="https://design.elvia.io/components/link#Overview">inline link</a></div>
 `;
 
