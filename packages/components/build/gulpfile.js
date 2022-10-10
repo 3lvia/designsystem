@@ -161,6 +161,12 @@ function TSX_to_JS() {
                   ],
                 },
               ],
+              [
+                'minify',
+                {
+                  builtIns: false,
+                },
+              ],
             ],
             plugins: ['babel-plugin-styled-components', '@babel/plugin-transform-react-jsx'],
           }),
