@@ -5,16 +5,21 @@ import { getErrorText } from '../getErrorText';
 import { ErrorContainer, ErrorText } from './errorStyles';
 
 interface Props {
-  errorType: ErrorType;
+  errorType?: ErrorType;
+  customErrorMessage?: string;
   isCompact: boolean;
 }
 
-export const TimepickerError: React.FC<Props> = ({ errorType, isCompact }) => {
+export const TimepickerError: React.FC<Props> = ({ errorType, customErrorMessage, isCompact }) => {
   const [errorText, setErrorText] = useState('');
 
   useEffect(() => {
-    setErrorText(getErrorText(errorType));
-  }, [errorType]);
+    if (customErrorMessage) {
+      setErrorText(customErrorMessage);
+    } else if (errorType) {
+      setErrorText(getErrorText(errorType));
+    }
+  }, [errorType, customErrorMessage]);
 
   return (
     <ErrorContainer>

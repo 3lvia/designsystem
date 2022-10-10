@@ -23,6 +23,9 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   isCompact = false,
   isDisabled = false,
   isRequired = false,
+  isErrorState = false,
+  showValidationState = true,
+  customError,
   selectNowOnOpen = true,
   className,
   inlineStyle,
@@ -125,7 +128,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           disabled={isDisabled}
           isCompact={isCompact}
           isActive={isShowing}
-          isInvalid={!!error}
+          isInvalid={!!error || !!customError || isErrorState}
         >
           <TimepickerInput
             time={time}
@@ -149,7 +152,9 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             <Icon name="clock" color={isDisabled ? 'disabled' : 'black'} size={isCompact ? 'xs' : 'sm'} />
           </IconButton>
         </InputContainer>
-        {error && <TimepickerError errorType={error} isCompact={isCompact} />}
+        {((error && showValidationState) || customError) && (
+          <TimepickerError customErrorMessage={customError} errorType={error} isCompact={isCompact} />
+        )}
       </TimePickerLabel>
       {isShowing && (
         <OverlayContainer

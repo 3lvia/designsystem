@@ -13,6 +13,9 @@ export interface TimepickerProps {
   isDisabled: boolean;
   isCompact: boolean;
   isRequired: boolean;
+  showValidationState?: boolean;
+  isErrorState?: boolean;
+  customError?: string;
   selectNowOnOpen: boolean;
   label: string;
   className: string;
