@@ -109,7 +109,8 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   text-align: center;
   color: ${(props) => (props.isSelected ? colors.elviaWhite : colors.elviaBlack)};
   text-shadow: ${(props) => (props.isSelected ? '0 0 0 white, 0 0 0.5px white' : '0')};
-  transition: color 300ms ${controlAnimation};
+
+  transition: color 250ms ${controlAnimation}, box-shadow 200ms linear;
 
   &:hover {
     text-shadow: ${(props) =>

@@ -174,7 +174,7 @@
     <!--Radio filter-->
     <div class="example-wrapper">
       <h3>Radio Filter</h3>
-      <!-- <elvia-radio-filter
+      <elvia-radio-filter
         :items="[
           { label: 'All', value: 'all' },
           { label: 'Read', value: 'read' },
@@ -183,7 +183,7 @@
         :value="'read'"
         :name="'readRadioFilters'"
         :ariaLabel="'{value} filtrering valgt'"
-      ></elvia-radio-filter> -->
+      ></elvia-radio-filter>
     </div>
 
     <!--Spotlight-->
