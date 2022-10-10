@@ -2447,7 +2447,42 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-breadcrumb@*, @elvia/elvis-breadcrumb@workspace:packages/components/components/elvis-breadcrumb":
+"@elvia/elvis-breadcrumb@npm:*":
+  version: 2.1.3
+  resolution: "@elvia/elvis-breadcrumb@npm:2.1.3"
+  dependencies:
+    "@elvia/elvis-colors": ^1.4.1
+    "@elvia/elvis-component-wrapper": ^2.3.2
+    "@elvia/elvis-icon": ^1.3.1
+    "@elvia/elvis-toolbox": ^4.0.0
+    "@elvia/elvis-typography": ^2.1.0
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
+  checksum: aeb1a6738ae2cd861de0673f5364af51c5912ecb7b69c8f2a24156b81a1e77e9a2b9f0fdd7b9444786336e5f64f8c1bea20135ca3a86db187b020952a1237958
+  languageName: node
+  linkType: hard
+
+"@elvia/elvis-breadcrumb@portal:../components/components/elvis-breadcrumb::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-breadcrumb@portal:../components/components/elvis-breadcrumb::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
+  dependencies:
+    "@elvia/elvis-colors": ^1.4.1
+    "@elvia/elvis-component-wrapper": ^2.3.2
+    "@elvia/elvis-icon": ^1.3.1
+    "@elvia/elvis-toolbox": ^4.0.0
+    "@elvia/elvis-typography": ^2.1.0
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
+  languageName: node
+  linkType: soft
+
+"@elvia/elvis-breadcrumb@workspace:packages/components/components/elvis-breadcrumb":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-breadcrumb@workspace:packages/components/components/elvis-breadcrumb"
   dependencies:
@@ -2465,23 +2500,6 @@ __metadata:
     react-dom: ^16.8.0 || ^17.0.0
     react-is: ">= 16.8.0"
   languageName: unknown
-  linkType: soft
-
-"@elvia/elvis-breadcrumb@portal:../components/components/elvis-breadcrumb::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-breadcrumb@portal:../components/components/elvis-breadcrumb::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-colors": ^1.4.1
-    "@elvia/elvis-component-wrapper": ^2.3.2
-    "@elvia/elvis-icon": ^1.3.1
-    "@elvia/elvis-toolbox": ^4.0.0
-    "@elvia/elvis-typography": ^2.1.0
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
-  languageName: node
   linkType: soft
 
 "@elvia/elvis-card@*, @elvia/elvis-card@workspace:packages/components/components/elvis-card":
@@ -24789,7 +24807,6 @@ __metadata:
     "@testing-library/react": 12.1.2
     "@testing-library/user-event": ^12.1.10
     "@vue/cli-service": ^5.0.1
-    babel-plugin-styled-components: ^2.0.7
     eslint: ^7.1.0
     eslint-plugin-react: ^7.27.0
     express: ^4.17.1
