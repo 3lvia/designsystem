@@ -2757,7 +2757,7 @@ __metadata:
     "@date-io/core": ^1.3.6
     "@date-io/date-fns": ^1.3.13
     "@elvia/elvis-component-wrapper": ^2.3.3
-    "@elvia/elvis-datepicker": ^4.0.0
+    "@elvia/elvis-datepicker": ^5.0.0
     date-fns: ^2.27.0
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -2776,7 +2776,7 @@ __metadata:
     "@date-io/core": ^1.3.6
     "@date-io/date-fns": ^1.3.13
     "@elvia/elvis-component-wrapper": ^2.3.3
-    "@elvia/elvis-datepicker": ^4.0.0
+    "@elvia/elvis-datepicker": ^5.0.0
     date-fns: ^2.27.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2786,7 +2786,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^4.0.0, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^5.0.0, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
@@ -2845,7 +2845,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^3.0.0, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
+"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^4.0.0, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
   dependencies:
@@ -3000,7 +3000,7 @@ __metadata:
   dependencies:
     "@elvia/elvis-colors": ^1.2.1
     "@elvia/elvis-component-wrapper": ^2.2.2
-    "@elvia/elvis-dropdown": ^3.0.0
+    "@elvia/elvis-dropdown": ^4.0.0
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^4.0.0
     "@elvia/elvis-typography": ^2.1.0
@@ -3021,7 +3021,7 @@ __metadata:
   dependencies:
     "@elvia/elvis-colors": ^1.2.1
     "@elvia/elvis-component-wrapper": ^2.2.2
-    "@elvia/elvis-dropdown": ^3.0.0
+    "@elvia/elvis-dropdown": ^4.0.0
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^4.0.0
     "@elvia/elvis-typography": ^2.1.0
