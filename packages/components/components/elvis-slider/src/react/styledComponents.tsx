@@ -178,7 +178,7 @@ export const LabelText = styled.div`
   margin-left: 7px;
   padding: 0 3px;
   position: absolute;
-  top: -7px;
+  top: 0;
   user-select: none;
   z-index: 1;
   white-space: nowrap;
@@ -188,7 +188,7 @@ export const LabelText = styled.div`
 export const NumberInputContainer = styled.div`
   box-sizing: border-box;
   display: block;
-  margin-top: 7px;
+  padding-top: 8px;
   position: relative;
   text-align: left;
 `;
