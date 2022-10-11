@@ -2,11 +2,16 @@
   "content": [
     {
       "version": "9.1.0",
+<<<<<<< HEAD
       "date": "October 10, 2022",
+=======
+      "date": "October 11, 2022",
+>>>>>>> 7b4391484b07bc5a5cc5ed8ec4d972de0ff36eb0
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
+<<<<<<< HEAD
             "The Segmented control classes have been replaced with a component and the classes will therefore be deprecated in the future."
           ],
           "components": [
@@ -14,6 +19,13 @@
               "displayName": "Segmented Control",
               "url": "https://design.elvia.io/components/segmented-control"
             }
+=======
+            "The header and tooltip classes have been replaced with a component and the classes will therefore be deprecated in the future."
+          ],
+          "components": [
+            { "displayName": "Header", "url": "https://design.elvia.io/components/header" },
+            { "displayName": "Tooltip", "url": "https://design.elvia.io/components/tooltip" }
+>>>>>>> 7b4391484b07bc5a5cc5ed8ec4d972de0ff36eb0
           ]
         }
       ]
