@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import React from 'react';
-import SegmentedControl from './elvia-segmented-control.tsx';
+import SegmentedControl from './elvia-segmented-control';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
 
