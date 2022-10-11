@@ -28,6 +28,7 @@ export const DropdownWrapper = styled.span<DropdownWrapperProps>`
   text-align: left;
   box-sizing: border-box;
   width: 100%;
+  padding-top: 8px;
   ${(props) => (props.isFullWidth ? null : 'max-width: 448px')};
   cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
   &:focus-within {
@@ -46,7 +47,7 @@ interface DropdownLabelProps {
 
 export const DropdownLabel = styled.label<DropdownLabelProps>`
   position: ${(props) => props.isCompact && 'absolute'};
-  top: ${(props) => props.isCompact && '-5px'};
+  top: ${(props) => props.isCompact && '0'};
   left: ${(props) => props.isCompact && '8px'};
   background: ${(props) => props.isCompact && colors.white};
   padding: ${(props) => props.isCompact && '0 3px'};

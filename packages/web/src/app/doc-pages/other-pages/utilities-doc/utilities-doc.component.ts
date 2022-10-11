@@ -168,17 +168,17 @@ export class UtilitiesDocComponent {
           styling: 'box-shadow: none',
         },
         {
-          className: 'e-shadow-3',
+          className: 'e-shadow-soft',
           description: 'Set a soft box-shadow on element.',
           styling: 'box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.03)',
         },
         {
-          className: 'e-shadow-6',
+          className: 'e-shadow-medium',
           description: 'Set a medium box-shadow on element.',
           styling: 'box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06)',
         },
         {
-          className: 'e-shadow-8',
+          className: 'e-shadow-hard',
           description: 'Set a hard box-shadow on element.',
           styling: 'box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08)',
         },

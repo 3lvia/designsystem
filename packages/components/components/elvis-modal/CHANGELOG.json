@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "10.10.22",
+      "version": "2.1.10",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["The header inside the modal is now more semantically correct."]
+        }
+      ]
+    },
+    {
       "date": "07.10.22",
       "version": "2.1.9",
       "changelog": [

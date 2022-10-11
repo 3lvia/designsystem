@@ -60,7 +60,7 @@ describe('Elvis Dropdown', () => {
     });
     it('should be compact', function (done) {
       expect(dropdownLabel.at(0).getDOMNode()).toHaveStyle(
-        `position: absolute; top: -5px; left: 8px; font-size: 10px; line-height: 10px`,
+        `position: absolute; top: 0; left: 8px; font-size: 10px; line-height: 10px`,
       );
       done();
     });
@@ -98,7 +98,7 @@ describe('Elvis Dropdown', () => {
     });
     it('should not be compact', function (done) {
       expect(dropdownLabel.at(0).getDOMNode()).not.toHaveStyle(
-        `position: absolute; top: -5px; left: 8px; font-size: 10px; line-height: 10px`,
+        `position: absolute; top: 0; left: 8px; font-size: 10px; line-height: 10px`,
       );
       done();
     });
@@ -125,7 +125,7 @@ describe('Elvis Dropdown', () => {
     });
     it('should be compact', function (done) {
       expect(dropdownLabel.at(0).getDOMNode()).toHaveStyle(
-        `position: absolute; top: -5px; left: 8px; font-size: 10px; line-height: 10px`,
+        `position: absolute; top: 0; left: 8px; font-size: 10px; line-height: 10px`,
       );
       done();
     });
@@ -152,7 +152,7 @@ describe('Elvis Dropdown', () => {
     });
     it('should be compact', function (done) {
       expect(dropdownLabel.at(0).getDOMNode()).toHaveStyle(
-        `position: absolute; top: -5px; left: 8px; font-size: 10px; line-height: 10px`,
+        `position: absolute; top: 0; left: 8px; font-size: 10px; line-height: 10px`,
       );
       done();
     });
