@@ -1,78 +1,73 @@
 import '@testing-library/jest-dom';
 import React from 'react';
-import SegmentedControl from './elvia-segmented-control';
+import SegmentedControl from './elvia-segmented-control.tsx';
+import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
 
 //========================
 // Text Segmented Control
 //========================
-// describe('Elvia Slider', () => {
-//   describe('The default text segmented control', () => {
-//     const type = 'text';
+describe('Elvia Segmented Control', () => {
+  describe('The default segmented control', () => {
+    const items = [{ name: 'Weekly' }, { name: 'Monthly' }, { name: 'Yearly' }];
 
-//==================== RENDERING ====================
-// test('should have type=text', () => {
-//   render(
-//     <SegmentedControl type={'text'} items={[{ name: 'Weekly', name: 'Monthly', name: 'Yearly' }]} />,
-//   );
-//   const segmentedControlContainer = screen.getByTestId('segmented-control-container');
+    //==================== RENDERING ====================
+    test('should contain text', () => {
+      render(<SegmentedControl items={items} />);
+      const segmentedControlText = screen.queryAllByTestId('segmented-control-text');
+      const segmentedControlIcon = screen.queryAllByTestId('segmented-control-icon');
 
-//   expect(segmentedControlContainer).toBeInTheDocument();
-//   expect(segmentedControlContainer).toHaveAttribute('type', 'text');
-// });
-// test('should have size=medium', () => {
-//   render(<SegmentedControl type={'text'} items={[{ name: 'Weekly', name: 'Monthly', name: 'Yearly' }]} />);
-//   const segmentedControlContainer = screen.getByTestId('segmented-control-container');
+      expect(segmentedControlText).toHaveLength(items.length);
+      expect(segmentedControlIcon).toStrictEqual([]);
+    });
 
-//   expect(segmentedControlContainer).toHaveAttribute('size', 'medium');
-// });
+    test('should have value = 0', () => {
+      render(<SegmentedControl items={items} />);
+      const segmentedControlSelectedInput = screen.queryAllByTestId('segmented-control-input');
 
-//========== MIMICKING USER INTERACTIONS ==========
+      expect(segmentedControlSelectedInput[0]).toBeChecked();
+    });
 
-// test('should display the tooptip containing the value on hover', async () => {
-//   const user = userEvent.setup();
-//   render(<SegmentedControl type={type} />);
-//   const leftSliderInput = screen.getByTestId('left-slider');
+    test('should have value = 1, when prop value={1}', () => {
+      render(<SegmentedControl items={items} value={1} />);
+      const segmentedControlSelectedInput = screen.queryAllByTestId('segmented-control-input');
 
-//   expect(leftSliderInput).toBeEnabled();
+      expect(segmentedControlSelectedInput[1]).toBeChecked();
+    });
 
-//   await user.hover(leftSliderInput);
-//   const leftTooltipPopup = await screen.findByTestId('left-tooltip-popup');
-//   expect(leftTooltipPopup).toBeInTheDocument();
-//   expect(leftTooltipPopup).toHaveTextContent(min);
-// });
-// });
+    //========== MIMICKING USER INTERACTIONS ==========
+    test('should change value when clicked', async () => {
+      const user = userEvent.setup();
+      render(<SegmentedControl items={items} />);
+      const segmentedControlSelectedInput = screen.queryAllByTestId('segmented-control-input');
 
-//====================
-// Icon Segmented Control
-//====================
-// describe('The icon segmented control', () => {
-//   const type = 'icon';
+      await user.click(segmentedControlSelectedInput[2]);
+      expect(segmentedControlSelectedInput[2]).toBeChecked();
+    });
+  });
 
-//==================== RENDERING ====================
-// test('should contain a single input type=range', () => {
-//   render(<SegmentedControl type={type} items={[{}]} />);
-//   const leftSliderInput = screen.getByTestId('left-slider');
+  describe('The icon segmented control', () => {
+    const items = [
+      { name: 'thumbnail', ariaLabel: 'label' },
+      { name: 'list', ariaLabel: 'label' },
+    ];
 
-//   expect(leftSliderInput).toBeInTheDocument();
-//   expect(leftSliderInput).toHaveAttribute('type', 'range');
-//   expect(screen.getAllByRole('slider')).toHaveLength(1);
-// });
+    //==================== RENDERING ====================
+    test('should contain icon', () => {
+      render(<SegmentedControl type="icon" items={items} />);
+      const segmentedControlText = screen.queryAllByTestId('segmented-control-text');
+      const segmentedControlIcon = screen.queryAllByTestId('segmented-control-icon');
 
-//========== MIMICKING USER INTERACTIONS ==========
+      expect(segmentedControlText).toStrictEqual([]);
+      expect(segmentedControlIcon).toHaveLength(items.length);
+    });
 
-// test('should display the tooptip containing the value on hover', async () => {
-//   const user = userEvent.setup();
-//   render(<SegmentedControl type={type} min={min} max={max} />);
-//   const leftSliderInput = screen.getByTestId('left-slider');
+    test('should have aria-label', () => {
+      render(<SegmentedControl type="icon" items={items} />);
+      const segmentedControlLabel = screen.queryAllByTestId('segmented-control-label');
 
-//   expect(leftSliderInput).toBeEnabled();
-
-//   await user.hover(leftSliderInput);
-//   const leftTooltipPopup = await screen.findByTestId('left-tooltip-popup');
-//   expect(leftTooltipPopup).toBeInTheDocument();
-//   expect(leftTooltipPopup).toHaveTextContent(min);
-// });
-// });
-// });
+      expect(segmentedControlLabel[0]).toHaveAttribute('aria-label', 'label');
+    });
+  });
+});

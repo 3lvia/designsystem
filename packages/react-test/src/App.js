@@ -126,23 +126,7 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <div className="e-bg-white">
-                {/* <SegmentedControl
-                  items={[{ name: 'Different' }, { name: 'Length' }, { name: 'Woords' }]}
-                  size={'medium'}
-                  value={0}
-                  valueOnChange={(value) => console.log(value)}
-                ></SegmentedControl> */}
-                <div className="e-mt-8">
-                  <SegmentedControl
-                    type="icon"
-                    items={[{ name: 'thumbnail' }, { name: 'list' }, { name: 'dashboard' }]}
-                    size={'large'}
-                    value={0}
-                    valueOnChange={(value) => console.log(value)}
-                  ></SegmentedControl>
-                </div>
-              </div>
+              <div className="e-bg-white"></div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
@@ -389,7 +373,7 @@ function App() {
             {/* SEGMENTED CONTROL */}
             <div className="example-wrapper">
               <h3>Segmented Control</h3>
-              {/* <SegmentedControl
+              <SegmentedControl
                 items={[{ name: 'Different' }, { name: 'Length' }, { name: 'Woords' }]}
                 size={'medium'}
                 value={0}
@@ -403,7 +387,7 @@ function App() {
                   value={0}
                   valueOnChange={(value) => console.log(value)}
                 ></SegmentedControl>
-              </div> */}
+              </div>
             </div>
             {/* SLIDER */}
             <div className="example-wrapper">

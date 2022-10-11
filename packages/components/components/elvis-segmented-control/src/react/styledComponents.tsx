@@ -12,36 +12,36 @@ const colors = {
 const typography = {
   textMedium: getTypographyCss('text-md'),
 };
-const buttonPaddingXLarge = 40;
-const buttonPaddingXMedium = 24;
-const buttonPaddingXSmall = 22;
-const buttonPaddingYLarge = 12;
-const buttonPaddingYMedium = 8;
-const buttonPaddingYSmall = 4;
-const iconButtonPaddingLarge = 12;
-const iconButtonPaddingMedium = 12;
-const iconButtonPaddingSmall = 8;
+const controlPaddingXLarge = 40;
+const controlPaddingXMedium = 24;
+const controlPaddingXSmall = 22;
+const controlPaddingYLarge = 12;
+const controlPaddingYMedium = 8;
+const controlPaddingYSmall = 4;
+const iconControlPaddingLarge = 12;
+const iconControlPaddingMedium = 12;
+const iconControlPaddingSmall = 8;
 const fontSizeLarge = '16px';
 const fontSizeMedium = '14px';
 const fontSizeSmall = '14px';
 const controlAnimation = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
-const buttonPadding = (size: string, scType: string) => {
+const controlPadding = (size: string, scType: string) => {
   if (scType === 'icon') {
     if (size === 'large') {
-      return `${iconButtonPaddingLarge - 1}px`;
+      return `${iconControlPaddingLarge - 1}px`;
     } else if (size === 'medium') {
-      return `${iconButtonPaddingMedium - 1}px`;
+      return `${iconControlPaddingMedium - 1}px`;
     } else {
-      return `${iconButtonPaddingSmall - 1}px`;
+      return `${iconControlPaddingSmall - 1}px`;
     }
   } else {
     if (size === 'large') {
-      return `${buttonPaddingYLarge}px ${buttonPaddingXLarge}px`;
+      return `${controlPaddingYLarge}px ${controlPaddingXLarge}px`;
     } else if (size === 'medium') {
-      return `${buttonPaddingYMedium}px ${buttonPaddingXMedium}px`;
+      return `${controlPaddingYMedium}px ${controlPaddingXMedium}px`;
     } else {
-      return `${buttonPaddingYSmall}px ${buttonPaddingXSmall}px`;
+      return `${controlPaddingYSmall}px ${controlPaddingXSmall}px`;
     }
   }
 };
@@ -99,7 +99,7 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   position: relative;
   white-space: nowrap;
   background-color: transparent;
-  padding: ${(props) => buttonPadding(props.size, props.scType)};
+  padding: ${(props) => controlPadding(props.size, props.scType)};
   border: ${(props) => getControlBorder(props.scType, props.isSelected)};
   border-radius: 100px;
   z-index: 10;
