@@ -12,7 +12,6 @@ import {
   CardHoverArrow,
   CardCornerIcon,
   CardColoredLineContainer,
-  CardHeadingContainer,
 } from './styledComponents';
 import { warnDeprecatedProps, useIsOverflowing } from '@elvia/elvis-toolbox';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
@@ -155,26 +154,20 @@ const Card: FC<CardProps> = function ({
       )}
       <CardContent type={type} data-testid="card-content">
         {type === 'simple' && (
-          <CardIcon
-            onTransitionEnd={() => setIsAnimating(false)}
-            data-testid="card-icon"
-            ref={iconRef ?? undefined}
-          >
+          <CardIcon onTransitionEnd={() => setIsAnimating(false)} data-testid="card-icon" ref={iconRef}>
             {isShowingHoverIcon && iconHover ? iconHover : icon}
           </CardIcon>
         )}
         {heading && (
-          <CardHeadingContainer>
-            <Tooltip
-              trigger={
-                <CardHeading as={headingLevel} ref={headingRef} type={type} data-testid="card-heading">
-                  {heading}
-                </CardHeading>
-              }
-              content={heading}
-              isDisabled={!headingIsOverflowing}
-            ></Tooltip>
-          </CardHeadingContainer>
+          <Tooltip
+            trigger={
+              <CardHeading as={headingLevel} ref={headingRef} type={type} data-testid="card-heading">
+                {heading}
+              </CardHeading>
+            }
+            content={heading}
+            isDisabled={!headingIsOverflowing}
+          />
         )}
         {description && (
           <CardDescription
@@ -192,8 +185,8 @@ const Card: FC<CardProps> = function ({
           <Icon name="arrowLongRight" />
         </CardHoverArrow>
       )}
-      {type === 'detail' && (cornerIcon || cornerIconRef) && (
-        <CardCornerIcon hasBorder={hasBorder} ref={cornerIconRef ?? undefined} data-testid="card-corner-icon">
+      {type === 'detail' && (cornerIcon || cornerIconRef.current) && (
+        <CardCornerIcon hasBorder={hasBorder} ref={cornerIconRef} data-testid="card-corner-icon">
           {cornerIcon}
         </CardCornerIcon>
       )}

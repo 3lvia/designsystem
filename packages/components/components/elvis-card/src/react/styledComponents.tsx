@@ -99,19 +99,14 @@ export const CardContent = styled.div<CardContentProps>`
   flex-direction: column;
   justify-content: ${(props) => (props.type === 'simple' ? 'center' : 'flex-start')};
   align-items: ${(props) => (props.type === 'simple' ? 'center' : 'flex-start')};
-  gap: 8px;
   width: fit-content;
 `;
 
-export const CardHeadingContainer = styled.div`
-  position: relative;
-`;
-
-interface CardHeaderProps {
+interface CardHeadingProps {
   type: CardType;
 }
 
-export const CardHeading = styled.h3<CardHeaderProps>`
+export const CardHeading = styled.h3<CardHeadingProps>`
   width: fit-content;
   margin: 0;
   ${(props) => (props.type === 'simple' ? typography.textSmStrong : typography.titleSm)};
