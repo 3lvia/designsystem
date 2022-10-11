@@ -1,8 +1,14 @@
 # Elvis-assets-icon
 
+## 2.5.3 (05.10.22)
+
+### Patch
+
+- No changes. Republish due to missing dist-folder.
+
 ## 2.5.2 (29.09.22)
 
-### New feature
+### Patch
 
 - All icons are now defined in their own files to help reduce bundle size. The API of the package is
   unchanged.

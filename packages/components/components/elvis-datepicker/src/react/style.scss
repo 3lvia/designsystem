@@ -173,6 +173,7 @@ $datepicker-max-width: 448px;
   // COMPACT INPUT
   &.ewc-datepicker--compact {
     width: 133px;
+    padding-top: 8px;
     // LABEL
     .ewc-datepicker__label {
       font-family: $red-hat-text;
@@ -183,7 +184,7 @@ $datepicker-max-width: 448px;
 
       display: inline-block;
       position: absolute;
-      top: -5px;
+      top: 0;
       background: white;
       margin-left: 7px;
       padding: 0 3px;
@@ -296,6 +297,14 @@ $datepicker-max-width: 448px;
         color: black;
 
         margin-right: 8px;
+      }
+      // Rotate the year-dropdown icon when opened
+      svg {
+        transform: rotate(0deg);
+        transition: transform 0.2s ease-out;
+      }
+      &[data-isyearview='true'] svg {
+        transform: rotate(180deg);
       }
 
       &:hover {

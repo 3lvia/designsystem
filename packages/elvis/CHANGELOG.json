@@ -1,6 +1,39 @@
 {
   "content": [
     {
+      "version": "9.0.0",
+      "date": "October 10, 2022",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Moved the label for compact inputs up to match the designs in Figma.",
+            "Padding was added over the compact inputs to prevent the label from overflowing."
+          ],
+          "fixes": [
+            "The change impacts the total height of compact inputs. Ensure to adjust the spacing and/or alignment in your design to account for the larger size."
+          ],
+          "components": [
+            { "displayName": "Text field", "url": "https://design.elvia.io/components/input" },
+            { "displayName": "Autocomplete", "url": "https://design.elvia.io/components/autocomplete" }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "8.14.0",
+      "date": "September 29, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added support for <span class=\"code-text\">readonly</span> attribute for text input fields."
+          ],
+          "components": [{ "displayName": "Text field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "8.13.0",
       "date": "September 29, 2022",
       "changelog": [

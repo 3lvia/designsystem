@@ -2866,6 +2866,12 @@ input:focus {
   border-color: #bdbdbd;
   cursor: not-allowed;
 }
+.e-input.e-input---readonly > input, .e-input.e-input---readonly > input:focus, .e-input.e-input---readonly > input:read-only, .e-input.e-input---readonly > input:read-only:focus {
+  background: #fafafa;
+  border: unset;
+  color: #515151;
+  padding: 12px 16px;
+}
 .e-input input[type=date]::-webkit-calendar-picker-indicator,
 .e-input input[type=time]::-webkit-calendar-picker-indicator {
   display: none;
@@ -2914,6 +2920,16 @@ input:focus {
 .e-input.e-input--compact > input:focus,
 .e-input.e-input--compact > textarea:focus {
   border: 2px solid #29d305;
+  padding: 3px 9px;
+}
+.e-form-field.e-form-field--compact .e-input.e-input---readonly > input, .e-form-field.e-form-field--compact .e-input.e-input---readonly > input:focus, .e-form-field.e-form-field--compact .e-input.e-input---readonly > input:read-only, .e-form-field.e-form-field--compact .e-input.e-input---readonly > input:read-only:focus,
+.e-input.e-input--compact.e-input---readonly > input,
+.e-input.e-input--compact.e-input---readonly > input:focus,
+.e-input.e-input--compact.e-input---readonly > input:read-only,
+.e-input.e-input--compact.e-input---readonly > input:read-only:focus {
+  background: #fafafa;
+  border: unset;
+  color: #515151;
   padding: 3px 9px;
 }
 .e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon,
@@ -7795,14 +7811,16 @@ input:focus {
 }
 .e-form-field.e-form-field--compact {
   position: relative;
+  padding-top: 8px;
 }
 .e-form-field.e-form-field--compact .e-form-field__label {
   position: absolute;
   z-index: 1;
-  top: -5px;
+  top: 0;
   left: 8px;
-  background: #fff;
+  background-color: #fff;
   padding: 0 3px;
+  height: 9px;
   font-family: "Red Hat Text", Verdana, sans-serif;
   font-weight: 500;
   font-size: 10px;
@@ -7816,6 +7834,10 @@ input:focus {
 }
 .e-form-field.e-form-field--compact input:disabled {
   color: #bdbdbd;
+}
+.e-form-field.e-form-field--compact:focus-within .e-form-field__label {
+  height: 10px;
+  border-bottom: 1px solid #fff;
 }
 .e-form-field.e-form-field--full-width .e-input, .e-form-field.e-form-field--full-width .e-input > input, .e-form-field.e-form-field--full-width .e-input > textarea, .e-form-field.e-form-field--full-width .e-input > div, .e-form-field.e-form-field--combined.e-form-field--full-width > .e-form-field__input {
   max-width: unset;
@@ -8306,6 +8328,7 @@ input:focus {
 
 .e-form-field.e-form-field--compact .e-search--instant {
   font-size: 14px;
+  margin-top: -8px;
 }
 .e-form-field.e-form-field--compact .e-search--instant .e-input input,
 .e-form-field.e-form-field--compact .e-search--instant .e-input input:invalid,
@@ -8331,6 +8354,7 @@ input:focus {
 }
 .e-form-field.e-form-field--compact .e-search--on-submit {
   font-size: 14px;
+  margin-top: -8px;
 }
 .e-form-field.e-form-field--compact .e-search--on-submit .e-input input,
 .e-form-field.e-form-field--compact .e-search--on-submit .e-input input:invalid,

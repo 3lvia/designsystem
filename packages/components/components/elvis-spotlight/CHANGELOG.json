@@ -2,6 +2,40 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.10.22",
+      "version": "1.4.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fixed a property in the component's interface not being correctly marked as optional."]
+        }
+      ]
+    },
+    {
+      "date": "05.10.22",
+      "version": "1.4.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Spotlight now supports shape rectangle. The new shape also has some new props: <span class=\"code-text\">borderRadius</span>, <span class=\"code-text\">height</span>, and <span class=\"code-text\">width</span> available in the prop <span class=\"code-text\">rectangleProps</span>."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "29.09.22",
+      "version": "1.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added a new prop <span class=\"prop\">transitionDuration</span> to control how long the transition should take."
+          ]
+        }
+      ]
+    },
+    {
       "date": "16.08.22",
       "version": "1.2.0",
       "changelog": [

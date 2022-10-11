@@ -130,33 +130,35 @@
   <!-- Badge -->
   <div class="example-wrapper">
     <h3>Badge</h3>
-    <elvia-badge [count]="0">
-      <button
-        class="e-thumbnail"
-        aria-label="Thumbnail button that opens the image in a larger view"
-        slot="content"
-      >
-        <img src="https://picsum.photos/56" alt="Thumbnail example image" />
-      </button>
-    </elvia-badge>
-    <elvia-badge [count]="10" [badgeColor]="'red'">
-      <button
-        class="e-thumbnail"
-        aria-label="Thumbnail button that opens the image in a larger view"
-        slot="content"
-      >
-        <img src="https://picsum.photos/56" alt="Thumbnail example image" />
-      </button>
-    </elvia-badge>
-    <elvia-badge [count]="101" [badgeColor]="'black'">
-      <button
-        class="e-thumbnail"
-        aria-label="Thumbnail button that opens the image in a larger view"
-        slot="content"
-      >
-        <img src="https://picsum.photos/56" alt="Thumbnail example image" />
-      </button>
-    </elvia-badge>
+    <div style="display: flex; gap: 1rem">
+      <elvia-badge [count]="0">
+        <button
+          class="e-thumbnail"
+          aria-label="Thumbnail button that opens the image in a larger view"
+          slot="content"
+        >
+          <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+        </button>
+      </elvia-badge>
+      <elvia-badge [count]="10" [badgeColor]="'red'">
+        <button
+          class="e-thumbnail"
+          aria-label="Thumbnail button that opens the image in a larger view"
+          slot="content"
+        >
+          <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+        </button>
+      </elvia-badge>
+      <elvia-badge [count]="101" [badgeColor]="'black'">
+        <button
+          class="e-thumbnail"
+          aria-label="Thumbnail button that opens the image in a larger view"
+          slot="content"
+        >
+          <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+        </button>
+      </elvia-badge>
+    </div>
   </div>
 
   <!--Box-->
@@ -401,6 +403,82 @@
       [name]="'readRadioFilters'"
       [ariaLabel]="'{value} filtrering valgt'"
     ></elvia-radio-filter>
+  </div>
+
+  <!--Slider-->
+  <div class="example-wrapper">
+    <h3>Slider</h3>
+    <h4>Simple Slider</h4>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem">
+      <elvia-slider [type]="'simple'" [min]="0" [max]="100"></elvia-slider>
+      <elvia-slider [type]="'simple'" [min]="1" [max]="10000000" [hasInputField]="true"></elvia-slider>
+      <elvia-slider
+        [type]="'simple'"
+        [min]="1"
+        [max]="10000000"
+        [hasInputField]="true"
+        [hasHintValues]="true"
+      ></elvia-slider>
+      <elvia-slider
+        [type]="'simple'"
+        [min]="0"
+        [max]="100"
+        [hasInputField]="true"
+        [unit]="' kr'"
+      ></elvia-slider>
+      <elvia-slider
+        [type]="'simple'"
+        [min]="0"
+        [max]="100"
+        [hasInputField]="true"
+        [unit]="' kWh'"
+        [label]="'Kilowattime'"
+      ></elvia-slider>
+      <elvia-slider
+        [type]="'simple'"
+        [min]="50"
+        [max]="250"
+        [hasInputField]="true"
+        [hasPercent]="true"
+      ></elvia-slider>
+      <elvia-slider [type]="'simple'" [min]="0" [max]="100" [isDisabled]="true"></elvia-slider>
+      <elvia-slider
+        [type]="'simple'"
+        [min]="0"
+        [max]="100"
+        [isDisabled]="true"
+        [hasInputField]="true"
+      ></elvia-slider>
+    </div>
+
+    <h4>Range Slider</h4>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem">
+      <elvia-slider [type]="'range'" [min]="1" [max]="100"></elvia-slider>
+      <elvia-slider [type]="'range'" [min]="1" [max]="100" [hasHintValues]="true"></elvia-slider>
+      <elvia-slider
+        [type]="'range'"
+        [min]="0"
+        [max]="100"
+        [hasInputField]="true"
+        [hasHintValues]="true"
+      ></elvia-slider>
+      <elvia-slider
+        [type]="'range'"
+        [min]="1"
+        [max]="100"
+        [hasInputField]="true"
+        [label]="{ left: 'Min', right: 'Maks' }"
+        [unit]="' kWh'"
+      ></elvia-slider>
+      <elvia-slider [type]="'range'" [min]="0" [max]="100" [isDisabled]="true"></elvia-slider>
+      <elvia-slider
+        [type]="'range'"
+        [min]="0"
+        [max]="100"
+        [isDisabled]="true"
+        [hasInputField]="true"
+      ></elvia-slider>
+    </div>
   </div>
 
   <!--Spotlight-->

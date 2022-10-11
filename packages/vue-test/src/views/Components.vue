@@ -165,17 +165,6 @@
       ></elvia-pagination>
     </div>
 
-    <!--Popover-->
-    <div class="example-wrapper">
-      <h3>Popover</h3>
-      <elvia-popover heading="BankID" horizontalPosition="right">
-        <div slot="trigger"><button class="e-btn">Right top</button></div>
-        <div slot="content">
-          Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
-        </div>
-      </elvia-popover>
-    </div>
-
     <!--Progress linear-->
     <div class="example-wrapper">
       <h3>Progress linear</h3>
@@ -224,11 +213,11 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+
 export default defineComponent({
   setup() {
     // Accordion
     const openAccordion = ref(false);
-
     // Breadcrumb
     const breadcrumbsTest = [
       { href: 'https://elvia.no', text: 'Elvia.no' },
@@ -253,7 +242,6 @@ export default defineComponent({
 
     // Dropdown
     const dropdownDefaultOption = { value: '675', label: 'Mast - Råte' };
-
     const dropdownOptions = [
       { value: '675', label: 'Mast - Råte' },
       { value: '676', label: 'Mast - Hakkespettskade' },

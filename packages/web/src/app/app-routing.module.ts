@@ -3,63 +3,66 @@ import { Routes, RouterModule } from '@angular/router';
 import { Pages } from './shared/shared.enum';
 import { MainComponent } from './shell/main/main.component';
 import { HomeComponent } from './shell/home/home.component';
+
+import { AccordionDocComponent } from './doc-pages/components/accordion-doc/accordion-doc.component';
+import { AccordionGroupDocComponent } from './doc-pages/components/accordion-group-doc/accordion-group-doc.component';
+import { AlertMessagesComponent } from './doc-pages/components/alert-messages/alert-messages.component';
+import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
+import { BadgeDocComponent } from './doc-pages/components/badge-doc/badge-doc.component';
+import { BoxDocComponent } from './doc-pages/components/box-doc/box-doc.component';
+import { BreadcrumbDocComponent } from './doc-pages/components/breadcrumb-doc/breadcrumb-doc.component';
 import { ButtonDocComponent } from './doc-pages/components/button-doc/button-doc.component';
-import { TagDocComponent } from './doc-pages/components/tag-doc/tag-doc.component';
+import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { CardDocComponent } from './doc-pages/components/card-doc/card-doc.component';
 import { CarouselDocComponent } from './doc-pages/components/carousel-doc/carousel-doc.component';
-import { LinkDocComponent } from './doc-pages/components/link-doc/link-doc.component';
-import { TableDocComponent } from './doc-pages/components/table-doc/table-doc.component';
-import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
-import { CheckboxDocComponent } from './doc-pages/components/forms/checkbox-doc/checkbox-doc.component';
-import { ToggleDocComponent } from './doc-pages/components/forms/toggle-doc/toggle-doc.component';
-import { InputDocComponent } from './doc-pages/components/forms/input-doc/input-doc.component';
-import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
-import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.component';
-import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
-import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
-import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
-import { DraganddropDocComponent } from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
-import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-doc.component';
-import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
-import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
-import { DatepickerDocComponent } from './doc-pages/components/forms/datepicker-doc/datepicker-doc.component';
-import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
-import { AlertMessagesComponent } from './doc-pages/components/alert-messages/alert-messages.component';
-import { DevStartComponent } from './dev/dev-start/dev-start.component';
-import { PaginationDocComponent } from './doc-pages/components/pagination-doc/pagination-doc.component';
-import { HeaderDocComponent } from './doc-pages/components/header-doc/header-doc.component';
-import { DropdownDocComponent } from './doc-pages/components/dropdown-doc/dropdown-doc.component';
-import { SearchDocComponent } from './doc-pages/components/forms/search-doc/search-doc.component';
-import { AccordionDocComponent } from './doc-pages/components/accordion-doc/accordion-doc.component';
-import { StepperDocComponent } from './doc-pages/components/stepper-doc/stepper-doc.component';
-import { ContentLoaderDocComponent } from './doc-pages/components/content-loader-doc/content-loader-doc.component';
-import { RadioFilterDocComponent } from './doc-pages/components/radio-filter-doc/radio-filter-doc.component';
-import { ChipDocComponent } from './doc-pages/components/chip-doc/chip-doc.component';
-import { ErrorComponent } from './shared/error/error.component';
-import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
-import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.component';
-import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-doc/timepicker-doc.component';
-import { v2PlaygroundComponent } from './dev/v2-playground/v2-playground.component';
-import { BreadcrumbDocComponent } from './doc-pages/components/breadcrumb-doc/breadcrumb-doc.component';
-import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
-import { BoxDocComponent } from './doc-pages/components/box-doc/box-doc.component';
-import { BadgeDocComponent } from './doc-pages/components/badge-doc/badge-doc.component';
 import { ChangelogComponent } from './doc-pages/other-pages/changelog/changelog.component';
+import { CheckboxDocComponent } from './doc-pages/components/forms/checkbox-doc/checkbox-doc.component';
+import { ChipDocComponent } from './doc-pages/components/chip-doc/chip-doc.component';
 import { ColorDocComponent } from './doc-pages/other-pages/color-doc/color-doc.component';
-import { IconDocComponent } from './doc-pages/other-pages/icon-doc/icon-doc.component';
-import { LayoutDocComponent } from './doc-pages/other-pages/layout-doc/layout-doc.component';
-import { TypographyDocComponent } from './doc-pages/other-pages/typography-doc/typography-doc.component';
-import { GetStartedDocComponent } from './doc-pages/other-pages/get-started-doc/get-started-doc.component';
 import { ContactComponent } from './doc-pages/other-pages/contact/contact.component';
+import { ContentLoaderDocComponent } from './doc-pages/components/content-loader-doc/content-loader-doc.component';
 import { ContributeComponent } from './doc-pages/other-pages/contribute/contribute.component';
-import { FaqDocComponent } from './doc-pages/other-pages/faq-doc/faq-doc.component';
-import { UtilitiesDocComponent } from './doc-pages/other-pages/utilities-doc/utilities-doc.component';
-import { TheDesignSystemDocComponent } from './doc-pages/other-pages/the-design-system-doc/the-design-system-doc.component';
-import { SpotlightDocComponent } from './doc-pages/components/spotlight-doc/spotlight-doc.component';
-import { ThumbnailDocComponent } from './doc-pages/components/thumbnail-doc/thumbnail-doc.component';
-import { ShadowDocComponent } from './doc-pages/other-pages/shadow-doc/shadow-doc.component';
+import { DatepickerDocComponent } from './doc-pages/components/forms/datepicker-doc/datepicker-doc.component';
 import { DatepickerRangeDocComponent } from './doc-pages/components/forms/datepicker-range-doc/datepicker-range-doc.component';
-import { AccordionGroupDocComponent } from './doc-pages/components/accordion-group-doc/accordion-group-doc.component';
+import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
+import { DraganddropDocComponent } from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
+import { DropdownDocComponent } from './doc-pages/components/dropdown-doc/dropdown-doc.component';
+import { ErrorComponent } from './shared/error/error.component';
+import { FaqDocComponent } from './doc-pages/other-pages/faq-doc/faq-doc.component';
+import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
+import { GetStartedDocComponent } from './doc-pages/other-pages/get-started-doc/get-started-doc.component';
+import { HeaderDocComponent } from './doc-pages/components/header-doc/header-doc.component';
+import { IconDocComponent } from './doc-pages/other-pages/icon-doc/icon-doc.component';
+import { InputDocComponent } from './doc-pages/components/forms/input-doc/input-doc.component';
+import { LayoutDocComponent } from './doc-pages/other-pages/layout-doc/layout-doc.component';
+import { LinkDocComponent } from './doc-pages/components/link-doc/link-doc.component';
+import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.component';
+import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
+import { PaginationDocComponent } from './doc-pages/components/pagination-doc/pagination-doc.component';
+import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-doc.component';
+import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
+import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
+import { RadioFilterDocComponent } from './doc-pages/components/radio-filter-doc/radio-filter-doc.component';
+import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
+import { SearchDocComponent } from './doc-pages/components/forms/search-doc/search-doc.component';
+import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
+import { ShadowDocComponent } from './doc-pages/other-pages/shadow-doc/shadow-doc.component';
+import { SliderDocComponent } from './doc-pages/components/slider-doc/slider-doc.component';
+import { SpotlightDocComponent } from './doc-pages/components/spotlight-doc/spotlight-doc.component';
+import { StepperDocComponent } from './doc-pages/components/stepper-doc/stepper-doc.component';
+import { TableDocComponent } from './doc-pages/components/table-doc/table-doc.component';
+import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.component';
+import { TagDocComponent } from './doc-pages/components/tag-doc/tag-doc.component';
+import { TheDesignSystemDocComponent } from './doc-pages/other-pages/the-design-system-doc/the-design-system-doc.component';
+import { ThumbnailDocComponent } from './doc-pages/components/thumbnail-doc/thumbnail-doc.component';
+import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-doc/timepicker-doc.component';
+import { ToggleDocComponent } from './doc-pages/components/forms/toggle-doc/toggle-doc.component';
+import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
+import { TypographyDocComponent } from './doc-pages/other-pages/typography-doc/typography-doc.component';
+import { UtilitiesDocComponent } from './doc-pages/other-pages/utilities-doc/utilities-doc.component';
+
+import { DevStartComponent } from './dev/dev-start/dev-start.component';
+import { v2PlaygroundComponent } from './dev/v2-playground/v2-playground.component';
 
 const routes: Routes = [
   {
@@ -288,6 +291,10 @@ const routes: Routes = [
           {
             path: Pages.Search,
             component: SearchDocComponent,
+          },
+          {
+            path: Pages.Slider,
+            component: SliderDocComponent,
           },
           {
             path: Pages.Spotlight,

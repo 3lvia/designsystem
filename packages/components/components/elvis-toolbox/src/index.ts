@@ -1,5 +1,6 @@
 export * from './elvis-toolbox';
 export { isSsr } from './isSsr';
+export { useBreakpoint } from './hooks/useBreakpoint';
 export {
   useConnectedOverlay,
   OverlayVerticalPosition,

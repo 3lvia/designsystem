@@ -6,6 +6,8 @@ import {
   Output,
   SimpleChanges,
   EventEmitter,
+  OnDestroy,
+  OnChanges,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../../example-code.service';
@@ -20,7 +22,7 @@ import { CegCodeUpdaterService } from 'src/app/core/services/ceg-code-updater.se
   templateUrl: './ceg-filters.component.html',
   styleUrls: ['./ceg-filters.component.scss'],
 })
-export class CegFiltersComponent implements OnInit {
+export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
   @Input() componentData: ComponentData;
   @Input() formGroupList: CegFormGroup[];
   @Input() desktop = true;
@@ -124,7 +126,7 @@ export class CegFiltersComponent implements OnInit {
       value = (checkboxEvent.target as HTMLInputElement).checked.toString();
     }
     this.updateFormStates(formField.propName, value);
-    this.propValueChange.emit({ name: formField.propName, value: value.toString() });
+    this.propValueChange.emit({ name: formField.propName, value: value });
     this.restoreDefaultStateIfDependent(formField, formField.propName);
   }
 
@@ -179,7 +181,7 @@ export class CegFiltersComponent implements OnInit {
           checkboxToUpdate.checked = defaultValue;
           this.updateFormStates(element.propName, element.defaultValue);
           this.removePropFromCode(element);
-          this.propValueChange.emit({ name: element.propName, value: defaultValue.toString() });
+          this.propValueChange.emit({ name: element.propName, value: defaultValue });
         }
       });
     });

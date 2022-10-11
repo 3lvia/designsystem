@@ -98,12 +98,16 @@ $grey-05: #f4f4f4;
       right: 7px;
     }
     .ewc-popover__header {
+      margin: 0;
+      padding: 0;
       font-family: 'Red Hat Text', Verdana, sans-serif;
       font-size: 14px;
-      line-height: 22px;
       font-weight: 500 !important;
-      padding-bottom: 8px;
+      letter-spacing: 0px;
+      line-height: 22px;
       margin-right: 16px;
+      padding-bottom: 8px;
+      text-align: left;
     }
     .ewc-popover__text {
       font-family: 'Red Hat Text', Verdana, sans-serif;
