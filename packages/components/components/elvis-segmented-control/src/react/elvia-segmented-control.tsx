@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Icon } from '@elvia/elvis-icon/react';
 import { IconName } from '@elvia/elvis-assets-icons';
 import { IconSegmentedControl, SegmentedControlProps } from './elviaSegmentedControl.types';
@@ -15,22 +15,8 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   inlineStyle,
   webcomponent,
 }) => {
-  const segmentedControlContainerRef = useRef<HTMLDivElement>(null);
   const [selectedIndex, setSelectedIndex] = useState(value);
-  const [width, setWidth] = useState(0);
   const segmentedControlName = uniqueId('segmented-control-');
-
-  useLayoutEffect(() => {
-    // TODO: Finne annen løsning uten timeout
-    // Funker ikke i Vue når man bare har if-checken
-    // Funker ikke i React om man getter i en separat funksjon uten state og useEffect
-    // Funker ikke i Angular om man passer [segmentedControlContainerRef, segmentedControlContainerRef.current] i useEffecten
-    setTimeout(() => {
-      if (segmentedControlContainerRef.current) {
-        setWidth(segmentedControlContainerRef.current.offsetWidth);
-      }
-    });
-  }, []);
 
   const setSelected = (selectedIndex: number): void => {
     setSelectedIndex(selectedIndex);
@@ -43,11 +29,9 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
 
   return (
     <SegmentedControlContainer
-      ref={segmentedControlContainerRef}
       scType={type}
       size={size}
       selectedIndex={selectedIndex}
-      widthOfContainer={width}
       numberOfControls={items && items.length}
       role="radiogroup"
       className={className ?? ''}

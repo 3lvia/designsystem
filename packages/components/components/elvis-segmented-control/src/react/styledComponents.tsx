@@ -4,14 +4,6 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { SegmentedControlContainerProps, SegmentedControlLabelProps } from './elviaSegmentedControl.types';
 
-const colors = {
-  elviaWhite: getColor('white'),
-  elviaBlack: getColor('black'),
-  elviaCharge: getColor('green'),
-};
-const typography = {
-  textMedium: getTypographyCss('text-md'),
-};
 const controlPaddingXLarge = 40;
 const controlPaddingXMedium = 24;
 const controlPaddingXSmall = 22;
@@ -21,9 +13,9 @@ const controlPaddingYSmall = 4;
 const iconControlPaddingLarge = 12;
 const iconControlPaddingMedium = 12;
 const iconControlPaddingSmall = 8;
-const fontSizeLarge = '16px';
-const fontSizeMedium = '14px';
-const fontSizeSmall = '14px';
+const fontSizeLarge = '1rem';
+const fontSizeMedium = '0.875rem';
+const fontSizeSmall = '0.875rem';
 const controlAnimation = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
 const controlPadding = (size: string, scType: string) => {
@@ -60,7 +52,7 @@ const getControlBorder = (scType: string, isSelected: boolean, isHovering?: bool
   if (scType === 'icon' && isSelected) {
     return '1px solid black';
   } else if (scType === 'icon' && isHovering) {
-    return '1px solid ' + colors.elviaCharge;
+    return '1px solid ' + getColor('green');
   } else {
     return '1px solid transparent';
   }
@@ -75,7 +67,7 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
   border: ${(props) => (props.scType === 'text' ? '1px solid black' : 'none')};
   border-radius: 100px;
   gap: ${(props) => (props.scType === 'text' ? '0' : '8px')};
-  background: ${(props) => (props.scType === 'text' ? colors.elviaWhite : 'transparent')};
+  background: ${(props) => (props.scType === 'text' ? getColor('white') : 'transparent')};
 
   // Selected control background
   ${(props) =>
@@ -84,12 +76,12 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
       &::after {
         content: '';
         position: absolute;
-        width: ${props.widthOfContainer / props.numberOfControls + 'px'};
+        width: ${100 / props.numberOfControls}%;
         height: 100%;
         top: 0;
-        left: ${(props.widthOfContainer / props.numberOfControls) * props.selectedIndex + 'px'};
+        left: ${(100 / props.numberOfControls) * props.selectedIndex}%;
         border-radius: 100px;
-        background-color: ${colors.elviaBlack};
+        background-color: ${getColor('black')};
         transition: left 250ms ${controlAnimation};
       }
     `}
@@ -104,10 +96,10 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   border-radius: 100px;
   z-index: 10;
 
-  ${typography.textMedium}
+  ${getTypographyCss('text-md')}
   font-size: ${(props) => getFontSize(props.size)};
   text-align: center;
-  color: ${(props) => (props.isSelected ? colors.elviaWhite : colors.elviaBlack)};
+  color: ${(props) => (props.isSelected ? getColor('white') : getColor('black'))};
   text-shadow: ${(props) => (props.isSelected ? '0 0 0 white, 0 0 0.5px white' : '0')};
 
   transition: color 250ms ${controlAnimation}, border 200ms linear;

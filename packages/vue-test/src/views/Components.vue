@@ -186,7 +186,7 @@
       ></elvia-radio-filter>
     </div>
 
-    <!--Spotlight-->
+    <!--Segmented Control-->
     <div class="example-wrapper">
       <h3>Segmented Control</h3>
       <elvia-segmented-control

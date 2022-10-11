@@ -29,7 +29,6 @@ export interface SegmentedControlContainerProps {
   scType: string;
   size: string;
   selectedIndex: number;
-  widthOfContainer: number;
   numberOfControls: number;
 }
 

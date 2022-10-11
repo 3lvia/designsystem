@@ -4,7 +4,20 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <elvia-segmented-control
+        [items]="[{ name: 'Different' }, { name: 'Length' }, { name: 'Woords' }]"
+        (valueOnChange)="logValue('Segmented', $event.detail.value)"
+      ></elvia-segmented-control>
+      <elvia-segmented-control
+        [type]="'icon'"
+        [items]="[
+          { name: 'thumbnail', ariaLabel: 'Helo' },
+          { name: 'list', ariaLabel: 'HEElo' }
+        ]"
+        (valueOnChange)="logValue('Segmented', $event.detail.value)"
+      ></elvia-segmented-control>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -311,7 +324,7 @@
   <!--Segmented control-->
   <div class="example-wrapper">
     <h3>Segmented control</h3>
-    <elvia-segmented-control
+    <!-- <elvia-segmented-control
       [items]="[{ name: 'Different' }, { name: 'Length' }, { name: 'Woords' }]"
       (valueOnChange)="logValue('Segmented', $event.detail.value)"
     ></elvia-segmented-control>
@@ -322,7 +335,7 @@
         { name: 'list', ariaLabel: 'HEElo' }
       ]"
       (valueOnChange)="logValue('Segmented', $event.detail.value)"
-    ></elvia-segmented-control>
+    ></elvia-segmented-control> -->
   </div>
 
   <!--Slider-->
