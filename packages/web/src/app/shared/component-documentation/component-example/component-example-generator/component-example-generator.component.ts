@@ -273,12 +273,16 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   updateCustomTextProps(): void {
     Object.entries(this.customTextProps).forEach(([prop, value]) => {
       // Remove empty props, otherwise update
-      if (value.value) {
+      if (!value.active) {
+        this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, prop);
+      } else if (value.value) {
         this.updateSelected(prop, value.value.toString(), 'string', false);
       } else {
         this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, prop);
       }
-      this.updateExampleCode();
+      setTimeout(() => {
+        this.updateExampleCode();
+      });
     });
   }
 
@@ -394,8 +398,12 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
    * @param cegType Type of the attribute (e.g. string, boolean).
    * @param updateExampleCode Whether to update code examples in the CEG (default true).
    */
-  private updateSelected(attr: string, newValue: string, cegType: string, updateExampleCode?: boolean): void {
-    const updateCode = updateExampleCode ? updateExampleCode : true;
+  private updateSelected(
+    attr: string,
+    newValue: string,
+    cegType: string,
+    updateExampleCode: boolean = true,
+  ): void {
     if (this.cegCodes.angular.includes(`[${attr}]`)) {
       this.cegCodes = this.cegCodeUpdaterService.replaceOldProps(this.cegCodes, attr, newValue, cegType);
     } else {
@@ -407,7 +415,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         cegType,
       );
     }
-    if (updateCode) {
+    if (updateExampleCode) {
       this.updateExampleCode();
     }
   }
