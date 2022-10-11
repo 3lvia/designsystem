@@ -88,24 +88,26 @@ export const headerData: ComponentData = {
     </h1>
   }
   navItems={
-    <Link to="/" class="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
-      <div class="e-sidenav__icon-container">
-        <elvia-icon name="dashboard" size="sm"></elvia-icon>
-      </div>
-      <div class="e-sidenav__item-text">Dashbord</div>
-    </Link>
-    <Link to="/search" class="e-sidenav__item" aria-label="Søk">
-      <div class="e-sidenav__icon-container">
-        <elvia-icon name="search" size="sm"></elvia-icon>
-      </div>
-      <div class="e-sidenav__item-text">Søk</div>
-    </Link>
-    <Link to="/pin" class="e-sidenav__item" aria-label="Analyse">
-      <div class="e-sidenav__icon-container">
-        <elvia-icon name="pin" size="sm"></elvia-icon>
-      </div>
-      <div class="e-sidenav__item-text">Analyse</div>
-    </Link>
+    <div className="e-sidenav__container">
+      <Link to="/" className="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
+        <div className="e-sidenav__icon-container">
+          <Icon name="dashboard" size="sm"></Icon>
+        </div>
+        <div className="e-sidenav__item-text">Dashbord</div>
+      </Link>
+      <Link to="/search" className="e-sidenav__item" aria-label="Søk">
+        <div className="e-sidenav__icon-container">
+          <Icon name="search" size="sm"></Icon>
+        </div>
+        <div className="e-sidenav__item-text">Søk</div>
+      </Link>
+      <Link to="/pin" className="e-sidenav__item" aria-label="Analyse">
+        <div className="e-sidenav__icon-container">
+          <Icon name="pin" size="sm"></Icon>
+        </div>
+        <div className="e-sidenav__item-text">Analyse</div>
+      </Link>
+    </div>
   }
 ></Header>`,
   codeAngular: `<elvia-header
