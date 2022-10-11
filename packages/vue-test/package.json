@@ -30,7 +30,6 @@
     "@elvia/elvis-slider": "*",
     "@elvia/elvis-spotlight": "*",
     "@elvia/elvis-tabs": "*",
-    "@elvia/elvis-testing": "*",
     "@elvia/elvis-timepicker": "*",
     "@elvia/elvis-tooltip": "*",
     "core-js": "^3.25.3",

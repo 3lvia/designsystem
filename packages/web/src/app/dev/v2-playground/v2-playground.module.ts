@@ -29,7 +29,6 @@ import '@elvia/elvis-radio-filter';
 import '@elvia/elvis-slider';
 import '@elvia/elvis-spotlight';
 import '@elvia/elvis-tabs';
-import '@elvia/elvis-testing';
 import '@elvia/elvis-timepicker';
 import '@elvia/elvis-tooltip';
 
