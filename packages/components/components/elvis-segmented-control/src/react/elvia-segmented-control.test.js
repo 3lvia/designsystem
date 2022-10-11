@@ -36,6 +36,13 @@ describe('Elvia Segmented Control', () => {
       expect(segmentedControlSelectedInput[1]).toBeChecked();
     });
 
+    test('should have label text = item.name', () => {
+      render(<SegmentedControl items={items} value={1} />);
+      const segmentedControlText = screen.queryAllByTestId('segmented-control-text');
+
+      expect(segmentedControlText[0]).toHaveTextContent(items[0].name);
+    });
+
     //========== MIMICKING USER INTERACTIONS ==========
     test('should change value when clicked', async () => {
       const user = userEvent.setup();

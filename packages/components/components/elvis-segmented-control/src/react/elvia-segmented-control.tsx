@@ -21,7 +21,10 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   const segmentedControlName = uniqueId('segmented-control-');
 
   useLayoutEffect(() => {
-    // TODO: Fjerne timeout, funker ikke i Vue uten denne nå, dette fikser forsovet også at bakgrunnen ikke animeres inn
+    // TODO: Finne annen løsning uten timeout
+    // Funker ikke i Vue når man bare har if-checken
+    // Funker ikke i React om man getter i en separat funksjon uten state og useEffect
+    // Funker ikke i Angular om man passer [segmentedControlContainerRef, segmentedControlContainerRef.current] i useEffecten
     setTimeout(() => {
       if (segmentedControlContainerRef.current) {
         setWidth(segmentedControlContainerRef.current.offsetWidth);
@@ -70,7 +73,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
               onChange={() => setSelected(index)}
               data-testid="segmented-control-input"
             ></SegmentedControlInput>
-            {type === 'text' && <div data-testid="segmented-control-text">control.name</div>}
+            {type === 'text' && <div data-testid="segmented-control-text">{control.name}</div>}
             {type === 'icon' && (
               <Icon
                 name={(index === selectedIndex ? control.name + 'Color' : control.name) as IconName}
