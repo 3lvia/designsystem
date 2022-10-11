@@ -26,6 +26,12 @@ const cardData: ComponentData = {
       isRequired: false,
       type: 'string',
       description: 'Description text, keep it short if not detail card.',
+      cegDisplayName: 'Description',
+      cegType: 'string',
+      cegFormType: 'toggle',
+      cegDefault: true,
+      cegOption: 'Description',
+      cegDependency: [{ name: 'type', value: 'simple' }],
     },
     borderColor: {
       isRequired: false,

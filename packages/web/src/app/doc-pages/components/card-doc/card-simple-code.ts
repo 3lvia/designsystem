@@ -11,7 +11,7 @@ const cardSimpleCode: ComponentTypeData = {
     description: {
       cegFormType: 'custom-text',
       cegCustomTextType: 'textarea',
-      cegDefault: '',
+      cegDefault: 'Description',
     },
   },
   codeReact: `<Card 
