@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import React from 'react';
-import Slider from './elvia-slider.tsx';
+import Slider from './elvia-slider';
 import userEvent from '@testing-library/user-event';
 import { render, screen, fireEvent } from '@testing-library/react';
 
