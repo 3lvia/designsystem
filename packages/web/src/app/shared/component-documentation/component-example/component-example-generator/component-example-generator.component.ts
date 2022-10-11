@@ -329,7 +329,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
 
     this.customTextProps = {};
-    Object.entries(componentData.attributes).forEach(([attribute, attributeData]) => {
+    Object.entries(componentData.attributes).forEach(([attribute, attributeData], idx) => {
       if (attributeData.cegFormType === 'custom-text') {
         this.customTextProps[attribute] = {
           value: attributeData.cegDefault ?? '',

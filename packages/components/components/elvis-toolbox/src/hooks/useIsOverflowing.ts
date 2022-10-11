@@ -21,7 +21,7 @@ export interface OverflowDirection {
  *   return (<div ref={elementRef}>...</div>)
  * }
  *
- * @since 4.1.0
+ * @since 4.2.0
  */
 export const useIsOverflowing = <T extends HTMLElement>(
   elementRef?: React.RefObject<T>,
