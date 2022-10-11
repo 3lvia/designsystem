@@ -57,19 +57,4 @@ elviaComponents.forEach((component) => {
   });
 });
 
-builds.push({
-  entry: './components/elvis-loader/src/elvia-loader.js',
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.css', '.scss'],
-  },
-  output: {
-    filename: `elvia-loader.js`,
-    path: path.resolve(__dirname, `./components/elvis-loader/dist/`),
-  },
-  performance: {
-    maxAssetSize: 500000,
-    maxEntrypointSize: 500000,
-  },
-});
-
 module.exports = builds;

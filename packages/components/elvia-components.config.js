@@ -520,23 +520,6 @@ module.exports = [
     reactTypescriptDeclaration: true,
   },
   {
-    name: 'elvis-testing',
-    elementName: 'elvia-testing',
-    attributes: [
-      { name: 'isFullWidth', type: 'boolean', propType: 'boolean' },
-      { name: 'isBlock', type: 'boolean', propType: 'boolean' },
-    ],
-    reactName: 'TestingComponent',
-    elementStyle: `width: 50%; display: grid;`,
-    conditionalElementStyle: [
-      { name: 'isFullWidth', value: 'true', style: `width: 100%` },
-      { name: 'isBlock', value: 'true', style: `display: block` },
-    ],
-    slotItems: false,
-    useWrapper: false,
-    reactTypescriptDeclaration: false,
-  },
-  {
     name: 'elvis-timepicker',
     elementName: 'elvia-timepicker',
     attributes: [
