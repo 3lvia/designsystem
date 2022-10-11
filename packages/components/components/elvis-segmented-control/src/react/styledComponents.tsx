@@ -18,7 +18,7 @@ const fontSizeMedium = '0.875rem';
 const fontSizeSmall = '0.875rem';
 const controlAnimation = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
-const controlPadding = (size: string, scType: string) => {
+const getControlPadding = (size: string, scType: string) => {
   if (scType === 'icon') {
     if (size === 'large') {
       return `${iconControlPaddingLarge - 1}px`;
@@ -91,7 +91,7 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   position: relative;
   white-space: nowrap;
   background-color: transparent;
-  padding: ${(props) => controlPadding(props.size, props.scType)};
+  padding: ${(props) => getControlPadding(props.size, props.scType)};
   border: ${(props) => getControlBorder(props.scType, props.isSelected)};
   border-radius: 100px;
   z-index: 10;
