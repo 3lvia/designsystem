@@ -5,7 +5,34 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white e-p-16">
+      <div class="e-form-field e-mb-32">
+        <label class="e-form-field__label" for="normal">Label</label>
+        <div class="e-input e-input---loading">
+          <input id="normal" type="text" placeholder="Placeholder text" />
+        </div>
+      </div>
+      <div style="width: 240px">
+        <div class="e-form-field e-form-field--compact">
+          <label class="e-form-field__label" for="compact">Label</label>
+          <div class="e-input e-input---loading">
+            <input id="compact" type="text" placeholder="Placeholder text" />
+          </div>
+        </div>
+      </div>
+      <div class="e-form-field e-mt-32">
+        <label class="e-form-field__label e-form-field__label--optional" for="textarea">Label</label>
+        <div class="e-input e-input---loading">
+          <textarea id="textarea" placeholder="Placeholder text" type="text"></textarea>
+        </div>
+      </div>
+      <div class="e-form-field e-form-field--compact e-mt-32">
+        <label class="e-form-field__label e-form-field__label--optional" for="textarea">Label</label>
+        <div class="e-input e-input---loading">
+          <textarea id="textarea" placeholder="Placeholder text" type="text"></textarea>
+        </div>
+      </div>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>

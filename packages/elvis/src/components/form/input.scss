@@ -16,6 +16,18 @@ $form-input-border: 1px solid colors.color('grey');
 $form-input-padding-compact: 4px 10px;
 $form-input-padding-compact-active: 3px 9px;
 
+@property --loading-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes loadingAnimation {
+  to {
+    --loading-angle: 180deg;
+  }
+}
+
 .e-input {
   max-width: 448px;
   width: 100%;
@@ -95,14 +107,35 @@ $form-input-padding-compact-active: 3px 9px;
     cursor: not-allowed;
   }
 
-  &.e-input---readonly > input,
-  &.e-input---readonly > input:focus,
-  &.e-input---readonly > input:read-only,
-  &.e-input---readonly > input:read-only:focus {
-    background: colors.color('grey-02');
-    border: unset;
-    color: colors.color('text-light');
-    padding: $form-input-padding;
+  &.e-input---readonly {
+    > input,
+    > input:focus,
+    > input:read-only,
+    > input:read-only:focus {
+      background: colors.color('grey-02');
+      border: unset;
+      color: colors.color('text-light');
+      padding: $form-input-padding;
+    }
+  }
+
+  &.e-input---loading {
+    > input:not(:focus),
+    > textarea:not(:focus) {
+      padding: $form-input-padding-active;
+      border: double 2px transparent;
+      border-radius: $form-input-border-radius;
+      background-image: linear-gradient(colors.color('elvia-on'), colors.color('elvia-on')),
+        linear-gradient(
+          var(--loading-angle),
+          colors.color('elvia-charge'),
+          transparent,
+          colors.color('elvia-charge')
+        );
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      animation: 2s loadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
+    }
   }
 
   // removes default time&date icons in input fields
@@ -146,14 +179,23 @@ $form-input-padding-compact-active: 3px 9px;
     padding: $form-input-padding-compact-active;
   }
 
-  &.e-input---readonly > input,
-  &.e-input---readonly > input:focus,
-  &.e-input---readonly > input:read-only,
-  &.e-input---readonly > input:read-only:focus {
-    background: colors.color('grey-02');
-    border: unset;
-    color: colors.color('text-light');
-    padding: $form-input-padding-compact-active;
+  &.e-input---readonly {
+    > input,
+    > input:focus,
+    > input:read-only,
+    > input:read-only:focus {
+      background: colors.color('grey-02');
+      border: unset;
+      color: colors.color('text-light');
+      padding: $form-input-padding-compact-active;
+    }
+  }
+
+  &.e-input---loading {
+    > input,
+    > textarea {
+      padding: $form-input-padding-compact-active;
+    }
   }
 
   .e-btn.e-btn--icon {
