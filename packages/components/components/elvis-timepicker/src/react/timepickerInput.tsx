@@ -35,6 +35,33 @@ export const TimepickerInput: React.FC<Props> = ({
     setHasSelectedText(!!window.getSelection()?.toString());
   };
 
+  const setInputValueFromCaretIndexRules = (newInputValue: string, pressedKey: string): void => {
+    switch (caretIndex) {
+      case 0:
+      case 3:
+      case 4: {
+        if (isNumericValue(pressedKey)) {
+          setInputValue(newInputValue);
+        }
+        break;
+      }
+      case 1: {
+        if (newInputValue.length === 2 && isNumericValue(pressedKey)) {
+          setInputValue(`${newInputValue}.`);
+        } else if (isNumericValue(pressedKey)) {
+          setInputValue(newInputValue);
+        }
+        break;
+      }
+      case 2: {
+        if (pressedKey === '.') {
+          setInputValue(newInputValue);
+        }
+        break;
+      }
+    }
+  };
+
   const parseInput = (ev: ChangeEvent<HTMLInputElement>): void => {
     const isModifierKey = ['deleteContentBackward', 'deleteContentForward'].includes(
       (ev.nativeEvent as InputEvent).inputType,
@@ -48,34 +75,8 @@ export const TimepickerInput: React.FC<Props> = ({
         return;
       }
 
-      /**
-       * We handle each caret position with separate rules
-       */
       const key = (ev.nativeEvent as InputEvent).data || '';
-      switch (caretIndex) {
-        case 0:
-        case 3:
-        case 4: {
-          if (isNumericValue(key)) {
-            setInputValue(newInputValue);
-          }
-          break;
-        }
-        case 1: {
-          if (newInputValue.length === 2 && isNumericValue(key)) {
-            setInputValue(`${newInputValue}.`);
-          } else if (isNumericValue(key)) {
-            setInputValue(newInputValue);
-          }
-          break;
-        }
-        case 2: {
-          if (key === '.') {
-            setInputValue(newInputValue);
-          }
-          break;
-        }
-      }
+      setInputValueFromCaretIndexRules(newInputValue, key);
     }
   };
 
@@ -91,7 +92,12 @@ export const TimepickerInput: React.FC<Props> = ({
 
   const validateInputValue = (hour: string, minute: string): boolean => {
     const parsedHour = hour.length > 2 ? hour.substring(0, 2) : hour;
-    const parsedMinute = minute ? minute : hour.length > 2 ? hour.substring(2) : '';
+    let parsedMinute = hour.length > 2 ? hour.substring(2) : '';
+
+    if (minute) {
+      // Always use parsed minute if it exists
+      parsedMinute = minute;
+    }
 
     if (!parsedHour.length && required) {
       onErrorChange('required');
