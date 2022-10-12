@@ -172,9 +172,9 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
 export const LabelText = styled.div`
   background-color: ${colors.elviaWhite};
   font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 10px;
   margin-left: 7px;
   padding: 0 3px;
   position: absolute;
@@ -223,6 +223,7 @@ export const NumberInput = styled.input.attrs(() => ({
   display: flex;
   max-width: 448px;
   min-height: 34px;
+  max-height: 34px;
   min-width: 50px;
   padding: 4px 10px;
   position: relative;
@@ -256,7 +257,7 @@ export const NumberInput = styled.input.attrs(() => ({
 export const SliderWrapper = styled.div<SliderWrapperProps>`
   align-items: center;
   display: flex;
-  height: 2rem;
+  height: 32px;
   position: relative;
 
   input[type='range'] {
@@ -409,20 +410,20 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
   align-items: center;
   animation: ${TooltipFadeIn} 200ms 1ms forwards;
   background: ${colors.elviaBlack};
-  border-radius: 0.25rem;
+  border-radius: 4px;
   color: ${colors.elviaWhite};
   display: flex;
   justify-content: center;
   max-width: min(350px, 96%);
   opacity: 0;
-  padding: 0.5rem 0.625rem;
+  padding: 8px 10px;
   position: absolute;
-  top: -46px;
+  bottom: 16px;
   user-select: none;
 
-  transform: ${(props) => (props.side === 'left' ? 'translateX(-50%)' : 'translateX(50%)')};
+  transform: ${(props) => (props.side === 'left' ? 'translate(-50%, -50%)' : 'translate(50%, -50%)')};
   width: max-content;
-  min-width: 1.5rem;
+  min-width: 24px;
   z-index: 100;
 
   &::after {
