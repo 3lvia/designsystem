@@ -48,7 +48,7 @@ export const LabelText = styled.div<BaseProps>`
         top: 0;
         padding: 0 3px;
         z-index: 1;
-        line-height: 100%;
+        line-height: 10px;
       `;
     }
     return '';
@@ -104,6 +104,7 @@ export const InputContainer = styled.div<InputContainerProps>`
 
 export const Input = styled.input<Partial<BaseProps>>`
   ${typography.textInput}
+  line-height:22px;
   width: 46px;
   min-width: 0;
   padding: 0;
@@ -118,7 +119,7 @@ export const Input = styled.input<Partial<BaseProps>>`
   ${(props) => {
     if (props.isCompact) {
       return css`
-        font-size: 14px;
+        font-size: 0.875rem;
       `;
     }
     return '';
