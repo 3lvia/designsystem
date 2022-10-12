@@ -1,3 +1,4 @@
+@use '@elvia/elvis/src/utilities/helpers.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 @import '../../../shared/overview-page/overview-page.component.scss';
 
@@ -7,17 +8,17 @@ $pageIndentedMargin: 72px;
 
 %image-typo {
   font-family: 'Red Hat Text', Verdana, sans-serif !important;
-  font-size: 18px !important;
+  font-size: helpers.toRem(18) !important;
   text-align: center !important;
-  line-height: 29px !important;
+  line-height: 161.11% !important;
   font-weight: 400 !important;
   font-style: italic !important;
   letter-spacing: unset !important;
   text-transform: unset !important;
   color: inherit !important;
   @include breakpoint-up(Mobile) {
-    font-size: 16px !important;
-    line-height: 26px !important;
+    font-size: helpers.toRem(16) !important;
+    line-height: 162.5% !important;
   }
 }
 
@@ -25,15 +26,15 @@ $pageIndentedMargin: 72px;
   font-weight: 400;
   * {
     font-family: 'Red Hat Text', Verdana, sans-serif;
-    font-size: 24px;
-    line-height: 39px;
+    font-size: helpers.toRem(24);
+    line-height: 162.5%;
     font-style: unset;
     letter-spacing: unset;
     text-transform: unset;
     color: inherit;
     @include breakpoint-up(Mobile) {
-      font-size: 22px;
-      line-height: 36px;
+      font-size: helpers.toRem(22);
+      line-height: 163.64%;
     }
     .e-text-img .e-text-lg {
       @extend %image-typo;
@@ -83,7 +84,7 @@ $pageIndentedMargin: 72px;
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-style: normal;
   font-weight: 900;
-  font-size: 44px;
+  font-size: helpers.toRem(44);
   line-height: 120%;
   text-align: center;
 
@@ -204,7 +205,7 @@ $pageIndentedMargin: 72px;
     font-family: 'Red Hat Mono', Verdana, sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: helpers.toRem(16);
     line-height: inherit;
 
     background: var(--e-grey-05);

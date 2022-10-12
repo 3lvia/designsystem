@@ -1,3 +1,4 @@
+@use '@elvia/elvis/src/utilities/helpers.scss';
 @import '../../../shared/shared-sizes';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 @import '@elvia/elvis/src/variables/typography.scss';
@@ -100,8 +101,8 @@
       font-family: 'Red Hat Text', Verdana, sans-serif;
       font-style: normal;
       font-weight: 500;
-      font-size: 12px;
-      line-height: 14px;
+      font-size: helpers.toRem(12);
+      line-height: 116.67%;
       letter-spacing: 0.2px;
       color: var(--e-black);
       padding-top: 40px;

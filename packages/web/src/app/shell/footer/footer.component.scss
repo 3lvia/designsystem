@@ -1,3 +1,4 @@
+@use '@elvia/elvis/src/utilities/helpers.scss';
 @import '../../shared/shared-sizes.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
@@ -63,8 +64,8 @@
 
     .text-sm-custom {
       font-family: 'Red Hat Text', Verdana, sans-serif;
-      font-size: 11px;
-      line-height: 160%;
+      font-size: toRem(11);
+      line-height: 1.6;
       letter-spacing: 0.2px;
     }
     .text-align-center {

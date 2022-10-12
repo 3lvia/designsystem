@@ -1,4 +1,5 @@
 @use '@elvia/elvis/src/variables/typography.scss';
+@use '@elvia/elvis/src/utilities/helpers.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 .ExampleSquare {
@@ -48,8 +49,8 @@
   .number {
     font-style: normal;
     font-weight: 500;
-    font-size: 10px;
-    line-height: 20px;
+    font-size: helpers.toRem(10);
+    line-height: 2;
     color: black;
   }
   .square {

@@ -1,3 +1,4 @@
+@use '@elvia/elvis/src/utilities/helpers.scss';
 @import '../../shared/shared-sizes.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
@@ -59,8 +60,8 @@
     &-links {
       font-family: 'Red Hat Text', Verdana, sans-serif;
       font-weight: 500;
-      font-size: 12px;
-      line-height: 14px;
+      font-size: helpers.toRem(12);
+      line-height: 116.67%;
       display: flex;
       align-items: center;
       letter-spacing: 0.8px;
@@ -131,8 +132,8 @@
         font-style: normal;
         text-transform: none;
         font-weight: 500;
-        font-size: 15px;
-        line-height: 17px;
+        font-size: helpers.toRem(15);
+        line-height: 113.33%;
       }
     }
 
@@ -144,8 +145,8 @@
     .version {
       font-family: 'Red Hat Text', Verdana, sans-serif;
       font-weight: 500;
-      font-size: 12px;
-      line-height: 14px;
+      font-size: helpers.toRem(12);
+      line-height: 116.67%;
       text-align: right;
       letter-spacing: 0.2px;
       color: var(--e-white);
@@ -178,8 +179,8 @@
         font-style: normal;
         text-transform: none;
         font-weight: 500;
-        font-size: 15px;
-        line-height: 17px;
+        font-size: helpers.toRem(15);
+        line-height: 113.33%;
         @include breakpoint-up(Mobile) {
           display: none;
         }

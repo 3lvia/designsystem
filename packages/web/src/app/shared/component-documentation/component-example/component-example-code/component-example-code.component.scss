@@ -1,3 +1,5 @@
+@use '@elvia/elvis/src/utilities/helpers.scss';
+
 :host {
   width: 100%;
 }
@@ -9,8 +11,8 @@
 pre {
   padding: 0;
   margin: 0;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: helpers.toRem(14);
+  line-height: 128.57%;
   background: var(--e-grey);
 }
 

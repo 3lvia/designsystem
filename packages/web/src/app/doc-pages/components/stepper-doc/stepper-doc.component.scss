@@ -1,3 +1,4 @@
+@use '@elvia/elvis/src/utilities/helpers.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 .e-stepper .e-stepper__content {
@@ -61,8 +62,8 @@
 
         font-family: 'Red Hat Display', Verdana, sans-serif;
         font-weight: 700;
-        font-size: 18px;
-        line-height: 120%;
+        font-size: helpers.toRem(18);
+        line-height: 1.2;
       }
       .error {
         border: 2px solid var(--e-red);

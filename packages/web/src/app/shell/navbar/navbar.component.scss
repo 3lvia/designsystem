@@ -1,8 +1,8 @@
+@use '@elvia/elvis/src/utilities/helpers.scss';
 @import '../../shared/shared-sizes.scss';
 @import '../../shared/shared-animations';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
-$text-line-height: 32px;
 .wrapper {
   height: 100%;
   position: relative;
@@ -77,21 +77,23 @@ $text-line-height: 32px;
           font-family: 'Red Hat Text', Verdana, sans-serif;
           font-style: normal;
           font-weight: 500;
-          font-size: 14px;
-          line-height: 16px;
+          font-size: helpers.toRem(14);
+          line-height: 1rem;
           letter-spacing: 0.012em;
         }
       }
       a:hover,
       a.active-route {
         .navbar-item-title {
-          font-size: 15px;
+          font-size: helpers.toRem(15);
+          display: flex;
+          flex-direction: row;
+          align-items: center;
         }
         .navbar-item-title::before {
           content: '';
           position: absolute;
           left: 0px;
-          top: calc((#{$text-line-height} / 2) - 8px - 4px);
           width: 8px;
           height: 8px;
           border-radius: 50%;
@@ -100,7 +102,7 @@ $text-line-height: 32px;
       }
       a.active-route {
         .navbar-item-title {
-          font-size: 14px;
+          font-size: helpers.toRem(14);
           font-weight: 600;
         }
         .navbar-item-title:before {
@@ -125,8 +127,8 @@ $text-line-height: 32px;
             font-family: 'Red Hat Text', Verdana, sans-serif;
             font-style: normal;
             font-weight: 400;
-            font-size: 13px;
-            line-height: 17px;
+            font-size: helpers.toRem(13);
+            line-height: 130.77%;
             letter-spacing: 0.012em;
             color: var(--e-grey-70);
           }
@@ -155,10 +157,10 @@ $text-line-height: 32px;
             }
           }
           a:hover {
-            font-size: 14px;
+            font-size: helpers.toRem(14);
           }
           a.active-anchor {
-            font-size: 13px;
+            font-size: helpers.toRem(13);
             font-weight: 500;
             color: var(--e-black);
           }

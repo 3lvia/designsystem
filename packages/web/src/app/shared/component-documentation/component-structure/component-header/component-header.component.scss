@@ -1,3 +1,4 @@
+@use '@elvia/elvis/src/utilities/helpers.scss';
 @import '../../../shared-animations.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
@@ -66,8 +67,8 @@
       font-family: 'Red Hat Text', Verdana, sans-serif;
       font-style: normal;
       font-weight: 400;
-      font-size: 13px;
-      line-height: 17px;
+      font-size: helpers.toRem(13);
+      line-height: 130.77%;
       letter-spacing: 0.012em;
       color: var(--e-grey-70);
     }

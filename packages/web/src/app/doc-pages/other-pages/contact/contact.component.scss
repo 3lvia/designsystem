@@ -1,3 +1,4 @@
+@use '@elvia/elvis/src/utilities/helpers.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 .page-body {
@@ -59,13 +60,13 @@
       position: relative;
     }
     .profile-emoji {
-      font-size: 58px;
+      font-size: helpers.toRem(58);
       position: absolute;
       top: 5px;
       left: 36px;
       user-select: none;
       @include breakpoint-up(Mobile) {
-        font-size: 44px;
+        font-size: helpers.toRem(44);
         left: 186px - 44px;
       }
       &.right {

@@ -1,3 +1,4 @@
+@use '@elvia/elvis/src/utilities/helpers.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 .component-body__example {
@@ -34,8 +35,8 @@
           width: 100%;
 
           font-family: 'Red Hat Display', Verdana, sans-serif;
-          font-size: 14px;
-          line-height: 32px;
+          font-size: helpers.toRem(14);
+          line-height: 228.57%;
           letter-spacing: 0.2px;
 
           position: relative;
@@ -88,8 +89,8 @@
         width: 100%;
 
         font-family: 'Red Hat Text', Verdana, sans-serif;
-        font-size: 14px;
-        line-height: 160%;
+        font-size: helpers.toRem(14);
+        line-height: 1.6;
         .e-toggle {
           margin-left: 8px;
         }

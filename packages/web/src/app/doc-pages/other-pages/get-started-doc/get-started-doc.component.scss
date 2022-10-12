@@ -1,3 +1,4 @@
+@use '@elvia/elvis/src/utilities/helpers.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 .flex-img-container {
@@ -69,8 +70,8 @@
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-style: normal;
   font-weight: 900;
-  font-size: 44px;
-  line-height: 120%;
+  font-size: toRem(44);
+  line-height: 1.2;
   text-transform: uppercase;
   @include breakpoint-up(Mobile) {
     margin: 16px 0;
