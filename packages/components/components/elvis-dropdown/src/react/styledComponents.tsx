@@ -2,6 +2,9 @@ import styled, { css, keyframes } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
+const DEFAULT_FONT_SIZE = 16;
+const rem = (px: number) => `${px / DEFAULT_FONT_SIZE}rem`;
+
 const colors = {
   charge: getColor('elvia-charge'),
   white: getColor('white'),
@@ -56,8 +59,8 @@ export const DropdownLabel = styled.label<DropdownLabelProps>`
   margin-bottom: 4px;
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-weight: 500;
-  font-size: ${(props) => (props.isCompact ? '10px' : '16px')};
   line-height: ${(props) => (props.isCompact ? '10px' : '23px')};
+  font-size: ${(props) => (props.isCompact ? rem(10) : rem(16))};
   color: ${colors.black};
   text-align: left;
 `;
@@ -262,7 +265,7 @@ interface DropdownCheckboxLabelProps {
 export const DropdownCheckboxLabel = styled.span<DropdownCheckboxLabelProps>`
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-style: normal;
-  font-size: ${(props) => (props.isCompact ? '14px' : '16px')};
+  font-size: ${(props) => (props.isCompact ? rem(14) : rem(16))};
   margin-left: 8px;
   line-height: ${(props) => (props.isCompact ? '16px;' : '24px')};
   width: fit-content;
@@ -327,7 +330,7 @@ export const DropdownMenuLoadMoreButtonText = styled.span`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: ${rem(14)};
   line-height: 16px;
 `;
 
