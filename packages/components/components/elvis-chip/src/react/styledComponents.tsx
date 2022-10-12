@@ -14,6 +14,9 @@ export const colors = {
   gray05: getColor('grey-05'),
 };
 
+const DEFAULT_FONT_SIZE = 16;
+const rem = (px: number) => `${px / DEFAULT_FONT_SIZE}rem`;
+
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
 
 const setBackgroundColor = (color: ColorType, isLoading: boolean, isSelected: boolean, type: ChipType) => {
@@ -71,8 +74,8 @@ export const ChipComponent = styled.button<ChipComponentProps>`
     chipType: ChipType;
   }) => setBackgroundColor(props.color, props.isLoading, props.isSelected, props.chipType)};
   cursor: ${(props: { disabled: boolean }) => (props.disabled ? 'not-allowed' : 'pointer')};
-  font-size: 14px;
   line-height: 16px;
+  font-size: ${rem(14)};
   padding: calc(8px - 1px) calc(16px - 1px);
   border-radius: 24px;
   transition: background-color 300ms ease-in;
@@ -192,7 +195,8 @@ export const Loading = styled.div`
 export const ChipDot = styled.span<{ color: ColorType }>`
   &.dot {
     ::before {
-      display: inline-block;
+      display: grid;
+      place-content: center;
       content: '';
       height: 10px;
       width: 10px;
