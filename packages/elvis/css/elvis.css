@@ -2890,7 +2890,7 @@ input:focus {
   padding: 11px 15px;
   border: double 2px transparent;
   border-radius: 4px;
-  background-image: linear-gradient(#fff, #fff), linear-gradient(var(--loading-angle), #29d305, transparent 40%, transparent 60%, #29d305);
+  background-image: linear-gradient(#fff, #fff), linear-gradient(var(--loading-angle), #29d305, transparent 35%, transparent 65%, #29d305);
   background-origin: border-box;
   background-clip: padding-box, border-box;
   animation: 1.7s loadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
