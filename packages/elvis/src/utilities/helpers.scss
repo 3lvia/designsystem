@@ -1,4 +1,4 @@
-@use "../variables/shared-sizes";
+@use '../variables/shared-sizes';
 
 @mixin transform($value) {
   -o-transform: $value;
@@ -72,4 +72,9 @@
   @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     @content;
   }
+}
+
+@function toRem($value) {
+  $remValue: ($value / 16) + rem;
+  @return $remValue;
 }
