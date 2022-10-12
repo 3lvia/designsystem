@@ -5,6 +5,12 @@ export type MinuteInterval = '1' | '5' | '10' | '15' | '60';
 export type ChangeType = 'hour' | 'minute';
 export type ErrorType = 'invalidTime' | 'required';
 
+export interface ErrorOptions {
+  text: string;
+  hideText: boolean;
+  isErrorState: boolean;
+}
+
 export interface TimepickerProps {
   value: Date;
   valueOnChange: (value: Date) => void;
@@ -13,9 +19,7 @@ export interface TimepickerProps {
   isDisabled: boolean;
   isCompact: boolean;
   isRequired: boolean;
-  showValidationState?: boolean;
-  isErrorState?: boolean;
-  customError?: string;
+  errorOptions?: Partial<ErrorOptions>;
   selectNowOnOpen: boolean;
   label: string;
   className: string;
