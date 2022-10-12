@@ -45,7 +45,7 @@ export const Backdrop = styled.div<Partial<BackdropProps>>`
     `}
 `;
 
-export const Header = styled.header<ResponsiveProps>`
+export const StyledHeader = styled.header<ResponsiveProps>`
   background-color: ${getColor('elvia-on')};
   height: ${toolbarHeight};
   display: flex;
