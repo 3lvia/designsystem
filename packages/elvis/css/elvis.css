@@ -144,7 +144,7 @@ body {
   display: flex;
   font-family: "Red Hat Display", Verdana, sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 24px;
   text-align: left;
   padding-right: 8px;
@@ -249,8 +249,8 @@ body {
   pointer-events: none;
   overflow: hidden;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 1.25rem;
+  line-height: 160%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -260,8 +260,7 @@ body {
 }
 @media (max-width: 767px) {
   .e-accordion__item .e-accordion__content {
-    font-size: 18px;
-    line-height: 29px;
+    font-size: 1.125rem;
   }
 }
 .e-accordion__item.e-accordion__item--open > .e-accordion__icon,
@@ -336,8 +335,8 @@ body {
   transition: all 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
   font-size: inherit;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 1.25rem;
+  line-height: 160%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -347,8 +346,7 @@ body {
 @media (max-width: 767px) {
   .e-accordion__item.e-accordion__item--open > .e-accordion__content,
 .e-accordion__item.e-accordion__item--open > .e-accordion__label > .e-accordion__content {
-    font-size: 18px;
-    line-height: 29px;
+    font-size: 1.125rem;
   }
 }
 @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -391,7 +389,7 @@ body {
   height: 24px;
 }
 .e-accordion.e-accordion--lg .e-accordion__title {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 .e-accordion.e-accordion--md .e-accordion__icon {
   width: 24px;
@@ -403,7 +401,7 @@ body {
   height: 24px;
 }
 .e-accordion.e-accordion--md .e-accordion__title {
-  font-size: 16px;
+  font-size: 1rem;
 }
 .e-accordion.e-accordion--sm .e-accordion__icon {
   width: 16px;
@@ -415,7 +413,7 @@ body {
   height: 16px;
 }
 .e-accordion.e-accordion--sm .e-accordion__title {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .e-accordion.e-accordion--single .e-accordion__icon {
   width: 16px;
@@ -432,8 +430,8 @@ body {
   padding-top: 0;
   pointer-events: none;
   overflow: hidden;
-  font-size: 14px;
   line-height: 24px;
+  font-size: 0.875rem;
 }
 .e-accordion.e-accordion--single .e-accordion__item.e-accordion__item--open .e-accordion__content {
   pointer-events: auto;
@@ -441,8 +439,8 @@ body {
   opacity: 1;
   padding-top: 16px;
   transition: all 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
-  font-size: 14px;
   line-height: 24px;
+  font-size: 0.875rem;
 }
 .e-accordion.e-accordion--group {
   display: flex;
@@ -472,8 +470,8 @@ body {
 .e-accordion.e-accordion--group .e-accordion__item .e-accordion__label .e-accordion__title {
   font-family: "Red Hat Display", Verdana, sans-serif;
   font-weight: 500;
-  font-size: 20px;
   line-height: 32px;
+  font-size: 1.25rem;
   margin-right: 8px;
 }
 .e-accordion.e-accordion--group .e-accordion__item .e-accordion__label .e-accordion__icon {
@@ -572,8 +570,8 @@ body {
 }
 .e-alert__content .e-alert__title {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 0.875rem;
+  line-height: 120%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: 0.8px;
@@ -585,8 +583,8 @@ body {
 }
 .e-alert__content .e-alert__text {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -611,7 +609,7 @@ body {
 }
 .e-alert__content .e-alert__links {
   margin-top: 16px;
-  height: 26px;
+  height: 1.625rem;
 }
 .e-alert__content .e-alert__links a:not(:last-of-type) {
   margin-right: 24px;
@@ -657,8 +655,8 @@ body {
 }
 .e-alert.e-alert--global .e-alert__content .e-alert__title {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.125rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -668,7 +666,7 @@ body {
 }
 @media (max-width: 767px) {
   .e-alert.e-alert--global .e-alert__content .e-alert__title {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 .e-alert.e-alert--global.e-alert--warn {
@@ -880,8 +878,8 @@ body {
 }
 .e-alert.e-alert--local .e-alert__title, .e-alert:not(.e-alert--global):not(.e-alert--toast) .e-alert__title {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -946,8 +944,8 @@ body {
 }
 .e-alert.e-alert--toast .e-alert__title {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -957,8 +955,8 @@ body {
 }
 .e-alert.e-alert--toast .e-alert__content .e-alert__text {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -1053,8 +1051,8 @@ body {
   padding: 12px 16px;
   z-index: 100;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -1073,8 +1071,8 @@ body {
 .e-form-field.e-form-field--compact .e-autocomplete__item, .e-form-field.e-form-field--compact .e-dropdown__item {
   padding: 6px 10px;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -1693,7 +1691,7 @@ input:focus {
   margin-left: 8px;
 }
 .e-btn.e-btn--lg {
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 24px;
   padding: calc(12px - 1px) calc(32px - 1px);
 }
@@ -1720,7 +1718,7 @@ input:focus {
   height: 12px;
 }
 .e-btn.e-btn--md, .e-btn {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 20px;
   padding: calc(10px - 1px) calc(24px - 1px);
 }
@@ -1745,7 +1743,7 @@ input:focus {
   height: 16px;
 }
 .e-btn.e-btn--sm {
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 16px;
   padding: calc(8px - 1px) calc(16px - 1px);
 }
@@ -2476,8 +2474,8 @@ input:focus {
 }
 .e-card__title {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.125rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -2488,13 +2486,13 @@ input:focus {
 }
 @media (max-width: 767px) {
   .e-card__title {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 .e-card__title.e-card__title--above {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 0.875rem;
+  line-height: 120%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: 0.8px;
@@ -2507,8 +2505,8 @@ input:focus {
 .e-card__content {
   display: block;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -2538,8 +2536,8 @@ input:focus {
 }
 .e-chip__label {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -2711,7 +2709,7 @@ input:focus {
 }
 .e-content-loader.e-content-loader--text {
   width: 100%;
-  height: 24px;
+  height: 1.5rem;
 }
 .e-content-loader.e-content-loader--text:after {
   width: 100%;
@@ -2740,8 +2738,8 @@ input:focus {
 }
 .e-divider.e-divider--title .e-divider__title {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 1.875rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -2751,8 +2749,8 @@ input:focus {
 }
 @media (max-width: 767px) {
   .e-divider.e-divider--title .e-divider__title {
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 1.5rem;
+    line-height: 120%;
   }
 }
 .e-divider.e-divider--title.e-divider--inverted {
@@ -2789,6 +2787,7 @@ input:focus {
 }
 .e-input > input,
 .e-input > textarea {
+  max-height: 48px;
   display: flex;
   align-items: center;
   border: 1px solid #262626;
@@ -2799,8 +2798,8 @@ input:focus {
   width: 100%;
   padding: 12px 16px;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 1rem;
+  line-height: 137.5%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -2891,10 +2890,11 @@ input:focus {
 .e-form-field.e-form-field--compact .e-input textarea,
 .e-input.e-input--compact input,
 .e-input.e-input--compact textarea {
+  max-height: 32px;
   padding: 4px 10px;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -3147,8 +3147,8 @@ input:focus {
   background: #7c7c7c;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.125rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -3159,7 +3159,7 @@ input:focus {
 }
 @media (max-width: 767px) {
   .e-header__top-bar-desktop__app .e-header__top-bar-desktop__app-menu-item .e-header__top-bar-desktop__app-circle {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 .e-header__top-bar-desktop__app .e-header__top-bar-desktop__app-menu-item.e-header__top-bar-desktop__app-menu-item--active .e-header__top-bar-desktop__app-circle {
@@ -3177,8 +3177,8 @@ input:focus {
 }
 .e-header__top-bar-desktop__app .e-header__top-bar-desktop__app-menu-item .e-header__top-bar-desktop__app-title {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 0.875rem;
+  line-height: 120%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: 0.8px;
@@ -3206,8 +3206,8 @@ input:focus {
   height: 48px;
   padding: 13px 16px;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 1rem;
+  line-height: 137.5%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -3247,8 +3247,8 @@ input:focus {
 .e-header__top-bar-desktop__app {
   position: relative;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 0.875rem;
+  line-height: 120%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: 0.8px;
@@ -3263,8 +3263,8 @@ input:focus {
   -ms-user-select: text;
   user-select: text;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -3273,7 +3273,7 @@ input:focus {
 }
 @media (max-width: 1023px) {
   .e-header__top-bar-desktop__title {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 145%;
   }
 }
@@ -3281,7 +3281,7 @@ input:focus {
   position: relative;
   font-family: "Red Hat Display", Verdana, sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 16px;
 }
 .e-header__top-bar-desktop__line {
@@ -3292,7 +3292,7 @@ input:focus {
   margin-right: 19px;
   font-family: "Red Hat Display", Verdana, sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 16px;
 }
 .e-header__top-bar-desktop__user .e-header__top-bar-desktop__user-menu {
@@ -3312,15 +3312,15 @@ input:focus {
 .e-header__top-bar-desktop__user .e-header__top-bar-desktop__user-menu-name {
   font-family: "Red Hat Text", Verdana, sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 120%;
   letter-spacing: 0.2px;
 }
 .e-header__top-bar-desktop__user .e-header__top-bar-desktop__user-menu-mail {
   padding-top: 12px;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -3346,7 +3346,7 @@ input:focus {
   font-family: "Red Hat Display", Verdana, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 115%;
 }
 .e-header__top-bar-desktop__user .e-header__top-bar-desktop__user-menu-settings i, .e-header__top-bar-desktop__user .e-header__top-bar-desktop__user-menu-logout i {
@@ -3541,8 +3541,8 @@ input:focus {
   }
   .e-header.e-header--open .e-header__top-bar-mobile__app .e-header__top-bar-mobile__title, .e-header.e-header--open .e-header__top-bar-mobile__area .e-header__top-bar-mobile__title, .e-header.e-header--open .e-header__top-bar-mobile__user .e-header__top-bar-mobile__title {
     font-family: Red Hat Text, Verdana, sans-serif;
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 0.875rem;
+    line-height: 175%;
     font-weight: 400;
     font-style: unset;
     letter-spacing: unset;
@@ -3557,7 +3557,7 @@ input:focus {
     padding-bottom: 0;
     font-family: "Red Hat Text", Verdana, sans-serif;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 170%;
   }
   .e-header.e-header--open .e-header__top-bar-mobile__app .e-header__top-bar-mobile__link .e-header__top-bar-mobile__link-icon, .e-header.e-header--open .e-header__top-bar-mobile__area .e-header__top-bar-mobile__link .e-header__top-bar-mobile__link-icon, .e-header.e-header--open .e-header__top-bar-mobile__user .e-header__top-bar-mobile__link .e-header__top-bar-mobile__link-icon {
@@ -3584,8 +3584,8 @@ input:focus {
   .e-header.e-header--open .e-header__top-bar-mobile__user .e-header__top-bar-mobile__user-menu-name {
     margin-top: 8px;
     font-family: Red Hat Text, Verdana, sans-serif;
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 0.875rem;
+    line-height: 175%;
     font-weight: 400;
     font-style: unset;
     letter-spacing: unset;
@@ -3601,7 +3601,7 @@ input:focus {
     padding: 0 8px;
     font-family: "Red Hat Display", Verdana, sans-serif;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 115%;
   }
   .e-header.e-header--open .e-header__top-bar-mobile__user .e-header__top-bar-mobile__user-menu-settings i, .e-header.e-header--open .e-header__top-bar-mobile__user .e-header__top-bar-mobile__user-menu-logout i {
@@ -3660,8 +3660,8 @@ input:focus {
   display: none;
   margin-left: 8px;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -3784,16 +3784,16 @@ input:focus {
   margin-left: 4px;
 }
 .e-link.e-link--lg {
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 24px;
   border-bottom: 2.5px solid #000;
 }
 .e-link.e-link--md, .e-link {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 22px;
 }
 .e-link.e-link--sm {
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 20px;
 }
 .e-link.e-link--inverted {
@@ -3879,7 +3879,7 @@ input:focus {
 }
 .e-link.e-link--back.e-link--lg, .e-link.e-link--action.e-link--lg {
   line-height: 26px;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 .e-link.e-link--back.e-link--lg .e-link__icon, .e-link.e-link--action.e-link--lg .e-link__icon {
   width: 24px;
@@ -3893,7 +3893,7 @@ input:focus {
 }
 .e-link.e-link--back.e-link--md, .e-link.e-link--back, .e-link.e-link--action.e-link--md, .e-link.e-link--action {
   line-height: 24px;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 .e-link.e-link--back.e-link--md .e-link__icon, .e-link.e-link--back .e-link__icon, .e-link.e-link--action.e-link--md .e-link__icon, .e-link.e-link--action .e-link__icon {
   width: 24px;
@@ -3909,7 +3909,7 @@ input:focus {
 }
 .e-link.e-link--back.e-link--sm, .e-link.e-link--action.e-link--sm {
   line-height: 21px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .e-link.e-link--back.e-link--sm .e-link__icon, .e-link.e-link--action.e-link--sm .e-link__icon {
   width: 16px;
@@ -3937,8 +3937,8 @@ input:focus {
 }
 .e-link.e-link--jumbo {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.125rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -3959,7 +3959,7 @@ input:focus {
 }
 @media (max-width: 767px) {
   .e-link.e-link--jumbo {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 .e-link.e-link--jumbo > .e-link__title:first-child {
@@ -4097,23 +4097,23 @@ input:focus {
   margin: 0;
   margin-top: 10%;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 23px;
+  font-size: 1rem;
+  line-height: 143.75%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
   color: inherit;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 16px;
   letter-spacing: 0.4px;
 }
 .e-link.e-link--card .e-link__description {
   margin-top: 2%;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 23px;
+  font-size: 1rem;
+  line-height: 143.75%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -4226,8 +4226,8 @@ input:focus {
 }
 .e-link.e-link--card.e-link--shortcut .e-link__content .e-link__title {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 23px;
+  font-size: 1rem;
+  line-height: 143.75%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -4237,8 +4237,8 @@ input:focus {
 }
 .e-link.e-link--card.e-link--shortcut .e-link__content .e-link__description {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -5387,9 +5387,12 @@ input:focus {
 .e-list.e-list--numbers .e-list:not(.e-list--icons) li, .e-list li {
   list-style: none;
   position: relative;
-  line-height: 32px;
+  line-height: 2;
   padding-left: 24px;
   margin: 0.5rem 0;
+  /*  display: flex;
+  flex-direction: row;
+  align-items: center; */
 }
 .e-list.e-list--icons .e-list:not(.e-list--numbers) li::before,
 .e-list.e-list--icons .e-list:not(.e-list--icons) li::before, .e-list.e-list--numbers .e-list:not(.e-list--numbers) li::before,
@@ -5417,7 +5420,7 @@ input:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 1.125rem;
   width: 30px;
   height: 30px;
   top: 2px;
@@ -5523,8 +5526,8 @@ input:focus {
 }
 .e-modal__content .e-modal__title {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 1.875rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -5533,14 +5536,14 @@ input:focus {
 }
 @media (max-width: 767px) {
   .e-modal__content .e-modal__title {
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 1.5rem;
+    line-height: 120%;
   }
 }
 .e-modal__content .e-modal__text {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 1.25rem;
+  line-height: 160%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -5551,8 +5554,7 @@ input:focus {
 }
 @media (max-width: 767px) {
   .e-modal__content .e-modal__text {
-    font-size: 18px;
-    line-height: 29px;
+    font-size: 1.125rem;
   }
 }
 .e-modal__content .e-modal__actions {
@@ -5859,8 +5861,8 @@ input:focus {
 }
 .e-popover__content .e-popover__title {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -5871,8 +5873,8 @@ input:focus {
 }
 .e-popover__content .e-popover__text {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -6159,7 +6161,7 @@ input:focus {
 .e-stepper__step-number {
   font-family: "Red Hat Display", Verdana, sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 22px;
   color: #000;
   cursor: pointer;
@@ -6207,7 +6209,7 @@ input:focus {
 .e-stepper__title {
   font-family: "Red Hat Display", Verdana, sans-serif;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 29px;
   display: flex;
   justify-content: center;
@@ -6236,7 +6238,7 @@ input:focus {
 .e-stepper.e-stepper--vertical .e-stepper__step .e-stepper__step-header .e-stepper__step-title {
   display: flex;
   font-family: "Red Hat Text", Verdana, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 28px;
   margin-left: 16px;
   cursor: pointer;
@@ -6249,7 +6251,7 @@ input:focus {
 .e-stepper.e-stepper--vertical .e-stepper__step.e-stepper__step--active .e-stepper__step-title {
   font-family: "Red Hat Display", Verdana, sans-serif;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 29px;
 }
 .e-stepper.e-stepper--vertical .e-stepper__step:last-of-type .e-stepper__content {
@@ -6408,14 +6410,14 @@ input:focus {
 .e-table__footnote {
   margin-top: 8px;
   font-family: "Red Hat Text", Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 1rem;
+  line-height: 162.5%;
   color: inherit;
   text-align: left;
 }
 .e-table-footnote.e-table__footnote--compact,
 .e-table__footnote.e-table__footnote--compact {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .e-table {
@@ -6434,8 +6436,8 @@ input:focus {
 }
 .e-table thead th {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.125rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -6444,7 +6446,7 @@ input:focus {
 }
 @media (max-width: 767px) {
   .e-table thead th {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 .e-table thead th,
@@ -6455,8 +6457,8 @@ input:focus {
 .e-table td,
 .e-table th {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -6506,8 +6508,8 @@ input:focus {
 .e-table.e-table--compact td,
 .e-table.e-table--compact th {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -6515,7 +6517,6 @@ input:focus {
   color: inherit;
   color: #000;
   padding: 9px 16px;
-  line-height: 21px;
 }
 .e-table.e-table--sticky-header thead {
   position: sticky;
@@ -6555,8 +6556,8 @@ input:focus {
 }
 .e-table-mobile thead th {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.125rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -6566,14 +6567,14 @@ input:focus {
 }
 @media (max-width: 767px) {
   .e-table-mobile thead th {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 .e-table-mobile th,
 .e-table-mobile td {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -6598,8 +6599,8 @@ input:focus {
 .e-table-mobile tbody tr:first-of-type th {
   background: #f4f4f4;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -6623,14 +6624,14 @@ input:focus {
 .e-table-mobile.e-table-mobile--compact thead th {
   font-family: "Red Hat Display", Verdana, sans-serif;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 19px;
 }
 .e-table-mobile.e-table-mobile--compact td,
 .e-table-mobile.e-table-mobile--compact th {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -6638,12 +6639,11 @@ input:focus {
   color: inherit;
   color: #000;
   padding: 9px 16px;
-  line-height: 21px;
 }
 .e-table-mobile.e-table-mobile--compact tbody tr:first-of-type th {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -7111,7 +7111,7 @@ input:focus {
   border-radius: 4px;
   transition: 250ms;
   font-family: "Red Hat Text", Verdana, sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 19px;
   letter-spacing: 0.002em;
@@ -7213,7 +7213,7 @@ input:focus {
   align-items: center;
   cursor: pointer;
   font-family: "Red Hat Text", Verdana, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 22px;
   font-weight: 400;
   font-style: unset;
@@ -7355,7 +7355,7 @@ input:focus {
   margin-left: 8px;
   width: fit-content;
   font-family: "Red Hat Text", Verdana, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 24px;
   font-weight: 400;
   color: #000;
@@ -7368,8 +7368,8 @@ input:focus {
 }
 .e-checkbox.e-checkbox--compact .e-checkbox__label, .e-checkbox.e-checkbox--sm .e-checkbox__label {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -7746,8 +7746,8 @@ input:focus {
   display: block;
   margin-bottom: 5px;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 23px;
+  font-size: 1rem;
+  line-height: 143.75%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -7766,8 +7766,8 @@ input:focus {
   align-items: center;
   margin-top: 8px;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -7823,13 +7823,13 @@ input:focus {
   height: 9px;
   font-family: "Red Hat Text", Verdana, sans-serif;
   font-weight: 500;
-  font-size: 10px;
-  line-height: 100%;
+  font-size: 0.625rem;
+  line-height: 10px;
 }
 .e-form-field.e-form-field--compact .e-form-field__error {
   margin-top: 4px;
   font-family: "Red Hat Text", Verdana, sans-serif;
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 16px;
 }
 .e-form-field.e-form-field--compact input:disabled {
@@ -7889,8 +7889,8 @@ input:focus {
 }
 .e-fileupload__description {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 1rem;
+  line-height: 137.5%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -7924,7 +7924,7 @@ input:focus {
   font-family: "Red Hat Display", Verdana, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 24px;
   color: #000;
 }
@@ -7980,8 +7980,8 @@ input:focus {
   margin-bottom: 22px;
   margin-top: 8px;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 23px;
+  font-size: 1rem;
+  line-height: 143.75%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -8003,8 +8003,8 @@ input:focus {
   position: relative;
   cursor: pointer;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 1rem;
+  line-height: 137.5%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -8019,8 +8019,8 @@ input:focus {
 }
 .e-radio.e-radio--compact, .e-radio.e-radio--sm {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -8237,7 +8237,7 @@ input:focus {
   font-family: "Red Hat Text", Verdana, sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 22px;
   color: #000;
 }
@@ -8327,7 +8327,7 @@ input:focus {
 }
 
 .e-form-field.e-form-field--compact .e-search--instant {
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-top: -8px;
 }
 .e-form-field.e-form-field--compact .e-search--instant .e-input input,
@@ -8353,7 +8353,7 @@ input:focus {
   right: 4px;
 }
 .e-form-field.e-form-field--compact .e-search--on-submit {
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-top: -8px;
 }
 .e-form-field.e-form-field--compact .e-search--on-submit .e-input input,
@@ -12213,8 +12213,8 @@ THE SOFTWARE.
 
 .e-title-lg {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 44px;
-  line-height: 53px;
+  font-size: 2.75rem;
+  line-height: 120%;
   font-weight: 900;
   font-style: unset;
   letter-spacing: unset;
@@ -12223,15 +12223,14 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-title-lg {
-    font-size: 32px;
-    line-height: 34px;
+    font-size: 2rem;
   }
 }
 
 .e-title-large {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 44px;
-  line-height: 53px;
+  font-size: 2.75rem;
+  line-height: 120%;
   font-weight: 900;
   font-style: unset;
   letter-spacing: unset;
@@ -12240,15 +12239,14 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-title-large {
-    font-size: 32px;
-    line-height: 34px;
+    font-size: 2rem;
   }
 }
 
 .e-title-md {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 1.875rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -12257,15 +12255,15 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-title-md {
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 1.5rem;
+    line-height: 120%;
   }
 }
 
 .e-title-medium {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 1.875rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -12274,15 +12272,15 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-title-medium {
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 1.5rem;
+    line-height: 120%;
   }
 }
 
 .e-title-sm {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 1.5rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -12291,15 +12289,14 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-title-sm {
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 1.25rem;
   }
 }
 
 .e-title-small {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 1.5rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -12308,15 +12305,14 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-title-small {
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 1.25rem;
   }
 }
 
 .e-title-xs {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.125rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -12325,14 +12321,14 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-title-xs {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 
 .e-title-xsmall {
   font-family: Red Hat Display, Verdana, sans-serif;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.125rem;
+  line-height: 120%;
   font-weight: 700;
   font-style: unset;
   letter-spacing: unset;
@@ -12341,14 +12337,14 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-title-xsmall {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 
 .e-title-caps {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 0.875rem;
+  line-height: 120%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: 0.8px;
@@ -12357,8 +12353,8 @@ THE SOFTWARE.
 }
 .e-text-caps {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 0.875rem;
+  line-height: 120%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: 0.8px;
@@ -12372,8 +12368,8 @@ THE SOFTWARE.
 
 .e-text-lead {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 24px;
-  line-height: 39px;
+  font-size: 1.5rem;
+  line-height: 160%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12382,8 +12378,7 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-text-lead {
-    font-size: 22px;
-    line-height: 36px;
+    font-size: 1.375rem;
   }
 }
 
@@ -12394,8 +12389,8 @@ THE SOFTWARE.
 
 .e-text-lg {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 1.25rem;
+  line-height: 160%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12404,8 +12399,7 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-text-lg {
-    font-size: 18px;
-    line-height: 29px;
+    font-size: 1.125rem;
   }
 }
 
@@ -12416,8 +12410,8 @@ THE SOFTWARE.
 
 .e-text-large {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 1.25rem;
+  line-height: 160%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12426,8 +12420,7 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-text-large {
-    font-size: 18px;
-    line-height: 29px;
+    font-size: 1.125rem;
   }
 }
 
@@ -12438,8 +12431,8 @@ THE SOFTWARE.
 
 .e-text-body {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 1.25rem;
+  line-height: 160%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12448,8 +12441,7 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-text-body {
-    font-size: 18px;
-    line-height: 29px;
+    font-size: 1.125rem;
   }
 }
 
@@ -12460,8 +12452,8 @@ THE SOFTWARE.
 
 .e-text-lg-strong {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 1.25rem;
+  line-height: 160%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -12470,8 +12462,7 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-text-lg-strong {
-    font-size: 18px;
-    line-height: 29px;
+    font-size: 1.125rem;
   }
 }
 
@@ -12482,8 +12473,8 @@ THE SOFTWARE.
 
 .e-text-large-strong {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 1.25rem;
+  line-height: 160%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -12492,8 +12483,7 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-text-large-strong {
-    font-size: 18px;
-    line-height: 29px;
+    font-size: 1.125rem;
   }
 }
 
@@ -12504,8 +12494,8 @@ THE SOFTWARE.
 
 .e-text-lg-light {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 1.25rem;
+  line-height: 160%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12514,8 +12504,7 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-text-lg-light {
-    font-size: 18px;
-    line-height: 29px;
+    font-size: 1.125rem;
   }
 }
 
@@ -12526,8 +12515,8 @@ THE SOFTWARE.
 
 .e-text-large-light {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 1.25rem;
+  line-height: 160%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12536,8 +12525,7 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-text-large-light {
-    font-size: 18px;
-    line-height: 29px;
+    font-size: 1.125rem;
   }
 }
 
@@ -12548,8 +12536,8 @@ THE SOFTWARE.
 
 .e-text-md {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12563,8 +12551,8 @@ THE SOFTWARE.
 
 .e-text-medium {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12578,8 +12566,8 @@ THE SOFTWARE.
 
 .e-text-description {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12593,8 +12581,8 @@ THE SOFTWARE.
 
 .e-text-md-strong {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -12608,8 +12596,8 @@ THE SOFTWARE.
 
 .e-text-medium-strong {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -12623,8 +12611,8 @@ THE SOFTWARE.
 
 .e-text-md-light {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12638,8 +12626,8 @@ THE SOFTWARE.
 
 .e-text-medium-light {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12653,8 +12641,8 @@ THE SOFTWARE.
 
 .e-text-sm {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12668,8 +12656,8 @@ THE SOFTWARE.
 
 .e-text-small {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12683,8 +12671,8 @@ THE SOFTWARE.
 
 .e-text-info {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12698,8 +12686,8 @@ THE SOFTWARE.
 
 .e-text-sm-strong {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -12713,8 +12701,8 @@ THE SOFTWARE.
 
 .e-text-small-strong {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -12728,8 +12716,8 @@ THE SOFTWARE.
 
 .e-text-sm-light {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12743,8 +12731,8 @@ THE SOFTWARE.
 
 .e-text-small-light {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  line-height: 175%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12758,8 +12746,8 @@ THE SOFTWARE.
 
 .e-text-micro {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 11px;
-  line-height: 14px;
+  font-size: 0.688rem;
+  line-height: 140%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: 0.2px;
@@ -12773,8 +12761,8 @@ THE SOFTWARE.
 
 .e-text-micro-strong {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 11px;
-  line-height: 14px;
+  font-size: 0.688rem;
+  line-height: 140%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: 0.2px;
@@ -12788,8 +12776,8 @@ THE SOFTWARE.
 
 .e-text-micro-light {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 11px;
-  line-height: 14px;
+  font-size: 0.688rem;
+  line-height: 140%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: 0.2px;
@@ -12803,8 +12791,8 @@ THE SOFTWARE.
 
 .e-text-quote {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 26px;
-  line-height: 42px;
+  font-size: 1.625rem;
+  line-height: 160%;
   font-weight: 400;
   font-style: italic;
   letter-spacing: unset;
@@ -12813,8 +12801,7 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-text-quote {
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 1.25rem;
   }
 }
 
@@ -12825,9 +12812,9 @@ THE SOFTWARE.
 
 .e-text-img {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   text-align: center;
-  line-height: 29px;
+  line-height: 160%;
   font-weight: 400;
   font-style: italic;
   letter-spacing: unset;
@@ -12836,8 +12823,7 @@ THE SOFTWARE.
 }
 @media (max-width: 767px) {
   .e-text-img {
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 1rem;
   }
 }
 
@@ -12848,8 +12834,8 @@ THE SOFTWARE.
 
 .e-text-label {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 23px;
+  font-size: 1rem;
+  line-height: 143.75%;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -12863,8 +12849,8 @@ THE SOFTWARE.
 
 .e-text-option {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 1rem;
+  line-height: 137.5%;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
