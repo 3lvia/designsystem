@@ -38,17 +38,18 @@ export const BadgeCircle = styled.div<BadgeCircleProps>`
   border-radius: 50px;
   color: ${({ badgeColor }) => getTextColor(badgeColor)}; //to-do add support for dark mode
   display: grid;
-  font-size: 0.5625rem;
+  font-size: 0.563rem;
   font-weight: 600;
-  height: 16px;
+  min-height: 16px;
   line-height: 0.75rem;
-  padding: ${({ count }) => (count === '99+' ? '2px 4px' : '2px 0px')};
+  padding: ${({ count }) => (count === '99+' ? '2px 4px' : '2px')};
   place-items: center;
   position: absolute;
   right: 0;
   top: 0;
   transform: translate(50%, -50%);
   user-select: none;
-  width: ${({ count }) => (count === '99+' ? 'unset' : '16px')};
+  min-width: 16px;
+  width: ${({ count }) => (count === '99+' ? 'unset' : 'min-content')};
   z-index: 10;
 `;
