@@ -129,12 +129,13 @@ $form-input-padding-compact-active: 3px 9px;
         linear-gradient(
           var(--loading-angle),
           colors.color('elvia-charge'),
-          transparent,
+          transparent 40%,
+          transparent 60%,
           colors.color('elvia-charge')
         );
       background-origin: border-box;
       background-clip: padding-box, border-box;
-      animation: 2s loadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
+      animation: 1.7s loadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
     }
   }
 
