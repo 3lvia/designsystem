@@ -7843,7 +7843,7 @@ input:focus {
 }
 .e-form-field.e-form-field--compact {
   position: relative;
-  padding-top: 9px;
+  padding-top: 8px;
 }
 .e-form-field.e-form-field--compact .e-form-field__label {
   position: absolute;
