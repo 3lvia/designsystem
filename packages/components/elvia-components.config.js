@@ -528,6 +528,7 @@ module.exports = [
       { name: 'isDisabled', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isCompact', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isRequired', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'errorOptions', type: 'object', propType: 'object | undefined' },
       { name: 'selectNowOnOpen', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'label', type: 'string', propType: 'string | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
