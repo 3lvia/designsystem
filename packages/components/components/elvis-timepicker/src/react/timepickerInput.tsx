@@ -98,6 +98,7 @@ export const TimepickerInput: React.FC<Props> = ({
       // Always use parsed minute if it exists
       parsedMinute = minute;
     }
+    parsedMinute = padDigit(+parsedMinute, { mode: 'suffix' });
 
     if (!parsedHour.length && required) {
       onErrorChange('required');
