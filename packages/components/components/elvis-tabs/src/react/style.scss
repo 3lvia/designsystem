@@ -12,6 +12,15 @@ $tabs-focus-padding: 4px;
 $tabs-height: $tabs-line-height + $tabs-label-padding-bottom + $tabs-underline-height;
 $tabs-height-with-focus: calc($tabs-height + ($tabs-focus-padding * 2));
 
+$html-font-size: 16px;
+@function stripUnit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@function rem($pxValue) {
+  @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+}
+
 %underline {
   content: '';
   position: absolute;
@@ -144,11 +153,12 @@ $tabs-height-with-focus: calc($tabs-height + ($tabs-focus-padding * 2));
       font-family: 'Red Hat Text', Verdana, sans-serif;
       font-style: normal;
       font-weight: normal;
-      font-size: 14px;
+      font-size: rem(14px);
       line-height: $tabs-line-height;
       letter-spacing: 0.8px;
       text-transform: uppercase;
       color: $grey-80;
+      background-color: #29d305;
 
       display: block;
       position: relative;
