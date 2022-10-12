@@ -12,7 +12,7 @@
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: helpers.toRem(16);
   line-height: 22px;
   color: colors.color('font-color');
 
@@ -111,7 +111,7 @@
 .e-form-field {
   &.e-form-field--compact {
     .e-search--instant {
-      font-size: 14px;
+      font-size: helpers.toRem(14);
       margin-top: -8px;
       .e-input {
         input,
@@ -139,7 +139,7 @@
       }
     }
     .e-search--on-submit {
-      font-size: 14px;
+      font-size: helpers.toRem(14);
       margin-top: -8px;
       .e-input {
         input,

@@ -50,7 +50,7 @@
 
   &.e-content-loader--text {
     width: 100%;
-    height: 24px;
+    height: helpers.toRem(24);
     &:after {
       width: 100%;
       height: 100%;

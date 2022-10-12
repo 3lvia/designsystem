@@ -46,12 +46,12 @@ $grey10: colors.color('grey-10');
 .e-table__footnote {
   margin-top: 8px;
   font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: helpers.toRem(16);
+  line-height: 162.5%;
   color: inherit;
   text-align: left;
   &.e-table__footnote--compact {
-    font-size: 14px;
+    font-size: helpers.toRem(14);
   }
 }
 .e-table {
@@ -142,7 +142,6 @@ $grey10: colors.color('grey-10');
       @include typography.typography('text-sm');
       color: colors.color('font-color');
       padding: $table-compact-padding;
-      line-height: 21px;
     }
   }
 
@@ -242,7 +241,7 @@ $grey10: colors.color('grey-10');
       th {
         font-family: 'Red Hat Display', Verdana, sans-serif;
         font-weight: 700;
-        font-size: 15px;
+        font-size: helpers.toRem(15);
         line-height: 19px;
       }
     }
@@ -251,7 +250,6 @@ $grey10: colors.color('grey-10');
       @include typography.typography('text-sm');
       color: colors.color('font-color');
       padding: $table-compact-padding;
-      line-height: 21px;
     }
     tbody tr:first-of-type th {
       @include typography.typography('text-sm-strong');

@@ -17,7 +17,7 @@
       display: flex;
       font-family: 'Red Hat Display', Verdana, sans-serif;
       font-weight: 500;
-      font-size: 14px;
+      font-size: helpers.toRem(14);
       line-height: 24px;
       text-align: left;
 
@@ -148,7 +148,7 @@
       @include icons.icon-size('sm');
     }
     .e-accordion__title {
-      font-size: 20px;
+      font-size: helpers.toRem(20);
     }
   }
   &.e-accordion--md {
@@ -156,7 +156,7 @@
       @include icons.icon-size('sm');
     }
     .e-accordion__title {
-      font-size: 16px;
+      font-size: helpers.toRem(16);
     }
   }
   &.e-accordion--sm {
@@ -164,7 +164,7 @@
       @include icons.icon-size('xs');
     }
     .e-accordion__title {
-      font-size: 14px;
+      font-size: helpers.toRem(14);
     }
   }
 
@@ -178,8 +178,8 @@
       padding-top: 0;
       pointer-events: none;
       overflow: hidden;
-      font-size: 14px;
       line-height: 24px;
+      font-size: helpers.toRem(14);
     }
     .e-accordion__item.e-accordion__item--open {
       .e-accordion__content {
@@ -189,8 +189,8 @@
         padding-top: 16px;
         transition: all 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32),
           opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
-        font-size: 14px;
         line-height: 24px;
+        font-size: helpers.toRem(14);
       }
     }
   }
@@ -224,8 +224,8 @@
         .e-accordion__title {
           font-family: 'Red Hat Display', Verdana, sans-serif;
           font-weight: 500;
-          font-size: 20px;
           line-height: 32px;
+          font-size: helpers.toRem(20);
           margin-right: 8px;
         }
         .e-accordion__icon {

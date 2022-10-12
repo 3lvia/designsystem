@@ -24,6 +24,7 @@ $form-input-padding-compact-active: 3px 9px;
 
   > input,
   > textarea {
+    height: 48px;
     display: flex;
     align-items: center;
     border: $form-input-border;
@@ -126,6 +127,7 @@ $form-input-padding-compact-active: 3px 9px;
 .e-input.e-input--compact {
   input,
   textarea {
+    height: 32px;
     padding: $form-input-padding-compact;
     @include typography.typography('text-sm');
     color: colors.color('font-color');

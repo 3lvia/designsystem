@@ -1,6 +1,7 @@
 @use '../variables/colors.scss';
 @use '../utilities/spacing.scss';
 @use '../utilities/breakpoints';
+@use '../utilities/helpers';
 
 $list-border-size: 20px;
 $list-dot-size: 8px;
@@ -20,11 +21,14 @@ $list-border-radius: 50%;
   %li-element {
     list-style: none;
     position: relative;
-    line-height: 32px;
+    line-height: 2;
 
     // extra padding for the width of the green content bulletin.
     padding-left: 24px;
     margin: 0.5rem 0;
+    /*  display: flex;
+    flex-direction: row;
+    align-items: center; */
 
     &::before {
       content: '';
@@ -56,7 +60,7 @@ $list-border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
+        font-size: helpers.toRem(18);
         width: 30px;
         height: 30px;
         top: 2px;

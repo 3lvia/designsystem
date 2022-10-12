@@ -211,7 +211,7 @@ $sidebar-mobile-z-index: -2;
     @include helpers.user-select(text);
     @include typography.typography('text-md-strong');
     @include breakpoints.breakpoint-up(Tablet) {
-      font-size: 16px;
+      font-size: helpers.toRem(16);
       line-height: 145%;
     }
   }
@@ -219,7 +219,7 @@ $sidebar-mobile-z-index: -2;
     position: relative;
     font-family: 'Red Hat Display', Verdana, sans-serif;
     font-weight: 500;
-    font-size: 14px;
+    font-size: helpers.toRem(14);
     line-height: 16px;
     @extend %area-menu;
   }
@@ -231,7 +231,7 @@ $sidebar-mobile-z-index: -2;
     margin-right: 19px;
     font-family: 'Red Hat Display', Verdana, sans-serif;
     font-weight: 500;
-    font-size: 14px;
+    font-size: helpers.toRem(14);
     line-height: 16px;
     .e-header__top-bar-desktop__user-menu {
       display: none;
@@ -249,7 +249,7 @@ $sidebar-mobile-z-index: -2;
       &-name {
         font-family: 'Red Hat Text', Verdana, sans-serif;
         font-weight: 500;
-        font-size: 14px;
+        font-size: helpers.toRem(14);
         line-height: 120%;
         letter-spacing: 0.2px;
       }
@@ -277,7 +277,7 @@ $sidebar-mobile-z-index: -2;
         font-family: 'Red Hat Display', Verdana, sans-serif;
         font-style: normal;
         font-weight: 500;
-        font-size: 14px;
+        font-size: helpers.toRem(14);
         line-height: 115%;
         i {
           margin-right: 8px;
@@ -485,7 +485,7 @@ $sidebar-mobile-z-index: -2;
           padding-bottom: 0;
           font-family: 'Red Hat Text', Verdana, sans-serif;
           font-weight: 500;
-          font-size: 14px;
+          font-size: helpers.toRem(14);
           line-height: 170%;
           .e-header__top-bar-mobile__link-icon {
             @include icons.icon-size('xxs');
@@ -515,7 +515,7 @@ $sidebar-mobile-z-index: -2;
           padding: 0 8px;
           font-family: 'Red Hat Display', Verdana, sans-serif;
           font-weight: 500;
-          font-size: 14px;
+          font-size: helpers.toRem(14);
           line-height: 115%;
           i {
             margin-right: 8px;

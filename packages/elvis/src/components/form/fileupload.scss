@@ -51,7 +51,7 @@
       font-family: 'Red Hat Display', Verdana, sans-serif;
       font-style: normal;
       font-weight: 500;
-      font-size: 16px;
+      font-size: helpers.toRem(16);
       line-height: 24px;
       color: colors.color('font-color');
 

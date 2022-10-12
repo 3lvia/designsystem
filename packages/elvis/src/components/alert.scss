@@ -72,7 +72,7 @@ $toast-max-width: 400px;
     }
     .e-alert__links {
       margin-top: 16px;
-      height: 26px;
+      height: helpers.toRem(26);
       a:not(:last-of-type) {
         margin-right: 24px;
       }

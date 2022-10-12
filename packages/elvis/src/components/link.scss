@@ -5,9 +5,9 @@
 @use '../utilities/icons';
 @use '../utilities/helpers';
 
-$link-lg-font-size: 18px;
-$link-md-font-size: 16px;
-$link-sm-font-size: 14px;
+$link-lg-font-size: helpers.toRem(18);
+$link-md-font-size: helpers.toRem(16);
+$link-sm-font-size: helpers.toRem(14);
 $link-lg-line-height: 24px;
 $link-md-line-height: 22px;
 $link-sm-line-height: 20px;
@@ -15,9 +15,9 @@ $link-sm-line-height: 20px;
 $link-action-lg-line-height: 26px;
 $link-action-md-line-height: 24px;
 $link-action-sm-line-height: 21px;
-$link-action-lg-font-size: 20px;
-$link-action-md-font-size: 18px;
-$link-action-sm-font-size: 16px;
+$link-action-lg-font-size: helpers.toRem(20);
+$link-action-md-font-size: helpers.toRem(18);
+$link-action-sm-font-size: helpers.toRem(16);
 
 $link-jumbo-desktop-padding: 30px 40px;
 $link-jumbo-desktop-width: 545px;
@@ -317,7 +317,7 @@ $grey-ten: colors.color('grey-10');
       margin-top: 10%;
       @include typography.typography('text-label');
       font-weight: 500;
-      font-size: 13px;
+      font-size: helpers.toRem(13);
       line-height: 16px;
       letter-spacing: 0.4px;
     }

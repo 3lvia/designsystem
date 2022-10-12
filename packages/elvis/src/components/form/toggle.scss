@@ -24,7 +24,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
 
   // Label
   font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 16px;
+  font-size: helpers.toRem(16);
   line-height: 22px;
   font-weight: 400;
   font-style: unset;
