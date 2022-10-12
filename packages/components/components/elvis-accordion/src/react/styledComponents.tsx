@@ -56,15 +56,15 @@ export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
 
 const decideButtonFontSize = (prop: AccordionSize) => {
   if (prop === 'small') {
-    return '14px';
+    return '0.875rem';
   }
   if (prop === 'medium') {
-    return '16px';
+    return '1rem';
   }
   if (prop === 'large') {
-    return '20px';
+    return '1.25rem';
   }
-  return '16px';
+  return '1rem';
 };
 
 type AccordionButtonProps = {
@@ -227,7 +227,7 @@ type AccordionContentProps = {
 export const AccordionContent = styled.div<AccordionContentProps>`
   display: ${(props) => (props.hasContent ? 'block' : 'none')};
   background: transparent;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: inherit;
   margin-top: ${(props) =>
     decideContentMarginTop(props.isOpenState, props.type, props.hasContent, props.spacingAboveContent)};
