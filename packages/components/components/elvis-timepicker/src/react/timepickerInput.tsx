@@ -31,8 +31,11 @@ export const TimepickerInput: React.FC<Props> = ({
   };
 
   const onKeyDown = () => {
-    setCaretIndex(inputElement.current?.selectionStart || 0);
-    setHasSelectedText(!!window.getSelection()?.toString());
+    const selectionStart = inputElement.current?.selectionStart || 0;
+    const selectionEnd = inputElement.current?.selectionEnd || 0;
+
+    setCaretIndex(selectionStart);
+    setHasSelectedText(selectionEnd - selectionStart > 0);
   };
 
   const setInputValueFromCaretIndexRules = (newInputValue: string, pressedKey: string): void => {
