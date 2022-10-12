@@ -151,7 +151,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           </IconButton>
         </InputContainer>
         {((error && !errorOptions.hideText) || errorOptions.text) && (
-          <TimepickerError customErrorMessage={errorOptions.text} errorType={error} isCompact={isCompact} />
+          <TimepickerError customText={errorOptions.text} errorType={error} isCompact={isCompact} />
         )}
       </TimePickerLabel>
       {isShowing && (
