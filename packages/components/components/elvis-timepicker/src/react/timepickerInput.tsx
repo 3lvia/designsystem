@@ -130,7 +130,7 @@ export const TimepickerInput: React.FC<Props> = ({
     }
 
     const normalizedHour = +hour === 24 ? 0 : +hour;
-    const newValue = `${padDigit(normalizedHour)}.${padDigit(+minute)}`;
+    const newValue = `${padDigit(normalizedHour)}.${padDigit(+minute, { mode: 'suffix' })}`;
     setInputValue(newValue);
     emitNewValue(newValue);
   };
