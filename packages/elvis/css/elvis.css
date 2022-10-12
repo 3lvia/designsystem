@@ -2781,15 +2781,10 @@ input:focus {
   border-color: #676767;
 }
 
-@property --loading-angle {
+@property --e-input---loading-angle {
   syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
-}
-@keyframes loadingAnimation {
-  to {
-    --loading-angle: 180deg;
-  }
 }
 .e-input {
   max-width: 448px;
@@ -2885,15 +2880,23 @@ input:focus {
   color: #515151;
   padding: 12px 16px;
 }
+@keyframes eInputLoadingAnimation {
+  from {
+    --e-input---loading-angle: 0deg;
+  }
+  to {
+    --e-input---loading-angle: 180deg;
+  }
+}
 .e-input.e-input---loading > input:not(:focus),
 .e-input.e-input---loading > textarea:not(:focus) {
   padding: 11px 15px;
   border: double 2px transparent;
   border-radius: 4px;
-  background-image: linear-gradient(#fff, #fff), linear-gradient(var(--loading-angle), #29d305, transparent 35%, transparent 65%, #29d305);
+  background-image: linear-gradient(#fff, #fff), linear-gradient(var(--e-input---loading-angle), #29d305, transparent 35% 65%, #29d305);
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  animation: 1.7s loadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
+  animation: 1.7s eInputLoadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
 }
 .e-input input[type=date]::-webkit-calendar-picker-indicator,
 .e-input input[type=time]::-webkit-calendar-picker-indicator {

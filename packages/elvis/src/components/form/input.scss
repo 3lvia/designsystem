@@ -16,16 +16,10 @@ $form-input-border: 1px solid colors.color('grey');
 $form-input-padding-compact: 4px 10px;
 $form-input-padding-compact-active: 3px 9px;
 
-@property --loading-angle {
+@property --e-input---loading-angle {
   syntax: '<angle>';
   initial-value: 0deg;
   inherits: false;
-}
-
-@keyframes loadingAnimation {
-  to {
-    --loading-angle: 180deg;
-  }
 }
 
 .e-input {
@@ -119,6 +113,15 @@ $form-input-padding-compact-active: 3px 9px;
     }
   }
 
+  @keyframes eInputLoadingAnimation {
+    from {
+      --e-input---loading-angle: 0deg;
+    }
+    to {
+      --e-input---loading-angle: 180deg;
+    }
+  }
+
   &.e-input---loading {
     > input:not(:focus),
     > textarea:not(:focus) {
@@ -127,15 +130,14 @@ $form-input-padding-compact-active: 3px 9px;
       border-radius: $form-input-border-radius;
       background-image: linear-gradient(colors.color('elvia-on'), colors.color('elvia-on')),
         linear-gradient(
-          var(--loading-angle),
+          var(--e-input---loading-angle),
           colors.color('elvia-charge'),
-          transparent 35%,
-          transparent 65%,
+          transparent 35% 65%,
           colors.color('elvia-charge')
         );
       background-origin: border-box;
       background-clip: padding-box, border-box;
-      animation: 1.7s loadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
+      animation: 1.7s eInputLoadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
     }
   }
 
