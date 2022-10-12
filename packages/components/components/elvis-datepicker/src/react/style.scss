@@ -10,6 +10,15 @@ $red-hat-text: 'Red Hat Text', Verdana, sans-serif;
 $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
 $datepicker-max-width: 448px;
 
+$html-font-size: 16px;
+@function stripUnit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@function rem($pxValue) {
+  @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+}
+
 .ewc-no-outline {
   * {
     outline: none !important;
@@ -46,8 +55,8 @@ $datepicker-max-width: 448px;
     font-family: $red-hat-text;
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
     line-height: 23px;
+    font-size: rem(16px);
     text-align: left;
 
     display: block;
@@ -59,8 +68,8 @@ $datepicker-max-width: 448px;
     font-family: $red-hat-text;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
     line-height: 22px;
+    font-size: rem(14px);
 
     margin: 0;
     margin-top: 4px;
@@ -72,7 +81,7 @@ $datepicker-max-width: 448px;
     }
   }
   .ewc-datepicker__error-placeholder {
-    height: 26px;
+    height: rem(26px);
   }
 
   // INPUT
@@ -86,7 +95,7 @@ $datepicker-max-width: 448px;
     font-family: $red-hat-text;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: rem(16px);
     line-height: 22px;
     letter-spacing: normal;
 
@@ -179,8 +188,8 @@ $datepicker-max-width: 448px;
       font-family: $red-hat-text;
       font-style: normal;
       font-weight: 500;
-      font-size: 10px;
-      line-height: 100%;
+      font-size: rem(10px);
+      line-height: 10px;
 
       display: inline-block;
       position: absolute;
@@ -203,7 +212,7 @@ $datepicker-max-width: 448px;
       font-family: $red-hat-text;
       font-style: normal;
       font-weight: normal;
-      font-size: 14px;
+      font-size: rem(14px);
       line-height: 160%;
 
       input.MuiInputBase-input {
