@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 
+const DEFAULT_FONT_SIZE = 16;
+const rem = (px: number) => `${px / DEFAULT_FONT_SIZE}rem`;
+
 const colors = {
   elviaCharge: getColor('elvia-charge'),
   elviaBlack: getColor('black'),
@@ -42,6 +45,6 @@ export const RadioFilterTitle = styled.span`
   font-family: 'Red Hat Display', verdana, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
   line-height: 22px;
+  font-size: ${rem(16)};
 `;
