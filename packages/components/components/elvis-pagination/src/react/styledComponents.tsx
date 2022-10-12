@@ -11,6 +11,9 @@ const colors = {
   grey80: getColor('grey-80'),
 };
 
+const DEFAULT_FONT_SIZE = 16;
+const rem = (px: number) => `${px / DEFAULT_FONT_SIZE}rem`;
+
 const typography = {
   textSm: getTypographyCss('text-sm'),
 };
@@ -124,7 +127,7 @@ type PaginatorPageProps = {
 
 export const PaginatorPage = styled.button<PaginatorPageProps>`
   font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 13px;
+  font-size: ${rem(13)};
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
@@ -163,7 +166,7 @@ type PaginatorDotsProps = {
 
 export const PaginatorDots = styled.div<PaginatorDotsProps>`
   font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 14px;
+  font-size: ${rem(14)};
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
