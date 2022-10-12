@@ -1,6 +1,22 @@
 {
   "content": [
     {
+      "version": "9.1.0",
+      "date": "October 11, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The header and tooltip classes have been replaced with a component and the classes will therefore be deprecated in the future."
+          ],
+          "components": [
+            { "displayName": "Header", "url": "https://design.elvia.io/components/header" },
+            { "displayName": "Tooltip", "url": "https://design.elvia.io/components/tooltip" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "9.0.0",
       "date": "October 10, 2022",
       "changelog": [

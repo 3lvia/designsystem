@@ -520,23 +520,6 @@ module.exports = [
     reactTypescriptDeclaration: true,
   },
   {
-    name: 'elvis-testing',
-    elementName: 'elvia-testing',
-    attributes: [
-      { name: 'isFullWidth', type: 'boolean', propType: 'boolean' },
-      { name: 'isBlock', type: 'boolean', propType: 'boolean' },
-    ],
-    reactName: 'TestingComponent',
-    elementStyle: `width: 50%; display: grid;`,
-    conditionalElementStyle: [
-      { name: 'isFullWidth', value: 'true', style: `width: 100%` },
-      { name: 'isBlock', value: 'true', style: `display: block` },
-    ],
-    slotItems: false,
-    useWrapper: false,
-    reactTypescriptDeclaration: false,
-  },
-  {
     name: 'elvis-timepicker',
     elementName: 'elvia-timepicker',
     attributes: [
@@ -545,6 +528,7 @@ module.exports = [
       { name: 'isDisabled', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isCompact', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'isRequired', type: 'boolean', propType: 'boolean | undefined' },
+      { name: 'errorOptions', type: 'object', propType: 'object | undefined' },
       { name: 'selectNowOnOpen', type: 'boolean', propType: 'boolean | undefined' },
       { name: 'label', type: 'string', propType: 'string | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },

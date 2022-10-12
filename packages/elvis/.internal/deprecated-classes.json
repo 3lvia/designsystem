@@ -1,4 +1,24 @@
 {
+  "e-tooltip": {
+    "deprecateChildren": true,
+    "version": "8.13.0",
+    "replacement": {
+      "name": "Tooltip",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/tooltip"
+    },
+    "sunset": "March 2023"
+  },
+  "e-header": {
+    "deprecateChildren": true,
+    "version": "8.13.0",
+    "replacement": {
+      "name": "Header",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/header"
+    },
+    "sunset": "March 2023"
+  },
   "e-radio-filter": {
     "deprecateChildren": true,
     "version": "8.13.0",
