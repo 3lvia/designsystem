@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { ErrorType } from './elviaTimepicker.types';
 
 import { padDigit } from './padDigit';
@@ -21,31 +21,60 @@ export const TimepickerInput: React.FC<Props> = ({
   onChange,
   onErrorChange,
 }) => {
+  const inputElement = useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = useState('');
+  const [hasSelectedText, setHasSelectedText] = useState(false);
+  const [caretIndex, setCaretIndex] = useState(0);
 
   const isNumericValue = (value: string): boolean => {
     return /^\d+$/.test(value);
   };
 
-  const parseInput = (ev: ChangeEvent<HTMLInputElement>): void => {
-    const key = (ev.nativeEvent as InputEvent).data || '';
+  const onKeyDown = () => {
+    setCaretIndex(inputElement.current?.selectionStart || 0);
+    setHasSelectedText(!!window.getSelection()?.toString());
+  };
 
+  const parseInput = (ev: ChangeEvent<HTMLInputElement>): void => {
     const isModifierKey = ['deleteContentBackward', 'deleteContentForward'].includes(
       (ev.nativeEvent as InputEvent).inputType,
     );
-
-    if ((inputValue.length >= 5 && !isModifierKey) || !(isNumericValue(key) || isModifierKey)) {
-      return;
-    }
 
     const newInputValue = ev.target.value;
     if (isModifierKey) {
       setInputValue(newInputValue);
     } else {
-      if (newInputValue.length === 2) {
-        setInputValue(`${newInputValue}.`);
-      } else {
-        setInputValue(newInputValue);
+      if (inputValue.length === 5 && !hasSelectedText) {
+        return;
+      }
+
+      /**
+       * We handle each caret position with separate rules
+       */
+      const key = (ev.nativeEvent as InputEvent).data || '';
+      switch (caretIndex) {
+        case 0:
+        case 3:
+        case 4: {
+          if (isNumericValue(key)) {
+            setInputValue(newInputValue);
+          }
+          break;
+        }
+        case 1: {
+          if (newInputValue.length === 2 && isNumericValue(key)) {
+            setInputValue(`${newInputValue}.`);
+          } else if (isNumericValue(key)) {
+            setInputValue(newInputValue);
+          }
+          break;
+        }
+        case 2: {
+          if (key === '.') {
+            setInputValue(newInputValue);
+          }
+          break;
+        }
       }
     }
   };
@@ -61,10 +90,13 @@ export const TimepickerInput: React.FC<Props> = ({
   };
 
   const validateInputValue = (hour: string, minute: string): boolean => {
-    if (!hour.length && required) {
+    const parsedHour = hour.length > 2 ? hour.substring(0, 2) : hour;
+    const parsedMinute = minute ? minute : hour.length > 2 ? hour.substring(2) : '';
+
+    if (!parsedHour.length && required) {
       onErrorChange('required');
       return false;
-    } else if ((+hour === 24 && +minute > 0) || +hour > 24 || +minute >= 60) {
+    } else if ((+parsedHour === 24 && +parsedMinute > 0) || +parsedHour > 24 || +parsedMinute >= 60) {
       onErrorChange('invalidTime');
       return false;
     }
@@ -110,10 +142,12 @@ export const TimepickerInput: React.FC<Props> = ({
 
   return (
     <Input
+      ref={inputElement}
       disabled={disabled}
       type="text"
       placeholder="tt.mm"
       value={inputValue}
+      onKeyDown={onKeyDown}
       onChange={parseInput}
       onBlur={onBlur}
       isCompact={isCompact}

@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "12.10.22",
+      "version": "2.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Not possible to replace text in timepicker by selecting it."]
+        }
+      ]
+    },
+    {
       "date": "10.10.22",
       "version": "2.0.0",
       "changelog": [
