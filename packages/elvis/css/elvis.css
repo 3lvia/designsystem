@@ -2787,7 +2787,7 @@ input:focus {
 }
 .e-input > input,
 .e-input > textarea {
-  max-height: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   border: 1px solid #262626;
@@ -2890,7 +2890,7 @@ input:focus {
 .e-form-field.e-form-field--compact .e-input textarea,
 .e-input.e-input--compact input,
 .e-input.e-input--compact textarea {
-  max-height: 32px;
+  height: 32px;
   padding: 4px 10px;
   font-family: Red Hat Text, Verdana, sans-serif;
   font-size: 0.875rem;
@@ -7753,6 +7753,7 @@ input:focus {
   letter-spacing: unset;
   text-transform: unset;
   color: inherit;
+  line-height: 28px;
   color: #000;
   text-align: left;
 }
