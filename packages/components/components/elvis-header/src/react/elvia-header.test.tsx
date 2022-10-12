@@ -1,8 +1,10 @@
 import '@testing-library/jest-dom';
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
 import Header from './elvia-header';
+import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
 import { Icon } from '@elvia/elvis-icon/react';
+import { UserEvent } from '@testing-library/user-event/dist/types/setup/setup';
 
 const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
   Object.defineProperty(window, 'matchMedia', {
@@ -25,10 +27,12 @@ describe('Elvia Header', () => {
   const email = 'e12345@elvia.no';
   let logoHasBeenClicked = false;
   let signOutButtonHasBeenClicked = false;
+  let user: UserEvent;
 
   describe('on desktop', () => {
     beforeEach(() => {
       mockMatchMedia({ isGtMobile: true });
+      user = userEvent.setup();
       render(
         <Header
           username={username}
@@ -52,33 +56,28 @@ describe('Elvia Header', () => {
       );
     });
 
-    test('should show a logo', async () => {
-      const element = await screen.findByTestId('header-logo');
-      expect(element.querySelector('svg')).not.toBeEmptyDOMElement();
-    });
-
-    test('should show the app title', async () => {
-      const element = await screen.findByTestId('app-title');
+    test('should show the app title', () => {
+      const element = screen.getByTestId('app-title');
       expect(element).toHaveTextContent(appTitle);
     });
 
-    test('should show the page title', async () => {
-      const element = await screen.findByTestId('page-title');
+    test('should show the page title', () => {
+      const element = screen.getByTestId('page-title');
       expect(element).toHaveTextContent(pageTitle);
     });
 
-    test('should show the name of the current user', async () => {
-      const element = await screen.findByTestId('desktop-menu-trigger');
+    test('should show the name of the current user', () => {
+      const element = screen.getByTestId('desktop-menu-trigger');
       expect(element).toHaveTextContent(username);
     });
 
-    test('should show the sidenav items', async () => {
-      const sidenav = await screen.findByTestId('sidenav');
+    test('should show the sidenav items', () => {
+      const sidenav = screen.getByTestId('sidenav');
       expect(sidenav.querySelectorAll('a').length).toBe(1);
     });
 
-    test('should have a width toggle in the side nav', async () => {
-      const element = await screen.findByTestId('sidenav-width-toggle');
+    test('should have a width toggle in the side nav', () => {
+      const element = screen.getByTestId('sidenav-width-toggle');
       expect(element).not.toBeEmptyDOMElement();
     });
 
@@ -89,8 +88,8 @@ describe('Elvia Header', () => {
 
     describe('when the logo is clicked', () => {
       beforeEach(async () => {
-        const element = await screen.findByTestId('header-logo');
-        fireEvent.click(element);
+        const element = screen.getByTestId('header-logo');
+        await user.click(element);
       });
 
       test('the logo click event is fired', () => {
@@ -102,15 +101,15 @@ describe('Elvia Header', () => {
       let classList = '';
 
       beforeEach(async () => {
-        const sidenav = await screen.findByTestId('sidenav');
+        const sidenav = screen.getByTestId('sidenav');
         classList = sidenav.classList.toString();
 
-        const element = await screen.findByTestId('sidenav-width-toggle');
-        fireEvent.click(element);
+        const element = screen.getByTestId('sidenav-width-toggle');
+        await user.click(element);
       });
 
-      test('the class list for the sidenav changes', async () => {
-        const sidenav = await screen.findByTestId('sidenav');
+      test('the class list for the sidenav changes', () => {
+        const sidenav = screen.getByTestId('sidenav');
         expect(sidenav.classList.toString()).not.toBe(classList);
       });
     });
@@ -118,28 +117,28 @@ describe('Elvia Header', () => {
     describe('when the menu trigger is pressed', () => {
       beforeEach(async () => {
         const element = await screen.findByTestId('desktop-menu-trigger');
-        fireEvent.click(element);
+        await user.click(element);
       });
 
-      test('the user menu opens', async () => {
-        const element = await screen.findByTestId('desktop-menu');
+      test('the user menu opens', () => {
+        const element = screen.getByTestId('desktop-menu');
         expect(element).not.toBeEmptyDOMElement();
       });
 
-      test('the name of the user is displayed', async () => {
-        const element = await screen.findByTestId('desktop-username');
+      test('the name of the user is displayed', () => {
+        const element = screen.getByTestId('desktop-username');
         expect(element).toHaveTextContent(username);
       });
 
-      test('the email of the user is displayed', async () => {
-        const element = await screen.findByTestId('desktop-email');
+      test('the email of the user is displayed', () => {
+        const element = screen.getByTestId('desktop-email');
         expect(element).not.toBeEmptyDOMElement();
       });
 
       describe('and the sign out button is clicked', () => {
         beforeEach(async () => {
           const element = await screen.findByTestId('desktop-sign-out-trigger');
-          fireEvent.click(element);
+          await user.click(element);
         });
 
         test('the sign out event is triggered', () => {
@@ -151,6 +150,7 @@ describe('Elvia Header', () => {
 
   describe('on mobile', () => {
     beforeEach(() => {
+      user = userEvent.setup();
       mockMatchMedia({ isGtMobile: false });
       render(
         <Header
@@ -180,8 +180,8 @@ describe('Elvia Header', () => {
       expect(element.length).toBe(0);
     });
 
-    test('the header has a mobile menu', async () => {
-      const element = await screen.findByTestId('mobile-menu-trigger');
+    test('the header has a mobile menu', () => {
+      const element = screen.getByTestId('mobile-menu-trigger');
       expect(element).not.toBeEmptyDOMElement();
     });
 
@@ -192,12 +192,12 @@ describe('Elvia Header', () => {
 
     describe('when the mobile menu trigger is clicked', () => {
       beforeEach(async () => {
-        const element = await screen.findByTestId('mobile-menu-trigger');
-        fireEvent.click(element);
+        const element = screen.getByTestId('mobile-menu-trigger');
+        await user.click(element);
       });
 
-      test('the mobile menu opens', async () => {
-        const element = await screen.findByTestId('mobile-menu');
+      test('the mobile menu opens', () => {
+        const element = screen.getByTestId('mobile-menu');
         expect(element).not.toBeEmptyDOMElement();
       });
     });
