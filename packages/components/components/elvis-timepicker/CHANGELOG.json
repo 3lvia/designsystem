@@ -2,8 +2,8 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "12.10.22",
-      "version": "2.1.0",
+      "date": "13.10.22",
+      "version": "2.2.0",
       "changelog": [
         {
           "type": "new_feature",
