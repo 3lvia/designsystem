@@ -20,6 +20,7 @@
 
   &__description {
     @include typography.typography('text-option');
+    line-height: 28px;
     color: colors.color('font-color');
     display: flex;
     width: 100%;
@@ -33,6 +34,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    height: 32px;
 
     input[type='file'] {
       display: none;
