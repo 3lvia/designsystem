@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.10.22",
+      "version": "3.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The Pagination component now uses rem for its font size to responsively adjust to the user's font size browser preferences."
+          ]
+        }
+      ]
+    },
+    {
       "date": "10.10.22",
       "version": "3.1.5",
       "changelog": [
