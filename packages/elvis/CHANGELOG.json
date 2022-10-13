@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "9.2.0",
+      "date": "October 13, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added a loading state to the text field component. "],
+          "components": [
+            { "displayName": "Text field", "url": "https://design.elvia.io/components/input#Overview" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "9.1.0",
       "date": "October 11, 2022",
       "changelog": [
