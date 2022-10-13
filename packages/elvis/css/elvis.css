@@ -2892,7 +2892,7 @@ input:focus {
   .e-input.e-input---loading > input:not(:focus),
 .e-input.e-input---loading > textarea:not(:focus) {
     padding: 11px 15px;
-    border: double 2px transparent;
+    border: solid 2px transparent;
     border-radius: 4px;
     background-image: linear-gradient(#fff, #fff), linear-gradient(var(--e-input---loading-angle), #29d305, transparent 35% 65%, #29d305);
     background-origin: border-box;
@@ -2911,7 +2911,8 @@ input:focus {
   }
   .e-input.e-input---loading > input:not(:focus),
 .e-input.e-input---loading > textarea:not(:focus) {
-    border: double 2px #29d305;
+    padding: 11px 15px;
+    border: solid 2px #29d305;
     animation: 1s eInputLoadingAnimation ease alternate infinite;
   }
 }
