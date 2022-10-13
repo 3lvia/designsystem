@@ -15,7 +15,7 @@
   &__label {
     display: block;
     margin-bottom: 5px;
-    @include typography.typography('text-label');
+    @include typography.typography('text-md-strong');
     line-height: 28px;
     color: colors.color('font-color');
     text-align: left;
