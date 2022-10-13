@@ -128,13 +128,14 @@
         visibility: visible;
         position: absolute;
         display: flex;
-        top: 10px;
+        top: 50%;
         left: 8px;
         height: 16px;
         width: 16px;
+        margin-top: -8px;
       }
       .e-btn {
-        top: 1px;
+        top: 0;
         right: 4px;
       }
     }
@@ -153,7 +154,7 @@
         }
       }
       .e-btn {
-        top: 1px;
+        top: 0;
         right: 4px;
       }
     }
