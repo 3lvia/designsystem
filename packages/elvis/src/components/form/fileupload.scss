@@ -19,7 +19,7 @@
   }
 
   &__description {
-    @include typography.typography('text-option');
+    @include typography.typography('text-md');
     line-height: 28px;
     color: colors.color('font-color');
     display: flex;
