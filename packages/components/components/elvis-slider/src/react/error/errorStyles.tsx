@@ -29,5 +29,4 @@ export const ErrorContainer = styled.div`
 
 export const ErrorText = styled.span`
   ${getTypographyCss('text-micro')};
-  color: ${colors.error};
 `;

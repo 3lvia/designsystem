@@ -197,6 +197,7 @@ export const HelpValue = styled.p<HelperTextProps>`
   display: inline;
   width: fit-content;
   margin: 0;
+  padding-top: 8px;
   ${typography.smallText}
 
   ${(props) => {

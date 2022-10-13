@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "13.10.22",
+      "version": "2.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The Slider component now uses rem for its font size to responsively adjust to the user's font size browser preferences."
+          ]
+        }
+      ]
+    },
+    {
       "date": "10.10.22",
       "version": "2.0.0",
       "changelog": [
