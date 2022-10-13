@@ -17,14 +17,6 @@ const colors = {
   orange: getColor('orange'),
 };
 
-const typography = {
-  titleLg: getTypographyCss('title-lg'),
-  textSm: getTypographyCss('text-sm'),
-  textSmStrong: getTypographyCss('text-sm-strong'),
-  titleSm: getTypographyCss('title-sm'),
-  textMicro: getTypographyCss('text-micro'),
-};
-
 const globalMinWidthSimple = 150;
 const globalMaxWidthSimple = 250;
 const globalMinWidthDetail = 250;
@@ -99,6 +91,11 @@ export const CardContent = styled.div<CardContentProps>`
   flex-direction: column;
   justify-content: ${(props) => (props.type === 'simple' ? 'center' : 'flex-start')};
   align-items: ${(props) => (props.type === 'simple' ? 'center' : 'flex-start')};
+  ${(props) =>
+    props.type === 'detail' &&
+    css`
+      gap: 8px;
+    `}
   width: fit-content;
 `;
 
@@ -109,7 +106,7 @@ interface CardHeadingProps {
 export const CardHeading = styled.h3<CardHeadingProps>`
   width: fit-content;
   margin: 0;
-  ${(props) => (props.type === 'simple' ? typography.textSmStrong : typography.titleSm)};
+  ${(props) => (props.type === 'simple' ? getTypographyCss('text-sm-strong') : getTypographyCss('title-xs'))};
   text-align: ${(props) => (props.type === 'simple' ? 'center' : 'left')};
   color: ${colors.black};
   display: flexbox;
@@ -128,7 +125,7 @@ interface CardDescriptionProps {
 export const CardDescription = styled.p<CardDescriptionProps>`
   padding: 0;
   margin: 0;
-  ${(props) => (props.type === 'simple' ? typography.textMicro : typography.textSm)};
+  ${(props) => (props.type === 'simple' ? getTypographyCss('text-micro') : getTypographyCss('text-sm'))};
   text-align: ${(props) => (props.type === 'simple' ? 'center' : 'left')};
   color: ${colors.black};
   display: -webkit-box;
@@ -139,7 +136,7 @@ export const CardDescription = styled.p<CardDescriptionProps>`
 `;
 
 export const CardIcon = styled.div`
-  ${typography.titleLg}
+  ${getTypographyCss('title-lg')}
   text-align: center;
   color: ${colors.black};
   white-space: nowrap;

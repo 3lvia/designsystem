@@ -221,6 +221,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     } else {
       this.updateSelected(this.bgObj.propName, '' + (this.bgObj.default == 'false'), 'boolean');
     }
+    setTimeout(() => {
+      this.updateCustomTextVisibility();
+    });
   }
 
   /**

@@ -56,14 +56,12 @@ export interface FormState {
   [key: string]: string;
 }
 
+import type { DropdownItem } from '@elvia/elvis-dropdown/react';
 /**
  * Type of elvia-dropdown event.
  */
 export type DropdownEvent = CustomEvent<{
-  value: {
-    value: string;
-    label: string;
-  };
+  value: DropdownItem;
 }>;
 
 /**

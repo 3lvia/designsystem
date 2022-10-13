@@ -185,7 +185,7 @@ const Card: FC<CardProps> = function ({
           <Icon name="arrowLongRight" />
         </CardHoverArrow>
       )}
-      {type === 'detail' && (cornerIcon || cornerIconRef.current) && (
+      {type === 'detail' && (cornerIcon || cornerIconRef) && (
         <CardCornerIcon hasBorder={hasBorder} ref={cornerIconRef} data-testid="card-corner-icon">
           {cornerIcon}
         </CardCornerIcon>
