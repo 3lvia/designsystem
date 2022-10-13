@@ -40,20 +40,6 @@ describe('Elvis Card', () => {
       expect(cardColoredLine).not.toBeInTheDocument();
     });
 
-    // TODO: Figure out how to test css states (e.g. :hover)
-    // it('should not have top border with color on hover', () => {
-    //   wrapper.simulate('mouseenter');
-    //   expect(cardColoredLine.at(0).getDOMNode()).not.toHaveStyle(`border-top: 4px solid ${getColor('red')}`);
-    //   done();
-    // });
-
-    // it('should switch border on hover', () => {
-    //   expect(cardArea.at(0).getDOMNode()).toHaveStyle(`border: 1px solid ${getColor('grey-10')}`);
-    //   //   wrapper.simulate('mouseenter');
-    //   expect(cardArea.at(0).getDOMNode()).toHaveStyle(`border: 2px solid ${getColor('elvia-charge')}`);
-    //   done();
-    // });
-
     it('should not have corner icon', () => {
       const cardCornerIcon = screen.queryByTestId('card-corner-icon');
       expect(cardCornerIcon).not.toBeInTheDocument();

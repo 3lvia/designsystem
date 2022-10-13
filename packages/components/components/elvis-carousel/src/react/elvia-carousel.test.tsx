@@ -153,7 +153,6 @@ describe('Elvis Carousel', () => {
     });
   });
 
-  // TODO: Vet ikke hvorfor denne testen ikke funker
   describe.skip('Onboarding Checkmark  = true', () => {
     beforeEach(() => {
       render(<Carousel items={items} hideArrows hasConfirmationCheckmark={true} />);
