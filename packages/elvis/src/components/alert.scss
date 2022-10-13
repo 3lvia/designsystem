@@ -49,6 +49,7 @@ $toast-max-width: 400px;
     width: 100%;
     .e-alert__title {
       @include typography.typography('title-caps');
+      line-height: 17px;
       text-align: left;
       color: colors.color('font-color');
       margin-bottom: 2px;
