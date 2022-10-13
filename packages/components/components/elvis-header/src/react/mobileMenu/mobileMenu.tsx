@@ -23,6 +23,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, use
         aria-expanded={userMenuIsOpen}
         aria-haspopup="dialog"
         ref={triggerButtonRef}
+        data-testid="mobile-menu-trigger"
       >
         <Icon
           name={userMenuIsOpen ? 'removeCircleColor' : 'moreMenu'}
@@ -34,21 +35,26 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, use
         createPortal(
           <>
             <Backdrop fadeOut={fadeOut} onClick={() => setIsShowing(false)} />
-            <MenuContainer fadeOut={fadeOut} onAnimationEnd={onAnimationEnd} ref={popoverRef}>
+            <MenuContainer
+              data-testid="mobile-menu"
+              fadeOut={fadeOut}
+              onAnimationEnd={onAnimationEnd}
+              ref={popoverRef}
+            >
               <section>
                 <MenuTitle>Applikasjon</MenuTitle>
-                <AppTitle>{appTitle}</AppTitle>
+                <AppTitle data-testid="mobile-menu-app-title">{appTitle}</AppTitle>
               </section>
               <section>
                 <MenuTitle>Innlogget som</MenuTitle>
                 <UserGrid>
-                  <Username>{username}</Username>
-                  <Email>{email}</Email>
+                  <Username data-testid="mobile-username">{username}</Username>
+                  <Email data-testid="mobile-email">{email}</Email>
                 </UserGrid>
               </section>
               <Hr></Hr>
               <section>
-                <MenuButton onClick={onSignOutClick}>
+                <MenuButton onClick={onSignOutClick} data-testid="mobile-sign-out-trigger">
                   <Icon name="logout" size="xs" color="black" />
                   Logg ut
                 </MenuButton>

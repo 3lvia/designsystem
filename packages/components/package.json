@@ -35,7 +35,7 @@
     "@elvia/elvis-component-wrapper": "*",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "12.1.5",
-    "@testing-library/user-event": "14.0.0",
+    "@testing-library/user-event": "14.4.3",
     "@types/jest": "^26.0.23",
     "@types/styled-components": "^5.1.19",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",

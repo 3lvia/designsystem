@@ -4,7 +4,7 @@ import { useBreakpoint } from '@elvia/elvis-toolbox';
 import {
   AppContent,
   AppTitle,
-  Header,
+  StyledHeader,
   Hr,
   IconButton,
   LogoContainer,
@@ -15,7 +15,7 @@ import { MobileMenu } from './mobileMenu/mobileMenu';
 import { DesktopMenu } from './desktopMenu/desktopMenu';
 import { SideNav } from './sideNav/sideNav';
 
-export const Tooltip: React.FC<HeaderProps> = ({
+export const Header: React.FC<HeaderProps> = ({
   appTitle,
   username,
   email,
@@ -74,9 +74,10 @@ export const Tooltip: React.FC<HeaderProps> = ({
 
   return (
     <div className={className ?? ''} style={{ ...inlineStyle }}>
-      <Header isGtMobile={isGtMobile}>
+      <StyledHeader isGtMobile={isGtMobile}>
         <LogoContainer isGtMobile={isGtMobile}>
           <IconButton
+            data-testid="header-logo"
             onClick={() => {
               if (!webcomponent && onLogoClick) {
                 onLogoClick();
@@ -102,11 +103,11 @@ export const Tooltip: React.FC<HeaderProps> = ({
         </LogoContainer>
         {isGtMobile && (
           <>
-            <AppTitle>{appTitle}</AppTitle>
+            <AppTitle data-testid="app-title">{appTitle}</AppTitle>
             <Hr direction="vertical" isGtTablet={isGtTablet} />
           </>
         )}
-        <PageTitle isGtMobile={isGtMobile} ref={pageTitleRef}>
+        <PageTitle data-testid="page-title" isGtMobile={isGtMobile} ref={pageTitleRef}>
           {pageTitle}
         </PageTitle>
         {!isGtMobile && (
@@ -115,13 +116,11 @@ export const Tooltip: React.FC<HeaderProps> = ({
           </SquareContainer>
         )}
         {isGtMobile && <DesktopMenu email={email} username={username} onSignOutClick={signOutClick} />}
-      </Header>
+      </StyledHeader>
       {hasNavItems() && (
-        <SideNav
-          ref={sidenavRef}
-          onSideNavToggle={() => setIsExpanded(!isExpanded)}
-          isExpanded={isExpanded}
-        />
+        <SideNav ref={sidenavRef} onSideNavToggle={() => setIsExpanded(!isExpanded)} isExpanded={isExpanded}>
+          {!webcomponent && navItems}
+        </SideNav>
       )}
       <AppContent
         ref={pageContainerElement}
@@ -136,4 +135,4 @@ export const Tooltip: React.FC<HeaderProps> = ({
   );
 };
 
-export default Tooltip;
+export default Header;

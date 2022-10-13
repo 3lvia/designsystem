@@ -10,8 +10,7 @@
           "start",
           "contentful",
           "contentful:production",
-          "test",
-          "test:start"
+          "test"
         ],
         "accessToken": "ZjQzNGM3NmYtNTc5YS00OWI1LTkwYjktN2IzZDc0NjhkMjRmfHJlYWQtd3JpdGU="
       }
