@@ -2,10 +2,14 @@
 @use '../utilities/spacing.scss';
 @use '../utilities/breakpoints';
 @use '../utilities/helpers';
+@use '../variables/typography';
 
 $list-border-size: 20px;
 $list-dot-size: 8px;
 $list-border-radius: 50%;
+$list-number-size: 30px;
+$line-height: calc(1.25rem * 1.6);
+$mobile-line-height: calc(1.125rem * 1.6);
 
 .e-list {
   $this: &;
@@ -15,30 +19,34 @@ $list-border-radius: 50%;
   margin-block-start: 0;
   margin-block-end: 0;
   margin: 0;
+  font-size: 1rem;
   text-align: left;
   box-sizing: border-box;
 
   %li-element {
+    @include typography.typography('text-lg');
     list-style: none;
     position: relative;
-    line-height: 2;
 
     // extra padding for the width of the green content bulletin.
     padding-left: 24px;
     margin: 0.5rem 0;
-    /*  display: flex;
-    flex-direction: row;
-    align-items: center; */
 
     &::before {
       content: '';
+      display: flex;
+
       position: absolute;
       left: 0;
-      top: 12px;
+      top: calc(($line-height / 2) - ($list-dot-size / 2));
       width: $list-dot-size;
       height: $list-dot-size;
       background-color: colors.color('elvia-charge');
       border-radius: $list-border-radius;
+
+      @include breakpoints.breakpoint-up(Mobile) {
+        top: calc(($mobile-line-height / 2) - ($list-dot-size / 2));
+      }
     }
   }
 
@@ -61,12 +69,16 @@ $list-border-radius: 50%;
         align-items: center;
         justify-content: center;
         font-size: helpers.toRem(18);
-        width: 30px;
-        height: 30px;
-        top: 2px;
+        width: $list-number-size;
+        height: $list-number-size;
+        top: calc(($line-height / 2) - ($list-number-size / 2));
         background: transparent;
         border: 2px solid colors.color('elvia-charge');
         border-radius: $list-border-radius;
+
+        @include breakpoints.breakpoint-up(Mobile) {
+          top: calc(($mobile-line-height / 2) - ($list-number-size / 2));
+        }
       }
     }
 
@@ -101,6 +113,11 @@ $list-border-radius: 50%;
       position: absolute;
       margin-right: 8px;
       margin-left: -48px;
+      top: calc(($line-height / 2) - (32px / 2));
+
+      @include breakpoints.breakpoint-up(Mobile) {
+        top: calc(($mobile-line-height / 2) - (32px / 2));
+      }
     }
 
     .e-list:not(.e-list--numbers) li,
