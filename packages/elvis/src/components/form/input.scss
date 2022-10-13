@@ -113,31 +113,52 @@ $form-input-padding-compact-active: 3px 9px;
     }
   }
 
-  @keyframes eInputLoadingAnimation {
-    from {
-      --e-input---loading-angle: 0deg;
+  // Check if browser supports @property
+  @supports (background: paint(something)) {
+    @keyframes eInputLoadingAnimation {
+      from {
+        --e-input---loading-angle: 0deg;
+      }
+      to {
+        --e-input---loading-angle: 180deg;
+      }
     }
-    to {
-      --e-input---loading-angle: 180deg;
+
+    &.e-input---loading {
+      > input:not(:focus),
+      > textarea:not(:focus) {
+        padding: $form-input-padding-active;
+        border: solid 2px transparent;
+        border-radius: $form-input-border-radius;
+        background-image: linear-gradient(colors.color('elvia-on'), colors.color('elvia-on')),
+          linear-gradient(
+            var(--e-input---loading-angle),
+            colors.color('elvia-charge'),
+            transparent 35% 65%,
+            colors.color('elvia-charge')
+          );
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        animation: 1.7s eInputLoadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
+      }
     }
   }
+  @supports not (background: paint(something)) {
+    @keyframes eInputLoadingAnimation {
+      from {
+        border-color: rgba(colors.color('elvia-charge'), 1);
+      }
+      to {
+        border-color: rgba(colors.color('elvia-charge'), 0.1);
+      }
+    }
 
-  &.e-input---loading {
-    > input:not(:focus),
-    > textarea:not(:focus) {
-      padding: $form-input-padding-active;
-      border: double 2px transparent;
-      border-radius: $form-input-border-radius;
-      background-image: linear-gradient(colors.color('elvia-on'), colors.color('elvia-on')),
-        linear-gradient(
-          var(--e-input---loading-angle),
-          colors.color('elvia-charge'),
-          transparent 35% 65%,
-          colors.color('elvia-charge')
-        );
-      background-origin: border-box;
-      background-clip: padding-box, border-box;
-      animation: 1.7s eInputLoadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
+    &.e-input---loading {
+      > input:not(:focus),
+      > textarea:not(:focus) {
+        border: solid 2px colors.color('elvia-charge');
+        animation: 1s eInputLoadingAnimation ease alternate infinite;
+      }
     }
   }
 
