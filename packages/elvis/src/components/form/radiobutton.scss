@@ -18,7 +18,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
   position: relative;
   cursor: pointer;
 
-  @include typography.typography('text-option');
+  @include typography.typography('text-md');
   color: colors.color('font-color');
   line-height: 24px;
   text-align: left;

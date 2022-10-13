@@ -34,7 +34,7 @@ $form-input-padding-compact-active: 3px 9px;
     max-width: 448px;
     width: 100%;
     padding: $form-input-padding;
-    @include typography.typography('text-option');
+    @include typography.typography('text-md');
     color: colors.color('font-color');
   }
 
