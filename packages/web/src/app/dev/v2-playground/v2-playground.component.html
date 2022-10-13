@@ -5,458 +5,1821 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
-    <!--Inverted version-->
-    <div class="e-bg-grey"></div>
-  </div>
-
-  <!--Accordion-->
-  <div class="example-wrapper">
-    <h3>Accordion</h3>
-    <button (click)="isOpen = !isOpen">helo</button>
-    <elvia-accordion
-      [isOpen]="isOpen"
-      openLabel="Show"
-      closeLabel="Hide"
-      size="medium"
-      type="normal"
-      typography="title-caps"
-      (onOpen)="onOpen()"
-      (onClose)="onClose()"
-    >
-      <div slot="content">
-        <h3>Hello there</h3>
-      </div>
-    </elvia-accordion>
-  </div>
-
-  <!-- Badge -->
-  <div class="example-wrapper">
-    <h3>Badge</h3>
-    <div style="display: flex; gap: 1rem">
-      <elvia-badge [count]="0">
-        <button
-          class="e-thumbnail"
-          aria-label="Thumbnail button that opens the image in a larger view"
-          slot="content"
-        >
-          <img src="https://picsum.photos/56" alt="Thumbnail example image" />
-        </button>
-      </elvia-badge>
-      <elvia-badge [count]="10" [badgeColor]="'red'">
-        <button
-          class="e-thumbnail"
-          aria-label="Thumbnail button that opens the image in a larger view"
-          slot="content"
-        >
-          <img src="https://picsum.photos/56" alt="Thumbnail example image" />
-        </button>
-      </elvia-badge>
-      <elvia-badge [count]="101" [badgeColor]="'black'">
-        <button
-          class="e-thumbnail"
-          aria-label="Thumbnail button that opens the image in a larger view"
-          slot="content"
-        >
-          <img src="https://picsum.photos/56" alt="Thumbnail example image" />
-        </button>
-      </elvia-badge>
-    </div>
-  </div>
-
-  <!--Box-->
-  <div class="example-wrapper">
-    <h3>Box</h3>
-    <div style="padding: 8px">
-      <elvia-box [hasBorder]="true">
-        <h3 slot="title">Title</h3>
-        <div slot="content">Webcomponentent content for the box component</div>
-      </elvia-box>
-    </div>
-  </div>
-
-  <!--Breadcrumb-->
-  <div class="example-wrapper">
-    <h3>Breadcrumbs</h3>
-    <elvia-breadcrumb [items]="breadcrumbsTestNoUrl"></elvia-breadcrumb>
-  </div>
-
-  <!--Card-->
-  <div class="example-wrapper">
-    <h3>Card</h3>
-    <div class="e-grid">
-      <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
-        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
-          <a [routerLink]="['/components/card']">
-            <elvia-card [header]="'Header'" [description]="'Hover me!'">
-              <div slot="icon">91</div>
-              <div slot="iconHover">92</div>
-              <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
-            </elvia-card>
-          </a>
-        </div>
-        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
-          <a [routerLink]="['/components/card']">
-            <elvia-card [header]="'Hover!'" [borderColor]="'red'">
-              <i slot="icon" class="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>
-              <i slot="iconHover" class="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>
-              <i slot="cornerIcon" class="e-icon e-icon--unlock e-icon--xs" aria-hidden="true"></i>
-            </elvia-card>
-          </a>
-        </div>
-        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
-          <a [routerLink]="['/components/card']">
-            <elvia-card
-              [header]="'Title3'"
-              [description]="'description3'"
-              [icon]="'3'"
-              [borderColor]="'green'"
-            ></elvia-card>
-          </a>
+    <div class="e-bg-white">
+      <div class="e-title-sm e-mt-16">Search</div>
+      <div class="e-title-xs e-my-16">Instant Search</div>
+      <div class="e-form-field">
+        <div class="e-search e-search--instant" style="width: 250px">
+          <div class="e-input">
+            <input id="compact" type="text" placeholder="Placeholder text" />
+          </div>
+          <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          <button class="e-btn e-btn--icon">
+            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+          </button>
         </div>
       </div>
-    </div>
-  </div>
-  <!--Carousel-->
-  <div class="example-wrapper">
-    <h3>Carousel</h3>
-    <elvia-carousel [loop]="false" [hasConfirmationCheckmark]="true">
-      <div slot="title-1">
-        <h3 class="e-title-sm">title 1</h3>
+
+      <div class="e-form-field e-form-field--compact e-mt-24">
+        <div class="e-search e-search--instant" style="width: 250px">
+          <div class="e-input">
+            <input id="compact" type="text" placeholder="Placeholder text" />
+          </div>
+          <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          <button class="e-btn e-btn--icon">
+            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+          </button>
+        </div>
       </div>
-      <div slot="item-1">
-        <img
-          alt="Carousel example image"
-          src="../../../../assets/carousel/el1.jpeg"
-          style="width: 100%; min-width: 278px; border-radius: 8px"
-        />
+
+      <div class="e-form-field e-my-16">
+        <div class="e-search e-search--instant e-search--searched" style="width: 250px">
+          <div class="e-input">
+            <input id="compact" type="text" placeholder="Placeholder text" />
+          </div>
+          <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          <button class="e-btn e-btn--icon">
+            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+          </button>
+        </div>
       </div>
-      <div slot="title-2">
-        <h3 class="e-title-sm">title 2</h3>
+
+      <div class="e-form-field e-form-field--compact e-mt-24">
+        <div class="e-search e-search--instant e-search--searched" style="width: 250px">
+          <div class="e-input">
+            <input id="compact" type="text" placeholder="Placeholder text" />
+          </div>
+          <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          <button class="e-btn e-btn--icon">
+            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+          </button>
+        </div>
       </div>
-      <div slot="item-2">
-        <img
-          alt="Carousel example image"
-          src="../../../../assets/carousel/el2.jpeg"
-          style="width: 100%; min-width: 278px; border-radius: 8px"
-        />
+
+      <div class="e-title-xs e-my-16">Instant Search (Full width)</div>
+      <!-- Instant search width-full -->
+      <div class="e-form-field e-form-field--full-width e-my-16">
+        <div class="e-search e-search--instant">
+          <div class="e-input">
+            <input aria-label="Search" type="search" placeholder="Search" />
+          </div>
+          <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          <button class="e-btn e-btn--icon" aria-label="Tøm søkefelt">
+            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+          </button>
+        </div>
       </div>
-    </elvia-carousel>
-  </div>
 
-  <!--Chip-->
-  <div class="example-wrapper">
-    <h3>Deletable chips</h3>
-    <div style="display: flex; flex-direction: row">
-      <div *ngFor="let chip of deletableChipsList">
-        <elvia-chip
-          [value]="chip.value"
-          [color]="chip.color"
-          [ariaLabel]="'Fjern filtrering for ' + chip.value"
-          [isDisabled]="chip.isDisabled"
-          (onDelete)="handleOnDelete($event.detail.value)"
-          (isSelectedOnChange)="logValue('chip', $event.detail.value)"
-          [inlineStyle]="{ margin: '8px' }"
-        ></elvia-chip>
+      <!-- Instant compact search width-full -->
+      <div class="e-form-field e-form-field--compact e-form-field--full-width e-my-16">
+        <div class="e-search e-search--instant">
+          <div class="e-input">
+            <input aria-label="Search" type="search" placeholder="Search" />
+          </div>
+          <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          <button class="e-btn e-btn--icon" aria-label="Tøm søkefelt">
+            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+          </button>
+        </div>
       </div>
-    </div>
-    Value deleted: {{ deleteValue }}
 
-    <h3>Clickable chips</h3>
-    <div style="display: flex; flex-direction: row">
-      <div *ngFor="let chip of filteredKeys">
-        <elvia-chip
-          [value]="chip"
-          [isSelected]="filteredValues[chip]"
-          color="orange"
-          type="legend"
-          (isSelectedOnChange)="handleOnChange($event)"
-        ></elvia-chip>
+      <!-- Instant search searched width-full -->
+      <div class="e-form-field e-form-field--full-width e-my-16">
+        <div class="e-search e-search--instant e-search--searched">
+          <div class="e-input">
+            <input aria-label="Search" type="search" placeholder="Search" />
+          </div>
+          <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          <button class="e-btn e-btn--icon" aria-label="Tøm søkefelt">
+            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+          </button>
+        </div>
       </div>
-    </div>
-    Selected values:
-    <span *ngFor="let key of filteredKeys">
-      <span *ngIf="filteredValues[key]">{{ key }},</span>
-    </span>
-  </div>
 
-  <!--Datepicker-->
-  <div class="example-wrapper">
-    <h3>DatePicker</h3>
-    <elvia-datepicker [value]="date"></elvia-datepicker>
-  </div>
-  <!--Date range picker-->
-  <div class="example-wrapper">
-    <h3>Date range picker</h3>
-    <elvia-datepicker-range></elvia-datepicker-range>
-  </div>
-
-  <!--Divider-->
-  <div class="example-wrapper">
-    <h3>Divider</h3>
-    <elvia-divider type="title" typography="caps">
-      <h3 slot="title">Title</h3>
-    </elvia-divider>
-    <h3>Vertical divider</h3>
-    <div style="height: 100px">
-      <elvia-divider type="simple" orientation="vertical"></elvia-divider>
-    </div>
-  </div>
-
-  <!--Dropdown-->
-  <div class="example-wrapper">
-    <h3>Dropdown</h3>
-    <elvia-dropdown
-      [isMulti]="true"
-      [isCompact]="false"
-      [isDisabled]="false"
-      label="testing something"
-      [value]="dropdownDefOptions"
-      [items]="dropdownOptions"
-    ></elvia-dropdown>
-  </div>
-
-  <!--Icon-->
-  <div class="example-wrapper">
-    <h3>Icon</h3>
-    <elvia-icon name="arrowRightBold"></elvia-icon>
-    <elvia-icon name="arrowLeftBold"></elvia-icon>
-  </div>
-
-  <!--Modal-->
-  <div class="example-wrapper">
-    <h3>Modal</h3>
-    <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
-    <elvia-modal
-      (onClose)="isModalShowing = !isModalShowing"
-      [isShowing]="isModalShowing"
-      [heading]="'Redigere bidragsytere'"
-      [disableClose]="false"
-    >
-      <div slot="content">Content</div>
-      <button
-        slot="secondaryButton"
-        class="e-btn e-btn--secondary e-btn--lg"
-        (click)="isModalShowing = false"
-      >
-        Avbryt
-      </button>
-      <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Lagre</button>
-    </elvia-modal>
-  </div>
-
-  <!--Paginator-->
-  <div class="example-wrapper">
-    <h3>Paginator</h3>
-    <elvia-pagination
-      numberOfElements="156"
-      [value]="defaultPaginationValue"
-      [alignment]="'right'"
-      dropdownMenuPosition="top"
-    ></elvia-pagination>
-  </div>
-
-  <!--Popover-->
-  <div class="example-wrapper">
-    <h3>Popover</h3>
-    <elvia-popover
-      [isShowing]="isPopoverShowing"
-      (onOpen)="isPopoverShowing = true"
-      (onClose)="isPopoverShowing = false"
-      heading="BankID"
-      horizontalPosition="right"
-      verticalPosition="top"
-      width="200"
-    >
-      <button slot="trigger" class="e-btn">Show popover</button>
-      <div slot="content">
-        Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
-        <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
+      <!-- Instant compact search searched width-full -->
+      <div class="e-form-field e-form-field--compact e-form-field--full-width e-my-16">
+        <div class="e-search e-search--instant e-search--searched">
+          <div class="e-input">
+            <input aria-label="Search" type="search" placeholder="Search" />
+          </div>
+          <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          <button class="e-btn e-btn--icon" aria-label="Tøm søkefelt">
+            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+          </button>
+        </div>
       </div>
-    </elvia-popover>
-  </div>
 
-  <!--Progress linear-->
-  <div class="example-wrapper">
-    <h3>Progress linear</h3>
-    <elvia-progress-linear
-      [isIndeterminate]="indeterminate"
-      [value]="progressValue"
-      [isError]="progressError"
-    ></elvia-progress-linear>
-    <div style="margin-bottom: 32px; display: flex">
-      <div style="display: flex; width: 100%; justify-content: space-between">
-        <button class="e-btn" (click)="progressValue = progressValue + 10">Increase Progress</button>
-        <button class="e-btn" (click)="progressValue = progressValue - 10">Decrease Progress</button>
-        <button class="e-btn" (click)="indeterminate = !indeterminate">Toggle indeterminate</button>
-        <button class="e-btn" (click)="progressError = !progressError">Toggle error</button>
-      </div>
-    </div>
-  </div>
-
-  <!--Radio filter-->
-  <div class="example-wrapper">
-    <h3>Radio filter</h3>
-    <elvia-radio-filter
-      [items]="[
-        { label: 'All', value: 'all' },
-        { label: 'Read', value: 'read' },
-        { label: 'Unread', value: 'unread' }
-      ]"
-      [value]="'read'"
-      [name]="'readRadioFilters'"
-      [ariaLabel]="'{value} filtrering valgt'"
-    ></elvia-radio-filter>
-  </div>
-
-  <!--Slider-->
-  <div class="example-wrapper">
-    <h3>Slider</h3>
-    <h4>Simple Slider</h4>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem">
-      <elvia-slider [type]="'simple'" [min]="0" [max]="100"></elvia-slider>
-      <elvia-slider [type]="'simple'" [min]="1" [max]="10000000" [hasInputField]="true"></elvia-slider>
-      <elvia-slider
-        [type]="'simple'"
-        [min]="1"
-        [max]="10000000"
-        [hasInputField]="true"
-        [hasHintValues]="true"
-      ></elvia-slider>
-      <elvia-slider
-        [type]="'simple'"
-        [min]="0"
-        [max]="100"
-        [hasInputField]="true"
-        [unit]="' kr'"
-      ></elvia-slider>
-      <elvia-slider
-        [type]="'simple'"
-        [min]="0"
-        [max]="100"
-        [hasInputField]="true"
-        [unit]="' kWh'"
-        [label]="'Kilowattime'"
-      ></elvia-slider>
-      <elvia-slider
-        [type]="'simple'"
-        [min]="50"
-        [max]="250"
-        [hasInputField]="true"
-        [hasPercent]="true"
-      ></elvia-slider>
-      <elvia-slider [type]="'simple'" [min]="0" [max]="100" [isDisabled]="true"></elvia-slider>
-      <elvia-slider
-        [type]="'simple'"
-        [min]="0"
-        [max]="100"
-        [isDisabled]="true"
-        [hasInputField]="true"
-      ></elvia-slider>
-    </div>
-
-    <h4>Range Slider</h4>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem">
-      <elvia-slider [type]="'range'" [min]="1" [max]="100"></elvia-slider>
-      <elvia-slider [type]="'range'" [min]="1" [max]="100" [hasHintValues]="true"></elvia-slider>
-      <elvia-slider
-        [type]="'range'"
-        [min]="0"
-        [max]="100"
-        [hasInputField]="true"
-        [hasHintValues]="true"
-      ></elvia-slider>
-      <elvia-slider
-        [type]="'range'"
-        [min]="1"
-        [max]="100"
-        [hasInputField]="true"
-        [label]="{ left: 'Min', right: 'Maks' }"
-        [unit]="' kWh'"
-      ></elvia-slider>
-      <elvia-slider [type]="'range'" [min]="0" [max]="100" [isDisabled]="true"></elvia-slider>
-      <elvia-slider
-        [type]="'range'"
-        [min]="0"
-        [max]="100"
-        [isDisabled]="true"
-        [hasInputField]="true"
-      ></elvia-slider>
-    </div>
-  </div>
-
-  <!--Spotlight-->
-  <div class="example-wrapper">
-    <h3>Spotlight</h3>
-    <!-- <elvia-spotlight [position]="{ horizontal: 300, vertical: 300 }" [radius]="80"></elvia-spotlight> -->
-  </div>
-
-  <!--Tabs-->
-  <div class="example-wrapper">
-    <h3>Tabs</h3>
-    <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1"></elvia-tabs>
-  </div>
-
-  <!--Timepicker-->
-  <div class="example-wrapper">
-    <h3>Timepicker</h3>
-    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
-      <elvia-timepicker></elvia-timepicker>
-
-      <elvia-timepicker label="Custom label"></elvia-timepicker>
-
-      <elvia-timepicker label=""></elvia-timepicker>
-
-      <elvia-timepicker isCompact="true"></elvia-timepicker>
-
-      <elvia-timepicker label="Only hours" [value]="timepickerValue" minuteInterval="60"></elvia-timepicker>
-
-      <elvia-timepicker isDisabled="true"></elvia-timepicker>
-
-      <elvia-timepicker label="Required" isRequired="true"></elvia-timepicker>
-    </div>
-  </div>
-
-  <!--Tooltip-->
-  <div class="example-wrapper">
-    <h3>Tooltip</h3>
-
-    <div class="e-flex e-flex-direction-row e-gap-16">
-      <p class="e-text-md">
-        This is a text to test out the new
-        <elvia-tooltip
-          content="This is a tooltip! The content is pretty long."
-          trigger="tooltip!"
-        ></elvia-tooltip>
-      </p>
-
-      <elvia-tooltip
-        content="This tooltip has a trigger through a slot. Click the button to toggle the tooltip position."
-        [position]="tooltipPosition"
-      >
-        <button
-          slot="trigger"
-          (click)="shuffleTooltipPosition()"
-          class="e-btn e-btn--icon e-btn--lg"
-          aria-label="Vis tooltip"
-        >
+      <div class="e-title-xs e-my-16">On Submit Search</div>
+      <div class="e-inlined-field">
+        <div class="e-form-field e-form-field--width-auto">
+          <div class="e-search e-search--on-submit" style="width: 250px">
+            <div class="e-input">
+              <input aria-label="Search" type="search" placeholder="Search" />
+            </div>
+            <button class="e-btn e-btn--icon">
+              <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+            </button>
+          </div>
+        </div>
+        <button class="e-btn e-btn--lg e-ml-16">
           <span class="e-btn__icon">
-            <i class="e-icon e-icon--star" aria-hidden="true"></i>
+            <i class="e-icon e-icon--search-color e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Search</span>
+        </button>
+      </div>
+
+      <div class="e-inlined-field e-my-16">
+        <div class="e-form-field e-form-field--width-auto e-form-field--compact">
+          <div class="e-search e-search--on-submit" style="width: 250px">
+            <div class="e-input">
+              <input aria-label="Search" type="search" placeholder="Search" />
+            </div>
+            <button class="e-btn e-btn--icon">
+              <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+            </button>
+          </div>
+        </div>
+        <button class="e-btn e-btn--sm e-ml-16">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--search-color e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Search</span>
+        </button>
+      </div>
+
+      <div class="e-inlined-field">
+        <div class="e-form-field e-form-field--width-auto">
+          <div class="e-search e-search--on-submit e-search--searched" style="width: 250px">
+            <div class="e-input">
+              <input aria-label="Search" type="search" placeholder="Search" />
+            </div>
+            <button class="e-btn e-btn--icon">
+              <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+            </button>
+          </div>
+        </div>
+        <button class="e-btn e-btn--lg e-ml-16">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--search-color e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Search</span>
+        </button>
+      </div>
+
+      <div class="e-inlined-field e-my-16">
+        <div class="e-form-field e-form-field--width-auto e-form-field--compact">
+          <div class="e-search e-search--on-submit e-search--searched" style="width: 250px">
+            <div class="e-input">
+              <input aria-label="Search" type="search" placeholder="Search" />
+            </div>
+            <button class="e-btn e-btn--icon">
+              <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+            </button>
+          </div>
+        </div>
+        <button class="e-btn e-btn--sm e-ml-16">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--search-color e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Search</span>
+        </button>
+      </div>
+
+      <div class="e-title-xs e-my-16">On submit Search (Full width)</div>
+      <!-- On submit search width-full -->
+      <div class="e-inlined-field e-inlined-field--full-width e-my-16">
+        <div class="e-form-field">
+          <div class="e-search e-search--on-submit">
+            <div class="e-input">
+              <input aria-label="Search" type="search" placeholder="Search" />
+            </div>
+            <button class="e-btn e-btn--icon" aria-label="Tøm søkefelt">
+              <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+            </button>
+          </div>
+        </div>
+        <button class="e-btn e-btn--lg e-ml-16">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--search-color e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Search</span>
+        </button>
+      </div>
+
+      <!-- On submit compact width-full -->
+      <div class="e-inlined-field e-inlined-field--full-width e-my-16">
+        <div class="e-form-field e-form-field--compact">
+          <div class="e-search e-search--on-submit">
+            <div class="e-input">
+              <input aria-label="Search" type="search" placeholder="Search" />
+            </div>
+            <button class="e-btn e-btn--icon" aria-label="Tøm søkefelt">
+              <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+            </button>
+          </div>
+        </div>
+        <button class="e-btn e-btn--sm e-ml-16">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--search-color e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Search</span>
+        </button>
+      </div>
+
+      <!-- On submit search searched width-full -->
+      <div class="e-inlined-field e-inlined-field--full-width e-my-16">
+        <div class="e-form-field">
+          <div class="e-search e-search--on-submit e-search--searched">
+            <div class="e-input">
+              <input aria-label="Search" type="search" placeholder="Search" />
+            </div>
+            <button class="e-btn e-btn--icon" aria-label="Tøm søkefelt">
+              <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+            </button>
+          </div>
+        </div>
+        <button class="e-btn e-btn--lg e-ml-16">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--search-color e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Search</span>
+        </button>
+      </div>
+
+      <!-- On submit compact searched full width -->
+      <div class="e-inlined-field e-inlined-field--full-width e-my-16">
+        <div class="e-form-field e-form-field--compact">
+          <div class="e-search e-search--on-submit e-search--searched">
+            <div class="e-input">
+              <input aria-label="Search" type="search" placeholder="Search" />
+            </div>
+            <button class="e-btn e-btn--icon" aria-label="Tøm søkefelt">
+              <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+            </button>
+          </div>
+        </div>
+        <button class="e-btn e-btn--sm e-ml-16">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--search-color e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Search</span>
+        </button>
+      </div>
+      <div class="e-title-sm e-mt-16">Alerts</div>
+      <div class="e-title-xs e-mt-16">Global Alert</div>
+      <div class="e-mt-16" style="width: 100%; display: flex; flex-direction: column">
+        <div>Regular</div>
+
+        <div class="e-alert e-alert--global">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort info tittel</div>
+            <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+          </div>
+        </div>
+        <div>Closeable</div>
+
+        <div class="e-alert e-alert--global">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort info tittel</div>
+            <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+          </div>
+          <div class="e-alert__close">
+            <button class="e-btn e-btn--icon e-btn--sm">
+              <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+            </button>
+          </div>
+        </div>
+        <div>Expandable</div>
+        <div>
+          <div class="e-alert e-alert--global e-alert--expandable">
+            <div class="e-alert__icon">
+              <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+            </div>
+            <div class="e-alert__content">
+              <div class="e-alert__title">
+                <div>Kort info tittel</div>
+                <div class="e-alert__accordion">
+                  <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+                  <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="e-alert__text">
+                <div>Generell informasjon til alle brukere på tvers.</div>
+                <div class="e-alert__links">
+                  <a class="e-link" href="https://design.elvia.io">Medium link</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="e-alert e-alert--global e-alert--expandable e-alert--open e-mt-40">
+            <div class="e-alert__icon">
+              <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+            </div>
+            <div class="e-alert__content">
+              <div class="e-alert__title">
+                <div>Kort info tittel</div>
+                <div class="e-alert__accordion">
+                  <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+                  <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="e-alert__text">
+                <div>Generell informasjon til alle brukere på tvers.</div>
+                <div class="e-alert__links">
+                  <a class="e-link" href="https://design.elvia.io">Medium link</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>Actions</div>
+      <div class="e-alert e-alert--global e-alert--no-title e-alert--actions">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__text">Informasjon til alle brukere på tvers av applikasjonen.</div>
+          <div class="e-alert__actions">
+            <button class="e-btn e-btn--secondary e-btn--sm">
+              <span class="e-btn__title">Secondary</span>
+            </button>
+            <button class="e-btn e-ml-24 e-btn--sm">
+              <span class="e-btn__title">Primary</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-title-xs e-my-16">Local Alert</div>
+
+      <div>
+        <div class="e-alert e-alert--local">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--remove_circle e-icon--color-red" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Standard alert</div>
+            <div class="e-alert__text">
+              <div>
+                Description with a list and an
+                <a class="e-link e-link--inline">inline link.</a>
+              </div>
+              <div class="e-alert__links">
+                <a class="e-link" href="https://design.elvia.io">Link 1</a>
+                <a class="e-link" href="https://design.elvia.io">Link 2</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-title-xs e-my-16">Toast Alert</div>
+
+      <div class="e-alert e-alert--toast">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--check_circle e-icon--color-green" aria-hidden="true"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort Tittel</div>
+          <div class="e-alert__text">En velykket bekreftelses melding!</div>
+        </div>
+      </div>
+      <div class="e-my-16">Closeable</div>
+      <div class="e-alert e-alert--toast e-alert--no-title">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--check_circle e-icon--color-green" aria-hidden="true"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__text">
+            En velykket bekreftelses melding en lang og velykket bekreftelse på en lang melding!
+          </div>
+        </div>
+        <div class="e-alert__close">
+          <button class="e-btn e-btn--icon e-btn--sm">
+            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+          </button>
+        </div>
+      </div>
+      <div class="e-my-16">Statuses</div>
+
+      <div>
+        <div class="e-alert e-alert--error e-alert--local">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--check_circle e-icon--color-red" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort Tittel</div>
+            <div class="e-alert__text">En velykket bekreftelses melding!</div>
+          </div>
+        </div>
+        <div class="e-alert e-alert e-alert--warn e-alert--local">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--check_circle e-icon--color-orange" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort Tittel</div>
+            <div class="e-alert__text">En velykket bekreftelses melding!</div>
+          </div>
+        </div>
+        <div class="e-alert e-alert e-alert--info e-alert--local">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--check_circle e-icon--color-black" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort Tittel</div>
+            <div class="e-alert__text">En velykket bekreftelses melding!</div>
+          </div>
+        </div>
+
+        <div class="e-alert e-alert--toast e-alert--info">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--check_circle e-icon--color-black" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort Tittel</div>
+            <div class="e-alert__text">En velykket bekreftelses melding!</div>
+          </div>
+        </div>
+        <div class="e-alert e-alert--toast">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--check_circle e-icon--color-black" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort Tittel</div>
+            <div class="e-alert__text">En velykket bekreftelses melding!</div>
+          </div>
+        </div>
+      </div>
+      <div class="e-alert e-alert--global">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort info tittel</div>
+          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+        </div>
+      </div>
+      <div class="e-alert e-alert--global e-alert--error">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort info tittel</div>
+          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+        </div>
+      </div>
+      <div class="e-alert e-alert--global e-alert--warn">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort info tittel</div>
+          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+        </div>
+      </div>
+      <div class="e-title-sm e-mt-16">Buttons</div>
+      <div class="e-title-xs e-my-16">Primary</div>
+
+      <div class="e-mt-16" style="width: 100%; display: flex">
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+          <button class="e-btn e-m-8">
+            <span class="e-btn__title">Primary</span>
+          </button>
+          <button class="e-btn e-m-8">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--download e-icon--inverted" aria-hidden="true"></i>
+              <i class="e-icon e-icon--download" aria-hidden="true"></i>
+            </span>
+            <span class="e-btn__title">Icon button</span>
+          </button>
+          <button class="e-btn e-m-8">
+            <span class="e-btn__title">Icon button</span>
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--download e-icon--inverted" aria-hidden="true"></i>
+              <i class="e-icon e-icon--download" aria-hidden="true"></i>
+            </span>
+          </button>
+          <button class="e-btn e-btn--loading e-m-8">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <button class="e-btn e-btn--danger e-m-8">
+            <span class="e-btn__title">Danger</span>
+          </button>
+        </div>
+      </div>
+      <div class="e-mt-16" style="width: 100%; display: flex; background-color: #262626">
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+          <button class="e-btn e-btn--inverted e-m-8">
+            <span class="e-btn__title">Primary</span>
+          </button>
+          <button class="e-btn e-btn--inverted e-m-8">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--download e-icon--inverted" aria-hidden="true"></i>
+              <i class="e-icon e-icon--download" aria-hidden="true"></i>
+            </span>
+            <span class="e-btn__title">Icon button</span>
+          </button>
+          <button class="e-btn e-btn--inverted e-m-8">
+            <span class="e-btn__title">Icon button</span>
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--download e-icon--inverted" aria-hidden="true"></i>
+              <i class="e-icon e-icon--download" aria-hidden="true"></i>
+            </span>
+          </button>
+          <button class="e-btn e-btn--loading e-btn--inverted e-m-8">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <button class="e-btn e-btn--danger e-btn--inverted e-m-8">
+            <span class="e-btn__title">Danger</span>
+          </button>
+        </div>
+      </div>
+      <div class="e-mt-16" style="width: 100%; display: flex">
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+          <button class="e-btn e-btn---hover e-m-8">
+            <span class="e-btn__title">Hover</span>
+          </button>
+          <button class="e-btn e-btn---active e-m-8">
+            <span class="e-btn__title">Active</span>
+          </button>
+          <button class="e-btn e-btn---disabled e-m-8">
+            <span class="e-btn__title">Disabled</span>
+          </button>
+          <button class="e-btn e-btn---focus e-m-8">
+            <span class="e-btn__title">Focus</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="e-title-xs e-my-16">Secondary</div>
+      <div class="e-mt-16" style="width: 100%; display: flex; flex-wrap: wrap">
+        <button class="e-btn e-btn--secondary e-m-8">
+          <span class="e-btn__title">Secondary</span>
+        </button>
+        <button class="e-btn e-btn--secondary e-m-8">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Icon button</span>
+        </button>
+        <button class="e-btn e-btn--secondary e-m-8">
+          <span class="e-btn__title">Icon button</span>
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
           </span>
         </button>
-      </elvia-tooltip>
+        <button class="e-btn e-btn--secondary e-btn--loading e-m-8">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="e-mt-16" style="width: 100%; display: flex; flex-wrap: wrap; background-color: #262626">
+        <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
+          <span class="e-btn__title">Secondary</span>
+        </button>
+        <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Icon button</span>
+        </button>
+        <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
+          <span class="e-btn__title">Icon button</span>
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+          </span>
+        </button>
+        <button class="e-btn e-btn--secondary e-btn--loading e-btn--inverted e-m-8">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="e-mt-16" style="width: 100%; display: flex">
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+          <button class="e-btn e-btn--secondary e-btn---hover e-m-8">
+            <span class="e-btn__title">Hover</span>
+          </button>
+          <button class="e-btn e-btn--secondary e-btn---active e-m-8">
+            <span class="e-btn__title">Active</span>
+          </button>
+          <button class="e-btn e-btn--secondary e-btn---disabled e-m-8">
+            <span class="e-btn__title">Disabled</span>
+          </button>
+          <button class="e-btn e-btn--secondary e-btn---focus e-m-8">
+            <span class="e-btn__title">Focus</span>
+          </button>
+        </div>
+      </div>
 
-      <elvia-tooltip isDisabled="true" content="This should not be visible">
-        <span slot="trigger">Disabled tooltip</span>
-      </elvia-tooltip>
+      <div class="e-title-xs e-my-16">Tertiary</div>
+      <div>
+        <button class="e-btn e-btn--tertiary e-m-8">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Tertiary</span>
+        </button>
+      </div>
+      <div style="background-color: #262626">
+        <button class="e-btn e-btn--tertiary e-btn--inverted e-m-8">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download e-icon--inverted" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Tertiary</span>
+        </button>
+      </div>
+      <div>
+        <button class="e-btn e-btn--tertiary e-btn---hover e-m-8">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Hover</span>
+        </button>
+        <button class="e-btn e-btn--tertiary e-btn---active e-m-8">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Active</span>
+        </button>
+        <button class="e-btn e-btn--tertiary e-btn---disabled e-m-8">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download e-icon--color-grey-30" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Disabled</span>
+        </button>
+        <button class="e-btn e-btn--tertiary e-btn---focus e-m-8">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Focus</span>
+        </button>
+      </div>
 
-      <elvia-tooltip>
-        <p slot="content" class="e-text-md e-m-0 e-flex e-align-items-center">
-          <i class="e-icon e-icon--search-bold e-icon--xs e-icon--color-white e-mr-8" aria-hidden="true"></i>
-          This is custom content!
+      <div class="e-title-xs e-my-16">Icon buttons</div>
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+        <div class="e-mr-40" style="display: flex; flex-direction: column; align-items: center">
+          <div class="e-text-md e-mb-8">Flat</div>
+          <button class="e-btn e-btn--icon">
+            <span class="e-btn__icon"><i class="e-icon e-icon--upload" aria-hidden="true"></i></span>
+          </button>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center">
+          <div class="e-text-md e-mb-8">Circled</div>
+          <button class="e-btn e-btn--icon e-btn--circled">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+              <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap; background-color: #262626">
+        <div class="e-mr-40" style="display: flex; flex-direction: column; align-items: center">
+          <div class="e-text-md e-mb-8 e-text-white">Flat</div>
+          <button class="e-btn e-btn--icon e-btn--inverted">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--upload" aria-hidden="true"></i>
+              <i class="e-icon e-icon--upload e-icon--inverted" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center">
+          <div class="e-text-md e-mb-8 e-text-white">Circled</div>
+          <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--information_circle e-icon--inverted" aria-hidden="true"></i>
+              <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+        <div class="e-mr-40" style="display: flex; flex-direction: column; align-items: center">
+          <div class="e-text-md e-mb-8">Hover</div>
+          <button class="e-btn e-btn--icon e-btn---hover">
+            <span class="e-btn__icon"><i class="e-icon e-icon--upload" aria-hidden="true"></i></span>
+          </button>
+        </div>
+        <div class="e-mr-40" style="display: flex; flex-direction: column; align-items: center">
+          <div class="e-text-md e-mb-8">Active</div>
+          <button class="e-btn e-btn--icon e-btn---active">
+            <span class="e-btn__icon"><i class="e-icon e-icon--upload" aria-hidden="true"></i></span>
+          </button>
+        </div>
+        <div class="e-mr-40" style="display: flex; flex-direction: column; align-items: center">
+          <div class="e-text-md e-mb-8">Disabled</div>
+          <button class="e-btn e-btn--icon e-btn---disabled">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--upload e-icon--color-grey-30" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center">
+          <div class="e-text-md e-mb-8">Focus</div>
+          <button class="e-btn e-btn--icon e-btn---focus">
+            <span class="e-btn__icon"><i class="e-icon e-icon--upload" aria-hidden="true"></i></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="e-title-xs e-my-16">Links with button style</div>
+      <div>
+        <a class="e-btn e-m-16" href="www.elvia.no">
+          <span class="e-btn__title">Anchor tags</span>
+        </a>
+      </div>
+      <div style="background-color: #262626">
+        <a class="e-btn e-btn--inverted e-m-16" href="www.elvia.no">
+          <span class="e-btn__title">Anchor tags</span>
+        </a>
+      </div>
+      <div class="e-title-xs e-my-16">Sizing of buttons</div>
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center">
+        <div class="e-m-8">
+          <button class="e-btn e-btn--sm">
+            <span class="e-btn__title">Small</span>
+          </button>
+        </div>
+        <div class="e-m-8">
+          <button class="e-btn">
+            <span class="e-btn__title">Medium</span>
+          </button>
+        </div>
+        <div class="e-m-8">
+          <button class="e-btn e-btn--lg">
+            <span class="e-btn__title">Large</span>
+          </button>
+        </div>
+        <div class="e-w-100 e-mt-24">
+          <button class="e-btn e-w-100">
+            <span class="e-btn__title">Full width</span>
+          </button>
+        </div>
+      </div>
+      <div class="e-title-sm">Accordion</div>
+      <div class="e-title-xs e-mt-16">Singe Accordion</div>
+
+      <div style="width: 100%; display: flex; flex-direction: column">
+        <div class="e-accordion e-accordion--single">
+          <div class="e-accordion__item">
+            <div class="e-accordion__title">Closed Accordion</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+            </div>
+            <div class="e-accordion__content">Hidden information</div>
+          </div>
+        </div>
+        <div class="e-accordion e-accordion--single e-mt-40">
+          <div class="e-accordion__item e-accordion__item--open">
+            <div class="e-accordion__title">Open Accordion</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+            </div>
+            <div class="e-accordion__content">Hidden information</div>
+          </div>
+        </div>
+        <div class="e-accordion e-accordion--single e-mt-40">
+          <div class="e-accordion__item e-accordion__item--open">
+            <div class="e-accordion__title">Open Nested Accordion</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+            </div>
+            <div class="e-accordion__content">
+              The inner accordion's icon is not in open state.
+              <div class="e-accordion e-accordion--single e-ml-8">
+                <div class="e-accordion__item">
+                  <div class="e-accordion__title">Closed Inner Accordion</div>
+                  <div class="e-accordion__icon">
+                    <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+                    <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+                  </div>
+                  <div class="e-accordion__content">Hidden information</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="e-title-xs e-mt-16">Group Accordion</div>
+      <div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly">
+        <div class="e-accordion e-accordion--group">
+          <div class="e-accordion__item">
+            <div class="e-accordion__label">
+              <div class="e-accordion__title">Hvor ofte kommer fakturaen?</div>
+              <div class="e-accordion__icon">
+                <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+                <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="e-accordion__content">Hidden information</div>
+          </div>
+          <div class="e-accordion__item e-accordion__item--open">
+            <div class="e-accordion__label">
+              <div class="e-accordion__title">Kan jeg bestille på vegne av andre?</div>
+              <div class="e-accordion__icon">
+                <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+                <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="e-accordion__content">Hidden information</div>
+          </div>
+          <div class="e-accordion__item">
+            <div class="e-accordion__label">
+              <div class="e-accordion__title">Hva kan jeg gjøre for å spare strøm?</div>
+              <div class="e-accordion__icon">
+                <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+                <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div class="e-accordion__item">
+            <div class="e-accordion__label">
+              <div class="e-accordion__title">Hva kan jeg gjøre for å spare strøm?</div>
+              <div class="e-accordion__icon">
+                <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+                <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="e-title-xs e-mt-16">Sizing</div>
+      <div class="e-mt-16" style="width: 100%; display: flex; flex-direction: column; align-content: center">
+        <div class="e-accordion e-accordion--sm">
+          <div class="e-accordion__item">
+            <div class="e-accordion__title">Small Accordion</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="e-accordion e-accordion--md e-mt-40">
+          <div class="e-accordion__item">
+            <div class="e-accordion__title">Medium Accordion</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="e-accordion e-accordion--lg e-mt-40">
+          <div class="e-accordion__item">
+            <div class="e-accordion__title">Large Accordion</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="e-title-sm e-mt-16">Progressbar</div>
+      <div class="e-title-xs e-my-16">Progressbar loading</div>
+      <div class="e-progress" role="progressbar">
+        <div class="e-progress__bar"></div>
+      </div>
+      <div class="e-title-xs e-my-16">Progressbar error</div>
+      <div class="e-progress" role="progressbar">
+        <div class="e-progress__bar e-progress__bar--error"></div>
+      </div>
+      <div class="e-title-sm e-mt-16">List</div>
+      <div class="e-title-xs e-my-16">Bullet List</div>
+      <ul class="e-list">
+        <li>This is a normal list</li>
+        <li>This is a normal list</li>
+      </ul>
+      <div class="e-title-xs e-my-16">Bullet List Bold(strong)</div>
+      <ul class="e-list e-list--strong">
+        <li>This is a bold list</li>
+        <li>This is a bold list</li>
+      </ul>
+      <div class="e-title-xs e-my-16">Numbered list</div>
+      <ol class="e-list e-list--numbers">
+        <li>
+          <strong>Describing title :</strong>
+          After, one or multiple sentences could follow with more information. These sentences can span over
+          multiple rows, but shouldn’t be too long.
+        </li>
+        <li>
+          <strong>This can also be the start of a sentence</strong>
+          that continues in thinner font. The bold part should be describing and the rest of the text
+          informative.
+        </li>
+        <li>
+          <strong>Don’t use too many points</strong>
+          and make sure the text is easy to read, informative and follows Elvia’s tone of voice.
+        </li>
+      </ol>
+      <div class="e-title-xs e-my-16">Icon list</div>
+      <ol class="e-list e-list--icons">
+        <li>
+          <span class="e-list__icon">
+            <i class="e-icon e-icon e-icon--powermeter_ams e-icon--md" aria-hidden="true"></i>
+          </span>
+          <strong>Slik fungerer strømmåleren:</strong>
+          Gjelder etablering og montering av nye målere og ved bytte av eksisterende målere.
+        </li>
+        <li>
+          <span class="e-list__icon">
+            <i class="e-icon e-icon e-icon--han-color e-icon--md" aria-hidden="true"></i>
+          </span>
+          <strong>Han Porten:</strong>
+          Ønsker du detaljert informasjon om strømforbruket ditt? Vil du styre strømforbruket ditt bedre? Da
+          kan det være en idé å bestille åpning av HAN-porten på strømmåleren din.
+        </li>
+        <li>
+          <span class="e-list__icon">
+            <i class="e-icon e-icon e-icon--powermeter_old e-icon--md" aria-hidden="true"></i>
+          </span>
+          <strong>Priser på målere og utstyr:</strong>
+          Gjelder etablering og montering av nye målere og ved bytte av eksisterende målere.
+        </li>
+      </ol>
+      <div class="e-title-sm e-mt-16">File Upload</div>
+      <div class="e-title-xs e-my-16">Before hover</div>
+      <div class="e-fileupload" style="width: 380px">
+        <div class="e-fileupload__icon">
+          <i class="e-icon e-icon--image_add-color" aria-hidden="true"></i>
+        </div>
+        <div class="e-fileupload__description">Dra og slipp eller</div>
+        <div class="e-fileupload__input">
+          <input type="file" id="fileUploadTemplate" />
+          <label for="fileUploadTemplate">
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+            Velg fil
+          </label>
+        </div>
+      </div>
+      <div class="e-title-xs e-my-16">When hovering</div>
+      <div class="e-fileupload e-fileupload---hover" style="width: 380px">
+        <div class="e-fileupload__icon">
+          <i class="e-icon e-icon--image_add-color" aria-hidden="true"></i>
+        </div>
+        <div class="e-fileupload__description">Dra og slipp eller</div>
+        <div class="e-fileupload__input">
+          <input type="file" id="fileUploadTemplate" />
+          <label for="fileUploadTemplate">
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+            Velg fil
+          </label>
+        </div>
+      </div>
+      <div class="e-title-sm e-mt-16">File Upload</div>
+
+      <div class="e-title-xs e-my-16">Normal autcomplete</div>
+      <div class="e-form-field">
+        <label class="e-form-field__label" for="compact">Label</label>
+        <div class="e-input" style="height: 155px">
+          <input placeholder="Placeholder text" value="Aus" />
+          <div class="e-autocomplete">
+            <span class="e-autocomplete__item">Australia</span>
+            <span class="e-autocomplete__item">Austria</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-title-xs e-my-16">Compact autcomplete</div>
+      <div style="width: 240px">
+        <div class="e-form-field e-form-field--compact">
+          <label class="e-form-field__label" for="compact">Label</label>
+          <div class="e-input" style="height: 105px">
+            <input placeholder="Placeholder text" value="Aus" />
+            <div class="e-autocomplete">
+              <span class="e-autocomplete__item">Australia</span>
+              <span class="e-autocomplete__item">Austria</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="e-title-sm e-mt-16">Checkboxes</div>
+      <label class="e-checkbox" for="elvis-checkbox">
+        <input type="checkbox" id="elvis-checkbox" />
+        <span class="e-checkbox__mark"></span>
+        <span class="e-checkbox__label">Normal</span>
+      </label>
+      <div class="e-title-xs e-my-16">Sizing</div>
+      <form>
+        <label class="e-checkbox" for="elvis-checkbox-md">
+          <input type="checkbox" id="elvis-checkbox-md" />
+          <span class="e-checkbox__mark"></span>
+          <span class="e-checkbox__label">Normal</span>
+        </label>
+        <label class="e-checkbox e-checkbox--compact" for="elvis-checkbox-compact">
+          <input type="checkbox" id="elvis-checkbox-compact" />
+          <span class="e-checkbox__mark"></span>
+          <span class="e-checkbox__label">Compact</span>
+        </label>
+      </form>
+      <form>
+        <div class="e-title-xs e-my-16">Checkbox States</div>
+        <label class="e-checkbox e-checkbox---checked" for="elvis-pseudo-checkbox-checked">
+          <input type="checkbox" id="elvis-pseudo-checkbox-checked" />
+          <span class="e-checkbox__mark"></span>
+          <span class="e-checkbox__label">Checked</span>
+        </label>
+
+        <label class="e-checkbox e-checkbox---focus" for="elvis-pseudo-checkbox-focus">
+          <input type="checkbox" id="elvis-pseudo-checkbox-focus" />
+          <span class="e-checkbox__mark"></span>
+          <span class="e-checkbox__label">Focus</span>
+        </label>
+
+        <label class="e-checkbox e-checkbox---hover" for="elvis-pseudo-checkbox-hover">
+          <input type="checkbox" id="elvis-pseudo-checkbox-hover" />
+          <span class="e-checkbox__mark"></span>
+          <span class="e-checkbox__label">Hover</span>
+        </label>
+
+        <label class="e-checkbox e-checkbox---disabled" for="elvis-pseudo-checkbox-disabled">
+          <input type="checkbox" id="elvis-pseudo-checkbox-disabled" />
+          <span class="e-checkbox__mark"></span>
+          <span class="e-checkbox__label">Disabled</span>
+        </label>
+
+        <label class="e-checkbox e-checkbox---disabled-checked" for="elvis-pseudo-checkbox-disabled-checked">
+          <input type="checkbox" id="elvis-pseudo-checkbox-disabled-checked" />
+          <span class="e-checkbox__mark"></span>
+          <span class="e-checkbox__label">Disabled</span>
+        </label>
+
+        <label class="e-checkbox e-checkbox---invalid" for="elvis-pseudo-checkbox-invalid">
+          <input type="checkbox" id="elvis-pseudo-checkbox-invalid" />
+          <span class="e-checkbox__mark"></span>
+          <span class="e-checkbox__label">Invalid</span>
+        </label>
+      </form>
+      <div class="e-title-sm e-mt-16">Tooltip</div>
+      <div class="e-title-xs e-my-16">Top</div>
+      <div class="e-ml-72 e-mt-56">
+        <span class="e-tooltip" tabindex="0" id="tooltip-top">
+          <i class="e-icon e-icon--edit e-icon--sm" aria-hidden="true"></i>
+          <span class="e-tooltip__content is-active">Tooltip</span>
+        </span>
+      </div>
+      <div class="e-title-xs e-my-16">Bottom</div>
+      <div class="e-ml-72 e-mb-56">
+        <span class="e-tooltip" tabindex="0" id="tooltip-bottom">
+          <i class="e-icon e-icon--edit e-icon--sm" aria-hidden="true"></i>
+          <span class="e-tooltip__content e-tooltip__content--bottom is-active">Tooltip</span>
+        </span>
+      </div>
+      <div class="e-title-xs e-my-16">Left</div>
+      <div class="e-ml-72 e-mb-56">
+        <span class="e-tooltip" tabindex="0" id="tooltip-left">
+          <i class="e-icon e-icon--edit e-icon--sm" aria-hidden="true"></i>
+          <span class="e-tooltip__content e-tooltip__content--left is-active">Tooltip</span>
+        </span>
+      </div>
+      <div class="e-title-xs e-my-16">Rigth</div>
+      <div class="e-ml-72 e-mb-56">
+        <span class="e-tooltip" tabindex="0" id="tooltip-right">
+          <i class="e-icon e-icon--edit e-icon--sm" aria-hidden="true"></i>
+          <span class="e-tooltip__content e-tooltip__content--right is-active">Tooltip</span>
+        </span>
+      </div>
+      <div class="e-title-sm e-mt-16">Drag&Drop</div>
+      <div class="e-title-xs e-my-16">Before dragover</div>
+      <div class="e-dragdrop" style="width: 300px; height: 150px"></div>
+      <div class="e-title-xs e-my-16">When dragging over</div>
+      <div class="e-dragdrop e-dragdrop--dragover" style="width: 300px; height: 150px"></div>
+      <div class="e-title-sm e-mt-16">Label</div>
+      <div class="e-title-xs e-my-16">Normal</div>
+
+      <div>
+        <label class="e-label e-m-8">Skjema</label>
+        <label class="e-label e-m-8">Artikkel</label>
+        <label class="e-label e-m-8">Rapport</label>
+      </div>
+
+      <div class="e-title-xs e-my-16">Colored</div>
+      <div>
+        <label class="e-label e-label--grey e-m-8">Grey</label>
+        <label class="e-label e-label--black e-m-8">Black</label>
+        <label class="e-label e-label--white e-m-8">White</label>
+        <label class="e-label e-label--green e-m-8">Green</label>
+        <label class="e-label e-label--red-tomato e-m-8">Red-tomato</label>
+        <label class="e-label e-label--orange-mango e-m-8">Orange-mango</label>
+        <label class="e-label e-label--purple-plum e-m-8">Purple-plum</label>
+        <label class="e-label e-label--blue-berry e-m-8">Blue-berry</label>
+        <label class="e-label e-label--violet-grape e-m-8">Violet-grape</label>
+        <label class="e-label e-label--green-apple e-m-8">Green-apple</label>
+        <label class="e-label e-label--red e-m-8">Red</label>
+        <label class="e-label e-label--orange e-m-8">Orange</label>
+        <label class="e-label e-label--yellow e-m-8">Yellow</label>
+      </div>
+      <div class="e-title-sm e-my-16">Chip</div>
+      <button class="e-chip">
+        <div class="e-chip__label">Chip</div>
+        <div class="e-chip__close"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></div>
+      </button>
+      <button class="e-chip e-chip--blue-berry e-mt-16">
+        <div class="e-chip__label">Chip</div>
+        <div class="e-chip__close"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></div>
+      </button>
+
+      <div class="e-title-sm e-my-16">States</div>
+      <button class="e-chip e-chip---hover">
+        <div class="e-chip__label">Chip</div>
+        <div class="e-chip__close"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></div>
+      </button>
+      <button class="e-chip e-chip---disabled e-mt-16">
+        <div class="e-chip__label">Chip</div>
+        <div class="e-chip__close"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></div>
+      </button>
+      <div class="e-title-xs e-my-16">Horizontal stepper</div>
+      <div class="e-stepper e-stepper--horizontal">
+        <div class="e-stepper__steps">
+          <!--STEP-->
+          <div class="e-stepper__step e-stepper__step--done">
+            <div class="e-stepper__step-line"></div>
+            <div class="e-stepper__step-header">
+              <div class="e-stepper__step-number">1</div>
+            </div>
+          </div>
+
+          <!--STEP-->
+          <div class="e-stepper__step e-stepper__step--error">
+            <div class="e-stepper__step-line"></div>
+            <div class="e-stepper__step-header">
+              <div class="e-stepper__step-number">2</div>
+            </div>
+          </div>
+
+          <!--STEP-->
+          <div class="e-stepper__step e-stepper__step--active">
+            <div class="e-stepper__step-line"></div>
+            <div class="e-stepper__step-header">
+              <div class="e-stepper__step-number">3</div>
+            </div>
+          </div>
+
+          <!--STEP-->
+          <div class="e-stepper__step">
+            <div class="e-stepper__step-line"></div>
+            <div class="e-stepper__step-header">
+              <div class="e-stepper__step-number">4</div>
+            </div>
+          </div>
+        </div>
+
+        <!--CONTENT - PUT DESIRED CONTENT HERE FOR EACH STEP-->
+        <div class="e-stepper__content">
+          <div class="e-stepper__title">Contact</div>
+          <div class="e-form-field e-mb-24">
+            <label class="e-form-field__label" for="normal">Email</label>
+            <div class="e-input">
+              <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
+            </div>
+          </div>
+          <div class="e-form-field e-form-field--combined">
+            <label class="e-form-field__label" for="phone">Phone</label>
+            <div class="e-form-field__input">
+              <div id="phone" class="e-input e-input--small">
+                <input type="text" value="+47" />
+              </div>
+              <div class="e-input e-mb-24">
+                <input type="text" placeholder="Placeholder text" />
+              </div>
+            </div>
+          </div>
+          <div class="e-stepper__actions">
+            <button class="e-btn e-btn--secondary">Back</button>
+            <button class="e-btn e-btn--primary">Next</button>
+          </div>
+        </div>
+      </div>
+      <div class="e-title-sm e-mt-16">Link</div>
+      <div class="e-title-xs e-my-16">Standard Link</div>
+      <div>
+        <a class="e-link" href="https://design.elvia.io/components/link-doc#Overview">Standard link</a>
+      </div>
+      <div class="e-my-16" style="background-color: #262626; height: 40px">
+        <a class="e-link e-link--inverted" href="https://design.elvia.io/components/link-doc#Overview">
+          Standard link
+        </a>
+      </div>
+      <div class="e-my-16" style="width: 100px">
+        <a class="e-link" href="https://design.elvia.io/components/link-doc#Overview">
+          Standard link over multiple lines.
+        </a>
+      </div>
+
+      <div class="e-title-xs e-my-16">Inline Link</div>
+      <div>
+        <p style="font-size: 20px">
+          Dette er en
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/link-doc#Overview">
+            inline link
+          </a>
         </p>
-        <div slot="trigger">Tooltip trigger with custom content</div>
-      </elvia-tooltip>
+      </div>
+      <div class="e-my-16" style="background-color: #262626; height: 40px">
+        <p class="e-text-white" style="font-size: 20px">
+          Dette er en
+          <a
+            class="e-link e-link--inline e-link--inverted"
+            href="https://design.elvia.io/components/link-doc#Overview"
+          >
+            inline link
+          </a>
+        </p>
+      </div>
+      <div class="e-title-sm e-mt-16">Search</div>
+      <div class="e-title-xs e-my-16">Instant Search</div>
+      <div class="e-form-field">
+        <div class="e-search e-search--instant" style="width: 250px">
+          <div class="e-input">
+            <input id="compact" type="text" placeholder="Placeholder text" />
+          </div>
+          <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          <button class="e-btn e-btn--icon">
+            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="e-title-caps">Off</div>
+      <label class="e-toggle" role="switch">
+        Label
+        <input class="e-toggle__input" type="checkbox" />
+      </label>
+      <div class="e-title-caps e-mt-24 e-mb-8">On</div>
+      <label class="e-toggle" role="switch">
+        Label
+        <input class="e-toggle__input" type="checkbox" checked />
+      </label>
+      <div class="e-title-caps e-mt-24 e-mb-8">Disabled off</div>
+      <label class="e-toggle" role="switch">
+        Label
+        <input class="e-toggle__input" type="checkbox" disabled />
+      </label>
+      <div class="e-title-caps e-mt-24 e-mb-8">Disabled on</div>
+      <label class="e-toggle" role="switch">
+        Label
+        <input class="e-toggle__input" type="checkbox" checked disabled />
+      </label>
+
+      <div class="e-title-sm e-mt-16">Alerts</div>
+      <div class="e-title-xs e-mt-16">Global Alert</div>
+      <div class="e-mt-16" style="width: 100%; display: flex; flex-direction: column">
+        <div>Regular</div>
+
+        <div class="e-alert e-alert--global">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort info tittel</div>
+            <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+          </div>
+        </div>
+        <form class="e-form_field">
+          <label class="e-radio e-radio---hover">
+            <input type="radio" name="hover" />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">Hover</span>
+          </label>
+          <label class="e-radio e-radio---checked">
+            <input type="radio" name="checked" />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">Checked</span>
+          </label>
+          <label class="e-radio e-radio---disabled" style="pointer-events: none">
+            <input type="radio" name="disabled" />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">Disabled</span>
+          </label>
+          <label class="e-radio e-radio---disabled-checked" style="pointer-events: none">
+            <input type="radio" name="disabled-checked" />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">Disabled checked</span>
+          </label>
+          <label class="e-radio e-radio---focus">
+            <input type="radio" name="focus" />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">Focus</span>
+          </label>
+          <label class="e-radio e-radio---invalid">
+            <input type="radio" name="invalid" />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">Invalid</span>
+          </label>
+        </form>
+
+        <!-- Normal field -->
+        <div class="e-form-field e-form-field--full-width">
+          <label class="e-form-field__label" for="width-full">Label</label>
+          <div class="e-input">
+            <input id="width-full" type="text" placeholder="Placeholder text" />
+          </div>
+        </div>
+        <!-- Inlined field -->
+        <div class="e-inlined-field e-mt-24 e-inlined-field--full-width">
+          <div class="e-form-field e-form-field--medium">
+            <label class="e-form-field__label" for="zip">Zip code</label>
+            <div class="e-input">
+              <input id="zip" type="text" placeholder="Zip code" />
+            </div>
+          </div>
+          <div class="e-form-field">
+            <label class="e-form-field__label" for="city">City</label>
+            <div class="e-input">
+              <input id="city" type="text" placeholder="City" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Inverted version-->
+      <div class="e-bg-grey"></div>
+    </div>
+
+    <!--Accordion-->
+    <div class="example-wrapper">
+      <h3>Accordion</h3>
+      <button (click)="isOpen = !isOpen">helo</button>
+      <elvia-accordion
+        [isOpen]="isOpen"
+        openLabel="Show"
+        closeLabel="Hide"
+        size="medium"
+        type="normal"
+        typography="title-caps"
+        (onOpen)="onOpen()"
+        (onClose)="onClose()"
+      >
+        <div slot="content">
+          <h3>Hello there</h3>
+        </div>
+      </elvia-accordion>
+    </div>
+
+    <!-- Badge -->
+    <div class="example-wrapper">
+      <h3>Badge</h3>
+      <div style="display: flex; gap: 1rem">
+        <elvia-badge [count]="0">
+          <button
+            class="e-thumbnail"
+            aria-label="Thumbnail button that opens the image in a larger view"
+            slot="content"
+          >
+            <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+          </button>
+        </elvia-badge>
+        <elvia-badge [count]="10" [badgeColor]="'red'">
+          <button
+            class="e-thumbnail"
+            aria-label="Thumbnail button that opens the image in a larger view"
+            slot="content"
+          >
+            <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+          </button>
+        </elvia-badge>
+        <elvia-badge [count]="101" [badgeColor]="'black'">
+          <button
+            class="e-thumbnail"
+            aria-label="Thumbnail button that opens the image in a larger view"
+            slot="content"
+          >
+            <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+          </button>
+        </elvia-badge>
+      </div>
+    </div>
+
+    <!--Box-->
+    <div class="example-wrapper">
+      <h3>Box</h3>
+      <div style="padding: 8px">
+        <elvia-box [hasBorder]="true">
+          <h3 slot="title">Title</h3>
+          <div slot="content">Webcomponentent content for the box component</div>
+        </elvia-box>
+      </div>
+    </div>
+
+    <!--Breadcrumb-->
+    <div class="example-wrapper">
+      <h3>Breadcrumbs</h3>
+      <elvia-breadcrumb [items]="breadcrumbsTestNoUrl"></elvia-breadcrumb>
+    </div>
+
+    <!--Card-->
+    <div class="example-wrapper">
+      <h3>Card</h3>
+      <div class="e-grid">
+        <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
+          <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+            <a [routerLink]="['/components/card']">
+              <elvia-card [header]="'Header'" [description]="'Hover me!'">
+                <div slot="icon">91</div>
+                <div slot="iconHover">92</div>
+                <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
+              </elvia-card>
+            </a>
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+            <a [routerLink]="['/components/card']">
+              <elvia-card [header]="'Hover!'" [borderColor]="'red'">
+                <i slot="icon" class="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>
+                <i
+                  slot="iconHover"
+                  class="e-icon e-icon--search-bold-color e-icon--md"
+                  aria-hidden="true"
+                ></i>
+                <i slot="cornerIcon" class="e-icon e-icon--unlock e-icon--xs" aria-hidden="true"></i>
+              </elvia-card>
+            </a>
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+            <a [routerLink]="['/components/card']">
+              <elvia-card
+                [header]="'Title3'"
+                [description]="'description3'"
+                [icon]="'3'"
+                [borderColor]="'green'"
+              ></elvia-card>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Carousel-->
+    <div class="example-wrapper">
+      <h3>Carousel</h3>
+      <elvia-carousel [loop]="false" [hasConfirmationCheckmark]="true">
+        <div slot="title-1">
+          <h3 class="e-title-sm">title 1</h3>
+        </div>
+        <div slot="item-1">
+          <img
+            alt="Carousel example image"
+            src="../../../../assets/carousel/el1.jpeg"
+            style="width: 100%; min-width: 278px; border-radius: 8px"
+          />
+        </div>
+        <div slot="title-2">
+          <h3 class="e-title-sm">title 2</h3>
+        </div>
+        <div slot="item-2">
+          <img
+            alt="Carousel example image"
+            src="../../../../assets/carousel/el2.jpeg"
+            style="width: 100%; min-width: 278px; border-radius: 8px"
+          />
+        </div>
+      </elvia-carousel>
+    </div>
+
+    <!--Chip-->
+    <div class="example-wrapper">
+      <h3>Deletable chips</h3>
+      <div style="display: flex; flex-direction: row">
+        <div *ngFor="let chip of deletableChipsList">
+          <elvia-chip
+            [value]="chip.value"
+            [color]="chip.color"
+            [ariaLabel]="'Fjern filtrering for ' + chip.value"
+            [isDisabled]="chip.isDisabled"
+            (onDelete)="handleOnDelete($event.detail.value)"
+            (isSelectedOnChange)="logValue('chip', $event.detail.value)"
+            [inlineStyle]="{ margin: '8px' }"
+          ></elvia-chip>
+        </div>
+      </div>
+      Value deleted: {{ deleteValue }}
+
+      <h3>Clickable chips</h3>
+      <div style="display: flex; flex-direction: row">
+        <div *ngFor="let chip of filteredKeys">
+          <elvia-chip
+            [value]="chip"
+            [isSelected]="filteredValues[chip]"
+            color="orange"
+            type="legend"
+            (isSelectedOnChange)="handleOnChange($event)"
+          ></elvia-chip>
+        </div>
+      </div>
+      Selected values:
+      <span *ngFor="let key of filteredKeys">
+        <span *ngIf="filteredValues[key]">{{ key }},</span>
+      </span>
+    </div>
+
+    <!--Datepicker-->
+    <div class="example-wrapper">
+      <h3>DatePicker</h3>
+      <elvia-datepicker [value]="date"></elvia-datepicker>
+    </div>
+    <!--Date range picker-->
+    <div class="example-wrapper">
+      <h3>Date range picker</h3>
+      <elvia-datepicker-range></elvia-datepicker-range>
+    </div>
+
+    <!--Divider-->
+    <div class="example-wrapper">
+      <h3>Divider</h3>
+      <elvia-divider type="title" typography="caps">
+        <h3 slot="title">Title</h3>
+      </elvia-divider>
+      <h3>Vertical divider</h3>
+      <div style="height: 100px">
+        <elvia-divider type="simple" orientation="vertical"></elvia-divider>
+      </div>
+    </div>
+
+    <!--Dropdown-->
+    <div class="example-wrapper">
+      <h3>Dropdown</h3>
+      <elvia-dropdown
+        [isMulti]="true"
+        [isCompact]="false"
+        [isDisabled]="false"
+        label="testing something"
+        [value]="dropdownDefOptions"
+        [items]="dropdownOptions"
+      ></elvia-dropdown>
+    </div>
+
+    <!--Icon-->
+    <div class="example-wrapper">
+      <h3>Icon</h3>
+      <elvia-icon name="arrowRightBold"></elvia-icon>
+      <elvia-icon name="arrowLeftBold"></elvia-icon>
+    </div>
+
+    <!--Modal-->
+    <div class="example-wrapper">
+      <h3>Modal</h3>
+      <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
+      <elvia-modal
+        (onClose)="isModalShowing = !isModalShowing"
+        [isShowing]="isModalShowing"
+        [heading]="'Redigere bidragsytere'"
+        [disableClose]="false"
+      >
+        <div slot="content">Content</div>
+        <button
+          slot="secondaryButton"
+          class="e-btn e-btn--secondary e-btn--lg"
+          (click)="isModalShowing = false"
+        >
+          Avbryt
+        </button>
+        <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Lagre</button>
+      </elvia-modal>
+    </div>
+
+    <!--Paginator-->
+    <div class="example-wrapper">
+      <h3>Paginator</h3>
+      <elvia-pagination
+        numberOfElements="156"
+        [value]="defaultPaginationValue"
+        [alignment]="'right'"
+        dropdownMenuPosition="top"
+      ></elvia-pagination>
+    </div>
+
+    <!--Popover-->
+    <div class="example-wrapper">
+      <h3>Popover</h3>
+      <elvia-popover
+        [isShowing]="isPopoverShowing"
+        (onOpen)="isPopoverShowing = true"
+        (onClose)="isPopoverShowing = false"
+        heading="BankID"
+        horizontalPosition="right"
+        verticalPosition="top"
+        width="200"
+      >
+        <button slot="trigger" class="e-btn">Show popover</button>
+        <div slot="content">
+          Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
+          <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
+        </div>
+      </elvia-popover>
+    </div>
+
+    <!--Progress linear-->
+    <div class="example-wrapper">
+      <h3>Progress linear</h3>
+      <elvia-progress-linear
+        [isIndeterminate]="indeterminate"
+        [value]="progressValue"
+        [isError]="progressError"
+      ></elvia-progress-linear>
+      <div style="margin-bottom: 32px; display: flex">
+        <div style="display: flex; width: 100%; justify-content: space-between">
+          <button class="e-btn" (click)="progressValue = progressValue + 10">Increase Progress</button>
+          <button class="e-btn" (click)="progressValue = progressValue - 10">Decrease Progress</button>
+          <button class="e-btn" (click)="indeterminate = !indeterminate">Toggle indeterminate</button>
+          <button class="e-btn" (click)="progressError = !progressError">Toggle error</button>
+        </div>
+      </div>
+    </div>
+
+    <!--Radio filter-->
+    <div class="example-wrapper">
+      <h3>Radio filter</h3>
+      <elvia-radio-filter
+        [items]="[
+          { label: 'All', value: 'all' },
+          { label: 'Read', value: 'read' },
+          { label: 'Unread', value: 'unread' }
+        ]"
+        [value]="'read'"
+        [name]="'readRadioFilters'"
+        [ariaLabel]="'{value} filtrering valgt'"
+      ></elvia-radio-filter>
+    </div>
+
+    <!--Slider-->
+    <div class="example-wrapper">
+      <h3>Slider</h3>
+      <h4>Simple Slider</h4>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem">
+        <elvia-slider [type]="'simple'" [min]="0" [max]="100"></elvia-slider>
+        <elvia-slider [type]="'simple'" [min]="1" [max]="10000000" [hasInputField]="true"></elvia-slider>
+        <elvia-slider
+          [type]="'simple'"
+          [min]="1"
+          [max]="10000000"
+          [hasInputField]="true"
+          [hasHintValues]="true"
+        ></elvia-slider>
+        <elvia-slider
+          [type]="'simple'"
+          [min]="0"
+          [max]="100"
+          [hasInputField]="true"
+          [unit]="' kr'"
+        ></elvia-slider>
+        <elvia-slider
+          [type]="'simple'"
+          [min]="0"
+          [max]="100"
+          [hasInputField]="true"
+          [unit]="' kWh'"
+          [label]="'Kilowattime'"
+        ></elvia-slider>
+        <elvia-slider
+          [type]="'simple'"
+          [min]="50"
+          [max]="250"
+          [hasInputField]="true"
+          [hasPercent]="true"
+        ></elvia-slider>
+        <elvia-slider [type]="'simple'" [min]="0" [max]="100" [isDisabled]="true"></elvia-slider>
+        <elvia-slider
+          [type]="'simple'"
+          [min]="0"
+          [max]="100"
+          [isDisabled]="true"
+          [hasInputField]="true"
+        ></elvia-slider>
+      </div>
+
+      <h4>Range Slider</h4>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem">
+        <elvia-slider [type]="'range'" [min]="1" [max]="100"></elvia-slider>
+        <elvia-slider [type]="'range'" [min]="1" [max]="100" [hasHintValues]="true"></elvia-slider>
+        <elvia-slider
+          [type]="'range'"
+          [min]="0"
+          [max]="100"
+          [hasInputField]="true"
+          [hasHintValues]="true"
+        ></elvia-slider>
+        <elvia-slider
+          [type]="'range'"
+          [min]="1"
+          [max]="100"
+          [hasInputField]="true"
+          [label]="{ left: 'Min', right: 'Maks' }"
+          [unit]="' kWh'"
+        ></elvia-slider>
+        <elvia-slider [type]="'range'" [min]="0" [max]="100" [isDisabled]="true"></elvia-slider>
+        <elvia-slider
+          [type]="'range'"
+          [min]="0"
+          [max]="100"
+          [isDisabled]="true"
+          [hasInputField]="true"
+        ></elvia-slider>
+      </div>
+    </div>
+
+    <!--Spotlight-->
+    <div class="example-wrapper">
+      <h3>Spotlight</h3>
+      <!-- <elvia-spotlight [position]="{ horizontal: 300, vertical: 300 }" [radius]="80"></elvia-spotlight> -->
+    </div>
+
+    <!--Tabs-->
+    <div class="example-wrapper">
+      <h3>Tabs</h3>
+      <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1"></elvia-tabs>
+    </div>
+
+    <!--Timepicker-->
+    <div class="example-wrapper">
+      <h3>Timepicker</h3>
+      <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
+        <elvia-timepicker></elvia-timepicker>
+
+        <elvia-timepicker label="Custom label"></elvia-timepicker>
+
+        <elvia-timepicker label=""></elvia-timepicker>
+
+        <elvia-timepicker isCompact="true"></elvia-timepicker>
+
+        <elvia-timepicker label="Only hours" [value]="timepickerValue" minuteInterval="60"></elvia-timepicker>
+
+        <elvia-timepicker isDisabled="true"></elvia-timepicker>
+
+        <elvia-timepicker label="Required" isRequired="true"></elvia-timepicker>
+      </div>
+    </div>
+
+    <!--Tooltip-->
+    <div class="example-wrapper">
+      <h3>Tooltip</h3>
+
+      <div class="e-flex e-flex-direction-row e-gap-16">
+        <p class="e-text-md">
+          This is a text to test out the new
+          <elvia-tooltip
+            content="This is a tooltip! The content is pretty long."
+            trigger="tooltip!"
+          ></elvia-tooltip>
+        </p>
+
+        <elvia-tooltip
+          content="This tooltip has a trigger through a slot. Click the button to toggle the tooltip position."
+          [position]="tooltipPosition"
+        >
+          <button
+            slot="trigger"
+            (click)="shuffleTooltipPosition()"
+            class="e-btn e-btn--icon e-btn--lg"
+            aria-label="Vis tooltip"
+          >
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--star" aria-hidden="true"></i>
+            </span>
+          </button>
+        </elvia-tooltip>
+
+        <elvia-tooltip isDisabled="true" content="This should not be visible">
+          <span slot="trigger">Disabled tooltip</span>
+        </elvia-tooltip>
+
+        <elvia-tooltip>
+          <p slot="content" class="e-text-md e-m-0 e-flex e-align-items-center">
+            <i
+              class="e-icon e-icon--search-bold e-icon--xs e-icon--color-white e-mr-8"
+              aria-hidden="true"
+            ></i>
+            This is custom content!
+          </p>
+          <div slot="trigger">Tooltip trigger with custom content</div>
+        </elvia-tooltip>
+      </div>
     </div>
   </div>
 </div>

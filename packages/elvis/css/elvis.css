@@ -577,6 +577,7 @@ body {
   letter-spacing: 0.8px;
   text-transform: uppercase;
   color: inherit;
+  line-height: 17px;
   text-align: left;
   color: #000;
   margin-bottom: 2px;
@@ -1048,7 +1049,7 @@ body {
   display: block;
   box-sizing: border-box;
   width: 100%;
-  padding: 12px 16px;
+  padding: 10px 16px;
   z-index: 100;
   font-family: Red Hat Text, Verdana, sans-serif;
   font-size: 1rem;
@@ -1069,7 +1070,7 @@ body {
 }
 
 .e-form-field.e-form-field--compact .e-autocomplete__item, .e-form-field.e-form-field--compact .e-dropdown__item {
-  padding: 6px 10px;
+  padding: 9px 10px;
   font-family: Red Hat Text, Verdana, sans-serif;
   font-size: 0.875rem;
   line-height: 175%;
@@ -1078,6 +1079,7 @@ body {
   letter-spacing: unset;
   text-transform: unset;
   color: inherit;
+  line-height: 22px;
 }
 .e-no-outline * {
   outline: none !important;
@@ -2798,8 +2800,8 @@ input:focus {
   width: 100%;
   padding: 12px 16px;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 1rem;
-  line-height: 137.5%;
+  font-size: 16px;
+  line-height: 22px;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -3206,8 +3208,8 @@ input:focus {
   height: 48px;
   padding: 13px 16px;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 1rem;
-  line-height: 137.5%;
+  font-size: 16px;
+  line-height: 22px;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -3820,7 +3822,7 @@ input:focus {
   display: inline;
   font-size: inherit;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
 }
 .e-link.e-link--external .e-link__icon, .e-link.e-link--new-tab .e-link__icon {
   width: 14px;
@@ -4097,8 +4099,8 @@ input:focus {
   margin: 0;
   margin-top: 10%;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 1rem;
-  line-height: 143.75%;
+  font-size: 18px;
+  line-height: 29px;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -4109,11 +4111,17 @@ input:focus {
   line-height: 16px;
   letter-spacing: 0.4px;
 }
+@media (max-width: 767px) {
+  .e-link.e-link--card .e-link__title {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
 .e-link.e-link--card .e-link__description {
   margin-top: 2%;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 1rem;
-  line-height: 143.75%;
+  font-size: 18px;
+  line-height: 29px;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -4123,6 +4131,12 @@ input:focus {
   font-size: 12px;
   line-height: 19px;
   letter-spacing: 0.2px;
+}
+@media (max-width: 767px) {
+  .e-link.e-link--card .e-link__description {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }
 .e-link.e-link--card:active, .e-link.e-link--card.e-link---hover {
   box-shadow: 0 0 0 2px #29d305;
@@ -4226,14 +4240,20 @@ input:focus {
 }
 .e-link.e-link--card.e-link--shortcut .e-link__content .e-link__title {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 1rem;
-  line-height: 143.75%;
+  font-size: 18px;
+  line-height: 29px;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
   color: inherit;
   font-size: 16px;
+}
+@media (max-width: 767px) {
+  .e-link.e-link--card.e-link--shortcut .e-link__content .e-link__title {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }
 .e-link.e-link--card.e-link--shortcut .e-link__content .e-link__description {
   font-family: Red Hat Text, Verdana, sans-serif;
@@ -7746,8 +7766,8 @@ input:focus {
   display: block;
   margin-bottom: 5px;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 1rem;
-  line-height: 143.75%;
+  font-size: 18px;
+  line-height: 29px;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
@@ -7756,6 +7776,12 @@ input:focus {
   line-height: 28px;
   color: #000;
   text-align: left;
+}
+@media (max-width: 767px) {
+  .e-form-field__label {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }
 .e-form-field__label.e-form-field__label--optional::after {
   content: " (valgfri)";
@@ -7890,13 +7916,14 @@ input:focus {
 }
 .e-fileupload__description {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 1rem;
-  line-height: 137.5%;
+  font-size: 16px;
+  line-height: 22px;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
   color: inherit;
+  line-height: 28px;
   color: #000;
   display: flex;
   width: 100%;
@@ -7909,6 +7936,7 @@ input:focus {
   width: 100%;
   justify-content: center;
   align-items: center;
+  height: 32px;
 }
 .e-fileupload__input input[type=file] {
   display: none;
@@ -7981,14 +8009,20 @@ input:focus {
   margin-bottom: 22px;
   margin-top: 8px;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 1rem;
-  line-height: 143.75%;
+  font-size: 18px;
+  line-height: 29px;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
   color: inherit;
   color: #000;
+}
+@media (max-width: 767px) {
+  .e-position-picker__description {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }
 .e-position-picker__action {
   display: flex;
@@ -8004,8 +8038,8 @@ input:focus {
   position: relative;
   cursor: pointer;
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 1rem;
-  line-height: 137.5%;
+  font-size: 16px;
+  line-height: 22px;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
@@ -12835,14 +12869,21 @@ THE SOFTWARE.
 
 .e-text-label {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 1rem;
-  line-height: 143.75%;
+  font-size: 18px;
+  line-height: 29px;
   font-weight: 500;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
   color: inherit;
 }
+@media (max-width: 767px) {
+  .e-text-label {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+
 .e-text-label b,
 .e-text-label strong {
   font-weight: 500;
@@ -12850,8 +12891,8 @@ THE SOFTWARE.
 
 .e-text-option {
   font-family: Red Hat Text, Verdana, sans-serif;
-  font-size: 1rem;
-  line-height: 137.5%;
+  font-size: 16px;
+  line-height: 22px;
   font-weight: 400;
   font-style: unset;
   letter-spacing: unset;
