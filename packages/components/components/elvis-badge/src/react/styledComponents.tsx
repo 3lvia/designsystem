@@ -41,7 +41,7 @@ export const BadgeCircle = styled.div<BadgeCircleProps>`
   font-size: 0.563rem;
   font-weight: 600;
   min-height: 16px;
-  line-height: 0.75rem;
+  line-height: 133%;
   padding: ${({ count }) => (count === '99+' ? '2px 4px' : '2px')};
   place-items: center;
   position: absolute;
@@ -51,5 +51,6 @@ export const BadgeCircle = styled.div<BadgeCircleProps>`
   user-select: none;
   min-width: 16px;
   width: ${({ count }) => (count === '99+' ? 'unset' : 'min-content')};
+  aspect-ratio: ${({ count }) => (count === '99+' ? 'unset' : '1/1')};
   z-index: 10;
 `;
