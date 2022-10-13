@@ -1,4 +1,4 @@
-import Tabs from './elvia-tabs.tsx';
+import Tabs from './elvia-tabs';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
