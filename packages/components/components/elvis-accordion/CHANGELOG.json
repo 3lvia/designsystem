@@ -3,6 +3,18 @@
   "content": [
     {
       "date": "28.09.22",
+      "version": "2.9.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The Accordion component now uses rem for its font size to responsively adjust to the user's font size browser preferences."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "28.09.22",
       "version": "2.8.2",
       "changelog": [
         {
