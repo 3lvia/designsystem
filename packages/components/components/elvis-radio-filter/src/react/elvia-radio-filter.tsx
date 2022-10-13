@@ -50,7 +50,7 @@ export const RadioFilter: FC<RadioFilterProps> = ({
     >
       {items &&
         items.map(({ label, value: optionsValue }) => (
-          <RadioFilterLabel key={optionsValue} isSelected={optionsValue === value}>
+          <RadioFilterLabel key={optionsValue} isSelected={optionsValue === value} data-testid="radio-button">
             <RadioFilterInput
               type="radio"
               name={name}
