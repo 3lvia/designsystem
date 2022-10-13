@@ -1,4 +1,4 @@
-import Box from './elvia-box.tsx';
+import Box from './elvia-box';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { getColor } from '@elvia/elvis-colors';
@@ -13,7 +13,7 @@ const htmlCode = <div>Html content</div>;
 describe('Elvis Box', () => {
   describe('Title = Hello', () => {
     beforeEach(() => {
-      render(<Box title="Hello Box"></Box>);
+      render(<Box title="Hello Box" content=""></Box>);
     });
 
     it('should have title containing "Hello Box"', () => {
@@ -56,7 +56,7 @@ describe('Elvis Box', () => {
 
   describe('hasBorder = true', () => {
     beforeEach(() => {
-      render(<Box hasBorder></Box>);
+      render(<Box hasBorder content=""></Box>);
     });
 
     it('should show box content with a grey border', () => {
@@ -67,7 +67,7 @@ describe('Elvis Box', () => {
 
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      render(<Box className={'test-class'} inlineStyle={{ margin: '24px' }}></Box>);
+      render(<Box content="" className={'test-class'} inlineStyle={{ margin: '24px' }}></Box>);
     });
 
     it('should have className and inlineStyle from props', () => {

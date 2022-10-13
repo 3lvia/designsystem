@@ -1,4 +1,4 @@
-import Badge from './elvia-badge.tsx';
+import Badge from './elvia-badge';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { getColor } from '@elvia/elvis-colors';

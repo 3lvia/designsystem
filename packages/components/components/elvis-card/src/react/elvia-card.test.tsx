@@ -1,4 +1,4 @@
-import Card from './elvia-card.tsx';
+import Card from './elvia-card';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { getColor } from '@elvia/elvis-colors';
@@ -205,6 +205,7 @@ describe('Elvis Card', () => {
     beforeEach(() => {
       render(
         <Card
+          icon=""
           type={'detail'}
           label={'Label'}
           description={'Description'}
@@ -259,7 +260,13 @@ describe('Elvis Card', () => {
   describe('Type = detail, shorter description', () => {
     beforeEach(() => {
       render(
-        <Card type={'detail'} label={'Label'} description={'Description'} maxDescriptionLines={3}></Card>,
+        <Card
+          icon=""
+          type={'detail'}
+          label={'Label'}
+          description={'Description'}
+          maxDescriptionLines={3}
+        ></Card>,
       );
     });
 
@@ -278,6 +285,7 @@ describe('Elvis Card', () => {
     beforeEach(() => {
       render(
         <Card
+          icon=""
           label={'Label'}
           description={'Description'}
           className="test-class"

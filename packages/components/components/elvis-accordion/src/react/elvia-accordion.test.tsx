@@ -1,4 +1,4 @@
-import Accordion from './elvia-accordion.tsx';
+import Accordion from './elvia-accordion';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';

@@ -1,4 +1,4 @@
-import Breadcrumb from './elvia-breadcrumb.tsx';
+import Breadcrumb from './elvia-breadcrumb';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
