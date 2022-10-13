@@ -4,7 +4,7 @@
 
 $label-padding: 4px 8px;
 $label-radius: 4px;
-$label-font-size: 11px;
+$label-font-size: helpers.toRem(11);
 $label-colors: map-merge(colors.$just-colors, colors.$primary-colors);
 
 %status-content {
