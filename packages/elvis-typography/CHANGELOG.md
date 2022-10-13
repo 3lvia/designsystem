@@ -1,10 +1,16 @@
 # Elvia Typography Changelog
 
+## 3.0.0 (18.10.22)
+
+### Major
+
+- Eliva Typography now uses the relative sizing units rem and percent for font sizes and line heights.
+
 ## 2.3.1 (29.08.22)
 
 ### Patch
 
-- Now generating up a Typescript union type for all the typography names.
+- Now generating up a TypeScript union type for all the typography names.
 
 ## 2.3.0 (18.08.22)
 

@@ -22,7 +22,13 @@ package you don't have to do this, because they are already imported there.
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&display=swap');
 ```
 
-## Usage Typescript/Javascript
+### Sizing
+
+Elvis Typography uses relative sizing units (rem and %) for its font size and line height. Therefore, be aware
+that the typography can change size at any time depending on the user's browser preferences. Your design
+should respect these preferences and responsively adjust to the various typography sizes.
+
+## Usage TypeScript/JavaScript
 
 To use this package you can import the function `getTypography()`. It takes the name of the requested
 typography as input, and returns an object containing the typography's attributes if it exists.
