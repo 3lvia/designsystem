@@ -7,6 +7,18 @@
       "changelog": [
         {
           "type": "new_feature",
+          "changes": [
+            "The Timepicker component now uses rem for its font size to responsively adjust to the user's font size browser preferences."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "12.10.22",
+      "version": "2.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
           "changes": ["Add props for custom error handling"]
         }
       ]
