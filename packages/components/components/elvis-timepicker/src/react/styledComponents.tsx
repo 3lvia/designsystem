@@ -31,7 +31,7 @@ export const TimePickerLabel = styled.label<BaseProps>`
   display: inline-block;
   position: relative;
   padding-top: ${(props) => (props.isCompact ? '8px' : '0px')};
-  padding-bottom: 24px;
+  padding-bottom: 1.5rem;
 `;
 
 export const LabelText = styled.div<BaseProps>`
