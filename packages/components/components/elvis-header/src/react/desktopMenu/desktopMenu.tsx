@@ -32,6 +32,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
         aria-haspopup="dialog"
         isActive={!fadeOut}
         ref={triggerButtonRef}
+        data-testid="desktop-menu-trigger"
       >
         <Icon name="profile" size="xs" />
         {username}
@@ -40,14 +41,19 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
         createPortal(
           <>
             <Backdrop transparent={true} fadeOut={fadeOut} onClick={() => setIsShowing(false)} />
-            <MenuContainer fadeOut={fadeOut} onAnimationEnd={onAnimationEnd} ref={popoverRef}>
+            <MenuContainer
+              data-testid="desktop-menu"
+              fadeOut={fadeOut}
+              onAnimationEnd={onAnimationEnd}
+              ref={popoverRef}
+            >
               <UserGrid>
-                <Username>{username}</Username>
-                <Email>{email}</Email>
+                <Username data-testid="desktop-username">{username}</Username>
+                <Email data-testid="desktop-email">{email}</Email>
               </UserGrid>
               <MenuHr></MenuHr>
               <section>
-                <MenuButton onClick={onSignOutClick}>
+                <MenuButton onClick={onSignOutClick} data-testid="desktop-sign-out-trigger">
                   <Icon name="logout" size="xs" color="black" />
                   Logg ut
                 </MenuButton>

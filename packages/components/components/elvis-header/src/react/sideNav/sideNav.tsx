@@ -6,6 +6,7 @@ import { IconContainer, SideNavContainer, ToggleWidthButton } from './sideNavSty
 interface SideNavProps {
   isExpanded: boolean;
   onSideNavToggle: () => void;
+  children: React.ReactNode;
 }
 
 export const SideNav = React.forwardRef<HTMLElement, SideNavProps>(
@@ -13,10 +14,10 @@ export const SideNav = React.forwardRef<HTMLElement, SideNavProps>(
     const isGtMobile = useBreakpoint('gt-mobile');
 
     return (
-      <SideNavContainer isGtMobile={isGtMobile} isExpanded={isExpanded} ref={ref}>
+      <SideNavContainer isGtMobile={isGtMobile} isExpanded={isExpanded} ref={ref} data-testid="sidenav">
         {children}
         {isGtMobile && (
-          <ToggleWidthButton onClick={() => onSideNavToggle()}>
+          <ToggleWidthButton onClick={() => onSideNavToggle()} data-testid="sidenav-width-toggle">
             <IconContainer>
               <Icon name={isExpanded ? 'closeMenu' : 'openMenu'} color="black" size="sm" />
             </IconContainer>

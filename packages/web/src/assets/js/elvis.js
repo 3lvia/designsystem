@@ -784,6 +784,556 @@ document.addEventListener('DOMContentLoaded', function () {
   
   let deprecatedElvisClasses = [
     {
+      name: "e-tooltip",
+      version: "8.13.0",
+      replacement: {
+          name: "Tooltip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/tooltip",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-tooltip__content",
+      version: "8.13.0",
+      replacement: {
+          name: "Tooltip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/tooltip",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-tooltip__content--bottom",
+      version: "8.13.0",
+      replacement: {
+          name: "Tooltip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/tooltip",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-tooltip__content--top",
+      version: "8.13.0",
+      replacement: {
+          name: "Tooltip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/tooltip",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-tooltip__content--left",
+      version: "8.13.0",
+      replacement: {
+          name: "Tooltip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/tooltip",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-tooltip__content--right",
+      version: "8.13.0",
+      replacement: {
+          name: "Tooltip",
+          type: "component",
+          documentation: "https://design.elvia.io/components/tooltip",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__title",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__app",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__app-menu",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__app-menu-item",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__app-circle",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__app-menu-item--active",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__app-title",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__area",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__area-menu",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__area-menu-item",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__logo",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__user",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__hamburger",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__link",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__line",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__user-menu",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__user-menu-name",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__user-menu-mail",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__user-menu-settings",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__user-menu-logout",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__link-icon",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__app--open",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__area--open",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-desktop__user--open",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header--open",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile__app",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile__area",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile__user",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile__title",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile__link",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile__link-icon",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile__user-menu",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile__user-menu-name",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile__user-menu-settings",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile__user-menu-logout",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile__divider",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__sidebar",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile__app--open",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__top-bar-mobile__area--open",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__sidebar__item",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__sidebar__open-close",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__sidebar__text",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__sidebar__icon",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__sidebar__item--active",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-header__sidebar--open",
+      version: "8.13.0",
+      replacement: {
+          name: "Header",
+          type: "component",
+          documentation: "https://design.elvia.io/components/header",
+          },
+      sunset: "March 2023"
+      },
+    {
       name: "e-radio-filter",
       version: "8.13.0",
       replacement: {

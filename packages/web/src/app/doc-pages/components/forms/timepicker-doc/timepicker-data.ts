@@ -67,6 +67,11 @@ export const timepickerData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'Options',
     },
+    errorOptions: {
+      isRequired: false,
+      type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean }>',
+      description: 'An object that allows for custom configuration of the error handling in the time picker.',
+    },
     selectNowOnOpen: {
       isRequired: false,
       type: 'boolean',

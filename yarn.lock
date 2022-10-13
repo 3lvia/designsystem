@@ -2708,7 +2708,7 @@ __metadata:
     "@elvia/elvis-component-wrapper": "*"
     "@testing-library/jest-dom": ^5.15.1
     "@testing-library/react": 12.1.5
-    "@testing-library/user-event": 14.0.0
+    "@testing-library/user-event": 14.4.3
     "@types/jest": ^26.0.23
     "@types/styled-components": ^5.1.19
     "@wojtekmaj/enzyme-adapter-react-17": ^0.6.1
@@ -2950,18 +2950,6 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-loader@workspace:packages/components/components/elvis-loader":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-loader@workspace:packages/components/components/elvis-loader"
-  dependencies:
-    "@webcomponents/webcomponentsjs": ^2.6.0
-    classnames: ^2.3.1
-    react: ^17.0.0
-    react-dom: ^17.0.0
-    semver: ^7.3.5
-  languageName: unknown
-  linkType: soft
-
 "@elvia/elvis-modal@*, @elvia/elvis-modal@workspace:packages/components/components/elvis-modal":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-modal@workspace:packages/components/components/elvis-modal"
@@ -3192,21 +3180,6 @@ __metadata:
     classnames: ^2.3.1
     lodash.throttle: ^4.1.1
   languageName: node
-  linkType: soft
-
-"@elvia/elvis-testing@*, @elvia/elvis-testing@workspace:packages/components/components/elvis-testing":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-testing@workspace:packages/components/components/elvis-testing"
-  dependencies:
-    "@elvia/elvis-component-wrapper": "*"
-    "@material-ui/core": ^4.12.3
-    "@material-ui/icons": ^4.11.2
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
-  languageName: unknown
   linkType: soft
 
 "@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
@@ -4100,50 +4073,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/core@npm:^4.12.3":
-  version: 4.12.4
-  resolution: "@material-ui/core@npm:4.12.4"
-  dependencies:
-    "@babel/runtime": ^7.4.4
-    "@material-ui/styles": ^4.11.5
-    "@material-ui/system": ^4.12.2
-    "@material-ui/types": 5.1.0
-    "@material-ui/utils": ^4.11.3
-    "@types/react-transition-group": ^4.2.0
-    clsx: ^1.0.4
-    hoist-non-react-statics: ^3.3.2
-    popper.js: 1.16.1-lts
-    prop-types: ^15.7.2
-    react-is: ^16.8.0 || ^17.0.0
-    react-transition-group: ^4.4.0
-  peerDependencies:
-    "@types/react": ^16.8.6 || ^17.0.0
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-  checksum: 96b48deccda87ced841b1db45bed2be6d2b6d1b4eae72cd5c9b931201cb72026330688e0fead54e715bcead40b267ea88bde781c9f1563b1a71a5c51bf187289
-  languageName: node
-  linkType: hard
-
-"@material-ui/icons@npm:^4.11.2":
-  version: 4.11.3
-  resolution: "@material-ui/icons@npm:4.11.3"
-  dependencies:
-    "@babel/runtime": ^7.4.4
-  peerDependencies:
-    "@material-ui/core": ^4.0.0
-    "@types/react": ^16.8.6 || ^17.0.0
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-  checksum: f849a8c4fecddc112cfa94105a2c72e763ff76b9f8da74135b7bbadfd294ed6685897cbea6a2128099be0ce37843784893d8c64da6bde37d020956ab9067206c
-  languageName: node
-  linkType: hard
-
 "@material-ui/pickers@npm:3.3.10":
   version: 3.3.10
   resolution: "@material-ui/pickers@npm:3.3.10"
@@ -4164,7 +4093,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/styles@npm:^4.11.4, @material-ui/styles@npm:^4.11.5":
+"@material-ui/styles@npm:^4.11.4":
   version: 4.11.5
   resolution: "@material-ui/styles@npm:4.11.5"
   dependencies:
@@ -4195,7 +4124,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/system@npm:^4.12.1, @material-ui/system@npm:^4.12.2":
+"@material-ui/system@npm:^4.12.1":
   version: 4.12.2
   resolution: "@material-ui/system@npm:4.12.2"
   dependencies:
@@ -4924,12 +4853,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:14.0.0":
-  version: 14.0.0
-  resolution: "@testing-library/user-event@npm:14.0.0"
+"@testing-library/user-event@npm:14.4.3":
+  version: 14.4.3
+  resolution: "@testing-library/user-event@npm:14.4.3"
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: 171a40e680616e6a34299f9fb783dcadcd36f255256a53fe06cb71f4149715d8e5b84e65ea1c144af179f2e4b1799af92c79a8fc0c4c0ee2e94a713f2c476efd
+  checksum: 852c48ea6db1c9471b18276617c84fec4320771e466cd58339a732ca3fd73ad35e5a43ae14f51af51a8d0a150dcf60fcaab049ef367871207bea8f92c4b8195e
   languageName: node
   linkType: hard
 
@@ -6955,13 +6884,6 @@ __metadata:
     "@webassemblyjs/wast-parser": 1.9.0
     "@xtuc/long": 4.2.2
   checksum: 3d1e1b2e84745a963f69acd1c02425b321dd2e608e11dabc467cae0c9a808962bc769ec9afc46fbcea7188cc1e47d72370da762d258f716fb367cb1a7865c54b
-  languageName: node
-  linkType: hard
-
-"@webcomponents/webcomponentsjs@npm:^2.6.0":
-  version: 2.6.0
-  resolution: "@webcomponents/webcomponentsjs@npm:2.6.0"
-  checksum: b1325d7ce201644890e666b723c33cd759c3286fe222962073a4652fa671ad07a8a6797303411440b7ad21a65399373dd9a4a920f6cefe758fa98cbc71e704b5
   languageName: node
   linkType: hard
 
@@ -25176,7 +25098,6 @@ __metadata:
     "@elvia/elvis-slider": "*"
     "@elvia/elvis-spotlight": "*"
     "@elvia/elvis-tabs": "*"
-    "@elvia/elvis-testing": "*"
     "@elvia/elvis-timepicker": "*"
     "@elvia/elvis-typography": "*"
     "@testing-library/dom": ">=7.21.4"
@@ -29826,7 +29747,6 @@ __metadata:
     "@elvia/elvis-slider": "*"
     "@elvia/elvis-spotlight": "*"
     "@elvia/elvis-tabs": "*"
-    "@elvia/elvis-testing": "*"
     "@elvia/elvis-timepicker": "*"
     "@elvia/elvis-tooltip": "*"
     "@typescript-eslint/eslint-plugin": ^5.38.1
