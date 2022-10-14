@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "14.10.22",
+      "version": "2.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the slider's thumb(s) would become translucent when the Slider was disabled in Safari (iOS)."
+          ]
+        }
+      ]
+    },
+    {
       "date": "10.10.22",
       "version": "2.0.0",
       "changelog": [
