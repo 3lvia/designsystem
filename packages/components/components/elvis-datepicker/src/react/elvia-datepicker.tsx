@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect, CSSProperties } from 'react';
+import React, { FC, useState, useRef, useEffect } from 'react';
 import './style.scss';
 import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
@@ -19,61 +19,7 @@ import startOfWeek from 'date-fns/startOfWeek';
 import endOfWeek from 'date-fns/endOfWeek';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import isEqual from 'lodash.isequal';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-
-interface DateRange {
-  start: Date | null;
-  end: Date | null;
-}
-
-/**
- * Props that are specific to the date range picker component.
- * @internal
- */
-export interface DatepickerRangeProps {
-  selectedDateRange?: DateRange;
-  hoveredDateRange?: DateRange;
-  onDateElementPointerMove?: (day: Date, event?: React.PointerEvent<HTMLButtonElement>) => void;
-  onDatepickerPopoverPointerMove?: (event: React.PointerEvent<HTMLDivElement>) => void;
-  whichRangePicker?: 'start' | 'end';
-}
-
-export interface DatepickerProps {
-  value?: Date | null;
-  label?: string;
-  isCompact?: boolean;
-  isDisabled?: boolean;
-  isFullWidth?: boolean;
-  isRequired?: boolean;
-  hasSelectDateOnOpen?: boolean;
-  customError?: string;
-  minDate?: Date;
-  maxDate?: Date;
-  valueOnChange?: (value: Date | null) => void;
-  valueOnChangeISOString?: (value: string | null) => void;
-  onOpen?: () => void;
-  onClose?: () => void;
-  onReset?: () => void;
-  webcomponent?: ElvisComponentWrapper;
-  placeholder?: string;
-  isOpen?: boolean;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  hasOptionalText?: boolean;
-  showValidation?: boolean;
-  showValidationState?: boolean;
-  isErrorState?: boolean;
-  errorOnChange?: (error: string) => void;
-  hasValidation?: boolean;
-  hasErrorPlaceholderElement?: boolean;
-  clearButtonText?: string;
-  disableDate?: (day: Date) => boolean;
-  /**
-   * This is used for internal purposes, and should not be used by the user.
-   * @internal
-   */
-  dateRangeProps?: DatepickerRangeProps;
-}
+import { DatepickerProps } from './elviaDatepicker.types';
 
 export const Datepicker: FC<DatepickerProps> = ({
   value = null,
@@ -105,6 +51,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   hasErrorPlaceholderElement = true,
   errorOnChange,
   disableDate,
+  resetTime = true,
   dateRangeProps,
   ...rest
 }) => {
@@ -157,7 +104,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   /**
    * Needed for webcomponent -> To update the default value
    */
-  useEffect(() => handleDateChange(value), [value]);
+  useEffect(() => setSelectedDate(value), [value]);
 
   useEffect(() => {
     updateCaretPositionWhenDotIsAdded();
@@ -227,8 +174,22 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
     hasValidation && validateDate(date);
 
-    // Set time component of the selected date to 0 by creating a new date object.
-    const newDate = date ? new Date(date.getFullYear(), date.getMonth(), date.getDate()) : null;
+    // Sets the current time because the date-object from Mui Datepicker sets the time to 0 on open (when selectOnOpen=true)
+    const currentDateAndTime = new Date();
+    let newDate = date
+      ? new Date(
+          date.getFullYear(),
+          date.getMonth(),
+          date.getDate(),
+          currentDateAndTime.getHours(),
+          currentDateAndTime.getMinutes(),
+          currentDateAndTime.getSeconds(),
+        )
+      : null;
+    // Reset time of the selected date to 0 by creating a new date object.
+    if (resetTime && date) {
+      newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    }
     if (isEqual(selectedDate, newDate)) return;
     setSelectedDate(newDate);
     setShouldHaveSelected(true);
@@ -244,7 +205,7 @@ export const Datepicker: FC<DatepickerProps> = ({
       if (!webcomponent) {
         valueOnChange?.(selectedDate);
       } else {
-        webcomponent.setProps({ value: selectedDate }, true);
+        webcomponent.triggerEvent('valueOnChange', selectedDate);
       }
       setHasChangeToEmit(false);
     }
@@ -426,7 +387,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   /**
    * If date not selected yet and hasSelectDateOnOpen is true, set the date to current date
    *
-   * Set shouldHaveSelected based on same criterias and if the date is valid
+   * Set shouldHaveSelected based on same the criteria and if the date is valid
    * shouldHaveSelected is used to determine the styling for when a date is showing or not in the datepicker header.
    */
   const updateInputWithSelectedDate = (): void => {

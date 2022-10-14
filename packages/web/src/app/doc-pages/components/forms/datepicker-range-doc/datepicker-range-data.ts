@@ -126,6 +126,13 @@ const datepickerRangeData: ComponentData = {
       type: '{start: (day: Date) => boolean; end: (day: Date) => boolean}',
       description: 'Object containing functions that set dates as disabled. Return true to disable a date.',
     },
+    resetTime: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Resets time to 0 in the datepicker. When set to false, the current time wil be selected by default.',
+      default: 'true',
+    },
     showValidationState: {
       isRequired: false,
       default: 'true',

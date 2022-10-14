@@ -1,22 +1,17 @@
-import React, { CSSProperties, FC, PointerEvent, useEffect, useState } from 'react';
+import React, { FC, PointerEvent, useEffect, useState } from 'react';
 import { Datepicker, DatepickerProps } from '@elvia/elvis-datepicker/react';
 import { DatepickerRangeWrapper } from './styledComponents';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import isValid from 'date-fns/isValid';
 import formatISO from 'date-fns/formatISO';
-
-export type BothDatepickers<T> = {
-  start: T;
-  end: T;
-};
-
-export type DateRange = BothDatepickers<Date | null>;
-export type DateRangeString = BothDatepickers<string | null>;
-export type LabelOptions = Partial<BothDatepickers<string>>;
-export type DisableDates = Partial<BothDatepickers<(day: Date) => boolean>>;
-export type IsRequired = Partial<BothDatepickers<boolean>>;
-export type IsErrorState = Partial<BothDatepickers<boolean>>;
-export type CustomError = Partial<BothDatepickers<string>>;
+import {
+  CustomError,
+  DatepickerRangeProps,
+  DateRange,
+  DateRangeString,
+  DisableDates,
+  IsRequired,
+  LabelOptions,
+} from './elviaDatepicker.types';
 
 const emptyDateRange: DateRange = {
   start: null,
@@ -32,31 +27,6 @@ const emptyErrorMessage: CustomError = {
   start: '',
   end: '',
 };
-
-export interface DatepickerRangeProps {
-  value?: DateRange;
-  valueOnChange?: (value: DateRange) => void;
-  valueOnChangeISOString?: (value: DateRangeString) => void;
-  labelOptions?: LabelOptions;
-  isCompact?: boolean;
-  isFullWidth?: boolean;
-  isDisabled?: boolean;
-  isRequired?: IsRequired | boolean;
-  isVertical?: boolean;
-  hasSelectDateOnOpen?: boolean;
-  hasAutoOpenEndDatepicker?: boolean;
-  showValidationState?: boolean;
-  isErrorState?: IsErrorState;
-  customError?: CustomError;
-  hasErrorPlaceholderElement?: boolean;
-  errorOnChange?: (errors: CustomError) => void;
-  minDate?: Date;
-  maxDate?: Date;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  disableDates?: DisableDates;
-  webcomponent?: ElvisComponentWrapper;
-}
 
 export const DatepickerRange: FC<DatepickerRangeProps> = ({
   value,
@@ -77,6 +47,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   errorOnChange,
   minDate,
   maxDate,
+  resetTime = true,
   className,
   inlineStyle,
   disableDates,
@@ -152,7 +123,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     if (!webcomponent) {
       valueOnChange?.(selectedDateRange);
     } else {
-      webcomponent.setProps({ value: selectedDateRange }, true);
+      webcomponent.triggerEvent('valueOnChange', selectedDateRange);
     }
   }, [selectedDateRange]);
 
@@ -292,6 +263,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     hasSelectDateOnOpen,
     showValidationState,
     hasErrorPlaceholderElement: hasErrorPlaceholderElement && windowWidth > 767 && !isVertical,
+    resetTime,
   };
 
   return (

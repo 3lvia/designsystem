@@ -204,6 +204,13 @@ const datepickerData: ComponentData = {
       type: '(day: Date) => boolean',
       description: 'Function that sets dates as disabled. Return true to disable a date.',
     },
+    resetTime: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Resets time to 0 in the datepicker. When set to false, the current time wil be selected by default.',
+      default: 'true',
+    },
   },
   package: 'npm install @elvia/elvis-datepicker',
   codeImportReact: `import { Datepicker } from '@elvia/elvis-datepicker/react';`,
