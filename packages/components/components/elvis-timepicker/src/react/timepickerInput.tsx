@@ -178,7 +178,7 @@ export const TimepickerInput: React.FC<Props> = ({
       onChange={parseInput}
       onBlur={onBlur}
       isCompact={isCompact}
-      data-test="input"
+      data-testid="input"
       aria-live="polite"
       required={required}
     />

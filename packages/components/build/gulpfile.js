@@ -146,7 +146,7 @@ function TSX_to_JS() {
   const tasks = components.map((component) => {
     return mergeStream(
       gulp
-        .src([`../components/${component.name}/src/react/**/*.ts*`, '!../components/**/*.d.ts*'])
+        .src([`../components/${component.name}/src/react/**/!(*.test).ts*`, '!../components/**/*.d.ts*'])
         .pipe(cache('TSX_to_JS'))
         .pipe(sourcemaps.init())
         .pipe(
@@ -203,7 +203,7 @@ function reactTypescriptDeclarations() {
   const tasks = componentsToCreateDeclarationsFor.map((component) => {
     const tsConfig = typescript.createProject('../tsconfig.json');
     return gulp
-      .src(`../components/${component.name}/src/react/**/*.ts*`)
+      .src(`../components/${component.name}/src/react/**/!(*.test).ts*`)
       .pipe(tsConfig())
       .pipe(filter(['*.d.ts']))
       .pipe(gulp.dest(`../components/${component.name}/dist/react/js/`));
