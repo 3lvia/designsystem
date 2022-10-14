@@ -466,6 +466,7 @@ const Dropdown: React.FC<DropdownProps> = function ({
                 />
               }
               content={optionData.tooltip ?? ''}
+              showDelay={100}
               position={'right'}
               isDisabled={!optionData.tooltip}
               triggerAreaRef={optionRef}
