@@ -905,15 +905,6 @@
           </div>
         </div>
       </div>
-      <div class="e-title-sm e-mt-16">Progressbar</div>
-      <div class="e-title-xs e-my-16">Progressbar loading</div>
-      <div class="e-progress" role="progressbar">
-        <div class="e-progress__bar"></div>
-      </div>
-      <div class="e-title-xs e-my-16">Progressbar error</div>
-      <div class="e-progress" role="progressbar">
-        <div class="e-progress__bar e-progress__bar--error"></div>
-      </div>
       <div class="e-title-sm e-mt-16">List</div>
       <div class="e-title-xs e-my-16">Bullet List</div>
       <ul class="e-list">
@@ -983,7 +974,7 @@
         </div>
       </div>
       <div class="e-title-xs e-my-16">When hovering</div>
-      <div class="e-fileupload e-fileupload---hover" style="width: 380px">
+      <div class="e-fileupload e-fileupload--dragover" style="width: 380px">
         <div class="e-fileupload__icon">
           <i class="e-icon e-icon--image_add-color" aria-hidden="true"></i>
         </div>
@@ -1139,25 +1130,7 @@
         <label class="e-label e-label--orange e-m-8">Orange</label>
         <label class="e-label e-label--yellow e-m-8">Yellow</label>
       </div>
-      <div class="e-title-sm e-my-16">Chip</div>
-      <button class="e-chip">
-        <div class="e-chip__label">Chip</div>
-        <div class="e-chip__close"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></div>
-      </button>
-      <button class="e-chip e-chip--blue-berry e-mt-16">
-        <div class="e-chip__label">Chip</div>
-        <div class="e-chip__close"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></div>
-      </button>
 
-      <div class="e-title-sm e-my-16">States</div>
-      <button class="e-chip e-chip---hover">
-        <div class="e-chip__label">Chip</div>
-        <div class="e-chip__close"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></div>
-      </button>
-      <button class="e-chip e-chip---disabled e-mt-16">
-        <div class="e-chip__label">Chip</div>
-        <div class="e-chip__close"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></div>
-      </button>
       <div class="e-title-xs e-my-16">Horizontal stepper</div>
       <div class="e-stepper e-stepper--horizontal">
         <div class="e-stepper__steps">
@@ -1613,6 +1586,12 @@
         [alignment]="'right'"
         dropdownMenuPosition="top"
       ></elvia-pagination>
+      <elvia-pagination
+        numberOfElements="156"
+        [value]="defaultPaginationValue"
+        [alignment]="'left'"
+        dropdownMenuPosition="top"
+      ></elvia-pagination>
     </div>
 
     <!--Popover-->
@@ -1643,8 +1622,8 @@
         [value]="progressValue"
         [isError]="progressError"
       ></elvia-progress-linear>
-      <div style="margin-bottom: 32px; display: flex">
-        <div style="display: flex; width: 100%; justify-content: space-between">
+      <div style="margin-bottom: 32px">
+        <div style="display: flex; width: 100%; flex-wrap: wrap; gap: 4px">
           <button class="e-btn" (click)="progressValue = progressValue + 10">Increase Progress</button>
           <button class="e-btn" (click)="progressValue = progressValue - 10">Decrease Progress</button>
           <button class="e-btn" (click)="indeterminate = !indeterminate">Toggle indeterminate</button>
@@ -1670,6 +1649,13 @@
 
     <!--Slider-->
     <div class="example-wrapper">
+      <elvia-slider
+        [type]="'simple'"
+        [min]="10000"
+        [max]="10000000"
+        [hasInputField]="true"
+        [hasHintValues]="true"
+      ></elvia-slider>
       <h3>Slider</h3>
       <h4>Simple Slider</h4>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem">
@@ -1677,17 +1663,17 @@
         <elvia-slider [type]="'simple'" [min]="1" [max]="10000000" [hasInputField]="true"></elvia-slider>
         <elvia-slider
           [type]="'simple'"
-          [min]="1"
+          [min]="10000"
           [max]="10000000"
           [hasInputField]="true"
           [hasHintValues]="true"
         ></elvia-slider>
         <elvia-slider
           [type]="'simple'"
-          [min]="0"
-          [max]="100"
+          [min]="10000"
+          [max]="10000000"
           [hasInputField]="true"
-          [unit]="' kr'"
+          [hasHintValues]="true"
         ></elvia-slider>
         <elvia-slider
           [type]="'simple'"
