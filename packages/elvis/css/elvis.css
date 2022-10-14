@@ -439,8 +439,6 @@ body {
   opacity: 1;
   padding-top: 16px;
   transition: all 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
-  line-height: 24px;
-  font-size: 0.875rem;
 }
 .e-accordion.e-accordion--group {
   display: flex;
