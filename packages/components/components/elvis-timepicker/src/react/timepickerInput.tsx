@@ -31,6 +31,9 @@ export const TimepickerInput: React.FC<Props> = ({
   };
 
   const onKeyDown = () => {
+    console.log(window.getSelection()?.toString());
+    console.log(inputElement.current?.selectionStart);
+    console.log(inputElement.current?.selectionEnd);
     const selectionStart = inputElement.current?.selectionStart || 0;
     const selectionEnd = inputElement.current?.selectionEnd || 0;
 
@@ -149,6 +152,20 @@ export const TimepickerInput: React.FC<Props> = ({
       onErrorChange(undefined);
     }
   }, [time]);
+
+  // Focus and select the text when the parent container is double clicked
+  useEffect(() => {
+    const focusOnInput = () => {
+      inputElement.current?.focus();
+      inputElement.current?.select();
+    };
+
+    inputElement.current?.parentElement?.addEventListener('dblclick', focusOnInput);
+
+    return () => {
+      inputElement.current?.parentElement?.removeEventListener('dblclick', focusOnInput);
+    };
+  }, [inputElement]);
 
   return (
     <Input
