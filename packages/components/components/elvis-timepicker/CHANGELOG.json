@@ -14,6 +14,16 @@
       ]
     },
     {
+      "date": "14.10.22",
+      "version": "2.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Not possible to replace text in time picker by selecting it."]
+        }
+      ]
+    },
+    {
       "date": "12.10.22",
       "version": "2.1.0",
       "changelog": [
