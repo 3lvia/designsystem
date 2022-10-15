@@ -41,6 +41,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     verticalPosition: 'bottom',
     alignWidths: true,
   });
+  const { trapFocus, releaseFocusTrap } = useFocusTrap();
 
   const updateValue = (newTime: Date, emit = true): void => {
     setTime(newTime);
@@ -103,9 +104,9 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
       updateValue(new Date());
     }
 
-    useFocusTrap(popoverRef);
+    trapFocus(popoverRef);
 
-    return () => useFocusTrap(popoverRef, true);
+    return () => releaseFocusTrap();
   }, [isShowing]);
 
   /**

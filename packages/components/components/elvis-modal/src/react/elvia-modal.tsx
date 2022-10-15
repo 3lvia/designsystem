@@ -74,6 +74,7 @@ export const ModalComponent: FC<ModalProps> = function ({
   const modalIllustration = useRef<HTMLDivElement>(null);
   const modalPrimaryBtn = useRef<HTMLDivElement>(null);
   const modalSecondaryBtn = useRef<HTMLDivElement>(null);
+  const { trapFocus, releaseFocusTrap } = useFocusTrap();
 
   const [isHoveringCloseButton, setIsHoveringCloseButton] = useState(false);
 
@@ -119,7 +120,7 @@ export const ModalComponent: FC<ModalProps> = function ({
     }
 
     if (!webcomponent) {
-      useFocusTrap(modalWrapperRef);
+      trapFocus(modalWrapperRef);
       return;
     }
 
@@ -143,10 +144,10 @@ export const ModalComponent: FC<ModalProps> = function ({
       modalSecondaryBtn.current.appendChild(webcomponent.getSlot('secondaryButton'));
     }
 
-    useFocusTrap(modalWrapperRef);
+    trapFocus(modalWrapperRef);
 
     return () => {
-      useFocusTrap(modalWrapperRef, true);
+      releaseFocusTrap();
     };
   }, [isShowing, webcomponent, modalText, modalText.current]);
 
