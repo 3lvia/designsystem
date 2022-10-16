@@ -23,6 +23,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   isCompact = false,
   isDisabled = false,
   isRequired = false,
+  errorOptions = { hideText: false, isErrorState: false },
   selectNowOnOpen = true,
   className,
   inlineStyle,
@@ -116,7 +117,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     <TimePickerContainer className={className ?? ''} style={{ ...inlineStyle }} {...rest}>
       <TimePickerLabel isCompact={isCompact}>
         {!!label && (
-          <LabelText data-test="label" isCompact={isCompact}>
+          <LabelText data-testid="label" isCompact={isCompact}>
             {label}
           </LabelText>
         )}
@@ -125,7 +126,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           disabled={isDisabled}
           isCompact={isCompact}
           isActive={isShowing}
-          isInvalid={!!error}
+          isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
         >
           <TimepickerInput
             time={time}
@@ -141,7 +142,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             onClick={() => setVisibility(!isShowing)}
             ref={openPopoverButtonRef}
             size={isCompact ? 'small' : 'medium'}
-            data-test="popover-toggle"
+            data-testid="popover-toggle"
             type="button"
             aria-label="Åpne tidvelger"
             aria-haspopup="dialog"
@@ -149,7 +150,9 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             <Icon name="clock" color={isDisabled ? 'disabled' : 'black'} size={isCompact ? 'xs' : 'sm'} />
           </IconButton>
         </InputContainer>
-        {error && <TimepickerError errorType={error} isCompact={isCompact} />}
+        {((error && !errorOptions.hideText) || errorOptions.text) && (
+          <TimepickerError customText={errorOptions.text} errorType={error} isCompact={isCompact} />
+        )}
       </TimePickerLabel>
       {isShowing && (
         <OverlayContainer

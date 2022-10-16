@@ -2,6 +2,26 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "14.10.22",
+      "version": "2.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Not possible to replace text in time picker by selecting it."]
+        }
+      ]
+    },
+    {
+      "date": "12.10.22",
+      "version": "2.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Add props for custom error handling"]
+        }
+      ]
+    },
+    {
       "date": "10.10.22",
       "version": "2.0.0",
       "changelog": [

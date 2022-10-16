@@ -248,6 +248,7 @@ const Pagination: FC<PaginationProps> = function ({
         selected={isSelectedPageNumber(pageNumber)}
         aria-label={getAriaLabel(pageNumber)}
         aria-current={pageNumber === selectedPageNumber}
+        data-testid={`paginator-button-${pageIndex}`}
       >
         {pageNumber}
       </PaginatorPage>
@@ -435,7 +436,7 @@ const Pagination: FC<PaginationProps> = function ({
         >
           <Icon name="arrowLongLeft" size="xs" />
         </PaginatorSelectorArrowBtn>
-        {showPaginationNumbers ? <PaginatorNumbersAndDots data-testid="paginators" /> : null}
+        {showPaginationNumbers ? <PaginatorNumbersAndDots /> : null}
         <PaginatorSelectorArrowBtn
           visible={shouldHaveRightArrow()}
           onClick={() => setSelectedPageNumber(selectedPageNumber + 1)}

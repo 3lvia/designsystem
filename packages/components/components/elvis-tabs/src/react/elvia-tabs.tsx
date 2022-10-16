@@ -224,6 +224,7 @@ const Tabs: FC<TabsProps> = ({
                 tabIndex={currValue === i ? 0 : -1}
                 className="ewc-tabs__item"
                 onClick={() => updateValue(i)}
+                data-testid="tab-button"
               >
                 <span className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>
                   {item}

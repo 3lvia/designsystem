@@ -31,9 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
   let mo = new MutationObserver(function (mutations) {
     for (let i = 0; i < mutations.length; i++) {
       injectIconIfEligible(mutations[i].target, mutations[i]);
-      checkDeprecatedElvisClass();
+       
+      if(i === mutations.length - 1) {
+        checkDeprecatedElvisClass();
     }
-  });
+  }});
 
   function injectIconIfEligible(node, mutation) {
     if (mutation.addedNodes.length > 0) {

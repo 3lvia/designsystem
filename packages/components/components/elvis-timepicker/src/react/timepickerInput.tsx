@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { ErrorType } from './elviaTimepicker.types';
 
 import { padDigit } from './padDigit';
@@ -21,32 +21,68 @@ export const TimepickerInput: React.FC<Props> = ({
   onChange,
   onErrorChange,
 }) => {
+  const inputElement = useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = useState('');
+  const [hasSelectedText, setHasSelectedText] = useState(false);
+  const [caretIndex, setCaretIndex] = useState(0);
 
   const isNumericValue = (value: string): boolean => {
     return /^\d+$/.test(value);
   };
 
-  const parseInput = (ev: ChangeEvent<HTMLInputElement>): void => {
-    const key = (ev.nativeEvent as InputEvent).data || '';
+  const onKeyDown = () => {
+    console.log(window.getSelection()?.toString());
+    console.log(inputElement.current?.selectionStart);
+    console.log(inputElement.current?.selectionEnd);
+    const selectionStart = inputElement.current?.selectionStart || 0;
+    const selectionEnd = inputElement.current?.selectionEnd || 0;
 
+    setCaretIndex(selectionStart);
+    setHasSelectedText(selectionEnd - selectionStart > 0);
+  };
+
+  const setInputValueFromCaretIndexRules = (newInputValue: string, pressedKey: string): void => {
+    switch (caretIndex) {
+      case 0:
+      case 3:
+      case 4: {
+        if (isNumericValue(pressedKey)) {
+          setInputValue(newInputValue);
+        }
+        break;
+      }
+      case 1: {
+        if (newInputValue.length === 2 && isNumericValue(pressedKey)) {
+          setInputValue(`${newInputValue}.`);
+        } else if (isNumericValue(pressedKey)) {
+          setInputValue(newInputValue);
+        }
+        break;
+      }
+      case 2: {
+        if (pressedKey === '.') {
+          setInputValue(newInputValue);
+        }
+        break;
+      }
+    }
+  };
+
+  const parseInput = (ev: ChangeEvent<HTMLInputElement>): void => {
     const isModifierKey = ['deleteContentBackward', 'deleteContentForward'].includes(
       (ev.nativeEvent as InputEvent).inputType,
     );
-
-    if ((inputValue.length >= 5 && !isModifierKey) || !(isNumericValue(key) || isModifierKey)) {
-      return;
-    }
 
     const newInputValue = ev.target.value;
     if (isModifierKey) {
       setInputValue(newInputValue);
     } else {
-      if (newInputValue.length === 2) {
-        setInputValue(`${newInputValue}.`);
-      } else {
-        setInputValue(newInputValue);
+      if (inputValue.length === 5 && !hasSelectedText) {
+        return;
       }
+
+      const key = (ev.nativeEvent as InputEvent).data || '';
+      setInputValueFromCaretIndexRules(newInputValue, key);
     }
   };
 
@@ -61,10 +97,19 @@ export const TimepickerInput: React.FC<Props> = ({
   };
 
   const validateInputValue = (hour: string, minute: string): boolean => {
-    if (!hour.length && required) {
+    const parsedHour = hour.length > 2 ? hour.substring(0, 2) : hour;
+    let parsedMinute = hour.length > 2 ? hour.substring(2) : '';
+
+    if (minute) {
+      // Always use parsed minute if it exists
+      parsedMinute = minute;
+    }
+    parsedMinute = padDigit(+parsedMinute, { mode: 'suffix' });
+
+    if (!parsedHour.length && required) {
       onErrorChange('required');
       return false;
-    } else if ((+hour === 24 && +minute > 0) || +hour > 24 || +minute >= 60) {
+    } else if ((+parsedHour === 24 && +parsedMinute > 0) || +parsedHour > 24 || +parsedMinute >= 60) {
       onErrorChange('invalidTime');
       return false;
     }
@@ -92,7 +137,7 @@ export const TimepickerInput: React.FC<Props> = ({
     }
 
     const normalizedHour = +hour === 24 ? 0 : +hour;
-    const newValue = `${padDigit(normalizedHour)}.${padDigit(+minute)}`;
+    const newValue = `${padDigit(normalizedHour)}.${padDigit(+minute, { mode: 'suffix' })}`;
     setInputValue(newValue);
     emitNewValue(newValue);
   };
@@ -108,16 +153,32 @@ export const TimepickerInput: React.FC<Props> = ({
     }
   }, [time]);
 
+  // Focus and select the text when the parent container is double clicked
+  useEffect(() => {
+    const focusOnInput = () => {
+      inputElement.current?.focus();
+      inputElement.current?.select();
+    };
+
+    inputElement.current?.parentElement?.addEventListener('dblclick', focusOnInput);
+
+    return () => {
+      inputElement.current?.parentElement?.removeEventListener('dblclick', focusOnInput);
+    };
+  }, [inputElement]);
+
   return (
     <Input
+      ref={inputElement}
       disabled={disabled}
       type="text"
       placeholder="tt.mm"
       value={inputValue}
+      onKeyDown={onKeyDown}
       onChange={parseInput}
       onBlur={onBlur}
       isCompact={isCompact}
-      data-test="input"
+      data-testid="input"
       aria-live="polite"
       required={required}
     />
