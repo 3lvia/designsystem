@@ -38,6 +38,7 @@ $form-input-padding-compact-active: 3px 9px;
     background: colors.color('elvia-on');
     max-width: 448px;
     width: 100%;
+    margin: 0;
     padding: $form-input-padding;
     @include typography.typography('text-option');
     color: colors.color('font-color');
