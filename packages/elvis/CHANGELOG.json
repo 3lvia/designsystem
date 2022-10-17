@@ -10,6 +10,13 @@
           "components": [
             { "displayName": "Text field", "url": "https://design.elvia.io/components/input#Overview" }
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Fixed compact text field border in Safari. "],
+          "components": [
+            { "displayName": "Text field", "url": "https://design.elvia.io/components/input#Overview" }
+          ]
         }
       ]
     },
