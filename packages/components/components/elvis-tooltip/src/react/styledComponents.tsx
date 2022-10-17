@@ -46,6 +46,7 @@ export interface TooltipPopupProps {
 
 export const TooltipPopup = styled.div<TooltipPopupProps>`
   ${getTypographyCss('text-sm')}
+  white-space: pre-wrap;
   color: ${colors.tooltipText};
   background: ${colors.tooltipBg};
   display: flex;
