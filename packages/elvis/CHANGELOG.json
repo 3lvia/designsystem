@@ -1,6 +1,26 @@
 {
   "content": [
     {
+      "version": "9.2.0",
+      "date": "October 17, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added a loading state to the text field component. "],
+          "components": [
+            { "displayName": "Text field", "url": "https://design.elvia.io/components/input#Overview" }
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Fixed compact text field border in Safari. ", "Fixed text field size in Safari. "],
+          "components": [
+            { "displayName": "Text field", "url": "https://design.elvia.io/components/input#Overview" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "9.1.1",
       "date": "October 14, 2022",
       "changelog": [
