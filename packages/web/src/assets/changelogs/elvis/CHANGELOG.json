@@ -2,6 +2,7 @@
   "content": [
     {
       "version": "9.2.0",
+<<<<<<< HEAD
       "date": "October 11, 2022",
       "changelog": [
         {
@@ -15,6 +16,33 @@
               "url": "https://design.elvia.io/components/segmented-control"
             }
           ]
+=======
+      "date": "October 17, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added a loading state to the text field component. "],
+          "components": [
+            { "displayName": "Text field", "url": "https://design.elvia.io/components/input#Overview" }
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Fixed compact text field border in Safari. ", "Fixed text field size in Safari. "],
+          "components": [
+            { "displayName": "Text field", "url": "https://design.elvia.io/components/input#Overview" }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "9.1.1",
+      "date": "October 14, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Elvis now checks for deprecated classes more efficiently."]
+>>>>>>> 22e9dff75776c4d8121e8976843c4131b1c17395
         }
       ]
     },

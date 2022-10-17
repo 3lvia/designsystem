@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import React from 'react';
-import Slider from './elvia-slider.tsx';
+import Slider from './elvia-slider';
 import userEvent from '@testing-library/user-event';
 import { render, screen, fireEvent } from '@testing-library/react';
 
@@ -73,7 +73,7 @@ describe('Elvia Slider', () => {
       await user.hover(leftSliderInput);
       const leftTooltipPopup = await screen.findByTestId('left-tooltip-popup');
       expect(leftTooltipPopup).toBeInTheDocument();
-      expect(leftTooltipPopup).toHaveTextContent(min);
+      expect(leftTooltipPopup).toHaveTextContent(min.toString());
     });
 
     test('should display the tooptip containing the percentage between min and max if percent is true', async () => {

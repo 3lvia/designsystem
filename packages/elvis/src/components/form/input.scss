@@ -16,6 +16,12 @@ $form-input-border: 1px solid colors.color('grey');
 $form-input-padding-compact: 4px 10px;
 $form-input-padding-compact-active: 3px 9px;
 
+@property --e-input---loading-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 .e-input {
   max-width: 448px;
   width: 100%;
@@ -32,6 +38,7 @@ $form-input-padding-compact-active: 3px 9px;
     background: colors.color('elvia-on');
     max-width: 448px;
     width: 100%;
+    margin: 0;
     padding: $form-input-padding;
     @include typography.typography('text-option');
     color: colors.color('font-color');
@@ -95,14 +102,66 @@ $form-input-padding-compact-active: 3px 9px;
     cursor: not-allowed;
   }
 
-  &.e-input---readonly > input,
-  &.e-input---readonly > input:focus,
-  &.e-input---readonly > input:read-only,
-  &.e-input---readonly > input:read-only:focus {
-    background: colors.color('grey-02');
-    border: unset;
-    color: colors.color('text-light');
-    padding: $form-input-padding;
+  &.e-input---readonly {
+    > input,
+    > input:focus,
+    > input:read-only,
+    > input:read-only:focus {
+      background: colors.color('grey-02');
+      border: unset;
+      color: colors.color('text-light');
+      padding: $form-input-padding;
+    }
+  }
+
+  // Check if browser supports @property
+  @supports (background: paint(something)) {
+    @keyframes eInputLoadingAnimation {
+      from {
+        --e-input---loading-angle: 0deg;
+      }
+      to {
+        --e-input---loading-angle: 180deg;
+      }
+    }
+
+    &.e-input---loading {
+      > input:not(:focus),
+      > textarea:not(:focus) {
+        padding: $form-input-padding-active;
+        border: solid 2px transparent;
+        border-radius: $form-input-border-radius;
+        background-image: linear-gradient(colors.color('elvia-on'), colors.color('elvia-on')),
+          linear-gradient(
+            var(--e-input---loading-angle),
+            colors.color('elvia-charge'),
+            transparent 35% 65%,
+            colors.color('elvia-charge')
+          );
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        animation: 1.7s eInputLoadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
+      }
+    }
+  }
+  @supports not (background: paint(something)) {
+    @keyframes eInputLoadingAnimation {
+      from {
+        border-color: rgba(colors.color('elvia-charge'), 1);
+      }
+      to {
+        border-color: rgba(colors.color('elvia-charge'), 0.1);
+      }
+    }
+
+    &.e-input---loading {
+      > input:not(:focus),
+      > textarea:not(:focus) {
+        padding: $form-input-padding-active;
+        border: solid 2px colors.color('elvia-charge');
+        animation: 1s eInputLoadingAnimation ease alternate infinite;
+      }
+    }
   }
 
   // removes default time&date icons in input fields
@@ -146,14 +205,23 @@ $form-input-padding-compact-active: 3px 9px;
     padding: $form-input-padding-compact-active;
   }
 
-  &.e-input---readonly > input,
-  &.e-input---readonly > input:focus,
-  &.e-input---readonly > input:read-only,
-  &.e-input---readonly > input:read-only:focus {
-    background: colors.color('grey-02');
-    border: unset;
-    color: colors.color('text-light');
-    padding: $form-input-padding-compact-active;
+  &.e-input---readonly {
+    > input,
+    > input:focus,
+    > input:read-only,
+    > input:read-only:focus {
+      background: colors.color('grey-02');
+      border: unset;
+      color: colors.color('text-light');
+      padding: $form-input-padding-compact-active;
+    }
+  }
+
+  &.e-input---loading {
+    > input,
+    > textarea {
+      padding: $form-input-padding-compact-active;
+    }
   }
 
   .e-btn.e-btn--icon {

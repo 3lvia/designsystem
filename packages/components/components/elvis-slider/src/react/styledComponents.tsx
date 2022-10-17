@@ -103,7 +103,6 @@ const HOVER_THUMB = css`
 
 const DISABLED_THUMB = css`
   background-color: ${colors.grey30};
-  opacity: 1 !important;
   border: solid 1.5px ${colors.elviaWhite};
   cursor: -webkit-not-allowed;
   cursor: not-allowed;
@@ -333,6 +332,12 @@ export const StyledSlider = styled.input.attrs(() => ({
   /***** Chrome, Safari, Opera, and Edge Chromium *****/
   :disabled::-webkit-slider-thumb {
     ${DISABLED_THUMB}
+  }
+
+  /* to keep the thumb opaque in Safari iOS (16) Do not move to ":disabled::-webkit-slider-thumb"  */
+  :disabled {
+    -webkit-opacity: 1;
+    opacity: 1;
   }
 
   /******** Firefox ********/

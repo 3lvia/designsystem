@@ -116,6 +116,28 @@ function App() {
       appTitle="React SSR app"
       email="e23455@elvia.no"
       username="Kristine Leonardsen"
+      navItems={
+        <div className="e-sidenav__container">
+          <a href="/" className="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
+            <div className="e-sidenav__icon-container">
+              <Icon name="dashboard" size="sm"></Icon>
+            </div>
+            <div className="e-sidenav__item-text">Dashbord</div>
+          </a>
+          <a href="/search" className="e-sidenav__item" aria-label="Søk">
+            <div className="e-sidenav__icon-container">
+              <Icon name="search" size="sm"></Icon>
+            </div>
+            <div className="e-sidenav__item-text">Søk</div>
+          </a>
+          <a href="/pin" className="e-sidenav__item" aria-label="Analyse">
+            <div className="e-sidenav__icon-container">
+              <Icon name="pin" size="sm"></Icon>
+            </div>
+            <div className="e-sidenav__item-text">Analyse</div>
+          </a>
+        </div>
+      }
       pageTitle="Components"
       appContent={
         <div className="App e-pt-40">
