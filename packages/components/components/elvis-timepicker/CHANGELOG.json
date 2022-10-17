@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Clearing the time picker does not trigger the change event."]
+          "changes": ["Clearing the time picker did not trigger the change event."]
         }
       ]
     },
