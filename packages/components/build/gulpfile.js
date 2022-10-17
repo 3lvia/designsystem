@@ -204,7 +204,6 @@ function reactTypescriptDeclarations() {
     });
   const tsConfig = typescript.createProject('../tsconfig.json');
 
-  // TODO: Sort globsToCreateDeclarationsFor so that projects that others depend on will build first (e.g. Icon before others)
   return gulp
     .src(globsToCreateDeclarationsFor, { base: '..' })
     .pipe(cache('reactTypescriptDeclarations'))
