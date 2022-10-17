@@ -9,6 +9,7 @@
     "build": "gulp --gulpfile build/gulpfile.js cleanup && gulp --gulpfile build/gulpfile.js && webpack --mode=production --stats=minimal  --config ./webpack.config.js",
     "build:production": "gulp --gulpfile build/gulpfile.js cleanup && gulp --gulpfile build/gulpfile.js production && webpack --mode=production --stats=minimal  --config ./webpack.config.js",
     "start": "concurrently \"webpack --watch --mode=production --stats=minimal \" \"gulp --gulpfile build/gulpfile.js watch\"",
+    "start:nocdn": "gulp --gulpfile build/gulpfile.js watch",
     "clean": "gulp --gulpfile build/gulpfile.js cleanup",
     "test": "jest --config jest.config.js --colors",
     "test:start": "jest --config jest.config.js --watch --colors",
