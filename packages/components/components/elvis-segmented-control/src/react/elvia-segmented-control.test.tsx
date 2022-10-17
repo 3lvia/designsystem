@@ -3,13 +3,14 @@ import React from 'react';
 import SegmentedControl from './elvia-segmented-control';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
+import { IconSegmentedControl } from './elviaSegmentedControl.types';
 
 //========================
 // Text Segmented Control
 //========================
 describe('Elvia Segmented Control', () => {
   describe('The default segmented control', () => {
-    const items = [{ name: 'Weekly' }, { name: 'Monthly' }, { name: 'Yearly' }];
+    const items = [{ label: 'Weekly' }, { label: 'Monthly' }, { label: 'Yearly' }];
 
     //==================== RENDERING ====================
     test('should contain text', () => {
@@ -35,11 +36,11 @@ describe('Elvia Segmented Control', () => {
       expect(segmentedControlSelectedInput[1]).toBeChecked();
     });
 
-    test('should have label text = item.name', () => {
+    test('should have label text = item.label', () => {
       render(<SegmentedControl items={items} value={1} />);
       const segmentedControlText = screen.queryAllByTestId('segmented-control-text');
 
-      expect(segmentedControlText[0]).toHaveTextContent(items[0].name);
+      expect(segmentedControlText[0]).toHaveTextContent(items[0].label);
     });
 
     //========== MIMICKING USER INTERACTIONS ==========
@@ -54,9 +55,9 @@ describe('Elvia Segmented Control', () => {
   });
 
   describe('The icon segmented control', () => {
-    const items = [
-      { name: 'thumbnail', ariaLabel: 'label' },
-      { name: 'list', ariaLabel: 'label' },
+    const items: IconSegmentedControl[] = [
+      { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: 'label' },
+      { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: 'label' },
     ];
 
     //==================== RENDERING ====================
