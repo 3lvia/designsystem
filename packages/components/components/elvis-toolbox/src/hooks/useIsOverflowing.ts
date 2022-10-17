@@ -35,18 +35,20 @@ export const useIsOverflowing = <T extends HTMLElement>(
 
   useLayoutEffect(() => {
     const { current } = ref;
-    const trigger = () => {
-      if (!current) return;
+    if (!current) return;
+
+    const updateIsOverflowing = () => {
       const hasOverflowVertical = current.scrollHeight - 1 > current.clientHeight;
       const hasOverflowHorizontal = current.scrollWidth - 1 > current.clientWidth;
       setIsOverflowing({ horizontal: hasOverflowHorizontal, vertical: hasOverflowVertical });
     };
-    if (current) {
-      if (window && 'ResizeObserver' in window) {
-        new ResizeObserver(trigger).observe(current);
-      }
-      trigger();
-    }
+    const resizeObserver = new ResizeObserver(updateIsOverflowing);
+    resizeObserver.observe(current);
+    updateIsOverflowing();
+
+    return () => {
+      resizeObserver.disconnect();
+    };
   }, [ref, ref.current]);
 
   return { isOverflowing, ref };

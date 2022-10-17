@@ -56,7 +56,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       value: AttributeType['cegDefault'];
       type: AttributeType['cegCustomTextType'];
       active: boolean;
-      order: number;
+      orderOfPropsDisplayed: number;
     };
   } = {};
   hasCustomTextProps = false;
@@ -267,7 +267,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     right: KeyValue<string, typeof this.customTextProps[0]>,
   ): number {
-    return left.value.order > right.value.order ? 1 : -1;
+    return left.value.orderOfPropsDisplayed > right.value.orderOfPropsDisplayed ? 1 : -1;
   }
 
   /**
@@ -342,7 +342,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           value: attributeData.cegDefault ?? '',
           type: attributeData.cegCustomTextType ?? 'input',
           active: this.customTextPropShouldBeVisible(attribute),
-          order: idx,
+          orderOfPropsDisplayed: idx,
         };
       }
     });

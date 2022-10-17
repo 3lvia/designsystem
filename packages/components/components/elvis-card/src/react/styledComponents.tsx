@@ -1,15 +1,9 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { getColor } from '@elvia/elvis-colors';
-import { CardType, BorderColor } from './elvia-card.types';
+import { CardType, BorderColor, BorderColors } from './elvia-card.types';
 
-const colors = {
-  black: getColor('black'),
-  white: getColor('white'),
-  charge: getColor('elvia-charge'),
-  grey80: getColor('grey-80'),
-  grey10: getColor('grey-10'),
-  grey05: getColor('grey-05'),
+const borderColors: BorderColors = {
   green: getColor('green'),
   'blue-berry': getColor('blue-berry'),
   blueBerry: getColor('blue-berry'),
@@ -17,29 +11,23 @@ const colors = {
   orange: getColor('orange'),
 };
 
-const globalMinWidthSimple = 150;
-const globalMaxWidthSimple = 250;
-const globalMinWidthDetail = 250;
-const globalMaxWidthDetail = 400;
+const simpleMinWidth = 150;
+const simpleMaxWidth = 250;
+const detailMinWidth = 250;
+const detailMaxWidth = 400;
 
-const decideCardAreaWidths = (type: CardType, minWidth?: number, maxWidth?: number) => {
-  let cssValue = '';
+const getCardAreaMinWidth = (type: CardType, minWidth?: number) => {
   if (type === 'simple') {
-    cssValue += minWidth
-      ? `min-width: ${Math.max(minWidth, globalMinWidthSimple)}px;`
-      : `min-width: ${globalMinWidthSimple}px;`;
-    cssValue += maxWidth
-      ? `max-width: ${Math.min(maxWidth, globalMaxWidthSimple)}px;`
-      : `max-width: ${globalMaxWidthSimple}px;`;
-  } else {
-    cssValue += minWidth
-      ? `min-width: ${Math.max(minWidth, globalMinWidthDetail)}px;`
-      : `min-width: ${globalMinWidthDetail}px;`;
-    cssValue += maxWidth
-      ? `max-width: ${Math.min(maxWidth, globalMaxWidthDetail)}px;`
-      : `max-width: ${globalMaxWidthDetail}px;`;
+    return `${minWidth ? Math.max(minWidth, simpleMinWidth) : simpleMinWidth}px`;
   }
-  return cssValue;
+  return `${minWidth ? Math.max(minWidth, detailMinWidth) : detailMinWidth}px`;
+};
+
+const getCardAreaMaxWidth = (type: CardType, maxWidth?: number) => {
+  if (type === 'simple') {
+    return `${maxWidth ? Math.min(maxWidth, simpleMaxWidth) : simpleMaxWidth}px`;
+  }
+  return `${maxWidth ? Math.min(maxWidth, detailMaxWidth) : detailMaxWidth}px`;
 };
 
 interface CardAreaProps {
@@ -57,26 +45,21 @@ export const CardArea = styled.div<CardAreaProps>`
   align-items: center;
   justify-content: ${(props) => (props.type === 'simple' ? 'center' : 'flex-start')};
   position: relative;
-  background: ${colors.white};
+  background: ${getColor('white')};
   box-sizing: border-box;
 
   padding: 24px;
-  ${(props) => decideCardAreaWidths(props.type, props.minWidth, props.maxWidth)};
-  ${(props) => css`
-    width: ${props.width};
-    height: ${props.height};
-  `}
-  ${(props) =>
-    props.type === 'simple' &&
-    css`
-      aspect-ratio: 1 / 1;
-    `}
+  min-width: ${(props) => getCardAreaMinWidth(props.type, props.minWidth)};
+  max-width: ${(props) => getCardAreaMaxWidth(props.type, props.maxWidth)};
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  aspect-ratio: ${(props) => props.type === 'simple' && '1 / 1'};
 
   border-radius: 8px;
-  border: ${(props) => (props.hasBorder ? `1px solid ${colors.grey10}` : 'none')};
+  border: ${(props) => (props.hasBorder ? `1px solid ${getColor('grey-10')}` : 'none')};
 
   &:hover {
-    border: 2px solid ${colors.charge};
+    border: 2px solid ${getColor('elvia-charge')};
     padding: ${(props) => (props.hasBorder ? '23px' : '22px')};
     cursor: pointer;
   }
@@ -91,11 +74,7 @@ export const CardContent = styled.div<CardContentProps>`
   flex-direction: column;
   justify-content: ${(props) => (props.type === 'simple' ? 'center' : 'flex-start')};
   align-items: ${(props) => (props.type === 'simple' ? 'center' : 'flex-start')};
-  ${(props) =>
-    props.type === 'detail' &&
-    css`
-      gap: 8px;
-    `}
+  gap: ${(props) => props.type === 'detail' && '8px'};
   width: fit-content;
 `;
 
@@ -108,7 +87,7 @@ export const CardHeading = styled.h3<CardHeadingProps>`
   margin: 0;
   ${(props) => (props.type === 'simple' ? getTypographyCss('text-sm-strong') : getTypographyCss('title-xs'))};
   text-align: ${(props) => (props.type === 'simple' ? 'center' : 'left')};
-  color: ${colors.black};
+  color: ${getColor('black')};
   display: flexbox;
   overflow: hidden;
   -webkit-line-clamp: ${(props) => (props.type === 'simple' ? 1 : 2)};
@@ -127,7 +106,7 @@ export const CardDescription = styled.p<CardDescriptionProps>`
   margin: 0;
   ${(props) => (props.type === 'simple' ? getTypographyCss('text-micro') : getTypographyCss('text-sm'))};
   text-align: ${(props) => (props.type === 'simple' ? 'center' : 'left')};
-  color: ${colors.black};
+  color: ${getColor('black')};
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -138,7 +117,7 @@ export const CardDescription = styled.p<CardDescriptionProps>`
 export const CardIcon = styled.div`
   ${getTypographyCss('title-lg')}
   text-align: center;
-  color: ${colors.black};
+  color: ${getColor('black')};
   white-space: nowrap;
   width: fit-content;
 
@@ -176,7 +155,7 @@ export const CardColoredLine = styled.div<CardColoredLineProps>`
   top: 0px;
   left: 0px;
   width: 100%;
-  border-top: 4px solid ${(props) => (props.borderColor ? colors[props.borderColor] : 'transparent')};
+  border-top: 4px solid ${(props) => (props.borderColor ? borderColors[props.borderColor] : 'transparent')};
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   ${CardArea}:hover & {
@@ -190,7 +169,7 @@ export const CardTag = styled.span`
   width: fit-content;
   padding: 4px 8px;
   border-radius: 4px;
-  background: ${colors.grey10};
+  background: ${getColor('grey-10')};
   font-family: 'Red Hat Text', 'Verdana, sans-serif';
   font-style: normal;
   font-weight: 400;
@@ -198,7 +177,7 @@ export const CardTag = styled.span`
   line-height: 16px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: ${colors.black};
+  color: ${getColor('black')};
   white-space: nowrap;
 `;
 
@@ -223,7 +202,7 @@ export const CardHoverArrow = styled.div`
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: radial-gradient(circle, ${colors.white} 20%, transparent 100%);
+  background: radial-gradient(circle, ${getColor('white')} 20%, transparent 100%);
   opacity: 0;
   ${CardArea}:hover & {
     animation: ${CardHoverArrowHoverKeyframe} 300ms ease forwards;
@@ -239,15 +218,7 @@ export const CardCornerIcon = styled.div<CardCornerIconProps>`
   right: 16px;
   top: 16px;
   ${CardArea}:hover & {
-    ${(props) =>
-      props.hasBorder
-        ? css`
-            right: 15px;
-            top: 15px;
-          `
-        : css`
-            right: 14px;
-            top: 14px;
-          `}
+    right: ${(props) => (props.hasBorder ? '15px' : '14px')};
+    top: ${(props) => (props.hasBorder ? '15px' : '14px')};
   }
 `;
