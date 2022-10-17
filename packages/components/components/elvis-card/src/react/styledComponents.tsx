@@ -1,7 +1,17 @@
 import styled, { keyframes } from 'styled-components';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { getColor } from '@elvia/elvis-colors';
-import { CardType, BorderColor, BorderColors } from './elvia-card.types';
+import {
+  CardType,
+  BorderColors,
+  CardAreaProps,
+  CardContentProps,
+  CardHeadingProps,
+  CardDescriptionProps,
+  CardColoredLineContainerProps,
+  CardColoredLineProps,
+  CardCornerIconProps,
+} from './elvia-card.types';
 
 const borderColors: BorderColors = {
   green: getColor('green'),
@@ -30,15 +40,6 @@ const getCardAreaMaxWidth = (type: CardType, maxWidth?: number) => {
   return `${maxWidth ? Math.min(maxWidth, detailMaxWidth) : detailMaxWidth}px`;
 };
 
-interface CardAreaProps {
-  type: CardType;
-  hasBorder: boolean;
-  width: string;
-  height: string;
-  minWidth?: number;
-  maxWidth?: number;
-}
-
 export const CardArea = styled.div<CardAreaProps>`
   display: flex;
   flex-direction: column;
@@ -65,10 +66,6 @@ export const CardArea = styled.div<CardAreaProps>`
   }
 `;
 
-interface CardContentProps {
-  type: CardType;
-}
-
 export const CardContent = styled.div<CardContentProps>`
   display: flex;
   flex-direction: column;
@@ -77,10 +74,6 @@ export const CardContent = styled.div<CardContentProps>`
   gap: ${(props) => props.type === 'detail' && '8px'};
   width: fit-content;
 `;
-
-interface CardHeadingProps {
-  type: CardType;
-}
 
 export const CardHeading = styled.h3<CardHeadingProps>`
   width: fit-content;
@@ -95,11 +88,6 @@ export const CardHeading = styled.h3<CardHeadingProps>`
   -webkit-box-orient: vertical;
   overflow-wrap: break-word;
 `;
-
-interface CardDescriptionProps {
-  type: CardType;
-  maxDescriptionLines: number;
-}
 
 export const CardDescription = styled.p<CardDescriptionProps>`
   padding: 0;
@@ -129,10 +117,6 @@ export const CardIcon = styled.div`
   }
 `;
 
-interface CardColoredLineContainerProps {
-  hasBorder?: boolean;
-}
-
 export const CardColoredLineContainer = styled.div<CardColoredLineContainerProps>`
   box-sizing: border-box;
   position: absolute;
@@ -145,10 +129,6 @@ export const CardColoredLineContainer = styled.div<CardColoredLineContainerProps
   border: ${(props) => (props.hasBorder ? '1px solid transparent' : '0')};
   pointer-events: none;
 `;
-
-interface CardColoredLineProps {
-  borderColor?: BorderColor;
-}
 
 export const CardColoredLine = styled.div<CardColoredLineProps>`
   position: absolute;
@@ -208,10 +188,6 @@ export const CardHoverArrow = styled.div`
     animation: ${CardHoverArrowHoverKeyframe} 300ms ease forwards;
   }
 `;
-
-interface CardCornerIconProps {
-  hasBorder?: boolean;
-}
 
 export const CardCornerIcon = styled.div<CardCornerIconProps>`
   position: absolute;
