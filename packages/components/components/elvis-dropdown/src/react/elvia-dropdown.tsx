@@ -9,7 +9,8 @@ import Select, {
   SingleValueProps,
   StylesConfig,
 } from 'react-select';
-import { Icon, IconName } from '@elvia/elvis-icon/react';
+import { Icon } from '@elvia/elvis-icon/react';
+import type { IconName } from '@elvia/elvis-icon/react';
 import {
   DropdownCheckbox,
   DropdownCheckboxLabel,
