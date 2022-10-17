@@ -2,16 +2,6 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "11.10.22",
-      "version": "5.1.9",
-      "changelog": [
-        {
-          "type": "bug_fix",
-          "changes": ["Trigger is now clickable again when popover is open"]
-        }
-      ]
-    },
-    {
       "date": "10.10.22",
       "version": "5.1.8",
       "changelog": [
