@@ -1,14 +1,12 @@
 {
   "content": [
     {
-      "version": "9.2.0",
-<<<<<<< HEAD
-      "date": "October 11, 2022",
+      "date": "October 17, 2022",
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
-            "The Segmented control classes have been replaced with a component and the classes will therefore be deprecated in the future."
+            "The new Segmented Control component replaces the segmented control classes and these are now, therefore, deprecated."
           ],
           "components": [
             {
@@ -16,7 +14,11 @@
               "url": "https://design.elvia.io/components/segmented-control"
             }
           ]
-=======
+        }
+      ]
+    },
+    {
+      "version": "9.2.0",
       "date": "October 17, 2022",
       "changelog": [
         {
@@ -42,7 +44,6 @@
         {
           "type": "patch",
           "changes": ["Elvis now checks for deprecated classes more efficiently."]
->>>>>>> 22e9dff75776c4d8121e8976843c4131b1c17395
         }
       ]
     },
