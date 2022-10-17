@@ -9,7 +9,7 @@ interface Props {
   onClose: () => void;
   onChange: (changeType: ChangeType, newValue: number) => void;
   minuteInterval: MinuteInterval;
-  currentTime: Date | undefined;
+  currentTime?: Date | null;
 }
 
 export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
