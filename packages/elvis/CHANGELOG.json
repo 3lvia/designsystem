@@ -7,7 +7,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "The Segmented control classes have been replaced with a component and the classes will therefore be deprecated in the future."
+            "The new Segmented Control component replaces the segmented control classes and these are now, therefore, deprecated."
           ],
           "components": [
             {

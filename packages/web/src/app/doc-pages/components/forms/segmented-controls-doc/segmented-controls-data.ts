@@ -10,7 +10,7 @@ export const segmentedControlData: ComponentData = {
       isRequired: true,
       type: 'TextSegmentedControl: {label: string} | IconSegmentedControl: {iconName: IconName, iconNameSelected: IconName, ariaLabel: string }',
       description:
-        'The items represents the controls in the segmented control. When using the icon type, the items should be provided with IconName both for normal state and hover and should have an ariaLabel to describe the icon e.g. {iconName: "thumbnail", iconNameSelected: "thumbnailHover", ariaLabel: "Thumbnail..." }.',
+        'The items represent the controls in the segmented control. When using the icon type, the items should be provided with IconName both for normal state and hover and should have an ariaLabel to describe the icon e.g. {iconName: "thumbnail", iconNameSelected: "thumbnailHover", ariaLabel: "Thumbnail..." }.',
     },
     value: {
       isRequired: false,
@@ -40,7 +40,7 @@ export const segmentedControlData: ComponentData = {
     valueOnChange: {
       isRequired: false,
       type: '(value: Number) => void',
-      description: 'Gets called every time the value is changed and return the new selected control.',
+      description: 'Gets called every time the value is changed and returns the new selected control.',
     },
     className: {
       isRequired: false,
