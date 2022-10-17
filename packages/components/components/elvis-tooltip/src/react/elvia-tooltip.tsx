@@ -13,6 +13,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   position = 'top',
   showDelay = 400,
   trigger,
+  triggerAreaRef,
   webcomponent,
 }) => {
   let timeoutId = 0;
@@ -68,6 +69,28 @@ export const Tooltip: React.FC<TooltipProps> = ({
     }
   }, [webcomponent]);
 
+  /** If triggerAreaRef is provided, add mouseEnter and mouseLeave listeners and use them to
+   * open and close the tooltip */
+  useEffect(() => {
+    const triggerArea = triggerAreaRef?.current;
+    if (!triggerArea) {
+      return;
+    }
+    const onMouseEnter = () => {
+      onOpen();
+    };
+    const onMouseLeave = () => {
+      onClose();
+    };
+
+    triggerArea.addEventListener('mouseenter', onMouseEnter);
+    triggerArea.addEventListener('mouseleave', onMouseLeave);
+    return () => {
+      triggerArea.removeEventListener('mouseenter', onMouseEnter);
+      triggerArea.removeEventListener('mouseleave', onMouseLeave);
+    };
+  }, [triggerAreaRef, triggerAreaRef?.current]);
+
   /** Update position from new position-prop */
   useEffect(() => {
     const newPosition: TooltipPosition = position || 'top';
@@ -105,10 +128,10 @@ export const Tooltip: React.FC<TooltipProps> = ({
   return (
     <>
       <TriggerContainer
-        onMouseEnter={() => onOpen(true)}
-        onMouseLeave={onClose}
-        onFocus={() => onOpen(false)}
-        onBlur={onClose}
+        onMouseEnter={() => !triggerAreaRef?.current && onOpen(true)}
+        onMouseLeave={() => !triggerAreaRef?.current && onClose()}
+        onFocus={() => !triggerAreaRef?.current && onOpen(false)}
+        onBlur={() => !triggerAreaRef?.current && onClose()}
         ref={triggerRef}
       >
         {trigger}

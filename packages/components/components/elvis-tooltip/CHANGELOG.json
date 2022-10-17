@@ -2,12 +2,24 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "18.10.22",
+      "version": "1.0.6",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Use <span class=\"code-text\">@elvia/elvis-toolbox@5.0.0</span>"]
+        }
+      ]
+    },
+    {
       "date": "17.10.22",
       "version": "1.0.5",
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Use <span class=\"code-text\">@elvia/elvis-toolbox@5.0.0</span>"]
+          "changes": [
+            "Added an internal function to allow different elements to position and trigger the tooltip. "
+          ]
         }
       ]
     },
