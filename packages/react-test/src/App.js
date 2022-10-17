@@ -374,7 +374,7 @@ function App() {
             <div className="example-wrapper">
               <h3>Segmented Control</h3>
               <SegmentedControl
-                items={[{ name: 'Different' }, { name: 'Length' }, { name: 'Woords' }]}
+                items={[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]}
                 size={'medium'}
                 value={0}
                 valueOnChange={(value) => console.log(value)}
@@ -382,7 +382,10 @@ function App() {
               <div className="e-mt-8">
                 <SegmentedControl
                   type="icon"
-                  items={[{ name: 'thumbnail' }, { name: 'list' }]}
+                  items={[
+                    { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor' },
+                    { iconName: 'list', iconNameSelected: 'listColor' },
+                  ]}
                   size={'large'}
                   value={0}
                   valueOnChange={(value) => console.log(value)}

@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Icon } from '@elvia/elvis-icon/react';
 import { IconName } from '@elvia/elvis-assets-icons';
-import { IconSegmentedControl, SegmentedControlProps } from './elviaSegmentedControl.types';
+import {
+  TextSegmentedControl,
+  IconSegmentedControl,
+  SegmentedControlProps,
+} from './elviaSegmentedControl.types';
 import { SegmentedControlContainer, SegmentedControlLabel, SegmentedControlInput } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 
@@ -16,7 +20,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   webcomponent,
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(value);
-  const segmentedControlName = uniqueId('segmented-control-');
+  const segmentedControlName = uniqueId('ewc-segmented-control-');
 
   const setSelected = (selectedIndex: number): void => {
     setSelectedIndex(selectedIndex);
@@ -45,26 +49,35 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
             size={size}
             isSelected={index === selectedIndex}
             key={index}
-            htmlFor={control.name + index}
-            aria-label={type === 'icon' ? (control as IconSegmentedControl).ariaLabel : ''}
+            htmlFor={'segmented-control-' + index}
+            aria-label={type === 'icon' ? (control as IconSegmentedControl).ariaLabel : undefined}
             data-testid="segmented-control-label"
           >
             <SegmentedControlInput
               type="radio"
-              id={control.name + index}
+              id={'segmented-control-' + index}
               name={segmentedControlName}
               checked={index === selectedIndex}
               onChange={() => setSelected(index)}
               data-testid="segmented-control-input"
             ></SegmentedControlInput>
-            {type === 'text' && <div data-testid="segmented-control-text">{control.name}</div>}
-            {type === 'icon' && (
-              <Icon
-                name={(index === selectedIndex ? control.name + 'Color' : control.name) as IconName}
-                size={size === 'large' ? 'sm' : 'xs'}
-                data-testid="segmented-control-icon"
-              />
+            {type === 'text' && (
+              <div data-testid="segmented-control-text">{(control as TextSegmentedControl).label}</div>
             )}
+            {type === 'icon' &&
+              (index !== selectedIndex ? (
+                <Icon
+                  name={(control as IconSegmentedControl).iconName as IconName}
+                  size={size === 'large' ? 'sm' : 'xs'}
+                  data-testid="segmented-control-icon"
+                />
+              ) : (
+                <Icon
+                  name={(control as IconSegmentedControl).iconNameSelected as IconName}
+                  size={size === 'large' ? 'sm' : 'xs'}
+                  data-testid="segmented-control-icon"
+                />
+              ))}
           </SegmentedControlLabel>
         ))}
     </SegmentedControlContainer>

@@ -312,14 +312,14 @@
   <div class="example-wrapper">
     <h3>Segmented control</h3>
     <elvia-segmented-control
-      [items]="[{ name: 'Different' }, { name: 'Length' }, { name: 'Woords' }]"
+      [items]="[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]"
       (valueOnChange)="logValue('Segmented', $event.detail.value)"
     ></elvia-segmented-control>
     <elvia-segmented-control
       [type]="'icon'"
       [items]="[
-        { name: 'thumbnail', ariaLabel: 'Helo' },
-        { name: 'list', ariaLabel: 'HEElo' }
+        { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: 'Helo' },
+        { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: 'HEElo' }
       ]"
       (valueOnChange)="logValue('Segmented', $event.detail.value)"
     ></elvia-segmented-control>

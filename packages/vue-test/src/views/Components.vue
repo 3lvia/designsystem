@@ -190,14 +190,14 @@
     <div class="example-wrapper">
       <h3>Segmented Control</h3>
       <elvia-segmented-control
-        :items="[{ name: 'Weekly' }, { name: 'Monthly' }, { name: 'Yearly' }]"
+        :items="[{ label: 'Weekly' }, { label: 'Monthly' }, { label: 'Yearly' }]"
         @value-on-change="logValue('Segmented', $event.detail.value)"
       ></elvia-segmented-control>
       <elvia-segmented-control
         :type="'icon'"
         :items="[
-          { name: 'thumbnail', altLabel: 'Label' },
-          { name: 'list', altLabel: 'Label' },
+          { iconName: 'thumbnail', iconNameSelected: 'thumbnailSelected', altLabel: 'Label' },
+          { iconName: 'list', iconNameSelected: 'listSelected', altLabel: 'Label' },
         ]"
         @value-on-change="logValue('Segmented', $event.detail.value)"
       ></elvia-segmented-control>

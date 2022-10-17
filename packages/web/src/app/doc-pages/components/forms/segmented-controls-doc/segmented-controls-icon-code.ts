@@ -4,22 +4,34 @@ const segmentedControlIconCode: ComponentTypeData = {
   type: 'icon',
   codeReact: `<SegmentedControl
   type={"icon"}
-  items={[{name: 'thumbnail', ariaLabel: 'Segmented control example label'}, {name: 'list', ariaLabel: 'Segmented control example label'}]}
+  items={[
+    {iconName: 'thumbnail', iconNameSelected: 'thumbnail', ariaLabel: 'Segmented control example label'}, 
+    {iconName: 'list', iconNameSelected: 'list', ariaLabel: 'Segmented control example label'}
+  ]}
   valueOnChange={(event) => handleOnChange(event)}
 ></SegmentedControl>`,
   codeAngular: `<elvia-segmented-control
   [type]="'icon'"
-  [items]="[{name: 'thumbnail', ariaLabel: 'Segmented control example label'}, {name: 'list', ariaLabel: 'Segmented control example label'}]"
+  [items]="[
+    {iconName: 'thumbnail', iconNameSelected: 'thumbnail', ariaLabel: 'Segmented control example label'}, 
+    {iconName: 'list', iconNameSelected: 'list', ariaLabel: 'Segmented control example label'}
+  ]"
   (valueOnChange)="handleOnChange($event.detail.value)"
 ></elvia-segmented-control>`,
   codeVue: `<elvia-segmented-control
   :type="'icon'"
-  :items="[{name: 'thumbnail', ariaLabel: 'Segmented control example label'}, {name: 'list', ariaLabel: 'Segmented control example label'}]"
+  :items="[
+    {iconName: 'thumbnail', iconNameSelected: 'thumbnail', ariaLabel: 'Segmented control example label'}, 
+    {iconName: 'list', iconNameSelected: 'list', ariaLabel: 'Segmented control example label'}
+  ]"
   @value-on-change="handleOnChange($event.detail.value)"
 ></elvia-segmented-control>`,
   codeNativeHTML: `<elvia-segmented-control
   type="icon"
-  items="[{name: 'thumbnail', ariaLabel: 'Segmented control example label'}, {name: 'list', ariaLabel: 'Segmented control example label'}]"
+  items="[
+    {iconName: 'thumbnail', iconNameSelected: 'thumbnail', ariaLabel: 'Segmented control example label'}, 
+    {iconName: 'list', iconNameSelected: 'list', ariaLabel: 'Segmented control example label'}
+  ]"
   id="example-elvia-segmented-control"
 ></elvia-segmented-control>`,
 };

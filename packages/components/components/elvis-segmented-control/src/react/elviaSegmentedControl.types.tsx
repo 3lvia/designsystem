@@ -5,16 +5,17 @@ import { IconName } from '@elvia/elvis-assets-icons';
 export type Type = 'text' | 'icon';
 export type Size = 'large' | 'medium' | 'small';
 
-export interface SegmentedControl {
-  name: string;
+export interface TextSegmentedControl {
+  label: string;
 }
 export interface IconSegmentedControl {
-  name: IconName;
+  iconName: IconName;
+  iconNameSelected: IconName;
   ariaLabel: string;
 }
 
 export interface SegmentedControlProps {
-  items: SegmentedControl[] | IconSegmentedControl[];
+  items: TextSegmentedControl[] | IconSegmentedControl[];
   value?: number;
   type?: Type;
   size?: Size;
@@ -26,8 +27,8 @@ export interface SegmentedControlProps {
 
 // Styling
 export interface SegmentedControlContainerProps {
-  scType: string;
-  size: string;
+  scType: Type;
+  size: Size;
   selectedIndex: number;
   numberOfControls: number;
 }
