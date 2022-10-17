@@ -95,8 +95,8 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
   }, []);
 
   return (
-    <NumberPickerContainer data-test={`${title}-number-list`}>
-      <NumberPickerTitle data-test="number-list-title">{title}</NumberPickerTitle>
+    <NumberPickerContainer data-testid={`${title}-number-list`}>
+      <NumberPickerTitle data-testid="number-list-title">{title}</NumberPickerTitle>
       <HorizontalLine />
       <NumberList
         ref={listRef}
@@ -110,7 +110,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
             size="small"
             tabIndex={-1}
             onClick={() => shuffleTo('previous')}
-            data-test={`${title}-prev-value-button`}
+            data-testid={`${title}-prev-value-button`}
           >
             <Icon name="arrowUpBold" size="xs" />
           </IconButton>
@@ -121,7 +121,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
             isSelected={number === currentValue}
             key={index}
             onClick={() => onSelect(number)}
-            data-test={`${title}-number-button`}
+            data-testid={`${title}-number-button`}
             data-id={`${title}-${padDigit(number)}`}
           >
             {padDigit(number)}
@@ -132,7 +132,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
             size="small"
             tabIndex={-1}
             onClick={() => shuffleTo('next')}
-            data-test={`${title}-next-value-button`}
+            data-testid={`${title}-next-value-button`}
           >
             <Icon name="arrowDownBold" size="xs" />
           </IconButton>

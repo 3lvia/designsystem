@@ -294,9 +294,10 @@ export const Carousel: FC<CarouselProps> = function ({
             size="md"
           />
         </CarouselLeftButton>
-        <CarouselListOfDots data-testid="carousel-list-of-dots">
+        <CarouselListOfDots>
           {Array.from(Array(lengthOfItems), (_e, listIndex) => (
             <CarouselDot
+              data-testid="carousel-dot"
               key={listIndex}
               isSelected={listIndex === index}
               tabIndex={0}
