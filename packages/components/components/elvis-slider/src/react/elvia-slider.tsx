@@ -511,7 +511,6 @@ const Slider: React.FC<SliderProps> = ({
                   value={textFieldsValues.left}
                   aria-invalid={`${inputFieldIsInvalid('left')}`}
                   aria-errormessage={errors.rightTextfield ? 'left-error' : undefined}
-                  /* width={textLabelWidth ? textLabelWidth : 40} */
                   label={getLabel('left')}
                   data-testid="left-number-input"
                 />

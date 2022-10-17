@@ -12,6 +12,7 @@ const colors = {
   error: getColor('red'),
   grey20: getColor('grey-20'),
   grey30: getColor('grey-30'),
+  placeholder: getColor('placeholder'),
 };
 
 const typography = {
@@ -111,7 +112,6 @@ const DISABLED_THUMB = css`
 
 export const SliderContainer = styled.div`
   box-sizing: border-box;
-  text-align: left;
   width: 100%;
   min-width: 112px;
   position: relative;
@@ -130,6 +130,10 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
     return !props.leftInputPriority ? 'grid-auto-columns: 1fr;' : ''; //Keep all columns the same width, used to center the input field.
   }}
 
+  label {
+    display: flex;
+  }
+
   p:first-child {
     text-align: left;
     grid-column: 1 / 2;
@@ -144,6 +148,7 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
     justify-self: end;
   }
 
+  //the first number input field
   div:first-of-type {
     grid-row: 1 / 2;
 
@@ -151,12 +156,26 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
       if (props.leftInputPriority && props.type === 'simple') {
         return css`
           grid-column: 1 / 3;
-          align-self: center;
+
+          /* for aligning text text to the left */
+          input[type='number'] {
+            text-align: left;
+          }
+          label {
+            justify-content: flex-start;
+          }
         `;
       } else if (props.type === 'simple' && props.hasHintValues) {
         return css`
-          display: flex;
-          justify-content: center;
+          /* for aligning label text to the center */
+          input[type='number'] {
+            text-align: center;
+          }
+          label {
+            justify-content: center;
+          }
+
+          justify-self: center;
         `;
       }
       return '';
@@ -164,17 +183,33 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   }
 
   div:not(:first-child):last-child {
+    /* for aligning label text to the right */
+    input[type='number'] {
+      text-align: right;
+    }
+    label {
+      justify-content: flex-end;
+    }
     justify-self: end;
   }
 `;
 
+export const NumberInputContainer = styled.div`
+  box-sizing: border-box;
+  display: block;
+  padding-top: 8px;
+  position: relative;
+  width: fit-content;
+`;
+
 export const LabelText = styled.div`
+  box-sizing: border-box;
   background-color: ${colors.elviaWhite};
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 10px;
   font-weight: 500;
   line-height: 100%;
-  margin-left: 7px;
+  margin: 0 7px;
   padding: 0 3px;
   position: absolute;
   top: 0;
@@ -184,19 +219,12 @@ export const LabelText = styled.div`
   border-bottom: 1px solid ${colors.elviaWhite}; //to remove overflowing greenborder Safari iOS (16)
 `;
 
-export const NumberInputContainer = styled.div`
-  box-sizing: border-box;
-  display: block;
-  padding-top: 8px;
-  position: relative;
-  text-align: left;
-`;
-
 export const HelpValue = styled.p<HelperTextProps>`
   display: inline;
   width: fit-content;
   margin: 0;
   ${typography.smallText}
+  color: ${colors.placeholder};
 
   ${(props) => {
     return props.isDisabled
@@ -225,7 +253,6 @@ export const NumberInput = styled.input.attrs(() => ({
   min-width: 50px;
   padding: 4px 10px;
   position: relative;
-  text-align: left;
   text-transform: unset;
   width: ${(props) => Math.max(props.label.length, props.max.toString().length) + 2}ch;
 
