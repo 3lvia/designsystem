@@ -30,7 +30,6 @@ async function validateElviaComponentsConfig() {
           },
         },
         reactName: { type: 'string', pattern: '([A-Z0-9]){1}([a-zA-Z0-9])+' },
-        dependentStyleSheets: { type: 'array', items: { type: 'string' } },
         useWrapper: { type: 'boolean' },
         wrapperStyle: { type: 'string' },
         slotItems: { type: 'boolean' },

@@ -33,7 +33,7 @@ export class v2PlaygroundComponent {
   ];
 
   // Datepicker
-  date = new Date(2021, 4, 20);
+  date = new Date(2022, 9, 10);
 
   // Dropdown
   dropdownDefOptions = [

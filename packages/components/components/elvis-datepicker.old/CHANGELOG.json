@@ -2,18 +2,6 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "20.10.22",
-      "version": "6.0.0",
-      "changelog": [
-        {
-          "type": "patch",
-          "changes": [
-            "Rewrote component to remove dependency to <span class=\"code-text\">@material-ui</span>"
-          ]
-        }
-      ]
-    },
-    {
       "date": "10.10.22",
       "version": "5.0.0",
       "changelog": [

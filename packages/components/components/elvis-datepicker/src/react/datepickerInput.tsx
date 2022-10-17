@@ -1,23 +1,24 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { ErrorType } from './elviaTimepicker.types';
+import { ErrorType } from './elviaDatepicker.types';
 
-import { padDigit } from './padDigit';
 import { Input } from './styledComponents';
 
 interface Props {
   disabled?: boolean;
   required: boolean;
-  time?: Date;
+  date?: Date | null;
   isCompact?: boolean;
+  placeholder?: string;
   onChange: (newValue: Date) => void;
   onErrorChange: (error?: ErrorType) => void;
 }
 
-export const TimepickerInput: React.FC<Props> = ({
+export const DatepickerInput: React.FC<Props> = ({
   disabled,
   required,
-  time,
+  date,
   isCompact,
+  placeholder,
   onChange,
   onErrorChange,
 }) => {
@@ -84,8 +85,8 @@ export const TimepickerInput: React.FC<Props> = ({
   };
 
   const emitNewValue = (formattedValue: string): void => {
-    if (!time || formattedValue !== getFormattedInputValue(time)) {
-      const newValue = time ? new Date(time) : new Date();
+    if (!date || formattedValue !== getFormattedInputValue(date)) {
+      const newValue = date ? new Date(date) : new Date();
 
       const parts = formattedValue.split('.');
       newValue.setHours(+parts[0], +parts[1], 0, 0);
@@ -101,13 +102,12 @@ export const TimepickerInput: React.FC<Props> = ({
       // Always use parsed minute if it exists
       parsedMinute = minute;
     }
-    parsedMinute = padDigit(+parsedMinute, { mode: 'suffix' });
 
     if (!parsedHour.length && required) {
       onErrorChange('required');
       return false;
     } else if ((+parsedHour === 24 && +parsedMinute > 0) || +parsedHour > 24 || +parsedMinute >= 60) {
-      onErrorChange('invalidTime');
+      onErrorChange('invalidDate');
       return false;
     }
 
@@ -134,21 +134,23 @@ export const TimepickerInput: React.FC<Props> = ({
     }
 
     const normalizedHour = +hour === 24 ? 0 : +hour;
-    const newValue = `${padDigit(normalizedHour)}.${padDigit(+minute, { mode: 'suffix' })}`;
+    const newValue = `${normalizedHour}.${minute}`;
     setInputValue(newValue);
     emitNewValue(newValue);
   };
 
-  const getFormattedInputValue = (date: Date): string => {
-    return `${padDigit(date.getHours())}.${padDigit(date.getMinutes())}`;
+  const getFormattedInputValue = (date?: Date | null): string => {
+    if (!date) {
+      return '';
+    }
+
+    return date.toLocaleString('nb-NO', { day: '2-digit', month: '2-digit', year: 'numeric' });
   };
 
   useEffect(() => {
-    if (time) {
-      setInputValue(getFormattedInputValue(time));
-      onErrorChange(undefined);
-    }
-  }, [time]);
+    setInputValue(getFormattedInputValue(date));
+    onErrorChange(undefined);
+  }, [date]);
 
   // Focus and select the text when the parent container is double clicked
   useEffect(() => {
@@ -169,7 +171,7 @@ export const TimepickerInput: React.FC<Props> = ({
       ref={inputElement}
       disabled={disabled}
       type="text"
-      placeholder="tt.mm"
+      placeholder={placeholder}
       value={inputValue}
       onKeyDown={onKeyDown}
       onChange={parseInput}
