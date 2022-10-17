@@ -14,6 +14,16 @@
       ]
     },
     {
+      "version": "9.1.1",
+      "date": "October 14, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Elvis now checks for deprecated classes more efficiently."]
+        }
+      ]
+    },
+    {
       "version": "9.1.0",
       "date": "October 11, 2022",
       "changelog": [

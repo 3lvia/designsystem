@@ -117,7 +117,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     <TimePickerContainer className={className ?? ''} style={{ ...inlineStyle }} {...rest}>
       <TimePickerLabel isCompact={isCompact}>
         {!!label && (
-          <LabelText data-test="label" isCompact={isCompact}>
+          <LabelText data-testid="label" isCompact={isCompact}>
             {label}
           </LabelText>
         )}
@@ -142,7 +142,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             onClick={() => setVisibility(!isShowing)}
             ref={openPopoverButtonRef}
             size={isCompact ? 'small' : 'medium'}
-            data-test="popover-toggle"
+            data-testid="popover-toggle"
             type="button"
             aria-label="Åpne tidvelger"
             aria-haspopup="dialog"

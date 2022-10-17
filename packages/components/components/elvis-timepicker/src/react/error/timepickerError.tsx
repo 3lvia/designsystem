@@ -24,7 +24,7 @@ export const TimepickerError: React.FC<Props> = ({ errorType, customText, isComp
   return (
     <ErrorContainer>
       <Icon name="removeCircle" color="error" size="xs" />
-      <ErrorText data-test="error" isCompact={isCompact}>
+      <ErrorText data-testid="error" isCompact={isCompact}>
         {errorText}
       </ErrorText>
     </ErrorContainer>
