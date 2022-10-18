@@ -127,17 +127,20 @@ module.exports = [
     attributes: [
       { name: 'icon', type: 'string', propType: 'string | HTMLElement' },
       { name: 'iconHover', type: 'string', propType: 'string | HTMLElement | undefined' },
-      { name: 'header', type: 'string', propType: 'string' },
+      { name: 'header', type: 'string', propType: 'string' }, // Deprecated
+      { name: 'heading', type: 'string', propType: 'string' },
+      { name: 'headingLevel', type: 'string', propType: 'string | undefined' },
       { name: 'description', type: 'string', propType: 'string | undefined' },
       { name: 'borderColor', type: 'string', propType: 'string | undefined' },
       { name: 'type', type: 'string', propType: 'string' },
-      { name: 'shape', type: 'string', propType: 'string' },
+      { name: 'shape', type: 'string', propType: 'string' }, // Deprecated
       { name: 'hasBorder', type: 'boolean', propType: 'boolean' },
       { name: 'width', type: 'string', propType: 'string' },
       { name: 'minWidth', type: 'number', propType: 'number | undefined' },
       { name: 'maxWidth', type: 'number', propType: 'number | undefined' },
       { name: 'maxDescriptionLines', type: 'number', propType: 'number' },
-      { name: 'label', type: 'string', propType: 'string | undefined' },
+      { name: 'label', type: 'string', propType: 'string | undefined' }, // Deprecated
+      { name: 'tag', type: 'string', propType: 'string | undefined' },
       { name: 'cornerIcon', type: 'string', propType: 'string | HTMLElement | undefined' },
       { name: 'className', type: 'string', propType: 'string | undefined' },
       { name: 'inlineStyle', type: 'object', propType: 'object | undefined' },
