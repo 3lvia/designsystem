@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $green: #29d305;
 $grey-10: #e9e9e9;
 $grey-40: #a8a8a8;
@@ -14,11 +16,11 @@ $tabs-height-with-focus: calc($tabs-height + ($tabs-focus-padding * 2));
 
 $html-font-size: 16px;
 @function stripUnit($value) {
-  @return $value / ($value * 0 + 1);
+  @return math.div($value, $value * 0 + 1);
 }
 
 @function rem($pxValue) {
-  @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+  @return #{math.div(stripUnit($pxValue), stripUnit($html-font-size))}rem;
 }
 
 %underline {
