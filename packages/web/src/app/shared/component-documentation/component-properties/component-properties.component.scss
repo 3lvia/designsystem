@@ -1,8 +1,8 @@
 @use '@elvia/elvis/src/utilities/helpers.scss';
 .e-list {
   .prop-element-title {
-    font-size: helpers.toRem(14);
-    line-height: 157.14%;
+    font-size: 14px;
+    line-height: 22px;
   }
   li::before {
     top: 16px;

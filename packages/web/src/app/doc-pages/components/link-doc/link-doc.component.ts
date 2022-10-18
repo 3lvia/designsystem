@@ -29,10 +29,10 @@ export class LinkDocComponent {
   example1Inverted = `<a class="e-link e-link--inverted" href="https://design.elvia.io/components/link#Overview">Standard link</a>
 `;
 
-  example2 = `<div style="font-size: 1.25rem;">This is an <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">inline link</a></div>
+  example2 = `<div style="font-size: 20px;">This is an <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">inline link</a></div>
 `;
 
-  example2Inverted = `<div style="font-size: 1.25rem; e-text-white">This is an <a class="e-link e-link--inline e-link--inverted" href="https://design.elvia.io/components/link#Overview">inline link</a></div>
+  example2Inverted = `<div style="font-size: 20px; e-text-white">This is an <a class="e-link e-link--inline e-link--inverted" href="https://design.elvia.io/components/link#Overview">inline link</a></div>
 `;
 
   exampleNewTab = `<a class="e-link e-link--new-tab" href="https://design.elvia.io/components/link#Overview" target="_blank" rel="noopener">

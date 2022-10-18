@@ -77,23 +77,21 @@
           font-family: 'Red Hat Text', Verdana, sans-serif;
           font-style: normal;
           font-weight: 500;
-          font-size: helpers.toRem(14);
-          line-height: 1rem;
+          font-size: 14px;
+          line-height: 16px;
           letter-spacing: 0.012em;
         }
       }
       a:hover,
       a.active-route {
         .navbar-item-title {
-          font-size: helpers.toRem(15);
-          display: flex;
-          flex-direction: row;
-          align-items: center;
+          font-size: 15px;
         }
         .navbar-item-title::before {
           content: '';
           position: absolute;
           left: 0px;
+          top: calc((#{$text-line-height} / 2) - 8px - 4px);
           width: 8px;
           height: 8px;
           border-radius: 50%;
@@ -102,7 +100,7 @@
       }
       a.active-route {
         .navbar-item-title {
-          font-size: helpers.toRem(14);
+          font-size: 14px;
           font-weight: 600;
         }
         .navbar-item-title:before {
@@ -127,8 +125,8 @@
             font-family: 'Red Hat Text', Verdana, sans-serif;
             font-style: normal;
             font-weight: 400;
-            font-size: helpers.toRem(13);
-            line-height: 130.77%;
+            font-size: 13px;
+            line-height: 17px;
             letter-spacing: 0.012em;
             color: var(--e-grey-70);
           }
@@ -157,10 +155,10 @@
             }
           }
           a:hover {
-            font-size: helpers.toRem(14);
+            font-size: 14px;
           }
           a.active-anchor {
-            font-size: helpers.toRem(13);
+            font-size: 13px;
             font-weight: 500;
             color: var(--e-black);
           }

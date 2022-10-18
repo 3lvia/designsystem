@@ -18,7 +18,7 @@
   }
 }
 .not-landing-page {
-  /* margin-left: 100px; */
+  margin-left: 100px;
   @media (max-width: 1632px) {
     margin-left: calc(13% + 72px + 48px);
   }
@@ -64,9 +64,9 @@
     }
     .feedback-text {
       font-family: 'Red Hat Display', Verdana, sans-serif;
-      font-size: helpers.toRem(14);
+      font-size: 14px;
       font-weight: 500;
-      line-height: 114.29%;
+      line-height: 16px;
     }
   }
 }

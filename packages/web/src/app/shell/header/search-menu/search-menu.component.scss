@@ -122,8 +122,8 @@
       font-family: 'Red Hat Text', Verdana, sans-serif;
       font-style: normal;
       font-weight: 400;
-      font-size: helpers.toRem(16);
-      line-height: 137.5%;
+      font-size: 16px;
+      line-height: 22px;
 
       &.e-search--global {
         display: flex;
@@ -145,8 +145,8 @@
           input:focus,
           input:disabled {
             font-family: 'Red Hat Text', Verdana, sans-serif;
-            font-size: helpers.toRem(24);
-            line-height: 158.33%;
+            font-size: 24px;
+            line-height: 38px;
             padding: 0;
             border-radius: 0;
             border: 1px solid transparent;
@@ -197,8 +197,8 @@
     margin-top: 64px;
 
     font-family: 'Red Hat Text', Verdana, sans-serif;
-    font-size: helpers.toRem(20);
-    line-height: 1.6;
+    font-size: 20px;
+    line-height: 32px;
   }
 
   .results {
@@ -240,8 +240,8 @@
         .title {
           font-family: 'Red Hat Display', Verdana, sans-serif;
           font-weight: 700;
-          font-size: helpers.toRem(18);
-          line-height: 122.22%;
+          font-size: 18px;
+          line-height: 22px;
         }
         .e-label {
           cursor: pointer;
@@ -254,8 +254,8 @@
         font-family: 'Red Hat Text', Verdana, sans-serif;
         font-style: normal;
         font-weight: 400;
-        font-size: helpers.toRem(16);
-        line-height: 1.75;
+        font-size: 16px;
+        line-height: 28px;
         color: var(--e-grey-80);
       }
     }
