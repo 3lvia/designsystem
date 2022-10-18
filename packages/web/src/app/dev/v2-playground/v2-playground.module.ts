@@ -26,6 +26,7 @@ import '@elvia/elvis-pagination';
 import '@elvia/elvis-popover';
 import '@elvia/elvis-progress-linear';
 import '@elvia/elvis-radio-filter';
+import '@elvia/elvis-segmented-control';
 import '@elvia/elvis-slider';
 import '@elvia/elvis-spotlight';
 import '@elvia/elvis-tabs';

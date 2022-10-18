@@ -11,6 +11,23 @@
       ]
     },
     {
+      "date": "October 17, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The new Segmented Control component replaces the segmented control classes and these are now, therefore, deprecated."
+          ],
+          "components": [
+            {
+              "displayName": "Segmented Control",
+              "url": "https://design.elvia.io/components/segmented-control"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "version": "9.2.0",
       "date": "October 17, 2022",
       "changelog": [
