@@ -11,8 +11,8 @@ const colors = {
   grey80: getColor('grey-80'),
 };
 
-const DEFAULT_FONT_SIZE = 16;
-const rem = (px: number) => `${px / DEFAULT_FONT_SIZE}rem`;
+const defaultFontSize = 16;
+const rem = (px: number) => `${px / defaultFontSize}rem`;
 
 const typography = {
   textSm: getTypographyCss('text-sm'),

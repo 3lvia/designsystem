@@ -2,8 +2,8 @@ import styled, { css, keyframes } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
-const DEFAULT_FONT_SIZE = 16;
-const rem = (px: number) => `${px / DEFAULT_FONT_SIZE}rem`;
+const defaultFontSize = 16;
+const rem = (px: number) => `${px / defaultFontSize}rem`;
 
 const colors = {
   charge: getColor('elvia-charge'),

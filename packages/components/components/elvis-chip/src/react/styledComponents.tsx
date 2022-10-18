@@ -14,8 +14,8 @@ export const colors = {
   gray05: getColor('grey-05'),
 };
 
-const DEFAULT_FONT_SIZE = 16;
-const rem = (px: number) => `${px / DEFAULT_FONT_SIZE}rem`;
+const defaultFontSize = 16;
+const rem = (px: number) => `${px / defaultFontSize}rem`;
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
 
