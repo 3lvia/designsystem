@@ -1,14 +1,16 @@
 {
   "content": [
     {
-<<<<<<< HEAD
       "version": "9.2.1",
       "date": "October 18, 2022",
       "changelog": [
         {
           "type": "patch",
           "changes": ["Removed unnecessary files from the Elvis package, making it 7% smaller in size."]
-=======
+        }
+      ]
+    },
+    {
       "date": "October 17, 2022",
       "changelog": [
         {
@@ -22,7 +24,6 @@
               "url": "https://design.elvia.io/components/segmented-control"
             }
           ]
->>>>>>> master
         }
       ]
     },
