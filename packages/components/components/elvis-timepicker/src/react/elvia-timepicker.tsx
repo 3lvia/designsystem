@@ -30,7 +30,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   webcomponent,
   ...rest
 }) => {
-  const [time, setTime] = useState<Date | undefined>(value);
+  const [time, setTime] = useState<Date | undefined | null>(value);
   const [error, setError] = useState<ErrorType | undefined>();
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -42,7 +42,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     alignWidths: true,
   });
 
-  const updateValue = (newTime: Date, emit = true): void => {
+  const updateValue = (newTime: Date | null, emit = true): void => {
     setTime(newTime);
 
     if (!emit) {
@@ -64,9 +64,9 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     }
 
     if (type === 'hour') {
-      newTime.setHours(value);
+      newTime.setHours(value, newTime.getMinutes(), 0, 0);
     } else {
-      newTime.setMinutes(value);
+      newTime.setMinutes(value, 0, 0);
     }
 
     updateValue(newTime);
@@ -100,7 +100,9 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     }
 
     if (isShowing && selectNowOnOpen && !time) {
-      updateValue(new Date());
+      const initialTime = new Date();
+      initialTime.setSeconds(0, 0);
+      updateValue(initialTime);
     }
 
     useFocusTrap(popoverRef);
