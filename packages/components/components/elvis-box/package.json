@@ -8,7 +8,7 @@
   "dependencies": {
     "@elvia/elvis-colors": "^1.2.0",
     "@elvia/elvis-component-wrapper": "^2.2.2",
-    "@elvia/elvis-typography": "^2.1.0",
+    "@elvia/elvis-typography": "^3.0.0",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
