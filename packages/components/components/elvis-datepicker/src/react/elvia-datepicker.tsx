@@ -52,6 +52,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
+  const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
     offset: 8,
     horizontalPosition: 'center',
@@ -137,8 +138,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
   // We need to re-initiate the focus-trap since the DOM has changed
   const onCalendarViewToggle = () => {
-    useFocusTrap(popoverRef, true);
-    useFocusTrap(popoverRef);
+    releaseFocusTrap();
+    trapFocus(popoverRef);
   };
 
   useEffect(() => {
@@ -150,9 +151,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       updateValue(new Date());
     }
 
-    useFocusTrap(popoverRef);
+    trapFocus(popoverRef);
 
-    return () => useFocusTrap(popoverRef, true);
+    return () => releaseFocusTrap();
   }, [isShowing]);
 
   // Needed for webcomponent -> To update the default value
