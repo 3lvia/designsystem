@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "18.10.22",
+      "version": "4.1.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Bumped version dependency of <span class=\"code-text\">@elvia/elvis-tooltip</span> to enable support for newline characters in the tooltips on options."
+          ]
+        }
+      ]
+    },
+    {
       "date": "17.10.22",
       "version": "4.1.0",
       "changelog": [
