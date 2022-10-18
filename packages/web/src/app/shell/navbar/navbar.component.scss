@@ -3,6 +3,8 @@
 @import '../../shared/shared-animations';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
+$text-line-height: 32px;
+
 .wrapper {
   height: 100%;
   position: relative;
