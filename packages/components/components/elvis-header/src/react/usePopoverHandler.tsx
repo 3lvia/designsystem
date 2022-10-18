@@ -12,6 +12,7 @@ export const usePopoverHandler = (
   triggerRef: RefObject<HTMLElement>,
   popoverRef: RefObject<HTMLElement>,
 ): ReturnType => {
+  const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const [userMenuIsOpen, setUserMenuIsOpen] = useState(false);
   const [fadeOut, setFadeOut] = useState(true);
 
@@ -26,10 +27,10 @@ export const usePopoverHandler = (
       setUserMenuIsOpen(isShowing);
       setFadeOut(false);
       window?.addEventListener('keydown', onKeydown);
-      setTimeout(() => useFocusTrap(popoverRef));
+      setTimeout(() => trapFocus(popoverRef));
     } else {
       setFadeOut(true);
-      useFocusTrap(popoverRef, true);
+      releaseFocusTrap();
       window?.removeEventListener('keydown', onKeydown);
       setTimeout(() => triggerRef.current?.focus());
     }
