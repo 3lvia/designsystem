@@ -60,13 +60,13 @@
       position: relative;
     }
     .profile-emoji {
-      font-size: helpers.toRem(58);
+      font-size: 58px;
       position: absolute;
       top: 5px;
       left: 36px;
       user-select: none;
       @include breakpoint-up(Mobile) {
-        font-size: helpers.toRem(44);
+        font-size: 44px;
         left: 186px - 44px;
       }
       &.right {

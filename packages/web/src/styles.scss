@@ -67,7 +67,7 @@ p {
   font-family: 'Red Hat Mono', Verdana, sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: helpers.toRem(16);
+  font-size: 16px;
   line-height: inherit;
 
   background: var(--e-grey-05);
@@ -193,11 +193,11 @@ p {
     font-family: 'Red Hat Text', Verdana, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: helpers.toRem(20);
-    line-height: 1.6;
+    font-size: 20px;
+    line-height: 160%;
     @media (min-width: 1450px) {
-      font-size: helpers.toRem(24);
-      line-height: 1.6;
+      font-size: 24px;
+      line-height: 160%;
     }
     @include breakpoint-up(Tablet) {
       display: none;
@@ -220,8 +220,8 @@ p {
 .changelog-row {
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-style: normal;
-  font-size: helpers.toRem(16);
-  line-height: 2;
+  font-size: 16px;
+  line-height: 32px;
   display: flex;
   flex-direction: row;
   @include breakpoint-up(Mobile) {
@@ -272,8 +272,8 @@ p {
     margin-left: 16px;
   }
   .changelog-code {
-    font-size: helpers.toRem(14) !important;
-    line-height: 1.5 !important;
+    font-size: 14px !important;
+    line-height: 21px !important;
   }
 }
 .changelog-divider {
@@ -410,10 +410,10 @@ p {
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-style: normal;
   font-weight: 900;
-  font-size: helpers.toRem(56);
-  line-height: 1.2;
+  font-size: 56px;
+  line-height: 120%;
   @include breakpoint-up(Mobile) {
-    font-size: helpers.toRem(32);
+    font-size: 32px;
   }
 }
 
