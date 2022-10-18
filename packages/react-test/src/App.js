@@ -19,6 +19,7 @@ import { Pagination } from '@elvia/elvis-pagination/react';
 import { Popover } from '@elvia/elvis-popover/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
+import { SegmentedControl } from '@elvia/elvis-segmented-control/react';
 import { Slider } from '@elvia/elvis-slider/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
@@ -390,6 +391,28 @@ function App() {
                 value={selectedRadioFilter}
                 name={'radioFilterTest'}
               ></RadioFilter>
+            </div>
+            {/* SEGMENTED CONTROL */}
+            <div className="example-wrapper">
+              <h3>Segmented Control</h3>
+              <SegmentedControl
+                items={[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]}
+                size={'medium'}
+                value={0}
+                valueOnChange={(value) => console.log(value)}
+              ></SegmentedControl>
+              <div className="e-mt-8">
+                <SegmentedControl
+                  type="icon"
+                  items={[
+                    { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor' },
+                    { iconName: 'list', iconNameSelected: 'listColor' },
+                  ]}
+                  size={'large'}
+                  value={0}
+                  valueOnChange={(value) => console.log(value)}
+                ></SegmentedControl>
+              </div>
             </div>
             {/* SLIDER */}
             <div className="example-wrapper">

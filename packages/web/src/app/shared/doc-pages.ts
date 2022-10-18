@@ -356,7 +356,7 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Segmented Control',
     description:
-      'Segmented controls are a horizontal set of two or three segments to display different views of same content, each of which functions as a mutually exclusive button. Segments should be kept short and clear, and try to keep the segment size consistent.',
+      'Segmented controls are a horizontal set of two or three segments to display different views of same content, each of which functions as a mutually exclusive button.',
     docUrl: Pages.SegmentedControl,
     absolutePath: '/components/' + Pages.SegmentedControl,
     status: DocPageStatus.Done,

@@ -11,6 +11,12 @@ const cardData: ComponentData = {
       type: 'string | HTMLElement | JSX.Element',
       description: 'Text or icon (use slot in webcomponent if not just text).',
     },
+    type: {
+      isRequired: false,
+      type: '"simple" | "detail"',
+      description: 'The type of the card. The types are described in more detail in the "types" section.',
+      default: '"simple"',
+    },
     heading: {
       isRequired: false,
       type: 'string',
