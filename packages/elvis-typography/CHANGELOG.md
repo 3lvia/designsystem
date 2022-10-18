@@ -4,7 +4,11 @@
 
 ### Major
 
-- Eliva Typography now uses the relative sizing units rem and percent for font sizes and line heights.
+- Eliva Typography now uses the relative sizing unit rem for font sizes and percent for line heights.
+- This change should not break any design for users that use the default font size settings in their browsers
+  (16px).
+- Ensure to test your design with different font sizes by increasing or decreasing the font size in your
+  browser.
 
 ## 2.3.1 (29.08.22)
 
