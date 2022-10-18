@@ -88,49 +88,59 @@ export const Calendar: React.FC<Props> = ({
     return dateString.substring(0, dateString.length - 1);
   };
 
-  function updateViewedDate(event: KeyboardEvent<HTMLDivElement>) {
+  const getNumberOfDaysToJump = (event: KeyboardEvent<HTMLDivElement>): number => {
     let jumpInDays = 0;
 
-    switch (event.key) {
-      case 'ArrowRight': {
-        jumpInDays = 1;
-        break;
-      }
-      case 'ArrowLeft': {
-        jumpInDays = -1;
-        break;
-      }
-      case 'ArrowUp': {
-        jumpInDays = -7;
-        break;
-      }
-      case 'ArrowDown': {
-        jumpInDays = 7;
-        break;
-      }
+    if (event.key === 'ArrowRight') {
+      jumpInDays = 1;
+    } else if (event.key === 'ArrowLeft') {
+      jumpInDays = -1;
+    } else if (event.key === 'ArrowUp') {
+      jumpInDays = -7;
+    } else if (event.key === 'ArrowDown') {
+      jumpInDays = 7;
     }
 
-    if (jumpInDays !== 0) {
+    return jumpInDays;
+  };
+
+  const updateViewedDate = (event: KeyboardEvent<HTMLDivElement>) => {
+    const daysToJump = getNumberOfDaysToJump(event);
+
+    if (daysToJump !== 0) {
+      event.preventDefault();
       const newDate = new Date(viewedDate ? viewedDate : new Date());
-      newDate.setDate(newDate.getDate() + jumpInDays);
-      setViewedDate(newDate);
+      newDate.setDate(newDate.getDate() + daysToJump);
+
+      while (dateIsWithinMinMaxBoundary(newDate) && dateIsDisabled(newDate)) {
+        newDate.setDate(newDate.getDate() + daysToJump);
+      }
+
+      if (!dateIsDisabled(newDate)) {
+        setViewedDate(newDate);
+      }
     }
-  }
+  };
 
   const handleCalendarKeydown = (event: KeyboardEvent<HTMLDivElement>): void => {
-    event.preventDefault();
-    if (event.key === 'Enter' && !dateIsDisabled(viewedDate)) {
+    if ((event.key === 'Enter' || event.key === 'Space') && !dateIsDisabled(viewedDate)) {
+      event.preventDefault();
       onDateChange(new Date(viewedDate || new Date()));
     } else {
       updateViewedDate(event);
     }
   };
 
-  const dateIsDisabled = (date: Date): boolean => {
+  const dateIsWithinMinMaxBoundary = (date: Date): boolean => {
     const dateIsAfterMinDate = !minDate || date.getTime() >= minDate.getTime();
     const dateIsBeforeMaxDate = !maxDate || date.getTime() <= maxDate.getTime();
+
+    return dateIsAfterMinDate && dateIsBeforeMaxDate;
+  };
+
+  const dateIsDisabled = (date: Date): boolean => {
     const disableDateMethodExcludesDate = !!disableDate && disableDate(date);
-    return !dateIsAfterMinDate || !dateIsBeforeMaxDate || disableDateMethodExcludesDate;
+    return !dateIsWithinMinMaxBoundary(date) || disableDateMethodExcludesDate;
   };
 
   useEffect(() => {

@@ -4,18 +4,21 @@ import { buttonHeight, ScrollContainer, YearButton, YearPickerContainer } from '
 interface Props {
   selectedDate?: Date | null;
   onYearChange: (year: number) => void;
+  minDate?: Date;
+  maxDate?: Date;
 }
 
 interface Year {
   year: number;
   isActive: boolean;
+  isDisabled: boolean;
 }
 
-export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange }) => {
+export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange, minDate, maxDate }) => {
   const scrollContainer = useRef<HTMLDivElement>(null);
   const [years, setYears] = useState(
     new Array(150).fill('').map((_, index) => {
-      const year: Year = { year: 1950 + index, isActive: false };
+      const year: Year = { year: 1950 + index, isActive: false, isDisabled: false };
       return year;
     }),
   );
@@ -26,31 +29,39 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange }) => {
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    switch (event.key) {
-      case 'ArrowUp': {
-        const newIndex = focusedYearIndex - 1;
-        if (newIndex >= 0) {
-          setFocusedYearIndex(newIndex);
-          scrollToActiveButton(newIndex);
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      onYearChange(years[focusedYearIndex].year);
+    } else {
+      let newIndex = 0;
+      if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (focusedYearIndex - 1 >= 0) {
+          newIndex = focusedYearIndex - 1;
         }
+      } else if (event.key === 'ArrowDown') {
         event.preventDefault();
-        break;
-      }
-      case 'ArrowDown': {
-        const newIndex = focusedYearIndex + 1;
-        if (newIndex <= years.length - 1) {
-          setFocusedYearIndex(newIndex);
-          scrollToActiveButton(newIndex);
+        if (focusedYearIndex + 1 <= years.length - 1) {
+          newIndex = focusedYearIndex + 1;
         }
-        event.preventDefault();
-        break;
       }
-      case 'Enter': {
-        onYearChange(years[focusedYearIndex].year);
-        event.preventDefault();
-        break;
+
+      while (newIndex >= 0 && newIndex <= years.length && years[newIndex].isDisabled) {
+        newIndex = newIndex > 0 ? newIndex++ : newIndex--;
+      }
+
+      if (!years[newIndex].isDisabled) {
+        setFocusedYearIndex(newIndex);
+        scrollToActiveButton(newIndex);
       }
     }
+  };
+
+  const yearIsWithinMinMaxBoundary = (year: number): boolean => {
+    const yearIsAfterMinDate = !minDate || year >= minDate.getFullYear();
+    const yearIsBeforeMaxDate = !maxDate || year <= maxDate.getFullYear();
+
+    return yearIsAfterMinDate && yearIsBeforeMaxDate;
   };
 
   useEffect(() => {
@@ -66,10 +77,14 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange }) => {
     };
 
     if (selectedDate) {
-      console.log('foo');
       setActiveYear();
     }
   }, [selectedDate]);
+
+  useEffect(() => {
+    const yearClone = years.slice();
+    yearClone.forEach((year) => (year.isDisabled = !yearIsWithinMinMaxBoundary(year.year)));
+  }, [minDate, maxDate]);
 
   return (
     <YearPickerContainer>
@@ -81,6 +96,7 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange }) => {
             isActive={year.isActive}
             isFocused={focusedYearIndex === index}
             onClick={() => onYearChange(year.year)}
+            disabled={year.isDisabled}
           >
             {year.year}
           </YearButton>

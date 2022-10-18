@@ -36,7 +36,7 @@ export const OverlayContainer = styled.div<OverlayContainerProps>`
   position: absolute;
   z-index: 99999;
   animation: ${fadeIn} 300ms ease;
-  width: 304px;
+  min-width: 304px;
 
   ${(props) => {
     if (props.fadeOut) {

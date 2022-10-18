@@ -53,8 +53,13 @@ export const YearButton = styled.button<Partial<YearButtonProps>>`
   border: none;
   width: 100%;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: ${getColor('grey-05')};
+  }
+
+  &:disabled {
+    cursor: default;
+    color: ${getColor('disabled')};
   }
 
   ${(props) =>

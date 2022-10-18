@@ -92,7 +92,12 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
           </PopoverHeader>
           <PopoverBody>
             {yearPickerIsOpen ? (
-              <YearPicker selectedDate={selectedDate} onYearChange={onYearChange}></YearPicker>
+              <YearPicker
+                selectedDate={selectedDate}
+                onYearChange={onYearChange}
+                minDate={minDate}
+                maxDate={maxDate}
+              ></YearPicker>
             ) : (
               <>
                 <Calendar
