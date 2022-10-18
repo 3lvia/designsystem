@@ -1336,6 +1336,66 @@ document.addEventListener('DOMContentLoaded', function () {
       sunset: "March 2023"
       },
     {
+      name: "e-segmented-control",
+      version: "8.14.0",
+      replacement: {
+          name: "Segmented control",
+          type: "component",
+          documentation: "https://design.elvia.io/components/segmented-control",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-segmented-controls",
+      version: "8.14.0",
+      replacement: {
+          name: "Segmented control",
+          type: "component",
+          documentation: "https://design.elvia.io/components/segmented-control",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-segmented-controls---focus",
+      version: "8.14.0",
+      replacement: {
+          name: "Segmented control",
+          type: "component",
+          documentation: "https://design.elvia.io/components/segmented-control",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-segmented-controls__title",
+      version: "8.14.0",
+      replacement: {
+          name: "Segmented control",
+          type: "component",
+          documentation: "https://design.elvia.io/components/segmented-control",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-segmented-controls--lg",
+      version: "8.14.0",
+      replacement: {
+          name: "Segmented control",
+          type: "component",
+          documentation: "https://design.elvia.io/components/segmented-control",
+          },
+      sunset: "March 2023"
+      },
+    {
+      name: "e-segmented-controls--sm",
+      version: "8.14.0",
+      replacement: {
+          name: "Segmented control",
+          type: "component",
+          documentation: "https://design.elvia.io/components/segmented-control",
+          },
+      sunset: "March 2023"
+      },
+    {
       name: "e-radio-filter",
       version: "8.13.0",
       replacement: {

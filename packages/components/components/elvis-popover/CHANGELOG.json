@@ -3,11 +3,21 @@
   "content": [
     {
       "date": "18.10.22",
-      "version": "5.1.9",
+      "version": "5.1.10",
       "changelog": [
         {
           "type": "patch",
           "changes": ["Use <span class=\"code-text\">@elvia/elvis-toolbox@5.0.0</span>"]
+        }
+      ]
+    },
+    {
+      "date": "18.10.22",
+      "version": "5.1.9",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Trigger is now clickable again when popover is open"]
         }
       ]
     },

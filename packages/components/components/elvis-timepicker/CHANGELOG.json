@@ -3,11 +3,21 @@
   "content": [
     {
       "date": "18.10.22",
-      "version": "2.1.2",
+      "version": "2.1.3",
       "changelog": [
         {
           "type": "patch",
           "changes": ["Use <span class=\"code-text\">@elvia/elvis-toolbox@5.0.0</span>"]
+        }
+      ]
+    },
+    {
+      "date": "17.10.22",
+      "version": "2.1.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Clearing the time picker did not trigger the change event."]
         }
       ]
     },
