@@ -20,6 +20,7 @@ import {
   SliderWrapper,
   StyledSlider,
   TooltipPopup,
+  SliderLabel,
 } from './styledComponents';
 
 import { SliderError } from './error/sliderError';
@@ -496,7 +497,7 @@ const Slider: React.FC<SliderProps> = ({
           {hasInputField && (
             /* ↓ HTML number input fields ↓ */
             <NumberInputContainer>
-              <label>
+              <SliderLabel>
                 <LabelText data-testid="left-label">{getLabel('left')}</LabelText>
                 {/* LEFT INPUT */}
                 <NumberInput
@@ -511,17 +512,16 @@ const Slider: React.FC<SliderProps> = ({
                   value={textFieldsValues.left}
                   aria-invalid={`${inputFieldIsInvalid('left')}`}
                   aria-errormessage={errors.rightTextfield ? 'left-error' : undefined}
-                  /* width={textLabelWidth ? textLabelWidth : 40} */
                   label={getLabel('left')}
                   data-testid="left-number-input"
                 />
-              </label>
+              </SliderLabel>
             </NumberInputContainer>
           )}
 
           {hasInputField && type === 'range' && (
             <NumberInputContainer>
-              <label>
+              <SliderLabel>
                 <LabelText data-testid="right-label">{getLabel('right')}</LabelText>
                 {/* RIGHT INPUT */}
                 <NumberInput
@@ -538,7 +538,7 @@ const Slider: React.FC<SliderProps> = ({
                   label={getLabel('right')}
                   data-testid="right-number-input"
                 />
-              </label>
+              </SliderLabel>
             </NumberInputContainer>
           )}
           {hasHintValues && !(type === 'range' && hasInputField) && (

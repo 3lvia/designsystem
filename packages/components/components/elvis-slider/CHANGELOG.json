@@ -3,6 +3,19 @@
   "content": [
     {
       "date": "18.10.22",
+      "version": "2.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The input fields' content and label now right, center, or left align depending on where the input is.",
+            "The color of the hint values has been changed from black to grey."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "18.10.22",
       "version": "2.0.2",
       "changelog": [
         {
