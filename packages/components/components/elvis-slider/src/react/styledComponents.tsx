@@ -252,8 +252,8 @@ export const LabelText = styled.div`
   font-size: 10px;
   font-weight: 500;
   line-height: 100%;
-  margin: 0 7px;
-  padding: 0 3px;
+  margin: 0 8px;
+  padding: 0 2px;
   position: absolute;
   top: 0;
   user-select: none;
