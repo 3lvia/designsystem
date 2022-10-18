@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
-  TimePickerContainer,
-  TimePickerLabel,
+  DatePickerContainer,
+  DatePickerLabel,
   InputContainer,
   IconButton,
   LabelText,
@@ -46,7 +46,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   errorOnChange,
   disableDate,
   dateRangeProps,
-  ...rest
 }) => {
   const [date, setDate] = useState<Date | undefined | null>(value);
   const [error, setError] = useState<ErrorType | undefined>();
@@ -128,6 +127,20 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     }
   };
 
+  const triggerResetEvent = (): void => {
+    if (!webcomponent && onReset) {
+      onReset();
+    } else if (webcomponent) {
+      webcomponent.triggerEvent('onReset');
+    }
+  };
+
+  // We need to re-initiate the focus-trap since the DOM has changed
+  const onCalendarViewToggle = () => {
+    useFocusTrap(popoverRef, true);
+    useFocusTrap(popoverRef);
+  };
+
   useEffect(() => {
     if (!isShowing) {
       return;
@@ -155,8 +168,13 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   }, [isOpen]);
 
   return (
-    <TimePickerContainer {...rest}>
-      <TimePickerLabel isCompact={isCompact} className={className ?? ''} style={{ ...inlineStyle }}>
+    <DatePickerContainer>
+      <DatePickerLabel
+        isCompact={isCompact}
+        className={className ?? ''}
+        style={{ ...inlineStyle }}
+        fullWidth={isFullWidth}
+      >
         {!!label && (
           <LabelText data-testid="label" isCompact={isCompact} hasOptionalText={hasOptionalText}>
             {label}
@@ -195,17 +213,21 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         {((error && showValidationState) || customError) && (
           <TimepickerError customText={customError} errorType={error} isCompact={isCompact} />
         )}
-      </TimePickerLabel>
+      </DatePickerLabel>
       {isShowing && (
         <OverlayContainer
           ref={popoverRef}
           onClose={() => setVisibility(false)}
           onChange={(newDate) => updateValue(newDate)}
+          onCalendarViewToggle={onCalendarViewToggle}
+          onReset={triggerResetEvent}
           selectedDate={date}
           clearButtonText={clearButtonText}
+          minDate={minDate}
+          maxDate={maxDate}
         />
       )}
-    </TimePickerContainer>
+    </DatePickerContainer>
   );
 };
 

@@ -38,6 +38,7 @@ export const ScrollContainer = styled.div`
 
 interface YearButtonProps {
   isActive: boolean;
+  isFocused: boolean;
 }
 
 export const YearButton = styled.button<Partial<YearButtonProps>>`
@@ -60,5 +61,11 @@ export const YearButton = styled.button<Partial<YearButtonProps>>`
     props.isActive &&
     css`
       background-color: ${getColor('grey-10')};
+    `}
+
+  ${(props) =>
+    props.isFocused &&
+    css`
+      background-color: ${getColor('grey-05')};
     `}
 `;

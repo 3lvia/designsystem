@@ -22,16 +22,30 @@ interface BaseProps {
   isCompact: boolean;
 }
 
-export const TimePickerContainer = styled.div`
+export const DatePickerContainer = styled.div`
   text-align: left;
   box-sizing: border-box;
 `;
 
-export const TimePickerLabel = styled.label<BaseProps>`
+interface DatePickerLabelProps extends BaseProps {
+  fullWidth: boolean;
+}
+
+export const DatePickerLabel = styled.label<DatePickerLabelProps>`
   display: inline-block;
   position: relative;
   padding-top: ${(props) => (props.isCompact ? '8px' : '0px')};
   padding-bottom: 24px;
+
+  ${(props) =>
+    props.fullWidth &&
+    css`
+      width: 100%;
+
+      ${Input}, ${InputContainer} {
+        width: 100%;
+      }
+    `}
 `;
 
 interface LabelProps extends BaseProps {

@@ -61,13 +61,8 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
   border-radius: 999px;
   border: 1px solid transparent;
   background: transparent;
-  cursor: pointer;
   padding: 0;
   position: relative;
-
-  &:hover {
-    border-color: ${getColor('elvia-charge')};
-  }
 
   ${(props) =>
     props.isActive &&
@@ -76,11 +71,21 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
       font-weight: 500;
     `}
 
-  ${(props) =>
-    props.invisible &&
-    css`
+  ${(props) => {
+    if (!props.invisible) {
+      return css`
+        cursor: pointer;
+
+        &:hover {
+          border-color: ${getColor('elvia-charge')};
+        }
+      `;
+    }
+
+    return css`
       cursor: default;
-    `}
+    `;
+  }}
 
     ${(props) =>
     props.isToday &&

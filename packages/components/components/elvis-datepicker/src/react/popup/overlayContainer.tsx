@@ -17,14 +17,19 @@ import { YearPicker } from '../yearPicker/yearPicker';
 interface Props {
   onClose: () => void;
   onChange: (newValue: Date | null) => void;
+  onCalendarViewToggle: () => void;
+  onReset: () => void;
   selectedDate?: Date | null;
   clearButtonText: string;
+  minDate?: Date;
+  maxDate?: Date;
 }
 
 export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
-  ({ onClose, onChange, selectedDate, clearButtonText }, ref) => {
+  ({ onClose, onChange, onCalendarViewToggle, onReset, selectedDate, clearButtonText }, ref) => {
     const [fadeOut, setFadeOut] = useState(false);
     const [yearPickerIsOpen, setYearPickerIsOpen] = useState(false);
+    const [viewedDate, setViewedDate] = useState(selectedDate || new Date());
 
     const onAnimationEnd = () => {
       if (fadeOut) {
@@ -37,6 +42,11 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
       newDate.setFullYear(selectedYear);
       onChange(newDate);
       setYearPickerIsOpen(false);
+    };
+
+    const toggleView = () => {
+      setYearPickerIsOpen(!yearPickerIsOpen);
+      onCalendarViewToggle();
     };
 
     useEffect(() => {
@@ -61,8 +71,8 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
             <SelectedDateName>
               {selectedDate?.toLocaleDateString('nb-NO', { weekday: 'long', day: 'numeric', month: 'long' })}
             </SelectedDateName>
-            <TertiaryButton onClick={() => setYearPickerIsOpen(!yearPickerIsOpen)}>
-              {selectedDate?.toLocaleDateString('nb-NO', { year: 'numeric' })}
+            <TertiaryButton onClick={() => toggleView()}>
+              {viewedDate?.toLocaleDateString('nb-NO', { year: 'numeric' })}
               <Icon name={yearPickerIsOpen ? 'arrowUp' : 'arrowDown'} size="xs" />
             </TertiaryButton>
           </PopoverHeader>
@@ -73,6 +83,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
               <>
                 <Calendar
                   selectedDate={selectedDate}
+                  viewedDate={viewedDate}
                   onDateChange={(newDate, closeOverlay) => {
                     onChange(newDate);
 
@@ -80,9 +91,15 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
                       setFadeOut(true);
                     }
                   }}
+                  setViewedDate={setViewedDate}
                 />
                 <PopoverFooter>
-                  <TertiaryButton onClick={() => onChange(null)}>
+                  <TertiaryButton
+                    onClick={() => {
+                      onChange(null);
+                      onReset();
+                    }}
+                  >
                     <Icon name="reset" size="xs" />
                     {clearButtonText}
                   </TertiaryButton>

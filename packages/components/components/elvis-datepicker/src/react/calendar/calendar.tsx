@@ -12,11 +12,12 @@ import {
 
 interface Props {
   selectedDate?: Date | null;
+  viewedDate: Date;
   onDateChange: (newDate: Date, closeOverlay?: boolean) => void;
+  setViewedDate: (date: Date) => void;
 }
 
-export const Calendar: React.FC<Props> = ({ selectedDate, onDateChange }) => {
-  const [viewedDate, setViewedDate] = useState(selectedDate || new Date());
+export const Calendar: React.FC<Props> = ({ selectedDate, viewedDate, onDateChange, setViewedDate }) => {
   const [dayNames, setDayNames] = useState<string[]>([]);
   const [daysInMonth, setDaysInMonth] = useState<(Date | null)[]>([]);
 
