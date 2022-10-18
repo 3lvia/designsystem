@@ -1,22 +1,14 @@
 {
   "content": [
     {
-      "version": "9.2.1",
+      "version": "9.3.0",
       "date": "October 18, 2022",
-      "changelog": [
-        {
-          "type": "patch",
-          "changes": ["Removed unnecessary files from the Elvis package, making it 7% smaller in size."]
-        }
-      ]
-    },
-    {
-      "date": "October 17, 2022",
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
-            "The new Segmented Control component replaces the segmented control classes and these are now, therefore, deprecated."
+            "The new Segmented Control component replaces the segmented control classes and these are now, therefore, deprecated.",
+            "Removed unnecessary files from the Elvis package, making it 7% smaller in size."
           ],
           "components": [
             {
