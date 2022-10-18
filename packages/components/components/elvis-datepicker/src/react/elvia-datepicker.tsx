@@ -31,11 +31,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   onOpen,
   onClose,
   onReset,
-  webcomponent,
   placeholder = 'dd.mm.åååå',
   isOpen = false,
-  className,
-  inlineStyle,
   hasOptionalText,
   showValidation,
   showValidationState = true,
@@ -46,6 +43,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   errorOnChange,
   disableDate,
   dateRangeProps,
+  className,
+  inlineStyle,
+  webcomponent,
 }) => {
   const [date, setDate] = useState<Date | undefined | null>(value);
   const [error, setError] = useState<ErrorType | undefined>();
