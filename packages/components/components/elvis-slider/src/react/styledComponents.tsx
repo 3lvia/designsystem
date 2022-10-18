@@ -118,6 +118,53 @@ export const SliderContainer = styled.div`
   margin-bottom: 24px;
 `;
 
+export const NumberInput = styled.input.attrs(() => ({
+  inputMode: 'decimal',
+  type: 'number',
+}))<NumberInputProps>`
+  ${typography.smallText}
+  -moz-appearance: textfield;
+  align-items: center;
+  background-color: ${colors.elviaWhite};
+  border-radius: 4px;
+  border: 1px solid ${colors.elviaBlack};
+  box-sizing: border-box;
+  display: flex;
+  max-width: 448px;
+  min-height: 34px;
+  min-width: 50px;
+  padding: 4px 10px;
+  position: relative;
+  text-transform: unset;
+  width: ${(props) => Math.max(props.label.length, props.max.toString().length) + 2}ch;
+
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  :focus {
+    border: 2px solid ${colors.elviaCharge};
+    padding: 3px 9px;
+  }
+
+  :disabled {
+    border-color: ${colors.disabled};
+    color: ${colors.disabled};
+    cursor: not-allowed;
+    user-select: none;
+  }
+
+  &[aria-invalid='true'] {
+    border: 2px solid ${colors.error};
+  }
+`;
+
+export const SliderLabel = styled.label`
+  display: flex;
+`;
+
 //Styling the helpVales and the inputs
 export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   display: grid;
@@ -129,10 +176,6 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   ${(props) => {
     return !props.leftInputPriority ? 'grid-auto-columns: 1fr;' : ''; //Keep all columns the same width, used to center the input field.
   }}
-
-  label {
-    display: flex;
-  }
 
   p:first-child {
     text-align: left;
@@ -158,20 +201,20 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
           grid-column: 1 / 3;
 
           /* for aligning text text to the left */
-          input[type='number'] {
+          ${NumberInput} {
             text-align: left;
           }
-          label {
+          ${SliderLabel} {
             justify-content: flex-start;
           }
         `;
       } else if (props.type === 'simple' && props.hasHintValues) {
         return css`
           /* for aligning label text to the center */
-          input[type='number'] {
+          ${NumberInput} {
             text-align: center;
           }
-          label {
+          ${SliderLabel} {
             justify-content: center;
           }
 
@@ -184,10 +227,10 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
 
   div:not(:first-child):last-child {
     /* for aligning label text to the right */
-    input[type='number'] {
+    ${NumberInput} {
       text-align: right;
     }
-    label {
+    ${SliderLabel} {
       justify-content: flex-end;
     }
     justify-self: end;
@@ -234,49 +277,6 @@ export const HelpValue = styled.p<HelperTextProps>`
         `
       : '';
   }}
-`;
-
-export const NumberInput = styled.input.attrs(() => ({
-  inputMode: 'decimal',
-  type: 'number',
-}))<NumberInputProps>`
-  ${typography.smallText}
-  -moz-appearance: textfield;
-  align-items: center;
-  background-color: ${colors.elviaWhite};
-  border-radius: 4px;
-  border: 1px solid ${colors.elviaBlack};
-  box-sizing: border-box;
-  display: flex;
-  max-width: 448px;
-  min-height: 34px;
-  min-width: 50px;
-  padding: 4px 10px;
-  position: relative;
-  text-transform: unset;
-  width: ${(props) => Math.max(props.label.length, props.max.toString().length) + 2}ch;
-
-  ::-webkit-outer-spin-button,
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  :focus {
-    border: 2px solid ${colors.elviaCharge};
-    padding: 3px 9px;
-  }
-
-  :disabled {
-    border-color: ${colors.disabled};
-    color: ${colors.disabled};
-    cursor: not-allowed;
-    user-select: none;
-  }
-
-  &[aria-invalid='true'] {
-    border: 2px solid ${colors.error};
-  }
 `;
 
 export const SliderWrapper = styled.div<SliderWrapperProps>`
