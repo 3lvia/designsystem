@@ -19,6 +19,16 @@
     },
     "sunset": "March 2023"
   },
+  "e-segmented-control": {
+    "deprecateChildren": true,
+    "version": "8.14.0",
+    "replacement": {
+      "name": "Segmented control",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/segmented-control"
+    },
+    "sunset": "March 2023"
+  },
   "e-radio-filter": {
     "deprecateChildren": true,
     "version": "8.13.0",

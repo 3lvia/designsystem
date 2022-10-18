@@ -4,10 +4,12 @@ import { render, screen } from '@testing-library/react';
 import { getColor } from '@elvia/elvis-colors';
 import userEvent from '@testing-library/user-event';
 
+global.ResizeObserver = require('resize-observer-polyfill'); //Used to fix "ResizeObserver is not defined" (https://github.com/ZeeCoder/use-resize-observer/issues/40#issuecomment-991256805).
+
 describe('Elvis Card', () => {
   describe('Type = simple square', () => {
     beforeEach(() => {
-      render(<Card icon={'Icon'} header={'Header'} description={'Description'} label={'Label'}></Card>);
+      render(<Card icon={'Icon'} heading={'Heading'} description={'Description'} tag={'Tag'}></Card>);
     });
 
     it('should have icon', () => {
@@ -16,18 +18,13 @@ describe('Elvis Card', () => {
     });
 
     it('should have header', () => {
-      const cardHeader = screen.getByTestId('card-header');
-      expect(cardHeader).toHaveTextContent('Header');
+      const cardHeading = screen.getByTestId('card-heading');
+      expect(cardHeading).toHaveTextContent('Heading');
     });
 
     it('should have description', () => {
       const cardDescription = screen.getByTestId('card-description');
       expect(cardDescription).toHaveTextContent('Description');
-    });
-
-    it('should have shape square', () => {
-      const cardArea = screen.getByTestId('card-area');
-      expect(cardArea).toHaveStyle(`border-radius: 8px`);
     });
 
     it('should have border', () => {
@@ -50,9 +47,9 @@ describe('Elvis Card', () => {
       expect(cardHoverArrow).not.toBeInTheDocument();
     });
 
-    it('should not have label', () => {
-      const cardLabel = screen.queryByTestId('card-label');
-      expect(cardLabel).not.toBeInTheDocument();
+    it('should not have tag', () => {
+      const cardTag = screen.queryByTestId('card-tag');
+      expect(cardTag).not.toBeInTheDocument();
     });
 
     it('should not switch icon on hover', async () => {
@@ -71,12 +68,12 @@ describe('Elvis Card', () => {
 
     it('should have default minWidth', () => {
       const cardArea = screen.getByTestId('card-area');
-      expect(cardArea).toHaveStyle(`min-width: 112px`);
+      expect(cardArea).toHaveStyle(`min-width: 150px`);
     });
 
     it('should have default maxWidth', () => {
       const cardArea = screen.getByTestId('card-area');
-      expect(cardArea).toHaveStyle(`max-width: 400px`);
+      expect(cardArea).toHaveStyle(`max-width: 250px`);
     });
   });
 
@@ -85,13 +82,13 @@ describe('Elvis Card', () => {
       render(
         <Card
           icon={'Icon'}
-          header={'Header'}
+          heading={'Heading'}
           description={'Description'}
           borderColor={'red'}
-          label={'Label'}
+          tag={'Tag'}
           width={'150px'}
-          minWidth={150}
-          maxWidth={350}
+          minWidth={200}
+          maxWidth={220}
         ></Card>,
       );
     });
@@ -108,18 +105,18 @@ describe('Elvis Card', () => {
 
     it('should have minWidth', () => {
       const cardArea = screen.getByTestId('card-area');
-      expect(cardArea).toHaveStyle(`min-width: 150px`);
+      expect(cardArea).toHaveStyle(`min-width: 200px`);
     });
 
     it('should have maxWidth', () => {
       const cardArea = screen.getByTestId('card-area');
-      expect(cardArea).toHaveStyle(`max-width: 350px`);
+      expect(cardArea).toHaveStyle(`max-width: 220px`);
     });
   });
 
-  describe('Type = simple square, with hover icon', () => {
+  describe.skip('Type = simple square, with hover icon', () => {
     beforeEach(() => {
-      render(<Card icon={'Icon'} iconHover={'IconHover'} minWidth={50}></Card>);
+      render(<Card icon={'Icon'} iconHover={'IconHover'}></Card>);
     });
 
     it('should switch icon on hover', async () => {
@@ -152,51 +149,15 @@ describe('Elvis Card', () => {
     });
   });
 
-  describe('Type = simple circle', () => {
-    beforeEach(() => {
-      render(
-        <Card
-          shape={'circle'}
-          icon={'Icon'}
-          header={'Header'}
-          description={'Description'}
-          borderColor={'red'}
-          cornerIcon={'CornerIcon'}
-        ></Card>,
-      );
-    });
-
-    it('should have shape circle', () => {
-      const cardArea = screen.getByTestId('card-area');
-      expect(cardArea).toHaveStyle(`border-radius: 50%`);
-    });
-
-    it('should not have top border with color', () => {
-      const cardColoredLine = screen.queryByTestId('card-colored-line');
-      expect(cardColoredLine).not.toBeInTheDocument();
-    });
-
-    it('should not have corner icon', () => {
-      const cardCornerIcon = screen.queryByTestId('card-corner-icon');
-      expect(cardCornerIcon).not.toBeInTheDocument();
-    });
-
-    it('should not have hover arrow', () => {
-      const cardHoverArrow = screen.queryByTestId('card-detail-hover-arrow');
-      expect(cardHoverArrow).not.toBeInTheDocument();
-    });
-  });
-
   describe('Type = detail', () => {
     beforeEach(() => {
       render(
         <Card
           icon=""
           type={'detail'}
-          label={'Label'}
+          tag={'Tag'}
           description={'Description'}
           cornerIcon={'CornerIcon'}
-          shape={'circle'}
         ></Card>,
       );
     });
@@ -207,13 +168,13 @@ describe('Elvis Card', () => {
     });
 
     it('should have label', () => {
-      const cardLabel = screen.getByTestId('card-label');
-      expect(cardLabel).toHaveTextContent('Label');
+      const cardTag = screen.getByTestId('card-tag');
+      expect(cardTag).toHaveTextContent('Tag');
     });
 
     it('should have label with styling', () => {
-      const cardLabel = screen.getByTestId('card-label');
-      expect(cardLabel).toHaveStyle(
+      const cardTag = screen.getByTestId('card-tag');
+      expect(cardTag).toHaveStyle(
         `padding: 4px 8px;
         border-radius: 4px;
         background: ${getColor('grey-10')}; 
@@ -239,26 +200,18 @@ describe('Elvis Card', () => {
 
     it('should have default lines of description text', () => {
       const cardDescription = screen.getByTestId('card-description');
-      expect(cardDescription).toHaveStyle(`line-clamp: 5;`);
+      expect(cardDescription).toHaveStyle(`line-clamp: 3;`);
     });
   });
 
   describe('Type = detail, shorter description', () => {
     beforeEach(() => {
-      render(
-        <Card
-          icon=""
-          type={'detail'}
-          label={'Label'}
-          description={'Description'}
-          maxDescriptionLines={3}
-        ></Card>,
-      );
+      render(<Card type={'detail'} tag={'Tag'} description={'Description'} maxDescriptionLines={4}></Card>);
     });
 
-    it('should have max 3 lines of description text', () => {
+    it('should have max 4 lines of description text', () => {
       const cardDescription = screen.getByTestId('card-description');
-      expect(cardDescription).toHaveStyle(`line-clamp: 3;`);
+      expect(cardDescription).toHaveStyle(`line-clamp: 4;`);
     });
 
     it('should have empty corner icon', () => {
@@ -269,15 +222,7 @@ describe('Elvis Card', () => {
 
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      render(
-        <Card
-          icon=""
-          label={'Label'}
-          description={'Description'}
-          className="test-class"
-          inlineStyle={{ margin: '24px' }}
-        ></Card>,
-      );
+      render(<Card className="test-class" inlineStyle={{ margin: '24px' }}></Card>);
     });
 
     it('should have className and inlineStyle', () => {

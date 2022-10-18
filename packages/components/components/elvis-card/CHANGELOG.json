@@ -2,6 +2,24 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "18.10.22",
+      "version": "2.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The card component has been completely rewritten. This change includes some props that have been removed, and some that have been added. Please see the documentation for more information.",
+            "The circle card has been removed.",
+            "Some prop default values have been changed (e.g. <span class=\"code\">minWidth</span>)."
+          ],
+          "fixes": [
+            "Rename the prop <span class=\"code-text\">header</span> to <span class=\"code-text\">heading</span>.",
+            "Rename the prop <span class=\"code-text\">label</span> to <span class=\"code-text\">tag</span>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "12.09.22",
       "version": "1.3.1",
       "changelog": [

@@ -13,7 +13,7 @@ export interface ErrorOptions {
 
 export interface TimepickerProps {
   value: Date;
-  valueOnChange: (value: Date) => void;
+  valueOnChange: (value: Date | null) => void;
   errorOnChange: (error: string) => void;
   minuteInterval: MinuteInterval;
   isDisabled: boolean;

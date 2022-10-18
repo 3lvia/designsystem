@@ -8,3 +8,4 @@ export {
 } from './hooks/useConnectedOverlay';
 export { useFocusTrap } from './hooks/useFocusTrap';
 export { useLongPress } from './hooks/useLongPress';
+export { useIsOverflowing } from './hooks/useIsOverflowing';

@@ -42,6 +42,7 @@
     "@elvia/elvis-pagination": "portal:../components/components/elvis-pagination",
     "@elvia/elvis-popover": "portal:../components/components/elvis-popover",
     "@elvia/elvis-progress-linear": "portal:../components/components/elvis-progress-linear",
+    "@elvia/elvis-segmented-control": "portal:../components/components/elvis-segmented-control",
     "@elvia/elvis-slider": "portal:../components/components/elvis-slider",
     "@elvia/elvis-spotlight": "portal:../components/components/elvis-spotlight",
     "@elvia/elvis-tabs": "portal:../components/components/elvis-tabs",

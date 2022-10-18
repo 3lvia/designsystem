@@ -1,5 +1,5 @@
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { CSSProperties } from 'react';
+import { CSSProperties, RefObject } from 'react';
 
 export type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
 
@@ -12,4 +12,8 @@ export interface TooltipProps {
   className?: string;
   inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
+  /**
+   * @internal
+   */
+  triggerAreaRef?: RefObject<HTMLElement>;
 }

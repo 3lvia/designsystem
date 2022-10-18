@@ -190,27 +190,34 @@ function TSX_to_JS() {
 
 function reactTypescriptDeclarations() {
   reloadComponentConfig();
-  const componentsToCreateDeclarationsFor = components.filter(
-    (component) => component.reactTypescriptDeclaration,
-  );
-  const tasks = componentsToCreateDeclarationsFor.map((component) => {
-    const tsConfig = typescript.createProject('../tsconfig.json');
-    return gulp
-      .src(`../components/${component.name}/src/react/**/!(*.test).ts*`)
-      .pipe(tsConfig())
-      .pipe(filter(['*.d.ts']))
-      .pipe(gulp.dest(`../components/${component.name}/dist/react/js/`));
-  });
+  const globsToCreateDeclarationsFor = components
+    .filter((component) => component.reactTypescriptDeclaration)
+    .map((component) => {
+      return `../components/${component.name}/src/react/**/!(*.test).ts*`;
+    });
+  const tsConfig = typescript.createProject('../tsconfig.json');
 
-  if (tasks.length === 0) {
-    return Promise.resolve(true);
-  }
-  return mergeStream(tasks);
+  return gulp
+    .src(globsToCreateDeclarationsFor, { base: '..' })
+    .pipe(cache('reactTypescriptDeclarations'))
+    .pipe(tsConfig())
+    .on('error', () => {})
+    .pipe(filter(['*.d.ts']))
+    .pipe(
+      rename((path) => {
+        const newPathDirname = path.dirname
+          .replace('src/react', 'dist/react/js')
+          .replace('src\\react', 'dist\\react\\js');
+        path.dirname = newPathDirname;
+      }),
+    )
+    .pipe(gulp.dest('../'));
 }
 
 function buildElviaComponentToJS() {
   return gulp
     .src(`../components/elvis-component-wrapper/src/*.ts`)
+    .pipe(cache('buildElviaComponentToJS'))
     .pipe(
       babel({
         presets: ['@babel/preset-typescript'],
@@ -224,6 +231,7 @@ function buildElviaComponentTSDeclaration() {
   const tsConfig = typescript.createProject('../tsconfig.json');
   return gulp
     .src(['../components/elvis-component-wrapper/src/*.ts'])
+    .pipe(cache('buildElviaComponentTSDeclaration'))
     .pipe(tsConfig())
     .pipe(filter(['*.d.ts']))
     .pipe(gulp.dest(`../components/elvis-component-wrapper/dist/`));
@@ -231,7 +239,10 @@ function buildElviaComponentTSDeclaration() {
 
 function buildToolboxComponentToJS() {
   const tsConfig = typescript.createProject('../tsconfig.json');
-  const tsResult = gulp.src(['../components/elvis-toolbox/src/**/*.ts']).pipe(tsConfig());
+  const tsResult = gulp
+    .src(['../components/elvis-toolbox/src/**/*.ts'])
+    .pipe(cache('buildToolboxComponentToJS'))
+    .pipe(tsConfig());
   return mergeStream(tsResult, tsResult.js).pipe(gulp.dest('../components/elvis-toolbox/dist'));
 }
 
@@ -248,7 +259,10 @@ function cleanup() {
 function copyChangelogs() {
   const componentSrc = ['../components/**/CHANGELOG.json'];
 
-  return gulp.src(componentSrc, { base: '../components' }).pipe(gulp.dest('../../web/src/assets/changelogs'));
+  return gulp
+    .src(componentSrc, { base: '../components' })
+    .pipe(cache('copyChangelogs'))
+    .pipe(gulp.dest('../../web/src/assets/changelogs'));
 }
 
 gulp.task(
@@ -308,6 +322,7 @@ gulp.task('watch', function () {
       buildToolboxComponentToJS,
       buildElviaComponentToJS,
       TSX_to_JS,
+      reactTypescriptDeclarations,
       copyChangelogs,
       buildWebComponentsMagically,
       function (done) {

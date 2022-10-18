@@ -40,7 +40,10 @@
             <span [id]="'property-row-' + prop.attribute + '-attribute'">{{ prop.attribute }}</span>
             <span *ngIf="prop.isRequired">*</span>
           </th>
-          <td class="table-code-text" [id]="'property-row-' + prop.attribute + '-type'">
+          <td
+            class="table-code-text e-table__cell--multiline-small"
+            [id]="'property-row-' + prop.attribute + '-type'"
+          >
             {{ prop.type }}
           </td>
           <td class="e-table__cell--multiline-small" [id]="'property-row-' + prop.attribute + '-description'">
