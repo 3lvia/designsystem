@@ -23,10 +23,24 @@ interface Props {
   clearButtonText: string;
   minDate?: Date;
   maxDate?: Date;
+  disableDate?: (date: Date) => boolean;
 }
 
 export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
-  ({ onClose, onChange, onCalendarViewToggle, onReset, selectedDate, clearButtonText }, ref) => {
+  (
+    {
+      onClose,
+      onChange,
+      onCalendarViewToggle,
+      onReset,
+      selectedDate,
+      clearButtonText,
+      minDate,
+      maxDate,
+      disableDate,
+    },
+    ref,
+  ) => {
     const [fadeOut, setFadeOut] = useState(false);
     const [yearPickerIsOpen, setYearPickerIsOpen] = useState(false);
     const [viewedDate, setViewedDate] = useState(selectedDate || new Date());
@@ -92,6 +106,9 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
                     }
                   }}
                   setViewedDate={setViewedDate}
+                  minDate={minDate}
+                  maxDate={maxDate}
+                  disableDate={disableDate}
                 />
                 <PopoverFooter>
                   <TertiaryButton

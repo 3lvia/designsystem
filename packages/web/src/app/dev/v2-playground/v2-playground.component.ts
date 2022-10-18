@@ -34,6 +34,9 @@ export class v2PlaygroundComponent {
 
   // Datepicker
   date = new Date(2022, 9, 10);
+  minDate = new Date(2022, 9, 5);
+  maxDate = new Date(2022, 10, 20);
+  disableDate = (date: Date) => date.getDate() % 5 === 0;
 
   // Dropdown
   dropdownDefOptions = [{ value: '2', label: 'Option 2' }];

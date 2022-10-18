@@ -49,6 +49,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 }) => {
   const [date, setDate] = useState<Date | undefined | null>(value);
   const [error, setError] = useState<ErrorType | undefined>();
+  const [minDateWithoutTime, setMinDateWithoutTime] = useState(minDate);
+  const [maxDateWithoutTime, setMaxDateWithoutTime] = useState(maxDate);
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
@@ -168,6 +170,26 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     setVisibility(isOpen);
   }, [isOpen]);
 
+  useEffect(() => {
+    if (minDate) {
+      const d = new Date(minDate);
+      d.setHours(0, 0, 0, 0);
+      setMinDateWithoutTime(d);
+    } else {
+      setMinDateWithoutTime(undefined);
+    }
+  }, [minDate]);
+
+  useEffect(() => {
+    if (maxDate) {
+      const d = new Date(maxDate);
+      d.setHours(0, 0, 0, 0);
+      setMaxDateWithoutTime(d);
+    } else {
+      setMaxDateWithoutTime(undefined);
+    }
+  }, [maxDate]);
+
   return (
     <DatePickerContainer>
       <DatePickerLabel
@@ -224,8 +246,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           onReset={triggerResetEvent}
           selectedDate={date}
           clearButtonText={clearButtonText}
-          minDate={minDate}
-          maxDate={maxDate}
+          minDate={minDateWithoutTime}
+          maxDate={maxDateWithoutTime}
+          disableDate={disableDate}
         />
       )}
     </DatePickerContainer>

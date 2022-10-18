@@ -131,7 +131,7 @@ export const InputContainer = styled.div<InputContainerProps>`
 
 export const Input = styled.input<Partial<BaseProps>>`
   ${typography.textInput}
-  width: 5.5rem;
+  width: 5.4rem;
   min-width: 0;
   padding: 0;
   border: none;

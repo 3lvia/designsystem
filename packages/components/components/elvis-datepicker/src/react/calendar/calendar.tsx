@@ -15,11 +15,23 @@ interface Props {
   viewedDate: Date;
   onDateChange: (newDate: Date, closeOverlay?: boolean) => void;
   setViewedDate: (date: Date) => void;
+  minDate?: Date;
+  maxDate?: Date;
+  disableDate?: (date: Date) => boolean;
 }
 
-export const Calendar: React.FC<Props> = ({ selectedDate, viewedDate, onDateChange, setViewedDate }) => {
+export const Calendar: React.FC<Props> = ({
+  selectedDate,
+  viewedDate,
+  onDateChange,
+  setViewedDate,
+  minDate,
+  maxDate,
+  disableDate,
+}) => {
   const [dayNames, setDayNames] = useState<string[]>([]);
   const [daysInMonth, setDaysInMonth] = useState<(Date | null)[]>([]);
+  const [calendarHasFocus, setCalendarHasFocus] = useState(false);
 
   const getDayName = (date: Date): string => {
     return date.toLocaleDateString('nb-NO', { weekday: 'short' }).substring(0, 2);
@@ -76,7 +88,7 @@ export const Calendar: React.FC<Props> = ({ selectedDate, viewedDate, onDateChan
     return dateString.substring(0, dateString.length - 1);
   };
 
-  const handleCalendarKeydown = (event: KeyboardEvent<HTMLDivElement>): void => {
+  function updateViewedDate(event: KeyboardEvent<HTMLDivElement>) {
     let jumpInDays = 0;
 
     switch (event.key) {
@@ -99,11 +111,26 @@ export const Calendar: React.FC<Props> = ({ selectedDate, viewedDate, onDateChan
     }
 
     if (jumpInDays !== 0) {
-      event.preventDefault();
-      const newDate = new Date(selectedDate ? selectedDate : new Date());
+      const newDate = new Date(viewedDate ? viewedDate : new Date());
       newDate.setDate(newDate.getDate() + jumpInDays);
-      onDateChange(newDate);
+      setViewedDate(newDate);
     }
+  }
+
+  const handleCalendarKeydown = (event: KeyboardEvent<HTMLDivElement>): void => {
+    event.preventDefault();
+    if (event.key === 'Enter' && !dateIsDisabled(viewedDate)) {
+      onDateChange(new Date(viewedDate || new Date()));
+    } else {
+      updateViewedDate(event);
+    }
+  };
+
+  const dateIsDisabled = (date: Date): boolean => {
+    const dateIsAfterMinDate = !minDate || date.getTime() >= minDate.getTime();
+    const dateIsBeforeMaxDate = !maxDate || date.getTime() <= maxDate.getTime();
+    const disableDateMethodExcludesDate = !!disableDate && disableDate(date);
+    return !dateIsAfterMinDate || !dateIsBeforeMaxDate || disableDateMethodExcludesDate;
   };
 
   useEffect(() => {
@@ -135,7 +162,12 @@ export const Calendar: React.FC<Props> = ({ selectedDate, viewedDate, onDateChan
           <DayName key={dayName}>{dayName}</DayName>
         ))}
       </GridContainer>
-      <GridContainer tabIndex={0} onKeyDown={(ev) => handleCalendarKeydown(ev)}>
+      <GridContainer
+        tabIndex={0}
+        onKeyDown={(ev) => handleCalendarKeydown(ev)}
+        onFocus={() => setCalendarHasFocus(true)}
+        onBlur={() => setCalendarHasFocus(false)}
+      >
         {daysInMonth.map((day, index) => (
           <DayButton
             key={index}
@@ -144,6 +176,8 @@ export const Calendar: React.FC<Props> = ({ selectedDate, viewedDate, onDateChan
             aria-label={day?.toLocaleString('nb-NO', { day: 'numeric', month: 'long', year: 'numeric' })}
             isToday={isSameDay(day, new Date())}
             isActive={isSameDay(day, selectedDate)}
+            isFocused={isSameDay(day, viewedDate) && calendarHasFocus}
+            disabled={!day || dateIsDisabled(day)}
             onClick={() => day && onDateChange(day, true)}
           >
             {formatDate(day)}
