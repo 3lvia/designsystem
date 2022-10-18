@@ -2,6 +2,43 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "18.10.22",
+      "version": "4.1.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Use <span class=\"code-text\">@elvia/elvis-toolbox@5.0.0</span>",
+            "Bumped version dependency of <span class=\"code-text\">@elvia/elvis-tooltip</span> to 1.0.7."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "18.10.22",
+      "version": "4.1.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Bumped version dependency of <span class=\"code-text\">@elvia/elvis-tooltip</span> to enable support for newline characters in the tooltips on options."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "17.10.22",
+      "version": "4.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added support for a tooltip on each option to display information when hovering an option with a status icon."
+          ]
+        }
+      ]
+    },
+    {
       "date": "10.10.22",
       "version": "4.0.0",
       "changelog": [

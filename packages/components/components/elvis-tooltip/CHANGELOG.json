@@ -2,6 +2,38 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "18.10.22",
+      "version": "1.0.7",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Use <span class=\"code-text\">@elvia/elvis-toolbox@5.0.0</span>"]
+        }
+      ]
+    },
+    {
+      "date": "18.10.22",
+      "version": "1.0.6",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Text content in the tooltip now supports newline characters."]
+        }
+      ]
+    },
+    {
+      "date": "17.10.22",
+      "version": "1.0.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Added an internal function to allow different elements to position and trigger the tooltip. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "07.10.22",
       "version": "1.0.4",
       "changelog": [

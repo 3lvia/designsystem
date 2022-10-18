@@ -7,9 +7,9 @@ import { Input } from './styledComponents';
 interface Props {
   disabled?: boolean;
   required: boolean;
-  time?: Date;
+  time?: Date | null;
   isCompact?: boolean;
-  onChange: (newValue: Date) => void;
+  onChange: (newValue: Date | null) => void;
   onErrorChange: (error?: ErrorType) => void;
 }
 
@@ -31,9 +31,6 @@ export const TimepickerInput: React.FC<Props> = ({
   };
 
   const onKeyDown = () => {
-    console.log(window.getSelection()?.toString());
-    console.log(inputElement.current?.selectionStart);
-    console.log(inputElement.current?.selectionEnd);
     const selectionStart = inputElement.current?.selectionStart || 0;
     const selectionEnd = inputElement.current?.selectionEnd || 0;
 
@@ -127,6 +124,7 @@ export const TimepickerInput: React.FC<Props> = ({
     }
 
     if (!inputValue.length) {
+      onChange(null);
       return;
     } else if (inputValue.length <= 2 && isNumericValue(inputValue)) {
       hour = inputValue;
