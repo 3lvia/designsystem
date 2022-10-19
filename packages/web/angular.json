@@ -33,9 +33,6 @@
               "@elvia/elvis-typography",
               "hoist-non-react-statics",
               "json5",
-              "lodash.debounce",
-              "lodash.isequal",
-              "lodash.throttle",
               "natural-compare-lite",
               "prismjs"
             ],

@@ -8,14 +8,12 @@
   "types": "./dist/elvia-component.d.ts",
   "dependencies": {
     "json5": "^2.2.1",
-    "lodash.isequal": "^4.5.0",
-    "lodash.throttle": "^4.1.1",
+    "lodash-es": "^4.17.21",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
   "devDependencies": {
-    "@types/lodash.isequal": "^4.5.5",
-    "@types/lodash.throttle": "^4.1.7",
+    "@types/lodash-es": "^4",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.13"
   }

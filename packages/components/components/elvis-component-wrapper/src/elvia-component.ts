@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import isEqual from 'lodash.isequal';
-import throttle from 'lodash.throttle';
+import { isEqual, throttle } from 'lodash-es';
 import JSON5 from 'json5';
 
 export class ElvisComponentWrapper extends HTMLElement {
