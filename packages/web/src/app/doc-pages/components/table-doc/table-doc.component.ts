@@ -16,7 +16,8 @@ export class TableDocComponent {
   ];
 
   exampleOverview = `<div class="e-table-container">
-  <table class="e-table" aria-label="Beskrivelse av tabellen">
+  <table class="e-table">
+  <caption class="e-sr-only">Beskrivelse av tabellen</caption>
     <thead>
       <tr>
         <th scope="col">Column 1</th>
@@ -46,7 +47,8 @@ export class TableDocComponent {
 `;
 
   exampleStickyHeaderColumns = `<div class="e-table-container" style="max-height: 250px">
-  <table class="e-table e-table--sticky-header" aria-label="Beskrivelse av tabellen">
+  <table class="e-table e-table--sticky-header">
+  <caption class="e-sr-only">Beskrivelse av tabellen</caption>
     <thead>
       <tr>
         <th scope="col">Column 1</th>
@@ -107,7 +109,8 @@ export class TableDocComponent {
 
   exampleStickyHeaderMobile = `<div style="width: 305px; margin: 16px">
   <div class="e-table-container" style="max-height: 250px">
-  <table class="e-table-mobile e-table-mobile--sticky-header" aria-label="Beskrivelse av tabellen">
+  <table class="e-table-mobile e-table-mobile--sticky-header">
+  <caption class="e-sr-only">Beskrivelse av tabellen</caption>
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">Period</th>
@@ -180,7 +183,8 @@ export class TableDocComponent {
 `;
 
   exampleStickyHeader = `<div class="e-table-container" style="max-width: 500px">
-  <table class="e-table e-table--sticky-column-header" aria-label="Beskrivelse av tabellen">
+  <table class="e-table e-table--sticky-column-header">
+  <caption class="e-sr-only">Beskrivelse av tabellen</caption>
     <thead>
       <tr>
         <th scope="col">Column 1</th>
@@ -222,7 +226,8 @@ export class TableDocComponent {
 `;
 
   exampleDesktop = `<div class="e-table-container">
-  <table class="e-table" aria-label="Beskrivelse av tabellen">
+  <table class="e-table">
+  <caption class="e-sr-only">Beskrivelse av tabellen</caption>
     <thead>
       <tr>
         <th scope="col">Period</th>
@@ -268,7 +273,8 @@ export class TableDocComponent {
 `;
 
   exampleMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
+  <table class="e-table-mobile">
+  <caption class="e-sr-only">Beskrivelse av tabellen</caption>
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">Period</th>
@@ -371,6 +377,7 @@ export class TableDocComponent {
 
   exampleCompact = `<div class="e-table-container">
   <table class="e-table e-table--compact">
+  <caption class="e-sr-only">Invoices for 2020</caption>
     <thead>
       <tr>
         <th scope="col">Period</th>
@@ -416,7 +423,8 @@ export class TableDocComponent {
 `;
 
   exampleCompactMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile e-table-mobile--compact" aria-label="Beskrivelse av tabellen">
+  <table class="e-table-mobile e-table-mobile--compact">
+  <caption class="e-sr-only">Invoices for 2020</caption>
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">Period</th>
@@ -518,7 +526,8 @@ export class TableDocComponent {
 `;
 
   exampleInput = `<div class="e-table-container">
-  <table class="e-table" aria-label="Beskrivelse av tabellen">
+  <table class="e-table">
+  <caption class="e-sr-only">Cases</caption>
     <thead>
       <tr>
         <th scope="col">CaseID</th>
@@ -560,7 +569,8 @@ export class TableDocComponent {
 `;
 
   exampleInputMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
+  <table class="e-table-mobile">
+  <caption class="e-sr-only">Cases</caption>
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">CaseID</th>
@@ -608,7 +618,8 @@ export class TableDocComponent {
 `;
 
   exampleButton = `<div class="e-table-container">
-  <table class="e-table" aria-label="Beskrivelse av tabellen">
+  <table class="e-table">
+  <caption class="e-sr-only">Cases</caption>
     <thead>
       <tr>
         <th scope="col">CaseID</th>
@@ -663,7 +674,8 @@ export class TableDocComponent {
 `;
 
   exampleButtonMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
+  <table class="e-table-mobile">
+  <caption class="e-sr-only">Cases</caption>
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">CaseID</th>
@@ -725,7 +737,8 @@ export class TableDocComponent {
 `;
 
   exampleCheckbox = `<div class="e-table-container">
-  <table class="e-table" aria-label="Beskrivelse av tabellen">
+  <table class="e-table">
+  <caption class="e-sr-only">Cases</caption>
     <thead>
       <tr class="e-table__checkbox">
         <th scope="col">
@@ -779,7 +792,8 @@ export class TableDocComponent {
 `;
 
   exampleCheckboxMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
+  <table class="e-table-mobile">
+  <caption class="e-sr-only">Cases</caption>
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">CaseID</th>
@@ -831,7 +845,8 @@ export class TableDocComponent {
 `;
 
   exampleSelect = `<div class="e-table-container">
-  <table class="e-table" aria-label="Beskrivelse av tabellen">
+  <table class="e-table">
+  <caption class="e-sr-only">Cases</caption>
     <thead>
       <tr>
         <th scope="col">CaseID</th>
@@ -886,7 +901,8 @@ export class TableDocComponent {
 `;
 
   exampleSelectMobile = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile" aria-label="Beskrivelse av tabellen">
+  <table class="e-table-mobile">
+  <caption class="e-sr-only">Cases</caption>
     <thead>
       <tr>
         <th class="e-table-mobile__cell" scope="col">CaseID</th>
@@ -940,7 +956,8 @@ export class TableDocComponent {
 `;
 
   exampleNumbers = `<div class="e-table-container">
-  <table class="e-table" aria-label="Beskrivelse av tabellen">
+  <table class="e-table">
+  <caption class="e-sr-only">Invoices for 2020</caption>
     <thead>
       <tr>
         <th scope="col">Amount (kr)</th>
@@ -974,7 +991,8 @@ export class TableDocComponent {
 `;
 
   exampleLongColumn = `<div class="e-table-container">
-  <table class="e-table" aria-label="Beskrivelse av tabellen">
+  <table class="e-table">
+  <caption class="e-sr-only">Invoices for 2020</caption>
     <thead>
       <tr>
         <th scope="col">Period</th>
@@ -1020,7 +1038,8 @@ export class TableDocComponent {
 `;
 
   exampleAlignment = `<div class="e-table-container">
-  <table class="e-table" aria-label="Beskrivelse av tabellen">
+  <table class="e-table">
+  <caption class="e-sr-only">Alignment</caption>
     <thead>
       <tr>
         <th scope="col" class="e-text-left">Left-aligned text</th>
@@ -1040,7 +1059,8 @@ export class TableDocComponent {
 `;
 
   exampleFootnote = `<div class="e-table-container">
-  <table class="e-table" aria-label="Beskrivelse av tabellen">
+  <table class="e-table">
+  <caption class="e-sr-only">Cases</caption>
     <thead>
       <tr>
         <th scope="col">CaseID*</th>
@@ -1072,6 +1092,7 @@ export class TableDocComponent {
 
   exampleNoStripes = `<div class="e-table-container">
   <table class="e-table e-table--no-stripes">
+  <caption class="e-sr-only">Cases</caption>
     <thead>
       <tr>
         <th scope="col">CaseID</th>
