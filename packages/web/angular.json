@@ -53,11 +53,7 @@
                 "output": "./assets/contentful/dist/"
               }
             ],
-            "styles": [
-              "src/styles.scss",
-              "./node_modules/@elvia/elvis-tabs/dist/react/js/style.css",
-              "./node_modules/@elvia/elvis-popover/dist/react/js/style.css"
-            ],
+            "styles": ["src/styles.scss", "./node_modules/@elvia/elvis-popover/dist/react/js/style.css"],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,

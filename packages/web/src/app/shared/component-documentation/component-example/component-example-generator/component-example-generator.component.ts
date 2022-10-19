@@ -299,6 +299,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     return propName.replace(/([a-z])([A-Z])/g, '$1 $2');
   }
 
+  resetCustomTextProps(): void {
+    this.initializeCustomTextProps();
+  }
+
   /**
    * Updates the *Customize text*-popover by checking if any of the `custom-text`-attributes
    * have their dependencies met.
