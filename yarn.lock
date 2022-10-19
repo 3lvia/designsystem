@@ -2682,8 +2682,6 @@ __metadata:
   resolution: "@elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper"
   dependencies:
     "@types/lodash-es": ^4
-    "@types/lodash.isequal": ^4.5.5
-    "@types/lodash.throttle": ^4.1.7
     "@types/react": ^17.0.39
     "@types/react-dom": ^17.0.13
     json5: ^2.2.1
