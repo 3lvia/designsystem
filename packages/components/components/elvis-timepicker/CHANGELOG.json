@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "19.10.22",
+      "version": "2.1.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Emit empty value even when value is required."]
+        }
+      ]
+    },
+    {
       "date": "18.10.22",
       "version": "2.1.3",
       "changelog": [
