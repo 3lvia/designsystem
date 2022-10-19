@@ -86,7 +86,7 @@
       .ceg-customize-popover-reset-btn {
         display: flex;
         flex-direction: column;
-        align-items: end;
+        align-items: flex-end;
         margin-top: var(--e-spacing-24);
       }
     }
@@ -117,7 +117,7 @@
     .ceg-customize-popover-mobile-reset-btn {
       display: flex;
       flex-direction: column;
-      align-items: end;
+      align-items: flex-end;
       margin-top: var(--e-spacing-24);
     }
   }
