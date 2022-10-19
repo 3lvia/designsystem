@@ -119,14 +119,18 @@ export const TimepickerInput: React.FC<Props> = ({
     let [hour, minute] = inputValue.split('.');
 
     const isValid = validateInputValue(hour, minute);
+
+    // Always emit empty values
+    if (!inputValue.length) {
+      onChange(null);
+      return;
+    }
+
     if (!isValid) {
       return;
     }
 
-    if (!inputValue.length) {
-      onChange(null);
-      return;
-    } else if (inputValue.length <= 2 && isNumericValue(inputValue)) {
+    if (inputValue.length <= 2 && isNumericValue(inputValue)) {
       hour = inputValue;
       minute = '';
     } else if (inputValue.length >= 3 && inputValue.length <= 4 && isNumericValue(inputValue)) {
