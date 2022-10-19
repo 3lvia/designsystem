@@ -57,7 +57,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
     offset: 8,
-    horizontalPosition: 'center',
+    horizontalPosition: 'right-inside',
     verticalPosition: 'bottom',
     alignWidths: false,
   });
@@ -227,7 +227,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             size={isCompact ? 'small' : 'medium'}
             data-testid="popover-toggle"
             type="button"
-            aria-label="Åpne tidvelger"
+            aria-label="Åpne datovelger"
             aria-haspopup="dialog"
           >
             <Icon name="calendar" color={isDisabled ? 'disabled' : 'black'} size={isCompact ? 'xs' : 'sm'} />

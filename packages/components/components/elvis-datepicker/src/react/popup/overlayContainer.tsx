@@ -80,12 +80,19 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
     return createPortal(
       <>
         <Backdrop onClick={() => setFadeOut(true)} data-testid="backdrop" />
-        <Container ref={ref} data-testid="popover" fadeOut={fadeOut} onAnimationEnd={onAnimationEnd}>
+        <Container
+          ref={ref}
+          data-testid="popover"
+          role="dialog"
+          aria-modal="true"
+          fadeOut={fadeOut}
+          onAnimationEnd={onAnimationEnd}
+        >
           <PopoverHeader>
             <SelectedDateName>
               {selectedDate?.toLocaleDateString('nb-NO', { weekday: 'long', day: 'numeric', month: 'long' })}
             </SelectedDateName>
-            <TertiaryButton onClick={() => toggleView()}>
+            <TertiaryButton onClick={() => toggleView()} aria-label="Endre år">
               {viewedDate?.toLocaleDateString('nb-NO', { year: 'numeric' })}
               <Icon name={yearPickerIsOpen ? 'arrowUp' : 'arrowDown'} size="xs" />
             </TertiaryButton>

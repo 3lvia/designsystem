@@ -159,11 +159,11 @@ export const Calendar: React.FC<Props> = ({
   return (
     <CalendarContainer>
       <CalendarHeader>
-        <IconButton onClick={() => shuffleViewedMonth(-1)}>
+        <IconButton onClick={() => shuffleViewedMonth(-1)} aria-label="Forrige måned">
           <Icon name="arrowLongLeftBold" size="xs" />
         </IconButton>
-        <MonthName>{viewedDate.toLocaleString('nb-NO', { month: 'long' })}</MonthName>
-        <IconButton onClick={() => shuffleViewedMonth(1)}>
+        <MonthName>{viewedDate.toLocaleString('nb-NO', { month: 'long', year: 'numeric' })}</MonthName>
+        <IconButton onClick={() => shuffleViewedMonth(1)} aria-label="Neste måned">
           <Icon name="arrowLongRightBold" size="xs" />
         </IconButton>
       </CalendarHeader>
@@ -177,6 +177,11 @@ export const Calendar: React.FC<Props> = ({
         onKeyDown={(ev) => handleCalendarKeydown(ev)}
         onFocus={() => setCalendarHasFocus(true)}
         onBlur={() => setCalendarHasFocus(false)}
+        role="grid"
+        aria-activedescendant={`date-${selectedDate?.getTime()}`}
+        aria-colcount={7}
+        aria-rowcount={Math.ceil(daysInMonth.length / 7)}
+        aria-live="assertive"
       >
         {daysInMonth.map((day, index) => (
           <DayButton
@@ -189,6 +194,10 @@ export const Calendar: React.FC<Props> = ({
             isFocused={isSameDay(day, viewedDate) && calendarHasFocus}
             disabled={!day || dateIsDisabled(day)}
             onClick={() => day && onDateChange(day, true)}
+            role="gridcell"
+            type="button"
+            aria-current={isSameDay(day, selectedDate) ? 'date' : undefined}
+            id={`date-${day?.getTime()}`}
           >
             {formatDate(day)}
           </DayButton>
