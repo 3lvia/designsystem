@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "19.10.22",
+      "version": "1.5.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using <span class=\"code-text\">styled-components</span> to style the component."]
+        }
+      ]
+    },
+    {
       "date": "18.10.22",
       "version": "1.5.4",
       "changelog": [
