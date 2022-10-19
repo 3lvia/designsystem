@@ -118,11 +118,11 @@ export const useConnectedOverlay = (
     if (opts.verticalPosition === 'top') {
       hostRect.top - opts.offset - overlayRect.height > 0 ? alignTop() : alignBottom();
     } else if (opts.verticalPosition === 'top-inside') {
-      alignTopInside();
+      hostRect.top + overlayRect.height < window.height ? alignTopInside() : alignBottomInside();
     } else if (opts.verticalPosition === 'center') {
       alignCenter();
     } else if (opts.verticalPosition === 'bottom-inside') {
-      alignBottomInside();
+      hostRect.bottom - overlayRect.height > 0 ? alignBottomInside() : alignTopInside();
     } else {
       hostRect.bottom + opts.offset + overlayRect.height < window.height ? alignBottom() : alignTop();
     }
@@ -170,11 +170,11 @@ export const useConnectedOverlay = (
     if (opts.horizontalPosition === 'left') {
       hostRect.left - opts.offset - overlayWidth > 0 ? alignLeft() : alignRight();
     } else if (opts.horizontalPosition === 'left-inside') {
-      alignLeftInside();
+      hostRect.left + overlayWidth < window.width ? alignLeftInside() : alignRightInside();
     } else if (opts.horizontalPosition === 'center') {
       alignCenter();
     } else if (opts.horizontalPosition === 'right-inside') {
-      alignRightInside();
+      hostRect.right - overlayWidth > 0 ? alignRightInside() : alignLeftInside();
     } else {
       hostRect.right + opts.offset + overlayWidth < window.width ? alignRight() : alignLeft();
     }
