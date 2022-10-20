@@ -1,5 +1,12 @@
 import { Icon } from '@elvia/elvis-icon/react';
 import React, { KeyboardEvent, useEffect, useState } from 'react';
+import {
+  dateIsWithinMinMaxBoundary,
+  formatDate,
+  getDayName,
+  getWeekDayNames,
+  isSameDay,
+} from '../dateHelpers';
 import { IconButton } from '../styledComponents';
 import {
   CalendarContainer,
@@ -33,22 +40,9 @@ export const Calendar: React.FC<Props> = ({
   const [daysInMonth, setDaysInMonth] = useState<(Date | null)[]>([]);
   const [calendarHasFocus, setCalendarHasFocus] = useState(false);
 
-  const getDayName = (date: Date): string => {
-    return date.toLocaleDateString('nb-NO', { weekday: 'short' }).substring(0, 2);
-  };
-
-  const getDayNames = (): string[] => {
-    const date = new Date(2022, 9, 10); // A monday
-    return new Array(7).fill('').map(() => {
-      const dayName = getDayName(date);
-      date.setDate(date.getDate() + 1);
-      return dayName;
-    });
-  };
-
   const createListOfDays = () => {
     const lastDayOfMonth = new Date(viewedDate.getFullYear(), viewedDate.getMonth() + 1, 0).getDate();
-    const weekIndexOfFirstDayInMonth = getDayNames().findIndex((dayName) => {
+    const weekIndexOfFirstDayInMonth = getWeekDayNames().findIndex((dayName) => {
       const firstDayOfMonth = getDayName(new Date(viewedDate.getFullYear(), viewedDate.getMonth(), 1));
       return dayName === firstDayOfMonth;
     });
@@ -62,29 +56,14 @@ export const Calendar: React.FC<Props> = ({
     setDaysInMonth(dayList);
   };
 
-  const isSameDay = (d1?: Date | null, d2?: Date | null): boolean => {
-    if (!d1 || !d2) {
-      return false;
-    }
-
-    return (
-      `${d1.getFullYear()}${d1.getMonth()}${d1.getDate()}` ===
-      `${d2.getFullYear()}${d2.getMonth()}${d2.getDate()}`
-    );
-  };
-
   const shuffleViewedMonth = (dir: 1 | -1): void => {
     const newDate = new Date(viewedDate);
     newDate.setMonth(newDate.getMonth() + dir);
     setViewedDate(newDate);
   };
 
-  const formatDate = (date?: Date | null): string => {
-    if (!date) {
-      return '';
-    }
-
-    const dateString = date.toLocaleString('nb-NO', { day: 'numeric' });
+  const formatCalendarDay = (date?: Date | null): string => {
+    const dateString = formatDate(date, { day: 'numeric' });
     return dateString.substring(0, dateString.length - 1);
   };
 
@@ -131,20 +110,13 @@ export const Calendar: React.FC<Props> = ({
     }
   };
 
-  const dateIsWithinMinMaxBoundary = (date: Date): boolean => {
-    const dateIsAfterMinDate = !minDate || date.getTime() >= minDate.getTime();
-    const dateIsBeforeMaxDate = !maxDate || date.getTime() <= maxDate.getTime();
-
-    return dateIsAfterMinDate && dateIsBeforeMaxDate;
-  };
-
   const dateIsDisabled = (date: Date): boolean => {
     const disableDateMethodExcludesDate = !!disableDate && disableDate(date);
-    return !dateIsWithinMinMaxBoundary(date) || disableDateMethodExcludesDate;
+    return !dateIsWithinMinMaxBoundary(date, minDate, maxDate) || disableDateMethodExcludesDate;
   };
 
   useEffect(() => {
-    setDayNames(getDayNames());
+    setDayNames(getWeekDayNames());
     createListOfDays();
   }, []);
 
@@ -162,7 +134,7 @@ export const Calendar: React.FC<Props> = ({
         <IconButton onClick={() => shuffleViewedMonth(-1)} aria-label="Forrige måned">
           <Icon name="arrowLongLeftBold" size="xs" />
         </IconButton>
-        <MonthName>{viewedDate.toLocaleString('nb-NO', { month: 'long', year: 'numeric' })}</MonthName>
+        <MonthName>{formatDate(viewedDate, { month: 'long', year: 'numeric' })}</MonthName>
         <IconButton onClick={() => shuffleViewedMonth(1)} aria-label="Neste måned">
           <Icon name="arrowLongRightBold" size="xs" />
         </IconButton>
@@ -188,7 +160,7 @@ export const Calendar: React.FC<Props> = ({
             key={index}
             invisible={!day}
             tabIndex={-1}
-            aria-label={day?.toLocaleString('nb-NO', { day: 'numeric', month: 'long', year: 'numeric' })}
+            aria-label={formatDate(day, { day: 'numeric', month: 'long', year: 'numeric' })}
             isToday={isSameDay(day, new Date())}
             isActive={isSameDay(day, selectedDate)}
             isFocused={isSameDay(day, viewedDate) && calendarHasFocus}
@@ -199,7 +171,7 @@ export const Calendar: React.FC<Props> = ({
             aria-current={isSameDay(day, selectedDate) ? 'date' : undefined}
             id={`date-${day?.getTime()}`}
           >
-            {formatDate(day)}
+            {formatCalendarDay(day)}
           </DayButton>
         ))}
       </GridContainer>

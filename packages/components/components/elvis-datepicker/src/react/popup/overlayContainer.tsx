@@ -13,6 +13,7 @@ import {
   TertiaryButton,
 } from './popupStyles';
 import { YearPicker } from '../yearPicker/yearPicker';
+import { formatDate } from '../dateHelpers';
 
 interface Props {
   onClose: () => void;
@@ -90,10 +91,10 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
         >
           <PopoverHeader>
             <SelectedDateName>
-              {selectedDate?.toLocaleDateString('nb-NO', { weekday: 'long', day: 'numeric', month: 'long' })}
+              {formatDate(selectedDate, { weekday: 'long', day: 'numeric', month: 'long' })}
             </SelectedDateName>
             <TertiaryButton onClick={() => toggleView()} aria-label="Endre år">
-              {viewedDate?.toLocaleDateString('nb-NO', { year: 'numeric' })}
+              {formatDate(viewedDate, { year: 'numeric' })}
               <Icon name={yearPickerIsOpen ? 'arrowUp' : 'arrowDown'} size="xs" />
             </TertiaryButton>
           </PopoverHeader>
