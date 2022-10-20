@@ -244,6 +244,7 @@ const Pagination: FC<PaginationProps> = function ({
         isFirst={isFirstPage}
         isLast={isLastPage}
         key={pageIndex}
+        pageNumber={pageNumber}
         onClick={() => setSelectedPageNumber(pageNumber)}
         selected={isSelectedPageNumber(pageNumber)}
         aria-label={getAriaLabel(pageNumber)}
