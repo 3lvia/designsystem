@@ -1,6 +1,18 @@
 {
   "content": [
     {
+      "version": "10.0.0",
+      "date": "October 24, 2022",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Elvis now uses the relative sizing units rem and percent for font sizes and line heights."
+          ]
+        }
+      ]
+    },
+    {
       "version": "9.3.0",
       "date": "October 18, 2022",
       "changelog": [
@@ -46,18 +58,6 @@
         {
           "type": "patch",
           "changes": ["Elvis now checks for deprecated classes more efficiently."]
-        }
-      ]
-    },
-    {
-      "version": "9.1.0",
-      "date": "October 13, 2022",
-      "changelog": [
-        {
-          "type": "new_feature",
-          "changes": [
-            "Elvis now uses the relative sizing units rem and percent for font sizes and line heights."
-          ]
         }
       ]
     },

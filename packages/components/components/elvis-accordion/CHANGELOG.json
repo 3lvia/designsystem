@@ -2,17 +2,7 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "18.10.22",
-      "version": "2.8.3",
-      "changelog": [
-        {
-          "type": "patch",
-          "changes": ["Use <span class=\"code-text\">@elvia/elvis-toolbox@5.0.0</span>"]
-        }
-      ]
-    },
-    {
-      "date": "28.09.22",
+      "date": "24.09.22",
       "version": "2.9.0",
       "changelog": [
         {
@@ -20,6 +10,16 @@
           "changes": [
             "The Accordion component now uses rem for its font size to responsively adjust to the user's font size browser preferences."
           ]
+        }
+      ]
+    },
+    {
+      "date": "18.10.22",
+      "version": "2.8.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Use <span class=\"code-text\">@elvia/elvis-toolbox@5.0.0</span>"]
         }
       ]
     },

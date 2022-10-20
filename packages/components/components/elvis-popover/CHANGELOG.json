@@ -33,18 +33,6 @@
     },
     {
       "date": "10.10.22",
-      "version": "5.2.0",
-      "changelog": [
-        {
-          "type": "new_feature",
-          "changes": [
-            "The Popover component now uses rem for its font size to responsively adjust to the user's font size browser preferences."
-          ]
-        }
-      ]
-    },
-    {
-      "date": "10.10.22",
       "version": "5.1.8",
       "changelog": [
         {
