@@ -3,10 +3,10 @@ import { ErrorType } from './elviaDatepicker.types';
 export const getErrorText = (error?: ErrorType): string => {
   switch (error) {
     case 'invalidDate': {
-      return 'Ugyldig tid';
+      return 'Ugyldig dato';
     }
     case 'required': {
-      return 'Velg tid';
+      return 'Velg dato';
     }
     default: {
       return '';

@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { isSameDay } from './dateHelpers';
 import { ErrorType } from './elviaDatepicker.types';
 
 import { Input } from './styledComponents';
@@ -9,7 +10,7 @@ interface Props {
   date?: Date | null;
   isCompact?: boolean;
   placeholder?: string;
-  onChange: (newValue: Date) => void;
+  onChange: (newValue: Date | null) => void;
   onErrorChange: (error?: ErrorType) => void;
 }
 
@@ -43,21 +44,26 @@ export const DatepickerInput: React.FC<Props> = ({
     switch (caretIndex) {
       case 0:
       case 3:
-      case 4: {
+      case 6:
+      case 7:
+      case 8:
+      case 9: {
         if (isNumericValue(pressedKey)) {
           setInputValue(newInputValue);
         }
         break;
       }
-      case 1: {
-        if (newInputValue.length === 2 && isNumericValue(pressedKey)) {
+      case 1:
+      case 4: {
+        if ([2, 5].includes(newInputValue.length) && isNumericValue(pressedKey)) {
           setInputValue(`${newInputValue}.`);
         } else if (isNumericValue(pressedKey)) {
           setInputValue(newInputValue);
         }
         break;
       }
-      case 2: {
+      case 2:
+      case 5: {
         if (pressedKey === '.') {
           setInputValue(newInputValue);
         }
@@ -75,7 +81,7 @@ export const DatepickerInput: React.FC<Props> = ({
     if (isModifierKey) {
       setInputValue(newInputValue);
     } else {
-      if (inputValue.length === 5 && !hasSelectedText) {
+      if (inputValue.length === 10 && !hasSelectedText) {
         return;
       }
 
@@ -84,29 +90,20 @@ export const DatepickerInput: React.FC<Props> = ({
     }
   };
 
-  const emitNewValue = (formattedValue: string): void => {
-    if (!date || formattedValue !== getFormattedInputValue(date)) {
-      const newValue = date ? new Date(date) : new Date();
-
-      const parts = formattedValue.split('.');
-      newValue.setHours(+parts[0], +parts[1], 0, 0);
+  const emitNewValue = (newValue: Date | null): void => {
+    if (!isSameDay(newValue, date)) {
       onChange(newValue);
     }
   };
 
-  const validateInputValue = (hour: string, minute: string): boolean => {
-    const parsedHour = hour.length > 2 ? hour.substring(0, 2) : hour;
-    let parsedMinute = hour.length > 2 ? hour.substring(2) : '';
+  const validateInputValue = (day: string, month: string, year: string): boolean => {
+    const date = new Date(`${year}-${month}-${day}`);
+    const dateIsValid = !isNaN(date as unknown as number) && date instanceof Date;
 
-    if (minute) {
-      // Always use parsed minute if it exists
-      parsedMinute = minute;
-    }
-
-    if (!parsedHour.length && required) {
+    if (!(day || month || year) && required) {
       onErrorChange('required');
       return false;
-    } else if ((+parsedHour === 24 && +parsedMinute > 0) || +parsedHour > 24 || +parsedMinute >= 60) {
+    } else if (!dateIsValid) {
       onErrorChange('invalidDate');
       return false;
     }
@@ -116,27 +113,19 @@ export const DatepickerInput: React.FC<Props> = ({
   };
 
   const onBlur = (): void => {
-    let [hour, minute] = inputValue.split('.');
-
-    const isValid = validateInputValue(hour, minute);
-    if (!isValid) {
-      return;
-    }
-
     if (!inputValue.length) {
+      emitNewValue(null);
       return;
-    } else if (inputValue.length <= 2 && isNumericValue(inputValue)) {
-      hour = inputValue;
-      minute = '';
-    } else if (inputValue.length >= 3 && inputValue.length <= 4 && isNumericValue(inputValue)) {
-      hour = inputValue.substring(0, 2);
-      minute = inputValue.substring(2);
     }
 
-    const normalizedHour = +hour === 24 ? 0 : +hour;
-    const newValue = `${normalizedHour}.${minute}`;
-    setInputValue(newValue);
-    emitNewValue(newValue);
+    const [day, month, year] = inputValue.split('.');
+    const isValid = validateInputValue(day, month, year);
+
+    if (isValid) {
+      const newValue = new Date(date ? date : new Date());
+      newValue.setFullYear(+year, +month - 1, +day);
+      emitNewValue(newValue);
+    }
   };
 
   const getFormattedInputValue = (date?: Date | null): string => {
