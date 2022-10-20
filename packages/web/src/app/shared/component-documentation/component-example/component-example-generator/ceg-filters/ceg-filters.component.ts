@@ -12,7 +12,7 @@ import {
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../../example-code.service';
 import { CegFormGroup, CegFormGroupOption, FormState, CegSideFilterEvent, CegCodes } from '../ceg.interface';
-import { debounce } from 'lodash-es';
+import debounce from 'lodash.debounce';
 import { VisibleFieldsPipe } from './ceg-filters-visibility.pipe';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 import { CegCodeUpdaterService } from 'src/app/core/services/ceg-code-updater.service';
