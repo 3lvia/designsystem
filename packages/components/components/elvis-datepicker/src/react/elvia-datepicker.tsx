@@ -11,38 +11,34 @@ import { OverlayContainer } from './popup/overlayContainer';
 import { ErrorType, DatepickerProps } from './elviaDatepicker.types';
 import { useConnectedOverlay, useFocusTrap } from '@elvia/elvis-toolbox';
 import { DatepickerInput } from './datepickerInput';
-import { TimepickerError } from './error/datepickerError';
+import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
 import { formatISO, isValid } from 'date-fns';
 
 export const Datepicker: React.FC<DatepickerProps> = ({
-  value,
-  label = 'Velg dato',
+  clearButtonText = 'Nullstill',
+  dateRangeProps,
+  disableDate,
+  errorOptions = { hideText: false, isErrorState: false },
+  hasOptionalText,
+  hasSelectDateOnOpen = true,
   isCompact = false,
   isDisabled = false,
   isFullWidth = false,
+  isOpen = false,
   isRequired = false,
-  hasSelectDateOnOpen = true,
-  customError,
-  minDate,
+  label = 'Velg dato',
   maxDate,
-  valueOnChange,
-  valueOnChangeISOString,
-  onOpen,
+  minDate,
   onClose,
+  onOpen,
   onReset,
   placeholder = 'dd.mm.åååå',
-  isOpen = false,
-  hasOptionalText,
-  showValidation,
-  showValidationState = true,
-  clearButtonText = 'Nullstill',
-  isErrorState,
-  hasValidation = true,
-  hasErrorPlaceholderElement = true,
+  resetTime,
+  value,
+  valueOnChange,
+  valueOnChangeISOString,
   errorOnChange,
-  disableDate,
-  dateRangeProps,
   className,
   inlineStyle,
   webcomponent,
@@ -57,7 +53,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
     offset: 8,
-    horizontalPosition: 'right-inside',
+    horizontalPosition: 'left-inside',
     verticalPosition: 'bottom',
     alignWidths: false,
   });
@@ -82,6 +78,12 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   };
 
   const updateValue = (newDate: Date | null, emit = true): void => {
+    if (resetTime) {
+      newDate?.setHours(0, 0, 0, 0);
+    } else if (!resetTime && date) {
+      newDate?.setHours(date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds());
+    }
+
     setDate(newDate);
 
     if (!emit) {
@@ -159,11 +161,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   }, [isShowing]);
 
   // Needed for webcomponent -> To update the default value
-  useEffect(() => {
-    if (value != null) {
-      updateValue(value, false);
-    }
-  }, [value]);
+  useEffect(() => setDate(value), [value]);
 
   // Allows app to open the datepicker programatically
   useEffect(() => {
@@ -183,7 +181,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   useEffect(() => {
     if (maxDate) {
       const d = new Date(maxDate);
-      d.setHours(0, 0, 0, 0);
+      d.setHours(23, 59, 59, 59); // End of day
       setMaxDateWithoutTime(d);
     } else {
       setMaxDateWithoutTime(undefined);
@@ -208,7 +206,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           disabled={isDisabled}
           isCompact={isCompact}
           isActive={isShowing}
-          isInvalid={!!error || !!customError || !!isErrorState}
+          isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
         >
           <DatepickerInput
             date={date}
@@ -233,8 +231,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             <Icon name="calendar" color={isDisabled ? 'disabled' : 'black'} size={isCompact ? 'xs' : 'sm'} />
           </IconButton>
         </InputContainer>
-        {((error && showValidationState) || customError) && (
-          <TimepickerError customText={customError} errorType={error} isCompact={isCompact} />
+        {((error && !errorOptions.hideText) || errorOptions.text) && (
+          <DatepickerError customText={errorOptions.text} errorType={error} isCompact={isCompact} />
         )}
       </DatePickerLabel>
       {isShowing && (

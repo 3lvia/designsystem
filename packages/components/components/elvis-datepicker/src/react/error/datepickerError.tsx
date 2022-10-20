@@ -10,7 +10,7 @@ interface Props {
   isCompact: boolean;
 }
 
-export const TimepickerError: React.FC<Props> = ({ errorType, customText, isCompact }) => {
+export const DatepickerError: React.FC<Props> = ({ errorType, customText, isCompact }) => {
   const [errorText, setErrorText] = useState('');
 
   useEffect(() => {

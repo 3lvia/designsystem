@@ -20,18 +20,22 @@ export interface DatepickerRangeProps {
   whichRangePicker?: 'start' | 'end';
 }
 
+// This interface is copied from timepicker. Move to shared folder later.
+export interface ErrorOptions {
+  text: string;
+  hideText: boolean;
+  isErrorState: boolean;
+}
+
 export interface DatepickerProps {
   clearButtonText?: string;
-  customError?: string;
   disableDate?: (day: Date) => boolean;
   errorOnChange?: (error: string) => void;
-  hasErrorPlaceholderElement?: boolean;
+  errorOptions?: Partial<ErrorOptions>;
   hasOptionalText?: boolean;
   hasSelectDateOnOpen?: boolean;
-  hasValidation?: boolean;
   isCompact?: boolean;
   isDisabled?: boolean;
-  isErrorState?: boolean;
   isFullWidth?: boolean;
   isOpen?: boolean;
   isRequired?: boolean;
@@ -43,8 +47,6 @@ export interface DatepickerProps {
   onReset?: () => void;
   placeholder?: string;
   resetTime?: boolean;
-  showValidation?: boolean;
-  showValidationState?: boolean;
   value?: Date | null;
   valueOnChange?: (value: Date | null) => void;
   valueOnChangeISOString?: (value: string | null) => void;
