@@ -126,8 +126,8 @@ export const chipData: ComponentData = {
     console.log('Used in REMOVABLE chips - Remove element from DOM');
     chip.remove();
   });
-  chip.addEventListener('isSelectedOnChange', () => {
-    console.log('Do what you want with updated value');
+  chip.addEventListener('isSelectedOnChange', (event) => {
+    console.log('Do what you want with updated isSelected:', event.detail.value);
   });
 `,
   changelog: changelogJson.content,

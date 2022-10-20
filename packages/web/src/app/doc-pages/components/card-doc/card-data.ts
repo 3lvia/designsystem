@@ -69,7 +69,7 @@ const cardData: ComponentData = {
     height: {
       isRequired: false,
       type: 'string',
-      default: '100%',
+      default: '',
       description: 'Override height of card. Any css length value is accepted (e.g. 150px, 20vw, 75%).',
     },
     minWidth: {
