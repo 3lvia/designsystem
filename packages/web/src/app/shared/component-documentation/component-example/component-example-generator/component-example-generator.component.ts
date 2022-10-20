@@ -56,6 +56,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       value: AttributeType['cegDefault'];
       type: AttributeType['cegCustomTextType'];
       active: boolean;
+      orderOfPropsDisplayed: number;
     };
   } = {};
   hasCustomTextProps = false;
@@ -220,6 +221,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     } else {
       this.updateSelected(this.bgObj.propName, '' + (this.bgObj.default == 'false'), 'boolean');
     }
+    setTimeout(() => {
+      this.updateCustomTextVisibility();
+    });
   }
 
   /**
@@ -253,17 +257,17 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   /**
    * Used to order the elements in the *Customize text*-popover.
-   * @param _left
-   * @param _right
+   * @param left
+   * @param right
    * @returns
    */
   keepOriginalOrderInCustomTextPopover(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _left: KeyValue<string, typeof this.customTextProps[0]>,
+    left: KeyValue<string, typeof this.customTextProps[0]>,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _right: KeyValue<string, typeof this.customTextProps[0]>,
-  ): 1 {
-    return 1;
+    right: KeyValue<string, typeof this.customTextProps[0]>,
+  ): number {
+    return left.value.orderOfPropsDisplayed > right.value.orderOfPropsDisplayed ? 1 : -1;
   }
 
   /**
@@ -272,12 +276,16 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   updateCustomTextProps(): void {
     Object.entries(this.customTextProps).forEach(([prop, value]) => {
       // Remove empty props, otherwise update
-      if (value.value) {
+      if (!value.active) {
+        this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, prop);
+      } else if (value.value) {
         this.updateSelected(prop, value.value.toString(), 'string', false);
       } else {
         this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, prop);
       }
-      this.updateExampleCode();
+      setTimeout(() => {
+        this.updateExampleCode();
+      });
     });
   }
 
@@ -289,6 +297,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   getCustomTextLabel(propName: string): string {
     return propName.replace(/([a-z])([A-Z])/g, '$1 $2');
+  }
+
+  resetCustomTextProps(): void {
+    this.initializeCustomTextProps();
   }
 
   /**
@@ -328,12 +340,13 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
 
     this.customTextProps = {};
-    Object.entries(componentData.attributes).forEach(([attribute, attributeData]) => {
+    Object.entries(componentData.attributes).forEach(([attribute, attributeData], idx) => {
       if (attributeData.cegFormType === 'custom-text') {
         this.customTextProps[attribute] = {
           value: attributeData.cegDefault ?? '',
           type: attributeData.cegCustomTextType ?? 'input',
           active: this.customTextPropShouldBeVisible(attribute),
+          orderOfPropsDisplayed: idx,
         };
       }
     });
@@ -392,8 +405,12 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
    * @param cegType Type of the attribute (e.g. string, boolean).
    * @param updateExampleCode Whether to update code examples in the CEG (default true).
    */
-  private updateSelected(attr: string, newValue: string, cegType: string, updateExampleCode?: boolean): void {
-    const updateCode = updateExampleCode ? updateExampleCode : true;
+  private updateSelected(
+    attr: string,
+    newValue: string,
+    cegType: string,
+    updateExampleCode: boolean = true,
+  ): void {
     if (this.cegCodes.angular.includes(`[${attr}]`)) {
       this.cegCodes = this.cegCodeUpdaterService.replaceOldProps(this.cegCodes, attr, newValue, cegType);
     } else {
@@ -405,7 +422,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         cegType,
       );
     }
-    if (updateCode) {
+    if (updateExampleCode) {
       this.updateExampleCode();
     }
   }

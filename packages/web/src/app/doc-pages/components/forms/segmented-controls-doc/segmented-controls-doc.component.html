@@ -8,62 +8,11 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-segmented-controls" style="width: 300px" role="radiogroup">
-      <input
-        type="radio"
-        name="so-1-1"
-        id="so-1-1"
-        [value]="exampleContents.words.views['eng-GBR'][0]"
-        checked
-      />
-      <input type="radio" name="so-1-1" id="so-1-2" [value]="exampleContents.words.views['eng-GBR'][1]" />
-      <label for="so-1-1" data-value="Option 1">
-        <span class="e-segmented-controls__title">{{ exampleContents.words.views['eng-GBR'][0] }}</span>
-      </label>
-      <label for="so-1-2" data-value="Option 2">
-        <span class="e-segmented-controls__title">{{ exampleContents.words.views['eng-GBR'][1] }}</span>
-      </label>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
-    </div>
-  </div>
-
-  <!--OPTIONS-->
-  <app-component-section [sectionTitle]="'Options'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Three controls'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
-  <!--SIZE-->
-  <app-component-section [sectionTitle]="'Size'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Large'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleLarge"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Medium'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleMedium"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Small'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleSmall"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
+  <!--CEG-->
+  <app-component-example-generator
+    [componentData]="componentData"
+    [typesData]="typesData"
+  ></app-component-example-generator>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
@@ -97,40 +46,27 @@
           </div>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'ARIA'">
-        <ng-container ngProjectAs="sectionContent">
-          <ul class="e-list">
-            <li>
-              <strong>Role:</strong>
-              Remember to add
-              <span class="code-text">role="radiogroup"</span>
-              to the element that has the
-              <span class="code-text">e-segmented-controls</span>
-              class. This will signalize to assistive tools that the component has the same behavior as a
-              radiogroup.
-            </li>
-          </ul>
-        </ng-container>
-      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
-  <!--IMPLEMENTATION-->
-  <app-component-section [sectionTitle]="'Implementation'">
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Width'">
-        <ng-container ngProjectAs="sectionContent">
-          Add specific width depending on how many options and how long each option is. The padding should be
-          about equal to the padding in the examples above.
-        </ng-container>
-      </app-component-subsection>
+      <app-component-installation [componentData]="componentData"></app-component-installation>
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-segmented-controls'">
+  <app-component-section [sectionTitle]="'Properties'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-segmented-controls'"></app-component-properties>
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
+  <!--CHANGELOG-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>

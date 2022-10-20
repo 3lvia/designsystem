@@ -1,11 +1,11 @@
 import React, { FC, useState, useEffect, useRef, useCallback, CSSProperties } from 'react';
-import './style.scss';
 import classnames from 'classnames';
 import { Icon } from '@elvia/elvis-icon/react';
 import throttle from 'lodash.throttle';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { warnDeprecatedProps, outlineListener } from '@elvia/elvis-toolbox';
 import { config } from './config';
+import { PopoverStyles } from './styledComponents';
 
 export interface PopoverProps {
   /**
@@ -426,8 +426,8 @@ const Popover: FC<PopoverProps> = function ({
   });
 
   return (
-    <div
-      className={`${className ? className : ''}`}
+    <PopoverStyles
+      className={className ? className : ''}
       style={inlineStyle}
       ref={popoverRef}
       data-testid="popover-wrapper"
@@ -496,7 +496,7 @@ const Popover: FC<PopoverProps> = function ({
           </div>
         </div>
       </div>
-    </div>
+    </PopoverStyles>
   );
 };
 

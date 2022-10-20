@@ -7,45 +7,48 @@ const cardData: ComponentData = {
   elementNameR: 'Card',
   attributes: {
     icon: {
-      isRequired: true,
+      isRequired: false,
       type: 'string | HTMLElement | JSX.Element',
       description: 'Text or icon (use slot in webcomponent if not just text).',
     },
-    shape: {
+    type: {
       isRequired: false,
-      type: 'square | circle',
-      description: 'Shapes of card.',
-      default: 'square',
-      cegDisplayName: 'Shape',
-      cegDefault: 'square',
-      cegType: 'string',
-      cegFormType: 'radio',
-      cegOptions: ['square', 'circle'],
-      cegDependency: [{ name: 'type', value: 'simple' }],
+      type: '"simple" | "detail"',
+      description: 'The type of the card. The types are described in more detail in the "types" section.',
+      default: '"simple"',
     },
-    header: {
+    heading: {
       isRequired: false,
       type: 'string',
-      description: 'Card header.',
+      description: 'Card heading.',
+    },
+    headingLevel: {
+      isRequired: false,
+      type: 'h1 | h2 | h3 | h4 | h5 | h6',
+      default: 'h3',
+      description: 'Defines the HTML heading used on the card heading.',
     },
     description: {
       isRequired: false,
       type: 'string',
       description: 'Description text, keep it short if not detail card.',
+      cegDisplayName: 'Description',
+      cegType: 'string',
+      cegFormType: 'toggle',
+      cegDefault: true,
+      cegOption: 'Description',
+      cegDependency: [{ name: 'type', value: 'simple' }],
     },
     borderColor: {
       isRequired: false,
       type: 'green | blue-berry | red | orange',
-      description: 'Color on top of the card.',
+      description: 'Color on top of the card. Only applies to simple card. ',
       cegDisplayName: 'Border color',
       cegDefault: 'none',
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['none', 'green', 'blue-berry', 'red', 'orange'],
-      cegDependency: [
-        { name: 'type', value: 'simple' },
-        { name: 'shape', value: 'square' },
-      ],
+      cegDependency: [{ name: 'type', value: 'simple' }],
     },
     hasBorder: {
       isRequired: false,
@@ -63,6 +66,12 @@ const cardData: ComponentData = {
       default: '100%',
       description: 'Override width of card. Any css length value is accepted (e.g. 150px, 20vw, 75%).',
     },
+    height: {
+      isRequired: false,
+      type: 'string',
+      default: '100%',
+      description: 'Override height of card. Any css length value is accepted (e.g. 150px, 20vw, 75%).',
+    },
     minWidth: {
       isRequired: false,
       type: 'number',
@@ -72,19 +81,26 @@ const cardData: ComponentData = {
     maxWidth: {
       isRequired: false,
       type: 'number',
-      default: '400',
-      description: 'Maximum width of card in px, cannot be more than 400.',
+      default: '250 | 400',
+      description: 'Maximum width of card in px, cannot be more than 250 (or 400 for detail type card).',
     },
     maxDescriptionLines: {
       isRequired: false,
       type: 'number',
-      default: '5',
-      description: 'Max number of text lines in description. Overflow is clamped with an ellipsis.',
+      default: '3',
+      description:
+        'Max number of text lines in description. Overflow is clamped with an ellipsis. NB: This prop is only used for detail cards.',
     },
-    label: {
+    tag: {
       isRequired: false,
       type: 'string',
-      description: 'Label on bottom of card, only available on detail card.',
+      description: 'Tag on bottom of card, only available on detail card.',
+      cegDisplayName: 'Tag',
+      cegType: 'string',
+      cegFormType: 'toggle',
+      cegDefault: true,
+      cegOption: 'Tag',
+      cegDependency: [{ name: 'type', value: 'detail' }],
     },
     iconHover: {
       isRequired: false,

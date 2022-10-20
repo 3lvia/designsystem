@@ -9,7 +9,7 @@ interface Props {
   onClose: () => void;
   onChange: (changeType: ChangeType, newValue: number) => void;
   minuteInterval: MinuteInterval;
-  currentTime: Date | undefined;
+  currentTime?: Date | null;
 }
 
 export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
@@ -40,8 +40,8 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
 
     return createPortal(
       <>
-        <Backdrop onClick={() => setFadeOut(true)} data-test="backdrop" />
-        <Container ref={ref} data-test="popover" fadeOut={fadeOut} onAnimationEnd={onAnimationEnd}>
+        <Backdrop onClick={() => setFadeOut(true)} data-testid="backdrop" />
+        <Container ref={ref} data-testid="popover" fadeOut={fadeOut} onAnimationEnd={onAnimationEnd}>
           <NumberPicker
             title="Time"
             currentValue={currentTime?.getHours()}

@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState, useRef, CSSProperties } from 'react';
 import classNames from 'classnames';
 import { outlineListener } from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
-import './style.scss';
+import { TabsStyles } from './styledComponents';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import throttle from 'lodash.throttle';
 export interface TabsProps {
@@ -187,69 +187,72 @@ const Tabs: FC<TabsProps> = ({
   });
 
   return (
-    <div
-      className={tabsClasses + (className ? ' ' + className : '')}
-      style={inlineStyle}
-      ref={tabsRef}
-      data-testid="tabs-container"
-      {...rest}
-    >
+    <TabsStyles>
       <div
-        className={arrowLeftClasses}
-        onClick={() => {
-          scrollSideways('left');
-        }}
+        className={tabsClasses + (className ? ' ' + className : '')}
+        style={inlineStyle}
+        ref={tabsRef}
+        data-testid="tabs-container"
+        {...rest}
       >
-        <Icon
-          name="arrowLeftBold"
-          size="xxs"
-          color={isInverted ? 'white' : undefined}
-          inlineStyle={{
-            position: 'absolute',
-            top: '11px',
-            visibility: isOnLeftEnd ? 'hidden' : 'visible',
+        <div
+          className={arrowLeftClasses}
+          onClick={() => {
+            scrollSideways('left');
           }}
-        />
-      </div>
-      <div className={itemsClasses}>
-        <div className="ewc-tabs__items-scroll" ref={itemsRef} role="tablist" aria-label={ariaLabel}>
-          {items &&
-            items.map((item, i) => (
-              <button
-                role="tab"
-                id={'ewc-tab-id-' + i}
-                key={i}
-                aria-selected={currValue === i}
-                aria-controls={item}
-                tabIndex={currValue === i ? 0 : -1}
-                className="ewc-tabs__item"
-                onClick={() => updateValue(i)}
-              >
-                <span className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>
-                  {item}
-                </span>
-              </button>
-            ))}
+        >
+          <Icon
+            name="arrowLeftBold"
+            size="xxs"
+            color={isInverted ? 'white' : undefined}
+            inlineStyle={{
+              position: 'absolute',
+              top: '11px',
+              visibility: isOnLeftEnd ? 'hidden' : 'visible',
+            }}
+          />
+        </div>
+        <div className={itemsClasses}>
+          <div className="ewc-tabs__items-scroll" ref={itemsRef} role="tablist" aria-label={ariaLabel}>
+            {items &&
+              items.map((item, i) => (
+                <button
+                  role="tab"
+                  id={'ewc-tab-id-' + i}
+                  key={i}
+                  aria-selected={currValue === i}
+                  aria-controls={item}
+                  tabIndex={currValue === i ? 0 : -1}
+                  className="ewc-tabs__item"
+                  onClick={() => updateValue(i)}
+                  data-testid="tab-button"
+                >
+                  <span className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>
+                    {item}
+                  </span>
+                </button>
+              ))}
+          </div>
+        </div>
+        <div
+          className={arrowRightClasses}
+          onClick={() => {
+            scrollSideways('right');
+          }}
+        >
+          <Icon
+            name="arrowRightBold"
+            size="xxs"
+            color={isInverted ? 'white' : undefined}
+            inlineStyle={{
+              position: 'absolute',
+              top: '11px',
+              visibility: isOnRightEnd ? 'hidden' : 'visible',
+            }}
+          />
         </div>
       </div>
-      <div
-        className={arrowRightClasses}
-        onClick={() => {
-          scrollSideways('right');
-        }}
-      >
-        <Icon
-          name="arrowRightBold"
-          size="xxs"
-          color={isInverted ? 'white' : undefined}
-          inlineStyle={{
-            position: 'absolute',
-            top: '11px',
-            visibility: isOnRightEnd ? 'hidden' : 'visible',
-          }}
-        />
-      </div>
-    </div>
+    </TabsStyles>
   );
 };
 

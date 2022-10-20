@@ -7,8 +7,8 @@ interface WindowRect {
   innerWidth: number;
 }
 
-export type OverlayVerticalPosition = 'bottom' | 'center' | 'top';
-export type OverlayHorizontalPosition = 'left' | 'center' | 'right';
+export type OverlayVerticalPosition = 'top' | 'top-inside' | 'center' | 'bottom-inside' | 'bottom';
+export type OverlayHorizontalPosition = 'left' | 'left-inside' | 'center' | 'right-inside' | 'right';
 
 interface Options {
   offset: number;
@@ -90,9 +90,14 @@ export const useConnectedOverlay = (
     overlayRect: DOMRect,
     window: WindowRect,
   ): void => {
-    const alignBottom = () => {
-      overlay.top = `${hostRect.bottom + opts.offset + scrollOffsetY}px`;
-      setVerticalPosition('bottom');
+    const alignTop = () => {
+      overlay.top = `${hostRect.top - opts.offset - overlayRect.height + scrollOffsetY}px`;
+      setVerticalPosition('top');
+    };
+
+    const alignTopInside = () => {
+      overlay.top = `${hostRect.top + scrollOffsetY}px`;
+      setVerticalPosition('top-inside');
     };
 
     const alignCenter = () => {
@@ -100,17 +105,26 @@ export const useConnectedOverlay = (
       setVerticalPosition('center');
     };
 
-    const alignTop = () => {
-      overlay.top = `${hostRect.top - opts.offset - overlayRect.height + scrollOffsetY}px`;
-      setVerticalPosition('top');
+    const alignBottomInside = () => {
+      overlay.top = `${hostRect.bottom - overlayRect.height + scrollOffsetY}px`;
+      setVerticalPosition('bottom');
     };
 
-    if (opts.verticalPosition === 'bottom') {
-      hostRect.bottom + opts.offset + overlayRect.height < window.height ? alignBottom() : alignTop();
+    const alignBottom = () => {
+      overlay.top = `${hostRect.bottom + opts.offset + scrollOffsetY}px`;
+      setVerticalPosition('bottom');
+    };
+
+    if (opts.verticalPosition === 'top') {
+      hostRect.top - opts.offset - overlayRect.height > 0 ? alignTop() : alignBottom();
+    } else if (opts.verticalPosition === 'top-inside') {
+      hostRect.top + overlayRect.height < window.height ? alignTopInside() : alignBottomInside();
     } else if (opts.verticalPosition === 'center') {
       alignCenter();
+    } else if (opts.verticalPosition === 'bottom-inside') {
+      hostRect.bottom - overlayRect.height > 0 ? alignBottomInside() : alignTopInside();
     } else {
-      hostRect.top - opts.offset - overlayRect.height > 0 ? alignTop() : alignBottom();
+      hostRect.bottom + opts.offset + overlayRect.height < window.height ? alignBottom() : alignTop();
     }
   };
 
@@ -126,6 +140,11 @@ export const useConnectedOverlay = (
       setHorizontalPosition('left');
     };
 
+    const alignLeftInside = () => {
+      overlay.left = `${hostRect.left + scrollOffsetX}px`;
+      setHorizontalPosition('left-inside');
+    };
+
     const alignCenter = () => {
       const overlayLeft = hostRect.left + (hostRect.width - overlayWidth) / 2 + scrollOffsetX;
       if (overlayLeft <= windowPadding) {
@@ -138,6 +157,11 @@ export const useConnectedOverlay = (
       setHorizontalPosition('center');
     };
 
+    const alignRightInside = () => {
+      overlay.left = `${hostRect.right - overlayWidth + scrollOffsetX}px`;
+      setHorizontalPosition('right-inside');
+    };
+
     const alignRight = () => {
       overlay.left = `${hostRect.right + opts.offset + scrollOffsetX}px`;
       setHorizontalPosition('right');
@@ -145,8 +169,12 @@ export const useConnectedOverlay = (
 
     if (opts.horizontalPosition === 'left') {
       hostRect.left - opts.offset - overlayWidth > 0 ? alignLeft() : alignRight();
+    } else if (opts.horizontalPosition === 'left-inside') {
+      hostRect.left + overlayWidth < window.width ? alignLeftInside() : alignRightInside();
     } else if (opts.horizontalPosition === 'center') {
       alignCenter();
+    } else if (opts.horizontalPosition === 'right-inside') {
+      hostRect.right - overlayWidth > 0 ? alignRightInside() : alignLeftInside();
     } else {
       hostRect.right + opts.offset + overlayWidth < window.width ? alignRight() : alignLeft();
     }

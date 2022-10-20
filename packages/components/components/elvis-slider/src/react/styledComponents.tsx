@@ -12,6 +12,7 @@ const colors = {
   error: getColor('red'),
   grey20: getColor('grey-20'),
   grey30: getColor('grey-30'),
+  placeholder: getColor('placeholder'),
 };
 
 const typography = {
@@ -103,7 +104,6 @@ const HOVER_THUMB = css`
 
 const DISABLED_THUMB = css`
   background-color: ${colors.grey30};
-  opacity: 1 !important;
   border: solid 1.5px ${colors.elviaWhite};
   cursor: -webkit-not-allowed;
   cursor: not-allowed;
@@ -112,11 +112,57 @@ const DISABLED_THUMB = css`
 
 export const SliderContainer = styled.div`
   box-sizing: border-box;
-  text-align: left;
   width: 100%;
   min-width: 112px;
   position: relative;
   margin-bottom: 24px;
+`;
+
+export const NumberInput = styled.input.attrs(() => ({
+  inputMode: 'decimal',
+  type: 'number',
+}))<NumberInputProps>`
+  ${typography.smallText}
+  -moz-appearance: textfield;
+  align-items: center;
+  background-color: ${colors.elviaWhite};
+  border-radius: 4px;
+  border: 1px solid ${colors.elviaBlack};
+  box-sizing: border-box;
+  display: flex;
+  max-width: 448px;
+  min-height: 34px;
+  min-width: 50px;
+  padding: 4px 10px;
+  position: relative;
+  text-transform: unset;
+  width: ${(props) => Math.max(props.label.length, props.max.toString().length) + 2}ch;
+
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  :focus {
+    border: 2px solid ${colors.elviaCharge};
+    padding: 3px 9px;
+  }
+
+  :disabled {
+    border-color: ${colors.disabled};
+    color: ${colors.disabled};
+    cursor: not-allowed;
+    user-select: none;
+  }
+
+  &[aria-invalid='true'] {
+    border: 2px solid ${colors.error};
+  }
+`;
+
+export const SliderLabel = styled.label`
+  display: flex;
 `;
 
 //Styling the helpVales and the inputs
@@ -145,6 +191,7 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
     justify-self: end;
   }
 
+  //the first number input field
   div:first-of-type {
     grid-row: 1 / 2;
 
@@ -152,12 +199,26 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
       if (props.leftInputPriority && props.type === 'simple') {
         return css`
           grid-column: 1 / 3;
-          align-self: center;
+
+          /* for aligning text text to the left */
+          ${NumberInput} {
+            text-align: left;
+          }
+          ${SliderLabel} {
+            justify-content: flex-start;
+          }
         `;
       } else if (props.type === 'simple' && props.hasHintValues) {
         return css`
-          display: flex;
-          justify-content: center;
+          /* for aligning label text to the center */
+          ${NumberInput} {
+            text-align: center;
+          }
+          ${SliderLabel} {
+            justify-content: center;
+          }
+
+          justify-self: center;
         `;
       }
       return '';
@@ -165,18 +226,34 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   }
 
   div:not(:first-child):last-child {
+    /* for aligning label text to the right */
+    ${NumberInput} {
+      text-align: right;
+    }
+    ${SliderLabel} {
+      justify-content: flex-end;
+    }
     justify-self: end;
   }
 `;
 
+export const NumberInputContainer = styled.div`
+  box-sizing: border-box;
+  display: block;
+  padding-top: 8px;
+  position: relative;
+  width: fit-content;
+`;
+
 export const LabelText = styled.div`
+  box-sizing: border-box;
   background-color: ${colors.elviaWhite};
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 0.625rem;
   font-weight: 500;
   line-height: 10px;
-  margin-left: 7px;
-  padding: 0 3px;
+  margin: 0 8px;
+  padding: 0 2px;
   position: absolute;
   top: 0;
   user-select: none;
@@ -185,20 +262,13 @@ export const LabelText = styled.div`
   border-bottom: 1px solid ${colors.elviaWhite}; //to remove overflowing greenborder Safari iOS (16)
 `;
 
-export const NumberInputContainer = styled.div`
-  box-sizing: border-box;
-  display: block;
-  padding-top: 8px;
-  position: relative;
-  text-align: left;
-`;
-
 export const HelpValue = styled.p<HelperTextProps>`
   display: inline;
   width: fit-content;
   margin: 0;
   padding-top: 8px;
   ${typography.smallText}
+  color: ${colors.placeholder};
 
   ${(props) => {
     return props.isDisabled
@@ -208,51 +278,6 @@ export const HelpValue = styled.p<HelperTextProps>`
         `
       : '';
   }}
-`;
-
-export const NumberInput = styled.input.attrs(() => ({
-  inputMode: 'decimal',
-  type: 'number',
-}))<NumberInputProps>`
-  ${typography.smallText}
-  -moz-appearance: textfield;
-  align-items: center;
-  background-color: ${colors.elviaWhite};
-  border-radius: 4px;
-  border: 1px solid ${colors.elviaBlack};
-  box-sizing: border-box;
-  display: flex;
-  max-width: 448px;
-  min-height: 34px;
-  max-height: 34px;
-  min-width: 50px;
-  padding: 4px 10px;
-  position: relative;
-  text-align: left;
-  text-transform: unset;
-  width: ${(props) => Math.max(props.label.length, props.max.toString().length) + 2}ch;
-
-  ::-webkit-outer-spin-button,
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  :focus {
-    border: 2px solid ${colors.elviaCharge};
-    padding: 3px 9px;
-  }
-
-  :disabled {
-    border-color: ${colors.disabled};
-    color: ${colors.disabled};
-    cursor: not-allowed;
-    user-select: none;
-  }
-
-  &[aria-invalid='true'] {
-    border: 2px solid ${colors.error};
-  }
 `;
 
 export const SliderWrapper = styled.div<SliderWrapperProps>`
@@ -335,6 +360,12 @@ export const StyledSlider = styled.input.attrs(() => ({
   /***** Chrome, Safari, Opera, and Edge Chromium *****/
   :disabled::-webkit-slider-thumb {
     ${DISABLED_THUMB}
+  }
+
+  /* to keep the thumb opaque in Safari iOS (16) Do not move to ":disabled::-webkit-slider-thumb"  */
+  :disabled {
+    -webkit-opacity: 1;
+    opacity: 1;
   }
 
   /******** Firefox ********/

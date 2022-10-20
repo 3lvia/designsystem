@@ -296,7 +296,8 @@
 				"e-input---invalid": {},
 				"e-input---focus": {},
 				"e-input---disabled": {},
-				"e-input---readonly": {}
+				"e-input---readonly": {},
+				"e-input---loading": {}
 			}
 		},
 		"e-combined-field": {},
@@ -1338,6 +1339,7 @@
 		"e-input---focus": {},
 		"e-input---disabled": {},
 		"e-input---readonly": {},
+		"e-input---loading": {},
 		"e-combined-field": {},
 		"e-input--compact": {},
 		"e-dropdown": {},

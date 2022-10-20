@@ -2,6 +2,43 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "19.10.22",
+      "version": "5.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The hook <span class=\"code-text\">useConnectedOverlay</span> now supports aligning items on the inside of the trigger element."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "18.10.22",
+      "version": "5.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The <span class=\"code-text\">useFocusTrap</span> is now a proper hook that returns a toggle for enabling/disabling focus trap."
+          ],
+          "fixes": [
+            "Instead of calling the <span class=\"code-text\">useFocusTrap</span> each time you enable/disable the focus trap, you use the returned method."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "18.10.22",
+      "version": "4.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added a new hook <span class=\"code-text\">useIsOverflowing</span>. "]
+        }
+      ]
+    },
+    {
       "date": "07.10.22",
       "version": "4.1.2",
       "changelog": [
