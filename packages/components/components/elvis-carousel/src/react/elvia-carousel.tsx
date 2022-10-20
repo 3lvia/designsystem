@@ -74,11 +74,9 @@ export const Carousel: FC<CarouselProps> = function ({
   webcomponent,
   ...rest
 }) {
-  // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(carouselConfig, arguments[0]);
 
   if (Array.isArray(items)) {
-    // eslint-disable-next-line prefer-rest-params
     items.forEach((item) => {
       warnDeprecatedProps(carouselItemConfig, item);
     });
@@ -194,6 +192,7 @@ export const Carousel: FC<CarouselProps> = function ({
       valueOnChange(updateValueIndex);
     } else if (webcomponent) {
       webcomponent.setProps({ value: updateValueIndex }, true);
+      webcomponent.triggerEvent('valueOnChange', updateValueIndex);
     }
   };
 

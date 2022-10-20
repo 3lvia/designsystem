@@ -52,7 +52,6 @@ export const Chip: FC<ChipProps> = function ({
   webcomponent,
   ...rest
 }) {
-  // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(config, arguments[0]);
 
   const [isSelectedState, setIsSelectedState] = useState(isSelected);
@@ -76,6 +75,7 @@ export const Chip: FC<ChipProps> = function ({
       isSelectedOnChange && isSelectedOnChange(newIsSelected);
     } else if (webcomponent) {
       webcomponent.setProps({ isSelected: newIsSelected }, true);
+      webcomponent.triggerEvent('isSelectedOnChange', newIsSelected);
     }
   };
 

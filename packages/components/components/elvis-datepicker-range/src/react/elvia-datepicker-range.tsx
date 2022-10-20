@@ -153,6 +153,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
       valueOnChange?.(selectedDateRange);
     } else {
       webcomponent.setProps({ value: selectedDateRange }, true);
+      webcomponent.triggerEvent('valueOnChange', selectedDateRange);
     }
   }, [selectedDateRange]);
 

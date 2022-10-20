@@ -66,7 +66,6 @@ export const ModalComponent: FC<ModalProps> = function ({
   webcomponent,
   ...rest
 }) {
-  // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(config, arguments[0]);
 
   const modalWrapperRef = useRef<HTMLDivElement>(null);
@@ -92,6 +91,7 @@ export const ModalComponent: FC<ModalProps> = function ({
       onClose();
     } else if (webcomponent) {
       webcomponent.setProps({ isShowing: false }, true);
+      webcomponent.triggerEvent('isShowingOnChange', false);
       webcomponent.triggerEvent('onClose');
     }
   };

@@ -187,10 +187,12 @@ const Slider: React.FC<SliderProps> = ({
     };
 
     setSliderValues(newSliderValues);
+    const newValueToEmit = type === 'simple' ? newValue.left : newValue;
     if (!webcomponent && valueOnChange) {
-      valueOnChange(type === 'simple' ? newValue.left : newValue);
+      valueOnChange(newValueToEmit);
     } else if (webcomponent) {
-      webcomponent.setProps({ value: type === 'simple' ? newValue.left : newValue }, true);
+      webcomponent.setProps({ value: newValueToEmit }, true);
+      webcomponent.triggerEvent('valueOnChange', newValueToEmit);
     }
   };
 

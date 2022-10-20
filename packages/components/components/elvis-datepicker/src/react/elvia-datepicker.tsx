@@ -245,6 +245,7 @@ export const Datepicker: FC<DatepickerProps> = ({
         valueOnChange?.(selectedDate);
       } else {
         webcomponent.setProps({ value: selectedDate }, true);
+        webcomponent.triggerEvent('valueOnChange', selectedDate);
       }
       setHasChangeToEmit(false);
     }

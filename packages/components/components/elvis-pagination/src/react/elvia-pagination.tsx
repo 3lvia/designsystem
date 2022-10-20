@@ -104,7 +104,6 @@ const Pagination: FC<PaginationProps> = function ({
   webcomponent,
   ...rest
 }) {
-  // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(config, arguments[0]);
 
   /** Max page numbers that can be visible at the same time */
@@ -214,6 +213,7 @@ const Pagination: FC<PaginationProps> = function ({
       valueOnChange(newValue);
     } else if (webcomponent) {
       webcomponent.setProps({ value: newValue }, true);
+      webcomponent.triggerEvent('valueOnChange', newValue);
     }
   };
 
@@ -399,6 +399,7 @@ const Pagination: FC<PaginationProps> = function ({
       dropdownSelectedItemIndexOnChange(selectedIndex);
     } else if (webcomponent) {
       webcomponent.setProps({ dropdownSelectedItemIndex: selectedIndex }, true);
+      webcomponent.triggerEvent('dropdownSelectedItemIndexOnChange', selectedIndex);
     }
   };
 

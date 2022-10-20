@@ -61,7 +61,7 @@ const Card: FC<CardProps> = function ({
   type = 'simple',
   hasBorder = true,
   width = '100%',
-  height = '100%',
+  height,
   minWidth,
   maxWidth,
   maxDescriptionLines = 3,
@@ -72,7 +72,6 @@ const Card: FC<CardProps> = function ({
   webcomponent,
   ...rest
 }) {
-  // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(cardConfig, arguments[0]);
 
   const [isHoveringArea, setIsHoveringArea] = useState(false);

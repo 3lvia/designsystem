@@ -54,6 +54,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
       valueOnChange(newTime);
     } else if (webcomponent) {
       webcomponent.setProps({ value: newTime }, true);
+      webcomponent.triggerEvent('valueOnChange', newTime);
     }
   };
 

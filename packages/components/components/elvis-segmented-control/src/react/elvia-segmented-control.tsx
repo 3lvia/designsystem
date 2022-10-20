@@ -28,6 +28,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       valueOnChange(selectedIndex);
     } else if (webcomponent) {
       webcomponent.setProps({ value: selectedIndex }, true);
+      webcomponent.triggerEvent('valueOnChange', selectedIndex);
     }
   };
 

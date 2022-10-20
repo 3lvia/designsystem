@@ -10,7 +10,7 @@ export interface CardAreaProps {
   type: CardType;
   hasBorder: boolean;
   width: string;
-  height: string;
+  height?: string;
   minWidth?: number;
   maxWidth?: number;
 }
