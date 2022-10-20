@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { isSameDay, isValidDate } from './dateHelpers';
+import { formatDate, isSameDay, isValidDate } from './dateHelpers';
 import { ErrorType } from './elviaDatepicker.types';
 
 import { Input } from './styledComponents';
@@ -11,6 +11,7 @@ interface Props {
   isCompact?: boolean;
   placeholder?: string;
   onChange: (newValue: Date | null) => void;
+  currentError?: ErrorType;
   onErrorChange: (error?: ErrorType) => void;
 }
 
@@ -21,12 +22,14 @@ export const DatepickerInput: React.FC<Props> = ({
   isCompact,
   placeholder,
   onChange,
+  currentError,
   onErrorChange,
 }) => {
   const inputElement = useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = useState('');
   const [hasSelectedText, setHasSelectedText] = useState(false);
   const [caretIndex, setCaretIndex] = useState(0);
+  const [touched, setTouched] = useState(false);
 
   const isNumericValue = (value: string): boolean => {
     return /^\d+$/.test(value);
@@ -96,7 +99,7 @@ export const DatepickerInput: React.FC<Props> = ({
     }
   };
 
-  const validateInputValue = (day: string, month: string, year: string): boolean => {
+  const validateInputValue = (day?: number, month?: number, year?: number): boolean => {
     const date = new Date(`${year}-${month}-${day}`);
 
     if (!(day || month || year) && required) {
@@ -105,20 +108,22 @@ export const DatepickerInput: React.FC<Props> = ({
     } else if (!isValidDate(date)) {
       onErrorChange('invalidDate');
       return false;
+    } else if (currentError) {
+      // Don't emit undefined error every time the value changes
+      onErrorChange(undefined);
     }
 
-    onErrorChange(undefined);
     return true;
   };
 
   const onBlur = (): void => {
+    const [day, month, year] = inputValue.split('.');
+    const isValid = validateInputValue(+day, +month, +year);
+
     if (!inputValue.length) {
       emitNewValue(null);
       return;
     }
-
-    const [day, month, year] = inputValue.split('.');
-    const isValid = validateInputValue(day, month, year);
 
     if (isValid) {
       const newValue = new Date(date ? date : new Date());
@@ -132,12 +137,15 @@ export const DatepickerInput: React.FC<Props> = ({
       return '';
     }
 
-    return date.toLocaleString('nb-NO', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    return formatDate(date, { day: '2-digit', month: '2-digit', year: 'numeric' });
   };
 
   useEffect(() => {
     setInputValue(getFormattedInputValue(date));
-    onErrorChange(undefined);
+
+    if (touched && getFormattedInputValue(date) !== inputValue) {
+      validateInputValue(date?.getDate(), date?.getMonth(), date?.getFullYear());
+    }
   }, [date]);
 
   // Focus and select the text when the parent container is double clicked
@@ -164,6 +172,7 @@ export const DatepickerInput: React.FC<Props> = ({
       onKeyDown={onKeyDown}
       onChange={parseInput}
       onBlur={onBlur}
+      onFocus={() => setTouched(true)}
       isCompact={isCompact}
       data-testid="input"
       aria-live="polite"

@@ -40,3 +40,9 @@ export const formatDate = (date?: Date | null, options?: Intl.DateTimeFormatOpti
 export const isValidDate = (date: unknown): boolean => {
   return !isNaN(date as number) && date instanceof Date;
 };
+
+export const copyDay = (copyFrom: Date, copyTo: Date): Date => {
+  const newDate = new Date(copyTo);
+  newDate.setFullYear(copyFrom.getFullYear(), copyFrom.getMonth(), copyFrom.getDate());
+  return newDate;
+};

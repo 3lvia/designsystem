@@ -7,10 +7,11 @@ import { useConnectedOverlay, useFocusTrap } from '@elvia/elvis-toolbox';
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
-import { isValidDate } from './dateHelpers';
+import { copyDay, isValidDate } from './dateHelpers';
 
 export const Datepicker: React.FC<DatepickerProps> = ({
   clearButtonText = 'Nullstill',
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   dateRangeProps,
   disableDate,
   errorOptions = { hideText: false, isErrorState: false },
@@ -37,7 +38,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   inlineStyle,
   webcomponent,
 }) => {
-  const [date, setDate] = useState<Date | undefined | null>(value);
+  const [date, setDate] = useState<Date | undefined | null>(value || null);
   const [error, setError] = useState<ErrorType | undefined>();
   const [minDateWithoutTime, setMinDateWithoutTime] = useState(minDate);
   const [maxDateWithoutTime, setMaxDateWithoutTime] = useState(maxDate);
@@ -113,6 +114,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   };
 
   const onError = (newError?: ErrorType): void => {
+    console.log('Error: ', newError);
     if (newError === error) {
       return;
     }
@@ -146,7 +148,13 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     }
 
     if (hasSelectDateOnOpen && !date) {
-      updateValue(new Date());
+      if (minDate && new Date().getTime() < minDate.getTime()) {
+        updateValue(copyDay(minDate, new Date()));
+      } else if (maxDate && new Date().getTime() > maxDate.getTime()) {
+        updateValue(copyDay(maxDate, new Date()));
+      } else {
+        updateValue(new Date());
+      }
     }
 
     trapFocus(popoverRef);
@@ -160,7 +168,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   // Allows app to open the datepicker programatically
   useEffect(() => {
     setVisibility(isOpen);
-    console.log(dateRangeProps);
   }, [isOpen]);
 
   useEffect(() => {
@@ -190,6 +197,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         className={className ?? ''}
         style={{ ...inlineStyle }}
         fullWidth={isFullWidth}
+        data-testid="wrapper"
       >
         {!!label && (
           <LabelText data-testid="label" isCompact={isCompact} hasOptionalText={hasOptionalText}>
@@ -202,6 +210,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           isCompact={isCompact}
           isActive={isShowing}
           isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
+          data-testid="input-container"
         >
           <DatepickerInput
             date={date}
@@ -210,6 +219,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             placeholder={placeholder}
             onChange={updateValue}
             required={isRequired}
+            currentError={error}
             onErrorChange={onError}
           />
           <IconButton

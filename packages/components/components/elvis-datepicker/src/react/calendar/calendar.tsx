@@ -91,7 +91,7 @@ export const Calendar: React.FC<Props> = ({
       const newDate = new Date(viewedDate ? viewedDate : new Date());
       newDate.setDate(newDate.getDate() + daysToJump);
 
-      while (dateIsWithinMinMaxBoundary(newDate) && dateIsDisabled(newDate)) {
+      while (dateIsWithinMinMaxBoundary(newDate, minDate, maxDate) && dateIsDisabled(newDate)) {
         newDate.setDate(newDate.getDate() + daysToJump);
       }
 
