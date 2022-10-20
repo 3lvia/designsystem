@@ -150,37 +150,36 @@
   <!--Card-->
   <div class="example-wrapper">
     <h3>Card</h3>
-    <div class="e-grid">
-      <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
-        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
-          <a [routerLink]="['/components/card']">
-            <elvia-card [header]="'Header'" [description]="'Hover me!'">
-              <div slot="icon">91</div>
-              <div slot="iconHover">92</div>
-              <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
-            </elvia-card>
-          </a>
-        </div>
-        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
-          <a [routerLink]="['/components/card']">
-            <elvia-card [header]="'Hover!'" [borderColor]="'red'">
-              <i slot="icon" class="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>
-              <i slot="iconHover" class="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>
-              <i slot="cornerIcon" class="e-icon e-icon--unlock e-icon--xs" aria-hidden="true"></i>
-            </elvia-card>
-          </a>
-        </div>
-        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
-          <a [routerLink]="['/components/card']">
-            <elvia-card
-              [header]="'Title3'"
-              [description]="'description3'"
-              [icon]="'3'"
-              [borderColor]="'green'"
-            ></elvia-card>
-          </a>
-        </div>
-      </div>
+    <div class="e-gap-32" style="display: grid; grid-template-columns: 1fr 1fr">
+      <elvia-card [heading]="'Hover!'" [borderColor]="'red'">
+        <i slot="icon" class="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>
+        <i slot="iconHover" class="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>
+      </elvia-card>
+      <elvia-card
+        [heading]="'Title3 is longer and overflows'"
+        [description]="'description3'"
+        [icon]="'3'"
+        [borderColor]="'green'"
+      ></elvia-card>
+    </div>
+    <div class="e-mt-32 e-gap-16" style="display: grid; grid-template-columns: 1fr 1fr">
+      <elvia-card
+        [heading]="'Heading long that overflows and becomes truncated'"
+        [description]="
+          'It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system.'
+        "
+        [type]="'detail'"
+      >
+        <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
+      </elvia-card>
+      <elvia-card
+        [heading]="'Heading 6'"
+        [description]="
+          'It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system.'
+        "
+        [type]="'detail'"
+        [tag]="'Detail Tag'"
+      ></elvia-card>
     </div>
   </div>
   <!--Carousel-->
@@ -372,6 +371,23 @@
       [name]="'readRadioFilters'"
       [ariaLabel]="'{value} filtrering valgt'"
     ></elvia-radio-filter>
+  </div>
+
+  <!--Segmented control-->
+  <div class="example-wrapper">
+    <h3>Segmented control</h3>
+    <elvia-segmented-control
+      [items]="[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]"
+      (valueOnChange)="logValue('Segmented', $event.detail.value)"
+    ></elvia-segmented-control>
+    <elvia-segmented-control
+      [type]="'icon'"
+      [items]="[
+        { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: 'Helo' },
+        { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: 'HEElo' }
+      ]"
+      (valueOnChange)="logValue('Segmented', $event.detail.value)"
+    ></elvia-segmented-control>
   </div>
 
   <!--Slider-->

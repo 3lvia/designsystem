@@ -24,7 +24,7 @@ export interface PaginationProps {
   lastNumberLimit?: number;
   alignment?: 'left' | 'right';
   dropdownItems?: DropdownItem[];
-  dropdownMenuPosition?: string;
+  dropdownMenuPosition?: 'top' | 'bottom' | 'auto';
   dropdownSelectedItemIndex?: number;
   dropdownSelectedItemIndexOnChange?: (value: number) => void;
   labelOptions?: PaginationLabel;
