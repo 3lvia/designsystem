@@ -7,14 +7,13 @@ import JSON5 from 'json5';
 export class ElvisComponentWrapper extends HTMLElement {
   protected _data: { [propName: string]: any };
   protected _slots: { [slotName: string]: Element };
-  protected reactComponent: any;
-  protected webComponent: any;
+  protected reactComponent: React.FC;
+  protected webComponent: ElviaComponent;
   protected cssStyle: string;
   protected throttleRenderReactDOM;
   private mountPoint!: HTMLSpanElement;
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  constructor(webComponent: any, reactComponent: any, cssStyle: string) {
+  constructor(webComponent: ElviaComponent, reactComponent: React.FC, cssStyle: string) {
     super();
     this._data = {};
     this._slots = {};
@@ -120,7 +119,6 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   protected addDisplayStyleToCustomElement(): void {
     this.style.cssText = 'display: contents;';
-    return;
   }
 
   protected attachStyle(): void {
@@ -140,7 +138,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.appendChild(styleTag);
   }
 
-  protected createReactData(): Record<string, any> {
+  protected createReactData(): { [key: string]: any } {
     const reactData: { [key: string]: any } = {};
     Object.keys(this._data).forEach((key) => {
       reactData[this.mapNameToRealName(key)] = this._data[key];
@@ -150,11 +148,12 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   // Finds the real name of an attribute
   protected mapNameToRealName(attr: string): string {
-    try {
-      return this.webComponent.getComponentData().attributes.find((compAttr: any) => {
-        return compAttr.name.toLowerCase() === attr.toLowerCase();
-      }).name;
-    } catch {
+    const attribute = this.webComponent.getComponentData().attributes.find((compAttr) => {
+      return compAttr.name.toLowerCase() === attr.toLowerCase();
+    });
+    if (attribute) {
+      return attribute.name;
+    } else {
       this.logWarnMessage(
         'mapNameToRealName',
         "Did you forget to define the attribute '" + attr + "' in elvia-components.config.js?",
@@ -266,7 +265,7 @@ export class ElvisComponentWrapper extends HTMLElement {
    * Maps the attributes to the data object unless data is set
    */
   private mapAttributesToData() {
-    this.webComponent.getComponentData().attributes.forEach((attr: any) => {
+    this.webComponent.getComponentData().attributes.forEach((attr) => {
       const dataAttr = this._data[attr.name.toLowerCase()];
       const val = this.getAttribute(attr.name.toLowerCase());
       if (val !== null && (dataAttr === null || typeof dataAttr === 'undefined')) {
@@ -277,9 +276,30 @@ export class ElvisComponentWrapper extends HTMLElement {
     });
   }
 
-  private createReactElement(data: any): React.ReactElement {
+  private createReactElement(data: { [key: string]: any }): React.ReactElement {
     const reactData = data;
     reactData.webcomponent = this;
     return React.createElement(this.reactComponent, reactData, React.createElement('slot'));
   }
+}
+
+/**
+ * This is the class that is used to define a web component.
+ * It comes from `elvia-component.template.ts`, and one is built for each component.
+ *
+ * This is just a type declaration for use in this file.
+ */
+declare class ElviaComponent extends ElvisComponentWrapper {
+  constructor();
+  static get observedAttributes(): string[];
+  /** Data from `elvia-components.config.js`. */
+  getComponentData(): {
+    name: string;
+    elementName: string;
+    reactName: string;
+    useWrapper: boolean;
+    slotItems: boolean;
+    wrapperStyle: string;
+    attributes: { name: string; type: string }[];
+  };
 }
