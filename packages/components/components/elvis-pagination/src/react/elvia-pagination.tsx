@@ -250,7 +250,7 @@ const Pagination: FC<PaginationProps> = function ({
         aria-current={pageNumber === selectedPageNumber}
         data-testid={`paginator-button-${pageIndex}`}
       >
-        {pageNumber}
+        {pageNumber.toLocaleString('nb-NO')}
       </PaginatorPage>
     );
   };
@@ -422,7 +422,7 @@ const Pagination: FC<PaginationProps> = function ({
           ></Dropdown>
         </PaginatorInfoDropdown>
         <PaginatorInfoAmount isMobile={windowWidth < 768} data-testid="info-amount">
-          {labelOptionsState.of} {numberOfElements} {labelOptionsState.label}
+          {labelOptionsState.of} {numberOfElements.toLocaleString('nb-NO')} {labelOptionsState.label}
         </PaginatorInfoAmount>
       </PaginatorInfoContainer>
       <PaginatorSelectorArea role="navigation">
