@@ -29,8 +29,8 @@ interface DatePickerLabelProps extends BaseProps {
 export const DatePickerLabel = styled.label<DatePickerLabelProps>`
   display: inline-block;
   position: relative;
-  padding-top: ${(props) => (props.isCompact ? '8px' : '0px')};
-  padding-bottom: 24px;
+  padding-top: ${(props) => (props.isCompact ? '0.5rem' : '0px')};
+  padding-bottom: 1.5rem;
   box-sizing: border-box;
   text-align: left;
 
