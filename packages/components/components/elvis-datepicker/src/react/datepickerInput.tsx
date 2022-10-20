@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { isSameDay } from './dateHelpers';
+import { isSameDay, isValidDate } from './dateHelpers';
 import { ErrorType } from './elviaDatepicker.types';
 
 import { Input } from './styledComponents';
@@ -98,12 +98,11 @@ export const DatepickerInput: React.FC<Props> = ({
 
   const validateInputValue = (day: string, month: string, year: string): boolean => {
     const date = new Date(`${year}-${month}-${day}`);
-    const dateIsValid = !isNaN(date as unknown as number) && date instanceof Date;
 
     if (!(day || month || year) && required) {
       onErrorChange('required');
       return false;
-    } else if (!dateIsValid) {
+    } else if (!isValidDate(date)) {
       onErrorChange('invalidDate');
       return false;
     }

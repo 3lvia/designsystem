@@ -1,11 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  DatePickerContainer,
-  DatePickerLabel,
-  InputContainer,
-  IconButton,
-  LabelText,
-} from './styledComponents';
+import { DatePickerLabel, InputContainer, IconButton, LabelText } from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import { OverlayContainer } from './popup/overlayContainer';
 import { ErrorType, DatepickerProps } from './elviaDatepicker.types';
@@ -13,7 +7,7 @@ import { useConnectedOverlay, useFocusTrap } from '@elvia/elvis-toolbox';
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
-import { formatISO, isValid } from 'date-fns';
+import { isValidDate } from './dateHelpers';
 
 export const Datepicker: React.FC<DatepickerProps> = ({
   clearButtonText = 'Nullstill',
@@ -63,8 +57,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
    */
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
     let dateISO;
-    if (newDate && isValid(newDate)) {
-      dateISO = formatISO(newDate, { representation: 'date' });
+    if (newDate && isValidDate(newDate)) {
+      dateISO = newDate.toISOString();
     } else if (newDate === null) {
       dateISO = null;
     } else {
@@ -141,7 +135,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   };
 
   // We need to re-initiate the focus-trap since the DOM has changed
-  const onCalendarViewToggle = () => {
+  const reinitiateFocusTrap = () => {
     releaseFocusTrap();
     trapFocus(popoverRef);
   };
@@ -151,7 +145,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       return;
     }
 
-    if (isShowing && hasSelectDateOnOpen && !date) {
+    if (hasSelectDateOnOpen && !date) {
       updateValue(new Date());
     }
 
@@ -166,6 +160,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   // Allows app to open the datepicker programatically
   useEffect(() => {
     setVisibility(isOpen);
+    console.log(dateRangeProps);
   }, [isOpen]);
 
   useEffect(() => {
@@ -189,7 +184,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   }, [maxDate]);
 
   return (
-    <DatePickerContainer>
+    <>
       <DatePickerLabel
         isCompact={isCompact}
         className={className ?? ''}
@@ -240,7 +235,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           ref={popoverRef}
           onClose={() => setVisibility(false)}
           onChange={(newDate) => updateValue(newDate)}
-          onCalendarViewToggle={onCalendarViewToggle}
+          onCalendarViewToggle={reinitiateFocusTrap}
           onReset={triggerResetEvent}
           selectedDate={date}
           clearButtonText={clearButtonText}
@@ -249,7 +244,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           disableDate={disableDate}
         />
       )}
-    </DatePickerContainer>
+    </>
   );
 };
 

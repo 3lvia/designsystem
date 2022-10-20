@@ -22,11 +22,6 @@ interface BaseProps {
   isCompact: boolean;
 }
 
-export const DatePickerContainer = styled.div`
-  text-align: left;
-  box-sizing: border-box;
-`;
-
 interface DatePickerLabelProps extends BaseProps {
   fullWidth: boolean;
 }
@@ -36,6 +31,8 @@ export const DatePickerLabel = styled.label<DatePickerLabelProps>`
   position: relative;
   padding-top: ${(props) => (props.isCompact ? '8px' : '0px')};
   padding-bottom: 24px;
+  box-sizing: border-box;
+  text-align: left;
 
   ${(props) =>
     props.fullWidth &&
