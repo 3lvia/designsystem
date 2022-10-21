@@ -5,10 +5,6 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 const colors = {
   elviaCharge: getColor('elvia-charge'),
   elviaBlack: getColor('black'),
-  grey10: getColor('grey-10'),
-  grey20: getColor('grey-20'),
-  grey70: getColor('grey-70'),
-  grey80: getColor('grey-80'),
 };
 
 const typography = {
@@ -20,22 +16,20 @@ type PaginatorProps = {
 };
 
 export const Paginator = styled.div<PaginatorProps>`
-  display: flex;
   align-items: center;
-  justify-content: ${(props: { isRightAligned: boolean }) =>
-    props.isRightAligned ? 'flex-end' : 'flex-start'};
-  max-width: 100%;
-  flex-wrap: wrap-reverse;
-  user-select: none;
-  height: auto;
-  row-gap: 8px;
   column-gap: 24px;
-  justify-content: ${(props: { isRightAligned: boolean }) =>
-    props.isRightAligned ? 'flex-end' : 'flex-start'};
-`;
-export const PaginatorInfoContainer = styled.div`
   display: flex;
+  flex-wrap: wrap-reverse;
+  height: auto;
+  justify-content: ${(props) => (props.isRightAligned ? 'flex-end' : 'flex-start')};
+  max-width: 100%;
+  row-gap: 8px;
+  user-select: none;
+`;
+
+export const PaginatorInfoContainer = styled.div`
   align-items: center;
+  display: flex;
   gap: 8px;
 `;
 
@@ -53,22 +47,19 @@ export const PaginatorInfoDropdown = styled.div`
   }
 `;
 
-type InfoAmountProps = {
-  isMobile: boolean;
-};
-
-export const PaginatorInfoAmount = styled.div<InfoAmountProps>`
+export const PaginatorInfoAmount = styled.div`
   ${typography.textSm}
   font-style: normal;
   text-align: left;
   white-space: nowrap;
 `;
+
 export const PaginatorSelectorArea = styled.nav`
-  max-width: 100%;
-  display: flex;
   align-items: center;
-  user-select: none;
   column-gap: 4px;
+  display: flex;
+  max-width: 100%;
+  user-select: none;
 `;
 
 type SelectorArrowBtnProps = {
@@ -76,18 +67,18 @@ type SelectorArrowBtnProps = {
 };
 
 export const PaginatorSelectorArrowBtn = styled.button<SelectorArrowBtnProps>`
-  padding: 0;
-  box-sizing: border-box;
-  display: flex;
   align-items: center;
-  justify-content: center;
   background: transparent;
-  cursor: pointer;
+  border-radius: 50%;
   border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
   min-height: 36px;
   min-width: 36px;
-  border-radius: 50%;
-  visibility: ${(props: { visible: boolean }) => (props.visible ? 'visible' : 'hidden')};
+  padding: 0;
+  visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
 
   @media (hover: hover) {
     &:hover {
@@ -101,21 +92,16 @@ export const PaginatorSelectorArrowBtn = styled.button<SelectorArrowBtnProps>`
 `;
 
 export const PaginatorNumbersArea = styled.div`
+  align-items: baseline;
+  column-gap: 4px;
   display: flex;
   flex-direction: row;
-  align-items: baseline;
   user-select: none;
-  column-gap: 4px;
 `;
 
 type PaginatorPageProps = {
-  selected: boolean;
-  isFirst: boolean;
-  isLast: boolean;
-  onClick?: any;
-  key: number | string;
-  children?: number | string;
   pageNumber: number;
+  selected: boolean;
 };
 
 export const PaginatorPage = styled.button<PaginatorPageProps>`
@@ -134,25 +120,25 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
   justify-content: center;
   align-items: center;
   background: transparent;
-  border: ${(props: { selected: boolean }) => (props.selected ? `1px solid ${colors.elviaBlack}` : 'none')};
+  border: ${(props) => (props.selected ? `1px solid ${colors.elviaBlack}` : 'none')};
   border-radius: 50%;
   min-width: 36px;
-  ${(props) => (props.pageNumber.toString().length >= 5 ? null : 'width: 36px')};
+  ${(props) => props.pageNumber.toString().length < 5 && 'width: 36px'};
   height: 36px;
 
   border-radius: 100px;
   cursor: pointer;
   padding: 0%;
-  ${(props) => (props.pageNumber.toString().length >= 5 ? `padding: 8px 16px;` : null)};
-  ${(props) => (props.pageNumber.toString().length >= 5 && props.selected ? `padding: 8px 15px;` : null)};
+  ${(props) => props.pageNumber.toString().length >= 5 && `padding: 8px 16px;`};
+  ${(props) => props.pageNumber.toString().length >= 5 && props.selected && `padding: 8px 15px;`};
 
   @media (hover: hover) {
     &:hover {
       border: 1px solid ${colors.elviaCharge};
       ${(props) =>
-        props.pageNumber.toString().length >= 5 || (props.pageNumber.toString().length >= 5 && props.selected)
-          ? `padding: 8px 15px;`
-          : null};
+        (props.pageNumber.toString().length >= 5 ||
+          (props.pageNumber.toString().length >= 5 && props.selected)) &&
+        `padding: 8px 15px;`};
     }
   }
 
@@ -176,8 +162,8 @@ export const PaginatorDots = styled.div<PaginatorDotsProps>`
   color: ${colors.elviaBlack};
 
   align-items: center;
-  display: ${(props: { hide: boolean }) => (props.hide ? 'none' : 'flex')};
+  display: ${(props) => (props.hide ? 'none' : 'flex')};
   height: 36px;
   justify-content: center;
-  width: ${(props: { hide: boolean }) => (props.hide ? '0px' : '36px')};
+  width: ${(props) => (props.hide ? '0px' : '36px')};
 `;

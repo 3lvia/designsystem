@@ -237,12 +237,8 @@ const Pagination: FC<PaginationProps> = function ({
   };
 
   const getPageElement = (pageNumber: number, pageIndex: number): JSX.Element => {
-    const isFirstPage = pageNumber === 1;
-    const isLastPage = pageNumber === numberOfPages;
     return (
       <PaginatorPage
-        isFirst={isFirstPage}
-        isLast={isLastPage}
         key={pageIndex}
         pageNumber={pageNumber}
         onClick={() => setSelectedPageNumber(pageNumber)}
@@ -422,7 +418,7 @@ const Pagination: FC<PaginationProps> = function ({
             data-testid="dropdown"
           ></Dropdown>
         </PaginatorInfoDropdown>
-        <PaginatorInfoAmount isMobile={windowWidth < 768} data-testid="info-amount">
+        <PaginatorInfoAmount data-testid="info-amount">
           {labelOptionsState.of} {numberOfElements.toLocaleString('nb-NO')} {labelOptionsState.label}
         </PaginatorInfoAmount>
       </PaginatorInfoContainer>
