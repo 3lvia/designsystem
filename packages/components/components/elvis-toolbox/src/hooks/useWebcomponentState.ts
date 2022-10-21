@@ -9,8 +9,18 @@ import { useEffect, useState } from 'react';
  * @returns Tuple similar to `React.useState` with a state and a setter.
  * @event `${propname}OnChange` event on webcomponent, calls `reactOnChangeEvent`.
  * @modifies `webcomponent.setAttribute(propName, value)` on change.
+ *
+ * @example
+ * export const Component: FC<Props> = ({value, valueOnChange, webcomponent}) => {
+ *   const [valueState, setValueState] = useWebcomponentState(value, 'value', webcomponent, valueOnChange);
+ *   ...
+ *   // Will trigger a `valueOnChange` event on webcomponent and call `reactOnChangeEvent`.
+ *   return (<div onClick={() => setValueState('new value')}>{value}</div>)
+ * }
+ *
+ * @since 5.2.0
  */
-export const useWCState = <
+export const useWebcomponentState = <
   TValue,
   TWrapper extends {
     setProps: (...args: unknown[]) => unknown;
