@@ -1,7 +1,7 @@
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { CSSProperties } from 'react';
 
-export type ErrorType = 'invalidDate' | 'required';
+export type ErrorType = 'invalidDate' | 'required' | 'beforeMinDate' | 'afterMaxDate';
 
 interface DateRange {
   start: Date | null;

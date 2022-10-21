@@ -119,7 +119,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     }
     setError(newError);
 
-    const errorText = getErrorText(newError);
+    const errorText = getErrorText(newError, minDate, maxDate);
     if (!webcomponent && errorOnChange) {
       errorOnChange(errorText);
     } else if (webcomponent) {
@@ -220,6 +220,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             required={isRequired}
             currentError={error}
             onErrorChange={onError}
+            minDate={minDate}
+            maxDate={maxDate}
           />
           <IconButton
             disabled={isDisabled}
@@ -236,7 +238,11 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           </IconButton>
         </InputContainer>
         {((error && !errorOptions.hideText) || errorOptions.text) && (
-          <DatepickerError customText={errorOptions.text} errorType={error} isCompact={isCompact} />
+          <DatepickerError
+            customText={errorOptions.text}
+            errorText={getErrorText(error, minDate, maxDate)}
+            isCompact={isCompact}
+          />
         )}
       </DatePickerLabel>
       {isShowing && (

@@ -8,6 +8,8 @@ interface Props {
   disabled?: boolean;
   required: boolean;
   date?: Date | null;
+  minDate?: Date;
+  maxDate?: Date;
   isCompact?: boolean;
   placeholder?: string;
   onChange: (newValue: Date | null) => void;
@@ -19,6 +21,8 @@ export const DatepickerInput: React.FC<Props> = ({
   disabled,
   required,
   date,
+  minDate,
+  maxDate,
   isCompact,
   placeholder,
   onChange,
@@ -107,6 +111,12 @@ export const DatepickerInput: React.FC<Props> = ({
       return false;
     } else if (!isValidDate(date)) {
       onErrorChange('invalidDate');
+      return false;
+    } else if (minDate && date.getTime() < minDate.getTime()) {
+      onErrorChange('beforeMinDate');
+      return false;
+    } else if (maxDate && date.getTime() > maxDate.getTime()) {
+      onErrorChange('afterMaxDate');
       return false;
     } else if (currentError) {
       // Don't emit undefined error every time the value changes

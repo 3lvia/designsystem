@@ -185,6 +185,15 @@ describe('Elvis Datepicker', () => {
       await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
       expect(screen.getByTestId('month-name')).toHaveTextContent('mai 2077');
     });
+
+    it('should show an error if a date before the min date is typed into the input', async () => {
+      const user = userEvent.setup();
+
+      await user.type(screen.getByTestId('input'), '01.05.2076');
+      await user.tab();
+
+      expect(screen.queryByTestId('error')).toHaveTextContent('Kan ikke være før 01.05.2077');
+    });
   });
 
   describe('Max date', () => {
@@ -196,6 +205,15 @@ describe('Elvis Datepicker', () => {
       const user = userEvent.setup();
       await user.click(screen.getByTestId('popover-toggle'));
       expect(screen.getByTestId('input')).toHaveProperty('value', '01.05.2022');
+    });
+
+    it('should show an error if a date after the max date is typed into the input', async () => {
+      const user = userEvent.setup();
+
+      await user.type(screen.getByTestId('input'), '01.05.2023');
+      await user.tab();
+
+      expect(screen.queryByTestId('error')).toHaveTextContent('Kan ikke være etter 01.05.2022');
     });
   });
 
