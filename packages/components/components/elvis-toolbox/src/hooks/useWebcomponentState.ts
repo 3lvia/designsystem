@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 /**
  * Create a state that is synced with the webcomponent attribute state, and that triggers events (both in React and webcomponent) on changes.
@@ -22,31 +22,43 @@ import { useEffect, useState } from 'react';
  */
 export const useWebcomponentState = <
   TValue,
-  TWrapper extends {
+  TWebcomponent extends {
     setProps: (...args: unknown[]) => unknown;
     triggerEvent: (...args: unknown[]) => unknown;
   },
 >(
   value: TValue,
   propName: string,
-  webcomponent: TWrapper | undefined,
+  webcomponent: TWebcomponent | undefined,
   reactOnChangeEvent: ((newValue: TValue) => void) | undefined,
-): [TValue, (newValue: TValue) => void] => {
+): [TValue, Dispatch<SetStateAction<TValue>>] => {
   const [valueState, setValueState] = useState(value);
 
   useEffect(() => {
     setValueState(value);
   }, [value]);
 
-  const updateValue = (newValue: TValue) => {
-    setValueState(newValue);
-
+  const triggerEvent = (eventData: TValue) => {
     if (!webcomponent) {
-      reactOnChangeEvent?.(newValue);
+      reactOnChangeEvent?.(eventData);
     } else if (webcomponent) {
-      webcomponent.setProps({ [propName]: newValue }, true);
-      webcomponent.triggerEvent(`${propName}OnChange`, newValue);
+      webcomponent.setProps({ [propName]: eventData }, true);
+      webcomponent.triggerEvent(`${propName}OnChange`, eventData);
     }
+  };
+
+  const updateValue = (newValue: SetStateAction<TValue>) => {
+    if (typeof newValue === 'function') {
+      setValueState((oldValue) => {
+        const newVal = (newValue as (oldValue: TValue) => TValue)(oldValue);
+        triggerEvent(newVal);
+        return newVal;
+      });
+    } else {
+      setValueState(newValue);
+      triggerEvent(newValue);
+    }
+    console.log('update');
   };
 
   return [valueState, updateValue];
