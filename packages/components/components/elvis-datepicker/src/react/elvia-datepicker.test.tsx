@@ -35,7 +35,7 @@ describe('Elvis Datepicker', () => {
   describe('Value = custom', () => {
     beforeEach(() => {
       const oddDateFilter = (d: Date) => d.getDate() % 2 !== 0;
-      render(<Datepicker value={new Date('2024-04-02')} disableDate={oddDateFilter}></Datepicker>);
+      render(<Datepicker value={new Date('2024/04/02')} disableDate={oddDateFilter}></Datepicker>);
     });
 
     it('should have value = 02.04.2024', () => {
@@ -170,7 +170,7 @@ describe('Elvis Datepicker', () => {
   describe('Min date', () => {
     beforeEach(() => {
       // A high min date, to ensure that the test doesn't break for a long time
-      render(<Datepicker minDate={new Date('2077-05-01')}></Datepicker>);
+      render(<Datepicker minDate={new Date('2077/05/01')}></Datepicker>);
     });
 
     it('should pick minimum date when opened', async () => {
@@ -198,7 +198,7 @@ describe('Elvis Datepicker', () => {
 
   describe('Max date', () => {
     beforeEach(() => {
-      render(<Datepicker maxDate={new Date('2022-05-01')}></Datepicker>);
+      render(<Datepicker maxDate={new Date('2022/05/01')}></Datepicker>);
     });
 
     it('should pick maximum date when opened', async () => {
