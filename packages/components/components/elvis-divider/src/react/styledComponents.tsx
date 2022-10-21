@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { DividerType, DividerTypography, DividerOrientation } from './elvia-divider.types';
 import { getColor } from '@elvia/elvis-colors';
+import { getTypographyCss } from '@elvia/elvis-typography';
 
 const colors = {
   elviaWhite: getColor('white'),
@@ -26,13 +27,6 @@ const decideBorderColor = (isInverted: boolean, type: DividerType) => {
   }
 };
 
-const decideBorderOrientation = (type: DividerType, orientation: DividerOrientation) => {
-  if (type === 'simple' && orientation === 'vertical') {
-    return 'border-left';
-  }
-  return 'border-bottom';
-};
-
 type DividerAreaProps = {
   type: DividerType;
   isInverted: boolean;
@@ -42,24 +36,24 @@ type DividerAreaProps = {
 export const DividerArea = styled.div<DividerAreaProps>`
   display: block;
   margin: 0;
-  width: ${(props: { type: DividerType; orientation: DividerOrientation }) =>
-    props.type === 'simple' && props.orientation === 'vertical' ? '1px' : '100%'};
-  height: ${(props: { type: DividerType; orientation: DividerOrientation }) =>
+  width: ${(props) => (props.type === 'simple' && props.orientation === 'vertical' ? '1px' : '100%')};
+  height: ${(props) =>
     props.type === 'simple' && props.orientation === 'vertical'
       ? '100%'
       : props.type === 'title'
       ? 'unset'
       : '1px'};
-  ${(props: { type: DividerType; orientation: DividerOrientation }) =>
-    decideBorderOrientation(props.type, props.orientation)}: ${(props: { type: DividerType }) =>
-    props.type === 'curved' ? 'none' : '1px solid'};
-  border-color: ${(props: { isInverted: boolean; type: DividerType }) =>
-    decideBorderColor(props.isInverted, props.type)};
+  border-left: ${(props) =>
+    props.type === 'simple' && props.orientation === 'vertical' ? `1px solid` : 'none'};
+  border-bottom: ${(props) =>
+    props.type !== 'curved' && props.orientation === 'horizontal' ? `1px solid` : 'none'};
+  border-color: ${(props) => decideBorderColor(props.isInverted, props.type)};
   text-align: left;
 
-  ${(props: { type: DividerType; isInverted: boolean }) =>
+  ${(props) =>
     props.type === 'curved' &&
-    `height: 4vw;
+    css`
+      height: 4vw;
       position: relative;
       overflow: hidden;
       background-color: inherit;
@@ -74,7 +68,8 @@ export const DividerArea = styled.div<DividerAreaProps>`
         height: 775%;
         width: 150%;
         left: -25%;
-      }`};
+      }
+    `};
 `;
 
 type DividerTitleProps = {
@@ -83,33 +78,14 @@ type DividerTitleProps = {
 };
 
 export const DividerTitle = styled.div<DividerTitleProps>`
-  font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: 700;
-  line-height: ${(props: { typography: DividerTypography }) =>
-    props.typography === 'medium' ? '28px' : '17px'};
-  font-size: ${(props: { typography: DividerTypography }) =>
-    props.typography === 'medium' ? '30px' : '14px'};
-  color: ${(props: { isInverted: boolean }) => (props.isInverted ? colors.elviaWhite : colors.elviaBlack)};
-  text-transform: ${(props: { typography: DividerTypography }) =>
-    props.typography === 'medium' ? 'unset' : 'uppercase'};
-  letter-spacing: ${(props: { typography: DividerTypography }) =>
-    props.typography === 'medium' ? 'unset' : '0.8px'};
-  padding-bottom: ${(props: { typography: DividerTypography }) =>
-    props.typography === 'medium' ? '24px' : '8px'};
-  font-style: unset;
+  ${(props) =>
+    props.typography === 'medium' ? getTypographyCss('title-md') : getTypographyCss('title-caps')};
+  color: ${(props) => (props.isInverted ? colors.elviaWhite : colors.elviaBlack)};
+  padding-bottom: ${(props) => (props.typography === 'medium' ? '24px' : '8px')};
   * {
     margin: 0px;
-    font-family: 'Red Hat Display', Verdana, sans-serif;
-    font-weight: 700;
-    line-height: ${(props: { typography: DividerTypography }) =>
-      props.typography === 'medium' ? '28px' : '17px'};
-    font-size: ${(props: { typography: DividerTypography }) =>
-      props.typography === 'medium' ? '30px' : '14px'};
-    color: ${(props: { isInverted: boolean }) => (props.isInverted ? colors.elviaWhite : colors.elviaBlack)};
-    text-transform: ${(props: { typography: DividerTypography }) =>
-      props.typography === 'medium' ? 'unset' : 'uppercase'};
-    letter-spacing: ${(props: { typography: DividerTypography }) =>
-      props.typography === 'medium' ? 'unset' : '0.8px'};
-    font-style: unset;
+    ${(props) =>
+      props.typography === 'medium' ? getTypographyCss('title-md') : getTypographyCss('title-caps')};
+    color: ${(props) => (props.isInverted ? colors.elviaWhite : colors.elviaBlack)};
   }
 `;
