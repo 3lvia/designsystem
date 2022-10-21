@@ -1,5 +1,5 @@
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import React, { CSSProperties, FC, useEffect, useState } from 'react';
+import React, { CSSProperties, FC } from 'react';
 import { RadioFilterGroup, RadioFilterInput, RadioFilterLabel, RadioFilterTitle } from './styledComponents';
 
 export interface Option {
@@ -31,15 +31,7 @@ export const RadioFilter: FC<RadioFilterProps> = ({
   webcomponent,
   ...rest
 }) => {
-  const [valueState, setValueState] = useState(value);
-
-  useEffect(() => {
-    setValueState(value);
-  }, [value]);
-
   const updateValue = (newValue: string) => {
-    setValueState(newValue);
-
     if (!webcomponent) {
       valueOnChange && valueOnChange(newValue);
     } else if (webcomponent) {
@@ -59,17 +51,13 @@ export const RadioFilter: FC<RadioFilterProps> = ({
     >
       {items &&
         items.map(({ label, value: optionsValue }) => (
-          <RadioFilterLabel
-            key={optionsValue}
-            isSelected={optionsValue === valueState}
-            data-testid="radio-button"
-          >
+          <RadioFilterLabel key={optionsValue} isSelected={optionsValue === value} data-testid="radio-button">
             <RadioFilterInput
               type="radio"
               name={name}
               aria-label={ariaLabel ? ariaLabel : label + ' filtrering valgt'}
-              aria-checked={optionsValue === valueState}
-              checked={optionsValue === valueState}
+              aria-checked={optionsValue === value}
+              checked={optionsValue === value}
               onChange={() => updateValue(optionsValue)}
             ></RadioFilterInput>
             <RadioFilterTitle>{label}</RadioFilterTitle>
