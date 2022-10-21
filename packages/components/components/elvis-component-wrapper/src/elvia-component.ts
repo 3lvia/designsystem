@@ -118,6 +118,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   protected addDisplayStyleToCustomElement(): void {
+    // console.log(typeof this.style.cssText, this.style.cssText);
     this.style.cssText = 'display: contents;';
   }
 
@@ -132,7 +133,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;
     // Add nonce to style tag for CSP support
-    if (window && (window as any).__webpack_nonce__) {
+    if (typeof window !== 'undefined' && (window as any).__webpack_nonce__) {
       styleTag.setAttribute('nonce', (window as any).__webpack_nonce__);
     }
     this.appendChild(styleTag);
