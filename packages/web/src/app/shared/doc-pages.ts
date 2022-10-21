@@ -291,7 +291,7 @@ export const componentsDocPages: DocPage[] = [
     docUrl: Pages.Pagination,
     absolutePath: '/components/' + Pages.Pagination,
     status: DocPageStatus.Done,
-    figmaUrl: 'https://www.figma.com/file/Um5AotNfUftDorJHGbIy99/Pagination?node-id=0%3A1',
+    figmaUrl: 'https://www.figma.com/file/XCqUxqWe47Tu0x52JYEbsX/Pagination?node-id=0%3A1',
     type: 'Component',
   },
   {
