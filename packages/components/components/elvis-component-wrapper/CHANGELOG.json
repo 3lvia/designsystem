@@ -2,6 +2,27 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "21.10.22",
+      "version": "3.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Components no longer trigger onChange-events when the setProps-function is called.",
+            "Removed conditionalElementStyles and instead now using display: contents."
+          ],
+          "fixes": [
+            "To trigger an event, manually use the triggerEvent-function instead of relying on the setProps to do it automatically.",
+            "Some components need their styles checked and fixed because of the change to display: contents."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Improved the types (e.g. added ElviaComponent type for webComponent field)."]
+        }
+      ]
+    },
+    {
       "date": "28.09.22",
       "version": "2.4.4",
       "changelog": [
