@@ -144,7 +144,8 @@ export const DatepickerInput: React.FC<Props> = ({
     setInputValue(getFormattedInputValue(date));
 
     if (touched && getFormattedInputValue(date) !== inputValue) {
-      validateInputValue(date?.getDate(), date?.getMonth(), date?.getFullYear());
+      // Month is 0 indexed
+      validateInputValue(date?.getDate(), date ? date.getMonth() + 1 : undefined, date?.getFullYear());
     }
   }, [date]);
 

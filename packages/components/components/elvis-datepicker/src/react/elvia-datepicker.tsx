@@ -114,7 +114,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   };
 
   const onError = (newError?: ErrorType): void => {
-    console.log('Error: ', newError);
     if (newError === error) {
       return;
     }

@@ -33,7 +33,7 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange, minDat
       event.preventDefault();
       onYearChange(years[focusedYearIndex].year);
     } else {
-      let newIndex = 0;
+      let newIndex = focusedYearIndex;
       if (event.key === 'ArrowUp') {
         event.preventDefault();
         if (focusedYearIndex - 1 >= 0) {
@@ -46,8 +46,8 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange, minDat
         }
       }
 
-      while (newIndex >= 0 && newIndex <= years.length && years[newIndex].isDisabled) {
-        newIndex = newIndex > 0 ? newIndex++ : newIndex--;
+      while (newIndex > 0 && newIndex < years.length - 1 && years[newIndex].isDisabled) {
+        newIndex > 0 ? newIndex++ : newIndex--;
       }
 
       if (!years[newIndex].isDisabled) {
