@@ -297,6 +297,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
 
   return (
     <DatepickerRangeWrapper
+      isFullWidth={isFullWidth ?? false}
       isVertical={isVertical ?? false}
       className={className}
       style={inlineStyle}
