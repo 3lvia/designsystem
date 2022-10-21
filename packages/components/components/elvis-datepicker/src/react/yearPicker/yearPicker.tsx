@@ -87,7 +87,7 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange, minDat
   }, [minDate, maxDate]);
 
   return (
-    <YearPickerContainer>
+    <YearPickerContainer data-testid="year-picker">
       <ScrollContainer ref={scrollContainer} tabIndex={0} onKeyDown={handleKeyDown}>
         {years.map((year, index) => (
           <YearButton

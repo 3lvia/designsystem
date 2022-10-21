@@ -120,22 +120,26 @@ export const Calendar: React.FC<Props> = ({
     createListOfDays();
   }, []);
 
-  useEffect(() => {
-    if (selectedDate) {
-      setViewedDate(selectedDate);
-    }
-  }, [selectedDate]);
-
   useEffect(createListOfDays, [viewedDate]);
 
   return (
     <CalendarContainer>
       <CalendarHeader>
-        <IconButton onClick={() => shuffleViewedMonth(-1)} aria-label="Forrige måned">
+        <IconButton
+          onClick={() => shuffleViewedMonth(-1)}
+          aria-label="Forrige måned"
+          data-testid="prev-month-btn"
+        >
           <Icon name="arrowLongLeftBold" size="xs" />
         </IconButton>
-        <MonthName>{formatDate(viewedDate, { month: 'long', year: 'numeric' })}</MonthName>
-        <IconButton onClick={() => shuffleViewedMonth(1)} aria-label="Neste måned">
+        <MonthName data-testid="month-name">
+          {formatDate(viewedDate, { month: 'long', year: 'numeric' })}
+        </MonthName>
+        <IconButton
+          onClick={() => shuffleViewedMonth(1)}
+          aria-label="Neste måned"
+          data-testid="next-month-btn"
+        >
           <Icon name="arrowLongRightBold" size="xs" />
         </IconButton>
       </CalendarHeader>

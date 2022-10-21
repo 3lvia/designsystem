@@ -53,9 +53,9 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
     };
 
     const onYearChange = (selectedYear: number): void => {
-      const newDate = new Date(selectedDate ? selectedDate : new Date());
+      const newDate = new Date(viewedDate);
       newDate.setFullYear(selectedYear);
-      onChange(newDate);
+      setViewedDate(newDate);
       setYearPickerIsOpen(false);
     };
 
@@ -78,6 +78,12 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
       };
     }, []);
 
+    useEffect(() => {
+      if (selectedDate) {
+        setViewedDate(selectedDate);
+      }
+    }, [selectedDate]);
+
     return createPortal(
       <>
         <Backdrop onClick={() => setFadeOut(true)} data-testid="backdrop" />
@@ -93,7 +99,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
             <SelectedDateName>
               {formatDate(selectedDate, { weekday: 'long', day: 'numeric', month: 'long' })}
             </SelectedDateName>
-            <TertiaryButton onClick={() => toggleView()} aria-label="Endre år">
+            <TertiaryButton onClick={() => toggleView()} aria-label="Endre år" data-testid="year-view-toggle">
               {formatDate(viewedDate, { year: 'numeric' })}
               <Icon name={yearPickerIsOpen ? 'arrowUp' : 'arrowDown'} size="xs" />
             </TertiaryButton>

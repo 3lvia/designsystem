@@ -1,8 +1,13 @@
 import Datepicker from './elvia-datepicker';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getColor } from '@elvia/elvis-colors';
+
+// JSDOM does not implement the scrollTo() function
+Element.prototype.scrollTo = () => {
+  return;
+};
 
 describe('Elvis Datepicker', () => {
   describe('Default', () => {
@@ -29,11 +34,62 @@ describe('Elvis Datepicker', () => {
 
   describe('Value = custom', () => {
     beforeEach(() => {
-      render(<Datepicker value={new Date('2024-04-02')}></Datepicker>);
+      const oddDateFilter = (d: Date) => d.getDate() % 2 !== 0;
+      render(<Datepicker value={new Date('2024-04-02')} disableDate={oddDateFilter}></Datepicker>);
     });
 
     it('should have value = 02.04.2024', () => {
       expect(screen.getByTestId('input')).toHaveProperty('value', '02.04.2024');
+    });
+
+    it('should show month name in calendar', async () => {
+      const user = userEvent.setup();
+
+      await user.click(screen.getByTestId('popover-toggle'));
+      await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
+
+      expect(screen.getByTestId('month-name')).toHaveTextContent('april 2024');
+    });
+
+    it('should be able to view next month', async () => {
+      const user = userEvent.setup();
+
+      await user.click(screen.getByTestId('popover-toggle'));
+      await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
+      await user.click(screen.getByTestId('next-month-btn'));
+
+      expect(screen.getByTestId('month-name')).toHaveTextContent('mai 2024');
+    });
+
+    it('should be able to select month from the calendar', async () => {
+      const user = userEvent.setup();
+
+      await user.click(screen.getByTestId('popover-toggle'));
+      await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
+      await user.click(screen.getByText('30'));
+
+      expect(screen.getByTestId('input')).toHaveProperty('value', '30.04.2024');
+    });
+
+    it('should be able to select odd months due to the disabled date prop', async () => {
+      const user = userEvent.setup();
+
+      await user.click(screen.getByTestId('popover-toggle'));
+      await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
+      await user.click(screen.getByText('29'));
+
+      expect(screen.getByTestId('input')).toHaveProperty('value', '02.04.2024');
+    });
+
+    it('should be able to switch year from the year toggle', async () => {
+      const user = userEvent.setup();
+
+      await user.click(screen.getByTestId('popover-toggle'));
+      await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
+      await user.click(screen.getByTestId('year-view-toggle'));
+      await user.click(screen.getByText('2025'));
+
+      expect(screen.queryByTestId('month-name')).toHaveTextContent('april 2025');
     });
   });
 
@@ -43,8 +99,7 @@ describe('Elvis Datepicker', () => {
     });
 
     it('should have label = Custom label', () => {
-      const datepickerLabel = screen.getByTestId('label');
-      expect(datepickerLabel).toHaveTextContent('Custom label');
+      expect(screen.getByTestId('label')).toHaveTextContent('Custom label');
     });
   });
 
@@ -122,6 +177,13 @@ describe('Elvis Datepicker', () => {
       const user = userEvent.setup();
       await user.click(screen.getByTestId('popover-toggle'));
       expect(screen.getByTestId('input')).toHaveProperty('value', '01.05.2077');
+    });
+
+    it('should view the selected month in the calendar', async () => {
+      const user = userEvent.setup();
+      await user.click(screen.getByTestId('popover-toggle'));
+      await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
+      expect(screen.getByTestId('month-name')).toHaveTextContent('mai 2077');
     });
   });
 
