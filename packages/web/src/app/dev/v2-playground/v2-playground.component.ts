@@ -33,10 +33,11 @@ export class v2PlaygroundComponent {
   ];
 
   // Datepicker
-  date = new Date(2022, 9, 10);
-  minDate = new Date(2022, 9, 5);
-  maxDate = new Date(2043, 10, 20);
+  date = new Date(2022, 9, 10, 22, 42, 42, 42);
+  minDate = new Date(2022, 11, 25);
+  maxDate = new Date(2023, 9, 25);
   disableDate = (date: Date) => date.getDate() % 3 === 0;
+  writeDate = (d: Date) => console.log('Retrieving in Angular: ', d);
 
   // Dropdown
   dropdownDefOptions = [{ value: '2', label: 'Option 2' }];
