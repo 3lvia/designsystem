@@ -91,6 +91,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
           ref={ref}
           data-testid="popover"
           role="dialog"
+          aria-label="Datovelger popup"
           aria-modal="true"
           fadeOut={fadeOut}
           onAnimationEnd={onAnimationEnd}
@@ -135,6 +136,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
                       onChange(null);
                       onReset();
                     }}
+                    aria-label="Nullstill dato"
                   >
                     <Icon name="reset" size="xs" />
                     {clearButtonText}

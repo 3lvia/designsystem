@@ -8,6 +8,7 @@ import {
   isSameDay,
 } from '../dateHelpers';
 import { IconButton } from '../styledComponents';
+
 import {
   CalendarContainer,
   CalendarHeader,
@@ -132,7 +133,7 @@ export const Calendar: React.FC<Props> = ({
         >
           <Icon name="arrowLongLeftBold" size="xs" />
         </IconButton>
-        <MonthName data-testid="month-name">
+        <MonthName data-testid="month-name" aria-live="polite">
           {formatDate(viewedDate, { month: 'long', year: 'numeric' })}
         </MonthName>
         <IconButton
@@ -153,11 +154,12 @@ export const Calendar: React.FC<Props> = ({
         onKeyDown={(ev) => handleCalendarKeydown(ev)}
         onFocus={() => setCalendarHasFocus(true)}
         onBlur={() => setCalendarHasFocus(false)}
-        role="grid"
-        aria-activedescendant={`date-${selectedDate?.getTime()}`}
-        aria-colcount={7}
-        aria-rowcount={Math.ceil(daysInMonth.length / 7)}
-        aria-live="assertive"
+        aria-activedescendant={`date-${formatDate(viewedDate, {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+        })}`}
+        aria-label="Kalender. Bruk piltaster for navigasjon."
       >
         {daysInMonth.map((day, index) => (
           <DayButton
@@ -170,10 +172,9 @@ export const Calendar: React.FC<Props> = ({
             isFocused={isSameDay(day, viewedDate) && calendarHasFocus}
             disabled={!day || dateIsDisabled(day)}
             onClick={() => day && onDateChange(day, true)}
-            role="gridcell"
             type="button"
             aria-current={isSameDay(day, selectedDate) ? 'date' : undefined}
-            id={`date-${day?.getTime()}`}
+            id={`date-${formatDate(day, { day: '2-digit', month: '2-digit', year: 'numeric' })}`}
           >
             {formatCalendarDay(day)}
           </DayButton>
