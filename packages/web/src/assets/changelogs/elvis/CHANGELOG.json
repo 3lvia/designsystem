@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "9.3.1",
+      "date": "October 21, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a visual bug where the icon in a global alert would be misaligned if placed beside multiple lines of text."
+          ],
+          "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
+        }
+      ]
+    },
+    {
       "version": "9.3.0",
       "date": "October 18, 2022",
       "changelog": [
