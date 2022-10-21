@@ -325,8 +325,8 @@ $toast-max-width: 400px;
       margin-top: 0px;
       align-items: center;
       @include breakpoints.breakpoint-up(Mobile) {
-        margin-top: 16px;
-        align-items: flex-start;
+        align-items: center;
+        padding-bottom: 48px;
       }
     }
     .e-alert__content {
