@@ -48,9 +48,7 @@ export const DayName = styled.div`
 
 interface DayButtonProps {
   isActive: boolean;
-  isFocused: boolean;
   isToday: boolean;
-  invisible?: boolean;
 }
 
 export const DayButton = styled.button<Partial<DayButtonProps>>`
@@ -63,6 +61,7 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
   background: transparent;
   padding: 0;
   position: relative;
+  cursor: inherit;
 
   &:disabled {
     color: ${getColor('disabled')};
@@ -78,25 +77,6 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
       background-color: ${getColor('elvia-charge')};
       font-weight: 500;
     `}
-
-  ${(props) => {
-    if (!props.invisible) {
-      return css`
-        &:not(:disabled) {
-          cursor: pointer;
-          border-color: ${props.isFocused ? getColor('elvia-charge') : 'transparent'};
-
-          &:hover {
-            border-color: ${getColor('elvia-charge')};
-          }
-        }
-      `;
-    }
-
-    return css`
-      cursor: default;
-    `;
-  }};
 
   ${(props) =>
     props.isToday &&

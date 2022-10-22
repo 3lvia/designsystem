@@ -97,6 +97,7 @@ export const Calendar: React.FC<Props> = ({
 
       if (!dateIsDisabled(newDate)) {
         setViewedDate(newDate);
+        setHoveredDate(newDate);
       }
     }
   };
@@ -180,22 +181,26 @@ export const Calendar: React.FC<Props> = ({
         {daysInMonth.map((day, index) => (
           <DateRangeHighlighter
             key={index}
-            setHoveredDate={setHoveredDate}
+            setHoveredDate={(date) => {
+              if (date) {
+                setViewedDate(date);
+              }
+              setHoveredDate(date);
+            }}
             date={day}
             dateRange={dateRange}
             whichPicker={dateRangeProps?.whichRangePicker}
             hoveredDate={hoveredDate}
+            onClick={() => day && onDateChange(day, true)}
+            isFocused={isSameDay(day, viewedDate) && calendarHasFocus}
           >
             <DayButton
               tabIndex={-1}
               aria-label={formatDate(day, { day: 'numeric', month: 'long', year: 'numeric' })}
               isToday={isSameDay(day, new Date())}
               isActive={isSameDay(day, selectedDate)}
-              invisible={!day}
-              isFocused={isSameDay(day, viewedDate) && calendarHasFocus}
               disabled={!day || dateIsDisabled(day)}
               type="button"
-              onClick={() => day && onDateChange(day, true)}
               aria-current={isSameDay(day, selectedDate) ? 'date' : undefined}
               id={`date-${formatDate(day, { day: '2-digit', month: '2-digit', year: 'numeric' })}`}
             >

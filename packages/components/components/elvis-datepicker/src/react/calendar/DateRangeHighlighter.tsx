@@ -8,7 +8,10 @@ interface Props {
   dateRange?: DateRange;
   hoveredDate?: Date;
   whichPicker?: 'start' | 'end';
+  isFocused?: boolean;
+  disabled?: boolean;
   setHoveredDate: (d?: Date) => void;
+  onClick: () => void;
 }
 
 export const DateRangeHighlighter: React.FC<Props> = ({
@@ -16,7 +19,9 @@ export const DateRangeHighlighter: React.FC<Props> = ({
   dateRange,
   hoveredDate,
   whichPicker,
+  isFocused,
   setHoveredDate,
+  onClick,
   children,
 }) => {
   const isBetweenDates = (): boolean => {
@@ -49,6 +54,9 @@ export const DateRangeHighlighter: React.FC<Props> = ({
       rangeIsValid={rangeIsValid()}
       onMouseEnter={() => date && setHoveredDate(date)}
       onMouseLeave={() => setHoveredDate(undefined)}
+      invisible={!date}
+      isFocused={isFocused}
+      onClick={() => onClick()}
     >
       {children}
     </DateRangeDayContainer>
