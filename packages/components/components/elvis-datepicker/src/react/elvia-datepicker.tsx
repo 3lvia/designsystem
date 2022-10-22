@@ -11,7 +11,6 @@ import { copyDay, isValidDate } from './dateHelpers';
 
 export const Datepicker: React.FC<DatepickerProps> = ({
   clearButtonText = 'Nullstill',
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   dateRangeProps,
   disableDate,
   errorOptions = { hideText: false, isErrorState: false },
@@ -257,6 +256,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           minDate={minDateWithoutTime}
           maxDate={maxDateWithoutTime}
           disableDate={disableDate}
+          dateRangeProps={dateRangeProps}
         />
       )}
     </>

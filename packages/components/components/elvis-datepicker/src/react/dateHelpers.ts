@@ -1,4 +1,12 @@
-export const dateIsWithinMinMaxBoundary = (date: Date, minDate?: Date, maxDate?: Date): boolean => {
+export const dateIsWithinMinMaxBoundary = (
+  date?: Date | null,
+  minDate?: Date | null,
+  maxDate?: Date | null,
+): boolean => {
+  if (!date) {
+    return false;
+  }
+
   const dateIsAfterMinDate = !minDate || date.getTime() >= minDate.getTime();
   const dateIsBeforeMaxDate = !maxDate || date.getTime() <= maxDate.getTime();
 

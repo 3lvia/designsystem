@@ -7,16 +7,11 @@ import {
   getWeekDayNames,
   isSameDay,
 } from '../dateHelpers';
+import { DatepickerRangeProps, DateRange } from '../elviaDatepicker.types';
 import { IconButton } from '../styledComponents';
 
-import {
-  CalendarContainer,
-  CalendarHeader,
-  DayButton,
-  DayName,
-  GridContainer,
-  MonthName,
-} from './calendarStyles';
+import { Container, CalendarHeader, DayButton, DayName, GridContainer, MonthName } from './calendarStyles';
+import { DateRangeHighlighter } from './DateRangeHighlighter';
 
 interface Props {
   selectedDate?: Date | null;
@@ -26,6 +21,7 @@ interface Props {
   minDate?: Date;
   maxDate?: Date;
   disableDate?: (date: Date) => boolean;
+  dateRangeProps?: DatepickerRangeProps;
 }
 
 export const Calendar: React.FC<Props> = ({
@@ -36,10 +32,13 @@ export const Calendar: React.FC<Props> = ({
   minDate,
   maxDate,
   disableDate,
+  dateRangeProps,
 }) => {
   const [dayNames, setDayNames] = useState<string[]>([]);
   const [daysInMonth, setDaysInMonth] = useState<(Date | null)[]>([]);
   const [calendarHasFocus, setCalendarHasFocus] = useState(false);
+  const [hoveredDate, setHoveredDate] = useState<Date | undefined>();
+  const [dateRange, setDateRange] = useState<DateRange | undefined>();
 
   const createListOfDays = () => {
     const lastDayOfMonth = new Date(viewedDate.getFullYear(), viewedDate.getMonth() + 1, 0).getDate();
@@ -123,8 +122,25 @@ export const Calendar: React.FC<Props> = ({
 
   useEffect(createListOfDays, [viewedDate]);
 
+  // Destructure dateRangeProps for cleaner code
+  useEffect(() => {
+    setDateRange(dateRangeProps?.selectedDateRange);
+  }, [dateRangeProps]);
+
+  useEffect(() => {
+    if (hoveredDate && dateRange) {
+      if (dateRangeProps?.whichRangePicker === 'start') {
+        setDateRange({ start: hoveredDate, end: dateRange.end });
+      } else if (dateRangeProps?.whichRangePicker === 'end') {
+        setDateRange({ start: dateRange.start, end: hoveredDate });
+      }
+    } else {
+      setDateRange(dateRangeProps?.selectedDateRange);
+    }
+  }, [hoveredDate]);
+
   return (
-    <CalendarContainer>
+    <Container>
       <CalendarHeader>
         <IconButton
           onClick={() => shuffleViewedMonth(-1)}
@@ -162,24 +178,32 @@ export const Calendar: React.FC<Props> = ({
         aria-label="Kalender. Bruk piltaster for navigasjon."
       >
         {daysInMonth.map((day, index) => (
-          <DayButton
+          <DateRangeHighlighter
             key={index}
-            invisible={!day}
-            tabIndex={-1}
-            aria-label={formatDate(day, { day: 'numeric', month: 'long', year: 'numeric' })}
-            isToday={isSameDay(day, new Date())}
-            isActive={isSameDay(day, selectedDate)}
-            isFocused={isSameDay(day, viewedDate) && calendarHasFocus}
-            disabled={!day || dateIsDisabled(day)}
-            onClick={() => day && onDateChange(day, true)}
-            type="button"
-            aria-current={isSameDay(day, selectedDate) ? 'date' : undefined}
-            id={`date-${formatDate(day, { day: '2-digit', month: '2-digit', year: 'numeric' })}`}
+            setHoveredDate={setHoveredDate}
+            date={day}
+            dateRange={dateRange}
+            whichPicker={dateRangeProps?.whichRangePicker}
+            hoveredDate={hoveredDate}
           >
-            {formatCalendarDay(day)}
-          </DayButton>
+            <DayButton
+              tabIndex={-1}
+              aria-label={formatDate(day, { day: 'numeric', month: 'long', year: 'numeric' })}
+              isToday={isSameDay(day, new Date())}
+              isActive={isSameDay(day, selectedDate)}
+              invisible={!day}
+              isFocused={isSameDay(day, viewedDate) && calendarHasFocus}
+              disabled={!day || dateIsDisabled(day)}
+              type="button"
+              onClick={() => day && onDateChange(day, true)}
+              aria-current={isSameDay(day, selectedDate) ? 'date' : undefined}
+              id={`date-${formatDate(day, { day: '2-digit', month: '2-digit', year: 'numeric' })}`}
+            >
+              {formatCalendarDay(day)}
+            </DayButton>
+          </DateRangeHighlighter>
         ))}
       </GridContainer>
-    </CalendarContainer>
+    </Container>
   );
 };

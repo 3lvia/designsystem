@@ -14,6 +14,7 @@ import {
 } from './popupStyles';
 import { YearPicker } from '../yearPicker/yearPicker';
 import { formatDate } from '../dateHelpers';
+import { DatepickerRangeProps } from '../elviaDatepicker.types';
 
 interface Props {
   onClose: () => void;
@@ -25,6 +26,7 @@ interface Props {
   minDate?: Date;
   maxDate?: Date;
   disableDate?: (date: Date) => boolean;
+  dateRangeProps?: DatepickerRangeProps;
 }
 
 export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
@@ -39,6 +41,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
       minDate,
       maxDate,
       disableDate,
+      dateRangeProps,
     },
     ref,
   ) => {
@@ -129,6 +132,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
                   minDate={minDate}
                   maxDate={maxDate}
                   disableDate={disableDate}
+                  dateRangeProps={dateRangeProps}
                 />
                 <PopoverFooter>
                   <TertiaryButton

@@ -2,7 +2,7 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
-export const CalendarContainer = styled.div`
+export const Container = styled.div`
   padding: 0 16px;
 `;
 
@@ -24,7 +24,6 @@ export const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-auto-rows: 1fr;
-  gap: 8px;
 
   /** This ensures that all tiles are square */
   &:before {
@@ -83,11 +82,13 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
   ${(props) => {
     if (!props.invisible) {
       return css`
-        cursor: pointer;
-        border-color: ${props.isFocused ? getColor('elvia-charge') : 'transparent'};
+        &:not(:disabled) {
+          cursor: pointer;
+          border-color: ${props.isFocused ? getColor('elvia-charge') : 'transparent'};
 
-        &:hover {
-          border-color: ${getColor('elvia-charge')};
+          &:hover {
+            border-color: ${getColor('elvia-charge')};
+          }
         }
       `;
     }
@@ -95,9 +96,9 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
     return css`
       cursor: default;
     `;
-  }}
+  }};
 
-    ${(props) =>
+  ${(props) =>
     props.isToday &&
     css`
       &::after {
@@ -111,5 +112,5 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
         left: 50%;
         transform: translateX(-50%);
       }
-    `}
+    `};
 `;

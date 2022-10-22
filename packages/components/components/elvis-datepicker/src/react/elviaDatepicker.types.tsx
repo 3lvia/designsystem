@@ -3,7 +3,7 @@ import { CSSProperties } from 'react';
 
 export type ErrorType = 'invalidDate' | 'required' | 'beforeMinDate' | 'afterMaxDate';
 
-interface DateRange {
+export interface DateRange {
   start: Date | null;
   end: Date | null;
 }
@@ -14,9 +14,6 @@ interface DateRange {
  */
 export interface DatepickerRangeProps {
   selectedDateRange?: DateRange;
-  hoveredDateRange?: DateRange;
-  onDateElementPointerMove?: (day: Date, event?: React.PointerEvent<HTMLButtonElement>) => void;
-  onDatepickerPopoverPointerMove?: (event: React.PointerEvent<HTMLDivElement>) => void;
   whichRangePicker?: 'start' | 'end';
 }
 

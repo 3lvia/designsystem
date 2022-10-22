@@ -6,7 +6,14 @@
     <!--Normal version-->
     <div class="e-bg-white">
       <!-- <elvia-datepicker></elvia-datepicker> -->
-      <elvia-datepicker (valueOnChange)="writeDate($event.detail.value)" isRequired="true"></elvia-datepicker>
+      <elvia-datepicker
+        [minDate]="minDate"
+        [maxDate]="maxDate"
+        (valueOnChange)="writeDate($event.detail.value)"
+        isRequired="true"
+      ></elvia-datepicker>
+
+      <elvia-datepicker-range></elvia-datepicker-range>
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
