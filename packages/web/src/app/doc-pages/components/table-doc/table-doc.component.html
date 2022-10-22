@@ -12,6 +12,7 @@
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
     <div class="e-table-container overview-example">
       <table class="e-table" aria-label="Beskrivelse av tabellen">
+        <caption class="e-sr-only">Beskrivelse av tabellen</caption>
         <thead>
           <tr>
             <th scope="col">Column 1</th>
@@ -509,27 +510,28 @@
   <!--ACCESSIBILITY-->
   <app-component-section [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'ARIA'">
+      <app-component-subsection [sectionTitle]="'Caption'">
         <ng-container ngProjectAs="sectionContent">
-          <ul class="e-list">
-            <li>
-              <strong>Aria label:</strong>
-              Remember to add
-              <span class="code-text">aria-label</span>
-              to the table to provide a description for the table.
-            </li>
-            <li>
-              <strong>Scope:</strong>
-              The
-              <span class="code-text">scope</span>
-              attribute should be places on all table header elements to make it clear if the headers is a row
-              or column header. Add
-              <span class="code-text">scope="row"</span>
-              and the
-              <span class="code-text">th</span>
-              element to the first cell on a row if this element acts as a header.
-            </li>
-          </ul>
+          Do not forget to include a
+          <span class="code-text">caption</span>
+          element as the
+          <span class="code-text">table</span>
+          element's first child. Using the
+          <span class="code-text">e-sr-only</span>
+          class, you can visually hide the caption from the page while still enabling assistive technology
+          users to read/hear it.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Scope'">
+        <ng-container ngProjectAs="sectionContent">
+          The
+          <span class="code-text">scope</span>
+          attribute should be places on all table header elements to make it clear if the headers is a row or
+          column header. Add
+          <span class="code-text">scope="row"</span>
+          and the
+          <span class="code-text">th</span>
+          element to the first cell on a row if this element acts as a header.
         </ng-container>
       </app-component-subsection>
     </ng-container>
