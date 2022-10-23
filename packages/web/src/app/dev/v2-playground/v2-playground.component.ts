@@ -34,10 +34,22 @@ export class v2PlaygroundComponent {
 
   // Datepicker
   date = new Date(2022, 9, 10, 22, 42, 42, 42);
-  minDate = new Date(2022, 11, 25);
+  minDate = new Date(2022, 9, 5);
   maxDate = new Date(2023, 9, 25);
   disableDate = (date: Date) => date.getDate() % 3 === 0;
   writeDate = (d: Date) => console.log('Retrieving in Angular: ', d);
+  dateOnClose = () => console.log('Datepicker closed');
+  dateOnOpen = () => console.log('Datepicker opened');
+  dateOnReset = () => console.log('Datepicker was reset');
+  changeISO = (value: string) => console.log('Change iso: ', value);
+
+  // Datepicker range
+  dateRangeDates = { start: new Date(2022, 9, 10), end: new Date(2022, 9, 20) };
+  labelOptions = { start: 'Start-dato', end: 'Slutt for fan' };
+  disableDates = {
+    start: (date: Date) => date.getDate() % 3 === 0,
+    end: (date: Date) => date.getDate() % 7 === 0,
+  };
 
   // Dropdown
   dropdownDefOptions = [{ value: '2', label: 'Option 2' }];

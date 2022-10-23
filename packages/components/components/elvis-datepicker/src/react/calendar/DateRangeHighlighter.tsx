@@ -20,6 +20,7 @@ export const DateRangeHighlighter: React.FC<Props> = ({
   hoveredDate,
   whichPicker,
   isFocused,
+  disabled,
   setHoveredDate,
   onClick,
   children,
@@ -56,6 +57,7 @@ export const DateRangeHighlighter: React.FC<Props> = ({
       onMouseLeave={() => setHoveredDate(undefined)}
       invisible={!date}
       isFocused={isFocused}
+      disabled={disabled}
       onClick={() => onClick()}
     >
       {children}

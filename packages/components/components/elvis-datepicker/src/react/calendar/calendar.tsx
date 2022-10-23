@@ -111,7 +111,11 @@ export const Calendar: React.FC<Props> = ({
     }
   };
 
-  const dateIsDisabled = (date: Date): boolean => {
+  const dateIsDisabled = (date: Date | null): boolean => {
+    if (!date) {
+      return true;
+    }
+
     const disableDateMethodExcludesDate = !!disableDate && disableDate(date);
     return !dateIsWithinMinMaxBoundary(date, minDate, maxDate) || disableDateMethodExcludesDate;
   };
@@ -191,7 +195,8 @@ export const Calendar: React.FC<Props> = ({
             dateRange={dateRange}
             whichPicker={dateRangeProps?.whichRangePicker}
             hoveredDate={hoveredDate}
-            onClick={() => day && onDateChange(day, true)}
+            disabled={dateIsDisabled(day)}
+            onClick={() => day && !dateIsDisabled(day) && onDateChange(day, true)}
             isFocused={isSameDay(day, viewedDate) && calendarHasFocus}
           >
             <DayButton
@@ -199,7 +204,7 @@ export const Calendar: React.FC<Props> = ({
               aria-label={formatDate(day, { day: 'numeric', month: 'long', year: 'numeric' })}
               isToday={isSameDay(day, new Date())}
               isActive={isSameDay(day, selectedDate)}
-              disabled={!day || dateIsDisabled(day)}
+              disabled={dateIsDisabled(day)}
               type="button"
               aria-current={isSameDay(day, selectedDate) ? 'date' : undefined}
               id={`date-${formatDate(day, { day: '2-digit', month: '2-digit', year: 'numeric' })}`}

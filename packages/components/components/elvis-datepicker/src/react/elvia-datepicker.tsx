@@ -98,6 +98,10 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     if (!isShowing) {
       openPopoverButtonRef.current?.focus();
 
+      if (isRequired && (!error || error === 'required')) {
+        setError(!date ? 'required' : undefined);
+      }
+
       if (!webcomponent && onClose) {
         onClose();
       } else if (webcomponent) {
@@ -165,7 +169,12 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
   // Allows app to open the datepicker programatically
   useEffect(() => {
-    setVisibility(isOpen);
+    if (isShowing !== isOpen) {
+      // Allow the DOM to stabilize
+      setTimeout(() => {
+        setVisibility(isOpen);
+      });
+    }
   }, [isOpen]);
 
   useEffect(() => {
