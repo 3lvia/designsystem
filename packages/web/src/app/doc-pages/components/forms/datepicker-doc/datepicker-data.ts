@@ -99,27 +99,6 @@ const datepickerData: ComponentData = {
       cegOption: 'true',
       cegDependency: [{ name: 'isRequired', value: 'false' }],
     },
-    showValidation: {
-      isRequired: false,
-      type: 'boolean',
-      description:
-        'Shows validations when sent in as true, e.g. "Velg en dato" error when date is required. Otherwise this will only be triggered after the input has had focus.',
-      default: 'false',
-    },
-    showValidationState: {
-      isRequired: false,
-      type: 'boolean',
-      description:
-        'Shows validation text under datepicker if there is an error with the chosen date. NB: customError has higher priority.',
-      default: 'true',
-    },
-    customError: {
-      isRequired: false,
-      type: 'string',
-      description:
-        'Optional prop for adding an error-message. This prop will overwrite built-in error-messages and is always visible when sent in.',
-      cegDisplayName: 'Error',
-    },
     minDate: {
       isRequired: false,
       type: 'Date',
@@ -147,6 +126,11 @@ const datepickerData: ComponentData = {
       type: '() => void',
       description: 'Callback for every time the datepicker reset button is clicked.',
     },
+    resetTime: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Whether to reset the time value in the emitted Date object.',
+    },
     placeholder: {
       isRequired: false,
       type: 'string',
@@ -170,28 +154,16 @@ const datepickerData: ComponentData = {
       description:
         "Custom CSS style object that can be added to the datepicker. Example: {marginTop: '8px', width: '100%'}",
     },
-    isErrorState: {
+    errorOptions: {
       isRequired: false,
-      type: 'boolean',
-      description: 'Force datepicker to be in error state (i.e. red border). ',
-    },
-    hasValidation: {
-      isRequired: false,
-      default: 'true',
-      type: 'boolean',
-      description: 'Can be used to turn off all internal validation of the chosen date. ',
+      type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean }>',
+      description: 'An object that allows for custom configuration of the error handling in the date picker.',
     },
     errorOnChange: {
       isRequired: false,
       default: 'true',
       type: '(error: string) => void',
       description: 'Gets called every time the internal date validation error is changed. ',
-    },
-    hasErrorPlaceholderElement: {
-      isRequired: false,
-      default: 'true',
-      type: 'boolean',
-      description: 'Whether the datepicker has a placeholder element for the error message. ',
     },
     clearButtonText: {
       isRequired: false,

@@ -126,30 +126,10 @@ const datepickerRangeData: ComponentData = {
       type: '{start: (day: Date) => boolean; end: (day: Date) => boolean}',
       description: 'Object containing functions that set dates as disabled. Return true to disable a date.',
     },
-    showValidationState: {
+    errorOptions: {
       isRequired: false,
-      default: 'true',
-      type: 'boolean',
-      description: 'Controlls whether the datepickers should show their internal validation state.',
-    },
-    isErrorState: {
-      isRequired: false,
-      default: 'true',
-      type: '{start?: boolean; end?: boolean}',
-      description: 'Force the datepickers to be in error state.',
-    },
-    customError: {
-      isRequired: false,
-      default: 'true',
-      type: '{start?: string; end?: string}',
-      description:
-        'Optional prop for adding an error-message. This prop will overwrite built-in error-messages and is always visible when sent in.',
-    },
-    hasErrorPlaceholderElement: {
-      isRequired: false,
-      default: 'true',
-      type: 'boolean',
-      description: 'Can be used to turn off the error placeholder element. ',
+      type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean }>',
+      description: 'An object that allows for custom configuration of the error handling.',
     },
     errorOnChange: {
       isRequired: false,
