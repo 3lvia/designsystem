@@ -4,6 +4,7 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { elvisIconData } from './icon-data';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-icon-doc',
@@ -26,6 +27,7 @@ export class IconDocComponent implements OnInit {
   twoColoredIcons = [];
   figmaUrl = getDocPagesNotFromCMS('icon').figmaUrl;
   description = getDocPagesNotFromCMS('icon').description;
+  title = getDocPagesNotFromCMS('icon').title;
   inverted = false;
   selected = 'all';
   latestIcon = '';
@@ -71,7 +73,9 @@ export class IconDocComponent implements OnInit {
   term = '';
   IconClassList: Icon[] = [];
 
-  constructor(private copyService: CopyToClipboardService) {}
+  constructor(private copyService: CopyToClipboardService, private titleService: Title) {
+    this.titleService.setTitle(this.title);
+  }
 
   @HostListener('document:click', ['$event', '$event.target'])
   onClick(event: MouseEvent, targetElement: HTMLElement): void {

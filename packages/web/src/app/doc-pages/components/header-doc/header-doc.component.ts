@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { headerData } from './header-data';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-header-doc',
@@ -11,4 +12,9 @@ export class HeaderDocComponent {
   componentData = headerData;
   figmaUrl = getComponent('header').figmaUrl;
   description = getComponent('header').description;
+  title = getComponent('header').title;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 }

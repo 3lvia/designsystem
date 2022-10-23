@@ -2,6 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { exampleContents } from 'src/app/shared/example-contents';
 import { accordionData } from './accodrion-data';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-accordion-doc',
@@ -13,8 +14,13 @@ export class AccordionDocComponent {
   componentData = accordionData;
   examples = exampleContents;
   figmaUrl = getComponent('accordion').figmaUrl;
+  title = getComponent('accordion').title;
   description = getComponent('accordion').description;
   showCode = false;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 
   doesAccordion = [
     'Organize related information.',

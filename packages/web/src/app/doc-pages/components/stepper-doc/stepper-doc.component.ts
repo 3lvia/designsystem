@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
+import { Title } from '@angular/platform-browser';
 
 export interface Step {
   number: number;
@@ -15,6 +16,11 @@ export interface Step {
 export class StepperDocComponent implements OnInit {
   figmaUrl = getComponent('stepper').figmaUrl;
   description = getComponent('stepper').description;
+  title = getComponent('stepper').title;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 
   exampleShortHorizontalHTML = `<div class="e-stepper e-stepper--horizontal">
   <div class="e-stepper__steps">

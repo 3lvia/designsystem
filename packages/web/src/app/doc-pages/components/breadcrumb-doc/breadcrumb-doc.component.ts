@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { breadcrumbData } from './breadcrumb-data';
 import { breadcrumbEventCode } from './breadcrumb-event-code';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-breadcrumb-doc',
@@ -11,8 +12,13 @@ import { breadcrumbEventCode } from './breadcrumb-event-code';
 export class BreadcrumbDocComponent {
   figmaUrl = getComponent('breadcrumb').figmaUrl;
   description = getComponent('breadcrumb').description;
+  title = getComponent('breadcrumb').title;
   componentData = breadcrumbData;
   breadcrumbEventCode = breadcrumbEventCode;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 
   exampleBreadcrumb = [
     {

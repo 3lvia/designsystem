@@ -1,6 +1,7 @@
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-typography-doc',
@@ -14,11 +15,17 @@ export class TypographyDocComponent {
   loadedImg = false;
 
   typographyClasses = [];
-  figmaUrl = getDocPagesNotFromCMS('typography').figmaUrl;
+
   description = getDocPagesNotFromCMS('typography').description;
+  figmaUrl = getDocPagesNotFromCMS('typography').figmaUrl;
+  title = getDocPagesNotFromCMS('typography').title;
 
   isDesktop = true;
   isMobile = false;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 
   alignmentOfText = `<div class="e-text-left e-m-16">Left aligned text</div>
 <div class="e-text-center e-m-16">Center aligned text</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-file-upload-doc',
@@ -9,6 +10,11 @@ import { getComponent } from 'src/app/shared/doc-pages';
 export class FileUploadDocComponent {
   figmaUrl = getComponent('file-upload').figmaUrl;
   description = getComponent('file-upload').description;
+  title = getComponent('file-upload').title;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 
   example1 = `<div class="e-fileupload" style="width:380px">
   <div class="e-fileupload__icon">
