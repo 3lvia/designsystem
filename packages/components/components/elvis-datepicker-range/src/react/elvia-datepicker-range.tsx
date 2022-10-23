@@ -117,14 +117,14 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const handleValueOnChangeISOString = (newDateRange: DateRange): void => {
     const dateISO: DateRangeString = { start: null, end: null };
     if (newDateRange.start && isValidDate(newDateRange.start)) {
-      dateISO.start = newDateRange.start?.toISOString();
+      dateISO.start = newDateRange.start?.toISOString().substring(0, 10);
     } else if (newDateRange.start === null) {
       dateISO.start = null;
     } else {
       dateISO.start = 'Invalid Date';
     }
     if (newDateRange.end && isValidDate(newDateRange.end)) {
-      dateISO.end = newDateRange.end?.toISOString();
+      dateISO.end = newDateRange.end?.toISOString().substring(0, 10);
     } else if (newDateRange.end === null) {
       dateISO.end = null;
     } else {

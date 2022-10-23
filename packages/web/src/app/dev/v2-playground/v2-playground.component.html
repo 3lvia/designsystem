@@ -29,6 +29,7 @@
         [minDate]="minDate"
         [maxDate]="maxDate"
         [disableDates]="disableDates"
+        (valueOnChangeISOString)="changeISO($event.detail.value)"
       ></elvia-datepicker-range>
     </div>
     <!--Inverted version-->
