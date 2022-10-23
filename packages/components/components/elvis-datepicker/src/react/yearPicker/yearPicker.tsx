@@ -28,31 +28,37 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange, minDat
     scrollContainer.current?.scrollTo({ top: buttonHeight * (scrollToIndex - 1) });
   };
 
+  const getNewIndex = (event: KeyboardEvent<HTMLDivElement>): number => {
+    let newIndex = focusedYearIndex;
+    if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      if (focusedYearIndex - 1 >= 0) {
+        newIndex = focusedYearIndex - 1;
+      }
+    } else if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      if (focusedYearIndex + 1 <= years.length - 1) {
+        newIndex = focusedYearIndex + 1;
+      }
+    }
+
+    while (newIndex > 0 && newIndex < years.length - 1 && years[newIndex].isDisabled) {
+      newIndex > 0 ? newIndex++ : newIndex--;
+    }
+
+    return newIndex;
+  };
+
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Enter') {
       event.preventDefault();
       onYearChange(years[focusedYearIndex].year);
     } else {
-      let newIndex = focusedYearIndex;
-      if (event.key === 'ArrowUp') {
-        event.preventDefault();
-        if (focusedYearIndex - 1 >= 0) {
-          newIndex = focusedYearIndex - 1;
-        }
-      } else if (event.key === 'ArrowDown') {
-        event.preventDefault();
-        if (focusedYearIndex + 1 <= years.length - 1) {
-          newIndex = focusedYearIndex + 1;
-        }
-      }
+      const newYearIndex = getNewIndex(event);
 
-      while (newIndex > 0 && newIndex < years.length - 1 && years[newIndex].isDisabled) {
-        newIndex > 0 ? newIndex++ : newIndex--;
-      }
-
-      if (!years[newIndex].isDisabled) {
-        setFocusedYearIndex(newIndex);
-        scrollToActiveButton(newIndex);
+      if (!years[newYearIndex].isDisabled) {
+        setFocusedYearIndex(newYearIndex);
+        scrollToActiveButton(newYearIndex);
       }
     }
   };

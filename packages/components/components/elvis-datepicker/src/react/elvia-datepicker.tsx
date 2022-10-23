@@ -92,6 +92,22 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     }
   };
 
+  const emitOnClose = () => {
+    if (!webcomponent && onClose) {
+      onClose();
+    } else if (webcomponent) {
+      webcomponent.triggerEvent('onClose');
+    }
+  };
+
+  const emitOnOpen = () => {
+    if (!webcomponent && onOpen) {
+      onOpen();
+    } else if (webcomponent) {
+      webcomponent.triggerEvent('onOpen');
+    }
+  };
+
   const setVisibility = (isShowing: boolean): void => {
     setIsShowing(isShowing);
 
@@ -102,17 +118,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         setError(!date ? 'required' : undefined);
       }
 
-      if (!webcomponent && onClose) {
-        onClose();
-      } else if (webcomponent) {
-        webcomponent.triggerEvent('onClose');
-      }
+      emitOnClose();
     } else {
-      if (!webcomponent && onOpen) {
-        onOpen();
-      } else if (webcomponent) {
-        webcomponent.triggerEvent('onOpen');
-      }
+      emitOnOpen();
     }
   };
 
