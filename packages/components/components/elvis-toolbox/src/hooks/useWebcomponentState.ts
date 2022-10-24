@@ -58,7 +58,6 @@ export const useWebComponentState = <
       setValueState(newValue);
       triggerEvent(newValue);
     }
-    console.log('update');
   };
 
   return [valueState, updateValue];
