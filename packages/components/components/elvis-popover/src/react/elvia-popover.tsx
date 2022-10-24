@@ -1,11 +1,11 @@
 import React, { FC, useState, useEffect, useRef, useCallback, CSSProperties } from 'react';
 import classnames from 'classnames';
-import { Icon } from '@elvia/elvis-icon/react';
 import throttle from 'lodash.throttle';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { warnDeprecatedProps, outlineListener } from '@elvia/elvis-toolbox';
-import { config } from './config';
+import { Icon } from '@elvia/elvis-icon/react';
 import { PopoverStyles } from './styledComponents';
+import { config } from './config';
+import { warnDeprecatedProps, outlineListener, useFocusTrap } from '@elvia/elvis-toolbox';
 
 export interface PopoverProps {
   /**
@@ -77,6 +77,7 @@ const Popover: FC<PopoverProps> = function ({
 
   const [isShowingState, setIsShowingState] = useState(isShowing);
   const [hasBeenInitiated, setHasBeenInitiated] = useState(isShowing);
+  const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const maxContentWidth = useRef(0);
   const popoverRef = useRef<HTMLDivElement>(null);
   const popoverClassContainerRef = useRef<HTMLDivElement>(null);
@@ -107,6 +108,7 @@ const Popover: FC<PopoverProps> = function ({
    */
   useEffect(() => {
     if (!webcomponent) {
+      trapFocus(popoverClassContainerRef);
       return;
     }
 
@@ -128,6 +130,7 @@ const Popover: FC<PopoverProps> = function ({
     if (isShowingState && hasBeenInitiated) {
       handleOnOpen();
       startEventListeners();
+      trapFocus(popoverClassContainerRef);
     } else if (!isShowingState && hasBeenInitiated) {
       handleOnClose();
       removeEventListeners();
@@ -136,6 +139,7 @@ const Popover: FC<PopoverProps> = function ({
     return () => {
       removeFixedAreaStyles();
       removeEventListeners();
+      releaseFocusTrap();
     };
   }, [isShowingState]);
 
