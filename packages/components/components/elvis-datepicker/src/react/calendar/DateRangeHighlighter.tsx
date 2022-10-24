@@ -53,7 +53,7 @@ export const DateRangeHighlighter: React.FC<Props> = ({
       isOtherSelectedDate={isOtherSelectedDate()}
       isHoveredDate={isSameDay(date, hoveredDate) && !!dateRange?.start}
       rangeIsValid={rangeIsValid()}
-      onMouseEnter={() => date && setHoveredDate(date)}
+      onMouseEnter={() => date && !disabled && setHoveredDate(date)}
       onMouseLeave={() => setHoveredDate(undefined)}
       invisible={!date}
       isFocused={isFocused}
