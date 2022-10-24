@@ -112,13 +112,13 @@ const datepickerRangeData: ComponentData = {
     minDate: {
       isRequired: false,
       type: 'Date',
-      description: 'Makes date before this date disabled.',
+      description: 'Makes dates before the provided minimum date disabled.',
       cegDisplayName: 'Min date',
     },
     maxDate: {
       isRequired: false,
       type: 'Date',
-      description: 'Makes date after this date disabled.',
+      description: 'Makes dates after the provided maximum date disabled.',
       cegDisplayName: 'Max date',
     },
     disableDates: {
