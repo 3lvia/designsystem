@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added hook <span class=\"code-text\">useWebcomponentState</span> that can be used to control state and trigger events for props on webcomponent."
+            "Added hook <span class=\"code-text\">useWebComponentState</span> that can be used to control state and trigger events for props on webcomponent."
           ]
         }
       ]
