@@ -1,5 +1,6 @@
 export * from './elvis-toolbox';
 export { isSsr } from './isSsr';
+
 export { useBreakpoint } from './hooks/useBreakpoint';
 export {
   useConnectedOverlay,
@@ -10,3 +11,5 @@ export { useFocusTrap } from './hooks/useFocusTrap';
 export { useLongPress } from './hooks/useLongPress';
 export { useIsOverflowing } from './hooks/useIsOverflowing';
 export { useWebComponentState } from './hooks/useWebComponentState';
+
+export { ErrorOptions, HasError } from './prop-blocks/hasError';

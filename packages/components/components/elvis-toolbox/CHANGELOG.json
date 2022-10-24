@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "25.10.22",
+      "version": "5.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added prop building blocks for building standardized props for components",
+            "Added reusable atoms for building components"
+          ]
+        }
+      ]
+    },
+    {
       "date": "24.10.22",
       "version": "5.2.0",
       "changelog": [
