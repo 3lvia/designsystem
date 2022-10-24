@@ -107,21 +107,21 @@ const Pagination: FC<PaginationProps> = function ({
   warnDeprecatedProps(config, arguments[0]);
 
   /** Max page numbers that can be visible at the same time */
-  const MAX_VISIBLE_PAGE_NUMBERS = 9;
-  const MAX_VISIBLE_PAGE_NUMBERS_MO = 7;
+  const maxVisiblePageNumbers = 9;
+  const maxVisiblePageNumbersMo = 7;
   /** How many pages that should be displayed between the dots when there are dots on both sides */
-  const NUM_OF_PAGES_BETWEEN_DOTS = 5;
-  const NUM_OF_PAGES_BETWEEN_DOTS_MO = 3;
+  const numOfPagesBetweenDots = 5;
+  const numOfPagesBetweenDotsMo = 3;
 
   /** How many pages that can be displayed on each end before/after dots. 2 represents the space for the dots and the last or first number*/
-  const NUM_OF_PAGES_BEFORE_DOTS = MAX_VISIBLE_PAGE_NUMBERS - 2;
-  const NUM_OF_PAGES_BEFORE_DOTS_MO = MAX_VISIBLE_PAGE_NUMBERS_MO - 2;
+  const numOfPagesBeforeDots = maxVisiblePageNumbers - 2;
+  const numOfPagesBeforeDotsMo = maxVisiblePageNumbersMo - 2;
   /** How many pages that should visible on each side of the selected page when in center (Dots are visible on both sides) */
-  const NUM_OF_PAGES_BESIDE_SELECTED = Math.floor(NUM_OF_PAGES_BETWEEN_DOTS / 2);
-  const NUM_OF_PAGES_BESIDE_SELECTED_MO = Math.floor(NUM_OF_PAGES_BETWEEN_DOTS_MO / 2);
+  const numOfPagesBesideSelected = Math.floor(numOfPagesBetweenDots / 2);
+  const numOfPagesBesideSelectedMo = Math.floor(numOfPagesBetweenDotsMo / 2);
   /** How many pages that can be navigated to at each end before dots are displayed instead of numbers */
-  const VISIBLE_DOTS_BREAKING_POINT = NUM_OF_PAGES_BEFORE_DOTS - NUM_OF_PAGES_BESIDE_SELECTED;
-  const VISIBLE_DOTS_BREAKING_POINT_MO = NUM_OF_PAGES_BEFORE_DOTS_MO - NUM_OF_PAGES_BESIDE_SELECTED_MO;
+  const visibleDotsBreakingPoint = numOfPagesBeforeDots - numOfPagesBesideSelected;
+  const visibleDotsBreakingPointMo = numOfPagesBeforeDotsMo - numOfPagesBesideSelectedMo;
 
   const [selectedPageNumber, setSelectedPageNumber] = useState(1);
   const [selectedDropdownValue, setSelectedDropdownValue] = useState(
@@ -237,20 +237,17 @@ const Pagination: FC<PaginationProps> = function ({
   };
 
   const getPageElement = (pageNumber: number, pageIndex: number): JSX.Element => {
-    const isFirstPage = pageNumber === 1;
-    const isLastPage = pageNumber === numberOfPages;
     return (
       <PaginatorPage
-        isFirst={isFirstPage}
-        isLast={isLastPage}
         key={pageIndex}
+        pageNumber={pageNumber}
         onClick={() => setSelectedPageNumber(pageNumber)}
         selected={isSelectedPageNumber(pageNumber)}
         aria-label={getAriaLabel(pageNumber)}
         aria-current={pageNumber === selectedPageNumber}
         data-testid={`paginator-button-${pageIndex}`}
       >
-        {pageNumber}
+        {pageNumber.toLocaleString('nb-NO')}
       </PaginatorPage>
     );
   };
@@ -265,15 +262,15 @@ const Pagination: FC<PaginationProps> = function ({
 
   const shouldHaveVisibleFirstDots = (): boolean => {
     return (
-      selectedPageNumber > (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
-      numberOfPages > (isMobile ? MAX_VISIBLE_PAGE_NUMBERS_MO : MAX_VISIBLE_PAGE_NUMBERS)
+      selectedPageNumber > (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
+      numberOfPages > (isMobile ? maxVisiblePageNumbersMo : maxVisiblePageNumbers)
     );
   };
   const shouldHaveVisibleLastDots = (): boolean => {
     return (
       selectedPageNumber <=
-        numberOfPages - (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
-      numberOfPages > (isMobile ? MAX_VISIBLE_PAGE_NUMBERS_MO : MAX_VISIBLE_PAGE_NUMBERS)
+        numberOfPages - (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
+      numberOfPages > (isMobile ? maxVisiblePageNumbersMo : maxVisiblePageNumbers)
     );
   };
 
@@ -285,31 +282,29 @@ const Pagination: FC<PaginationProps> = function ({
     return pageNumber === 1 || pageNumber === numberOfPages;
   };
   const areAllPageNumbersVisible = (): boolean => {
-    return numberOfPages === (isMobile ? MAX_VISIBLE_PAGE_NUMBERS_MO : MAX_VISIBLE_PAGE_NUMBERS);
+    return numberOfPages === (isMobile ? maxVisiblePageNumbersMo : maxVisiblePageNumbers);
   };
 
   const isNumberAtBeginningAndVisible = (pageNumber: number): boolean => {
     return (
-      selectedPageNumber <= (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
-      pageNumber <= (isMobile ? NUM_OF_PAGES_BEFORE_DOTS_MO : NUM_OF_PAGES_BEFORE_DOTS)
+      selectedPageNumber <= (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
+      pageNumber <= (isMobile ? numOfPagesBeforeDotsMo : numOfPagesBeforeDots)
     );
   };
   const isNumberInCenterAndVisible = (pageNumber: number): boolean => {
     return (
-      selectedPageNumber > (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
+      selectedPageNumber > (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
       selectedPageNumber <=
-        numberOfPages - (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
-      pageNumber >=
-        selectedPageNumber - (isMobile ? NUM_OF_PAGES_BESIDE_SELECTED_MO : NUM_OF_PAGES_BESIDE_SELECTED) &&
-      pageNumber <=
-        selectedPageNumber + (isMobile ? NUM_OF_PAGES_BESIDE_SELECTED_MO : NUM_OF_PAGES_BESIDE_SELECTED)
+        numberOfPages - (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
+      pageNumber >= selectedPageNumber - (isMobile ? numOfPagesBesideSelectedMo : numOfPagesBesideSelected) &&
+      pageNumber <= selectedPageNumber + (isMobile ? numOfPagesBesideSelectedMo : numOfPagesBesideSelected)
     );
   };
   const isNumberAtEndAndVisible = (pageNumber: number): boolean => {
     return (
       selectedPageNumber >
-        numberOfPages - (isMobile ? VISIBLE_DOTS_BREAKING_POINT_MO : VISIBLE_DOTS_BREAKING_POINT) &&
-      pageNumber > numberOfPages - (isMobile ? NUM_OF_PAGES_BEFORE_DOTS_MO : NUM_OF_PAGES_BEFORE_DOTS)
+        numberOfPages - (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
+      pageNumber > numberOfPages - (isMobile ? numOfPagesBeforeDotsMo : numOfPagesBeforeDots)
     );
   };
 
@@ -424,8 +419,8 @@ const Pagination: FC<PaginationProps> = function ({
             data-testid="dropdown"
           ></Dropdown>
         </PaginatorInfoDropdown>
-        <PaginatorInfoAmount isMobile={windowWidth < 768} data-testid="info-amount">
-          {labelOptionsState.of} {numberOfElements} {labelOptionsState.label}
+        <PaginatorInfoAmount data-testid="info-amount">
+          {labelOptionsState.of} {numberOfElements.toLocaleString('nb-NO')} {labelOptionsState.label}
         </PaginatorInfoAmount>
       </PaginatorInfoContainer>
       <PaginatorSelectorArea role="navigation">

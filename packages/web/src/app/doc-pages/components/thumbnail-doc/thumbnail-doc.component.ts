@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-thumbnail-doc',
@@ -8,6 +9,11 @@ import { getComponent } from 'src/app/shared/doc-pages';
 export class ThumbnailDocComponent {
   figmaUrl = getComponent('thumbnail').figmaUrl;
   description = getComponent('thumbnail').description;
+  title = getComponent('thumbnail').title;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 
   thumbnailExample = `<!--NB! This code is simplified to only include the CSS we provide.-->
 <button

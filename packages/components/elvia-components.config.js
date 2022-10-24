@@ -391,7 +391,7 @@ module.exports = [
       { name: 'dropdownMenuPosition', type: 'string' },
       { name: 'dropdownSelectedItemIndex', type: 'number' },
     ],
-    elementStyle: `display:flex; width: 100%; min-width: 325px`,
+    elementStyle: `display:flex; width: 100%;`,
     conditionalElementStyle: [{ name: 'alignment', value: 'right', style: `justify-content: flex-end;` }],
     reactName: 'Pagination',
     slotItems: false,

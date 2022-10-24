@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-content-loader-doc',
@@ -9,6 +10,11 @@ import { getComponent } from 'src/app/shared/doc-pages';
 export class ContentLoaderDocComponent {
   figmaUrl = getComponent('content-loader').figmaUrl;
   description = getComponent('content-loader').description;
+  title = getComponent('content-loader').title;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 
   exampleOverview = `<div class="e-mt-48 e-mb-72 e-w-100" style="display: flex; flex-direction: row; flex-wrap: wrap">
   <div class="e-mr-24" style="display: flex; flex-direction: column;">

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { spacingItems } from './spacing';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-layout-doc',
@@ -8,9 +9,14 @@ import { spacingItems } from './spacing';
   styleUrls: ['./layout-doc.component.scss'],
 })
 export class LayoutDocComponent {
-  figmaUrl = getDocPagesNotFromCMS('layout').figmaUrl;
   description = getDocPagesNotFromCMS('layout').description;
+  figmaUrl = getDocPagesNotFromCMS('layout').figmaUrl;
+  title = getDocPagesNotFromCMS('layout').title;
   spacingItems = spacingItems;
+
+  constructor(private titleServcie: Title) {
+    this.titleServcie.setTitle(this.title + ' | Elvia design system');
+  }
 
   doCodeCSS = `padding: var(--e-spacing-16);
   margin: var(--e-spacing-48);`;

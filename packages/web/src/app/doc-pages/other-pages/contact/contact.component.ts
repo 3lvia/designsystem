@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact',
@@ -8,12 +9,17 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 })
 export class ContactComponent {
   description = getDocPagesNotFromCMS('contact').description;
+  title = getDocPagesNotFromCMS('contact').title;
   loadedImgFride = false;
   loadedImgTrygve = false;
   loadedImgHil = false;
   loadedImgViljar = false;
   loadedImgTom = false;
   loadedImgErik = false;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | ' + 'Elvia design system');
+  }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   hideContentLoader(evt: any, name: string): void {

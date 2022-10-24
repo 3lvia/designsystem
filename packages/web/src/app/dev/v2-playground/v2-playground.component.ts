@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-v2-playground',
@@ -128,4 +129,8 @@ export class v2PlaygroundComponent {
   popoverOnClose = (): void => {
     console.log('Popover closed');
   };
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle('DEV-playground | Elvia design system');
+  }
 }

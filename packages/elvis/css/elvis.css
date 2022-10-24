@@ -986,8 +986,8 @@ body {
 }
 @media (max-width: 767px) {
   .e-alert.e-alert--actions .e-alert__icon {
-    margin-top: 16px;
-    align-items: flex-start;
+    align-items: center;
+    padding-bottom: 48px;
   }
 }
 .e-alert.e-alert--actions .e-alert__content {

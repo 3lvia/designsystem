@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { UtilityGroup } from './utility.interface';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-utilities-doc',
@@ -9,6 +10,7 @@ import { UtilityGroup } from './utility.interface';
 })
 export class UtilitiesDocComponent {
   description = getDocPagesNotFromCMS('utility-classes').description;
+  title = getDocPagesNotFromCMS('utility-classes').title;
   utilityGroups: UtilityGroup[] = [
     {
       title: 'Accessibility',
@@ -398,4 +400,8 @@ export class UtilitiesDocComponent {
       ],
     },
   ];
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 }

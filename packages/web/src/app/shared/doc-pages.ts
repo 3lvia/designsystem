@@ -12,7 +12,7 @@ export const homeMenu: DocPage[] = [
     imageUrlOn: 'assets/doc-page-icons/shortcut-icons/ComponentOn.svg',
   },
   {
-    title: 'The concept',
+    title: 'The Concept',
     description: 'Branding',
     docUrl: 'the-concept',
     absolutePath: '/brand/the-concept/',
@@ -39,7 +39,7 @@ export const homeMenu: DocPage[] = [
 
 export const componentsDocPages: DocPage[] = [
   {
-    title: 'Accordion group',
+    title: 'Accordion Group',
     description:
       'A group accordion with titles. Can be used to organize a lot of content and are easy for the user to scan and select what’s relevant. Example of use is as a FAQ section.',
     docUrl: Pages.AccordionGroup,
@@ -189,8 +189,8 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
   },
   {
-    title: 'Drag & drop',
-    description: `Drag & drop is typically used in <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/components/${Pages.FileUpload}">File Upload</a> to show content area.`,
+    title: 'Drag & Drop',
+    description: `Drag & Drop is typically used in <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/components/${Pages.FileUpload}">File Upload</a> to show content area.`,
     docUrl: Pages.DragAndDrop,
     absolutePath: '/components/' + Pages.DragAndDrop,
     status: DocPageStatus.Done,
@@ -236,7 +236,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
   },
   {
-    title: 'Text field',
+    title: 'Text Field',
     description: 'Text fields are input boxes the user can type text or number into in a structured format.',
     docUrl: Pages.Input,
     absolutePath: '/components/' + Pages.Input,
@@ -291,7 +291,7 @@ export const componentsDocPages: DocPage[] = [
     docUrl: Pages.Pagination,
     absolutePath: '/components/' + Pages.Pagination,
     status: DocPageStatus.Done,
-    figmaUrl: 'https://www.figma.com/file/Um5AotNfUftDorJHGbIy99/Pagination?node-id=0%3A1',
+    figmaUrl: 'https://www.figma.com/file/XCqUxqWe47Tu0x52JYEbsX/Pagination?node-id=0%3A1',
     type: 'Component',
   },
   {
@@ -307,7 +307,7 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Position Picker',
     description:
-      'Position selector lets you select a position and gives you coordinates. You can choose either by clicking on a map or text input field.',
+      'Position Picker lets you select a position and gives you coordinates. You can choose either by clicking on a map or text input field.',
     docUrl: Pages.PositionPicker,
     absolutePath: '/components/' + Pages.PositionPicker,
     status: DocPageStatus.Done,
@@ -324,7 +324,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
   },
   {
-    title: 'Radio button',
+    title: 'Radio Button',
     description:
       'Radio buttons should be used if the user can only choose one option. One option is always selected by default. The options should be listed in a logical order and have between two and five options in total.',
     docUrl: Pages.Radiobutton,
@@ -424,7 +424,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
   },
   {
-    title: 'Time picker',
+    title: 'Time Picker',
     description:
       'The time picker is a simple way for the user to quickly select the time through a text field and a visual dropdown. The user can input the time manually or click on the clock icon to choose the hour and if needed, a preset interval of minutes.',
     docUrl: Pages.Timepicker,
@@ -457,7 +457,7 @@ export const componentsDocPages: DocPage[] = [
 
 export const docPagesNotFromCMS: DocPage[] = [
   {
-    title: 'The design system',
+    title: 'The Design System',
     description:
       'Elvia’s design system - or Elvis, for short - is a scalable system of visual language, components and design assets which enables us to work together towards an ultimate brand experience.',
     docUrl: Pages.TheDesignSystem,
@@ -501,7 +501,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     status: DocPageStatus.Done,
   },
   {
-    title: "What's new?",
+    title: 'What’s New?',
     description: 'The latest news, updates, and changes to the design system.',
     docUrl: Pages.Changelog,
     absolutePath: '/about/' + Pages.Changelog,
@@ -570,7 +570,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     type: 'Tools',
   },
   {
-    title: "What's new?",
+    title: 'What’s New?',
     description: 'The latest news, updates, and changes to the design system.',
     docUrl: Pages.Changelog,
     absolutePath: '/about/' + Pages.Changelog,

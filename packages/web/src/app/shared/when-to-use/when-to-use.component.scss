@@ -15,9 +15,15 @@
   .when-not-to-use {
     padding-left: 8px;
   }
+
   ul {
     padding-left: 22px;
+
+    li::first-letter {
+      text-transform: uppercase;
+    }
   }
+
   @include breakpoint-up(Mobile) {
     flex-direction: column;
     .when-to-use,
