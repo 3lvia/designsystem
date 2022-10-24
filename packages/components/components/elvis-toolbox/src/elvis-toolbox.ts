@@ -80,7 +80,6 @@ const consoleWarnDeprecatedProp = (
  *  prop2,
  *  prop3,
  * }) {
- *  // eslint-disable-next-line prefer-rest-params
  *  warnDeprecatedProps(config, arguments[0]);
  *  ...
  * }
