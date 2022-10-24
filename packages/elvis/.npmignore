@@ -2,3 +2,4 @@
 percy/
 tasks/
 testing/
+!src/
