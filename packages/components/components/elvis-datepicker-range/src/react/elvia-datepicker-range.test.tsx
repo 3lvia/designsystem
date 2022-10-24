@@ -19,7 +19,7 @@ describe('Elvis DatepickerRange', () => {
     });
   });
 
-  describe('With vertical alignment', () => {
+  describe('with vertical alignment', () => {
     beforeEach(() => {
       render(<DatepickerRange isVertical></DatepickerRange>);
     });
