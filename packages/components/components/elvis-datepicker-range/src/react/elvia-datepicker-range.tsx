@@ -42,6 +42,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const [endDatepickerIsOpen, setEndDatepickerIsOpen] = useState(false);
   const [isRequiredState, setIsRequiredState] = useState<IsRequired>();
   const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>(emptyErrorMessage);
+  const [shouldOpenEndDatePicker, setShouldOpenEndDatePicker] = useState(false);
 
   useEffect(() => {
     if (typeof isRequired === 'boolean') {
@@ -119,6 +120,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   const handleStartDatepickerValueOnChange = (newDate: Date | null) => {
+    setShouldOpenEndDatePicker(
+      !selectedDateRange.start ||
+        !selectedDateRange.end ||
+        newDate?.getTime() !== selectedDateRange.start.getTime(),
+    );
     // If start datepicker is set to a date after the end datepicker, set the end date to newValue.
     if (newDate && selectedDateRange?.end && newDate > selectedDateRange.end) {
       setSelectedDateRange({ start: newDate, end: newDate });
@@ -186,10 +192,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         valueOnChange={handleStartDatepickerValueOnChange}
         isRequired={isRequiredState?.start}
         onClose={() => {
-          hasAutoOpenEndDatepicker &&
-            setTimeout(() => {
-              setEndDatepickerIsOpen(true);
-            }, 100);
+          hasAutoOpenEndDatepicker && shouldOpenEndDatePicker && setEndDatepickerIsOpen(true);
         }}
         onOpen={onStartPickerOpen}
         onReset={() => {
@@ -214,6 +217,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         isRequired={isRequiredState?.end}
         onClose={() => {
           setEndDatepickerIsOpen(false);
+          setShouldOpenEndDatePicker(false);
         }}
         onOpen={onEndPickerOpen}
         onReset={() => {
