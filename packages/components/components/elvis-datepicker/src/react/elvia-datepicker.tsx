@@ -52,9 +52,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     alignWidths: false,
   });
 
-  /**
-   * Handle valueOnChangeISOString event. If newDate is not valid, formatISO crashes the component.
-   */
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
     let dateISO;
     if (newDate && isValidDate(newDate)) {

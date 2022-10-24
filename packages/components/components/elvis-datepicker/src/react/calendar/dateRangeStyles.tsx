@@ -63,8 +63,8 @@ export const DateRangeDayContainer = styled.div<Partial<Props>>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
 
   ${(props) => {
     if (!props.invisible && !props.disabled) {
