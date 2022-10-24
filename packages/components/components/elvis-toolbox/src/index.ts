@@ -2,6 +2,7 @@ export * from './elvis-toolbox';
 export { isSsr } from './isSsr';
 
 export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button';
+export { IconButton } from './components/button/iconButton';
 
 export { useBreakpoint } from './hooks/useBreakpoint';
 export {
