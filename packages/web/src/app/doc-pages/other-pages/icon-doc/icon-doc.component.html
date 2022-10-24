@@ -148,13 +148,13 @@
           </div>
         </div>
         <div class="dark-mode-toggle mobile">
-          <label class="e-toggle" role="switch">
+          <label class="e-toggle" role="switch" [attr.aria-selected]="inverted">
             Inverted
             <input class="e-toggle__input" type="checkbox" [checked]="inverted" (change)="invert()" />
           </label>
         </div>
         <div class="dark-mode-toggle">
-          <label class="e-toggle" role="switch">
+          <label class="e-toggle" role="switch" [attr.aria-selected]="inverted">
             Inverted
             <input class="e-toggle__input" type="checkbox" [checked]="inverted" (change)="invert()" />
           </label>
