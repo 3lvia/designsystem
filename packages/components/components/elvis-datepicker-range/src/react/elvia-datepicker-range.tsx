@@ -1,62 +1,17 @@
-import React, { CSSProperties, FC, PointerEvent, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Datepicker, DatepickerProps } from '@elvia/elvis-datepicker/react';
 import { DatepickerRangeWrapper } from './styledComponents';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import isValid from 'date-fns/isValid';
-import formatISO from 'date-fns/formatISO';
-
-export type BothDatepickers<T> = {
-  start: T;
-  end: T;
-};
-
-export type DateRange = BothDatepickers<Date | null>;
-export type DateRangeString = BothDatepickers<string | null>;
-export type LabelOptions = Partial<BothDatepickers<string>>;
-export type DisableDates = Partial<BothDatepickers<(day: Date) => boolean>>;
-export type IsRequired = Partial<BothDatepickers<boolean>>;
-export type IsErrorState = Partial<BothDatepickers<boolean>>;
-export type CustomError = Partial<BothDatepickers<string>>;
-
-const emptyDateRange: DateRange = {
-  start: null,
-  end: null,
-};
-
-const defaultLabelOptions: LabelOptions = {
-  start: 'Fra dato',
-  end: 'Til dato',
-};
-
-const emptyErrorMessage: CustomError = {
-  start: '',
-  end: '',
-};
-
-export interface DatepickerRangeProps {
-  value?: DateRange;
-  valueOnChange?: (value: DateRange) => void;
-  valueOnChangeISOString?: (value: DateRangeString) => void;
-  labelOptions?: LabelOptions;
-  isCompact?: boolean;
-  isFullWidth?: boolean;
-  isDisabled?: boolean;
-  isRequired?: IsRequired | boolean;
-  isVertical?: boolean;
-  hasSelectDateOnOpen?: boolean;
-  hasAutoOpenEndDatepicker?: boolean;
-  showValidationState?: boolean;
-  isErrorState?: IsErrorState;
-  customError?: CustomError;
-  hasErrorPlaceholderElement?: boolean;
-  errorOnChange?: (errors: CustomError) => void;
-  minDate?: Date;
-  maxDate?: Date;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  disableDates?: DisableDates;
-  webcomponent?: ElvisComponentWrapper;
-}
+import {
+  DatepickerRangeProps,
+  emptyDateRange,
+  IsRequired,
+  CustomError,
+  emptyErrorMessage,
+  DateRange,
+  DateRangeString,
+  DisableDates,
+  defaultLabelOptions,
+} from './elviaDatepickerRange.types';
 
 export const DatepickerRange: FC<DatepickerRangeProps> = ({
   value,
@@ -68,12 +23,12 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   isDisabled,
   isRequired,
   isVertical,
-  hasSelectDateOnOpen,
+  hasSelectDateOnOpen = true,
   hasAutoOpenEndDatepicker,
-  showValidationState = true,
-  isErrorState,
-  customError,
-  hasErrorPlaceholderElement = true,
+  errorOptions = {
+    start: { hideText: false, isErrorState: false, text: '' },
+    end: { hideText: false, isErrorState: false, text: '' },
+  },
   errorOnChange,
   minDate,
   maxDate,
@@ -83,23 +38,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   webcomponent,
   ...rest
 }) => {
-  const [hoveredDateRange, setHoveredDateRange] = useState(value ?? emptyDateRange);
   const [selectedDateRange, setSelectedDateRange] = useState(value ?? emptyDateRange);
   const [endDatepickerIsOpen, setEndDatepickerIsOpen] = useState(false);
   const [isRequiredState, setIsRequiredState] = useState<IsRequired>();
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>(emptyErrorMessage);
-
-  useEffect(() => {
-    const getWindowDimensions = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', getWindowDimensions);
-    return () => {
-      window.removeEventListener('resize', getWindowDimensions);
-    };
-  });
+  const [shouldOpenEndDatePicker, setShouldOpenEndDatePicker] = useState(false);
 
   useEffect(() => {
     if (typeof isRequired === 'boolean') {
@@ -117,21 +60,25 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   }, [currentErrorMessages]);
 
+  const isValidDate = (date: unknown): boolean => {
+    return !isNaN(date as number) && date instanceof Date;
+  };
+
   /**
    * Handle valueOnChangeISOString event. If newDate.start/end is not valid, formatISO crashes the component.
    */
-  const handleValueOnChangeISOString = (newDate: DateRange): void => {
+  const handleValueOnChangeISOString = (newDateRange: DateRange): void => {
     const dateISO: DateRangeString = { start: null, end: null };
-    if (newDate.start && isValid(newDate.start)) {
-      dateISO.start = formatISO(newDate.start, { representation: 'date' });
-    } else if (newDate.start === null) {
+    if (newDateRange.start && isValidDate(newDateRange.start)) {
+      dateISO.start = newDateRange.start?.toISOString().substring(0, 10);
+    } else if (newDateRange.start === null) {
       dateISO.start = null;
     } else {
       dateISO.start = 'Invalid Date';
     }
-    if (newDate.end && isValid(newDate.end)) {
-      dateISO.end = formatISO(newDate.end, { representation: 'date' });
-    } else if (newDate.end === null) {
+    if (newDateRange.end && isValidDate(newDateRange.end)) {
+      dateISO.end = newDateRange.end?.toISOString().substring(0, 10);
+    } else if (newDateRange.end === null) {
       dateISO.end = null;
     } else {
       dateISO.end = 'Invalid Date';
@@ -145,9 +92,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   useEffect(() => {
-    // Update hoveredDateRange, needed for keyboard navigation highlighting
-    setHoveredDateRange(selectedDateRange);
-
     handleValueOnChangeISOString(selectedDateRange);
     if (!webcomponent) {
       valueOnChange?.(selectedDateRange);
@@ -175,109 +119,51 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     return disableDates;
   };
 
-  const handleEndDatepickerDateElementPointerMove = (day: Date, event?: PointerEvent<HTMLButtonElement>) => {
-    const isPointerEventAndTargetIsDayElementInCalendar =
-      event && event.target instanceof Element && event.target.classList.contains('ewc-datepicker__day');
-
-    if (isPointerEventAndTargetIsDayElementInCalendar || !event) {
-      setHoveredDateRange((current) => {
-        if (current.start) {
-          return {
-            ...current,
-            end: new Date(day),
-          };
-        } else {
-          return current;
-        }
-      });
-    }
-  };
-
-  const handleStartDatepickerDateElementPointerMove = (
-    day: Date,
-    event?: PointerEvent<HTMLButtonElement>,
-  ) => {
-    const isPointerEventAndTargetIsDayElementInCalendar =
-      event && event.target instanceof Element && event.target.classList.contains('ewc-datepicker__day');
-
-    if (isPointerEventAndTargetIsDayElementInCalendar || !event) {
-      setHoveredDateRange((current) => {
-        if (current.end) {
-          return {
-            ...current,
-            start: new Date(day),
-          };
-        } else {
-          return current;
-        }
-      });
-    }
-  };
-
-  const handleEndDatepickerPopoverPointerMove = (event: PointerEvent<HTMLDivElement>) => {
-    if (!(event.target instanceof Element)) {
-      return;
-    }
-    const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
-    if (!eventTargetIsDayElementInCalendar) {
-      setHoveredDateRange((current) => {
-        if (current.start) {
-          return {
-            ...current,
-            end: selectedDateRange.end,
-          };
-        } else {
-          return current;
-        }
-      });
-    }
-  };
-
-  const handleStartDatepickerPopoverPointerMove = (event: PointerEvent<HTMLDivElement>) => {
-    if (!(event.target instanceof Element)) {
-      return;
-    }
-    const eventTargetIsDayElementInCalendar = event.target.classList.contains('ewc-datepicker__day');
-    if (!eventTargetIsDayElementInCalendar) {
-      setHoveredDateRange((current) => {
-        if (current.start) {
-          return {
-            ...current,
-            start: selectedDateRange.start,
-          };
-        } else {
-          return current;
-        }
-      });
-    }
-  };
-
-  const handleStartDatepickerValueOnChange = (newValue: Date | null) => {
+  const handleStartDatepickerValueOnChange = (newDate: Date | null) => {
+    setShouldOpenEndDatePicker(
+      !selectedDateRange.start ||
+        !selectedDateRange.end ||
+        newDate?.getTime() !== selectedDateRange.start.getTime(),
+    );
     // If start datepicker is set to a date after the end datepicker, set the end date to newValue.
-    if (newValue && selectedDateRange?.end && newValue > selectedDateRange.end) {
-      setHoveredDateRange({ start: newValue, end: newValue });
-      setSelectedDateRange({ start: newValue, end: newValue });
+    if (newDate && selectedDateRange?.end && newDate > selectedDateRange.end) {
+      setSelectedDateRange({ start: newDate, end: newDate });
     } else {
-      setHoveredDateRange((current) => {
-        return { ...current, start: newValue };
-      });
       setSelectedDateRange((current) => {
-        return { ...current, start: newValue };
+        return { ...current, start: newDate };
       });
     }
   };
 
-  const handleEndDatepickerValueOnChange = (newValue: Date | null) => {
+  const handleEndDatepickerValueOnChange = (newDate: Date | null) => {
     // If end datepicker is set to a date before the start date, set both to end datepicker value.
-    if (newValue && selectedDateRange?.start && newValue < selectedDateRange.start) {
-      setHoveredDateRange({ start: newValue, end: newValue });
-      setSelectedDateRange({ start: newValue, end: newValue });
+    if (newDate && selectedDateRange?.start && newDate < selectedDateRange.start) {
+      setSelectedDateRange({ start: newDate, end: newDate });
     } else {
-      setHoveredDateRange((current) => {
-        return { ...current, end: newValue };
-      });
       setSelectedDateRange((current) => {
-        return { ...current, end: newValue };
+        return { ...current, end: newDate };
+      });
+    }
+  };
+
+  const onStartPickerOpen = () => {
+    if (hasSelectDateOnOpen && !selectedDateRange.start) {
+      const endDate = selectedDateRange.end?.getTime();
+      const startDate = endDate && endDate < Date.now() ? new Date(endDate) : new Date();
+      setSelectedDateRange((current) => {
+        return { ...current, start: startDate };
+      });
+    }
+  };
+
+  const onEndPickerOpen = () => {
+    setEndDatepickerIsOpen(true);
+
+    if (hasSelectDateOnOpen && !selectedDateRange.end) {
+      const startDate = selectedDateRange.start?.getTime();
+      const endDate = startDate && Date.now() < startDate ? new Date(startDate) : new Date();
+      setSelectedDateRange((current) => {
+        return { ...current, end: endDate };
       });
     }
   };
@@ -289,9 +175,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     isCompact,
     isFullWidth,
     isDisabled,
-    hasSelectDateOnOpen,
-    showValidationState,
-    hasErrorPlaceholderElement: hasErrorPlaceholderElement && windowWidth > 767 && !isVertical,
   };
 
   return (
@@ -309,28 +192,22 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         valueOnChange={handleStartDatepickerValueOnChange}
         isRequired={isRequiredState?.start}
         onClose={() => {
-          hasAutoOpenEndDatepicker &&
-            setTimeout(() => {
-              setEndDatepickerIsOpen(true);
-            }, 100);
+          hasAutoOpenEndDatepicker && shouldOpenEndDatePicker && setEndDatepickerIsOpen(true);
         }}
+        onOpen={onStartPickerOpen}
         onReset={() => {
-          setHoveredDateRange({ ...selectedDateRange, start: null });
           setSelectedDateRange({ ...selectedDateRange, start: null });
         }}
         dateRangeProps={{
           selectedDateRange: selectedDateRange,
-          hoveredDateRange: hoveredDateRange,
-          onDateElementPointerMove: handleStartDatepickerDateElementPointerMove,
-          onDatepickerPopoverPointerMove: handleStartDatepickerPopoverPointerMove,
           whichRangePicker: 'start',
         }}
         disableDate={disableDatesWrapper()?.start}
-        customError={customError?.start}
-        isErrorState={isErrorState?.start}
+        errorOptions={errorOptions?.start}
         errorOnChange={(error: string) =>
           setCurrentErrorMessages((current) => ({ ...current, start: error }))
         }
+        hasSelectDateOnOpen={false}
       ></Datepicker>
       <Datepicker
         {...passThroughProps}
@@ -340,24 +217,21 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         isRequired={isRequiredState?.end}
         onClose={() => {
           setEndDatepickerIsOpen(false);
+          setShouldOpenEndDatePicker(false);
         }}
-        onOpen={() => setEndDatepickerIsOpen(true)}
+        onOpen={onEndPickerOpen}
         onReset={() => {
-          setHoveredDateRange({ ...selectedDateRange, end: null });
           setSelectedDateRange({ ...selectedDateRange, end: null });
         }}
         isOpen={endDatepickerIsOpen}
         dateRangeProps={{
           selectedDateRange: selectedDateRange,
-          hoveredDateRange: hoveredDateRange,
-          onDateElementPointerMove: handleEndDatepickerDateElementPointerMove,
-          onDatepickerPopoverPointerMove: handleEndDatepickerPopoverPointerMove,
           whichRangePicker: 'end',
         }}
         disableDate={disableDatesWrapper()?.end}
-        customError={customError?.end}
-        isErrorState={isErrorState?.end}
+        errorOptions={errorOptions?.end}
         errorOnChange={(error: string) => setCurrentErrorMessages((current) => ({ ...current, end: error }))}
+        hasSelectDateOnOpen={false}
       ></Datepicker>
     </DatepickerRangeWrapper>
   );

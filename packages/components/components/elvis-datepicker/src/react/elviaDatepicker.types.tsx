@@ -1,0 +1,60 @@
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { CSSProperties } from 'react';
+
+export type ErrorType = 'invalidDate' | 'required' | 'beforeMinDate' | 'afterMaxDate';
+
+export interface DateRange {
+  start: Date | null;
+  end: Date | null;
+}
+
+/**
+ * Props that are specific to the date range picker component.
+ * @internal
+ */
+export interface DatepickerRangeProps {
+  selectedDateRange?: DateRange;
+  whichRangePicker?: 'start' | 'end';
+}
+
+// This interface is copied from timepicker. Move to shared folder later.
+export interface ErrorOptions {
+  text: string;
+  hideText: boolean;
+  isErrorState: boolean;
+}
+
+export interface DatepickerProps {
+  clearButtonText?: string;
+  disableDate?: (day: Date) => boolean;
+  errorOnChange?: (error: string) => void;
+  errorOptions?: Partial<ErrorOptions>;
+  hasOptionalText?: boolean;
+  hasSelectDateOnOpen?: boolean;
+  isCompact?: boolean;
+  isDisabled?: boolean;
+  isFullWidth?: boolean;
+  isOpen?: boolean;
+  isRequired?: boolean;
+  label?: string;
+  maxDate?: Date;
+  minDate?: Date;
+  onClose?: () => void;
+  onOpen?: () => void;
+  onReset?: () => void;
+  placeholder?: string;
+  resetTime?: boolean;
+  value?: Date | null;
+  valueOnChange?: (value: Date | null) => void;
+  valueOnChangeISOString?: (value: string | null) => void;
+
+  className?: string;
+  inlineStyle?: CSSProperties;
+  webcomponent?: ElvisComponentWrapper;
+
+  /**
+   * This is used for internal purposes, and should not be used by the user.
+   * @internal
+   */
+  dateRangeProps?: DatepickerRangeProps;
+}
