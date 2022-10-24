@@ -12,7 +12,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
  *
  * @example
  * export const Component: FC<Props> = ({value, valueOnChange, webcomponent}) => {
- *   const [valueState, setValueState] = useWebcomponentState(value, 'value', webcomponent, valueOnChange);
+ *   const [valueState, setValueState] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
  *   ...
  *   // Will trigger a `valueOnChange` event on webcomponent and call `reactOnChangeEvent`.
  *   return (<div onClick={() => setValueState('new value')}>{value}</div>)
@@ -20,7 +20,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
  *
  * @since 5.2.0
  */
-export const useWebcomponentState = <
+export const useWebComponentState = <
   TValue,
   TWebcomponent extends {
     setProps: (...args: unknown[]) => unknown;

@@ -9,4 +9,4 @@ export {
 export { useFocusTrap } from './hooks/useFocusTrap';
 export { useLongPress } from './hooks/useLongPress';
 export { useIsOverflowing } from './hooks/useIsOverflowing';
-export { useWebcomponentState } from './hooks/useWebcomponentState';
+export { useWebComponentState } from './hooks/useWebComponentState';
