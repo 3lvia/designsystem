@@ -141,7 +141,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   const onStartPickerOpen = () => {
-    if (hasSelectDateOnOpen) {
+    if (hasSelectDateOnOpen && !selectedDateRange.start) {
       const endDate = selectedDateRange.end?.getTime();
       const startDate = endDate && endDate < Date.now() ? new Date(endDate) : new Date();
       setSelectedDateRange((current) => {
@@ -153,7 +153,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const onEndPickerOpen = () => {
     setEndDatepickerIsOpen(true);
 
-    if (hasSelectDateOnOpen) {
+    if (hasSelectDateOnOpen && !selectedDateRange.end) {
       const startDate = selectedDateRange.start?.getTime();
       const endDate = startDate && Date.now() < startDate ? new Date(startDate) : new Date();
       setSelectedDateRange((current) => {
