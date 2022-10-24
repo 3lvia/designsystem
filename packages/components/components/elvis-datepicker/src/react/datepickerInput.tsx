@@ -177,7 +177,6 @@ export const DatepickerInput: React.FC<Props> = ({
     <Input
       ref={inputElement}
       disabled={disabled}
-      type="text"
       placeholder={placeholder}
       value={inputValue}
       onKeyDown={onKeyDown}

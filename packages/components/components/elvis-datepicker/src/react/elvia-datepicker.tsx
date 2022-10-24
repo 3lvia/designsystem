@@ -243,7 +243,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             ref={openPopoverButtonRef}
             size={isCompact ? 'small' : 'medium'}
             data-testid="popover-toggle"
-            type="button"
             aria-label="Åpne datovelger"
             aria-haspopup="dialog"
           >

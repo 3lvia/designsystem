@@ -3,16 +3,6 @@ import styled, { css } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
-export const colors = {
-  elviaWhite: getColor('white'),
-  elviaBlack: getColor('black'),
-  elviaGreen: getColor('green'),
-  grey05: getColor('grey-05'),
-  grey10: getColor('grey-10'),
-  disabled: getColor('disabled'),
-  error: getColor('error'),
-};
-
 const typography = {
   textLabel: getTypographyCss('text-label'),
   textInput: getTypographyCss('text-md'),
@@ -57,7 +47,7 @@ export const LabelText = styled.div<LabelProps>`
     if (props.isCompact) {
       return css`
         font-size: 0.625rem;
-        background-color: ${colors.elviaWhite};
+        background-color: ${getColor('elvia-on')};
         position: absolute;
         margin-left: 7px;
         top: 0;
@@ -87,7 +77,7 @@ interface InputContainerProps extends BaseProps {
 
 const setActiveBorder = (props: InputContainerProps) => {
   return css`
-    border: 2px solid ${props.isInvalid ? colors.error : colors.elviaGreen};
+    border: 2px solid ${props.isInvalid ? getColor('error') : getColor('elvia-charge')};
     padding: ${props.isCompact ? '0px 3px 0px 7px' : '0px 7px 0px 15px'};
   `;
 };
@@ -97,7 +87,7 @@ export const InputContainer = styled.div<InputContainerProps>`
   align-items: center;
   gap: 8px;
   padding: ${(props) => (props.isCompact ? '0px 4px 0px 8px' : '0px 8px 0px 16px')};
-  border: 1px solid ${colors.elviaBlack};
+  border: 1px solid ${getColor('elvia-off')};
   height: ${(props) => (props.isCompact ? '34px' : '48px')};
   border-radius: 4px;
   cursor: text;
@@ -115,7 +105,7 @@ export const InputContainer = styled.div<InputContainerProps>`
     if (props.disabled) {
       return css`
         cursor: not-allowed;
-        border-color: ${colors.disabled};
+        border-color: ${getColor('disabled')};
       `;
     }
 
@@ -126,7 +116,7 @@ export const InputContainer = styled.div<InputContainerProps>`
   }}
 `;
 
-export const Input = styled.input<Partial<BaseProps>>`
+export const Input = styled.input.attrs(() => ({ type: 'text' }))<Partial<BaseProps>>`
   ${typography.textInput}
   width: 5.4rem;
   min-width: 0;
@@ -136,17 +126,14 @@ export const Input = styled.input<Partial<BaseProps>>`
   cursor: inherit;
 
   &:disabled {
-    color: ${colors.disabled};
+    color: ${getColor('disabled')};
   }
 
-  ${(props) => {
-    if (props.isCompact) {
-      return css`
-        font-size: 14px;
-      `;
-    }
-    return '';
-  }}
+  ${(props) =>
+    props.isCompact &&
+    css`
+      font-size: 14px;
+    `};
 `;
 
 interface IconButtonProps {
@@ -154,11 +141,13 @@ interface IconButtonProps {
   active?: boolean;
 }
 
-export const IconButton = styled.button<IconButtonProps>`
+export const IconButton = styled.button.attrs(() => ({
+  type: 'button',
+}))<IconButtonProps>`
   width: ${(props) => (props.size === 'medium' ? '40px' : '32px')};
   height: ${(props) => (props.size === 'medium' ? '40px' : '32px')};
   border: none;
-  background: ${(props) => (props.active ? colors.elviaGreen : 'transparent')};
+  background: ${(props) => (props.active ? getColor('elvia-charge') : 'transparent')};
   cursor: pointer;
   border-radius: 50%;
   display: flex;
@@ -167,7 +156,7 @@ export const IconButton = styled.button<IconButtonProps>`
   transition: background-color 100ms;
 
   &:not([disabled]):hover {
-    background: ${colors.elviaGreen};
+    background: ${getColor('elvia-charge')};
   }
 
   &[disabled] {
