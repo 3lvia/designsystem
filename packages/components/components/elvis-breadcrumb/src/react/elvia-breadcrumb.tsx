@@ -48,7 +48,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
   webcomponent,
   ...rest
 }) {
-  // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(breadcrumbConfig, arguments[0]);
   items.forEach((item) => {
     warnDeprecatedProps(breadcrumbLinkConfig, item);

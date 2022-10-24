@@ -10,7 +10,7 @@
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-alert e-mt-24" role="alert">
+    <div class="e-alert e-mt-24">
       <div class="e-alert__icon">
         <i class="e-icon e-icon--remove_circle e-icon--color-red" aria-hidden="true" aria-hidden="true"></i>
       </div>
@@ -401,23 +401,73 @@
   <!--ACCESSIBILITY-->
   <app-component-section [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'ARIA'">
+      When new alerts appear, users of assistive technologies may miss them. ARIA live regions enable
+      programmatically exposing new alerts in a way that can be announced by assistive technology.
+      <app-component-subsection [sectionTitle]="'ARIA: alert role'">
         <ng-container ngProjectAs="sectionContent">
-          <ul class="e-list">
-            <li>
-              <strong>Rule:</strong>
-              Use
-              <span class="code-text">role="alert"</span>
-              on the alert elements to provide sematic meaning to the content.
-            </li>
-            <li>
-              <strong>Aria hidden:</strong>
-              Most icons are purely decorative and should therefore be excluded from the accessibility tree by
-              adding
-              <span class="code-text">aria-hidden="true"</span>
-              to the icon element.
-            </li>
-          </ul>
+          Only alerts that require the user's
+          <em>immediate</em>
+          attention should use
+          <span class="code-text">role=alert</span>
+          . When this role is applied to an element, the browser sends an accessible alert event to assistive
+          technology products, which subsequently notifies the user.
+          <p>
+            Alerts will only be announced when the content of the element with
+            <span class="code-text">role="alert"</span>
+            is updated. Do not try to dynamically add/generate an alert with
+            <span class="code-text">role="alert"</span>
+            that is already populated with the alert message you want to be announced – this generally does
+            not lead to an announcement, as it is not a content change.
+          </p>
+          Instead, you can use a visually hidden alert container for screen reader notifications. Using
+          JavaScript, you can dynamically change the content inside the element with
+          <span class="code-text">role="alert"</span>
+          . We advise replacing the entire alert message at once instead of just parts of the alert message to
+          ensure it fires an update to assistive technologies.
+          <p>
+            If the content inside the element with
+            <span class="code-text">role="alert"</span>
+            is initially hidden using CSS, making it visible will also cause the alert to fire. However,
+            ensure that the container is not hidden using
+            <span class="code-text">display:none</span>
+            , as this will hide it from assistive technologies, meaning that users won't be notified of any
+            alerts.
+          </p>
+
+          <app-when-to-use
+            [whens]="doesAriaRoleAlertDefault"
+            [whenNots]="dontsAriaRoleAlertDefault"
+          ></app-when-to-use>
+
+          <ng-container ngProjectAs="sectionContent">
+            <app-component-example-v1 [codeHTML]="roleAlertContainerExample"></app-component-example-v1>
+          </ng-container>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'ARIA: status role'">
+        <ng-container ngProjectAs="sectionContent">
+          Use
+          <span class="code-text">role=status</span>
+          when an alert contains advisory information that is not important enough to be an alert.
+          <app-when-to-use
+            [whens]="doesAriaRoleStatusDefault"
+            [whenNots]="dontsAriaRoleStatusDefault"
+          ></app-when-to-use>
+          <ng-container ngProjectAs="sectionContent">
+            <app-component-example-v1 [codeHTML]="roleStatusContainerExample"></app-component-example-v1>
+          </ng-container>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'ARIA: note role'">
+        <ng-container ngProjectAs="sectionContent">
+          Use
+          <span class="code-text">role="note"</span>
+          when a alerts whose subject matter is supplementary to the primary subject.
+          <app-when-to-use
+            [whens]="doesAriaRoleNoteDefault"
+            [whenNots]="dontsAriaRoleNoteDefault"
+          ></app-when-to-use>
+          <app-component-example-v1 [codeHTML]="roleNoteExample"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
