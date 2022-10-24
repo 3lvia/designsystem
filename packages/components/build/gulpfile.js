@@ -328,6 +328,7 @@ gulp.task('watch', function () {
       validate.validateElviaComponentsConfig,
       buildToolboxComponentToJS,
       buildElviaComponentToJS,
+      buildElviaComponentTSDeclaration,
       TSX_to_JS,
       reactTypescriptDeclarations,
       copyChangelogs,
