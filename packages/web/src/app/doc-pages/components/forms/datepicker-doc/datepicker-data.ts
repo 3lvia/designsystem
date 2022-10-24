@@ -129,7 +129,7 @@ const datepickerData: ComponentData = {
     resetTime: {
       isRequired: false,
       type: 'boolean',
-      description: 'Whether to reset the time value in the emitted Date object.',
+      description: 'Whether to reset the time value in the emitted Date object to 00:00:00.',
     },
     placeholder: {
       isRequired: false,
