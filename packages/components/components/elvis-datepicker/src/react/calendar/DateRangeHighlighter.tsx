@@ -12,6 +12,7 @@ interface Props {
   disabled?: boolean;
   setHoveredDate: (d?: Date) => void;
   onClick: () => void;
+  children?: React.ReactNode;
 }
 
 export const DateRangeHighlighter: React.FC<Props> = ({
