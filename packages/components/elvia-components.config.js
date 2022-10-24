@@ -17,10 +17,6 @@ attributes: object[] -
   When using bindings ([value]="") the value is sent in as a property and not an attribute. We do not parse those.
   If you use type "object" we parse it with JSON.parse, which supports arrays as well.
 
-  attributes.propType: string -
-  We allow propType to contain the actually allowed properties by the react component written in a typescript way:
-  "string | number | HTMLElement | Date | object" etc.
-
 reactName: string - The name of the component in React
 elementStyle: string - Styling for the DOM element (web component HTMLElement) itself
 
