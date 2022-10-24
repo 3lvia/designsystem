@@ -9,6 +9,7 @@ import {
   PopoverBody,
   PopoverFooter,
   PopoverHeader,
+  RotatingContainer,
   SelectedDateName,
   TertiaryButton,
 } from './popupStyles';
@@ -105,7 +106,9 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
             </SelectedDateName>
             <TertiaryButton onClick={() => toggleView()} aria-label="Endre år" data-testid="year-view-toggle">
               {formatDate(viewedDate, { year: 'numeric' })}
-              <Icon name={yearPickerIsOpen ? 'arrowUp' : 'arrowDown'} size="xs" />
+              <RotatingContainer isRotated={yearPickerIsOpen}>
+                <Icon name="arrowDown" size="xs" />
+              </RotatingContainer>
             </TertiaryButton>
           </PopoverHeader>
           <PopoverBody>

@@ -82,6 +82,20 @@ export const Backdrop = styled.div`
   position: fixed;
 `;
 
+export interface RotatingContainerProps {
+  isRotated: boolean;
+}
+
+export const RotatingContainer = styled.div<RotatingContainerProps>`
+  transition: transform 250ms ease;
+
+  ${(props) =>
+    props.isRotated &&
+    css`
+      transform: rotate(180deg);
+    `}
+`;
+
 export const TertiaryButton = styled.button`
   ${getTypographyCss('text-sm')};
   font-weight: 500;
@@ -93,6 +107,8 @@ export const TertiaryButton = styled.button`
   gap: 8px;
   cursor: pointer;
   position: relative;
+  margin: 0;
+  padding: 0;
 
   &:not(:last-of-type) {
     margin-bottom: 16px;
