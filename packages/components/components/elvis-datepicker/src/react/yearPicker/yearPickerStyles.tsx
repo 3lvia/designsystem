@@ -63,14 +63,14 @@ export const YearButton = styled.button<Partial<YearButtonProps>>`
   }
 
   ${(props) =>
-    props.isActive &&
-    css`
-      background-color: ${getColor('grey-10')};
-    `}
-
-  ${(props) =>
     props.isFocused &&
     css`
       background-color: ${getColor('grey-05')};
-    `}
+    `};
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      background-color: ${getColor('grey-10')};
+    `};
 `;
