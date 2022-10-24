@@ -45,7 +45,7 @@ export class v2PlaygroundComponent {
 
   // Datepicker range
   dateRangeDates = { start: new Date(2022, 9, 10), end: new Date(2022, 9, 20) };
-  labelOptions = { start: 'Start-dato', end: 'Slutt for fan' };
+  labelOptions = { start: 'Start-dato', end: 'Sluttdato' };
   disableDates = {
     start: (date: Date) => date.getDate() % 3 === 0,
     end: (date: Date) => date.getDate() % 7 === 0,

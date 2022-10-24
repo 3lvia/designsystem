@@ -24,6 +24,7 @@ export const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-auto-rows: 1fr;
+  margin: 0 -4px; // Pull out on sides to account for 40px wide button container
 
   /** This ensures that all tiles are square */
   &:before {
