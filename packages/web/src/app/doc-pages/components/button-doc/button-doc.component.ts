@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-button-doc',
@@ -7,8 +8,14 @@ import { getComponent } from 'src/app/shared/doc-pages';
   styleUrls: ['./button-doc.component.scss'],
 })
 export class ButtonDocComponent {
+  title = getComponent('button').title;
   figmaUrl = getComponent('button').figmaUrl;
   description = getComponent('button').description;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
+
   doesExample1 = [
     'Primary buttons are task oriented buttons, that normally is used for task like save, done, or next actions. It is often the primary positive action of a use case. Can be used alone, or combined with a secondary and link style button.',
   ];

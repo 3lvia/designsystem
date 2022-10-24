@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
@@ -37,6 +37,7 @@ export class CMSPageComponent implements OnDestroy {
     private router: Router,
     private copyService: CopyToClipboardService,
     private elementRef: ElementRef,
+    private titleService: Title,
   ) {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
@@ -81,6 +82,7 @@ export class CMSPageComponent implements OnDestroy {
     const id = await this.cmsService.getPageSysId(locale);
     const docPage = await this.cmsService.getTransformedDocPageByEntryId(id, locale);
     this.setInnerHTMLToCMSContent(docPage);
+    this.titleService.setTitle(docPage.title + ' | Elvia design system');
   }
 
   /**
@@ -97,6 +99,7 @@ export class CMSPageComponent implements OnDestroy {
     const entry: IDocumentationPage = await this.cmsService.getEntryFromCMS(id);
     const docPage = await this.cmsService.getTransformedDocPageByEntry(entry, locale);
     this.setInnerHTMLToCMSContent(docPage);
+    this.titleService.setTitle(docPage.title + ' | ' + 'Elvia design system');
   }
 
   /**
@@ -119,6 +122,7 @@ export class CMSPageComponent implements OnDestroy {
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
     this.addClickEventListenersForCopyPath();
+    this.titleService.setTitle(docPage.title + ' | Elvia design system');
   }
 
   /**

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { primaryColors, signalColors, dataColors, greysColors } from './color';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-color-doc',
@@ -12,8 +13,9 @@ export class ColorDocComponent {
   signalColors = signalColors;
   dataColors = dataColors;
   greysColors = greysColors;
-  figmaUrl = getDocPagesNotFromCMS('color').figmaUrl;
   description = getDocPagesNotFromCMS('color').description;
+  figmaUrl = getDocPagesNotFromCMS('color').figmaUrl;
+  title = getDocPagesNotFromCMS('color').title;
   colors: string[] = ['red', 'green'];
 
   doCode = `<div class="e-bg-green"></div>`;
@@ -33,4 +35,8 @@ const color = colors['primary-colors']['green']['color'];`;
   background: colors.$ElviaDark;
 }`;
   exampleCssLong = `@use '@elvia/elvis-colors/dist/elviaColors.scss' as colors;`;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 }

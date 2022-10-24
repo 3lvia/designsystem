@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VersionService } from 'src/app/core/services/version.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-get-started',
@@ -25,10 +26,11 @@ cssVars({
 
   bodyScriptMessage = `<body><script src="assets/js/elvis.js"></script></body>`;
 
-  constructor(private versionService: VersionService) {}
+  constructor(private versionService: VersionService, private titleService: Title) {}
 
   ngOnInit(): void {
     this.updateCodeExamples();
+    this.titleService.setTitle('Get started | Elvia design system');
   }
 
   toggleAccordion(id: string): void {

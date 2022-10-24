@@ -1,6 +1,7 @@
 import { ElementRef } from '@angular/core';
 import { Component, ViewChild } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-search-doc',
@@ -13,6 +14,11 @@ export class SearchDocComponent {
 
   figmaUrl = getComponent('search').figmaUrl;
   description = getComponent('search').description;
+  title = getComponent('search').title;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 
   isExampleInput = false;
 

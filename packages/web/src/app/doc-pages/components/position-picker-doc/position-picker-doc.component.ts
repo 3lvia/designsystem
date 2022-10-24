@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-position-picker-doc',
@@ -14,7 +15,12 @@ export class PositionPickerDocComponent {
 
   figmaUrl = getComponent('position-picker').figmaUrl;
   description = getComponent('position-picker').description;
+  title = getComponent('position-picker').title;
   isExampleInput = false;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 
   exampleOverview = ` <div class="e-position-picker" style="width: 300px">
   <div class="e-position-picker__icon" *ngIf="!showPosition">
