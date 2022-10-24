@@ -1,4 +1,5 @@
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { ErrorOptions as SinglePickerErrorOptions } from '@elvia/elvis-toolbox';
 import { CSSProperties } from 'react';
 
 export type BothDatepickers<T> = {
@@ -29,13 +30,6 @@ export const emptyErrorMessage: CustomError = {
   start: '',
   end: '',
 };
-
-// This interface is copied from timepicker. Move to shared folder later.
-export interface SinglePickerErrorOptions {
-  text: string;
-  hideText: boolean;
-  isErrorState: boolean;
-}
 
 export interface DatepickerRangeProps {
   value?: DateRange;
