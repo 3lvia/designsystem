@@ -24,9 +24,8 @@ async function validateElviaComponentsConfig() {
             properties: {
               name: { type: 'string' },
               type: { type: 'string', pattern: '^(string|number|object|boolean|Date|function)$' },
-              propType: { type: 'string' },
             },
-            required: ['name', 'type', 'propType'],
+            required: ['name', 'type'],
           },
         },
         reactName: { type: 'string', pattern: '([A-Z0-9]){1}([a-zA-Z0-9])+' },
