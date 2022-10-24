@@ -72,8 +72,8 @@ const Popover: FC<PopoverProps> = function ({
 }) {
   warnDeprecatedProps(config, arguments[0]);
 
-  const POPOVER_MARGIN = 16;
-  const POPOVER_PADDING = 32;
+  const popoverMargin = 16;
+  const popoverPadding = 32;
 
   const [isShowingState, setIsShowingState] = useState(isShowing);
   const [hasBeenInitiated, setHasBeenInitiated] = useState(isShowing);
@@ -271,7 +271,7 @@ const Popover: FC<PopoverProps> = function ({
     const triggerOffsetRight = screenDimensions.screenWidth - triggerWidth - triggerOffsetLeft;
     const contentOffsetTop = popoverContentRef.current.getBoundingClientRect().top;
     const contentOffsetBottom =
-      screenDimensions.screenHeight - contentHeight - triggerOffsetTop - triggerHeight - POPOVER_MARGIN;
+      screenDimensions.screenHeight - contentHeight - triggerOffsetTop - triggerHeight - popoverMargin;
 
     const contentSpace = horizontalPosition === 'center' ? contentWidth / 2 : contentWidth;
     const triggerSpace = horizontalPosition === 'center' ? triggerWidth / 2 : triggerWidth;
@@ -294,7 +294,7 @@ const Popover: FC<PopoverProps> = function ({
     if (popoverPosition === null) {
       return false;
     }
-    const popoverMinSpaceLeft = popoverPosition.contentSpace + POPOVER_MARGIN;
+    const popoverMinSpaceLeft = popoverPosition.contentSpace + popoverMargin;
     const popoverActualSpace = popoverPosition.triggerSpace + popoverPosition.triggerOffsetRight;
     return popoverMinSpaceLeft >= popoverActualSpace;
   };
@@ -303,7 +303,7 @@ const Popover: FC<PopoverProps> = function ({
     if (popoverPosition === null) {
       return false;
     }
-    const popoverMinSpace = popoverPosition.contentSpace + POPOVER_MARGIN;
+    const popoverMinSpace = popoverPosition.contentSpace + popoverMargin;
     const popoverActualSpace = popoverPosition.triggerSpace + popoverPosition.triggerOffsetLeft;
     return popoverMinSpace >= popoverActualSpace;
   };
@@ -313,14 +313,14 @@ const Popover: FC<PopoverProps> = function ({
     if (popoverPosition === null) {
       return false;
     }
-    return popoverPosition.contentOffsetTop < POPOVER_MARGIN;
+    return popoverPosition.contentOffsetTop < popoverMargin;
   };
   const hasConflictBottom = (): boolean => {
     const popoverPosition = getPopoverPosition();
     if (popoverPosition === null) {
       return false;
     }
-    const isRoomBottom = popoverPosition.contentOffsetBottom > POPOVER_MARGIN;
+    const isRoomBottom = popoverPosition.contentOffsetBottom > popoverMargin;
     return !isRoomBottom;
   };
 
@@ -331,10 +331,10 @@ const Popover: FC<PopoverProps> = function ({
       return;
     }
     if (horizontalPosition !== 'right' && hasConflictLeft()) {
-      const offsetLeft = -popoverPosition.triggerOffsetLeft + POPOVER_MARGIN + 'px';
+      const offsetLeft = -popoverPosition.triggerOffsetLeft + popoverMargin + 'px';
       updateHorizontalPositionStyle('none', 'auto', offsetLeft);
     } else if (horizontalPosition !== 'left' && hasConflictRight()) {
-      const offsetRight = -popoverPosition.triggerOffsetRight + POPOVER_MARGIN + getScrollbarWidth() + 'px';
+      const offsetRight = -popoverPosition.triggerOffsetRight + popoverMargin + getScrollbarWidth() + 'px';
       updateHorizontalPositionStyle('none', offsetRight, 'auto');
     } else {
       setInitialPosition();
@@ -352,7 +352,7 @@ const Popover: FC<PopoverProps> = function ({
       return;
     }
     if ((verticalPosition === 'bottom' && !hasConflictBottom()) || hasConflictTop()) {
-      const offsetTop = popoverTriggerRef.current.getBoundingClientRect().height + POPOVER_MARGIN + 'px';
+      const offsetTop = popoverTriggerRef.current.getBoundingClientRect().height + popoverMargin + 'px';
       updateVerticalPositionStyle(offsetTop, 'auto');
     } else if ((verticalPosition === 'top' && !hasConflictTop()) || hasConflictBottom()) {
       const offsetBottom = popoverTriggerRef.current.getBoundingClientRect().height + 'px';
@@ -368,8 +368,8 @@ const Popover: FC<PopoverProps> = function ({
       return;
     }
     const { screenWidth } = dimensions;
-    if (maxContentWidth.current + (POPOVER_MARGIN * 2 + POPOVER_PADDING * 2) > screenWidth) {
-      popoverContentRef.current.style.width = `${screenWidth - (POPOVER_MARGIN * 2 + POPOVER_PADDING * 2)}px`;
+    if (maxContentWidth.current + (popoverMargin * 2 + popoverPadding * 2) > screenWidth) {
+      popoverContentRef.current.style.width = `${screenWidth - (popoverMargin * 2 + popoverPadding * 2)}px`;
     } else {
       popoverContentRef.current.style.width = `${maxContentWidth}px`;
     }
