@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { chipData } from './chip-data';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-chips',
@@ -8,11 +9,16 @@ import { chipData } from './chip-data';
   styleUrls: ['./chip-doc.component.scss'],
 })
 export class ChipDocComponent {
+  title = getComponent('chip').title;
   figmaUrl = getComponent('chip').figmaUrl;
   description = getComponent('chip').description;
   does = chipData.does;
   donts = chipData.donts;
   componentData = chipData;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 
   filteredValues = { 2019: false, 2020: true, 2021: true, 2022: false, 2023: true, 2024: true };
   filteredKeys = Object.keys(this.filteredValues);

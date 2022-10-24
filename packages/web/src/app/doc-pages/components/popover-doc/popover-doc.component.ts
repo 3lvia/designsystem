@@ -6,6 +6,7 @@ import { popoverListCode } from './popover-list-code';
 import { popoverListHeadingsCode } from './popover-list-headings';
 import { popoverListIconsCode } from './popover-list-icons-code';
 import { popoverListSelectableCode } from './popover-list-selectable-code';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-popover-doc',
   templateUrl: './popover-doc.component.html',
@@ -20,6 +21,7 @@ export class PopoverDocComponent {
   loadedPopoverStructure = false;
   figmaUrl = getComponent('popover').figmaUrl;
   description = getComponent('popover').description;
+  title = getComponent('popover').title;
   does = [
     'To provide additional information',
     'Secondary/tertiary information',
@@ -27,6 +29,10 @@ export class PopoverDocComponent {
     'When space is limited',
   ];
   donts = ['Necessary information for the user to complete their task in a page'];
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 
   hideContentLoader(evt: Event): void {
     if (evt && evt.target) {

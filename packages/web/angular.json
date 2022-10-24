@@ -25,9 +25,19 @@
             "preserveSymlinks": true,
             "outputPath": "dist/elvia-designsystem",
             "allowedCommonJsDependencies": [
-              "hoist-non-react-statics",
+              "@contentful/rich-text-html-renderer",
+              "@contentful/rich-text-types",
+              "@elvia/elvis-assets-icons/config/icons.config.js",
+              "@elvia/elvis-colors",
               "@elvia/elvis-toolbox",
-              "@elvia/elvis-colors"
+              "@elvia/elvis-typography",
+              "hoist-non-react-statics",
+              "json5",
+              "lodash.debounce",
+              "lodash.isequal",
+              "lodash.throttle",
+              "natural-compare-lite",
+              "prismjs"
             ],
             "index": "src/index.html",
             "main": "src/main.ts",

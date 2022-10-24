@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 import { homeMenu } from 'src/app/shared/doc-pages';
 import changelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
   locale: string;
   changelog = changelogJson.content;
 
-  constructor(localizationService: LocalizationService) {
+  constructor(localizationService: LocalizationService, private titleService: Title) {
     localizationService.listenLocalization().subscribe((locale) => {
       if (locale === Locale['en-GB']) {
         this.overviewTitle = 'Elvia design system';
@@ -37,6 +38,7 @@ export class HomeComponent implements OnInit {
     (document as any).fonts.ready.then(() => {
       this.fontLoaded = true;
     });
+    this.titleService.setTitle(this.overviewTitle);
   }
 
   holiday = (): void => {
@@ -47,7 +49,7 @@ export class HomeComponent implements OnInit {
     // christmas
     if (this.date.getMonth() === this.christmasMonth) {
       this.christmas = true;
-      this.overviewTitle = 'Merry christmas';
+      this.overviewTitle = 'Happy Holidays';
     }
   };
 }

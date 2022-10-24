@@ -104,7 +104,6 @@ const Pagination: FC<PaginationProps> = function ({
   webcomponent,
   ...rest
 }) {
-  // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(config, arguments[0]);
 
   /** Max page numbers that can be visible at the same time */

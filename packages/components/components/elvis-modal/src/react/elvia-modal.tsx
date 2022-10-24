@@ -66,7 +66,6 @@ export const ModalComponent: FC<ModalProps> = function ({
   webcomponent,
   ...rest
 }) {
-  // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(config, arguments[0]);
 
   const modalWrapperRef = useRef<HTMLDivElement>(null);

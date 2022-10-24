@@ -1,11 +1,11 @@
+/* Code highlighter */
+@use 'prismjs/plugins/toolbar/prism-toolbar';
+@use 'prismjs/themes/prism-okaidia';
+
 /* Elvia Styleguide */
 @import '@elvia/elvis/src/main.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 @import '@elvia/elvis/src/variables/typography.scss';
-
-/* Code highlighter */
-@import '~prismjs/plugins/toolbar/prism-toolbar.css';
-@import '~prismjs/themes/prism-okaidia';
 
 @import './app/shared/shared-sizes';
 @import './app/shared/shared-animations';

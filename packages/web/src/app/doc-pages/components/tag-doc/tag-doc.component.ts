@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { exampleContents } from 'src/app/shared/example-contents';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tag-doc',
@@ -10,6 +11,12 @@ import { exampleContents } from 'src/app/shared/example-contents';
 export class TagDocComponent {
   figmaUrl = getComponent('tag').figmaUrl;
   description = getComponent('tag').description;
+  title = getComponent('tag').title;
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
+
   headerDoes = ['When you need to categorize or view the status of items.'];
   headerDonts = [
     'Do not use tags alone without pairing it with an item.',

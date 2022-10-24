@@ -5,6 +5,7 @@ import { cardData } from './card-data';
 import { cardLinkCode } from './card-link-code';
 import { cardSimpleCode } from './card-simple-code';
 import { cardDetailCode } from './card-detail-code';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-card-doc',
@@ -18,6 +19,7 @@ export class CardDocComponent {
   cardSimpleCode = cardSimpleCode;
   cardDetailCode = cardDetailCode;
   typesData = [cardSimpleCode, cardDetailCode];
+  title = getComponent('card').title;
   figmaUrl = getComponent('card').figmaUrl;
   description = getComponent('card').description;
   doesCard = [
@@ -28,4 +30,8 @@ export class CardDocComponent {
     'If the text is more describable than the icon, consider using Action link group instead.',
     'Do not use different types of cards on the same page. The same goes for the description version, use description on all or none.',
   ];
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
 }
