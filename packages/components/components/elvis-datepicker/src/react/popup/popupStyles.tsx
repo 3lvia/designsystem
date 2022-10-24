@@ -1,6 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
 
-import { colors } from '../styledComponents';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
@@ -30,7 +29,7 @@ interface OverlayContainerProps {
 }
 
 export const OverlayContainer = styled.div<OverlayContainerProps>`
-  background-color: ${colors.elviaWhite};
+  background-color: ${getColor('elvia-on')};
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   position: absolute;
