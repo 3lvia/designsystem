@@ -26,12 +26,12 @@ export const ScrollContainer = styled.div`
   }
 
   &::before {
-    background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    background: linear-gradient(rgb(255 255 255 / 1), rgb(255 255 255 / 0));
     top: 0;
   }
 
   &::after {
-    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    background: linear-gradient(rgb(255 255 255 / 0), rgb(255 255 255 / 1));
     bottom: 0;
   }
 `;
