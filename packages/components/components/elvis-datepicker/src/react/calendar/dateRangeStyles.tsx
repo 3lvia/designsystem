@@ -101,7 +101,7 @@ export const DateRangeDayContainer = styled.div<Partial<Props>>`
   ${(props) =>
     props.isOtherSelectedDate &&
     css`
-      ${DayButton}:not(:disabled) {
+      ${DayButton} {
         border-color: ${getColor('elvia-off')};
       }
     `};
