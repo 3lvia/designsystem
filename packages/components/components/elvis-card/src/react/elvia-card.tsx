@@ -72,7 +72,6 @@ const Card: FC<CardProps> = function ({
   webcomponent,
   ...rest
 }) {
-  // eslint-disable-next-line prefer-rest-params
   warnDeprecatedProps(cardConfig, arguments[0]);
 
   const [isHoveringArea, setIsHoveringArea] = useState(false);
