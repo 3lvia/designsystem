@@ -1,65 +1,17 @@
-import React, { CSSProperties, FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Datepicker, DatepickerProps } from '@elvia/elvis-datepicker/react';
 import { DatepickerRangeWrapper } from './styledComponents';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-
-export type BothDatepickers<T> = {
-  start: T;
-  end: T;
-};
-
-export type DateRange = BothDatepickers<Date | null>;
-export type DateRangeString = BothDatepickers<string | null>;
-export type LabelOptions = Partial<BothDatepickers<string>>;
-export type DisableDates = Partial<BothDatepickers<(day: Date) => boolean>>;
-export type IsRequired = Partial<BothDatepickers<boolean>>;
-export type IsErrorState = Partial<BothDatepickers<boolean>>;
-export type CustomError = Partial<BothDatepickers<string>>;
-export type ErrorOptions = Partial<BothDatepickers<SinglePickerErrorOptions>>;
-
-const emptyDateRange: DateRange = {
-  start: null,
-  end: null,
-};
-
-const defaultLabelOptions: LabelOptions = {
-  start: 'Fra dato',
-  end: 'Til dato',
-};
-
-const emptyErrorMessage: CustomError = {
-  start: '',
-  end: '',
-};
-
-// This interface is copied from timepicker. Move to shared folder later.
-export interface SinglePickerErrorOptions {
-  text: string;
-  hideText: boolean;
-  isErrorState: boolean;
-}
-
-export interface DatepickerRangeProps {
-  value?: DateRange;
-  valueOnChange?: (value: DateRange) => void;
-  valueOnChangeISOString?: (value: DateRangeString) => void;
-  labelOptions?: LabelOptions;
-  isCompact?: boolean;
-  isFullWidth?: boolean;
-  isDisabled?: boolean;
-  isRequired?: IsRequired | boolean;
-  isVertical?: boolean;
-  hasSelectDateOnOpen?: boolean;
-  errorOptions?: ErrorOptions;
-  hasAutoOpenEndDatepicker?: boolean;
-  errorOnChange?: (errors: CustomError) => void;
-  minDate?: Date;
-  maxDate?: Date;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  disableDates?: DisableDates;
-  webcomponent?: ElvisComponentWrapper;
-}
+import {
+  DatepickerRangeProps,
+  emptyDateRange,
+  IsRequired,
+  CustomError,
+  emptyErrorMessage,
+  DateRange,
+  DateRangeString,
+  DisableDates,
+  defaultLabelOptions,
+} from './elviaDatepickerRange.types';
 
 export const DatepickerRange: FC<DatepickerRangeProps> = ({
   value,
@@ -71,7 +23,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   isDisabled,
   isRequired,
   isVertical,
-  hasSelectDateOnOpen,
+  hasSelectDateOnOpen = true,
   hasAutoOpenEndDatepicker,
   errorOptions = {
     start: { hideText: false, isErrorState: false, text: '' },
@@ -188,6 +140,28 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
+  const onStartPickerOpen = () => {
+    if (hasSelectDateOnOpen) {
+      const endDate = selectedDateRange.end?.getTime();
+      const startDate = endDate && endDate < Date.now() ? new Date(endDate) : new Date();
+      setSelectedDateRange((current) => {
+        return { ...current, start: startDate };
+      });
+    }
+  };
+
+  const onEndPickerOpen = () => {
+    setEndDatepickerIsOpen(true);
+
+    if (hasSelectDateOnOpen) {
+      const startDate = selectedDateRange.start?.getTime();
+      const endDate = startDate && Date.now() < startDate ? new Date(startDate) : new Date();
+      setSelectedDateRange((current) => {
+        return { ...current, end: endDate };
+      });
+    }
+  };
+
   /** These props are passed through directly to both the underlying datepickers. */
   const passThroughProps: Partial<DatepickerProps> = {
     minDate,
@@ -195,7 +169,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     isCompact,
     isFullWidth,
     isDisabled,
-    hasSelectDateOnOpen,
   };
 
   return (
@@ -218,6 +191,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
               setEndDatepickerIsOpen(true);
             }, 100);
         }}
+        onOpen={onStartPickerOpen}
         onReset={() => {
           setSelectedDateRange({ ...selectedDateRange, start: null });
         }}
@@ -230,6 +204,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         errorOnChange={(error: string) =>
           setCurrentErrorMessages((current) => ({ ...current, start: error }))
         }
+        hasSelectDateOnOpen={false}
       ></Datepicker>
       <Datepicker
         {...passThroughProps}
@@ -240,7 +215,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         onClose={() => {
           setEndDatepickerIsOpen(false);
         }}
-        onOpen={() => setEndDatepickerIsOpen(true)}
+        onOpen={onEndPickerOpen}
         onReset={() => {
           setSelectedDateRange({ ...selectedDateRange, end: null });
         }}
@@ -252,6 +227,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         disableDate={disableDatesWrapper()?.end}
         errorOptions={errorOptions?.end}
         errorOnChange={(error: string) => setCurrentErrorMessages((current) => ({ ...current, end: error }))}
+        hasSelectDateOnOpen={false}
       ></Datepicker>
     </DatepickerRangeWrapper>
   );
