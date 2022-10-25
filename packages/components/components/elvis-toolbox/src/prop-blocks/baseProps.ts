@@ -4,5 +4,5 @@ import { CSSProperties } from 'react';
 export interface BaseProps {
   className?: string;
   inlineStyle?: CSSProperties;
-  webcomponent: ElvisComponentWrapper;
+  webcomponent?: ElvisComponentWrapper;
 }

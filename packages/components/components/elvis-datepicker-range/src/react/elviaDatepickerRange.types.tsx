@@ -1,4 +1,4 @@
-import { BaseProps, ErrorOptions as SinglePickerErrorOptions } from '@elvia/elvis-toolbox';
+import { BaseProps, ErrorOptions as SinglePickerErrorOptions, HasValue } from '@elvia/elvis-toolbox';
 
 export type BothDatepickers<T> = {
   start: T;
@@ -29,9 +29,7 @@ export const emptyErrorMessage: CustomError = {
   end: '',
 };
 
-export interface DatepickerRangeProps extends BaseProps {
-  value?: DateRange;
-  valueOnChange?: (value: DateRange) => void;
+export interface DatepickerRangeProps extends BaseProps, HasValue<DateRange> {
   valueOnChangeISOString?: (value: DateRangeString) => void;
   labelOptions?: LabelOptions;
   isCompact?: boolean;

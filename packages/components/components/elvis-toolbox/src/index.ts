@@ -14,3 +14,4 @@ export { useWebComponentState } from './hooks/useWebComponentState';
 
 export { BaseProps } from './prop-blocks/baseProps';
 export { ErrorOptions, HasError } from './prop-blocks/hasError';
+export { HasValue } from './prop-blocks/hasValue';

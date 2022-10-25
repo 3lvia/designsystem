@@ -1,4 +1,4 @@
-import { BaseProps, HasError } from '@elvia/elvis-toolbox';
+import { BaseProps, HasError, HasValue } from '@elvia/elvis-toolbox';
 
 export type ErrorType = 'invalidDate' | 'required' | 'beforeMinDate' | 'afterMaxDate';
 
@@ -16,10 +16,9 @@ export interface DatepickerRangeProps {
   whichRangePicker?: 'start' | 'end';
 }
 
-export interface DatepickerProps extends BaseProps, HasError {
+export interface DatepickerProps extends BaseProps, HasValue<Date | null>, HasError {
   clearButtonText?: string;
   disableDate?: (day: Date) => boolean;
-  errorOnChange?: (error: string) => void;
   hasOptionalText?: boolean;
   hasSelectDateOnOpen?: boolean;
   isCompact?: boolean;
@@ -35,8 +34,6 @@ export interface DatepickerProps extends BaseProps, HasError {
   onReset?: () => void;
   placeholder?: string;
   resetTime?: boolean;
-  value?: Date | null;
-  valueOnChange?: (value: Date | null) => void;
   valueOnChangeISOString?: (value: string | null) => void;
 
   /**

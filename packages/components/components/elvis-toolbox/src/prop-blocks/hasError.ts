@@ -6,4 +6,5 @@ export interface ErrorOptions {
 
 export interface HasError {
   errorOptions?: Partial<ErrorOptions>;
+  errorOnChange?: (error: string) => void;
 }
