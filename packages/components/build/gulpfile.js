@@ -276,9 +276,9 @@ gulp.task(
   'default',
   gulp.series(
     validate.validateElviaComponentsConfig,
+    buildElviaComponentTSDeclaration,
     buildToolboxComponentToJS,
     buildElviaComponentToJS,
-    buildElviaComponentTSDeclaration,
     TSX_to_JS,
     copyChangelogs,
     reactTypescriptDeclarations,
@@ -295,6 +295,7 @@ gulp.task(
   'production',
   gulp.series(
     validate.validateElviaComponentsConfig,
+    buildElviaComponentTSDeclaration,
     buildToolboxComponentToJS,
     buildElviaComponentToJS,
     TSX_to_JS,
@@ -319,9 +320,9 @@ gulp.task('watch', function () {
     { ignoreInitial: false },
     gulp.series(
       validate.validateElviaComponentsConfig,
+      buildElviaComponentTSDeclaration,
       buildToolboxComponentToJS,
       buildElviaComponentToJS,
-      buildElviaComponentTSDeclaration,
       TSX_to_JS,
       reactTypescriptDeclarations,
       copyChangelogs,

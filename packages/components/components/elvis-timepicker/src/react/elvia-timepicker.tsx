@@ -114,7 +114,11 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   /**
    * Needed for webcomponent -> To update the default value
    */
-  useEffect(() => value && updateValue(value, false), [value]);
+  useEffect(() => {
+    if (value) {
+      updateValue(value, false);
+    }
+  }, [value]);
 
   return (
     <TimePickerContainer className={className ?? ''} style={{ ...inlineStyle }} {...rest}>
