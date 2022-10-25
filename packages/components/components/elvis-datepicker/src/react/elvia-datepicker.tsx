@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { DatePickerLabel, InputContainer, IconButton, LabelText } from './styledComponents';
+import { DatePickerLabel, InputContainer, LabelText } from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import { OverlayContainer } from './popup/overlayContainer';
 import { ErrorType, DatepickerProps } from './elviaDatepicker.types';
-import { useConnectedOverlay, useFocusTrap } from '@elvia/elvis-toolbox';
+import { useConnectedOverlay, useFocusTrap, IconButton } from '@elvia/elvis-toolbox';
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
@@ -249,10 +249,10 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           />
           <IconButton
             disabled={isDisabled}
-            active={isShowing}
+            isActive={isShowing}
             onClick={() => setVisibility(!isShowing)}
             ref={openPopoverButtonRef}
-            size={isCompact ? 'small' : 'medium'}
+            size={isCompact ? 'sm' : 'md'}
             data-testid="popover-toggle"
             aria-label="Åpne datovelger"
             aria-haspopup="dialog"

@@ -11,11 +11,11 @@ import {
   PopoverHeader,
   RotatingContainer,
   SelectedDateName,
-  TertiaryButton,
 } from './popupStyles';
 import { YearPicker } from '../yearPicker/yearPicker';
 import { formatDate } from '../dateHelpers';
 import { DatepickerRangeProps } from '../elviaDatepicker.types';
+import { TertiaryButton } from '@elvia/elvis-toolbox';
 
 interface Props {
   onClose: () => void;
@@ -104,7 +104,12 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
             <SelectedDateName>
               {formatDate(selectedDate, { weekday: 'long', day: 'numeric', month: 'long' })}
             </SelectedDateName>
-            <TertiaryButton onClick={() => toggleView()} aria-label="Endre år" data-testid="year-view-toggle">
+            <TertiaryButton
+              size="sm"
+              onClick={() => toggleView()}
+              aria-label="Endre år"
+              data-testid="year-view-toggle"
+            >
               {formatDate(viewedDate, { year: 'numeric' })}
               <RotatingContainer isRotated={yearPickerIsOpen}>
                 <Icon name="arrowDown" size="xs" />
@@ -144,6 +149,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
                       onReset();
                     }}
                     aria-label="Nullstill dato"
+                    size="sm"
                   >
                     <Icon name="reset" size="xs" />
                     {clearButtonText}

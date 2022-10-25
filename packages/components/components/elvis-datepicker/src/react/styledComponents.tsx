@@ -135,31 +135,3 @@ export const Input = styled.input.attrs(() => ({ type: 'text' }))<Partial<BasePr
       font-size: 14px;
     `};
 `;
-
-interface IconButtonProps {
-  size?: 'medium' | 'small';
-  active?: boolean;
-}
-
-export const IconButton = styled.button.attrs(() => ({
-  type: 'button',
-}))<IconButtonProps>`
-  width: ${(props) => (props.size === 'medium' ? '40px' : '32px')};
-  height: ${(props) => (props.size === 'medium' ? '40px' : '32px')};
-  border: none;
-  background: ${(props) => (props.active ? getColor('elvia-charge') : 'transparent')};
-  cursor: pointer;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 100ms;
-
-  &:not([disabled]):hover {
-    background: ${getColor('elvia-charge')};
-  }
-
-  &[disabled] {
-    cursor: inherit;
-  }
-`;
