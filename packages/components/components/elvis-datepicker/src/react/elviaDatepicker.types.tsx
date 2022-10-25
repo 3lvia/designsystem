@@ -1,6 +1,4 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { HasError } from '@elvia/elvis-toolbox';
-import { CSSProperties } from 'react';
+import { BaseProps, HasError } from '@elvia/elvis-toolbox';
 
 export type ErrorType = 'invalidDate' | 'required' | 'beforeMinDate' | 'afterMaxDate';
 
@@ -18,7 +16,7 @@ export interface DatepickerRangeProps {
   whichRangePicker?: 'start' | 'end';
 }
 
-export interface DatepickerProps extends HasError {
+export interface DatepickerProps extends BaseProps, HasError {
   clearButtonText?: string;
   disableDate?: (day: Date) => boolean;
   errorOnChange?: (error: string) => void;
@@ -40,10 +38,6 @@ export interface DatepickerProps extends HasError {
   value?: Date | null;
   valueOnChange?: (value: Date | null) => void;
   valueOnChangeISOString?: (value: string | null) => void;
-
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
 
   /**
    * This is used for internal purposes, and should not be used by the user.

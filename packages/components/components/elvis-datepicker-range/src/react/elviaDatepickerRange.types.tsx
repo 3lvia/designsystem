@@ -1,6 +1,4 @@
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { ErrorOptions as SinglePickerErrorOptions } from '@elvia/elvis-toolbox';
-import { CSSProperties } from 'react';
+import { BaseProps, ErrorOptions as SinglePickerErrorOptions } from '@elvia/elvis-toolbox';
 
 export type BothDatepickers<T> = {
   start: T;
@@ -31,7 +29,7 @@ export const emptyErrorMessage: CustomError = {
   end: '',
 };
 
-export interface DatepickerRangeProps {
+export interface DatepickerRangeProps extends BaseProps {
   value?: DateRange;
   valueOnChange?: (value: DateRange) => void;
   valueOnChangeISOString?: (value: DateRangeString) => void;
@@ -47,8 +45,5 @@ export interface DatepickerRangeProps {
   errorOnChange?: (errors: CustomError) => void;
   minDate?: Date;
   maxDate?: Date;
-  className?: string;
-  inlineStyle?: CSSProperties;
   disableDates?: DisableDates;
-  webcomponent?: ElvisComponentWrapper;
 }

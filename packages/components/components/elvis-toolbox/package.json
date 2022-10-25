@@ -6,6 +6,7 @@
   "author": "",
   "main": "./dist/index.js",
   "dependencies": {
+    "@elvia/elvis-component-wrapper": "*",
     "tslib": "^2.4.0"
   }
 }

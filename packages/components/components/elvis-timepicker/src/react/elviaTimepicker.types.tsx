@@ -1,12 +1,10 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { HasError } from '@elvia/elvis-toolbox';
-import { CSSProperties } from 'react';
+import { BaseProps, HasError } from '@elvia/elvis-toolbox';
 
 export type MinuteInterval = '1' | '5' | '10' | '15' | '60';
 export type ChangeType = 'hour' | 'minute';
 export type ErrorType = 'invalidTime' | 'required';
 
-export interface TimepickerProps extends HasError {
+export interface TimepickerProps extends BaseProps, HasError {
   value: Date;
   valueOnChange: (value: Date | null) => void;
   errorOnChange: (error: string) => void;
@@ -16,7 +14,4 @@ export interface TimepickerProps extends HasError {
   isRequired: boolean;
   selectNowOnOpen: boolean;
   label: string;
-  className: string;
-  inlineStyle: CSSProperties;
-  webcomponent: ElvisComponentWrapper;
 }
