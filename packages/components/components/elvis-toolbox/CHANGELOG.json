@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "26.10.22",
+      "version": "5.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "<span class=\"code-text\">useConnectedOverlay</span> will now position the overlay more intelligently."
+          ]
+        }
+      ]
+    },
+    {
       "date": "24.10.22",
       "version": "5.2.0",
       "changelog": [
