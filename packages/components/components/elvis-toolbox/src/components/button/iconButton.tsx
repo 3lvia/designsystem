@@ -1,11 +1,6 @@
 import { getColor } from '@elvia/elvis-colors';
 import styled, { css } from 'styled-components';
-
-type Size = 'sm' | 'md' | 'lg';
-interface ButtonProps {
-  isActive: boolean;
-  size: Size;
-}
+import { ButtonProps, Size } from './button';
 
 const getSize = (size: Size) => {
   if (size === 'sm') {

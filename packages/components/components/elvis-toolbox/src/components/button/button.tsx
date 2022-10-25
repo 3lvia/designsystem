@@ -2,8 +2,8 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
-type Size = 'sm' | 'md' | 'lg';
-interface ButtonProps {
+export type Size = 'sm' | 'md' | 'lg';
+export interface ButtonProps {
   isActive: boolean;
   size: Size;
 }
