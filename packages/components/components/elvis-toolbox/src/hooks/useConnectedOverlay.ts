@@ -50,7 +50,7 @@ interface OverlayApi {
  * export const Component: FC<Props> = () => {
  *   const connectedElementRef = useRef<HTMLDivElement>(null);
  *   const popoverRef = useRef<HTMLDivElement>(null);
- *   const [isShowing, setIsShowing] = useConnectedOverlay(connectedElementRef, popoverRef);
+ *   const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef);
  *   ...
  * }
  *
@@ -107,9 +107,9 @@ export const useConnectedOverlay = (
           windowRect.height + windowRect.scrollY - overlayRect.height - windowPadding,
           hostRect.bottom + windowRect.scrollY - overlayRect.height,
         );
-      } else {
-        return overlayTop;
       }
+
+      return overlayTop;
     };
 
     const alignTop = () => {
@@ -144,11 +144,7 @@ export const useConnectedOverlay = (
       const overflowTop = hostRect.top - opts.offset - overlayRect.height;
       const overflowBottom = windowRect.height - (hostRect.bottom + opts.offset + overlayRect.height);
 
-      if (overflowBottom < overflowTop) {
-        alignTop();
-      } else {
-        alignBottom();
-      }
+      overflowBottom < overflowTop ? alignTop() : alignBottom();
     };
 
     if (opts.verticalPosition === 'top') {
@@ -180,9 +176,9 @@ export const useConnectedOverlay = (
           windowRect.innerWidth + windowRect.scrollX - overlayWidth - windowPadding,
           hostRect.right + windowRect.scrollX - overlayWidth,
         );
-      } else {
-        return overlayLeft;
       }
+
+      return overlayLeft;
     };
 
     const alignLeft = () => {
@@ -217,11 +213,7 @@ export const useConnectedOverlay = (
       const overflowLeft = hostRect.left - opts.offset - overlayWidth;
       const overflowRight = windowRect.width - (hostRect.right + opts.offset + overlayWidth);
 
-      if (overflowRight < overflowLeft) {
-        alignLeft();
-      } else {
-        alignRight();
-      }
+      overflowRight < overflowLeft ? alignLeft() : alignRight();
     };
 
     if (opts.horizontalPosition === 'left') {
