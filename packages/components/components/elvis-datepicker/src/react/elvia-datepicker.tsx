@@ -45,12 +45,16 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const popoverRef = useRef<HTMLDivElement>(null);
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
-  const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
-    offset: 8,
-    horizontalPosition: 'left-inside',
-    verticalPosition: 'bottom',
-    alignWidths: false,
-  });
+  const { isShowing, setIsShowing, updatePreferredPosition } = useConnectedOverlay(
+    connectedElementRef,
+    popoverRef,
+    {
+      offset: 8,
+      horizontalPosition: 'left-inside',
+      verticalPosition: 'bottom',
+      alignWidths: false,
+    },
+  );
 
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
     let dateISO;
@@ -165,6 +169,13 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     }
 
     trapFocus(popoverRef);
+
+    /** We need to update the position, because the dimensions of the
+     * overlay has changed.
+     */
+    setTimeout(() => {
+      updatePreferredPosition();
+    });
 
     return () => releaseFocusTrap();
   }, [isShowing]);
