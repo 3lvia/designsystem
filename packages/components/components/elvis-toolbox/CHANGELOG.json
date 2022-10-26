@@ -2,12 +2,14 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "26.10.22",
+      "date": "27.10.22",
       "version": "5.4.0",
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added reusable <span class=\"code-text\">button</span> components."]
+          "changes": [
+            "Added reusable <span class=\"code-text\">button</span> and <span class=\"code-text\">form field</span> components."
+          ]
         }
       ]
     },
