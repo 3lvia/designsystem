@@ -173,7 +173,6 @@ export const TimepickerInput: React.FC<Props> = ({
     <Input
       ref={inputElement}
       disabled={disabled}
-      type="text"
       placeholder="tt.mm"
       value={inputValue}
       onKeyDown={onKeyDown}

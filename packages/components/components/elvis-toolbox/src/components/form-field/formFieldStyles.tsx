@@ -126,6 +126,6 @@ export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))<Parti
   ${(props) =>
     props.isCompact &&
     css`
-      font-size: 14px;
+      font-size: 0.875rem;
     `};
 `;

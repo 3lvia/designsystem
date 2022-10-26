@@ -1,15 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  TimePickerContainer,
-  TimePickerLabel,
-  InputContainer,
-  IconButton,
-  LabelText,
-} from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import { OverlayContainer } from './popup/overlayContainer';
 import { ChangeType, ErrorType, TimepickerProps } from './elviaTimepicker.types';
-import { useConnectedOverlay, useFocusTrap } from '@elvia/elvis-toolbox';
+import {
+  useConnectedOverlay,
+  useFocusTrap,
+  IconButton,
+  FormFieldContainer,
+  FormFieldLabel,
+  FormFieldInputContainer,
+} from '@elvia/elvis-toolbox';
 import { TimepickerInput } from './timepickerInput';
 import { TimepickerError } from './error/timepickerError';
 import { getErrorText } from './getErrorText';
@@ -28,7 +28,6 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   className,
   inlineStyle,
   webcomponent,
-  ...rest
 }) => {
   const [time, setTime] = useState<Date | undefined | null>(value);
   const [error, setError] = useState<ErrorType | undefined>();
@@ -117,16 +116,16 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   useEffect(() => value && updateValue(value, false), [value]);
 
   return (
-    <TimePickerContainer className={className ?? ''} style={{ ...inlineStyle }} {...rest}>
-      <TimePickerLabel isCompact={isCompact}>
+    <>
+      <FormFieldContainer isCompact={isCompact} className={className ?? ''} style={{ ...inlineStyle }}>
         {!!label && (
-          <LabelText data-testid="label" isCompact={isCompact}>
+          <FormFieldLabel data-testid="label" isCompact={isCompact}>
             {label}
-          </LabelText>
+          </FormFieldLabel>
         )}
-        <InputContainer
+        <FormFieldInputContainer
           ref={connectedElementRef}
-          disabled={isDisabled}
+          isDisabled={isDisabled}
           isCompact={isCompact}
           isActive={isShowing}
           isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
@@ -141,22 +140,21 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           />
           <IconButton
             disabled={isDisabled}
-            active={isShowing}
+            isActive={isShowing}
             onClick={() => setVisibility(!isShowing)}
             ref={openPopoverButtonRef}
-            size={isCompact ? 'small' : 'medium'}
+            size={isCompact ? 'sm' : 'md'}
             data-testid="popover-toggle"
-            type="button"
             aria-label="Åpne tidvelger"
             aria-haspopup="dialog"
           >
             <Icon name="clock" color={isDisabled ? 'disabled' : 'black'} size={isCompact ? 'xs' : 'sm'} />
           </IconButton>
-        </InputContainer>
+        </FormFieldInputContainer>
         {((error && !errorOptions.hideText) || errorOptions.text) && (
           <TimepickerError customText={errorOptions.text} errorType={error} isCompact={isCompact} />
         )}
-      </TimePickerLabel>
+      </FormFieldContainer>
       {isShowing && (
         <OverlayContainer
           ref={popoverRef}
@@ -166,7 +164,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           minuteInterval={minuteInterval}
         />
       )}
-    </TimePickerContainer>
+    </>
   );
 };
 

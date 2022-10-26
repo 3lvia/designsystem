@@ -1,6 +1,6 @@
 import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
 import { padDigit } from '../padDigit';
-import { IconButton } from '../styledComponents';
+import { IconButton } from '@elvia/elvis-toolbox';
 import {
   ArrowButtonContainer,
   HorizontalLine,
@@ -107,7 +107,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
       >
         <ArrowButtonContainer>
           <IconButton
-            size="small"
+            size="sm"
             tabIndex={-1}
             onClick={() => shuffleTo('previous')}
             data-testid={`${title}-prev-value-button`}
@@ -129,7 +129,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
         ))}
         <ArrowButtonContainer>
           <IconButton
-            size="small"
+            size="sm"
             tabIndex={-1}
             onClick={() => shuffleTo('next')}
             data-testid={`${title}-next-value-button`}
