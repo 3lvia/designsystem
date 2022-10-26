@@ -52,20 +52,20 @@ const ButtonBase = styled.button.attrs(() => ({ type: 'button' }))<Partial<Butto
 
 const getButtonHeight = (size?: Size) => {
   if (size === 'lg') {
-    return '3rem';
+    return '48px';
   } else if (size === 'md') {
-    return '2.5rem';
+    return '40px';
   }
-  return '2rem';
+  return '32px';
 };
 
 const getButtonPadding = (size?: Size) => {
   if (size === 'lg') {
-    return '0 calc(2rem - 1px)';
+    return '0 calc(32px - 1px)';
   } else if (size === 'md') {
-    return '0 calc(1.5rem - 1px)';
+    return '0 calc(24px - 1px)';
   }
-  return '0 calc(1rem - 1px)';
+  return '0 calc(16px - 1px)';
 };
 
 export const PrimaryButton = styled(ButtonBase)`

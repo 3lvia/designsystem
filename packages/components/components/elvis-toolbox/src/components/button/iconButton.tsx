@@ -5,18 +5,18 @@ import { ButtonProps, Size } from './button';
 const getSize = (size: Size) => {
   if (size === 'sm') {
     return css`
-      width: 2rem;
-      height: 2rem;
+      width: 32px;
+      height: 32px;
     `;
   } else if (size === 'md') {
     return css`
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 40px;
+      height: 40px;
     `;
   } else {
     return css`
-      width: 3rem;
-      height: 3rem;
+      width: 48px;
+      height: 48px;
     `;
   }
 };
