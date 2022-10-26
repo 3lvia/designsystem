@@ -1,15 +1,14 @@
 import { Icon } from '@elvia/elvis-icon/react';
 import React, { useEffect, useState } from 'react';
 
-import { ErrorContainer, ErrorText } from './errorStyles';
+import { FormFieldErrorContainer, FormFieldError } from '@elvia/elvis-toolbox';
 
 interface Props {
   errorText?: string;
   customText?: string;
-  isCompact: boolean;
 }
 
-export const DatepickerError: React.FC<Props> = ({ errorText, customText, isCompact }) => {
+export const DatepickerError: React.FC<Props> = ({ errorText, customText }) => {
   const [text, setText] = useState('');
 
   useEffect(() => {
@@ -21,11 +20,9 @@ export const DatepickerError: React.FC<Props> = ({ errorText, customText, isComp
   }, [errorText, customText]);
 
   return (
-    <ErrorContainer>
+    <FormFieldErrorContainer>
       <Icon name="removeCircle" color="error" size="xs" />
-      <ErrorText data-testid="error" isCompact={isCompact}>
-        {text}
-      </ErrorText>
-    </ErrorContainer>
+      <FormFieldError data-testid="error">{text}</FormFieldError>
+    </FormFieldErrorContainer>
   );
 };

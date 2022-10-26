@@ -94,38 +94,3 @@ export const RotatingContainer = styled.div<RotatingContainerProps>`
       transform: rotate(180deg);
     `}
 `;
-
-export const TertiaryButton = styled.button`
-  ${getTypographyCss('text-sm')};
-  font-weight: 500;
-  border: none;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  position: relative;
-  margin: 0;
-  padding: 0;
-
-  &:not(:last-of-type) {
-    margin-bottom: 16px;
-  }
-
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: calc(100% + 2px);
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: transparent;
-    transition: background-color 100ms;
-  }
-
-  &:hover:not([disabled]):after {
-    background-color: ${getColor('green')};
-  }
-`;

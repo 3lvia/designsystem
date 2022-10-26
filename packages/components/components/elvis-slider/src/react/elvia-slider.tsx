@@ -21,6 +21,7 @@ import {
   StyledSlider,
   TooltipPopup,
   SliderLabel,
+  TooltipWrapper,
 } from './styledComponents';
 
 import { SliderError } from './error/sliderError';
@@ -421,19 +422,18 @@ const Slider: React.FC<SliderProps> = ({
 
           {/* ↓ Show the left tooltip if the user hovers or clicks on the thumb ↓*/}
           {showTooltip.left && !isDisabled && (hasTooltip || isTouchDevice()) && (
-            <TooltipPopup
-              data-testid="left-tooltip-popup"
-              position="top"
+            <TooltipWrapper
               side="left"
-              fadeOut={false}
               style={{
                 left: `${left}px`,
               }}
             >
-              {type === 'simple' && hasPercent
-                ? `${percentValue} %`
-                : `${sliderValues.left.toLocaleString()}${unit}`}
-            </TooltipPopup>
+              <TooltipPopup data-testid="left-tooltip-popup" position="top" fadeOut={false}>
+                {type === 'simple' && hasPercent
+                  ? `${percentValue} %`
+                  : `${sliderValues.left.toLocaleString()}${unit}`}
+              </TooltipPopup>
+            </TooltipWrapper>
           )}
 
           {type === 'range' && (
@@ -459,17 +459,16 @@ const Slider: React.FC<SliderProps> = ({
 
               {/* ↓ Show the right tooltip if the user hovers or click on the thumb ↓*/}
               {showTooltip.right && !isDisabled && (hasTooltip || isTouchDevice()) && (
-                <TooltipPopup
-                  data-testid="right-tooltip-popup"
-                  position="top"
+                <TooltipWrapper
                   side="right"
-                  fadeOut={false}
                   style={{
                     right: `${right}px`,
                   }}
                 >
-                  {`${sliderValues.right.toLocaleString()}${unit}`}
-                </TooltipPopup>
+                  <TooltipPopup data-testid="right-tooltip-popup" position="top" fadeOut={false}>
+                    {`${sliderValues.right.toLocaleString()}${unit}`}
+                  </TooltipPopup>
+                </TooltipWrapper>
               )}
             </>
           )}
