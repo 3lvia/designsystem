@@ -22,18 +22,7 @@ export const FormFieldErrorContainer = styled.div`
   animation: ${fadeIn} 200ms;
 `;
 
-interface ErrorTextProps {
-  isCompact: boolean;
-}
-
-export const FormFieldError = styled.span<ErrorTextProps>`
+export const FormFieldError = styled.span`
   ${getTypographyCss('text-sm')}
   white-space: nowrap;
-
-  ${(props) => {
-    if (props.isCompact) {
-      return getTypographyCss('text-micro');
-    }
-    return '';
-  }}
 `;

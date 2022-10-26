@@ -229,14 +229,13 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         data-testid="wrapper"
       >
         {!!label && (
-          <FormFieldLabel data-testid="label" isCompact={isCompact} hasOptionalText={hasOptionalText}>
+          <FormFieldLabel data-testid="label" hasOptionalText={hasOptionalText}>
             {label}
           </FormFieldLabel>
         )}
         <FormFieldInputContainer
           ref={connectedElementRef}
           isDisabled={isDisabled}
-          isCompact={isCompact}
           isActive={isShowing}
           isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
           data-testid="input-container"
@@ -244,7 +243,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           <DatepickerInput
             date={date}
             disabled={isDisabled}
-            isCompact={isCompact}
             placeholder={placeholder}
             onChange={updateValue}
             required={isRequired}
@@ -267,11 +265,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           </IconButton>
         </FormFieldInputContainer>
         {((error && !errorOptions.hideText) || errorOptions.text) && (
-          <DatepickerError
-            customText={errorOptions.text}
-            errorText={getErrorText(error, minDate, maxDate)}
-            isCompact={isCompact}
-          />
+          <DatepickerError customText={errorOptions.text} errorText={getErrorText(error, minDate, maxDate)} />
         )}
       </FormFieldContainer>
       {isShowing && (

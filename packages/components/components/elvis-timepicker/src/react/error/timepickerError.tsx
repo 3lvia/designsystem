@@ -7,10 +7,9 @@ import { FormFieldErrorContainer, FormFieldError } from '@elvia/elvis-toolbox';
 interface Props {
   errorType?: ErrorType;
   customText?: string;
-  isCompact: boolean;
 }
 
-export const TimepickerError: React.FC<Props> = ({ errorType, customText, isCompact }) => {
+export const TimepickerError: React.FC<Props> = ({ errorType, customText }) => {
   const [errorText, setErrorText] = useState('');
 
   useEffect(() => {
@@ -24,9 +23,7 @@ export const TimepickerError: React.FC<Props> = ({ errorType, customText, isComp
   return (
     <FormFieldErrorContainer>
       <Icon name="removeCircle" color="error" size="xs" />
-      <FormFieldError data-testid="error" isCompact={isCompact}>
-        {errorText}
-      </FormFieldError>
+      <FormFieldError data-testid="error">{errorText}</FormFieldError>
     </FormFieldErrorContainer>
   );
 };

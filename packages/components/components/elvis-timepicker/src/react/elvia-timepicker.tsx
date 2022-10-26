@@ -118,22 +118,16 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   return (
     <>
       <FormFieldContainer isCompact={isCompact} className={className ?? ''} style={{ ...inlineStyle }}>
-        {!!label && (
-          <FormFieldLabel data-testid="label" isCompact={isCompact}>
-            {label}
-          </FormFieldLabel>
-        )}
+        {!!label && <FormFieldLabel data-testid="label">{label}</FormFieldLabel>}
         <FormFieldInputContainer
           ref={connectedElementRef}
           isDisabled={isDisabled}
-          isCompact={isCompact}
           isActive={isShowing}
           isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
         >
           <TimepickerInput
             time={time}
             disabled={isDisabled}
-            isCompact={isCompact}
             onChange={updateValue}
             required={isRequired}
             onErrorChange={onError}
@@ -152,7 +146,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           </IconButton>
         </FormFieldInputContainer>
         {((error && !errorOptions.hideText) || errorOptions.text) && (
-          <TimepickerError customText={errorOptions.text} errorType={error} isCompact={isCompact} />
+          <TimepickerError customText={errorOptions.text} errorType={error} />
         )}
       </FormFieldContainer>
       {isShowing && (

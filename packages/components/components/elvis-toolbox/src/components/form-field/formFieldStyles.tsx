@@ -2,19 +2,16 @@ import styled, { css } from 'styled-components';
 
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import { FormFieldError } from './errorStyles';
 
-export interface BaseProps {
+interface FormFieldContainerProps {
+  fullWidth?: boolean;
   isCompact?: boolean;
 }
 
-interface DatePickerLabelProps extends BaseProps {
-  fullWidth?: boolean;
-}
-
-export const FormFieldContainer = styled.label<DatePickerLabelProps>`
+export const FormFieldContainer = styled.label<FormFieldContainerProps>`
   display: inline-block;
   position: relative;
-  padding-top: ${(props) => (props.isCompact ? '0.5rem' : '0px')};
   padding-bottom: 1.5rem;
   box-sizing: border-box;
   text-align: left;
@@ -28,31 +25,55 @@ export const FormFieldContainer = styled.label<DatePickerLabelProps>`
         width: 100%;
       }
     `}
+
+  ${(props) => {
+    if (props.isCompact) {
+      return css`
+        padding-top: 0.5rem;
+
+        ${FormFieldLabel} {
+          font-size: 0.625rem;
+          background-color: ${getColor('elvia-on')};
+          position: absolute;
+          margin-left: 7px;
+          top: 0;
+          padding: 0 3px;
+          z-index: 1;
+          line-height: 100%;
+        }
+
+        ${FormFieldInputContainer} {
+          padding: 0px 4px 0px 8px;
+          height: 34px;
+
+          &:focus-within {
+            padding: 0px 3px 0px 7px;
+          }
+        }
+
+        ${FormFieldInput} {
+          font-size: 0.875rem;
+        }
+
+        ${FormFieldError} {
+          ${getTypographyCss('text-micro')}
+        }
+      `;
+    }
+
+    return css`
+      padding-top: 0px;
+    `;
+  }}
 `;
 
-interface LabelProps extends BaseProps {
+interface LabelProps {
   hasOptionalText?: boolean;
 }
 
 export const FormFieldLabel = styled.div<LabelProps>`
   ${getTypographyCss('text-label')}
   margin-bottom: 5px;
-
-  ${(props) => {
-    if (props.isCompact) {
-      return css`
-        font-size: 0.625rem;
-        background-color: ${getColor('elvia-on')};
-        position: absolute;
-        margin-left: 7px;
-        top: 0;
-        padding: 0 3px;
-        z-index: 1;
-        line-height: 100%;
-      `;
-    }
-    return '';
-  }}
 
   ${(props) =>
     props.hasOptionalText &&
@@ -64,7 +85,7 @@ export const FormFieldLabel = styled.div<LabelProps>`
     `}
 `;
 
-interface InputContainerProps extends BaseProps {
+interface InputContainerProps {
   isDisabled?: boolean;
   isActive?: boolean;
   isInvalid?: boolean;
@@ -73,7 +94,7 @@ interface InputContainerProps extends BaseProps {
 const setActiveBorder = (props: InputContainerProps) => {
   return css`
     border: 2px solid ${props.isInvalid ? getColor('error') : getColor('elvia-charge')};
-    padding: ${props.isCompact ? '0px 3px 0px 7px' : '0px 7px 0px 15px'};
+    padding: 0px 7px 0px 15px;
   `;
 };
 
@@ -81,9 +102,9 @@ export const FormFieldInputContainer = styled.div<InputContainerProps>`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: ${(props) => (props.isCompact ? '0px 4px 0px 8px' : '0px 8px 0px 16px')};
+  padding: 0px 8px 0px 16px;
   border: 1px solid ${getColor('elvia-off')};
-  height: ${(props) => (props.isCompact ? '34px' : '48px')};
+  height: 48px;
   border-radius: 4px;
   cursor: text;
   transition: border-color 150ms;
@@ -111,7 +132,7 @@ export const FormFieldInputContainer = styled.div<InputContainerProps>`
   }}
 `;
 
-export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))<Partial<BaseProps>>`
+export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))`
   ${getTypographyCss('text-md')}
   min-width: 0;
   padding: 0;
@@ -122,10 +143,4 @@ export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))<Parti
   &:disabled {
     color: ${getColor('disabled')};
   }
-
-  ${(props) =>
-    props.isCompact &&
-    css`
-      font-size: 0.875rem;
-    `};
 `;
