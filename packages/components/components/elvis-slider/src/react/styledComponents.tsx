@@ -1,6 +1,8 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import { TooltipPopup as TooltipPopupBase } from '@elvia/elvis-toolbox';
+export { TooltipPopupProps } from '@elvia/elvis-toolbox';
 import { TooltipPopupSides, SliderType } from './elvia-slider.types';
 
 //#region Helpers
@@ -410,77 +412,24 @@ export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>((props
   z-index: 2;
 `;
 
-export const TooltipFadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  
-  to {
-    opacity: 1;
-  }
-  `;
-
-export const TooltipFadeOut = keyframes`
-  from {
-    opacity: 1;
-  }
-  
-  to {
-    opacity: 0;
-  }
-`;
-
-export interface TooltipPopupProps {
-  position: 'top';
-  fadeOut: boolean;
+interface TooltipWrapperProps {
   side: TooltipPopupSides;
 }
 
-export const TooltipPopup = styled.div<TooltipPopupProps>`
-  ${getTypographyCss('text-sm')}
-  align-items: center;
-  animation: ${TooltipFadeIn} 200ms 1ms forwards;
-  background: ${colors.elviaBlack};
-  border-radius: 0.25rem;
-  color: ${colors.elviaWhite};
-  display: flex;
-  justify-content: center;
-  max-width: min(350px, 96%);
-  opacity: 0;
-  padding: 0.5rem 0.625rem;
+export const TooltipWrapper = styled.div<TooltipWrapperProps>`
   position: absolute;
-  top: -46px;
-  user-select: none;
-
   transform: ${(props) => (props.side === 'left' ? 'translateX(-50%)' : 'translateX(50%)')};
-  width: max-content;
+  top: -46px;
+`;
+
+export const TooltipPopup = styled(TooltipPopupBase)`
   min-width: 1.5rem;
-  z-index: 100;
+  position: relative;
+  background-color: ${getColor('elvia-off')};
 
-  &::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
+  &:after {
+    border-top-color: ${getColor('elvia-off')};
   }
-
-  transform-origin: center bottom;
-
-  &::after {
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid ${colors.elviaBlack};
-    top: 100%;
-  }
-
-  ${(props) => {
-    if (props.fadeOut) {
-      return css`
-        animation: ${TooltipFadeOut} 200ms ease;
-      `;
-    }
-    return '';
-  }}
 `;
 
 /*

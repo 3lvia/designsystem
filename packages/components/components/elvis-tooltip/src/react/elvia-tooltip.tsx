@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useConnectedOverlay, isSsr } from '@elvia/elvis-toolbox';
+import { useConnectedOverlay, isSsr, TooltipPopup } from '@elvia/elvis-toolbox';
 import { TooltipPosition, TooltipProps } from './elviaTooltip.types';
-import { arrowSize, TooltipPopup, TriggerContainer } from './styledComponents';
+import { TriggerContainer } from './styledComponents';
 import { mapPositionToHorizontalPosition, mapPositionToVerticalPosition } from './mapPosition';
 
 export const Tooltip: React.FC<TooltipProps> = ({
@@ -26,7 +26,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
       alignWidths: false,
       verticalPosition: mapPositionToVerticalPosition(position),
       horizontalPosition: mapPositionToHorizontalPosition(position),
-      offset: 8 + arrowSize,
+      offset: 14,
     });
 
   const onOpen = (delay = true): void => {
