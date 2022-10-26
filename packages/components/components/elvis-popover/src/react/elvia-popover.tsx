@@ -1,11 +1,16 @@
-import React, { FC, useState, useEffect, useRef, useCallback, CSSProperties } from 'react';
+import React, { FC, useState, useEffect, useRef, CSSProperties } from 'react';
+import { createPortal } from 'react-dom';
 import classnames from 'classnames';
-import throttle from 'lodash.throttle';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { Icon } from '@elvia/elvis-icon/react';
 import { PopoverStyles } from './styledComponents';
 import { config } from './config';
-import { warnDeprecatedProps, outlineListener, useFocusTrap } from '@elvia/elvis-toolbox';
+import {
+  outlineListener,
+  useConnectedOverlay,
+  useFocusTrap,
+  warnDeprecatedProps,
+} from '@elvia/elvis-toolbox';
 
 export interface PopoverProps {
   /**
@@ -25,12 +30,12 @@ export interface PopoverProps {
    * @deprecated Deprecated in version 5.0.0. Replaced by `horizontalPosition`.
    */
   posX?: 'left' | 'right' | 'center';
-  horizontalPosition?: 'left' | 'right' | 'center';
+  horizontalPosition?: 'left' | 'left-inside' | 'center' | 'right-inside' | 'right';
   /**
    * @deprecated Deprecated in version 5.0.0. Replaced by `verticalPosition`.
    */
   posY?: 'top' | 'bottom';
-  verticalPosition?: 'top' | 'bottom';
+  verticalPosition?: 'top' | 'top-inside' | 'center' | 'bottom-inside' | 'bottom';
 
   trigger?: JSX.Element;
   /**
@@ -57,7 +62,7 @@ const Popover: FC<PopoverProps> = function ({
   type = 'informative',
   isSelectable = false,
   hasDivider = false,
-  horizontalPosition = type === 'list' ? 'right' : 'center',
+  horizontalPosition = type === 'list' ? 'left-inside' : 'center',
   verticalPosition = type === 'list' ? 'bottom' : 'top',
   trigger,
   hasCloseButton = true,
@@ -72,21 +77,22 @@ const Popover: FC<PopoverProps> = function ({
 }) {
   warnDeprecatedProps(config, arguments[0]);
 
-  const popoverMargin = 16;
-  const popoverPadding = 32;
+  const popoverBackdropRef = useRef<HTMLDivElement>(null);
+  const popoverClassContainerRef = useRef<HTMLDivElement>(null);
+  const popoverContentRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
+  const popoverSlotTriggerRef = useRef<HTMLDivElement>(null);
+  const popoverText = useRef<HTMLDivElement>(null);
+  const popoverTriggerRef = useRef<HTMLDivElement>(null);
 
-  const [isShowingState, setIsShowingState] = useState(isShowing);
+  const { isShowing: isShowingConnectedOverlayState, setIsShowing: setIsShowingConnectedOverlayState } =
+    useConnectedOverlay(popoverTriggerRef, popoverContentRef, {
+      horizontalPosition: horizontalPosition,
+      verticalPosition: verticalPosition,
+      alignWidths: false,
+    });
   const [hasBeenInitiated, setHasBeenInitiated] = useState(isShowing);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
-  const maxContentWidth = useRef(0);
-  const popoverRef = useRef<HTMLDivElement>(null);
-  const popoverClassContainerRef = useRef<HTMLDivElement>(null);
-  const popoverTriggerRef = useRef<HTMLDivElement>(null);
-  const popoverSlotTriggerRef = useRef<HTMLDivElement>(null);
-  const popoverContentRef = useRef<HTMLDivElement>(null);
-  const popoverText = useRef<HTMLDivElement>(null);
-  const popoverBackdropRef = useRef<HTMLDivElement>(null);
-  const popoverFixedAreaRef = useRef<HTMLDivElement>(null);
 
   /** Start outline listener */
   useEffect(() => {
@@ -96,19 +102,21 @@ const Popover: FC<PopoverProps> = function ({
     };
   }, []);
 
-  /** Define max possible width for the popover */
+  /* Saving the original focused element before the popover is opened, and then returning focus to that
+  element when the popover is closed. */
   useEffect(() => {
-    if (popoverContentRef.current) {
-      maxContentWidth.current = popoverContentRef.current.getBoundingClientRect().width;
-    }
-  });
+    const originalFocusedElement = document.activeElement as HTMLElement;
+    return () => {
+      originalFocusedElement && originalFocusedElement.focus();
+    };
+  }, [isShowingConnectedOverlayState]);
 
   /** Get all slots and place them correctly.
    * **NB**: `type` is in the dependency list because this component has slots that depend on the type.
    */
   useEffect(() => {
     if (!webcomponent) {
-      trapFocus(popoverClassContainerRef);
+      trapFocus(popoverContentRef);
       return;
     }
 
@@ -116,6 +124,7 @@ const Popover: FC<PopoverProps> = function ({
       popoverSlotTriggerRef.current.innerHTML = '';
       popoverSlotTriggerRef.current.appendChild(webcomponent.getSlot('trigger'));
     }
+
     if (popoverText.current && webcomponent.getSlot('content')) {
       popoverText.current.innerHTML = '';
       popoverText.current.appendChild(webcomponent.getSlot('content'));
@@ -127,301 +136,67 @@ const Popover: FC<PopoverProps> = function ({
    * Start resize, scroll, click outside and escape listeners if opened
    */
   useEffect(() => {
-    if (isShowingState && hasBeenInitiated) {
+    if (isShowingConnectedOverlayState && hasBeenInitiated) {
       handleOnOpen();
       startEventListeners();
-      trapFocus(popoverClassContainerRef);
-    } else if (!isShowingState && hasBeenInitiated) {
+    } else if (!isShowingConnectedOverlayState && hasBeenInitiated) {
       handleOnClose();
-      removeEventListeners();
     }
 
     return () => {
-      removeFixedAreaStyles();
       removeEventListeners();
-      releaseFocusTrap();
     };
-  }, [isShowingState]);
+  }, [isShowingConnectedOverlayState]);
 
   useEffect(() => {
     if (!hasBeenInitiated) {
       setHasBeenInitiated(true);
-      return;
     }
-    setIsShowingState(isShowing);
   }, [isShowing]);
 
   const startEventListeners = () => {
-    window.addEventListener('resize', onResize);
-    document.addEventListener('scroll', onScroll);
     document.addEventListener('keydown', onEscape, false);
-    if (popoverBackdropRef.current) {
-      popoverBackdropRef.current.addEventListener('click', onClickOutside);
-    }
+    popoverBackdropRef.current?.addEventListener('click', () => {
+      setIsShowingConnectedOverlayState(false);
+    });
   };
+
   const removeEventListeners = () => {
-    window.removeEventListener('resize', onResize);
-    document.removeEventListener('scroll', onScroll);
     document.removeEventListener('keydown', onEscape, false);
-    if (popoverBackdropRef.current) {
-      popoverBackdropRef.current.removeEventListener('click', onClickOutside);
-    }
+    popoverBackdropRef.current?.removeEventListener('click', () => {
+      setIsShowingConnectedOverlayState(false);
+    });
   };
 
   const handleOnOpen = () => {
-    resizePopoverToFitScreen();
-    resolveHorizontalPosition();
-    resolveVerticalPosition();
-
     if (!webcomponent && onOpen) {
       onOpen();
     } else if (webcomponent) {
       webcomponent.triggerEvent('onOpen');
     }
+    trapFocus(popoverContentRef);
   };
 
   const handleOnClose = () => {
-    removeFixedAreaStyles();
-
     if (!webcomponent && onClose) {
       onClose();
     } else if (webcomponent) {
       webcomponent.triggerEvent('onClose');
     }
+    releaseFocusTrap();
   };
 
-  const togglePopover = (): void => {
-    setIsShowingState((previousIsShowingState) => !previousIsShowingState);
-  };
+  const togglePopover = (): void =>
+    setIsShowingConnectedOverlayState((previousIsShowingState) => !previousIsShowingState);
 
-  const updateVerticalFixedAreaPosition = () => {
-    if (popoverFixedAreaRef.current && popoverTriggerRef.current) {
-      popoverFixedAreaRef.current.style.top = popoverTriggerRef.current.getBoundingClientRect().top + 'px';
-    }
-  };
-
-  // Placement of popover should:
-  // Find available place when opened both vertically and horizontally (if there is not room at horizontalPosition and verticalPosition)
-  // Should not move when scrolling or resizing window vertically
-  // Should change size and position when resizing horizontally
-
-  /** Initializing horizontal position */
-  const setInitialPosition = useCallback(() => {
-    if (horizontalPosition === 'left') {
-      updateHorizontalPositionStyle('none', '0', 'auto');
-    } else if (horizontalPosition === 'right') {
-      updateHorizontalPositionStyle('none', 'auto', '0');
-    } else {
-      updateHorizontalPositionStyle('translateX(-50%)', 'auto', '50%');
-    }
-  }, [horizontalPosition]);
-
-  /** Set the styling for the current position with the style attributes */
-  const updateHorizontalPositionStyle = (transform: string, right: string, left: string): void => {
-    if (!popoverContentRef.current) {
-      return;
-    }
-    popoverContentRef.current.style.transform = transform;
-    popoverContentRef.current.style.right = right;
-    popoverContentRef.current.style.left = left;
-  };
-  const updateVerticalPositionStyle = (top: string, bottom: string): void => {
-    if (!popoverContentRef.current) {
-      return;
-    }
-    popoverContentRef.current.style.top = top;
-    popoverContentRef.current.style.bottom = bottom;
-  };
-
-  /** Get current width of scrollbar if visible */
-  const getScrollbarWidth = (): number => {
-    return window.innerWidth - document.documentElement.clientWidth;
-  };
-
-  /** Get screen dimensions based on device */
-  const getScreenDimensions = (): { screenHeight: number; screenWidth: number } | null => {
-    if (typeof window === 'undefined' || typeof navigator === 'undefined') {
-      return null;
-    }
-    if (navigator.userAgent.toLowerCase().includes('android')) {
-      return { screenHeight: window.visualViewport.height, screenWidth: window.visualViewport.width };
-    } else {
-      return { screenHeight: window.innerHeight, screenWidth: window.innerWidth };
-    }
-  };
-
-  /** ... */
-  const getPopoverPosition = (): {
-    contentWidth: number;
-    triggerWidth: number;
-    triggerOffsetLeft: number;
-    triggerOffsetRight: number;
-    triggerOffsetTop: number;
-    contentOffsetTop: number;
-    contentOffsetBottom: number;
-    contentSpace: number;
-    triggerSpace: number;
-  } | null => {
-    const screenDimensions = getScreenDimensions();
-    if (!popoverContentRef.current || !popoverTriggerRef.current || screenDimensions === null) {
-      return null;
-    }
-    const contentWidth = popoverContentRef.current.getBoundingClientRect().width;
-    const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
-    const triggerWidth = popoverTriggerRef.current.getBoundingClientRect().width;
-    const triggerHeight = popoverTriggerRef.current.getBoundingClientRect().height;
-    const triggerOffsetLeft = popoverTriggerRef.current.getBoundingClientRect().left;
-    const triggerOffsetTop = popoverTriggerRef.current.getBoundingClientRect().top;
-    const triggerOffsetRight = screenDimensions.screenWidth - triggerWidth - triggerOffsetLeft;
-    const contentOffsetTop = popoverContentRef.current.getBoundingClientRect().top;
-    const contentOffsetBottom =
-      screenDimensions.screenHeight - contentHeight - triggerOffsetTop - triggerHeight - popoverMargin;
-
-    const contentSpace = horizontalPosition === 'center' ? contentWidth / 2 : contentWidth;
-    const triggerSpace = horizontalPosition === 'center' ? triggerWidth / 2 : triggerWidth;
-
-    return {
-      contentWidth: contentWidth,
-      triggerWidth: triggerWidth,
-      triggerOffsetLeft: triggerOffsetLeft,
-      triggerOffsetRight: triggerOffsetRight,
-      triggerOffsetTop: triggerOffsetTop,
-      contentOffsetTop: contentOffsetTop,
-      contentOffsetBottom: contentOffsetBottom,
-      contentSpace: contentSpace,
-      triggerSpace: triggerSpace,
-    };
-  };
-
-  const hasConflictRight = (): boolean => {
-    const popoverPosition = getPopoverPosition();
-    if (popoverPosition === null) {
-      return false;
-    }
-    const popoverMinSpaceLeft = popoverPosition.contentSpace + popoverMargin;
-    const popoverActualSpace = popoverPosition.triggerSpace + popoverPosition.triggerOffsetRight;
-    return popoverMinSpaceLeft >= popoverActualSpace;
-  };
-  const hasConflictLeft = (): boolean => {
-    const popoverPosition = getPopoverPosition();
-    if (popoverPosition === null) {
-      return false;
-    }
-    const popoverMinSpace = popoverPosition.contentSpace + popoverMargin;
-    const popoverActualSpace = popoverPosition.triggerSpace + popoverPosition.triggerOffsetLeft;
-    return popoverMinSpace >= popoverActualSpace;
-  };
-
-  const hasConflictTop = (): boolean => {
-    const popoverPosition = getPopoverPosition();
-    if (popoverPosition === null) {
-      return false;
-    }
-    return popoverPosition.contentOffsetTop < popoverMargin;
-  };
-  const hasConflictBottom = (): boolean => {
-    const popoverPosition = getPopoverPosition();
-    if (popoverPosition === null) {
-      return false;
-    }
-    const isRoomBottom = popoverPosition.contentOffsetBottom > popoverMargin;
-    return !isRoomBottom;
-  };
-
-  /** Resolves horizontal position conflicts by setting right and left style properties */
-  const resolveHorizontalPosition = (): void => {
-    const popoverPosition = getPopoverPosition();
-    if (popoverPosition === null) {
-      return;
-    }
-    if (horizontalPosition !== 'right' && hasConflictLeft()) {
-      const offsetLeft = -popoverPosition.triggerOffsetLeft + popoverMargin + 'px';
-      updateHorizontalPositionStyle('none', 'auto', offsetLeft);
-    } else if (horizontalPosition !== 'left' && hasConflictRight()) {
-      const offsetRight = -popoverPosition.triggerOffsetRight + popoverMargin + getScrollbarWidth() + 'px';
-      updateHorizontalPositionStyle('none', offsetRight, 'auto');
-    } else {
-      setInitialPosition();
-    }
-  };
-
-  /** Resolves vertical position conflicts by defining top and bottom style attributes */
-  const resolveVerticalPosition = (): void => {
-    if (
-      !popoverContentRef.current ||
-      !popoverTriggerRef.current ||
-      !popoverClassContainerRef ||
-      !popoverClassContainerRef.current
-    ) {
-      return;
-    }
-    if ((verticalPosition === 'bottom' && !hasConflictBottom()) || hasConflictTop()) {
-      const offsetTop = popoverTriggerRef.current.getBoundingClientRect().height + popoverMargin + 'px';
-      updateVerticalPositionStyle(offsetTop, 'auto');
-    } else if ((verticalPosition === 'top' && !hasConflictTop()) || hasConflictBottom()) {
-      const offsetBottom = popoverTriggerRef.current.getBoundingClientRect().height + 'px';
-      updateVerticalPositionStyle('auto', offsetBottom);
-    }
-  };
-
-  /** Resize the popover based on the content of the popover and the current available dimensions (screen size) */
-  const resizePopoverToFitScreen = (): void => {
-    const dimensions = getScreenDimensions();
-    defineFixedArea();
-    if (!popoverContentRef.current || !maxContentWidth.current || dimensions === null) {
-      return;
-    }
-    const { screenWidth } = dimensions;
-    if (maxContentWidth.current + (popoverMargin * 2 + popoverPadding * 2) > screenWidth) {
-      popoverContentRef.current.style.width = `${screenWidth - (popoverMargin * 2 + popoverPadding * 2)}px`;
-    } else {
-      popoverContentRef.current.style.width = `${maxContentWidth}px`;
-    }
-  };
-
-  /** Get trigger position and define a fixed area based on that position */
-  const defineFixedArea = (): void => {
-    if (popoverTriggerRef.current === null) {
-      return;
-    }
-
-    const triggerElementPosition = popoverTriggerRef.current.getBoundingClientRect();
-
-    if (popoverFixedAreaRef.current != null) {
-      popoverFixedAreaRef.current.style.top = triggerElementPosition.top + 'px';
-      popoverFixedAreaRef.current.style.left = triggerElementPosition.left + 'px';
-      popoverFixedAreaRef.current.style.height = triggerElementPosition.height + 'px';
-      popoverFixedAreaRef.current.style.width = triggerElementPosition.width + 'px';
-    }
-  };
-
-  const removeFixedAreaStyles = (): void => {
-    if (popoverContentRef.current && popoverFixedAreaRef.current) {
-      popoverContentRef.current.style.top = '';
-      popoverContentRef.current.style.bottom = '';
-      popoverFixedAreaRef.current.style.height = '0px';
-      popoverFixedAreaRef.current.style.width = '0px';
-    }
-  };
-
-  const onResize = throttle(() => {
-    resizePopoverToFitScreen();
-    resolveHorizontalPosition();
-  }, 150);
-  const onScroll = () => {
-    updateVerticalFixedAreaPosition();
-  };
   const onEscape = (keydown: KeyboardEvent) => {
     if (keydown.key === 'Escape') {
-      setIsShowingState(false);
+      setIsShowingConnectedOverlayState(false);
     }
-  };
-  const onClickOutside = () => {
-    setIsShowingState(false);
   };
 
   const popoverClasses = classnames('ewc-popover', {
-    ['ewc-popover--hide']: !isShowingState,
+    ['ewc-popover--hide']: !isShowingConnectedOverlayState,
     ['ewc-popover--text-only']: typeof content === 'string',
     ['ewc-popover--list']: type === 'list',
     ['ewc-popover--list-divider']: type === 'list' && hasDivider,
@@ -447,57 +222,68 @@ const Popover: FC<PopoverProps> = function ({
           {!trigger && <div onClick={togglePopover} ref={popoverSlotTriggerRef}></div>}
         </div>
         <div className="ewc-popover__backdrop" ref={popoverBackdropRef}></div>
-
-        <div className="ewc-popover__fixed-content-area" ref={popoverFixedAreaRef}>
-          <div className="ewc-popover__contentContainer">
-            <div className="ewc-popover__content" ref={popoverContentRef} aria-modal="true">
-              {type === 'informative' && (
-                <div className="ewc-popover__content-area">
-                  {hasCloseButton === true && (
-                    <div className="ewc-popover__close">
-                      <button
-                        className="ewc-btn ewc-btn--icon ewc-btn--sm"
-                        onClick={() => setIsShowingState(false)}
-                        type="button"
-                        data-testid="popover-close-btn"
-                        aria-label="Lukk"
-                      >
-                        <Icon name="closeBold" size="xs" />
-                      </button>
-                    </div>
-                  )}
-                  {heading && (
-                    <h3 className="ewc-popover__header" data-testid="popover-header">
-                      {heading}
-                    </h3>
-                  )}
-                </div>
-              )}
-              {content && type === 'informative' && (
-                <div className="ewc-popover__text" data-testid="popover-text">
-                  {content}
-                </div>
-              )}
-              {!content && type === 'informative' && <div className="ewc-popover__text" ref={popoverText} />}
-              {content && type === 'list' && (
-                <div
-                  className="ewc-popover__text"
-                  data-testid="popover-text"
-                  onClick={() => !disableAutoClose && setIsShowingState(false)}
-                >
-                  {content}
-                </div>
-              )}
-              {!content && type === 'list' && (
-                <div
-                  className="ewc-popover__text"
-                  onClick={() => !disableAutoClose && setIsShowingState(false)}
-                  ref={popoverText}
-                />
-              )}
+        {createPortal(
+          <PopoverStyles
+            className={className ? className : ''}
+            style={inlineStyle}
+            ref={popoverRef}
+            data-testid="popover-wrapper"
+            role="dialog"
+            {...rest}
+          >
+            <div className={popoverClasses}>
+              <div className="ewc-popover__content" ref={popoverContentRef} aria-modal="true">
+                {type === 'informative' && (
+                  <div className="ewc-popover__content-area">
+                    {hasCloseButton === true && (
+                      <div className="ewc-popover__close">
+                        <button
+                          className="ewc-btn ewc-btn--icon ewc-btn--sm"
+                          onClick={() => setIsShowingConnectedOverlayState(false)}
+                          type="button"
+                          data-testid="popover-close-btn"
+                          aria-label="Lukk"
+                        >
+                          <Icon name="closeBold" size="xs" />
+                        </button>
+                      </div>
+                    )}
+                    {heading && (
+                      <h3 className="ewc-popover__header" data-testid="popover-header">
+                        {heading}
+                      </h3>
+                    )}
+                  </div>
+                )}
+                {content && type === 'informative' && (
+                  <div className="ewc-popover__text" data-testid="popover-text">
+                    {content}
+                  </div>
+                )}
+                {!content && type === 'informative' && (
+                  <div className="ewc-popover__text" ref={popoverText} />
+                )}
+                {content && type === 'list' && (
+                  <div
+                    className="ewc-popover__text"
+                    data-testid="popover-text"
+                    onClick={() => !disableAutoClose && setIsShowingConnectedOverlayState(false)}
+                  >
+                    {content}
+                  </div>
+                )}
+                {!content && type === 'list' && (
+                  <div
+                    className="ewc-popover__text"
+                    onClick={() => !disableAutoClose && setIsShowingConnectedOverlayState(false)}
+                    ref={popoverText}
+                  />
+                )}
+              </div>
             </div>
-          </div>
-        </div>
+          </PopoverStyles>,
+          document.body,
+        )}
       </div>
     </PopoverStyles>
   );
