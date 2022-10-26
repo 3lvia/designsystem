@@ -9,22 +9,26 @@ export interface ButtonProps {
 }
 
 const getTypography = (size: Size) => {
-  if (size === 'sm') {
-    return css`
-      ${getTypographyCss('text-sm')};
-      line-height: 1.15;
-    `;
-  } else if (size === 'md') {
-    return css`
-      ${getTypographyCss('text-md')};
-      line-height: 1.25;
-    `;
-  } else {
-    return css`
-      ${getTypographyCss('text-lg')};
-      font-size: 1.125rem;
-      line-height: 1;
-    `;
+  switch (size) {
+    case 'sm': {
+      return css`
+        ${getTypographyCss('text-sm')};
+        line-height: 1.15;
+      `;
+    }
+    case 'md': {
+      return css`
+        ${getTypographyCss('text-md')};
+        line-height: 1.25;
+      `;
+    }
+    default: {
+      return css`
+        ${getTypographyCss('text-lg')};
+        font-size: 1.125rem;
+        line-height: 1;
+      `;
+    }
   }
 };
 
@@ -51,21 +55,31 @@ const ButtonBase = styled.button.attrs(() => ({ type: 'button' }))<Partial<Butto
 `;
 
 const getButtonHeight = (size?: Size) => {
-  if (size === 'lg') {
-    return '48px';
-  } else if (size === 'md') {
-    return '40px';
+  switch (size) {
+    case 'lg': {
+      return '48px';
+    }
+    case 'md': {
+      return '40px';
+    }
+    default: {
+      return '32px';
+    }
   }
-  return '32px';
 };
 
 const getButtonPadding = (size?: Size) => {
-  if (size === 'lg') {
-    return '0 calc(32px - 1px)';
-  } else if (size === 'md') {
-    return '0 calc(24px - 1px)';
+  switch (size) {
+    case 'lg': {
+      return '0 calc(32px - 1px)';
+    }
+    case 'md': {
+      return '0 calc(24px - 1px)';
+    }
+    default: {
+      return '0 calc(16px - 1px)';
+    }
   }
-  return '0 calc(16px - 1px)';
 };
 
 export const PrimaryButton = styled(ButtonBase)`

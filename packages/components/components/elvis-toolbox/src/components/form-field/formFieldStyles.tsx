@@ -9,6 +9,18 @@ export interface FormFieldContainerProps {
   isCompact?: boolean;
 }
 
+/**
+ *
+ * @example
+ * <FormFieldContainer isCompact isFullWidth>
+ *   <FormFieldLabel hasOptionalText>Label text</FormFieldLabel>
+ *   <FormFieldInputContainer isDisabled isActive isInvalid>
+ *     <FormFieldInput />
+ *   </FormFieldInputContainer>
+ * </FormFieldContainer>
+ *
+ * @since 5.4.0
+ */
 export const FormFieldContainer = styled.label<FormFieldContainerProps>`
   display: inline-block;
   position: relative;
@@ -136,6 +148,7 @@ export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))`
   ${getTypographyCss('text-md')}
   min-width: 0;
   padding: 0;
+  margin: 0;
   border: none;
   background-color: transparent;
   cursor: inherit;

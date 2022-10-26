@@ -3,28 +3,31 @@ import styled, { css } from 'styled-components';
 import { ButtonProps, Size } from './button';
 
 const getSize = (size: Size) => {
-  if (size === 'sm') {
-    return css`
-      width: 32px;
-      height: 32px;
-    `;
-  } else if (size === 'md') {
-    return css`
-      width: 40px;
-      height: 40px;
-    `;
-  } else {
-    return css`
-      width: 48px;
-      height: 48px;
-    `;
+  switch (size) {
+    case 'sm': {
+      return css`
+        width: 32px;
+        height: 32px;
+      `;
+    }
+    case 'md': {
+      return css`
+        width: 40px;
+        height: 40px;
+      `;
+    }
+    default: {
+      return css`
+        width: 48px;
+        height: 48px;
+      `;
+    }
   }
 };
 
 export const IconButton = styled.button.attrs(() => ({ type: 'button' }))<Partial<ButtonProps>>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   ${(props) => getSize(props.size ?? 'md')};
   border: 1px solid transparent;
   background-color: ${(props) => (props.isActive ? getColor('elvia-charge') : 'transparent')};
