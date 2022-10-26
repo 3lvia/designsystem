@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
+import { getTypographyCss } from '@elvia/elvis-typography';
 
 const popoverPadding = 32;
 const popoverBoxShadow = '0px 0px 40px rgba(0, 0, 0, 0.06)';
@@ -13,7 +14,6 @@ export const PopoverStyles = styled.div`
   .ewc-popover {
     display: flex;
     box-sizing: border-box;
-    position: relative;
 
     &__backdrop {
       z-index: 100;
@@ -69,46 +69,36 @@ export const PopoverStyles = styled.div`
       display: flex;
       flex-direction: column;
       position: absolute;
-      box-sizing: content-box;
-      width: max-content;
-      left: 50%;
+      max-width: max-content;
+      width: calc(100% - 16px);
       opacity: 1;
       z-index: 111;
       pointer-events: all;
       padding: ${popoverPadding}px;
-      background-color: white;
+      background-color: ${getColor('white')};
       color: black;
       text-align: left;
       box-shadow: ${popoverBoxShadow};
       border-radius: 8px;
       animation: fadeIn 250ms ease-in;
-      // Top aligned
-      bottom: 100%;
-      margin-bottom: 16px;
       white-space: normal;
+      margin: 0;
 
       .ewc-popover__close {
         position: absolute;
-        top: 7px;
-        right: 7px;
+        top: 8px;
+        right: 8px;
       }
       .ewc-popover__header {
         margin: 0;
         padding: 0;
-        font-family: 'Red Hat Text', Verdana, sans-serif;
-        font-size: 14px;
-        font-weight: 500 !important;
-        letter-spacing: 0px;
-        line-height: 22px;
+        ${getTypographyCss('text-sm-strong')}
         margin-right: 16px;
         padding-bottom: 8px;
         text-align: left;
       }
       .ewc-popover__text {
-        font-family: 'Red Hat Text', Verdana, sans-serif;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 22px;
+        ${getTypographyCss('text-sm')}
       }
     }
 
@@ -150,12 +140,7 @@ export const PopoverStyles = styled.div`
         display: flex;
         align-items: center;
 
-        font-family: 'Red Hat Text', Verdana, sans-serif;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 28px;
-        letter-spacing: 0px;
+        ${getTypographyCss('text-md')}
         text-align: left;
         color: black;
         text-decoration: none;
