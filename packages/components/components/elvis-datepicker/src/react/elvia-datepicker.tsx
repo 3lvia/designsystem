@@ -1,9 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { DatePickerLabel, InputContainer, LabelText } from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import { OverlayContainer } from './popup/overlayContainer';
 import { ErrorType, DatepickerProps } from './elviaDatepicker.types';
-import { useConnectedOverlay, useFocusTrap, IconButton } from '@elvia/elvis-toolbox';
+import {
+  useConnectedOverlay,
+  useFocusTrap,
+  IconButton,
+  FormFieldContainer,
+  FormFieldLabel,
+  FormFieldInputContainer,
+} from '@elvia/elvis-toolbox';
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
@@ -215,7 +221,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
   return (
     <>
-      <DatePickerLabel
+      <FormFieldContainer
         isCompact={isCompact}
         className={className ?? ''}
         style={{ ...inlineStyle }}
@@ -223,13 +229,13 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         data-testid="wrapper"
       >
         {!!label && (
-          <LabelText data-testid="label" isCompact={isCompact} hasOptionalText={hasOptionalText}>
+          <FormFieldLabel data-testid="label" isCompact={isCompact} hasOptionalText={hasOptionalText}>
             {label}
-          </LabelText>
+          </FormFieldLabel>
         )}
-        <InputContainer
+        <FormFieldInputContainer
           ref={connectedElementRef}
-          disabled={isDisabled}
+          isDisabled={isDisabled}
           isCompact={isCompact}
           isActive={isShowing}
           isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
@@ -259,7 +265,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           >
             <Icon name="calendar" color={isDisabled ? 'disabled' : 'black'} size={isCompact ? 'xs' : 'sm'} />
           </IconButton>
-        </InputContainer>
+        </FormFieldInputContainer>
         {((error && !errorOptions.hideText) || errorOptions.text) && (
           <DatepickerError
             customText={errorOptions.text}
@@ -267,7 +273,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             isCompact={isCompact}
           />
         )}
-      </DatePickerLabel>
+      </FormFieldContainer>
       {isShowing && (
         <OverlayContainer
           ref={popoverRef}

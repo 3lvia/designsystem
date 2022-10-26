@@ -4,6 +4,14 @@ export { isSsr } from './isSsr';
 export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button';
 export { IconButton } from './components/button/iconButton';
 export { TooltipPopup, TooltipPosition, TooltipPopupProps } from './components/tooltip/tooltip';
+export {
+  FormFieldInput,
+  FormFieldContainer,
+  FormFieldInputContainer,
+  FormFieldLabel,
+  BaseProps,
+} from './components/form-field/formFieldStyles';
+export { FormFieldError, FormFieldErrorContainer } from './components/form-field/errorStyles';
 
 export { useBreakpoint } from './hooks/useBreakpoint';
 export {

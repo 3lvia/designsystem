@@ -1,10 +1,5 @@
-import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { keyframes } from 'styled-components';
-
-export const colors = {
-  disabled: getColor('error'),
-};
 
 const fadeIn = keyframes`
   from {
@@ -18,7 +13,7 @@ const fadeIn = keyframes`
   }
 `;
 
-export const ErrorContainer = styled.div`
+export const FormFieldErrorContainer = styled.div`
   position: absolute;
   bottom: 0;
   display: flex;
@@ -31,7 +26,7 @@ interface ErrorTextProps {
   isCompact: boolean;
 }
 
-export const ErrorText = styled.span<ErrorTextProps>`
+export const FormFieldError = styled.span<ErrorTextProps>`
   ${getTypographyCss('text-sm')}
   white-space: nowrap;
 

@@ -3242,7 +3242,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
+    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-typography": ^2.3.1
+    styled-components: ^5.3.6
     tslib: ^2.4.0
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-is: ">=16.8.0"
   languageName: unknown
   linkType: soft
 
@@ -3259,7 +3266,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@portal:../components/components/elvis-toolbox::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
+    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-typography": ^2.3.1
+    styled-components: ^5.3.6
     tslib: ^2.4.0
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-is: ">=16.8.0"
   languageName: node
   linkType: soft
 
@@ -27324,7 +27338,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-components@npm:^5.3.3":
+"styled-components@npm:^5.3.3, styled-components@npm:^5.3.6":
   version: 5.3.6
   resolution: "styled-components@npm:5.3.6"
   dependencies:
