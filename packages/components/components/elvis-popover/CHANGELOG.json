@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "27.10.22",
+      "version": "6.0.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The popover now uses <span class=\"code-text\">useConnectedOverlay</span> from <span class=\"code-text\">@elvia/elvis-toolbox</span> for its positioning.",
+            "The popover now uses <span class=\"code-text\">useFocusTrap</span> from <span class=\"code-text\">@elvia/elvis-toolbox</span> to trap keyboard focus in the popover content"
+          ]
+        }
+      ]
+    },
+    {
       "date": "19.10.22",
       "version": "5.1.11",
       "changelog": [
