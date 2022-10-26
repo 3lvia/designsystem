@@ -50,15 +50,28 @@ const ButtonBase = styled.button.attrs(() => ({ type: 'button' }))<Partial<Butto
   }
 `;
 
+const getButtonHeight = (size?: Size) => {
+  if (size === 'lg') {
+    return '3rem';
+  } else if (size === 'md') {
+    return '2.5rem';
+  }
+  return '2rem';
+};
+
+const getButtonPadding = (size?: Size) => {
+  if (size === 'lg') {
+    return '0 calc(2rem - 1px)';
+  } else if (size === 'md') {
+    return '0 calc(1.5rem - 1px)';
+  }
+  return '0 calc(1rem - 1px)';
+};
+
 export const PrimaryButton = styled(ButtonBase)`
-  height: ${(props) => (props.size === 'lg' ? '3rem' : props.size === 'md' ? '2.5rem' : '2rem')};
+  height: ${(props) => getButtonHeight(props.size)};
   border: 1px solid ${(props) => (props.isActive ? getColor('elvia-charge') : getColor('elvia-off'))};
-  padding: ${(props) =>
-    props.size === 'lg'
-      ? '0 calc(2rem - 1px)'
-      : props.size === 'md'
-      ? '0 calc(1.5rem - 1px)'
-      : '0 calc(1rem - 1px)'};
+  padding: ${(props) => getButtonPadding(props.size)};
   background-color: ${(props) => (props.isActive ? getColor('elvia-charge') : getColor('elvia-off'))};
   color: ${(props) => (props.isActive ? getColor('elvia-off') : getColor('elvia-on'))};
   transition: transform 100ms;
