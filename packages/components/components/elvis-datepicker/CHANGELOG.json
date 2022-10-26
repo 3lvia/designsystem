@@ -2,6 +2,33 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "26.10.22",
+      "version": "6.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Update <span class=\"code-text\">@elvia/elvis-toolbox</span> to improve positioning of datepicker."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "25.10.22",
+      "version": "6.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Rewrote component to remove dependency to <span class=\"code-text\">@material-ui</span>. This means that the DOM and CSS is completely new, so if any deep CSS selectors have been used, these must be removed. Ask the design team if this means that you need a new feature to the datepicker.",
+            "The date picker will no longer reset the time on the emitted date. This behavior can be enabled by setting the new prop <span class=\"code-text\">resetTime='true'</span>",
+            "The prop <span class=\"code-text\">hasErrorPlaceholderElement</span> has been removed, since the new DOM always reserves space for error messages below the datepicker.",
+            "The prop <span class=\"code-text\">hasValidation</span>, <span class=\"code-text\">showValidation</span>, <span class=\"code-text\">showValidationState</span>, <span class=\"code-text\">isErrorState</span> and <span class=\"code-text\">customError</span> has been replaced by an optional object <span class=\"code-text\">errorOptions: Partial<{text: string; hideText: boolean; isErrorState: boolean;}></span>. This aligns the validation logic with the one found in the timepicker component."
+          ]
+        }
+      ]
+    },
+    {
       "date": "18.10.22",
       "version": "5.0.1",
       "changelog": [

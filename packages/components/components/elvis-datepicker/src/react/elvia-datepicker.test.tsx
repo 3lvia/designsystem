@@ -1,60 +1,95 @@
 import Datepicker from './elvia-datepicker';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { getColor } from '@elvia/elvis-colors';
 
-const getDatepickerInput = () => {
-  return document.querySelector('.MuiInputBase-input.MuiInput-input.MuiInputBase-inputAdornedEnd');
-};
-
-const getDatepickerButton = (): HTMLButtonElement => {
-  return document.querySelector('.MuiIconButton-root') as HTMLButtonElement;
+// JSDOM does not implement the scrollTo() function
+Element.prototype.scrollTo = () => {
+  return;
 };
 
 describe('Elvis Datepicker', () => {
-  const minDate = new Date('1/1/30');
-  const maxDate = new Date('1/1/10');
-  const customValue = new Date('4/2/24');
-
   describe('Default', () => {
     beforeEach(() => {
       render(<Datepicker></Datepicker>);
     });
 
     it('should have default label = Velg dato', () => {
-      const datepickerLabel = screen.getByTestId('datepicker-label');
+      const datepickerLabel = screen.getByTestId('label');
       expect(datepickerLabel).toHaveTextContent('Velg dato');
     });
 
-    it('should have class unselected', () => {
-      const datepickerWrapper = screen.getByTestId('datepicker-wrapper');
-      expect(datepickerWrapper).toHaveClass('ewc-datepicker--unselected');
-    });
-
     it('should not have date selected when untouched', () => {
-      expect(getDatepickerInput()).toHaveProperty('value', '');
+      expect(screen.getByTestId('input')).toHaveProperty('value', '');
     });
 
     it('should have date selected when button is clicked', async () => {
       const user = userEvent.setup();
 
-      await user.click(getDatepickerButton());
-      expect(getDatepickerInput()).not.toHaveProperty('value', '');
-    });
-
-    it('should have error placeholder element', () => {
-      const datepickerErrorPlaceholder = screen.getByTestId('datepicker-error-placeholder');
-      expect(datepickerErrorPlaceholder).toHaveClass('ewc-datepicker__error-placeholder');
+      await user.click(screen.getByTestId('popover-toggle'));
+      expect(screen.getByTestId('input')).not.toHaveProperty('value', '');
     });
   });
 
   describe('Value = custom', () => {
     beforeEach(() => {
-      render(<Datepicker value={customValue}></Datepicker>);
+      const oddDateFilter = (d: Date) => d.getDate() % 2 !== 0;
+      render(<Datepicker value={new Date('2024/04/02')} disableDate={oddDateFilter}></Datepicker>);
     });
 
     it('should have value = 02.04.2024', () => {
-      expect(getDatepickerInput()).toHaveProperty('value', '02.04.2024');
+      expect(screen.getByTestId('input')).toHaveProperty('value', '02.04.2024');
+    });
+
+    it('should show month name in calendar', async () => {
+      const user = userEvent.setup();
+
+      await user.click(screen.getByTestId('popover-toggle'));
+      await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
+
+      expect(screen.getByTestId('month-name')).toHaveTextContent('april 2024');
+    });
+
+    it('should be able to view next month', async () => {
+      const user = userEvent.setup();
+
+      await user.click(screen.getByTestId('popover-toggle'));
+      await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
+      await user.click(screen.getByTestId('next-month-btn'));
+
+      expect(screen.getByTestId('month-name')).toHaveTextContent('mai 2024');
+    });
+
+    it('should be able to select month from the calendar', async () => {
+      const user = userEvent.setup();
+
+      await user.click(screen.getByTestId('popover-toggle'));
+      await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
+      await user.click(screen.getByText('30'));
+
+      expect(screen.getByTestId('input')).toHaveProperty('value', '30.04.2024');
+    });
+
+    it('should be able to select odd months due to the disabled date prop', async () => {
+      const user = userEvent.setup();
+
+      await user.click(screen.getByTestId('popover-toggle'));
+      await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
+      await user.click(screen.getByText('29'));
+
+      expect(screen.getByTestId('input')).toHaveProperty('value', '02.04.2024');
+    });
+
+    it('should be able to switch year from the year toggle', async () => {
+      const user = userEvent.setup();
+
+      await user.click(screen.getByTestId('popover-toggle'));
+      await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
+      await user.click(screen.getByTestId('year-view-toggle'));
+      await user.click(screen.getByText('2025'));
+
+      expect(screen.queryByTestId('month-name')).toHaveTextContent('april 2025');
     });
   });
 
@@ -64,8 +99,7 @@ describe('Elvis Datepicker', () => {
     });
 
     it('should have label = Custom label', () => {
-      const datepickerLabel = screen.getByTestId('datepicker-label');
-      expect(datepickerLabel).toHaveTextContent('Custom label');
+      expect(screen.getByTestId('label')).toHaveTextContent('Custom label');
     });
   });
 
@@ -75,12 +109,12 @@ describe('Elvis Datepicker', () => {
     });
 
     it('should have compact class', () => {
-      const datepickerWrapper = screen.getByTestId('datepicker-wrapper');
-      expect(datepickerWrapper).toHaveClass('ewc-datepicker--compact');
+      const datepickerWrapper = screen.getByTestId('wrapper');
+      expect(datepickerWrapper).toHaveStyle('padding-top: 0.5rem');
     });
     it('should have full width class', () => {
-      const datepickerWrapper = screen.getByTestId('datepicker-wrapper');
-      expect(datepickerWrapper).toHaveClass('ewc-datepicker--full-width');
+      const datepickerWrapper = screen.getByTestId('wrapper');
+      expect(datepickerWrapper).toHaveStyle('width: 100%');
     });
   });
 
@@ -89,12 +123,12 @@ describe('Elvis Datepicker', () => {
       render(<Datepicker isDisabled></Datepicker>);
     });
 
-    it('should have disabled class', () => {
-      expect(getDatepickerInput()).toHaveClass('Mui-disabled');
+    it('should have a disabled input', () => {
+      expect(screen.getByTestId('input')).toBeDisabled();
     });
 
-    it('should not be clickable', () => {
-      expect(getDatepickerButton()).toHaveStyle('pointer-events: none');
+    it('should not possible to open by clicking the toggle', () => {
+      expect(screen.getByTestId('popover-toggle')).toBeDisabled();
     });
   });
 
@@ -103,98 +137,110 @@ describe('Elvis Datepicker', () => {
       render(<Datepicker isRequired></Datepicker>);
     });
 
-    it('should not have error class when untouched', () => {
-      const datepickerWrapper = screen.getByTestId('datepicker-wrapper');
-      expect(datepickerWrapper).not.toHaveClass('ewc-datepicker--error');
-      expect(getDatepickerInput()).toHaveProperty('value', '');
+    it('should not have error when untouched', () => {
+      expect(screen.queryByTestId('error')).not.toBeInTheDocument();
+      expect(screen.getByTestId('input')).toHaveProperty('value', '');
     });
 
-    it('should not have error class when filled ', async () => {
+    it('should have an error when clicked and blurred ', async () => {
       const user = userEvent.setup();
 
-      await user.click(getDatepickerButton());
+      await user.click(screen.getByTestId('input'));
+      await user.tab();
 
-      expect(screen.getByTestId('datepicker-wrapper')).not.toHaveClass('ewc-datepicker--error');
-    });
-  });
-
-  describe('Does not have error placeholder element', () => {
-    beforeEach(() => {
-      render(<Datepicker hasErrorPlaceholderElement={false}></Datepicker>);
-    });
-
-    it('should not have error placeholder element', () => {
-      const datepickerErrorPlaceholder = screen.queryByTestId('datepicker-error-placeholder');
-      expect(datepickerErrorPlaceholder).not.toBeInTheDocument();
+      expect(screen.getByTestId('error')).toHaveTextContent('Velg dato');
     });
   });
 
   describe('Custom error = Feil', () => {
     beforeEach(() => {
-      render(<Datepicker customError="Feil"></Datepicker>);
+      render(<Datepicker errorOptions={{ text: 'Feil' }}></Datepicker>);
     });
 
-    it('should have error class', () => {
-      const datepickerWrapper = screen.getByTestId('datepicker-wrapper');
-      expect(datepickerWrapper).toHaveClass('ewc-datepicker--error');
+    it('should have error style', () => {
+      const datepickerWrapper = screen.getByTestId('input-container');
+      expect(datepickerWrapper).toHaveStyle(`border-color: ${getColor('error')}`);
     });
 
-    it('should not have error placeholder element when custom error', () => {
-      const datepickerErrorPlaceholder = screen.queryByTestId('datepicker-error-placeholder');
-      expect(datepickerErrorPlaceholder).not.toBeInTheDocument();
+    it('should have custom error in DOM', () => {
+      expect(screen.getByTestId('error')).toHaveTextContent('Feil');
     });
   });
 
   describe('Min date', () => {
     beforeEach(() => {
-      render(<Datepicker minDate={minDate}></Datepicker>);
+      // A high min date, to ensure that the test doesn't break for a long time
+      render(<Datepicker minDate={new Date('2077/05/01')}></Datepicker>);
     });
 
     it('should pick minimum date when opened', async () => {
       const user = userEvent.setup();
-      await user.click(getDatepickerButton());
-      expect(getDatepickerInput()).toHaveProperty('value', '01.01.2030');
+      await user.click(screen.getByTestId('popover-toggle'));
+      expect(screen.getByTestId('input')).toHaveProperty('value', '01.05.2077');
+    });
+
+    it('should view the selected month in the calendar', async () => {
+      const user = userEvent.setup();
+      await user.click(screen.getByTestId('popover-toggle'));
+      await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
+      expect(screen.getByTestId('month-name')).toHaveTextContent('mai 2077');
+    });
+
+    it('should show an error if a date before the min date is typed into the input', async () => {
+      const user = userEvent.setup();
+
+      await user.type(screen.getByTestId('input'), '01.05.2076');
+      await user.tab();
+
+      expect(screen.queryByTestId('error')).toHaveTextContent('Kan ikke være før 01.05.2077');
     });
   });
 
   describe('Max date', () => {
     beforeEach(() => {
-      render(<Datepicker maxDate={maxDate}></Datepicker>);
+      render(<Datepicker maxDate={new Date('2022/05/01')}></Datepicker>);
     });
 
     it('should pick maximum date when opened', async () => {
       const user = userEvent.setup();
-      await user.click(getDatepickerButton());
-      expect(getDatepickerInput()).toHaveProperty('value', '01.01.2010');
+      await user.click(screen.getByTestId('popover-toggle'));
+      expect(screen.getByTestId('input')).toHaveProperty('value', '01.05.2022');
+    });
+
+    it('should show an error if a date after the max date is typed into the input', async () => {
+      const user = userEvent.setup();
+
+      await user.type(screen.getByTestId('input'), '01.05.2023');
+      await user.tab();
+
+      expect(screen.queryByTestId('error')).toHaveTextContent('Kan ikke være etter 01.05.2022');
     });
   });
 
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      render(
-        <Datepicker maxDate={maxDate} className="test-class" inlineStyle={{ margin: '24px' }}></Datepicker>,
-      );
+      render(<Datepicker className="test-class" inlineStyle={{ margin: '24px' }}></Datepicker>);
     });
 
     it('should have className', () => {
-      const datepickerWrapper = screen.getByTestId('datepicker-wrapper');
-      expect(datepickerWrapper).toHaveClass('ewc-datepicker');
+      const datepickerWrapper = screen.getByTestId('wrapper');
       expect(datepickerWrapper).toHaveClass('test-class');
     });
 
     it('should have inlineStyle', () => {
-      const datepickerWrapper = screen.getByTestId('datepicker-wrapper');
+      const datepickerWrapper = screen.getByTestId('wrapper');
       expect(datepickerWrapper).toHaveStyle('margin: 24px');
     });
   });
+
   describe('Error state from prop', () => {
     beforeEach(() => {
-      render(<Datepicker isErrorState></Datepicker>);
+      render(<Datepicker errorOptions={{ isErrorState: true }}></Datepicker>);
     });
 
     it('should have error state', () => {
-      const datepickerWrapper = screen.getByTestId('datepicker-wrapper');
-      expect(datepickerWrapper).toHaveClass('ewc-datepicker--error');
+      const datepickerWrapper = screen.getByTestId('input-container');
+      expect(datepickerWrapper).toHaveStyle(`border-color: ${getColor('error')}`);
     });
   });
 });

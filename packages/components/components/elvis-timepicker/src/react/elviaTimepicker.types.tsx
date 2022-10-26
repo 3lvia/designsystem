@@ -5,6 +5,7 @@ export type MinuteInterval = '1' | '5' | '10' | '15' | '60';
 export type ChangeType = 'hour' | 'minute';
 export type ErrorType = 'invalidTime' | 'required';
 
+// TODO: Make shared interface for error options
 export interface ErrorOptions {
   text: string;
   hideText: boolean;

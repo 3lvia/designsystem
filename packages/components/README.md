@@ -102,8 +102,8 @@ specifications. The file explains how to add the props and the meaning of the ea
     name: 'elvis-divider',
     elementName: 'elvia-divider',
     attributes: [
-      { name: 'type', type: 'string', propType: 'string | undefined' },
-      { name: 'title', type: 'string', propType: 'string | HTMLElement | undefined' },
+      { name: 'type', type: 'string' },
+      { name: 'title', type: 'string' },
     ],
     slotItems: true,
     reactName: 'Divider',
@@ -213,10 +213,13 @@ Example of an update
     },
 ```
 
-
 #### Step 8 - Deprecating old classes
-If the component you have created is a replacement for an component that allready existed in elvis (the style library), this class needs to be deprecated.
-- To deprecate the class read the guidelines in the [Elvis README](https://github.com/3lvia/designsystem/blob/master/packages/elvis/README.md#good-to-know).
+
+If the component you have created is a replacement for an component that allready existed in elvis (the style
+library), this class needs to be deprecated.
+
+- To deprecate the class read the guidelines in the
+  [Elvis README](https://github.com/3lvia/designsystem/blob/master/packages/elvis/README.md#good-to-know).
 
 #### Step 9 - Pull request and publish
 

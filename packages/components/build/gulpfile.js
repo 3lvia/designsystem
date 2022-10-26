@@ -78,13 +78,6 @@ function buildWebComponentsMagically() {
           if (fs.existsSync(sassFile)) {
             result = sass.compile(sassFile).css.toString();
           }
-          if (component.dependentStyleSheets) {
-            component.dependentStyleSheets.forEach((dependentStyleSheet) => {
-              const dependentStylePath = resolve.sync(dependentStyleSheet);
-              const dependentStyle = sass.compile(dependentStylePath).css.toString();
-              result = dependentStyle + '\n' + result;
-            });
-          }
 
           const lowercaseAttr = component.attributes.map((attr) => attr.name.toLowerCase());
 
@@ -328,6 +321,7 @@ gulp.task('watch', function () {
       validate.validateElviaComponentsConfig,
       buildToolboxComponentToJS,
       buildElviaComponentToJS,
+      buildElviaComponentTSDeclaration,
       TSX_to_JS,
       reactTypescriptDeclarations,
       copyChangelogs,
