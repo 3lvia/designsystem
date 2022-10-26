@@ -5,31 +5,126 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <elvia-datepicker
-        [minDate]="minDate"
-        [maxDate]="maxDate"
-        [disableDate]="disableDate"
-        (valueOnChange)="writeDate($event.detail.value)"
-        isRequired="true"
-        clearButtonText="Tøm feltet"
-        label="Custom label"
-        isRequired="true"
-        hasOptionalText="true"
-        (onOpen)="dateOnOpen()"
-        (onClose)="dateOnClose()"
-        (onReset)="dateOnReset()"
-        (valueOnChangeISOString)="changeISO($event.detail.value)"
-      ></elvia-datepicker>
+      <h3>Popover</h3>
+      <p>vanlig info</p>
+      <elvia-popover
+        [content]="
+          'For safe and easy login on My page, you should log in with BankID. Here you can read more about logging in with BankID and functions on My page on Elvia.'
+        "
+        [heading]="'About login'"
+        [verticalPosition]="'top'"
+        [horizontalPosition]="'left-inside'"
+        (onOpen)="isPopoverShowing = true"
+        (onClose)="isPopoverShowing = false"
+      >
+        <button
+          slot="trigger"
+          class="e-btn e-btn--icon e-btn--circled"
+          [ngClass]="{ 'e-btn---selected': isPopoverShowing }"
+          aria-label="Popover trigger"
+        >
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+            <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+          </span>
+        </button>
+      </elvia-popover>
 
-      <elvia-datepicker-range
-        [labelOptions]="labelOptions"
-        isRequired="true"
-        hasAutoOpenEndDatepicker="true"
-        [minDate]="minDate"
-        [maxDate]="maxDate"
-        [disableDates]="disableDates"
-        (valueOnChangeISOString)="changeISO($event.detail.value)"
-      ></elvia-datepicker-range>
+      <p>liste med divider</p>
+      <elvia-popover
+        [type]="'list'"
+        (onOpen)="isPopoverListShowing = true"
+        (onClose)="isPopoverListShowing = false"
+        [hasDivider]="true"
+      >
+        <button
+          slot="trigger"
+          class="e-btn e-btn--icon e-mr-8"
+          [ngClass]="{ 'e-btn---selected': isPopoverListShowing }"
+          aria-label="More menu"
+        >
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--more_menu e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
+          </span>
+        </button>
+        <div slot="content" class="ewc-popover__list">
+          <div class="ewc-popover__list-group">
+            <a href="https://www.vg.no">link1</a>
+            <button>
+              <span>Be om tilgang</span>
+            </button>
+            <button>
+              <span>Legg til bruker</span>
+            </button>
+          </div>
+          <div class="ewc-popover__list-group">
+            <a href="https://www.nrk.no">
+              <span>link 2</span>
+            </a>
+          </div>
+        </div>
+      </elvia-popover>
+
+      <p>liste med headings</p>
+      <elvia-popover
+        [type]="'list'"
+        [verticalPosition]="'bottom'"
+        (onOpen)="isPopoverListHeadingShowing = true"
+        (onClose)="isPopoverListHeadingShowing = false"
+      >
+        <button
+          slot="trigger"
+          class="e-btn e-btn--icon e-btn--circled"
+          [ngClass]="{ 'e-btn---selected': isPopoverListHeadingShowing }"
+          aria-label="More menu"
+        >
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+            <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+          </span>
+        </button>
+        <div slot="content" class="ewc-popover__list">
+          <!-- denne diven får fokus -->
+          <div class="ewc-popover__list-group">
+            <h3>Kundeforhold</h3>
+            <button>
+              <span>Be om tilgang</span>
+            </button>
+            <button>
+              <span>Legg til bruker</span>
+            </button>
+          </div>
+          <!-- denne diven får _ikke_ fokus -->
+          <div class="ewc-popover__list-group">
+            <h3>Innlogging</h3>
+            <a href="#">Visit W3Schools</a>
+            <a href="#">Visit W3Schools</a>
+          </div>
+        </div>
+      </elvia-popover>
+
+      <p>text only</p>
+      <elvia-popover
+        [verticalPosition]="'bottom'"
+        (onOpen)="isPopoverListHeadingShowing = true"
+        (onClose)="isPopoverListHeadingShowing = false"
+      >
+        <button
+          slot="trigger"
+          class="e-btn e-btn--icon e-btn--circled"
+          [ngClass]="{ 'e-btn---selected': isPopoverListHeadingShowing }"
+          aria-label="More menu"
+        >
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+            <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+          </span>
+        </button>
+        <div slot="content">
+          <span>dette er litt tekst som skal dukke opp i en popover</span>
+        </div>
+      </elvia-popover>
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
@@ -282,7 +377,7 @@
   <!--Popover-->
   <div class="example-wrapper">
     <h3>Popover</h3>
-    <elvia-popover
+    <!-- <elvia-popover
       [isShowing]="isPopoverShowing"
       (onOpen)="isPopoverShowing = true"
       (onClose)="isPopoverShowing = false"
@@ -296,7 +391,7 @@
         Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
         <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
       </div>
-    </elvia-popover>
+    </elvia-popover> -->
   </div>
 
   <!--Progress linear-->
