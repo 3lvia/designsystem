@@ -7,7 +7,9 @@ export { TooltipPopup, TooltipPosition, TooltipPopupProps } from './components/t
 export {
   FormFieldInput,
   FormFieldContainer,
+  FormFieldContainerProps,
   FormFieldInputContainer,
+  FormFieldInputContainerProps,
   FormFieldLabel,
 } from './components/form-field/formFieldStyles';
 export { FormFieldError, FormFieldErrorContainer } from './components/form-field/errorStyles';

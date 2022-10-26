@@ -4,7 +4,7 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { FormFieldError } from './errorStyles';
 
-interface FormFieldContainerProps {
+export interface FormFieldContainerProps {
   fullWidth?: boolean;
   isCompact?: boolean;
 }
@@ -85,20 +85,20 @@ export const FormFieldLabel = styled.div<LabelProps>`
     `}
 `;
 
-interface InputContainerProps {
+export interface FormFieldInputContainerProps {
   isDisabled?: boolean;
   isActive?: boolean;
   isInvalid?: boolean;
 }
 
-const setActiveBorder = (props: InputContainerProps) => {
+const setActiveBorder = (props: FormFieldInputContainerProps) => {
   return css`
     border: 2px solid ${props.isInvalid ? getColor('error') : getColor('elvia-charge')};
     padding: 0px 7px 0px 15px;
   `;
 };
 
-export const FormFieldInputContainer = styled.div<InputContainerProps>`
+export const FormFieldInputContainer = styled.div<FormFieldInputContainerProps>`
   display: inline-flex;
   align-items: center;
   gap: 8px;
