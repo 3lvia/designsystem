@@ -5,31 +5,19 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <elvia-datepicker
-        [minDate]="minDate"
-        [maxDate]="maxDate"
-        [disableDate]="disableDate"
-        (valueOnChange)="writeDate($event.detail.value)"
-        isRequired="true"
-        clearButtonText="Tøm feltet"
-        label="Custom label"
-        isRequired="true"
-        hasOptionalText="true"
-        (onOpen)="dateOnOpen()"
-        (onClose)="dateOnClose()"
-        (onReset)="dateOnReset()"
-        (valueOnChangeISOString)="changeISO($event.detail.value)"
-      ></elvia-datepicker>
-
-      <elvia-datepicker-range
-        [labelOptions]="labelOptions"
-        isRequired="true"
-        hasAutoOpenEndDatepicker="true"
-        [minDate]="minDate"
-        [maxDate]="maxDate"
-        [disableDates]="disableDates"
-        (valueOnChangeISOString)="changeISO($event.detail.value)"
-      ></elvia-datepicker-range>
+      <elvia-dropdown
+        [isCompact]="false"
+        [isDisabled]="false"
+        label="testing something"
+        [value]="dropdownDefOptions"
+      >
+        <!-- Tabindex 0 -->
+        <elvia-dropdown-container>
+          <elvia-dropdown-item>Foo</elvia-dropdown-item>
+          <elvia-dropdown-item>Bar</elvia-dropdown-item>
+          <elvia-dropdown-item>Baz</elvia-dropdown-item>
+        </elvia-dropdown-container>
+      </elvia-dropdown>
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
