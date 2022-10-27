@@ -8,10 +8,10 @@ import {
   isSameDay,
 } from '../dateHelpers';
 import { DatepickerRangeProps, DateRange } from '../elviaDatepicker.types';
-import { IconButton } from '../styledComponents';
 
 import { Container, CalendarHeader, DayButton, DayName, GridContainer, MonthName } from './calendarStyles';
 import { DateRangeHighlighter } from './DateRangeHighlighter';
+import { IconButton } from '@elvia/elvis-toolbox';
 
 interface Props {
   selectedDate?: Date | null;
@@ -151,6 +151,7 @@ export const Calendar: React.FC<Props> = ({
           onClick={() => shuffleViewedMonth(-1)}
           aria-label="Forrige måned"
           data-testid="prev-month-btn"
+          size="sm"
         >
           <Icon name="arrowLongLeftBold" size="xs" />
         </IconButton>
@@ -161,6 +162,7 @@ export const Calendar: React.FC<Props> = ({
           onClick={() => shuffleViewedMonth(1)}
           aria-label="Neste måned"
           data-testid="next-month-btn"
+          size="sm"
         >
           <Icon name="arrowLongRightBold" size="xs" />
         </IconButton>

@@ -10,7 +10,6 @@ interface Props {
   date?: Date | null;
   minDate?: Date;
   maxDate?: Date;
-  isCompact?: boolean;
   placeholder?: string;
   onChange: (newValue: Date | null) => void;
   currentError?: ErrorType;
@@ -23,7 +22,6 @@ export const DatepickerInput: React.FC<Props> = ({
   date,
   minDate,
   maxDate,
-  isCompact,
   placeholder,
   onChange,
   currentError,
@@ -183,7 +181,6 @@ export const DatepickerInput: React.FC<Props> = ({
       onChange={parseInput}
       onBlur={onBlur}
       onFocus={() => setTouched(true)}
-      isCompact={isCompact}
       data-testid="input"
       aria-live="polite"
       required={required}

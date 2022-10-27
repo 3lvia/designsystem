@@ -8,19 +8,11 @@ interface Props {
   disabled?: boolean;
   required: boolean;
   time?: Date | null;
-  isCompact?: boolean;
   onChange: (newValue: Date | null) => void;
   onErrorChange: (error?: ErrorType) => void;
 }
 
-export const TimepickerInput: React.FC<Props> = ({
-  disabled,
-  required,
-  time,
-  isCompact,
-  onChange,
-  onErrorChange,
-}) => {
+export const TimepickerInput: React.FC<Props> = ({ disabled, required, time, onChange, onErrorChange }) => {
   const inputElement = useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = useState('');
   const [hasSelectedText, setHasSelectedText] = useState(false);
@@ -173,13 +165,11 @@ export const TimepickerInput: React.FC<Props> = ({
     <Input
       ref={inputElement}
       disabled={disabled}
-      type="text"
       placeholder="tt.mm"
       value={inputValue}
       onKeyDown={onKeyDown}
       onChange={parseInput}
       onBlur={onBlur}
-      isCompact={isCompact}
       data-testid="input"
       aria-live="polite"
       required={required}

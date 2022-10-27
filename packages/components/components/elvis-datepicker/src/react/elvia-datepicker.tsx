@@ -1,9 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { DatePickerLabel, InputContainer, IconButton, LabelText } from './styledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import { OverlayContainer } from './popup/overlayContainer';
 import { ErrorType, DatepickerProps } from './elviaDatepicker.types';
-import { useConnectedOverlay, useFocusTrap } from '@elvia/elvis-toolbox';
+import {
+  useConnectedOverlay,
+  useFocusTrap,
+  IconButton,
+  FormFieldContainer,
+  FormFieldLabel,
+  FormFieldInputContainer,
+} from '@elvia/elvis-toolbox';
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
@@ -45,12 +51,16 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const popoverRef = useRef<HTMLDivElement>(null);
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
-  const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
-    offset: 8,
-    horizontalPosition: 'left-inside',
-    verticalPosition: 'bottom',
-    alignWidths: false,
-  });
+  const { isShowing, setIsShowing, updatePreferredPosition } = useConnectedOverlay(
+    connectedElementRef,
+    popoverRef,
+    {
+      offset: 8,
+      horizontalPosition: 'left-inside',
+      verticalPosition: 'bottom',
+      alignWidths: false,
+    },
+  );
 
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
     let dateISO;
@@ -166,6 +176,13 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
     trapFocus(popoverRef);
 
+    /** We need to update the position, because the dimensions of the
+     * overlay has changed.
+     */
+    setTimeout(() => {
+      updatePreferredPosition();
+    });
+
     return () => releaseFocusTrap();
   }, [isShowing]);
 
@@ -204,7 +221,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
   return (
     <>
-      <DatePickerLabel
+      <FormFieldContainer
         isCompact={isCompact}
         className={className ?? ''}
         style={{ ...inlineStyle }}
@@ -212,14 +229,13 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         data-testid="wrapper"
       >
         {!!label && (
-          <LabelText data-testid="label" isCompact={isCompact} hasOptionalText={hasOptionalText}>
+          <FormFieldLabel data-testid="label" hasOptionalText={hasOptionalText}>
             {label}
-          </LabelText>
+          </FormFieldLabel>
         )}
-        <InputContainer
+        <FormFieldInputContainer
           ref={connectedElementRef}
-          disabled={isDisabled}
-          isCompact={isCompact}
+          isDisabled={isDisabled}
           isActive={isShowing}
           isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
           data-testid="input-container"
@@ -227,7 +243,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           <DatepickerInput
             date={date}
             disabled={isDisabled}
-            isCompact={isCompact}
             placeholder={placeholder}
             onChange={updateValue}
             required={isRequired}
@@ -238,25 +253,21 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           />
           <IconButton
             disabled={isDisabled}
-            active={isShowing}
+            isActive={isShowing}
             onClick={() => setVisibility(!isShowing)}
             ref={openPopoverButtonRef}
-            size={isCompact ? 'small' : 'medium'}
+            size={isCompact ? 'sm' : 'md'}
             data-testid="popover-toggle"
             aria-label="Åpne datovelger"
             aria-haspopup="dialog"
           >
             <Icon name="calendar" color={isDisabled ? 'disabled' : 'black'} size={isCompact ? 'xs' : 'sm'} />
           </IconButton>
-        </InputContainer>
+        </FormFieldInputContainer>
         {((error && !errorOptions.hideText) || errorOptions.text) && (
-          <DatepickerError
-            customText={errorOptions.text}
-            errorText={getErrorText(error, minDate, maxDate)}
-            isCompact={isCompact}
-          />
+          <DatepickerError customText={errorOptions.text} errorText={getErrorText(error, minDate, maxDate)} />
         )}
-      </DatePickerLabel>
+      </FormFieldContainer>
       {isShowing && (
         <OverlayContainer
           ref={popoverRef}

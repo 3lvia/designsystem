@@ -2,6 +2,30 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "26.10.22",
+      "version": "6.0.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Update <span class=\"code-text\">@elvia/elvis-toolbox</span> to use reusable components."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "26.10.22",
+      "version": "6.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Update <span class=\"code-text\">@elvia/elvis-toolbox</span> to improve positioning of datepicker."
+          ]
+        }
+      ]
+    },
+    {
       "date": "25.10.22",
       "version": "6.0.1",
       "changelog": [
