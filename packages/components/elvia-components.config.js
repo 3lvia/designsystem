@@ -267,10 +267,7 @@ module.exports = [
     name: 'elvis-dropdown',
     elementName: 'elvia-dropdown',
     attributes: [
-      { name: 'items', type: 'object' },
-      { name: 'options', type: 'object' }, // DEPRECATED
       { name: 'value', type: 'object' },
-      { name: 'defaultValue', type: 'object' }, // DEPRECATED
       { name: 'isCompact', type: 'boolean' },
       { name: 'isDisabled', type: 'boolean' },
       { name: 'isFullWidth', type: 'boolean' },
@@ -290,13 +287,7 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    slotItems: false,
-    elementStyle: 'max-width: 448px; width: 100%; display: block;',
-
-    conditionalElementStyle: [
-      { name: 'isFullWidth', value: 'true', style: `width: 100%; max-width: unset;` },
-    ],
-
+    slotItems: true,
     reactName: 'Dropdown',
     useWrapper: false,
     reactTypescriptDeclaration: true,

@@ -4,7 +4,7 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
 export const Input = styled(FormFieldInput)`
-  width: 100%;
+  flex: 1;
 `;
 
 interface ReadonlyInputProps {
@@ -14,6 +14,7 @@ interface ReadonlyInputProps {
 export const ReadonlyInput = styled.div<ReadonlyInputProps>`
   ${getTypographyCss('text-md')}
   cursor: inherit;
+  flex: 1;
 
   &:disabled {
     color: ${getColor('disabled')};

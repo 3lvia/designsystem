@@ -2,7 +2,7 @@ import Dropdown from './elvia-dropdown';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-describe('Elvis Dropdown', () => {
+describe.skip('Elvis Dropdown', () => {
   describe('Default', () => {
     beforeEach(() => {
       render(

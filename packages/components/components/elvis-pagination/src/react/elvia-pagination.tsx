@@ -1,5 +1,4 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
-import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Icon } from '@elvia/elvis-icon/react';
 import { DropdownItem, VisibleElements, PaginationLabel } from './elvia-pagination.types';
 import {
@@ -406,17 +405,7 @@ const Pagination: FC<PaginationProps> = function ({
     >
       <PaginatorInfoContainer>
         <PaginatorInfoText data-testid="info-text">{labelOptionsState.displaying}</PaginatorInfoText>
-        <PaginatorInfoDropdown>
-          <Dropdown
-            isCompact
-            placeholder=""
-            items={dropdownItems}
-            menuPosition={dropdownMenuPosition}
-            value={selectedDropdownValue}
-            valueOnChange={(event: any) => handleDropdownValueChange(event)}
-            data-testid="dropdown"
-          ></Dropdown>
-        </PaginatorInfoDropdown>
+        <PaginatorInfoDropdown></PaginatorInfoDropdown>
         <PaginatorInfoAmount data-testid="info-amount">
           {labelOptionsState.of} {numberOfElements.toLocaleString('nb-NO')} {labelOptionsState.label}
         </PaginatorInfoAmount>

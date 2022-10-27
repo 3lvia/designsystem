@@ -2830,9 +2830,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^4.0.0, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
+"@elvia/elvis-dropdown-old@workspace:packages/components/components/elvis-dropdown.old":
   version: 0.0.0-use.local
-  resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
+  resolution: "@elvia/elvis-dropdown-old@workspace:packages/components/components/elvis-dropdown.old"
   dependencies:
     "@elvia/elvis-colors": ^1.4.1
     "@elvia/elvis-component-wrapper": ^2.3.3
@@ -2856,9 +2856,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-dropdown@portal:../components/components/elvis-dropdown::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
+"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
   version: 0.0.0-use.local
-  resolution: "@elvia/elvis-dropdown@portal:../components/components/elvis-dropdown::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
+  resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
+  dependencies:
+    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-component-wrapper": ^2.4.4
+    "@elvia/elvis-icon": ^1.3.3
+    "@elvia/elvis-toolbox": ^5.4.0
+    "@elvia/elvis-typography": ^2.3.1
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
+  languageName: unknown
+  linkType: soft
+
+"@elvia/elvis-dropdown@npm:^4.0.0":
+  version: 4.1.3
+  resolution: "@elvia/elvis-dropdown@npm:4.1.3"
   dependencies:
     "@elvia/elvis-colors": ^1.4.1
     "@elvia/elvis-component-wrapper": ^2.3.3
@@ -2869,6 +2889,24 @@ __metadata:
     lodash.isequal: ^4.5.0
     lodash.uniqueid: 4.0.1
     react-select: 5.2.2
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
+  checksum: a60c040989d010229efd634651d3f354cc6ccc4c150414183f26d5ed04d7241ce821d79959a2279b138edd6c58a1ff38a95a49778771a7a843259beaf9407d39
+  languageName: node
+  linkType: hard
+
+"@elvia/elvis-dropdown@portal:../components/components/elvis-dropdown::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-dropdown@portal:../components/components/elvis-dropdown::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
+  dependencies:
+    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-component-wrapper": ^2.4.4
+    "@elvia/elvis-icon": ^1.3.3
+    "@elvia/elvis-toolbox": ^5.4.0
+    "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0

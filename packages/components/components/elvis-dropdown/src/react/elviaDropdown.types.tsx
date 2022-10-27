@@ -13,10 +13,7 @@ export interface DropdownItemProps {
 }
 
 export interface DropdownProps {
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `items`.
-   */
-  options?: never;
+  dropdownOverlay: JSX.Element;
   /**
    * @deprecated Removed in version 3.0.0. Replaced by `value`.
    */
@@ -37,7 +34,6 @@ export interface DropdownProps {
   placeholder?: string;
   placeholderIcon?: IconName;
   valueOnChange?: (selectedOptions: DropdownItemProps | Array<DropdownItemProps> | undefined) => void;
-  onItemHover?: (hoveredItem: DropdownItemProps | undefined) => void;
   hasLoadMoreItemsButton?: boolean;
   onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;

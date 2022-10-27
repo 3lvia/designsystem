@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useRef, useState } from 'react';
 
 import { config } from './config';
@@ -10,29 +11,35 @@ import {
   useConnectedOverlay,
 } from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
-import { DropdownContainer } from './dropdown/dropdownContainer';
 import { DropdownInput } from './dropdown-input/dropdownInput';
-import { DropdownInputContainer } from './styledComponents';
+import {
+  Backdrop,
+  DropdownContainer,
+  DropdownInputContainer,
+  IconRotator,
+  OverlayPositioner,
+} from './styledComponents';
+import { DropdownError } from './error/dropdownError';
+import { createPortal } from 'react-dom';
 
 const Dropdown: React.FC<DropdownProps> = ({
-  items = [],
+  dropdownOverlay,
   value = undefined,
   isCompact = false,
-  isDisabled,
-  isMulti,
-  isFullWidth,
+  isDisabled = false,
+  isFullWidth = false,
   isSearchable = false,
-  hasSelectAllOption = false,
-  selectAllOption,
   allOptionsSelectedLabel = 'Alle',
-  label,
+  label = '',
   errorMessage = '',
   menuPosition = 'auto',
-  noOptionsMessage = 'Ingen tilgjengelige valg',
   placeholder = '',
   placeholderIcon,
+  hasSelectAllOption = false,
+  isMulti = false,
+  selectAllOption,
+  noOptionsMessage = 'Ingen tilgjengelige valg',
   valueOnChange,
-  onItemHover,
   hasLoadMoreItemsButton,
   onLoadMoreItems,
   isLoadingMoreItems,
@@ -40,7 +47,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   inlineStyle,
   webcomponent,
 }) => {
-  warnDeprecatedProps(config, arguments[0]);
+  // warnDeprecatedProps(config, arguments[0]);
 
   const [currentVal, setCurrentVal] = useState(value);
   const [isError, setIsError] = useState(false);
@@ -53,9 +60,9 @@ const Dropdown: React.FC<DropdownProps> = ({
     popoverRef,
     {
       offset: 8,
-      horizontalPosition: 'left-inside',
-      verticalPosition: 'bottom',
-      alignWidths: false,
+      horizontalPosition: 'center',
+      verticalPosition: menuPosition === 'top' ? 'top' : 'bottom',
+      alignWidths: true,
     },
   );
 
@@ -76,6 +83,9 @@ const Dropdown: React.FC<DropdownProps> = ({
       return;
     }
 
+    const overlay = popoverRef.current?.firstChild;
+    console.log(overlay);
+
     /** We need to update the position, because the dimensions of the
      * overlay has changed.
      */
@@ -86,7 +96,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <>
-      <DropdownInputContainer
+      <DropdownContainer
         isCompact={isCompact}
         className={className ?? ''}
         style={{ ...inlineStyle }}
@@ -94,7 +104,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         data-testid="wrapper"
       >
         {!!label && <FormFieldLabel data-testid="label">{label}</FormFieldLabel>}
-        <FormFieldInputContainer
+        <DropdownInputContainer
           ref={connectedElementRef}
           isDisabled={isDisabled}
           isActive={isShowing}
@@ -104,6 +114,9 @@ const Dropdown: React.FC<DropdownProps> = ({
           <DropdownInput
             disabled={isDisabled}
             placeholder={placeholder}
+            placeholderIcon={placeholderIcon}
+            allOptionsSelectedLabel={allOptionsSelectedLabel}
+            allOptionsAreSelected={false}
             onChange={filterList}
             editable={isSearchable}
             isCompact={isCompact}
@@ -116,14 +129,28 @@ const Dropdown: React.FC<DropdownProps> = ({
             ref={openPopoverButtonRef}
             size={isCompact ? 'sm' : 'md'}
             data-testid="popover-toggle"
-            aria-label="Åpne datovelger"
+            aria-label="Åpne dropdown"
             aria-haspopup="dialog"
           >
-            <Icon name="calendar" color={isDisabled ? 'disabled' : 'black'} size={isCompact ? 'xs' : 'sm'} />
+            <IconRotator isRotated={isShowing}>
+              <Icon
+                name="arrowDown"
+                color={isDisabled ? 'disabled' : 'black'}
+                size={isCompact ? 'xs' : 'sm'}
+              />
+            </IconRotator>
           </IconButton>
-        </FormFieldInputContainer>
-      </DropdownInputContainer>
-      {isShowing && <DropdownContainer ref={popoverRef} />}
+        </DropdownInputContainer>
+        {(isError || errorMessage) && <DropdownError errorText={errorMessage} />}
+      </DropdownContainer>
+      {isShowing &&
+        createPortal(
+          <>
+            <Backdrop onClick={() => setVisibility(false)} />
+            <p>Foo</p>
+          </>,
+          document.body,
+        )}
     </>
   );
 };

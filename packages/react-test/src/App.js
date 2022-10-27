@@ -11,7 +11,7 @@ import { Chip } from '@elvia/elvis-chip/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';
 import { Divider } from '@elvia/elvis-divider/react';
-import { Dropdown } from '@elvia/elvis-dropdown/react';
+import { Dropdown, DropdownItem, DropdownOverlay } from '@elvia/elvis-dropdown/react';
 import { Header } from '@elvia/elvis-header/react';
 import { Icon } from '@elvia/elvis-icon/react';
 import { Modal } from '@elvia/elvis-modal/react';
@@ -148,7 +148,16 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <div className="e-bg-white"></div>
+              <div className="e-bg-white">
+                <Dropdown
+                  value={defaultDropdownOptions}
+                  label="test"
+                  hasLoadMoreItemsButton
+                  isLoadingMoreItems={isLoadingMoreItems}
+                  onLoadMoreItems={onLoadMoreItems}
+                  dropdownOverlay={<p>Foo</p>}
+                ></Dropdown>
+              </div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
@@ -311,14 +320,6 @@ function App() {
             {/* DROPDOWN */}
             <div className="example-wrapper">
               <h3>Dropdown</h3>
-              <Dropdown
-                items={dropdownOptions}
-                value={defaultDropdownOptions}
-                label="test"
-                hasLoadMoreItemsButton
-                isLoadingMoreItems={isLoadingMoreItems}
-                onLoadMoreItems={onLoadMoreItems}
-              ></Dropdown>
             </div>
             {/* ICON */}
             <div className="example-wrapper">
