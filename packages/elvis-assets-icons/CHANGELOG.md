@@ -1,5 +1,18 @@
 # Elvis-assets-icon
 
+## 2.6.0 (27.10.22)
+
+### New feature
+
+- New icons:
+  1. `future`
+  2. `history`
+  3. `it_systems-color`
+  4. `notification`
+  5. `laws-color`
+  6. `laws`
+  7. `process-color`
+
 ## 2.5.3 (05.10.22)
 
 ### Patch

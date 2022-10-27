@@ -1,6 +1,18 @@
 {
   "content": [
     {
+      "version": "9.4.0",
+      "date": "October 27, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add new icons: <span class=\"code-text\">future, history, process-color, laws, laws-color, it_systems-color, notifications</span>"
+          ]
+        }
+      ]
+    },
+    {
       "version": "9.3.1",
       "date": "October 21, 2022",
       "changelog": [
