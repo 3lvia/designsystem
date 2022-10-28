@@ -1,6 +1,5 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { IconName } from '@elvia/elvis-icon/react';
-import { CSSProperties } from 'react';
+import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 
@@ -12,13 +11,12 @@ export interface DropdownItemProps {
   isDisabled?: boolean;
 }
 
-export interface DropdownProps {
+export interface DropdownProps extends BaseProps, HasValue<DropdownValue> {
   dropdownOverlay: JSX.Element;
   /**
    * @deprecated Removed in version 3.0.0. Replaced by `value`.
    */
   defaultValue?: never;
-  value: DropdownValue;
   isCompact?: boolean;
   isDisabled?: boolean;
   isMulti?: boolean;
@@ -33,11 +31,7 @@ export interface DropdownProps {
   noOptionsMessage?: string;
   placeholder?: string;
   placeholderIcon?: IconName;
-  valueOnChange?: (selectedOptions: DropdownItemProps | Array<DropdownItemProps> | undefined) => void;
   hasLoadMoreItemsButton?: boolean;
   onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
 }
