@@ -1,60 +1,26 @@
-import React, { FC, useState, useEffect, useRef, CSSProperties } from 'react';
+import React, { FC, useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import classnames from 'classnames';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { Icon } from '@elvia/elvis-icon/react';
-import { PopoverStyles } from './styledComponents';
+import type { PopoverProps } from './elviaPopover.types';
+import { mapPositionToHorizontalPosition } from './mapPosition';
+import {
+  Backdrop,
+  CloseButtonContainer,
+  Heading,
+  PopoverContainer,
+  PopoverList,
+  PopoverTypography,
+  TriggerContainer,
+  PopoperContent,
+} from './styledComponents';
 import { config } from './config';
 import {
   outlineListener,
   useConnectedOverlay,
   useFocusTrap,
   warnDeprecatedProps,
+  IconButton,
 } from '@elvia/elvis-toolbox';
-
-export interface PopoverProps {
-  /**
-   * @deprecated Deprecated in version 5.0.0. Replaced by `heading`.
-   */
-  header?: string;
-  heading?: string;
-  content?: string | JSX.Element;
-  type?: 'informative' | 'list';
-  /**
-   * @deprecated Deprecated in version 5.0.0. Replaced by `isSelectable`.
-   */
-  selectable?: boolean;
-  isSelectable?: boolean;
-  hasDivider?: boolean;
-  /**
-   * @deprecated Deprecated in version 5.0.0. Replaced by `horizontalPosition`.
-   */
-  posX?: 'left' | 'right' | 'center';
-  horizontalPosition?: 'left' | 'left-inside' | 'center' | 'right-inside' | 'right';
-  /**
-   * @deprecated Deprecated in version 5.0.0. Replaced by `verticalPosition`.
-   */
-  posY?: 'top' | 'bottom';
-  verticalPosition?: 'top' | 'top-inside' | 'center' | 'bottom-inside' | 'bottom';
-
-  trigger?: JSX.Element;
-  /**
-   * @deprecated Deprecated in version 5.0.0. Replaced by 'hasCloseButton'.
-   */
-  hasCloseBtn?: boolean;
-  hasCloseButton?: boolean;
-  isShowing?: boolean;
-  /**
-   * @deprecated Deprecated in version 5.0.0. Replaced by 'onOpen' & 'onClose'
-   */
-  isShowingOnChange?: (isShowing: boolean) => void;
-  onOpen?: () => void;
-  onClose?: () => void;
-  disableAutoClose?: boolean;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
-}
 
 const Popover: FC<PopoverProps> = function ({
   heading,
@@ -62,7 +28,7 @@ const Popover: FC<PopoverProps> = function ({
   type = 'informative',
   isSelectable = false,
   hasDivider = false,
-  horizontalPosition = type === 'list' ? 'left-inside' : 'center',
+  horizontalPosition = type === 'list' ? 'left' : 'center',
   verticalPosition = type === 'list' ? 'bottom' : 'top',
   trigger,
   hasCloseButton = true,
@@ -85,12 +51,15 @@ const Popover: FC<PopoverProps> = function ({
   const popoverText = useRef<HTMLDivElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
 
-  const { isShowing: isShowingConnectedOverlayState, setIsShowing: setIsShowingConnectedOverlayState } =
-    useConnectedOverlay(popoverTriggerRef, popoverContentRef, {
-      horizontalPosition: horizontalPosition,
-      verticalPosition: verticalPosition,
-      alignWidths: false,
-    });
+  const {
+    isShowing: isShowingConnectedOverlayState,
+    setIsShowing: setIsShowingConnectedOverlayState,
+    updatePreferredPosition,
+  } = useConnectedOverlay(popoverTriggerRef, popoverContentRef, {
+    horizontalPosition: mapPositionToHorizontalPosition(horizontalPosition),
+    verticalPosition: verticalPosition,
+    alignWidths: false,
+  });
   const [hasBeenInitiated, setHasBeenInitiated] = useState(isShowing);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
 
@@ -129,7 +98,9 @@ const Popover: FC<PopoverProps> = function ({
       popoverText.current.innerHTML = '';
       popoverText.current.appendChild(webcomponent.getSlot('content'));
     }
-  }, [webcomponent, type]);
+
+    updatePreferredPosition();
+  }, [webcomponent, type, isShowingConnectedOverlayState]);
 
   /**
    * Dispatch onOpen and onClose events.
@@ -143,9 +114,7 @@ const Popover: FC<PopoverProps> = function ({
       handleOnClose();
     }
 
-    return () => {
-      removeEventListeners();
-    };
+    return () => removeEventListeners();
   }, [isShowingConnectedOverlayState]);
 
   useEffect(() => {
@@ -187,7 +156,7 @@ const Popover: FC<PopoverProps> = function ({
   };
 
   const togglePopover = (): void =>
-    setIsShowingConnectedOverlayState((previousIsShowingState) => !previousIsShowingState);
+    setIsShowingConnectedOverlayState((previousIsShowingState: boolean) => !previousIsShowingState);
 
   const onEscape = (keydown: KeyboardEvent) => {
     if (keydown.key === 'Escape') {
@@ -195,16 +164,8 @@ const Popover: FC<PopoverProps> = function ({
     }
   };
 
-  const popoverClasses = classnames('ewc-popover', {
-    ['ewc-popover--hide']: !isShowingConnectedOverlayState,
-    ['ewc-popover--text-only']: typeof content === 'string',
-    ['ewc-popover--list']: type === 'list',
-    ['ewc-popover--list-divider']: type === 'list' && hasDivider,
-    ['ewc-popover--list-selectable']: isSelectable,
-  });
-
   return (
-    <PopoverStyles
+    <div
       className={className ? className : ''}
       style={inlineStyle}
       ref={popoverRef}
@@ -212,80 +173,64 @@ const Popover: FC<PopoverProps> = function ({
       role="dialog"
       {...rest}
     >
-      <div ref={popoverClassContainerRef} className={popoverClasses} data-testid="popover-container">
-        <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
+      <PopoverContainer ref={popoverClassContainerRef} data-testid="popover-container">
+        {isShowingConnectedOverlayState && <Backdrop ref={popoverBackdropRef}></Backdrop>}
+
+        <TriggerContainer overlayIsOpen={isShowingConnectedOverlayState} ref={popoverTriggerRef}>
           {trigger && (
             <div onClick={togglePopover} data-testid="popover-trigger">
               {trigger}
             </div>
           )}
           {!trigger && <div onClick={togglePopover} ref={popoverSlotTriggerRef}></div>}
-        </div>
-        <div className="ewc-popover__backdrop" ref={popoverBackdropRef}></div>
-        {createPortal(
-          <PopoverStyles
-            className={className ? className : ''}
-            style={inlineStyle}
-            ref={popoverRef}
-            data-testid="popover-wrapper"
-            role="dialog"
-            {...rest}
-          >
-            <div className={popoverClasses}>
-              <div className="ewc-popover__content" ref={popoverContentRef} aria-modal="true">
-                {type === 'informative' && (
-                  <div className="ewc-popover__content-area">
-                    {hasCloseButton === true && (
-                      <div className="ewc-popover__close">
-                        <button
-                          className="ewc-btn ewc-btn--icon ewc-btn--sm"
-                          onClick={() => setIsShowingConnectedOverlayState(false)}
-                          type="button"
-                          data-testid="popover-close-btn"
-                          aria-label="Lukk"
-                        >
-                          <Icon name="closeBold" size="xs" />
-                        </button>
-                      </div>
-                    )}
-                    {heading && (
-                      <h3 className="ewc-popover__header" data-testid="popover-header">
-                        {heading}
-                      </h3>
-                    )}
-                  </div>
-                )}
-                {content && type === 'informative' && (
-                  <div className="ewc-popover__text" data-testid="popover-text">
-                    {content}
-                  </div>
-                )}
-                {!content && type === 'informative' && (
-                  <div className="ewc-popover__text" ref={popoverText} />
-                )}
-                {content && type === 'list' && (
-                  <div
-                    className="ewc-popover__text"
+        </TriggerContainer>
+
+        {isShowingConnectedOverlayState &&
+          createPortal(
+            <PopoperContent type={type} ref={popoverContentRef} aria-modal="true">
+              {type === 'informative' && (
+                <>
+                  {hasCloseButton && (
+                    <CloseButtonContainer>
+                      <IconButton
+                        size="sm"
+                        onClick={() => setIsShowingConnectedOverlayState(false)}
+                        data-testid="popover-close-btn"
+                        aria-label="Lukk"
+                      >
+                        <Icon name="closeBold" size="xs" />
+                      </IconButton>
+                    </CloseButtonContainer>
+                  )}
+                  {heading && <Heading data-testid="popover-header">{heading}</Heading>}
+                </>
+              )}
+              {content && type === 'informative' && (
+                <PopoverTypography data-testid="popover-text">{content}</PopoverTypography>
+              )}
+              {!content && type === 'informative' && <PopoverTypography ref={popoverText} />}
+              {content && type === 'list' && (
+                <PopoverTypography
+                  data-testid="popover-text"
+                  onClick={() => !disableAutoClose && setIsShowingConnectedOverlayState(false)}
+                >
+                  <PopoverList>{content}</PopoverList>
+                </PopoverTypography>
+              )}
+              {!content && type === 'list' && (
+                <PopoverList hasDivider={hasDivider} isSelectable={isSelectable}>
+                  <PopoverTypography
                     data-testid="popover-text"
-                    onClick={() => !disableAutoClose && setIsShowingConnectedOverlayState(false)}
-                  >
-                    {content}
-                  </div>
-                )}
-                {!content && type === 'list' && (
-                  <div
-                    className="ewc-popover__text"
                     onClick={() => !disableAutoClose && setIsShowingConnectedOverlayState(false)}
                     ref={popoverText}
                   />
-                )}
-              </div>
-            </div>
-          </PopoverStyles>,
-          document.body,
-        )}
-      </div>
-    </PopoverStyles>
+                </PopoverList>
+              )}
+            </PopoperContent>,
+            document.body,
+          )}
+      </PopoverContainer>
+    </div>
   );
 };
 
