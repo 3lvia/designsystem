@@ -1,66 +1,65 @@
 import { Icon, IconName } from '@elvia/elvis-icon/react';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
+import { DropdownContext } from '../elvia-dropdown';
 import { DropdownValue } from '../elviaDropdown.types';
 
 import { Input, ReadonlyInput } from './dropdownInputStyles';
 
 interface Props {
-  disabled?: boolean;
   placeholder?: string;
   placeholderIcon?: IconName;
   allOptionsSelectedLabel: string;
   allOptionsAreSelected: boolean;
   editable: boolean;
-  isCompact: boolean;
-  value: DropdownValue;
   onChange: (query: string) => void;
 }
 
 export const DropdownInput: React.FC<Props> = ({
-  disabled,
   placeholder,
   placeholderIcon,
   allOptionsSelectedLabel,
   allOptionsAreSelected,
   editable,
-  isCompact,
-  value,
   onChange,
 }) => {
-  const [displayValue, setDisplayValue] = useState('');
   const inputElement = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    if (Array.isArray(value)) {
+  const getDisplayValue = (item: DropdownValue): string => {
+    console.log('Value in input: ', item);
+    if (Array.isArray(item)) {
       if (allOptionsAreSelected) {
-        setDisplayValue(allOptionsSelectedLabel);
-      } else if (value.length >= 2) {
-        setDisplayValue(`${value.length} valgte`);
+        return allOptionsSelectedLabel;
+      } else if (item.length >= 2) {
+        return `${item.length} valgte`;
       } else {
-        setDisplayValue(value[0].label);
+        return item[0];
       }
-    } else if (value) {
-      setDisplayValue(value.label);
     }
-  }, [value]);
+
+    return item || '';
+  };
 
   return (
-    <>
-      {editable ? (
-        <Input
-          ref={inputElement}
-          disabled={disabled}
-          placeholder={placeholder}
-          onChange={() => onChange(inputElement.current?.value ?? '')}
-          value={displayValue}
-          data-testid="input"
-        />
-      ) : (
-        <ReadonlyInput isCompact={isCompact}>
-          {placeholderIcon && <Icon name={placeholderIcon} size="xs"></Icon>}
-          {displayValue}
-        </ReadonlyInput>
-      )}
-    </>
+    <DropdownContext.Consumer>
+      {({ currentVal, isDisabled, isCompact }) => {
+        <>
+          {editable ? (
+            <Input
+              ref={inputElement}
+              disabled={isDisabled}
+              placeholder={placeholder}
+              onChange={() => onChange(inputElement.current?.value ?? '')}
+              value={getDisplayValue(currentVal)}
+              data-testid="input"
+            />
+          ) : (
+            <ReadonlyInput isCompact={isCompact ?? false}>
+              {placeholderIcon && <Icon name={placeholderIcon} size="xs"></Icon>}
+              {getDisplayValue(currentVal)}
+            </ReadonlyInput>
+          )}
+        </>;
+      }}
+    </DropdownContext.Consumer>
   );
 };

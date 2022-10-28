@@ -3,10 +3,10 @@ import React, { useEffect, useRef } from 'react';
 import { DropdownContainerStyles } from './dropdownOverlayStyles';
 
 interface DropdownOverlayProps {
-  content: React.ReactNode;
+  items: JSX.Element[];
 }
 
-export const DropdownOverlay: React.FC<DropdownOverlayProps> = ({ content }) => {
+export const DropdownOverlay: React.FC<DropdownOverlayProps> = ({ items }) => {
   // isMulti: boolean;
   // hasSelectAllOption: boolean;
   // selectAllOption?: Partial<DropdownItemProps>;
@@ -21,5 +21,5 @@ export const DropdownOverlay: React.FC<DropdownOverlayProps> = ({ content }) => 
     return () => releaseFocusTrap();
   }, []);
 
-  return <DropdownContainerStyles ref={overlayRef}>{content}</DropdownContainerStyles>;
+  return <DropdownContainerStyles ref={overlayRef}>{items}</DropdownContainerStyles>;
 };

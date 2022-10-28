@@ -1,15 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useRef, useState } from 'react';
 
 import { config } from './config';
-import { DropdownProps } from './elviaDropdown.types';
-import {
-  warnDeprecatedProps,
-  FormFieldLabel,
-  FormFieldInputContainer,
-  IconButton,
-  useConnectedOverlay,
-} from '@elvia/elvis-toolbox';
+import { DropdownProps, DropdownValue, GlobalDropdownProps } from './elviaDropdown.types';
+import { warnDeprecatedProps, FormFieldLabel, IconButton, useConnectedOverlay } from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import { DropdownInput } from './dropdown-input/dropdownInput';
 import {
@@ -21,6 +14,17 @@ import {
 } from './styledComponents';
 import { DropdownError } from './error/dropdownError';
 import { createPortal } from 'react-dom';
+
+export const DropdownContext = React.createContext<
+  GlobalDropdownProps & {
+    onItemSelect: (value: string) => void;
+    currentVal?: DropdownValue;
+  }
+>({
+  onItemSelect: () => {
+    return;
+  },
+});
 
 const Dropdown: React.FC<DropdownProps> = ({
   dropdownOverlay,
@@ -78,13 +82,26 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
   };
 
+  const setSelectedItem = (value: string): void => {
+    console.log('here', value, currentVal, isMulti);
+    if (isMulti && Array.isArray(currentVal)) {
+      const arrayCopy = currentVal.slice();
+      const existingIndex = arrayCopy.indexOf(value);
+      if (existingIndex === -1) {
+        arrayCopy.push(value);
+      } else {
+        arrayCopy.splice(existingIndex, 1);
+      }
+      setCurrentVal(arrayCopy);
+    } else if (!isMulti && typeof currentVal === 'string') {
+      setCurrentVal(value);
+    }
+  };
+
   useEffect(() => {
     if (!isShowing) {
       return;
     }
-
-    const overlay = popoverRef.current?.firstChild;
-    console.log(overlay);
 
     /** We need to update the position, because the dimensions of the
      * overlay has changed.
@@ -95,13 +112,23 @@ const Dropdown: React.FC<DropdownProps> = ({
   }, [isShowing]);
 
   return (
-    <>
+    <DropdownContext.Provider
+      value={{
+        isCompact: isCompact,
+        isMulti: isMulti,
+        isDisabled: isDisabled,
+        onItemSelect: (value) => setSelectedItem(value),
+        currentVal: currentVal,
+      }}
+    >
       <DropdownContainer
         isCompact={isCompact}
         className={className ?? ''}
         style={{ ...inlineStyle }}
         fullWidth={isFullWidth}
         data-testid="wrapper"
+        role="combobox"
+        aria-haspopup="true"
       >
         {!!label && <FormFieldLabel data-testid="label">{label}</FormFieldLabel>}
         <DropdownInputContainer
@@ -112,25 +139,20 @@ const Dropdown: React.FC<DropdownProps> = ({
           data-testid="input-container"
         >
           <DropdownInput
-            disabled={isDisabled}
             placeholder={placeholder}
             placeholderIcon={placeholderIcon}
             allOptionsSelectedLabel={allOptionsSelectedLabel}
             allOptionsAreSelected={false}
             onChange={filterList}
             editable={isSearchable}
-            isCompact={isCompact}
-            value={currentVal}
           />
           <IconButton
             disabled={isDisabled}
-            isActive={isShowing}
             onClick={() => setVisibility(!isShowing)}
             ref={openPopoverButtonRef}
             size={isCompact ? 'sm' : 'md'}
             data-testid="popover-toggle"
             aria-label="Åpne dropdown"
-            aria-haspopup="dialog"
           >
             <IconRotator isRotated={isShowing}>
               <Icon
@@ -147,11 +169,11 @@ const Dropdown: React.FC<DropdownProps> = ({
         createPortal(
           <>
             <Backdrop onClick={() => setVisibility(false)} />
-            <p>Foo</p>
+            <OverlayPositioner ref={popoverRef}>{dropdownOverlay}</OverlayPositioner>
           </>,
           document.body,
         )}
-    </>
+    </DropdownContext.Provider>
   );
 };
 

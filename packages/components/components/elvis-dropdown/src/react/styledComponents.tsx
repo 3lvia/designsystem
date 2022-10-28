@@ -9,6 +9,12 @@ export const DropdownContainer = styled(FormFieldContainer)`
 
 export const DropdownInputContainer = styled(FormFieldInputContainer)`
   width: 100%;
+
+  ${(props) =>
+    !props.isDisabled &&
+    css`
+      cursor: pointer;
+    `}
 `;
 
 export const OverlayPositioner = styled.div`
