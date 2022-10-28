@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.10.22",
+      "version": "2.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Use interfaces from <span class=\"code-text\">@elvia/elvis-toolbox</span>"]
+        }
+      ]
+    },
+    {
       "date": "25.10.22",
       "version": "2.0.0",
       "changelog": [
