@@ -13,7 +13,7 @@
         "
         [heading]="'About login'"
         [verticalPosition]="'top'"
-        [horizontalPosition]="'left-inside'"
+        [horizontalPosition]="'center'"
         (onOpen)="isPopoverShowing = true"
         (onClose)="isPopoverShowing = false"
       >
@@ -21,6 +21,29 @@
           slot="trigger"
           class="e-btn e-btn--icon e-btn--circled"
           [ngClass]="{ 'e-btn---selected': isPopoverShowing }"
+          aria-label="Popover trigger"
+        >
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+            <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+          </span>
+        </button>
+      </elvia-popover>
+
+      <elvia-popover
+        [content]="
+          'For safe and easy login on My page, you should log in with BankID. Here you can read more about logging in with BankID and functions on My page on Elvia.'
+        "
+        [heading]="'About login'"
+        [verticalPosition]="'top'"
+        [horizontalPosition]="'center'"
+        (onOpen)="isPopoverShowing1 = true"
+        (onClose)="isPopoverShowing1 = false"
+      >
+        <button
+          slot="trigger"
+          class="e-btn e-btn--icon e-btn--circled"
+          [ngClass]="{ 'e-btn---selected': isPopoverShowing1 }"
           aria-label="Popover trigger"
         >
           <span class="e-btn__icon">
@@ -39,7 +62,7 @@
       >
         <button
           slot="trigger"
-          class="e-btn e-btn--icon e-mr-8"
+          class="e-btn e-btn--icon"
           [ngClass]="{ 'e-btn---selected': isPopoverListShowing }"
           aria-label="More menu"
         >
@@ -48,7 +71,7 @@
             <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
           </span>
         </button>
-        <div slot="content" class="ewc-popover__list">
+        <div slot="content">
           <div class="ewc-popover__list-group">
             <a href="https://www.vg.no">link1</a>
             <button>
@@ -85,7 +108,6 @@
           </span>
         </button>
         <div slot="content" class="ewc-popover__list">
-          <!-- denne diven får fokus -->
           <div class="ewc-popover__list-group">
             <h3>Kundeforhold</h3>
             <button>
@@ -95,11 +117,51 @@
               <span>Legg til bruker</span>
             </button>
           </div>
-          <!-- denne diven får _ikke_ fokus -->
+
+          <div class="ewc-popover__list-group">
+            <h3>Kundeforhold</h3>
+            <button>
+              <span>Be om tilgang</span>
+            </button>
+            <button>
+              <span>Legg til bruker</span>
+            </button>
+          </div>
+
+          <div class="ewc-popover__list-group">
+            <h3>Kundeforhold</h3>
+            <button>
+              <span>Be om tilgang</span>
+            </button>
+            <button>
+              <span>Legg til bruker</span>
+            </button>
+          </div>
+
+          <div class="ewc-popover__list-group">
+            <h3>Kundeforhold</h3>
+            <button>
+              <span>Be om tilgang</span>
+            </button>
+            <button>
+              <span>Legg til bruker</span>
+            </button>
+          </div>
+
+          <div class="ewc-popover__list-group">
+            <h3>Kundeforhold</h3>
+            <button>
+              <span>Be om tilgang</span>
+            </button>
+            <button>
+              <span>Legg til bruker</span>
+            </button>
+          </div>
+
           <div class="ewc-popover__list-group">
             <h3>Innlogging</h3>
-            <a href="#">Visit W3Schools</a>
-            <a href="#">Visit W3Schools</a>
+            <a href="#">Lenke</a>
+            <a href="#">Wencke</a>
           </div>
         </div>
       </elvia-popover>
@@ -123,6 +185,82 @@
         </button>
         <div slot="content">
           <span>dette er litt tekst som skal dukke opp i en popover</span>
+        </div>
+      </elvia-popover>
+
+      <p>icons</p>
+      <!-- This example will only work once you have created a isShowing variable -->
+      <elvia-popover
+        [type]="'list'"
+        [verticalPosition]="'bottom'"
+        (onOpen)="isPopoverListIconsShowing = true"
+        (onClose)="isPopoverListIconsShowing = false"
+      >
+        <button
+          slot="trigger"
+          class="e-btn e-btn--icon e-btn--circled"
+          [ngClass]="{ 'e-btn---selected': isPopoverListIconsShowing }"
+          aria-label="More menu"
+        >
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+            <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+          </span>
+        </button>
+        <div slot="content" class="ewc-popover__list">
+          <div class="ewc-popover__list-group">
+            <button>
+              <elvia-icon name="edit" size="xs"></elvia-icon>
+              <span>Rediger</span>
+            </button>
+            <button>
+              <elvia-icon name="bin" size="xs"></elvia-icon>
+              <span>Slett</span>
+            </button>
+          </div>
+          <div class="ewc-popover__list-group">
+            <a>
+              <elvia-icon name="download" size="xs"></elvia-icon>
+              <span>Last ned</span>
+            </a>
+          </div>
+        </div>
+      </elvia-popover>
+
+      <p>checked</p>
+      <!-- This example will only work once you have created a isShowing variable -->
+      <elvia-popover
+        [type]="'list'"
+        [isSelectable]="true"
+        [verticalPosition]="'bottom'"
+        [verticalPosition]="'bottom'"
+        (onOpen)="isPopoverLIstCheckedShowing = true"
+        (onClose)="isPopoverLIstCheckedShowing = false"
+      >
+        <button
+          slot="trigger"
+          class="e-btn e-btn--icon e-btn--circled"
+          [ngClass]="{ 'e-btn---selected': isPopoverLIstCheckedShowing }"
+          aria-label="More menu"
+        >
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+            <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+          </span>
+        </button>
+        <div slot="content" class="ewc-popover__list">
+          <div class="ewc-popover__list-group">
+            <button>
+              <elvia-icon name="checkBold" size="xs"></elvia-icon>
+              <span>Dato - nyeste til eldste</span>
+            </button>
+            <button>
+              <span>Dato - eldste til nyeste</span>
+            </button>
+            <button>
+              <span>Relevans</span>
+            </button>
+          </div>
         </div>
       </elvia-popover>
     </div>
