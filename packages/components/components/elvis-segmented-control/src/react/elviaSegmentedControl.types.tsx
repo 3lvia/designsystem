@@ -1,6 +1,5 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { CSSProperties } from 'react';
 import { IconName } from '@elvia/elvis-assets-icons';
+import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 
 export type Type = 'text' | 'icon';
 export type Size = 'large' | 'medium' | 'small';
@@ -14,15 +13,10 @@ export interface IconSegmentedControl {
   ariaLabel: string;
 }
 
-export interface SegmentedControlProps {
+export interface SegmentedControlProps extends BaseProps, HasValue<number> {
   items: TextSegmentedControl[] | IconSegmentedControl[];
-  value?: number;
   type?: Type;
   size?: Size;
-  valueOnChange?: (value: number) => void;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
 }
 
 // Styling
