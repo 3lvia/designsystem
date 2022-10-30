@@ -1,65 +1,90 @@
 import { Icon, IconName } from '@elvia/elvis-icon/react';
-import React, { useRef } from 'react';
+import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { DropdownContext } from '../elvia-dropdown';
-import { DropdownValue } from '../elviaDropdown.types';
 
-import { Input, ReadonlyInput } from './dropdownInputStyles';
+import { Input } from './dropdownInputStyles';
 
 interface Props {
   placeholder?: string;
   placeholderIcon?: IconName;
   allOptionsSelectedLabel: string;
-  allOptionsAreSelected: boolean;
   editable: boolean;
   onChange: (query: string) => void;
+  onFocusChange: (hasFocus: boolean) => void;
 }
 
 export const DropdownInput: React.FC<Props> = ({
   placeholder,
   placeholderIcon,
   allOptionsSelectedLabel,
-  allOptionsAreSelected,
   editable,
   onChange,
+  onFocusChange,
 }) => {
-  const inputElement = useRef<HTMLInputElement>(null);
+  const [inputValue, setInputValue] = useState('');
+  const { isDisabled, currentVal, items, focusedIndex, setFocusedIndex } = React.useContext(DropdownContext);
 
-  const getDisplayValue = (item: DropdownValue): string => {
-    console.log('Value in input: ', item);
-    if (Array.isArray(item)) {
-      if (allOptionsAreSelected) {
-        return allOptionsSelectedLabel;
-      } else if (item.length >= 2) {
-        return `${item.length} valgte`;
-      } else {
-        return item[0];
-      }
-    }
-
-    return item || '';
+  const onInputChange = (inputValue: string): void => {
+    onChange(inputValue);
+    setInputValue(inputValue);
   };
 
+  const onKeyDown = (ev: KeyboardEvent<HTMLInputElement>): void => {
+    if (focusedIndex != null && ['Space', 'Enter'].includes(ev.code)) {
+      ev.preventDefault();
+      // TODO: Select with index
+    } else if (ev.code === 'ArrowUp') {
+      if (focusedIndex - 1 < 0) {
+        setFocusedIndex(items.length - 1);
+      } else {
+        setFocusedIndex(focusedIndex - 1);
+      }
+      ev.preventDefault();
+    } else if (ev.code === 'ArrowDown') {
+      console.log(items.length);
+      if (focusedIndex + 1 > items.length - 1) {
+        setFocusedIndex(0);
+      } else {
+        setFocusedIndex(focusedIndex + 1);
+      }
+      ev.preventDefault();
+    }
+  };
+
+  useEffect(() => {
+    const selectedItems = items.filter((item) => {
+      if (Array.isArray(currentVal)) {
+        return currentVal.includes(item.value);
+      }
+      return currentVal === item.value;
+    });
+
+    if (Array.isArray(currentVal) && currentVal.length === items.length) {
+      setInputValue(allOptionsSelectedLabel);
+    } else if (selectedItems.length >= 2) {
+      setInputValue(`${selectedItems.length} valgte`);
+    } else if (selectedItems.length === 1) {
+      setInputValue(selectedItems[0].label);
+    } else {
+      setInputValue('');
+    }
+  }, [currentVal, items]);
+
   return (
-    <DropdownContext.Consumer>
-      {({ currentVal, isDisabled, isCompact }) => {
-        <>
-          {editable ? (
-            <Input
-              ref={inputElement}
-              disabled={isDisabled}
-              placeholder={placeholder}
-              onChange={() => onChange(inputElement.current?.value ?? '')}
-              value={getDisplayValue(currentVal)}
-              data-testid="input"
-            />
-          ) : (
-            <ReadonlyInput isCompact={isCompact ?? false}>
-              {placeholderIcon && <Icon name={placeholderIcon} size="xs"></Icon>}
-              {getDisplayValue(currentVal)}
-            </ReadonlyInput>
-          )}
-        </>;
-      }}
-    </DropdownContext.Consumer>
+    <>
+      {placeholderIcon && (
+        <Icon name={placeholderIcon} size="xs" color={isDisabled ? 'disabled' : 'elvia-off'} />
+      )}
+      <Input
+        disabled={isDisabled}
+        placeholder={placeholder}
+        onChange={(ev) => onInputChange(ev.target.value ?? '')}
+        value={inputValue}
+        onFocus={() => onFocusChange(true)}
+        onKeyDown={onKeyDown}
+        readOnly={!editable}
+        data-testid="input"
+      />
+    </>
   );
 };

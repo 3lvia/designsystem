@@ -5,9 +5,8 @@ export const DropdownContainerStyles = styled.div.attrs(() => ({
   role: 'listbox',
   tabindex: 0,
 }))`
-  max-height: 500px;
+  max-height: 300px;
   overflow-y: auto;
   background-color: ${getColor('elvia-on')};
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
-  z-index: 99999;
 `;

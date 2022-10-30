@@ -287,9 +287,9 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    slotItems: true,
     reactName: 'Dropdown',
-    useWrapper: false,
+    slotItems: true,
+    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
