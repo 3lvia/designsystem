@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-type InputMode = 'mouse' | 'keyboard';
+type InputMode = 'mouse' | 'keyboard' | 'touch';
 
 /**
  * Detects whether mouse or keyboard is being used for interaction.
@@ -17,25 +17,23 @@ export const useInputModeDetection = (
   element?: React.RefObject<HTMLElement>,
 ): { inputMode: InputMode; isMouse: boolean } => {
   const [inputMode, setInputMode] = useState<InputMode>('mouse');
-  const [isMouse, setIsMouse] = useState(inputMode === 'mouse');
 
   useEffect(() => {
     const setIsKeyboard = () => setInputMode('keyboard');
     const setIsMouse = () => setInputMode('mouse');
+    const setIsTouch = () => setInputMode('touch');
 
     const elementToObserve = element?.current ?? document.body;
     elementToObserve.addEventListener('mousemove', setIsMouse);
     elementToObserve.addEventListener('keydown', setIsKeyboard);
+    elementToObserve.addEventListener('touchstart', setIsTouch);
 
     return () => {
       elementToObserve.removeEventListener('mousemove', setIsMouse);
       elementToObserve.removeEventListener('keydown', setIsKeyboard);
+      elementToObserve.removeEventListener('touchstart', setIsTouch);
     };
   }, [element]);
 
-  useEffect(() => {
-    setIsMouse(inputMode === 'mouse');
-  }, [inputMode]);
-
-  return { inputMode, isMouse };
+  return { inputMode, isMouse: inputMode === 'mouse' };
 };
