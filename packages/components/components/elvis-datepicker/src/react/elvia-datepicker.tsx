@@ -96,6 +96,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       valueOnChange(newDate);
     } else if (webcomponent) {
       webcomponent.setProps({ value: newDate }, true);
+      webcomponent.triggerEvent('valueOnChange', newDate);
     }
   };
 
