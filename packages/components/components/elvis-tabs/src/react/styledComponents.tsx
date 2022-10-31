@@ -20,6 +20,9 @@ const underline = css`
 `;
 
 export const TabsStyles = styled.div`
+  overflow: hidden;
+  width: 100%;
+
   .ewc-no-outline,
   .ewc-no-outline * {
     outline: none !important;

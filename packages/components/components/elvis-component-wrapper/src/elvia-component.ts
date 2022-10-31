@@ -297,10 +297,12 @@ declare class ElviaComponent extends ElvisComponentWrapper {
   getComponentData(): {
     name: string;
     elementName: string;
-    reactName: string;
-    useWrapper: boolean;
-    slotItems: boolean;
-    wrapperStyle: string;
     attributes: { name: string; type: string }[];
+    reactName: string;
+    elementStyle: string;
+    conditionalElementStyle: { name: string; value: string; style: string }[];
+    useWrapper: boolean;
+    wrapperStyle: string;
+    slotItems: boolean;
   };
 }
