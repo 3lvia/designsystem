@@ -16,6 +16,7 @@ import {
 import { DropdownError } from './error/dropdownError';
 import { createPortal } from 'react-dom';
 import { useWebComponentState } from '@elvia/elvis-toolbox';
+import { useInputModeDetection } from './useInputModeDetection';
 
 interface DropdownItem {
   value: string;
@@ -28,6 +29,7 @@ interface SharedState {
   onItemSelect: (value: string) => void;
   onClose: () => void;
   currentVal: DropdownValue | null;
+  inputIsMouse: boolean;
   filter: string;
   focusedIndex: number;
   items: DropdownItem[];
@@ -39,6 +41,7 @@ export const DropdownContext = React.createContext<GlobalDropdownProps & SharedS
   onItemSelect: () => undefined,
   onClose: () => undefined,
   currentVal: undefined,
+  inputIsMouse: true,
   filter: '',
   focusedIndex: 0,
   items: [],
@@ -57,8 +60,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   menuPosition = 'auto',
   placeholder = '',
   placeholderIcon,
-  hasSelectAllOption = false,
   isMulti = false,
+  hasSelectAllOption = false,
   selectAllOption,
   noOptionsMessage = 'Ingen tilgjengelige valg',
   valueOnChange,
@@ -72,6 +75,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   // warnDeprecatedProps(config, arguments[0]);
 
   const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
+  const { isMouse } = useInputModeDetection();
   const [isError, setIsError] = useState(false);
   const [filter, setFilter] = useState('');
   const [focusedIndex, setFocusedIndex] = useState(0);
@@ -148,6 +152,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         onItemSelect: (value) => setSelectedItem(value),
         onClose: () => setVisibility(false),
         currentVal: currentVal,
+        inputIsMouse: isMouse,
         filter: filter,
         items: items,
       }}

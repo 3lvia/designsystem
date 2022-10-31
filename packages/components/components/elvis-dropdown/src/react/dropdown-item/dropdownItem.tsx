@@ -14,11 +14,12 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   value,
   content,
 }) => {
-  const { registerListItem, items, focusedIndex, setFocusedIndex } = React.useContext(DropdownContext);
+  const { registerListItem, items, focusedIndex, setFocusedIndex, inputIsMouse } =
+    React.useContext(DropdownContext);
   const [itemIndex, setItemIndex] = useState(0);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const isSelected = (currentVal: DropdownValue): boolean => {
+  const isSelected = (currentVal: DropdownValue | null): boolean => {
     if (Array.isArray(currentVal)) {
       return currentVal.includes(value);
     }
@@ -58,7 +59,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           isFocused={focusedIndex === itemIndex}
           isMulti={isMulti}
           disabled={isDisabled || optionIsDisabled}
-          onMouseEnter={() => (!isDisabled || optionIsDisabled) && setFocusedIndex(itemIndex)}
+          onMouseEnter={() => (!isDisabled || optionIsDisabled) && inputIsMouse && setFocusedIndex(itemIndex)}
           isHidden={!isVisible(filter)}
           onMouseDown={onMouseDown}
         >
