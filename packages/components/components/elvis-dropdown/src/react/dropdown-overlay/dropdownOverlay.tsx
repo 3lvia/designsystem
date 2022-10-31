@@ -12,7 +12,6 @@ export const DropdownOverlay: React.FC<DropdownOverlayProps> = ({ items }) => {
   const { focusedIndex, isCompact, items: internalItems, filter, inputIsMouse } = useContext(DropdownContext);
 
   useEffect(() => {
-    console.log('Is mouse: ', inputIsMouse);
     if (!inputIsMouse) {
       const buttonHeight = isCompact ? 40 : 48;
       overlayRef.current?.scrollTo({

@@ -22,7 +22,8 @@ export const DropdownInput: React.FC<Props> = ({
   onFocusChange,
 }) => {
   const [inputValue, setInputValue] = useState('');
-  const { isDisabled, currentVal, items, focusedIndex, setFocusedIndex } = React.useContext(DropdownContext);
+  const { isDisabled, currentVal, items, focusedIndex, setFocusedIndex, isOpen } =
+    React.useContext(DropdownContext);
 
   const onInputChange = (inputValue: string): void => {
     onChange(inputValue);
@@ -41,7 +42,6 @@ export const DropdownInput: React.FC<Props> = ({
       }
       ev.preventDefault();
     } else if (ev.code === 'ArrowDown') {
-      console.log(items.length);
       if (focusedIndex + 1 > items.length - 1) {
         setFocusedIndex(0);
       } else {
@@ -52,23 +52,31 @@ export const DropdownInput: React.FC<Props> = ({
   };
 
   useEffect(() => {
-    const selectedItems = items.filter((item) => {
-      if (Array.isArray(currentVal)) {
-        return currentVal.includes(item.value);
-      }
-      return currentVal === item.value;
-    });
+    const updateInputValue = () => {
+      const selectedItems = items.filter((item) => {
+        if (Array.isArray(currentVal)) {
+          return currentVal.includes(item.value);
+        }
+        return currentVal === item.value;
+      });
 
-    if (Array.isArray(currentVal) && currentVal.length === items.length) {
-      setInputValue(allOptionsSelectedLabel);
-    } else if (selectedItems.length >= 2) {
-      setInputValue(`${selectedItems.length} valgte`);
-    } else if (selectedItems.length === 1) {
-      setInputValue(selectedItems[0].label);
-    } else {
-      setInputValue('');
-    }
-  }, [currentVal, items]);
+      if (editable && isOpen) {
+        setInputValue('');
+      } else {
+        if (Array.isArray(currentVal) && currentVal.length === items.length) {
+          setInputValue(allOptionsSelectedLabel);
+        } else if (selectedItems.length >= 2) {
+          setInputValue(`${selectedItems.length} valgte`);
+        } else if (selectedItems.length === 1) {
+          setInputValue(selectedItems[0].label);
+        } else {
+          setInputValue('');
+        }
+      }
+    };
+
+    updateInputValue();
+  }, [currentVal, items, isOpen]);
 
   return (
     <>

@@ -14,8 +14,19 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   value,
   content,
 }) => {
-  const { registerListItem, items, focusedIndex, setFocusedIndex, inputIsMouse } =
-    React.useContext(DropdownContext);
+  const {
+    registerListItem,
+    items,
+    focusedIndex,
+    setFocusedIndex,
+    inputIsMouse,
+    onItemSelect,
+    isCompact,
+    isDisabled,
+    isMulti,
+    currentVal,
+    filter,
+  } = React.useContext(DropdownContext);
   const [itemIndex, setItemIndex] = useState(0);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -49,24 +60,20 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   }, [items]);
 
   return (
-    <DropdownContext.Consumer>
-      {({ onItemSelect, isCompact, isDisabled, isMulti, currentVal, filter }) => (
-        <DropdownItemStyles
-          ref={buttonRef}
-          onClick={() => onItemSelect(value)}
-          isCompact={isCompact}
-          isActive={isSelected(currentVal)}
-          isFocused={focusedIndex === itemIndex}
-          isMulti={isMulti}
-          disabled={isDisabled || optionIsDisabled}
-          onMouseEnter={() => (!isDisabled || optionIsDisabled) && inputIsMouse && setFocusedIndex(itemIndex)}
-          isHidden={!isVisible(filter)}
-          onMouseDown={onMouseDown}
-        >
-          {isMulti && <Checkbox />}
-          {content}
-        </DropdownItemStyles>
-      )}
-    </DropdownContext.Consumer>
+    <DropdownItemStyles
+      ref={buttonRef}
+      onClick={() => onItemSelect(value)}
+      isCompact={isCompact}
+      isActive={isSelected(currentVal)}
+      isFocused={focusedIndex === itemIndex}
+      isMulti={isMulti}
+      disabled={isDisabled || optionIsDisabled}
+      onMouseEnter={() => (!isDisabled || optionIsDisabled) && inputIsMouse && setFocusedIndex(itemIndex)}
+      isHidden={!isVisible(filter)}
+      onMouseDown={onMouseDown}
+    >
+      {isMulti && <Checkbox />}
+      {content}
+    </DropdownItemStyles>
   );
 };

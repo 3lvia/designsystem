@@ -2,7 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { config } from './config';
 import { DropdownProps, DropdownValue, GlobalDropdownProps } from './elviaDropdown.types';
-import { warnDeprecatedProps, FormFieldLabel, useConnectedOverlay } from '@elvia/elvis-toolbox';
+import {
+  warnDeprecatedProps,
+  FormFieldLabel,
+  useConnectedOverlay,
+  useInputModeDetection,
+} from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import { DropdownInput } from './dropdown-input/dropdownInput';
 import {
@@ -16,7 +21,6 @@ import {
 import { DropdownError } from './error/dropdownError';
 import { createPortal } from 'react-dom';
 import { useWebComponentState } from '@elvia/elvis-toolbox';
-import { useInputModeDetection } from './useInputModeDetection';
 
 interface DropdownItem {
   value: string;
@@ -33,6 +37,7 @@ interface SharedState {
   filter: string;
   focusedIndex: number;
   items: DropdownItem[];
+  isOpen: boolean;
 }
 
 export const DropdownContext = React.createContext<GlobalDropdownProps & SharedState>({
@@ -45,6 +50,7 @@ export const DropdownContext = React.createContext<GlobalDropdownProps & SharedS
   filter: '',
   focusedIndex: 0,
   items: [],
+  isOpen: false,
 });
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -149,12 +155,16 @@ const Dropdown: React.FC<DropdownProps> = ({
         focusedIndex: focusedIndex,
         registerListItem: (listItem) => registerListItem(listItem),
         setFocusedIndex: (newIndex) => setFocusedIndex(newIndex),
-        onItemSelect: (value) => setSelectedItem(value),
+        onItemSelect: (value) => {
+          setFilter('');
+          setSelectedItem(value);
+        },
         onClose: () => setVisibility(false),
         currentVal: currentVal,
         inputIsMouse: isMouse,
         filter: filter,
         items: items,
+        isOpen: isShowing,
       }}
     >
       <DropdownContainer
