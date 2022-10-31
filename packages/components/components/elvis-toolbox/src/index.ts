@@ -21,6 +21,7 @@ export {
   OverlayHorizontalPosition,
 } from './hooks/useConnectedOverlay';
 export { useFocusTrap } from './hooks/useFocusTrap';
+export { useInputModeDetection } from './hooks/useInputModeDetection';
 export { useLongPress } from './hooks/useLongPress';
 export { useIsOverflowing } from './hooks/useIsOverflowing';
 export { useWebComponentState } from './hooks/useWebComponentState';
