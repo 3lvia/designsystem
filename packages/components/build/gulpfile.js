@@ -238,12 +238,44 @@ function buildElviaComponentTSDeclaration() {
 }
 
 function buildToolboxComponentToJS() {
-  const tsConfig = typescript.createProject('../tsconfig.json');
-  const tsResult = gulp
+  return gulp
     .src(['../components/elvis-toolbox/src/**/*.ts*'])
     .pipe(cache('buildToolboxComponentToJS'))
-    .pipe(tsConfig());
-  return mergeStream(tsResult, tsResult.js).pipe(gulp.dest('../components/elvis-toolbox/dist'));
+    .pipe(sourcemaps.init())
+    .pipe(
+      babel({
+        presets: [
+          '@babel/preset-typescript',
+          [
+            '@babel/preset-env',
+            {
+              targets: [
+                '>0.2%, last 2 versions, Firefox ESR, not dead, not IE <= 11, not op_mini all, not op_mob > 0',
+              ],
+            },
+          ],
+          [
+            'minify',
+            {
+              builtIns: false,
+            },
+          ],
+        ],
+        plugins: ['babel-plugin-styled-components', '@babel/plugin-transform-react-jsx'],
+      }),
+    )
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('../components/elvis-toolbox/dist'));
+}
+
+function buildToolboxComponentTSDeclaration() {
+  const tsConfig = typescript.createProject('../tsconfig.json');
+  return gulp
+    .src(['../components/elvis-toolbox/src/**/*.ts*'])
+    .pipe(cache('buildToolboxComponentTSDeclaration'))
+    .pipe(tsConfig())
+    .pipe(filter(['*.d.ts']))
+    .pipe(gulp.dest('../components/elvis-toolbox/dist'));
 }
 
 async function runTests() {
@@ -278,6 +310,7 @@ gulp.task(
     validate.validateElviaComponentsConfig,
     buildElviaComponentTSDeclaration,
     buildToolboxComponentToJS,
+    buildToolboxComponentTSDeclaration,
     buildElviaComponentToJS,
     TSX_to_JS,
     copyChangelogs,
@@ -297,6 +330,7 @@ gulp.task(
     validate.validateElviaComponentsConfig,
     buildElviaComponentTSDeclaration,
     buildToolboxComponentToJS,
+    buildToolboxComponentTSDeclaration,
     buildElviaComponentToJS,
     TSX_to_JS,
     copyChangelogs,
@@ -322,6 +356,7 @@ gulp.task('watch', function () {
       validate.validateElviaComponentsConfig,
       buildElviaComponentTSDeclaration,
       buildToolboxComponentToJS,
+      buildToolboxComponentTSDeclaration,
       buildElviaComponentToJS,
       TSX_to_JS,
       reactTypescriptDeclarations,
