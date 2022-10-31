@@ -35,10 +35,10 @@ const radioFilterData: ComponentData = {
       default: 'Filtreringsknapper',
     },
     valueOnChange: {
-      isRequired: false,
-      type: '(value: string) => CustomEvent',
+      isRequired: true,
+      type: '(options: Array<object>) => CustomEvent',
       description:
-        'Gets called every time a new filter is selected and returns the value of the selected filter. ',
+        'Gets called every time a new filter is selected and returns the value of the selected filter. To make radio-filters to work it is necessary to update value when this callback function is triggered.',
     },
     className: {
       isRequired: false,
@@ -92,10 +92,7 @@ const radioFilterData: ComponentData = {
   @value-on-change="updateSelectedFilter($event.detail.value)"
 ></elvia-radio-filter>
 `,
-  codeNativeHTML: `<elvia-radio-filter
-  value="read"
-  name="readRadioFilters"
-  ariaLabel="read filtrering valgt"
+  codeNativeHTML: `<elvia-radio-filter 
   id="example-elvia-radio-filter"
 ></elvia-radio-filter>
 `,
@@ -105,10 +102,14 @@ const radioFilterData: ComponentData = {
     { label: "Read", value: "read" },
     { label: "Unread", value: "unread" }
   ];
+  let value = 'read';
   radioFilter.setProps({items: filters});
+  radioFilter.setProps({value: value});
+  radioFilter.setProps({name: 'readRadioFilters'});
+  radioFilter.setProps({ariaLabel: value + ' filtrering valgt'});
   radioFilter.addEventListener('valueOnChange', (event) => {
     radioFilter.setProps({ariaLabel: event.detail.value + ' filtrering valgt'});
-    console.log('Do what you want with new value:', event.detail.value);
+    radioFilter.setProps({value: event.detail.value});
   });
 `,
   changelog: changelogJson.content,
