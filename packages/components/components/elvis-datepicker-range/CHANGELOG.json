@@ -2,6 +2,30 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.10.22",
+      "version": "2.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Use interfaces from <span class=\"code-text\">@elvia/elvis-toolbox</span>"]
+        }
+      ]
+    },
+    {
+      "date": "25.10.22",
+      "version": "2.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Update @elvia/elvis-datepicker dependency to ^6.0.0",
+            "Align props for error handling with timepicker and datepicker."
+          ],
+          "fixes": ["Update use of error props to align with datepicker and timepicker."]
+        }
+      ]
+    },
+    {
       "date": "10.10.22",
       "version": "1.2.3",
       "changelog": [

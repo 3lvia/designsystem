@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.10.22",
+      "version": "1.0.1 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Add missing dependency to <span class=\"code-text\">lodash.uniqueid</span>.",
+            "Use <span class=\"code-text\">@elvia/elvis-toolbox</span> interfaces for building the prop type."
+          ]
+        }
+      ]
+    },
+    {
       "date": "11.10.22",
       "version": "1.0.0 ",
       "changelog": [

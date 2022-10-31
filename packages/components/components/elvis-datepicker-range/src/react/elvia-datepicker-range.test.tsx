@@ -19,7 +19,7 @@ describe('Elvis DatepickerRange', () => {
     });
   });
 
-  describe('', () => {
+  describe('with vertical alignment', () => {
     beforeEach(() => {
       render(<DatepickerRange isVertical></DatepickerRange>);
     });
@@ -46,26 +46,29 @@ describe('Elvis DatepickerRange', () => {
     });
   });
 
-  describe('passes props to both underlying datepickers', () => {
+  describe('passes props to both underlying date pickers', () => {
     beforeEach(() => {
       render(<DatepickerRange isDisabled isFullWidth isCompact></DatepickerRange>);
     });
 
-    it('should have both datepickers disabled', () => {
-      const datepickers = document.querySelectorAll(
-        '.MuiInputBase-input.MuiInput-input.MuiInputBase-inputAdornedEnd',
-      );
-      expect(datepickers[0]).toHaveClass('Mui-disabled');
-      expect(datepickers[1]).toHaveClass('Mui-disabled');
+    it('should have both date pickers disabled', () => {
+      const datePickers = screen.getAllByTestId('input');
+      expect(datePickers).toHaveLength(2);
+      expect(datePickers[0]).toBeDisabled();
+      expect(datePickers[1]).toBeDisabled();
     });
 
-    it('should have both datepickers fullwidth', () => {
-      const fullWidthElements = document.querySelectorAll('.ewc-datepicker--full-width');
-      expect(fullWidthElements.length).toBe(2);
+    it('should have both date pickers fullwidth', () => {
+      const datePickers = screen.getAllByTestId('wrapper');
+      datePickers.forEach((datepicker) => {
+        expect(datepicker).toHaveStyle('width: 100%');
+      });
     });
-    it('should have both datepickers compact', () => {
-      const compactElements = document.querySelectorAll('.ewc-datepicker--compact');
-      expect(compactElements.length).toBe(2);
+    it('should have both date pickers compact', () => {
+      const datePickers = screen.getAllByTestId('wrapper');
+      datePickers.forEach((datepicker) => {
+        expect(datepicker).toHaveStyle('padding-top: 0.5rem');
+      });
     });
   });
 });

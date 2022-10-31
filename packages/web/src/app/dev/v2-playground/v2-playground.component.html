@@ -4,7 +4,33 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <elvia-datepicker
+        [minDate]="minDate"
+        [maxDate]="maxDate"
+        [disableDate]="disableDate"
+        (valueOnChange)="writeDate($event.detail.value)"
+        isRequired="true"
+        clearButtonText="Tøm feltet"
+        label="Custom label"
+        isRequired="true"
+        hasOptionalText="true"
+        (onOpen)="dateOnOpen()"
+        (onClose)="dateOnClose()"
+        (onReset)="dateOnReset()"
+        (valueOnChangeISOString)="changeISO($event.detail.value)"
+      ></elvia-datepicker>
+
+      <elvia-datepicker-range
+        [labelOptions]="labelOptions"
+        isRequired="true"
+        hasAutoOpenEndDatepicker="true"
+        [minDate]="minDate"
+        [maxDate]="maxDate"
+        [disableDates]="disableDates"
+        (valueOnChangeISOString)="changeISO($event.detail.value)"
+      ></elvia-datepicker-range>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>

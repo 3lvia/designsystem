@@ -78,13 +78,6 @@ function buildWebComponentsMagically() {
           if (fs.existsSync(sassFile)) {
             result = sass.compile(sassFile).css.toString();
           }
-          if (component.dependentStyleSheets) {
-            component.dependentStyleSheets.forEach((dependentStyleSheet) => {
-              const dependentStylePath = resolve.sync(dependentStyleSheet);
-              const dependentStyle = sass.compile(dependentStylePath).css.toString();
-              result = dependentStyle + '\n' + result;
-            });
-          }
 
           const lowercaseAttr = component.attributes.map((attr) => attr.name.toLowerCase());
 
@@ -247,7 +240,7 @@ function buildElviaComponentTSDeclaration() {
 function buildToolboxComponentToJS() {
   const tsConfig = typescript.createProject('../tsconfig.json');
   const tsResult = gulp
-    .src(['../components/elvis-toolbox/src/**/*.ts'])
+    .src(['../components/elvis-toolbox/src/**/*.ts*'])
     .pipe(cache('buildToolboxComponentToJS'))
     .pipe(tsConfig());
   return mergeStream(tsResult, tsResult.js).pipe(gulp.dest('../components/elvis-toolbox/dist'));
@@ -283,9 +276,9 @@ gulp.task(
   'default',
   gulp.series(
     validate.validateElviaComponentsConfig,
+    buildElviaComponentTSDeclaration,
     buildToolboxComponentToJS,
     buildElviaComponentToJS,
-    buildElviaComponentTSDeclaration,
     TSX_to_JS,
     copyChangelogs,
     reactTypescriptDeclarations,
@@ -302,6 +295,7 @@ gulp.task(
   'production',
   gulp.series(
     validate.validateElviaComponentsConfig,
+    buildElviaComponentTSDeclaration,
     buildToolboxComponentToJS,
     buildElviaComponentToJS,
     TSX_to_JS,
@@ -326,9 +320,9 @@ gulp.task('watch', function () {
     { ignoreInitial: false },
     gulp.series(
       validate.validateElviaComponentsConfig,
+      buildElviaComponentTSDeclaration,
       buildToolboxComponentToJS,
       buildElviaComponentToJS,
-      buildElviaComponentTSDeclaration,
       TSX_to_JS,
       reactTypescriptDeclarations,
       copyChangelogs,

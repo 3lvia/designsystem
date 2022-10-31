@@ -1,8 +1,8 @@
 import styled, { css, keyframes } from 'styled-components';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
-import { colors } from '../styledComponents';
 import { listButtonHeight } from './buttonHeight';
+import { getColor } from '@elvia/elvis-colors';
 
 const typography = {
   numberPickerTitle: getTypographyCss('text-sm'),
@@ -35,7 +35,7 @@ interface OverlayContainerProps {
 }
 
 export const OverlayContainer = styled.div<OverlayContainerProps>`
-  background-color: ${colors.elviaWhite};
+  background-color: ${getColor('elvia-on')};
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   position: absolute;
@@ -78,7 +78,7 @@ export const NumberPickerTitle = styled.h4`
 
 export const HorizontalLine = styled.hr`
   width: 100%;
-  border: 1px solid ${colors.grey05};
+  border: 1px solid ${getColor('grey-05')};
   border-width: 0 0 1px 0;
   margin: 0;
 `;
@@ -101,7 +101,7 @@ export const ArrowButtonContainer = styled.div`
   justify-content: center;
   height: ${listButtonHeight}px;
   position: sticky;
-  background: ${colors.elviaWhite};
+  background: ${getColor('elvia-on')};
   border-radius: 4px;
 
   &:first-of-type {
@@ -126,11 +126,11 @@ export const NumberButton = styled.button<NumberButtonProps>`
   border: none;
   padding: 0;
   height: 48px;
-  background: ${(props) => (props.isSelected ? colors.grey10 : 'transparent')};
+  background: ${(props) => (props.isSelected ? getColor('grey-10') : 'transparent')};
   scroll-snap-align: center;
   cursor: pointer;
 
   &:hover {
-    background: ${colors.grey05};
+    background: ${getColor('grey-05')};
   }
 `;
