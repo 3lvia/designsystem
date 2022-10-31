@@ -31,7 +31,7 @@ interface SharedState {
   registerListItem: (item: DropdownItem) => void;
   setFocusedIndex: (newIndex: number) => void;
   onItemSelect: (value: string) => void;
-  onClose: () => void;
+  setDropdownIsOpen: (isOpen: boolean) => void;
   currentVal: DropdownValue | null;
   inputIsMouse: boolean;
   filter: string;
@@ -44,7 +44,7 @@ export const DropdownContext = React.createContext<GlobalDropdownProps & SharedS
   registerListItem: () => undefined,
   setFocusedIndex: () => undefined,
   onItemSelect: () => undefined,
-  onClose: () => undefined,
+  setDropdownIsOpen: () => undefined,
   currentVal: undefined,
   inputIsMouse: true,
   filter: '',
@@ -144,6 +144,18 @@ const Dropdown: React.FC<DropdownProps> = ({
     setTimeout(() => {
       updatePreferredPosition();
     });
+
+    const closeOnEsc = (ev: KeyboardEvent) => {
+      if (ev.code === 'Escape') {
+        setVisibility(false);
+      }
+    };
+
+    window.addEventListener('keydown', closeOnEsc);
+
+    return () => {
+      window.removeEventListener('keydown', closeOnEsc);
+    };
   }, [isShowing]);
 
   return (
@@ -159,7 +171,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           setFilter('');
           setSelectedItem(value);
         },
-        onClose: () => setVisibility(false),
+        setDropdownIsOpen: (isOpen) => setVisibility(isOpen),
         currentVal: currentVal,
         inputIsMouse: isMouse,
         filter: filter,

@@ -22,18 +22,27 @@ export const DropdownInput: React.FC<Props> = ({
   onFocusChange,
 }) => {
   const [inputValue, setInputValue] = useState('');
-  const { isDisabled, currentVal, items, focusedIndex, setFocusedIndex, isOpen } =
-    React.useContext(DropdownContext);
+  const {
+    isDisabled,
+    currentVal,
+    items,
+    focusedIndex,
+    setFocusedIndex,
+    isOpen,
+    onItemSelect,
+    setDropdownIsOpen,
+  } = React.useContext(DropdownContext);
 
   const onInputChange = (inputValue: string): void => {
     onChange(inputValue);
     setInputValue(inputValue);
   };
 
-  const onKeyDown = (ev: KeyboardEvent<HTMLInputElement>): void => {
-    if (focusedIndex != null && ['Space', 'Enter'].includes(ev.code)) {
+  const handleOpenKeyboardNavigation = (ev: KeyboardEvent<HTMLInputElement>): void => {
+    if (focusedIndex != null && ['Space', 'Enter', 'Tab'].includes(ev.code)) {
       ev.preventDefault();
-      // TODO: Select with index
+      const selectedItem = items[focusedIndex];
+      onItemSelect(selectedItem.value);
     } else if (ev.code === 'ArrowUp') {
       if (focusedIndex - 1 < 0) {
         setFocusedIndex(items.length - 1);
@@ -48,6 +57,14 @@ export const DropdownInput: React.FC<Props> = ({
         setFocusedIndex(focusedIndex + 1);
       }
       ev.preventDefault();
+    }
+  };
+
+  const onKeyDown = (ev: KeyboardEvent<HTMLInputElement>): void => {
+    if (isOpen) {
+      handleOpenKeyboardNavigation(ev);
+    } else if (['Space', 'Enter', 'ArrowUp', 'ArrowDown'].includes(ev.code)) {
+      setDropdownIsOpen(true);
     }
   };
 
