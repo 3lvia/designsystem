@@ -10,7 +10,6 @@ interface Props {
   allOptionsSelectedLabel: string;
   editable: boolean;
   onChange: (query: string) => void;
-  onFocusChange: (hasFocus: boolean) => void;
 }
 
 export const DropdownInput: React.FC<Props> = ({
@@ -19,7 +18,6 @@ export const DropdownInput: React.FC<Props> = ({
   allOptionsSelectedLabel,
   editable,
   onChange,
-  onFocusChange,
 }) => {
   const [inputValue, setInputValue] = useState('');
   const {
@@ -105,7 +103,7 @@ export const DropdownInput: React.FC<Props> = ({
         placeholder={placeholder}
         onChange={(ev) => onInputChange(ev.target.value ?? '')}
         value={inputValue}
-        onFocus={() => onFocusChange(true)}
+        onClick={() => setDropdownIsOpen(true)}
         onKeyDown={onKeyDown}
         readOnly={!editable}
         data-testid="input"

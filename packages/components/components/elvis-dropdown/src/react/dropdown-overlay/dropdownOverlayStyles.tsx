@@ -3,6 +3,9 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import styled from 'styled-components';
 
 export const NoItemsMessage = styled.div<{ isCompact?: boolean }>`
+  text-align: center;
+  padding: 40px 16px;
+
   ${(props) => {
     if (props.isCompact) {
       return getTypographyCss('text-sm');
@@ -19,4 +22,8 @@ export const DropdownContainerStyles = styled.div.attrs(() => ({
   overflow-y: auto;
   background-color: ${getColor('elvia-on')};
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;

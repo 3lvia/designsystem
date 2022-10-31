@@ -168,6 +168,9 @@ const Dropdown: React.FC<DropdownProps> = ({
         registerListItem: (listItem) => registerListItem(listItem),
         setFocusedIndex: (newIndex) => setFocusedIndex(newIndex),
         onItemSelect: (value) => {
+          if (!isMulti) {
+            setVisibility(false);
+          }
           setFilter('');
           setSelectedItem(value);
         },
@@ -203,7 +206,6 @@ const Dropdown: React.FC<DropdownProps> = ({
             allOptionsSelectedLabel={allOptionsSelectedLabel}
             editable={isSearchable}
             onChange={(value) => setFilter(value)}
-            onFocusChange={(isFocused) => setVisibility(isFocused)}
           />
 
           <IconRotator isRotated={isShowing}>

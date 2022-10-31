@@ -24,11 +24,11 @@ export const DropdownOverlay: React.FC<DropdownOverlayProps> = ({ items }) => {
     setShowNoItemsMessage(
       !internalItems.some((item) => item.value.toLowerCase().indexOf(filter.toLowerCase()) >= 0),
     );
-  }, [filter]);
+  }, [filter, internalItems]);
 
   return (
     <DropdownContainerStyles ref={overlayRef}>
-      {showNoItemsMessage && <NoItemsMessage isCompact={isCompact} />}
+      {showNoItemsMessage && <NoItemsMessage isCompact={isCompact}>Ingen tilgjengelige valg</NoItemsMessage>}
       {items}
     </DropdownContainerStyles>
   );

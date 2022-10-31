@@ -49,6 +49,7 @@ export const DropdownItemStyles = styled.button.attrs(() => ({
   isCompact?: boolean;
   isMulti?: boolean;
   isHidden?: boolean;
+  hasSubItems?: boolean;
 }>`
   display: flex;
   gap: 16px;
@@ -56,7 +57,7 @@ export const DropdownItemStyles = styled.button.attrs(() => ({
   margin: 0;
   width: 100%;
   background-color: ${getColor('elvia-on')};
-  padding: 0 16px;
+  padding: ${(props) => (props.hasSubItems ? '0 0 0 16px' : '0 16px')};
   align-items: center;
 
   &:not(:disabled) {
@@ -130,4 +131,12 @@ export const DropdownItemStyles = styled.button.attrs(() => ({
     css`
       display: none;
     `};
+`;
+
+export const IconContainer = styled.div`
+  height: 100%;
+  padding: 0 10px;
+  display: grid;
+  place-items: center;
+  margin-left: auto;
 `;
