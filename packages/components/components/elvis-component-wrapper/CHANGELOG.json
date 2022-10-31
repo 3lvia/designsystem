@@ -9,7 +9,8 @@
           "type": "breaking_changes",
           "changes": [
             "Components no longer trigger onChange-events when the setProps-function is called.",
-            "Removed conditionalElementStyles and instead now using display: contents."
+            "Removed conditionalElementStyles and instead now using display: contents.",
+            "Removed the wrapper span-element that some components used, as it is not needed with display: contents."
           ],
           "fixes": [
             "To trigger an event, manually use the triggerEvent-function instead of relying on the setProps to do it automatically.",

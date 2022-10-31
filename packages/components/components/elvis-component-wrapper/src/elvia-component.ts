@@ -11,7 +11,6 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected webComponent: ElviaComponent;
   protected cssStyle: string;
   protected throttleRenderReactDOM;
-  private mountPoint!: HTMLSpanElement;
 
   constructor(webComponent: ElviaComponent, reactComponent: React.FC, cssStyle: string) {
     super();
@@ -56,16 +55,6 @@ export class ElvisComponentWrapper extends HTMLElement {
     // Slot items
     if (this.webComponent.getComponentData().slotItems === true) {
       this.storeAllSlots();
-    }
-    const spanChildren = this.querySelectorAll('span');
-    const hasWrapperElement =
-      spanChildren[0] && spanChildren[0].getAttribute('name') === 'elvia-wrapper-element';
-    if (this.webComponent.getComponentData().useWrapper && !hasWrapperElement) {
-      const wrapperElement = document.createElement('span');
-      wrapperElement.setAttribute('name', 'elvia-wrapper-element');
-      wrapperElement.style.cssText = 'display: contents;';
-      this.mountPoint = wrapperElement;
-      this.appendChild(this.mountPoint);
     }
     this.renderReactDOM();
     if (this.querySelectorAll('style').length === 0) {
@@ -123,9 +112,6 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   protected attachStyle(): void {
     this.addDisplayStyleToCustomElement();
-    if (this.webComponent.getComponentData().wrapperStyle) {
-      this.mountPoint.style.cssText = this.webComponent.getComponentData().wrapperStyle;
-    }
     if (this.cssStyle === '') {
       return;
     }
@@ -164,13 +150,7 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   protected renderReactDOM(): void {
     this.mapAttributesToData();
-    if (!this.webComponent.getComponentData().useWrapper) {
-      ReactDOM.render(this.createReactElement(this.createReactData()), this);
-      return;
-    }
-    if (this.mountPoint) {
-      ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
-    }
+    ReactDOM.render(this.createReactElement(this.createReactData()), this);
   }
 
   private logErrorMessage(functionName: string, error: string): void {
@@ -300,8 +280,6 @@ declare class ElviaComponent extends ElvisComponentWrapper {
     reactName: string;
     elementStyle: string;
     conditionalElementStyle: { name: string; value: string; style: string }[];
-    useWrapper: boolean;
-    wrapperStyle: string;
     slotItems: boolean;
   };
 }

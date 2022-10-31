@@ -29,19 +29,10 @@ async function validateElviaComponentsConfig() {
           },
         },
         reactName: { type: 'string', pattern: '([A-Z0-9]){1}([a-zA-Z0-9])+' },
-        useWrapper: { type: 'boolean' },
         slotItems: { type: 'boolean' },
         reactTypescriptDeclaration: { type: 'boolean' },
       },
-      required: [
-        'name',
-        'elementName',
-        'attributes',
-        'reactName',
-        'useWrapper',
-        'slotItems',
-        'reactTypescriptDeclaration',
-      ],
+      required: ['name', 'elementName', 'attributes', 'reactName', 'slotItems', 'reactTypescriptDeclaration'],
     },
   };
 

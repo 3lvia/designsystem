@@ -57,7 +57,6 @@ module.exports = [
       { name: 'inlineStyle', type: 'object' },
     ],
     reactName: 'Accordion',
-    useWrapper: true,
     slotItems: true,
     reactTypescriptDeclaration: true,
   },
@@ -71,7 +70,6 @@ module.exports = [
     ],
     slotItems: true,
     reactName: 'Badge',
-    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
@@ -86,7 +84,6 @@ module.exports = [
       { name: 'inlineStyle', type: 'object' },
     ],
     reactName: 'Box',
-    useWrapper: true,
     slotItems: true,
     reactTypescriptDeclaration: true,
   },
@@ -100,7 +97,6 @@ module.exports = [
       { name: 'inlineStyle', type: 'object' },
     ],
     reactName: 'Breadcrumb',
-    useWrapper: false,
     slotItems: false,
     reactTypescriptDeclaration: true,
   },
@@ -129,7 +125,6 @@ module.exports = [
       { name: 'inlineStyle', type: 'object' },
     ],
     reactName: 'Card',
-    useWrapper: true,
     slotItems: true,
     reactTypescriptDeclaration: true,
   },
@@ -150,7 +145,6 @@ module.exports = [
     ],
     reactName: 'Carousel',
     slotItems: true,
-    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
@@ -169,7 +163,6 @@ module.exports = [
     ],
     reactName: 'Chip',
     slotItems: false,
-    useWrapper: false,
     reactTypescriptDeclaration: true,
   },
   {
@@ -195,7 +188,6 @@ module.exports = [
       { name: 'inlineStyle', type: 'object' },
     ],
     reactName: 'Datepicker',
-    useWrapper: true,
     slotItems: false,
     reactTypescriptDeclaration: true,
   },
@@ -220,7 +212,6 @@ module.exports = [
       { name: 'inlineStyle', type: 'object' },
     ],
     reactName: 'DatepickerRange',
-    useWrapper: true,
     slotItems: false,
     reactTypescriptDeclaration: true,
   },
@@ -238,7 +229,6 @@ module.exports = [
     ],
     slotItems: true,
     reactName: 'Divider',
-    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
@@ -270,7 +260,6 @@ module.exports = [
     ],
     slotItems: false,
     reactName: 'Dropdown',
-    useWrapper: false,
     reactTypescriptDeclaration: true,
   },
   {
@@ -288,7 +277,6 @@ module.exports = [
     ],
     reactName: 'Header',
     slotItems: true,
-    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
@@ -302,7 +290,6 @@ module.exports = [
     ],
     reactName: 'Icon',
     slotItems: false,
-    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
@@ -327,7 +314,6 @@ module.exports = [
     ],
     reactName: 'Modal',
     slotItems: true,
-    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
@@ -353,7 +339,6 @@ module.exports = [
     ],
     reactName: 'Pagination',
     slotItems: false,
-    useWrapper: false,
     reactTypescriptDeclaration: true,
   },
   {
@@ -380,7 +365,6 @@ module.exports = [
       { name: 'inlineStyle', type: 'object' },
     ],
     reactName: 'Popover',
-    useWrapper: true,
     slotItems: true,
     reactTypescriptDeclaration: true,
   },
@@ -398,7 +382,6 @@ module.exports = [
     ],
     reactName: 'ProgressLinear',
     slotItems: false,
-    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
@@ -415,7 +398,6 @@ module.exports = [
     ],
     reactName: 'RadioFilter',
     slotItems: false,
-    useWrapper: false,
     reactTypescriptDeclaration: true,
   },
   {
@@ -431,7 +413,6 @@ module.exports = [
     ],
     reactName: 'SegmentedControl',
     slotItems: false,
-    useWrapper: false,
     reactTypescriptDeclaration: true,
   },
   {
@@ -454,7 +435,6 @@ module.exports = [
     ],
     slotItems: false,
     reactName: 'Slider',
-    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
@@ -472,7 +452,6 @@ module.exports = [
     ],
     reactName: 'Spotlight',
     slotItems: false,
-    useWrapper: false,
     reactTypescriptDeclaration: true,
   },
   {
@@ -489,7 +468,6 @@ module.exports = [
     ],
     reactName: 'Tabs',
     slotItems: false,
-    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
@@ -509,7 +487,6 @@ module.exports = [
     ],
     reactName: 'Timepicker',
     slotItems: false,
-    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
@@ -526,7 +503,6 @@ module.exports = [
     ],
     reactName: 'Tooltip',
     slotItems: true,
-    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
 ];
