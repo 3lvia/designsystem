@@ -3,6 +3,18 @@
   "content": [
     {
       "date": "31.10.22",
+      "version": "5.6.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that sometimes caused the <span class=\"code-text\">warnDeprecatedProps</span> function to crash."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "31.10.22",
       "version": "5.6.0",
       "changelog": [
         {
