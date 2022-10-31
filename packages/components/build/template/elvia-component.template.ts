@@ -1,7 +1,5 @@
 import * as ReactComponent from '../../../react.js';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-const style = `{{INSERT_STYLE_HERE}}`;
-
 
 export default class ElviaComponent extends ElvisComponentWrapper {
     static get observedAttributes(): any[] {
@@ -12,7 +10,7 @@ export default class ElviaComponent extends ElvisComponentWrapper {
 
     //{{INSERT_SETTERS_AND_GETTERS}}
     constructor() {
-        super(ElviaComponent, ReactComponent['{{INSERT_REACT_NAME}}'], style);
+        super(ElviaComponent, ReactComponent['{{INSERT_REACT_NAME}}']);
     }
 }
 
