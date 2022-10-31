@@ -18,24 +18,13 @@ attributes: object[] -
   If you use type "object" we parse it with JSON.parse, which supports arrays as well.
 
 reactName: string - The name of the component in React
-elementStyle: string - Styling for the DOM element (web component HTMLElement) itself
-
-dependentStyleSheet: If the component depends on the style sheet from another component when used as a web component, the path
-to the style sheet is added here. E.g. '@elvia/elvis-datepicker/src/react/style.scss'. It will be added to the style tag
-of the web component.
 
 useWrapper: boolean - If the React element should be injected into a wrapper instead of directly into the element.
 In most cases this should be true, however sometimes we want to have more control over the styling of the custom element itself. 
 In those cases removing that wrapper is useful. NB! The wrapper can not be removed if the component is using slots, because the 
 slots will then not work in Vue.
 
-wrapperStyle: string - Styling for the React wrapper (the div wrapper inside the web component, when using 'useWrapper'
-- This requires useWrapper to be true.
-
 slotItems: boolean (default: false) - Saves all "slot" items to variable. Should be set to true for all new components
-
-conditionalElementStyle: object - An object containing a key value pair for different CSS styles following the
-javascript naming of the different CSS styles
 
 reactTypescriptDeclaration: boolean (default: true) - Generate typescript declaration for the React component 
 */
@@ -70,8 +59,6 @@ module.exports = [
     reactName: 'Accordion',
     useWrapper: true,
     slotItems: true,
-    elementStyle: 'width: 100%;',
-    conditionalElementStyle: [{ name: 'type', value: 'single', style: `width: auto;` }],
     reactTypescriptDeclaration: true,
   },
   {
@@ -208,8 +195,6 @@ module.exports = [
       { name: 'inlineStyle', type: 'object' },
     ],
     reactName: 'Datepicker',
-    elementStyle: 'display: block; max-width: 448px;',
-    conditionalElementStyle: [{ name: 'isFullWidth', value: 'true', style: `width: 100%; max-width:unset;` }],
     useWrapper: true,
     slotItems: false,
     reactTypescriptDeclaration: true,
@@ -235,8 +220,6 @@ module.exports = [
       { name: 'inlineStyle', type: 'object' },
     ],
     reactName: 'DatepickerRange',
-    elementStyle: 'display: block;',
-    conditionalElementStyle: [{ name: 'isFullWidth', value: 'true', style: `width: 100%` }],
     useWrapper: true,
     slotItems: false,
     reactTypescriptDeclaration: true,
@@ -255,11 +238,6 @@ module.exports = [
     ],
     slotItems: true,
     reactName: 'Divider',
-    conditionalElementStyle: [
-      { name: 'orientation', value: 'horizontal', style: `width: 100%;` },
-      { name: 'orientation', value: undefined, style: `width: 100%;` },
-      { name: 'orientation', value: 'vertical', style: `height: 100%` },
-    ],
     useWrapper: true,
     reactTypescriptDeclaration: true,
   },
@@ -291,12 +269,6 @@ module.exports = [
       { name: 'inlineStyle', type: 'object' },
     ],
     slotItems: false,
-    elementStyle: 'max-width: 448px; width: 100%; display: block;',
-
-    conditionalElementStyle: [
-      { name: 'isFullWidth', value: 'true', style: `width: 100%; max-width: unset;` },
-    ],
-
     reactName: 'Dropdown',
     useWrapper: false,
     reactTypescriptDeclaration: true,
@@ -379,8 +351,6 @@ module.exports = [
       { name: 'dropdownMenuPosition', type: 'string' },
       { name: 'dropdownSelectedItemIndex', type: 'number' },
     ],
-    elementStyle: `display:flex; width: 100%;`,
-    conditionalElementStyle: [{ name: 'alignment', value: 'right', style: `justify-content: flex-end;` }],
     reactName: 'Pagination',
     slotItems: false,
     useWrapper: false,
@@ -411,7 +381,6 @@ module.exports = [
     ],
     reactName: 'Popover',
     useWrapper: true,
-    elementStyle: `display: block;`,
     slotItems: true,
     reactTypescriptDeclaration: true,
   },
@@ -428,7 +397,6 @@ module.exports = [
       { name: 'inlineStyle', type: 'object' },
     ],
     reactName: 'ProgressLinear',
-    elementStyle: `width: 100%;`,
     slotItems: false,
     useWrapper: true,
     reactTypescriptDeclaration: true,
@@ -488,7 +456,6 @@ module.exports = [
     reactName: 'Slider',
     useWrapper: true,
     reactTypescriptDeclaration: true,
-    elementStyle: 'width: 100%; display: block;',
   },
   {
     name: 'elvis-spotlight',
@@ -521,7 +488,6 @@ module.exports = [
       { name: 'inlineStyle', type: 'object' },
     ],
     reactName: 'Tabs',
-    elementStyle: `display: grid; overflow: hidden;`,
     slotItems: false,
     useWrapper: true,
     reactTypescriptDeclaration: true,

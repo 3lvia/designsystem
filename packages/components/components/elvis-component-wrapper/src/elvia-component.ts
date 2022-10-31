@@ -118,7 +118,6 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   protected addDisplayStyleToCustomElement(): void {
-    // console.log(typeof this.style.cssText, this.style.cssText);
     this.style.cssText = 'display: contents;';
   }
 
