@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Icon } from '@elvia/elvis-icon/react';
 import type { PopoverProps } from './elviaPopover.types';
@@ -49,7 +49,6 @@ const Popover: FC<PopoverProps> = function ({
   const popoverSlotTriggerRef = useRef<HTMLDivElement>(null);
   const popoverText = useRef<HTMLDivElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
-
   const {
     isShowing: isShowingConnectedOverlayState,
     setIsShowing: setIsShowingConnectedOverlayState,
@@ -59,7 +58,7 @@ const Popover: FC<PopoverProps> = function ({
     verticalPosition: verticalPosition,
     alignWidths: false,
   });
-  const [hasBeenInitiated, setHasBeenInitiated] = useState(isShowing);
+
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
 
   /** Start outline listener */
@@ -69,6 +68,11 @@ const Popover: FC<PopoverProps> = function ({
       outlineListener(popoverRef.current, true);
     };
   }, []);
+
+  /* Synchronize the isShowing prop and the setIsShowingConnectedOverlayState */
+  useEffect(() => {
+    setIsShowingConnectedOverlayState(isShowing);
+  }, [isShowing]);
 
   /* Saving the original focused element before the popover is opened, and then returning focus to that
   element when the popover is closed. */
@@ -104,38 +108,14 @@ const Popover: FC<PopoverProps> = function ({
 
   /**
    * Dispatch onOpen and onClose events.
-   * Start resize, scroll, click outside and escape listeners if opened
    */
   useEffect(() => {
-    if (isShowingConnectedOverlayState && hasBeenInitiated) {
+    if (isShowingConnectedOverlayState) {
       handleOnOpen();
-      startEventListeners();
-    } else if (!isShowingConnectedOverlayState && hasBeenInitiated) {
+    } else if (!isShowingConnectedOverlayState) {
       handleOnClose();
     }
-
-    return () => removeEventListeners();
   }, [isShowingConnectedOverlayState]);
-
-  useEffect(() => {
-    if (!hasBeenInitiated) {
-      setHasBeenInitiated(true);
-    }
-  }, [isShowing]);
-
-  const startEventListeners = () => {
-    document.addEventListener('keydown', onEscape, false);
-    popoverBackdropRef.current?.addEventListener('click', () => {
-      setIsShowingConnectedOverlayState(false);
-    });
-  };
-
-  const removeEventListeners = () => {
-    document.removeEventListener('keydown', onEscape, false);
-    popoverBackdropRef.current?.removeEventListener('click', () => {
-      setIsShowingConnectedOverlayState(false);
-    });
-  };
 
   const handleOnOpen = () => {
     if (!webcomponent && onOpen) {
@@ -143,6 +123,8 @@ const Popover: FC<PopoverProps> = function ({
     } else if (webcomponent) {
       webcomponent.triggerEvent('onOpen');
     }
+
+    document.addEventListener('keydown', onEscape);
     trapFocus(popoverContentRef);
     updatePreferredPosition();
   };
@@ -153,6 +135,8 @@ const Popover: FC<PopoverProps> = function ({
     } else if (webcomponent) {
       webcomponent.triggerEvent('onClose');
     }
+
+    document.removeEventListener('keydown', onEscape, false);
     releaseFocusTrap();
   };
 
