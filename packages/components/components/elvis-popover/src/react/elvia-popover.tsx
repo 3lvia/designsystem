@@ -138,10 +138,6 @@ const Popover: FC<PopoverProps> = function ({
     });
   };
 
-  /**
-   * If the component is not a webcomponent, then call the onOpen function. If it is a webcomponent,
-   * then trigger the onOpen event
-   */
   const handleOnOpen = () => {
     if (!webcomponent && onOpen) {
       onOpen();
@@ -152,10 +148,6 @@ const Popover: FC<PopoverProps> = function ({
     updatePreferredPosition();
   };
 
-  /**
-   * If the component is not a webcomponent, then call the onClose function. If it is a webcomponent,
-   * then trigger the onClose event
-   */
   const handleOnClose = () => {
     if (!webcomponent && onClose) {
       onClose();
