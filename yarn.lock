@@ -3254,6 +3254,10 @@ __metadata:
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.6
     tslib: ^2.4.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
   languageName: unknown
   linkType: soft
 
@@ -3275,6 +3279,10 @@ __metadata:
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.6
     tslib: ^2.4.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
   languageName: node
   linkType: soft
 
