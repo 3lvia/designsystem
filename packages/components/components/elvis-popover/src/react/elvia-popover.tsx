@@ -146,25 +146,14 @@ const Popover: FC<PopoverProps> = function ({
     keydown.key === 'Escape' && setIsShowingConnectedOverlayState(false);
 
   return (
-    <div
-      className={className ? className : ''}
-      style={inlineStyle}
-      ref={popoverRef}
-      data-testid="popover-wrapper"
-      role="dialog"
-      {...rest}
-    >
-      <PopoverContainer ref={popoverClassContainerRef} data-testid="popover-container">
+    <div className={className ? className : ''} style={inlineStyle} ref={popoverRef} role="dialog" {...rest}>
+      <PopoverContainer ref={popoverClassContainerRef}>
         {isShowingConnectedOverlayState && (
           <Backdrop onClick={() => setIsShowingConnectedOverlayState(false)}></Backdrop>
         )}
 
         <TriggerContainer overlayIsOpen={isShowingConnectedOverlayState} ref={popoverTriggerRef}>
-          {trigger && (
-            <div onClick={togglePopover} data-testid="popover-trigger">
-              {trigger}
-            </div>
-          )}
+          {trigger && <div onClick={togglePopover}>{trigger}</div>}
           {!trigger && <div onClick={togglePopover} ref={popoverSlotTriggerRef}></div>}
         </TriggerContainer>
 
@@ -178,23 +167,19 @@ const Popover: FC<PopoverProps> = function ({
                       <IconButton
                         size="sm"
                         onClick={() => setIsShowingConnectedOverlayState(false)}
-                        data-testid="popover-close-btn"
                         aria-label="Lukk"
                       >
                         <Icon name="closeBold" size="xs" />
                       </IconButton>
                     </CloseButtonContainer>
                   )}
-                  {heading && <Heading data-testid="popover-header">{heading}</Heading>}
+                  {heading && <Heading>{heading}</Heading>}
                 </>
               )}
-              {content && type === 'informative' && (
-                <PopoverTypography data-testid="popover-text">{content}</PopoverTypography>
-              )}
+              {content && type === 'informative' && <PopoverTypography>{content}</PopoverTypography>}
               {!content && type === 'informative' && <PopoverTypography ref={popoverText} />}
               {content && type === 'list' && (
                 <PopoverTypography
-                  data-testid="popover-text"
                   onClick={() => !disableAutoClose && setIsShowingConnectedOverlayState(false)}
                 >
                   <PopoverList>{content}</PopoverList>
@@ -203,7 +188,6 @@ const Popover: FC<PopoverProps> = function ({
               {!content && type === 'list' && (
                 <PopoverList hasDivider={hasDivider} isSelectable={isSelectable}>
                   <PopoverTypography
-                    data-testid="popover-text"
                     onClick={() => !disableAutoClose && setIsShowingConnectedOverlayState(false)}
                     ref={popoverText}
                   />
