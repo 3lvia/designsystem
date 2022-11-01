@@ -16,5 +16,10 @@
   },
   "devDependencies": {
     "@types/lodash.throttle": "^4.1.7"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "react-is": ">=16.8.0"
   }
 }
