@@ -212,7 +212,6 @@ const Popover: FC<PopoverProps> = function ({
                       </IconButton>
                     </CloseButtonContainer>
                   )}
-                  {console.log(heading)}
                   {heading && <Heading data-testid="popover-header">{heading}</Heading>}
                 </>
               )}
