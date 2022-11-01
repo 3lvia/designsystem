@@ -76,8 +76,6 @@ function buildWebComponentsMagically() {
 
           const lowercaseAttr = component.attributes.map((attr) => attr.name.toLowerCase());
 
-          file.contents = Buffer.from(String(file.contents));
-
           file.contents = Buffer.from(
             String(file.contents).replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(lowercaseAttr)),
           ); // Observed attributes has to be lowercase to meet spec
