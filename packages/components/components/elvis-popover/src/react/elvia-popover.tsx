@@ -43,7 +43,6 @@ const Popover: FC<PopoverProps> = function ({
 }) {
   warnDeprecatedProps(config, arguments[0]);
 
-  const popoverBackdropRef = useRef<HTMLDivElement>(null);
   const popoverClassContainerRef = useRef<HTMLDivElement>(null);
   const popoverContentRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -176,7 +175,9 @@ const Popover: FC<PopoverProps> = function ({
       {...rest}
     >
       <PopoverContainer ref={popoverClassContainerRef} data-testid="popover-container">
-        {isShowingConnectedOverlayState && <Backdrop ref={popoverBackdropRef}></Backdrop>}
+        {isShowingConnectedOverlayState && (
+          <Backdrop onClick={() => setIsShowingConnectedOverlayState(false)}></Backdrop>
+        )}
 
         <TriggerContainer overlayIsOpen={isShowingConnectedOverlayState} ref={popoverTriggerRef}>
           {trigger && (
