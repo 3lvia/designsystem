@@ -2704,7 +2704,6 @@ __metadata:
     "@types/gulp-filter": ^3.0.34
     "@types/gulp-header": ^2.0.1
     "@types/gulp-rename": ^2.0.1
-    "@types/gulp-sass": ^5.0.0
     "@types/gulp-sourcemaps": ^0.0.35
     "@types/gulp-tap": ^1.0.1
     "@types/jest": ^26.0.23
@@ -2726,7 +2725,6 @@ __metadata:
     gulp-header: ^2.0.9
     gulp-rename: ^2.0.0
     gulp-replace: ^1.0.0
-    gulp-sass: ^5.1.0
     gulp-sourcemaps: ^3.0.0
     gulp-tap: ^2.0.0
     gulp-typescript: ^6.0.0-alpha.1
@@ -5048,16 +5046,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp-sass@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@types/gulp-sass@npm:5.0.0"
-  dependencies:
-    "@types/node": "*"
-    "@types/node-sass": "*"
-  checksum: bea3995c4a37b3d9c81eb30f1544698469d11e12948ce1b73e6d7ec1e225c4a383ec5add05c5393931a7c51a45cf91a34d76afb7f2b9453b309b7c0a1bdf3bc9
-  languageName: node
-  linkType: hard
-
 "@types/gulp-sourcemaps@npm:^0.0.35":
   version: 0.0.35
   resolution: "@types/gulp-sourcemaps@npm:0.0.35"
@@ -5299,15 +5287,6 @@ __metadata:
   version: 1.4.0
   resolution: "@types/natural-compare-lite@npm:1.4.0"
   checksum: cfd5f71857675145551485d542848bfdefc7bd6575f1dfaf29fcacc5785438fa7ba81e51850ce84e2e439128db94170d538b97f4d333644d8503fd3b265a1671
-  languageName: node
-  linkType: hard
-
-"@types/node-sass@npm:*":
-  version: 4.11.3
-  resolution: "@types/node-sass@npm:4.11.3"
-  dependencies:
-    "@types/node": "*"
-  checksum: 6205b95d6c2a215fefcdfba283f4f237bbe95b088119bd00503171b84762d15f6b9b11fe424407f38ac7b8174b20bb4cd137466550f4a49961f3ac54e6ed4812
   languageName: node
   linkType: hard
 
@@ -16001,20 +15980,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-sass@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "gulp-sass@npm:5.1.0"
-  dependencies:
-    lodash.clonedeep: ^4.5.0
-    picocolors: ^1.0.0
-    plugin-error: ^1.0.1
-    replace-ext: ^2.0.0
-    strip-ansi: ^6.0.1
-    vinyl-sourcemaps-apply: ^0.2.1
-  checksum: 9aba052c76e808321f9ecf70885806a389e73b87005c3c4f47beba7050ef280d06402f1ac19105b32407170b6fdef5c9e26ed0560074dd5a949197b50e82604d
-  languageName: node
-  linkType: hard
-
 "gulp-sourcemaps@npm:^3.0.0":
   version: 3.0.0
   resolution: "gulp-sourcemaps@npm:3.0.0"
@@ -25269,13 +25234,6 @@ __metadata:
   version: 1.0.1
   resolution: "replace-ext@npm:1.0.1"
   checksum: 4994ea1aaa3d32d152a8d98ff638988812c4fa35ba55485630008fe6f49e3384a8a710878e6fd7304b42b38d1b64c1cd070e78ece411f327735581a79dd88571
-  languageName: node
-  linkType: hard
-
-"replace-ext@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "replace-ext@npm:2.0.0"
-  checksum: ed640ac90d24cce4be977642847d138908d430049cc097633be33b072143515cc7d29699675a0c35f6dc3c3c73cb529ed352d59649cf15931740eb31ae083c1e
   languageName: node
   linkType: hard
 
