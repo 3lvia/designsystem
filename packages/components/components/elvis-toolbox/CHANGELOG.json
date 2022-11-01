@@ -10,6 +10,10 @@
           "changes": [
             "Added hook <span class=\"code-text\">useSlot</span> for getting webcomponent slot content and putting it in a React ref."
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Added missing peer dependencies."]
         }
       ]
     },
