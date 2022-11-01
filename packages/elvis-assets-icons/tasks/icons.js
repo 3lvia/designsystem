@@ -217,7 +217,7 @@ function createCamelCase(original) {
 }
 
 // Create png-files from svg-files
-async function createPNGs() {
+async function createPNGs(done) {
   const iconsToInclude = icons.map((i) => {
     if (i.deprecated) {
       return { name: i.name, path: `icons/svg/src/${i.newIconName}.svg` };
@@ -225,14 +225,14 @@ async function createPNGs() {
     return { name: i.name, path: `icons/svg/src/${i.name}.svg` };
   });
 
-  iconsToInclude.forEach((file) => {
+  for (const file of iconsToInclude) {
     const density = parseInt((72 * 56) / 24);
 
-    sharp(file.path, { density: density })
+    await sharp(file.path, { density: density })
       .resize(56)
       .toFile('icons/png/dist/' + file.name + '.png');
-  });
-
+  }
+  done();
   return true;
 }
 
