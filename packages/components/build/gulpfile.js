@@ -193,33 +193,10 @@ function reactTypescriptDeclarations() {
     .pipe(gulp.dest('../'));
 }
 
-function buildElviaComponentToJS() {
+const makeJSTranspileTask = (componentName) => {
   return gulp
-    .src(`../components/elvis-component-wrapper/src/*.ts`)
-    .pipe(cache('buildElviaComponentToJS'))
-    .pipe(
-      babel({
-        presets: ['@babel/preset-typescript'],
-      }),
-    )
-    .pipe(header(WARNING))
-    .pipe(gulp.dest(`../components/elvis-component-wrapper/dist/`));
-}
-
-function buildElviaComponentTSDeclaration() {
-  const tsConfig = typescript.createProject('../tsconfig.json');
-  return gulp
-    .src(['../components/elvis-component-wrapper/src/*.ts'])
-    .pipe(cache('buildElviaComponentTSDeclaration'))
-    .pipe(tsConfig())
-    .pipe(filter(['*.d.ts']))
-    .pipe(gulp.dest(`../components/elvis-component-wrapper/dist/`));
-}
-
-function buildToolboxComponentToJS() {
-  return gulp
-    .src(['../components/elvis-toolbox/src/**/*.ts*'])
-    .pipe(cache('buildToolboxComponentToJS'))
+    .src([`../components/${componentName}/src/**/*.ts*`])
+    .pipe(cache(`makeJSTranspileTask${componentName}`))
     .pipe(sourcemaps.init())
     .pipe(
       babel({
@@ -244,17 +221,33 @@ function buildToolboxComponentToJS() {
       }),
     )
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('../components/elvis-toolbox/dist'));
+    .pipe(gulp.dest(`../components/${componentName}/dist`));
+};
+
+const makeTypescriptDeclarationsTask = (componentName) => {
+  const tsConfig = typescript.createProject('../tsconfig.json');
+  return gulp
+    .src([`../components/${componentName}/src/**/*.ts*`])
+    .pipe(cache(`makeTypescriptDeclarationsTask${componentName}`))
+    .pipe(tsConfig())
+    .pipe(filter(['*.d.ts']))
+    .pipe(gulp.dest(`../components/${componentName}/dist`));
+};
+
+function buildElviaComponentToJS() {
+  return makeJSTranspileTask('elvis-component-wrapper');
+}
+
+function buildElviaComponentTSDeclaration() {
+  return makeTypescriptDeclarationsTask('elvis-component-wrapper');
+}
+
+function buildToolboxComponentToJS() {
+  return makeJSTranspileTask('elvis-toolbox');
 }
 
 function buildToolboxComponentTSDeclaration() {
-  const tsConfig = typescript.createProject('../tsconfig.json');
-  return gulp
-    .src(['../components/elvis-toolbox/src/**/*.ts*'])
-    .pipe(cache('buildToolboxComponentTSDeclaration'))
-    .pipe(tsConfig())
-    .pipe(filter(['*.d.ts']))
-    .pipe(gulp.dest('../components/elvis-toolbox/dist'));
+  return makeTypescriptDeclarationsTask('elvis-toolbox');
 }
 
 async function runTests() {
