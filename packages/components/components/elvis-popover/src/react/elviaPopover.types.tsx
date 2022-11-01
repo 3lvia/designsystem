@@ -3,6 +3,7 @@ import { CSSProperties } from 'react';
 
 export type VerticalPosition = 'bottom' | 'top';
 export type HorizontalPosition = 'left' | 'center' | 'right';
+export type PopoverType = 'informative' | 'list';
 
 export interface PopoverProps {
   /**
@@ -11,7 +12,7 @@ export interface PopoverProps {
   header?: string;
   heading?: string;
   content?: string | JSX.Element;
-  type?: 'informative' | 'list';
+  type?: PopoverType;
   /**
    * @deprecated Deprecated in version 5.0.0. Replaced by `isSelectable`.
    */

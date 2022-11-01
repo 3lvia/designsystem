@@ -1,9 +1,28 @@
 import styled, { css, keyframes } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import type { PopoverType } from './elviaPopover.types';
 
 const popoverPadding = 32;
 const popoverBoxShadow = '0px 0px 40px rgba(0, 0, 0, 0.06)';
+
+interface TriggerContainerProps {
+  overlayIsOpen: boolean;
+}
+
+interface PopoverContentProps {
+  content?: string | JSX.Element;
+  type: PopoverType;
+}
+
+interface PopoverTypographyProps {
+  content: string | JSX.Element;
+}
+
+interface PopoverListProps {
+  isSelectable: boolean;
+  hasDivider: boolean;
+}
 
 const fadeIn = keyframes`
 0% {
@@ -14,26 +33,16 @@ const fadeIn = keyframes`
 }
 `;
 
-interface BaseProps {
-  overlayIsOpen?: boolean;
-  content?: string | JSX.Element;
-  hasDivider?: boolean;
-  isSelectable?: boolean;
-  type?: 'informative' | 'list';
-}
-
-export const PopoverContainer = styled.div<BaseProps>`
+export const PopoverContainer = styled.div`
   display: flex;
   box-sizing: border-box;
 `;
 
-export const PopoperContent = styled.div<BaseProps>`
+export const PopoverContent = styled.div<PopoverContentProps>`
   display: flex;
   flex-direction: column;
   position: absolute;
-  width: calc(100% - 16px);
-  max-width: ${(props) =>
-    props.content === typeof String ? `calc(450 - ${popoverPadding * 2}) px;` : `max-content;`};
+  max-width: calc(100% - 16px);
   z-index: 111;
   pointer-events: all;
   padding: ${(props) => (props.type === 'list' ? '0' : `${popoverPadding}px`)};
@@ -47,7 +56,7 @@ export const PopoperContent = styled.div<BaseProps>`
   margin: 0;
 `;
 
-export const TriggerContainer = styled.div<BaseProps>`
+export const TriggerContainer = styled.div<TriggerContainerProps>`
   display: flex;
   flex-direction: column;
   user-select: none;
@@ -64,16 +73,16 @@ export const TriggerContainer = styled.div<BaseProps>`
     `};
 `;
 
-export const PopoverTypography = styled.div<BaseProps>`
+export const PopoverTypography = styled.div<PopoverTypographyProps>`
   ${getTypographyCss('text-sm')}
-  ${(props) =>
-    props.content === typeof String &&
+  ${({ content }) =>
+    typeof content === 'string' &&
     css`
       padding-right: 8px;
-    `};
+    `}
 `;
 
-export const Backdrop = styled.div<BaseProps>`
+export const Backdrop = styled.div`
   height: 100%;
   left: 0;
   position: fixed;
@@ -97,7 +106,7 @@ export const CloseButtonContainer = styled.div`
   right: 8px;
 `;
 
-export const PopoverList = styled.div<BaseProps>`
+export const PopoverList = styled.div<PopoverListProps>`
   display: flex;
   flex-direction: column;
   min-width: 216px;
