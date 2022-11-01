@@ -9,9 +9,6 @@ const fadeIn = keyframes`
 0% {
      opacity: 0;
 }
- 1% {
-     display: block;
-}
  100% {
      opacity: 1;
 }
@@ -37,8 +34,6 @@ export const PopoperContent = styled.div<BaseProps>`
   width: calc(100% - 16px);
   max-width: ${(props) =>
     props.content === typeof String ? `calc(450 - ${popoverPadding * 2}) px;` : `max-content;`};
-
-  opacity: 1;
   z-index: 111;
   pointer-events: all;
   padding: ${(props) => (props.type === 'list' ? '0' : `${popoverPadding}px`)};
@@ -79,7 +74,6 @@ export const PopoverTypography = styled.div<BaseProps>`
 `;
 
 export const Backdrop = styled.div<BaseProps>`
-  box-sizing: border-box;
   height: 100%;
   left: 0;
   position: fixed;
