@@ -4229,20 +4229,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nrwl/cli@npm:14.8.3":
-  version: 14.8.3
-  resolution: "@nrwl/cli@npm:14.8.3"
+"@nrwl/cli@npm:15.0.4":
+  version: 15.0.4
+  resolution: "@nrwl/cli@npm:15.0.4"
   dependencies:
-    nx: 14.8.3
-  checksum: 0f8f0dcb9acd6da9fab605135d506a5f140df0ad47ae4360559f02136a726d339dd20817e89bdce91e76eca199fe4ac1a0523e2f7758d5e66f11bba136419ae4
+    nx: 15.0.4
+  checksum: 4541f88135a83089b94f628be721c3803ba158eed28c67da977e0dffdb8304624f78e10b569ad97dc482939dd7851795d6738475226ef8fdfa73aaac06f24652
   languageName: node
   linkType: hard
 
-"@nrwl/nx-cloud@npm:^14.6.2":
-  version: 14.7.0
-  resolution: "@nrwl/nx-cloud@npm:14.7.0"
+"@nrwl/nx-cloud@npm:15.0.0":
+  version: 15.0.0
+  resolution: "@nrwl/nx-cloud@npm:15.0.0"
   dependencies:
-    axios: ^0.21.1
+    axios: ^0.21.2
     chalk: 4.1.0
     dotenv: ~10.0.0
     fs-extra: ^10.1.0
@@ -4252,18 +4252,18 @@ __metadata:
     yargs-parser: ">=21.0.1"
   bin:
     nx-cloud: bin/nx-cloud.js
-  checksum: 7d28e14bb1d9382f5ba7228bb935e5b071695d5c0b0459dfe999ba8c46c390dae70fa6d05a2b69d9867f1368801ee972f9b7585fc3ee433b696dcc2fc6267590
+  checksum: d6230927e5d2c807b225d8ceb91f78888f7e9459fc69ffac04ae5bba2a513fdfd73a461940d1916b635437973391e38937efcff754c346a5fe473e2df80bdcda
   languageName: node
   linkType: hard
 
-"@nrwl/tao@npm:14.8.3":
-  version: 14.8.3
-  resolution: "@nrwl/tao@npm:14.8.3"
+"@nrwl/tao@npm:15.0.4":
+  version: 15.0.4
+  resolution: "@nrwl/tao@npm:15.0.4"
   dependencies:
-    nx: 14.8.3
+    nx: 15.0.4
   bin:
     tao: index.js
-  checksum: 193bfd943357634285ae848247c8382cf1d3202934f2a543b4d64db3dd5c1fe863cc05e313514b1a7913327499c719831a4c400c0387bec453b5a5662eb01391
+  checksum: 342ca77d317d64ea30c5e9299d6266afa4fb302cf8e6a47ae42f028d784fe363ecaaa94780ac86f92a52849b7042db271ab2bfeb1534a09dbbe4f072423e6efd
   languageName: node
   linkType: hard
 
@@ -7936,21 +7936,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:0.21.1":
-  version: 0.21.1
-  resolution: "axios@npm:0.21.1"
-  dependencies:
-    follow-redirects: ^1.10.0
-  checksum: c87915fa0b18c15c63350112b6b3563a3e2ae524d7707de0a73d2e065e0d30c5d3da8563037bc29d4cc1b7424b5a350cb7274fa52525c6c04a615fe561c6ab11
-  languageName: node
-  linkType: hard
-
-"axios@npm:^0.21.1, axios@npm:^0.21.4":
+"axios@npm:^0.21.1, axios@npm:^0.21.2, axios@npm:^0.21.4":
   version: 0.21.4
   resolution: "axios@npm:0.21.4"
   dependencies:
     follow-redirects: ^1.14.0
   checksum: 44245f24ac971e7458f3120c92f9d66d1fc695e8b97019139de5b0cc65d9b8104647db01e5f46917728edfc0cfd88eb30fc4c55e6053eef4ace76768ce95ff3c
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.0.0":
+  version: 1.1.3
+  resolution: "axios@npm:1.1.3"
+  dependencies:
+    follow-redirects: ^1.15.0
+    form-data: ^4.0.0
+    proxy-from-env: ^1.1.0
+  checksum: cab3b17bf6092c9387f7023d699db093cfa23650b56c4422cd474d124b78b2e3b5a520f932c330664a58ab85b867b1c25a95cace475ef72d236888c852b84e6d
   languageName: node
   linkType: hard
 
@@ -14926,7 +14928,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.10.0, follow-redirects@npm:^1.14.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.0, follow-redirects@npm:^1.15.0":
   version: 1.15.2
   resolution: "follow-redirects@npm:1.15.2"
   peerDependenciesMeta:
@@ -15033,6 +15035,17 @@ __metadata:
     combined-stream: ^1.0.8
     mime-types: ^2.1.12
   checksum: b019e8d35c8afc14a2bd8a7a92fa4f525a4726b6d5a9740e8d2623c30e308fbb58dc8469f90415a856698933c8479b01646a9dff33c87cc4e76d72aedbbf860d
+  languageName: node
+  linkType: hard
+
+"form-data@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "form-data@npm:4.0.0"
+  dependencies:
+    asynckit: ^0.4.0
+    combined-stream: ^1.0.8
+    mime-types: ^2.1.12
+  checksum: 01135bf8675f9d5c61ff18e2e2932f719ca4de964e3be90ef4c36aacfc7b9cb2fceb5eca0b7e0190e3383fe51c5b37f4cb80b62ca06a99aaabfcfd6ac7c9328c
   languageName: node
   linkType: hard
 
@@ -21458,17 +21471,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nx@npm:14.8.3, nx@npm:^14.6.5":
-  version: 14.8.3
-  resolution: "nx@npm:14.8.3"
+"nx@npm:15.0.4":
+  version: 15.0.4
+  resolution: "nx@npm:15.0.4"
   dependencies:
-    "@nrwl/cli": 14.8.3
-    "@nrwl/tao": 14.8.3
+    "@nrwl/cli": 15.0.4
+    "@nrwl/tao": 15.0.4
     "@parcel/watcher": 2.0.4
     "@yarnpkg/lockfile": ^1.1.0
     "@yarnpkg/parsers": ^3.0.0-rc.18
     "@zkochan/js-yaml": 0.0.6
-    axios: 0.21.1
+    axios: ^1.0.0
     chalk: 4.1.0
     chokidar: ^3.5.1
     cli-cursor: 3.1.0
@@ -21507,7 +21520,7 @@ __metadata:
       optional: true
   bin:
     nx: bin/nx.js
-  checksum: e946f121814ae9513e78a28e67a308457d5002c6804d38757b784cdda50e0c7fc4ef8d097bff786a3a67a30a26d7c4ca76afda839214def3657552fd572adf89
+  checksum: 00def43fa750159b32a6bebc13a90ebeaef4f6d65b51c556389c7a004f9d71d7231f66ffedf2ea64ec3877e36671dda1550f3cf4cdd208ea2868229e83da4a10
   languageName: node
   linkType: hard
 
@@ -24324,6 +24337,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0"
+  checksum: ed7fcc2ba0a33404958e34d95d18638249a68c430e30fcb6c478497d72739ba64ce9810a24f53a7d921d0c065e5b78e3822759800698167256b04659366ca4d4
+  languageName: node
+  linkType: hard
+
 "prr@npm:~1.0.1":
   version: 1.0.1
   resolution: "prr@npm:1.0.1"
@@ -25690,7 +25710,7 @@ __metadata:
   resolution: "root@workspace:."
   dependencies:
     "@date-io/core": ^1.3.6
-    "@nrwl/nx-cloud": ^14.6.2
+    "@nrwl/nx-cloud": 15.0.0
     "@typescript-eslint/eslint-plugin": ^5.27.1
     "@typescript-eslint/parser": ^5.27.1
     "@vue/cli-plugin-eslint": ~5.0.0-rc.1
@@ -25700,7 +25720,7 @@ __metadata:
     express: ^4.17.1
     husky: ^4.2.5
     lint-staged: ^10.2.7
-    nx: ^14.6.5
+    nx: 15.0.4
     prettier: ^2.0.5
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
