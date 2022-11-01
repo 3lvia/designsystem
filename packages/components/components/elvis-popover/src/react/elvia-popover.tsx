@@ -143,11 +143,8 @@ const Popover: FC<PopoverProps> = function ({
   const togglePopover = (): void =>
     setIsShowingConnectedOverlayState((previousIsShowingState: boolean) => !previousIsShowingState);
 
-  const onEscape = (keydown: KeyboardEvent) => {
-    if (keydown.key === 'Escape') {
-      setIsShowingConnectedOverlayState(false);
-    }
-  };
+  const onEscape = (keydown: KeyboardEvent) =>
+    keydown.key === 'Escape' && setIsShowingConnectedOverlayState(false);
 
   return (
     <div
