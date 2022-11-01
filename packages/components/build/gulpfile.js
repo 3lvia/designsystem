@@ -186,11 +186,9 @@ function TSX_to_JS() {
 
 function reactTypescriptDeclarations() {
   reloadComponentConfig();
-  const globsToCreateDeclarationsFor = components
-    .filter((component) => component.reactTypescriptDeclaration)
-    .map((component) => {
-      return `../components/${component.name}/src/react/**/!(*.test).ts*`;
-    });
+  const globsToCreateDeclarationsFor = components.map((component) => {
+    return `../components/${component.name}/src/react/**/!(*.test).ts*`;
+  });
   const tsConfig = typescript.createProject('../tsconfig.json');
 
   return gulp

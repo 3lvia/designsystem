@@ -29,8 +29,6 @@ async function validateElviaComponentsConfig() {
           },
         },
         reactName: { type: 'string', pattern: '([A-Z0-9]){1}([a-zA-Z0-9])+' },
-        useWrapper: { type: 'boolean' },
-        wrapperStyle: { type: 'string' },
         slotItems: { type: 'boolean' },
         subComponents: {
           type: 'array',
@@ -54,26 +52,11 @@ async function validateElviaComponentsConfig() {
               },
               reactName: { type: 'string', pattern: '([A-Z0-9]){1}([a-zA-Z0-9])+' },
               slotItems: { type: 'boolean' },
-              reactTypescriptDeclaration: { type: 'boolean' },
             },
           },
         },
-        elementStyle: { type: 'string' },
-        conditionalElementStyle: {
-          type: 'array',
-          items: {
-            type: 'object',
-            additionalProperties: false,
-            properties: {
-              name: { type: 'string', pattern: '^[A-Za-z_][A-Za-z0-9_]*$' },
-              value: { type: 'string', pattern: '^[A-Za-z_][A-Za-z0-9_]*$' },
-              style: { type: 'string' },
-            },
-          },
-        },
-        reactTypescriptDeclaration: { type: 'boolean' },
       },
-      required: ['name', 'elementName', 'attributes', 'reactName', 'slotItems', 'reactTypescriptDeclaration'],
+      required: ['name', 'elementName', 'attributes', 'reactName', 'slotItems'],
     },
   };
 

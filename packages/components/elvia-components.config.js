@@ -19,14 +19,8 @@ attributes: object[] -
 
 reactName: string - The name of the component in React
 
-useWrapper: boolean - If the React element should be injected into a wrapper instead of directly into the element.
-In most cases this should be true, however sometimes we want to have more control over the styling of the custom element itself. 
-In those cases removing that wrapper is useful. NB! The wrapper can not be removed if the component is using slots, because the 
-slots will then not work in Vue.
-
 slotItems: boolean (default: false) - Saves all "slot" items to variable. Should be set to true for all new components
 
-reactTypescriptDeclaration: boolean (default: true) - Generate typescript declaration for the React component 
 */
 
 module.exports = [
@@ -58,7 +52,6 @@ module.exports = [
     ],
     reactName: 'Accordion',
     slotItems: true,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-badge',
@@ -70,7 +63,6 @@ module.exports = [
     ],
     slotItems: true,
     reactName: 'Badge',
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-box',
@@ -85,7 +77,6 @@ module.exports = [
     ],
     reactName: 'Box',
     slotItems: true,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-breadcrumb',
@@ -98,7 +89,6 @@ module.exports = [
     ],
     reactName: 'Breadcrumb',
     slotItems: false,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-card',
@@ -126,7 +116,6 @@ module.exports = [
     ],
     reactName: 'Card',
     slotItems: true,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-carousel',
@@ -145,7 +134,6 @@ module.exports = [
     ],
     reactName: 'Carousel',
     slotItems: true,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-chip',
@@ -163,7 +151,6 @@ module.exports = [
     ],
     reactName: 'Chip',
     slotItems: false,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-datepicker',
@@ -189,7 +176,6 @@ module.exports = [
     ],
     reactName: 'Datepicker',
     slotItems: false,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-datepicker-range',
@@ -213,7 +199,6 @@ module.exports = [
     ],
     reactName: 'DatepickerRange',
     slotItems: false,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-divider',
@@ -229,7 +214,6 @@ module.exports = [
     ],
     slotItems: true,
     reactName: 'Divider',
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-dropdown',
@@ -260,7 +244,6 @@ module.exports = [
     ],
     slotItems: false,
     reactName: 'Dropdown',
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-header',
@@ -277,7 +260,6 @@ module.exports = [
     ],
     reactName: 'Header',
     slotItems: true,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-icon',
@@ -290,7 +272,6 @@ module.exports = [
     ],
     reactName: 'Icon',
     slotItems: false,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-modal',
@@ -314,7 +295,6 @@ module.exports = [
     ],
     reactName: 'Modal',
     slotItems: true,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-pagination',
@@ -339,7 +319,6 @@ module.exports = [
     ],
     reactName: 'Pagination',
     slotItems: false,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-popover',
@@ -366,7 +345,6 @@ module.exports = [
     ],
     reactName: 'Popover',
     slotItems: true,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-progress-linear',
@@ -382,7 +360,6 @@ module.exports = [
     ],
     reactName: 'ProgressLinear',
     slotItems: false,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-radio-filter',
@@ -398,7 +375,6 @@ module.exports = [
     ],
     reactName: 'RadioFilter',
     slotItems: false,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-segmented-control',
@@ -413,7 +389,6 @@ module.exports = [
     ],
     reactName: 'SegmentedControl',
     slotItems: false,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-slider',
@@ -435,7 +410,6 @@ module.exports = [
     ],
     slotItems: false,
     reactName: 'Slider',
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-spotlight',
@@ -452,7 +426,6 @@ module.exports = [
     ],
     reactName: 'Spotlight',
     slotItems: false,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-tabs',
@@ -468,7 +441,6 @@ module.exports = [
     ],
     reactName: 'Tabs',
     slotItems: false,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-timepicker',
@@ -487,7 +459,6 @@ module.exports = [
     ],
     reactName: 'Timepicker',
     slotItems: false,
-    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-tooltip',
@@ -503,6 +474,5 @@ module.exports = [
     ],
     reactName: 'Tooltip',
     slotItems: true,
-    reactTypescriptDeclaration: true,
   },
 ];
