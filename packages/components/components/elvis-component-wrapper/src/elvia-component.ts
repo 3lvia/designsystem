@@ -9,16 +9,14 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected _slots: { [slotName: string]: Element };
   protected reactComponent: React.FC;
   protected webComponent: ElviaComponent;
-  protected cssStyle: string;
   protected throttleRenderReactDOM;
 
-  constructor(webComponent: ElviaComponent, reactComponent: React.FC, cssStyle: string) {
+  constructor(webComponent: ElviaComponent, reactComponent: React.FC) {
     super();
     this._data = {};
     this._slots = {};
     this.webComponent = webComponent;
     this.reactComponent = reactComponent;
-    this.cssStyle = cssStyle;
     this.throttleRenderReactDOM = throttle(this.renderReactDOM, 50, { trailing: true });
   }
 
@@ -57,9 +55,7 @@ export class ElvisComponentWrapper extends HTMLElement {
       this.storeAllSlots();
     }
     this.renderReactDOM();
-    if (this.querySelectorAll('style').length === 0) {
-      this.attachStyle();
-    }
+    this.addDisplayStyleToCustomElement();
   }
 
   attributeChangedCallback(): void {
@@ -108,20 +104,6 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   protected addDisplayStyleToCustomElement(): void {
     this.style.cssText = 'display: contents;';
-  }
-
-  protected attachStyle(): void {
-    this.addDisplayStyleToCustomElement();
-    if (this.cssStyle === '') {
-      return;
-    }
-    const styleTag = document.createElement('style');
-    styleTag.innerHTML = this.cssStyle;
-    // Add nonce to style tag for CSP support
-    if (typeof window !== 'undefined' && (window as any).__webpack_nonce__) {
-      styleTag.setAttribute('nonce', (window as any).__webpack_nonce__);
-    }
-    this.appendChild(styleTag);
   }
 
   protected createReactData(): { [key: string]: any } {
