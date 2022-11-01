@@ -11,7 +11,7 @@ import {
   PopoverList,
   PopoverTypography,
   TriggerContainer,
-  PopoperContent,
+  PopoverContent,
 } from './styledComponents';
 import { config } from './config';
 import {
@@ -43,17 +43,15 @@ const Popover: FC<PopoverProps> = function ({
 }) {
   warnDeprecatedProps(config, arguments[0]);
 
-  const popoverClassContainerRef = useRef<HTMLDivElement>(null);
   const popoverContentRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
-  const popoverSlotTriggerRef = useRef<HTMLDivElement>(null);
   const popoverText = useRef<HTMLDivElement>(null);
-  const popoverTriggerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
   const {
     isShowing: isShowingConnectedOverlayState,
     setIsShowing: setIsShowingConnectedOverlayState,
     updatePreferredPosition,
-  } = useConnectedOverlay(popoverTriggerRef, popoverContentRef, {
+  } = useConnectedOverlay(triggerRef, popoverContentRef, {
     horizontalPosition: mapPositionToHorizontalPosition(horizontalPosition),
     verticalPosition: verticalPosition,
     alignWidths: false,
@@ -93,9 +91,9 @@ const Popover: FC<PopoverProps> = function ({
       return;
     }
 
-    if (popoverSlotTriggerRef.current && webcomponent.getSlot('trigger')) {
-      popoverSlotTriggerRef.current.innerHTML = '';
-      popoverSlotTriggerRef.current.appendChild(webcomponent.getSlot('trigger'));
+    if (triggerRef.current && webcomponent.getSlot('trigger')) {
+      triggerRef.current.innerHTML = '';
+      triggerRef.current.appendChild(webcomponent.getSlot('trigger'));
     }
 
     if (popoverText.current && webcomponent.getSlot('content')) {
@@ -146,20 +144,26 @@ const Popover: FC<PopoverProps> = function ({
     keydown.key === 'Escape' && setIsShowingConnectedOverlayState(false);
 
   return (
-    <div className={className ? className : ''} style={inlineStyle} ref={popoverRef} role="dialog" {...rest}>
-      <PopoverContainer ref={popoverClassContainerRef}>
-        {isShowingConnectedOverlayState && (
-          <Backdrop onClick={() => setIsShowingConnectedOverlayState(false)}></Backdrop>
-        )}
+    <PopoverContainer
+      className={className ? className : ''}
+      style={inlineStyle}
+      ref={popoverRef}
+      role="dialog"
+      {...rest}
+    >
+      <TriggerContainer
+        onClick={togglePopover}
+        overlayIsOpen={isShowingConnectedOverlayState}
+        ref={triggerRef}
+      >
+        {trigger}
+      </TriggerContainer>
 
-        <TriggerContainer overlayIsOpen={isShowingConnectedOverlayState} ref={popoverTriggerRef}>
-          {trigger && <div onClick={togglePopover}>{trigger}</div>}
-          {!trigger && <div onClick={togglePopover} ref={popoverSlotTriggerRef}></div>}
-        </TriggerContainer>
-
-        {isShowingConnectedOverlayState &&
-          createPortal(
-            <PopoperContent type={type} ref={popoverContentRef} aria-modal="true">
+      {isShowingConnectedOverlayState &&
+        createPortal(
+          <>
+            <Backdrop onClick={() => setIsShowingConnectedOverlayState(false)}></Backdrop>
+            <PopoverContent type={type} content={content} ref={popoverContentRef} aria-modal="true">
               {type === 'informative' && (
                 <>
                   {hasCloseButton && (
@@ -176,13 +180,18 @@ const Popover: FC<PopoverProps> = function ({
                   {heading && <Heading>{heading}</Heading>}
                 </>
               )}
-              {content && type === 'informative' && <PopoverTypography>{content}</PopoverTypography>}
+              {content && type === 'informative' && (
+                <PopoverTypography content={content}>{content}</PopoverTypography>
+              )}
               {!content && type === 'informative' && <PopoverTypography ref={popoverText} />}
               {content && type === 'list' && (
                 <PopoverTypography
+                  content={content}
                   onClick={() => !disableAutoClose && setIsShowingConnectedOverlayState(false)}
                 >
-                  <PopoverList>{content}</PopoverList>
+                  <PopoverList hasDivider={hasDivider} isSelectable={isSelectable}>
+                    {content}
+                  </PopoverList>
                 </PopoverTypography>
               )}
               {!content && type === 'list' && (
@@ -193,11 +202,11 @@ const Popover: FC<PopoverProps> = function ({
                   />
                 </PopoverList>
               )}
-            </PopoperContent>,
-            document.body,
-          )}
-      </PopoverContainer>
-    </div>
+            </PopoverContent>
+          </>,
+          document.body,
+        )}
+    </PopoverContainer>
   );
 };
 
