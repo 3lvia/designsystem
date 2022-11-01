@@ -108,15 +108,23 @@
   <!-- USAGE -->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Label'">
-        <ng-container ngProjectAs="sectionContent">
-          You don’t need to show label in search, but add an aria-label as an explicit invisible label to the
-          search form code that can accommodate screen reader users
-        </ng-container>
-      </app-component-subsection>
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
       <app-component-subsection [sectionTitle]="'Placeholder'">
         <ng-container ngProjectAs="sectionContent">
           Include a placeholder to suggest to users what they can search for, but try to keep it short.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- ACCESSIBILITY -->
+  <app-component-section [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'aria-label'">
+        <ng-container ngProjectAs="sectionContent">
+          You don’t need to show label in search, but add an
+          <span class="code-text">aria-label</span>
+          as an explicit invisable label to the search form code that can accommodate screen reader users.
         </ng-container>
       </app-component-subsection>
     </ng-container>

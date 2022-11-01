@@ -111,8 +111,8 @@ export const warnDeprecatedProps = (config: ComponentConfig, props: { [propName:
       // Check for deprecated callback function on webcomponent Angular.
       for (const webcomponentAttribute in webcomponent) {
         if (/^__zone_symbol__.*false/.test(webcomponentAttribute)) {
-          const callbackName: string = webcomponent[webcomponentAttribute][0]['eventName'];
-          if (callbackName in deprecatedProps && !warnedCallbacks.includes(callbackName)) {
+          const callbackName: string | undefined = webcomponent[webcomponentAttribute]?.[0]?.['eventName'];
+          if (callbackName && callbackName in deprecatedProps && !warnedCallbacks.includes(callbackName)) {
             consoleWarnDeprecatedProp(
               callbackName,
               deprecatedProps[callbackName],

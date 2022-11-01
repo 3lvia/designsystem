@@ -60,12 +60,13 @@ function setGetList(attributes) {
 
 function buildWebComponentsMagically() {
   reloadComponentConfig();
-  const tasks = components.map((component) => {
+
+  function createWebComponent(component, parentName) {
     return gulp
       .src(`template/elvia-component.template.ts`)
       .pipe(header(WARNING))
       .pipe(
-        tap(function (file, t) {
+        tap(function (file) {
           if (
             path.basename(file.path).indexOf('.ts') === -1 ||
             path.basename(file.path).indexOf('.d.ts') === 1
@@ -73,21 +74,8 @@ function buildWebComponentsMagically() {
             return;
           }
 
-          const sassFile = `../components/${component.name}/src/react/style.scss`;
-          let result = '';
-          if (fs.existsSync(sassFile)) {
-            result = sass.compile(sassFile).css.toString();
-          }
-
           const lowercaseAttr = component.attributes.map((attr) => attr.name.toLowerCase());
 
-          file.contents = Buffer.from(String(file.contents).replace(/{{INSERT_STYLE_HERE}}/, result));
-
-          const elementStyle = component.elementStyle ? component.elementStyle : `''`;
-
-          file.contents = Buffer.from(
-            String(file.contents).replace(/{{INSERT_ELEMENTSTYLE_HERE}}/, component.style),
-          );
           file.contents = Buffer.from(
             String(file.contents).replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(lowercaseAttr)),
           ); // Observed attributes has to be lowercase to meet spec
@@ -128,8 +116,16 @@ function buildWebComponentsMagically() {
           presets: ['@babel/preset-typescript'],
         }),
       )
-      .pipe(gulp.dest(`../components/${component.name}/dist/web_component/js/`));
+      .pipe(gulp.dest(`../components/${parentName ? parentName : component.name}/dist/web_component/js/`));
+  }
+
+  const tasks = components.map((component) => {
+    const subComponents = component.subComponents
+      ? component.subComponents.map((subComponent) => createWebComponent(subComponent, component.name))
+      : [];
+    return mergeStream(createWebComponent(component), ...subComponents);
   });
+
   return mergeStream(tasks);
 }
 

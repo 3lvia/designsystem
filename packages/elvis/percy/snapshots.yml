@@ -24,9 +24,6 @@ snapshots:
   - url: /components/content-loader.html
     name: Content Loader
     widths: [766, 1440]
-  - url: /components/datepicker.html
-    name: Datepicker
-    widths: [766, 1440]
   - url: /components/drag-and-drop.html
     name: Drag and Drop
     widths: [766, 1440]
