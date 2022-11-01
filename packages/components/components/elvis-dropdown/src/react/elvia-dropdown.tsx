@@ -1,60 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { config } from './config';
-import { DropdownProps, DropdownValue, GlobalDropdownProps } from './elviaDropdown.types';
-import {
-  warnDeprecatedProps,
-  FormFieldLabel,
-  useConnectedOverlay,
-  useInputModeDetection,
-} from '@elvia/elvis-toolbox';
+import { DropdownProps } from './elviaDropdown.types';
+import { warnDeprecatedProps, FormFieldLabel, useConnectedOverlay } from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import { DropdownInput } from './dropdown-input/dropdownInput';
-import {
-  Backdrop,
-  DropdownContainer,
-  DropdownInputContainer,
-  IconRotator,
-  Overlay,
-  OverlayPositioner,
-} from './styledComponents';
+import { DropdownContainer, DropdownInputContainer, IconRotator } from './styledComponents';
 import { DropdownError } from './error/dropdownError';
-import { createPortal } from 'react-dom';
 import { useWebComponentState } from '@elvia/elvis-toolbox';
-
-interface DropdownItem {
-  value: string;
-  label: string;
-}
-
-interface SharedState {
-  registerListItem: (item: DropdownItem) => void;
-  setFocusedIndex: (newIndex: number) => void;
-  onItemSelect: (value: string) => void;
-  setDropdownIsOpen: (isOpen: boolean) => void;
-  currentVal: DropdownValue | null;
-  inputIsMouse: boolean;
-  filter: string;
-  focusedIndex: number;
-  items: DropdownItem[];
-  isOpen: boolean;
-}
-
-export const DropdownContext = React.createContext<GlobalDropdownProps & SharedState>({
-  registerListItem: () => undefined,
-  setFocusedIndex: () => undefined,
-  onItemSelect: () => undefined,
-  setDropdownIsOpen: () => undefined,
-  currentVal: undefined,
-  inputIsMouse: true,
-  filter: '',
-  focusedIndex: 0,
-  items: [],
-  isOpen: false,
-});
+import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
 
 const Dropdown: React.FC<DropdownProps> = ({
-  dropdownOverlay,
+  items = [],
   value,
   isCompact = false,
   isDisabled = false,
@@ -77,15 +34,16 @@ const Dropdown: React.FC<DropdownProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
-  // warnDeprecatedProps(config, arguments[0]);
+  warnDeprecatedProps(config, rest);
 
+  // TODO: Make filtered list
   const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
-  const { isMouse } = useInputModeDetection();
   const [isError, setIsError] = useState(false);
   const [filter, setFilter] = useState('');
   const [focusedIndex, setFocusedIndex] = useState(0);
-  const [items, setItems] = useState<DropdownItem[]>([]);
+  const [filteredItems, setFilteredItems] = useState(items);
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -123,16 +81,6 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
   };
 
-  let itemList: DropdownItem[] = [];
-  const registerListItem = (listItem: DropdownItem): void => {
-    if (!itemList.map((item) => item.value).includes(listItem.value)) {
-      const listClone = itemList.slice();
-      listClone.push(listItem);
-      itemList = listClone;
-      setItems(listClone);
-    }
-  };
-
   useEffect(() => {
     if (!isShowing) {
       return;
@@ -141,9 +89,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     /** We need to update the position, because the dimensions of the
      * overlay has changed.
      */
-    setTimeout(() => {
-      updatePreferredPosition();
-    });
+    updatePreferredPosition();
 
     const closeOnEsc = (ev: KeyboardEvent) => {
       if (ev.code === 'Escape') {
@@ -158,30 +104,20 @@ const Dropdown: React.FC<DropdownProps> = ({
     };
   }, [isShowing]);
 
+  useEffect(() => {
+    if (!filter) {
+      setFilteredItems(items);
+    } else {
+      setFilteredItems(items.filter((item) => item.label.toLowerCase().includes(filter.toLowerCase())));
+    }
+  }, [filter]);
+
+  useEffect(() => {
+    setTimeout(() => setFilteredItems(items), 2000);
+  }, [items]);
+
   return (
-    <DropdownContext.Provider
-      value={{
-        isCompact: isCompact,
-        isMulti: isMulti,
-        isDisabled: isDisabled,
-        focusedIndex: focusedIndex,
-        registerListItem: (listItem) => registerListItem(listItem),
-        setFocusedIndex: (newIndex) => setFocusedIndex(newIndex),
-        onItemSelect: (value) => {
-          if (!isMulti) {
-            setVisibility(false);
-          }
-          setFilter('');
-          setSelectedItem(value);
-        },
-        setDropdownIsOpen: (isOpen) => setVisibility(isOpen),
-        currentVal: currentVal,
-        inputIsMouse: isMouse,
-        filter: filter,
-        items: items,
-        isOpen: isShowing,
-      }}
-    >
+    <>
       <DropdownContainer
         isCompact={isCompact}
         className={className ?? ''}
@@ -206,6 +142,14 @@ const Dropdown: React.FC<DropdownProps> = ({
             allOptionsSelectedLabel={allOptionsSelectedLabel}
             editable={isSearchable}
             onChange={(value) => setFilter(value)}
+            dropdownIsOpen={isShowing}
+            focusedIndex={focusedIndex}
+            isDisabled={isDisabled}
+            items={filteredItems}
+            onItemSelect={(value) => setSelectedItem(value)} // TODO: This should not have selection logic
+            onOpenDropdown={() => setIsShowing(true)}
+            setFocusedIndex={(newIndex) => setFocusedIndex(newIndex)}
+            currentVal={currentVal}
           />
 
           <IconRotator isRotated={isShowing}>
@@ -218,14 +162,18 @@ const Dropdown: React.FC<DropdownProps> = ({
         </DropdownInputContainer>
         {(isError || errorMessage) && <DropdownError errorText={errorMessage} />}
       </DropdownContainer>
-      {createPortal(
-        <Overlay isShowing={isShowing}>
-          <Backdrop onClick={() => setVisibility(false)} />
-          <OverlayPositioner ref={popoverRef}>{dropdownOverlay}</OverlayPositioner>
-        </Overlay>,
-        document.body,
+      {isShowing && (
+        <DropdownOverlay
+          ref={popoverRef}
+          noItemsText={noOptionsMessage}
+          isMulti={isMulti}
+          onItemSelect={setSelectedItem}
+          isCompact={isCompact}
+          onClose={() => setVisibility(false)}
+          items={filteredItems}
+        />
       )}
-    </DropdownContext.Provider>
+    </>
   );
 };
 

@@ -5,26 +5,18 @@ export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 
 export type DropdownValue = string | string[] | undefined;
 
-export interface DropdownItemProps {
+export interface DropdownItem {
   value: string;
   label: string;
+  icon?: string;
   isDisabled?: boolean;
+  status?: string;
+  tooltip?: string;
+  children?: DropdownItem[];
 }
 
-export interface GlobalDropdownProps {
-  isCompact?: boolean;
-  isDisabled?: boolean;
-  isMulti?: boolean;
-  hasSelectAllOption?: boolean;
-  selectAllOption?: Partial<DropdownItemProps>;
-  noOptionsMessage?: string;
-  hasLoadMoreItemsButton?: boolean;
-  onLoadMoreItems?: () => void;
-  isLoadingMoreItems?: boolean;
-}
-
-export interface DropdownProps extends BaseProps, HasValue<DropdownValue>, GlobalDropdownProps {
-  dropdownOverlay: JSX.Element;
+export interface DropdownProps extends BaseProps, HasValue<DropdownValue> {
+  items: DropdownItem[];
   /**
    * @deprecated Removed in version 3.0.0. Replaced by `value`.
    */
@@ -37,4 +29,14 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue>, Globa
   menuPosition?: DropdownMenuPosition;
   placeholder?: string;
   placeholderIcon?: IconName;
+
+  isCompact?: boolean;
+  isDisabled?: boolean;
+  isMulti?: boolean;
+  hasSelectAllOption?: boolean;
+  selectAllOption?: Partial<DropdownItem>;
+  noOptionsMessage?: string;
+  hasLoadMoreItemsButton?: boolean;
+  onLoadMoreItems?: () => void;
+  isLoadingMoreItems?: boolean;
 }

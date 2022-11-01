@@ -62,11 +62,29 @@ function App() {
   maxDate.setDate(maxDate.getDate() - 1);
 
   // Dropdown
-  const defaultDropdownOptions = [{ value: 'norge', label: 'Norge' }];
+  const defaultDropdownOptions = 'norge';
   const dropdownOptions = [
     { value: 'norge', label: 'Norge' },
     { value: 'sverige', label: 'Sverige' },
     { value: 'danmark', label: 'Danmark' },
+    {
+      value: 'england',
+      label: 'England',
+      items: [
+        { value: 'london', label: 'London' },
+        { value: 'manchester', label: 'Manchester' },
+        { value: 'birmingham', label: 'Birmingham' },
+      ],
+    },
+    { value: 'russland', label: 'Russland' },
+    { value: 'polen', label: 'Polen' },
+    { value: 'romania', label: 'Romania' },
+    { value: 'frankrike', label: 'Frankrike' },
+    { value: 'spania', label: 'Spania' },
+    { value: 'portugal', label: 'Portugal' },
+    { value: 'italia', label: 'Italia' },
+    { value: 'finland', label: 'Finland' },
+    { value: 'østerriket', label: 'Østerriket' },
   ];
 
   const [isLoadingMoreItems, setIsLoadingMoreItems] = useState(false);
@@ -150,12 +168,35 @@ function App() {
               {/* Normal version */}
               <div className="e-bg-white">
                 <Dropdown
+                  inlineStyle={{ width: '280px' }}
                   value={defaultDropdownOptions}
-                  label="test"
-                  hasLoadMoreItemsButton
-                  isLoadingMoreItems={isLoadingMoreItems}
-                  onLoadMoreItems={onLoadMoreItems}
-                  dropdownOverlay={<p>Foo</p>}
+                  placeholder="Select country"
+                  label="New dropdown"
+                  isSearchable
+                  dropdownOverlay={
+                    <DropdownOverlay
+                      items={dropdownOptions.map((option) => (
+                        <DropdownItem
+                          key={option.value}
+                          value={option.value}
+                          content={option.label}
+                          subOptions={
+                            option.items && (
+                              <DropdownOverlay
+                                items={option.items.map((option) => (
+                                  <DropdownItem
+                                    key={option.value}
+                                    value={option.value}
+                                    content={option.label}
+                                  />
+                                ))}
+                              />
+                            )
+                          }
+                        />
+                      ))}
+                    />
+                  }
                 ></Dropdown>
               </div>
               {/* Inverted version */}
@@ -406,8 +447,8 @@ function App() {
                 <SegmentedControl
                   type="icon"
                   items={[
-                    { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor' },
-                    { iconName: 'list', iconNameSelected: 'listColor' },
+                    { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: '', label: '' },
+                    { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: '', label: '' },
                   ]}
                   size={'large'}
                   value={0}

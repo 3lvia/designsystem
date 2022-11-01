@@ -65,6 +65,32 @@ export class v2PlaygroundComponent {
     { value: '3', label: 'Option 3', isDisabled: 'true' },
   ];
 
+  // Dropdown 2
+  selectedDropdownItem = 'spania';
+  dropdownItems = [
+    { value: 'norge', label: 'Norge' },
+    { value: 'sverige', label: 'Sverige' },
+    { value: 'danmark', label: 'Danmark' },
+    {
+      value: 'england',
+      label: 'England',
+      items: [
+        { value: 'london', label: 'London' },
+        { value: 'manchester', label: 'Manchester' },
+        { value: 'birmingham', label: 'Birmingham' },
+      ],
+    },
+    { value: 'russland', label: 'Russland' },
+    { value: 'polen', label: 'Polen' },
+    { value: 'romania', label: 'Romania' },
+    { value: 'frankrike', label: 'Frankrike' },
+    { value: 'spania', label: 'Spania' },
+    { value: 'portugal', label: 'Portugal' },
+    { value: 'italia', label: 'Italia' },
+    { value: 'finland', label: 'Finland' },
+    { value: 'østerriket', label: 'Østerriket' },
+  ];
+
   // Modal
   isModalShowing = false;
 

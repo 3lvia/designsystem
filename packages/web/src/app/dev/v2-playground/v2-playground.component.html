@@ -6,18 +6,10 @@
     <!--Normal version-->
     <div class="e-bg-white">
       <elvia-dropdown
-        [isCompact]="false"
-        [isDisabled]="false"
         label="testing something"
-        [value]="dropdownDefOptions"
-      >
-        <!-- Tabindex 0 -->
-        <elvia-dropdown-container>
-          <elvia-dropdown-item>Foo</elvia-dropdown-item>
-          <elvia-dropdown-item>Bar</elvia-dropdown-item>
-          <elvia-dropdown-item>Baz</elvia-dropdown-item>
-        </elvia-dropdown-container>
-      </elvia-dropdown>
+        [value]="selectedDropdownItem"
+        [items]="dropdownItems"
+      ></elvia-dropdown>
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
@@ -218,13 +210,13 @@
   <!--Dropdown-->
   <div class="example-wrapper">
     <h3>Dropdown</h3>
-    <elvia-dropdown
+    <!-- <elvia-dropdown
       [isCompact]="false"
       [isDisabled]="false"
       label="testing something"
       [value]="dropdownDefOptions"
       [items]="dropdownOptions"
-    ></elvia-dropdown>
+    ></elvia-dropdown> -->
   </div>
 
   <!--Icon-->

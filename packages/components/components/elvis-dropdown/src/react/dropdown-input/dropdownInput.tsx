@@ -1,6 +1,6 @@
 import { Icon, IconName } from '@elvia/elvis-icon/react';
 import React, { KeyboardEvent, useEffect, useState } from 'react';
-import { DropdownContext } from '../elvia-dropdown';
+import { DropdownItem, DropdownValue } from '../elviaDropdown.types';
 
 import { Input } from './dropdownInputStyles';
 
@@ -9,7 +9,15 @@ interface Props {
   placeholderIcon?: IconName;
   allOptionsSelectedLabel: string;
   editable: boolean;
+  isDisabled: boolean;
+  items: DropdownItem[];
   onChange: (query: string) => void;
+  focusedIndex: number;
+  setFocusedIndex: (newIndex: number) => void;
+  dropdownIsOpen: boolean;
+  onOpenDropdown: () => void;
+  currentVal?: DropdownValue | null;
+  onItemSelect: (value: string) => void;
 }
 
 export const DropdownInput: React.FC<Props> = ({
@@ -18,18 +26,16 @@ export const DropdownInput: React.FC<Props> = ({
   allOptionsSelectedLabel,
   editable,
   onChange,
+  isDisabled,
+  items,
+  focusedIndex,
+  setFocusedIndex,
+  dropdownIsOpen,
+  onOpenDropdown,
+  currentVal,
+  onItemSelect,
 }) => {
   const [inputValue, setInputValue] = useState('');
-  const {
-    isDisabled,
-    currentVal,
-    items,
-    focusedIndex,
-    setFocusedIndex,
-    isOpen,
-    onItemSelect,
-    setDropdownIsOpen,
-  } = React.useContext(DropdownContext);
 
   const onInputChange = (inputValue: string): void => {
     onChange(inputValue);
@@ -59,10 +65,10 @@ export const DropdownInput: React.FC<Props> = ({
   };
 
   const onKeyDown = (ev: KeyboardEvent<HTMLInputElement>): void => {
-    if (isOpen) {
+    if (dropdownIsOpen) {
       handleOpenKeyboardNavigation(ev);
     } else if (['Space', 'Enter', 'ArrowUp', 'ArrowDown'].includes(ev.code)) {
-      setDropdownIsOpen(true);
+      onOpenDropdown();
     }
   };
 
@@ -75,7 +81,7 @@ export const DropdownInput: React.FC<Props> = ({
         return currentVal === item.value;
       });
 
-      if (editable && isOpen) {
+      if (editable && dropdownIsOpen) {
         setInputValue('');
       } else {
         if (Array.isArray(currentVal) && currentVal.length === items.length) {
@@ -91,7 +97,7 @@ export const DropdownInput: React.FC<Props> = ({
     };
 
     updateInputValue();
-  }, [currentVal, items, isOpen]);
+  }, [currentVal, items, dropdownIsOpen]);
 
   return (
     <>
@@ -103,7 +109,7 @@ export const DropdownInput: React.FC<Props> = ({
         placeholder={placeholder}
         onChange={(ev) => onInputChange(ev.target.value ?? '')}
         value={inputValue}
-        onClick={() => setDropdownIsOpen(true)}
+        onClick={() => onOpenDropdown()}
         onKeyDown={onKeyDown}
         readOnly={!editable}
         data-testid="input"

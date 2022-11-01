@@ -39,14 +39,6 @@ export const OverlayPositioner = styled.div`
   z-index: 99999;
 `;
 
-export const Backdrop = styled.div`
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-`;
-
 export const IconRotator = styled.div<{ isRotated: boolean }>`
   transform: rotate(0deg);
   transition: transform 150ms ease;
@@ -56,8 +48,4 @@ export const IconRotator = styled.div<{ isRotated: boolean }>`
     css`
       transform: rotate(180deg);
     `}
-`;
-
-export const Overlay = styled.div<{ isShowing: boolean }>`
-  display: ${(props) => (props.isShowing ? 'block' : 'none')};
 `;
