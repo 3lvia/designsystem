@@ -3,6 +3,7 @@ import changelogJson from 'src/assets/changelogs/elvis-popover/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const popoverData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-popover',
   elementNameW: 'elvia-popover',
   elementNameR: 'Popover',
@@ -110,10 +111,6 @@ const popoverData: ComponentData = {
         "Custom CSS style object that can be added to the popover. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-popover',
-  codeImportReact: `import { Popover } from '@elvia/elvis-popover/react';`,
-  codeImportTypescriptInterface: `import { PopoverProps } from '@elvia/elvis-popover/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-popover';`,
   // Not used here, as there are separate files with code for each component type.
   codeReact: ``,
   codeAngular: ``,
@@ -130,7 +127,6 @@ const popoverData: ComponentData = {
     popoverTrigger.classList.remove('e-btn---selected');
   });
 `,
-  changelog: changelogJson.content,
 };
 
 export { popoverData };

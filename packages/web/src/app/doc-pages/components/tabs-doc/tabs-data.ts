@@ -3,6 +3,7 @@ import { exampleContents } from 'src/app/shared/example-contents';
 import ComponentData from '../component-data.interface';
 
 export const tabsData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-tabs',
   elementNameW: 'elvia-tabs',
   elementNameR: 'Tabs',
@@ -54,10 +55,6 @@ export const tabsData: ComponentData = {
         'Gets called every time the value is changed. Value is the index of the clicked tab in items.',
     },
   },
-  package: 'npm install @elvia/elvis-tabs',
-  codeImportReact: `import { Tabs } from '@elvia/elvis-tabs/react';`,
-  codeImportTypescriptInterface: `import { TabsProps } from '@elvia/elvis-tabs/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-tabs';`,
   codeReact:
     `<Tabs 
   value={0}
@@ -112,7 +109,7 @@ export const tabsData: ComponentData = {
     console.log('Do what you want with selected tab: ', event.detail.value)
   });
 `,
-  changelog: changelogJson.content,
+
   does: ['If you have sub-sections of a page and can not display everything at once'],
   donts: [
     'If the content can be displayed at once.',

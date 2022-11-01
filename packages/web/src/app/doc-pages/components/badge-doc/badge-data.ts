@@ -2,10 +2,10 @@ import changelogJson from 'src/assets/changelogs/elvis-badge/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const badgeData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-badge',
   elementNameW: 'elvia-badge',
   elementNameR: 'Badge',
-  package: 'npm install @elvia/elvis-badge',
   attributes: {
     content: {
       isRequired: true,
@@ -50,9 +50,6 @@ export const badgeData: ComponentData = {
       description: 'Custom CSS style object that can be added to the badge.' /* nødvendig? */,
     },
   },
-  codeImportReact: `import { Badge } from '@elvia/elvis-badge/react';`,
-  codeImportTypescriptInterface: `import { BadgeProps } from '@elvia/elvis-badge/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-badge';`,
   codeReact: `<Badge
   count={1}
   content={
@@ -97,6 +94,6 @@ export const badgeData: ComponentData = {
   <img src="../../../../../assets/badge/image.jpg" alt="Thumbnail example image" />
   </button>
 </elvia-badge>`,
-  changelog: changelogJson.content,
+
   codeNativeScript: ``,
 };

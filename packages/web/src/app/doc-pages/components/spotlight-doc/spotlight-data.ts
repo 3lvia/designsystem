@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-spotlight/CHANGELOG.json'
 import ComponentData from '../component-data.interface';
 
 const spotlightData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-spotlight',
   elementNameW: 'elvia-spotlight',
   elementNameR: 'Spotlight',
@@ -61,10 +62,6 @@ const spotlightData: ComponentData = {
         "Custom CSS style object that can be added to the Spotlight. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-spotlight',
-  codeImportReact: `import { Spotlight } from '@elvia/elvis-spotlight/react';`,
-  codeImportTypescriptInterface: `import { SpotlightProps } from '@elvia/elvis-spotlight/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-spotlight';`,
   codeReact: `<Spotlight
   position={{horizontal: 300, vertical: 300}}
   radius={150}>
@@ -106,7 +103,6 @@ const spotlightData: ComponentData = {
   spotlight.setProps({position: {horizontal: horizontal, vertical: vertical} });
   spotlight.setProps({radius: radius});
 `,
-  changelog: changelogJson.content,
 };
 
 export { spotlightData };

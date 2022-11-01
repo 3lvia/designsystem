@@ -12,6 +12,7 @@ import ComponentData from './components/component-data.interface';
 
 // Define the componentData
 const componentData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-component', // Component name (package name)
   elementNameW: 'elvia-component', // Component name for the DOM (Custom element)
   elementNameR: 'Component', // Component name for the DOM (React)
@@ -136,10 +137,6 @@ const componentData: ComponentData = {
       ],
     },
   },
-  // Add install and import information for the component
-  package: 'npm install @elvia/elvis-component',
-  codeImportReact: `import { Component } from '@elvia/elvis-component/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-component';`,
   /* This code is essential for the CEG to function. 
     Three examples of the component should exist, one for each framework.
     The code should be written in the format showing below.

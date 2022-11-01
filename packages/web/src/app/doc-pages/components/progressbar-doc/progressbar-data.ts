@@ -2,10 +2,10 @@ import changelogJson from 'src/assets/changelogs/elvis-progress-linear/CHANGELOG
 import ComponentData from '../component-data.interface';
 
 export const progressbarData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-progress-linear',
   elementNameW: 'elvia-progress-linear',
   elementNameR: 'ProgressLinear',
-  package: 'npm install @elvia/elvis-progress-linear',
   attributes: {
     value: {
       isRequired: false,
@@ -77,9 +77,6 @@ export const progressbarData: ComponentData = {
         "Custom CSS style object that can be added to the progressbar. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeImportReact: `import { ProgressLinear } from '@elvia/elvis-progress-linear/react';`,
-  codeImportTypescriptInterface: `import { ProgressLinearProps } from '@elvia/elvis-progress-linear/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-progress-linear';`,
   codeReact: `<ProgressLinear
   value={20}
 ></ProgressLinear>`,
@@ -92,6 +89,6 @@ export const progressbarData: ComponentData = {
   codeNativeHTML: `<elvia-progress-linear
   value="20"
 ></elvia-progress-linear>`,
-  changelog: changelogJson.content,
+
   codeNativeScript: ``,
 };

@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-card/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const cardData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-card',
   elementNameW: 'elvia-card',
   elementNameR: 'Card',
@@ -136,11 +137,6 @@ const cardData: ComponentData = {
         "Custom CSS style object that can be added to the card. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-card',
-  codeImportReact: `import { Card } from '@elvia/elvis-card/react';`,
-  codeImportTypescriptInterface: `import { CardProps } from '@elvia/elvis-card/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-card';`,
-  changelog: changelogJson.content,
 
   // Not used here, as there are separate files with code for each component type.
   codeReact: ``,

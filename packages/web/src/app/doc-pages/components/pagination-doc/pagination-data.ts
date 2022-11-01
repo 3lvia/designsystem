@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-pagination/CHANGELOG.json
 import ComponentData from '../component-data.interface';
 
 export const paginationData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-pagination',
   elementNameW: 'elvia-pagination',
   elementNameR: 'Pagination',
@@ -93,10 +94,6 @@ export const paginationData: ComponentData = {
         "Custom CSS style object that can be added to the pagination. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-pagination',
-  codeImportReact: `import { Pagination } from '@elvia/elvis-pagination/react';`,
-  codeImportTypescriptInterface: `import { PaginationProps } from '@elvia/elvis-pagination/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-pagination';`,
   codeReact: `<Pagination numberOfElements={156}
   valueOnChange={(event) => handleOnChange(event)} >
 </Pagination>`,
@@ -120,5 +117,4 @@ export const paginationData: ComponentData = {
       console.log('Current selection range of paginator is : ', event.detail.value)
     });
   `,
-  changelog: changelogJson.content,
 };
