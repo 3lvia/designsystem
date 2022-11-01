@@ -22,6 +22,15 @@ export class SearchDocComponent {
 
   isExampleInput = false;
 
+  does = [
+    'Organize related information',
+    'When you have a lot of content and the content is not important to always have available',
+  ];
+  donts = [
+    'Don’t hide necessary and critical information to the user to complete their task in a accordion',
+    'Don’t use it for navigation elements',
+  ];
+
   overviewExample = `<div class="e-form-field">
   <div
     class="e-search e-search--instant"
