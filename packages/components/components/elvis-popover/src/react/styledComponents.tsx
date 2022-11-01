@@ -37,8 +37,8 @@ export const PopoperContent = styled.div<BaseProps>`
   z-index: 111;
   pointer-events: all;
   padding: ${(props) => (props.type === 'list' ? '0' : `${popoverPadding}px`)};
-  background-color: ${getColor('white')};
-  color: black;
+  background-color: ${getColor('elvia-on')};
+  color: ${getColor('elvia-off')};
   text-align: left;
   box-shadow: ${popoverBoxShadow};
   border-radius: 8px;
