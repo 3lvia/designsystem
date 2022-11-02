@@ -11,12 +11,12 @@ interface TriggerContainerProps {
 }
 
 interface PopoverContentProps {
-  content?: string | JSX.Element;
   type: PopoverType;
 }
 
 interface PopoverTypographyProps {
-  content: string | JSX.Element;
+  isStringOnly: boolean;
+  hasCloseButton: boolean;
 }
 
 interface PopoverListProps {
@@ -75,8 +75,9 @@ export const TriggerContainer = styled.div<TriggerContainerProps>`
 
 export const PopoverTypography = styled.div<PopoverTypographyProps>`
   ${getTypographyCss('text-sm')}
-  ${({ content }) =>
-    typeof content === 'string' &&
+  ${({ isStringOnly, hasCloseButton }) =>
+    isStringOnly &&
+    hasCloseButton &&
     css`
       padding-right: 8px;
     `}
@@ -93,10 +94,10 @@ export const Backdrop = styled.div`
 
 export const Heading = styled.h3`
   ${getTypographyCss('text-sm-strong')}
-  margin-right: 16px;
   margin: 0;
-  padding-bottom: 8px;
   padding: 0;
+  padding-bottom: 8px;
+  margin-right: 16px;
   text-align: left;
 `;
 

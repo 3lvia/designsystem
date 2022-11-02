@@ -15,11 +15,12 @@ import {
 } from './styledComponents';
 import { config } from './config';
 import {
+  IconButton,
   outlineListener,
   useConnectedOverlay,
   useFocusTrap,
+  useSlot,
   warnDeprecatedProps,
-  IconButton,
 } from '@elvia/elvis-toolbox';
 
 const Popover: FC<PopoverProps> = function ({
@@ -43,15 +44,20 @@ const Popover: FC<PopoverProps> = function ({
 }) {
   warnDeprecatedProps(config, arguments[0]);
 
-  const popoverContentRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
-  const popoverText = useRef<HTMLDivElement>(null);
+  const popoverContainerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
+
+  /* **NB**: `type` is in the useEffectDependencies because this component has slots that depend on the type. */
+  useSlot('content', webcomponent, { ref: contentRef, useEffectDependencies: [type] });
+  useSlot('trigger', webcomponent, { ref: triggerRef });
+
   const {
     isShowing: isShowingConnectedOverlayState,
     setIsShowing: setIsShowingConnectedOverlayState,
     updatePreferredPosition,
-  } = useConnectedOverlay(triggerRef, popoverContentRef, {
+  } = useConnectedOverlay(triggerRef, popoverRef, {
     horizontalPosition: mapPositionToHorizontalPosition(horizontalPosition),
     verticalPosition: verticalPosition,
     alignWidths: false,
@@ -61,9 +67,9 @@ const Popover: FC<PopoverProps> = function ({
 
   /** Start outline listener */
   useEffect(() => {
-    outlineListener(popoverRef.current);
+    outlineListener(popoverContainerRef.current);
     return () => {
-      outlineListener(popoverRef.current, true);
+      outlineListener(popoverContainerRef.current, true);
     };
   }, []);
 
@@ -81,28 +87,17 @@ const Popover: FC<PopoverProps> = function ({
     };
   }, [isShowingConnectedOverlayState]);
 
-  /** Get all slots and place them correctly.
-   * **NB**: `type` is in the dependency list because this component has slots that depend on the type.
-   * Heading is a in the dependency array because it is extreamly slow to load, and the position needs to be updated once it is loaded.
-   */
   useEffect(() => {
-    if (!webcomponent) {
-      trapFocus(popoverContentRef);
-      return;
-    }
-
-    if (triggerRef.current && webcomponent.getSlot('trigger')) {
-      triggerRef.current.innerHTML = '';
-      triggerRef.current.appendChild(webcomponent.getSlot('trigger'));
-    }
-
-    if (popoverText.current && webcomponent.getSlot('content')) {
-      popoverText.current.innerHTML = '';
-      popoverText.current.appendChild(webcomponent.getSlot('content'));
-    }
-
     updatePreferredPosition();
-  }, [webcomponent, type, isShowingConnectedOverlayState, heading]);
+  }, [
+    webcomponent,
+    isShowingConnectedOverlayState,
+    content,
+    type,
+    horizontalPosition,
+    verticalPosition,
+    heading,
+  ]);
 
   /**
    * Dispatch onOpen and onClose events.
@@ -123,7 +118,7 @@ const Popover: FC<PopoverProps> = function ({
     }
 
     document.addEventListener('keydown', onEscape);
-    trapFocus(popoverContentRef);
+    trapFocus(popoverRef);
     updatePreferredPosition();
   };
 
@@ -138,19 +133,16 @@ const Popover: FC<PopoverProps> = function ({
     releaseFocusTrap();
   };
 
-  const togglePopover = (): void => setIsShowingConnectedOverlayState(!isShowingConnectedOverlayState);
+  const togglePopover = () => setIsShowingConnectedOverlayState(!isShowingConnectedOverlayState);
 
   const onEscape = (keydown: KeyboardEvent) =>
     keydown.key === 'Escape' && setIsShowingConnectedOverlayState(false);
 
+  //does not work on slots
+  const isStringOnly = (value: any) => typeof value === 'string';
+
   return (
-    <PopoverContainer
-      className={className ? className : ''}
-      style={inlineStyle}
-      ref={popoverRef}
-      role="dialog"
-      {...rest}
-    >
+    <PopoverContainer style={inlineStyle} ref={popoverContainerRef} role="dialog" {...rest}>
       <TriggerContainer
         onClick={togglePopover}
         overlayIsOpen={isShowingConnectedOverlayState}
@@ -163,7 +155,13 @@ const Popover: FC<PopoverProps> = function ({
         createPortal(
           <>
             <Backdrop onClick={() => setIsShowingConnectedOverlayState(false)}></Backdrop>
-            <PopoverContent type={type} content={content} ref={popoverContentRef} aria-modal="true">
+            <PopoverContent
+              className={className ?? ''}
+              style={{ ...inlineStyle }}
+              type={type}
+              ref={popoverRef}
+              aria-modal="true"
+            >
               {type === 'informative' && (
                 <>
                   {hasCloseButton && (
@@ -181,12 +179,21 @@ const Popover: FC<PopoverProps> = function ({
                 </>
               )}
               {content && type === 'informative' && (
-                <PopoverTypography content={content}>{content}</PopoverTypography>
+                <PopoverTypography isStringOnly={isStringOnly(content)} hasCloseButton={hasCloseButton}>
+                  {content}
+                </PopoverTypography>
               )}
-              {!content && type === 'informative' && <PopoverTypography ref={popoverText} />}
+              {!content && type === 'informative' && (
+                <PopoverTypography
+                  isStringOnly={isStringOnly(content)}
+                  hasCloseButton={hasCloseButton}
+                  ref={contentRef}
+                ></PopoverTypography>
+              )}
               {content && type === 'list' && (
                 <PopoverTypography
-                  content={content}
+                  isStringOnly={isStringOnly(content)}
+                  hasCloseButton={hasCloseButton}
                   onClick={() => !disableAutoClose && setIsShowingConnectedOverlayState(false)}
                 >
                   <PopoverList hasDivider={hasDivider} isSelectable={isSelectable}>
@@ -197,9 +204,11 @@ const Popover: FC<PopoverProps> = function ({
               {!content && type === 'list' && (
                 <PopoverList hasDivider={hasDivider} isSelectable={isSelectable}>
                   <PopoverTypography
+                    isStringOnly={isStringOnly(content)}
+                    hasCloseButton={hasCloseButton}
                     onClick={() => !disableAutoClose && setIsShowingConnectedOverlayState(false)}
-                    ref={popoverText}
-                  />
+                    ref={contentRef}
+                  ></PopoverTypography>
                 </PopoverList>
               )}
             </PopoverContent>
