@@ -2912,9 +2912,9 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-modal@*, @elvia/elvis-modal@workspace:packages/components/components/elvis-modal":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-modal@workspace:packages/components/components/elvis-modal"
+"@elvia/elvis-modal@npm:*":
+  version: 2.1.12
+  resolution: "@elvia/elvis-modal@npm:2.1.12"
   dependencies:
     "@elvia/elvis-colors": ^1.4.1
     "@elvia/elvis-component-wrapper": ^3.0.0
@@ -2926,8 +2926,9 @@ __metadata:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
     react-is: ">= 16.8.0"
-  languageName: unknown
-  linkType: soft
+  checksum: 54ef0c96f74180320e74d20fa6714621de3951aeeb7b137863109ad2eb75687f3e649599f9994ee999004ed8f6cff848e1ebd41188c896623fc2452560f7be08
+  languageName: node
+  linkType: hard
 
 "@elvia/elvis-modal@portal:../components/components/elvis-modal::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
   version: 0.0.0-use.local
@@ -2936,7 +2937,7 @@ __metadata:
     "@elvia/elvis-colors": ^1.4.1
     "@elvia/elvis-component-wrapper": ^3.0.0
     "@elvia/elvis-icon": ^1.3.0
-    "@elvia/elvis-toolbox": ^5.0.0
+    "@elvia/elvis-toolbox": ^5.7.1
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2944,6 +2945,23 @@ __metadata:
     react-dom: ^16.8.0 || ^17.0.0
     react-is: ">= 16.8.0"
   languageName: node
+  linkType: soft
+
+"@elvia/elvis-modal@workspace:packages/components/components/elvis-modal":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-modal@workspace:packages/components/components/elvis-modal"
+  dependencies:
+    "@elvia/elvis-colors": ^1.4.1
+    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-icon": ^1.3.0
+    "@elvia/elvis-toolbox": ^5.7.1
+    "@elvia/elvis-typography": ^2.1.0
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+    react-is: ">= 16.8.0"
+  languageName: unknown
   linkType: soft
 
 "@elvia/elvis-pagination@*, @elvia/elvis-pagination@workspace:packages/components/components/elvis-pagination":

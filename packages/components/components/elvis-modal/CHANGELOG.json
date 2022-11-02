@@ -3,6 +3,24 @@
   "content": [
     {
       "date": "02.11.22",
+      "version": "2.1.13",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Use <span class=\"code-text\">useSlot</span> custom hook from <span class=\"code-text\">@elvia/elvis-toolbox</span> to handle slots."
+          ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed the <span class=\"code-text\">hasLockBodyScroll</span> prop causing React errors."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "02.11.22",
       "version": "2.1.12",
       "changelog": [
         {
