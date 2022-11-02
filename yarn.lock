@@ -2684,19 +2684,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-component-wrapper@npm:^2.3.3":
-  version: 2.4.4
-  resolution: "@elvia/elvis-component-wrapper@npm:2.4.4"
-  dependencies:
-    json5: ^2.2.1
-    lodash.isequal: ^4.5.0
-    lodash.throttle: ^4.1.1
-    react: ^17.0.0
-    react-dom: ^17.0.0
-  checksum: 175205ab6f0feee22c0dd41188e45c99c1f1d183a280db1a461e8850543714e8e991a8215777afd5a204c76e8e9d0929ebec88cb14fd520f235880ef73a21058
-  languageName: node
-  linkType: hard
-
 "@elvia/elvis-components@workspace:packages/components":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-components@workspace:packages/components"
@@ -2846,12 +2833,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^4.0.0, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
+"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^4.1.4, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
   dependencies:
     "@elvia/elvis-colors": ^1.4.1
-    "@elvia/elvis-component-wrapper": ^2.3.3
+    "@elvia/elvis-component-wrapper": ^3.0.0
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-tooltip": ^1.0.8
@@ -2877,7 +2864,7 @@ __metadata:
   resolution: "@elvia/elvis-dropdown@portal:../components/components/elvis-dropdown::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.1
-    "@elvia/elvis-component-wrapper": ^2.3.3
+    "@elvia/elvis-component-wrapper": ^3.0.0
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-tooltip": ^1.0.8
@@ -2991,7 +2978,7 @@ __metadata:
   dependencies:
     "@elvia/elvis-colors": ^1.2.1
     "@elvia/elvis-component-wrapper": ^3.0.0
-    "@elvia/elvis-dropdown": ^4.0.0
+    "@elvia/elvis-dropdown": ^4.1.4
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.1.0
@@ -3012,7 +2999,7 @@ __metadata:
   dependencies:
     "@elvia/elvis-colors": ^1.2.1
     "@elvia/elvis-component-wrapper": ^3.0.0
-    "@elvia/elvis-dropdown": ^4.0.0
+    "@elvia/elvis-dropdown": ^4.1.4
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.1.0

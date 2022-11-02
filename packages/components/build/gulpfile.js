@@ -232,8 +232,18 @@ const makeTypescriptDeclarationsTask = (componentName) => {
     .pipe(gulp.dest(`../components/${componentName}/dist`));
 };
 
+// TODO: Use makeJSTranspileTask here
 function buildElviaComponentToJS() {
-  return makeJSTranspileTask('elvis-component-wrapper');
+  return gulp
+    .src(`../components/elvis-component-wrapper/src/*.ts`)
+    .pipe(cache('buildElviaComponentToJS'))
+    .pipe(
+      babel({
+        presets: ['@babel/preset-typescript'],
+      }),
+    )
+    .pipe(header(WARNING))
+    .pipe(gulp.dest(`../components/elvis-component-wrapper/dist/`));
 }
 
 function buildElviaComponentTSDeclaration() {
