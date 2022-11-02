@@ -102,13 +102,14 @@ const popoverData: ComponentData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom CSS classes that can be added to the popover.',
+      description:
+        'Custom CSS classes that can be added to the popover. Note: This applies to the content, not the trigger.',
     },
     inlineStyle: {
       isRequired: false,
       type: '{[cssProperty: string]: string}',
       description:
-        "Custom CSS style object that can be added to the popover. Example: {marginTop: '8px', width: '100%'}",
+        "Custom CSS style object that can be added to the popover. Example: {marginTop: '8px', width: '100%'}. Note: This applies to the content, not the trigger.",
     },
   },
   // Not used here, as there are separate files with code for each component type.
