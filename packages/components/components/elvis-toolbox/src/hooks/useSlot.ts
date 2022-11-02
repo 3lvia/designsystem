@@ -21,7 +21,7 @@ import React, { useEffect, useRef } from 'react';
  */
 export const useSlot = <
   TValue extends HTMLElement,
-  TWebcomponent extends { getSlot: (...args: unknown[]) => Node },
+  TWebcomponent extends { getSlot: (...args: unknown[]) => Node } = { getSlot: (...args: unknown[]) => Node },
 >(
   slot: string,
   webcomponent: TWebcomponent | undefined,
