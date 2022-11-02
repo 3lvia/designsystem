@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "02.11.22",
+      "version": "1.4.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using custom hook <span class=\"code-text\">useSlot</span> from <span class=\"code-text\">@elvia/elvis-toolbox</span> to handle slots."
+          ]
+        }
+      ]
+    },
+    {
       "date": "16.08.22",
       "version": "1.4.0",
       "changelog": [

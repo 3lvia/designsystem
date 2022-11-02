@@ -2,6 +2,56 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "02.11.22",
+      "version": "5.7.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Improved the generic type of the <span class=\"code-text\">useSlot</span> hook."]
+        }
+      ]
+    },
+    {
+      "date": "01.11.22",
+      "version": "5.7.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added hook <span class=\"code-text\">useSlot</span> for getting webcomponent slot content and putting it in a React ref."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Added missing peer dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "31.10.22",
+      "version": "5.6.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that sometimes caused the <span class=\"code-text\">warnDeprecatedProps</span> function to crash."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "31.10.22",
+      "version": "5.6.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added hook <span class=\"code-text\">useInputModeDetection</span> for input mode detection."
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.10.22",
       "version": "5.5.0",
       "changelog": [
