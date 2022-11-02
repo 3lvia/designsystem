@@ -91,6 +91,7 @@ export const ModalComponent: FC<ModalProps> = function ({
       onClose();
     } else if (webcomponent) {
       webcomponent.setProps({ isShowing: false }, true);
+      webcomponent.triggerEvent('isShowingOnChange', false);
       webcomponent.triggerEvent('onClose');
     }
   };

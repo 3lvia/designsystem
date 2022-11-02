@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-timepicker/CHANGELOG.json
 import ComponentData from '../../component-data.interface';
 
 export const timepickerData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-timepicker',
   elementNameW: 'elvia-timepicker',
   elementNameR: 'Timepicker',
@@ -103,10 +104,6 @@ export const timepickerData: ComponentData = {
         "Custom CSS style object that can be added to the time picker. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-timepicker',
-  codeImportReact: `import { Timepicker } from '@elvia/elvis-timepicker/react';`,
-  codeImportTypescriptInterface: `import { TimepickerProps } from '@elvia/elvis-timepicker/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-timepicker';`,
   codeReact: `<Timepicker
   minuteInterval="10"
   valueOnChange={(event) => handleOnChange(event)}
@@ -128,5 +125,4 @@ export const timepickerData: ComponentData = {
     console.log(event.detail.value)
   });
 `,
-  changelog: changelogJson.content,
 };

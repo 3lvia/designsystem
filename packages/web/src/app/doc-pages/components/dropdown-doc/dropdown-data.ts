@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-dropdown/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const dropdownData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-dropdown',
   elementNameW: 'elvia-dropdown',
   elementNameR: 'Dropdown',
@@ -178,10 +179,6 @@ export const dropdownData: ComponentData = {
         "Custom CSS style object that can be added to the dropdown. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-dropdown',
-  codeImportReact: `import { Dropdown } from '@elvia/elvis-dropdown/react';`,
-  codeImportTypescriptInterface: `import { DropdownProps } from '@elvia/elvis-dropdown/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-dropdown';`,
   codeReact: `<Dropdown 
   items={[
     { value: 'Norge', label: 'Norge' },
@@ -232,7 +229,6 @@ export const dropdownData: ComponentData = {
     console.log('Do what you want with selected elements: ', event.detail.value);
   });
 `,
-  changelog: changelogJson.content,
 
   does: [
     'Use dropdowns sparingly - only when the user has 5-15 options and you have limited space to display all options.',

@@ -1,12 +1,12 @@
 {
   "name": "@elvia/elvis-icon",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "",
   "license": "MIT",
   "author": "",
   "main": "web_component.js",
   "dependencies": {
-    "@elvia/elvis-assets-icons": "^2.5.3",
-    "@elvia/elvis-component-wrapper": "^2.2.2"
+    "@elvia/elvis-assets-icons": "^2.6.0",
+    "@elvia/elvis-component-wrapper": "^3.0.0"
   }
 }

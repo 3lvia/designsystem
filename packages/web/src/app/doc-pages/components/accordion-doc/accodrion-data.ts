@@ -3,6 +3,7 @@ import changelogJson from 'src/assets/changelogs/elvis-accordion/CHANGELOG.json'
 import ComponentData from '../component-data.interface';
 
 const accordionData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-accordion',
   elementNameW: 'elvia-accordion',
   elementNameR: 'Accordion',
@@ -185,10 +186,6 @@ const accordionData: ComponentData = {
         "Custom CSS style object that can be added to the accordion. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-accordion',
-  codeImportReact: `import { Accordion } from '@elvia/elvis-accordion/react';`,
-  codeImportTypescriptInterface: `import { AccordionProps } from '@elvia/elvis-accordion/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-accordion';`,
   codeReact:
     `<Accordion
   type={"normal"}
@@ -242,7 +239,6 @@ const accordionData: ComponentData = {
 </elvia-accordion>
 `,
   codeNativeScript: `  const accordion = document.getElementById('example-elvia-accordion');`,
-  changelog: changelogJson.content,
 };
 
 export { accordionData };

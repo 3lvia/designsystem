@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-breadcrumb/CHANGELOG.json
 import ComponentData from '../component-data.interface';
 
 const breadcrumbData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-breadcrumb',
   elementNameW: 'elvia-breadcrumb',
   elementNameR: 'Breadcrumb',
@@ -30,10 +31,6 @@ const breadcrumbData: ComponentData = {
         "Custom CSS style object that can be added to the breadcrumb. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-breadcrumb',
-  codeImportReact: `import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';`,
-  codeImportTypescriptInterface: `import { BreadcrumbProps } from '@elvia/elvis-breadcrumb/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-breadcrumb';`,
   codeReact: `<Breadcrumb 
   items={[
     { href: 'https://design.elvia.io/', text: 'Home' },
@@ -74,7 +71,6 @@ const breadcrumbData: ComponentData = {
   ];
   breadcrumb.setProps({items: items });
   `,
-  changelog: changelogJson.content,
 };
 
 export { breadcrumbData };

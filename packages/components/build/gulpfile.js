@@ -169,11 +169,9 @@ function TSX_to_JS() {
 
 function reactTypescriptDeclarations() {
   reloadComponentConfig();
-  const globsToCreateDeclarationsFor = components
-    .filter((component) => component.reactTypescriptDeclaration)
-    .map((component) => {
-      return `../components/${component.name}/src/react/**/!(*.test).ts*`;
-    });
+  const globsToCreateDeclarationsFor = components.map((component) => {
+    return `../components/${component.name}/src/react/**/!(*.test).ts*`;
+  });
   const tsConfig = typescript.createProject('../tsconfig.json');
 
   return gulp
@@ -234,8 +232,18 @@ const makeTypescriptDeclarationsTask = (componentName) => {
     .pipe(gulp.dest(`../components/${componentName}/dist`));
 };
 
+// TODO: Use makeJSTranspileTask here
 function buildElviaComponentToJS() {
-  return makeJSTranspileTask('elvis-component-wrapper');
+  return gulp
+    .src(`../components/elvis-component-wrapper/src/*.ts`)
+    .pipe(cache('buildElviaComponentToJS'))
+    .pipe(
+      babel({
+        presets: ['@babel/preset-typescript'],
+      }),
+    )
+    .pipe(header(WARNING))
+    .pipe(gulp.dest(`../components/elvis-component-wrapper/dist/`));
 }
 
 function buildElviaComponentTSDeclaration() {

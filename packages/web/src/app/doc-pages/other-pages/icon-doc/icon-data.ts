@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-icon/CHANGELOG.json';
 import ComponentData from '../../components/component-data.interface';
 
 const elvisIconData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-icon',
   elementNameW: 'elvia-icon',
   elementNameR: 'Icon',
@@ -42,9 +43,6 @@ const elvisIconData: ComponentData = {
       default: '',
     },
   },
-  package: 'npm install @elvia/elvis-icon',
-  codeImportReact: `import { Icon } from '@elvia/elvis-icon/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-icon';`,
   codeReact: `<Icon
   name={"addCircle"}
 ></Icon>
@@ -67,7 +65,6 @@ const elvisIconData: ComponentData = {
 `,
   codeNativeScript: `const elvisIcon = document.getElementById('example-elvia-icon');
 `,
-  changelog: changelogJson.content,
 };
 
 export { elvisIconData };

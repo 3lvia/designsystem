@@ -3,6 +3,7 @@ import changelogJson from 'src/assets/changelogs/elvis-carousel/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const carouselData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-carousel',
   elementNameW: 'elvia-carousel',
   elementNameR: 'Carousel',
@@ -75,10 +76,6 @@ export const carouselData: ComponentData = {
         "Custom CSS style object that can be added to the carousel. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-carousel',
-  codeImportReact: `import { Carousel } from '@elvia/elvis-carousel/react';`,
-  codeImportTypescriptInterface: `import { CarouselProps } from '@elvia/elvis-carousel/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-carousel';`,
   codeReact: `<Carousel
   items={[
     { 
@@ -215,5 +212,4 @@ export const carouselData: ComponentData = {
     'Should not be use on non-visual items such as links or paragraphs',
     'More than 5 frames - It´s unlikely users will engage with more than that (Use a list instead)',
   ],
-  changelog: changelogJson.content,
 };

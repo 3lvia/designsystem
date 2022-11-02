@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-tooltip/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const tooltipData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-tooltip',
   elementNameW: 'elvia-tooltip',
   elementNameR: 'Tooltip',
@@ -70,10 +71,6 @@ export const tooltipData: ComponentData = {
         "Custom CSS style object that can be added to the tooltip. Example: {marginTop: '8px', width: '100%'}. NB: This applies to the content, not the trigger.",
     },
   },
-  package: 'npm install @elvia/elvis-tooltip',
-  codeImportReact: `import { Tooltip } from '@elvia/elvis-tooltip/react';`,
-  codeImportTypescriptInterface: `import { TooltipProps } from '@elvia/elvis-tooltip/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-tooltip';`,
   codeReact: `<Tooltip
   showDelay={400}
   trigger={
@@ -112,5 +109,4 @@ export const tooltipData: ComponentData = {
   </button>
 </elvia-tooltip>`,
   codeNativeScript: ``,
-  changelog: changelogJson.content,
 };

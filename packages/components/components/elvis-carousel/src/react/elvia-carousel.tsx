@@ -192,6 +192,7 @@ export const Carousel: FC<CarouselProps> = function ({
       valueOnChange(updateValueIndex);
     } else if (webcomponent) {
       webcomponent.setProps({ value: updateValueIndex }, true);
+      webcomponent.triggerEvent('valueOnChange', updateValueIndex);
     }
   };
 

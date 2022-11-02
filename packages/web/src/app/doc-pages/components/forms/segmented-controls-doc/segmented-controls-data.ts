@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-segmented-control/CHANGEL
 import ComponentData from '../../component-data.interface';
 
 export const segmentedControlData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-segmented-control',
   elementNameW: 'elvia-segmented-control',
   elementNameR: 'SegmentedControl',
@@ -54,11 +55,6 @@ export const segmentedControlData: ComponentData = {
         "Custom CSS style object that can be added to the segmented control. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-segmented-control',
-  codeImportReact: `import { SegmentedControl } from '@elvia/elvis-segmented-control/react';`,
-  codeImportTypescriptInterface: `import { SegmentedControlProps } from '@elvia/elvis-segmented-control/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-segmented-control';`,
-  changelog: changelogJson.content,
 
   // Not used here, as there are separate files with code for each component type.
   codeReact: ``,

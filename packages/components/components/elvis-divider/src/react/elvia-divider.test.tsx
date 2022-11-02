@@ -129,8 +129,8 @@ describe('Elvis Divider', () => {
 
     it('should have className and inlineStyle', () => {
       const dividerArea = screen.getByTestId('divider-area');
-      expect(dividerArea.parentElement).toHaveStyle(`margin: 24px`);
-      expect(dividerArea.parentElement).toHaveClass(`test-class`);
+      expect(dividerArea).toHaveStyle(`margin: 24px`);
+      expect(dividerArea).toHaveClass(`test-class`);
     });
   });
 });

@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "02.11.22",
+      "version": "1.4.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Use <span class=\"code-text\">@elvia/elvis-component-wrapper@^3.0.0</span>.",
+            "Now using the <span class=\"code-text\">@elvia/elvis-typography</span> for typography for the title type divider."
+          ]
+        }
+      ]
+    },
+    {
       "date": "16.08.22",
       "version": "1.4.0",
       "changelog": [

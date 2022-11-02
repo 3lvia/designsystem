@@ -40,24 +40,25 @@ export const Divider: React.FC<DividerProps> = ({
   });
 
   return (
-    <div className={`${className ? className : ''}`} style={{ height: '100%', ...inlineStyle }} {...rest}>
-      <DividerArea
-        type={type}
-        isInverted={isInverted}
-        orientation={orientation}
-        data-testid="divider-area"
-        role="separator"
-      >
-        {title === '' && type === 'title' && (
-          <DividerTitle typography={typography} isInverted={isInverted} ref={dividerTitleRef}></DividerTitle>
-        )}
-        {title !== '' && type === 'title' && (
-          <DividerTitle typography={typography} isInverted={isInverted} data-testid="divider-title">
-            {title}
-          </DividerTitle>
-        )}
-      </DividerArea>
-    </div>
+    <DividerArea
+      type={type}
+      isInverted={isInverted}
+      orientation={orientation}
+      data-testid="divider-area"
+      role="separator"
+      className={className ? className : ''}
+      style={inlineStyle}
+      {...rest}
+    >
+      {title === '' && type === 'title' && (
+        <DividerTitle typography={typography} isInverted={isInverted} ref={dividerTitleRef}></DividerTitle>
+      )}
+      {title !== '' && type === 'title' && (
+        <DividerTitle typography={typography} isInverted={isInverted} data-testid="divider-title">
+          {title}
+        </DividerTitle>
+      )}
+    </DividerArea>
   );
 };
 
