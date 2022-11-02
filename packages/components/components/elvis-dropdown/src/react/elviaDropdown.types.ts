@@ -3,12 +3,12 @@ import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 
-export type DropdownValue = string | string[] | undefined;
+export type DropdownValue = string | string[] | undefined | null;
 
 export interface DropdownItem {
   value: string;
   label: string;
-  icon?: string;
+  icon?: IconName;
   isDisabled?: boolean;
   status?: string;
   tooltip?: string;

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ElviaDropdownItem } from '@elvia/elvis-dropdown';
 
 @Component({
   selector: 'app-v2-playground',
@@ -67,20 +68,20 @@ export class v2PlaygroundComponent {
 
   // Dropdown 2
   selectedDropdownItem = 'spania';
-  dropdownItems = [
-    { value: 'norge', label: 'Norge' },
+  dropdownItems: ElviaDropdownItem[] = [
+    { value: 'norge', label: 'Norge', icon: 'users' },
     { value: 'sverige', label: 'Sverige' },
     { value: 'danmark', label: 'Danmark' },
     {
       value: 'england',
       label: 'England',
-      items: [
+      children: [
         { value: 'london', label: 'London' },
         { value: 'manchester', label: 'Manchester' },
         { value: 'birmingham', label: 'Birmingham' },
       ],
     },
-    { value: 'russland', label: 'Russland' },
+    { value: 'russland', label: 'Russland', isDisabled: true },
     { value: 'polen', label: 'Polen' },
     { value: 'romania', label: 'Romania' },
     { value: 'frankrike', label: 'Frankrike' },

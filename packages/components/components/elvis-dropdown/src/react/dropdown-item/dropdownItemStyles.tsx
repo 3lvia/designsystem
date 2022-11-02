@@ -2,7 +2,8 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
-const checkMarkTempo = '50ms';
+const checkMarkLeaveDuration = '80ms';
+const checkMarkEnterDuration = '150ms';
 
 export const Checkbox = styled.div`
   flex: none;
@@ -16,14 +17,14 @@ export const Checkbox = styled.div`
   &:before {
     content: '';
     position: absolute;
-    top: 54%;
-    left: 18%;
+    top: 52%;
+    left: 16%;
     height: 2px;
     width: 30%;
     background-color: ${getColor('elvia-off')};
     transform: rotate(45deg) scaleX(0);
     transform-origin: left bottom;
-    transition: transform ${checkMarkTempo} ease ${checkMarkTempo};
+    transition: transform ${checkMarkLeaveDuration} ease ${checkMarkLeaveDuration};
   }
 
   &:after {
@@ -36,7 +37,7 @@ export const Checkbox = styled.div`
     background-color: ${getColor('elvia-off')};
     transform: rotate(-55deg) scaleX(0);
     transform-origin: left bottom;
-    transition: transform ${checkMarkTempo} ease;
+    transition: transform ${checkMarkLeaveDuration} ease;
   }
 `;
 
@@ -49,6 +50,7 @@ export const DropdownItemStyles = styled.button.attrs(() => ({
   isCompact?: boolean;
   isMulti?: boolean;
   isHidden?: boolean;
+  isPartiallyChecked?: boolean;
   hasSubItems?: boolean;
 }>`
   display: flex;
@@ -57,11 +59,19 @@ export const DropdownItemStyles = styled.button.attrs(() => ({
   margin: 0;
   width: 100%;
   background-color: ${getColor('elvia-on')};
+  color: ${getColor('elvia-off')};
   padding: ${(props) => (props.hasSubItems ? '0 0 0 16px' : '0 16px')};
   align-items: center;
+  cursor: pointer;
 
-  &:not(:disabled) {
-    cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+    color: ${getColor('disabled')};
+
+    ${Checkbox} {
+      background-color: ${getColor('grey-05')};
+      border-color: ${getColor('grey-30')};
+    }
   }
 
   ${(props) => {
@@ -73,12 +83,12 @@ export const DropdownItemStyles = styled.button.attrs(() => ({
 
             &::before {
               transform: rotate(45deg) scaleX(1);
-              transition: transform 150ms ease;
+              transition: transform ${checkMarkEnterDuration} ease;
             }
 
             &::after {
               transform: rotate(-55deg) scaleX(1);
-              transition: transform 150ms ease 150ms;
+              transition: transform ${checkMarkEnterDuration} ease ${checkMarkEnterDuration};
             }
           }
         `;
@@ -91,6 +101,22 @@ export const DropdownItemStyles = styled.button.attrs(() => ({
 
     return '';
   }};
+
+  ${(props) =>
+    props.isPartiallyChecked &&
+    css`
+      ${Checkbox} {
+        background-color: ${getColor('elvia-charge')};
+
+        &:before {
+          transform: rotate(0) scaleX(2.2);
+        }
+
+        &:after {
+          transform: rotate(0) scaleX(0);
+        }
+      }
+    `}
 
   ${(props) => {
     if (props.isCompact) {

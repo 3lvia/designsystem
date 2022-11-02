@@ -35,7 +35,7 @@ export const DropdownPopup = styled.div.attrs(() => ({
   ${(props) => {
     if (props.fadeOut) {
       return css`
-        animation: ${fadeOut} 200ms ease;
+        animation: ${fadeOut} 100ms ease;
       `;
     }
     return '';
@@ -44,7 +44,7 @@ export const DropdownPopup = styled.div.attrs(() => ({
 
 export const ItemList = styled.div<{ isCompact?: boolean }>`
   max-height: ${(props) => (props.isCompact ? 'calc(40px * 5 + 40px / 2)' : 'calc(48px * 5 + 48px / 2)')};
-  overflow-y: overlay; // TODO: Replace
+  overflow-y: auto;
 `;
 
 export const NoItemsMessage = styled.div<{ isCompact?: boolean }>`

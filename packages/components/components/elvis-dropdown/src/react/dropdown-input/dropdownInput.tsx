@@ -1,6 +1,7 @@
 import { Icon, IconName } from '@elvia/elvis-icon/react';
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { DropdownItem, DropdownValue } from '../elviaDropdown.types';
+import { getFlattenedItemList } from '../flattenDropdownItems';
 
 import { Input } from './dropdownInputStyles';
 
@@ -12,12 +13,10 @@ interface Props {
   isDisabled: boolean;
   items: DropdownItem[];
   onChange: (query: string) => void;
-  focusedIndex: number;
-  setFocusedIndex: (newIndex: number) => void;
+  onKeyPress: (ev: KeyboardEvent<HTMLInputElement>) => void;
   dropdownIsOpen: boolean;
   onOpenDropdown: () => void;
   currentVal?: DropdownValue | null;
-  onItemSelect: (value: string) => void;
 }
 
 export const DropdownInput: React.FC<Props> = ({
@@ -28,12 +27,10 @@ export const DropdownInput: React.FC<Props> = ({
   onChange,
   isDisabled,
   items,
-  focusedIndex,
-  setFocusedIndex,
+  onKeyPress,
   dropdownIsOpen,
   onOpenDropdown,
   currentVal,
-  onItemSelect,
 }) => {
   const [inputValue, setInputValue] = useState('');
 
@@ -42,39 +39,18 @@ export const DropdownInput: React.FC<Props> = ({
     setInputValue(inputValue);
   };
 
-  const handleOpenKeyboardNavigation = (ev: KeyboardEvent<HTMLInputElement>): void => {
-    if (focusedIndex != null && ['Space', 'Enter', 'Tab'].includes(ev.code)) {
-      ev.preventDefault();
-      const selectedItem = items[focusedIndex];
-      onItemSelect(selectedItem.value);
-    } else if (ev.code === 'ArrowUp') {
-      if (focusedIndex - 1 < 0) {
-        setFocusedIndex(items.length - 1);
-      } else {
-        setFocusedIndex(focusedIndex - 1);
-      }
-      ev.preventDefault();
-    } else if (ev.code === 'ArrowDown') {
-      if (focusedIndex + 1 > items.length - 1) {
-        setFocusedIndex(0);
-      } else {
-        setFocusedIndex(focusedIndex + 1);
-      }
-      ev.preventDefault();
-    }
-  };
-
   const onKeyDown = (ev: KeyboardEvent<HTMLInputElement>): void => {
     if (dropdownIsOpen) {
-      handleOpenKeyboardNavigation(ev);
+      onKeyPress(ev);
     } else if (['Space', 'Enter', 'ArrowUp', 'ArrowDown'].includes(ev.code)) {
+      ev.preventDefault();
       onOpenDropdown();
     }
   };
 
   useEffect(() => {
     const updateInputValue = () => {
-      const selectedItems = items.filter((item) => {
+      const selectedItems = getFlattenedItemList(items).filter((item) => {
         if (Array.isArray(currentVal)) {
           return currentVal.includes(item.value);
         }
@@ -101,8 +77,8 @@ export const DropdownInput: React.FC<Props> = ({
 
   return (
     <>
-      {placeholderIcon && (
-        <Icon name={placeholderIcon} size="xs" color={isDisabled ? 'disabled' : 'elvia-off'} />
+      {placeholderIcon && !inputValue && (
+        <Icon name={placeholderIcon} size="xs" color={isDisabled ? 'disabled' : 'placeholder'} />
       )}
       <Input
         disabled={isDisabled}

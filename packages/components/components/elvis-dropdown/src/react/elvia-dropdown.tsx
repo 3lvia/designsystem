@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useRef, useState } from 'react';
 
 import { config } from './config';
 import { DropdownProps } from './elviaDropdown.types';
@@ -38,12 +38,11 @@ const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   warnDeprecatedProps(config, rest);
 
-  // TODO: Make filtered list
   const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
   const [isError, setIsError] = useState(false);
   const [filter, setFilter] = useState('');
-  const [focusedIndex, setFocusedIndex] = useState(0);
   const [filteredItems, setFilteredItems] = useState(items);
+  const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -58,17 +57,9 @@ const Dropdown: React.FC<DropdownProps> = ({
     },
   );
 
-  const setVisibility = (isShowing: boolean): void => {
-    setIsShowing(isShowing);
-
-    if (!isShowing) {
-      setFocusedIndex(0);
-    }
-  };
-
   const setSelectedItem = (value: string): void => {
-    if (isMulti && Array.isArray(currentVal)) {
-      const arrayCopy = currentVal.slice();
+    if (isMulti) {
+      const arrayCopy = Array.isArray(currentVal) ? currentVal.slice() : currentVal ? [currentVal] : [];
       const existingIndex = arrayCopy.indexOf(value);
       if (existingIndex === -1) {
         arrayCopy.push(value);
@@ -93,7 +84,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
     const closeOnEsc = (ev: KeyboardEvent) => {
       if (ev.code === 'Escape') {
-        setVisibility(false);
+        setIsShowing(false);
       }
     };
 
@@ -113,7 +104,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   }, [filter]);
 
   useEffect(() => {
-    setTimeout(() => setFilteredItems(items), 2000);
+    setTimeout(() => setFilteredItems(items)); //TODO: Can we get rid of it
   }, [items]);
 
   return (
@@ -143,12 +134,10 @@ const Dropdown: React.FC<DropdownProps> = ({
             editable={isSearchable}
             onChange={(value) => setFilter(value)}
             dropdownIsOpen={isShowing}
-            focusedIndex={focusedIndex}
             isDisabled={isDisabled}
             items={filteredItems}
-            onItemSelect={(value) => setSelectedItem(value)} // TODO: This should not have selection logic
             onOpenDropdown={() => setIsShowing(true)}
-            setFocusedIndex={(newIndex) => setFocusedIndex(newIndex)}
+            onKeyPress={setPressedKey}
             currentVal={currentVal}
           />
 
@@ -169,8 +158,10 @@ const Dropdown: React.FC<DropdownProps> = ({
           isMulti={isMulti}
           onItemSelect={setSelectedItem}
           isCompact={isCompact}
-          onClose={() => setVisibility(false)}
+          onClose={() => setIsShowing(false)}
           items={filteredItems}
+          pressedKey={pressedKey}
+          currentVal={currentVal}
         />
       )}
     </>
