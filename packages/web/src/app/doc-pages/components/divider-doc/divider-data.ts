@@ -2,10 +2,10 @@ import changelogJson from 'src/assets/changelogs/elvis-divider/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const dividerData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-divider',
   elementNameW: 'elvia-divider',
   elementNameR: 'Divider',
-  package: 'npm install @elvia/elvis-divider',
   attributes: {
     type: {
       isRequired: false,
@@ -70,9 +70,6 @@ export const dividerData: ComponentData = {
         "Custom CSS style object that can be added to the divider. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeImportReact: `import { Divider } from '@elvia/elvis-divider/react';`,
-  codeImportTypescriptInterface: `import { DividerProps } from '@elvia/elvis-divider/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-divider';`,
   codeReact: `<Divider
   title={<h2>Title</h2>}
 ></Divider>`,
@@ -89,6 +86,6 @@ export const dividerData: ComponentData = {
   <h2 slot="title">Title</h2>
 </elvia-divider>
 `,
-  changelog: changelogJson.content,
+
   codeNativeScript: ``,
 };

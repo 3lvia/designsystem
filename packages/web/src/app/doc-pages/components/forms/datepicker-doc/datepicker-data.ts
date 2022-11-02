@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-datepicker/CHANGELOG.json
 import ComponentData from '../../component-data.interface';
 
 const datepickerData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-datepicker',
   elementNameW: 'elvia-datepicker',
   elementNameR: 'Datepicker',
@@ -177,10 +178,6 @@ const datepickerData: ComponentData = {
       description: 'Function that sets dates as disabled. Return true to disable a date.',
     },
   },
-  package: 'npm install @elvia/elvis-datepicker',
-  codeImportReact: `import { Datepicker } from '@elvia/elvis-datepicker/react';`,
-  codeImportTypescriptInterface: `import { DatepickerProps } from '@elvia/elvis-datepicker/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-datepicker';`,
   codeReact: `<Datepicker
   valueOnChange={(event) => handleOnChange(event)}
 ></Datepicker>
@@ -202,7 +199,6 @@ const datepickerData: ComponentData = {
     console.log('Do what you want with date: ', event.detail.value)
   });
 `,
-  changelog: changelogJson.content,
 };
 
 export { datepickerData };

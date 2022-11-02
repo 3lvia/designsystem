@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-header/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const headerData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-header',
   elementNameW: 'elvia-header',
   elementNameR: 'Header',
@@ -77,10 +78,6 @@ export const headerData: ComponentData = {
         "Custom CSS style object that can be added to the header. Example: {marginTop: '8px', width: '100%'}.",
     },
   },
-  package: 'npm install @elvia/elvis-header',
-  codeImportReact: `import { Header } from '@elvia/elvis-header/react';`,
-  codeImportTypescriptInterface: `import { HeaderProps } from '@elvia/elvis-header/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-header';`,
   codeReact: `<Header
   appContent={
     <h1 class="e-title-md">
@@ -211,5 +208,4 @@ headerTrigger.addEventListener('click', (event) => {
   }
 });
   `,
-  changelog: changelogJson.content,
 };

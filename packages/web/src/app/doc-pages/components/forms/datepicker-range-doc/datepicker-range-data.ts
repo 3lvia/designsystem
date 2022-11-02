@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-datepicker-range/CHANGELO
 import ComponentData from '../../component-data.interface';
 
 const datepickerRangeData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-datepicker-range',
   elementNameW: 'elvia-datepicker-range',
   elementNameR: 'DatepickerRange',
@@ -148,10 +149,6 @@ const datepickerRangeData: ComponentData = {
         "Custom CSS style object that can be added to the datepicker range. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-datepicker-range',
-  codeImportReact: `import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';`,
-  codeImportTypescriptInterface: `import { DatepickerRangeProps } from '@elvia/elvis-datepicker-range/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-datepicker-range';`,
   codeReact: `<DatepickerRange
   valueOnChange={(event) => handleOnChange(event)}
 ></DatepickerRange>
@@ -173,7 +170,6 @@ const datepickerRangeData: ComponentData = {
     console.log('Do what you want with date range: ', event.detail.value)
   });
 `,
-  changelog: changelogJson.content,
 };
 
 export { datepickerRangeData };

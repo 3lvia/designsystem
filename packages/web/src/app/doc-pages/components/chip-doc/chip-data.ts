@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-chip/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const chipData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-chip',
   elementNameW: 'elvia-chip',
   elementNameR: 'Chip',
@@ -86,10 +87,6 @@ export const chipData: ComponentData = {
         "Custom CSS style object that can be added to the chip. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-chip',
-  codeImportReact: `import { Chip } from '@elvia/elvis-chip/react';`,
-  codeImportTypescriptInterface: `import { ChipProps } from '@elvia/elvis-chip/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-chip';`,
   codeReact: `<Chip 
   isSelected={true}
   ariaLabel={"Fjern filtrering for 2022"}
@@ -130,7 +127,7 @@ export const chipData: ComponentData = {
     console.log('Do what you want with updated isSelected:', event.detail.value);
   });
 `,
-  changelog: changelogJson.content,
+
   does: [
     'Used together with filter so the user has control and an overview of what is selected',
     'Simple way for the user to toggle data on and off',

@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-modal/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const modalData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-modal',
   elementNameW: 'elvia-modal',
   elementNameR: 'Modal',
@@ -95,10 +96,6 @@ const modalData: ComponentData = {
         "Custom CSS style object that can be added to the modal. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-modal',
-  codeImportReact: `import { Modal } from '@elvia/elvis-modal/react';`,
-  codeImportTypescriptInterface: `import { ModalProps } from '@elvia/elvis-modal/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-modal';`,
   codeReact: `<button onClick={() => setIsModalShowingState(true)} className="e-btn">Åpne modal</button>
 <Modal
   isShowing={isModalShowing}
@@ -189,7 +186,6 @@ const modalData: ComponentData = {
     }, 500);
   });
 `,
-  changelog: changelogJson.content,
 };
 
 export { modalData };
