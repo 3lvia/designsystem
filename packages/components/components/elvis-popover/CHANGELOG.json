@@ -20,13 +20,13 @@
           ],
 
           "fixes": [
-            "Ensure custom CSS still apllies to the popover, even when placed as the last item in the <span class='code-text'>body</span> element"
+            "Ensure custom CSS still apllies to the popover, even when the popover is placed as the last item in the <span class='code-text'>body</span> element"
           ]
         },
         {
           "type": "patch",
           "changes": [
-            "Use <span class=\"code-text\">@elvia/elvis-toolbox@5.7.1</span>",
+            "Use <span class=\"code-text\">@elvia/elvis-toolbox@5.8.0</span>",
             "Added missing <span class='code-text'>peerDependencies</span>"
           ]
         }
