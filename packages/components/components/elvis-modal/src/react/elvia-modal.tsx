@@ -49,7 +49,7 @@ export interface ModalProps {
 }
 
 export const ModalComponent: FC<ModalProps> = function ({
-  isShowing = false,
+  isShowing,
   heading,
   content,
   illustration,
