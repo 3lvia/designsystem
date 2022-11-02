@@ -167,7 +167,7 @@ describe('Elvis Dropdown', () => {
     });
 
     it('should have className and inlineStyle', () => {
-      const dropdownWrapper = screen.getByTestId('wrapper');
+      const dropdownWrapper = screen.getByTestId('wrapper').parentElement;
       expect(dropdownWrapper).toHaveStyle('margin: 24px');
       expect(dropdownWrapper).toHaveClass('test-class');
     });
