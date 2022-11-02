@@ -2,6 +2,23 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "02.11.22",
+      "version": "3.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Card no longer has a default height of 100%"],
+          "fixes": [
+            "Make sure that the Card component looks correct. If you want the same behavior as before, you can set the height prop to 100%."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Use <span class=\"code-text\">@elvia/elvis-component-wrapper@^3.0.0</span>."]
+        }
+      ]
+    },
+    {
       "date": "18.10.22",
       "version": "2.0.0",
       "changelog": [

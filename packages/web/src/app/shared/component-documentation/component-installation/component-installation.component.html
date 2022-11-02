@@ -17,9 +17,9 @@
   <li>
     <strong>Install package:</strong>
     <div class="code-text e-mt-16">
-      <app-copy [message]="componentData.package">
+      <app-copy message="npm install @elvia/{{ componentData.name }}">
         <ng-container ngProjectAs="copyContent">
-          <span class="code-text" style="line-height: 26px">{{ componentData.package }}</span>
+          <span class="code-text" style="line-height: 26px">npm install @elvia/{{ componentData.name }}</span>
         </ng-container>
       </app-copy>
     </div>
@@ -28,35 +28,45 @@
     <strong>Import package:</strong>
     <h4 class="e-title-caps e-mt-24 e-mb-8">Web component</h4>
     <div class="code-text">
-      <app-copy [message]="componentData.codeImportWebComponent">
+      <app-copy message="Import '@elvia/{{ componentData.name }}';">
         <ng-container ngProjectAs="copyContent">
-          <span class="code-text" style="line-height: 26px">
-            {{ componentData.codeImportWebComponent }}
-          </span>
+          <span class="code-text" style="line-height: 26px">Import '@elvia/{{ componentData.name }}';</span>
         </ng-container>
       </app-copy>
     </div>
     <div class="e-text-md">(Angular - Should be imported in module.ts not component.ts)</div>
     <h4 class="e-title-caps e-mt-16 e-mb-8">React</h4>
     <div class="code-text">
-      <app-copy [message]="componentData.codeImportReact">
+      <app-copy
+        message="import &#123; {{ componentData.elementNameR }} &#125; from '@elvia/{{
+          componentData.name
+        }}/react';"
+      >
         <ng-container ngProjectAs="copyContent">
           <span class="code-text" style="line-height: 26px">
-            {{ componentData.codeImportReact }}
+            import &#123; {{ componentData.elementNameR }} &#125; from '@elvia/{{
+              componentData.name
+            }}/react';
           </span>
         </ng-container>
       </app-copy>
     </div>
   </li>
-  <ng-container *ngIf="componentData.codeImportTypescriptInterface">
+  <ng-container>
     <li>
       <strong>Import types (optional):</strong>
       <h4 class="e-title-caps e-mt-16 e-mb-8">Types</h4>
       <div class="code-text">
-        <app-copy [message]="componentData.codeImportTypescriptInterface">
+        <app-copy
+          message="import &#123; {{ componentData.elementNameR }}Props &#125; from '@elvia/{{
+            componentData.name
+          }}/react';"
+        >
           <ng-container ngProjectAs="copyContent">
             <span class="code-text" style="line-height: 26px">
-              {{ componentData.codeImportTypescriptInterface }}
+              import &#123; {{ componentData.elementNameR }}Props &#125; from '@elvia/{{
+                componentData.name
+              }}/react';
             </span>
           </ng-container>
         </app-copy>

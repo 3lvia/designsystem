@@ -2,6 +2,7 @@ import changelogJson from 'src/assets/changelogs/elvis-radio-filter/CHANGELOG.js
 import ComponentData from '../component-data.interface';
 
 const radioFilterData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-radio-filter',
   elementNameW: 'elvia-radio-filter',
   elementNameR: 'RadioFilter',
@@ -52,10 +53,6 @@ const radioFilterData: ComponentData = {
         "Custom CSS style object that can be added to the radio filter. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-radio-filter',
-  codeImportReact: `import { RadioFilter } from '@elvia/elvis-radio-filter/react';`,
-  codeImportTypescriptInterface: `import { RadioFilterProps } from '@elvia/elvis-radio-filter/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-radio-filter';`,
   codeReact: `<RadioFilter
   items={[
     { label: 'All', value: 'all'},
@@ -112,7 +109,6 @@ const radioFilterData: ComponentData = {
     radioFilter.setProps({value: event.detail.value});
   });
 `,
-  changelog: changelogJson.content,
 };
 
 export { radioFilterData };

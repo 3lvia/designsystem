@@ -96,6 +96,7 @@ const Tabs: FC<TabsProps> = ({
       valueOnChange(value);
     } else if (webcomponent) {
       webcomponent.setProps({ value: value }, true);
+      webcomponent.triggerEvent('valueOnChange', value);
     }
   };
 

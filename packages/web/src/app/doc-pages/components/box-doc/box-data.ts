@@ -3,6 +3,7 @@ import changelogJson from 'src/assets/changelogs/elvis-box/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const boxData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-box',
   elementNameW: 'elvia-box',
   elementNameR: 'Box',
@@ -56,10 +57,6 @@ const boxData: ComponentData = {
         "Custom CSS style object that can be added to the box. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  package: 'npm install @elvia/elvis-box',
-  codeImportReact: `import { Box } from '@elvia/elvis-box/react';`,
-  codeImportTypescriptInterface: `import { BoxProps } from '@elvia/elvis-box/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-box';`,
   codeReact: `<Box
   content={<div>
     <Tabs items={['AMS-meter', 'Electric car', 'HAN-port']}></Tabs>
@@ -87,7 +84,7 @@ const boxData: ComponentData = {
     <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
   </div>
 </elvia-box>`,
-  changelog: changelogJson.content,
+
   codeNativeScript: ``,
 };
 

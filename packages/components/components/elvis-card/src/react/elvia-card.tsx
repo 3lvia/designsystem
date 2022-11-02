@@ -61,7 +61,7 @@ const Card: FC<CardProps> = function ({
   type = 'simple',
   hasBorder = true,
   width = '100%',
-  height = '100%',
+  height,
   minWidth,
   maxWidth,
   maxDescriptionLines = 3,

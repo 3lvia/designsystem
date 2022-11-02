@@ -31,11 +31,12 @@ export const RadioFilter: FC<RadioFilterProps> = ({
   webcomponent,
   ...rest
 }) => {
-  const updateValue = (value: string) => {
+  const updateValue = (newValue: string) => {
     if (!webcomponent) {
-      valueOnChange && valueOnChange(value);
+      valueOnChange && valueOnChange(newValue);
     } else if (webcomponent) {
-      webcomponent.setProps({ value: value }, true);
+      webcomponent.setProps({ value: newValue }, true);
+      webcomponent.triggerEvent('valueOnChange', newValue);
     }
   };
 

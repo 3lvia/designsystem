@@ -2,10 +2,10 @@ import changelogJson from 'src/assets/changelogs/elvis-slider/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const sliderData: ComponentData = {
+  changelog: changelogJson.content,
   name: 'elvis-slider',
   elementNameW: 'elvia-slider',
   elementNameR: 'Slider',
-  package: 'npm install @elvia/elvis-slider',
   attributes: {
     type: {
       default: '"simple"',
@@ -165,9 +165,6 @@ export const sliderData: ComponentData = {
       description: 'Gets called every time the value is changed. Only returns a value if the input is valid.',
     },
   },
-  codeImportReact: `import { Slider } from '@elvia/elvis-slider/react';`,
-  codeImportTypescriptInterface: `import { SliderProps } from '@elvia/elvis-slider/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-slider';`,
   codeReact: `<Slider 
   min={1} 
   max={100}
@@ -197,5 +194,4 @@ export const sliderData: ComponentData = {
     console.log('Elvia Slider value:',event.detail.value.min && event.detail.value.max ? event.detail.value.min+" and "+event.detail.value.max : event.detail.value);
   });
 `,
-  changelog: changelogJson.content,
 };

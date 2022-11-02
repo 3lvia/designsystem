@@ -7,20 +7,17 @@ import JSON5 from 'json5';
 export class ElvisComponentWrapper extends HTMLElement {
   protected _data: { [propName: string]: any };
   protected _slots: { [slotName: string]: Element };
-  protected reactComponent: any;
-  protected webComponent: any;
-  protected cssStyle: string;
+  protected reactComponent: React.FC;
+  protected webComponent: ElviaComponent;
   protected throttleRenderReactDOM;
   private mountPoint!: HTMLSpanElement;
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  constructor(webComponent: any, reactComponent: any, cssStyle: string) {
+  constructor(webComponent: ElviaComponent, reactComponent: React.FC) {
     super();
     this._data = {};
     this._slots = {};
     this.webComponent = webComponent;
     this.reactComponent = reactComponent;
-    this.cssStyle = cssStyle;
     this.throttleRenderReactDOM = throttle(this.renderReactDOM, 50, { trailing: true });
   }
 
@@ -61,16 +58,15 @@ export class ElvisComponentWrapper extends HTMLElement {
     const spanChildren = this.querySelectorAll('span');
     const hasWrapperElement =
       spanChildren[0] && spanChildren[0].getAttribute('name') === 'elvia-wrapper-element';
-    if (this.webComponent.getComponentData().useWrapper && !hasWrapperElement) {
+    if (!hasWrapperElement) {
       const wrapperElement = document.createElement('span');
       wrapperElement.setAttribute('name', 'elvia-wrapper-element');
+      wrapperElement.style.cssText = 'display: contents;';
       this.mountPoint = wrapperElement;
       this.appendChild(this.mountPoint);
     }
     this.renderReactDOM();
-    if (this.querySelectorAll('style').length === 0) {
-      this.attachStyle();
-    }
+    this.addDisplayStyleToCustomElement();
   }
 
   attributeChangedCallback(): void {
@@ -79,30 +75,6 @@ export class ElvisComponentWrapper extends HTMLElement {
       this.storeAllSlots();
     }
     this.throttleRenderReactDOM();
-  }
-
-  /**
-   * Set prop values on webcomponent and dispatch onChange-event for each updated prop.
-   *
-   * @param newProps Object containing props to update.
-   * @param preventRerender Set to true to avoid rerendering webcomponent.
-   *
-   * @example
-   * webcomponent.setProps({propName: newValue}, true);
-   * webcomponent.setProps({value: {id: myId, state: currentState}}, true);
-   */
-  setProps(newProps: { [propName: string]: any }, preventRerender?: boolean): void {
-    Object.keys(newProps).forEach((key) => {
-      if (!isEqual(this._data[key], newProps[key])) {
-        this._data[key.toLowerCase()] = newProps[key];
-        this.addConditionalStyle();
-        this.onChangeEvent(this.mapNameToRealName(key));
-      }
-    });
-
-    if (!preventRerender) {
-      this.throttleRenderReactDOM();
-    }
   }
 
   /**
@@ -119,54 +91,33 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.onEvent(callbackName, eventData);
   }
 
-  protected addConditionalStyle(): void {
-    const conditionalElementStyle = this.webComponent.getComponentData().conditionalElementStyle;
-    const attributes = this.webComponent.getComponentData().attributes;
-    this.style.cssText = this.webComponent.getComponentData().elementStyle;
-    if (!conditionalElementStyle) {
-      return;
-    }
-    if (conditionalElementStyle.constructor.name === 'Array') {
-      conditionalElementStyle.forEach((el: any) => {
-        const propValue = this.getProps()[el.name.toLowerCase()];
-        if (propValue === el.value || (propValue && propValue.toString() === el.value)) {
-          this.style.cssText += el.style;
-        }
-      });
-    } else {
-      attributes.forEach((attribute: any) => {
-        if (
-          this.getProps()[attribute.name.toLowerCase()] === 'true' ||
-          this.getProps()[attribute.name.toLowerCase()] === true
-        ) {
-          for (const obj in conditionalElementStyle) {
-            if (obj.toLowerCase() === attribute.name.toLowerCase()) {
-              this.style.cssText += conditionalElementStyle[obj];
-            }
-          }
-        }
-      });
+  /**
+   * Set prop values on webcomponent. Does **not** trigger an on-change event.
+   *
+   * @param newProps Object containing props to update.
+   * @param preventRerender Set to true to avoid rerendering webcomponent.
+   *
+   * @example
+   * webcomponent.setProps({propName: newValue}, true);
+   * webcomponent.setProps({value: {id: myId, state: currentState}}, true);
+   */
+  setProps(newProps: { [propName: string]: any }, preventRerender?: boolean): void {
+    Object.keys(newProps).forEach((key) => {
+      if (!isEqual(this._data[key], newProps[key])) {
+        this._data[key.toLowerCase()] = newProps[key];
+      }
+    });
+
+    if (!preventRerender) {
+      this.throttleRenderReactDOM();
     }
   }
 
-  protected attachStyle(): void {
-    this.addConditionalStyle();
-    if (this.webComponent.getComponentData().wrapperStyle) {
-      this.mountPoint.style.cssText = this.webComponent.getComponentData().wrapperStyle;
-    }
-    if (this.cssStyle === '') {
-      return;
-    }
-    const styleTag = document.createElement('style');
-    styleTag.innerHTML = this.cssStyle;
-    // Add nonce to style tag for CSP support
-    if (window && (window as any).__webpack_nonce__) {
-      styleTag.setAttribute('nonce', (window as any).__webpack_nonce__);
-    }
-    this.appendChild(styleTag);
+  protected addDisplayStyleToCustomElement(): void {
+    this.style.cssText = 'display: contents;';
   }
 
-  protected createReactData(): Record<string, any> {
+  protected createReactData(): { [key: string]: any } {
     const reactData: { [key: string]: any } = {};
     Object.keys(this._data).forEach((key) => {
       reactData[this.mapNameToRealName(key)] = this._data[key];
@@ -176,11 +127,12 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   // Finds the real name of an attribute
   protected mapNameToRealName(attr: string): string {
-    try {
-      return this.webComponent.getComponentData().attributes.find((compAttr: any) => {
-        return compAttr.name.toLowerCase() === attr.toLowerCase();
-      }).name;
-    } catch {
+    const attribute = this.webComponent.getComponentData().attributes.find((compAttr) => {
+      return compAttr.name.toLowerCase() === attr.toLowerCase();
+    });
+    if (attribute) {
+      return attribute.name;
+    } else {
       this.logWarnMessage(
         'mapNameToRealName',
         "Did you forget to define the attribute '" + attr + "' in elvia-components.config.js?",
@@ -191,10 +143,6 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   protected renderReactDOM(): void {
     this.mapAttributesToData();
-    if (!this.webComponent.getComponentData().useWrapper) {
-      ReactDOM.render(this.createReactElement(this.createReactData()), this);
-      return;
-    }
     if (this.mountPoint) {
       ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
     }
@@ -225,39 +173,26 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   // Dispatches event
-  private dispatchNewEvent(callbackName: string, eventData?: any, isProp?: boolean) {
-    const data = isProp ? this._data[eventData.toLowerCase()] : eventData;
+  private dispatchNewEvent(callbackName: string, eventData?: any) {
     this.dispatchEvent(
       new CustomEvent(callbackName, {
         bubbles: false,
         composed: true,
-        detail: { value: data },
+        detail: { value: eventData },
       }),
     );
   }
 
-  // Any type of event
-  private onEvent(callbackName: string, data?: any) {
+  /**
+   * Trigger an event for both camelCase and kebab-case
+   * @param callbackName Name of event in camelCase.
+   * @param eventData Data to be sent with the event.
+   */
+  private onEvent(callbackName: string, eventData?: any) {
     // Kebab case events for Vue support
     const kebabCaseCallbackName = callbackName.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
-    this.dispatchNewEvent(callbackName, data, false);
-    this.dispatchNewEvent(kebabCaseCallbackName, data, false);
-  }
-
-  // 'OnChange' events
-  private onChangeEvent(propName: string) {
-    if (this._data[propName.toLowerCase()] === undefined) {
-      this.logWarnMessage(
-        'onChangeEvent',
-        ': Cannot dispatch OnChange event because no data was found with prop-name: ' + propName + '.',
-      );
-      return;
-    }
-    const callbackName = propName + 'OnChange';
-    // Kebab case events for Vue support
-    const kebabCaseCallbackName = callbackName.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
-    this.dispatchNewEvent(callbackName, propName, true);
-    this.dispatchNewEvent(kebabCaseCallbackName, propName, true);
+    this.dispatchNewEvent(callbackName, eventData);
+    this.dispatchNewEvent(kebabCaseCallbackName, eventData);
   }
 
   private storeAllSlots(): void {
@@ -305,7 +240,7 @@ export class ElvisComponentWrapper extends HTMLElement {
    * Maps the attributes to the data object unless data is set
    */
   private mapAttributesToData() {
-    this.webComponent.getComponentData().attributes.forEach((attr: any) => {
+    this.webComponent.getComponentData().attributes.forEach((attr) => {
       const dataAttr = this._data[attr.name.toLowerCase()];
       const val = this.getAttribute(attr.name.toLowerCase());
       if (val !== null && (dataAttr === null || typeof dataAttr === 'undefined')) {
@@ -316,9 +251,28 @@ export class ElvisComponentWrapper extends HTMLElement {
     });
   }
 
-  private createReactElement(data: any): React.ReactElement {
+  private createReactElement(data: { [key: string]: any }): React.ReactElement {
     const reactData = data;
     reactData.webcomponent = this;
     return React.createElement(this.reactComponent, reactData, React.createElement('slot'));
   }
+}
+
+/**
+ * This is the class that is used to define a web component.
+ * It comes from `elvia-component.template.ts`, and one is built for each component.
+ *
+ * This is just a type declaration for use in this file.
+ */
+declare class ElviaComponent extends ElvisComponentWrapper {
+  constructor();
+  static get observedAttributes(): string[];
+  /** Data from `elvia-components.config.js`. */
+  getComponentData(): {
+    name: string;
+    elementName: string;
+    attributes: { name: string; type: string }[];
+    reactName: string;
+    slotItems: boolean;
+  };
 }
