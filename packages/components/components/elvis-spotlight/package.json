@@ -9,11 +9,6 @@
     "@elvia/elvis-component-wrapper": "^3.0.0",
     "styled-components": "^5.3.3"
   },
-  "devDependencies": {
-    "react": "^16.8.0 || ^17.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0",
-    "react-is": ">= 16.8.0"
-  },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0",

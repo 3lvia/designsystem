@@ -19,10 +19,7 @@
   },
   "devDependencies": {
     "@types/lodash.isequal": "^4.5.5",
-    "@types/lodash.uniqueid": "^4.0.1",
-    "react": "^16.8.0 || ^17.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0",
-    "react-is": ">= 16.8.0"
+    "@types/lodash.uniqueid": "^4.0.1"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",

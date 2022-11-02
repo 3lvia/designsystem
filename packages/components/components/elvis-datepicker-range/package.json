@@ -11,10 +11,6 @@
     "@elvia/elvis-toolbox": "^5.5.0",
     "styled-components": "^5.3.3"
   },
-  "devDependencies": {
-    "react": "^16.8.0 || ^17.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0"
-  },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0",
