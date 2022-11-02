@@ -6,12 +6,11 @@
     <!--Normal version-->
     <div class="e-bg-white">
       <h3>Popover</h3>
-      <p>vanlig info</p>
+      <p>vanlig info (content = prop)</p>
       <elvia-popover
-        [content]="
-          'For safe and easy login on My page, you should log in with BankID. Here you can read more about logging in with BankID and functions on My page on Elvia.'
-        "
-        [heading]="'About login'"
+        [content]="'Eplepaioppskrift'"
+        [disableAutoClose]="true"
+        [hasCloseButton]="true"
         [verticalPosition]="'top'"
         [horizontalPosition]="'center'"
         (onOpen)="isPopoverShowing = true"
@@ -21,29 +20,6 @@
           slot="trigger"
           class="e-btn e-btn--icon e-btn--circled"
           [ngClass]="{ 'e-btn---selected': isPopoverShowing }"
-          aria-label="Popover trigger"
-        >
-          <span class="e-btn__icon">
-            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-            <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
-          </span>
-        </button>
-      </elvia-popover>
-
-      <elvia-popover
-        [content]="
-          'For safe and easy login on My page, you should log in with BankID. Here you can read more about logging in with BankID and functions on My page on Elvia.'
-        "
-        [heading]="'About login'"
-        [verticalPosition]="'top'"
-        [horizontalPosition]="'center'"
-        (onOpen)="isPopoverShowing1 = true"
-        (onClose)="isPopoverShowing1 = false"
-      >
-        <button
-          slot="trigger"
-          class="e-btn e-btn--icon e-btn--circled"
-          [ngClass]="{ 'e-btn---selected': isPopoverShowing1 }"
           aria-label="Popover trigger"
         >
           <span class="e-btn__icon">
@@ -89,12 +65,13 @@
         </div>
       </elvia-popover>
 
-      <p>liste med headings</p>
+      <!--  <p>liste med headings</p>
       <elvia-popover
         [type]="'list'"
         [verticalPosition]="'bottom'"
         (onOpen)="isPopoverListHeadingShowing = true"
         (onClose)="isPopoverListHeadingShowing = false"
+        [className]="'min-klasse'"
       >
         <button
           slot="trigger"
@@ -164,9 +141,9 @@
             <a href="#">Wencke</a>
           </div>
         </div>
-      </elvia-popover>
+      </elvia-popover> -->
 
-      <p>text only</p>
+      <p>text only (content = slot)</p>
       <elvia-popover
         [verticalPosition]="'bottom'"
         (onOpen)="isPopoverListHeadingShowing = true"
@@ -183,14 +160,35 @@
             <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
           </span>
         </button>
-        <div slot="content">
-          <span>dette er litt tekst som skal dukke opp i en popover</span>
-        </div>
+        <span slot="content">Bananbrødoppskrift</span>
+      </elvia-popover>
+
+      <p>bare en liste (content = slot)</p>
+      <elvia-popover
+        [verticalPosition]="'bottom'"
+        (onOpen)="isPopoverListHeadingShowing = true"
+        (onClose)="isPopoverListHeadingShowing = false"
+      >
+        <button
+          slot="trigger"
+          class="e-btn e-btn--icon e-btn--circled"
+          [ngClass]="{ 'e-btn---selected': isPopoverListHeadingShowing }"
+          aria-label="More menu"
+        >
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+            <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+          </span>
+        </button>
+        <ul slot="content">
+          <li>Bananbrødoppskrift</li>
+          <li>Eplepaioppskrift</li>
+        </ul>
       </elvia-popover>
 
       <p>icons</p>
       <!-- This example will only work once you have created a isShowing variable -->
-      <elvia-popover
+      <!-- <elvia-popover
         [type]="'list'"
         [verticalPosition]="'bottom'"
         (onOpen)="isPopoverListIconsShowing = true"
@@ -225,11 +223,11 @@
             </a>
           </div>
         </div>
-      </elvia-popover>
+      </elvia-popover> -->
 
       <p>checked</p>
       <!-- This example will only work once you have created a isShowing variable -->
-      <elvia-popover
+      <!-- <elvia-popover
         [type]="'list'"
         [isSelectable]="true"
         [verticalPosition]="'bottom'"
@@ -262,7 +260,7 @@
             </button>
           </div>
         </div>
-      </elvia-popover>
+      </elvia-popover> -->
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
