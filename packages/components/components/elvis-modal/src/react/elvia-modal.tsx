@@ -15,7 +15,7 @@ import { useClickOutside } from './useClickOutside';
 import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { warnDeprecatedProps, useFocusTrap } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, useFocusTrap, useSlot } from '@elvia/elvis-toolbox';
 import { config } from './config';
 
 export interface ModalProps {
@@ -69,13 +69,15 @@ export const ModalComponent: FC<ModalProps> = function ({
   warnDeprecatedProps(config, arguments[0]);
 
   const modalWrapperRef = useRef<HTMLDivElement>(null);
-  const modalText = useRef<HTMLDivElement>(null);
-  const modalIllustration = useRef<HTMLDivElement>(null);
-  const modalPrimaryBtn = useRef<HTMLDivElement>(null);
-  const modalSecondaryBtn = useRef<HTMLDivElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
 
   const [isHoveringCloseButton, setIsHoveringCloseButton] = useState(false);
+
+  /** Get all slots */
+  const { ref: modalText } = useSlot<HTMLDivElement>('content', webcomponent);
+  const { ref: modalIllustration } = useSlot<HTMLDivElement>('illustration', webcomponent);
+  const { ref: modalPrimaryBtn } = useSlot<HTMLDivElement>('primaryButton', webcomponent);
+  const { ref: modalSecondaryBtn } = useSlot<HTMLDivElement>('secondaryButton', webcomponent);
 
   const hasIllustration = !!illustration || !!(webcomponent && !!webcomponent.getSlot('illustration'));
   const hasPrimaryButton = !!primaryButton || !!(webcomponent && !!webcomponent.getSlot('primaryButton'));
@@ -103,7 +105,7 @@ export const ModalComponent: FC<ModalProps> = function ({
    */
   !disableClose && useClickOutside(modalWrapperRef, () => isShowing && handleOnClose());
   useKeyPress('Escape', handleOnClose);
-  hasLockBodyScroll && useLockBodyScroll(isShowing);
+  useLockBodyScroll(hasLockBodyScroll && isShowing);
 
   /** When the modal is closed add focus back to the element that had focus when the modal was opened. */
   useEffect(() => {
@@ -113,43 +115,17 @@ export const ModalComponent: FC<ModalProps> = function ({
     };
   }, []);
 
-  /** Get all slots and place them correctly */
+  /** Trap focus inside modal */
   useEffect(() => {
     if (!isShowing) {
       return;
     }
-
-    if (!webcomponent) {
-      trapFocus(modalWrapperRef);
-      return;
-    }
-
-    if (modalText.current && webcomponent.getSlot('content')) {
-      modalText.current.innerHTML = '';
-      modalText.current.appendChild(webcomponent.getSlot('content'));
-    }
-
-    if (modalIllustration.current && webcomponent.getSlot('illustration')) {
-      modalIllustration.current.innerHTML = '';
-      modalIllustration.current.appendChild(webcomponent.getSlot('illustration'));
-    }
-
-    if (modalPrimaryBtn.current && webcomponent.getSlot('primaryButton')) {
-      modalPrimaryBtn.current.innerHTML = '';
-      modalPrimaryBtn.current.appendChild(webcomponent.getSlot('primaryButton'));
-    }
-
-    if (modalSecondaryBtn.current && webcomponent.getSlot('secondaryButton')) {
-      modalSecondaryBtn.current.innerHTML = '';
-      modalSecondaryBtn.current.appendChild(webcomponent.getSlot('secondaryButton'));
-    }
-
     trapFocus(modalWrapperRef);
 
     return () => {
       releaseFocusTrap();
     };
-  }, [isShowing, webcomponent, modalText, modalText.current]);
+  }, [isShowing]);
 
   return (
     <Modal
@@ -195,10 +171,9 @@ export const ModalComponent: FC<ModalProps> = function ({
               {heading}
             </ModalHeading>
           )}
-
-          {content && <ModalText data-testid="modal-content">{content}</ModalText>}
-          {!content && <ModalText ref={modalText}></ModalText>}
-
+          <ModalText data-testid="modal-content" ref={modalText}>
+            {content}
+          </ModalText>
           {(hasPrimaryButton || hasSecondaryButton) && (
             <ModalActions>
               {secondaryButton && (

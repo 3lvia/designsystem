@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export function useLockBodyScroll(isShowing: boolean) {
+export function useLockBodyScroll(shouldDisableBodyScroll: boolean): void {
   useEffect(() => {
-    if (!isShowing) {
+    if (!shouldDisableBodyScroll) {
       return;
     }
     const originalStyleOverflowBody = window.getComputedStyle(document.body).overflow;
@@ -15,5 +14,5 @@ export function useLockBodyScroll(isShowing: boolean) {
       document.body.style.overflow = originalStyleOverflowBody;
       document.documentElement.style.overflow = originalStyleOverflowHtml;
     };
-  }, [isShowing]);
+  }, [shouldDisableBodyScroll]);
 }
