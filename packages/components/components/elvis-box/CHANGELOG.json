@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "02.11.22",
+      "version": "1.4.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Use <span class=\"code-text\">@elvia/elvis-component-wrapper@^3.0.0</span>."]
+        }
+      ]
+    },
+    {
+      "date": "02.11.22",
       "version": "1.4.1",
       "changelog": [
         {

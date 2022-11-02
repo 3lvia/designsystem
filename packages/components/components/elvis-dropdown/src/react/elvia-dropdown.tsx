@@ -711,48 +711,49 @@ const Dropdown: React.FC<DropdownProps> = function ({
 
   return (
     <CacheProvider value={cache}>
-      <div className={className ?? ''} style={inlineStyle} {...rest}>
-        <DropdownWrapper
-          isFullWidth={isFullWidth}
+      <DropdownWrapper
+        isFullWidth={isFullWidth}
+        isDisabled={isDisabled}
+        ref={dropdownRef}
+        data-testid="wrapper"
+        className={className ?? ''}
+        style={inlineStyle}
+        {...rest}
+      >
+        <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
+          {label}
+        </DropdownLabel>
+        <Select
+          blurInputOnSelect={!isMulti}
+          classNamePrefix={'ewc-dropdown'}
+          closeMenuOnSelect={!isMulti}
+          components={overrideComponents}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          //@ts-ignore
+          hasValue={false}
+          hideSelectedOptions={false}
+          inputId={selectId}
           isDisabled={isDisabled}
-          ref={dropdownRef}
-          data-testid="wrapper"
-        >
-          <DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId} data-testid="label">
-            {label}
-          </DropdownLabel>
-          <Select
-            blurInputOnSelect={!isMulti}
-            classNamePrefix={'ewc-dropdown'}
-            closeMenuOnSelect={!isMulti}
-            components={overrideComponents}
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            //@ts-ignore
-            hasValue={false}
-            hideSelectedOptions={false}
-            inputId={selectId}
-            isDisabled={isDisabled}
-            isMulti={isMulti}
-            isSearchable={isSearchable}
-            menuIsOpen={menuIsOpen}
-            menuPlacement={menuPosition}
-            noOptionsMessage={() => noOptionsMessage}
-            onChange={onChangeHandler}
-            onKeyDown={(event) => {
-              if (event.code === 'Enter' && !menuIsOpen) {
-                setMenuIsOpen(true);
-              }
-            }}
-            onMenuClose={() => setMenuIsOpen(false)}
-            onMenuOpen={() => setMenuIsOpen(true)}
-            options={items && isMulti && hasSelectAllOption ? [selectAllOptionState, ...items] : items}
-            placeholder={placeholder}
-            value={currentVal}
-            styles={customElviaStyles}
-          ></Select>
-          {isError ? <ElviaError errorMessage={errorMessage} data-testid="error"></ElviaError> : null}
-        </DropdownWrapper>
-      </div>
+          isMulti={isMulti}
+          isSearchable={isSearchable}
+          menuIsOpen={menuIsOpen}
+          menuPlacement={menuPosition}
+          noOptionsMessage={() => noOptionsMessage}
+          onChange={onChangeHandler}
+          onKeyDown={(event) => {
+            if (event.code === 'Enter' && !menuIsOpen) {
+              setMenuIsOpen(true);
+            }
+          }}
+          onMenuClose={() => setMenuIsOpen(false)}
+          onMenuOpen={() => setMenuIsOpen(true)}
+          options={items && isMulti && hasSelectAllOption ? [selectAllOptionState, ...items] : items}
+          placeholder={placeholder}
+          value={currentVal}
+          styles={customElviaStyles}
+        ></Select>
+        {isError ? <ElviaError errorMessage={errorMessage} data-testid="error"></ElviaError> : null}
+      </DropdownWrapper>
     </CacheProvider>
   );
 };

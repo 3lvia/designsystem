@@ -75,6 +75,7 @@ export const Chip: FC<ChipProps> = function ({
       isSelectedOnChange && isSelectedOnChange(newIsSelected);
     } else if (webcomponent) {
       webcomponent.setProps({ isSelected: newIsSelected }, true);
+      webcomponent.triggerEvent('isSelectedOnChange', newIsSelected);
     }
   };
 

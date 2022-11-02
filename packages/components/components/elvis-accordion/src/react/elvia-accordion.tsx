@@ -103,7 +103,7 @@ const Accordion: FC<AccordionProps> = ({
       accordionContentRef.current.innerHTML = '';
       accordionContentRef.current.appendChild(webcomponent.getSlot('content'));
     }
-  }, [webcomponent]);
+  }, [webcomponent, webcomponent?.getSlot('content')]);
 
   useEffect(() => {
     setIsOpenState(isOpen);

@@ -23,6 +23,7 @@ export const Paginator = styled.div<PaginatorProps>`
   height: auto;
   justify-content: ${(props) => (props.isRightAligned ? 'flex-end' : 'flex-start')};
   max-width: 100%;
+  width: 100%;
   row-gap: 8px;
   user-select: none;
 `;
@@ -42,7 +43,7 @@ export const PaginatorInfoText = styled.div`
 export const PaginatorInfoDropdown = styled.div`
   width: 75px;
 
-  > div > span {
+  > span {
     padding-top: unset; /* For removing the top padding from the dropdown component */
   }
 `;
