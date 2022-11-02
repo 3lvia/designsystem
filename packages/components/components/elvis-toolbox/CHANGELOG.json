@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.11.22",
+      "version": "5.8.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add <span class=\"code-text\">useEffectDependencies</span> option for <span class=\"code-text\">useSlot</span> hook."
+          ]
+        }
+      ]
+    },
+    {
       "date": "02.11.22",
       "version": "5.7.1",
       "changelog": [
