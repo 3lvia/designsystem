@@ -89,15 +89,7 @@ const Popover: FC<PopoverProps> = function ({
 
   useEffect(() => {
     updatePreferredPosition();
-  }, [
-    webcomponent,
-    isShowingConnectedOverlayState,
-    content,
-    type,
-    horizontalPosition,
-    verticalPosition,
-    heading,
-  ]);
+  }, [isShowingConnectedOverlayState, content, type, horizontalPosition, verticalPosition, heading]);
 
   /**
    * Dispatch onOpen and onClose events.
