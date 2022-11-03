@@ -10,6 +10,15 @@
     "start": "gulp watch",
     "build": "gulp"
   },
+  "files": [
+    "icons.js",
+    "icons.cjs.js",
+    "icons.d.js",
+    "CHANGELOG.md",
+    "README.md",
+    "dist/**/*",
+    "icons/**/*"
+  ],
   "dependencies": {
     "@elvia/elvis-colors": "^1.4.2"
   },

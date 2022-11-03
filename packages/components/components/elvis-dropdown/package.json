@@ -5,6 +5,14 @@
   "main": "web_component.js",
   "author": "",
   "license": "MIT",
+  "files": [
+    "web_component.js",
+    "react.js",
+    "react.d.ts",
+    "CHANGELOG.json",
+    "README.md",
+    "dist/**/*"
+  ],
   "dependencies": {
     "@elvia/elvis-colors": "^1.4.1",
     "@elvia/elvis-component-wrapper": "^3.0.0",

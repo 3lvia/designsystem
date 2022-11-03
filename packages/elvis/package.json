@@ -10,6 +10,14 @@
     "build:production": "gulp",
     "start": "gulp watch"
   },
+  "files": [
+    "elvis.js",
+    "CHANGELOG.json",
+    "README.md",
+    "npm-shrinkwrap.json",
+    "css/**/*",
+    "src/**/*"
+  ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-colors": "^1.4.1",

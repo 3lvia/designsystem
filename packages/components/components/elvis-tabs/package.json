@@ -6,6 +6,14 @@
   "author": "",
   "main": "web_component.js",
   "types": "elvia-tabs.d.ts",
+  "files": [
+    "web_component.js",
+    "react.js",
+    "react.d.ts",
+    "CHANGELOG.json",
+    "README.md",
+    "dist/**/*"
+  ],
   "dependencies": {
     "@elvia/elvis-colors": "^1.4.2",
     "@elvia/elvis-component-wrapper": "^3.0.0",
