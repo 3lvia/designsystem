@@ -3,7 +3,7 @@
   "version": "2.8.4",
   "description": "",
   "main": "web_component.js",
-  "author": "",
+  "author": "Change to trigger action",
   "license": "MIT",
   "dependencies": {
     "@elvia/elvis-colors": "^1.4.2",
