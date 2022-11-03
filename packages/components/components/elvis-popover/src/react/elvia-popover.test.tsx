@@ -135,7 +135,7 @@ describe('Elvis Popover', () => {
     });
   });
 
-  describe('className and inlineStyle passed to wrapper', () => {
+  describe.skip('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       render(
         <Popover
