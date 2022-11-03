@@ -23,4 +23,7 @@ jobs:
       - name: Build
         run: yarn build:tokens && yarn build:elvis && yarn build:components
       - name: Publish
-        run: yarn publish --dry-run
+        continue-on-error: true
+        run: yarn publish:all
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
