@@ -3,7 +3,7 @@
   "version": "9.4.0",
   "description": "Elvia design system",
   "license": "ISC",
-  "author": "Manual trigger",
+  "author": "",
   "main": "",
   "scripts": {
     "build": "gulp",
