@@ -1,4 +1,4 @@
-name: Percy Baseline Update CI
+name: Publish to NPM
 on:
   push:
     branches:
@@ -12,17 +12,13 @@ jobs:
   publishToNpm:
     runs-on: ubuntu-latest
     steps:
-      - name: Log start of job
-        run: echo "Starting job"
-      # - name: Checkout
-      #   uses: actions/checkout@v3
-      # - name: Get Yarn Cache
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     cache: 'yarn'
-      # - name: Install
-      #   run: yarn install --immutable
-      # - name: Publish all changed packages
-      #   run:
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Get Yarn Cache
+        uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+      - name: Install
+        run: yarn install --immutable
+      - name: Publish all changed packages
+        run: yarn publish --dry-run
