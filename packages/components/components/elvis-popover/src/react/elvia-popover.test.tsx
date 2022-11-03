@@ -153,7 +153,6 @@ describe('Elvis Popover', () => {
       const popoverTrigger = screen.getByRole('button', { name: 'Trigger' });
 
       await user.click(popoverTrigger);
-      screen.debug();
 
       const popoverContent = screen.getByTestId('popover-content');
       expect(popoverContent).toHaveStyle('margin: 24px');
