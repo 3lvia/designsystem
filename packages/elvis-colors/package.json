@@ -9,6 +9,11 @@
   "scripts": {
     "build": "gulp"
   },
+  "files": [
+    "CHANGELOG.json",
+    "README.md",
+    "dist/**/*"
+  ],
   "dependencies": {
     "lodash.kebabcase": "^4.1.1"
   },

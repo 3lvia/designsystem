@@ -5,6 +5,11 @@
   "license": "MIT",
   "author": "",
   "main": "./dist/index.js",
+  "files": [
+    "CHANGELOG.json",
+    "README.md",
+    "dist/**/*"
+  ],
   "dependencies": {
     "@elvia/elvis-colors": "^1.4.2",
     "@elvia/elvis-component-wrapper": "*",
