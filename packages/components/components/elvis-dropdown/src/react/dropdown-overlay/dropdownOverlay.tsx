@@ -6,21 +6,32 @@ import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropd
 import { Backdrop, DropdownPopup, ItemList, NoItemsMessage } from './dropdownOverlayStyles';
 
 interface DropdownOverlayProps {
+  /**
+   * Since all keyboard inputs comes from the input-element
+   * all overlays receive the pressed keys in the input element
+   * In order to decide which overlay that should be "in focus",
+   * we assign each overlay a level.
+   */
+  level: number;
+  focusedLevel: number;
   items: DropdownItemOption[];
   isCompact: boolean;
   isMulti: boolean;
   onClose: () => void;
   noItemsText?: string;
   currentVal?: DropdownValue;
-  onItemSelect: (value: string) => void;
+  onItemSelect: (value: string[]) => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
+  onLevelFocusChange: (newLevel: number) => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
 }
 
 export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayProps>(
   (
     {
+      level,
+      focusedLevel,
       items,
       isCompact,
       isMulti,
@@ -31,6 +42,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       pressedKey,
       onMouseEnter,
       onMouseLeave,
+      onLevelFocusChange,
     },
     ref,
   ) => {
@@ -49,7 +61,11 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       if (['Space', 'Enter', 'Tab'].includes(ev.code)) {
         ev.preventDefault();
         if (!focusedItem.isDisabled) {
-          onItemSelect(focusedItem.value);
+          if (focusedItem.children) {
+            onItemSelect(focusedItem.children.map((child) => child.value));
+          } else {
+            onItemSelect([focusedItem.value]);
+          }
         }
 
         if (!isMulti) {
@@ -75,7 +91,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     };
 
     useEffect(() => {
-      if (pressedKey) {
+      if (pressedKey && focusedLevel === level) {
         handlerOverlayKeyboardNavigation(pressedKey);
       }
     }, [pressedKey]);
@@ -94,12 +110,16 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     }, [currentVal]);
 
     useEffect(() => {
-      if (!inputIsMouse) {
+      const scrollItemListToFocusedItem = () => {
         const buttonHeight = isCompact ? 40 : 48;
         const index = items.findIndex((item) => item.value === focusedItem.value);
         listRef.current?.scrollTo({
           top: buttonHeight * index - listRef.current?.offsetHeight / 2,
         });
+      };
+
+      if (!inputIsMouse) {
+        scrollItemListToFocusedItem();
       }
     }, [focusedItem]);
 
@@ -118,6 +138,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
             {!items?.length && <NoItemsMessage isCompact={isCompact}>{noItemsText}</NoItemsMessage>}
             {items.map((item) => (
               <DropdownItem
+                overlayLevel={level}
                 key={item.value}
                 item={item}
                 focusedValue={focusedItem.value}
@@ -132,6 +153,9 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                     setFadeOut(true);
                   }
                 }}
+                focusedLevel={focusedLevel}
+                pressedKey={pressedKey}
+                onLevelFocusChange={onLevelFocusChange}
               />
             ))}
           </ItemList>

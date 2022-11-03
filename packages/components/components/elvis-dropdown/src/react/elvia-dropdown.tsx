@@ -9,6 +9,7 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { useWebComponentState } from '@elvia/elvis-toolbox';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
+import { getTreeDepth } from './dropdownListUtils';
 
 const Dropdown: React.FC<DropdownProps> = ({
   items = [],
@@ -43,6 +44,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [filter, setFilter] = useState('');
   const [filteredItems, setFilteredItems] = useState(items);
   const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
+  const [focusedOverlayLevel, setFocusedOverlayLevel] = useState(1);
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -57,18 +59,20 @@ const Dropdown: React.FC<DropdownProps> = ({
     },
   );
 
-  const setSelectedItem = (value: string): void => {
+  const setSelectedItem = (values: string[]): void => {
     if (isMulti) {
       const arrayCopy = Array.isArray(currentVal) ? currentVal.slice() : currentVal ? [currentVal] : [];
-      const existingIndex = arrayCopy.indexOf(value);
-      if (existingIndex === -1) {
-        arrayCopy.push(value);
-      } else {
-        arrayCopy.splice(existingIndex, 1);
-      }
+      values.forEach((value) => {
+        const existingIndex = arrayCopy.indexOf(value);
+        if (existingIndex === -1) {
+          arrayCopy.push(value);
+        } else {
+          arrayCopy.splice(existingIndex, 1);
+        }
+      });
       setCurrentVal(arrayCopy);
     } else if (!isMulti && typeof currentVal === 'string') {
-      setCurrentVal(value);
+      setCurrentVal(values[0]);
     }
   };
 
@@ -107,6 +111,16 @@ const Dropdown: React.FC<DropdownProps> = ({
     setTimeout(() => setFilteredItems(items)); //TODO: Can we get rid of it
   }, [items]);
 
+  // useEffect(() => {
+  //   if (pressedKey) {
+  //     if (pressedKey.code === 'ArrowRight') {
+  //       setFocusedOverlayLevel(Math.min(focusedOverlayLevel + 1, getTreeDepth(items)));
+  //     } else if (pressedKey.code === 'ArrowLeft') {
+  //       setFocusedOverlayLevel(Math.max(1, focusedOverlayLevel - 1));
+  //     }
+  //   }
+  // }, [pressedKey]);
+
   return (
     <>
       <DropdownContainer
@@ -115,7 +129,6 @@ const Dropdown: React.FC<DropdownProps> = ({
         style={{ ...inlineStyle }}
         fullWidth={isFullWidth}
         data-testid="wrapper"
-        role="combobox"
         aria-haspopup="true"
       >
         {!!label && <FormFieldLabel data-testid="label">{label}</FormFieldLabel>}
@@ -162,6 +175,12 @@ const Dropdown: React.FC<DropdownProps> = ({
           items={filteredItems}
           pressedKey={pressedKey}
           currentVal={currentVal}
+          level={1}
+          focusedLevel={focusedOverlayLevel}
+          onLevelFocusChange={(newLevel) => {
+            console.log(newLevel);
+            setFocusedOverlayLevel(newLevel);
+          }}
         />
       )}
     </>

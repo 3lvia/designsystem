@@ -13,3 +13,14 @@ export const getFlattenedItemList = (
   });
   return itemList;
 };
+
+export const getTreeDepth = (list: DropdownItem[], level = 1): number => {
+  const levels = list.map((listItem) => {
+    if (listItem.children) {
+      return getTreeDepth(listItem.children, level + 1);
+    }
+    return level;
+  });
+
+  return Math.max(...levels);
+};

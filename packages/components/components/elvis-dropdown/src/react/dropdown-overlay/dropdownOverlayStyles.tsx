@@ -31,6 +31,8 @@ export const DropdownPopup = styled.div.attrs(() => ({
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   animation: ${fadeIn} 300ms ease;
   z-index: 99999;
+  border-radius: 4px;
+  overflow: hidden;
 
   ${(props) => {
     if (props.fadeOut) {

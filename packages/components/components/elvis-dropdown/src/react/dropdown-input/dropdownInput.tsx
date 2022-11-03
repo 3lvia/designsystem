@@ -1,7 +1,7 @@
 import { Icon, IconName } from '@elvia/elvis-icon/react';
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { DropdownItem, DropdownValue } from '../elviaDropdown.types';
-import { getFlattenedItemList } from '../flattenDropdownItems';
+import { getFlattenedItemList } from '../dropdownListUtils';
 
 import { Input } from './dropdownInputStyles';
 
@@ -89,6 +89,7 @@ export const DropdownInput: React.FC<Props> = ({
         onKeyDown={onKeyDown}
         readOnly={!editable}
         data-testid="input"
+        role="combobox"
       />
     </>
   );
