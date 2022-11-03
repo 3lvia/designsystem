@@ -26,6 +26,6 @@ jobs:
         run: yarn build:tokens && yarn build:elvis && yarn build:components
       - name: Publish
         continue-on-error: true
-        run: yarn publish:all
+        run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

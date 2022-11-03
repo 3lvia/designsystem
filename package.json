@@ -34,7 +34,7 @@
     "test": "nx test @elvia/elvis-components",
     "test:start": "nx test:start @elvia/elvis-components",
     "test:staged": "cd packages/components; jest --bail --findRelatedTests",
-    "publish:all": "yarn workspaces foreach -ipv --no-private npm publish --access public",
+    "publish": "yarn workspaces foreach -ipv --no-private npm publish --access public",
     "nx:graph": "yarn nx graph",
     "nx:clear": "yarn nx clear-cache"
   },

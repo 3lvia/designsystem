@@ -3,7 +3,7 @@
   "version": "1.4.2",
   "description": "Elvia colors",
   "license": "MIT",
-  "author": "",
+  "author": "Trigger",
   "main": "dist/elviaColors.js",
   "style": "dist/elviaColors.scss",
   "scripts": {

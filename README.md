@@ -123,9 +123,9 @@ To start developing components and styling follow the guides below:
 
 ### Publish
 
-To publish all the packages to npm at once, you can use `yarn publish:all --otp <INSERT_OTP>` from root. It
-will publish all packages where the version number is updated from what is currently published and the package
-is not marked as private in the `package.json`.
+To publish all the packages to npm at once, you can use `yarn publish --otp <INSERT_OTP>` from root. It will
+publish all packages where the version number is updated from what is currently published and the package is
+not marked as private in the `package.json`.
 
 ## 🤝 Contribute
 
