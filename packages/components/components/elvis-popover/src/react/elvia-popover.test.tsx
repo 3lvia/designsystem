@@ -148,10 +148,15 @@ describe('Elvis Popover', () => {
       );
     });
 
-    it('should have className and inlineStyle', () => {
-      const popoverWrapper = screen.getByRole('dialog');
-      expect(popoverWrapper).toHaveStyle('margin: 24px');
-      expect(popoverWrapper).toHaveClass('test-class');
+    it('should have className and inlineStyle', async () => {
+      const user = userEvent.setup();
+      const popoverTrigger = screen.getByRole('button', { name: 'Trigger' });
+
+      await user.click(popoverTrigger);
+
+      const popoverContent = screen.getByTestId('popover-content');
+      expect(popoverContent).toHaveStyle('margin: 24px');
+      expect(popoverContent).toHaveClass('test-class');
     });
   });
 });
