@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-      - LEGO-1945-**
     paths:
       - 'packages/elvis/package.json'
       - 'packages/elvis-*/package.json'
