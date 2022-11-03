@@ -20,5 +20,7 @@ jobs:
           cache: 'yarn'
       - name: Install
         run: yarn install --immutable
+      - name: Build all
+        run: yarn build:tokens && yarn build:elvis && yarn build:components
       - name: Publish all changed packages
         run: yarn publish --dry-run
