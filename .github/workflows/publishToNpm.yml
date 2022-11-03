@@ -17,8 +17,9 @@ jobs:
       - name: Get Yarn Cache
         uses: actions/setup-node@v3
         with:
-          registry-url: 'https://registry.npmjs.org'
           cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org'
+          always-auth: true
       - name: Install
         run: yarn install --immutable
       - name: Build
