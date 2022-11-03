@@ -153,6 +153,7 @@ const Popover: FC<PopoverProps> = function ({
               type={type}
               ref={popoverRef}
               aria-modal="true"
+              data-testid="popover-content"
             >
               {type === 'informative' && (
                 <>
