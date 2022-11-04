@@ -1,15 +1,15 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .page-body {
   margin-top: 104px;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     margin-top: 72px;
   }
   .contact-profile-container {
     display: flex;
     height: 479px;
     position: relative;
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       height: unset;
       justify-content: center;
       &:not(:last-of-type) .contact-profile {
@@ -40,10 +40,10 @@
       @media (max-width: 1300px) {
         margin-top: 40px;
       }
-      @include breakpoint-up(Tablet) {
+      @include breakpoints.breakpoint-up(Tablet) {
         margin-top: -120px;
       }
-      @include breakpoint-up(Mobile) {
+      @include breakpoints.breakpoint-up(Mobile) {
         margin-top: 0px;
       }
     }
@@ -55,7 +55,7 @@
     align-items: center;
     max-width: 350px;
     position: absolute;
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       position: relative;
     }
     .profile-emoji {
@@ -64,13 +64,13 @@
       top: 5px;
       left: 36px;
       user-select: none;
-      @include breakpoint-up(Mobile) {
+      @include breakpoints.breakpoint-up(Mobile) {
         font-size: 44px;
         left: 186px - 44px;
       }
       &.right {
         left: 314px - 36px - 58px;
-        @include breakpoint-up(Mobile) {
+        @include breakpoints.breakpoint-up(Mobile) {
           left: 186px - 44px;
         }
       }
@@ -78,14 +78,14 @@
     .profile-image-loader {
       width: 314px;
       height: 314px;
-      @include breakpoint-up(Mobile) {
+      @include breakpoints.breakpoint-up(Mobile) {
         width: 186px;
         height: 186px;
       }
     }
     .profile-image {
       max-width: 314px;
-      @include breakpoint-up(Mobile) {
+      @include breakpoints.breakpoint-up(Mobile) {
         max-width: 186px;
       }
     }
@@ -107,13 +107,13 @@
     }
     &.fride {
       right: -6%;
-      @include breakpoint-up(Mobile) {
+      @include breakpoints.breakpoint-up(Mobile) {
         left: 0px;
       }
     }
     &.tom {
       right: -6%;
-      @include breakpoint-up(Mobile) {
+      @include breakpoints.breakpoint-up(Mobile) {
         left: 0px;
       }
     }

@@ -1,17 +1,16 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
-@import '@elvia/elvis/src/utilities/colors.scss';
-@import '../../shared/shared-sizes.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+@use '../../shared/shared-sizes.scss';
 
 .overview-content {
   margin-left: calc(13% + 72px);
   @media (max-width: 1832px) {
     margin-left: calc(13% + 72px + 56px);
   }
-  @include breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(MinDesktop) {
     width: calc(100% - 18% - 108px);
     margin-left: calc(13% + 72px + 72px);
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     margin: 0 auto;
     width: calc(100% - 108px);
   }
@@ -21,10 +20,10 @@
   @media (max-width: 1632px) {
     margin-left: calc(13% + 72px + 48px);
   }
-  @include breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(MinDesktop) {
     margin-left: calc(13% + 72px + 48px);
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     margin: 0 auto;
     width: calc(100% - 108px);
   }
@@ -38,21 +37,21 @@
     right: 16px;
     margin-top: -24px;
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     display: flex;
     position: relative;
     &.desktop {
       display: none;
     }
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     z-index: 1;
   }
   .link {
     display: flex;
     border-bottom: 2px solid transparent;
     padding-bottom: 3px;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       position: absolute;
       margin-top: 4px;
       margin-right: 0px;
@@ -79,20 +78,20 @@
   margin-top: -64px;
   padding-top: 64px;
   padding-bottom: 104px;
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     min-height: calc(100vh - 40px + 104px - #{$footer-height});
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     min-height: calc(100vh - 32px + 71px - #{$footer-height});
     padding-bottom: 72px;
   }
 
   .e-grid {
     margin: 128px 128px 0 128px;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       margin: 96px 32px 32px 32px;
     }
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       margin: 96px 16px 16px 16px;
     }
   }
@@ -106,7 +105,7 @@
 
   .main-navbar {
     width: 240px;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       width: 100%;
     }
     &.hide {

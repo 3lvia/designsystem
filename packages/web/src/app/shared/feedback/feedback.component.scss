@@ -1,4 +1,4 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .feedback-container {
   display: flex;
@@ -9,7 +9,7 @@
   .feedback-inner-container {
     width: 100%;
     padding: 0 64px;
-    @include breakpoint-up(MinDesktop) {
+    @include breakpoints.breakpoint-up(MinDesktop) {
       padding: 0;
     }
   }
@@ -18,13 +18,13 @@
 .emoji-section {
   display: flex;
   flex-direction: row;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     flex-direction: column;
     align-items: center;
   }
   .text-section {
     margin-right: 56px;
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       text-align: center;
       margin-right: 0;
     }
@@ -37,7 +37,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       margin-top: 40px;
     }
     .section {
@@ -59,7 +59,7 @@
       }
       &:last-of-type {
         margin-right: 0;
-        @include breakpoint-up(Mobile) {
+        @include breakpoints.breakpoint-up(Mobile) {
           margin: 0px 16px;
         }
       }

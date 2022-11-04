@@ -1,9 +1,9 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .properties-container {
   margin-left: -72px;
   width: calc(100% + 72px);
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     margin-left: 0px;
     width: 100%;
   }
@@ -16,14 +16,14 @@
 .e-table-container.desktop {
   display: block;
   max-height: 80vh;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     display: none;
   }
 }
 
 .e-table-container.mobile {
   display: none;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     display: block;
   }
 }

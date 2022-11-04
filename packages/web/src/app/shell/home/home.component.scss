@@ -1,7 +1,7 @@
-@import '../../shared/shared-sizes';
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
-@import '@elvia/elvis/src/utilities/helpers';
-@import '../../shared/shared-animations.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+@use '@elvia/elvis/src/utilities/helpers' as helpers;
+@use '../../shared/shared-sizes';
+@use '../../shared/shared-animations.scss';
 
 .home-container {
   overflow: hidden;
@@ -35,7 +35,7 @@
     @media screen and (-ms-high-contrast: none) {
       margin-top: -50px;
     }
-    @include user-select(none);
+    @include helpers.user-select(none);
   }
   @media (min-width: 1851px) {
     height: 520px;
@@ -92,7 +92,7 @@
       }
     }
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     display: none;
   }
 }
@@ -115,7 +115,7 @@
     display: flex;
     justify-content: center;
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     display: flex;
     height: 378px;
     margin-top: 0px;
@@ -133,7 +133,7 @@
       }
     }
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     height: 286px;
     margin-top: 0px;
     &::before {
@@ -233,7 +233,7 @@
     @media (min-width: 1850px) {
       padding-left: 190px;
     }
-    @include breakpoint-up(MinDesktop) {
+    @include breakpoints.breakpoint-up(MinDesktop) {
       padding-left: 40px;
     }
     @media (max-width: 1325px) {
@@ -259,7 +259,7 @@
     }
   }
 }
-@include breakpoint-up(Tablet) {
+@include breakpoints.breakpoint-up(Tablet) {
   .desktop-col {
     display: none;
   }
@@ -288,7 +288,7 @@
     }
   }
 }
-@include breakpoint-up(Mobile) {
+@include breakpoints.breakpoint-up(Mobile) {
   .mobile-col {
     margin-top: calc(2% + 100px);
     .home-header {
@@ -349,13 +349,13 @@
       }
     }
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     margin-top: 80px;
     .card-link {
       margin: 0 16px;
     }
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     margin-top: 72px;
     flex-wrap: wrap;
     .card-link {
@@ -384,11 +384,11 @@
 .home-whats-new {
   margin: 0 auto;
   max-width: 700px;
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     width: 60%;
     min-width: 520px;
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     width: 100%;
     padding: 24px;
     min-width: unset;

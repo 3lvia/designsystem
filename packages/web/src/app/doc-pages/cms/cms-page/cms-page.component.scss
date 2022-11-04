@@ -1,5 +1,5 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
-@import '../../../shared/overview-page/overview-page.component.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+@use '../../../shared/overview-page/overview-page.component.scss';
 
 $pageSectionMarginTop: 104px;
 $pageSectionMarginBottom: 64px;
@@ -15,7 +15,7 @@ $pageIndentedMargin: 72px;
   letter-spacing: unset !important;
   text-transform: unset !important;
   color: inherit !important;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     font-size: 16px !important;
     line-height: 26px !important;
   }
@@ -31,7 +31,7 @@ $pageIndentedMargin: 72px;
     letter-spacing: unset;
     text-transform: unset;
     color: inherit;
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       font-size: 22px;
       line-height: 36px;
     }
@@ -60,7 +60,7 @@ $pageIndentedMargin: 72px;
     margin-bottom: 11px;
     white-space: nowrap;
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     flex-direction: column;
     align-items: flex-start;
     &__title {
@@ -102,16 +102,16 @@ $pageIndentedMargin: 72px;
 .cms-heading1 {
   margin-top: $pageSectionMarginTop;
   margin-bottom: $pageSectionMarginBottom;
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     margin-bottom: 56px;
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     margin-bottom: 48px;
     margin-top: $pageSectionMarginBottom;
   }
   ~ *:not(.cms-section, .cms-heading1) {
     margin-left: $pageIndentedMargin;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       margin-left: 0;
     }
   }
@@ -119,11 +119,11 @@ $pageIndentedMargin: 72px;
   &__content {
     margin-top: $pageSectionMarginBottom;
     margin-left: $pageIndentedMargin;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       margin-top: 56px;
       margin-left: 0;
     }
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       margin-top: 48px;
     }
   }
@@ -176,7 +176,7 @@ $pageIndentedMargin: 72px;
   }
   &__title {
     margin-top: 48px;
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       margin-top: 40px;
     }
   }
@@ -187,7 +187,7 @@ $pageIndentedMargin: 72px;
   }
   &__title {
     margin-top: 40px;
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       margin-top: 32px;
     }
   }
@@ -221,14 +221,14 @@ $pageIndentedMargin: 72px;
   }
   &__description {
     text-align: center;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       display: none;
     }
   }
 }
 
 .subpages-content-loader {
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     margin: 0 40px;
     margin-top: -24px;
   }
@@ -306,7 +306,7 @@ $pageIndentedMargin: 72px;
   }
 
   &.cms-image-small {
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       width: 50% !important;
     }
   }
@@ -321,7 +321,7 @@ $pageIndentedMargin: 72px;
     margin-left: 40px;
     font-style: italic !important;
 
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       margin-left: 31px;
     }
   }
@@ -358,7 +358,7 @@ $pageIndentedMargin: 72px;
 
   .error-image {
     width: 260px;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       width: 200px;
     }
   }
@@ -369,10 +369,10 @@ $pageIndentedMargin: 72px;
 
   .error-message {
     width: 75%;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       width: 85%;
     }
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       width: 100%;
     }
   }
@@ -396,7 +396,7 @@ $pageIndentedMargin: 72px;
   ul {
     padding-left: 22px;
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     flex-direction: column;
     .when-to-use,
     .when-not-to-use {
