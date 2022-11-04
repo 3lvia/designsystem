@@ -2,15 +2,17 @@ import { useInputModeDetection } from '@elvia/elvis-toolbox';
 import React, { useEffect, useRef, useState, KeyboardEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { DropdownItem } from '../dropdown-item/dropdownItem';
+import { flattenTree } from '../dropdownListUtils';
 import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropdown.types';
 import { Backdrop, DropdownPopup, ItemList, NoItemsMessage } from './dropdownOverlayStyles';
+import { SelectAllOption } from './selectAllOption';
 
 interface DropdownOverlayProps {
   /**
    * Since all keyboard inputs comes from the input-element
-   * all overlays receive the pressed keys in the input element
-   * In order to decide which overlay that should be "in focus",
-   * we assign each overlay a level.
+   * all overlays receive the keyboard events from the input element.
+   * In order to decide which overlay that should act from those inputs,
+   * we assign each overlay a level and only act in the focused overlay level.
    */
   level: number;
   focusedLevel: number;
@@ -25,6 +27,7 @@ interface DropdownOverlayProps {
   onMouseLeave?: () => void;
   onLevelFocusChange: (newLevel: number) => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
+  selectAllOption?: string;
 }
 
 export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayProps>(
@@ -43,6 +46,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       onMouseEnter,
       onMouseLeave,
       onLevelFocusChange,
+      selectAllOption,
     },
     ref,
   ) => {
@@ -87,6 +91,22 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
           setFocusedItem(items[currentIndex + 1]);
         }
         ev.preventDefault();
+      }
+    };
+
+    const toggleAllSelection = (): void => {
+      const allValues = flattenTree(items)
+        .filter((item) => !item.isDisabled && !item.children)
+        .map((item) => item.value);
+      const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
+      if (allValues.length === selectedValues.length) {
+        onItemSelect(Array.from(allValues));
+      } else {
+        const unselectedValues = Array.from(allValues).filter((value) => {
+          const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
+          return !selectedValues.includes(value);
+        });
+        onItemSelect(unselectedValues);
       }
     };
 
@@ -136,6 +156,16 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
         >
           <ItemList ref={listRef} isCompact={isCompact}>
             {!items?.length && <NoItemsMessage isCompact={isCompact}>{noItemsText}</NoItemsMessage>}
+            {selectAllOption && level === 1 && (
+              <SelectAllOption
+                isCompact={isCompact}
+                text={selectAllOption}
+                items={items}
+                selectedItems={currentVal}
+                isFocused={true}
+                onClick={toggleAllSelection}
+              />
+            )}
             {items.map((item) => (
               <DropdownItem
                 overlayLevel={level}

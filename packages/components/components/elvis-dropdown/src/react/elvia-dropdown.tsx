@@ -9,7 +9,6 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { useWebComponentState } from '@elvia/elvis-toolbox';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
-import { getTreeDepth } from './dropdownListUtils';
 
 const Dropdown: React.FC<DropdownProps> = ({
   items = [],
@@ -26,7 +25,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   placeholderIcon,
   isMulti = false,
   hasSelectAllOption = false,
-  selectAllOption,
+  selectAllOption = 'Alle',
   noOptionsMessage = 'Ingen tilgjengelige valg',
   valueOnChange,
   hasLoadMoreItemsButton,
@@ -111,16 +110,6 @@ const Dropdown: React.FC<DropdownProps> = ({
     setTimeout(() => setFilteredItems(items)); //TODO: Can we get rid of it
   }, [items]);
 
-  // useEffect(() => {
-  //   if (pressedKey) {
-  //     if (pressedKey.code === 'ArrowRight') {
-  //       setFocusedOverlayLevel(Math.min(focusedOverlayLevel + 1, getTreeDepth(items)));
-  //     } else if (pressedKey.code === 'ArrowLeft') {
-  //       setFocusedOverlayLevel(Math.max(1, focusedOverlayLevel - 1));
-  //     }
-  //   }
-  // }, [pressedKey]);
-
   return (
     <>
       <DropdownContainer
@@ -177,10 +166,8 @@ const Dropdown: React.FC<DropdownProps> = ({
           currentVal={currentVal}
           level={1}
           focusedLevel={focusedOverlayLevel}
-          onLevelFocusChange={(newLevel) => {
-            console.log(newLevel);
-            setFocusedOverlayLevel(newLevel);
-          }}
+          onLevelFocusChange={setFocusedOverlayLevel}
+          selectAllOption={hasSelectAllOption && isMulti ? selectAllOption : undefined}
         />
       )}
     </>

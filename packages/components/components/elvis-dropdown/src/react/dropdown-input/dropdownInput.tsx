@@ -1,7 +1,7 @@
 import { Icon, IconName } from '@elvia/elvis-icon/react';
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { DropdownItem, DropdownValue } from '../elviaDropdown.types';
-import { getFlattenedItemList } from '../dropdownListUtils';
+import { flattenTree } from '../dropdownListUtils';
 
 import { Input } from './dropdownInputStyles';
 
@@ -50,7 +50,7 @@ export const DropdownInput: React.FC<Props> = ({
 
   useEffect(() => {
     const updateInputValue = () => {
-      const selectedItems = getFlattenedItemList(items).filter((item) => {
+      const selectedItems = flattenTree(items).filter((item) => {
         if (Array.isArray(currentVal)) {
           return currentVal.includes(item.value);
         }
@@ -60,7 +60,10 @@ export const DropdownInput: React.FC<Props> = ({
       if (editable && dropdownIsOpen) {
         setInputValue('');
       } else {
-        if (Array.isArray(currentVal) && currentVal.length === items.length) {
+        if (
+          Array.isArray(currentVal) &&
+          currentVal.length === flattenTree(items).filter((item) => !item.isDisabled && !item.children).length
+        ) {
           setInputValue(allOptionsSelectedLabel);
         } else if (selectedItems.length >= 2) {
           setInputValue(`${selectedItems.length} valgte`);

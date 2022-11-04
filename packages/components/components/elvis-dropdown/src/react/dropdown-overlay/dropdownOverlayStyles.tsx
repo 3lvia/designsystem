@@ -68,3 +68,10 @@ export const Backdrop = styled.div`
   left: 0;
   position: fixed;
 `;
+
+export const Divider = styled.hr`
+  height: 0px;
+  border: 0px solid ${getColor('grey-10')};
+  border-bottom-width: 1px;
+  margin: 0;
+`;

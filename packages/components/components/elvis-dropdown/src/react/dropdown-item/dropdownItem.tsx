@@ -3,14 +3,15 @@ import { isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, MouseEvent, useEffect, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
 import { DropdownItem as DropdownItemOptions, DropdownValue } from '../elviaDropdown.types';
-import { getFlattenedItemList } from '../dropdownListUtils';
-import { Checkbox, DropdownItemStyles, IconContainer } from './dropdownItemStyles';
+import { flattenTree } from '../dropdownListUtils';
+import { DropdownItemStyles, IconContainer } from './dropdownItemStyles';
+import { Checkbox } from '../checkbox/checkbox';
 
 interface DropdownItemProps {
   overlayLevel: number;
   item: DropdownItemOptions;
   currentVal?: DropdownValue;
-  isCompact: boolean;
+  isCompact?: boolean;
   isMulti: boolean;
   focusedValue: string;
   inputIsMouse: boolean;
@@ -94,7 +95,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
 
   useEffect(() => {
     if (isMulti && Array.isArray(currentVal) && item.children) {
-      const flatChildren = getFlattenedItemList(item.children);
+      const flatChildren = flattenTree(item.children);
       const childIsInSelectedLIst = (child: DropdownItemOptions): boolean => currentVal.includes(child.value);
       setIsPartiallyChecked(
         flatChildren.some(childIsInSelectedLIst) && !flatChildren.every(childIsInSelectedLIst),
@@ -124,13 +125,20 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         isFocused={focusedValue === item.value}
         isMulti={isMulti}
         hasSubItems={!!item.children}
-        isPartiallyChecked={isPartiallyChecked}
         disabled={item.isDisabled}
         onMouseOver={() => onMouseOver()}
         onMouseLeave={() => onMouseLeave()}
         onMouseDown={onMouseDown}
       >
-        {isMulti && <Checkbox />}
+        {isMulti && (
+          <Checkbox
+            isFocused={focusedValue === item.value}
+            isIndeterminate={isPartiallyChecked}
+            isChecked={isSelected()}
+            isCompact={isCompact}
+            isDisabled={item.isDisabled}
+          />
+        )}
         {item.icon && (
           <Icon
             name={item.icon}
@@ -152,7 +160,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           onMouseLeave={() => setListIsHovered(false)}
           ref={popoverRef}
           items={item.children ?? []}
-          isCompact={isCompact}
+          isCompact={!!isCompact}
           onClose={() => setIsShowing(false)}
           isMulti={isMulti}
           onItemSelect={(value) => onItemSelect(value)}

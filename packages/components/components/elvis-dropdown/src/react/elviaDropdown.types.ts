@@ -34,7 +34,7 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue> {
   isDisabled?: boolean;
   isMulti?: boolean;
   hasSelectAllOption?: boolean;
-  selectAllOption?: Partial<DropdownItem>;
+  selectAllOption?: string;
   noOptionsMessage?: string;
   hasLoadMoreItemsButton?: boolean;
   onLoadMoreItems?: () => void;
