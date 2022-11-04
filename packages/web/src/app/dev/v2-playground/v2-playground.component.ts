@@ -69,9 +69,9 @@ export class v2PlaygroundComponent {
   // Dropdown 2
   selectedDropdownItem = 'spania';
   dropdownItems: ElviaDropdownItem[] = [
-    { value: 'norge', label: 'Norge', icon: 'users' },
-    { value: 'sverige', label: 'Sverige' },
-    { value: 'danmark', label: 'Danmark' },
+    { value: 'norge', label: 'Norge med en veldig lang tekst som kommer til å føre til overflow' },
+    { value: 'sverige', label: 'Sverige', status: 'info' },
+    { value: 'danmark', label: 'Danmark', status: 'error', tooltip: 'Danmark mangler info' },
     {
       value: 'england',
       label: 'England',

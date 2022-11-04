@@ -1,16 +1,17 @@
 import Dropdown from './elvia-dropdown';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { DropdownItem } from './elviaDropdown.types';
 
 describe.skip('Elvis Dropdown', () => {
   describe('Default', () => {
     beforeEach(() => {
-      // const items = [
-      //   { value: '1', label: 'Option 1' },
-      //   { value: '2', label: 'Option 2' },
-      //   { value: '3', label: 'Option 3' },
-      // ];
-      render(<Dropdown label={'Label'} dropdownOverlay={<></>}></Dropdown>);
+      const items: DropdownItem[] = [
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' },
+      ];
+      render(<Dropdown label={'Label'} items={items}></Dropdown>);
     });
     it('should have label', () => {
       const dropdownLabel = screen.getByTestId('label');
@@ -41,7 +42,7 @@ describe.skip('Elvis Dropdown', () => {
 
   describe('Compact, disabled', () => {
     beforeEach(() => {
-      render(<Dropdown isCompact isDisabled dropdownOverlay={<></>}></Dropdown>);
+      render(<Dropdown isCompact isDisabled items={[]}></Dropdown>);
     });
 
     it('should be disabled', () => {
@@ -64,7 +65,7 @@ describe.skip('Elvis Dropdown', () => {
 
   describe('Error', () => {
     beforeEach(() => {
-      render(<Dropdown errorMessage="Error" dropdownOverlay={<></>}></Dropdown>);
+      render(<Dropdown errorMessage="Error" items={[]}></Dropdown>);
     });
 
     it('should have error message', () => {
@@ -75,7 +76,7 @@ describe.skip('Elvis Dropdown', () => {
 
   describe('Full width', () => {
     beforeEach(() => {
-      render(<Dropdown isFullWidth dropdownOverlay={<></>}></Dropdown>);
+      render(<Dropdown isFullWidth items={[]}></Dropdown>);
     });
 
     it('should be full width', () => {
@@ -103,7 +104,7 @@ describe.skip('Elvis Dropdown', () => {
 
   describe('Full width, compact', () => {
     beforeEach(() => {
-      render(<Dropdown isFullWidth isCompact dropdownOverlay={<></>}></Dropdown>);
+      render(<Dropdown isFullWidth isCompact items={[]}></Dropdown>);
     });
 
     it('should be full width', () => {
@@ -131,7 +132,7 @@ describe.skip('Elvis Dropdown', () => {
 
   describe('Full width, compact, disabled', () => {
     beforeEach(() => {
-      render(<Dropdown isFullWidth isCompact isDisabled dropdownOverlay={<></>}></Dropdown>);
+      render(<Dropdown isFullWidth isCompact isDisabled items={[]}></Dropdown>);
     });
 
     it('should be full width', () => {
@@ -159,9 +160,7 @@ describe.skip('Elvis Dropdown', () => {
 
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      render(
-        <Dropdown className="test-class" inlineStyle={{ margin: '24px' }} dropdownOverlay={<></>}></Dropdown>,
-      );
+      render(<Dropdown className="test-class" inlineStyle={{ margin: '24px' }} items={[]}></Dropdown>);
     });
 
     it('should have className and inlineStyle', () => {

@@ -1,5 +1,6 @@
 import { IconName } from '@elvia/elvis-icon/react';
 import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
+import { DropdownItemStatus } from './statusToIconMap';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 
@@ -10,7 +11,7 @@ export interface DropdownItem {
   label: string;
   icon?: IconName;
   isDisabled?: boolean;
-  status?: string;
+  status?: DropdownItemStatus;
   tooltip?: string;
   children?: DropdownItem[];
 }

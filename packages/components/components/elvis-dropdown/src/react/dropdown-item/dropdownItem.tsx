@@ -6,6 +6,9 @@ import { DropdownItem as DropdownItemOptions, DropdownValue } from '../elviaDrop
 import { flattenTree } from '../dropdownListUtils';
 import { DropdownItemStyles, IconContainer } from './dropdownItemStyles';
 import { Checkbox } from '../checkbox/checkbox';
+import { Tooltip } from '@elvia/elvis-tooltip/react';
+import { statusToIconMap } from '../statusToIconMap';
+import { ItemValue } from './ItemValue';
 
 interface DropdownItemProps {
   overlayLevel: number;
@@ -124,7 +127,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         isActive={isSelected()}
         isFocused={focusedValue === item.value}
         isMulti={isMulti}
-        hasSubItems={!!item.children}
         disabled={item.isDisabled}
         onMouseOver={() => onMouseOver()}
         onMouseLeave={() => onMouseLeave()}
@@ -146,7 +148,25 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
             size={isCompact ? 'xs' : 'sm'}
           />
         )}
-        {item.label}
+        <ItemValue text={item.label} />
+        {item.status && (
+          <IconContainer>
+            <Tooltip
+              trigger={
+                <Icon
+                  name={statusToIconMap[item.status].name}
+                  color={statusToIconMap[item.status].color}
+                  size="xs"
+                />
+              }
+              content={item.tooltip ?? ''}
+              showDelay={100}
+              position={'right'}
+              isDisabled={!item.tooltip}
+              triggerAreaRef={buttonRef}
+            />
+          </IconContainer>
+        )}
         {item.children && (
           <IconContainer>
             <Icon name="arrowRight" size={isCompact ? 'xs' : 'sm'} />

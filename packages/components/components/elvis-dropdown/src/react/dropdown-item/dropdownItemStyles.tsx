@@ -2,12 +2,18 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
+export const DropdownItemValue = styled.span`
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
 export const IconContainer = styled.div`
-  height: 100%;
-  padding: 0 10px;
+  width: 24px;
   display: grid;
   place-items: center;
-  margin-left: auto;
 `;
 
 export const DropdownItemStyles = styled.button.attrs(() => ({
@@ -19,7 +25,6 @@ export const DropdownItemStyles = styled.button.attrs(() => ({
   isCompact?: boolean;
   isMulti?: boolean;
   isHidden?: boolean;
-  hasSubItems?: boolean;
 }>`
   display: flex;
   gap: 16px;
@@ -28,7 +33,7 @@ export const DropdownItemStyles = styled.button.attrs(() => ({
   width: 100%;
   background-color: ${getColor('elvia-on')};
   color: ${getColor('elvia-off')};
-  padding: ${(props) => (props.hasSubItems ? '0 0 0 16px' : '0 16px')};
+  padding: 0 16px;
   align-items: center;
   cursor: pointer;
 
@@ -49,6 +54,10 @@ export const DropdownItemStyles = styled.button.attrs(() => ({
       return css`
         ${getTypographyCss('text-sm')};
         height: 40px;
+
+        ${IconContainer} {
+          width: 16px;
+        }
       `;
     }
 
