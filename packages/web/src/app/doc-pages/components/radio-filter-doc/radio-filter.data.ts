@@ -37,9 +37,9 @@ const radioFilterData: ComponentData = {
     },
     valueOnChange: {
       isRequired: true,
-      type: '(options: Array<object>) => CustomEvent',
+      type: '(value: string) => void',
       description:
-        'Gets called every time a new filter is selected and returns the value of the selected filter. To make radio-filters to work it is necessary to update value when this callback function is triggered.',
+        'Gets called every time a new filter is selected and returns the value of the selected filter. To make radio-filters work it is necessary to update the value when this callback function is triggered.',
     },
     className: {
       isRequired: false,
