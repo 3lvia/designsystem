@@ -200,7 +200,7 @@ const decideContentOverflowY = (contentOpen: boolean, type: AccordionType): stri
 const decideContentTransitionSpeed = (contentHeight: number): string => {
   const pixelsPerSecond = 1000;
   const minSpeed = 0.2;
-  const maxSpeed = 1.0;
+  const maxSpeed = 0.7;
   const transitionSpeed = contentHeight / pixelsPerSecond;
   return `${Math.max(minSpeed, Math.min(transitionSpeed, maxSpeed))}s`;
 };
@@ -223,8 +223,7 @@ export const AccordionContent = styled.div<AccordionContentProps>`
   margin-top: ${(props) => decideContentMarginTop(props.type, props.hasContent, props.spacingAboveContent)};
   margin-bottom: ${(props) => (props.type === 'overflow' ? props.spacingBelowContent : 0)};
   pointer-events: ${(props) => (props.isOpenState ? 'auto' : 'none')};
-  height: auto;
-  max-height: ${(props) =>
+  height: ${(props) =>
     decideContentMaxHeight(props.isOpenState, props.type, props.contentHeight, props.overflowHeight)};
   width: 100%;
   opacity: ${(props) => decideContentOpacity(props.isOpenState, props.type)};

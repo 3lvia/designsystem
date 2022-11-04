@@ -113,10 +113,20 @@ const Accordion: FC<AccordionProps> = ({
   }, [content]);
 
   useEffect(() => {
-    if (accordionContentRef && accordionContentRef.current) {
-      setContentHeight(accordionContentRef.current.scrollHeight);
-    }
-  }, [accordionContentRef?.current?.scrollHeight]);
+    const { current } = accordionContentRef;
+    if (!current) return;
+
+    const updateContentHeight = () => {
+      setContentHeight(current.children[0].scrollHeight);
+    };
+    const observer = new MutationObserver(updateContentHeight);
+    observer.observe(current, { childList: true, subtree: true });
+    updateContentHeight();
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [accordionContentRef, accordionContentRef.current]);
 
   const handleOnClick = () => {
     if (type === 'single') {
