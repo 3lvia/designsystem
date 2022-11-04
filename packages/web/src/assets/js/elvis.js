@@ -793,6 +793,16 @@ document.addEventListener('DOMContentLoaded', function () {
   
   let deprecatedElvisClasses = [
     {
+      name: "e-link--shortcut",
+      version: "9.4.0",
+      replacement: {
+          name: "Card",
+          type: "component",
+          documentation: "https://design.elvia.io/components/card",
+          },
+      sunset: "March 2023"
+      },
+    {
       name: "e-tooltip",
       version: "8.13.0",
       replacement: {
