@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "04.11.22",
+      "version": "2.8.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Accordion now takes 100% of width."]
+        }
+      ]
+    },
+    {
       "date": "02.11.22",
       "version": "2.8.4",
       "changelog": [
