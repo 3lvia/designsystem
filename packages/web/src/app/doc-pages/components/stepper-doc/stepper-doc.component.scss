@@ -1,4 +1,4 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .e-stepper .e-stepper__content {
   width: 330px;
@@ -36,7 +36,7 @@
         max-width: 150px !important;
       }
 
-      @include breakpoint-up(Mobile) {
+      @include breakpoints.breakpoint-up(Mobile) {
         min-width: 50px !important;
         max-width: 50px !important;
         margin-right: 24px;

@@ -1,5 +1,4 @@
-@import '../../../shared/shared-animations';
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .example-container {
   display: flex;
@@ -11,10 +10,10 @@
     display: flex;
     margin-bottom: 24px;
 
-    @include breakpoint-up(MinDesktop) {
+    @include breakpoints.breakpoint-up(MinDesktop) {
       width: 140%;
     }
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       width: 100%;
     }
   }
@@ -30,7 +29,7 @@
     justify-content: flex-end;
     width: 48%;
 
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       width: 100%;
     }
   }
@@ -38,7 +37,7 @@
   .selectionContainer {
     display: none;
 
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       display: block;
       width: 100%;
     }
@@ -46,7 +45,7 @@
 }
 
 .hideOnMobile {
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     display: none !important;
   }
 }
@@ -69,11 +68,11 @@
   @media screen and (max-width: 1200px) {
     display: none;
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     display: block;
     width: 100%;
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     display: none;
   }
 }
@@ -82,11 +81,11 @@
   @media screen and (max-width: 1200px) {
     display: block;
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     display: none;
     width: 100%;
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     display: block;
     width: 85%;
   }
@@ -100,12 +99,12 @@
   width: 80%;
   margin: auto;
 
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     width: 90%;
     transition: width 250ms ease-in;
   }
 
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     width: 100%;
     transition: width 250ms ease-in;
   }
