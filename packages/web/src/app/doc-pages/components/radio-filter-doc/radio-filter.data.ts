@@ -21,7 +21,7 @@ const radioFilterData: ComponentData = {
     name: {
       isRequired: true,
       type: 'string',
-      description: 'The html attribute name for the radio button group input elements.',
+      description: 'The HTML attribute name for the radio button group input elements.',
     },
     ariaLabel: {
       isRequired: false,
