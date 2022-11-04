@@ -227,7 +227,7 @@ export const AccordionContent = styled.div<AccordionContentProps>`
   width: 100%;
   opacity: ${(props) => decideContentOpacity(props.isOpenState, props.type)};
   overflow-y: ${(props) => decideContentOverflowY(props.isOpenState, props.type)};
-  transition: all ${(props) => decideContentTransitionSpeed(props.contentHeight)} ease-out;
+  transition: all ${(props) => decideContentTransitionSpeed(props.contentHeight)} ease-in-out;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
