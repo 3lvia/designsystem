@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
-import { outlineListener } from '@elvia/elvis-toolbox';
+import { outlineListener, useSlot } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
 import {
   AccordionLabelPosition,
@@ -77,9 +77,9 @@ const Accordion: FC<AccordionProps> = ({
   const [isOpenState, setIsOpenState] = useState(isOpen);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
   const [hasContent, setHasContent] = useState(false);
+  const [contentHeight, setContentHeight] = useState(0);
 
   const accordionRef = useRef<HTMLDivElement>(null);
-  const accordionContentRef = useRef<HTMLDivElement>(null);
 
   /** Start outline listener */
   useEffect(() => {
@@ -93,17 +93,10 @@ const Accordion: FC<AccordionProps> = ({
     };
   }, []);
 
-  useEffect(() => {
-    if (!webcomponent) {
-      return;
-    }
-    // Get slotted items from web component
-    if (accordionContentRef.current && webcomponent.getSlot('content')) {
-      setHasContent(true);
-      accordionContentRef.current.innerHTML = '';
-      accordionContentRef.current.appendChild(webcomponent.getSlot('content'));
-    }
-  }, [webcomponent, webcomponent?.getSlot('content')]);
+  const { ref: accordionContentRef } = useSlot<HTMLDivElement>('content', webcomponent, {
+    callback: (foundSlot) => setHasContent(foundSlot),
+    useEffectDependencies: [type],
+  });
 
   useEffect(() => {
     setIsOpenState(isOpen);
@@ -118,6 +111,22 @@ const Accordion: FC<AccordionProps> = ({
       setHasContent(true);
     }
   }, [content]);
+
+  useEffect(() => {
+    const { current } = accordionContentRef;
+    if (!current) return;
+
+    const updateContentHeight = () => {
+      setContentHeight(current.children[0].scrollHeight);
+    };
+    const observer = new MutationObserver(updateContentHeight);
+    observer.observe(current, { childList: true, subtree: true });
+    updateContentHeight();
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [accordionContentRef, accordionContentRef.current]);
 
   const handleOnClick = () => {
     if (type === 'single') {
@@ -169,11 +178,12 @@ const Accordion: FC<AccordionProps> = ({
             spacingBelowContent={spacingBelowContent}
             isOpenState={isOpenState}
             overflowHeight={overflowHeight}
+            contentHeight={contentHeight}
             hasContent={hasContent}
+            ref={accordionContentRef}
             data-testid="accordion-content-overflow"
           >
-            {content && <div>{content}</div>}
-            {!content && <div ref={accordionContentRef} />}
+            {content}
           </AccordionContent>
         ) : null}
         <AccordionButtonArea labelPosition={labelPosition} type={type}>
@@ -225,11 +235,12 @@ const Accordion: FC<AccordionProps> = ({
             spacingBelowContent={spacingBelowContent}
             isOpenState={isOpenState}
             hasContent={hasContent}
+            contentHeight={contentHeight}
             overflowHeight={overflowHeight}
             data-testid="accordion-content-normal"
+            ref={accordionContentRef}
           >
-            {content && <div>{content}</div>}
-            {!content && <div ref={accordionContentRef} />}
+            {content}
           </AccordionContent>
         ) : null}
       </AccordionArea>
