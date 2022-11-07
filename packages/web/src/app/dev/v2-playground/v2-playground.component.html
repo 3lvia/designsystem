@@ -5,7 +5,7 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <elvia-tooltip (mouseenter)="onCustomTextHover()">
+      <elvia-tooltip (mouseenter)="onCustomTextHover()" display="flex">
         <p slot="content" class="e-text-md e-m-0 e-flex e-align-items-center">
           <i class="e-icon e-icon--search-bold e-icon--xs e-icon--color-white e-mr-8" aria-hidden="true"></i>
           {{ customTooltipText }}
