@@ -103,17 +103,17 @@ export const Tooltip: React.FC<TooltipProps> = ({
   };
 
   useEffect(() => {
-    if (isShowing && overlayRef.current && webcomponent?.getSlot('content')) {
-      overlayRef.current.innerHTML = '';
-      overlayRef.current.appendChild(webcomponent.getSlot('content'));
-
-      const observer = updatePositionOnContentChange();
-      /** Update position on initial render */
-      updatePreferredPosition();
-      return () => observer.disconnect();
+    if (!isShowing || !overlayRef.current || !webcomponent?.getSlot('content')) {
+      return;
     }
 
-    return;
+    overlayRef.current.innerHTML = '';
+    overlayRef.current.appendChild(webcomponent.getSlot('content'));
+
+    const observer = updatePositionOnContentChange();
+    /** Update position on initial render */
+    updatePreferredPosition();
+    return () => observer.disconnect();
   }, [isShowing]);
 
   /** Update arrow position when overlay hook adjusts position */
