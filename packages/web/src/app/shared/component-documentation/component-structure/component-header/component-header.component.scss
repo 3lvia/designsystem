@@ -1,5 +1,5 @@
-@import '../../../shared-animations.scss';
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '../../../shared-animations.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .component {
   &-header {
@@ -7,7 +7,7 @@
 
     .back-link {
       display: none;
-      @include breakpoint-up(Tablet) {
+      @include breakpoints.breakpoint-up(Tablet) {
         display: flex;
       }
     }
@@ -21,7 +21,7 @@
         h1 {
           margin-top: 0;
           margin-bottom: 32px;
-          @include breakpoint-up(Tablet) {
+          @include breakpoints.breakpoint-up(Tablet) {
             margin-bottom: 24px;
           }
         }
@@ -30,7 +30,7 @@
           display: flex;
           align-self: center;
         }
-        @include breakpoint-up(Mobile) {
+        @include breakpoints.breakpoint-up(Mobile) {
           flex-direction: column;
           align-items: flex-start;
         }
@@ -82,7 +82,7 @@
   }
 }
 
-@include breakpoint-up(Tablet) {
+@include breakpoints.breakpoint-up(Tablet) {
   .anchors {
     display: block;
   }

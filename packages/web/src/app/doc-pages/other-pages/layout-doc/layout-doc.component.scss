@@ -1,5 +1,5 @@
 @use '@elvia/elvis/src/variables/typography.scss';
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .ExampleSquare {
   box-sizing: border-box;
@@ -24,11 +24,11 @@
     width: 30%;
   }
 
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     flex-direction: column;
     width: 40%;
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     flex-direction: column;
     width: 33%;
   }
@@ -131,7 +131,7 @@
   }
 }
 
-@include breakpoint-up(Mobile) {
+@include breakpoints.breakpoint-up(Mobile) {
   img {
     display: none;
   }
@@ -140,20 +140,20 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  @include breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(MinDesktop) {
     flex-direction: column;
   }
 }
 .circles-container {
   display: flex;
   flex-direction: column;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     flex-direction: column;
     .information-container {
       margin-top: 16px;
     }
   }
-  @include breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(MinDesktop) {
     flex-direction: row;
   }
 
@@ -165,7 +165,7 @@
     &:not(:first-of-type) {
       margin-top: 16px;
     }
-    @include breakpoint-up(MinDesktop) {
+    @include breakpoints.breakpoint-up(MinDesktop) {
       margin-left: 0px;
       &:not(:first-of-type) {
         margin-top: 0px;

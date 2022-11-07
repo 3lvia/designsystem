@@ -1,5 +1,5 @@
-@import '../header.component.scss';
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '../header.component.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .header {
   position: fixed;
@@ -35,10 +35,10 @@
   top: 64px;
   border-top: 1px solid var(--e-grey-10);
 
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     padding-top: 32px;
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     padding-top: 0;
   }
 
@@ -51,7 +51,7 @@
     width: 685vw;
     height: 685vw;
     bottom: -22%;
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       bottom: -650px;
       overflow: hidden;
     }
@@ -65,7 +65,7 @@
     left: -50%;
     width: 200vw;
     height: calc(100% + 54px);
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       height: 1100px;
       overflow: hidden;
     }
@@ -73,7 +73,7 @@
 
   &.content-result .inner-content {
     margin-bottom: 60px;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       margin-bottom: -20px;
     }
   }
@@ -89,7 +89,7 @@
     justify-content: flex-end;
     margin-top: 32px;
     margin-right: 32px;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       display: none;
     }
   }
@@ -100,13 +100,13 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       margin-top: 0px;
     }
 
     .search-title {
       margin: 0px;
-      @include breakpoint-up(Mobile) {
+      @include breakpoints.breakpoint-up(Mobile) {
         display: none;
       }
     }
@@ -130,10 +130,10 @@
         margin-top: 40px;
         width: 365px;
 
-        @include breakpoint-up(Tablet) {
+        @include breakpoints.breakpoint-up(Tablet) {
           margin-top: 32px;
         }
-        @include breakpoint-up(Mobile) {
+        @include breakpoints.breakpoint-up(Mobile) {
           margin-top: 24px;
           width: auto;
         }
@@ -207,14 +207,14 @@
     max-height: 414px;
     overflow: auto;
     padding: 0 16px;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       width: auto;
       margin: 56px;
       overflow: auto;
       max-height: unset;
       height: calc(100vh - 210px);
     }
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       width: auto;
       margin: 0px;
       margin-top: 32px;

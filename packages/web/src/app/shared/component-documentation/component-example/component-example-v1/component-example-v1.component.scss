@@ -1,4 +1,4 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .component-body__example {
   margin-top: 16px;
@@ -14,7 +14,7 @@
     padding: 32px;
     height: 100%;
 
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       padding: 24px;
     }
 
