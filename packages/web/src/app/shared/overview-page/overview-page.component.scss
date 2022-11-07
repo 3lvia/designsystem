@@ -1,9 +1,9 @@
-@import '../shared-sizes.scss';
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '../shared-sizes.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .components-overview-cards,
 .overview-action-link {
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     display: none;
   }
 }
@@ -32,7 +32,7 @@
     max-width: 33.33%;
   }
 }
-@include breakpoint-up(Tablet) {
+@include breakpoints.breakpoint-up(Tablet) {
   .col-sm-4 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 25%;
@@ -57,7 +57,7 @@
   }
 }
 
-@include breakpoint-up(Tablet) {
+@include breakpoints.breakpoint-up(Tablet) {
   .col-0 {
     display: none;
   }

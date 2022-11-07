@@ -8,6 +8,8 @@ import {
 } from './elvia-accordion.types';
 import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
 
+const bezierCurve = 'cubic-bezier(0.71, 0, 0.31, 1)';
+
 const colors = {
   elviaBlack: getColor('black'),
 };
@@ -154,7 +156,6 @@ export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
 `;
 
 const decideContentMarginTop = (
-  contentOpen: boolean,
   type: AccordionType,
   hasContent: boolean,
   spacingAboveContent: AccordionSpacingContent,
@@ -162,33 +163,23 @@ const decideContentMarginTop = (
   if (type === 'overflow' || !hasContent) {
     return '0px';
   }
-  if (contentOpen) {
-    return spacingAboveContent;
-  }
-  return '0';
+  return spacingAboveContent;
 };
 
 const decideContentMaxHeight = (
   contentOpen: boolean,
   type: AccordionType,
+  contentHeight: number,
   overflowHeight?: number,
 ): string => {
-  if (type === 'normal') {
-    if (contentOpen) {
-      return '10000px';
-    } else {
-      return '0px';
-    }
-  }
-  if (type === 'overflow') {
-    if (contentOpen) {
-      return '10000px';
-    } else {
+  if (contentOpen) {
+    return `${contentHeight}px`;
+  } else {
+    if (type === 'overflow') {
       return overflowHeight ? `${overflowHeight}px` : 'calc(2em * 1.3)';
     }
+    return '0';
   }
-
-  return 'none';
 };
 const decideContentOpacity = (contentOpen: boolean, type: AccordionType): string => {
   if (contentOpen) {
@@ -205,15 +196,13 @@ const decideContentOverflowY = (contentOpen: boolean, type: AccordionType): stri
   }
   return 'auto';
 };
-const decideContentTransition = (contentOpen: boolean, type: AccordionType): string => {
-  if (type === 'overflow') {
-    if (contentOpen) {
-      return 'max-height 2s ease-in';
-    } else {
-      return 'max-height 1s cubic-bezier(0,1.04,0,.91)';
-    }
-  }
-  return 'all 0.3s ease-out';
+
+const decideContentTransitionSpeed = (contentHeight: number): string => {
+  const pixelsPerSecond = 1000;
+  const minSpeed = 0.2;
+  const maxSpeed = 0.7;
+  const transitionSpeed = contentHeight / pixelsPerSecond;
+  return `${Math.max(minSpeed, Math.min(transitionSpeed, maxSpeed))}s`;
 };
 
 type AccordionContentProps = {
@@ -222,6 +211,7 @@ type AccordionContentProps = {
   spacingAboveContent: AccordionSpacingContent;
   spacingBelowContent: AccordionSpacingContent;
   overflowHeight?: number;
+  contentHeight: number;
   hasContent: boolean;
 };
 
@@ -230,16 +220,15 @@ export const AccordionContent = styled.div<AccordionContentProps>`
   background: transparent;
   font-size: 16px;
   line-height: inherit;
-  margin-top: ${(props) =>
-    decideContentMarginTop(props.isOpenState, props.type, props.hasContent, props.spacingAboveContent)};
+  margin-top: ${(props) => decideContentMarginTop(props.type, props.hasContent, props.spacingAboveContent)};
   margin-bottom: ${(props) => (props.type === 'overflow' ? props.spacingBelowContent : 0)};
   pointer-events: ${(props) => (props.isOpenState ? 'auto' : 'none')};
-  height: auto;
-  max-height: ${(props) => decideContentMaxHeight(props.isOpenState, props.type, props.overflowHeight)};
+  height: ${(props) =>
+    decideContentMaxHeight(props.isOpenState, props.type, props.contentHeight, props.overflowHeight)};
   width: 100%;
   opacity: ${(props) => decideContentOpacity(props.isOpenState, props.type)};
   overflow-y: ${(props) => decideContentOverflowY(props.isOpenState, props.type)};
-  transition: ${(props) => decideContentTransition(props.isOpenState, props.type)};
+  transition: all ${(props) => decideContentTransitionSpeed(props.contentHeight)} ${bezierCurve};
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {

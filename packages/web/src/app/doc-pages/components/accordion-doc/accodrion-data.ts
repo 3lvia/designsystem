@@ -238,7 +238,8 @@ const accordionData: ComponentData = {
   </div>
 </elvia-accordion>
 `,
-  codeNativeScript: `  const accordion = document.getElementById('example-elvia-accordion');`,
+  codeNativeScript: `  const accordion = document.getElementById('example-elvia-accordion');
+`,
 };
 
 export { accordionData };

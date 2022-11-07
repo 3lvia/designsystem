@@ -24,7 +24,7 @@
     "gulp-typescript": "^6.0.0-alpha.1",
     "jsdom-global": "^3.0.2",
     "sass": "^1.33.0",
-    "sass-loader": "^10.0.2"
+    "sass-loader": "^13.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",

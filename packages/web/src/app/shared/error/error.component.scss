@@ -1,4 +1,4 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .error-overivew {
   display: flex;
@@ -8,10 +8,10 @@
   max-width: 900px;
   text-align: center;
 
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     max-width: 320px;
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     max-width: 550px;
   }
 

@@ -2384,9 +2384,9 @@ __metadata:
   resolution: "@elvia/elvis-accordion@workspace:packages/components/components/elvis-accordion"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.1
-    "@elvia/elvis-toolbox": ^5.0.0
+    "@elvia/elvis-toolbox": ^5.8.0
     "@elvia/elvis-typography": ^2.2.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2401,9 +2401,9 @@ __metadata:
   resolution: "@elvia/elvis-accordion@portal:../components/components/elvis-accordion::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.1
-    "@elvia/elvis-toolbox": ^5.0.0
+    "@elvia/elvis-toolbox": ^5.8.0
     "@elvia/elvis-typography": ^2.2.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2504,7 +2504,7 @@ __metadata:
   resolution: "@elvia/elvis-breadcrumb@workspace:packages/components/components/elvis-breadcrumb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.1.0
@@ -2521,7 +2521,7 @@ __metadata:
   resolution: "@elvia/elvis-breadcrumb@portal:../components/components/elvis-breadcrumb::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.1.0
@@ -2653,7 +2653,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^3.0.0, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
+"@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^3.0.0, @elvia/elvis-component-wrapper@^3.0.1, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper"
   dependencies:
@@ -2726,7 +2726,7 @@ __metadata:
     react-is: ">= 16.8.0"
     resize-observer-polyfill: ^1.5.1
     sass: ^1.33.0
-    sass-loader: ^10.0.2
+    sass-loader: ^13.1.0
     style-loader: ^1.2.1
     styled-components: ^5.3.3
     ts-loader: ^8.0.3
@@ -2742,8 +2742,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range"
   dependencies:
-    "@elvia/elvis-component-wrapper": ^3.0.0
-    "@elvia/elvis-datepicker": ^6.0.3
+    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-datepicker": ^6.0.4
     "@elvia/elvis-toolbox": ^5.5.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2757,8 +2757,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker-range@portal:../components/components/elvis-datepicker-range::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-component-wrapper": ^3.0.0
-    "@elvia/elvis-datepicker": ^6.0.3
+    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-datepicker": ^6.0.4
     "@elvia/elvis-toolbox": ^5.5.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2768,12 +2768,12 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.0.3, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.0.4, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.2
     "@elvia/elvis-toolbox": ^5.5.0
     "@elvia/elvis-typography": ^2.3.1
@@ -2790,7 +2790,7 @@ __metadata:
   resolution: "@elvia/elvis-datepicker@portal:../components/components/elvis-datepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.2
     "@elvia/elvis-toolbox": ^5.5.0
     "@elvia/elvis-typography": ^2.3.1
@@ -2866,7 +2866,7 @@ __metadata:
   resolution: "@elvia/elvis-header@workspace:packages/components/components/elvis-header"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.2
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.3.1
@@ -2883,7 +2883,7 @@ __metadata:
   resolution: "@elvia/elvis-header@portal:../components/components/elvis-header::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.2
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.3.1
@@ -2926,7 +2926,7 @@ __metadata:
   resolution: "@elvia/elvis-modal@workspace:packages/components/components/elvis-modal"
   dependencies:
     "@elvia/elvis-colors": ^1.4.1
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.0
     "@elvia/elvis-toolbox": ^5.7.1
     "@elvia/elvis-typography": ^2.1.0
@@ -2943,7 +2943,7 @@ __metadata:
   resolution: "@elvia/elvis-modal@portal:../components/components/elvis-modal::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.1
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.0
     "@elvia/elvis-toolbox": ^5.7.1
     "@elvia/elvis-typography": ^2.1.0
@@ -2960,7 +2960,7 @@ __metadata:
   resolution: "@elvia/elvis-pagination@workspace:packages/components/components/elvis-pagination"
   dependencies:
     "@elvia/elvis-colors": ^1.2.1
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-dropdown": ^4.1.4
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
@@ -2978,7 +2978,7 @@ __metadata:
   resolution: "@elvia/elvis-pagination@portal:../components/components/elvis-pagination::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.2.1
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-dropdown": ^4.1.4
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
@@ -2996,7 +2996,7 @@ __metadata:
   resolution: "@elvia/elvis-popover@workspace:packages/components/components/elvis-popover"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.8.0
     classnames: ^2.3.1
@@ -3013,7 +3013,7 @@ __metadata:
   resolution: "@elvia/elvis-popover@portal:../components/components/elvis-popover::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.8.0
     classnames: ^2.3.1
@@ -3109,7 +3109,7 @@ __metadata:
   resolution: "@elvia/elvis-slider@workspace:packages/components/components/elvis-slider"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.4.0
     styled-components: ^5.3.3
@@ -3125,7 +3125,7 @@ __metadata:
   resolution: "@elvia/elvis-slider@portal:../components/components/elvis-slider::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.4.0
     styled-components: ^5.3.3
@@ -3167,7 +3167,7 @@ __metadata:
   resolution: "@elvia/elvis-tabs@workspace:packages/components/components/elvis-tabs"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@types/lodash.throttle": ^4.1.7
@@ -3186,7 +3186,7 @@ __metadata:
   resolution: "@elvia/elvis-tabs@portal:../components/components/elvis-tabs::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     classnames: ^2.3.1
@@ -3204,7 +3204,7 @@ __metadata:
   resolution: "@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.2
     "@elvia/elvis-toolbox": ^5.5.0
     "@elvia/elvis-typography": ^2.3.1
@@ -3221,7 +3221,7 @@ __metadata:
   resolution: "@elvia/elvis-timepicker@portal:../components/components/elvis-timepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.2
     "@elvia/elvis-toolbox": ^5.5.0
     "@elvia/elvis-typography": ^2.3.1
@@ -3270,7 +3270,7 @@ __metadata:
   resolution: "@elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.4.0
     "@elvia/elvis-typography": ^2.3.1
@@ -3287,7 +3287,7 @@ __metadata:
   resolution: "@elvia/elvis-tooltip@portal:../components/components/elvis-tooltip::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.4.0
     "@elvia/elvis-typography": ^2.3.1
@@ -12872,7 +12872,7 @@ __metadata:
     react-dom: ^17.0.2
     react-is: ^17.0.2
     rxjs: ^6.5.5
-    sass: ^1.33.0
+    sass: ^1.56.0
     stylelint: ^10.0.1 || ^11.0.0 || ^12.0.0 || ^13.0.0
     stylelint-config-sass-guidelines: ^7.0.0
     ts-node: 8.10.2
@@ -25809,31 +25809,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass-loader@npm:^10.0.2":
-  version: 10.3.1
-  resolution: "sass-loader@npm:10.3.1"
-  dependencies:
-    klona: ^2.0.4
-    loader-utils: ^2.0.0
-    neo-async: ^2.6.2
-    schema-utils: ^3.0.0
-    semver: ^7.3.2
-  peerDependencies:
-    fibers: ">= 3.1.0"
-    node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
-    sass: ^1.3.0
-    webpack: ^4.36.0 || ^5.0.0
-  peerDependenciesMeta:
-    fibers:
-      optional: true
-    node-sass:
-      optional: true
-    sass:
-      optional: true
-  checksum: ab73a41a8aae1a8b4ae607b3ab661e23e12629ea2d05904727625b201e238083e37d7686f613ddd459a1f243a1146b93cd10c9a339a4f6d11871e70c914965c4
-  languageName: node
-  linkType: hard
-
 "sass-loader@npm:^12.3.0":
   version: 12.6.0
   resolution: "sass-loader@npm:12.6.0"
@@ -25856,6 +25831,31 @@ __metadata:
     sass-embedded:
       optional: true
   checksum: 5d73a428588150f704016aa27397941bb9246cecd2ee083b573e95d969fc080ac6a16f2fe1cc64aca08f6e70da6f3c586ee68f0efc9f527fecc360e5f1c299ec
+  languageName: node
+  linkType: hard
+
+"sass-loader@npm:^13.1.0":
+  version: 13.1.0
+  resolution: "sass-loader@npm:13.1.0"
+  dependencies:
+    klona: ^2.0.4
+    neo-async: ^2.6.2
+  peerDependencies:
+    fibers: ">= 3.1.0"
+    node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
+    sass: ^1.3.0
+    sass-embedded: "*"
+    webpack: ^5.0.0
+  peerDependenciesMeta:
+    fibers:
+      optional: true
+    node-sass:
+      optional: true
+    sass:
+      optional: true
+    sass-embedded:
+      optional: true
+  checksum: 6b3b6c0e070a32c594001cee98c85a72afb6081c46d56a4283269e6c1802b0e26128bc8363fcd8d8c941abe1f9e441e3efcd401fcf3ef436e1f1fbeb6e0a1374
   languageName: node
   linkType: hard
 
@@ -25882,6 +25882,19 @@ __metadata:
   bin:
     sass: sass.js
   checksum: 7d769ed08efce4e6134e0f3dc11c4f07e32c413ac8eb43c5855f2686890fdcbd80da34165c91fb4ba407f478ca108e171574b5a60cb9814a5ed09d80f6014f96
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.56.0":
+  version: 1.56.0
+  resolution: "sass@npm:1.56.0"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+    immutable: ^4.0.0
+    source-map-js: ">=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: 37fb48b838f7a12f3c3efbf27bfc5f2b7fba015ed4b11effe32bd9488e30e1d5cefcbfef1e5c5dbd95557889fe2c7ec72f33e898cfc76182ea34eae03b1a4fb1
   languageName: node
   linkType: hard
 
@@ -29388,7 +29401,7 @@ __metadata:
     react-dom: ^17.0.2
     react-is: ^17.0.2
     sass: ~1.32.6
-    sass-loader: ^10.0.2
+    sass-loader: ^13.1.0
     typescript: ^4.4.2
     vue: ^3.2.37
     vue-loader: 15.9.8

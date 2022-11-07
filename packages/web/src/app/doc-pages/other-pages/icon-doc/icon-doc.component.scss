@@ -1,5 +1,5 @@
-@import '../../../shared/shared-animations';
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '../../../shared/shared-animations';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 $maxIconContainer: 600px;
 $maxIconContainerMobile: 450px;
@@ -65,7 +65,7 @@ $maxIconContainerMobile: 450px;
         flex: 1 1 10%;
       }
     }
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       .e-form-field {
         width: 100%;
         margin-right: 0;
@@ -88,7 +88,7 @@ $maxIconContainerMobile: 450px;
     padding: 8px;
     border-radius: 8px;
     border: 1px solid var(--e-grey-10);
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       min-height: $maxIconContainerMobile;
       max-height: $maxIconContainerMobile;
     }
@@ -106,13 +106,13 @@ $maxIconContainerMobile: 450px;
     }
 
     .desktop-copy {
-      @include breakpoint-up(Mobile) {
+      @include breakpoints.breakpoint-up(Mobile) {
         display: none;
       }
     }
     .mobile-copy {
       display: none;
-      @include breakpoint-up(Mobile) {
+      @include breakpoints.breakpoint-up(Mobile) {
         display: block;
       }
       .icon-icon {
@@ -131,7 +131,7 @@ $maxIconContainerMobile: 450px;
       margin: 0 72px;
       margin-top: 104px;
       text-align: center;
-      @include breakpoint-up(Mobile) {
+      @include breakpoints.breakpoint-up(Mobile) {
         margin: 0 8px;
         margin-top: 72px;
       }
@@ -149,12 +149,12 @@ $maxIconContainerMobile: 450px;
       border: 1px solid transparent;
       border-radius: 8px;
 
-      @include breakpoint-up(Mobile) {
+      @include breakpoints.breakpoint-up(Mobile) {
         margin: 0px;
         width: 93px;
         padding: 12px 4px;
       }
-      @include breakpoint-up(Tablet) {
+      @include breakpoints.breakpoint-up(Tablet) {
         margin: 4px;
       }
 
@@ -189,12 +189,12 @@ $maxIconContainerMobile: 450px;
       height: 109px;
       width: 800px;
     }
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       .e-alert {
         width: 650px;
       }
     }
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       display: none;
     }
     .e-alert {
@@ -248,7 +248,7 @@ $maxIconContainerMobile: 450px;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  @include breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(MinDesktop) {
     flex-direction: column;
   }
 
@@ -260,7 +260,7 @@ $maxIconContainerMobile: 450px;
       display: flex;
       align-items: center;
       flex-wrap: nowrap;
-      @include breakpoint-up(MinDesktop) {
+      @include breakpoints.breakpoint-up(MinDesktop) {
         margin-top: 16px;
       }
     }
@@ -271,7 +271,7 @@ $maxIconContainerMobile: 450px;
       *:not(:last-child) {
         margin-right: 24px;
 
-        @include breakpoint-up(MinDesktop) {
+        @include breakpoints.breakpoint-up(MinDesktop) {
           margin-right: 16px;
           margin-bottom: 16px;
         }
@@ -286,7 +286,7 @@ $maxIconContainerMobile: 450px;
   background: var(--e-grey-10);
   margin: 0 52px;
   border-radius: 25px;
-  @include breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(MinDesktop) {
     height: 2px;
     width: 100%;
     margin: 16px 0px;

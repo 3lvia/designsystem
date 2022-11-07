@@ -1,7 +1,7 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .dont {
-  @include breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(MinDesktop) {
     margin-top: 16px;
   }
 }

@@ -1,5 +1,5 @@
-@import '../../shared/shared-sizes.scss';
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '../../shared/shared-sizes.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .header {
   position: fixed;
@@ -23,7 +23,7 @@
     cursor: pointer;
     margin-left: 32px;
 
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       margin-left: 16px;
     }
 
@@ -40,7 +40,7 @@
   }
 
   .content-loader-header-titles {
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       display: none;
     }
   }
@@ -52,7 +52,7 @@
     width: 100%;
     margin-left: 32px;
 
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       display: none;
     }
 
@@ -116,7 +116,7 @@
     display: inline-flex;
     justify-content: flex-end;
     align-items: center;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       display: none;
     }
 
@@ -157,13 +157,13 @@
   .mobile-menu {
     display: none;
 
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       display: inline-flex;
       width: 100%;
       justify-content: flex-end;
       margin-right: 32px;
     }
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       margin-right: 16px;
     }
 
@@ -180,12 +180,12 @@
         font-weight: 500;
         font-size: 15px;
         line-height: 17px;
-        @include breakpoint-up(Mobile) {
+        @include breakpoints.breakpoint-up(Mobile) {
           display: none;
         }
       }
       .elvis-search__icon {
-        @include breakpoint-up(Mobile) {
+        @include breakpoints.breakpoint-up(Mobile) {
           margin-right: 0px;
         }
       }
