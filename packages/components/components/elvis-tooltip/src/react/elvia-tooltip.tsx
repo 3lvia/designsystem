@@ -108,6 +108,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
       overlayRef.current.appendChild(webcomponent.getSlot('content'));
 
       const observer = updatePositionOnContentChange();
+      /** Update position on initial render */
+      updatePreferredPosition();
       return () => observer.disconnect();
     }
 
