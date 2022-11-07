@@ -18,7 +18,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   webcomponent,
 }) => {
   let timeoutId = 0;
-  const { ref: triggerRef } = useSlot('trigger', webcomponent);
+  const { ref: triggerRef } = useSlot<HTMLDivElement>('trigger', webcomponent);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
   const [actualPosition, setActualPosition] = useState<TooltipPosition>(position);
@@ -29,6 +29,10 @@ export const Tooltip: React.FC<TooltipProps> = ({
       horizontalPosition: mapPositionToHorizontalPosition(position),
       offset: 14,
     });
+  useSlot('content', webcomponent, {
+    useEffectDependencies: [isShowing],
+    ref: overlayRef,
+  });
 
   const onOpen = (delay = true): void => {
     if (isSsr()) {
@@ -78,18 +82,15 @@ export const Tooltip: React.FC<TooltipProps> = ({
     };
   }, [triggerAreaRef, triggerAreaRef?.current]);
 
-  /** Update position from new position-prop */
-  useEffect(() => {
-    const newPosition: TooltipPosition = position || 'top';
-    setActualPosition(newPosition);
-    updatePreferredPosition(
-      mapPositionToVerticalPosition(newPosition),
-      mapPositionToHorizontalPosition(newPosition),
-    );
-  }, [position]);
-
-  const updatePositionOnContentChange = (): MutationObserver => {
-    const observer = new MutationObserver(() => updatePreferredPosition());
+  /* Update on position change and content change */
+  const updatePositionOnChange = (): MutationObserver => {
+    const observer = new MutationObserver(() => {
+      const newPosition: TooltipPosition = position || 'top';
+      updatePreferredPosition(
+        mapPositionToVerticalPosition(newPosition),
+        mapPositionToHorizontalPosition(newPosition),
+      );
+    });
     if (overlayRef.current) {
       observer.observe(overlayRef.current, {
         childList: true,
@@ -103,18 +104,10 @@ export const Tooltip: React.FC<TooltipProps> = ({
   };
 
   useEffect(() => {
-    if (!isShowing || !overlayRef.current || !webcomponent?.getSlot('content')) {
-      return;
-    }
-
-    overlayRef.current.innerHTML = '';
-    overlayRef.current.appendChild(webcomponent.getSlot('content'));
-
-    const observer = updatePositionOnContentChange();
-    /** Update position on initial render */
+    const observer = updatePositionOnChange();
     updatePreferredPosition();
     return () => observer.disconnect();
-  }, [isShowing]);
+  }, [isShowing, position]);
 
   /** Update arrow position when overlay hook adjusts position */
   useEffect(() => {
