@@ -98,6 +98,10 @@ export class v2PlaygroundComponent {
 
   // Tooltip
   tooltipPosition: 'top' | 'bottom' | 'left' | 'right' = 'top';
+  customTooltipText = 'This is a custom text';
+  onCustomTextHover = () => {
+    setTimeout(() => (this.customTooltipText = 'That now changed into a much longer text'), 2500);
+  };
 
   shuffleTooltipPosition = (): void => {
     if (this.tooltipPosition === 'top') {

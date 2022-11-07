@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.11.22",
+      "version": "1.5.8",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Use <span class=\"code-text\">@elvia/elvis-component-wrapper@^3.0.1</span>. This fixes an issue where the component would not properly unmount when used as webcomponent."
+          ]
+        }
+      ]
+    },
+    {
       "date": "03.11.22",
       "version": "1.5.7",
       "changelog": [
