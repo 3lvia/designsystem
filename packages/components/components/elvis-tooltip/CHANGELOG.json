@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.11.22",
+      "version": "1.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The tooltip will now update its position if the content of the tooltip changes while it's open.",
+            "The tooltip now has a new prop <span class=\"code-text\">display</span> that allows for setting a custom display property on the trigger element."
+          ]
+        }
+      ]
+    },
+    {
       "date": "02.11.22",
       "version": "1.0.10",
       "changelog": [

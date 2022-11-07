@@ -4,7 +4,15 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <elvia-tooltip (mouseenter)="onCustomTextHover()">
+        <p slot="content" class="e-text-md e-m-0 e-flex e-align-items-center">
+          <i class="e-icon e-icon--search-bold e-icon--xs e-icon--color-white e-mr-8" aria-hidden="true"></i>
+          {{ customTooltipText }}
+        </p>
+        <div slot="trigger">Tooltip trigger with custom content</div>
+      </elvia-tooltip>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>

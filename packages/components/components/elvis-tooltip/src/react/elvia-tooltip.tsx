@@ -1,23 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useConnectedOverlay, isSsr, TooltipPopup } from '@elvia/elvis-toolbox';
+import { useConnectedOverlay, isSsr, TooltipPopup, useSlot } from '@elvia/elvis-toolbox';
 import { TooltipPosition, TooltipProps } from './elviaTooltip.types';
 import { TriggerContainer } from './styledComponents';
 import { mapPositionToHorizontalPosition, mapPositionToVerticalPosition } from './mapPosition';
 
 export const Tooltip: React.FC<TooltipProps> = ({
-  className,
-  isDisabled = false,
-  inlineStyle,
   content = '',
+  display = 'inline-block',
+  isDisabled = false,
   position = 'top',
   showDelay = 400,
   trigger,
   triggerAreaRef,
+  inlineStyle,
+  className,
   webcomponent,
 }) => {
   let timeoutId = 0;
-  const triggerRef = useRef<HTMLSpanElement>(null);
+  const { ref: triggerRef } = useSlot('trigger', webcomponent);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
   const [actualPosition, setActualPosition] = useState<TooltipPosition>(position);
@@ -58,17 +59,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
     }
   };
 
-  /** Get trigger slot */
-  useEffect(() => {
-    if (!webcomponent) {
-      return;
-    }
-    if (triggerRef.current && webcomponent.getSlot('trigger')) {
-      triggerRef.current.innerHTML = '';
-      triggerRef.current.appendChild(webcomponent.getSlot('trigger'));
-    }
-  }, [webcomponent]);
-
   /** If triggerAreaRef is provided, add mouseEnter and mouseLeave listeners and use them to
    * open and close the tooltip */
   useEffect(() => {
@@ -76,12 +66,9 @@ export const Tooltip: React.FC<TooltipProps> = ({
     if (!triggerArea) {
       return;
     }
-    const onMouseEnter = () => {
-      onOpen();
-    };
-    const onMouseLeave = () => {
-      onClose();
-    };
+
+    const onMouseEnter = () => onOpen();
+    const onMouseLeave = () => onClose();
 
     triggerArea.addEventListener('mouseenter', onMouseEnter);
     triggerArea.addEventListener('mouseleave', onMouseLeave);
@@ -101,17 +88,30 @@ export const Tooltip: React.FC<TooltipProps> = ({
     );
   }, [position]);
 
-  /** Get content slot when the overlayRef is populated */
+  const updatePositionOnContentChange = (): MutationObserver => {
+    const observer = new MutationObserver(() => updatePreferredPosition());
+    if (overlayRef.current) {
+      observer.observe(overlayRef.current, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+        attributes: true,
+      });
+    }
+
+    return observer;
+  };
+
   useEffect(() => {
     if (isShowing && overlayRef.current && webcomponent?.getSlot('content')) {
       overlayRef.current.innerHTML = '';
       overlayRef.current.appendChild(webcomponent.getSlot('content'));
 
-      /** We need to update the position, because the dimensions of the
-       * overlay has changed.
-       */
-      updatePreferredPosition();
+      const observer = updatePositionOnContentChange();
+      return () => observer.disconnect();
     }
+
+    return;
   }, [isShowing]);
 
   /** Update arrow position when overlay hook adjusts position */
@@ -128,6 +128,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   return (
     <>
       <TriggerContainer
+        style={{ display: display }}
         onMouseEnter={() => !triggerAreaRef?.current && onOpen(true)}
         onMouseLeave={() => !triggerAreaRef?.current && onClose()}
         onFocus={() => !triggerAreaRef?.current && onOpen(false)}
@@ -136,6 +137,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
       >
         {trigger}
       </TriggerContainer>
+
       {isShowing &&
         !isDisabled &&
         createPortal(
