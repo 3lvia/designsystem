@@ -465,6 +465,7 @@ module.exports = [
     elementName: 'elvia-tooltip',
     attributes: [
       { name: 'trigger', type: 'string' },
+      { name: 'display', type: 'string' },
       { name: 'isDisabled', type: 'boolean' },
       { name: 'position', type: 'string' },
       { name: 'showDelay', type: 'number' },

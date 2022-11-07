@@ -16,6 +16,13 @@ export const tooltipData: ComponentData = {
       cegFormType: 'custom-text',
       cegDefault: "I'm a tooltip!",
     },
+    display: {
+      isRequired: false,
+      type: 'string',
+      default: '"inline-block"',
+      description:
+        'The display property for the trigger wrapper. Change this if the default display property interferes with your app layout.',
+    },
     position: {
       isRequired: false,
       type: '"top" | "right" | "bottom" | "left"',

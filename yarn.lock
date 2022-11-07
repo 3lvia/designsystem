@@ -2895,7 +2895,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-icon@*, @elvia/elvis-icon@^1.3.0, @elvia/elvis-icon@^1.3.1, @elvia/elvis-icon@^1.3.2, @elvia/elvis-icon@^1.3.3, @elvia/elvis-icon@workspace:packages/components/components/elvis-icon":
+"@elvia/elvis-icon@*, @elvia/elvis-icon@^1.3.0, @elvia/elvis-icon@^1.3.1, @elvia/elvis-icon@^1.3.2, @elvia/elvis-icon@^1.3.3, @elvia/elvis-icon@^1.3.4, @elvia/elvis-icon@workspace:packages/components/components/elvis-icon":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-icon@workspace:packages/components/components/elvis-icon"
   dependencies:
@@ -3271,8 +3271,8 @@ __metadata:
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
     "@elvia/elvis-component-wrapper": ^3.0.1
-    "@elvia/elvis-icon": ^1.3.1
-    "@elvia/elvis-toolbox": ^5.4.0
+    "@elvia/elvis-icon": ^1.3.4
+    "@elvia/elvis-toolbox": ^5.8.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -3288,8 +3288,8 @@ __metadata:
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
     "@elvia/elvis-component-wrapper": ^3.0.1
-    "@elvia/elvis-icon": ^1.3.1
-    "@elvia/elvis-toolbox": ^5.4.0
+    "@elvia/elvis-icon": ^1.3.4
+    "@elvia/elvis-toolbox": ^5.8.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:

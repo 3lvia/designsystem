@@ -1,17 +1,15 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { BaseProps } from '@elvia/elvis-toolbox';
 import { CSSProperties, RefObject } from 'react';
 
 export type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
 
-export interface TooltipProps {
+export interface TooltipProps extends BaseProps {
   isDisabled?: boolean;
   showDelay?: number;
   position?: TooltipPosition;
   content: string | JSX.Element;
   trigger: string | JSX.Element;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
+  display?: CSSProperties['display'];
   /**
    * @internal
    */
