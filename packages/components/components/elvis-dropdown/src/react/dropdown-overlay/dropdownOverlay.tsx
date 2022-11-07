@@ -16,7 +16,8 @@ interface DropdownOverlayProps {
    */
   level: number;
   focusedLevel: number;
-  items: DropdownItemOption[];
+  filteredItems: DropdownItemOption[];
+  allItems?: DropdownItemOption[];
   isCompact: boolean;
   isMulti: boolean;
   onClose: () => void;
@@ -35,7 +36,8 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     {
       level,
       focusedLevel,
-      items,
+      filteredItems,
+      allItems,
       isCompact,
       isMulti,
       onClose,
@@ -50,7 +52,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     },
     ref,
   ) => {
-    const [focusedItem, setFocusedItem] = useState<DropdownItemOption>(items[0]);
+    const [focusedItem, setFocusedItem] = useState<DropdownItemOption>(filteredItems[0]);
     const { isMouse: inputIsMouse } = useInputModeDetection();
     const listRef = useRef<HTMLDivElement>(null);
     const [fadeOut, setFadeOut] = useState(false);
@@ -61,41 +63,38 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       }
     };
 
+    const selectItem = (item: DropdownItemOption): void => {
+      if (!item.isDisabled) {
+        if (item.children) {
+          onItemSelect(item.children.map((child) => child.value));
+        } else {
+          onItemSelect([item.value]);
+        }
+      }
+
+      if (!isMulti) {
+        setFadeOut(true);
+      }
+    };
+
     const handlerOverlayKeyboardNavigation = (ev: KeyboardEvent<HTMLInputElement>): void => {
+      const currentIndex = filteredItems.findIndex((item) => item.value === focusedItem.value);
       if (['Space', 'Enter', 'Tab'].includes(ev.code)) {
         ev.preventDefault();
-        if (!focusedItem.isDisabled) {
-          if (focusedItem.children) {
-            onItemSelect(focusedItem.children.map((child) => child.value));
-          } else {
-            onItemSelect([focusedItem.value]);
-          }
-        }
-
-        if (!isMulti) {
-          setFadeOut(true);
-        }
+        selectItem(focusedItem);
       } else if (ev.code === 'ArrowUp') {
-        const currentIndex = items.findIndex((item) => item.value === focusedItem.value);
-        if (currentIndex - 1 < 0) {
-          setFocusedItem(items[items.length - 1]);
-        } else {
-          setFocusedItem(items[currentIndex - 1]);
-        }
         ev.preventDefault();
+        const newIndex = currentIndex - 1 < 0 ? filteredItems.length - 1 : currentIndex - 1;
+        setFocusedItem(filteredItems[newIndex]);
       } else if (ev.code === 'ArrowDown') {
-        const currentIndex = items.findIndex((item) => item.value === focusedItem.value);
-        if (currentIndex + 1 > items.length - 1) {
-          setFocusedItem(items[0]);
-        } else {
-          setFocusedItem(items[currentIndex + 1]);
-        }
         ev.preventDefault();
+        const newIndex = currentIndex + 1 > filteredItems.length - 1 ? 0 : currentIndex + 1;
+        setFocusedItem(filteredItems[newIndex]);
       }
     };
 
     const toggleAllSelection = (): void => {
-      const allValues = flattenTree(items)
+      const allValues = flattenTree(filteredItems)
         .filter((item) => !item.isDisabled && !item.children)
         .map((item) => item.value);
       const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
@@ -122,17 +121,17 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       }
 
       if (isMulti) {
-        setFocusedItem(items[0]);
+        setFocusedItem(filteredItems[0]);
       } else if (typeof currentVal === 'string') {
-        const currentValInList = items.find((item) => item.value === currentVal);
-        currentValInList ? setFocusedItem(currentValInList) : setFocusedItem(items[0]);
+        const currentValInList = filteredItems.find((item) => item.value === currentVal);
+        currentValInList ? setFocusedItem(currentValInList) : setFocusedItem(filteredItems[0]);
       }
     }, [currentVal]);
 
     useEffect(() => {
       const scrollItemListToFocusedItem = () => {
         const buttonHeight = isCompact ? 40 : 48;
-        const index = items.findIndex((item) => item.value === focusedItem.value);
+        const index = filteredItems.findIndex((item) => item.value === focusedItem.value);
         listRef.current?.scrollTo({
           top: buttonHeight * index - listRef.current?.offsetHeight / 2,
         });
@@ -155,18 +154,18 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
           onMouseLeave={onMouseLeave}
         >
           <ItemList ref={listRef} isCompact={isCompact}>
-            {!items?.length && <NoItemsMessage isCompact={isCompact}>{noItemsText}</NoItemsMessage>}
+            {!filteredItems?.length && <NoItemsMessage isCompact={isCompact}>{noItemsText}</NoItemsMessage>}
             {selectAllOption && level === 1 && (
               <SelectAllOption
                 isCompact={isCompact}
                 text={selectAllOption}
-                items={items}
+                items={allItems ?? []}
                 selectedItems={currentVal}
                 isFocused={true}
                 onClick={toggleAllSelection}
               />
             )}
-            {items.map((item) => (
+            {filteredItems.map((item) => (
               <DropdownItem
                 overlayLevel={level}
                 key={item.value}

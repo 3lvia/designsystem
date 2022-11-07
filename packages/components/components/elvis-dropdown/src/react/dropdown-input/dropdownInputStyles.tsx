@@ -3,4 +3,5 @@ import styled from 'styled-components';
 
 export const Input = styled(FormFieldInput)`
   flex: 1;
+  text-overflow: ellipsis;
 `;

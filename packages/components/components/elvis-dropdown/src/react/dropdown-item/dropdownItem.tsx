@@ -179,7 +179,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           onMouseEnter={() => setListIsHovered(true)}
           onMouseLeave={() => setListIsHovered(false)}
           ref={popoverRef}
-          items={item.children ?? []}
+          filteredItems={item.children ?? []}
           isCompact={!!isCompact}
           onClose={() => setIsShowing(false)}
           isMulti={isMulti}

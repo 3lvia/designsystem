@@ -11,17 +11,23 @@ export const ItemValue: React.FC<Props> = ({ text }) => {
   const [isOverflowing, setIsOverflowing] = useState(false);
 
   useEffect(() => {
-    if (text.includes('Norge')) {
-      setTimeout(() => {
-        console.log(elementRef.current?.scrollWidth);
-        console.log(elementRef.current?.offsetWidth);
-      }, 1000);
-    }
+    setTimeout(() => {
+      const { current } = elementRef;
+      if (current) {
+        setIsOverflowing(current.scrollWidth > current.offsetWidth);
+      }
+    });
   }, [text]);
 
   return (
     <DropdownItemValue ref={elementRef}>
-      <Tooltip trigger={text} content={text} isDisabled={!isOverflowing} />
+      <Tooltip
+        triggerAreaRef={elementRef}
+        trigger={text}
+        content={text}
+        isDisabled={!isOverflowing}
+        display="inline"
+      />
     </DropdownItemValue>
   );
 };

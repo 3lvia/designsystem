@@ -47,16 +47,12 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
-  const { isShowing, setIsShowing, updatePreferredPosition } = useConnectedOverlay(
-    connectedElementRef,
-    popoverRef,
-    {
-      offset: 8,
-      horizontalPosition: 'center',
-      verticalPosition: menuPosition === 'top' ? 'top' : 'bottom',
-      alignWidths: true,
-    },
-  );
+  const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
+    offset: 8,
+    horizontalPosition: 'center',
+    verticalPosition: menuPosition === 'top' ? 'top' : 'bottom',
+    alignWidths: true,
+  });
 
   const setSelectedItem = (values: string[]): void => {
     if (isMulti) {
@@ -80,11 +76,6 @@ const Dropdown: React.FC<DropdownProps> = ({
       return;
     }
 
-    /** We need to update the position, because the dimensions of the
-     * overlay has changed.
-     */
-    updatePreferredPosition();
-
     const closeOnEsc = (ev: KeyboardEvent) => {
       if (ev.code === 'Escape') {
         setIsShowing(false);
@@ -92,18 +83,18 @@ const Dropdown: React.FC<DropdownProps> = ({
     };
 
     window.addEventListener('keydown', closeOnEsc);
-
-    return () => {
-      window.removeEventListener('keydown', closeOnEsc);
-    };
+    return () => window.removeEventListener('keydown', closeOnEsc);
   }, [isShowing]);
 
   useEffect(() => {
-    if (!filter) {
-      setFilteredItems(items);
-    } else {
-      setFilteredItems(items.filter((item) => item.label.toLowerCase().includes(filter.toLowerCase())));
-    }
+    const filterItems = () => {
+      if (!filter) {
+        setFilteredItems(items);
+      } else {
+        setFilteredItems(items.filter((item) => item.label.toLowerCase().includes(filter.toLowerCase())));
+      }
+    };
+    filterItems();
   }, [filter]);
 
   useEffect(() => {
@@ -137,7 +128,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             onChange={(value) => setFilter(value)}
             dropdownIsOpen={isShowing}
             isDisabled={isDisabled}
-            items={filteredItems}
+            items={items}
             onOpenDropdown={() => setIsShowing(true)}
             onKeyPress={setPressedKey}
             currentVal={currentVal}
@@ -161,7 +152,8 @@ const Dropdown: React.FC<DropdownProps> = ({
           onItemSelect={setSelectedItem}
           isCompact={isCompact}
           onClose={() => setIsShowing(false)}
-          items={filteredItems}
+          filteredItems={filteredItems}
+          allItems={items}
           pressedKey={pressedKey}
           currentVal={currentVal}
           level={1}
