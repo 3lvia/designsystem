@@ -6,6 +6,7 @@ import React, { useEffect, useRef } from 'react';
  * @param webcomponent
  * @param options.ref The ref to put the slot content in. If no ref is provided, the hook will create one and return it.
  * @param options.callback Called when a slot is found or not, with whether it was found or not as argument.
+ * @param options.useEffectDependencies Extra dependencies for the useEffect hook.
  * @returns A ref to the element that the slot content is put in. If `options.ref` was provided, the returned `ref` will be the same as the one provided.
  *
  * @example
@@ -28,6 +29,7 @@ export const useSlot = <
   options?: {
     ref?: React.RefObject<TValue>;
     callback?: (foundSlot: boolean) => void;
+    useEffectDependencies?: unknown[];
   },
 ): { ref: React.RefObject<TValue> } => {
   const defaultRef = useRef<TValue>(null);
@@ -45,6 +47,13 @@ export const useSlot = <
     } else {
       options?.callback?.(false);
     }
-  }, [ref, slot, webcomponent, webcomponent?.getSlot(slot), options?.callback]);
+  }, [
+    ref,
+    slot,
+    webcomponent,
+    webcomponent?.getSlot(slot),
+    options?.callback,
+    options?.useEffectDependencies,
+  ]);
   return { ref };
 };

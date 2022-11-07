@@ -1,21 +1,21 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 @mixin first-col {
   width: 80%;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     width: 70%;
   }
 }
 @mixin second-col {
   width: 20%;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     width: 30%;
   }
 }
 
 .breadcrumb-levels {
   width: 50%;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     width: 75%;
   }
 }
@@ -49,7 +49,7 @@
     border: 1px solid var(--e-grey-10);
     border-radius: 8px;
 
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       padding: 24px;
     }
   }

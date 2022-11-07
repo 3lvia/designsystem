@@ -100,6 +100,11 @@ export class v2PlaygroundComponent {
 
   // Popover
   isPopoverShowing = false;
+  isPopoverListShowing = false;
+  isPopoverListHeadingShowing = false;
+  isPopoverListIconsShowing = false;
+  isPopoverLIstCheckedShowing = false;
+  isPopoverShowing1 = false;
 
   // Progress linear
   progressValue = 0;
@@ -120,6 +125,10 @@ export class v2PlaygroundComponent {
 
   // Tooltip
   tooltipPosition: 'top' | 'bottom' | 'left' | 'right' = 'top';
+  customTooltipText = 'This is a custom text';
+  onCustomTextHover = () => {
+    setTimeout(() => (this.customTooltipText = 'That now changed into a much longer text'), 2500);
+  };
 
   shuffleTooltipPosition = (): void => {
     if (this.tooltipPosition === 'top') {

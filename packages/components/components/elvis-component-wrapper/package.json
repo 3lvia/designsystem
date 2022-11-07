@@ -1,11 +1,16 @@
 {
   "name": "@elvia/elvis-component-wrapper",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "",
   "license": "MIT",
   "author": "",
   "main": "./dist/elvia-component.js",
   "types": "./dist/elvia-component.d.ts",
+  "files": [
+    "CHANGELOG.json",
+    "README.md",
+    "dist/**/*"
+  ],
   "dependencies": {
     "json5": "^2.2.1",
     "lodash.isequal": "^4.5.0",

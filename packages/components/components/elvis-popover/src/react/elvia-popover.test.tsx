@@ -10,47 +10,94 @@ describe('Elvis Popover', () => {
     });
 
     it('should be closed by default', () => {
-      const popoverContainer = screen.getByTestId('popover-container');
-      expect(popoverContainer).toHaveClass('ewc-popover--hide');
+      const popoverContent = screen.queryByText('Content');
+      const popoverHeading = screen.queryByText('Header');
+      expect(popoverContent).not.toBeInTheDocument();
+      expect(popoverHeading).not.toBeInTheDocument();
     });
 
     it('should be able to open and close the popover', async () => {
       const user = userEvent.setup();
-      const popoverTrigger = screen.getByTestId('popover-trigger');
+      const popoverTrigger = screen.getByRole('button', { name: 'Trigger' });
 
+      //open
       await user.click(popoverTrigger);
-      expect(screen.getByTestId('popover-container')).not.toHaveClass('ewc-popover--hide');
+      const popoverContent = screen.queryByText('Content');
+      const popoverHeading = screen.queryByText('Header');
 
+      expect(popoverContent).toBeInTheDocument();
+      expect(popoverHeading).toBeInTheDocument();
+
+      //close
       await user.click(popoverTrigger);
-      expect(screen.getByTestId('popover-container')).toHaveClass('ewc-popover--hide');
+
+      expect(popoverContent).not.toBeInTheDocument();
+      expect(popoverHeading).not.toBeInTheDocument();
     });
 
-    it('should have close btn', () => {
-      const popoverCloseBtn = screen.getByTestId('popover-close-btn');
+    it('should have close btn', async () => {
+      const user = userEvent.setup();
+      const popoverTrigger = screen.getByRole('button', { name: 'Trigger' });
+
+      await user.click(popoverTrigger);
+
+      const popoverCloseBtn = screen.getByRole('button', { name: 'Lukk' });
       expect(popoverCloseBtn).toBeInTheDocument();
     });
 
     it('should close popover when clicking close btn', async () => {
       const user = userEvent.setup();
-      const popoverTrigger = screen.getByTestId('popover-trigger');
+      const popoverTrigger = screen.getByRole('button', { name: 'Trigger' });
 
       await user.click(popoverTrigger);
 
-      const popoverCloseBtn = screen.getByTestId('popover-close-btn');
+      const popoverCloseBtn = screen.getByRole('button', { name: 'Lukk' });
       await user.click(popoverCloseBtn);
 
-      const popoverContainer = screen.getByTestId('popover-container');
-      expect(popoverContainer).toHaveClass('ewc-popover--hide');
+      const popoverContent = screen.queryByText('Content');
+      const popoverHeading = screen.queryByText('Header');
+      expect(popoverContent).not.toBeInTheDocument();
+      expect(popoverHeading).not.toBeInTheDocument();
     });
 
-    it('should have correct header', () => {
-      const popoverHeader = screen.getByTestId('popover-header');
-      expect(popoverHeader).toHaveTextContent('Header');
+    it('should have correct header', async () => {
+      const user = userEvent.setup();
+      const popoverTrigger = screen.getByRole('button', { name: 'Trigger' });
+
+      await user.click(popoverTrigger);
+
+      const popoverHeading = screen.queryByText('Header');
+      expect(popoverHeading).toBeInTheDocument();
     });
 
-    it('should have correct content', () => {
-      const popoverText = screen.getByTestId('popover-text');
-      expect(popoverText).toHaveTextContent('Content');
+    it('should have correct content', async () => {
+      const user = userEvent.setup();
+      const popoverTrigger = screen.getByRole('button', { name: 'Trigger' });
+
+      await user.click(popoverTrigger);
+
+      const popoverContent = screen.queryByText('Content');
+      expect(popoverContent).toBeInTheDocument();
+    });
+
+    it('should be closed if the user presses Escape', async () => {
+      const user = userEvent.setup();
+      const popoverTrigger = screen.getByRole('button', { name: 'Trigger' });
+
+      //open
+      await user.click(popoverTrigger);
+      const popoverContent = screen.queryByText('Content');
+      const popoverHeading = screen.queryByText('Header');
+
+      expect(popoverContent).toBeInTheDocument();
+      expect(popoverHeading).toBeInTheDocument();
+
+      //close
+      await user.keyboard('{Escape}');
+
+      expect(popoverContent).not.toBeInTheDocument();
+      expect(popoverHeading).not.toBeInTheDocument();
+      screen.debug();
     });
   });
 
@@ -60,12 +107,12 @@ describe('Elvis Popover', () => {
     });
 
     it('should be open by default', () => {
-      const popoverContainer = screen.getByTestId('popover-container');
-      expect(popoverContainer).not.toHaveClass('ewc-popover--hide');
+      const popoverContent = screen.queryByText('Content');
+      expect(popoverContent).toBeInTheDocument();
     });
   });
 
-  describe('Close button', () => {
+  describe('Close button = False', () => {
     beforeEach(() => {
       render(
         <Popover
@@ -77,8 +124,13 @@ describe('Elvis Popover', () => {
       );
     });
 
-    it('should not have close btn', () => {
-      const popoverCloseBtn = screen.queryByTestId('popover-close-btn');
+    it('should _not_ have close btn', async () => {
+      const user = userEvent.setup();
+      const popoverTrigger = screen.getByRole('button', { name: 'Trigger' });
+
+      await user.click(popoverTrigger);
+
+      const popoverCloseBtn = screen.queryByRole('button', { name: 'Lukk' });
       expect(popoverCloseBtn).not.toBeInTheDocument();
     });
   });
@@ -96,10 +148,15 @@ describe('Elvis Popover', () => {
       );
     });
 
-    it('should have className and inlineStyle', () => {
-      const popoverWrapper = screen.getByTestId('popover-wrapper');
-      expect(popoverWrapper).toHaveStyle('margin: 24px');
-      expect(popoverWrapper).toHaveClass('test-class');
+    it('should have className and inlineStyle', async () => {
+      const user = userEvent.setup();
+      const popoverTrigger = screen.getByRole('button', { name: 'Trigger' });
+
+      await user.click(popoverTrigger);
+
+      const popoverContent = screen.getByTestId('popover-content');
+      expect(popoverContent).toHaveStyle('margin: 24px');
+      expect(popoverContent).toHaveClass('test-class');
     });
   });
 });

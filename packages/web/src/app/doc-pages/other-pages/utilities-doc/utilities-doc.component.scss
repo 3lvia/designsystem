@@ -1,5 +1,5 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
-@import '@elvia/elvis/src/variables/colors.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+@use '@elvia/elvis/src/variables/colors.scss';
 
 .utility-container {
   display: flex;
@@ -10,11 +10,11 @@
     margin: 0;
   }
 
-  @include breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(MinDesktop) {
     width: 120%;
     margin-right: -20%;
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     width: 100%;
     margin-right: 0%;
     flex-direction: column;
@@ -27,11 +27,11 @@
   height: 1px;
   width: 130%;
   margin-right: -30%;
-  @include breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(MinDesktop) {
     width: 120%;
     margin-right: -20%;
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     width: 100%;
     margin-right: 0%;
   }
@@ -41,7 +41,7 @@
   justify-content: space-between;
   margin-bottom: 16px;
 
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     flex-direction: column;
   }
 }
@@ -50,10 +50,10 @@
   width: 19%;
   margin-right: 24px;
 
-  @include breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(MinDesktop) {
     width: 23%;
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     margin-right: 0;
     margin-bottom: 24px;
     width: 19%;
@@ -65,13 +65,13 @@
   height: fit-content;
   margin-right: 16px;
   line-break: normal;
-  @include breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(MinDesktop) {
     width: 40%;
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     width: 40%;
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     width: 100%;
   }
 }
@@ -79,13 +79,13 @@
 .description {
   display: flex;
   width: 45%;
-  @include breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(MinDesktop) {
     width: 35%;
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     width: 40%;
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     width: 100%;
   }
 }
@@ -93,7 +93,7 @@
 .cssContent {
   width: 20%;
   margin-left: 16px;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     width: 100%;
     margin-left: 0;
   }

@@ -2,6 +2,49 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.11.22",
+      "version": "6.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Use <span class=\"code-text\">@elvia/elvis-component-wrapper@^3.0.1</span>. This fixes an issue where the component would not properly unmount when used as webcomponent."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "02.11.22",
+      "version": "6.0.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Positioning is now done by <span class=\"code-text\">useConnectedOverlay</span> from <span class=\"code-text\">@elvia/elvis-toolbox</span>",
+            "Focus is trapped by <span class=\"code-text\">useFocusTrap</span> from <span class=\"code-text\">@elvia/elvis-toolbox</span>",
+            "Slots in web components are placed using <span class=\"code-text\">useSlots</span> from <span class=\"code-text\">@elvia/elvis-toolbox</span>"
+          ]
+        },
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The popover is now placed as the last item in the <span class='code-text'>body</span> element, mening it will be on top of everything else"
+          ],
+
+          "fixes": [
+            "Ensure custom CSS still apllies to the popover, even when the popover is placed as the last item in the <span class='code-text'>body</span> element"
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Use <span class=\"code-text\">@elvia/elvis-toolbox@5.8.0</span>",
+            "Added missing <span class='code-text'>peerDependencies</span>"
+          ]
+        }
+      ]
+    },
+    {
       "date": "02.11.22",
       "version": "5.1.12",
       "changelog": [
