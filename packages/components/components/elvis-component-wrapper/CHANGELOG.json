@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.11.22",
+      "version": "3.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Now making sure to unmount the React component when the custom element is removed from the DOM."
+          ]
+        }
+      ]
+    },
+    {
       "date": "02.11.22",
       "version": "3.0.0",
       "changelog": [
