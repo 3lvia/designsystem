@@ -5,6 +5,7 @@ import { DropdownItem } from '../dropdown-item/dropdownItem';
 import { flattenTree } from '../dropdownListUtils';
 import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropdown.types';
 import { Backdrop, DropdownPopup, ItemList, NoItemsMessage } from './dropdownOverlayStyles';
+import { LoadMoreButton } from './LoadMoreButton';
 import { SelectAllOption } from './selectAllOption';
 
 interface DropdownOverlayProps {
@@ -29,6 +30,9 @@ interface DropdownOverlayProps {
   onLevelFocusChange: (newLevel: number) => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   selectAllOption?: string;
+  hasLoadMoreItemsButton?: boolean;
+  onLoadMoreItems?: () => void;
+  isLoadingMoreItems?: boolean;
 }
 
 export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayProps>(
@@ -49,6 +53,9 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       onMouseLeave,
       onLevelFocusChange,
       selectAllOption,
+      hasLoadMoreItemsButton,
+      onLoadMoreItems,
+      isLoadingMoreItems,
     },
     ref,
   ) => {
@@ -187,6 +194,13 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                 onLevelFocusChange={onLevelFocusChange}
               />
             ))}
+            {hasLoadMoreItemsButton && level === 1 && (
+              <LoadMoreButton
+                isCompact={isCompact}
+                isLoadingMoreItems={isLoadingMoreItems}
+                onLoadMoreItems={onLoadMoreItems}
+              />
+            )}
           </ItemList>
         </DropdownPopup>
       </>,

@@ -38,9 +38,8 @@ const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   warnDeprecatedProps(config, rest);
 
-  const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
-  const [isError, setIsError] = useState(false);
   const [filter, setFilter] = useState('');
+  const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
   const [filteredItems, setFilteredItems] = useState(items);
   const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
   const [focusedOverlayLevel, setFocusedOverlayLevel] = useState(1);
@@ -116,7 +115,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           ref={connectedElementRef}
           isDisabled={isDisabled}
           isActive={isShowing}
-          isInvalid={isError}
+          isInvalid={!!errorMessage}
           isCompact={isCompact}
           data-testid="input-container"
         >
@@ -142,7 +141,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             />
           </IconRotator>
         </DropdownInputContainer>
-        {(isError || errorMessage) && <DropdownError errorText={errorMessage} />}
+        {!!errorMessage && <DropdownError errorText={errorMessage} />}
       </DropdownContainer>
       {isShowing && (
         <DropdownOverlay
@@ -160,6 +159,9 @@ const Dropdown: React.FC<DropdownProps> = ({
           focusedLevel={focusedOverlayLevel}
           onLevelFocusChange={setFocusedOverlayLevel}
           selectAllOption={hasSelectAllOption && isMulti ? selectAllOption : undefined}
+          hasLoadMoreItemsButton={hasLoadMoreItemsButton}
+          onLoadMoreItems={onLoadMoreItems}
+          isLoadingMoreItems={isLoadingMoreItems}
         />
       )}
     </>
