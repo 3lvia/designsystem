@@ -6,7 +6,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["The Elvis class <span class=\"code-text\">e-link--shortcut</span> is not deprecated."]
+          "changes": ["The Elvis class <span class=\"code-text\">e-link--shortcut</span> is now deprecated."]
         }
       ]
     },
