@@ -1,4 +1,14 @@
 {
+  "e-link--shortcut": {
+    "deprecateChildren": true,
+    "version": "9.5.0",
+    "replacement": {
+      "name": "Card",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/card"
+    },
+    "sunset": "March 2023"
+  },
   "e-tooltip": {
     "deprecateChildren": true,
     "version": "8.13.0",
