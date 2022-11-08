@@ -1,6 +1,6 @@
 import { Icon } from '@elvia/elvis-icon/react';
 import { IconButton, isSsr, useConnectedOverlay, useBreakpoint } from '@elvia/elvis-toolbox';
-import React, { KeyboardEvent, MouseEvent, useEffect, useRef, useState } from 'react';
+import React, { KeyboardEvent, MouseEvent, RefObject, useEffect, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
 import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropdown.types';
 import { flattenTree } from '../dropdownListUtils';
@@ -12,6 +12,7 @@ import { ItemValue } from './ItemValue';
 
 interface DropdownItemProps {
   overlayLevel: number;
+  focusedLevel: number;
   item: DropdownItemOption;
   currentVal?: DropdownValue;
   isCompact?: boolean;
@@ -23,7 +24,7 @@ interface DropdownItemProps {
   onLevelFocusChange: (newLevel: number) => void;
   onBackdropClick: () => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
-  focusedLevel: number;
+  listRef: RefObject<HTMLElement>;
 }
 
 export const DropdownItem: React.FC<DropdownItemProps> = ({
@@ -40,13 +41,14 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   onBackdropClick,
   pressedKey,
   focusedLevel,
+  listRef,
 }) => {
   const isGtMobile = useBreakpoint('gt-mobile');
   const itemRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
-  const { isShowing, setIsShowing } = useConnectedOverlay(itemRef, popoverRef, {
+  const { isShowing, setIsShowing } = useConnectedOverlay(isGtMobile ? itemRef : listRef, popoverRef, {
     offset: 0,
-    horizontalPosition: 'right',
+    horizontalPosition: isGtMobile ? 'right' : 'center',
     verticalPosition: 'top-inside',
     alignWidths: true,
   });
@@ -73,6 +75,11 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     }
   };
 
+  const openOverlay = () => {
+    onLevelFocusChange(overlayLevel + 1);
+    setIsShowing(true);
+  };
+
   // This prevents the input to be blurred while in search mode
   const onMouseDown = (ev: MouseEvent<HTMLDivElement>): void => {
     ev.preventDefault();
@@ -88,10 +95,10 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     }
     if (item.children) {
       if (isSsr()) {
-        setIsShowing(true);
+        openOverlay();
       } else {
         window.clearTimeout(hoverTimeoutId);
-        setHoverTimeoutId(window.setTimeout(() => setIsShowing(true), 200));
+        setHoverTimeoutId(window.setTimeout(() => openOverlay(), 200));
       }
     }
   };
@@ -120,8 +127,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   useEffect(() => {
     if (focusedValue === item.value && focusedLevel === overlayLevel) {
       if (pressedKey?.code === 'ArrowRight' && item.children) {
-        onLevelFocusChange(overlayLevel + 1);
-        setIsShowing(true);
+        openOverlay();
       } else if (pressedKey?.code === 'ArrowLeft' && focusedLevel > 0) {
         onLevelFocusChange(overlayLevel - 1);
       }
@@ -131,6 +137,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   useEffect(() => {
     if (focusedValue !== item.value) {
       if (isShowing) {
+        console.log('a');
         setIsShowing(false);
       } else if (hoverTimeoutId && !isSsr()) {
         window.clearTimeout(hoverTimeoutId);
@@ -138,6 +145,15 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       }
     }
   }, [focusedValue]);
+
+  useEffect(() => {
+    const closeSubMenusOnLevelFocus = () => {
+      if (focusedLevel === overlayLevel && isShowing) {
+        setIsShowing(false);
+      }
+    };
+    closeSubMenusOnLevelFocus();
+  }, [focusedLevel]);
 
   useEffect(() => {
     return () => {
@@ -204,7 +220,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
               onClick={(ev) => {
                 ev.stopPropagation();
                 onFocus(item);
-                setIsShowing(!isShowing);
+                openOverlay();
               }}
             >
               <Icon name="arrowRight" size={isCompact ? 'xs' : 'sm'} />
@@ -218,7 +234,10 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           ref={popoverRef}
           filteredItems={item.children ?? []}
           isCompact={!!isCompact}
-          onClose={() => setIsShowing(false)}
+          onClose={() => {
+            setIsShowing(false);
+            onLevelFocusChange(focusedLevel - 1);
+          }}
           isMulti={isMulti}
           onItemSelect={(value) => onItemSelect(value)}
           currentVal={currentVal}

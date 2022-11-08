@@ -28,14 +28,15 @@ export const CursorCurve = styled.div`
   position: absolute;
   top: 45px;
   right: 100%;
-  width: 40%;
-  height: 30%;
+  width: 30%;
+  height: 20%;
+  min-height: 40px;
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 80% 50%, 50% 20%);
 `;
 
 export const DropdownPopup = styled.div.attrs(() => ({
   role: 'listbox',
-}))<{ fadeOut: boolean; isCompact: boolean }>`
+}))<{ fadeOut: boolean; isCompact: boolean; isInvisible: boolean }>`
   position: absolute;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   animation: ${fadeIn} 300ms ease;
@@ -71,6 +72,12 @@ export const DropdownPopup = styled.div.attrs(() => ({
     }
     return '';
   }};
+
+  ${(props) =>
+    props.isInvisible &&
+    css`
+      visibility: hidden;
+    `};
 `;
 
 export const ItemList = styled.div`

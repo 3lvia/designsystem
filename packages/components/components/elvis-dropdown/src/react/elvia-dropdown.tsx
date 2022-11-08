@@ -14,6 +14,7 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { useWebComponentState } from '@elvia/elvis-toolbox';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
+import { getTreeDepth } from './dropdownListUtils';
 
 const Dropdown: React.FC<DropdownProps> = ({
   items = [],
@@ -82,6 +83,11 @@ const Dropdown: React.FC<DropdownProps> = ({
     } else if (webcomponent) {
       webcomponent.triggerEvent('onLoadMoreItems');
     }
+  };
+
+  const updateFocusedOverlayLevel = (newLevel: number): void => {
+    // Clamp overlay level between 0 and max tree depth
+    setFocusedOverlayLevel(Math.min(Math.max(0, newLevel), getTreeDepth(items)));
   };
 
   useEffect(() => {
@@ -172,7 +178,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           currentVal={currentVal}
           level={0}
           focusedLevel={focusedOverlayLevel}
-          onLevelFocusChange={setFocusedOverlayLevel}
+          onLevelFocusChange={updateFocusedOverlayLevel}
           selectAllOption={hasSelectAllOption && isMulti ? selectAllOption : undefined}
           hasLoadMoreItemsButton={hasLoadMoreItemsButton}
           onLoadMoreItems={emitLoadMoreItems}

@@ -10,3 +10,14 @@ export const flattenTree = (tree: DropdownItem[] = [], flatList: DropdownItem[] 
   });
   return flatList;
 };
+
+export const getTreeDepth = (list: DropdownItem[], level = 0): number => {
+  const levels = list.map((listItem) => {
+    if (listItem.children) {
+      return getTreeDepth(listItem.children, level + 1);
+    }
+    return level;
+  });
+
+  return Math.max(...levels);
+};

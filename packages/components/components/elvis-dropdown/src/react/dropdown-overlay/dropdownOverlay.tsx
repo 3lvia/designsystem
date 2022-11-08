@@ -1,8 +1,10 @@
+import { useBreakpoint } from '@elvia/elvis-toolbox';
 import React, { useEffect, useRef, useState, KeyboardEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { DropdownItem } from '../dropdown-item/dropdownItem';
 import { flattenTree } from '../dropdownListUtils';
 import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropdown.types';
+import { BackButton } from './backButton';
 import { Backdrop, CursorCurve, DropdownPopup, ItemList, NoItemsMessage } from './dropdownOverlayStyles';
 import { LoadMoreButton } from './loadMoreButton';
 import { SelectAllOption } from './selectAllOption';
@@ -60,6 +62,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     },
     ref,
   ) => {
+    const isGtMobile = useBreakpoint('gt-mobile');
     const [focusedItem, setFocusedItem] = useState<DropdownItemOption>();
     const listRef = useRef<HTMLDivElement>(null);
     const [fadeOut, setFadeOut] = useState(false);
@@ -67,6 +70,11 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       label: selectAllOption ?? '',
       value: `selectAll-${now}`,
       isDisabled: !selectAllOption,
+    };
+    const backItem: DropdownItemOption = {
+      label: 'Tilbake',
+      value: `back-${now}`,
+      isDisabled: isGtMobile,
     };
     const loadMoreItem: DropdownItemOption = {
       label: 'Last inn flere',
@@ -96,6 +104,9 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
 
     const getFullTabList = (): DropdownItemOption[] => {
       const itemList = filteredItems.slice();
+      if (!isGtMobile) {
+        itemList.unshift(backItem);
+      }
       if (selectAllOption) {
         itemList.unshift(selectAllItem);
       }
@@ -207,9 +218,19 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
           onAnimationEnd={onAnimationEnd}
           onMouseLeave={() => setFocusedItem(undefined)}
           isCompact={isCompact}
+          isInvisible={!isGtMobile && focusedLevel > level}
         >
           <ItemList ref={listRef}>
             {!filteredItems?.length && <NoItemsMessage>{noItemsText}</NoItemsMessage>}
+            {!isGtMobile && level !== 0 && (
+              <BackButton
+                item={backItem}
+                onClick={() => setFadeOut(true)}
+                onHover={(item) => setFocusedItem(item)}
+                focusedValue={focusedItem?.value}
+                isCompact={isCompact}
+              />
+            )}
             {selectAllOption && level === 0 && (
               <SelectAllOption
                 focusedValue={focusedItem?.value}
@@ -249,6 +270,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   setFadeOut(true);
                   onBackdropClick && onBackdropClick();
                 }}
+                listRef={listRef}
               />
             ))}
             {hasLoadMoreItemsButton && level === 0 && (

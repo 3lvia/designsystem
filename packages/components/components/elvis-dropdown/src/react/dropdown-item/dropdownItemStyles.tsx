@@ -1,4 +1,5 @@
 import { getColor } from '@elvia/elvis-colors';
+import { TertiaryButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
@@ -15,6 +16,10 @@ export const IconContainer = styled.div`
   width: 60px;
   display: grid;
   place-items: center;
+
+  ${TertiaryButton} {
+    cursor: inherit;
+  }
 `;
 
 export const DropdownItemStyles = styled.div.attrs(() => ({
@@ -25,6 +30,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   isDisabled?: boolean;
   isCompact?: boolean;
   isMulti?: boolean;
+  isInvisible?: boolean;
 }>`
   display: flex;
   gap: 16px;
