@@ -2,26 +2,27 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
-export const DropdownItemValue = styled.span`
+export const DropdownItemValue = styled.span<{ paddingRight: number }>`
   flex: 1;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-right: ${(props) => `${props.paddingRight}px`};
 `;
 
 export const IconContainer = styled.div`
-  width: 24px;
+  width: 60px;
   display: grid;
   place-items: center;
 `;
 
-export const DropdownItemStyles = styled.button.attrs(() => ({
+export const DropdownItemStyles = styled.div.attrs(() => ({
   role: 'option',
-  tabindex: -1,
 }))<{
   isActive?: boolean;
   isFocused?: boolean;
+  isDisabled?: boolean;
   isCompact?: boolean;
   isMulti?: boolean;
   isHidden?: boolean;
@@ -33,14 +34,16 @@ export const DropdownItemStyles = styled.button.attrs(() => ({
   width: 100%;
   background-color: ${getColor('elvia-on')};
   color: ${getColor('elvia-off')};
-  padding: 0 16px;
+  padding: 0 0 0 16px;
   align-items: center;
   cursor: pointer;
 
-  &:disabled {
-    cursor: not-allowed;
-    color: ${getColor('disabled')};
-  }
+  ${(props) =>
+    props.isDisabled &&
+    css`
+      cursor: not-allowed;
+      color: ${getColor('disabled')};
+    `};
 
   ${(props) =>
     props.isActive &&
@@ -56,7 +59,7 @@ export const DropdownItemStyles = styled.button.attrs(() => ({
         height: 40px;
 
         ${IconContainer} {
-          width: 16px;
+          width: 40px;
         }
       `;
     }

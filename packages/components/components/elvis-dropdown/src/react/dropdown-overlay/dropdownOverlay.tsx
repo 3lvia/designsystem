@@ -16,7 +16,6 @@ interface DropdownOverlayProps {
    */
   level: number;
   focusedLevel: number;
-  parentItem?: DropdownItemOption;
   filteredItems: DropdownItemOption[];
   allItems?: DropdownItemOption[];
   inputIsMouse: boolean;
@@ -40,7 +39,6 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     {
       level,
       focusedLevel,
-      parentItem,
       filteredItems,
       allItems,
       inputIsMouse,
@@ -185,7 +183,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
         >
           <ItemList ref={listRef}>
             {!filteredItems?.length && <NoItemsMessage>{noItemsText}</NoItemsMessage>}
-            {selectAllOption && level === 1 && (
+            {selectAllOption && level === 0 && (
               <SelectAllOption
                 isCompact={isCompact}
                 text={selectAllOption}
@@ -223,10 +221,9 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   setFadeOut(true);
                   onBackdropClick && onBackdropClick();
                 }}
-                listRef={listRef}
               />
             ))}
-            {hasLoadMoreItemsButton && level === 1 && (
+            {hasLoadMoreItemsButton && level === 0 && (
               <LoadMoreButton
                 isLoadingMoreItems={isLoadingMoreItems}
                 onLoadMoreItems={onLoadMoreItems}
@@ -234,7 +231,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
               />
             )}
           </ItemList>
-          {level !== 1 && <CursorCurve />}
+          {level !== 0 && <CursorCurve />}
         </DropdownPopup>
       </>,
       document.body,
