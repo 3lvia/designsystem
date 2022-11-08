@@ -1,6 +1,5 @@
-<span class="e-tooltip" [ngClass]="{ 'small-element': smallElementAnimation }">
-  <span class="copy-content" (click)="copyMessage(message)">
+<elvia-tooltip [content]="tooltipContent" [showDelay]="400">
+  <div slot="trigger" (click)="copyMessage(message)" class="ewc-tooltip-copy-content">
     <ng-content select="copyContent"></ng-content>
-  </span>
-  <span class="e-tooltip__content">{{ copyTooltip }}</span>
-</span>
+  </div>
+</elvia-tooltip>
