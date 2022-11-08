@@ -1,7 +1,7 @@
 {
   "e-link--shortcut": {
     "deprecateChildren": true,
-    "version": "9.4.0",
+    "version": "9.5.0",
     "replacement": {
       "name": "Card",
       "type": "component",

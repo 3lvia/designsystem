@@ -794,7 +794,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let deprecatedElvisClasses = [
     {
       name: "e-link--shortcut",
-      version: "9.4.0",
+      version: "9.5.0",
       replacement: {
           name: "Card",
           type: "component",
