@@ -173,9 +173,7 @@ export class CMSPageComponent implements OnDestroy {
    */
   copyAnchor(id: string): void {
     const anchorTitleElement = document.getElementById(id);
-    console.log(id);
     const tooltipElement = document.getElementById(`elvia-tooltip-${id}`) as ElvisComponentWrapper;
-    console.log(tooltipElement);
     tooltipElement.setProps({ content: 'Copied!' });
 
     anchorTitleElement.classList.add('anchor-copied');
