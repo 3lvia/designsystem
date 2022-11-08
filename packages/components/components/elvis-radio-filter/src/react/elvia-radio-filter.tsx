@@ -1,4 +1,5 @@
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { useWebComponentState } from '@elvia/elvis-toolbox';
 import React, { CSSProperties, FC } from 'react';
 import { RadioFilterGroup, RadioFilterInput, RadioFilterLabel, RadioFilterTitle } from './styledComponents';
 
@@ -31,19 +32,12 @@ export const RadioFilter: FC<RadioFilterProps> = ({
   webcomponent,
   ...rest
 }) => {
-  const updateValue = (newValue: string) => {
-    if (!webcomponent) {
-      valueOnChange && valueOnChange(newValue);
-    } else if (webcomponent) {
-      webcomponent.setProps({ value: newValue }, true);
-      webcomponent.triggerEvent('valueOnChange', newValue);
-    }
-  };
+  const [selectedValue, setSelectedValue] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
 
   return (
     <RadioFilterGroup
       role="radiogroup"
-      className={`${className ? className : ''}`}
+      className={className ?? ''}
       style={inlineStyle}
       data-testid="radio-filter-group"
       aria-label={groupAriaLabel}
@@ -51,14 +45,18 @@ export const RadioFilter: FC<RadioFilterProps> = ({
     >
       {items &&
         items.map(({ label, value: optionsValue }) => (
-          <RadioFilterLabel key={optionsValue} isSelected={optionsValue === value} data-testid="radio-button">
+          <RadioFilterLabel
+            key={optionsValue}
+            isSelected={optionsValue === selectedValue}
+            data-testid="radio-button"
+          >
             <RadioFilterInput
               type="radio"
               name={name}
               aria-label={ariaLabel ? ariaLabel : label + ' filtrering valgt'}
-              aria-checked={optionsValue === value}
-              checked={optionsValue === value}
-              onChange={() => updateValue(optionsValue)}
+              aria-checked={optionsValue === selectedValue}
+              checked={optionsValue === selectedValue}
+              onChange={() => setSelectedValue(optionsValue)}
             ></RadioFilterInput>
             <RadioFilterTitle>{label}</RadioFilterTitle>
           </RadioFilterLabel>
