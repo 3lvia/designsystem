@@ -28,6 +28,6 @@ export class ComponentSectionComponent {
     } else {
       anchorUrl = anchorUrl + this.router.url + '#' + modifiedAnchor;
     }
-    this.copyService.copyToClipBoard(anchorUrl);
+    this.copyService.copyToClipboard(anchorUrl);
   }
 }

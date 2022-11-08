@@ -195,6 +195,6 @@ export class IconDocComponent implements OnInit {
   copyIconClass(iconTitle: string): void {
     this.copied = true;
     const iconClass = 'e-icon e-icon--' + iconTitle + ' e-icon--sm';
-    this.copyService.copyToClipBoard(iconClass);
+    this.copyService.copyToClipboard(iconClass);
   }
 }

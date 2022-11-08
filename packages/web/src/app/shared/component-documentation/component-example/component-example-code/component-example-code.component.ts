@@ -205,7 +205,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, OnDestr
   }
 
   copyCode(): void {
-    this.copyService.copyToClipBoard(this.activeCode);
+    this.copyService.copyToClipboard(this.activeCode);
     this.copyMessage = 'Copied!';
     const copyTimeout = setTimeout(() => {
       this.copyMessage = '';
