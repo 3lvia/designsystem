@@ -3,12 +3,19 @@ import { TertiaryButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
-export const DropdownItemValue = styled.span<{ paddingRight: number }>`
+export const TooltipContainer = styled.div`
+  overflow: hidden;
   flex: 1;
-  text-align: left;
-  white-space: nowrap;
+`;
+
+export const TooltipTextContainer = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+export const DropdownItemValue = styled.span<{ paddingRight: number }>`
+  text-align: left;
   padding-right: ${(props) => `${props.paddingRight}px`};
 `;
 

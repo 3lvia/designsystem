@@ -8,7 +8,7 @@ import { DropdownItemStyles, IconContainer } from './dropdownItemStyles';
 import { Checkbox } from '../checkbox/checkbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { statusToIconMap } from '../statusToIconMap';
-import { ItemValue } from './ItemValue';
+import { ItemValue } from './itemValue';
 
 interface DropdownItemProps {
   overlayLevel: number;

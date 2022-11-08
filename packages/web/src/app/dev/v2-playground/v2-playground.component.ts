@@ -71,7 +71,7 @@ export class v2PlaygroundComponent {
   dropdownItems: ElviaDropdownItem[] = [
     {
       value: 'norge',
-      label: 'Norge',
+      label: 'Norge med en veldig lang tekst som kommer til å overflowe',
       children: [
         { label: 'Oslo', value: 'oslo' },
         {
