@@ -34,15 +34,20 @@ export const CursorCurve = styled.div`
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 80% 50%, 50% 20%);
 `;
 
+export const DropdownPopupContainer = styled.div`
+  position: absolute;
+  z-index: 99999;
+`;
+
 export const DropdownPopup = styled.div.attrs(() => ({
   role: 'listbox',
 }))<{ fadeOut: boolean; isCompact: boolean; isInvisible: boolean }>`
   position: absolute;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   animation: ${fadeIn} 300ms ease;
-  z-index: 99999;
   border-radius: 4px;
-  // TODO: Border radius
+  overflow: hidden;
+  width: 100%;
 
   ${(props) =>
     props.isCompact &&

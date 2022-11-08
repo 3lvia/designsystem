@@ -5,7 +5,14 @@ import { DropdownItem } from '../dropdown-item/dropdownItem';
 import { flattenTree } from '../dropdownListUtils';
 import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropdown.types';
 import { BackButton } from './backButton';
-import { Backdrop, CursorCurve, DropdownPopup, ItemList, NoItemsMessage } from './dropdownOverlayStyles';
+import {
+  Backdrop,
+  CursorCurve,
+  DropdownPopup,
+  DropdownPopupContainer,
+  ItemList,
+  NoItemsMessage,
+} from './dropdownOverlayStyles';
 import { LoadMoreButton } from './loadMoreButton';
 import { SelectAllOption } from './selectAllOption';
 
@@ -211,81 +218,83 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
           }}
           data-testid="backdrop"
         />
-        <DropdownPopup
-          ref={ref}
-          data-testid="popover"
-          fadeOut={fadeOut}
-          onAnimationEnd={onAnimationEnd}
-          onMouseLeave={() => setFocusedItem(undefined)}
-          isCompact={isCompact}
-          isInvisible={!isGtMobile && focusedLevel > level}
-        >
-          <ItemList ref={listRef}>
-            {!filteredItems?.length && <NoItemsMessage>{noItemsText}</NoItemsMessage>}
-            {!isGtMobile && level !== 0 && (
-              <BackButton
-                item={backItem}
-                onClick={() => setFadeOut(true)}
-                onHover={(item) => setFocusedItem(item)}
-                focusedValue={focusedItem?.value}
-                isCompact={isCompact}
-              />
-            )}
-            {selectAllOption && level === 0 && (
-              <SelectAllOption
-                focusedValue={focusedItem?.value}
-                isCompact={isCompact}
-                item={selectAllItem}
-                items={allItems ?? []}
-                selectedItems={currentVal}
-                onClick={toggleAllSelection}
-                onHover={(item) => setFocusedItem(item)}
-              />
-            )}
-            {filteredItems.map((item) => (
-              <DropdownItem
-                overlayLevel={level}
-                key={item.value}
-                item={item}
-                focusedValue={focusedItem?.value ?? ''}
-                onFocus={(item) => {
-                  if (item.value !== focusedItem?.value) {
-                    setFocusedItem(item);
-                  }
-                }}
-                isCompact={isCompact}
-                isMulti={isMulti}
-                inputIsMouse={inputIsMouse}
-                currentVal={currentVal}
-                onItemSelect={(item) => {
-                  onItemSelect(item);
-                  if (!isMulti) {
-                    setFadeOut(true);
-                  }
-                }}
-                focusedLevel={focusedLevel}
-                pressedKey={pressedKey}
-                onLevelFocusChange={onLevelFocusChange}
-                onBackdropClick={() => {
-                  setFadeOut(true);
-                  onBackdropClick && onBackdropClick();
-                }}
-                listRef={listRef}
-              />
-            ))}
-            {hasLoadMoreItemsButton && level === 0 && (
-              <LoadMoreButton
-                focusedValue={focusedItem?.value}
-                item={loadMoreItem}
-                isLoadingMoreItems={isLoadingMoreItems}
-                onLoadMoreItems={onLoadMoreItems}
-                isCompact={isCompact}
-                onHover={(item) => setFocusedItem(item)}
-              />
-            )}
-          </ItemList>
+        <DropdownPopupContainer ref={ref} data-testid="popover">
           {level !== 0 && <CursorCurve />}
-        </DropdownPopup>
+          <DropdownPopup
+            fadeOut={fadeOut}
+            onAnimationEnd={onAnimationEnd}
+            onMouseLeave={() => {
+              setFocusedItem(undefined);
+            }}
+            isCompact={isCompact}
+            isInvisible={!isGtMobile && focusedLevel > level}
+          >
+            <ItemList ref={listRef}>
+              {!filteredItems?.length && <NoItemsMessage>{noItemsText}</NoItemsMessage>}
+              {!isGtMobile && level !== 0 && (
+                <BackButton
+                  item={backItem}
+                  onClick={() => setFadeOut(true)}
+                  onHover={(item) => setFocusedItem(item)}
+                  focusedValue={focusedItem?.value}
+                  isCompact={isCompact}
+                />
+              )}
+              {selectAllOption && level === 0 && (
+                <SelectAllOption
+                  focusedValue={focusedItem?.value}
+                  isCompact={isCompact}
+                  item={selectAllItem}
+                  items={allItems ?? []}
+                  selectedItems={currentVal}
+                  onClick={toggleAllSelection}
+                  onHover={(item) => setFocusedItem(item)}
+                />
+              )}
+              {filteredItems.map((item) => (
+                <DropdownItem
+                  overlayLevel={level}
+                  key={item.value}
+                  item={item}
+                  focusedValue={focusedItem?.value ?? ''}
+                  onFocus={(item) => {
+                    if (item.value !== focusedItem?.value) {
+                      setFocusedItem(item);
+                    }
+                  }}
+                  isCompact={isCompact}
+                  isMulti={isMulti}
+                  inputIsMouse={inputIsMouse}
+                  currentVal={currentVal}
+                  onItemSelect={(item) => {
+                    onItemSelect(item);
+                    if (!isMulti) {
+                      setFadeOut(true);
+                    }
+                  }}
+                  focusedLevel={focusedLevel}
+                  pressedKey={pressedKey}
+                  onLevelFocusChange={onLevelFocusChange}
+                  onBackdropClick={() => {
+                    setFadeOut(true);
+                    onBackdropClick && onBackdropClick();
+                  }}
+                  listRef={listRef}
+                />
+              ))}
+              {hasLoadMoreItemsButton && level === 0 && (
+                <LoadMoreButton
+                  focusedValue={focusedItem?.value}
+                  item={loadMoreItem}
+                  isLoadingMoreItems={isLoadingMoreItems}
+                  onLoadMoreItems={onLoadMoreItems}
+                  isCompact={isCompact}
+                  onHover={(item) => setFocusedItem(item)}
+                />
+              )}
+            </ItemList>
+          </DropdownPopup>
+        </DropdownPopupContainer>
       </>,
       document.body,
     );

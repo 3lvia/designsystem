@@ -137,7 +137,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   useEffect(() => {
     if (focusedValue !== item.value) {
       if (isShowing) {
-        console.log('a');
+        console.log('a', item.label, focusedValue);
         setIsShowing(false);
       } else if (hoverTimeoutId && !isSsr()) {
         window.clearTimeout(hoverTimeoutId);
