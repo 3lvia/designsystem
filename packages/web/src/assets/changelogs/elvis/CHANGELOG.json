@@ -1,6 +1,16 @@
 {
   "content": [
     {
+      "version": "9.4.1",
+      "date": "November 8, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["The Elvis class <span class=\"code-text\">e-link--shortcut</span> is now deprecated."]
+        }
+      ]
+    },
+    {
       "version": "9.4.0",
       "date": "October 27, 2022",
       "changelog": [
