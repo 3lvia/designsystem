@@ -74,14 +74,13 @@ export const DropdownPopup = styled.div.attrs(() => ({
 `;
 
 export const ItemList = styled.div`
-  background-color: ${getColor('elvia-charge')};
   max-height: calc(48px * 5 + 48px / 2);
   overflow-y: auto;
 `;
 
 export const NoItemsMessage = styled.div`
-  text-align: center;
   ${getTypographyCss('text-md')}
+  text-align: center;
   padding: 40px 16px;
 `;
 
@@ -114,6 +113,7 @@ export const LoadMoreButtonStyles = styled.div<{ isLoading?: boolean }>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  background: ${getColor('elvia-on')};
 
   ${TertiaryButton} {
     cursor: inherit;
@@ -128,5 +128,5 @@ export const LoadMoreButtonStyles = styled.div<{ isLoading?: boolean }>`
       ${SpinContainer} {
         animation: ${RotateAnimation} 1s linear infinite;
       }
-    `}
+    `};
 `;

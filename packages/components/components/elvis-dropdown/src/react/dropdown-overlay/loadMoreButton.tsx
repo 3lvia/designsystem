@@ -1,34 +1,38 @@
+import React from 'react';
 import { Icon } from '@elvia/elvis-icon/react';
 import { TertiaryButton } from '@elvia/elvis-toolbox';
-import React, { useState } from 'react';
+import { DropdownItem } from '../elviaDropdown.types';
 import { LoadMoreButtonStyles, SpinContainer } from './dropdownOverlayStyles';
 
 interface LoadMoreProps {
+  item: DropdownItem;
+  focusedValue?: string;
   onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
   isCompact: boolean;
+  onHover: (item: DropdownItem) => void;
 }
 
 export const LoadMoreButton: React.FC<LoadMoreProps> = ({
+  item,
+  focusedValue,
   onLoadMoreItems,
   isLoadingMoreItems,
   isCompact,
+  onHover,
 }) => {
-  const [isActive, setIsActive] = useState(false);
-
   return (
     <>
       <LoadMoreButtonStyles
         onClick={() => !isLoadingMoreItems && onLoadMoreItems && onLoadMoreItems()}
-        onMouseEnter={() => !isLoadingMoreItems && setIsActive(true)}
-        onMouseLeave={() => setIsActive(false)}
+        onMouseEnter={() => onHover(item)}
         isLoading={isLoadingMoreItems}
       >
-        <TertiaryButton tabIndex={-1} isActive={isActive} size={isCompact ? 'sm' : 'md'}>
+        <TertiaryButton tabIndex={-1} isActive={focusedValue === item.value} size={isCompact ? 'sm' : 'md'}>
           <SpinContainer>
             <Icon size="xs" name="sync" />
           </SpinContainer>
-          Last inn flere
+          {item.label}
         </TertiaryButton>
       </LoadMoreButtonStyles>
     </>

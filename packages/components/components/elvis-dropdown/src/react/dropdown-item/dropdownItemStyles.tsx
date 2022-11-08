@@ -25,7 +25,6 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   isDisabled?: boolean;
   isCompact?: boolean;
   isMulti?: boolean;
-  isHidden?: boolean;
 }>`
   display: flex;
   gap: 16px;
@@ -75,11 +74,5 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     (!props.isActive || props.isMulti) &&
     css`
       background-color: ${getColor('grey-05')};
-    `};
-
-  ${(props) =>
-    props.isHidden &&
-    css`
-      display: none;
     `};
 `;

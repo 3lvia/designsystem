@@ -48,7 +48,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
   const [filteredItems, setFilteredItems] = useState(items);
   const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
-  const [focusedOverlayLevel, setFocusedOverlayLevel] = useState(1);
+  const [focusedOverlayLevel, setFocusedOverlayLevel] = useState(0);
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);

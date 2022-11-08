@@ -6,23 +6,25 @@ import { DropdownItem, DropdownValue } from '../elviaDropdown.types';
 import { Divider } from './dropdownOverlayStyles';
 
 interface SelectAllOptionProps {
-  text: string;
+  item: DropdownItem;
+  focusedValue?: string;
   isCompact?: boolean;
-  isFocused: boolean;
   items: DropdownItem[];
   selectedItems: DropdownValue;
   onClick: () => void;
+  onHover: (item: DropdownItem) => void;
 }
 
 type CheckboxState = 'checked' | 'indeterminate' | 'none';
 
 export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
-  text,
+  item,
+  focusedValue,
   isCompact,
-  isFocused,
   items,
   selectedItems,
   onClick,
+  onHover,
 }) => {
   const [checkboxState, setCheckboxState] = useState<CheckboxState>('none');
 
@@ -43,14 +45,19 @@ export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
 
   return (
     <>
-      <DropdownItemStyles onClick={() => onClick()} isFocused={isFocused} isCompact={isCompact}>
+      <DropdownItemStyles
+        onClick={() => onClick()}
+        onMouseEnter={() => onHover(item)}
+        isFocused={focusedValue === item.value}
+        isCompact={isCompact}
+      >
         <Checkbox
           isCompact={isCompact}
           isChecked={checkboxState === 'checked'}
           isIndeterminate={checkboxState === 'indeterminate'}
-          isFocused={isFocused}
+          isFocused={focusedValue === item.value}
         />
-        {text}
+        {item.label}
       </DropdownItemStyles>
       <Divider />
     </>
