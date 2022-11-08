@@ -51,6 +51,9 @@ snapshots:
   - url: /components/table.html
     name: Table
     widths: [766, 1440]
+  - url: /components/tag.html
+    name: Tag
+    widths: [766, 1440]
   - url: /components/toggle.html
     name: Toggle
     widths: [766, 1440]
