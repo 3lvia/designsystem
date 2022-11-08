@@ -16,6 +16,7 @@ interface DropdownOverlayProps {
    */
   level: number;
   focusedLevel: number;
+  parentItem?: DropdownItemOption;
   filteredItems: DropdownItemOption[];
   allItems?: DropdownItemOption[];
   inputIsMouse: boolean;
@@ -39,6 +40,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     {
       level,
       focusedLevel,
+      parentItem,
       filteredItems,
       allItems,
       inputIsMouse,
@@ -221,6 +223,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   setFadeOut(true);
                   onBackdropClick && onBackdropClick();
                 }}
+                listRef={listRef}
               />
             ))}
             {hasLoadMoreItemsButton && level === 1 && (

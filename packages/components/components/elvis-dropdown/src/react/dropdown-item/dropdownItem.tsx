@@ -1,6 +1,6 @@
 import { Icon } from '@elvia/elvis-icon/react';
 import { isSsr, useBreakpoint, useConnectedOverlay } from '@elvia/elvis-toolbox';
-import React, { KeyboardEvent, MouseEvent, useEffect, useRef, useState } from 'react';
+import React, { KeyboardEvent, MouseEvent, RefObject, useEffect, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
 import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropdown.types';
 import { flattenTree } from '../dropdownListUtils';
@@ -24,6 +24,7 @@ interface DropdownItemProps {
   onBackdropClick: () => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   focusedLevel: number;
+  listRef: RefObject<HTMLElement>;
 }
 
 export const DropdownItem: React.FC<DropdownItemProps> = ({
@@ -40,16 +41,21 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   onBackdropClick,
   pressedKey,
   focusedLevel,
+  listRef,
 }) => {
   const isGtMobile = useBreakpoint('gt-mobile');
   const buttonRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
-  const { isShowing, setIsShowing, updatePreferredPosition } = useConnectedOverlay(buttonRef, popoverRef, {
-    offset: 0,
-    horizontalPosition: isGtMobile ? 'right' : 'center',
-    verticalPosition: 'top-inside',
-    alignWidths: true,
-  });
+  const { isShowing, setIsShowing, updatePreferredPosition } = useConnectedOverlay(
+    isGtMobile ? buttonRef : listRef,
+    popoverRef,
+    {
+      offset: 0,
+      horizontalPosition: isGtMobile ? 'right' : 'center',
+      verticalPosition: 'top-inside',
+      alignWidths: true,
+    },
+  );
   const [hoverTimeoutId, setHoverTimeoutId] = useState<number>();
 
   const getSelectableChildren = (): DropdownItemOption[] => {
@@ -59,12 +65,17 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     return [];
   };
 
+  const currentValIncludesItem = (item: DropdownItemOption): boolean => {
+    const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
+    return selectedValues.includes(item.value);
+  };
+
   const isSelected = (): boolean => {
     const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
     if (item.children) {
       return getSelectableChildren().every((child) => selectedValues.includes(child.value));
     } else {
-      return selectedValues.includes(item.value);
+      return currentValIncludesItem(item);
     }
   };
 
@@ -82,24 +93,28 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         setIsShowing(true);
       } else {
         window.clearTimeout(hoverTimeoutId);
-        setHoverTimeoutId(window.setTimeout(() => setIsShowing(true), 300));
+        setHoverTimeoutId(window.setTimeout(() => setIsShowing(true), 200));
       }
     }
   };
 
   const onItemClick = () => {
     if (isMulti && item.children) {
-      onItemSelect(getSelectableChildren().map((child) => child.value));
+      const children = getSelectableChildren();
+      if (!children.every(currentValIncludesItem)) {
+        onItemSelect(children.filter((item) => !currentValIncludesItem(item)).map((child) => child.value));
+      } else {
+        onItemSelect(children.map((child) => child.value));
+      }
     } else {
       onItemSelect([item.value]);
     }
   };
 
   const isPartiallyChecked = (): boolean => {
-    if (isMulti && Array.isArray(currentVal) && item.children) {
-      const flatChildren = flattenTree(item.children);
-      const childIsInSelectedLIst = (child: DropdownItemOption): boolean => currentVal.includes(child.value);
-      return flatChildren.some(childIsInSelectedLIst) && !flatChildren.every(childIsInSelectedLIst);
+    if (isMulti) {
+      const children = getSelectableChildren();
+      return children.some(currentValIncludesItem) && !children.every(currentValIncludesItem);
     }
     return false;
   };
@@ -129,6 +144,15 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   useEffect(() => {
     updatePreferredPosition('top-inside', isGtMobile ? 'right' : 'left-inside');
   }, [isGtMobile]);
+
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutId && !isSsr()) {
+        window.clearTimeout(hoverTimeoutId);
+        setHoverTimeoutId(undefined);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -189,6 +213,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           level={overlayLevel + 1}
           ref={popoverRef}
           filteredItems={item.children ?? []}
+          parentItem={item}
           isCompact={!!isCompact}
           onClose={() => setIsShowing(false)}
           isMulti={isMulti}
@@ -197,12 +222,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           pressedKey={pressedKey}
           focusedLevel={focusedLevel}
           inputIsMouse={inputIsMouse}
-          onLevelFocusChange={(newLevel) => {
-            if (newLevel === overlayLevel) {
-              setIsShowing(false);
-            }
-            onLevelFocusChange(newLevel);
-          }}
+          onLevelFocusChange={onLevelFocusChange}
           onBackdropClick={onBackdropClick}
         />
       )}
