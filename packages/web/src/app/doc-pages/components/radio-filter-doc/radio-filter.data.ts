@@ -39,7 +39,7 @@ const radioFilterData: ComponentData = {
       isRequired: true,
       type: '(value: string) => void',
       description:
-        'Gets called every time a new filter is selected and returns the value of the selected filter. To make radio-filters work it is necessary to update the value when this callback function is triggered.',
+        'Gets called every time a new filter is selected and returns the value of the selected filter.',
     },
     className: {
       isRequired: false,
@@ -62,7 +62,7 @@ const radioFilterData: ComponentData = {
   value={"read"}
   name={"readRadioFilters"}
   ariaLabel={"{value} filtrering valgt"}
-  valueOnChange={(event) => updateSelectedFilter(event)}
+  valueOnChange={(event) => handleValueChange(event)}
 ></RadioFilter>
 `,
   codeAngular: `<elvia-radio-filter 
@@ -74,7 +74,7 @@ const radioFilterData: ComponentData = {
   [value]="'read'"
   [name]="'readRadioFilters'"
   [ariaLabel]="'{value} filtrering valgt'"
-  (valueOnChange)="updateSelectedFilter($event.detail.value)"
+  (valueOnChange)="handleValueChange($event.detail.value)"
 ></elvia-radio-filter>
 `,
   codeVue: `<elvia-radio-filter 
@@ -86,11 +86,13 @@ const radioFilterData: ComponentData = {
   :value="'read'"
   :name="'readRadioFilters'"
   :ariaLabel="'{value} filtrering valgt'"
-  @value-on-change="updateSelectedFilter($event.detail.value)"
+  @value-on-change="handleValueChange($event.detail.value)"
 ></elvia-radio-filter>
 `,
   codeNativeHTML: `<elvia-radio-filter 
   id="example-elvia-radio-filter"
+  name="readRadioFilters"
+  value="read"
 ></elvia-radio-filter>
 `,
   codeNativeScript: `  const radioFilter = document.getElementById('example-elvia-radio-filter');
@@ -99,14 +101,9 @@ const radioFilterData: ComponentData = {
     { label: "Read", value: "read" },
     { label: "Unread", value: "unread" }
   ];
-  let value = 'read';
   radioFilter.setProps({items: filters});
-  radioFilter.setProps({value: value});
-  radioFilter.setProps({name: 'readRadioFilters'});
-  radioFilter.setProps({ariaLabel: value + ' filtrering valgt'});
   radioFilter.addEventListener('valueOnChange', (event) => {
-    radioFilter.setProps({ariaLabel: event.detail.value + ' filtrering valgt'});
-    radioFilter.setProps({value: event.detail.value});
+    console.log('Do something with the new value: ', event.detail.value);
   });
 `,
 };

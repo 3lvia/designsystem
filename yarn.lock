@@ -3058,7 +3058,8 @@ __metadata:
   resolution: "@elvia/elvis-radio-filter@workspace:packages/components/components/elvis-radio-filter"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-toolbox": ^5.8.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ">=16.8.0"
