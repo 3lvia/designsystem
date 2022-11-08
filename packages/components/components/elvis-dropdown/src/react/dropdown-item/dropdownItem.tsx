@@ -21,6 +21,7 @@ interface DropdownItemProps {
   inputIsMouse: boolean;
   onItemSelect: (value: string[]) => void;
   onFocus: (item: DropdownItemOption) => void;
+  onClick: (item: DropdownItemOption) => void;
   onLevelFocusChange: (newLevel: number) => void;
   onBackdropClick: () => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
@@ -37,6 +38,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   inputIsMouse,
   onItemSelect,
   onFocus,
+  onClick,
   onLevelFocusChange,
   onBackdropClick,
   pressedKey,
@@ -103,19 +105,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     }
   };
 
-  const onItemClick = () => {
-    if (isMulti && item.children) {
-      const children = getSelectableChildren();
-      if (!children.every(currentValIncludesItem)) {
-        onItemSelect(children.filter((item) => !currentValIncludesItem(item)).map((child) => child.value));
-      } else {
-        onItemSelect(children.map((child) => child.value));
-      }
-    } else {
-      onItemSelect([item.value]);
-    }
-  };
-
   const isPartiallyChecked = (): boolean => {
     if (isMulti) {
       const children = getSelectableChildren();
@@ -173,7 +162,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         isDisabled={item.isDisabled}
         isFocused={focusedValue === item.value}
         isMulti={isMulti}
-        onClick={onItemClick}
+        onClick={() => onClick(item)}
         onMouseEnter={() => onMouseOver()}
         onMouseDown={onMouseDown}
       >

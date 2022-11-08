@@ -95,10 +95,26 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       }
     };
 
-    const selectItem = (item: DropdownItemOption): void => {
+    const currentValIncludesItem = (item: DropdownItemOption): boolean => {
+      const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
+      return selectedValues.includes(item.value);
+    };
+
+    const getSelectableChildren = (items: DropdownItemOption[]): DropdownItemOption[] => {
+      return flattenTree(items ?? []).filter((child) => !child.isDisabled && !child.children);
+    };
+
+    const selectItem = (item: DropdownItemOption) => {
       if (!item.isDisabled) {
-        if (item.children) {
-          onItemSelect(item.children.map((child) => child.value));
+        if (isMulti && item.children) {
+          const children = getSelectableChildren(item.children);
+          if (!children.every(currentValIncludesItem)) {
+            onItemSelect(
+              children.filter((item) => !currentValIncludesItem(item)).map((child) => child.value),
+            );
+          } else {
+            onItemSelect(children.map((child) => child.value));
+          }
         } else {
           onItemSelect([item.value]);
         }
@@ -146,18 +162,13 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     };
 
     const toggleAllSelection = (): void => {
-      const allValues = flattenTree(filteredItems)
-        .filter((item) => !item.isDisabled && !item.children)
-        .map((item) => item.value);
+      const allValues = getSelectableChildren(filteredItems);
       const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
       if (allValues.length === selectedValues.length) {
-        onItemSelect(Array.from(allValues));
+        onItemSelect(allValues.map((item) => item.value));
       } else {
-        const unselectedValues = Array.from(allValues).filter((value) => {
-          const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
-          return !selectedValues.includes(value);
-        });
-        onItemSelect(unselectedValues);
+        const unselectedItems = allValues.filter((value) => !currentValIncludesItem(value));
+        onItemSelect(unselectedItems.map((item) => item.value));
       }
     };
 
@@ -272,6 +283,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                       setFadeOut(true);
                     }
                   }}
+                  onClick={(item) => selectItem(item)}
                   focusedLevel={focusedLevel}
                   pressedKey={pressedKey}
                   onLevelFocusChange={onLevelFocusChange}
