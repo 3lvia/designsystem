@@ -1,10 +1,10 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss';
 
 .flex-img-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     display: block;
   }
 }
@@ -13,7 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     align-items: flex-start;
   }
 }
@@ -21,21 +21,21 @@
 .figma-img {
   width: 105px;
   margin-right: 48px;
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     width: 98px;
     margin-right: 24px;
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     width: 64px;
     margin-right: 20px;
   }
 }
 
 .color-text {
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     width: 50%;
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     width: 100%;
   }
 }
@@ -46,11 +46,11 @@
     min-width: 221px;
     margin-left: 16px;
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     max-width: unset;
     width: 50%;
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     width: 100%;
     margin-left: 0px;
     margin-top: 48px;
@@ -60,7 +60,7 @@
 .brand-text-container {
   display: flex;
   justify-content: space-around;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     flex-direction: column;
     margin: -16px 24px;
   }
@@ -72,7 +72,7 @@
   font-size: 44px;
   line-height: 120%;
   text-transform: uppercase;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     margin: 16px 0;
   }
 }

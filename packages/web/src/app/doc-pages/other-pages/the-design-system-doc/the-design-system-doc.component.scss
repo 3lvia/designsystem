@@ -1,4 +1,4 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .quoteContainer {
   display: flex;
@@ -8,7 +8,7 @@
   .quoteText {
     margin-left: 40px;
 
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       margin-left: 31px;
     }
   }
@@ -24,13 +24,13 @@
     flex-direction: column;
     margin-left: 65px;
 
-    @include breakpoint-up(MinDesktop) {
+    @include breakpoints.breakpoint-up(MinDesktop) {
       margin-left: 30px;
     }
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       margin-left: 52px;
     }
-    @include breakpoint-up(Mbile) {
+    @include breakpoints.breakpoint-up(Mbile) {
       margin-left: 29px;
     }
   }

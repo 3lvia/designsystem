@@ -69,6 +69,11 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.addDisplayStyleToCustomElement();
   }
 
+  disconnectedCallback(): void {
+    this.throttleRenderReactDOM.cancel();
+    ReactDOM.unmountComponentAtNode(this.mountPoint);
+  }
+
   attributeChangedCallback(): void {
     // Slot items
     if (this.webComponent.getComponentData().slotItems === true) {

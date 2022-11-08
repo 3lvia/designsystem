@@ -1,6 +1,6 @@
-@import '../../shared/shared-sizes.scss';
-@import '../../shared/shared-animations';
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@use '../../shared/shared-animations';
+@use '../../shared/shared-sizes.scss' as sizes;
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 $text-line-height: 32px;
 .wrapper {
@@ -9,7 +9,7 @@ $text-line-height: 32px;
 }
 .navbar-phone {
   display: none;
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     &.show-block {
       display: flex;
       flex-direction: column;
@@ -24,10 +24,10 @@ $text-line-height: 32px;
   }
 }
 .navbar {
-  height: calc(100% - 64px - 48px - #{$header-height});
-  top: $header-height + 64px;
+  height: calc(100% - 64px - 48px - #{sizes.$header-height});
+  top: sizes.$header-height + 64px;
   width: 18%;
-  bottom: $footer-height;
+  bottom: sizes.$footer-height;
   position: fixed;
   overflow-y: auto;
   overflow-x: hidden;
@@ -35,12 +35,12 @@ $text-line-height: 32px;
   background: transparent;
   z-index: 0;
 
-  @include breakpoint-up(MaxDesktop) {
+  @include breakpoints.breakpoint-up(MaxDesktop) {
     width: 13%;
     max-width: 250px;
   }
 
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     display: none;
   }
 
@@ -48,7 +48,7 @@ $text-line-height: 32px;
     display: none;
     align-items: center;
     justify-content: flex-start;
-    @include breakpoint-up(Tablet) {
+    @include breakpoints.breakpoint-up(Tablet) {
       display: flex;
       justify-content: center;
     }
