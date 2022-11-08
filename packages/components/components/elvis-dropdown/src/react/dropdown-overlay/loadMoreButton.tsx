@@ -1,11 +1,12 @@
-import React from 'react';
-import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';
-import { Divider } from './dropdownOverlayStyles';
+import { Icon } from '@elvia/elvis-icon/react';
+import { TertiaryButton } from '@elvia/elvis-toolbox';
+import React, { useState } from 'react';
+import { LoadMoreButtonStyles, SpinContainer } from './dropdownOverlayStyles';
 
 interface LoadMoreProps {
   onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
-  isCompact?: boolean;
+  isCompact: boolean;
 }
 
 export const LoadMoreButton: React.FC<LoadMoreProps> = ({
@@ -13,16 +14,23 @@ export const LoadMoreButton: React.FC<LoadMoreProps> = ({
   isLoadingMoreItems,
   isCompact,
 }) => {
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <>
-      <Divider />
-      <DropdownItemStyles
-        onClick={() => onLoadMoreItems && onLoadMoreItems()}
-        disabled={isLoadingMoreItems}
-        isCompact={isCompact}
+      <LoadMoreButtonStyles
+        onClick={() => !isLoadingMoreItems && onLoadMoreItems && onLoadMoreItems()}
+        onMouseEnter={() => !isLoadingMoreItems && setIsActive(true)}
+        onMouseLeave={() => setIsActive(false)}
+        isLoading={isLoadingMoreItems}
       >
-        Last inn flere
-      </DropdownItemStyles>
+        <TertiaryButton tabIndex={-1} isActive={isActive} size={isCompact ? 'sm' : 'md'}>
+          <SpinContainer>
+            <Icon size="xs" name="sync" />
+          </SpinContainer>
+          Last inn flere
+        </TertiaryButton>
+      </LoadMoreButtonStyles>
     </>
   );
 };

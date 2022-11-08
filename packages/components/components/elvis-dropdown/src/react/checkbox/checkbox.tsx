@@ -11,7 +11,13 @@ export interface CheckboxProps {
 
 export const Checkbox: React.FC<CheckboxProps> = (props) => {
   return (
-    <StyledCheckbox {...props}>
+    <StyledCheckbox
+      isIndeterminate={props.isIndeterminate && !props.isChecked}
+      isChecked={props.isChecked}
+      isDisabled={props.isDisabled}
+      isCompact={props.isCompact}
+      isFocused={props.isFocused}
+    >
       <IndeterminateLine />
     </StyledCheckbox>
   );

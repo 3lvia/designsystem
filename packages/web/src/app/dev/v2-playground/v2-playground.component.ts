@@ -67,11 +67,31 @@ export class v2PlaygroundComponent {
   ];
 
   // Dropdown 2
-  selectedDropdownItem = 'spania';
+  selectedDropdownItem = 'sverige';
   dropdownItems: ElviaDropdownItem[] = [
-    { value: 'norge', label: 'Norge med en veldig lang tekst som kommer til å føre til overflow' },
+    {
+      value: 'norge',
+      label: 'Norge (velg dette for å ikke sette noe spessielt land)',
+      children: [
+        { label: 'Oslo', value: 'oslo' },
+        {
+          label: 'Bergen',
+          value: 'bergen',
+          children: [
+            { label: 'Arna', value: 'arna' },
+            { label: 'Bergenhus', value: 'bergenhus' },
+            { label: 'Fana', value: 'fana' },
+            { label: 'Fyllingsdalen', value: 'fyllingsdalen' },
+            { label: 'Laksevåg', value: 'Laksevåg' },
+          ],
+        },
+        { label: 'Trondheim', value: 'trondheim' },
+        { label: 'Stavanger', value: 'stavanger' },
+        { label: 'Kristiansand', value: 'kristiansand' },
+      ],
+    },
     { value: 'sverige', label: 'Sverige', status: 'info' },
-    { value: 'danmark', label: 'Danmark', status: 'error', tooltip: 'Danmark mangler info' },
+    { value: 'danmark', label: 'Danmark' },
     {
       value: 'england',
       label: 'England',
@@ -81,16 +101,12 @@ export class v2PlaygroundComponent {
         { value: 'birmingham', label: 'Birmingham' },
       ],
     },
-    { value: 'russland', label: 'Russland', isDisabled: true },
-    { value: 'polen', label: 'Polen' },
-    { value: 'romania', label: 'Romania' },
-    { value: 'frankrike', label: 'Frankrike' },
-    { value: 'spania', label: 'Spania' },
-    { value: 'portugal', label: 'Portugal' },
-    { value: 'italia', label: 'Italia' },
-    { value: 'finland', label: 'Finland' },
-    { value: 'østerriket', label: 'Østerriket' },
   ];
+  isLoadingMoreItems = false;
+  setLoading = () => {
+    this.isLoadingMoreItems = true;
+    setTimeout(() => (this.isLoadingMoreItems = false), 4000);
+  };
 
   // Modal
   isModalShowing = false;

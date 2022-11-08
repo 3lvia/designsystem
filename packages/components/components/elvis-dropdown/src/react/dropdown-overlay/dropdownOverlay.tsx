@@ -1,11 +1,10 @@
-import { useInputModeDetection } from '@elvia/elvis-toolbox';
 import React, { useEffect, useRef, useState, KeyboardEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { DropdownItem } from '../dropdown-item/dropdownItem';
 import { flattenTree } from '../dropdownListUtils';
 import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropdown.types';
-import { Backdrop, DropdownPopup, ItemList, NoItemsMessage } from './dropdownOverlayStyles';
-import { LoadMoreButton } from './LoadMoreButton';
+import { Backdrop, CursorCurve, DropdownPopup, ItemList, NoItemsMessage } from './dropdownOverlayStyles';
+import { LoadMoreButton } from './loadMoreButton';
 import { SelectAllOption } from './selectAllOption';
 
 interface DropdownOverlayProps {
@@ -19,15 +18,15 @@ interface DropdownOverlayProps {
   focusedLevel: number;
   filteredItems: DropdownItemOption[];
   allItems?: DropdownItemOption[];
+  inputIsMouse: boolean;
   isCompact: boolean;
   isMulti: boolean;
   onClose: () => void;
   noItemsText?: string;
   currentVal?: DropdownValue;
   onItemSelect: (value: string[]) => void;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
   onLevelFocusChange: (newLevel: number) => void;
+  onBackdropClick?: () => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   selectAllOption?: string;
   hasLoadMoreItemsButton?: boolean;
@@ -42,6 +41,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       focusedLevel,
       filteredItems,
       allItems,
+      inputIsMouse,
       isCompact,
       isMulti,
       onClose,
@@ -49,9 +49,8 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       currentVal,
       onItemSelect,
       pressedKey,
-      onMouseEnter,
-      onMouseLeave,
       onLevelFocusChange,
+      onBackdropClick,
       selectAllOption,
       hasLoadMoreItemsButton,
       onLoadMoreItems,
@@ -59,8 +58,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     },
     ref,
   ) => {
-    const [focusedItem, setFocusedItem] = useState<DropdownItemOption>(filteredItems[0]);
-    const { isMouse: inputIsMouse } = useInputModeDetection();
+    const [focusedItem, setFocusedItem] = useState<DropdownItemOption>();
     const listRef = useRef<HTMLDivElement>(null);
     const [fadeOut, setFadeOut] = useState(false);
 
@@ -85,10 +83,12 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     };
 
     const handlerOverlayKeyboardNavigation = (ev: KeyboardEvent<HTMLInputElement>): void => {
-      const currentIndex = filteredItems.findIndex((item) => item.value === focusedItem.value);
+      const currentIndex = filteredItems.findIndex((item) => item.value === focusedItem?.value ?? '');
       if (['Space', 'Enter', 'Tab'].includes(ev.code)) {
         ev.preventDefault();
-        selectItem(focusedItem);
+        if (focusedItem) {
+          selectItem(focusedItem);
+        }
       } else if (ev.code === 'ArrowUp') {
         ev.preventDefault();
         const newIndex = currentIndex - 1 < 0 ? filteredItems.length - 1 : currentIndex - 1;
@@ -123,45 +123,66 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     }, [pressedKey]);
 
     useEffect(() => {
-      if (focusedItem) {
-        return;
-      }
+      const focusOnSelectedValue = (): void => {
+        if (focusedItem || !currentVal) {
+          return;
+        }
 
-      if (isMulti) {
-        setFocusedItem(filteredItems[0]);
-      } else if (typeof currentVal === 'string') {
-        const currentValInList = filteredItems.find((item) => item.value === currentVal);
-        currentValInList ? setFocusedItem(currentValInList) : setFocusedItem(filteredItems[0]);
-      }
+        if (isMulti) {
+          setFocusedItem(filteredItems[0]);
+        } else if (typeof currentVal === 'string') {
+          const currentValInList = filteredItems.find((item) => item.value === currentVal);
+          if (currentValInList) {
+            setFocusedItem(currentValInList);
+          }
+        }
+      };
+
+      focusOnSelectedValue();
     }, [currentVal]);
 
     useEffect(() => {
-      const scrollItemListToFocusedItem = () => {
+      const scrollItemListToFocusedItem = (itemToFocus: DropdownItemOption) => {
         const buttonHeight = isCompact ? 40 : 48;
-        const index = filteredItems.findIndex((item) => item.value === focusedItem.value);
+        const index = filteredItems.findIndex((item) => item.value === itemToFocus.value);
         listRef.current?.scrollTo({
           top: buttonHeight * index - listRef.current?.offsetHeight / 2,
         });
       };
 
-      if (!inputIsMouse) {
-        scrollItemListToFocusedItem();
+      if (!inputIsMouse && focusedItem) {
+        scrollItemListToFocusedItem(focusedItem);
       }
     }, [focusedItem]);
 
+    useEffect(() => {
+      const focusFirstItemIfInputIsKeyboard = () => {
+        if (!inputIsMouse) {
+          setFocusedItem(filteredItems[0]);
+        }
+      };
+      focusFirstItemIfInputIsKeyboard();
+    }, []);
+
     return createPortal(
       <>
-        <Backdrop onClick={() => setFadeOut(true)} data-testid="backdrop" />
+        <Backdrop
+          onClick={() => {
+            setFadeOut(true);
+            onBackdropClick && onBackdropClick();
+          }}
+          data-testid="backdrop"
+        />
         <DropdownPopup
           ref={ref}
           data-testid="popover"
           fadeOut={fadeOut}
           onAnimationEnd={onAnimationEnd}
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
+          onMouseLeave={() => setFocusedItem(undefined)}
+          isCompact={isCompact}
         >
-          <ItemList ref={listRef} isCompact={isCompact}>
-            {!filteredItems?.length && <NoItemsMessage isCompact={isCompact}>{noItemsText}</NoItemsMessage>}
+          <ItemList ref={listRef}>
+            {!filteredItems?.length && <NoItemsMessage>{noItemsText}</NoItemsMessage>}
             {selectAllOption && level === 1 && (
               <SelectAllOption
                 isCompact={isCompact}
@@ -177,8 +198,12 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                 overlayLevel={level}
                 key={item.value}
                 item={item}
-                focusedValue={focusedItem.value}
-                onFocus={setFocusedItem}
+                focusedValue={focusedItem?.value ?? ''}
+                onFocus={(item) => {
+                  if (item.value !== focusedItem?.value) {
+                    setFocusedItem(item);
+                  }
+                }}
                 isCompact={isCompact}
                 isMulti={isMulti}
                 inputIsMouse={inputIsMouse}
@@ -192,16 +217,21 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                 focusedLevel={focusedLevel}
                 pressedKey={pressedKey}
                 onLevelFocusChange={onLevelFocusChange}
+                onBackdropClick={() => {
+                  setFadeOut(true);
+                  onBackdropClick && onBackdropClick();
+                }}
               />
             ))}
             {hasLoadMoreItemsButton && level === 1 && (
               <LoadMoreButton
-                isCompact={isCompact}
                 isLoadingMoreItems={isLoadingMoreItems}
                 onLoadMoreItems={onLoadMoreItems}
+                isCompact={isCompact}
               />
             )}
           </ItemList>
+          {level !== 1 && <CursorCurve />}
         </DropdownPopup>
       </>,
       document.body,

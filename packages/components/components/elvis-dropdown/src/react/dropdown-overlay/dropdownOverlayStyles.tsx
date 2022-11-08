@@ -1,4 +1,5 @@
 import { getColor } from '@elvia/elvis-colors';
+import { TertiaryButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
 
@@ -23,16 +24,44 @@ const fadeOut = keyframes`
   }
 `;
 
+export const CursorCurve = styled.div`
+  position: absolute;
+  top: 45px;
+  right: 100%;
+  width: 40%;
+  height: 30%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 80% 50%, 50% 20%);
+`;
+
 export const DropdownPopup = styled.div.attrs(() => ({
   role: 'listbox',
-}))<{ fadeOut: boolean }>`
+}))<{ fadeOut: boolean; isCompact: boolean }>`
   position: absolute;
-  background-color: ${getColor('elvia-on')};
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   animation: ${fadeIn} 300ms ease;
   z-index: 99999;
   border-radius: 4px;
-  overflow: hidden;
+  // TODO: Border radius
+
+  ${(props) =>
+    props.isCompact &&
+    css`
+      ${ItemList} {
+        max-height: calc(40px * 5 + 40px / 2);
+      }
+
+      ${LoadMoreButtonStyles} {
+        height: 40px;
+      }
+
+      ${NoItemsMessage} {
+        ${getTypographyCss('text-sm')};
+      }
+
+      ${CursorCurve} {
+        top: 39px;
+      }
+    `}
 
   ${(props) => {
     if (props.fadeOut) {
@@ -44,21 +73,16 @@ export const DropdownPopup = styled.div.attrs(() => ({
   }};
 `;
 
-export const ItemList = styled.div<{ isCompact?: boolean }>`
-  max-height: ${(props) => (props.isCompact ? 'calc(40px * 5 + 40px / 2)' : 'calc(48px * 5 + 48px / 2)')};
+export const ItemList = styled.div`
+  background-color: ${getColor('elvia-charge')};
+  max-height: calc(48px * 5 + 48px / 2);
   overflow-y: auto;
 `;
 
-export const NoItemsMessage = styled.div<{ isCompact?: boolean }>`
+export const NoItemsMessage = styled.div`
   text-align: center;
+  ${getTypographyCss('text-md')}
   padding: 40px 16px;
-
-  ${(props) => {
-    if (props.isCompact) {
-      return getTypographyCss('text-sm');
-    }
-    return getTypographyCss('text-md');
-  }}
 `;
 
 export const Backdrop = styled.div`
@@ -74,4 +98,35 @@ export const Divider = styled.hr`
   border: 0px solid ${getColor('grey-10')};
   border-bottom-width: 1px;
   margin: 0;
+`;
+
+export const RotateAnimation = keyframes`
+  from { transform: rotate(0deg) }
+  to { transform: rotate(-360deg)}
+`;
+
+export const SpinContainer = styled.div``;
+
+export const LoadMoreButtonStyles = styled.div<{ isLoading?: boolean }>`
+  height: 48px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  ${TertiaryButton} {
+    cursor: inherit;
+    pointer-events: none;
+  }
+
+  ${(props) =>
+    props.isLoading &&
+    css`
+      cursor: progress;
+
+      ${SpinContainer} {
+        animation: ${RotateAnimation} 1s linear infinite;
+      }
+    `}
 `;

@@ -1,8 +1,8 @@
 import { Icon } from '@elvia/elvis-icon/react';
-import { isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
+import { isSsr, useBreakpoint, useConnectedOverlay } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, MouseEvent, useEffect, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
-import { DropdownItem as DropdownItemOptions, DropdownValue } from '../elviaDropdown.types';
+import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropdown.types';
 import { flattenTree } from '../dropdownListUtils';
 import { DropdownItemStyles, IconContainer } from './dropdownItemStyles';
 import { Checkbox } from '../checkbox/checkbox';
@@ -12,15 +12,16 @@ import { ItemValue } from './ItemValue';
 
 interface DropdownItemProps {
   overlayLevel: number;
-  item: DropdownItemOptions;
+  item: DropdownItemOption;
   currentVal?: DropdownValue;
   isCompact?: boolean;
   isMulti: boolean;
   focusedValue: string;
   inputIsMouse: boolean;
   onItemSelect: (value: string[]) => void;
-  onFocus: (item: DropdownItemOptions) => void;
+  onFocus: (item: DropdownItemOption) => void;
   onLevelFocusChange: (newLevel: number) => void;
+  onBackdropClick: () => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   focusedLevel: number;
 }
@@ -36,25 +37,32 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   onItemSelect,
   onFocus,
   onLevelFocusChange,
+  onBackdropClick,
   pressedKey,
   focusedLevel,
 }) => {
-  const [listIsHovered, setListIsHovered] = useState(false);
-  const [isPartiallyChecked, setIsPartiallyChecked] = useState(false);
+  const isGtMobile = useBreakpoint('gt-mobile');
   const buttonRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
-  const { isShowing, setIsShowing } = useConnectedOverlay(buttonRef, popoverRef, {
+  const { isShowing, setIsShowing, updatePreferredPosition } = useConnectedOverlay(buttonRef, popoverRef, {
     offset: 0,
-    horizontalPosition: 'right',
+    horizontalPosition: isGtMobile ? 'right' : 'center',
     verticalPosition: 'top-inside',
     alignWidths: true,
   });
-  const [hoverTimeoutId, setHoverTimeoutId] = useState(0);
+  const [hoverTimeoutId, setHoverTimeoutId] = useState<number>();
+
+  const getSelectableChildren = (): DropdownItemOption[] => {
+    if (item.children) {
+      return flattenTree(item.children).filter((child) => !child.isDisabled && !child.children);
+    }
+    return [];
+  };
 
   const isSelected = (): boolean => {
     const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
     if (item.children) {
-      return item.children.every((child) => selectedValues.includes(child.value));
+      return getSelectableChildren().every((child) => selectedValues.includes(child.value));
     } else {
       return selectedValues.includes(item.value);
     }
@@ -74,37 +82,27 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         setIsShowing(true);
       } else {
         window.clearTimeout(hoverTimeoutId);
-        setHoverTimeoutId(window.setTimeout(() => setIsShowing(true), 400));
+        setHoverTimeoutId(window.setTimeout(() => setIsShowing(true), 300));
       }
-    }
-  };
-
-  const onMouseLeave = () => {
-    if (item.children) {
-      if (!isSsr()) {
-        window.clearTimeout(hoverTimeoutId);
-      }
-      setIsShowing(false);
     }
   };
 
   const onItemClick = () => {
-    if (item.children) {
-      onItemSelect(item.children.map((child) => child.value));
+    if (isMulti && item.children) {
+      onItemSelect(getSelectableChildren().map((child) => child.value));
     } else {
       onItemSelect([item.value]);
     }
   };
 
-  useEffect(() => {
+  const isPartiallyChecked = (): boolean => {
     if (isMulti && Array.isArray(currentVal) && item.children) {
       const flatChildren = flattenTree(item.children);
-      const childIsInSelectedLIst = (child: DropdownItemOptions): boolean => currentVal.includes(child.value);
-      setIsPartiallyChecked(
-        flatChildren.some(childIsInSelectedLIst) && !flatChildren.every(childIsInSelectedLIst),
-      );
+      const childIsInSelectedLIst = (child: DropdownItemOption): boolean => currentVal.includes(child.value);
+      return flatChildren.some(childIsInSelectedLIst) && !flatChildren.every(childIsInSelectedLIst);
     }
-  }, [currentVal]);
+    return false;
+  };
 
   useEffect(() => {
     if (focusedValue === item.value) {
@@ -113,10 +111,24 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         setIsShowing(true);
       } else if (pressedKey?.code === 'ArrowLeft' && focusedLevel === overlayLevel && focusedLevel > 1) {
         onLevelFocusChange(overlayLevel - 1);
-        setIsShowing(false);
       }
     }
   }, [pressedKey]);
+
+  useEffect(() => {
+    if (focusedValue !== item.value) {
+      if (isShowing) {
+        setIsShowing(false);
+      } else if (hoverTimeoutId && !isSsr()) {
+        window.clearTimeout(hoverTimeoutId);
+        setHoverTimeoutId(undefined);
+      }
+    }
+  }, [focusedValue]);
+
+  useEffect(() => {
+    updatePreferredPosition('top-inside', isGtMobile ? 'right' : 'left-inside');
+  }, [isGtMobile]);
 
   return (
     <>
@@ -128,14 +140,13 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         isFocused={focusedValue === item.value}
         isMulti={isMulti}
         disabled={item.isDisabled}
-        onMouseOver={() => onMouseOver()}
-        onMouseLeave={() => onMouseLeave()}
+        onMouseEnter={() => onMouseOver()}
         onMouseDown={onMouseDown}
       >
         {isMulti && (
           <Checkbox
             isFocused={focusedValue === item.value}
-            isIndeterminate={isPartiallyChecked}
+            isIndeterminate={isPartiallyChecked()}
             isChecked={isSelected()}
             isCompact={isCompact}
             isDisabled={item.isDisabled}
@@ -173,11 +184,9 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           </IconContainer>
         )}
       </DropdownItemStyles>
-      {(isShowing || listIsHovered) && (
+      {isShowing && (
         <DropdownOverlay
           level={overlayLevel + 1}
-          onMouseEnter={() => setListIsHovered(true)}
-          onMouseLeave={() => setListIsHovered(false)}
           ref={popoverRef}
           filteredItems={item.children ?? []}
           isCompact={!!isCompact}
@@ -187,12 +196,14 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           currentVal={currentVal}
           pressedKey={pressedKey}
           focusedLevel={focusedLevel}
+          inputIsMouse={inputIsMouse}
           onLevelFocusChange={(newLevel) => {
             if (newLevel === overlayLevel) {
               setIsShowing(false);
             }
             onLevelFocusChange(newLevel);
           }}
+          onBackdropClick={onBackdropClick}
         />
       )}
     </>

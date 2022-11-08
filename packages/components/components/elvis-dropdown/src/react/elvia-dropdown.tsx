@@ -2,7 +2,12 @@ import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useRef, useState
 
 import { config } from './config';
 import { DropdownProps } from './elviaDropdown.types';
-import { warnDeprecatedProps, FormFieldLabel, useConnectedOverlay } from '@elvia/elvis-toolbox';
+import {
+  warnDeprecatedProps,
+  FormFieldLabel,
+  useConnectedOverlay,
+  useInputModeDetection,
+} from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import { DropdownInput } from './dropdown-input/dropdownInput';
 import { DropdownContainer, DropdownInputContainer, IconRotator } from './styledComponents';
@@ -39,6 +44,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   warnDeprecatedProps(config, rest);
 
   const [filter, setFilter] = useState('');
+  const { isMouse: inputIsMouse } = useInputModeDetection();
   const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
   const [filteredItems, setFilteredItems] = useState(items);
   const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
@@ -65,8 +71,16 @@ const Dropdown: React.FC<DropdownProps> = ({
         }
       });
       setCurrentVal(arrayCopy);
-    } else if (!isMulti && typeof currentVal === 'string') {
+    } else {
       setCurrentVal(values[0]);
+    }
+  };
+
+  const emitLoadMoreItems = (): void => {
+    if (!webcomponent && onLoadMoreItems) {
+      onLoadMoreItems();
+    } else if (webcomponent) {
+      webcomponent.triggerEvent('onLoadMoreItems');
     }
   };
 
@@ -152,6 +166,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           isCompact={isCompact}
           onClose={() => setIsShowing(false)}
           filteredItems={filteredItems}
+          inputIsMouse={inputIsMouse}
           allItems={items}
           pressedKey={pressedKey}
           currentVal={currentVal}
@@ -160,7 +175,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           onLevelFocusChange={setFocusedOverlayLevel}
           selectAllOption={hasSelectAllOption && isMulti ? selectAllOption : undefined}
           hasLoadMoreItemsButton={hasLoadMoreItemsButton}
-          onLoadMoreItems={onLoadMoreItems}
+          onLoadMoreItems={emitLoadMoreItems}
           isLoadingMoreItems={isLoadingMoreItems}
         />
       )}
