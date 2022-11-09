@@ -1,5 +1,4 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-/* import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service'; */
 
 @Component({
   selector: 'app-copy',
