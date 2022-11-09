@@ -1,5 +1,5 @@
 import { getColor } from '@elvia/elvis-colors';
-import { TertiaryButton } from '@elvia/elvis-toolbox';
+import { IconButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
@@ -24,7 +24,7 @@ export const IconContainer = styled.div`
   display: grid;
   place-items: center;
 
-  ${TertiaryButton} {
+  ${IconButton} {
     cursor: inherit;
   }
 `;

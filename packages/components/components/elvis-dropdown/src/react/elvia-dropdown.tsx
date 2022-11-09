@@ -1,7 +1,7 @@
 import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useRef, useState } from 'react';
 
 import { config } from './config';
-import { DropdownProps } from './elviaDropdown.types';
+import { DropdownItem, DropdownProps } from './elviaDropdown.types';
 import {
   warnDeprecatedProps,
   FormFieldLabel,
@@ -50,6 +50,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [filteredItems, setFilteredItems] = useState(items);
   const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
   const [focusedOverlayLevel, setFocusedOverlayLevel] = useState(0);
+  const [focusedItem, setFocusedItem] = useState<DropdownItem>();
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -88,6 +89,12 @@ const Dropdown: React.FC<DropdownProps> = ({
   const updateFocusedOverlayLevel = (newLevel: number): void => {
     // Clamp overlay level between 0 and max tree depth
     setFocusedOverlayLevel(Math.min(Math.max(0, newLevel), getTreeDepth(items)));
+  };
+
+  const updateFocusedItem = (item?: DropdownItem): void => {
+    if (item?.value !== focusedItem?.value) {
+      setFocusedItem(item);
+    }
   };
 
   useEffect(() => {
@@ -151,6 +158,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             onOpenDropdown={() => setIsShowing(true)}
             onKeyPress={setPressedKey}
             currentVal={currentVal}
+            focusedItem={focusedItem}
           />
 
           <IconRotator isRotated={isShowing}>
@@ -183,6 +191,8 @@ const Dropdown: React.FC<DropdownProps> = ({
           hasLoadMoreItemsButton={hasLoadMoreItemsButton}
           onLoadMoreItems={emitLoadMoreItems}
           isLoadingMoreItems={isLoadingMoreItems}
+          focusedItem={focusedItem}
+          setFocusedItem={updateFocusedItem}
         />
       )}
     </>

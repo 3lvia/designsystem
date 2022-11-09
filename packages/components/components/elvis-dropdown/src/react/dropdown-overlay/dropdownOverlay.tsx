@@ -41,6 +41,8 @@ interface DropdownOverlayProps {
   hasLoadMoreItemsButton?: boolean;
   onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
+  focusedItem?: DropdownItemOption;
+  setFocusedItem: (item?: DropdownItemOption) => void;
 }
 
 const now = Date.now();
@@ -66,11 +68,12 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       hasLoadMoreItemsButton,
       onLoadMoreItems,
       isLoadingMoreItems,
+      focusedItem,
+      setFocusedItem,
     },
     ref,
   ) => {
     const isGtMobile = useBreakpoint('gt-mobile');
-    const [focusedItem, setFocusedItem] = useState<DropdownItemOption>();
     const listRef = useRef<HTMLDivElement>(null);
     const [fadeOut, setFadeOut] = useState(false);
     const selectAllItem: DropdownItemOption = {
@@ -267,12 +270,8 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   overlayLevel={level}
                   key={item.value}
                   item={item}
-                  focusedValue={focusedItem?.value ?? ''}
-                  onFocus={(item) => {
-                    if (item.value !== focusedItem?.value) {
-                      setFocusedItem(item);
-                    }
-                  }}
+                  focusedItem={focusedItem}
+                  setFocusedItem={setFocusedItem}
                   isCompact={isCompact}
                   isMulti={isMulti}
                   inputIsMouse={inputIsMouse}

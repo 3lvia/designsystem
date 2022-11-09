@@ -50,6 +50,7 @@ export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
         onMouseEnter={() => onHover(item)}
         isFocused={focusedValue === item.value}
         isCompact={isCompact}
+        id={`elvia-dropdown-item-${item.value}`}
       >
         <Checkbox
           isCompact={isCompact}

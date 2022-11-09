@@ -17,6 +17,7 @@ interface Props {
   dropdownIsOpen: boolean;
   onOpenDropdown: () => void;
   currentVal?: DropdownValue | null;
+  focusedItem?: DropdownItem;
 }
 
 export const DropdownInput: React.FC<Props> = ({
@@ -31,6 +32,7 @@ export const DropdownInput: React.FC<Props> = ({
   dropdownIsOpen,
   onOpenDropdown,
   currentVal,
+  focusedItem,
 }) => {
   const [inputValue, setInputValue] = useState('');
 
@@ -84,6 +86,7 @@ export const DropdownInput: React.FC<Props> = ({
         <Icon name={placeholderIcon} size="xs" color={isDisabled ? 'disabled' : 'placeholder'} />
       )}
       <Input
+        aria-activedescendant={focusedItem ? `elvia-dropdown-item-${focusedItem.value}` : undefined}
         disabled={isDisabled}
         placeholder={placeholder}
         onChange={(ev) => onInputChange(ev.target.value ?? '')}
