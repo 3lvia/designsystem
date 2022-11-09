@@ -71,7 +71,9 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   disconnectedCallback(): void {
     this.throttleRenderReactDOM.cancel();
-    ReactDOM.unmountComponentAtNode(this.mountPoint);
+    if (this.mountPoint) {
+      ReactDOM.render(null as unknown as React.ReactElement, this.mountPoint);
+    }
   }
 
   attributeChangedCallback(): void {
