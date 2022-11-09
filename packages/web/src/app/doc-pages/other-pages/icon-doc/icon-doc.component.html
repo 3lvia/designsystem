@@ -201,10 +201,9 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Options'">
         <ng-container ngProjectAs="sectionContent">
-          In using icons the correct way, the benefits are plentiful. Icons are more easily recognizable than
-          text, language independant, aesthetically pleasing, and help separate actions from content. Using a
-          common dictionary of icons across Elvia makes it easier for users interact with our platform and
-          secure a holistic visual communication and identity.
+          Icons are more easily recognizable than text, language independent, aesthetically pleasing, and help
+          separate actions from content. Using a common dictionary of icons across Elvia makes it easier for
+          users to interact with our platform and secure a holistic visual communication and identity.
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Text or not?'">
@@ -216,7 +215,7 @@
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'License'">
         <ng-container ngProjectAs="sectionContent">
-          Our icon library is based on Streamline icons. This license includes royalty free usage in an
+          Our icon library is based on Streamline icons. This license includes royalty-free usage in an
           unlimited number of projects without the need to credit the source. Note that you can only use our
           icons in Elvia projects, and they may not be distributed outside of the organization. You can read
           more about Streamline and their license guidelines
@@ -241,10 +240,10 @@
       <app-component-subsection [sectionTitle]="'Sizes'">
         <ng-container ngProjectAs="sectionContent">
           <p>
-            Our icons are available in sizes from XXS to XXL based on multiplications of 8 pixels. When
-            choosing an icon size, keep in mind the screen size and accessibility considerations. Mobiles and
-            tablets requires a larger touch surface and disabilities can make it difficult to interact with
-            and/or see icons that are too small.
+            Icons are available in sizes from XXS to XXL based on multiplications of 8 pixels. When choosing
+            an icon size, keep in mind the screen size and accessibility considerations. Mobiles and tablets
+            require a larger touch surface and disabilities can make it difficult to interact with and/or see
+            icons that are too small.
           </p>
           <div>
             <ul class="e-list">
@@ -310,9 +309,12 @@
         <ng-container ngProjectAs="sectionContent">
           <p>
             The green color on icons is typically used for the hover state, indicating that it is interactive.
-            A small pop-of-green is also used draw focus to the most important detail to better understand the
-            significance of the icon. However, these icons are typically not interactive. The colors red and
-            orange is reserved to convey errors and warnings to the users. Check out our defined
+            A small pop-of-green is also used to draw focus to the most important detail to better understand
+            the significance of the icon. However, these icons are typically not interactive. The colors red
+            and orange are reserved to convey errors and warnings to the users.
+          </p>
+          <p>
+            Check out our
             <a class="e-link e-link--inline" [routerLink]="['/brand/color']">color palette</a>
             for a more in-depth understanding of the Elvia colors and how to use them.
           </p>
@@ -327,12 +329,14 @@
         <ng-container ngProjectAs="sectionContent">
           <p>Inverted icons should only be used on darker backgrounds or for dark mode.</p>
           <p>
-            Gray outed icons signifies to the users that the interaction is disabled and cannot be clicked at
-            this time. However, always try to avoid disabling any elements. Not all users understand the
-            disabled state, confusing it with broken, and lead to a very frustrating user experiance.
-            Moreover, disabled elements often creates trouble for users with vision impearments, critiqued for
-            it’s low contrast and leaving out critical infromation for users dependant on screen readers. Try
-            using appropriate contextual feedback instead.
+            Grayed-out icons signify that the interaction is disabled and can not be clicked. Try to avoid
+            disabling any elements. Not all users understand the disabled state, confusing it with broken –
+            leading to a frustrating user experience.
+          </p>
+          <p>
+            Disabled elements often create trouble for users with vision impairments, critiqued for their low
+            contrast and leaving out critical information for users dependent on screen readers. Try using
+            appropriate contextual feedback instead.
           </p>
           <app-component-example-v1
             [codeHTML]="example3"
@@ -350,8 +354,8 @@
           </p>
           <p>The stroke weight of icons should match thickness of the surrounding typography.</p>
           <p>
-            Additionally, it’s important to be consistent in choice of fill and weight - don't mix outlined
-            icons together with filled icons, or use differing stroke weights for grouped icons. Be
+            Additionally, it’s important to be consistent in the choice of fill and weight – don't mix
+            outlined icons with filled icons, or use differing stroke weights for grouped icons. Be
             consistent.
           </p>
           <div class="doDontIcons">
@@ -400,8 +404,8 @@
       <app-component-subsection [sectionTitle]="'General'">
         <ng-container ngProjectAs="sectionContent">
           <div>
-            All Elvia icons are available through the @elvia/elvis package or CDN, but we also offer all elvia
-            icons as a separate npm package and as web/React component.
+            All Elvia icons are available through the @elvia/elvis package or CDN, but we also offer all Elvia
+            icons as a separate npm package and as a web/React component.
             <a class="e-link e-link--inline" href="https://www.npmjs.com/package/@elvia/elvis-assets-icons">
               @elvia/elvis-assets-icons
             </a>
@@ -432,8 +436,11 @@
           <p>
             <strong>How it works:</strong>
             <br />
-            Elvis.js looks for e-icon and similar classes and injects a img tag with the SVG icon at the
-            desired location.
+            Elvis.js looks for
+            <span class="code-text">e-icon</span>
+            and similar classes and injects a
+            <span class="code-text">img</span>
+            tag with the SVG icon at the desired location.
           </p>
         </ng-container>
       </app-component-subsubsection>
@@ -444,8 +451,9 @@
             Elvis-assets-icons npm package
           </a>
           <div class="e-mt-16">
-            All icons are accessible in a separate package from Elvis (@elvia/elvis-assets-icons) as SVGs
-            within a JS module. Import the required icon individually where you need them:
+            All icons are accessible in a separate package from Elvis (
+            <span class="code-text">@elvia/elvis-assets-icons</span>
+            ) as SVGs within a JS module. Import the required icon individually where you need them:
           </div>
           <div class="e-mt-16">
             <app-component-example-code
@@ -486,7 +494,7 @@
         <ng-container ngProjectAs="sectionContent">
           <a href="https://www.npmjs.com/package/@elvia/elvis-icon" class="e-link">Elvis-icon npm package</a>
           <p class="e-mb-0">
-            Icons are also accessible through our own icon component, as a custom element or React component.
+            Icons are also accessible through our icon component, as a custom element or React component.
           </p>
           <app-component-example-generator
             [componentData]="componentData"
