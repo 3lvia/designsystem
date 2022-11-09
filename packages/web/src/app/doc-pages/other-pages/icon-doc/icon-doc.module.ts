@@ -17,6 +17,7 @@ import { ComponentExampleGeneratorModule } from 'src/app/shared/component-docume
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
+import '@elvia/elvis-radio-filter';
 
 @NgModule({
   imports: [
