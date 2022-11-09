@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
 import { HighlightService } from 'src/app/core/services/highlight.service';
-import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { VersionService } from 'src/app/core/services/version.service';
 import { ExampleCodeService } from '../../example-code.service';
 import { Subscription } from 'rxjs';
@@ -43,7 +42,6 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, OnDestr
 
   constructor(
     private highlightService: HighlightService,
-    private copyService: CopyToClipboardService,
     private versionService: VersionService,
     private codeService: ExampleCodeService,
   ) {}
@@ -205,7 +203,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, OnDestr
   }
 
   copyCode(): void {
-    this.copyService.copyToClipboard(this.activeCode);
+    navigator.clipboard.writeText(this.activeCode);
     this.copyMessage = 'Copied!';
     const copyTimeout = setTimeout(() => {
       this.copyMessage = '';

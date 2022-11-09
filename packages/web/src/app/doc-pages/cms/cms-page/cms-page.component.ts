@@ -4,7 +4,6 @@ import { DomSanitizer, Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
-import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { environment } from 'src/environments/environment';
 import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
 import { IDocumentationPage } from 'contentful/types';
@@ -36,7 +35,6 @@ export class CMSPageComponent implements OnDestroy {
     private localizationService: LocalizationService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private copyService: CopyToClipboardService,
     private elementRef: ElementRef,
     private titleService: Title,
   ) {
@@ -190,6 +188,6 @@ export class CMSPageComponent implements OnDestroy {
     } else {
       anchorUrl = anchorUrl + this.router.url + '#' + modifiedAnchor;
     }
-    this.copyService.copyToClipboard(anchorUrl);
+    navigator.clipboard.writeText(anchorUrl);
   }
 }

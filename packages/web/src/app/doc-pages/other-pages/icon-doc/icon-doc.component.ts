@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, HostLis
 import { Icon } from './icon.interface';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
-import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { elvisIconData } from './icon-data';
 import { Title } from '@angular/platform-browser';
 
@@ -73,7 +72,7 @@ export class IconDocComponent implements OnInit {
   term = '';
   IconClassList: Icon[] = [];
 
-  constructor(private copyService: CopyToClipboardService, private titleService: Title) {
+  constructor(private titleService: Title) {
     this.titleService.setTitle(this.title);
   }
 
@@ -195,6 +194,6 @@ export class IconDocComponent implements OnInit {
   copyIconClass(iconTitle: string): void {
     this.copied = true;
     const iconClass = 'e-icon e-icon--' + iconTitle + ' e-icon--sm';
-    this.copyService.copyToClipboard(iconClass);
+    navigator.clipboard.writeText(iconClass);
   }
 }

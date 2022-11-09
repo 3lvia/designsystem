@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 
 @Component({
   selector: 'app-component-section',
@@ -12,7 +11,7 @@ export class ComponentSectionComponent {
   @Input() propertiesClass = '';
   @Input() figmaOnly = false;
 
-  constructor(private router: Router, private copyService: CopyToClipboardService) {}
+  constructor(private router: Router) {}
 
   copyAnchor(): void {
     const anchorTitleElement = document.getElementById(this.sectionTitle);
@@ -28,6 +27,6 @@ export class ComponentSectionComponent {
     } else {
       anchorUrl = anchorUrl + this.router.url + '#' + modifiedAnchor;
     }
-    this.copyService.copyToClipboard(anchorUrl);
+    navigator.clipboard.writeText(anchorUrl);
   }
 }
