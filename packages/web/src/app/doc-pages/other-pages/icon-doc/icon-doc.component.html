@@ -103,56 +103,21 @@
             </button>
           </div>
         </div>
-        <div class="e-radio-filter-container">
-          <div class="e-radio-filter">
-            <input
-              type="radio"
-              id="radio-filter-all"
-              name="radio-filter"
-              (click)="selectFilter('all')"
-              checked
-            />
-            <label for="radio-filter-all" data-value="All">
-              <span class="e-radio-filter__label">All</span>
-            </label>
 
-            <input
-              type="radio"
-              id="radio-filter-outline"
-              name="radio-filter"
-              (click)="selectFilter('outline')"
-            />
-            <label for="radio-filter-outline" data-value="Outline">
-              <span class="e-radio-filter__label">Outline</span>
-            </label>
+        <elvia-radio-filter
+          [items]="[
+            { label: 'All', value: 'all' },
+            { label: 'Outline', value: 'outline' },
+            { label: 'Filled', value: 'filled' },
+            { label: 'Two colored', value: 'colored' }
+          ]"
+          [value]="'all'"
+          [name]="'iconRadioFilters'"
+          [inlineStyle]="{ flexWrap: 'noWrap' }"
+          [className]="'icons-doc-radio-filter'"
+          (valueOnChange)="selectFilter($event.detail.value)"
+        ></elvia-radio-filter>
 
-            <input
-              type="radio"
-              id="radio-filter-filled"
-              name="radio-filter"
-              (click)="selectFilter('filled')"
-            />
-            <label for="radio-filter-filled" data-value="Filled">
-              <span class="e-radio-filter__label">Filled</span>
-            </label>
-
-            <input
-              type="radio"
-              id="radio-filter-colored"
-              name="radio-filter"
-              (click)="selectFilter('colored')"
-            />
-            <label for="radio-filter-colored" data-value="Two colored">
-              <span class="e-radio-filter__label">Two colored</span>
-            </label>
-          </div>
-        </div>
-        <div class="dark-mode-toggle mobile">
-          <label class="e-toggle" role="switch" [attr.aria-selected]="inverted">
-            Inverted
-            <input class="e-toggle__input" type="checkbox" [checked]="inverted" (change)="invert()" />
-          </label>
-        </div>
         <div class="dark-mode-toggle">
           <label class="e-toggle" role="switch" [attr.aria-selected]="inverted">
             Inverted
