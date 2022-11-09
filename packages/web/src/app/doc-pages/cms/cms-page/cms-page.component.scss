@@ -418,3 +418,14 @@ $pageIndentedMargin: 72px;
     }
   }
 }
+
+/* Used by the Elvia-radio-filter component on the Icons docs page. 
+TODO: Update Radio Filter component styles and remove this custom CSS */
+.icons-doc-radio-filter {
+  gap: 8px;
+
+  label[class^='styledComponents__RadioFilterLabel'] {
+    white-space: nowrap;
+    margin: 0;
+  }
+}
