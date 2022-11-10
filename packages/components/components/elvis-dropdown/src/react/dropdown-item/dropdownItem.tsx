@@ -1,6 +1,6 @@
 import { Icon } from '@elvia/elvis-icon/react';
 import { IconButton, isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
-import React, { KeyboardEvent, MouseEvent, RefObject, useEffect, useRef, useState } from 'react';
+import React, { KeyboardEvent, RefObject, useEffect, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
 import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropdown.types';
 import { flattenTree } from '../dropdownListUtils';
@@ -60,6 +60,10 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     return [];
   };
 
+  const childIsSelected = (): boolean => {
+    return getSelectableChildren().some((child) => currentValIncludesItem(child));
+  };
+
   const currentValIncludesItem = (item: DropdownItemOption): boolean => {
     const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
     return selectedValues.includes(item.value);
@@ -72,10 +76,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     } else {
       return currentValIncludesItem(item);
     }
-  };
-
-  const preventInputElementBlur = (ev: MouseEvent<HTMLDivElement>): void => {
-    ev.preventDefault();
   };
 
   const onMouseOver = () => {
@@ -104,11 +104,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     return false;
   };
 
-  const focusIsOnChild = (): boolean => {
-    const children = flattenTree(item.children);
-    return children.some((child) => child.value === focusedItem?.value);
-  };
-
   useEffect(() => {
     if (focusedItem?.value === item.value) {
       if (pressedKey?.code === 'ArrowRight' && item.children) {
@@ -120,8 +115,14 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   }, [pressedKey]);
 
   useEffect(() => {
+    const focusIsOnChild = (): boolean => {
+      const children = flattenTree(item.children);
+      return children.some((child) => child.value === focusedItem?.value);
+    };
+
+    console.log(focusedItem);
     if (focusedItem && focusedItem?.value !== item.value && !focusIsOnChild()) {
-      if (isShowing) {
+      if (isShowing && isGtMobile) {
         setIsShowing(false);
       } else if (hoverTimeoutId && !isSsr()) {
         window.clearTimeout(hoverTimeoutId);
@@ -143,14 +144,14 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     <>
       <DropdownItemStyles
         ref={itemRef}
+        isFocused={(focusedItem?.value === item.value && !inputIsMouse) || isShowing || childIsSelected()}
         isActive={isSelected()}
         isCompact={isCompact}
         isDisabled={item.isDisabled}
-        isFocused={(focusedItem?.value === item.value && !inputIsMouse) || isShowing}
         isMulti={isMulti}
         onClick={() => onClick(item)}
         onMouseEnter={() => onMouseOver()}
-        onMouseDown={preventInputElementBlur}
+        onMouseDown={(ev) => ev.preventDefault()}
         id={`elvia-dropdown-item-${item.value}`}
         aria-disabled={item.isDisabled}
         aria-haspopup={item.children ? 'listbox' : 'false'}
@@ -198,7 +199,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
               disabled={isGtMobile}
               onClick={(ev) => {
                 ev.stopPropagation();
-                setFocusedItem(item);
                 setIsShowing(true);
               }}
             >

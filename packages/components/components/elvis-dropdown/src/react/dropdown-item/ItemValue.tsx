@@ -21,14 +21,12 @@ export const ItemValue: React.FC<Props> = ({ item }) => {
   }, [item.label]);
 
   return (
-    <TooltipContainer>
+    <TooltipContainer paddingRight={item.status || item.children ? 0 : 16}>
       <Tooltip
         triggerAreaRef={containerRef}
         trigger={
           <TooltipTextContainer ref={containerRef}>
-            <DropdownItemValue paddingRight={item.status || item.children ? 0 : 16}>
-              {item.label}
-            </DropdownItemValue>
+            <DropdownItemValue>{item.label}</DropdownItemValue>
           </TooltipTextContainer>
         }
         content={item.label}

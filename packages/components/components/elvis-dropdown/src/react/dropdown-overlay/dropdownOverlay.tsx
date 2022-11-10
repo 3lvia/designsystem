@@ -36,9 +36,10 @@ interface DropdownOverlayProps {
   focusedItem?: DropdownItemOption;
   setFocusedItem: (item?: DropdownItemOption) => void;
   parentItem?: DropdownItemOption;
+  isSearchMode?: boolean;
 }
 
-const now = Date.now();
+const uniqueId = Date.now();
 
 export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayProps>(
   (
@@ -63,6 +64,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       focusedItem,
       setFocusedItem,
       parentItem,
+      isSearchMode,
     },
     ref,
   ) => {
@@ -70,15 +72,15 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     const [fadeOut, setFadeOut] = useState(false);
     const selectAllItem: DropdownItemOption = {
       label: selectAllOption ?? '',
-      value: `selectAll-${now}`,
+      value: `selectAll-${uniqueId}`,
     };
     const backItem: DropdownItemOption = {
       label: 'Tilbake',
-      value: `back-${now}`,
+      value: `back-${uniqueId}`,
     };
     const loadMoreItem: DropdownItemOption = {
       label: 'Last inn flere',
-      value: `loadMore-${now}`,
+      value: `loadMore-${uniqueId}`,
     };
 
     const onAnimationEnd = () => {
@@ -107,19 +109,25 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
           } else {
             onItemSelect(children.map((child) => child.value));
           }
-        } else {
+        } else if (!item.children) {
           onItemSelect([item.value]);
-        }
-      }
 
-      if (!isMulti) {
-        setFadeOut(true);
+          if (!isMulti) {
+            setFadeOut(true);
+          }
+        }
+
+        // Focus on first item after selecting item in multi select while search is active
+        // This moves keyboard focus to a focusable item.
+        if (isMulti && isSearchMode && isRootOverlay) {
+          setFocusedItem(allItems?.[0]);
+        }
       }
     };
 
     const getFullTabList = (): DropdownItemOption[] => {
       const itemList = filteredItems.slice();
-      if (!isGtMobile) {
+      if (!isGtMobile && !isRootOverlay) {
         itemList.unshift(backItem);
       }
       if (selectAllOption) {
@@ -170,7 +178,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     };
 
     useEffect(() => {
-      if (pressedKey && focusIsOnDirectDescendant()) {
+      if (pressedKey && (focusIsOnDirectDescendant() || (isRootOverlay && isSearchMode))) {
         handleOverlayKeyboardNavigation(pressedKey);
       }
     }, [pressedKey]);
@@ -212,7 +220,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
 
     useEffect(() => {
       const focusFirstItemOnInit = () => {
-        if (!inputIsMouse || (!focusedItem && isRootOverlay)) {
+        if (!inputIsMouse || (!focusedItem && isRootOverlay) || !isGtMobile) {
           setFocusedItem(getFullTabList()[0]);
         }
       };
@@ -229,7 +237,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
           data-testid="backdrop"
         />
         <DropdownPopupContainer ref={ref} data-testid="popover">
-          {!isRootOverlay && <CursorCurve />}
+          {!isRootOverlay && isGtMobile && <CursorCurve />}
           <DropdownPopup
             fadeOut={fadeOut}
             onAnimationEnd={onAnimationEnd}
@@ -241,7 +249,10 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
               {!isGtMobile && !isRootOverlay && (
                 <BackButton
                   item={backItem}
-                  onClick={() => setFadeOut(true)}
+                  onClick={() => {
+                    setFadeOut(true);
+                    setFocusedItem(parentItem);
+                  }}
                   onHover={(item) => setFocusedItem(item)}
                   focusedValue={focusedItem?.value}
                   isCompact={isCompact}

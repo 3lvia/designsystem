@@ -3,7 +3,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { DropdownItem } from './elviaDropdown.types';
 
-describe.skip('Elvis Dropdown', () => {
+describe.only('Elvis Dropdown', () => {
   describe('Default', () => {
     beforeEach(() => {
       const items: DropdownItem[] = [

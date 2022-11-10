@@ -4,9 +4,10 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 import { StyledCheckbox } from '../checkbox/checkboxStyles';
 
-export const TooltipContainer = styled.div`
+export const TooltipContainer = styled.div<{ paddingRight: number }>`
   overflow: hidden;
   flex: 1;
+  padding-right: ${(props) => `${props.paddingRight}px`};
 `;
 
 export const TooltipTextContainer = styled.div`
@@ -15,9 +16,8 @@ export const TooltipTextContainer = styled.div`
   white-space: nowrap;
 `;
 
-export const DropdownItemValue = styled.span<{ paddingRight: number }>`
+export const DropdownItemValue = styled.span`
   text-align: left;
-  padding-right: ${(props) => `${props.paddingRight}px`};
 `;
 
 export const IconContainer = styled.div`
@@ -45,7 +45,6 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   border: none;
   margin: 0;
   width: 100%;
-  background-color: ${getColor('elvia-on')};
   color: ${getColor('elvia-off')};
   padding: 0 0 0 16px;
   align-items: center;

@@ -15,6 +15,7 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { useWebComponentState } from '@elvia/elvis-toolbox';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
+import { flattenTree } from './dropdownListUtils';
 
 const Dropdown: React.FC<DropdownProps> = ({
   items = [],
@@ -76,6 +77,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     } else {
       setCurrentVal(values[0]);
     }
+    setFilter('');
   };
 
   const emitLoadMoreItems = (): void => {
@@ -112,14 +114,19 @@ const Dropdown: React.FC<DropdownProps> = ({
       if (!filter) {
         setFilteredItems(items);
       } else {
-        setFilteredItems(items.filter((item) => item.label.toLowerCase().includes(filter.toLowerCase())));
+        const flatList = flattenTree(items).filter((item) => !item.children);
+        const filteredItems = flatList.filter((item) =>
+          item.label.toLowerCase().includes(filter.toLowerCase()),
+        );
+        setFilteredItems(filteredItems);
       }
     };
     filterItems();
   }, [filter]);
 
   useEffect(() => {
-    setTimeout(() => setFilteredItems(items)); //TODO: Can we get rid of it
+    // Needs timeout to prevent infinite loop on init
+    setTimeout(() => setFilteredItems(items));
   }, [items]);
 
   return (
@@ -187,6 +194,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           isLoadingMoreItems={isLoadingMoreItems}
           focusedItem={focusedItem}
           setFocusedItem={updateFocusedItem}
+          isSearchMode={!!filter}
         />
       )}
     </>

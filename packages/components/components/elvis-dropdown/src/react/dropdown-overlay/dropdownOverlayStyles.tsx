@@ -43,6 +43,7 @@ export const DropdownPopup = styled.div.attrs(() => ({
   role: 'listbox',
 }))<{ fadeOut: boolean; isCompact: boolean; isInvisible: boolean }>`
   position: absolute;
+  background-color: ${getColor('elvia-on')};
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   animation: ${fadeIn} 300ms ease;
   border-radius: 4px;
@@ -125,7 +126,6 @@ export const LoadMoreButtonStyles = styled.div<{ isLoading?: boolean }>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: ${getColor('elvia-on')};
 
   ${TertiaryButton} {
     cursor: inherit;
