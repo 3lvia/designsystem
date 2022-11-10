@@ -83,7 +83,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   }, [triggerAreaRef, triggerAreaRef?.current]);
 
   /* Update on position change and content change */
-  const updatePositionOnChange = (): MutationObserver => {
+  const getContentMutationObserver = (): MutationObserver => {
     const observer = new MutationObserver(() => {
       updatePreferredPosition(
         mapPositionToVerticalPosition(position),
@@ -106,7 +106,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     if (!isShowing) {
       return;
     }
-    const observer = updatePositionOnChange();
+    const observer = getContentMutationObserver();
     updatePreferredPosition();
     return () => observer.disconnect();
   }, [isShowing, position]);
