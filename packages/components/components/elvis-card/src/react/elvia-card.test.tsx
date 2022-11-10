@@ -4,8 +4,6 @@ import { render, screen } from '@testing-library/react';
 import { getColor } from '@elvia/elvis-colors';
 import userEvent from '@testing-library/user-event';
 
-global.ResizeObserver = require('resize-observer-polyfill'); //Used to fix "ResizeObserver is not defined" (https://github.com/ZeeCoder/use-resize-observer/issues/40#issuecomment-991256805).
-
 describe('Elvis Card', () => {
   describe('Type = simple square', () => {
     beforeEach(() => {

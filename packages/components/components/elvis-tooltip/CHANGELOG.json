@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "10.11.22",
+      "version": "1.1.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["The tooltip will now update its position if the content prop or slot changes."]
+        }
+      ]
+    },
+    {
       "date": "07.11.22",
       "version": "1.1.0",
       "changelog": [

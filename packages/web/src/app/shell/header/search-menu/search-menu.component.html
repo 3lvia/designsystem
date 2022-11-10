@@ -112,7 +112,7 @@
       >
         <div class="result-title">
           <div class="title item-title" [id]="'search_' + result.title">{{ result.title }}</div>
-          <label class="e-label" *ngIf="result.type">{{ result.type }}</label>
+          <label class="e-tag" *ngIf="result.type">{{ result.type }}</label>
         </div>
         <div class="result-content" *ngIf="result.description">
           <div class="description-item" [id]="encodeHTML(result.description)"></div>

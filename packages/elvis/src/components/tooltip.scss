@@ -9,6 +9,7 @@ $tooltip-vertical-transform: translate(-50%, 0);
 $tooltip-horizontal-transform: translate(0, -50%);
 $tooltip-padding: 8px 10px;
 
+//DEPRECATED
 .e-tooltip {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;

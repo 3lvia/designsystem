@@ -1,27 +1,28 @@
-.e-tooltip {
-  display: inline-flex;
-  &:first-child {
-    transition: all 0.2s ease-in-out;
-    &:hover {
-      transform: scale(1.03);
-    }
+.ewc-tooltip-copy-content {
+  display: contents;
+  > * {
+    cursor: pointer;
   }
-  &.no-animation {
-    &:first-child {
-      transition: none;
+}
+
+//only use this is the user allows motion
+@media (prefers-reduced-motion: no-preference) {
+  .ewc-tooltip-copy-content {
+    > * {
+      transition: all 0.2s ease-in-out;
+
       &:hover {
-        transform: scale(1);
+        transform: scale(1.03);
       }
     }
-  }
 
-  &__content {
-    line-height: 120%;
-    font-size: 16px;
-  }
-
-  .copy-content {
-    cursor: pointer;
-    width: 100%;
+    &.ewc-tooltip-copy-content--no-animation {
+      > * {
+        transition: none;
+        &:hover {
+          transform: scale(1);
+        }
+      }
+    }
   }
 }

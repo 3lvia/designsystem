@@ -4,11 +4,6 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getColor } from '@elvia/elvis-colors';
 
-// JSDOM does not implement the scrollTo() function
-Element.prototype.scrollTo = () => {
-  return;
-};
-
 describe('Elvis Datepicker', () => {
   describe('Default', () => {
     beforeEach(() => {

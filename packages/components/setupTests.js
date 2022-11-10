@@ -5,3 +5,15 @@
 
 import 'jsdom-global/register';
 import '@testing-library/jest-dom';
+
+global.ResizeObserver = require('resize-observer-polyfill');
+global.MutationObserver = class {
+  constructor(callback) {}
+  disconnect() {}
+  observe(element, initObject) {}
+};
+
+// JSDOM does not implement the scrollTo() function
+global.Element.prototype.scrollTo = () => {
+  return;
+};
