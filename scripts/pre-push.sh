@@ -10,9 +10,3 @@ if [[ $files != "0" ]]; then
     git ls-files -m | grep "packages/elvis"
     exit 1
 fi
-echo 'Tokens - Building colors, typography and icons...'
-yarn build:tokens
-echo 'Components - Building components...'
-yarn build:components
-echo 'Web - Building web...'
-yarn build:web
