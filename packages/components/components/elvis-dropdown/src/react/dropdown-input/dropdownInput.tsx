@@ -18,6 +18,7 @@ interface Props {
   onOpenDropdown: () => void;
   currentVal?: DropdownValue | null;
   focusedItem?: DropdownItem;
+  isMulti: boolean;
 }
 
 export const DropdownInput: React.FC<Props> = ({
@@ -33,6 +34,7 @@ export const DropdownInput: React.FC<Props> = ({
   onOpenDropdown,
   currentVal,
   focusedItem,
+  isMulti,
 }) => {
   const [inputValue, setInputValue] = useState('');
 
@@ -96,6 +98,11 @@ export const DropdownInput: React.FC<Props> = ({
         readOnly={!editable}
         data-testid="input"
         role="combobox"
+        aria-autocomplete="none"
+        aria-haspopup="true"
+        aria-expanded={dropdownIsOpen}
+        aria-disabled={isDisabled}
+        aria-multiselectable={isMulti}
       />
     </>
   );

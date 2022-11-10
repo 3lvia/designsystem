@@ -120,7 +120,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       return children.some((child) => child.value === focusedItem?.value);
     };
 
-    console.log(focusedItem);
     if (focusedItem && focusedItem?.value !== item.value && !focusIsOnChild()) {
       if (isShowing && isGtMobile) {
         setIsShowing(false);
@@ -156,6 +155,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         aria-disabled={item.isDisabled}
         aria-haspopup={item.children ? 'listbox' : 'false'}
         aria-expanded={isShowing}
+        aria-selected={isSelected()}
       >
         {isMulti && (
           <Checkbox

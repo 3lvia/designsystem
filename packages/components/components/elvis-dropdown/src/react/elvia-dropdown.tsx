@@ -161,6 +161,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             onKeyPress={setPressedKey}
             currentVal={currentVal}
             focusedItem={focusedItem}
+            isMulti={isMulti}
           />
 
           <IconRotator isRotated={isShowing}>
