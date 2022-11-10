@@ -104,6 +104,9 @@ export const Tooltip: React.FC<TooltipProps> = ({
   };
 
   useEffect(() => {
+   if (!isShowing) {
+      return;
+   }
     const observer = updatePositionOnChange();
     updatePreferredPosition();
     return () => observer.disconnect();
