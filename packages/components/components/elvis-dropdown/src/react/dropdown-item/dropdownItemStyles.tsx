@@ -2,6 +2,7 @@ import { getColor } from '@elvia/elvis-colors';
 import { IconButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
+import { StyledCheckbox } from '../checkbox/checkboxStyles';
 
 export const TooltipContainer = styled.div`
   overflow: hidden;
@@ -50,12 +51,23 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   align-items: center;
   cursor: pointer;
 
-  ${(props) =>
-    props.isDisabled &&
-    css`
-      cursor: not-allowed;
-      color: ${getColor('disabled')};
-    `};
+  ${(props) => {
+    if (props.isDisabled) {
+      return css`
+        cursor: not-allowed;
+        color: ${getColor('disabled')};
+      `;
+    }
+    return css`
+      &:hover {
+        background-color: ${getColor('grey-05')};
+
+        ${StyledCheckbox} {
+          background-color: ${getColor('elvia-charge')};
+        }
+      }
+    `;
+  }}
 
   ${(props) =>
     props.isActive &&

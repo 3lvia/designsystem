@@ -1,5 +1,5 @@
 import { Icon } from '@elvia/elvis-icon/react';
-import { IconButton, isSsr, useConnectedOverlay, useBreakpoint } from '@elvia/elvis-toolbox';
+import { IconButton, isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, MouseEvent, RefObject, useEffect, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
 import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropdown.types';
@@ -11,41 +11,38 @@ import { statusToIconMap } from '../statusToIconMap';
 import { ItemValue } from './itemValue';
 
 interface DropdownItemProps {
-  overlayLevel: number;
-  focusedLevel: number;
   item: DropdownItemOption;
+  parentItem?: DropdownItemOption;
   currentVal?: DropdownValue;
   isCompact?: boolean;
   isMulti: boolean;
   focusedItem?: DropdownItemOption;
-  setFocusedItem: (item: DropdownItemOption) => void;
+  setFocusedItem: (item?: DropdownItemOption) => void;
   inputIsMouse: boolean;
   onItemSelect: (value: string[]) => void;
   onClick: (item: DropdownItemOption) => void;
-  onLevelFocusChange: (newLevel: number) => void;
   onBackdropClick: () => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   listRef: RefObject<HTMLElement>;
+  isGtMobile: boolean;
 }
 
 export const DropdownItem: React.FC<DropdownItemProps> = ({
-  overlayLevel,
   item,
+  parentItem,
   currentVal,
   isCompact,
   isMulti,
   focusedItem,
+  setFocusedItem,
   inputIsMouse,
   onItemSelect,
-  setFocusedItem,
   onClick,
-  onLevelFocusChange,
   onBackdropClick,
   pressedKey,
-  focusedLevel,
   listRef,
+  isGtMobile,
 }) => {
-  const isGtMobile = useBreakpoint('gt-mobile');
   const itemRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const { isShowing, setIsShowing } = useConnectedOverlay(isGtMobile ? itemRef : listRef, popoverRef, {
@@ -77,13 +74,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     }
   };
 
-  const openOverlay = () => {
-    onLevelFocusChange(overlayLevel + 1);
-    setIsShowing(true);
-  };
-
-  // This prevents the input to be blurred while in search mode
-  const onMouseDown = (ev: MouseEvent<HTMLDivElement>): void => {
+  const preventInputElementBlur = (ev: MouseEvent<HTMLDivElement>): void => {
     ev.preventDefault();
   };
 
@@ -97,10 +88,10 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     }
     if (item.children) {
       if (isSsr()) {
-        openOverlay();
+        setIsShowing(true);
       } else {
         window.clearTimeout(hoverTimeoutId);
-        setHoverTimeoutId(window.setTimeout(() => openOverlay(), 200));
+        setHoverTimeoutId(window.setTimeout(() => setIsShowing(true), 200));
       }
     }
   };
@@ -119,19 +110,18 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   };
 
   useEffect(() => {
-    if (focusedItem?.value === item.value && focusedLevel === overlayLevel) {
+    if (focusedItem?.value === item.value) {
       if (pressedKey?.code === 'ArrowRight' && item.children) {
-        openOverlay();
-      } else if (pressedKey?.code === 'ArrowLeft' && focusedLevel > 0) {
-        onLevelFocusChange(overlayLevel - 1);
+        setIsShowing(true);
+      } else if (pressedKey?.code === 'ArrowLeft' && parentItem) {
+        setFocusedItem(parentItem);
       }
     }
   }, [pressedKey]);
 
   useEffect(() => {
-    if (focusedItem?.value !== item.value && !focusIsOnChild()) {
+    if (focusedItem && focusedItem?.value !== item.value && !focusIsOnChild()) {
       if (isShowing) {
-        console.log('a', item.label, focusedItem);
         setIsShowing(false);
       } else if (hoverTimeoutId && !isSsr()) {
         window.clearTimeout(hoverTimeoutId);
@@ -139,16 +129,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       }
     }
   }, [focusedItem]);
-
-  useEffect(() => {
-    const closeSubMenusOnLevelFocus = () => {
-      if (focusedLevel === overlayLevel && isShowing) {
-        setIsShowing(false);
-        setFocusedItem(item);
-      }
-    };
-    closeSubMenusOnLevelFocus();
-  }, [focusedLevel]);
 
   useEffect(() => {
     return () => {
@@ -166,11 +146,11 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         isActive={isSelected()}
         isCompact={isCompact}
         isDisabled={item.isDisabled}
-        isFocused={focusedItem?.value === item.value || isShowing}
+        isFocused={(focusedItem?.value === item.value && !inputIsMouse) || isShowing}
         isMulti={isMulti}
         onClick={() => onClick(item)}
         onMouseEnter={() => onMouseOver()}
-        onMouseDown={onMouseDown}
+        onMouseDown={preventInputElementBlur}
         id={`elvia-dropdown-item-${item.value}`}
         aria-disabled={item.isDisabled}
         aria-haspopup={item.children ? 'listbox' : 'false'}
@@ -178,7 +158,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       >
         {isMulti && (
           <Checkbox
-            isFocused={focusedItem?.value === item.value}
+            isFocused={(focusedItem?.value === item.value && !inputIsMouse) || isShowing}
             isIndeterminate={isPartiallyChecked()}
             isChecked={isSelected()}
             isCompact={isCompact}
@@ -219,7 +199,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
               onClick={(ev) => {
                 ev.stopPropagation();
                 setFocusedItem(item);
-                openOverlay();
+                setIsShowing(true);
               }}
             >
               <Icon name="arrowRight" size={isCompact ? 'xs' : 'sm'} />
@@ -229,24 +209,20 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       </DropdownItemStyles>
       {isShowing && (
         <DropdownOverlay
-          level={overlayLevel + 1}
           ref={popoverRef}
+          isGtMobile={isGtMobile}
           filteredItems={item.children ?? []}
           isCompact={!!isCompact}
-          onClose={() => {
-            setIsShowing(false);
-            onLevelFocusChange(focusedLevel - 1);
-          }}
+          onClose={() => setIsShowing(false)}
           isMulti={isMulti}
           onItemSelect={(value) => onItemSelect(value)}
           currentVal={currentVal}
           pressedKey={pressedKey}
-          focusedLevel={focusedLevel}
           inputIsMouse={inputIsMouse}
-          onLevelFocusChange={onLevelFocusChange}
           onBackdropClick={onBackdropClick}
           focusedItem={focusedItem}
           setFocusedItem={setFocusedItem}
+          parentItem={item}
         />
       )}
     </>

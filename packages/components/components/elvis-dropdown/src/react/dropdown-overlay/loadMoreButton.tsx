@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { Icon } from '@elvia/elvis-icon/react';
 import { TertiaryButton } from '@elvia/elvis-toolbox';
 import { DropdownItem } from '../elviaDropdown.types';
@@ -21,11 +21,16 @@ export const LoadMoreButton: React.FC<LoadMoreProps> = ({
   isCompact,
   onHover,
 }) => {
+  const preventInputElementBlur = (ev: MouseEvent<HTMLDivElement>): void => {
+    ev.preventDefault();
+  };
+
   return (
     <>
       <LoadMoreButtonStyles
         onClick={() => !isLoadingMoreItems && onLoadMoreItems && onLoadMoreItems()}
         onMouseEnter={() => onHover(item)}
+        onMouseDown={preventInputElementBlur}
         isLoading={isLoadingMoreItems}
         id={`elvia-dropdown-item-${item.value}`}
       >

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { MouseEvent, useEffect, useState } from 'react';
 import { Checkbox } from '../checkbox/checkbox';
 import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';
 import { flattenTree } from '../dropdownListUtils';
@@ -28,6 +28,10 @@ export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
 }) => {
   const [checkboxState, setCheckboxState] = useState<CheckboxState>('none');
 
+  const preventInputElementBlur = (ev: MouseEvent<HTMLDivElement>): void => {
+    ev.preventDefault();
+  };
+
   const getSelectableItems = (): DropdownItem[] => {
     return flattenTree(items).filter((item) => !item.isDisabled && !item.children);
   };
@@ -48,6 +52,7 @@ export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
       <DropdownItemStyles
         onClick={() => onClick()}
         onMouseEnter={() => onHover(item)}
+        onMouseDown={preventInputElementBlur}
         isFocused={focusedValue === item.value}
         isCompact={isCompact}
         id={`elvia-dropdown-item-${item.value}`}

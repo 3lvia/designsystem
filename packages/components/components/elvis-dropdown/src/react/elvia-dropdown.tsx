@@ -7,6 +7,7 @@ import {
   FormFieldLabel,
   useConnectedOverlay,
   useInputModeDetection,
+  useBreakpoint,
 } from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import { DropdownInput } from './dropdown-input/dropdownInput';
@@ -14,7 +15,6 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { useWebComponentState } from '@elvia/elvis-toolbox';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
-import { getTreeDepth } from './dropdownListUtils';
 
 const Dropdown: React.FC<DropdownProps> = ({
   items = [],
@@ -46,10 +46,10 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const [filter, setFilter] = useState('');
   const { isMouse: inputIsMouse } = useInputModeDetection();
+  const isGtMobile = useBreakpoint('gt-mobile');
   const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
   const [filteredItems, setFilteredItems] = useState(items);
   const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
-  const [focusedOverlayLevel, setFocusedOverlayLevel] = useState(0);
   const [focusedItem, setFocusedItem] = useState<DropdownItem>();
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
@@ -84,11 +84,6 @@ const Dropdown: React.FC<DropdownProps> = ({
     } else if (webcomponent) {
       webcomponent.triggerEvent('onLoadMoreItems');
     }
-  };
-
-  const updateFocusedOverlayLevel = (newLevel: number): void => {
-    // Clamp overlay level between 0 and max tree depth
-    setFocusedOverlayLevel(Math.min(Math.max(0, newLevel), getTreeDepth(items)));
   };
 
   const updateFocusedItem = (item?: DropdownItem): void => {
@@ -174,6 +169,8 @@ const Dropdown: React.FC<DropdownProps> = ({
       {isShowing && (
         <DropdownOverlay
           ref={popoverRef}
+          isRootOverlay
+          isGtMobile={isGtMobile}
           noItemsText={noOptionsMessage}
           isMulti={isMulti}
           onItemSelect={setSelectedItem}
@@ -184,9 +181,6 @@ const Dropdown: React.FC<DropdownProps> = ({
           allItems={items}
           pressedKey={pressedKey}
           currentVal={currentVal}
-          level={0}
-          focusedLevel={focusedOverlayLevel}
-          onLevelFocusChange={updateFocusedOverlayLevel}
           selectAllOption={hasSelectAllOption && isMulti ? selectAllOption : undefined}
           hasLoadMoreItemsButton={hasLoadMoreItemsButton}
           onLoadMoreItems={emitLoadMoreItems}
