@@ -12,9 +12,6 @@ snapshots:
   - url: /components/buttons.html
     name: Buttons
     widths: [766, 1440]
-  - url: /components/cards.html
-    name: Cards
-    widths: [766, 1440]
   - url: /components/checkbox.html
     name: Checkbox
     widths: [766, 1440]
@@ -30,14 +27,8 @@ snapshots:
   - url: /components/file-upload.html
     name: File Upload
     widths: [766, 1440]
-  - url: /components/header.html
-    name: Header
-    widths: [766, 1440]
   - url: /components/input.html
     name: Input
-    widths: [766, 1440]
-  - url: /components/label.html
-    name: Label
     widths: [766, 1440]
   - url: /components/link.html
     name: Link
@@ -45,18 +36,8 @@ snapshots:
   - url: /components/list.html
     name: List
     widths: [766, 1440]
-  - url: /components/modal.html
-    name: Modal
-    widths: [766, 1440]
-    minHeight: 2000
-  - url: /components/pagination.html
-    name: Pagination
-    widths: [766, 1440]
   - url: /components/position-picker.html
     name: Position Picker
-    widths: [766, 1440]
-  - url: /components/progressbar.html
-    name: Progressbar
     widths: [766, 1440]
   - url: /components/radiobutton.html
     name: Radio Button
@@ -64,19 +45,15 @@ snapshots:
   - url: /components/search.html
     name: Search
     widths: [766, 1440]
-  - url: /components/segmented-controls.html
-    name: Segmented Controls
-    widths: [766, 1440]
   - url: /components/stepper.html
     name: Stepper
     widths: [766, 1440]
   - url: /components/table.html
     name: Table
     widths: [766, 1440]
+  - url: /components/tag.html
+    name: Tag
+    widths: [766, 1440]
   - url: /components/toggle.html
     name: Toggle
     widths: [766, 1440]
-  - url: /components/tooltip.html
-    name: Tooltip
-    widths: [766, 1440]
-    waitForTimeout: 2000

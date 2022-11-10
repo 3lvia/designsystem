@@ -4,10 +4,10 @@ import { DomSanitizer, Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
-import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { environment } from 'src/environments/environment';
 import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
 import { IDocumentationPage } from 'contentful/types';
+import { ElvisComponentWrapper } from '../../../../../../components/components/elvis-component-wrapper/dist/elvia-component';
 
 @Component({
   selector: 'app-cms-page',
@@ -35,7 +35,6 @@ export class CMSPageComponent implements OnDestroy {
     private localizationService: LocalizationService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private copyService: CopyToClipboardService,
     private elementRef: ElementRef,
     private titleService: Title,
   ) {
@@ -126,14 +125,15 @@ export class CMSPageComponent implements OnDestroy {
   }
 
   /**
-   * This function adds event listeners to all the titles. The event listeners add "copy path on click"-functionality.
+   * This function adds event listeners to all the tooltips beside a title. The event listeners add "copy path on click"-functionality.
    */
   addClickEventListenersForCopyPath(): void {
     setTimeout(() => {
       this.elementRef.nativeElement
         .querySelectorAll('.cms-section__title, .cms-heading1__title')
         .forEach((domElement: HTMLElement) => {
-          domElement.addEventListener('click', () => this.copyAnchor(domElement['id']));
+          const tooltip = domElement.querySelector('elvia-tooltip');
+          tooltip.addEventListener('click', () => this.copyAnchor(domElement['id']));
           this.activeEventListeners.push(domElement);
         });
     });
@@ -171,9 +171,14 @@ export class CMSPageComponent implements OnDestroy {
    */
   copyAnchor(id: string): void {
     const anchorTitleElement = document.getElementById(id);
+    const tooltipElement = document.getElementById(`elvia-tooltip-${id}`) as ElvisComponentWrapper;
+    tooltipElement.setProps({ content: 'Copied!' });
+
     anchorTitleElement.classList.add('anchor-copied');
+
     setTimeout(() => {
       anchorTitleElement.classList.remove('anchor-copied');
+      tooltipElement.setProps({ content: 'Copy' });
     }, 800);
     const modifiedAnchor = id;
     let anchorUrl = 'https://design.elvia.io';
@@ -183,6 +188,6 @@ export class CMSPageComponent implements OnDestroy {
     } else {
       anchorUrl = anchorUrl + this.router.url + '#' + modifiedAnchor;
     }
-    this.copyService.copyToClipBoard(anchorUrl);
+    navigator.clipboard.writeText(anchorUrl);
   }
 }

@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "08.11.22",
+      "version": "1.5.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The radio filter component now owns its own state. You no longer need to update the <span class=\"code-text\">value</span> prop to update the selected radio, you can just set the initial <span class=\"code-text\">value</span> and listen to the <span class=\"code-text\">valueOnChange</span> event."
+          ]
+        }
+      ]
+    },
+    {
       "date": "02.11.22",
       "version": "1.4.1",
       "changelog": [

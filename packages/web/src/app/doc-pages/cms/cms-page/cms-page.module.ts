@@ -7,6 +7,7 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { RouterModule } from '@angular/router';
 import { NavbarModule } from 'src/app/shell/navbar/navbar.module';
 import { HttpClientModule } from '@angular/common/http';
+import '@elvia/elvis-tooltip';
 
 @NgModule({
   imports: [
