@@ -17,3 +17,7 @@ elvis:
 
 tokens:
   - packages/elvis-*/**/*
+
+ci/cd:
+  - .github/workflows/**/*
+  - scripts/**/*
