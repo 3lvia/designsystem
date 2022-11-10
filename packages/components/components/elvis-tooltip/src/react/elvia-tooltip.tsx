@@ -85,10 +85,9 @@ export const Tooltip: React.FC<TooltipProps> = ({
   /* Update on position change and content change */
   const updatePositionOnChange = (): MutationObserver => {
     const observer = new MutationObserver(() => {
-      const newPosition: TooltipPosition = position || 'top';
       updatePreferredPosition(
-        mapPositionToVerticalPosition(newPosition),
-        mapPositionToHorizontalPosition(newPosition),
+        mapPositionToVerticalPosition(position),
+        mapPositionToHorizontalPosition(position),
       );
     });
     if (overlayRef.current) {
@@ -104,9 +103,9 @@ export const Tooltip: React.FC<TooltipProps> = ({
   };
 
   useEffect(() => {
-   if (!isShowing) {
+    if (!isShowing) {
       return;
-   }
+    }
     const observer = updatePositionOnChange();
     updatePreferredPosition();
     return () => observer.disconnect();
