@@ -3,170 +3,110 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { DropdownItem } from './elviaDropdown.types';
 
-describe.only('Elvis Dropdown', () => {
-  describe('Default', () => {
-    beforeEach(() => {
-      const items: DropdownItem[] = [
-        { value: '1', label: 'Option 1' },
-        { value: '2', label: 'Option 2' },
-        { value: '3', label: 'Option 3' },
-      ];
-      render(<Dropdown label={'Label'} items={items}></Dropdown>);
-    });
-    it('should have label', () => {
-      const dropdownLabel = screen.getByTestId('label');
-      expect(dropdownLabel).toHaveTextContent('Label');
-    });
-
-    it('should not be disabled', () => {
-      const dropdownWrapper = screen.getByTestId('wrapper');
-      expect(dropdownWrapper).toHaveStyle('cursor: pointer');
-    });
-
-    it('should not be compact', () => {
-      const dropdownLabel = screen.getByTestId('label');
-      expect(dropdownLabel).not.toHaveStyle(`position: absolute; top: -5px; left: 8px;`);
-      expect(dropdownLabel).toHaveStyle(`font-size: 16px; line-height: 23px`);
-    });
-
-    it('should not have error message', () => {
-      const dropdownError = screen.queryByTestId('error');
-      expect(dropdownError).not.toBeInTheDocument();
-    });
-
-    it('should not be full width', () => {
-      const dropdownWrapper = screen.getByTestId('wrapper');
-      expect(dropdownWrapper).toHaveStyle('max-width: 448px');
-    });
+const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+      matches: opts?.isGtMobile,
+      media: query,
+      onchange: null,
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    })),
   });
+};
 
-  describe('Compact, disabled', () => {
+describe('Elvis Dropdown', () => {
+  describe('on desktop', () => {
     beforeEach(() => {
-      render(<Dropdown isCompact isDisabled items={[]}></Dropdown>);
+      mockMatchMedia({ isGtMobile: true });
     });
 
-    it('should be disabled', () => {
-      const dropdownWrapper = screen.getByTestId('wrapper');
-      expect(dropdownWrapper).toHaveStyle('cursor: not-allowed');
+    describe('Default', () => {
+      beforeEach(() => {
+        const items: DropdownItem[] = [
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' },
+        ];
+        render(<Dropdown label={'Label'} items={items}></Dropdown>);
+      });
+
+      it('should have label', () => {
+        const dropdownLabel = screen.getByTestId('label');
+        expect(dropdownLabel).toHaveTextContent('Label');
+      });
+
+      it('should not be disabled', () => {
+        const dropdownWrapper = screen.getByTestId('input-container');
+        expect(dropdownWrapper).toHaveStyle('cursor: pointer');
+      });
+
+      it('should not be compact', () => {
+        const dropdownLabel = screen.getByTestId('label');
+        expect(dropdownLabel).toHaveStyle(`font-size: 16px; line-height: 23px`);
+      });
+
+      it('should not have error message', () => {
+        const dropdownError = screen.queryByTestId('error');
+        expect(dropdownError).not.toBeInTheDocument();
+      });
+
+      it('should not be full width', () => {
+        const dropdownWrapper = screen.getByTestId('wrapper');
+        expect(dropdownWrapper).toHaveStyle('max-width: 448px');
+      });
     });
 
-    it('should be compact', () => {
-      const dropdownLabel = screen.getByTestId('label');
-      expect(dropdownLabel).toHaveStyle(
-        `position: absolute; top: 0; left: 8px; font-size: 10px; line-height: 10px`,
-      );
+    describe('Compact, disabled', () => {
+      beforeEach(() => {
+        render(<Dropdown label="Label" isCompact isDisabled items={[]}></Dropdown>);
+      });
+
+      it('should be disabled', () => {
+        const dropdownWrapper = screen.getByTestId('input-container');
+        expect(dropdownWrapper).toHaveStyle('cursor: not-allowed');
+      });
+
+      it('should be compact', () => {
+        const dropdownLabel = screen.getByTestId('wrapper');
+        expect(dropdownLabel).toHaveStyle(`padding-top: 0.5rem`);
+      });
     });
 
-    it('should not have error message', () => {
-      const dropdownError = screen.queryByTestId('error');
-      expect(dropdownError).not.toBeInTheDocument();
-    });
-  });
+    describe('Error', () => {
+      beforeEach(() => {
+        render(<Dropdown errorMessage="Error" items={[]}></Dropdown>);
+      });
 
-  describe('Error', () => {
-    beforeEach(() => {
-      render(<Dropdown errorMessage="Error" items={[]}></Dropdown>);
-    });
-
-    it('should have error message', () => {
-      const dropdownError = screen.queryByTestId('error');
-      expect(dropdownError).toHaveTextContent('Error');
-    });
-  });
-
-  describe('Full width', () => {
-    beforeEach(() => {
-      render(<Dropdown isFullWidth items={[]}></Dropdown>);
+      it('should have error message', () => {
+        const dropdownError = screen.queryByTestId('error');
+        expect(dropdownError).toHaveTextContent('Error');
+      });
     });
 
-    it('should be full width', () => {
-      const dropdownWrapper = screen.getByTestId('wrapper');
-      expect(dropdownWrapper).not.toHaveStyle('max-width: 448px');
+    describe('Full width', () => {
+      beforeEach(() => {
+        render(<Dropdown label="Label" isFullWidth items={[]}></Dropdown>);
+      });
+
+      it('should be full width', () => {
+        const dropdownWrapper = screen.getByTestId('wrapper');
+        expect(dropdownWrapper).not.toHaveStyle('max-width: 448px');
+      });
     });
 
-    it('should not be disabled', () => {
-      const dropdownWrapper = screen.getByTestId('wrapper');
-      expect(dropdownWrapper).not.toHaveStyle('cursor: not-allowed');
-    });
+    describe('className and inlineStyle passed to wrapper', () => {
+      beforeEach(() => {
+        render(<Dropdown className="test-class" inlineStyle={{ margin: '24px' }} items={[]}></Dropdown>);
+      });
 
-    it('should not be compact', () => {
-      const dropdownLabel = screen.getByTestId('label');
-      expect(dropdownLabel).not.toHaveStyle(
-        `position: absolute; top: 0; left: 8px; font-size: 10px; line-height: 10px`,
-      );
-    });
-
-    it('should not have error message', () => {
-      const dropdownError = screen.queryByTestId('error');
-      expect(dropdownError).not.toBeInTheDocument();
-    });
-  });
-
-  describe('Full width, compact', () => {
-    beforeEach(() => {
-      render(<Dropdown isFullWidth isCompact items={[]}></Dropdown>);
-    });
-
-    it('should be full width', () => {
-      const dropdownWrapper = screen.getByTestId('wrapper');
-      expect(dropdownWrapper).not.toHaveStyle('max-width: 448px');
-    });
-
-    it('should not be disabled', () => {
-      const dropdownWrapper = screen.getByTestId('wrapper');
-      expect(dropdownWrapper).not.toHaveStyle('cursor: not-allowed');
-    });
-
-    it('should be compact', () => {
-      const dropdownLabel = screen.getByTestId('label');
-      expect(dropdownLabel).toHaveStyle(
-        `position: absolute; top: 0; left: 8px; font-size: 10px; line-height: 10px`,
-      );
-    });
-
-    it('should not have error message', () => {
-      const dropdownError = screen.queryByTestId('error');
-      expect(dropdownError).not.toBeInTheDocument();
-    });
-  });
-
-  describe('Full width, compact, disabled', () => {
-    beforeEach(() => {
-      render(<Dropdown isFullWidth isCompact isDisabled items={[]}></Dropdown>);
-    });
-
-    it('should be full width', () => {
-      const dropdownWrapper = screen.getByTestId('wrapper');
-      expect(dropdownWrapper).not.toHaveStyle('max-width: 448px');
-    });
-
-    it('should be disabled', () => {
-      const dropdownWrapper = screen.getByTestId('wrapper');
-      expect(dropdownWrapper).toHaveStyle('cursor: not-allowed');
-    });
-
-    it('should be compact', () => {
-      const dropdownLabel = screen.getByTestId('label');
-      expect(dropdownLabel).toHaveStyle(
-        `position: absolute; top: 0; left: 8px; font-size: 10px; line-height: 10px`,
-      );
-    });
-
-    it('should not have error message', () => {
-      const dropdownError = screen.queryByTestId('error');
-      expect(dropdownError).not.toBeInTheDocument();
-    });
-  });
-
-  describe('className and inlineStyle passed to wrapper', () => {
-    beforeEach(() => {
-      render(<Dropdown className="test-class" inlineStyle={{ margin: '24px' }} items={[]}></Dropdown>);
-    });
-
-    it('should have className and inlineStyle', () => {
-      const dropdownWrapper = screen.getByTestId('wrapper');
-      expect(dropdownWrapper).toHaveStyle('margin: 24px');
-      expect(dropdownWrapper).toHaveClass('test-class');
+      it('should have className and inlineStyle', () => {
+        const dropdownWrapper = screen.getByTestId('wrapper');
+        expect(dropdownWrapper).toHaveStyle('margin: 24px');
+        expect(dropdownWrapper).toHaveClass('test-class');
+      });
     });
   });
 });

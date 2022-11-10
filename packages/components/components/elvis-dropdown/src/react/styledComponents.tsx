@@ -3,8 +3,13 @@ import { FormFieldContainer } from '@elvia/elvis-toolbox';
 import { FormFieldInputContainer } from '@elvia/elvis-toolbox';
 
 export const DropdownContainer = styled(FormFieldContainer)`
-  max-width: 448px;
   width: 100%;
+
+  ${(props) =>
+    !props.fullWidth &&
+    css`
+      max-width: 448px;
+    `}
 `;
 
 export const DropdownInputContainer = styled(FormFieldInputContainer)<{ isCompact: boolean }>`

@@ -49,7 +49,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const { isMouse: inputIsMouse } = useInputModeDetection();
   const isGtMobile = useBreakpoint('gt-mobile');
   const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
-  const [filteredItems, setFilteredItems] = useState(items);
+  const [filteredItems, setFilteredItems] = useState<DropdownItem[]>([]);
   const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
   const [focusedItem, setFocusedItem] = useState<DropdownItem>();
 
@@ -125,8 +125,9 @@ const Dropdown: React.FC<DropdownProps> = ({
   }, [filter]);
 
   useEffect(() => {
-    // Needs timeout to prevent infinite loop on init
-    setTimeout(() => setFilteredItems(items));
+    if (items?.length && filteredItems !== items) {
+      setFilteredItems(items);
+    }
   }, [items]);
 
   return (
