@@ -1,33 +1,25 @@
-import { Component, Input } from '@angular/core';
-import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-copy',
   templateUrl: './copy.component.html',
   styleUrls: ['./copy.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class CopyComponent {
   @Input() message = '';
   @Input() smallElementAnimation = false;
 
-  copyTooltip = 'Copy';
+  tooltipContent = 'Copy';
   copyTimeout;
 
-  constructor(private copyService: CopyToClipboardService) {}
-
   copyMessage(copyMessage: string): void {
-    this.copyToClipBoard(copyMessage);
-    this.copyTooltip = 'Copied!';
+    navigator.clipboard.writeText(copyMessage);
+    this.tooltipContent = 'Copied!';
     clearTimeout(this.copyTimeout);
-    if (screen.width < 1024) {
-      return;
-    }
-    this.copyTimeout = setTimeout(() => {
-      this.copyTooltip = 'Copy';
-    }, 3000);
-  }
 
-  copyToClipBoard(val: string): void {
-    this.copyService.copyToClipBoard(val);
+    this.copyTimeout = setTimeout(() => {
+      this.tooltipContent = 'Copy';
+    }, 3000);
   }
 }

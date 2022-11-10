@@ -97,7 +97,6 @@ describe('Elvis Popover', () => {
 
       expect(popoverContent).not.toBeInTheDocument();
       expect(popoverHeading).not.toBeInTheDocument();
-      screen.debug();
     });
   });
 
