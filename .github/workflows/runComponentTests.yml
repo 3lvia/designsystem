@@ -1,0 +1,19 @@
+name: Run Component Tests
+on:
+  pull_request:
+    paths:
+      - 'packages/components/components/**'
+jobs:
+  publishToNpm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Get Yarn Cache
+        uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+      - name: Install
+        run: yarn install --immutable
+      - name: Run tests
+        run: yarn test
