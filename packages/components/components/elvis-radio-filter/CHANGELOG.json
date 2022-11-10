@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "10.11.22",
+      "version": "1.5.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "The Radio Filter now uses Flex gap for spacing between its elements rather than a margin."
+          ]
+        }
+      ]
+    },
+    {
       "date": "08.11.22",
       "version": "1.5.0",
       "changelog": [
