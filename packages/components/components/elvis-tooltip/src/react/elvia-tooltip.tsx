@@ -53,6 +53,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const onClose = (): void => {
     if (!isSsr()) {
       window.clearTimeout(timeoutId);
+      timeoutId = 0;
     }
     setFadeOut(true);
   };
@@ -121,6 +122,15 @@ export const Tooltip: React.FC<TooltipProps> = ({
     }
     setActualPosition(newActualPosition);
   }, [verticalPosition, horizontalPosition]);
+
+  useEffect(() => {
+    const cleanUpTimeout = () => {
+      if (timeoutId && !isSsr()) {
+        window.clearTimeout(timeoutId);
+      }
+    };
+    return () => cleanUpTimeout();
+  }, []);
 
   return (
     <>

@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "10.11.22",
+      "version": "1.1.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Clean up timeout when tooltip is destroyed."]
+        }
+      ]
+    },
+    {
+      "date": "10.11.22",
       "version": "1.1.1",
       "changelog": [
         {
