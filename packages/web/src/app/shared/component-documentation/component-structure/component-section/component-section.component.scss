@@ -19,35 +19,29 @@
   }
 
   &__title {
+    position: relative;
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--e-black);
 
-    .e-tooltip {
-      .e-tooltip__content {
-        display: none;
-        left: -24px;
-        margin-bottom: -4px;
-      }
-      &:hover .icons .normal-img {
-        display: flex;
-      }
+    &:hover .icons .normal-img {
+      display: block;
     }
+
     .icons {
+      display: inline-block;
       cursor: pointer;
       position: relative;
+      height: 24px;
+      width: 36px;
       .component-section__img {
         display: none;
         position: absolute;
-        top: 33px;
-        left: -36px;
         padding-right: 12px;
       }
     }
-    &.anchor-copied .icons .green-img,
-    &.anchor-copied .e-tooltip .e-tooltip__content {
-      display: flex;
-      opacity: 1;
+    &.anchor-copied .icons .green-img {
+      display: block;
     }
     &.anchor-copied .icons .normal-img {
       display: none;

@@ -542,29 +542,25 @@ export class CMSTransformService {
 
   private getHeading1(heading: string): string {
     return `<div class="cms-heading1 elvis-anchor">
-      <div class="cms-heading1__title" id="${heading.replace(/ /g, '-')}">
-        <span class="e-tooltip" tabindex="0">
-            <span class="icons">
-              <img
-                class="cms-section__img normal-img"
-                alt="Copy anchor button"
-                src="assets/hyperlink-3.svg"
-              />
-              <img
-                class="cms-section__img green-img"
-                alt="Copy anchor button"
-                src="assets/hyperlink-3-green.svg"
-              />
-            </span>
-            <h2 class="e-title-md elvis-anchor-title e-mb-24 e-mt-0" style="display: flex">
-            ${heading}
-            <ng-content select="headerIcon"></ng-content>
-            </h2>
-
-            <span class="e-tooltip__content">Copied!</span>
+    <div class="cms-heading1__title" id="${heading.replace(/ /g, '-')}">
+      <span style="position: absolute; height: 24px; left: -36px; width: 36px;"">
+        <elvia-tooltip id="elvia-tooltip-${heading.replace(
+          / /g,
+          '-',
+        )}" content="Copy" showDelay="400" display="relative">
+          <span class="icons" slot="trigger">
+            <img class="cms-section__img normal-img" alt="Copy anchor button" src="assets/hyperlink-3.svg" />
+            <img class="cms-section__img green-img" alt="Copy anchor button" src="assets/hyperlink-3-green.svg" />
           </span>
-      </div>
-    </div>`;
+        </elvia-tooltip>
+      </span>
+      <h2 class="e-title-md elvis-anchor-title e-mb-24" style="display: flex;">
+        ${heading}
+        <ng-content select="headerIcon"></ng-content>
+      </h2>
+    </div>
+  </div>
+  `;
   }
 
   private getHeading2(heading: string): string {

@@ -4,8 +4,6 @@ import Slider from './elvia-slider';
 import userEvent from '@testing-library/user-event';
 import { render, screen, fireEvent } from '@testing-library/react';
 
-global.ResizeObserver = require('resize-observer-polyfill'); //Used to fix "ResizeObserver is not defined" (https://github.com/ZeeCoder/use-resize-observer/issues/40#issuecomment-991256805).
-
 //====================
 // Simple Slider
 //====================

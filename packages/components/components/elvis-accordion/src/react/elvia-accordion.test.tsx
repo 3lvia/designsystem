@@ -3,18 +3,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-global.MutationObserver = class {
-  constructor() {
-    return;
-  }
-  disconnect() {
-    return;
-  }
-  observe() {
-    return;
-  }
-} as any;
-
 describe('Elvis Accordion', () => {
   describe('Type = normal', () => {
     beforeEach(() => {

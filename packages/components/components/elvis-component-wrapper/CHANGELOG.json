@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.11.22",
+      "version": "3.0.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Changed how components are unmounted to remove errors when webcomponents are used inside webcomponents."
+          ]
+        }
+      ]
+    },
+    {
       "date": "07.11.22",
       "version": "3.0.1",
       "changelog": [
