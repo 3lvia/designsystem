@@ -1,5 +1,4 @@
 #!/bin/bash
-# TODO: Build components only when changed
 echo 'Elvis - Building package before commiting...'
 yarn build:elvis
 files=$(git ls-files -m | grep "packages/elvis" | wc -l | tr -d ' ')
