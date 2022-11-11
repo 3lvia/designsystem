@@ -19,6 +19,7 @@
   <div
     class="row components-overview-cards components-overview-cards-animation e-grid-gutters-ext e-grid-gutters-vertical"
   >
+    <!-- Blir det her fortsatt brukt? Jeg finner oppriktig ikke hvor det her rendres på siden -->
     <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4" *ngFor="let page of filteredPages">
       <a class="e-link e-link--card" *ngIf="page.absolutePath" [routerLink]="[page.absolutePath]">
         <div class="e-link__content">
