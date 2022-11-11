@@ -173,6 +173,8 @@ function App() {
                   label="New dropdown"
                   isSearchable
                   items={dropdownOptions}
+                  isLoadingMoreItems={isLoadingMoreItems}
+                  onLoadMoreItems={onLoadMoreItems}
                 ></Dropdown>
               </div>
               {/* Inverted version */}

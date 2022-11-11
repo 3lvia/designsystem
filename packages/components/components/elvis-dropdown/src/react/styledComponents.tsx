@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-import { FormFieldContainer } from '@elvia/elvis-toolbox';
-import { FormFieldInputContainer } from '@elvia/elvis-toolbox';
+import { FormFieldContainer, FormFieldInputContainer } from '@elvia/elvis-toolbox';
 
 export const DropdownContainer = styled(FormFieldContainer)`
   width: 100%;

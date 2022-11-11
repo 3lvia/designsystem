@@ -8,12 +8,12 @@ import {
   useConnectedOverlay,
   useInputModeDetection,
   useBreakpoint,
+  useWebComponentState,
 } from '@elvia/elvis-toolbox';
 import { Icon } from '@elvia/elvis-icon/react';
 import { DropdownInput } from './dropdown-input/dropdownInput';
 import { DropdownContainer, DropdownInputContainer, IconRotator } from './styledComponents';
 import { DropdownError } from './error/dropdownError';
-import { useWebComponentState } from '@elvia/elvis-toolbox';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
 import { flattenTree } from './dropdownListUtils';
 
@@ -66,7 +66,14 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const setSelectedItem = (values: string[]): void => {
     if (isMulti) {
-      const arrayCopy = Array.isArray(currentVal) ? currentVal.slice() : currentVal ? [currentVal] : [];
+      let arrayCopy: string[] = [];
+
+      if (Array.isArray(currentVal)) {
+        arrayCopy = currentVal.slice();
+      } else if (currentVal) {
+        arrayCopy = [currentVal];
+      }
+
       values.forEach((value) => {
         const existingIndex = arrayCopy.indexOf(value);
         if (existingIndex === -1) {
