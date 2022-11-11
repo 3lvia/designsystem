@@ -99,7 +99,6 @@ specifications. The file explains how to add the props and the meaning of the ea
 
 ```javascript
 {
-    name: 'elvis-divider',
     elementName: 'elvia-divider',
     attributes: [
       { name: 'type', type: 'string' },

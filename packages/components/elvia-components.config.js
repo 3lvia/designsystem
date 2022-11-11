@@ -6,8 +6,9 @@ Include all props / attributes for the component here. The components are sorted
 This file is validated by validateConfig.js when building components
 
 ###### Contents  ######
-name: string - Package name has to start with "elvis-"
 elementName: string - Name of DOM element has to start with "elvia-"
+reactName: string - The name of the component in React
+slotItems: boolean (default: false) - Saves all "slot" items to variable. Should be set to true for all new components
 attributes: object[] -
   attributes.name: string - name of supported attribute & property
   attributes.type: string -
@@ -16,17 +17,13 @@ attributes: object[] -
   value to. This is only to make it easier to use components without bindings value="".
   When using bindings ([value]="") the value is sent in as a property and not an attribute. We do not parse those.
   If you use type "object" we parse it with JSON.parse, which supports arrays as well.
-
-reactName: string - The name of the component in React
-
-slotItems: boolean (default: false) - Saves all "slot" items to variable. Should be set to true for all new components
-
 */
 
 module.exports = [
   {
-    name: 'elvis-accordion',
     elementName: 'elvia-accordion',
+    reactName: 'Accordion',
+    slotItems: true,
     attributes: [
       { name: 'content', type: 'string' },
       { name: 'isOpen', type: 'boolean' },
@@ -50,23 +47,21 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Accordion',
-    slotItems: true,
   },
   {
-    name: 'elvis-badge',
     elementName: 'elvia-badge',
+    slotItems: true,
+    reactName: 'Badge',
     attributes: [
       { name: 'badgeColor', type: 'string' },
       { name: 'count', type: 'number' },
       { name: 'content', type: 'string' },
     ],
-    slotItems: true,
-    reactName: 'Badge',
   },
   {
-    name: 'elvis-box',
     elementName: 'elvia-box',
+    reactName: 'Box',
+    slotItems: true,
     attributes: [
       { name: 'content', type: 'string' },
       { name: 'title', type: 'string' },
@@ -75,24 +70,22 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Box',
-    slotItems: true,
   },
   {
-    name: 'elvis-breadcrumb',
     elementName: 'elvia-breadcrumb',
+    reactName: 'Breadcrumb',
+    slotItems: false,
     attributes: [
       { name: 'breadcrumbs', type: 'object' }, // Remove when deprecation is final.
       { name: 'items', type: 'object' },
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Breadcrumb',
-    slotItems: false,
   },
   {
-    name: 'elvis-card',
     elementName: 'elvia-card',
+    reactName: 'Card',
+    slotItems: true,
     attributes: [
       { name: 'icon', type: 'string' },
       { name: 'iconHover', type: 'string' },
@@ -114,12 +107,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Card',
-    slotItems: true,
   },
   {
-    name: 'elvis-carousel',
     elementName: 'elvia-carousel',
+    reactName: 'Carousel',
+    slotItems: true,
     attributes: [
       { name: 'elements', type: 'string' }, // TODO: Remove when deprecation is final.
       { name: 'items', type: 'string' },
@@ -132,12 +124,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Carousel',
-    slotItems: true,
   },
   {
-    name: 'elvis-chip',
     elementName: 'elvia-chip',
+    reactName: 'Chip',
+    slotItems: false,
     attributes: [
       { name: 'ariaLabel', type: 'string' },
       { name: 'color', type: 'string' },
@@ -149,12 +140,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Chip',
-    slotItems: false,
   },
   {
-    name: 'elvis-datepicker',
     elementName: 'elvia-datepicker',
+    reactName: 'Datepicker',
+    slotItems: false,
     attributes: [
       { name: 'value', type: 'Date' },
       { name: 'label', type: 'string' },
@@ -174,12 +164,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Datepicker',
-    slotItems: false,
   },
   {
-    name: 'elvis-datepicker-range',
     elementName: 'elvia-datepicker-range',
+    reactName: 'DatepickerRange',
+    slotItems: false,
     attributes: [
       { name: 'value', type: 'object' },
       { name: 'labelOptions', type: 'object' },
@@ -197,12 +186,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'DatepickerRange',
-    slotItems: false,
   },
   {
-    name: 'elvis-divider',
     elementName: 'elvia-divider',
+    slotItems: true,
+    reactName: 'Divider',
     attributes: [
       { name: 'type', type: 'string' },
       { name: 'title', type: 'string' },
@@ -212,12 +200,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    slotItems: true,
-    reactName: 'Divider',
   },
   {
-    name: 'elvis-dropdown',
     elementName: 'elvia-dropdown',
+    slotItems: false,
+    reactName: 'Dropdown',
     attributes: [
       { name: 'items', type: 'object' },
       { name: 'options', type: 'object' }, // DEPRECATED
@@ -242,12 +229,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    slotItems: false,
-    reactName: 'Dropdown',
   },
   {
-    name: 'elvis-header',
     elementName: 'elvia-header',
+    reactName: 'Header',
+    slotItems: true,
     attributes: [
       { name: 'appTitle', type: 'string' },
       { name: 'pageTitle', type: 'string' },
@@ -258,24 +244,22 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Header',
-    slotItems: true,
   },
   {
-    name: 'elvis-icon',
     elementName: 'elvia-icon',
+    reactName: 'Icon',
+    slotItems: false,
     attributes: [
       { name: 'name', type: 'string' },
       { name: 'color', type: 'string' },
       { name: 'size', type: 'string' },
       { name: 'customSize', type: 'string' },
     ],
-    reactName: 'Icon',
-    slotItems: false,
   },
   {
-    name: 'elvis-modal',
     elementName: 'elvia-modal',
+    reactName: 'Modal',
+    slotItems: true,
     attributes: [
       { name: 'isShowing', type: 'boolean' },
       { name: 'title', type: 'string' }, // Deprecated
@@ -293,12 +277,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Modal',
-    slotItems: true,
   },
   {
-    name: 'elvis-pagination',
     elementName: 'elvia-pagination',
+    reactName: 'Pagination',
+    slotItems: false,
     attributes: [
       { name: 'value', type: 'object' },
       { name: 'numberOfElements', type: 'number' },
@@ -317,12 +300,11 @@ module.exports = [
       { name: 'dropdownMenuPosition', type: 'string' },
       { name: 'dropdownSelectedItemIndex', type: 'number' },
     ],
-    reactName: 'Pagination',
-    slotItems: false,
   },
   {
-    name: 'elvis-popover',
     elementName: 'elvia-popover',
+    reactName: 'Popover',
+    slotItems: true,
     attributes: [
       { name: 'header', type: 'string' }, // DEPRECATED SINCE 5.0.0
       { name: 'heading', type: 'string' }, // DEPRECATED SINCE 5.0.0
@@ -343,12 +325,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Popover',
-    slotItems: true,
   },
   {
-    name: 'elvis-progress-linear',
     elementName: 'elvia-progress-linear',
+    reactName: 'ProgressLinear',
+    slotItems: false,
     attributes: [
       { name: 'value', type: 'number' },
       { name: 'isIndeterminate', type: 'boolean' },
@@ -358,12 +339,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'ProgressLinear',
-    slotItems: false,
   },
   {
-    name: 'elvis-radio-filter',
     elementName: 'elvia-radio-filter',
+    reactName: 'RadioFilter',
+    slotItems: false,
     attributes: [
       { name: 'name', type: 'string' },
       { name: 'items', type: 'object' },
@@ -373,12 +353,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'RadioFilter',
-    slotItems: false,
   },
   {
-    name: 'elvis-segmented-control',
     elementName: 'elvia-segmented-control',
+    reactName: 'SegmentedControl',
+    slotItems: false,
     attributes: [
       { name: 'items', type: 'object' },
       { name: 'value', type: 'number' },
@@ -387,12 +366,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'SegmentedControl',
-    slotItems: false,
   },
   {
-    name: 'elvis-slider',
     elementName: 'elvia-slider',
+    slotItems: false,
+    reactName: 'Slider',
     attributes: [
       { name: 'className', type: 'string' },
       { name: 'hasHintValues', type: 'boolean' },
@@ -408,12 +386,11 @@ module.exports = [
       { name: 'unit', type: 'string' },
       { name: 'value', type: 'number' },
     ],
-    slotItems: false,
-    reactName: 'Slider',
   },
   {
-    name: 'elvis-spotlight',
     elementName: 'elvia-spotlight',
+    reactName: 'Spotlight',
+    slotItems: false,
     attributes: [
       { name: 'position', type: 'object' },
       { name: 'shape', type: 'string' },
@@ -424,12 +401,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Spotlight',
-    slotItems: false,
   },
   {
-    name: 'elvis-tabs',
     elementName: 'elvia-tabs',
+    reactName: 'Tabs',
+    slotItems: false,
     attributes: [
       { name: 'items', type: 'object' },
       { name: 'value', type: 'number' },
@@ -439,12 +415,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Tabs',
-    slotItems: false,
   },
   {
-    name: 'elvis-timepicker',
     elementName: 'elvia-timepicker',
+    reactName: 'Timepicker',
+    slotItems: false,
     attributes: [
       { name: 'value', type: 'Date' },
       { name: 'minuteInterval', type: 'string' },
@@ -457,12 +432,11 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Timepicker',
-    slotItems: false,
   },
   {
-    name: 'elvis-tooltip',
     elementName: 'elvia-tooltip',
+    reactName: 'Tooltip',
+    slotItems: true,
     attributes: [
       { name: 'trigger', type: 'string' },
       { name: 'display', type: 'string' },
@@ -473,7 +447,5 @@ module.exports = [
       { name: 'className', type: 'string' },
       { name: 'inlineStyle', type: 'object' },
     ],
-    reactName: 'Tooltip',
-    slotItems: true,
   },
 ];

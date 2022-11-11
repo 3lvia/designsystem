@@ -57,6 +57,7 @@ function buildWebComponentsMagically() {
   reloadComponentConfig();
 
   function createWebComponent(component, parentName) {
+    const packageName = getPackageName(component);
     return gulp
       .src(`template/elvia-component.template.ts`)
       .pipe(header(WARNING))
@@ -75,7 +76,7 @@ function buildWebComponentsMagically() {
             String(file.contents).replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(lowercaseAttr)),
           ); // Observed attributes has to be lowercase to meet spec
           file.contents = Buffer.from(
-            String(file.contents).replace(/{{INSERT_COMPONENT_NAME}}/, component.elementName),
+            String(file.contents).replace(/{{INSERT_COMPONENT_NAME}}/, packageName),
           );
 
           file.contents = Buffer.from(
@@ -111,12 +112,12 @@ function buildWebComponentsMagically() {
           presets: ['@babel/preset-typescript'],
         }),
       )
-      .pipe(gulp.dest(`../components/${parentName ? parentName : component.name}/dist/web_component/js/`));
+      .pipe(gulp.dest(`../components/${parentName ? parentName : packageName}/dist/web_component/js/`));
   }
 
   const tasks = components.map((component) => {
     const subComponents = component.subComponents
-      ? component.subComponents.map((subComponent) => createWebComponent(subComponent, component.name))
+      ? component.subComponents.map((subComponent) => createWebComponent(subComponent, packageName))
       : [];
     return mergeStream(createWebComponent(component), ...subComponents);
   });
@@ -128,9 +129,10 @@ function buildWebComponentsMagically() {
 function TSX_to_JS() {
   reloadComponentConfig();
   const tasks = components.map((component) => {
+    const packageName = getPackageName(component);
     return mergeStream(
       gulp
-        .src([`../components/${component.name}/src/react/**/!(*.test).ts*`, '!../components/**/*.d.ts*'])
+        .src([`../components/${packageName}/src/react/**/!(*.test).ts*`, '!../components/**/*.d.ts*'])
         .pipe(cache('TSX_to_JS'))
         .pipe(sourcemaps.init())
         .pipe(
@@ -157,10 +159,10 @@ function TSX_to_JS() {
         )
         .pipe(header(WARNING))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(`../components/${component.name}/dist/react/js/`)),
+        .pipe(gulp.dest(`../components/${packageName}/dist/react/js/`)),
       gulp
-        .src([`../components/${component.name}/src/react/**/*.d.ts`])
-        .pipe(gulp.dest(`../components/${component.name}/dist/react/js/`)),
+        .src([`../components/${packageName}/src/react/**/*.d.ts`])
+        .pipe(gulp.dest(`../components/${packageName}/dist/react/js/`)),
     );
   });
   return mergeStream(tasks);
@@ -169,7 +171,8 @@ function TSX_to_JS() {
 function reactTypescriptDeclarations() {
   reloadComponentConfig();
   const globsToCreateDeclarationsFor = components.map((component) => {
-    return `../components/${component.name}/src/react/**/!(*.test).ts*`;
+    const packageName = getPackageName(component);
+    return `../components/${packageName}/src/react/**/!(*.test).ts*`;
   });
   const tsConfig = typescript.createProject('../tsconfig.json');
 
@@ -243,6 +246,10 @@ function buildElviaComponentToJS() {
     )
     .pipe(header(WARNING))
     .pipe(gulp.dest(`../components/elvis-component-wrapper/dist/`));
+}
+
+function getPackageName(component) {
+  return component.elementName.replace('elvia', 'elvis');
 }
 
 function buildElviaComponentTSDeclaration() {

@@ -158,7 +158,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   private logErrorMessage(functionName: string, error: string): void {
     console.error(
       '[' +
-        this.webComponent.getComponentData().name +
+        this.webComponent.getComponentData().elementName +
         '] elvia-component-wrapper: ' +
         "Failed at function '" +
         functionName +
@@ -170,7 +170,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   private logWarnMessage(functionName: string, warn: string): void {
     console.warn(
       '[' +
-        this.webComponent.getComponentData().name +
+        this.webComponent.getComponentData().elementName +
         '] elvia-component-wrapper: ' +
         "Failed at function '" +
         functionName +
@@ -276,7 +276,6 @@ declare class ElviaComponent extends ElvisComponentWrapper {
   static get observedAttributes(): string[];
   /** Data from `elvia-components.config.js`. */
   getComponentData(): {
-    name: string;
     elementName: string;
     attributes: { name: string; type: string }[];
     reactName: string;
