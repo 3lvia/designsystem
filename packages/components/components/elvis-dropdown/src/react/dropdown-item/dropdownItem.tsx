@@ -51,7 +51,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     verticalPosition: 'top-inside',
     alignWidths: true,
   });
-  const [hoverTimeoutId, setHoverTimeoutId] = useState<number>();
+  const [hoverTimeoutId, setHoverTimeoutId] = useState(0);
 
   const getSelectableChildren = (): DropdownItemOption[] => {
     if (item.children) {
@@ -69,7 +69,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     return selectedValues.includes(item.value);
   };
 
-  const isSelected = (): boolean => {
+  const selfOrAllChildrenAreSelected = (): boolean => {
     const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
     if (item.children) {
       return getSelectableChildren().every((child) => selectedValues.includes(child.value));
@@ -124,8 +124,9 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       if (isShowing && isGtMobile) {
         setIsShowing(false);
       } else if (hoverTimeoutId && !isSsr()) {
+        console.log('Clearing timeout: ', item.label);
         window.clearTimeout(hoverTimeoutId);
-        setHoverTimeoutId(undefined);
+        setHoverTimeoutId(0);
       }
     }
   }, [focusedItem]);
@@ -134,7 +135,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     return () => {
       if (hoverTimeoutId && !isSsr()) {
         window.clearTimeout(hoverTimeoutId);
-        setHoverTimeoutId(undefined);
+        setHoverTimeoutId(0);
       }
     };
   }, []);
@@ -144,7 +145,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       <DropdownItemStyles
         ref={itemRef}
         isFocused={(focusedItem?.value === item.value && !inputIsMouse) || isShowing || childIsSelected()}
-        isActive={isSelected()}
+        isActive={selfOrAllChildrenAreSelected()}
         isCompact={isCompact}
         isDisabled={item.isDisabled}
         isMulti={isMulti}
@@ -155,13 +156,14 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         aria-disabled={item.isDisabled}
         aria-haspopup={item.children ? 'listbox' : 'false'}
         aria-expanded={isShowing}
-        aria-selected={isSelected()}
+        aria-selected={selfOrAllChildrenAreSelected()}
+        data-testid="dropdown-item"
       >
         {isMulti && (
           <Checkbox
             isFocused={(focusedItem?.value === item.value && !inputIsMouse) || isShowing}
             isIndeterminate={isPartiallyChecked()}
-            isChecked={isSelected()}
+            isChecked={selfOrAllChildrenAreSelected()}
             isCompact={isCompact}
             isDisabled={item.isDisabled}
           />

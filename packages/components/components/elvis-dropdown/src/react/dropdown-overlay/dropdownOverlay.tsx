@@ -234,7 +234,6 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
             setFadeOut(true);
             onBackdropClick && onBackdropClick();
           }}
-          data-testid="backdrop"
         />
         <DropdownPopupContainer ref={ref} data-testid="popover">
           {!isRootOverlay && isGtMobile && <CursorCurve />}

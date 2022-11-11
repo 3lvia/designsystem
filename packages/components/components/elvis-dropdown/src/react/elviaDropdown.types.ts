@@ -30,7 +30,6 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue> {
   menuPosition?: DropdownMenuPosition;
   placeholder?: string;
   placeholderIcon?: IconName;
-
   isCompact?: boolean;
   isDisabled?: boolean;
   isMulti?: boolean;

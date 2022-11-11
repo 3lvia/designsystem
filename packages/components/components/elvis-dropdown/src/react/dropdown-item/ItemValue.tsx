@@ -12,18 +12,15 @@ export const ItemValue: React.FC<Props> = ({ item }) => {
   const [isOverflowing, setIsOverflowing] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      const { current } = containerRef;
-      if (current) {
-        setIsOverflowing(current.scrollWidth > current.offsetWidth);
-      }
-    });
-  }, [item.label]);
+    const { current } = containerRef;
+    if (current) {
+      setIsOverflowing(current.scrollWidth > current.offsetWidth);
+    }
+  }, [item.label, containerRef.current]);
 
   return (
     <TooltipContainer paddingRight={item.status || item.children ? 0 : 16}>
       <Tooltip
-        triggerAreaRef={containerRef}
         trigger={
           <TooltipTextContainer ref={containerRef}>
             <DropdownItemValue>{item.label}</DropdownItemValue>

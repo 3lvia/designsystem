@@ -74,10 +74,10 @@ const Dropdown: React.FC<DropdownProps> = ({
         }
       });
       setCurrentVal(arrayCopy);
+      setFilter('');
     } else {
       setCurrentVal(values[0]);
     }
-    setFilter('');
   };
 
   const emitLoadMoreItems = (): void => {
@@ -96,6 +96,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   useEffect(() => {
     if (!isShowing) {
+      setFilter('');
       return;
     }
 
