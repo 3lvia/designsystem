@@ -53,6 +53,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [filteredItems, setFilteredItems] = useState<DropdownItem[]>([]);
   const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
   const [focusedItem, setFocusedItem] = useState<DropdownItem>();
+  const [hoveredItem, setHoveredItem] = useState<DropdownItem>();
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -89,7 +90,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
   };
 
-  const emitFocusedItem = (item?: DropdownItem): void => {
+  const emitHoveredItem = (item?: DropdownItem): void => {
     if (!webcomponent && onItemHover) {
       onItemHover(item?.value);
     } else if (webcomponent) {
@@ -97,8 +98,14 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
   };
 
+  const updateHoveredItem = (item?: DropdownItem): void => {
+    emitHoveredItem(item);
+    if (item?.value !== hoveredItem?.value) {
+      setHoveredItem(item);
+    }
+  };
+
   const updateFocusedItem = (item?: DropdownItem): void => {
-    emitFocusedItem(item);
     if (item?.value !== focusedItem?.value) {
       setFocusedItem(item);
     }
@@ -207,6 +214,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           isLoadingMoreItems={isLoadingMoreItems}
           focusedItem={focusedItem}
           setFocusedItem={updateFocusedItem}
+          setHoveredItem={updateHoveredItem}
           isSearchMode={!!filter}
         />
       )}

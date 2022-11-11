@@ -18,6 +18,7 @@ interface DropdownItemProps {
   isMulti: boolean;
   focusedItem?: DropdownItemOption;
   setFocusedItem: (item?: DropdownItemOption) => void;
+  setHoveredItem: (item?: DropdownItemOption) => void;
   inputIsMouse: boolean;
   onItemSelect: (value: string[]) => void;
   onClick: (item: DropdownItemOption) => void;
@@ -35,6 +36,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   isMulti,
   focusedItem,
   setFocusedItem,
+  setHoveredItem,
   inputIsMouse,
   onItemSelect,
   onClick,
@@ -85,6 +87,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
 
     if (!item.isDisabled && inputIsMouse) {
       setFocusedItem(item);
+      setHoveredItem(item);
     }
     if (item.children) {
       if (isSsr()) {
@@ -110,6 +113,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         setIsShowing(true);
       } else if (pressedKey?.code === 'ArrowLeft' && parentItem) {
         setFocusedItem(parentItem);
+        setHoveredItem(parentItem);
       }
     }
   }, [pressedKey]);
@@ -223,6 +227,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           onBackdropClick={onBackdropClick}
           focusedItem={focusedItem}
           setFocusedItem={setFocusedItem}
+          setHoveredItem={setHoveredItem}
           parentItem={item}
         />
       )}

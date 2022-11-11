@@ -35,6 +35,7 @@ interface DropdownOverlayProps {
   isLoadingMoreItems?: boolean;
   focusedItem?: DropdownItemOption;
   setFocusedItem: (item?: DropdownItemOption) => void;
+  setHoveredItem?: (item?: DropdownItemOption) => void;
   parentItem?: DropdownItemOption;
   isSearchMode?: boolean;
 }
@@ -63,6 +64,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       isLoadingMoreItems,
       focusedItem,
       setFocusedItem,
+      setHoveredItem,
       parentItem,
       isSearchMode,
     },
@@ -235,7 +237,11 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
             onBackdropClick && onBackdropClick();
           }}
         />
-        <DropdownPopupContainer ref={ref} data-testid="popover">
+        <DropdownPopupContainer
+          ref={ref}
+          data-testid="popover"
+          onMouseLeave={() => setHoveredItem && setHoveredItem(undefined)}
+        >
           {!isRootOverlay && isGtMobile && <CursorCurve />}
           <DropdownPopup
             fadeOut={fadeOut}
@@ -279,6 +285,9 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                     if (item?.value === parentItem?.value) {
                       setFadeOut(true);
                     }
+                  }}
+                  setHoveredItem={(item) => {
+                    setHoveredItem && setHoveredItem(item);
                   }}
                   isCompact={isCompact}
                   isMulti={isMulti}
