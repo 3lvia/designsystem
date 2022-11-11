@@ -136,7 +136,7 @@ one test project for each framework; Angular, Vue and React. When running `yarn 
      of the page there should be a "DEV" where you can preview the v2 components. The code is at path
      `../web/src/app/dev/v2-playground`.
 
-#### Step 5 - Import your new component to the projects
+#### Step 4 - Import your new component to the projects
 
 1. Add your components to the package.json files: `web/package.json`, `vue-test/package.json` and
    `react-test/package.json`.
@@ -167,17 +167,25 @@ one test project for each framework; Angular, Vue and React. When running `yarn 
    import '@elvia/elvis-divider/react';
    ```
 
-#### Step 6 - Document the component
+#### Step 5 - Document the component
 
 The component should be documented in the `packages/web` folder so that users of the design system can find
 information on how to use it.
 
 - Navigate to `packages/web/src/app/doc-pages/components` and find the component you want to add documentation
-  to or create a new module (like the ones existing all ready).
+  to or create a new module (like the ones existing all ready). You will find the standard setup in any of the
+  other component modules.
 - The `your-component-data.ts` file should contain all the metadata for your component. Read about how to add
-  the data in the `packages/web/src/app/doc-pages/component-data.template.ts` file.
+  the data in the `packages/web/src/app/doc-pages/component-data.template.ts` file to make the component
+  example generator (CEG) work as you want.
+- Remember to add the Angular route for the new component module in the `app-routing.module.ts` file.
+- Lastly you also need to add the route in Contentful for the page to appear in the menu on `design.elvia.io`
+  if it is not an existing page. To do this you have to login to Contentful, navigate to the 'Components'
+  submenu entry and add the page with the correct title and path there. The new component also needs an icon
+  that will appear on the landing-page for the Components menu. Navigate to the 'Component' landing page and
+  add a new card here with the new icon.
 
-#### Step 7 - Update changelog
+#### Step 6 - Update changelog
 
 Remember to update `CHANGELOG.json` in `packages/components/components/elvis-my-component`. The format is
 checked with json-schema. When the component is built the changelog will be copied to assets in the
@@ -213,7 +221,7 @@ Example of an update
     },
 ```
 
-#### Step 8 - Deprecating old classes
+#### Step 7 - Deprecating old classes
 
 If the component you have created is a replacement for an component that allready existed in elvis (the style
 library), this class needs to be deprecated.
@@ -221,7 +229,7 @@ library), this class needs to be deprecated.
 - To deprecate the class read the guidelines in the
   [Elvis README](https://github.com/3lvia/designsystem/blob/master/packages/elvis/README.md#good-to-know).
 
-#### Step 9 - Pull request and publish
+#### Step 8 - Pull request and publish
 
 > NOTE! You will need to set up two-factor authentication with NPM to publish your changes.
 > [Elvia NPM](https://www.npmjs.com/org/elvia).
