@@ -10,13 +10,14 @@
     ]
   },
   "scripts": {
-    "build": "yarn build:tokens && yarn build:elvis:prod && yarn build:components:prod && yarn build:web:prod",
+    "build": "yarn build:tokens && yarn build:elvis:prod && yarn build:components:prod && yarn build:react:prod && yarn build:web:prod",
     "build:elvis": "nx build @elvia/elvis",
     "build:elvis:prod": "nx build:production @elvia/elvis",
     "build:components": "nx build @elvia/elvis-components",
     "build:components:prod": "nx build:production @elvia/elvis-components --skip-nx-cache",
     "build:web": "nx build elvia-designsystem",
-    "build:web:prod": "yarn contentful:production && nx run-many --target=build:production --projects=elvia-designsystem,react-test --skip-nx-cache",
+    "build:react:prod": "nx build:production react-test",
+    "build:web:prod": "yarn contentful:production && nx build:production elvia-designsystem --skip-nx-cache",
     "build:tokens": "nx run-many --target=build --projects=@elvia/elvis-colors,@elvia/elvis-typography,@elvia/elvis-assets-icons --skip-nx-cache",
     "start:elvis": "nx start @elvia/elvis",
     "start:components": "nx start @elvia/elvis-components",
