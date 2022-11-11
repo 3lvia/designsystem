@@ -35,6 +35,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   selectAllOption = 'Alle',
   noOptionsMessage = 'Ingen tilgjengelige valg',
   valueOnChange,
+  onItemHover,
   hasLoadMoreItemsButton,
   onLoadMoreItems,
   isLoadingMoreItems,
@@ -88,7 +89,16 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
   };
 
+  const emitFocusedItem = (item?: DropdownItem): void => {
+    if (!webcomponent && onItemHover) {
+      onItemHover(item?.value);
+    } else if (webcomponent) {
+      webcomponent.triggerEvent('onItemHover', item?.value);
+    }
+  };
+
   const updateFocusedItem = (item?: DropdownItem): void => {
+    emitFocusedItem(item);
     if (item?.value !== focusedItem?.value) {
       setFocusedItem(item);
     }

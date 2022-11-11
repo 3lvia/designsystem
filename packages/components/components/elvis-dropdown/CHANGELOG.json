@@ -2,15 +2,15 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "31.10.22",
+      "date": "11.11.22",
       "version": "5.0.0",
       "changelog": [
         {
           "type": "breaking_changes",
           "changes": [
-            "Rewrote component to remove dependency to <span class=\"code-text\">react-select</span>. This means that the DOM and CSS is completely new, so if any deep CSS selectors have been used, these must be removed. Ask the design team if this means that you need a new feature to the drop down.",
+            "Rewrote component to remove dependency to <span class=\"code-text\">react-select</span>. This means that the DOM and CSS is completely new, so if any deep CSS selectors have been used, these must be removed. Ask the design team if this means that you need a new dropdown feature.",
             "The property <span class=\"code-text\">selectAllOption</span> now only accepts a string to define the label for the select all option.",
-            "The property <span class=\"code-text\">selectAllOption</span> now only accepts strings for selected value. This can also be a list of strings for multiple select."
+            "The property <span class=\"code-text\">value</span> now only accepts strings for selected value. This can also be a list of strings for multiple select."
           ]
         }
       ]

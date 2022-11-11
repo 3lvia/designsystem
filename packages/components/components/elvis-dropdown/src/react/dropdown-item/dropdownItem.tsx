@@ -124,7 +124,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       if (isShowing && isGtMobile) {
         setIsShowing(false);
       } else if (hoverTimeoutId && !isSsr()) {
-        console.log('Clearing timeout: ', item.label);
         window.clearTimeout(hoverTimeoutId);
         setHoverTimeoutId(0);
       }

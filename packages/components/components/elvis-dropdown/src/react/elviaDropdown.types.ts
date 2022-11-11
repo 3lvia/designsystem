@@ -17,6 +17,10 @@ export interface DropdownItem {
 }
 
 export interface DropdownProps extends BaseProps, HasValue<DropdownValue> {
+  /**
+   * @deprecated Removed in version 3.0.0. Replaced by `items`.
+   */
+  options?: never;
   items: DropdownItem[];
   /**
    * @deprecated Removed in version 3.0.0. Replaced by `value`.
@@ -37,6 +41,7 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue> {
   selectAllOption?: string;
   noOptionsMessage?: string;
   hasLoadMoreItemsButton?: boolean;
+  onItemHover?: (hoveredItem: string | undefined) => void;
   onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
 }
