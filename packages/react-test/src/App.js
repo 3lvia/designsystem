@@ -11,7 +11,7 @@ import { Chip } from '@elvia/elvis-chip/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';
 import { Divider } from '@elvia/elvis-divider/react';
-import { Dropdown, DropdownItem, DropdownOverlay } from '@elvia/elvis-dropdown/react';
+import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Header } from '@elvia/elvis-header/react';
 import { Icon } from '@elvia/elvis-icon/react';
 import { Modal } from '@elvia/elvis-modal/react';
@@ -70,7 +70,7 @@ function App() {
     {
       value: 'england',
       label: 'England',
-      items: [
+      children: [
         { value: 'london', label: 'London' },
         { value: 'manchester', label: 'Manchester' },
         { value: 'birmingham', label: 'Birmingham' },
@@ -168,35 +168,11 @@ function App() {
               {/* Normal version */}
               <div className="e-bg-white">
                 <Dropdown
-                  inlineStyle={{ width: '280px' }}
                   value={defaultDropdownOptions}
                   placeholder="Select country"
                   label="New dropdown"
                   isSearchable
-                  dropdownOverlay={
-                    <DropdownOverlay
-                      items={dropdownOptions.map((option) => (
-                        <DropdownItem
-                          key={option.value}
-                          value={option.value}
-                          content={option.label}
-                          subOptions={
-                            option.items && (
-                              <DropdownOverlay
-                                items={option.items.map((option) => (
-                                  <DropdownItem
-                                    key={option.value}
-                                    value={option.value}
-                                    content={option.label}
-                                  />
-                                ))}
-                              />
-                            )
-                          }
-                        />
-                      ))}
-                    />
-                  }
+                  items={dropdownOptions}
                 ></Dropdown>
               </div>
               {/* Inverted version */}
