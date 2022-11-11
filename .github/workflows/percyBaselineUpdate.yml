@@ -17,6 +17,8 @@ jobs:
           cache: 'yarn'
       - name: Install
         run: yarn install --immutable
+      - name: Build Elvis
+        run: yarn build:elvis
       - name: Run Percy on Elvis
         run: |
           cd packages/elvis
