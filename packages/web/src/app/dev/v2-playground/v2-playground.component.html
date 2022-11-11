@@ -4,21 +4,42 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white" style="max-width: 280px">
+    <div class="e-bg-white" style="display: flex; gap: 32px; flex-wrap: wrap">
       <elvia-dropdown
-        isDisabled="false"
-        label="Residing country"
+        [inlineStyle]="{ maxWidth: '280px' }"
+        label="Standard"
         [items]="dropdownItems"
-        isMulti="false"
-        isCompact="false"
-        hasSelectAllOption="true"
+      ></elvia-dropdown>
+      <elvia-dropdown
+        [inlineStyle]="{ maxWidth: '280px' }"
+        isDisabled="true"
+        label="Disabled"
+        [items]="dropdownItems"
+      ></elvia-dropdown>
+      <elvia-dropdown
+        [inlineStyle]="{ maxWidth: '280px' }"
+        label="Searchable"
+        [items]="dropdownItems"
         isSearchable="true"
+      ></elvia-dropdown>
+      <elvia-dropdown
+        [inlineStyle]="{ maxWidth: '280px' }"
+        label="Compact"
+        [items]="dropdownItems"
+        isCompact="true"
+      ></elvia-dropdown>
+      <elvia-dropdown
+        [inlineStyle]="{ maxWidth: '280px' }"
+        label="Multi"
+        [items]="dropdownItems"
+        isMulti="true"
+        hasSelectAllOption="true"
         placeholder="Select country"
         hasLoadMoreItemsButton="false"
-        isFullWidth="false"
         [isLoadingMoreItems]="isLoadingMoreItems"
         (onLoadMoreItems)="setLoading()"
       ></elvia-dropdown>
+      <elvia-dropdown label="Full width" [items]="dropdownItems" isFullWidth="true"></elvia-dropdown>
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
