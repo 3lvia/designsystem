@@ -17,7 +17,7 @@ const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
   });
 };
 
-describe.only('Elvis Pagination', () => {
+describe('Elvis Pagination', () => {
   describe('Default values', () => {
     beforeEach(() => {
       mockMatchMedia({ isGtMobile: true });
