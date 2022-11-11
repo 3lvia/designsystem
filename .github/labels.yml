@@ -20,4 +20,4 @@ tokens:
 
 ci/cd:
   - .github/workflows/**/*
-  - scripts/**/*
+  - .github/labels.yml
