@@ -37,7 +37,14 @@ export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
   };
 
   useEffect(() => {
-    const valueList = Array.isArray(selectedItems) ? selectedItems : selectedItems ? [selectedItems] : [];
+    let valueList: string[] = [];
+
+    if (Array.isArray(selectedItems)) {
+      valueList = selectedItems.slice();
+    } else if (selectedItems) {
+      valueList = [selectedItems];
+    }
+
     if (valueList.length === 0) {
       setCheckboxState('none');
     } else if (valueList.length === getSelectableItems().length) {
