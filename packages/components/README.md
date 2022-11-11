@@ -173,7 +173,7 @@ The component should be documented in the `packages/web` folder so that users of
 information on how to use it.
 
 - Navigate to `packages/web/src/app/doc-pages/components` and find the component you want to add documentation
-  to or create a new module (like the ones existing all ready). You will find the standard setup in any of the
+  to or create a new module (like the ones existing already). You will find the standard setup in any of the
   other component modules.
 - The `your-component-data.ts` file should contain all the metadata for your component. Read about how to add
   the data in the `packages/web/src/app/doc-pages/component-data.template.ts` file to make the component
