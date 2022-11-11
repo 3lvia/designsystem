@@ -220,6 +220,8 @@ module.exports = [
     elementName: 'elvia-dropdown',
     attributes: [
       { name: 'items', type: 'object' },
+      { name: 'options', type: 'object' }, // DEPRECATED
+      { name: 'defaultValue', type: 'object' }, // DEPRECATED
       { name: 'isFullWidth', type: 'boolean' },
       { name: 'isSearchable', type: 'boolean' },
       { name: 'allOptionsSelectedLabel', type: 'string' },
