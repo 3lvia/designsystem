@@ -186,7 +186,11 @@ export class CMSTransformService {
       return str.replace('class="cms-img', '');
     });
     liStrings = liStrings.map((li) => {
-      return li.replace(imgRegex, '').replace('<li>', '').replace('/>', '');
+      return li
+        .replace(imgRegex, '')
+        .replace('<li>', '')
+        .replace('/>', '')
+        .replace('cms-image', 'e-none cms-image');
     });
     if (bulletIcons[0].includes('src=')) {
       let returnString = '<ol class="e-list e-list--icons e-text-lg">';
