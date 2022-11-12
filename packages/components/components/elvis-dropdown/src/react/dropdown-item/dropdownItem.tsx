@@ -47,6 +47,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
 }) => {
   const itemRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
   const { isShowing, setIsShowing } = useConnectedOverlay(isGtMobile ? itemRef : listRef, popoverRef, {
     offset: 0,
     horizontalPosition: isGtMobile ? 'right' : 'center',
@@ -81,10 +82,13 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   };
 
   const onMouseOver = () => {
+    setIsHovered(true);
+
     if (!isGtMobile) {
       return;
     }
 
+    console.log('here');
     if (!item.isDisabled && inputIsMouse) {
       setFocusedItem(item);
       setHoveredItem(item);
@@ -96,6 +100,14 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         window.clearTimeout(hoverTimeoutId);
         setHoverTimeoutId(window.setTimeout(() => setIsShowing(true), 200));
       }
+    }
+  };
+
+  const onItemClick = () => {
+    if (isGtMobile || isMulti || !item.children) {
+      onClick(item);
+    } else {
+      setIsShowing(true);
     }
   };
 
@@ -147,13 +159,16 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     <>
       <DropdownItemStyles
         ref={itemRef}
-        isFocused={(focusedItem?.value === item.value && !inputIsMouse) || isShowing || childIsSelected()}
+        isFocused={
+          (focusedItem?.value === item.value && !inputIsMouse) || isShowing || (childIsSelected() && !isMulti)
+        }
         isActive={selfOrAllChildrenAreSelected()}
         isCompact={isCompact}
         isDisabled={item.isDisabled}
         isMulti={isMulti}
-        onClick={() => onClick(item)}
+        onClick={() => onItemClick()}
         onMouseEnter={() => onMouseOver()}
+        onMouseLeave={() => setIsHovered(false)}
         onMouseDown={(ev) => ev.preventDefault()}
         id={`elvia-dropdown-item-${item.value}`}
         aria-disabled={item.isDisabled}
@@ -201,11 +216,12 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           <IconContainer>
             <IconButton
               size={isCompact ? 'sm' : 'md'}
-              disabled={isGtMobile}
+              disabled={isGtMobile || !isMulti}
               onClick={(ev) => {
                 ev.stopPropagation();
                 setIsShowing(true);
               }}
+              isActive={!isGtMobile && !isMulti && isHovered}
             >
               <Icon name="arrowRight" size={isCompact ? 'xs' : 'sm'} />
             </IconButton>

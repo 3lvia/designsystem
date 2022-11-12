@@ -90,7 +90,7 @@ export class v2PlaygroundComponent {
         { label: 'Kristiansand', value: 'kristiansand' },
       ],
     },
-    { value: 'sverige', label: 'Sverige', status: 'info' },
+    { value: 'sverige', label: 'Sverige', status: 'info', tooltip: 'Sweden is a country' },
     { value: 'danmark', label: 'Danmark' },
     {
       value: 'england',
