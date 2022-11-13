@@ -7,10 +7,10 @@ const dropdownLoadMoreItemsCode = {
     { value: 'Oman', label: 'Oman' },
     { value: 'Russland', label: 'Russland' },
   ]}
-  label={'Label'}
-  placeholder={'Placeholder'}
-  isSearchable={true}
-  isMulti={true}
+  label="Label"
+  placeholder="Placeholder"
+  isSearchable
+  isMulti
   isLoadingMoreItems={isLoadingMoreItems}
   onLoadMoreItems={() => loadMoreDropdownItems()}
 ></Dropdown>
@@ -23,8 +23,8 @@ const dropdownLoadMoreItemsCode = {
     { value: 'Oman', label: 'Oman' },
     { value: 'Russland', label: 'Russland' }
   ]"
-  [label]="'Label'"
-  [placeholder]="'Placeholder'"
+  label="Label"
+  placeholder="Placeholder"
   [isSearchable]="true"
   [isMulti]="true"
   [isLoadingMoreitems]="isLoadingMoreItems"
@@ -39,8 +39,8 @@ const dropdownLoadMoreItemsCode = {
     { value: 'Oman', label: 'Oman' },
     { value: 'Russland', label: 'Russland' },
   ]"
-  :label="'Label'"
-  :placeholder="'Placeholder'"
+  label="Label"
+  placeholder="Placeholder"
   :isSearchable="true"
   :isMulti="true"
   :isLoadingMoreitems="isLoadingMoreItems"

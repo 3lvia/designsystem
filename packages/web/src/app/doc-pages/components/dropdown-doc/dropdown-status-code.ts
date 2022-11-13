@@ -7,9 +7,9 @@ const dropdownStatusCode = {
       { value: 'Oman', label: 'Oman'},
       { value: 'Russland', label: 'Russland', status: 'warning' },
     ]} 
-    value={{ value: 'Nord-Makedonia', label: 'Nord-Makedonia'}}
-    label={"Label"}
-    placeholder={"Placeholder"}
+    value="Nord-Makedonia"
+    label="Label"
+    placeholder="Placeholder"
     valueOnChange={(event) => updateSelectedList(event)}
   ></Dropdown>
   `,
@@ -21,9 +21,9 @@ const dropdownStatusCode = {
       { value: 'Oman', label: 'Oman'},
       { value: 'Russland', label: 'Russland', status: 'warning' },
     ]"
-    [value]="{ value: 'Nord-Makedonia', label: 'Nord-Makedonia'}"
-    [label]="'Label'"
-    [placeholder]="'Placeholder'"
+    value="Nord-Makedonia"
+    label="Label"
+    placeholder="Placeholder"
     (valueOnChange)="updateSelectedList($event.detail.value)"
   ></elvia-dropdown>
   `,
@@ -35,9 +35,9 @@ const dropdownStatusCode = {
       { value: 'Oman', label: 'Oman'},
       { value: 'Russland', label: 'Russland', status: 'warning' },
     ]"
-    :value="{ value: 'Nord-Makedonia', label: 'Nord-Makedonia'}"
-    :label="'Label'"
-    :placeholder="'Placeholder'"
+    value="Nord-Makedonia"
+    label="Label"
+    placeholder="Placeholder"
     @value-on-change="updateSelectedList($event.detail.value)"
   ></elvia-dropdown>
   `,
@@ -56,7 +56,7 @@ const dropdownStatusCode = {
     dropdown.setProps({label: 'Label' });
     dropdown.setProps({placeholder: 'Placeholder' });
     dropdown.setProps({items: items});
-    dropdown.setProps({value: items[1]});
+    dropdown.setProps({value: items[1].value});
   `,
 };
 

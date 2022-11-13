@@ -5,9 +5,9 @@ const dropdownIconsCode = {
     { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
     { value: 'Cable', label: 'Cable', icon: 'cable' },
   ]} 
-  value={{ value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' }}
-  label={"Label"}
-  placeholder={"Placeholder"}
+  value="Electricity tower"
+  label="Label"
+  placeholder="Placeholder"
   valueOnChange={(event) => updateSelectedList(event)}
 ></Dropdown>
 `,
@@ -17,9 +17,9 @@ const dropdownIconsCode = {
     { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
     { value: 'Cable', label: 'Cable', icon: 'cable' },
   ]"
-  [value]="{ value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' }"
-  [label]="'Label'"
-  [placeholder]="'Placeholder'"
+  value="Electricity tower"
+  label="Label"
+  placeholder="Placeholder"
   (valueOnChange)="updateSelectedList($event.detail.value)"
 ></elvia-dropdown>
 `,
@@ -29,9 +29,9 @@ const dropdownIconsCode = {
     { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
     { value: 'Cable', label: 'Cable', icon: 'cable' },
   ]"
-  :value="{ value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' }"
-  :label="'Label'"
-  :placeholder="'Placeholder'"
+  value="Electricity tower"
+  label="Label"
+  placeholder="Placeholder"
   @value-on-change="updateSelectedList($event.detail.value)"
 ></elvia-dropdown>
 `,
@@ -45,10 +45,10 @@ const dropdownIconsCode = {
     { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
     { value: 'Cable', label: 'Cable', icon: 'cable' },
   ];
-  dropdown.setProps({label: 'Label' });
+  dropdown.setProps({label: 'Label'});
   dropdown.setProps({placeholder: 'Placeholder' });
   dropdown.setProps({items: items});
-  dropdown.setProps({value: items[1]});
+  dropdown.setProps({value: items[1].value});
   dropdown.addEventListener('valueOnChange', (event) => {
     console.log('Do what you want with selected elements: ', event.detail.value);
   });
