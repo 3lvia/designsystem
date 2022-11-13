@@ -88,7 +88,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       return;
     }
 
-    console.log('here');
     if (!item.isDisabled && inputIsMouse) {
       setFocusedItem(item);
       setHoveredItem(item);

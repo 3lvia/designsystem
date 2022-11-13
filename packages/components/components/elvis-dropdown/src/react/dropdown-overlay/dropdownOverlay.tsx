@@ -222,7 +222,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
 
     useEffect(() => {
       const focusFirstItemOnInit = () => {
-        if (!inputIsMouse || (!focusedItem && isRootOverlay) || !isGtMobile) {
+        if (!inputIsMouse || (isRootOverlay && !focusIsOnDirectDescendant()) || !isGtMobile) {
           setFocusedItem(getFullTabList()[0]);
         }
       };

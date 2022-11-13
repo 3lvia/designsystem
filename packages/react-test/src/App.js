@@ -173,6 +173,7 @@ function App() {
                   label="New dropdown"
                   isSearchable
                   items={dropdownOptions}
+                  isMulti
                   isLoadingMoreItems={isLoadingMoreItems}
                   onLoadMoreItems={onLoadMoreItems}
                 ></Dropdown>
