@@ -60,10 +60,7 @@ export interface FormState {
  * Type of elvia-dropdown event.
  */
 export type DropdownEvent = CustomEvent<{
-  value: {
-    value: string;
-    label: string;
-  };
+  value: string;
 }>;
 
 /**
