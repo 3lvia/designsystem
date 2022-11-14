@@ -11,7 +11,7 @@ export const dropdownData: ComponentData = {
       isRequired: true,
       type: 'Array<object>',
       description:
-        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?: string, isDisabled?: boolean, status?: string, tooltip?: string}',
+        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?: string, isDisabled?: boolean, status?: string, tooltip?: string, children?: Array<object>}',
     },
     value: {
       isRequired: false,

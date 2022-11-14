@@ -84,6 +84,9 @@ export class v2PlaygroundComponent {
       tooltip: 'Sweden is a country',
     },
     { value: 'danmark', label: 'Danmark' },
+    { value: 'finland', label: 'Finland' },
+    { value: 'spania', label: 'Spania' },
+    { value: 'tyskland', label: 'Tyskland' },
     {
       value: 'england',
       label: 'England',
