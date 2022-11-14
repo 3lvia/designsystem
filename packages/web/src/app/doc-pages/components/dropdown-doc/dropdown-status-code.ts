@@ -1,11 +1,11 @@
 const dropdownStatusCode = {
   codeReact: `<Dropdown 
     items={[
-      { value: 'Nord-Korea', label: 'Nord-Korea', status: 'warning' },
+      { value: 'Danmark', label: 'Danmark', status: 'warning' },
       { value: 'Nord-Makedonia', label: 'Nord-Makedonia'},
       { value: 'Norge', label: 'Norge' },
       { value: 'Oman', label: 'Oman'},
-      { value: 'Russland', label: 'Russland', status: 'warning' },
+      { value: 'Sverige', label: 'Sverige', status: 'warning' },
     ]} 
     value="Nord-Makedonia"
     label="Label"
@@ -15,11 +15,11 @@ const dropdownStatusCode = {
   `,
   codeAngular: `<elvia-dropdown
     [items]="[
-      { value: 'Nord-Korea', label: 'Nord-Korea', status: 'warning' },
+      { value: 'Danmark', label: 'Danmark', status: 'warning' },
       { value: 'Nord-Makedonia', label: 'Nord-Makedonia'},
       { value: 'Norge', label: 'Norge' },
       { value: 'Oman', label: 'Oman'},
-      { value: 'Russland', label: 'Russland', status: 'warning' },
+      { value: 'Sverige', label: 'Sverige', status: 'warning' },
     ]"
     value="Nord-Makedonia"
     label="Label"
@@ -29,11 +29,11 @@ const dropdownStatusCode = {
   `,
   codeVue: `<elvia-dropdown
     :items="[
-      { value: 'Nord-Korea', label: 'Nord-Korea', status: 'warning' },
+      { value: 'Danmark', label: 'Danmark', status: 'warning' },
       { value: 'Nord-Makedonia', label: 'Nord-Makedonia'},
       { value: 'Norge', label: 'Norge' },
       { value: 'Oman', label: 'Oman'},
-      { value: 'Russland', label: 'Russland', status: 'warning' },
+      { value: 'Sverige', label: 'Sverige', status: 'warning' },
     ]"
     value="Nord-Makedonia"
     label="Label"
@@ -47,11 +47,11 @@ const dropdownStatusCode = {
 
   codeNativeScript: `  const dropdown = document.getElementById('example-elvia-dropdown-status');
     const items = [
-      { value: 'Nord-Korea', label: 'Nord-Korea', status: 'warning' },
+      { value: 'Danmark', label: 'Danmark', status: 'warning' },
       { value: 'Nord-Makedonia', label: 'Nord-Makedonia'},
       { value: 'Norge', label: 'Norge' },
       { value: 'Oman', label: 'Oman'},
-      { value: 'Russland', label: 'Russland', status: 'warning' },
+      { value: 'Sverige', label: 'Sverige', status: 'warning' },
     ];
     dropdown.setProps({label: 'Label' });
     dropdown.setProps({placeholder: 'Placeholder' });

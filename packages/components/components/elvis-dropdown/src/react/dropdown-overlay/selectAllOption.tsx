@@ -1,7 +1,7 @@
 import React, { MouseEvent, useEffect, useState } from 'react';
 import { Checkbox } from '../checkbox/checkbox';
 import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';
-import { flattenTree } from '../dropdownListUtils';
+import { flattenTree, getValueAsList } from '../dropdownListUtils';
 import { DropdownItem, DropdownValue } from '../elviaDropdown.types';
 import { Divider } from './dropdownOverlayStyles';
 
@@ -37,13 +37,7 @@ export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
   };
 
   useEffect(() => {
-    let valueList: string[] = [];
-
-    if (Array.isArray(selectedItems)) {
-      valueList = selectedItems.slice();
-    } else if (selectedItems) {
-      valueList = [selectedItems];
-    }
+    const valueList = getValueAsList(selectedItems);
 
     if (valueList.length === 0) {
       setCheckboxState('none');

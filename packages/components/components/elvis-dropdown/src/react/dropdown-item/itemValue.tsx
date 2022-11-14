@@ -1,5 +1,6 @@
+import { useIsOverflowing } from '@elvia/elvis-toolbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { DropdownItem } from '../elviaDropdown.types';
 import { DropdownItemValue, TooltipContainer, TooltipTextContainer } from './dropdownItemStyles';
 
@@ -8,15 +9,7 @@ interface Props {
 }
 
 export const ItemValue: React.FC<Props> = ({ item }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isOverflowing, setIsOverflowing] = useState(false);
-
-  useEffect(() => {
-    const { current } = containerRef;
-    if (current) {
-      setIsOverflowing(current.scrollWidth > current.offsetWidth);
-    }
-  }, [item.label, containerRef.current]);
+  const { isOverflowing, ref: containerRef } = useIsOverflowing<HTMLDivElement>();
 
   return (
     <TooltipContainer paddingRight={item.status || item.children ? 0 : 16}>
@@ -27,7 +20,7 @@ export const ItemValue: React.FC<Props> = ({ item }) => {
           </TooltipTextContainer>
         }
         content={item.label}
-        isDisabled={!isOverflowing}
+        isDisabled={!isOverflowing.horizontal}
         display="inline"
       />
     </TooltipContainer>

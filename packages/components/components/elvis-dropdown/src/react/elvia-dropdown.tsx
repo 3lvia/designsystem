@@ -15,7 +15,7 @@ import { DropdownInput } from './dropdown-input/dropdownInput';
 import { DropdownContainer, DropdownInputContainer, IconRotator } from './styledComponents';
 import { DropdownError } from './error/dropdownError';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
-import { flattenTree } from './dropdownListUtils';
+import { flattenTree, getValueAsList } from './dropdownListUtils';
 
 const Dropdown: React.FC<DropdownProps> = ({
   items = [],
@@ -66,13 +66,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const setSelectedItem = (values: string[]): void => {
     if (isMulti) {
-      let arrayCopy: string[] = [];
-
-      if (Array.isArray(currentVal)) {
-        arrayCopy = currentVal.slice();
-      } else if (currentVal) {
-        arrayCopy = [currentVal];
-      }
+      const arrayCopy = getValueAsList(currentVal);
 
       values.forEach((value) => {
         const existingIndex = arrayCopy.indexOf(value);
@@ -90,19 +84,13 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   const emitLoadMoreItems = (): void => {
-    if (!webcomponent && onLoadMoreItems) {
-      onLoadMoreItems();
-    } else if (webcomponent) {
-      webcomponent.triggerEvent('onLoadMoreItems');
-    }
+    onLoadMoreItems?.();
+    webcomponent?.triggerEvent('onLoadMoreItems');
   };
 
   const emitHoveredItem = (item?: DropdownItem): void => {
-    if (!webcomponent && onItemHover) {
-      onItemHover(item?.value);
-    } else if (webcomponent) {
-      webcomponent.triggerEvent('onItemHover', item?.value);
-    }
+    onItemHover?.(item?.value);
+    webcomponent?.triggerEvent('onItemHover', item?.value);
   };
 
   const updateHoveredItem = (item?: DropdownItem): void => {

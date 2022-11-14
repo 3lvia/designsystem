@@ -54,7 +54,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     verticalPosition: 'top-inside',
     alignWidths: true,
   });
-  const [hoverTimeoutId, setHoverTimeoutId] = useState(0);
+  const [hoverTimeoutId, setHoverTimeoutId] = useState<number>();
 
   const getSelectableChildren = (): DropdownItemOption[] => {
     if (item.children) {
@@ -185,7 +185,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
             isDisabled={item.isDisabled}
           />
         )}
-        {item.icon && (
+        {item.icon && !isMulti && (
           <Icon
             name={item.icon}
             color={item.isDisabled ? 'disabled' : 'elvia-off'}
