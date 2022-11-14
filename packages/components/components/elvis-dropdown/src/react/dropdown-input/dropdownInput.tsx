@@ -9,7 +9,7 @@ interface Props {
   placeholder?: string;
   placeholderIcon?: IconName;
   allOptionsSelectedLabel: string;
-  editable: boolean;
+  isEditable: boolean;
   isDisabled: boolean;
   items: DropdownItem[];
   onChange: (query: string) => void;
@@ -25,7 +25,7 @@ export const DropdownInput: React.FC<Props> = ({
   placeholder,
   placeholderIcon,
   allOptionsSelectedLabel,
-  editable,
+  isEditable,
   onChange,
   isDisabled,
   items,
@@ -61,7 +61,7 @@ export const DropdownInput: React.FC<Props> = ({
         return currentVal === item.value;
       });
 
-      if (editable && dropdownIsOpen) {
+      if (isEditable && dropdownIsOpen) {
         setInputValue('');
       } else {
         if (
@@ -95,7 +95,7 @@ export const DropdownInput: React.FC<Props> = ({
         value={inputValue}
         onClick={() => onOpenDropdown()}
         onKeyDown={onKeyDown}
-        readOnly={!editable || !dropdownIsOpen}
+        readOnly={!isEditable || !dropdownIsOpen}
         data-testid="input"
         role="combobox"
         aria-autocomplete="none"

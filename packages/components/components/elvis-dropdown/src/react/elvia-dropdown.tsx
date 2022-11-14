@@ -178,7 +178,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             placeholder={placeholder}
             placeholderIcon={placeholderIcon}
             allOptionsSelectedLabel={allOptionsSelectedLabel}
-            editable={isSearchable}
+            isEditable={isSearchable}
             onChange={(value) => setFilter(value)}
             dropdownIsOpen={isShowing}
             isDisabled={isDisabled}
