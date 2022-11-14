@@ -117,24 +117,18 @@
     <div class="row no-gutters">
       <div class="col-12 card-links home-card-links-animation">
         <div class="card-link" *ngFor="let page of pages">
-          <a
-            class="e-link e-link--card e-link--shortcut"
-            *ngIf="page.absolutePath"
-            [routerLink]="[page.absolutePath]"
-          >
-            <div class="e-link__content">
-              <div class="e-link__icon e-link--delay-hover">
-                <img src="{{ page.imageUrl }}" class="shortcut-off" alt="" />
-                <img src="{{ page.imageUrlOn }}" class="shortcut-on" alt="" />
+          <div *ngIf="!fontLoaded" class="e-content-loader" style="width: 100%; height: 100%"></div>
+          <a *ngIf="page.absolutePath && fontLoaded" [routerLink]="[page.absolutePath]">
+            <elvia-card
+              [description]="!isMobileScreenWidth ? page.description : null"
+              [heading]="page.title"
+              [hasBorder]="false"
+            >
+              <img slot="icon" src="{{ page.imageUrl }}" alt="" aria-hidden="true" />
+              <div slot="iconHover">
+                <img src="{{ page.imageUrlOn }}" alt="" aria-hidden="true" />
               </div>
-              <div *ngIf="fontLoaded">
-                <div class="e-link__title">{{ page.title }}</div>
-                <div class="e-link__description">{{ page.description }}</div>
-              </div>
-              <div *ngIf="!fontLoaded" class="e-w-100 e-mt-24">
-                <span class="e-content-loader e-content-loader--text"></span>
-              </div>
-            </div>
+            </elvia-card>
           </a>
         </div>
       </div>

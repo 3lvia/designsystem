@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 import { homeMenu } from 'src/app/shared/doc-pages';
@@ -21,6 +21,9 @@ export class HomeComponent implements OnInit {
   locale: string;
   changelog = changelogJson.content;
 
+  screenWidth: number;
+  isMobileScreenWidth: boolean;
+
   constructor(localizationService: LocalizationService, private titleService: Title) {
     localizationService.listenLocalization().subscribe((locale) => {
       if (locale === Locale['en-GB']) {
@@ -39,6 +42,7 @@ export class HomeComponent implements OnInit {
       this.fontLoaded = true;
     });
     this.titleService.setTitle(this.overviewTitle);
+    this.isMobileScreenWidth = window.innerWidth <= 430;
   }
 
   holiday = (): void => {
@@ -52,4 +56,7 @@ export class HomeComponent implements OnInit {
       this.overviewTitle = 'Happy Holidays';
     }
   };
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize = () => (this.isMobileScreenWidth = window.innerWidth <= 430);
 }

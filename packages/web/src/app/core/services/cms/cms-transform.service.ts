@@ -186,7 +186,11 @@ export class CMSTransformService {
       return str.replace('class="cms-img', '');
     });
     liStrings = liStrings.map((li) => {
-      return li.replace(imgRegex, '').replace('<li>', '').replace('/>', '');
+      return li
+        .replace(imgRegex, '')
+        .replace('<li>', '')
+        .replace('/>', '')
+        .replace('cms-image', 'e-none cms-image');
     });
     if (bulletIcons[0].includes('src=')) {
       let returnString = '<ol class="e-list e-list--icons e-text-lg">';
@@ -609,21 +613,22 @@ export class CMSTransformService {
       } else {
         this.cmsTransformErrorsService.showErrorMessage(
           'LandingPage',
-          `The card "${card.fields.title}" is missing page url reference.`,
+          `The card "${card.fields.title}" is missing page URL reference.`,
         );
       }
       const iconUrl = 'https:' + card.fields.pageIcon[locale].fields.file[locale].url;
       const cardTitle = card.fields.title[locale];
       returnString += `<div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
-        <a class="e-link e-link--card" href="${fullPath}">
-          <div class="e-link__content">
-            <div class="e-link__icon">
-              <img src="${iconUrl}" alt=""></img>
-            </div>
-            <div class="e-link__title">${cardTitle}</div>
-          </div>
-        </a>
-      </div>`;
+      <a href="${fullPath}">
+        <elvia-card
+          heading="${cardTitle}"
+          hasBorder="true"
+          >
+          <img slot="icon" src="${iconUrl}" alt="" aria-hidden="true"></img>
+        </elvia-card>
+      </a>
+    </div>
+    `;
     });
     return (
       `<div class="e-grid" style="margin-top: 20px;"><div class="row components-overview-cards components-overview-cards-animation e-grid-gutters-ext e-grid-gutters-vertical">

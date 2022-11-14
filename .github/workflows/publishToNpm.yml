@@ -23,6 +23,8 @@ jobs:
         run: yarn install --immutable
       - name: Build
         run: yarn build:tokens && yarn build:elvis && yarn build:components
+      - name: Run tests
+        run: yarn test
       - name: Publish
         continue-on-error: true
         run: yarn publish

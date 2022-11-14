@@ -18,15 +18,6 @@ export class LinkDocComponent {
     this.titleService.setTitle(this.title + ' | Elvia design system');
   }
 
-  doesExampleCard = [
-    'When you want a more visual representation of content than a list view',
-    'Shortcurts on the front page',
-    'Overview pages for content selection',
-  ];
-  dontsExampleCard = [
-    'Do not use both standard and shortcut on the same page. The same goes for the description version, use description on all or none.',
-  ];
-
   previewLinkHTML = `<a class="e-link" href="https://design.elvia.io/components/link#Overview">Link</a>`;
 
   example1 = `<a class="e-link" href="https://design.elvia.io/components/link#Overview">Standard link</a>
@@ -87,40 +78,6 @@ export class LinkDocComponent {
   </span>  
   <span class="e-link__title">Back link</span>
 </a>
-`;
-
-  exampleCard = `<h4 class="e-text-label">Standard</h4>
-<div style="width: 150px;">
-  <a
-    class="e-link e-link--card"
-    href="https://design.elvia.io/components/link#Overview"
-  >
-    <div class="e-link__content">
-      <span class="e-link__icon">
-        <i class="e-icon e-icon--electricity_safety" aria-hidden="true"></i>
-        <i class="e-icon e-icon--electricity_safety-color" aria-hidden="true"></i>
-      </span>
-      <div class="e-link__title">Label</div>
-    </div>
-  </a>
-</div>
-
-<h4 class="e-text-label">Shortcut</h4>
-<div style="width: 150px;">
-  <a
-    class="e-link e-link--card e-link--shortcut"
-    href="https://design.elvia.io/components/link#Overview"
-  >
-    <div class="e-link__content">
-      <span class="e-link__icon">
-        <i class="e-icon e-icon--electricity_safety" aria-hidden="true"></i>
-        <i class="e-icon e-icon--electricity_safety-color" aria-hidden="true"></i>
-      </span>
-      <div class="e-link__title">Label</div>
-      <div class="e-link__description">Description</div>
-    </div>
-  </a>
-</div>
 `;
 
   example8 = `<a class="e-btn e-m-16" href="www.elvia.no">
