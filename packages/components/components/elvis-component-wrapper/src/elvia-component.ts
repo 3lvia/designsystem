@@ -51,10 +51,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   connectedCallback(): void {
-    // Slot items
-    if (this.webComponent.getComponentData().slotItems === true) {
-      this.storeAllSlots();
-    }
+    this.storeAllSlots();
     const spanChildren = this.querySelectorAll('span');
     const hasWrapperElement =
       spanChildren[0] && spanChildren[0].getAttribute('name') === 'elvia-wrapper-element';
@@ -77,10 +74,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   attributeChangedCallback(): void {
-    // Slot items
-    if (this.webComponent.getComponentData().slotItems === true) {
-      this.storeAllSlots();
-    }
+    this.storeAllSlots();
     this.throttleRenderReactDOM();
   }
 
@@ -277,8 +271,7 @@ declare class ElviaComponent extends ElvisComponentWrapper {
   /** Data from `elvia-components.config.js`. */
   getComponentData(): {
     elementName: string;
-    attributes: { name: string; type: string }[];
     reactName: string;
-    slotItems: boolean;
+    attributes: { name: string; type: string }[];
   };
 }

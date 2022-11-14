@@ -8,7 +8,6 @@ This file is validated by validateConfig.js when building components
 ###### Contents  ######
 elementName: string - Name of DOM element has to start with "elvia-"
 reactName: string - The name of the component in React
-slotItems: boolean (default: false) - Saves all "slot" items to variable. Should be set to true for all components that uses slots.
 attributes: object[] -
   attributes.name: string - name of supported attribute & property
   attributes.type: string -
@@ -23,7 +22,6 @@ module.exports = [
   {
     elementName: 'elvia-accordion',
     reactName: 'Accordion',
-    slotItems: true,
     attributes: [
       { name: 'content', type: 'string' },
       { name: 'isOpen', type: 'boolean' },
@@ -50,7 +48,6 @@ module.exports = [
   },
   {
     elementName: 'elvia-badge',
-    slotItems: true,
     reactName: 'Badge',
     attributes: [
       { name: 'badgeColor', type: 'string' },
@@ -61,7 +58,6 @@ module.exports = [
   {
     elementName: 'elvia-box',
     reactName: 'Box',
-    slotItems: true,
     attributes: [
       { name: 'content', type: 'string' },
       { name: 'title', type: 'string' },
@@ -74,7 +70,6 @@ module.exports = [
   {
     elementName: 'elvia-breadcrumb',
     reactName: 'Breadcrumb',
-    slotItems: false,
     attributes: [
       { name: 'breadcrumbs', type: 'object' }, // Remove when deprecation is final.
       { name: 'items', type: 'object' },
@@ -85,7 +80,6 @@ module.exports = [
   {
     elementName: 'elvia-card',
     reactName: 'Card',
-    slotItems: true,
     attributes: [
       { name: 'icon', type: 'string' },
       { name: 'iconHover', type: 'string' },
@@ -111,7 +105,6 @@ module.exports = [
   {
     elementName: 'elvia-carousel',
     reactName: 'Carousel',
-    slotItems: true,
     attributes: [
       { name: 'elements', type: 'string' }, // TODO: Remove when deprecation is final.
       { name: 'items', type: 'string' },
@@ -128,7 +121,6 @@ module.exports = [
   {
     elementName: 'elvia-chip',
     reactName: 'Chip',
-    slotItems: false,
     attributes: [
       { name: 'ariaLabel', type: 'string' },
       { name: 'color', type: 'string' },
@@ -144,7 +136,6 @@ module.exports = [
   {
     elementName: 'elvia-datepicker',
     reactName: 'Datepicker',
-    slotItems: false,
     attributes: [
       { name: 'value', type: 'Date' },
       { name: 'label', type: 'string' },
@@ -168,7 +159,6 @@ module.exports = [
   {
     elementName: 'elvia-datepicker-range',
     reactName: 'DatepickerRange',
-    slotItems: false,
     attributes: [
       { name: 'value', type: 'object' },
       { name: 'labelOptions', type: 'object' },
@@ -189,7 +179,6 @@ module.exports = [
   },
   {
     elementName: 'elvia-divider',
-    slotItems: true,
     reactName: 'Divider',
     attributes: [
       { name: 'type', type: 'string' },
@@ -203,7 +192,6 @@ module.exports = [
   },
   {
     elementName: 'elvia-dropdown',
-    slotItems: false,
     reactName: 'Dropdown',
     attributes: [
       { name: 'items', type: 'object' },
@@ -233,7 +221,6 @@ module.exports = [
   {
     elementName: 'elvia-header',
     reactName: 'Header',
-    slotItems: true,
     attributes: [
       { name: 'appTitle', type: 'string' },
       { name: 'pageTitle', type: 'string' },
@@ -248,7 +235,6 @@ module.exports = [
   {
     elementName: 'elvia-icon',
     reactName: 'Icon',
-    slotItems: false,
     attributes: [
       { name: 'name', type: 'string' },
       { name: 'color', type: 'string' },
@@ -259,7 +245,6 @@ module.exports = [
   {
     elementName: 'elvia-modal',
     reactName: 'Modal',
-    slotItems: true,
     attributes: [
       { name: 'isShowing', type: 'boolean' },
       { name: 'title', type: 'string' }, // Deprecated
@@ -281,7 +266,6 @@ module.exports = [
   {
     elementName: 'elvia-pagination',
     reactName: 'Pagination',
-    slotItems: false,
     attributes: [
       { name: 'value', type: 'object' },
       { name: 'numberOfElements', type: 'number' },
@@ -304,7 +288,6 @@ module.exports = [
   {
     elementName: 'elvia-popover',
     reactName: 'Popover',
-    slotItems: true,
     attributes: [
       { name: 'header', type: 'string' }, // DEPRECATED SINCE 5.0.0
       { name: 'heading', type: 'string' }, // DEPRECATED SINCE 5.0.0
@@ -329,7 +312,6 @@ module.exports = [
   {
     elementName: 'elvia-progress-linear',
     reactName: 'ProgressLinear',
-    slotItems: false,
     attributes: [
       { name: 'value', type: 'number' },
       { name: 'isIndeterminate', type: 'boolean' },
@@ -343,7 +325,6 @@ module.exports = [
   {
     elementName: 'elvia-radio-filter',
     reactName: 'RadioFilter',
-    slotItems: false,
     attributes: [
       { name: 'name', type: 'string' },
       { name: 'items', type: 'object' },
@@ -357,7 +338,6 @@ module.exports = [
   {
     elementName: 'elvia-segmented-control',
     reactName: 'SegmentedControl',
-    slotItems: false,
     attributes: [
       { name: 'items', type: 'object' },
       { name: 'value', type: 'number' },
@@ -369,7 +349,6 @@ module.exports = [
   },
   {
     elementName: 'elvia-slider',
-    slotItems: false,
     reactName: 'Slider',
     attributes: [
       { name: 'className', type: 'string' },
@@ -390,7 +369,6 @@ module.exports = [
   {
     elementName: 'elvia-spotlight',
     reactName: 'Spotlight',
-    slotItems: false,
     attributes: [
       { name: 'position', type: 'object' },
       { name: 'shape', type: 'string' },
@@ -405,7 +383,6 @@ module.exports = [
   {
     elementName: 'elvia-tabs',
     reactName: 'Tabs',
-    slotItems: false,
     attributes: [
       { name: 'items', type: 'object' },
       { name: 'value', type: 'number' },
@@ -419,7 +396,6 @@ module.exports = [
   {
     elementName: 'elvia-timepicker',
     reactName: 'Timepicker',
-    slotItems: false,
     attributes: [
       { name: 'value', type: 'Date' },
       { name: 'minuteInterval', type: 'string' },
@@ -436,7 +412,6 @@ module.exports = [
   {
     elementName: 'elvia-tooltip',
     reactName: 'Tooltip',
-    slotItems: true,
     attributes: [
       { name: 'trigger', type: 'string' },
       { name: 'display', type: 'string' },
