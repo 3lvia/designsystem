@@ -52,6 +52,13 @@ export const DropdownInput: React.FC<Props> = ({
     }
   };
 
+  const currentValIcon = (): IconName | undefined => {
+    if (typeof currentVal === 'string') {
+      return flattenTree(items).find((item) => item.value === currentVal)?.icon;
+    }
+    return;
+  };
+
   useEffect(() => {
     const updateInputValue = () => {
       const selectedItems = flattenTree(items).filter((item) => {
@@ -87,6 +94,7 @@ export const DropdownInput: React.FC<Props> = ({
       {placeholderIcon && !inputValue && (
         <Icon name={placeholderIcon} size="xs" color={isDisabled ? 'disabled' : 'placeholder'} />
       )}
+      {currentValIcon() && <Icon name={currentValIcon()} color="elvia-off" />}
       <Input
         aria-activedescendant={focusedItem ? `elvia-dropdown-item-${focusedItem.value}` : undefined}
         disabled={isDisabled}
