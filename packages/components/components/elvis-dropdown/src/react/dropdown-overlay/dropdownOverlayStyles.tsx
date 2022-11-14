@@ -1,5 +1,5 @@
 import { getColor } from '@elvia/elvis-colors';
-import { TertiaryButton } from '@elvia/elvis-toolbox';
+import { IconButton, TertiaryButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
 import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';
@@ -44,7 +44,7 @@ export const DropdownPopup = styled.div.attrs(() => ({
   role: 'listbox',
 }))<{ fadeOut: boolean; isCompact: boolean; isInvisible: boolean }>`
   background-color: ${getColor('elvia-on')};
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
   animation: ${fadeIn} 300ms ease;
   border-radius: 4px;
   overflow: hidden;
@@ -145,4 +145,9 @@ export const LoadMoreButtonStyles = styled.div<{ isLoading?: boolean }>`
 
 export const BackButtonStyles = styled(DropdownItemStyles)`
   ${getTypographyCss('text-sm')};
+
+  ${IconButton} {
+    pointer-events: none;
+    cursor: inherit;
+  }
 `;
