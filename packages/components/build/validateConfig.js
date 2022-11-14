@@ -14,7 +14,6 @@ async function validateElviaComponentsConfig() {
       type: 'object',
       additionalProperties: false,
       properties: {
-        elementName: { type: 'string', pattern: '(elvia-)([a-zA-Z0-9])+' },
         reactName: { type: 'string', pattern: '([A-Z0-9]){1}([a-zA-Z0-9])+' },
         attributes: {
           type: 'array',
@@ -34,7 +33,6 @@ async function validateElviaComponentsConfig() {
             type: 'object',
             additionalProperties: false,
             properties: {
-              elementName: { type: 'string', pattern: '(elvia-)([a-zA-Z0-9])+' },
               reactName: { type: 'string', pattern: '([A-Z0-9]){1}([a-zA-Z0-9])+' },
               attributes: {
                 type: 'array',
@@ -52,7 +50,7 @@ async function validateElviaComponentsConfig() {
           },
         },
       },
-      required: ['elementName', 'reactName', 'attributes'],
+      required: ['reactName', 'attributes'],
     },
   };
 

@@ -3,9 +3,10 @@ const elviaComponents = require('./elvia-components.config.js');
 const builds = [];
 
 elviaComponents.forEach((component) => {
-  const packageName = component.elementName.replace('elvia', 'elvis');
+  const elementName = 'elvia' + component.reactName.replace(/([A-Z])/g, '-$1').toLowerCase();
+  const packageName = elementName.replace('elvia', 'elvis');
   builds.push({
-    entry: `./components/${packageName}/dist/web_component/js/${component.elementName}.js`,
+    entry: `./components/${packageName}/dist/web_component/js/${elementName}.js`,
     module: {
       rules: [
         {
@@ -45,7 +46,7 @@ elviaComponents.forEach((component) => {
       extensions: ['.ts', '.tsx', '.js', '.css', '.scss'],
     },
     output: {
-      filename: `${component.elementName}.js`,
+      filename: `${elementName}.js`,
       path: path.resolve(__dirname, `./components/${packageName}/dist/cdn/`),
     },
     devServer: {

@@ -58,6 +58,7 @@ function buildWebComponentsMagically() {
 
   function createWebComponent(component, parentName) {
     const packageName = getPackageName(component);
+    const elementName = getElementName(component);
     return gulp
       .src(`template/elvia-component.template.ts`)
       .pipe(header(WARNING))
@@ -76,7 +77,7 @@ function buildWebComponentsMagically() {
             String(file.contents).replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(lowercaseAttr)),
           ); // Observed attributes has to be lowercase to meet spec
           file.contents = Buffer.from(
-            String(file.contents).replace(/{{INSERT_COMPONENT_NAME}}/, component.elementName),
+            String(file.contents).replace(/{{INSERT_COMPONENT_NAME}}/, elementName),
           );
 
           file.contents = Buffer.from(
@@ -104,7 +105,7 @@ function buildWebComponentsMagically() {
       )
       .pipe(
         rename(function (filePath) {
-          filePath.basename = component.elementName;
+          filePath.basename = elementName;
         }),
       )
       .pipe(
@@ -249,7 +250,10 @@ function buildElviaComponentToJS() {
 }
 
 function getPackageName(component) {
-  return component.elementName.replace('elvia', 'elvis');
+  return getElementName(component).replace('elvia', 'elvis');
+}
+function getElementName(component) {
+  return 'elvia' + component.reactName.replace(/([A-Z])/g, '-$1').toLowerCase();
 }
 
 function buildElviaComponentTSDeclaration() {

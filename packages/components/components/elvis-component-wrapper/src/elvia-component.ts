@@ -25,6 +25,16 @@ export class ElvisComponentWrapper extends HTMLElement {
     return this._data;
   }
 
+  getElementName(): string {
+    return (
+      'elvia' +
+      this.webComponent
+        .getComponentData()
+        .reactName.replace(/([A-Z])/g, '-$1')
+        .toLowerCase()
+    );
+  }
+
   getProp(propName: string): any {
     return this._data[propName.toLowerCase()];
   }
@@ -152,7 +162,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   private logErrorMessage(functionName: string, error: string): void {
     console.error(
       '[' +
-        this.webComponent.getComponentData().elementName +
+        this.getElementName() +
         '] elvia-component-wrapper: ' +
         "Failed at function '" +
         functionName +
@@ -164,7 +174,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   private logWarnMessage(functionName: string, warn: string): void {
     console.warn(
       '[' +
-        this.webComponent.getComponentData().elementName +
+        this.getElementName() +
         '] elvia-component-wrapper: ' +
         "Failed at function '" +
         functionName +
@@ -270,7 +280,6 @@ declare class ElviaComponent extends ElvisComponentWrapper {
   static get observedAttributes(): string[];
   /** Data from `elvia-components.config.js`. */
   getComponentData(): {
-    elementName: string;
     reactName: string;
     attributes: { name: string; type: string }[];
   };

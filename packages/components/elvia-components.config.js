@@ -6,7 +6,6 @@ Include all props / attributes for the component here. The components are sorted
 This file is validated by validateConfig.js when building components
 
 ###### Contents  ######
-elementName: string - Name of DOM element has to start with "elvia-"
 reactName: string - The name of the component in React
 attributes: object[] -
   attributes.name: string - name of supported attribute & property
@@ -20,7 +19,6 @@ attributes: object[] -
 
 module.exports = [
   {
-    elementName: 'elvia-accordion',
     reactName: 'Accordion',
     attributes: [
       { name: 'content', type: 'string' },
@@ -47,7 +45,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-badge',
     reactName: 'Badge',
     attributes: [
       { name: 'badgeColor', type: 'string' },
@@ -56,7 +53,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-box',
     reactName: 'Box',
     attributes: [
       { name: 'content', type: 'string' },
@@ -68,7 +64,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-breadcrumb',
     reactName: 'Breadcrumb',
     attributes: [
       { name: 'breadcrumbs', type: 'object' }, // Remove when deprecation is final.
@@ -78,7 +73,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-card',
     reactName: 'Card',
     attributes: [
       { name: 'icon', type: 'string' },
@@ -103,7 +97,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-carousel',
     reactName: 'Carousel',
     attributes: [
       { name: 'elements', type: 'string' }, // TODO: Remove when deprecation is final.
@@ -119,7 +112,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-chip',
     reactName: 'Chip',
     attributes: [
       { name: 'ariaLabel', type: 'string' },
@@ -134,7 +126,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-datepicker',
     reactName: 'Datepicker',
     attributes: [
       { name: 'value', type: 'Date' },
@@ -157,7 +148,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-datepicker-range',
     reactName: 'DatepickerRange',
     attributes: [
       { name: 'value', type: 'object' },
@@ -178,7 +168,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-divider',
     reactName: 'Divider',
     attributes: [
       { name: 'type', type: 'string' },
@@ -191,7 +180,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-dropdown',
     reactName: 'Dropdown',
     attributes: [
       { name: 'items', type: 'object' },
@@ -219,7 +207,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-header',
     reactName: 'Header',
     attributes: [
       { name: 'appTitle', type: 'string' },
@@ -233,7 +220,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-icon',
     reactName: 'Icon',
     attributes: [
       { name: 'name', type: 'string' },
@@ -243,7 +229,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-modal',
     reactName: 'Modal',
     attributes: [
       { name: 'isShowing', type: 'boolean' },
@@ -264,7 +249,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-pagination',
     reactName: 'Pagination',
     attributes: [
       { name: 'value', type: 'object' },
@@ -286,7 +270,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-popover',
     reactName: 'Popover',
     attributes: [
       { name: 'header', type: 'string' }, // DEPRECATED SINCE 5.0.0
@@ -310,7 +293,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-progress-linear',
     reactName: 'ProgressLinear',
     attributes: [
       { name: 'value', type: 'number' },
@@ -323,7 +305,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-radio-filter',
     reactName: 'RadioFilter',
     attributes: [
       { name: 'name', type: 'string' },
@@ -336,7 +317,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-segmented-control',
     reactName: 'SegmentedControl',
     attributes: [
       { name: 'items', type: 'object' },
@@ -348,7 +328,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-slider',
     reactName: 'Slider',
     attributes: [
       { name: 'className', type: 'string' },
@@ -367,7 +346,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-spotlight',
     reactName: 'Spotlight',
     attributes: [
       { name: 'position', type: 'object' },
@@ -381,7 +359,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-tabs',
     reactName: 'Tabs',
     attributes: [
       { name: 'items', type: 'object' },
@@ -394,7 +371,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-timepicker',
     reactName: 'Timepicker',
     attributes: [
       { name: 'value', type: 'Date' },
@@ -410,7 +386,6 @@ module.exports = [
     ],
   },
   {
-    elementName: 'elvia-tooltip',
     reactName: 'Tooltip',
     attributes: [
       { name: 'trigger', type: 'string' },
