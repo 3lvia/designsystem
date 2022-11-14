@@ -8,7 +8,7 @@ This file is validated by validateConfig.js when building components
 ###### Contents  ######
 elementName: string - Name of DOM element has to start with "elvia-"
 reactName: string - The name of the component in React
-slotItems: boolean (default: false) - Saves all "slot" items to variable. Should be set to true for all new components
+slotItems: boolean (default: false) - Saves all "slot" items to variable. Should be set to true for all components that uses slots.
 attributes: object[] -
   attributes.name: string - name of supported attribute & property
   attributes.type: string -
