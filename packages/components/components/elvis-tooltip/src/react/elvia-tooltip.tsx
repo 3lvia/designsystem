@@ -17,6 +17,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   className,
   webcomponent,
 }) => {
+  const [isDestroyed, setIsDestroyed] = useState(false);
   const [timeoutId, setTimeoutId] = useState(0);
   const { ref: triggerRef } = useSlot<HTMLDivElement>('trigger', webcomponent);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -39,12 +40,13 @@ export const Tooltip: React.FC<TooltipProps> = ({
       setFadeOut(false);
       setIsShowing(true);
     } else {
-      window.clearTimeout(timeoutId);
       setTimeoutId(
         window.setTimeout(
           () => {
-            setFadeOut(false);
-            setIsShowing(true);
+            if (!isDestroyed) {
+              setFadeOut(false);
+              setIsShowing(true);
+            }
           },
           delay ? showDelay : 0,
         ),
@@ -55,7 +57,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const onClose = (): void => {
     if (!isSsr()) {
       window.clearTimeout(timeoutId);
-      setTimeoutId(0);
     }
     setFadeOut(true);
   };
@@ -125,14 +126,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     setActualPosition(newActualPosition);
   }, [verticalPosition, horizontalPosition]);
 
-  useEffect(() => {
-    const cleanUpTimeout = () => {
-      if (timeoutId && !isSsr()) {
-        window.clearTimeout(timeoutId);
-      }
-    };
-    return () => cleanUpTimeout();
-  }, []);
+  useEffect(() => () => setIsDestroyed(true), []);
 
   return (
     <>
