@@ -12,7 +12,7 @@ export const ItemValue: React.FC<Props> = ({ item }) => {
   const { isOverflowing, ref: containerRef } = useIsOverflowing<HTMLDivElement>();
 
   return (
-    <TooltipContainer paddingRight={item.status || item.children ? 0 : 16}>
+    <TooltipContainer noRightContent={!item.status && !item.children}>
       <Tooltip
         trigger={
           <TooltipTextContainer ref={containerRef}>

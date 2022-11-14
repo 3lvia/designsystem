@@ -53,7 +53,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     offset: 0,
     horizontalPosition: isGtMobile ? 'right' : 'center',
     verticalPosition: 'top-inside',
-    alignWidths: true,
+    alignWidths: false,
   });
   const [hoverTimeoutId, setHoverTimeoutId] = useState<number>();
 

@@ -4,10 +4,17 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 import { StyledCheckbox } from '../checkbox/checkboxStyles';
 
-export const TooltipContainer = styled.div<{ paddingRight: number }>`
+export const TooltipContainer = styled.div<{ noRightContent: boolean }>`
   overflow: hidden;
   flex: 1;
-  padding-right: ${(props) => `${props.paddingRight}px`};
+
+  ${(props) =>
+    props.noRightContent &&
+    css`
+      padding-right: 40px;
+      min-width: 170px;
+      max-width: 300px;
+    `};
 `;
 
 export const TooltipTextContainer = styled.div`
