@@ -47,8 +47,8 @@ describe('Elvis Dropdown', () => {
       });
 
       it('should not be disabled', () => {
-        const dropdownWrapper = screen.getByTestId('input-container');
-        expect(dropdownWrapper).toHaveStyle('cursor: pointer');
+        const input = screen.getByTestId('input');
+        expect(input).not.toBeDisabled();
       });
 
       it('should not be compact', () => {
@@ -73,8 +73,8 @@ describe('Elvis Dropdown', () => {
       });
 
       it('should be disabled', () => {
-        const dropdownWrapper = screen.getByTestId('input-container');
-        expect(dropdownWrapper).toHaveStyle('cursor: not-allowed');
+        const input = screen.getByTestId('input');
+        expect(input).toBeDisabled();
       });
 
       it('should be compact', () => {

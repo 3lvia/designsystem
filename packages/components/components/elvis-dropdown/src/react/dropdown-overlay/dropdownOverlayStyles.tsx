@@ -21,7 +21,7 @@ const fadeOut = keyframes`
   
   100% {
     transform: scale(0.9);
-    opacity: 0.0;
+    opacity: 0;
   }
 `;
 
