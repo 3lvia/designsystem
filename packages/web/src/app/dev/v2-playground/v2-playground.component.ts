@@ -54,19 +54,6 @@ export class v2PlaygroundComponent {
   };
 
   // Dropdown
-  dropdownDefOptions = [{ value: '2', label: 'Option 2' }];
-  dropdownOptions = [
-    {
-      value: '1',
-      label: 'Option 1',
-      status: 'informative',
-      tooltip: 'Dette er tooltip content\nDen har også newline content\nNew line\nNew',
-    },
-    { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3', isDisabled: 'true' },
-  ];
-
-  // Dropdown 2
   selectedDropdownItem = 'sverige';
   dropdownItems: ElviaDropdownItem[] = [
     {
@@ -90,15 +77,20 @@ export class v2PlaygroundComponent {
         { label: 'Kristiansand', value: 'kristiansand' },
       ],
     },
-    { value: 'sverige', label: 'Sverige', status: 'info', tooltip: 'Sweden is a country' },
+    {
+      value: 'sverige',
+      label: 'Sverige',
+      status: 'info',
+      tooltip: 'Sweden is a country',
+    },
     { value: 'danmark', label: 'Danmark' },
     {
       value: 'england',
       label: 'England',
       children: [
-        { value: 'london', label: 'London' },
-        { value: 'manchester', label: 'Manchester' },
-        { value: 'birmingham', label: 'Birmingham' },
+        { value: 'london', label: 'London', icon: 'adjust' },
+        { value: 'manchester', label: 'Manchester', icon: 'addCircle' },
+        { value: 'birmingham', label: 'Birmingham', icon: 'search' },
       ],
     },
   ];

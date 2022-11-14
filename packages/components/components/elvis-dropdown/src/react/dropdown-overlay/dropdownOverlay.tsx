@@ -14,6 +14,8 @@ import {
 } from './dropdownOverlayStyles';
 import { LoadMoreButton } from './loadMoreButton';
 import { SelectAllOption } from './selectAllOption';
+import { ItemValue } from '../dropdown-item/itemValue';
+import { Icon } from '@elvia/elvis-icon/react';
 
 interface DropdownOverlayProps {
   isRootOverlay?: boolean;
@@ -94,6 +96,10 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     const currentValIncludesItem = (item: DropdownItemOption): boolean => {
       const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
       return selectedValues.includes(item.value);
+    };
+
+    const allItemsHaveIcons = (): boolean => {
+      return filteredItems.every((item) => item.icon);
     };
 
     const getSelectableChildren = (items: DropdownItemOption[]): DropdownItemOption[] => {
@@ -308,7 +314,16 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   listRef={listRef}
                   parentItem={parentItem}
                   isGtMobile={isGtMobile}
-                />
+                >
+                  {item.icon && !isMulti && allItemsHaveIcons() && (
+                    <Icon
+                      name={item.icon}
+                      color={item.isDisabled ? 'disabled' : 'elvia-off'}
+                      size={isCompact ? 'xs' : 'sm'}
+                    />
+                  )}
+                  <ItemValue item={item} />
+                </DropdownItem>
               ))}
               {hasLoadMoreItemsButton && isRootOverlay && (
                 <LoadMoreButton

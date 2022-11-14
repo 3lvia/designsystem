@@ -8,7 +8,6 @@ import { DropdownItemStyles, IconContainer } from './dropdownItemStyles';
 import { Checkbox } from '../checkbox/checkbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { statusToIconMap } from '../statusToIconMap';
-import { ItemValue } from './itemValue';
 
 interface DropdownItemProps {
   item: DropdownItemOption;
@@ -26,6 +25,7 @@ interface DropdownItemProps {
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   listRef: RefObject<HTMLElement>;
   isGtMobile: boolean;
+  children: React.ReactNode;
 }
 
 export const DropdownItem: React.FC<DropdownItemProps> = ({
@@ -44,6 +44,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   pressedKey,
   listRef,
   isGtMobile,
+  children,
 }) => {
   const itemRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -185,14 +186,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
             isDisabled={item.isDisabled}
           />
         )}
-        {item.icon && !isMulti && (
-          <Icon
-            name={item.icon}
-            color={item.isDisabled ? 'disabled' : 'elvia-off'}
-            size={isCompact ? 'xs' : 'sm'}
-          />
-        )}
-        <ItemValue item={item} />
+        {children}
         {item.status && (
           <IconContainer>
             <Tooltip
