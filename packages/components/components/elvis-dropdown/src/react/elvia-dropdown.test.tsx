@@ -42,17 +42,17 @@ describe('Elvis Dropdown', () => {
       });
 
       it('should have label', () => {
-        const dropdownLabel = screen.getByTestId('label');
+        const dropdownLabel = screen.getByText('Label');
         expect(dropdownLabel).toHaveTextContent('Label');
       });
 
       it('should not be disabled', () => {
-        const input = screen.getByTestId('input');
+        const input = screen.getByRole('combobox');
         expect(input).not.toBeDisabled();
       });
 
       it('should not be compact', () => {
-        const dropdownLabel = screen.getByTestId('label');
+        const dropdownLabel = screen.getByText('Label');
         expect(dropdownLabel).toHaveStyle(`font-size: 16px; line-height: 23px`);
       });
 
@@ -69,11 +69,11 @@ describe('Elvis Dropdown', () => {
 
     describe('when disabled and compact', () => {
       beforeEach(() => {
-        render(<Dropdown label="Label" isDisabled isCompact items={[]}></Dropdown>);
+        render(<Dropdown isDisabled isCompact items={[]}></Dropdown>);
       });
 
       it('should be disabled', () => {
-        const input = screen.getByTestId('input');
+        const input = screen.getByRole('combobox');
         expect(input).toBeDisabled();
       });
 
@@ -84,7 +84,7 @@ describe('Elvis Dropdown', () => {
 
       it('should not be possible to open', async () => {
         const user = userEvent.setup();
-        const dropdown = screen.getByTestId('input');
+        const dropdown = screen.getByRole('combobox');
         await user.click(dropdown);
 
         expect(screen.queryByTestId('popover')).not.toBeInTheDocument();
@@ -98,23 +98,23 @@ describe('Elvis Dropdown', () => {
     });
 
     it('should have a full width feature', () => {
-      render(<Dropdown label="Label" isFullWidth items={[]}></Dropdown>);
+      render(<Dropdown isFullWidth items={[]}></Dropdown>);
       const dropdownWrapper = screen.getByTestId('wrapper');
       expect(dropdownWrapper).not.toHaveStyle('max-width: 448px');
     });
 
     it('should show a proper placeholder', () => {
       render(<Dropdown placeholder="Placeholder" items={[]}></Dropdown>);
-      const input = screen.getByTestId('input');
+      const input = screen.getByRole('combobox');
       expect(input).toHaveAttribute('placeholder', 'Placeholder');
     });
 
     describe('when the dropdown is clicked', () => {
       beforeEach(async () => {
-        render(<Dropdown label={'Label'} items={items}></Dropdown>);
+        render(<Dropdown items={items}></Dropdown>);
 
         const user = userEvent.setup();
-        const dropdown = screen.getByTestId('input');
+        const dropdown = screen.getByRole('combobox');
         await user.click(dropdown);
       });
 
@@ -129,15 +129,15 @@ describe('Elvis Dropdown', () => {
         render(<Dropdown items={items}></Dropdown>);
 
         const user = userEvent.setup();
-        const dropdown = screen.getByTestId('input');
+        const dropdown = screen.getByRole('combobox');
         await user.click(dropdown);
 
-        const dropdownItems = screen.getAllByTestId('dropdown-item');
-        await user.click(dropdownItems[0]);
+        const firstItem = screen.getByText(items[0].label);
+        await user.click(firstItem);
       });
 
       it('the input receives the value', () => {
-        const element = screen.getByTestId('input');
+        const element = screen.getByRole('combobox');
         expect(element).toHaveValue(items[0].label);
       });
     });
@@ -147,14 +147,14 @@ describe('Elvis Dropdown', () => {
         render(<Dropdown items={items} isSearchable></Dropdown>);
 
         const user = userEvent.setup();
-        const dropdown = screen.getByTestId('input');
+        const dropdown = screen.getByRole('combobox');
 
         await user.click(dropdown);
         await user.type(dropdown, '3');
       });
 
       it('the number of options match the query', () => {
-        const dropdownItems = screen.getAllByTestId('dropdown-item');
+        const dropdownItems = screen.getAllByRole('option');
         expect(dropdownItems.length).toBe(1);
         expect(dropdownItems[0]).toHaveTextContent('Option 3');
       });
@@ -165,7 +165,7 @@ describe('Elvis Dropdown', () => {
         render(<Dropdown items={items} isSearchable></Dropdown>);
 
         const user = userEvent.setup();
-        const dropdown = screen.getByTestId('input');
+        const dropdown = screen.getByRole('combobox');
 
         await user.click(dropdown);
         await user.type(dropdown, 'nothing-matches-this');
@@ -193,14 +193,14 @@ describe('Elvis Dropdown', () => {
         render(<Dropdown items={treeItems} isSearchable></Dropdown>);
 
         const user = userEvent.setup();
-        const dropdown = screen.getByTestId('input');
+        const dropdown = screen.getByRole('combobox');
 
         await user.click(dropdown);
         await user.type(dropdown, 'sub');
       });
 
       it('the dropdown list is flattened', () => {
-        const dropdownItems = screen.getAllByTestId('dropdown-item');
+        const dropdownItems = screen.getAllByRole('option');
         expect(dropdownItems.length).toBe(1);
         expect(dropdownItems[0]).toHaveTextContent('Subitem');
       });
@@ -211,16 +211,16 @@ describe('Elvis Dropdown', () => {
         render(<Dropdown items={items} isMulti></Dropdown>);
 
         const user = userEvent.setup();
-        const dropdown = screen.getByTestId('input');
+        const dropdown = screen.getByRole('combobox');
         await user.click(dropdown);
 
-        const dropdownItems = screen.getAllByTestId('dropdown-item');
+        const dropdownItems = screen.getAllByRole('option');
         await user.click(dropdownItems[0]);
         await user.click(dropdownItems[1]);
       });
 
       it('the input says two are selected', () => {
-        const element = screen.getByTestId('input');
+        const element = screen.getByRole('combobox');
         expect(element).toHaveValue('2 valgte');
       });
 
@@ -235,10 +235,10 @@ describe('Elvis Dropdown', () => {
         render(<Dropdown items={treeItems}></Dropdown>);
 
         const user = userEvent.setup();
-        const dropdown = screen.getByTestId('input');
+        const dropdown = screen.getByRole('combobox');
         await user.click(dropdown);
 
-        const dropdownItems = screen.getAllByTestId('dropdown-item');
+        const dropdownItems = screen.getAllByRole('option');
         await user.hover(dropdownItems[1]);
 
         await waitFor(() => {
@@ -249,7 +249,7 @@ describe('Elvis Dropdown', () => {
       });
 
       it('the sub item is selected', () => {
-        const element = screen.getByTestId('input');
+        const element = screen.getByRole('combobox');
         expect(element).toHaveValue('Subitem');
       });
     });
@@ -259,7 +259,7 @@ describe('Elvis Dropdown', () => {
         render(<Dropdown items={treeItems}></Dropdown>);
 
         const user = userEvent.setup();
-        const dropdown = screen.getByTestId('input');
+        const dropdown = screen.getByRole('combobox');
 
         // Select Option 2 child item
         await user.type(dropdown, '{enter}');
@@ -269,7 +269,7 @@ describe('Elvis Dropdown', () => {
       });
 
       it('the proper item is selected', () => {
-        const element = screen.getByTestId('input');
+        const element = screen.getByRole('combobox');
         expect(element).toHaveValue('Subitem');
       });
     });
@@ -279,7 +279,7 @@ describe('Elvis Dropdown', () => {
         render(<Dropdown items={treeItems}></Dropdown>);
 
         const user = userEvent.setup();
-        const dropdown = screen.getByTestId('input');
+        const dropdown = screen.getByRole('combobox');
 
         // Navigate to child, up to parent (Option 2) and down to Option 3
         await user.type(dropdown, '{enter}');
@@ -291,7 +291,7 @@ describe('Elvis Dropdown', () => {
       });
 
       it('the proper item is selected', () => {
-        const element = screen.getByTestId('input');
+        const element = screen.getByRole('combobox');
         expect(element).toHaveValue('Option 3');
       });
     });
@@ -301,14 +301,14 @@ describe('Elvis Dropdown', () => {
         render(<Dropdown hasSelectAllOption isMulti items={treeItems}></Dropdown>);
 
         const user = userEvent.setup();
-        const dropdown = screen.getByTestId('input');
+        const dropdown = screen.getByRole('combobox');
 
         await user.click(dropdown);
         await user.click(screen.getByText('Alle'));
       });
 
       it('all items are selected', () => {
-        const element = screen.getByTestId('input');
+        const element = screen.getByRole('combobox');
         expect(element).toHaveValue('Alle');
       });
     });

@@ -96,7 +96,6 @@ export const DropdownInput: React.FC<Props> = ({
         onClick={() => onOpenDropdown()}
         onKeyDown={onKeyDown}
         readOnly={!isEditable || !dropdownIsOpen}
-        data-testid="input"
         role="combobox"
         aria-autocomplete="none"
         aria-haspopup="true"
