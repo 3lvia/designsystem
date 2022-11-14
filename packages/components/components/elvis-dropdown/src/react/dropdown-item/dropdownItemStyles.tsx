@@ -50,8 +50,8 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   align-items: center;
   cursor: pointer;
 
-  ${(props) => {
-    if (props.isDisabled) {
+  ${({ isDisabled }) => {
+    if (isDisabled) {
       return css`
         cursor: not-allowed;
         color: ${getColor('disabled')};
@@ -68,15 +68,15 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     `;
   }}
 
-  ${(props) =>
-    props.isActive &&
-    !props.isMulti &&
+  ${({ isActive, isMulti }) =>
+    isActive &&
+    !isMulti &&
     css`
       background-color: ${getColor('grey-10')};
     `};
 
-  ${(props) => {
-    if (props.isCompact) {
+  ${({ isCompact }) => {
+    if (isCompact) {
       return css`
         ${getTypographyCss('text-sm')};
         height: 40px;
@@ -93,9 +93,9 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     `;
   }};
 
-  ${(props) =>
-    props.isFocused &&
-    (!props.isActive || props.isMulti) &&
+  ${({ isFocused, isActive, isMulti }) =>
+    isFocused &&
+    (!isActive || isMulti) &&
     css`
       background-color: ${getColor('grey-05')};
     `};

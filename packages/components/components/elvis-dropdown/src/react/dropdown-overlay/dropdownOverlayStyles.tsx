@@ -50,8 +50,8 @@ export const DropdownPopup = styled.div.attrs(() => ({
   overflow: hidden;
   width: 100%;
 
-  ${(props) =>
-    props.isCompact &&
+  ${({ isCompact }) =>
+    isCompact &&
     css`
       ${ItemList} {
         max-height: calc(40px * 5 + 40px / 2);
@@ -79,8 +79,8 @@ export const DropdownPopup = styled.div.attrs(() => ({
     return '';
   }};
 
-  ${(props) =>
-    props.isInvisible &&
+  ${({ isInvisible }) =>
+    isInvisible &&
     css`
       visibility: hidden;
     `};
