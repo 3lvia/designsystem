@@ -76,7 +76,7 @@ function buildWebComponentsMagically() {
             String(file.contents).replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(lowercaseAttr)),
           ); // Observed attributes has to be lowercase to meet spec
           file.contents = Buffer.from(
-            String(file.contents).replace(/{{INSERT_COMPONENT_NAME}}/, packageName),
+            String(file.contents).replace(/{{INSERT_COMPONENT_NAME}}/, component.elementName),
           );
 
           file.contents = Buffer.from(
