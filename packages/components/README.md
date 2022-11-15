@@ -99,19 +99,11 @@ specifications. The file explains how to add the props and the meaning of the ea
 
 ```javascript
 {
-    name: 'elvis-divider',
-    elementName: 'elvia-divider',
+    reactName: 'Divider',
     attributes: [
       { name: 'type', type: 'string' },
       { name: 'title', type: 'string' },
     ],
-    slotItems: true,
-    reactName: 'Divider',
-    conditionalElementStyle: [
-      { name: 'orientation', value: 'horizontal', style: `width: 100%;` }
-    ],
-    useWrapper: true,
-    reactTypescriptDeclaration: true,
 },
 
 ```

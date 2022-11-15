@@ -14,8 +14,7 @@ async function validateElviaComponentsConfig() {
       type: 'object',
       additionalProperties: false,
       properties: {
-        name: { type: 'string', pattern: '(elvis-)([a-zA-Z0-9])+' },
-        elementName: { type: 'string', pattern: '(elvia-)([a-zA-Z0-9])+' },
+        reactName: { type: 'string', pattern: '([A-Z0-9]){1}([a-zA-Z0-9])+' },
         attributes: {
           type: 'array',
           items: {
@@ -28,16 +27,13 @@ async function validateElviaComponentsConfig() {
             required: ['name', 'type'],
           },
         },
-        reactName: { type: 'string', pattern: '([A-Z0-9]){1}([a-zA-Z0-9])+' },
-        slotItems: { type: 'boolean' },
         subComponents: {
           type: 'array',
           items: {
             type: 'object',
             additionalProperties: false,
             properties: {
-              name: { type: 'string', pattern: '(elvis-)([a-zA-Z0-9])+' },
-              elementName: { type: 'string', pattern: '(elvia-)([a-zA-Z0-9])+' },
+              reactName: { type: 'string', pattern: '([A-Z0-9]){1}([a-zA-Z0-9])+' },
               attributes: {
                 type: 'array',
                 items: {
@@ -50,13 +46,11 @@ async function validateElviaComponentsConfig() {
                   required: ['name', 'type'],
                 },
               },
-              reactName: { type: 'string', pattern: '([A-Z0-9]){1}([a-zA-Z0-9])+' },
-              slotItems: { type: 'boolean' },
             },
           },
         },
       },
-      required: ['name', 'elementName', 'attributes', 'reactName', 'slotItems'],
+      required: ['reactName', 'attributes'],
     },
   };
 

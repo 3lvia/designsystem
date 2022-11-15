@@ -25,6 +25,16 @@ export class ElvisComponentWrapper extends HTMLElement {
     return this._data;
   }
 
+  getElementName(): string {
+    return (
+      'elvia' +
+      this.webComponent
+        .getComponentData()
+        .reactName.replace(/([A-Z])/g, '-$1')
+        .toLowerCase()
+    );
+  }
+
   getProp(propName: string): any {
     return this._data[propName.toLowerCase()];
   }
@@ -51,10 +61,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   connectedCallback(): void {
-    // Slot items
-    if (this.webComponent.getComponentData().slotItems === true) {
-      this.storeAllSlots();
-    }
+    this.storeAllSlots();
     const spanChildren = this.querySelectorAll('span');
     const hasWrapperElement =
       spanChildren[0] && spanChildren[0].getAttribute('name') === 'elvia-wrapper-element';
@@ -77,10 +84,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   attributeChangedCallback(): void {
-    // Slot items
-    if (this.webComponent.getComponentData().slotItems === true) {
-      this.storeAllSlots();
-    }
+    this.storeAllSlots();
     this.throttleRenderReactDOM();
   }
 
@@ -158,7 +162,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   private logErrorMessage(functionName: string, error: string): void {
     console.error(
       '[' +
-        this.webComponent.getComponentData().name +
+        this.getElementName() +
         '] elvia-component-wrapper: ' +
         "Failed at function '" +
         functionName +
@@ -170,7 +174,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   private logWarnMessage(functionName: string, warn: string): void {
     console.warn(
       '[' +
-        this.webComponent.getComponentData().name +
+        this.getElementName() +
         '] elvia-component-wrapper: ' +
         "Failed at function '" +
         functionName +
@@ -276,10 +280,7 @@ declare class ElviaComponent extends ElvisComponentWrapper {
   static get observedAttributes(): string[];
   /** Data from `elvia-components.config.js`. */
   getComponentData(): {
-    name: string;
-    elementName: string;
-    attributes: { name: string; type: string }[];
     reactName: string;
-    slotItems: boolean;
+    attributes: { name: string; type: string }[];
   };
 }
