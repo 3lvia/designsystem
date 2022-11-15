@@ -258,7 +258,7 @@ export default defineComponent({
     ];
 
     // Dropdown
-    const dropdownDefaultOption = { value: '675', label: 'Mast - Råte' };
+    const dropdownDefaultOption = '675';
     const dropdownOptions = [
       { value: '675', label: 'Mast - Råte' },
       { value: '676', label: 'Mast - Hakkespettskade' },

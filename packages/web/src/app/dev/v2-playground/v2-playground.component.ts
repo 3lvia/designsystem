@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ElviaDropdownItem } from '@elvia/elvis-dropdown';
 
 @Component({
   selector: 'app-v2-playground',
@@ -53,17 +54,54 @@ export class v2PlaygroundComponent {
   };
 
   // Dropdown
-  dropdownDefOptions = [{ value: '2', label: 'Option 2' }];
-  dropdownOptions = [
+  selectedDropdownItem = 'sverige';
+  dropdownItems: ElviaDropdownItem[] = [
     {
-      value: '1',
-      label: 'Option 1',
-      status: 'informative',
-      tooltip: 'Dette er tooltip content\nDen har også newline content\nNew line\nNew',
+      value: 'norge',
+      label: 'Norge med en veldig lang tekst som kommer til å overflowe',
+      children: [
+        { label: 'Oslo', value: 'oslo' },
+        {
+          label: 'Bergen',
+          value: 'bergen',
+          children: [
+            { label: 'Arna', value: 'arna' },
+            { label: 'Bergenhus', value: 'bergenhus' },
+            { label: 'Fana', value: 'fana' },
+            { label: 'Fyllingsdalen', value: 'fyllingsdalen' },
+            { label: 'Laksevåg', value: 'Laksevåg' },
+          ],
+        },
+        { label: 'Trondheim', value: 'trondheim' },
+        { label: 'Stavanger', value: 'stavanger' },
+        { label: 'Kristiansand', value: 'kristiansand' },
+      ],
     },
-    { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3', isDisabled: 'true' },
+    {
+      value: 'sverige',
+      label: 'Sverige',
+      status: 'info',
+      tooltip: 'Sweden is a country',
+    },
+    { value: 'danmark', label: 'Danmark' },
+    { value: 'finland', label: 'Finland' },
+    { value: 'spania', label: 'Spania' },
+    { value: 'tyskland', label: 'Tyskland' },
+    {
+      value: 'england',
+      label: 'England',
+      children: [
+        { value: 'london', label: 'London', icon: 'adjust' },
+        { value: 'manchester', label: 'Manchester', icon: 'addCircle' },
+        { value: 'birmingham', label: 'Birmingham', icon: 'search' },
+      ],
+    },
   ];
+  isLoadingMoreItems = false;
+  setLoading = () => {
+    this.isLoadingMoreItems = true;
+    setTimeout(() => (this.isLoadingMoreItems = false), 4000);
+  };
 
   // Modal
   isModalShowing = false;

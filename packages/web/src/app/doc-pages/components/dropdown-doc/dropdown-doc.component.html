@@ -35,6 +35,22 @@
           ></app-component-example-generator>
         </ng-container>
       </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Nested dropdowns'">
+        <ng-container ngProjectAs="sectionContent">
+          <div>
+            The dropdown also supports nested dropdowns. This is done by utilizing the
+            <span class="code-text">children</span>
+            property on a list item. The list contains new dropdown items, so the tree can be as deep as you
+            need it to be. Be aware that this can affect responsiveness, as nested dropdowns will occupy a lot
+            of screen space if the tree is too deep. Note that all values should be unique, since the output
+            only is the select value.
+          </div>
+          <app-component-example-generator
+            [componentData]="dropdownTreeCode"
+            [inlineExample]="true"
+          ></app-component-example-generator>
+        </ng-container>
+      </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Status icon'">
         <ng-container ngProjectAs="sectionContent">
           <div>

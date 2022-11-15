@@ -14,15 +14,7 @@ import {
 } from './ceg.interface';
 import { KeyValue } from '@angular/common';
 import { CegCodeUpdaterService } from 'src/app/core/services/ceg-code-updater.service';
-
-interface DropdownOption {
-  value: string | number;
-  label: string;
-}
-interface DropdownIconOption extends DropdownOption {
-  value: string;
-  icon: string;
-}
+import { ElviaDropdownItem } from '@elvia/elvis-dropdown';
 
 @Component({
   selector: 'app-component-example-generator',
@@ -69,14 +61,14 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   formGroupList: CegFormGroup[] = [];
   allCheckboxes: (AttributeType & { propName: string })[] = [];
 
-  iconsOptions: DropdownIconOption[] = [];
-  selectedIcon: DropdownIconOption;
-  defaultIcon: DropdownIconOption;
+  iconsOptions: ElviaDropdownItem[] = [];
+  selectedIcon: ElviaDropdownItem;
+  defaultIcon: string;
 
-  typeOptions: DropdownOption[] = [];
+  typeOptions: ElviaDropdownItem[] = [];
   selectedType: string;
   defaultType;
-  bgOptions: DropdownOption[] = [];
+  bgOptions: ElviaDropdownItem[] = [];
   bgObj: AttributeType & { propName: string };
   selectedBg: string;
   defaultBg: string;
@@ -151,9 +143,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   /**
    * Called whenever any of the dropdowns in the CEG is changed.
    */
-  updateFormStates(propName: string, event: DropdownEvent): void {
-    const value = event.detail.value.label;
-    this.addToFormStates(propName, value);
+  updateFormStates(propName: string, list: ElviaDropdownItem[], event: DropdownEvent): void {
+    const label = list.find((item) => item.value === event.detail.value).label;
+    this.addToFormStates(propName, label);
     this.updateCustomTextVisibility();
   }
 
@@ -162,9 +154,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
    *
    * **NB**: This method applies to components **not** using `typesData`!
    */
-  updateSelectedType(event: DropdownEvent, icon?: boolean): void {
-    const label = event.detail.value.label;
-    const value = event.detail.value.value;
+  updateSelectedType(event: DropdownEvent, list: ElviaDropdownItem[], icon?: boolean): void {
+    const value = event.detail.value;
+    const label = list.find((item) => item.value === value).label;
     this.selectedType = label;
     let newValue: string;
     if (!icon || icon === undefined) {
@@ -184,8 +176,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
    *
    * **NB**: This method applies to components using `typesData`!
    */
-  updateSelectedTypeCustom(event: DropdownEvent): void {
-    const label = event.detail.value.label;
+  updateSelectedTypeCustom(event: DropdownEvent, list: ElviaDropdownItem[]): void {
+    const value = event.detail.value;
+    const label = list.find((item) => item.value === value).label;
     this.typesData.forEach((element) => {
       if (element.type === label.toLowerCase()) {
         this.selectedType = label;
@@ -213,8 +206,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   /**
    * Called every time the dropdown controlling the background of a component is changed.
    */
-  updateSelectedBg(event: DropdownEvent): void {
-    const label = event.detail.value.label;
+  updateSelectedBg(event: DropdownEvent, list: ElviaDropdownItem[]): void {
+    const value = event.detail.value;
+    const label = list.find((item) => item.value === value).label;
     this.selectedBg = label;
     if (this.bgObj.cegOptions[this.bgObj.cegDefault as string] === label) {
       this.updateSelected(this.bgObj.propName, this.bgObj.default as string, 'boolean');
@@ -591,17 +585,17 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         this.defaultType = prop.cegDefault;
         prop.cegOptions.forEach((option, index) => {
           const label = option.charAt(0).toUpperCase() + option.slice(1);
-          const newType = { value: index, label: label };
+          const newType = { value: index.toString(), label: label };
           this.typeOptions.push(newType);
         });
         this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault as number]);
       } else if (formType === 'iconName') {
         this.selectedIcon = this.iconsOptions[0];
-        this.defaultIcon = { value: 'addCircle', label: 'Add Circle', icon: 'addCircle' };
+        this.defaultIcon = 'addCircle';
         for (const icon in ElvisIcons) {
           const labelName = icon.replace(/([A-Z])/g, ' $1');
           const finalLabel = labelName.charAt(0).toUpperCase() + labelName.slice(1);
-          this.iconsOptions.push({ value: icon, label: finalLabel, icon: icon });
+          this.iconsOptions.push({ value: icon, label: finalLabel, icon: icon as ElvisIcons.IconName });
         }
         this.addToFormStates(propKey, this.iconsOptions[0].value);
       } else if (formType === 'background') {
@@ -612,7 +606,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         this.selectedBg = prop.cegDefault as string;
         this.defaultBg = prop.cegDefault as string;
         this.bgObj.cegOptions.forEach((option, index) => {
-          const type = { value: index, label: option };
+          const type = { value: index.toString(), label: option };
           this.bgOptions.push(type);
         });
         this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault as number]);
@@ -622,7 +616,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     if (this.typesData) {
       this.typesData.forEach((option, index) => {
         const label = option.type.charAt(0).toUpperCase() + option.type.slice(1);
-        const newType = { value: index, label: label };
+        const newType = { value: index.toString(), label: label };
         this.typeOptions.push(newType);
       });
     }

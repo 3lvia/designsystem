@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import Components from './views/Components.vue';
+import Dropdown from './views/Dropdown.vue';
 import Tooltip from './views/Tooltip.vue';
 import Popover from './views/Popover.vue';
 
@@ -13,6 +14,14 @@ const router = createRouter({
       component: Components,
       meta: {
         title: 'Components',
+      },
+    },
+    {
+      path: '/dropdown',
+      name: 'Dropdown',
+      component: Dropdown,
+      meta: {
+        title: 'Dropdown',
       },
     },
     {

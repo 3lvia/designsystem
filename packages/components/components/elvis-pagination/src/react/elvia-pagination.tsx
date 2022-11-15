@@ -125,12 +125,12 @@ const Pagination: FC<PaginationProps> = function ({
 
   const [selectedPageNumber, setSelectedPageNumber] = useState(1);
   const [selectedDropdownValue, setSelectedDropdownValue] = useState(
-    dropdownItems[dropdownSelectedItemIndex],
+    dropdownItems[dropdownSelectedItemIndex].value,
   );
   const [showPaginationNumbers, setShowPaginationNumbers] = useState(true);
   /** Calculate number of pages based on total elements divided by amount of elements showing. */
   const [numberOfPages, setNumberOfPages] = useState(
-    Math.ceil(numberOfElements / parseInt(selectedDropdownValue.value)),
+    Math.ceil(numberOfElements / parseInt(selectedDropdownValue)),
   );
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [labelOptionsState, setLabelOptionsState] = useState<PaginationLabel>({
@@ -140,7 +140,7 @@ const Pagination: FC<PaginationProps> = function ({
   const isMobile = windowWidth < 768;
 
   /** If selectedDropdownValue is not a number, hide the pagination TODO: Varsle bruker? */
-  if (isNaN(parseInt(selectedDropdownValue.value))) {
+  if (isNaN(parseInt(selectedDropdownValue))) {
     setNumberOfPages(0);
     setShowPaginationNumbers(false);
   }
@@ -164,11 +164,11 @@ const Pagination: FC<PaginationProps> = function ({
   }, [selectedPageNumber, selectedDropdownValue]);
 
   useEffect(() => {
-    setNumberOfPages(Math.ceil(numberOfElements / parseInt(selectedDropdownValue.value)));
+    setNumberOfPages(Math.ceil(numberOfElements / parseInt(selectedDropdownValue)));
   }, [numberOfElements, selectedDropdownValue]);
 
   useEffect(() => {
-    setSelectedDropdownValue(dropdownItems[dropdownSelectedItemIndex]);
+    setSelectedDropdownValue(dropdownItems[dropdownSelectedItemIndex].value);
   }, [dropdownItems, dropdownSelectedItemIndex]);
 
   useEffect(() => {
@@ -200,8 +200,8 @@ const Pagination: FC<PaginationProps> = function ({
     }
 
     const firstElementIndex =
-      parseInt(selectedDropdownValue.value) * selectedPageNumber - parseInt(selectedDropdownValue.value) + 1;
-    let lastElementIndex = firstElementIndex + parseInt(selectedDropdownValue.value) - 1;
+      parseInt(selectedDropdownValue) * selectedPageNumber - parseInt(selectedDropdownValue) + 1;
+    let lastElementIndex = firstElementIndex + parseInt(selectedDropdownValue) - 1;
     // TODO: Test om man slipper denne ekstra sjekken
     if (selectedPageNumber === numberOfPages) {
       lastElementIndex = numberOfElements;
@@ -338,7 +338,7 @@ const Pagination: FC<PaginationProps> = function ({
 
     const getLastPageNumber = (): JSX.Element | null => {
       // TODO: Handle all user errors at one place
-      if (numberOfElements <= parseInt(selectedDropdownValue.value)) {
+      if (numberOfElements <= parseInt(selectedDropdownValue)) {
         return null;
       }
       if (lastNumberLimit !== undefined) {
@@ -363,8 +363,8 @@ const Pagination: FC<PaginationProps> = function ({
 
   /** -- DROPDOWN -- */
   /** Dropdown item is not valid if the value is not a number */
-  const isValidDropdownItem = (dropdownItem: DropdownItem): boolean => {
-    return !isNaN(parseInt(dropdownItem.value));
+  const isValidDropdownItem = (dropdownItem: string): boolean => {
+    return !isNaN(parseInt(dropdownItem));
   };
 
   const isValidSelectedPageNumber = (): boolean => {
@@ -372,7 +372,7 @@ const Pagination: FC<PaginationProps> = function ({
   };
 
   /** Update pagination values and dispatch dropdownSelectedItemIndex events */
-  const handleDropdownValueChange = (newSelectedDropdownValue: DropdownItem): void => {
+  const handleDropdownValueChange = (newSelectedDropdownValue: string): void => {
     // Don't update or dispatch new event if the value is identical to previous value.
     if (newSelectedDropdownValue === selectedDropdownValue) {
       return;
@@ -389,7 +389,7 @@ const Pagination: FC<PaginationProps> = function ({
     }
     setSelectedDropdownValue(newSelectedDropdownValue);
 
-    const selectedIndex = dropdownItems.indexOf(newSelectedDropdownValue);
+    const selectedIndex = dropdownItems.map((item) => item.value).indexOf(newSelectedDropdownValue);
     if (!webcomponent && dropdownSelectedItemIndexOnChange) {
       dropdownSelectedItemIndexOnChange(selectedIndex);
     } else if (webcomponent) {

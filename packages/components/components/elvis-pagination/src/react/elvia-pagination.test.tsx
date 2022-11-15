@@ -3,9 +3,24 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+      matches: opts?.isGtMobile,
+      media: query,
+      onchange: null,
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    })),
+  });
+};
+
 describe('Elvis Pagination', () => {
   describe('Default values', () => {
     beforeEach(() => {
+      mockMatchMedia({ isGtMobile: true });
       render(<Pagination></Pagination>);
     });
 

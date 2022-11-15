@@ -11,13 +11,13 @@ export const dropdownData: ComponentData = {
       isRequired: true,
       type: 'Array<object>',
       description:
-        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?: string, isDisabled?: boolean, status?: string, tooltip?: string}',
+        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?: string, isDisabled?: boolean, status?: string, tooltip?: string, children?: Array<object>}',
     },
     value: {
       isRequired: false,
-      type: 'object',
+      type: 'string',
       description:
-        'Set a default value to the dropdown. Has same key value pairs as an items object: {value: string, label: string, icon?: string, isDisabled?: boolean, status?: string, tooltip?: string}',
+        'Set a default value to the dropdown. The value is the value of the selected element from the items list.',
       default: 'undefined',
     },
     errorMessage: {
@@ -144,12 +144,12 @@ export const dropdownData: ComponentData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(options: Array<object>) => CustomEvent',
+      type: '(values: string | string[]) => CustomEvent',
       description: `Gets called every time an option(s) is selected and returns an array of selected objects.`,
     },
     onItemHover: {
       isRequired: false,
-      type: '(option: object) => CustomEvent',
+      type: '(value: string | undefined) => CustomEvent',
       description: `Gets called every time an option is hovered and returns the hovered object.`,
     },
     hasLoadMoreItemsButton: {
