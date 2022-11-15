@@ -21,6 +21,12 @@ export const TooltipTextContainer = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  // Workaround to prevent Safari to show title for overflowing text
+  &::after {
+    content: '';
+    display: block;
+  }
 `;
 
 export const DropdownItemValue = styled.span`
