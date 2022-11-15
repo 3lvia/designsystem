@@ -15,6 +15,8 @@ attributes: object[] -
   value to. This is only to make it easier to use components without bindings value="".
   When using bindings ([value]="") the value is sent in as a property and not an attribute. We do not parse those.
   If you use type "object" we parse it with JSON.parse, which supports arrays as well.
+subComponents: object[] - 
+  If the components have sub-components add them here by listing objects with the same parameters as a normal component
 */
 
 module.exports = [
