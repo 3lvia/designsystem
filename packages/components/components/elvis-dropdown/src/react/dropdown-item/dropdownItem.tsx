@@ -18,7 +18,7 @@ interface DropdownItemProps {
   focusedItem?: DropdownItemOption;
   setFocusedItem: (item?: DropdownItemOption) => void;
   setHoveredItem: (item?: DropdownItemOption) => void;
-  inputIsMouse: boolean;
+  inputIsKeyboard: boolean;
   onItemSelect: (value: string[]) => void;
   onClick: (item: DropdownItemOption) => void;
   onBackdropClick: () => void;
@@ -37,7 +37,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   focusedItem,
   setFocusedItem,
   setHoveredItem,
-  inputIsMouse,
+  inputIsKeyboard: inputIsKeyboard,
   onItemSelect,
   onClick,
   onBackdropClick,
@@ -53,7 +53,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     offset: 0,
     horizontalPosition: isGtMobile ? 'right' : 'center',
     verticalPosition: 'top-inside',
-    alignWidths: false,
+    alignWidths: isGtMobile ? false : true,
   });
   const [hoverTimeoutId, setHoverTimeoutId] = useState<number>();
 
@@ -85,15 +85,11 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   const onMouseOver = () => {
     setIsHovered(true);
 
-    if (!isGtMobile) {
-      return;
-    }
-
-    if (!item.isDisabled && inputIsMouse) {
+    if (!item.isDisabled && !inputIsKeyboard) {
       setFocusedItem(item);
       setHoveredItem(item);
     }
-    if (item.children) {
+    if (item.children && isGtMobile) {
       if (isSsr()) {
         setIsShowing(true);
       } else {
@@ -160,7 +156,9 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       <DropdownItemStyles
         ref={itemRef}
         isFocused={
-          (focusedItem?.value === item.value && !inputIsMouse) || isShowing || (childIsSelected() && !isMulti)
+          (focusedItem?.value === item.value && inputIsKeyboard) ||
+          isShowing ||
+          (childIsSelected() && !isMulti)
         }
         isActive={selfOrAllChildrenAreSelected()}
         isCompact={isCompact}
@@ -179,7 +177,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       >
         {isMulti && (
           <Checkbox
-            isFocused={(focusedItem?.value === item.value && !inputIsMouse) || isShowing}
+            isFocused={(focusedItem?.value === item.value && inputIsKeyboard) || isShowing}
             isIndeterminate={isPartiallyChecked()}
             isChecked={selfOrAllChildrenAreSelected()}
             isCompact={isCompact}
@@ -232,7 +230,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           onItemSelect={(value) => onItemSelect(value)}
           currentVal={currentVal}
           pressedKey={pressedKey}
-          inputIsMouse={inputIsMouse}
+          inputIsKeyboard={inputIsKeyboard}
           onBackdropClick={onBackdropClick}
           focusedItem={focusedItem}
           setFocusedItem={setFocusedItem}

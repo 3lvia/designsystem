@@ -9,20 +9,11 @@ export const DropdownContainer = styled(FormFieldContainer)`
     css`
       max-width: 448px;
     `}
-`;
-
-export const DropdownInputContainer = styled(FormFieldInputContainer)<{ isCompact: boolean }>`
-  width: 100%;
-  padding-right: 16px;
-
-  &:focus-within {
-    padding-right: 15px;
-  }
 
   ${(props) =>
     props.isCompact &&
     css`
-      && {
+      ${DropdownInputContainer} {
         padding-right: 8px;
 
         &:focus-within {
@@ -30,6 +21,15 @@ export const DropdownInputContainer = styled(FormFieldInputContainer)<{ isCompac
         }
       }
     `}
+`;
+
+export const DropdownInputContainer = styled(FormFieldInputContainer)`
+  width: 100%;
+  padding-right: 16px;
+
+  &:focus-within {
+    padding-right: 15px;
+  }
 
   ${(props) =>
     !props.isDisabled &&

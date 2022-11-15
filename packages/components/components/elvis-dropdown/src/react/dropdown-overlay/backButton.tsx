@@ -8,6 +8,7 @@ interface SelectAllOptionProps {
   item: DropdownItem;
   focusedValue?: string;
   isCompact?: boolean;
+  inputIsKeyboard: boolean;
   onClick: () => void;
   onHover: (item: DropdownItem) => void;
 }
@@ -16,6 +17,7 @@ export const BackButton: React.FC<SelectAllOptionProps> = ({
   item,
   focusedValue,
   isCompact,
+  inputIsKeyboard,
   onClick,
   onHover,
 }) => {
@@ -33,7 +35,7 @@ export const BackButton: React.FC<SelectAllOptionProps> = ({
       }}
       onMouseLeave={() => setIsHovered(false)}
       onMouseDown={preventInputElementBlur}
-      isFocused={focusedValue === item.value}
+      isFocused={(inputIsKeyboard && focusedValue === item.value) || isHovered}
       isCompact={isCompact}
     >
       <IconButton size={isCompact ? 'sm' : 'md'} disabled isActive={isHovered}>

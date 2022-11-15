@@ -46,6 +46,7 @@ export const DropdownPopup = styled.div.attrs(() => ({
   background-color: ${getColor('elvia-on')};
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
   animation: ${fadeIn} 300ms ease;
+  position: relative;
   border-radius: 4px;
   overflow: hidden;
   width: 100%;

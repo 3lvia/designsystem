@@ -23,7 +23,7 @@ interface DropdownOverlayProps {
   isGtMobile: boolean;
   filteredItems: DropdownItemOption[];
   allItems?: DropdownItemOption[];
-  inputIsMouse: boolean;
+  inputIsKeyboard: boolean;
   isCompact: boolean;
   isMulti: boolean;
   onClose: () => void;
@@ -52,7 +52,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       isGtMobile,
       filteredItems,
       allItems,
-      inputIsMouse,
+      inputIsKeyboard,
       isCompact,
       isMulti,
       onClose,
@@ -238,7 +238,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
         }
       };
 
-      if (!inputIsMouse && focusedItem) {
+      if (inputIsKeyboard && focusedItem) {
         scrollItemListToFocusedItem(focusedItem);
       }
     }, [focusedItem]);
@@ -247,7 +247,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
 
     useEffect(() => {
       const focusFirstItemOnInit = () => {
-        if (!inputIsMouse || (isRootOverlay && !focusIsOnDirectDescendant()) || !isGtMobile) {
+        if (inputIsKeyboard || (isRootOverlay && !focusIsOnDirectDescendant()) || !isGtMobile) {
           setFocusedItem(getFullTabList()[0]);
         }
       };
@@ -287,6 +287,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   onHover={(item) => setFocusedItem(item)}
                   focusedValue={focusedItem?.value}
                   isCompact={isCompact}
+                  inputIsKeyboard={inputIsKeyboard}
                 />
               )}
               {selectAllOption && isRootOverlay && (
@@ -317,7 +318,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   }}
                   isCompact={isCompact}
                   isMulti={isMulti}
-                  inputIsMouse={inputIsMouse}
+                  inputIsKeyboard={inputIsKeyboard}
                   currentVal={currentVal}
                   onItemSelect={(item) => {
                     onItemSelect(item);

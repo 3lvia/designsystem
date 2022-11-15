@@ -47,7 +47,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   warnDeprecatedProps(config, rest);
 
   const [filter, setFilter] = useState('');
-  const { isMouse: inputIsMouse } = useInputModeDetection();
+  const { inputMode } = useInputModeDetection();
   const isGtMobile = useBreakpoint('gt-mobile');
   const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
   const [filteredItems, setFilteredItems] = useState<DropdownItem[]>([]);
@@ -159,7 +159,6 @@ const Dropdown: React.FC<DropdownProps> = ({
           isDisabled={isDisabled}
           isActive={isShowing}
           isInvalid={!!errorMessage}
-          isCompact={isCompact}
         >
           <DropdownInput
             placeholder={placeholder}
@@ -198,7 +197,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           isCompact={isCompact}
           onClose={() => setIsShowing(false)}
           filteredItems={filteredItems}
-          inputIsMouse={inputIsMouse}
+          inputIsKeyboard={inputMode === 'keyboard'}
           allItems={items}
           pressedKey={pressedKey}
           currentVal={currentVal}
