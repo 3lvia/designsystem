@@ -192,7 +192,7 @@ export const LoadMoreButtonStyles = styled.div<{ isLoading?: boolean }>`
 `;
 
 export const BackButtonStyles = styled(DropdownItemStyles)`
-  ${getTypographyCss('text-sm')};
+  gap: 8px;
 
   ${IconButton} {
     pointer-events: none;
