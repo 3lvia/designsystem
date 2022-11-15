@@ -56,7 +56,7 @@ export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
         onMouseDown={preventInputElementBlur}
         isFocused={focusedValue === item.value}
         isCompact={isCompact}
-        id={`elvia-dropdown-item-${item.value}`}
+        id={`ewc-dropdown-item-${item.value}`}
       >
         <Checkbox
           isCompact={isCompact}

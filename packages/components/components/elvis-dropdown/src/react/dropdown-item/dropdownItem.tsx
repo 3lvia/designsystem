@@ -168,7 +168,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         onMouseEnter={() => onMouseOver()}
         onMouseLeave={() => setIsHovered(false)}
         onMouseDown={(ev) => ev.preventDefault()}
-        id={`elvia-dropdown-item-${item.value}`}
+        id={`ewc-dropdown-item-${item.value}`}
         aria-disabled={item.isDisabled}
         aria-haspopup={item.children ? 'listbox' : 'false'}
         aria-expanded={isShowing}

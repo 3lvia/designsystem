@@ -32,7 +32,7 @@ export const LoadMoreButton: React.FC<LoadMoreProps> = ({
         onMouseEnter={() => onHover(item)}
         onMouseDown={preventInputElementBlur}
         isLoading={isLoadingMoreItems}
-        id={`elvia-dropdown-item-${item.value}`}
+        id={`ewc-dropdown-item-${item.value}`}
       >
         <TertiaryButton tabIndex={-1} isActive={focusedValue === item.value} size={isCompact ? 'sm' : 'md'}>
           <SpinContainer>
