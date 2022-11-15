@@ -12,7 +12,6 @@ export const TooltipContainer = styled.div<{ noRightContent: boolean }>`
     props.noRightContent &&
     css`
       padding-right: 40px;
-      min-width: 170px;
       max-width: 300px;
     `};
 `;
