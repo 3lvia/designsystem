@@ -1,10 +1,10 @@
 import { Icon } from '@elvia/elvis-icon/react';
-import { IconButton, isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
+import { isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, RefObject, useEffect, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
 import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropdown.types';
 import { flattenTree } from '../dropdownListUtils';
-import { DropdownItemStyles, IconContainer } from './dropdownItemStyles';
+import { DropdownItemStyles, IconContainer, OpenOverlayButton } from './dropdownItemStyles';
 import { Checkbox } from '../checkbox/checkbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { statusToIconMap } from '../statusToIconMap';
@@ -205,17 +205,18 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         )}
         {item.children && (
           <IconContainer>
-            <IconButton
+            <OpenOverlayButton
               size={isCompact ? 'sm' : 'md'}
-              disabled={isGtMobile || !isMulti}
+              disabled={isGtMobile || !isMulti ? true : false}
               onClick={(ev) => {
                 ev.stopPropagation();
+                console.log('clicking');
                 setIsShowing(true);
               }}
               isActive={!isGtMobile && !isMulti && isHovered}
             >
               <Icon name="arrowRight" size={isCompact ? 'xs' : 'sm'} />
-            </IconButton>
+            </OpenOverlayButton>
           </IconContainer>
         )}
       </DropdownItemStyles>

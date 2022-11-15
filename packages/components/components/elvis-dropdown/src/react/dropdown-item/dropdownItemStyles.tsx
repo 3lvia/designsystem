@@ -107,3 +107,9 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
       background-color: ${getColor('grey-05')};
     `};
 `;
+
+export const OpenOverlayButton = styled(IconButton)`
+  &:disabled {
+    pointer-events: none;
+  }
+`;
