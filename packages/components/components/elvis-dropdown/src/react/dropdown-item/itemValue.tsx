@@ -6,9 +6,10 @@ import { DropdownItemValue, TooltipContainer, TooltipTextContainer } from './dro
 
 interface Props {
   item: DropdownItem;
+  focusedValue?: DropdownItem;
 }
 
-export const ItemValue: React.FC<Props> = ({ item }) => {
+export const ItemValue: React.FC<Props> = ({ item, focusedValue }) => {
   const { isOverflowing, ref: containerRef } = useIsOverflowing<HTMLDivElement>();
 
   return (
@@ -20,7 +21,7 @@ export const ItemValue: React.FC<Props> = ({ item }) => {
           </TooltipTextContainer>
         }
         content={item.label}
-        isDisabled={!isOverflowing.horizontal}
+        isDisabled={!isOverflowing.horizontal || focusedValue?.value !== item.value}
         display="inline"
       />
     </TooltipContainer>

@@ -352,7 +352,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                       size={isCompact ? 'xs' : 'sm'}
                     />
                   )}
-                  <ItemValue item={item} />
+                  <ItemValue item={item} focusedValue={focusedItem} />
                 </DropdownItem>
               ))}
               {hasLoadMoreItemsButton && isRootOverlay && (
