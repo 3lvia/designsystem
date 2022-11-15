@@ -43,7 +43,7 @@ interface DropdownOverlayProps {
   isSearchMode?: boolean;
 }
 
-const uniqueId = Date.now();
+let uniqueId = 0;
 
 export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayProps>(
   (
@@ -74,20 +74,21 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     ref,
   ) => {
     const { isOverflowing, ref: listRef } = useIsOverflowing<HTMLDivElement>();
+    const [prevIsGtMobile, setPrevIsGtMobile] = useState(isGtMobile);
     const [fadeOut, setFadeOut] = useState(false);
     const [scrollOverflow, setScrollOverflow] = useState<'top' | 'bottom' | 'both'>();
-    const selectAllItem: DropdownItemOption = {
+    const [selectAllItem] = useState<DropdownItemOption>({
       label: selectAllOption ?? '',
-      value: `selectAll-${uniqueId}`,
-    };
-    const backItem: DropdownItemOption = {
+      value: `selectAll-${uniqueId++}`,
+    });
+    const [backItem] = useState<DropdownItemOption>({
       label: 'Tilbake',
-      value: `back-${uniqueId}`,
-    };
-    const loadMoreItem: DropdownItemOption = {
+      value: `back-${uniqueId++}`,
+    });
+    const [loadMoreItem] = useState<DropdownItemOption>({
       label: 'Last inn flere',
-      value: `loadMore-${uniqueId}`,
-    };
+      value: `loadMore-${uniqueId++}`,
+    });
 
     const onAnimationEnd = () => {
       if (fadeOut) {
@@ -242,6 +243,13 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
         scrollItemListToFocusedItem(focusedItem);
       }
     }, [focusedItem]);
+
+    useEffect(() => {
+      if (prevIsGtMobile !== isGtMobile) {
+        setPrevIsGtMobile(isGtMobile);
+        onClose();
+      }
+    }, [isGtMobile]);
 
     useEffect(() => updateScrollOverflow(), [listRef, listRef?.current]);
 

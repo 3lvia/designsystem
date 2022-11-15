@@ -192,6 +192,7 @@ export const LoadMoreButtonStyles = styled.div<{ isLoading?: boolean }>`
 `;
 
 export const BackButtonStyles = styled(DropdownItemStyles)`
+  ${getTypographyCss('text-md-strong')}
   gap: 8px;
 
   ${IconButton} {
