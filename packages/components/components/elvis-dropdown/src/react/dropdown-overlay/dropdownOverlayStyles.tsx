@@ -97,6 +97,10 @@ export const DropdownPopup = styled.div.attrs(() => ({
       ${CursorCurve} {
         top: 39px;
       }
+
+      ${BackButtonStyles} {
+        ${getTypographyCss('text-sm-strong')}
+      }
     `}
 
   ${(props) => {
