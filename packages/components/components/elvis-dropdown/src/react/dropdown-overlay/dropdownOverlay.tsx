@@ -282,6 +282,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
             isCompact={isCompact}
             isInvisible={!isGtMobile && !focusIsOnDirectDescendant()}
             overflows={scrollOverflow}
+            animate={!!isRootOverlay || isGtMobile}
           >
             <ItemList ref={listRef} onScroll={updateScrollOverflow}>
               {!filteredItems?.length && <NoItemsMessage>{noItemsText}</NoItemsMessage>}

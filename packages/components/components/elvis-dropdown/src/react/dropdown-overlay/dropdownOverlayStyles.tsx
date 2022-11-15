@@ -42,7 +42,13 @@ export const DropdownPopupContainer = styled.div`
 
 export const DropdownPopup = styled.div.attrs(() => ({
   role: 'listbox',
-}))<{ fadeOut: boolean; isCompact: boolean; isInvisible: boolean; overflows?: 'top' | 'bottom' | 'both' }>`
+}))<{
+  fadeOut: boolean;
+  isCompact: boolean;
+  isInvisible: boolean;
+  overflows?: 'top' | 'bottom' | 'both';
+  animate: boolean;
+}>`
   background-color: ${getColor('elvia-on')};
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
   animation: ${fadeIn} 300ms ease;
@@ -132,6 +138,12 @@ export const DropdownPopup = styled.div.attrs(() => ({
 
     return '';
   }}
+
+  ${({ animate }) =>
+    !animate &&
+    css`
+      animation-duration: 0ms;
+    `};
 `;
 
 export const ItemList = styled.div`
