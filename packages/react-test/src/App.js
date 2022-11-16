@@ -62,11 +62,29 @@ function App() {
   maxDate.setDate(maxDate.getDate() - 1);
 
   // Dropdown
-  const defaultDropdownOptions = [{ value: 'norge', label: 'Norge' }];
+  const defaultDropdownOptions = 'norge';
   const dropdownOptions = [
     { value: 'norge', label: 'Norge' },
     { value: 'sverige', label: 'Sverige' },
     { value: 'danmark', label: 'Danmark' },
+    {
+      value: 'england',
+      label: 'England',
+      children: [
+        { value: 'london', label: 'London' },
+        { value: 'manchester', label: 'Manchester' },
+        { value: 'birmingham', label: 'Birmingham' },
+      ],
+    },
+    { value: 'russland', label: 'Russland' },
+    { value: 'polen', label: 'Polen' },
+    { value: 'romania', label: 'Romania' },
+    { value: 'frankrike', label: 'Frankrike' },
+    { value: 'spania', label: 'Spania' },
+    { value: 'portugal', label: 'Portugal' },
+    { value: 'italia', label: 'Italia' },
+    { value: 'finland', label: 'Finland' },
+    { value: 'østerriket', label: 'Østerriket' },
   ];
 
   const [isLoadingMoreItems, setIsLoadingMoreItems] = useState(false);
@@ -148,7 +166,18 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <div className="e-bg-white"></div>
+              <div className="e-bg-white">
+                <Dropdown
+                  value={defaultDropdownOptions}
+                  placeholder="Select country"
+                  label="New dropdown"
+                  isSearchable
+                  items={dropdownOptions}
+                  isMulti
+                  isLoadingMoreItems={isLoadingMoreItems}
+                  onLoadMoreItems={onLoadMoreItems}
+                ></Dropdown>
+              </div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
@@ -311,14 +340,6 @@ function App() {
             {/* DROPDOWN */}
             <div className="example-wrapper">
               <h3>Dropdown</h3>
-              <Dropdown
-                items={dropdownOptions}
-                value={defaultDropdownOptions}
-                label="test"
-                hasLoadMoreItemsButton
-                isLoadingMoreItems={isLoadingMoreItems}
-                onLoadMoreItems={onLoadMoreItems}
-              ></Dropdown>
             </div>
             {/* ICON */}
             <div className="example-wrapper">
@@ -405,8 +426,8 @@ function App() {
                 <SegmentedControl
                   type="icon"
                   items={[
-                    { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor' },
-                    { iconName: 'list', iconNameSelected: 'listColor' },
+                    { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: '', label: '' },
+                    { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: '', label: '' },
                   ]}
                   size={'large'}
                   value={0}

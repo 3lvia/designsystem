@@ -196,7 +196,7 @@ function reactTypescriptDeclarations() {
 
 const makeJSTranspileTask = (componentName) => {
   return gulp
-    .src([`../components/${componentName}/src/**/*.ts*`])
+    .src([`../components/${componentName}/src/**/!(*.test).ts*`])
     .pipe(cache(`makeJSTranspileTask${componentName}`))
     .pipe(sourcemaps.init())
     .pipe(
@@ -228,7 +228,7 @@ const makeJSTranspileTask = (componentName) => {
 const makeTypescriptDeclarationsTask = (componentName) => {
   const tsConfig = typescript.createProject('../tsconfig.json');
   return gulp
-    .src([`../components/${componentName}/src/**/*.ts*`])
+    .src([`../components/${componentName}/src/**/!(*.test).ts*`])
     .pipe(cache(`makeTypescriptDeclarationsTask${componentName}`))
     .pipe(tsConfig())
     .pipe(filter(['*.d.ts']))
@@ -238,7 +238,7 @@ const makeTypescriptDeclarationsTask = (componentName) => {
 // TODO: Use makeJSTranspileTask here
 function buildElviaComponentToJS() {
   return gulp
-    .src(`../components/elvis-component-wrapper/src/*.ts`)
+    .src(`../components/elvis-component-wrapper/src/!(*.test).ts*`)
     .pipe(cache('buildElviaComponentToJS'))
     .pipe(
       babel({

@@ -21,7 +21,7 @@
         <div class="e-sidenav__item-text">{{ navItem.name }}</div>
       </router-link>
     </div>
-    <div slot="appContent" class="e-bg-grey-05">
+    <div slot="appContent">
       <router-view />
     </div>
   </elvia-header>
@@ -50,6 +50,12 @@ export default defineComponent({
         iconName: 'dashboard',
         iconNameActive: 'dashboardColor',
         name: 'Components',
+      },
+      {
+        url: '/dropdown',
+        iconName: 'list',
+        iconNameActive: 'listColor',
+        name: 'Dropdown',
       },
       {
         url: '/tooltip',

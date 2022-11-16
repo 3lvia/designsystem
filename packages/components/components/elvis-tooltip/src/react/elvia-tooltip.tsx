@@ -18,6 +18,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   webcomponent,
 }) => {
   let timeoutId = 0;
+  const [isDestroyed, setIsDestroyed] = useState(false);
   const { ref: triggerRef } = useSlot<HTMLDivElement>('trigger', webcomponent);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
@@ -39,11 +40,12 @@ export const Tooltip: React.FC<TooltipProps> = ({
       setFadeOut(false);
       setIsShowing(true);
     } else {
-      window.clearTimeout(timeoutId);
       timeoutId = window.setTimeout(
         () => {
-          setFadeOut(false);
-          setIsShowing(true);
+          if (!isDestroyed) {
+            setFadeOut(false);
+            setIsShowing(true);
+          }
         },
         delay ? showDelay : 0,
       );
@@ -53,7 +55,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const onClose = (): void => {
     if (!isSsr()) {
       window.clearTimeout(timeoutId);
-      timeoutId = 0;
     }
     setFadeOut(true);
   };
@@ -64,24 +65,28 @@ export const Tooltip: React.FC<TooltipProps> = ({
     }
   };
 
-  /** If triggerAreaRef is provided, add mouseEnter and mouseLeave listeners and use them to
-   * open and close the tooltip */
   useEffect(() => {
-    const triggerArea = triggerAreaRef?.current;
+    const triggerArea = triggerAreaRef?.current ? triggerAreaRef.current : triggerRef.current;
     if (!triggerArea) {
       return;
     }
 
-    const onMouseEnter = () => onOpen();
-    const onMouseLeave = () => onClose();
+    const onHover = () => onOpen();
+    const onFocus = () => onOpen(false);
+    const close = () => onClose();
 
-    triggerArea.addEventListener('mouseenter', onMouseEnter);
-    triggerArea.addEventListener('mouseleave', onMouseLeave);
+    triggerArea.addEventListener('mouseenter', onHover);
+    triggerArea.addEventListener('mouseleave', close);
+    triggerArea.addEventListener('focus', onFocus);
+    triggerArea.addEventListener('blur', close);
+
     return () => {
-      triggerArea.removeEventListener('mouseenter', onMouseEnter);
-      triggerArea.removeEventListener('mouseleave', onMouseLeave);
+      triggerArea.removeEventListener('mouseenter', onHover);
+      triggerArea.removeEventListener('mouseleave', close);
+      triggerArea.removeEventListener('focus', onFocus);
+      triggerArea.removeEventListener('blur', close);
     };
-  }, [triggerAreaRef, triggerAreaRef?.current]);
+  }, [triggerAreaRef, triggerAreaRef?.current, triggerRef, triggerRef?.current]);
 
   /* Update on position change and content change */
   const getContentMutationObserver = (): MutationObserver => {
@@ -123,25 +128,11 @@ export const Tooltip: React.FC<TooltipProps> = ({
     setActualPosition(newActualPosition);
   }, [verticalPosition, horizontalPosition]);
 
-  useEffect(() => {
-    const cleanUpTimeout = () => {
-      if (timeoutId && !isSsr()) {
-        window.clearTimeout(timeoutId);
-      }
-    };
-    return () => cleanUpTimeout();
-  }, []);
+  useEffect(() => () => setIsDestroyed(true), []);
 
   return (
     <>
-      <TriggerContainer
-        style={{ display: display }}
-        onMouseEnter={() => !triggerAreaRef?.current && onOpen(true)}
-        onMouseLeave={() => !triggerAreaRef?.current && onClose()}
-        onFocus={() => !triggerAreaRef?.current && onOpen(false)}
-        onBlur={() => !triggerAreaRef?.current && onClose()}
-        ref={triggerRef}
-      >
+      <TriggerContainer style={{ display: display }} ref={triggerRef}>
         {trigger}
       </TriggerContainer>
 

@@ -3,6 +3,7 @@ import { getComponent } from 'src/app/shared/doc-pages';
 import { dropdownData } from './dropdown-data';
 import { exampleContents } from 'src/app/shared/example-contents';
 import { dropdownIconsCode } from './dropdown-icons-code';
+import { dropdownTreeCode } from './dropdown-tree-code';
 import { dropdownStatusCode } from './dropdown-status-code';
 import { dropdownLoadMoreItemsCode } from './dropdown-load-more-items-code';
 import { Title } from '@angular/platform-browser';
@@ -25,6 +26,7 @@ export class DropdownDocComponent {
   }
 
   dropdownIconsCode = dropdownIconsCode;
+  dropdownTreeCode = dropdownTreeCode;
   dropdownStatusCode = dropdownStatusCode;
   dropdownLoadMoreItemsCode = dropdownLoadMoreItemsCode;
 
