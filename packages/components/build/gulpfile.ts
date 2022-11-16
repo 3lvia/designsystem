@@ -274,7 +274,7 @@ const makeTypescriptDeclarationsTask = (componentName: string) => {
 // TODO: Use makeJSTranspileTask here
 function buildElviaComponentToJS() {
   return gulp
-    .src(`../components/elvis-component-wrapper/src/*.ts`)
+    .src(`../components/elvis-component-wrapper/src/!(*.test).ts*`)
     .pipe(cache('buildElviaComponentToJS'))
     .pipe(
       babel({
