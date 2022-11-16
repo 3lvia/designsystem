@@ -1,16 +1,16 @@
-import gulp from 'gulp';
-import header from 'gulp-header';
-import babel from 'gulp-babel';
-import tap from 'gulp-tap';
-import del from 'del';
-import mergeStream from 'merge-stream';
-import path from 'path';
-import rename from 'gulp-rename';
-import typescript from 'gulp-typescript';
-import validate from './validateConfig.js';
-import filter from 'gulp-filter';
-import cache from 'gulp-cached';
-import sourcemaps from 'gulp-sourcemaps';
+import * as gulp from 'gulp';
+const header = require('gulp-header');
+import * as babel from 'gulp-babel';
+import * as tap from 'gulp-tap';
+import * as del from 'del';
+const mergeStream = require('merge-stream');
+import * as path from 'path';
+import * as rename from 'gulp-rename';
+import * as typescript from 'gulp-typescript';
+import * as filter from 'gulp-filter';
+import * as cache from 'gulp-cached';
+import * as sourcemaps from 'gulp-sourcemaps';
+import validate from './validateConfig';
 let components = require('../elvia-components.config');
 
 const WARNING = `/* 
@@ -61,7 +61,7 @@ function reloadComponentConfig() {
 
 function setGetList(attributes: ComponentAttribute[]) {
   let list = '';
-  attributes.forEach((attr: ComponentAttribute) => {
+  attributes.forEach((attr) => {
     const lowercase = attr.name.toLowerCase();
 
     list += `
@@ -97,7 +97,7 @@ function buildWebComponentsMagically() {
       .src(`template/elvia-component.template.ts`)
       .pipe(header(WARNING))
       .pipe(
-        tap(function (file): void {
+        tap(function (file) {
           if (
             path.basename(file.path).indexOf('.ts') === -1 ||
             path.basename(file.path).indexOf('.d.ts') === 1
@@ -105,7 +105,7 @@ function buildWebComponentsMagically() {
             return;
           }
 
-          const lowercaseAttr = component.attributes.map((attr: { name: string }) => attr.name.toLowerCase());
+          const lowercaseAttr = component.attributes.map((attr) => attr.name.toLowerCase());
 
           file.contents = Buffer.from(
             String(file.contents).replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(lowercaseAttr)),
@@ -138,7 +138,7 @@ function buildWebComponentsMagically() {
         }),
       )
       .pipe(
-        rename(function (filePath: { basename: string }) {
+        rename(function (filePath) {
           filePath.basename = elementName;
         }),
       )
@@ -220,7 +220,7 @@ function reactTypescriptDeclarations() {
     .on('error', () => {})
     .pipe(filter(['*.d.ts']))
     .pipe(
-      rename((path: { dirname: string }) => {
+      rename((path) => {
         const newPathDirname = path.dirname
           .replace('src/react', 'dist/react/js')
           .replace('src\\react', 'dist\\react\\js');
@@ -321,7 +321,7 @@ function copyChangelogs() {
 
 gulp.task(
   'cleanup',
-  gulp.series(cleanup, function (done: () => void) {
+  gulp.series(cleanup, function (done) {
     done();
   }),
 );
@@ -329,7 +329,7 @@ gulp.task(
 gulp.task(
   'default',
   gulp.series(
-    validate.validateElviaComponentsConfig,
+    validate,
     buildElviaComponentTSDeclaration,
     buildToolboxComponentToJS,
     buildToolboxComponentTSDeclaration,
@@ -338,7 +338,7 @@ gulp.task(
     copyChangelogs,
     reactTypescriptDeclarations,
     buildWebComponentsMagically,
-    function (done: () => void) {
+    function (done) {
       done();
       console.log('Successfully built Elvia Components!');
     },
@@ -348,7 +348,7 @@ gulp.task(
 gulp.task(
   'production',
   gulp.series(
-    validate.validateElviaComponentsConfig,
+    validate,
     buildElviaComponentTSDeclaration,
     buildToolboxComponentToJS,
     buildToolboxComponentTSDeclaration,
@@ -357,7 +357,7 @@ gulp.task(
     copyChangelogs,
     // reactTypescriptDeclarations, -- Currently disabled until we can make it take shorter time, remember to build before publish
     buildWebComponentsMagically,
-    function (done: () => void) {
+    function (done) {
       done();
       console.log('Successfully built Elvia Components!');
     },
@@ -369,12 +369,12 @@ gulp.task('watch', function () {
     [
       '../components/*/src/**/*',
       '../elvia-components.config.js',
-      './validateConfig.js',
+      './validateConfig.ts',
       '../components/*/CHANGELOG.json',
     ],
     { ignoreInitial: false },
     gulp.series(
-      validate.validateElviaComponentsConfig,
+      validate,
       buildElviaComponentTSDeclaration,
       buildToolboxComponentToJS,
       buildToolboxComponentTSDeclaration,
@@ -383,7 +383,7 @@ gulp.task('watch', function () {
       reactTypescriptDeclarations,
       copyChangelogs,
       buildWebComponentsMagically,
-      function (done: () => void) {
+      function (done) {
         done();
         console.log('Successfully built Elvia Components!');
       },
