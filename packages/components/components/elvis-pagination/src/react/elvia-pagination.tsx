@@ -414,6 +414,7 @@ const Pagination: FC<PaginationProps> = function ({
             placeholder=""
             items={dropdownItems}
             menuPosition={dropdownMenuPosition}
+            className="number-of-items-dropdown"
             value={selectedDropdownValue}
             valueOnChange={(event: any) => handleDropdownValueChange(event)}
             data-testid="dropdown"

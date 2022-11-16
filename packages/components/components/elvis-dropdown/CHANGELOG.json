@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "15.11.22",
+      "version": "5.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Allow dropdown to be smaller than 170px"]
+        }
+      ]
+    },
+    {
+      "date": "15.11.22",
       "version": "5.0.0",
       "changelog": [
         {

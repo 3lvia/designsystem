@@ -43,8 +43,8 @@ export const PaginatorInfoText = styled.div`
 export const PaginatorInfoDropdown = styled.div`
   width: 75px;
 
-  > span {
-    padding-top: unset; /* For removing the top padding from the dropdown component */
+  .number-of-items-dropdown {
+    padding: 0;
   }
 `;
 
