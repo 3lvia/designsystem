@@ -264,7 +264,7 @@ const makeJSTranspileTask = (componentName: string) => {
 const makeTypescriptDeclarationsTask = (componentName: string) => {
   const tsConfig = typescript.createProject('../tsconfig.json');
   return gulp
-    .src([`../components/${componentName}/src/**/*.ts*`])
+    .src([`../components/${componentName}/src/**/!(*.test).ts*`])
     .pipe(cache(`makeTypescriptDeclarationsTask${componentName}`))
     .pipe(tsConfig())
     .pipe(filter(['*.d.ts']))
