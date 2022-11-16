@@ -1,16 +1,16 @@
-const gulp = require('gulp');
-const header = require('gulp-header');
-const babel = require('gulp-babel');
-const tap = require('gulp-tap');
-const del = require('del');
-const mergeStream = require('merge-stream');
-const path = require('path');
-const rename = require('gulp-rename');
-const typescript = require('gulp-typescript');
-const validate = require('./validateConfig.js');
-const filter = require('gulp-filter');
-const cache = require('gulp-cached');
-const sourcemaps = require('gulp-sourcemaps');
+import gulp from 'gulp';
+import header from 'gulp-header';
+import babel from 'gulp-babel';
+import tap from 'gulp-tap';
+import del from 'del';
+import mergeStream from 'merge-stream';
+import path from 'path';
+import rename from 'gulp-rename';
+import typescript from 'gulp-typescript';
+import validate from './validateConfig.js';
+import filter from 'gulp-filter';
+import cache from 'gulp-cached';
+import sourcemaps from 'gulp-sourcemaps';
 let components = require('../elvia-components.config');
 
 const WARNING = `/* 
@@ -97,7 +97,7 @@ function buildWebComponentsMagically() {
       .src(`template/elvia-component.template.ts`)
       .pipe(header(WARNING))
       .pipe(
-        tap(function (file: { path: string; contents: Buffer }) {
+        tap(function (file): void {
           if (
             path.basename(file.path).indexOf('.ts') === -1 ||
             path.basename(file.path).indexOf('.d.ts') === 1
@@ -190,7 +190,7 @@ function TSX_to_JS() {
                   builtIns: false,
                 },
               ],
-            ],
+            ] as string[],
             plugins: ['babel-plugin-styled-components', '@babel/plugin-transform-react-jsx'],
           }),
         )
@@ -253,7 +253,7 @@ const makeJSTranspileTask = (componentName: string) => {
               builtIns: false,
             },
           ],
-        ],
+        ] as string[],
         plugins: ['babel-plugin-styled-components', '@babel/plugin-transform-react-jsx'],
       }),
     )
