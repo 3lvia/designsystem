@@ -232,7 +232,7 @@ function reactTypescriptDeclarations() {
 
 const makeJSTranspileTask = (componentName: string) => {
   return gulp
-    .src([`../components/${componentName}/src/**/*.ts*`])
+    .src([`../components/${componentName}/src/**/!(*.test).ts*`])
     .pipe(cache(`makeJSTranspileTask${componentName}`))
     .pipe(sourcemaps.init())
     .pipe(
