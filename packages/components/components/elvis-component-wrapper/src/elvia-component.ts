@@ -1,4 +1,4 @@
-import { FC, ReactElement, createElement } from 'react';
+import { FC, createElement } from 'react';
 import { createRoot, Root } from 'react-dom/client';
 import isEqual from 'lodash.isequal';
 import throttle from 'lodash.throttle';
@@ -83,7 +83,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   disconnectedCallback(): void {
     this.throttleRenderReactDOM.cancel();
     if (this.reactRoot) {
-      this.reactRoot.render(null as unknown as ReactElement);
+      this.reactRoot.render(null);
     }
   }
 
