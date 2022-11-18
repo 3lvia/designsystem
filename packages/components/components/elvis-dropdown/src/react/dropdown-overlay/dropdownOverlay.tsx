@@ -151,7 +151,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     const handleOverlayKeyboardNavigation = (ev: KeyboardEvent<HTMLInputElement>): void => {
       const tabList = getFullTabList();
       const currentIndex = tabList.findIndex((item) => item.value === focusedItem?.value);
-      if (['Space', 'Enter', 'Tab'].includes(ev.code)) {
+      if (['Enter', 'Tab'].includes(ev.code)) {
         ev.preventDefault();
         if (focusedItem?.value === selectAllItem.value) {
           toggleAllSelection();
@@ -249,7 +249,11 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       }
     }, [isGtMobile]);
 
-    useEffect(() => updateScrollOverflow(), [listRef, listRef?.current]);
+    useEffect(() => {
+      if (listRef?.current) {
+        updateScrollOverflow();
+      }
+    }, [listRef, listRef?.current, isOverflowing.vertical]);
 
     useEffect(() => {
       const focusFirstItemOnInit = () => {
