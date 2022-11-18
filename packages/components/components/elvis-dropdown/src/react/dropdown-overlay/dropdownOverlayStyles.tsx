@@ -46,7 +46,6 @@ export const DropdownPopup = styled.div.attrs(() => ({
   fadeOut: boolean;
   isCompact: boolean;
   isInvisible: boolean;
-  overflows?: 'top' | 'bottom' | 'both';
   animate: boolean;
 }>`
   background-color: ${getColor('elvia-on')};
@@ -56,28 +55,6 @@ export const DropdownPopup = styled.div.attrs(() => ({
   border-radius: 4px;
   overflow: hidden;
   width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 60px;
-    pointer-events: none;
-    transition: opacity 200ms;
-    opacity: 0;
-  }
-
-  &::before {
-    background: linear-gradient(rgb(255 255 255 / 1), rgb(255 255 255 / 0));
-    top: 0;
-  }
-
-  &::after {
-    background: linear-gradient(rgb(255 255 255 / 0), rgb(255 255 255 / 1));
-    bottom: 0;
-  }
 
   ${({ isCompact }) =>
     isCompact &&
@@ -117,31 +94,6 @@ export const DropdownPopup = styled.div.attrs(() => ({
     css`
       visibility: hidden;
     `};
-
-  ${({ overflows }) => {
-    if (overflows === 'top') {
-      return css`
-        &::before {
-          opacity: 1;
-        }
-      `;
-    } else if (overflows === 'bottom') {
-      return css`
-        &::after {
-          opacity: 1;
-        }
-      `;
-    } else if (overflows === 'both') {
-      return css`
-        &::before,
-        &::after {
-          opacity: 1;
-        }
-      `;
-    }
-
-    return '';
-  }}
 
   ${({ animate }) =>
     !animate &&

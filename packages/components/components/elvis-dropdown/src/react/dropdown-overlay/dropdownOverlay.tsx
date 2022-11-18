@@ -1,4 +1,4 @@
-import React, { useEffect, useState, KeyboardEvent } from 'react';
+import React, { useEffect, useState, KeyboardEvent, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { DropdownItem } from '../dropdown-item/dropdownItem';
 import { flattenTree } from '../dropdownListUtils';
@@ -16,7 +16,6 @@ import { LoadMoreButton } from './loadMoreButton';
 import { SelectAllOption } from './selectAllOption';
 import { ItemValue } from '../dropdown-item/itemValue';
 import { Icon } from '@elvia/elvis-icon/react';
-import { useIsOverflowing } from '@elvia/elvis-toolbox';
 
 interface DropdownOverlayProps {
   isRootOverlay?: boolean;
@@ -71,10 +70,9 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     },
     ref,
   ) => {
-    const { isOverflowing, ref: listRef } = useIsOverflowing<HTMLDivElement>();
-    const [prevIsGtMobile, setPrevIsGtMobile] = useState(isGtMobile);
+    const [initialScreenSize] = useState(isGtMobile);
+    const listRef = useRef<HTMLDivElement>(null);
     const [fadeOut, setFadeOut] = useState(false);
-    const [scrollOverflow, setScrollOverflow] = useState<'top' | 'bottom' | 'both'>();
     const [selectAllItem] = useState<DropdownItemOption>({
       label: selectAllOption ?? '',
       value: `selectAll-${uniqueId++}`,
@@ -186,21 +184,6 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       return getFullTabList().some((item) => focusedItem?.value === item.value);
     };
 
-    const updateScrollOverflow = () => {
-      if (isOverflowing.vertical && listRef.current) {
-        const list = listRef.current;
-        if (list.scrollTop < 10) {
-          setScrollOverflow('bottom');
-        } else if (list.scrollHeight - list.scrollTop - list.clientHeight < 10) {
-          setScrollOverflow('top');
-        } else {
-          setScrollOverflow('both');
-        }
-      } else {
-        setScrollOverflow(undefined);
-      }
-    };
-
     useEffect(() => {
       if (pressedKey && (focusIsOnDirectDescendant() || (isRootOverlay && isSearchMode))) {
         handleOverlayKeyboardNavigation(pressedKey);
@@ -243,17 +226,8 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     }, [focusedItem]);
 
     useEffect(() => {
-      if (prevIsGtMobile !== isGtMobile) {
-        setPrevIsGtMobile(isGtMobile);
-        onClose();
-      }
+      initialScreenSize !== isGtMobile && onClose();
     }, [isGtMobile]);
-
-    useEffect(() => {
-      if (listRef?.current) {
-        updateScrollOverflow();
-      }
-    }, [listRef, listRef?.current, isOverflowing.vertical]);
 
     useEffect(() => {
       const focusFirstItemOnInit = () => {
@@ -278,10 +252,9 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
             onAnimationEnd={onAnimationEnd}
             isCompact={isCompact}
             isInvisible={!isGtMobile && !focusIsOnDirectDescendant()}
-            overflows={scrollOverflow}
             animate={!!isRootOverlay || isGtMobile}
           >
-            <ItemList ref={listRef} onScroll={updateScrollOverflow}>
+            <ItemList ref={listRef}>
               {!filteredItems?.length && <NoItemsMessage>{noItemsText}</NoItemsMessage>}
               {!isGtMobile && !isRootOverlay && (
                 <BackButton
