@@ -216,4 +216,10 @@ export const BackButtonStyles = styled(DropdownItemStyles)`
     pointer-events: none;
     cursor: inherit;
   }
+
+  &:hover {
+    ${IconButton} {
+      background-color: ${getColor('elvia-charge')};
+    }
+  }
 `;

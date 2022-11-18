@@ -46,7 +46,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
 }) => {
   const itemRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
   const { isShowing, setIsShowing } = useConnectedOverlay(isGtMobile ? itemRef : listRef, popoverRef, {
     offset: 0,
     horizontalPosition: isGtMobile ? 'right' : 'center',
@@ -81,8 +80,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   };
 
   const onMouseOver = () => {
-    setIsHovered(true);
-
     if (!item.isDisabled && !inputIsKeyboard) {
       setFocusedItem(item);
       setHoveredItem(item);
@@ -161,10 +158,10 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         isActive={selfOrAllChildrenAreSelected()}
         isCompact={isCompact}
         isDisabled={item.isDisabled}
+        isGtMobile={isGtMobile}
         isMulti={isMulti}
         onClick={() => onItemClick()}
         onMouseEnter={() => onMouseOver()}
-        onMouseLeave={() => setIsHovered(false)}
         onMouseDown={(ev) => ev.preventDefault()}
         id={`ewc-dropdown-item-${item.value}`}
         aria-disabled={item.isDisabled}
@@ -211,7 +208,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
                 console.log('clicking');
                 setIsShowing(true);
               }}
-              isActive={!isGtMobile && !isMulti && isHovered}
             >
               <Icon name="arrowRight" size={isCompact ? 'xs' : 'sm'} />
             </OpenOverlayButton>

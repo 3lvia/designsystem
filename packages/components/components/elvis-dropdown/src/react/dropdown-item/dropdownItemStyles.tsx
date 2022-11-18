@@ -53,6 +53,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   isCompact?: boolean;
   isMulti?: boolean;
   isInvisible?: boolean;
+  isGtMobile?: boolean;
 }>`
   display: flex;
   gap: 16px;
@@ -87,6 +88,17 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     !isMulti &&
     css`
       background-color: ${getColor('grey-10')};
+    `};
+
+  ${({ isMulti, isGtMobile }) =>
+    !isGtMobile &&
+    !isMulti &&
+    css`
+      &:hover {
+        ${OpenOverlayButton} {
+          background-color: ${getColor('elvia-charge')};
+        }
+      }
     `};
 
   ${({ isCompact }) => {
