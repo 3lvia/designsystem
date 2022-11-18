@@ -151,7 +151,7 @@ export const DropdownPopup = styled.div.attrs(() => ({
 `;
 
 export const ItemList = styled.div`
-  max-height: calc(48px * 5 + 48px / 2);
+  max-height: calc(48px * 7 + 48px / 2);
   overflow-y: auto;
 `;
 
