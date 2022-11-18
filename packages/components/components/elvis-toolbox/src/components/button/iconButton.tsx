@@ -6,20 +6,20 @@ const getSize = (size: Size) => {
   switch (size) {
     case 'sm': {
       return css`
-        width: 32px;
-        height: 32px;
+        min-width: 32px;
+        min-height: 32px;
       `;
     }
     case 'md': {
       return css`
-        width: 40px;
-        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
       `;
     }
     default: {
       return css`
-        width: 48px;
-        height: 48px;
+        min-width: 48px;
+        min-height: 48px;
       `;
     }
   }
