@@ -7,13 +7,14 @@ import { DropdownItemValue, TooltipContainer, TooltipTextContainer } from './dro
 interface Props {
   item: DropdownItem;
   focusedValue?: DropdownItem;
+  isRootOverlay?: boolean;
 }
 
-export const ItemValue: React.FC<Props> = ({ item, focusedValue }) => {
+export const ItemValue: React.FC<Props> = ({ item, focusedValue, isRootOverlay }) => {
   const { isOverflowing, ref: containerRef } = useIsOverflowing<HTMLDivElement>();
 
   return (
-    <TooltipContainer noRightContent={!item.status && !item.children}>
+    <TooltipContainer noRightContent={!item.status && !item.children} isRootOverlay={isRootOverlay}>
       <Tooltip
         trigger={
           <TooltipTextContainer ref={containerRef}>

@@ -4,12 +4,14 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 import { StyledCheckbox } from '../checkbox/checkboxStyles';
 
-export const TooltipContainer = styled.div<{ noRightContent: boolean }>`
+export const TooltipContainer = styled.div<{ noRightContent: boolean; isRootOverlay?: boolean }>`
+  padding-right: 16px;
   overflow: hidden;
   flex: 1;
 
-  ${(props) =>
-    props.noRightContent &&
+  ${({ noRightContent, isRootOverlay }) =>
+    noRightContent &&
+    !isRootOverlay &&
     css`
       padding-right: 40px;
       max-width: 300px;

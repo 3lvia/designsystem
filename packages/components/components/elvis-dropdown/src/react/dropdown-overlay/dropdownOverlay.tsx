@@ -264,12 +264,14 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
 
     return createPortal(
       <>
-        <Backdrop
-          onClick={() => {
-            setFadeOut(true);
-            onBackdropClick && onBackdropClick();
-          }}
-        />
+        {isRootOverlay && (
+          <Backdrop
+            onClick={() => {
+              setFadeOut(true);
+              onBackdropClick && onBackdropClick();
+            }}
+          />
+        )}
         <DropdownPopupContainer
           ref={ref}
           data-testid="popover"
@@ -352,7 +354,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                       size={isCompact ? 'xs' : 'sm'}
                     />
                   )}
-                  <ItemValue item={item} focusedValue={focusedItem} />
+                  <ItemValue item={item} focusedValue={focusedItem} isRootOverlay={isRootOverlay} />
                 </DropdownItem>
               ))}
               {hasLoadMoreItemsButton && isRootOverlay && (
