@@ -4,6 +4,7 @@ import isEqual from 'lodash.isequal';
 import throttle from 'lodash.throttle';
 import JSON5 from 'json5';
 
+let ewcReactRootIdentifierPrefix = 0;
 export class ElvisComponentWrapper extends HTMLElement {
   protected _data: { [propName: string]: any };
   protected _slots: { [slotName: string]: Element };
@@ -74,7 +75,9 @@ export class ElvisComponentWrapper extends HTMLElement {
       this.appendChild(this.mountPoint);
     }
     if (!this.reactRoot) {
-      this.reactRoot = createRoot(this.mountPoint);
+      this.reactRoot = createRoot(this.mountPoint, {
+        identifierPrefix: `ewc-${ewcReactRootIdentifierPrefix++}`,
+      });
     }
     this.renderReactDOM();
     this.addDisplayStyleToCustomElement();
