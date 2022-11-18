@@ -1,4 +1,5 @@
 import { Dispatch, RefObject, SetStateAction, useEffect, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { isSsr } from '../isSsr';
 
 interface WindowRect {
@@ -292,5 +293,11 @@ export const useConnectedOverlay = (
     };
   }, [isShowing]);
 
-  return { isShowing, setIsShowing, verticalPosition, horizontalPosition, updatePreferredPosition };
+  return {
+    isShowing,
+    setIsShowing: (newState) => flushSync(() => setIsShowing(newState)),
+    verticalPosition,
+    horizontalPosition,
+    updatePreferredPosition,
+  };
 };
