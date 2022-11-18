@@ -14,7 +14,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "^3.0.1",
+    "@elvia/elvis-component-wrapper": "^3.0.3",
     "@elvia/elvis-datepicker": "^6.0.4",
     "@elvia/elvis-toolbox": "^5.5.0",
     "styled-components": "^5.3.3"
