@@ -1,4 +1,4 @@
-import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useRef, useState } from 'react';
+import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 import { config } from './config';
 import { DropdownItem, DropdownProps } from './elviaDropdown.types';
@@ -16,6 +16,16 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
 import { flattenTree, getValueAsList } from './dropdownListUtils';
+
+const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
+  if (!filter) {
+    return items;
+  } else {
+    const flatList = flattenTree(items).filter((item) => !item.children);
+    const filteredItems = flatList.filter((item) => item.label.toLowerCase().includes(filter.toLowerCase()));
+    return filteredItems;
+  }
+};
 
 const Dropdown: React.FC<DropdownProps> = ({
   items = [],
@@ -50,9 +60,9 @@ const Dropdown: React.FC<DropdownProps> = ({
   const { inputMode } = useInputModeDetection();
   const isGtMobile = useBreakpoint('gt-mobile');
   const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
-  const [filteredItems, setFilteredItems] = useState<DropdownItem[]>([]);
   const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
   const [focusedItem, setFocusedItem] = useState<DropdownItem>();
+  const filteredItems = useMemo(() => filterItems(items, filter), [items, filter]);
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -113,27 +123,6 @@ const Dropdown: React.FC<DropdownProps> = ({
     window.addEventListener('keydown', closeOnEsc);
     return () => window.removeEventListener('keydown', closeOnEsc);
   }, [isShowing]);
-
-  useEffect(() => {
-    const filterItems = () => {
-      if (!filter) {
-        setFilteredItems(items);
-      } else {
-        const flatList = flattenTree(items).filter((item) => !item.children);
-        const filteredItems = flatList.filter((item) =>
-          item.label.toLowerCase().includes(filter.toLowerCase()),
-        );
-        setFilteredItems(filteredItems);
-      }
-    };
-    filterItems();
-  }, [filter]);
-
-  useEffect(() => {
-    if (items?.length && filteredItems !== items) {
-      setFilteredItems(items);
-    }
-  }, [items]);
 
   return (
     <>
@@ -197,7 +186,6 @@ const Dropdown: React.FC<DropdownProps> = ({
           hasLoadMoreItemsButton={hasLoadMoreItemsButton}
           onLoadMoreItems={emitLoadMoreItems}
           isLoadingMoreItems={isLoadingMoreItems}
-          focusedItem={focusedItem}
           setFocusedItem={updateFocusedItem}
           setHoveredItem={emitHoveredItem}
           isSearchMode={!!filter}
