@@ -205,7 +205,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
               disabled={isGtMobile || !isMulti ? true : false}
               onClick={(ev) => {
                 ev.stopPropagation();
-                console.log('clicking');
                 setIsShowing(true);
               }}
             >
