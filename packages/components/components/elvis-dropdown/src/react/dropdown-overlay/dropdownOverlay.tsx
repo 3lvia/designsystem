@@ -30,7 +30,6 @@ interface DropdownOverlayProps {
   noItemsText?: string;
   currentVal?: DropdownValue;
   onItemSelect: (value: string[]) => void;
-  onBackdropClick?: () => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   selectAllOption?: string;
   hasLoadMoreItemsButton?: boolean;
@@ -60,7 +59,6 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       currentVal,
       onItemSelect,
       pressedKey,
-      onBackdropClick,
       selectAllOption,
       hasLoadMoreItemsButton,
       onLoadMoreItems,
@@ -264,14 +262,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
 
     return createPortal(
       <>
-        {isRootOverlay && (
-          <Backdrop
-            onClick={() => {
-              setFadeOut(true);
-              onBackdropClick && onBackdropClick();
-            }}
-          />
-        )}
+        {isRootOverlay && <Backdrop onClick={() => setFadeOut(true)} />}
         <DropdownPopupContainer
           ref={ref}
           data-testid="popover"
@@ -339,10 +330,6 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   }}
                   onClick={(item) => selectItem(item)}
                   pressedKey={pressedKey}
-                  onBackdropClick={() => {
-                    setFadeOut(true);
-                    onBackdropClick && onBackdropClick();
-                  }}
                   listRef={listRef}
                   parentItem={parentItem}
                   isGtMobile={isGtMobile}

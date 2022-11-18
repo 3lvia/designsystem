@@ -21,7 +21,6 @@ interface DropdownItemProps {
   inputIsKeyboard: boolean;
   onItemSelect: (value: string[]) => void;
   onClick: (item: DropdownItemOption) => void;
-  onBackdropClick: () => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   listRef: RefObject<HTMLElement>;
   isGtMobile: boolean;
@@ -40,7 +39,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   inputIsKeyboard: inputIsKeyboard,
   onItemSelect,
   onClick,
-  onBackdropClick,
   pressedKey,
   listRef,
   isGtMobile,
@@ -232,7 +230,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           currentVal={currentVal}
           pressedKey={pressedKey}
           inputIsKeyboard={inputIsKeyboard}
-          onBackdropClick={onBackdropClick}
           focusedItem={focusedItem}
           setFocusedItem={setFocusedItem}
           setHoveredItem={setHoveredItem}
