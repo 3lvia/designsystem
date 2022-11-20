@@ -89,7 +89,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         setIsShowing(true);
       } else {
         window.clearTimeout(hoverTimeoutId);
-        setHoverTimeoutId(window.setTimeout(() => setIsShowing(true), 200));
+        setHoverTimeoutId(() => window.setTimeout(() => setIsShowing(true), 200));
       }
     }
   };
@@ -122,6 +122,9 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   }, [pressedKey]);
 
   useEffect(() => {
+    if (!isShowing && !hoverTimeoutId) {
+      return;
+    }
     const focusIsOnChild = (): boolean => {
       const children = flattenTree(item.children);
       return children.some((child) => child.value === focusedItem?.value);
@@ -130,9 +133,10 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     if (focusedItem && focusedItem?.value !== item.value && !focusIsOnChild()) {
       if (isShowing && isGtMobile) {
         setIsShowing(false);
-      } else if (hoverTimeoutId && !isSsr()) {
+      }
+      if (hoverTimeoutId && !isSsr()) {
         window.clearTimeout(hoverTimeoutId);
-        setHoverTimeoutId(0);
+        setHoverTimeoutId(() => 0);
       }
     }
   }, [focusedItem]);
@@ -141,7 +145,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     return () => {
       if (hoverTimeoutId && !isSsr()) {
         window.clearTimeout(hoverTimeoutId);
-        setHoverTimeoutId(0);
       }
     };
   }, []);

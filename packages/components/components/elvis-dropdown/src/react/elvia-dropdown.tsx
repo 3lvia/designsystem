@@ -186,6 +186,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           hasLoadMoreItemsButton={hasLoadMoreItemsButton}
           onLoadMoreItems={emitLoadMoreItems}
           isLoadingMoreItems={isLoadingMoreItems}
+          focusedItem={focusedItem}
           setFocusedItem={updateFocusedItem}
           setHoveredItem={emitHoveredItem}
           isSearchMode={!!filter}
