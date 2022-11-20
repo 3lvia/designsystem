@@ -1,6 +1,5 @@
-import { useIsOverflowing } from '@elvia/elvis-toolbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
-import React from 'react';
+import React, { useMemo, useRef } from 'react';
 import { DropdownItem } from '../elviaDropdown.types';
 import { DropdownItemValue, TooltipContainer, TooltipTextContainer } from './dropdownItemStyles';
 
@@ -11,20 +10,33 @@ interface Props {
 }
 
 export const ItemValue: React.FC<Props> = ({ item, focusedValue, isRootOverlay }) => {
-  const { isOverflowing, ref: containerRef } = useIsOverflowing<HTMLDivElement>();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isOverflowing = useMemo(() => {
+    const { current } = containerRef;
+    if (current) {
+      return current.scrollWidth > current.offsetWidth;
+    }
+    return false;
+  }, [item.label, containerRef?.current]);
 
   return (
     <TooltipContainer noRightContent={!item.status && !item.children} isRootOverlay={isRootOverlay}>
-      <Tooltip
-        trigger={
-          <TooltipTextContainer ref={containerRef}>
-            <DropdownItemValue>{item.label}</DropdownItemValue>
-          </TooltipTextContainer>
-        }
-        content={item.label}
-        isDisabled={!isOverflowing.horizontal || focusedValue?.value !== item.value}
-        display="inline"
-      />
+      {isOverflowing ? (
+        <Tooltip
+          trigger={
+            <TooltipTextContainer ref={containerRef}>
+              <DropdownItemValue>{item.label}</DropdownItemValue>
+            </TooltipTextContainer>
+          }
+          content={item.label}
+          isDisabled={!isOverflowing || focusedValue?.value !== item.value}
+          display="inline"
+        />
+      ) : (
+        <TooltipTextContainer ref={containerRef}>
+          <DropdownItemValue>{item.label}</DropdownItemValue>
+        </TooltipTextContainer>
+      )}
     </TooltipContainer>
   );
 };
