@@ -122,14 +122,16 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
 
   return (
     <>
-      <FormFieldContainer isCompact={isCompact} className={className ?? ''} style={{ ...inlineStyle }}>
+      <FormFieldContainer
+        isCompact={isCompact}
+        className={className ?? ''}
+        style={{ ...inlineStyle }}
+        isDisabled={isDisabled}
+        isActive={isShowing}
+        isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
+      >
         {!!label && <FormFieldLabel data-testid="label">{label}</FormFieldLabel>}
-        <FormFieldInputContainer
-          ref={connectedElementRef}
-          isDisabled={isDisabled}
-          isActive={isShowing}
-          isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
-        >
+        <FormFieldInputContainer ref={connectedElementRef}>
           <TimepickerInput
             time={time}
             disabled={isDisabled}
