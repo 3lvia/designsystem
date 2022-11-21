@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-datepicker-range",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "",
   "main": "web_component.js",
   "author": "",
@@ -15,8 +15,8 @@
   ],
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^3.0.3",
-    "@elvia/elvis-datepicker": "^6.0.4",
-    "@elvia/elvis-toolbox": "^5.5.0",
+    "@elvia/elvis-datepicker": "^6.0.6",
+    "@elvia/elvis-toolbox": "^5.8.2",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {
