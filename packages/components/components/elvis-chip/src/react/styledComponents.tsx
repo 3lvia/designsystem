@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { ColorType, ChipType } from './elvia-chip.types';
 import { getColor } from '@elvia/elvis-colors';
 
@@ -16,7 +16,12 @@ export const colors = {
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
 
-const setBackgroundColor = (color: ColorType, isLoading: boolean, isSelected: boolean, type: ChipType) => {
+const setBackgroundColor = (
+  color: ColorType,
+  isLoading: boolean,
+  isSelected: boolean,
+  type: ChipType,
+): string => {
   if (type === 'choice') {
     return isSelected ? setOpacity(colors.green, 40) : 'transparent';
   } else if (type === 'legend') {
@@ -26,7 +31,7 @@ const setBackgroundColor = (color: ColorType, isLoading: boolean, isSelected: bo
   }
 };
 
-const setBackgroundColorHover = (color: ColorType, isSelected: boolean, type: ChipType) => {
+const setBackgroundColorHover = (color: ColorType, isSelected: boolean, type: ChipType): string => {
   if (type !== 'legend') {
     return colors.elviaCharge;
   } else if (isSelected) {
@@ -36,7 +41,12 @@ const setBackgroundColorHover = (color: ColorType, isSelected: boolean, type: Ch
   }
 };
 
-const decideChipBorder = (isLoading: boolean, isSelected: boolean, disabled: boolean, type: ChipType) => {
+const decideChipBorder = (
+  isLoading: boolean,
+  isSelected: boolean,
+  disabled: boolean,
+  type: ChipType,
+): string => {
   if (disabled) {
     return 'solid 1px transparent';
   } else if (type === 'legend' && (!isSelected || isLoading)) {
@@ -50,7 +60,7 @@ const decideChipBorder = (isLoading: boolean, isSelected: boolean, disabled: boo
 type ChipComponentProps = {
   chipType: ChipType;
   color: ColorType;
-  disabled: boolean;
+  isDisabled: boolean;
   isHovering: boolean;
   isLoading: boolean;
   isSelected: boolean;
@@ -59,104 +69,45 @@ type ChipComponentProps = {
 export const ChipComponent = styled.button<ChipComponentProps>`
   display: flex;
   flex-direction: row;
+  gap: 8px;
   align-items: center;
   background: none;
   box-sizing: border-box;
-  border: ${(props: { isLoading: boolean; isSelected: boolean; disabled: boolean; chipType: ChipType }) =>
-    decideChipBorder(props.isLoading, props.isSelected, props.disabled, props.chipType)};
-  background-color: ${(props: {
-    color: ColorType;
-    isLoading: boolean;
-    isSelected: boolean;
-    chipType: ChipType;
-  }) => setBackgroundColor(props.color, props.isLoading, props.isSelected, props.chipType)};
-  cursor: ${(props: { disabled: boolean }) => (props.disabled ? 'not-allowed' : 'pointer')};
+  border: ${({ isLoading, isSelected, isDisabled, chipType }) =>
+    decideChipBorder(isLoading, isSelected, isDisabled, chipType)};
+  background-color: ${({ color, isLoading, isSelected, chipType }) =>
+    setBackgroundColor(color, isLoading, isSelected, chipType)};
+  cursor: ${({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer')};
   font-size: 14px;
   line-height: 16px;
-  padding: calc(8px - 1px) calc(16px - 1px);
+  padding: 7px 15px;
   border-radius: 24px;
-  transition: background-color 300ms ease-in;
+  transition: background-color 150ms ease-in;
 
   position: relative;
-  ${(props: {
-    chipType: ChipType;
-    color: ColorType;
-    disabled: boolean;
-    isHovering: boolean;
-    isLoading: boolean;
-    isSelected: boolean;
-  }) =>
-    props.isHovering &&
-    !props.isLoading &&
-    !props.disabled &&
-    `background-color: ${setBackgroundColorHover(props.color, props.isSelected, props.chipType)}`}
+  ${({ isHovering, isLoading, isDisabled, color, isSelected, chipType }) =>
+    isHovering &&
+    !isLoading &&
+    !isDisabled &&
+    `background-color: ${setBackgroundColorHover(color, isSelected, chipType)}`}
 `;
 
-export const Loading = styled.div`
-  @-webkit-keyframes loading-dots {
-    0%,
-    80%,
-    100% {
-      -o-transform: scale(0);
-      -ms-transform: scale(0);
-      -webkit-transform: scale(0);
-      transform: scale(0);
-    }
-    40% {
-      -o-transform: scale(1);
-      -ms-transform: scale(1);
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
+const loadingDotsAnimation = keyframes`
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
   }
-  @-moz-keyframes loading-dots {
-    0%,
-    80%,
-    100% {
-      -o-transform: scale(0);
-      -ms-transform: scale(0);
-      -webkit-transform: scale(0);
-      transform: scale(0);
-    }
-    40% {
-      -o-transform: scale(1);
-      -ms-transform: scale(1);
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
+  40% {
+    transform: scale(1);
   }
-  @-o-keyframes loading-dots {
-    0%,
-    80%,
-    100% {
-      -o-transform: scale(0);
-      -ms-transform: scale(0);
-      -webkit-transform: scale(0);
-      transform: scale(0);
-    }
-    40% {
-      -o-transform: scale(1);
-      -ms-transform: scale(1);
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-  }
-  @keyframes loading-dots {
-    0%,
-    80%,
-    100% {
-      -o-transform: scale(0);
-      -ms-transform: scale(0);
-      -webkit-transform: scale(0);
-      transform: scale(0);
-    }
-    40% {
-      -o-transform: scale(1);
-      -ms-transform: scale(1);
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-  }
+`;
+
+interface ChipLoadingProps {
+  color: ColorType;
+}
+
+export const ChipLoading = styled.div<ChipLoadingProps>`
   position: absolute;
   top: 50%; /* position the top  edge of the element at the middle of the parent */
   left: 50%; /* position the left edge of the element at the middle of the parent */
@@ -165,79 +116,52 @@ export const Loading = styled.div`
   > span {
     width: 10px;
     height: 10px;
-    background-color: ${(props: { color: ColorType }) => colors[props.color]};
+    background-color: ${({ color }) => colors[color]};
     border-radius: 100%;
     display: inline-block;
-    -o-animation: loading-dots 1s infinite ease-in-out both;
-    -moz-animation: loading-dots 1s infinite ease-in-out both;
-    -webkit-animation: loading-dots 1s infinite ease-in-out both;
-    animation: loading-dots 1s infinite ease-in-out both;
+    animation: ${loadingDotsAnimation} 1s infinite ease-in-out both;
   }
 
   > span:nth-of-type(1) {
-    -o-animation-delay: -0.32s;
-    -moz-animation-delay: -0.32s;
-    -webkit-animation-delay: -0.32s;
     animation-delay: -0.32s;
   }
 
   > span:nth-of-type(2) {
-    -o-animation-delay: -0.16s;
-    -moz-animation-delay: -0.16s;
-    -webkit-animation-delay: -0.16s;
     animation-delay: -0.16s;
   }
 `;
 
-export const ChipDot = styled.span<{ color: ColorType }>`
-  &.dot {
-    ::before {
-      display: inline-block;
-      content: '';
-      height: 10px;
-      width: 10px;
-      border-radius: 50%;
-      transition: background-color 300ms ease-in;
-      background-color: ${colors.gray05};
-      margin: 0 8px 0 0;
-    }
-  }
-  &.showDot {
-    ::before {
-      background-color: ${(props: { color: ColorType }) => colors[props.color]};
-    }
-  }
-  &.disabledDot {
-    ::before {
-      opacity: 0.3;
-    }
-  }
-  &.hideDot {
-    visibility: hidden;
-  }
+interface ChipDotProps {
+  color: ColorType;
+  showDot: boolean;
+  isDisabled: boolean;
+  isHidden: boolean;
+}
+
+export const ChipDot = styled.span<ChipDotProps>`
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  transition: background-color 150ms ease-in;
+  background-color: ${({ showDot, color }) => (showDot ? colors[color] : colors.gray05)};
+  opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
+  visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
 `;
 
-export const ChipTitle = styled.div<{ disabled: boolean }>`
+interface ChipTitleProps {
+  isDisabled: boolean;
+  isHidden: boolean;
+}
+
+export const ChipTitle = styled.div<ChipTitleProps>`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
   text-transform: 'unset';
   letter-spacing: 'unset';
   font-style: unset;
-  opacity: 1;
-  transition: opacity 300ms ease-in;
+  opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
+  transition: opacity 150ms ease-in;
   color: ${colors.elviaBlack};
-
-  &.fadeIn {
-    opacity: 0.7;
-    transition: opacity 300ms ease-in;
-  }
-
-  &.disabled {
-    opacity: 0.3;
-  }
-
-  &.hide {
-    visibility: hidden;
-    opacity: 0.7;
-  }
+  visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
 `;
