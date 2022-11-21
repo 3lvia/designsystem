@@ -26,11 +26,12 @@ const getSize = (size: Size) => {
 };
 
 export const IconButton = styled.button.attrs(() => ({ type: 'button' }))<Partial<ButtonProps>>`
+  flex: none;
   display: grid;
   place-items: center;
-  ${(props) => getSize(props.size ?? 'md')};
+  ${({ size }) => getSize(size ?? 'md')};
   border: 1px solid transparent;
-  background-color: ${(props) => (props.isActive ? getColor('elvia-charge') : 'transparent')};
+  background-color: ${({ isActive }) => (isActive ? getColor('elvia-charge') : 'transparent')};
   border-radius: 99px;
   padding: 0;
   margin: 0;
