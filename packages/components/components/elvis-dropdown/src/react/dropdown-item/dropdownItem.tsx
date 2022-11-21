@@ -8,6 +8,7 @@ import { DropdownItemStyles, IconContainer, OpenOverlayButton } from './dropdown
 import { Checkbox } from '../checkbox/checkbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { statusToIconMap } from '../statusToIconMap';
+import { flushSync } from 'react-dom';
 
 interface DropdownItemProps {
   item: DropdownItemOption;
@@ -87,6 +88,10 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     return false;
   }, [selectableChildren, isMulti]);
 
+  const showChildList = (isShowing: boolean): void => {
+    flushSync(() => setIsShowing(isShowing));
+  };
+
   const onMouseOver = () => {
     if (!item.isDisabled && !inputIsKeyboard) {
       setFocusedItem(item);
@@ -94,10 +99,10 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     }
     if (item.children && isGtMobile) {
       if (isSsr()) {
-        setIsShowing(true);
+        showChildList(true);
       } else {
         window.clearTimeout(hoverTimeoutId);
-        setHoverTimeoutId(() => window.setTimeout(() => setIsShowing(true), 200));
+        setHoverTimeoutId(() => window.setTimeout(() => showChildList(true), 200));
       }
     }
   };
@@ -106,7 +111,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     if (isGtMobile || isMulti || !item.children) {
       onClick(item);
     } else {
-      setIsShowing(true);
+      showChildList(true);
     }
   };
 
@@ -206,7 +211,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
               disabled={isGtMobile || !isMulti ? true : false}
               onClick={(ev) => {
                 ev.stopPropagation();
-                setIsShowing(true);
+                showChildList(true);
               }}
             >
               <Icon name="arrowRight" size={isCompact ? 'xs' : 'sm'} />
@@ -220,7 +225,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           isGtMobile={isGtMobile}
           filteredItems={item.children ?? []}
           isCompact={!!isCompact}
-          onClose={() => setIsShowing(false)}
+          onClose={() => showChildList(false)}
           isMulti={isMulti}
           onItemSelect={(value) => onItemSelect(value)}
           currentVal={currentVal}

@@ -106,7 +106,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
 
     const focusIsOnDirectDescendant = useMemo(() => {
       return fullTabList.some((item) => focusedItem?.value === item.value);
-    }, [fullTabList]);
+    }, [fullTabList, focusedItem]);
 
     const currentValIncludesItem = (item: DropdownItemOption): boolean => {
       const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
