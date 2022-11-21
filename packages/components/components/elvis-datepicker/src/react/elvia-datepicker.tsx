@@ -226,7 +226,10 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         isCompact={isCompact}
         className={className ?? ''}
         style={{ ...inlineStyle }}
-        fullWidth={isFullWidth}
+        isFullWidth={isFullWidth}
+        isDisabled={isDisabled}
+        isActive={isShowing}
+        isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
         data-testid="wrapper"
       >
         {!!label && (
@@ -234,13 +237,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             {label}
           </FormFieldLabel>
         )}
-        <FormFieldInputContainer
-          ref={connectedElementRef}
-          isDisabled={isDisabled}
-          isActive={isShowing}
-          isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
-          data-testid="input-container"
-        >
+        <FormFieldInputContainer ref={connectedElementRef} data-testid="input-container">
           <DatepickerInput
             date={date}
             disabled={isDisabled}
