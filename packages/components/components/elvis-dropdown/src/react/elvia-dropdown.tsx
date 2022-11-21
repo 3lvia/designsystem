@@ -16,6 +16,7 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
 import { flattenTree, getValueAsList } from './dropdownListUtils';
+import { flushSync } from 'react-dom';
 
 const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
   if (!filter) {
@@ -133,7 +134,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
     const closeOnEsc = (ev: KeyboardEvent) => {
       if (ev.code === 'Escape') {
-        setIsShowing(false);
+        flushSync(() => setIsShowing(false));
       }
     };
 
@@ -165,7 +166,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             dropdownIsOpen={isShowing}
             isDisabled={isDisabled}
             items={items}
-            onOpenDropdown={() => setIsShowing(true)}
+            onOpenDropdown={() => flushSync(() => setIsShowing(true))}
             onKeyPress={setPressedKey}
             currentVal={currentVal}
             focusedItem={focusedItem}
@@ -191,7 +192,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           isMulti={isMulti}
           onItemSelect={setSelectedItem}
           isCompact={isCompact}
-          onClose={() => setIsShowing(false)}
+          onClose={() => flushSync(() => setIsShowing(false))}
           filteredItems={filteredItems}
           inputIsKeyboard={inputMode === 'keyboard'}
           allItems={items}

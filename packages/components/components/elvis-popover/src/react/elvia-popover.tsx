@@ -75,7 +75,9 @@ const Popover: FC<PopoverProps> = function ({
 
   /* Synchronize the isShowing prop and the setIsShowingConnectedOverlayState */
   useEffect(() => {
-    setIsShowingConnectedOverlayState(isShowing);
+    if (isShowing !== isShowingConnectedOverlayState) {
+      setIsShowingConnectedOverlayState(isShowing);
+    }
   }, [isShowing]);
 
   /* Saving the original focused element before the popover is opened, and then returning focus to that

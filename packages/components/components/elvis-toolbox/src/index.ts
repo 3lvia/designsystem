@@ -1,5 +1,6 @@
-export * from './elvis-toolbox';
 export { isSsr } from './isSsr';
+export { outlineListener } from './outlineListener';
+export { warnDeprecatedProps, ComponentConfig } from './warnDeprecatedProps';
 
 export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button';
 export { IconButton } from './components/button/iconButton';

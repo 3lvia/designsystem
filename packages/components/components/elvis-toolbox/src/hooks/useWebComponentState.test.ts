@@ -1,5 +1,5 @@
 import { useWebComponentState } from './useWebComponentState';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 
 describe('useWebComponentState', () => {
   describe('with Web Component', () => {

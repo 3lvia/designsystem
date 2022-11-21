@@ -4,15 +4,21 @@
     {
       "date": "21.11.22",
       "version": "6.0.0",
+      "type": "breaking_changes",
+      "changes": [
+        "The styled <span class=\"code-text\">form field</span> component had their props moved to the container component."
+      ],
+      "fixes": [
+        "Move props previously added to <span class=\"code-text\">FormFieldInputContainer</span> to <span class=\"code-text\">FormFieldContainer</span>."
+      ]
+    },
+    {
+      "date": "21.11.22",
+      "version": "5.8.1",
       "changelog": [
         {
-          "type": "breaking_changes",
-          "changes": [
-            "The styled <span class=\"code-text\">form field</span> component had their props moved to the container component."
-          ],
-          "fixes": [
-            "Move props previously added to <span class=\"code-text\">FormFieldInputContainer</span> to <span class=\"code-text\">FormFieldContainer</span>."
-          ]
+          "type": "patch",
+          "changes": ["Added support for React 18."]
         }
       ]
     },

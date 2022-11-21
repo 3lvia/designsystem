@@ -3,13 +3,23 @@
   "content": [
     {
       "date": "21.11.22",
-      "version": "2.1.9",
+      "version": "2.1.10",
       "changelog": [
         {
           "type": "patch",
           "changes": [
             "Use <span class=\"code-text\">@elvia/toolbox@^6.0.0</span>. This fixes an issue where the input jumps while compact."
           ]
+        }
+      ]
+    },
+    {
+      "date": "21.11.22",
+      "version": "2.1.9",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added support for React 18."]
         }
       ]
     },

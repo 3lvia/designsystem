@@ -3,11 +3,21 @@
   "content": [
     {
       "date": "21.11.22",
-      "version": "5.0.2",
+      "version": "5.0.3",
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Fix misc issues found after testing"]
+          "changes": ["Improve performance for large lists."]
+        }
+      ]
+    },
+    {
+      "date": "21.11.22",
+      "version": "5.0.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added support for React 18."]
         }
       ]
     },

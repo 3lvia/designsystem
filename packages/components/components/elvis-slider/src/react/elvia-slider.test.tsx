@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import React from 'react';
 import Slider from './elvia-slider';
 import userEvent from '@testing-library/user-event';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 
 //====================
 // Simple Slider
@@ -161,7 +161,9 @@ describe('Elvia Slider', () => {
       await user.click(leftNumberInput);
       await user.keyboard('{Backspace}');
       await user.type(leftNumberInput, '20');
-      leftNumberInput.blur();
+      act(() => {
+        leftNumberInput.blur();
+      });
 
       expect(leftNumberInput).toBeEnabled();
       expect(leftSliderInput).toHaveValue('20'); //see if the value was updated or not (it should update from 1 to 20)
@@ -186,8 +188,9 @@ describe('Elvia Slider', () => {
       await user.click(leftNumberInput);
       await user.keyboard('{Backspace}');
       await user.type(leftNumberInput, '0');
-      leftNumberInput.blur(); //the input field needs to be blurred to trigger the onBlur event to validate the input
-
+      act(() => {
+        leftNumberInput.blur(); //the input field needs to be blurred to trigger the onBlur event to validate the input
+      });
       expect(leftNumberInput).toBeInvalid();
       expect(leftSliderInput).toHaveValue('1'); //see if the value was updated or not (it should not)
     });
@@ -201,7 +204,9 @@ describe('Elvia Slider', () => {
       await user.click(leftNumberInput);
       await user.keyboard('{Backspace}');
       await user.type(leftNumberInput, '200');
-      leftNumberInput.blur();
+      act(() => {
+        leftNumberInput.blur();
+      });
 
       expect(leftNumberInput).toBeInvalid();
       expect(leftSliderInput).toHaveValue('1');
@@ -323,23 +328,23 @@ describe('Elvia Slider', () => {
 
     test('should have a right input type=number with a "max" attribute with the value 100', () => {
       render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const rigthumberInput = screen.getByTestId('right-number-input');
+      const rightNumberInput = screen.getByTestId('right-number-input');
 
-      expect(rigthumberInput).toHaveAttribute('max', '100');
+      expect(rightNumberInput).toHaveAttribute('max', '100');
     });
 
     test('should have a right input type=number with a default value loosely equal to the "max" attribute', () => {
       render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const rigthumberInput = screen.getByTestId('right-number-input');
+      const rightNumberInput = screen.getByTestId('right-number-input');
 
-      expect(rigthumberInput).toHaveValue(100);
+      expect(rightNumberInput).toHaveValue(100);
     });
 
     test('should have two type=number enabled', () => {
       render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const rigthumberInput = screen.getByTestId('right-number-input');
+      const rightNumberInput = screen.getByTestId('right-number-input');
 
-      expect(rigthumberInput).toBeEnabled();
+      expect(rightNumberInput).toBeEnabled();
     });
 
     test('should labels that say "Fra" and "Til"', () => {
@@ -370,7 +375,9 @@ describe('Elvia Slider', () => {
       await user.click(leftNumberInput);
       await user.keyboard('{Backspace}');
       await user.type(leftNumberInput, '81');
-      leftNumberInput.blur();
+      act(() => {
+        leftNumberInput.blur();
+      });
 
       expect(leftNumberInput).toBeInvalid();
       expect(leftSliderInput).toHaveValue('1');
@@ -393,7 +400,9 @@ describe('Elvia Slider', () => {
       await user.click(rightNumberInput);
       await user.keyboard('{Backspace}');
       await user.type(rightNumberInput, '19');
-      rightNumberInput.blur();
+      act(() => {
+        rightNumberInput.blur();
+      });
 
       expect(rightNumberInput).toBeInvalid();
       expect(rightSliderInput).toHaveValue('100'); //see if the value was updated or not (it should not)
