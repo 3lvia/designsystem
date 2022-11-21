@@ -147,17 +147,15 @@ const Dropdown: React.FC<DropdownProps> = ({
         isCompact={isCompact}
         className={className ?? ''}
         style={{ ...inlineStyle }}
-        fullWidth={isFullWidth}
+        isFullWidth={isFullWidth}
+        isDisabled={isDisabled}
+        isActive={isShowing}
+        isInvalid={!!errorMessage}
         data-testid="wrapper"
         aria-haspopup="true"
       >
         {!!label && <FormFieldLabel>{label}</FormFieldLabel>}
-        <DropdownInputContainer
-          ref={connectedElementRef}
-          isDisabled={isDisabled}
-          isActive={isShowing}
-          isInvalid={!!errorMessage}
-        >
+        <DropdownInputContainer ref={connectedElementRef}>
           <DropdownInput
             placeholder={placeholder}
             placeholderIcon={placeholderIcon}

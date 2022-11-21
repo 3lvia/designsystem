@@ -4,23 +4,31 @@ import { FormFieldContainer, FormFieldInputContainer } from '@elvia/elvis-toolbo
 export const DropdownContainer = styled(FormFieldContainer)`
   width: 100%;
 
-  ${(props) =>
-    !props.fullWidth &&
+  ${({ isFullWidth }) =>
+    !isFullWidth &&
     css`
       max-width: 448px;
     `}
 
-  ${(props) =>
-    props.isCompact &&
+  ${({ isCompact, isActive }) =>
+    isCompact &&
     css`
       ${DropdownInputContainer} {
-        padding-right: 8px;
+        padding-right: ${isActive ? '7px' : '8px'};
 
         &:focus-within {
           padding-right: 7px;
         }
       }
-    `}
+    `};
+
+  ${({ isDisabled }) =>
+    !isDisabled &&
+    css`
+      ${DropdownInputContainer} {
+        cursor: pointer;
+      }
+    `};
 `;
 
 export const DropdownInputContainer = styled(FormFieldInputContainer)`
@@ -30,12 +38,6 @@ export const DropdownInputContainer = styled(FormFieldInputContainer)`
   &:focus-within {
     padding-right: 15px;
   }
-
-  ${(props) =>
-    !props.isDisabled &&
-    css`
-      cursor: pointer;
-    `};
 `;
 
 export const OverlayPositioner = styled.div`
