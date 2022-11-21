@@ -1,41 +1,11 @@
-import React, { FC, useState, useEffect, CSSProperties } from 'react';
-import { ChipComponent, ChipDot, ChipTitle, Loading } from './styledComponents';
-import { ChipType, ColorType } from './elvia-chip.types';
+import React, { FC } from 'react';
+import { ChipComponent, ChipDot, ChipTitle, ChipLoading } from './styledComponents';
+import { ChipProps } from './elvia-chip.types';
 import { Icon } from '@elvia/elvis-icon/react';
 import { useHover } from '@react-aria/interactions';
-
-import classnames from 'classnames';
 import { getColor } from '@elvia/elvis-colors';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, useWebComponentState } from '@elvia/elvis-toolbox';
 import config from './config';
-
-export interface ChipProps {
-  ariaLabel?: string;
-  color?: ColorType;
-  /**
-   * @deprecated Removed in version 2.0.0. Replaced by `isDisabled`.
-   */
-  disabled?: boolean;
-  isDisabled?: boolean;
-  isLoading?: boolean;
-  type?: ChipType;
-  /**
-   * @deprecated Removed in version 2.0.0. Replaced by `isSelected`.
-   */
-  selected?: boolean;
-  isSelected?: boolean;
-  value: string | number;
-  onDelete?: (event: ChipProps['value']) => void;
-  /**
-   * @deprecated Removed in version 2.0.0. Replaced by `isSelectedOnChange()`.
-   */
-  valueOnChange?: (event: { value: string; isSelected: boolean }) => void;
-  isSelectedOnChange?: (isSelected: NonNullable<ChipProps['isSelected']>) => void;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
-}
 
 export const Chip: FC<ChipProps> = function ({
   ariaLabel,
@@ -54,28 +24,18 @@ export const Chip: FC<ChipProps> = function ({
 }) {
   warnDeprecatedProps(config, arguments[0]);
 
-  const [isSelectedState, setIsSelectedState] = useState(isSelected);
-  const [isAnimation, setIsAnimation] = useState(false);
-
-  useEffect(() => {
-    setIsSelectedState(isSelected);
-  }, [isSelected]);
+  const [isSelectedState, setIsSelectedState] = useWebComponentState(
+    isSelected,
+    'isSelected',
+    webcomponent,
+    isSelectedOnChange,
+  );
 
   const handleOnDelete = (value: ChipProps['value']) => {
     if (!webcomponent) {
       onDelete && onDelete(value);
     } else if (webcomponent) {
       webcomponent.triggerEvent('onDelete', value);
-    }
-  };
-
-  const updateSelectedState = (newIsSelected: boolean) => {
-    setIsSelectedState(newIsSelected);
-    if (!webcomponent) {
-      isSelectedOnChange && isSelectedOnChange(newIsSelected);
-    } else if (webcomponent) {
-      webcomponent.setProps({ isSelected: newIsSelected }, true);
-      webcomponent.triggerEvent('isSelectedOnChange', newIsSelected);
     }
   };
 
@@ -98,18 +58,12 @@ export const Chip: FC<ChipProps> = function ({
       aria-checked={type === 'removable' ? undefined : isSelectedState}
       aria-label={ariaLabel}
       color={color}
-      onClick={() => {
-        setIsAnimation(true);
-        setTimeout(() => {
-          setIsAnimation(false);
-        }, 300);
-        type === 'removable' ? handleOnDelete(value) : updateSelectedState(!isSelectedState);
-      }}
+      onClick={() => (type === 'removable' ? handleOnDelete(value) : setIsSelectedState(!isSelectedState))}
       disabled={isDisabled}
       chipType={type}
       isSelected={isSelectedState}
       isHovering={isHovered}
-      className={`${className ? className : ''}`}
+      className={className ?? ''}
       isLoading={isLoading}
       style={inlineStyle}
       data-testid="chip-button"
@@ -120,7 +74,6 @@ export const Chip: FC<ChipProps> = function ({
           name="check"
           customSize="12px"
           inlineStyle={{
-            paddingRight: '8px',
             opacity: decideChoiceCheckmarkIconOpacity(),
           }}
         />
@@ -128,38 +81,23 @@ export const Chip: FC<ChipProps> = function ({
       {type === 'legend' && (
         <ChipDot
           color={color}
-          className={classnames('dot', {
-            ['showDot']: isHovered || isSelectedState,
-            ['disabledDot']: isDisabled,
-            ['hideDot']: isLoading,
-          })}
+          showDot={isHovered || isSelectedState}
+          isDisabled={isDisabled}
+          isHidden={isLoading}
         />
       )}
       {isLoading && (
-        <Loading color={color}>
+        <ChipLoading color={color}>
           <span />
           <span />
           <span />
-        </Loading>
+        </ChipLoading>
       )}
-      <ChipTitle
-        className={classnames({
-          ['hide']: isLoading,
-          ['disabled']: isDisabled,
-          ['fadeIn']: isAnimation && !isLoading,
-        })}
-        disabled={isDisabled}
-        data-testid="chip-label"
-      >
+      <ChipTitle isDisabled={isDisabled} isHidden={isLoading} data-testid="chip-label">
         {value}
       </ChipTitle>
       {type === 'removable' && (
-        <Icon
-          name="close"
-          size="xxs"
-          inlineStyle={{ marginLeft: '8px' }}
-          color={isDisabled ? getColor('disabled') : undefined}
-        />
+        <Icon name="close" size="xxs" color={isDisabled ? getColor('disabled') : undefined} />
       )}
     </ChipComponent>
   );
