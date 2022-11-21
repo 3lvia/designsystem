@@ -3,7 +3,7 @@
  * https://json-schema.org/understanding-json-schema/reference/
  */
 
-const Ajv = require('ajv');
+import Ajv from 'ajv';
 const ajv = new Ajv({ allErrors: true });
 const data = require('../elvia-components.config');
 
@@ -66,4 +66,4 @@ async function validateElviaComponentsConfig() {
   }
 }
 
-exports.validateElviaComponentsConfig = validateElviaComponentsConfig;
+export default validateElviaComponentsConfig;
