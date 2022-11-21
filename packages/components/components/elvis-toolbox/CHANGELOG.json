@@ -8,7 +8,8 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "The styled <span class=\"code-text\">form field</span> component had their props moved to the container component."
+            "The styled <span class=\"code-text\">form field</span> component had their props moved to the container component.",
+            "The hook <span class=\"code-text\">useConnectedOverlay</span> will now adapt better if the overlay content change while its open."
           ],
           "fixes": [
             "Move props previously added to <span class=\"code-text\">FormFieldInputContainer</span> to <span class=\"code-text\">FormFieldContainer</span>."
