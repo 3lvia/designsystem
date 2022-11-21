@@ -10,18 +10,6 @@ export const DropdownContainer = styled(FormFieldContainer)`
       max-width: 448px;
     `}
 
-  ${({ isCompact, isActive }) =>
-    isCompact &&
-    css`
-      ${DropdownInputContainer} {
-        padding-right: ${isActive ? '7px' : '8px'};
-
-        &:focus-within {
-          padding-right: 7px;
-        }
-      }
-    `};
-
   ${({ isDisabled }) =>
     !isDisabled &&
     css`
@@ -29,15 +17,19 @@ export const DropdownContainer = styled(FormFieldContainer)`
         cursor: pointer;
       }
     `};
+
+  ${({ isCompact }) =>
+    isCompact &&
+    css`
+      ${IconRotator} {
+        width: 32px;
+        height: 32px;
+      }
+    `};
 `;
 
 export const DropdownInputContainer = styled(FormFieldInputContainer)`
   width: 100%;
-  padding-right: 16px;
-
-  &:focus-within {
-    padding-right: 15px;
-  }
 `;
 
 export const OverlayPositioner = styled.div`
@@ -46,6 +38,12 @@ export const OverlayPositioner = styled.div`
 `;
 
 export const IconRotator = styled.div<{ isRotated: boolean }>`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
   transform: rotate(0deg);
   transition: transform 150ms ease;
 
