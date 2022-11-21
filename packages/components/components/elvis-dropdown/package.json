@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-dropdown",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "",
   "main": "web_component.js",
   "author": "",
@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "@elvia/elvis-colors": "^1.4.2",
-    "@elvia/elvis-component-wrapper": "^3.0.2",
+    "@elvia/elvis-component-wrapper": "^3.0.3",
     "@elvia/elvis-icon": "^1.3.4",
     "@elvia/elvis-toolbox": "^5.8.0",
     "@elvia/elvis-tooltip": "^1.1.2",
@@ -23,8 +23,8 @@
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0",
-    "react-is": ">= 16.8.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0"
   }
 }

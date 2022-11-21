@@ -3,13 +3,23 @@
   "content": [
     {
       "date": "21.11.22",
-      "version": "6.0.5",
+      "version": "6.0.6",
       "changelog": [
         {
           "type": "patch",
           "changes": [
             "Update <span class=\"code-text\">@elvia/elvis-toolbox</span> to improve Icon Button styles."
           ]
+        }
+      ]
+    },
+    {
+      "date": "21.11.22",
+      "version": "6.0.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added support for React 18."]
         }
       ]
     },

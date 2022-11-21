@@ -1,18 +1,20 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { FC, createElement } from 'react';
+import { createRoot, Root } from 'react-dom/client';
 import isEqual from 'lodash.isequal';
 import throttle from 'lodash.throttle';
 import JSON5 from 'json5';
 
+let ewcReactRootIdentifierPrefix = 0;
 export class ElvisComponentWrapper extends HTMLElement {
   protected _data: { [propName: string]: any };
   protected _slots: { [slotName: string]: Element };
-  protected reactComponent: React.FC;
+  protected reactComponent: FC;
   protected webComponent: ElviaComponent;
   protected throttleRenderReactDOM;
   private mountPoint!: HTMLSpanElement;
+  private reactRoot!: Root;
 
-  constructor(webComponent: ElviaComponent, reactComponent: React.FC) {
+  constructor(webComponent: ElviaComponent, reactComponent: FC) {
     super();
     this._data = {};
     this._slots = {};
@@ -72,14 +74,19 @@ export class ElvisComponentWrapper extends HTMLElement {
       this.mountPoint = wrapperElement;
       this.appendChild(this.mountPoint);
     }
+    if (!this.reactRoot) {
+      this.reactRoot = createRoot(this.mountPoint, {
+        identifierPrefix: `ewc-${ewcReactRootIdentifierPrefix++}`,
+      });
+    }
     this.renderReactDOM();
     this.addDisplayStyleToCustomElement();
   }
 
   disconnectedCallback(): void {
     this.throttleRenderReactDOM.cancel();
-    if (this.mountPoint) {
-      ReactDOM.render(null as unknown as React.ReactElement, this.mountPoint);
+    if (this.reactRoot) {
+      this.reactRoot.render(null);
     }
   }
 
@@ -154,8 +161,8 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   protected renderReactDOM(): void {
     this.mapAttributesToData();
-    if (this.mountPoint) {
-      ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
+    if (this.reactRoot) {
+      this.reactRoot.render(this.createReactElement(this.createReactData()));
     }
   }
 
@@ -265,7 +272,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   private createReactElement(data: { [key: string]: any }): React.ReactElement {
     const reactData = data;
     reactData.webcomponent = this;
-    return React.createElement(this.reactComponent, reactData, React.createElement('slot'));
+    return createElement(this.reactComponent, reactData, createElement('slot'));
   }
 }
 
@@ -282,5 +289,6 @@ declare class ElviaComponent extends ElvisComponentWrapper {
   getComponentData(): {
     reactName: string;
     attributes: { name: string; type: string }[];
+    subComponents?: { reactName: string; attributes: { name: string; type: string }[] }[];
   };
 }

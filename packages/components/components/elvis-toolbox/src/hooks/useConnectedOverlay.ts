@@ -292,5 +292,11 @@ export const useConnectedOverlay = (
     };
   }, [isShowing]);
 
-  return { isShowing, setIsShowing, verticalPosition, horizontalPosition, updatePreferredPosition };
+  return {
+    isShowing,
+    setIsShowing,
+    verticalPosition,
+    horizontalPosition,
+    updatePreferredPosition,
+  };
 };

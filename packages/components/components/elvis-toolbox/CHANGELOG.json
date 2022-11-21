@@ -3,11 +3,21 @@
   "content": [
     {
       "date": "21.11.22",
-      "version": "5.8.1",
+      "version": "5.8.2",
       "changelog": [
         {
           "type": "bug_fix",
           "changes": ["Fixed a bug where the Icon Button would become oval-shaped in a Full-Width input."]
+        }
+      ]
+    },
+    {
+      "date": "21.11.22",
+      "version": "5.8.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added support for React 18."]
         }
       ]
     },
