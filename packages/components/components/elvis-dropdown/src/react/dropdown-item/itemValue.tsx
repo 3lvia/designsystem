@@ -21,7 +21,7 @@ export const ItemValue: React.FC<Props> = ({ item, focusedValue, isRootOverlay }
 
   return (
     <TooltipContainer noRightContent={!item.status && !item.children} isRootOverlay={isRootOverlay}>
-      {isOverflowing ? (
+      {isOverflowing && focusedValue?.value === item.value ? (
         <Tooltip
           trigger={
             <TooltipTextContainer ref={containerRef}>
@@ -29,7 +29,6 @@ export const ItemValue: React.FC<Props> = ({ item, focusedValue, isRootOverlay }
             </TooltipTextContainer>
           }
           content={item.label}
-          isDisabled={!isOverflowing || focusedValue?.value !== item.value}
           display="inline"
         />
       ) : (

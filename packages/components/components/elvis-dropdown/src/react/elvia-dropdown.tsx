@@ -73,6 +73,21 @@ const Dropdown: React.FC<DropdownProps> = ({
     alignWidths: true,
   });
 
+  const focusOnSelectedValue = (): void => {
+    if (focusedItem || !currentVal) {
+      return;
+    }
+
+    if (isMulti) {
+      setFocusedItem(filteredItems[0]);
+    } else if (typeof currentVal === 'string') {
+      const currentValInList = filteredItems.find((item) => item.value === currentVal);
+      if (currentValInList) {
+        setFocusedItem(currentValInList);
+      }
+    }
+  };
+
   const setSelectedItem = (values: string[]): void => {
     if (isMulti) {
       const arrayCopy = getValueAsList(currentVal);
@@ -90,6 +105,8 @@ const Dropdown: React.FC<DropdownProps> = ({
     } else {
       setCurrentVal(values[0]);
     }
+
+    focusOnSelectedValue();
   };
 
   const emitLoadMoreItems = (): void => {
