@@ -2390,15 +2390,15 @@ __metadata:
   resolution: "@elvia/elvis-accordion@workspace:packages/components/components/elvis-accordion"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.8.0
     "@elvia/elvis-typography": ^2.2.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2407,15 +2407,15 @@ __metadata:
   resolution: "@elvia/elvis-accordion@portal:../components/components/elvis-accordion::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.8.0
     "@elvia/elvis-typography": ^2.2.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2450,12 +2450,12 @@ __metadata:
   resolution: "@elvia/elvis-badge@workspace:packages/components/components/elvis-badge"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2464,12 +2464,12 @@ __metadata:
   resolution: "@elvia/elvis-badge@portal:../components/components/elvis-badge::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2478,14 +2478,14 @@ __metadata:
   resolution: "@elvia/elvis-box@workspace:packages/components/components/elvis-box"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-toolbox": ^5.7.1
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2494,14 +2494,14 @@ __metadata:
   resolution: "@elvia/elvis-box@portal:../components/components/elvis-box::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-toolbox": ^5.7.1
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2510,15 +2510,15 @@ __metadata:
   resolution: "@elvia/elvis-breadcrumb@workspace:packages/components/components/elvis-breadcrumb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2527,15 +2527,15 @@ __metadata:
   resolution: "@elvia/elvis-breadcrumb@portal:../components/components/elvis-breadcrumb::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2544,16 +2544,16 @@ __metadata:
   resolution: "@elvia/elvis-card@workspace:packages/components/components/elvis-card"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.3
     "@elvia/elvis-toolbox": ^5.7.0
     "@elvia/elvis-tooltip": ^1.0.10
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2562,16 +2562,16 @@ __metadata:
   resolution: "@elvia/elvis-card@portal:../components/components/elvis-card::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.3
     "@elvia/elvis-toolbox": ^5.7.0
     "@elvia/elvis-tooltip": ^1.0.10
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2580,15 +2580,15 @@ __metadata:
   resolution: "@elvia/elvis-carousel@workspace:packages/components/components/elvis-carousel"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.2.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2597,15 +2597,15 @@ __metadata:
   resolution: "@elvia/elvis-carousel@portal:../components/components/elvis-carousel::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.2.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2614,16 +2614,16 @@ __metadata:
   resolution: "@elvia/elvis-chip@workspace:packages/components/components/elvis-chip"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@react-aria/interactions": ^3.8.4
     classnames: ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2632,16 +2632,16 @@ __metadata:
   resolution: "@elvia/elvis-chip@portal:../components/components/elvis-chip::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@react-aria/interactions": ^3.8.4
     classnames: ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2659,19 +2659,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^3.0.0, @elvia/elvis-component-wrapper@^3.0.1, @elvia/elvis-component-wrapper@^3.0.2, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
+"@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^3.0.3, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper"
   dependencies:
     "@types/lodash.isequal": ^4.5.5
     "@types/lodash.throttle": ^4.1.7
-    "@types/react": ^17.0.39
-    "@types/react-dom": ^17.0.13
+    "@types/react": ^18.0.25
+    "@types/react-dom": ^18.0.9
     json5: ^2.2.1
     lodash.isequal: ^4.5.0
     lodash.throttle: ^4.1.1
-    react: ^17.0.0
-    react-dom: ^17.0.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
   languageName: unknown
   linkType: soft
 
@@ -2690,8 +2690,7 @@ __metadata:
     "@elvia/elvis-component-wrapper": "*"
     "@testing-library/dom": 8.19.0
     "@testing-library/jest-dom": ^5.15.1
-    "@testing-library/react": 12.1.5
-    "@testing-library/react-hooks": 8.0.1
+    "@testing-library/react": 13.4.0
     "@testing-library/user-event": 14.4.3
     "@types/gulp": ^4.0.9
     "@types/gulp-babel": ^6.1.30
@@ -2728,9 +2727,9 @@ __metadata:
     jsdom-global: ^3.0.2
     merge-stream: ^2.0.0
     mocha: ^8.4.0
-    react: ^17.0.0-0
-    react-dom: ^17.0.0-0
-    react-is: ">= 16.8.0"
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-is: ^18.2.0
     resize-observer-polyfill: ^1.5.1
     sass: ^1.33.0
     sass-loader: ^13.1.0
@@ -2750,14 +2749,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range"
   dependencies:
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-datepicker": ^6.0.4
     "@elvia/elvis-toolbox": ^5.5.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2765,14 +2764,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker-range@portal:../components/components/elvis-datepicker-range::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-datepicker": ^6.0.4
     "@elvia/elvis-toolbox": ^5.5.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2781,15 +2780,15 @@ __metadata:
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.2
     "@elvia/elvis-toolbox": ^5.5.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2798,15 +2797,15 @@ __metadata:
   resolution: "@elvia/elvis-datepicker@portal:../components/components/elvis-datepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.2
     "@elvia/elvis-toolbox": ^5.5.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2815,13 +2814,13 @@ __metadata:
   resolution: "@elvia/elvis-divider@workspace:packages/components/components/elvis-divider"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2830,16 +2829,16 @@ __metadata:
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.2
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.4
     "@elvia/elvis-toolbox": ^5.8.0
     "@elvia/elvis-tooltip": ^1.1.2
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2848,16 +2847,16 @@ __metadata:
   resolution: "@elvia/elvis-dropdown@portal:../components/components/elvis-dropdown::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.2
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.4
     "@elvia/elvis-toolbox": ^5.8.0
     "@elvia/elvis-tooltip": ^1.1.2
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2866,15 +2865,15 @@ __metadata:
   resolution: "@elvia/elvis-header@workspace:packages/components/components/elvis-header"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.2
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2883,15 +2882,15 @@ __metadata:
   resolution: "@elvia/elvis-header@portal:../components/components/elvis-header::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.2
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2900,11 +2899,11 @@ __metadata:
   resolution: "@elvia/elvis-icon@workspace:packages/components/components/elvis-icon"
   dependencies:
     "@elvia/elvis-assets-icons": ^2.6.0
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2913,11 +2912,11 @@ __metadata:
   resolution: "@elvia/elvis-icon@portal:../components/components/elvis-icon::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-assets-icons": ^2.6.0
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2926,15 +2925,15 @@ __metadata:
   resolution: "@elvia/elvis-modal@workspace:packages/components/components/elvis-modal"
   dependencies:
     "@elvia/elvis-colors": ^1.4.1
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.0
     "@elvia/elvis-toolbox": ^5.7.1
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2943,15 +2942,15 @@ __metadata:
   resolution: "@elvia/elvis-modal@portal:../components/components/elvis-modal::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.1
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.0
     "@elvia/elvis-toolbox": ^5.7.1
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2960,16 +2959,16 @@ __metadata:
   resolution: "@elvia/elvis-pagination@workspace:packages/components/components/elvis-pagination"
   dependencies:
     "@elvia/elvis-colors": ^1.2.1
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-dropdown": ^5.0.1
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -2978,16 +2977,16 @@ __metadata:
   resolution: "@elvia/elvis-pagination@portal:../components/components/elvis-pagination::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.2.1
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-dropdown": ^5.0.1
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@elvia/elvis-typography": ^2.1.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -2996,15 +2995,15 @@ __metadata:
   resolution: "@elvia/elvis-popover@workspace:packages/components/components/elvis-popover"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.8.0
     classnames: ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -3013,15 +3012,15 @@ __metadata:
   resolution: "@elvia/elvis-popover@portal:../components/components/elvis-popover::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.8.0
     classnames: ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -3030,12 +3029,12 @@ __metadata:
   resolution: "@elvia/elvis-progress-linear@workspace:packages/components/components/elvis-progress-linear"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -3044,12 +3043,12 @@ __metadata:
   resolution: "@elvia/elvis-progress-linear@portal:../components/components/elvis-progress-linear::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -3058,13 +3057,13 @@ __metadata:
   resolution: "@elvia/elvis-radio-filter@workspace:packages/components/components/elvis-radio-filter"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-toolbox": ^5.8.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -3073,7 +3072,7 @@ __metadata:
   resolution: "@elvia/elvis-segmented-control@workspace:packages/components/components/elvis-segmented-control"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.5.0
     "@elvia/elvis-typography": ^2.3.1
@@ -3081,9 +3080,9 @@ __metadata:
     lodash.uniqueid: ^4.0.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -3092,16 +3091,16 @@ __metadata:
   resolution: "@elvia/elvis-segmented-control@portal:../components/components/elvis-segmented-control::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.5.0
     "@elvia/elvis-typography": ^2.3.1
     lodash.uniqueid: ^4.0.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -3110,14 +3109,14 @@ __metadata:
   resolution: "@elvia/elvis-slider@workspace:packages/components/components/elvis-slider"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.4.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -3126,14 +3125,14 @@ __metadata:
   resolution: "@elvia/elvis-slider@portal:../components/components/elvis-slider::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.4.0
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -3141,12 +3140,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-spotlight@workspace:packages/components/components/elvis-spotlight"
   dependencies:
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -3154,12 +3153,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-spotlight@portal:../components/components/elvis-spotlight::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-component-wrapper": ^3.0.0
+    "@elvia/elvis-component-wrapper": ^3.0.3
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -3168,7 +3167,7 @@ __metadata:
   resolution: "@elvia/elvis-tabs@workspace:packages/components/components/elvis-tabs"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     "@types/lodash.throttle": ^4.1.7
@@ -3176,9 +3175,9 @@ __metadata:
     lodash.throttle: ^4.1.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -3187,16 +3186,16 @@ __metadata:
   resolution: "@elvia/elvis-tabs@portal:../components/components/elvis-tabs::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.1
     "@elvia/elvis-toolbox": ^5.0.0
     classnames: ^2.3.1
     lodash.throttle: ^4.1.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -3205,15 +3204,15 @@ __metadata:
   resolution: "@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.2
     "@elvia/elvis-toolbox": ^5.5.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -3222,15 +3221,15 @@ __metadata:
   resolution: "@elvia/elvis-timepicker@portal:../components/components/elvis-timepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.2
     "@elvia/elvis-toolbox": ^5.5.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -3244,9 +3243,9 @@ __metadata:
     styled-components: ^5.3.6
     tslib: ^2.4.0
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -3260,9 +3259,9 @@ __metadata:
     styled-components: ^5.3.6
     tslib: ^2.4.0
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -3271,15 +3270,15 @@ __metadata:
   resolution: "@elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.4
     "@elvia/elvis-toolbox": ^5.8.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -3288,15 +3287,15 @@ __metadata:
   resolution: "@elvia/elvis-tooltip@portal:../components/components/elvis-tooltip::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.1
+    "@elvia/elvis-component-wrapper": ^3.0.3
     "@elvia/elvis-icon": ^1.3.4
     "@elvia/elvis-toolbox": ^5.8.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    react-is: ">=16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
   linkType: soft
 
@@ -4585,7 +4584,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:8.19.0, @testing-library/dom@npm:>=7.21.4, @testing-library/dom@npm:^8.0.0":
+"@testing-library/dom@npm:8.19.0, @testing-library/dom@npm:>=7.21.4, @testing-library/dom@npm:^8.5.0":
   version: 8.19.0
   resolution: "@testing-library/dom@npm:8.19.0"
   dependencies:
@@ -4618,52 +4617,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react-hooks@npm:8.0.1":
-  version: 8.0.1
-  resolution: "@testing-library/react-hooks@npm:8.0.1"
+"@testing-library/react@npm:13.4.0":
+  version: 13.4.0
+  resolution: "@testing-library/react@npm:13.4.0"
   dependencies:
     "@babel/runtime": ^7.12.5
-    react-error-boundary: ^3.1.0
+    "@testing-library/dom": ^8.5.0
+    "@types/react-dom": ^18.0.0
   peerDependencies:
-    "@types/react": ^16.9.0 || ^17.0.0
-    react: ^16.9.0 || ^17.0.0
-    react-dom: ^16.9.0 || ^17.0.0
-    react-test-renderer: ^16.9.0 || ^17.0.0
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-    react-dom:
-      optional: true
-    react-test-renderer:
-      optional: true
-  checksum: 7fe44352e920deb5cb1876f80d64e48615232072c9d5382f1e0284b3aab46bb1c659a040b774c45cdf084a5257b8fe463f7e08695ad8480d8a15635d4d3d1f6d
-  languageName: node
-  linkType: hard
-
-"@testing-library/react@npm:12.1.2":
-  version: 12.1.2
-  resolution: "@testing-library/react@npm:12.1.2"
-  dependencies:
-    "@babel/runtime": ^7.12.5
-    "@testing-library/dom": ^8.0.0
-  peerDependencies:
-    react: "*"
-    react-dom: "*"
-  checksum: 70b0f7f27c83fe1a33e7df01b1e64850fbab4050c403848d611d852cadaa25ccde58518773002ae569a1350b2282c2ccbcbe5eb6af8b29ab377ab2a8ab573b3b
-  languageName: node
-  linkType: hard
-
-"@testing-library/react@npm:12.1.5":
-  version: 12.1.5
-  resolution: "@testing-library/react@npm:12.1.5"
-  dependencies:
-    "@babel/runtime": ^7.12.5
-    "@testing-library/dom": ^8.0.0
-    "@types/react-dom": <18.0.0
-  peerDependencies:
-    react: <18.0.0
-    react-dom: <18.0.0
-  checksum: 4abd0490405e709a7df584a0db604e508a4612398bb1326e8fa32dd9393b15badc826dcf6d2f7525437886d507871f719f127b9860ed69ddd204d1fa834f576a
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  checksum: 51ec548c1fdb1271089a5c63e0908f0166f2c7fcd9cacd3108ebbe0ce64cb4351812d885892020dc37608418cfb15698514856502b3cab0e5cc58d6cc1bd4a3e
   languageName: node
   linkType: hard
 
@@ -5294,23 +5258,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:<18.0.0, @types/react-dom@npm:^17.0.13":
-  version: 17.0.18
-  resolution: "@types/react-dom@npm:17.0.18"
+"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.0.9":
+  version: 18.0.9
+  resolution: "@types/react-dom@npm:18.0.9"
   dependencies:
-    "@types/react": ^17
-  checksum: b74525b1a13a0e27fe20859ff7a7e8f7e4581fb9d45ed1b6447ad1534d86f813818353c39d0df2e28f9d2b9be2e3af1908c244b2214a979393d19f217665e614
+    "@types/react": "*"
+  checksum: e744e3feba25fc43733289d4df4d9c0e59fcca7f34e8c89d75f81a339accb2bd70236d69382d47d2c0ad06a1529b2e56aa6171fe175854d60e07156ddceedfcb
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.39":
-  version: 17.0.39
-  resolution: "@types/react@npm:17.0.39"
+"@types/react@npm:*, @types/react@npm:^18.0.25":
+  version: 18.0.25
+  resolution: "@types/react@npm:18.0.25"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: bf04d3c2894559012710d595553e12b422d3b91cd8f4f7e122d8cb044ba9c2ba17f6e8a4e09581359cc5509ddc59cd8c8fabd6774f3505a40a45393f074d6e6e
+  checksum: 231d658c45abdef044a716b4502774f1585d8336d73b2f5bd68f181acbfc874b7a457686ecd29b415b43ed0922c309bab7e2cf96832d188a3f4f1b02f2af760a
   languageName: node
   linkType: hard
 
@@ -12869,9 +12833,9 @@ __metadata:
     object-path: ">=0.11.5"
     prettier: ^2.0.5
     prismjs: ^1.24.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    react-is: ^17.0.2
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-is: ^18.2.0
     rxjs: ^6.5.5
     sass: ^1.56.0
     stylelint: ^10.0.1 || ^11.0.0 || ^12.0.0 || ^13.0.0
@@ -24634,27 +24598,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^16.8.0 || ^17.0.0, react-dom@npm:^17.0.0, react-dom@npm:^17.0.0-0, react-dom@npm:^17.0.2":
-  version: 17.0.2
-  resolution: "react-dom@npm:17.0.2"
+"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react-dom@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "react-dom@npm:18.2.0"
   dependencies:
     loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-    scheduler: ^0.20.2
+    scheduler: ^0.23.0
   peerDependencies:
-    react: 17.0.2
-  checksum: 1c1eaa3bca7c7228d24b70932e3d7c99e70d1d04e13bb0843bbf321582bc25d7961d6b8a6978a58a598af2af496d1cedcfb1bf65f6b0960a0a8161cb8dab743c
-  languageName: node
-  linkType: hard
-
-"react-error-boundary@npm:^3.1.0":
-  version: 3.1.4
-  resolution: "react-error-boundary@npm:3.1.4"
-  dependencies:
-    "@babel/runtime": ^7.12.5
-  peerDependencies:
-    react: ">=16.13.1"
-  checksum: f36270a5d775a25c8920f854c0d91649ceea417b15b5bc51e270a959b0476647bb79abb4da3be7dd9a4597b029214e8fe43ea914a7f16fa7543c91f784977f1b
+    react: ^18.2.0
+  checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
   languageName: node
   linkType: hard
 
@@ -24665,13 +24617,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:>= 16.8.0, react-is@npm:^18.0.0":
-  version: 18.2.0
-  resolution: "react-is@npm:18.2.0"
-  checksum: e72d0ba81b5922759e4aff17e0252bd29988f9642ed817f56b25a3e217e13eea8a7f2322af99a06edb779da12d5d636e9fda473d620df9a3da0df2a74141d53e
-  languageName: node
-  linkType: hard
-
 "react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -24679,7 +24624,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^17.0.1, react-is@npm:^17.0.2":
+"react-is@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react-is@npm:^18.0.0, react-is@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "react-is@npm:18.2.0"
+  checksum: e72d0ba81b5922759e4aff17e0252bd29988f9642ed817f56b25a3e217e13eea8a7f2322af99a06edb779da12d5d636e9fda473d620df9a3da0df2a74141d53e
+  languageName: node
+  linkType: hard
+
+"react-is@npm:^17.0.1":
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 9d6d111d8990dc98bc5402c1266a808b0459b5d54830bbea24c12d908b536df7883f268a7868cfaedde3dd9d4e0d574db456f84d2e6df9c4526f99bb4b5344d8
@@ -24793,17 +24745,19 @@ __metadata:
     "@elvia/elvis-typography": "*"
     "@testing-library/dom": ">=7.21.4"
     "@testing-library/jest-dom": ^5.15.1
-    "@testing-library/react": 12.1.2
+    "@testing-library/react": 13.4.0
     "@testing-library/user-event": ^12.1.10
+    "@types/react": ^18.0.25
+    "@types/react-dom": ^18.0.9
     "@vue/cli-service": ^5.0.1
     eslint: ^7.1.0
     eslint-plugin-react: ^7.27.0
     express: ^4.17.1
     ignore-styles: ^5.0.1
-    react: ^17.0.2
+    react: ^18.2.0
     react-app-polyfill: ^2.0.0
-    react-dom: ^17.0.2
-    react-is: ^17.0.2
+    react-dom: ^18.2.0
+    react-is: ^18.2.0
     react-scripts: 5.0.1
     web-vitals: ^1.0.1
     webpack: ^4.0.0 || ^5.0.0
@@ -24811,13 +24765,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"react@npm:^16.8.0 || ^17.0.0, react@npm:^17.0.0, react@npm:^17.0.0-0, react@npm:^17.0.2":
-  version: 17.0.2
-  resolution: "react@npm:17.0.2"
+"react@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "react@npm:18.2.0"
   dependencies:
     loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-  checksum: b254cc17ce3011788330f7bbf383ab653c6848902d7936a87b09d835d091e3f295f7e9dd1597c6daac5dc80f90e778c8230218ba8ad599f74adcc11e33b9d61b
+  checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
   languageName: node
   linkType: hard
 
@@ -25696,9 +25649,9 @@ __metadata:
     lint-staged: ^10.2.7
     nx: 15.0.4
     prettier: ^2.0.5
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-    react-is: ">= 16.8.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
     rxjs: ^6.5.3
     safe-json-stringify: ^1.2.0
     typescript: ~4.7.2
@@ -25939,13 +25892,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:^0.20.2":
-  version: 0.20.2
-  resolution: "scheduler@npm:0.20.2"
+"scheduler@npm:^0.23.0":
+  version: 0.23.0
+  resolution: "scheduler@npm:0.23.0"
   dependencies:
     loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-  checksum: c4b35cf967c8f0d3e65753252d0f260271f81a81e427241295c5a7b783abf4ea9e905f22f815ab66676f5313be0a25f47be582254db8f9241b259213e999b8fc
+  checksum: d79192eeaa12abef860c195ea45d37cbf2bbf5f66e3c4dcd16f54a7da53b17788a70d109ee3d3dde1a0fd50e6a8fc171f4300356c5aee4fc0171de526bf35f8a
   languageName: node
   linkType: hard
 
@@ -29449,9 +29401,9 @@ __metadata:
     css-loader: ^4.3.0
     eslint: ^6.7.2
     eslint-plugin-vue: ^7.0.0
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    react-is: ^17.0.2
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-is: ^18.2.0
     sass: ~1.32.6
     sass-loader: ^13.1.0
     typescript: ~4.8.2
