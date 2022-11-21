@@ -6,31 +6,32 @@ const getSize = (size: Size) => {
   switch (size) {
     case 'sm': {
       return css`
-        min-width: 32px;
-        min-height: 32px;
+        width: 32px;
+        height: 32px;
       `;
     }
     case 'md': {
       return css`
-        min-width: 40px;
-        min-height: 40px;
+        width: 40px;
+        height: 40px;
       `;
     }
     default: {
       return css`
-        min-width: 48px;
-        min-height: 48px;
+        width: 48px;
+        height: 48px;
       `;
     }
   }
 };
 
 export const IconButton = styled.button.attrs(() => ({ type: 'button' }))<Partial<ButtonProps>>`
+  flex: none;
   display: grid;
   place-items: center;
-  ${(props) => getSize(props.size ?? 'md')};
+  ${({ size }) => getSize(size ?? 'md')};
   border: 1px solid transparent;
-  background-color: ${(props) => (props.isActive ? getColor('elvia-charge') : 'transparent')};
+  background-color: ${({ isActive }) => (isActive ? getColor('elvia-charge') : 'transparent')};
   border-radius: 99px;
   padding: 0;
   margin: 0;
