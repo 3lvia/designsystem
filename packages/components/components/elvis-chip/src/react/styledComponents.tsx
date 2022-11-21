@@ -60,7 +60,7 @@ const decideChipBorder = (
 type ChipComponentProps = {
   chipType: ChipType;
   color: ColorType;
-  disabled: boolean;
+  isDisabled: boolean;
   isHovering: boolean;
   isLoading: boolean;
   isSelected: boolean;
@@ -73,10 +73,11 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   align-items: center;
   background: none;
   box-sizing: border-box;
-  border: ${(props) => decideChipBorder(props.isLoading, props.isSelected, props.disabled, props.chipType)};
-  background-color: ${(props) =>
-    setBackgroundColor(props.color, props.isLoading, props.isSelected, props.chipType)};
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  border: ${({ isLoading, isSelected, isDisabled, chipType }) =>
+    decideChipBorder(isLoading, isSelected, isDisabled, chipType)};
+  background-color: ${({ color, isLoading, isSelected, chipType }) =>
+    setBackgroundColor(color, isLoading, isSelected, chipType)};
+  cursor: ${({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer')};
   font-size: 14px;
   line-height: 16px;
   padding: 7px 15px;
@@ -84,11 +85,11 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   transition: background-color 150ms ease-in;
 
   position: relative;
-  ${(props) =>
-    props.isHovering &&
-    !props.isLoading &&
-    !props.disabled &&
-    `background-color: ${setBackgroundColorHover(props.color, props.isSelected, props.chipType)}`}
+  ${({ isHovering, isLoading, isDisabled, color, isSelected, chipType }) =>
+    isHovering &&
+    !isLoading &&
+    !isDisabled &&
+    `background-color: ${setBackgroundColorHover(color, isSelected, chipType)}`}
 `;
 
 const loadingDotsAnimation = keyframes`
@@ -115,7 +116,7 @@ export const ChipLoading = styled.div<ChipLoadingProps>`
   > span {
     width: 10px;
     height: 10px;
-    background-color: ${(props) => colors[props.color]};
+    background-color: ${({ color }) => colors[color]};
     border-radius: 100%;
     display: inline-block;
     animation: ${loadingDotsAnimation} 1s infinite ease-in-out both;
@@ -143,9 +144,9 @@ export const ChipDot = styled.span<ChipDotProps>`
   width: 10px;
   border-radius: 50%;
   transition: background-color 150ms ease-in;
-  background-color: ${(props) => (props.showDot ? colors[props.color] : colors.gray05)};
-  opacity: ${(props) => (props.isDisabled ? 0.3 : 1)};
-  visibility: ${(props) => (props.isHidden ? 'hidden' : 'visible')};
+  background-color: ${({ showDot, color }) => (showDot ? colors[color] : colors.gray05)};
+  opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
+  visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
 `;
 
 interface ChipTitleProps {
@@ -159,8 +160,8 @@ export const ChipTitle = styled.div<ChipTitleProps>`
   text-transform: 'unset';
   letter-spacing: 'unset';
   font-style: unset;
-  opacity: ${(props) => (props.isDisabled ? 0.3 : 1)};
+  opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
   transition: opacity 150ms ease-in;
   color: ${colors.elviaBlack};
-  visibility: ${(props) => (props.isHidden ? 'hidden' : 'visible')};
+  visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
 `;

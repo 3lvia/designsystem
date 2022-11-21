@@ -59,7 +59,7 @@ export const Chip: FC<ChipProps> = function ({
       aria-label={ariaLabel}
       color={color}
       onClick={() => (type === 'removable' ? handleOnDelete(value) : setIsSelectedState(!isSelectedState))}
-      disabled={isDisabled}
+      isDisabled={isDisabled}
       chipType={type}
       isSelected={isSelectedState}
       isHovering={isHovered}
