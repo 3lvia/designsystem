@@ -1,29 +1,41 @@
-import { useIsOverflowing } from '@elvia/elvis-toolbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
-import React from 'react';
+import React, { useMemo, useRef } from 'react';
 import { DropdownItem } from '../elviaDropdown.types';
 import { DropdownItemValue, TooltipContainer, TooltipTextContainer } from './dropdownItemStyles';
 
 interface Props {
   item: DropdownItem;
   focusedValue?: DropdownItem;
+  isRootOverlay?: boolean;
 }
 
-export const ItemValue: React.FC<Props> = ({ item, focusedValue }) => {
-  const { isOverflowing, ref: containerRef } = useIsOverflowing<HTMLDivElement>();
+export const ItemValue: React.FC<Props> = ({ item, focusedValue, isRootOverlay }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isOverflowing = useMemo(() => {
+    const { current } = containerRef;
+    if (current) {
+      return current.scrollWidth > current.offsetWidth;
+    }
+    return false;
+  }, [item.label, containerRef?.current]);
 
   return (
-    <TooltipContainer noRightContent={!item.status && !item.children}>
-      <Tooltip
-        trigger={
-          <TooltipTextContainer ref={containerRef}>
-            <DropdownItemValue>{item.label}</DropdownItemValue>
-          </TooltipTextContainer>
-        }
-        content={item.label}
-        isDisabled={!isOverflowing.horizontal || focusedValue?.value !== item.value}
-        display="inline"
-      />
+    <TooltipContainer noRightContent={!item.status && !item.children} isRootOverlay={isRootOverlay}>
+      {isOverflowing && focusedValue?.value === item.value ? (
+        <Tooltip
+          trigger={
+            <TooltipTextContainer ref={containerRef}>
+              <DropdownItemValue>{item.label}</DropdownItemValue>
+            </TooltipTextContainer>
+          }
+          content={item.label}
+          display="inline"
+        />
+      ) : (
+        <TooltipTextContainer ref={containerRef}>
+          <DropdownItemValue>{item.label}</DropdownItemValue>
+        </TooltipTextContainer>
+      )}
     </TooltipContainer>
   );
 };

@@ -4,38 +4,32 @@ import { FormFieldContainer, FormFieldInputContainer } from '@elvia/elvis-toolbo
 export const DropdownContainer = styled(FormFieldContainer)`
   width: 100%;
 
-  ${(props) =>
-    !props.fullWidth &&
+  ${({ isFullWidth }) =>
+    !isFullWidth &&
     css`
       max-width: 448px;
     `}
 
-  ${(props) =>
-    props.isCompact &&
+  ${({ isDisabled }) =>
+    !isDisabled &&
     css`
       ${DropdownInputContainer} {
-        padding-right: 8px;
-
-        &:focus-within {
-          padding-right: 7px;
-        }
+        cursor: pointer;
       }
-    `}
+    `};
+
+  ${({ isCompact }) =>
+    isCompact &&
+    css`
+      ${IconRotator} {
+        width: 32px;
+        height: 32px;
+      }
+    `};
 `;
 
 export const DropdownInputContainer = styled(FormFieldInputContainer)`
   width: 100%;
-  padding-right: 16px;
-
-  &:focus-within {
-    padding-right: 15px;
-  }
-
-  ${(props) =>
-    !props.isDisabled &&
-    css`
-      cursor: pointer;
-    `};
 `;
 
 export const OverlayPositioner = styled.div`
@@ -44,6 +38,12 @@ export const OverlayPositioner = styled.div`
 `;
 
 export const IconRotator = styled.div<{ isRotated: boolean }>`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
   transform: rotate(0deg);
   transition: transform 150ms ease;
 

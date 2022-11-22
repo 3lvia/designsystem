@@ -112,31 +112,41 @@ export const useConnectedOverlay = (
       return overlayTop;
     };
 
+    const setTop = (value: number): void => {
+      overlay.top = `${value}px`;
+      overlay.bottom = 'unset';
+    };
+
+    const setBottom = (value: number): void => {
+      overlay.top = 'unset';
+      overlay.bottom = `${value}px`;
+    };
+
     const alignTop = () => {
-      overlay.top = `${hostRect.top - opts.offset - overlayRect.height + windowRect.scrollY}px`;
+      setBottom(windowRect.height - hostRect.top + opts.offset - windowRect.scrollY);
       setVerticalPosition('top');
     };
 
     const alignTopInside = () => {
       const overlayTop = hostRect.top + windowRect.scrollY;
-      overlay.top = `${clampVertically(overlayTop)}px`;
+      setTop(clampVertically(overlayTop));
       setVerticalPosition('top-inside');
     };
 
     const alignCenter = () => {
       const overlayTop = hostRect.top + (hostRect.height - overlayRect.height) / 2 + windowRect.scrollY;
-      overlay.top = `${clampVertically(overlayTop)}px`;
+      setTop(clampVertically(overlayTop));
       setVerticalPosition('center');
     };
 
     const alignBottomInside = () => {
       const overlayTop = hostRect.bottom - overlayRect.height + windowRect.scrollY;
-      overlay.top = `${clampVertically(overlayTop)}px`;
+      setTop(clampVertically(overlayTop));
       setVerticalPosition('bottom');
     };
 
     const alignBottom = () => {
-      overlay.top = `${hostRect.bottom + opts.offset + windowRect.scrollY}px`;
+      setTop(hostRect.bottom + opts.offset + windowRect.scrollY);
       setVerticalPosition('bottom');
     };
 
@@ -181,31 +191,41 @@ export const useConnectedOverlay = (
       return overlayLeft;
     };
 
+    const setLeft = (value: number): void => {
+      overlay.left = `${value}px`;
+      overlay.right = 'unset';
+    };
+
+    const setRight = (value: number): void => {
+      overlay.left = 'unset';
+      overlay.right = `${value}px`;
+    };
+
     const alignLeft = () => {
-      overlay.left = `${hostRect.left - opts.offset - overlayWidth + windowRect.scrollX}px`;
+      setRight(windowRect.innerWidth - hostRect.left + opts.offset - windowRect.scrollX);
       setHorizontalPosition('left');
     };
 
     const alignLeftInside = () => {
       const overlayLeft = hostRect.left + windowRect.scrollX;
-      overlay.left = `${clampHorizontally(overlayLeft)}px`;
+      setLeft(clampHorizontally(overlayLeft));
       setHorizontalPosition('left-inside');
     };
 
     const alignCenter = () => {
       const overlayLeft = hostRect.left + (hostRect.width - overlayWidth) / 2 + windowRect.scrollX;
-      overlay.left = `${clampHorizontally(overlayLeft)}px`;
+      setLeft(clampHorizontally(overlayLeft));
       setHorizontalPosition('center');
     };
 
     const alignRightInside = () => {
       const overlayLeft = hostRect.right - overlayWidth + windowRect.scrollX;
-      overlay.left = `${clampHorizontally(overlayLeft)}px`;
+      setLeft(clampHorizontally(overlayLeft));
       setHorizontalPosition('right-inside');
     };
 
     const alignRight = () => {
-      overlay.left = `${hostRect.right + opts.offset + windowRect.scrollX}px`;
+      setLeft(hostRect.right + opts.offset + windowRect.scrollX);
       setHorizontalPosition('right');
     };
 

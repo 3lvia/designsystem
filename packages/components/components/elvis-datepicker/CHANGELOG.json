@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "22.11.22",
+      "version": "6.0.7",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Use <span class=\"code-text\">@elvia/toolbox@^6.0.0</span>. This fixes an issue where the input jumps while compact."
+          ]
+        }
+      ]
+    },
+    {
       "date": "21.11.22",
       "version": "6.0.6",
       "changelog": [
