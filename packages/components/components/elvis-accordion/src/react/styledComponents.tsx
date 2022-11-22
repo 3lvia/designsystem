@@ -223,7 +223,7 @@ export const AccordionContent = styled.div<AccordionContentProps>`
   margin-top: ${(props) => decideContentMarginTop(props.type, props.hasContent, props.spacingAboveContent)};
   margin-bottom: ${(props) => (props.type === 'overflow' ? props.spacingBelowContent : 0)};
   pointer-events: ${(props) => (props.isOpenState ? 'auto' : 'none')};
-  height: ${(props) =>
+  max-height: ${(props) =>
     decideContentMaxHeight(props.isOpenState, props.type, props.contentHeight, props.overflowHeight)};
   width: 100%;
   opacity: ${(props) => decideContentOpacity(props.isOpenState, props.type)};

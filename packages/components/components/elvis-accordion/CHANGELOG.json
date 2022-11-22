@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "22.11.22",
+      "version": "2.8.9",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue with calculating the height of the content when there is margin on the content."
+          ]
+        }
+      ]
+    },
+    {
       "date": "21.11.22",
       "version": "2.8.8",
       "changelog": [
