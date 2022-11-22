@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ElviaDropdownItem } from '@elvia/elvis-dropdown';
+import { dropdownData } from './dropdown-data';
 
 @Component({
   selector: 'app-v2-playground',
@@ -55,6 +56,7 @@ export class v2PlaygroundComponent {
 
   // Dropdown
   selectedDropdownItem = 'sverige';
+  longDropdownList = dropdownData;
   dropdownItems: ElviaDropdownItem[] = [
     {
       value: 'norge',

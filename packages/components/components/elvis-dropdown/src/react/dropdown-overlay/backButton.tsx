@@ -1,6 +1,6 @@
 import { Icon } from '@elvia/elvis-icon/react';
 import { IconButton } from '@elvia/elvis-toolbox';
-import React, { MouseEvent, useState } from 'react';
+import React, { MouseEvent } from 'react';
 import { DropdownItem } from '../elviaDropdown.types';
 import { BackButtonStyles } from './dropdownOverlayStyles';
 
@@ -21,7 +21,6 @@ export const BackButton: React.FC<SelectAllOptionProps> = ({
   onClick,
   onHover,
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
   const preventInputElementBlur = (ev: MouseEvent<HTMLDivElement>): void => {
     ev.preventDefault();
   };
@@ -29,16 +28,12 @@ export const BackButton: React.FC<SelectAllOptionProps> = ({
   return (
     <BackButtonStyles
       onClick={() => onClick()}
-      onMouseEnter={() => {
-        onHover(item);
-        setIsHovered(true);
-      }}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => onHover(item)}
       onMouseDown={preventInputElementBlur}
-      isFocused={(inputIsKeyboard && focusedValue === item.value) || isHovered}
+      isFocused={inputIsKeyboard && focusedValue === item.value}
       isCompact={isCompact}
     >
-      <IconButton size={isCompact ? 'sm' : 'md'} disabled isActive={isHovered}>
+      <IconButton size={isCompact ? 'sm' : 'md'} disabled>
         <Icon size={isCompact ? 'xs' : 'sm'} name="arrowLeft" />
       </IconButton>
       {item.label}

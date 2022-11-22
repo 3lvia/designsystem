@@ -1,4 +1,4 @@
-import React, { useEffect, useState, KeyboardEvent } from 'react';
+import React, { useEffect, useState, KeyboardEvent, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { DropdownItem } from '../dropdown-item/dropdownItem';
 import { flattenTree } from '../dropdownListUtils';
@@ -16,7 +16,6 @@ import { LoadMoreButton } from './loadMoreButton';
 import { SelectAllOption } from './selectAllOption';
 import { ItemValue } from '../dropdown-item/itemValue';
 import { Icon } from '@elvia/elvis-icon/react';
-import { useIsOverflowing } from '@elvia/elvis-toolbox';
 
 interface DropdownOverlayProps {
   isRootOverlay?: boolean;
@@ -30,7 +29,6 @@ interface DropdownOverlayProps {
   noItemsText?: string;
   currentVal?: DropdownValue;
   onItemSelect: (value: string[]) => void;
-  onBackdropClick?: () => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   selectAllOption?: string;
   hasLoadMoreItemsButton?: boolean;
@@ -60,7 +58,6 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       currentVal,
       onItemSelect,
       pressedKey,
-      onBackdropClick,
       selectAllOption,
       hasLoadMoreItemsButton,
       onLoadMoreItems,
@@ -73,10 +70,9 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     },
     ref,
   ) => {
-    const { isOverflowing, ref: listRef } = useIsOverflowing<HTMLDivElement>();
-    const [prevIsGtMobile, setPrevIsGtMobile] = useState(isGtMobile);
+    const [initialScreenSize] = useState(isGtMobile);
+    const listRef = useRef<HTMLDivElement>(null);
     const [fadeOut, setFadeOut] = useState(false);
-    const [scrollOverflow, setScrollOverflow] = useState<'top' | 'bottom' | 'both'>();
     const [selectAllItem] = useState<DropdownItemOption>({
       label: selectAllOption ?? '',
       value: `selectAll-${uniqueId++}`,
@@ -90,23 +86,41 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       value: `loadMore-${uniqueId++}`,
     });
 
-    const onAnimationEnd = () => {
-      if (fadeOut) {
-        onClose();
+    const fullTabList = useMemo<DropdownItemOption[]>(() => {
+      const itemList = filteredItems.slice();
+      if (!isGtMobile && !isRootOverlay) {
+        itemList.unshift(backItem);
       }
-    };
+      if (selectAllOption) {
+        itemList.unshift(selectAllItem);
+      }
+      if (hasLoadMoreItemsButton) {
+        itemList.push(loadMoreItem);
+      }
+      return itemList;
+    }, [filteredItems, isGtMobile, selectAllOption, hasLoadMoreItemsButton]);
+
+    const allItemsHaveIcons = useMemo(() => {
+      return filteredItems.every((item) => item.icon);
+    }, [filteredItems]);
+
+    const focusIsOnDirectDescendant = useMemo(() => {
+      return fullTabList.some((item) => focusedItem?.value === item.value);
+    }, [fullTabList, focusedItem]);
 
     const currentValIncludesItem = (item: DropdownItemOption): boolean => {
       const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
       return selectedValues.includes(item.value);
     };
 
-    const allItemsHaveIcons = (): boolean => {
-      return filteredItems.every((item) => item.icon);
-    };
-
     const getSelectableChildren = (items: DropdownItemOption[]): DropdownItemOption[] => {
       return flattenTree(items ?? []).filter((child) => !child.isDisabled && !child.children);
+    };
+
+    const onAnimationEnd = () => {
+      if (fadeOut) {
+        onClose();
+      }
     };
 
     const selectItem = (item: DropdownItemOption) => {
@@ -136,24 +150,10 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       }
     };
 
-    const getFullTabList = (): DropdownItemOption[] => {
-      const itemList = filteredItems.slice();
-      if (!isGtMobile && !isRootOverlay) {
-        itemList.unshift(backItem);
-      }
-      if (selectAllOption) {
-        itemList.unshift(selectAllItem);
-      }
-      if (hasLoadMoreItemsButton) {
-        itemList.push(loadMoreItem);
-      }
-      return itemList;
-    };
-
     const handleOverlayKeyboardNavigation = (ev: KeyboardEvent<HTMLInputElement>): void => {
-      const tabList = getFullTabList();
+      const tabList = fullTabList;
       const currentIndex = tabList.findIndex((item) => item.value === focusedItem?.value);
-      if (['Space', 'Enter', 'Tab'].includes(ev.code)) {
+      if (['Enter', 'Tab'].includes(ev.code)) {
         ev.preventDefault();
         if (focusedItem?.value === selectAllItem.value) {
           toggleAllSelection();
@@ -184,54 +184,16 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       }
     };
 
-    const focusIsOnDirectDescendant = (): boolean => {
-      return getFullTabList().some((item) => focusedItem?.value === item.value);
-    };
-
-    const updateScrollOverflow = () => {
-      if (isOverflowing.vertical && listRef.current) {
-        const list = listRef.current;
-        if (list.scrollTop < 10) {
-          setScrollOverflow('bottom');
-        } else if (list.scrollHeight - list.scrollTop - list.clientHeight < 10) {
-          setScrollOverflow('top');
-        } else {
-          setScrollOverflow('both');
-        }
-      } else {
-        setScrollOverflow(undefined);
-      }
-    };
-
     useEffect(() => {
-      if (pressedKey && (focusIsOnDirectDescendant() || (isRootOverlay && isSearchMode))) {
+      if (pressedKey && (focusIsOnDirectDescendant || (isRootOverlay && isSearchMode))) {
         handleOverlayKeyboardNavigation(pressedKey);
       }
     }, [pressedKey]);
 
     useEffect(() => {
-      const focusOnSelectedValue = (): void => {
-        if (focusedItem || !currentVal) {
-          return;
-        }
-
-        if (isMulti) {
-          setFocusedItem(filteredItems[0]);
-        } else if (typeof currentVal === 'string') {
-          const currentValInList = filteredItems.find((item) => item.value === currentVal);
-          if (currentValInList) {
-            setFocusedItem(currentValInList);
-          }
-        }
-      };
-
-      focusOnSelectedValue();
-    }, [currentVal]);
-
-    useEffect(() => {
       const scrollItemListToFocusedItem = (itemToFocus: DropdownItemOption) => {
         const buttonHeight = isCompact ? 40 : 48;
-        const index = getFullTabList().findIndex((item) => item.value === itemToFocus.value);
+        const index = fullTabList.findIndex((item) => item.value === itemToFocus.value);
         if (index !== -1) {
           listRef.current?.scrollTo({
             top: buttonHeight * index - listRef.current?.offsetHeight / 2,
@@ -245,18 +207,13 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     }, [focusedItem]);
 
     useEffect(() => {
-      if (prevIsGtMobile !== isGtMobile) {
-        setPrevIsGtMobile(isGtMobile);
-        onClose();
-      }
+      initialScreenSize !== isGtMobile && onClose();
     }, [isGtMobile]);
-
-    useEffect(() => updateScrollOverflow(), [listRef, listRef?.current]);
 
     useEffect(() => {
       const focusFirstItemOnInit = () => {
-        if (inputIsKeyboard || (isRootOverlay && !focusIsOnDirectDescendant()) || !isGtMobile) {
-          setFocusedItem(getFullTabList()[0]);
+        if (inputIsKeyboard || (isRootOverlay && !focusIsOnDirectDescendant) || !isGtMobile) {
+          setFocusedItem(fullTabList[0]);
         }
       };
       focusFirstItemOnInit();
@@ -264,12 +221,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
 
     return createPortal(
       <>
-        <Backdrop
-          onClick={() => {
-            setFadeOut(true);
-            onBackdropClick && onBackdropClick();
-          }}
-        />
+        {isRootOverlay && <Backdrop onClick={() => setFadeOut(true)} />}
         <DropdownPopupContainer
           ref={ref}
           data-testid="popover"
@@ -280,11 +232,10 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
             fadeOut={fadeOut}
             onAnimationEnd={onAnimationEnd}
             isCompact={isCompact}
-            isInvisible={!isGtMobile && !focusIsOnDirectDescendant()}
-            overflows={scrollOverflow}
+            isInvisible={!isGtMobile && !focusIsOnDirectDescendant}
             animate={!!isRootOverlay || isGtMobile}
           >
-            <ItemList ref={listRef} onScroll={updateScrollOverflow}>
+            <ItemList ref={listRef}>
               {!filteredItems?.length && <NoItemsMessage>{noItemsText}</NoItemsMessage>}
               {!isGtMobile && !isRootOverlay && (
                 <BackButton
@@ -337,22 +288,18 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   }}
                   onClick={(item) => selectItem(item)}
                   pressedKey={pressedKey}
-                  onBackdropClick={() => {
-                    setFadeOut(true);
-                    onBackdropClick && onBackdropClick();
-                  }}
                   listRef={listRef}
                   parentItem={parentItem}
                   isGtMobile={isGtMobile}
                 >
-                  {item.icon && !isMulti && allItemsHaveIcons() && (
+                  {item.icon && !isMulti && allItemsHaveIcons && (
                     <Icon
                       name={item.icon}
                       color={item.isDisabled ? 'disabled' : 'elvia-off'}
                       size={isCompact ? 'xs' : 'sm'}
                     />
                   )}
-                  <ItemValue item={item} focusedValue={focusedItem} />
+                  <ItemValue item={item} focusedValue={focusedItem} isRootOverlay={isRootOverlay} />
                 </DropdownItem>
               ))}
               {hasLoadMoreItemsButton && isRootOverlay && (

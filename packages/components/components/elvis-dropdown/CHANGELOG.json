@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "22.11.22",
+      "version": "5.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Improve performance for large lists."]
+        }
+      ]
+    },
+    {
       "date": "21.11.22",
       "version": "5.0.2",
       "changelog": [
