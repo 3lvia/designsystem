@@ -136,7 +136,7 @@ const Popover: FC<PopoverProps> = function ({
   const isStringOnly = (value: any) => typeof value === 'string';
 
   return (
-    <PopoverContainer style={inlineStyle} ref={popoverContainerRef} role="dialog" {...rest}>
+    <PopoverContainer ref={popoverContainerRef} role="dialog" {...rest}>
       <TriggerContainer
         onClick={togglePopover}
         overlayIsOpen={isShowingConnectedOverlayState}

@@ -9,6 +9,43 @@
     <div class="e-bg-grey"></div>
   </div>
 
+  <div class="example-wrapper">
+    <h3>Context menu</h3>
+    <elvia-context-menu
+      [hasDivider]="true"
+      (onOpen)="isContextMenuShowing = true"
+      (onClose)="isContextMenuShowing = false"
+    >
+      <button
+        slot="trigger"
+        class="e-btn e-btn--icon e-mr-8"
+        [ngClass]="{ 'e-btn---selected': isContextMenuShowing }"
+        aria-label="More menu"
+      >
+        <span class="e-btn__icon">
+          <i class="e-icon e-icon--more_menu e-icon--inverted" aria-hidden="true"></i>
+          <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
+        </span>
+      </button>
+
+      <div slot="content" class="ewc-popover__list">
+        <div class="ewc-popover__list-group">
+          <button>
+            <span>Be om tilgang</span>
+          </button>
+          <button>
+            <span>Legg til bruker</span>
+          </button>
+        </div>
+        <div class="ewc-popover__list-group">
+          <a>
+            <span>Endre passord</span>
+          </a>
+        </div>
+      </div>
+    </elvia-context-menu>
+  </div>
+
   <!--Accordion-->
   <div class="example-wrapper">
     <h3>Accordion</h3>
