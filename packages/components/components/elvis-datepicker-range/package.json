@@ -1,9 +1,7 @@
 {
   "name": "@elvia/elvis-datepicker-range",
-  "version": "2.0.5",
-  "description": "",
+  "version": "2.0.6",
   "main": "web_component.js",
-  "author": "",
   "license": "MIT",
   "files": [
     "web_component.js",
@@ -15,8 +13,8 @@
   ],
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^3.0.3",
-    "@elvia/elvis-datepicker": "^6.0.6",
-    "@elvia/elvis-toolbox": "^5.8.2",
+    "@elvia/elvis-datepicker": "^6.0.8",
+    "@elvia/elvis-toolbox": "^6.0.0",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {
