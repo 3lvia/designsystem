@@ -8,7 +8,8 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed an issue with calculating the height of the content when there is margin on the content."
+            "Fixed an issue with calculating the height of the content when there is margin on the content.",
+            "Fixed an issue where content with <span class=\"code-text\">display: absolute</span> sometimes caused the closed accordion to take up too much space."
           ]
         }
       ]
