@@ -125,13 +125,13 @@ export const DatepickerInput: React.FC<Props> = ({
   };
 
   const onBlur = (): void => {
-    const [day, month, year] = inputValue.split('.');
-    const isValid = validateInputValue(+day, +month, +year);
-
-    if (!inputValue.length) {
+    if (!inputValue.length && !required) {
       emitNewValue(null);
       return;
     }
+
+    const [day, month, year] = inputValue.split('.');
+    const isValid = validateInputValue(+day, +month, +year);
 
     if (isValid) {
       const newValue = new Date(date ? date : new Date());

@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.11.22",
+      "version": "6.0.8",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Empty value was marked as invalid in Firefox and Safari, even when not required"]
+        }
+      ]
+    },
+    {
       "date": "22.11.22",
       "version": "6.0.7",
       "changelog": [
