@@ -45,10 +45,10 @@ const decideLabelPosition = (prop: AccordionLabelPosition) => {
   return 'flex-start';
 };
 
-export type AccordionButtonAreaProps = {
+export interface AccordionButtonAreaProps {
   labelPosition: AccordionLabelPosition;
   type: AccordionType;
-};
+}
 
 export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
   display: flex;
@@ -70,7 +70,7 @@ const decideButtonFontSize = (prop: AccordionSize) => {
   return '16px';
 };
 
-type AccordionButtonProps = {
+interface AccordionButtonProps {
   isFullWidth: boolean;
   isOpenState: boolean;
   currType: AccordionType;
@@ -81,7 +81,7 @@ type AccordionButtonProps = {
   closeLabel: string;
   typography?: TypographyName;
   onClick: any;
-};
+}
 
 export const AccordionButton = styled.button<AccordionButtonProps>`
   border: none;
@@ -113,12 +113,12 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   }
 `;
 
-type AccordionLabelProps = {
+interface AccordionLabelProps {
   hasLabel: boolean;
   openLabel: string;
   isStartAligned: boolean | undefined;
   isFullWidth: boolean | undefined;
-};
+}
 
 export const AccordionLabel = styled.div<AccordionLabelProps>`
   display: ${(props) => (props.openLabel && props.hasLabel ? 'flex' : 'none')};
@@ -142,10 +142,10 @@ const decideDetailTextSize = (size: string): string => {
   }
 };
 
-type AccordionDetailTextProps = {
+interface AccordionDetailTextProps {
   size: string;
   openDetailText: string | undefined;
-};
+}
 
 export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
   ${(props) => decideDetailTextSize(props.size)};
@@ -190,12 +190,6 @@ const decideContentOpacity = (contentOpen: boolean, type: AccordionType): string
   }
   return '0';
 };
-const decideContentOverflowY = (contentOpen: boolean, type: AccordionType): string => {
-  if (contentOpen && type === 'overflow') {
-    return 'hidden';
-  }
-  return 'auto';
-};
 
 const decideContentTransitionSpeed = (contentHeight: number): string => {
   const pixelsPerSecond = 1000;
@@ -205,7 +199,7 @@ const decideContentTransitionSpeed = (contentHeight: number): string => {
   return `${Math.max(minSpeed, Math.min(transitionSpeed, maxSpeed))}s`;
 };
 
-type AccordionContentProps = {
+interface AccordionContentProps {
   isOpenState: boolean;
   type: AccordionType;
   spacingAboveContent: AccordionSpacingContent;
@@ -213,7 +207,7 @@ type AccordionContentProps = {
   overflowHeight?: number;
   contentHeight: number;
   hasContent: boolean;
-};
+}
 
 export const AccordionContent = styled.div<AccordionContentProps>`
   display: ${(props) => (props.hasContent ? 'block' : 'none')};
@@ -223,15 +217,16 @@ export const AccordionContent = styled.div<AccordionContentProps>`
   margin-top: ${(props) => decideContentMarginTop(props.type, props.hasContent, props.spacingAboveContent)};
   margin-bottom: ${(props) => (props.type === 'overflow' ? props.spacingBelowContent : 0)};
   pointer-events: ${(props) => (props.isOpenState ? 'auto' : 'none')};
-  height: ${(props) =>
+  max-height: ${(props) =>
     decideContentMaxHeight(props.isOpenState, props.type, props.contentHeight, props.overflowHeight)};
   width: 100%;
   opacity: ${(props) => decideContentOpacity(props.isOpenState, props.type)};
-  overflow-y: ${(props) => decideContentOverflowY(props.isOpenState, props.type)};
+  overflow-y: hidden;
   transition: all ${(props) => decideContentTransitionSpeed(props.contentHeight)} ${bezierCurve};
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
+  position: relative;
 `;
