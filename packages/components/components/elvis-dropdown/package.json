@@ -1,9 +1,7 @@
 {
   "name": "@elvia/elvis-dropdown",
   "version": "5.0.3",
-  "description": "",
   "main": "web_component.js",
-  "author": "",
   "license": "MIT",
   "files": [
     "web_component.js",
