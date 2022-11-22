@@ -64,6 +64,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   padding: 0 0 0 16px;
   align-items: center;
   cursor: pointer;
+  height: var(--item-height);
 
   ${({ isDisabled }) => {
     if (isDisabled) {
@@ -105,7 +106,6 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     if (isCompact) {
       return css`
         ${getTypographyCss('text-sm')};
-        height: 40px;
 
         ${IconContainer} {
           width: 40px;
@@ -115,7 +115,6 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
 
     return css`
       ${getTypographyCss('text-md')};
-      height: 48px;
     `;
   }};
 

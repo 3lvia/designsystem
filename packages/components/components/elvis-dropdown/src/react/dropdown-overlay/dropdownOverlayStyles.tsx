@@ -27,11 +27,11 @@ const fadeOut = keyframes`
 
 export const CursorCurve = styled.div`
   position: absolute;
-  top: 45px;
+  top: calc(var(--item-height) - 1px);
   right: 100%;
   width: 30%;
   height: 20%;
-  min-height: 40px;
+  min-height: var(--item-height);
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 80% 50%, 50% 20%);
 `;
 
@@ -48,6 +48,7 @@ export const DropdownPopup = styled.div.attrs(() => ({
   isInvisible: boolean;
   animate: boolean;
 }>`
+  --item-height: 48px;
   background-color: ${getColor('elvia-on')};
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
   animation: ${fadeIn} 300ms ease;
@@ -59,20 +60,10 @@ export const DropdownPopup = styled.div.attrs(() => ({
   ${({ isCompact }) =>
     isCompact &&
     css`
-      ${ItemList} {
-        max-height: calc(40px * 5 + 40px / 2);
-      }
-
-      ${LoadMoreButtonStyles} {
-        height: 40px;
-      }
+      --item-height: 40px;
 
       ${NoItemsMessage} {
         ${getTypographyCss('text-sm')};
-      }
-
-      ${CursorCurve} {
-        top: 39px;
       }
 
       ${BackButtonStyles} {
@@ -103,7 +94,7 @@ export const DropdownPopup = styled.div.attrs(() => ({
 `;
 
 export const ItemList = styled.div`
-  max-height: calc(48px * 7 + 48px / 2);
+  max-height: calc(var(--item-height) * 7.5);
   overflow-y: auto;
 `;
 
@@ -137,7 +128,7 @@ export const RotateAnimation = keyframes`
 export const SpinContainer = styled.div``;
 
 export const LoadMoreButtonStyles = styled.div<{ isLoading?: boolean }>`
-  height: 48px;
+  height: var(--item-height);
   width: 100%;
   display: flex;
   align-items: center;
