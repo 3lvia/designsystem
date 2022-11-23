@@ -1,8 +1,8 @@
 import React, { useEffect, useState, KeyboardEvent, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { DropdownItem } from '../dropdown-item/dropdownItem';
-import { flattenTree } from '../dropdownListUtils';
-import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropdown.types';
+import { flattenTree, getValueAsList } from '../dropdownListUtils';
+import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
 import { BackButton } from './backButton';
 import {
   Backdrop,
@@ -28,7 +28,7 @@ interface DropdownOverlayProps {
   onClose: () => void;
   noItemsText?: string;
   currentVal?: DropdownValue;
-  onItemSelect: (value: string[]) => void;
+  onItemSelect: (value: DropdownValueType[]) => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   selectAllOption?: string;
   hasLoadMoreItemsButton?: boolean;
@@ -109,7 +109,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     }, [fullTabList, focusedItem]);
 
     const currentValIncludesItem = (item: DropdownItemOption): boolean => {
-      const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
+      const selectedValues = getValueAsList(currentVal);
       return selectedValues.includes(item.value);
     };
 
@@ -175,7 +175,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
 
     const toggleAllSelection = (): void => {
       const allValues = getSelectableChildren(filteredItems);
-      const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
+      const selectedValues = getValueAsList(currentVal);
       if (allValues.length === selectedValues.length) {
         onItemSelect(allValues.map((item) => item.value));
       } else {
