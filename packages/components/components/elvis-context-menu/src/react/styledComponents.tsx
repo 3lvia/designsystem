@@ -2,7 +2,6 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
 
-const popoverBoxShadow = '0px 0px 40px rgba(0, 0, 0, 0.06)';
 const fadeIn = keyframes`
 0% {
      opacity: 0;
@@ -40,20 +39,11 @@ export const Backdrop = styled.div`
 
 // TODO: Evaluate
 export const ContextMenuContent = styled.div`
-  display: flex;
-  flex-direction: column;
   position: absolute;
   max-width: calc(100% - 16px);
   z-index: 99999;
-  pointer-events: all;
-  background-color: ${getColor('elvia-on')};
-  color: ${getColor('elvia-off')};
-  text-align: left;
-  box-shadow: ${popoverBoxShadow};
-  border-radius: 8px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
   animation: ${fadeIn} 200ms ease-in;
-  white-space: normal;
-  margin: 0;
 `;
 
 export const ItemList = styled.div<{ isSelectable: boolean; hasDivider: boolean }>`
@@ -63,7 +53,10 @@ export const ItemList = styled.div<{ isSelectable: boolean; hasDivider: boolean 
   max-height: calc(50vh - 8px);
   overflow: auto;
   box-sizing: border-box;
+  text-align: left;
+  color: ${getColor('elvia-off')};
   border-radius: 8px;
+  background-color: ${getColor('elvia-on')};
 
   @supports (max-height: 50svh) {
     max-height: calc(50svh - 8px);
@@ -76,15 +69,11 @@ export const ItemList = styled.div<{ isSelectable: boolean; hasDivider: boolean 
     width: 100%;
     border: none;
     padding: 10px 16px;
-    background: white;
     cursor: pointer;
-
     display: flex;
     align-items: center;
-
     ${getTypographyCss('text-md')}
-    text-align: left;
-    color: black;
+    background-color: ${getColor('elvia-on')};
     text-decoration: none;
 
     i {
@@ -94,15 +83,12 @@ export const ItemList = styled.div<{ isSelectable: boolean; hasDivider: boolean 
     :hover {
       background: ${getColor('grey-05')};
     }
-    :focus {
-      outline: 2px solid ${getColor('focus-outline')};
-      outline-offset: 2px;
-    }
 
     ${(props) =>
       props.isSelectable &&
       css`
         padding: 10px 16px 10px 48px;
+
         i {
           margin-left: -32px;
         }
@@ -117,8 +103,6 @@ export const ItemList = styled.div<{ isSelectable: boolean; hasDivider: boolean 
     h5,
     h6 {
       ${getTypographyCss('title-caps')}
-      text-align: left;
-      color: black;
       margin: 20px 16px 4px 16px;
     }
   }
