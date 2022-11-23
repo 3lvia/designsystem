@@ -6,8 +6,8 @@
   "license": "ISC",
   "author": "",
   "scripts": {
-    "build": "gulp --gulpfile build/gulpfile.ts cleanup && gulp --gulpfile build/gulpfile.ts && webpack --mode=production --stats=minimal  --config ./webpack.config.js",
-    "build:production": "gulp --gulpfile build/gulpfile.ts cleanup && gulp --gulpfile build/gulpfile.ts production && webpack --mode=production --stats=minimal  --config ./webpack.config.js",
+    "build": "gulp --gulpfile build/gulpfile.ts cleanup && gulp --gulpfile build/gulpfile.ts",
+    "build:production": "gulp --gulpfile build/gulpfile.ts cleanup && gulp --gulpfile build/gulpfile.ts production",
     "start": "concurrently \"webpack --watch --mode=production --stats=minimal \" \"gulp --gulpfile build/gulpfile.ts watch\"",
     "start:nocdn": "gulp --gulpfile build/gulpfile.ts watch",
     "clean": "gulp --gulpfile build/gulpfile.ts cleanup",
