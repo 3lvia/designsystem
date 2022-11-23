@@ -59,7 +59,7 @@ export class v2PlaygroundComponent {
   longDropdownList = dropdownData;
   dropdownItems: ElviaDropdownItem[] = [
     {
-      value: 'norge',
+      value: 0,
       label: 'Norge med en veldig lang tekst som kommer til å overflowe',
       children: [
         { label: 'Oslo', value: 'oslo' },
@@ -80,7 +80,7 @@ export class v2PlaygroundComponent {
       ],
     },
     {
-      value: 'sverige',
+      value: 1,
       label: 'Sverige',
       status: 'info',
       tooltip: 'Sweden is a country',
@@ -104,6 +104,8 @@ export class v2PlaygroundComponent {
     this.isLoadingMoreItems = true;
     setTimeout(() => (this.isLoadingMoreItems = false), 4000);
   };
+  onDropdownSelect = (value: string | number) =>
+    console.log(typeof value === 'number' ? value + value : value, typeof value);
 
   // Modal
   isModalShowing = false;

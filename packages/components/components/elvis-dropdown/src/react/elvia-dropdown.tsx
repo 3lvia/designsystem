@@ -1,7 +1,7 @@
 import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 import { config } from './config';
-import { DropdownItem, DropdownProps } from './elviaDropdown.types';
+import { DropdownItem, DropdownProps, DropdownValueType } from './elviaDropdown.types';
 import {
   warnDeprecatedProps,
   FormFieldLabel,
@@ -81,7 +81,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
     if (isMulti) {
       setFocusedItem(filteredItems[0]);
-    } else if (typeof currentVal === 'string') {
+    } else if (!Array.isArray(currentVal)) {
       const currentValInList = filteredItems.find((item) => item.value === currentVal);
       if (currentValInList) {
         setFocusedItem(currentValInList);
@@ -89,7 +89,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
   };
 
-  const setSelectedItem = (values: string[]): void => {
+  const setSelectedItem = (values: DropdownValueType[]): void => {
     if (isMulti) {
       const arrayCopy = getValueAsList(currentVal);
 

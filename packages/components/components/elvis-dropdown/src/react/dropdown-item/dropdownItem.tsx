@@ -2,8 +2,8 @@ import { Icon } from '@elvia/elvis-icon/react';
 import { isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, RefObject, useEffect, useMemo, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
-import { DropdownItem as DropdownItemOption, DropdownValue } from '../elviaDropdown.types';
-import { flattenTree } from '../dropdownListUtils';
+import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
+import { flattenTree, getValueAsList } from '../dropdownListUtils';
 import { DropdownItemStyles, IconContainer, OpenOverlayButton } from './dropdownItemStyles';
 import { Checkbox } from '../checkbox/checkbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
@@ -20,7 +20,7 @@ interface DropdownItemProps {
   setFocusedItem: (item?: DropdownItemOption) => void;
   setHoveredItem: (item?: DropdownItemOption) => void;
   inputIsKeyboard: boolean;
-  onItemSelect: (value: string[]) => void;
+  onItemSelect: (value: DropdownValueType[]) => void;
   onClick: (item: DropdownItemOption) => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   listRef: RefObject<HTMLElement>;
@@ -63,12 +63,12 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   }, [item]);
 
   const currentValIncludesItem = (item: DropdownItemOption): boolean => {
-    const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
+    const selectedValues = getValueAsList(currentVal);
     return selectedValues.includes(item.value);
   };
 
   const selfOrAllChildrenAreSelected = useMemo(() => {
-    const selectedValues = typeof currentVal === 'string' ? [currentVal] : currentVal ?? [];
+    const selectedValues = getValueAsList(currentVal);
     if (item.children) {
       return selectableChildren.every((child) => selectedValues.includes(child.value));
     } else {
