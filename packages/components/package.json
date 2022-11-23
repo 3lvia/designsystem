@@ -9,7 +9,6 @@
     "build": "gulp --gulpfile build/gulpfile.ts cleanup && gulp --gulpfile build/gulpfile.ts",
     "build:production": "gulp --gulpfile build/gulpfile.ts cleanup && gulp --gulpfile build/gulpfile.ts production",
     "start": "concurrently \"webpack --watch --mode=production --stats=minimal \" \"gulp --gulpfile build/gulpfile.ts watch\"",
-    "start:nocdn": "gulp --gulpfile build/gulpfile.ts watch",
     "clean": "gulp --gulpfile build/gulpfile.ts cleanup",
     "test": "jest --config jest.config.js --colors",
     "test:start": "jest --config jest.config.js --watch --colors",
