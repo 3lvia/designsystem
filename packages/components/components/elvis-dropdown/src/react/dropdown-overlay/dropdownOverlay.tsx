@@ -263,7 +263,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
               )}
               {filteredItems.map((item) => (
                 <DropdownItem
-                  key={item.value.toString()}
+                  key={item.value}
                   item={item}
                   focusedItem={focusedItem}
                   setFocusedItem={(item) => {
