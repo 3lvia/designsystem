@@ -1,6 +1,18 @@
 {
   "content": [
     {
+      "version": "9.5.1",
+      "date": "November 23, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Bumped dependencies on internal packages <span class=\"code-text\">@elvia/elvis-colors</span> and <span class=\"code-text\">@elvia/elvis-typography</span>."
+          ]
+        }
+      ]
+    },
+    {
       "version": "9.5.0",
       "date": "November 8, 2022",
       "changelog": [
