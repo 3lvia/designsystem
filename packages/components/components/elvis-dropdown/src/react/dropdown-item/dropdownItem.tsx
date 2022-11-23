@@ -2,7 +2,7 @@ import { Icon } from '@elvia/elvis-icon/react';
 import { isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, RefObject, useEffect, useMemo, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
-import { DropdownItem as DropdownItemOption, DropdownValue, ValueType } from '../elviaDropdown.types';
+import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
 import { flattenTree, getValueAsList } from '../dropdownListUtils';
 import { DropdownItemStyles, IconContainer, OpenOverlayButton } from './dropdownItemStyles';
 import { Checkbox } from '../checkbox/checkbox';
@@ -20,7 +20,7 @@ interface DropdownItemProps {
   setFocusedItem: (item?: DropdownItemOption) => void;
   setHoveredItem: (item?: DropdownItemOption) => void;
   inputIsKeyboard: boolean;
-  onItemSelect: (value: ValueType[]) => void;
+  onItemSelect: (value: DropdownValueType[]) => void;
   onClick: (item: DropdownItemOption) => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   listRef: RefObject<HTMLElement>;

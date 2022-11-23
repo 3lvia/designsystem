@@ -1,12 +1,12 @@
 import { Icon } from '@elvia/elvis-icon/react';
 import { IconButton } from '@elvia/elvis-toolbox';
 import React, { MouseEvent } from 'react';
-import { DropdownItem, ValueType } from '../elviaDropdown.types';
+import { DropdownItem, DropdownValueType } from '../elviaDropdown.types';
 import { BackButtonStyles } from './dropdownOverlayStyles';
 
 interface SelectAllOptionProps {
   item: DropdownItem;
-  focusedValue?: ValueType;
+  focusedValue?: DropdownValueType;
   isCompact?: boolean;
   inputIsKeyboard: boolean;
   onClick: () => void;

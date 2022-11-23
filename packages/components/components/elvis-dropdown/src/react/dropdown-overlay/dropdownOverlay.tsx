@@ -2,7 +2,7 @@ import React, { useEffect, useState, KeyboardEvent, useRef, useMemo } from 'reac
 import { createPortal } from 'react-dom';
 import { DropdownItem } from '../dropdown-item/dropdownItem';
 import { flattenTree, getValueAsList } from '../dropdownListUtils';
-import { DropdownItem as DropdownItemOption, DropdownValue, ValueType } from '../elviaDropdown.types';
+import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
 import { BackButton } from './backButton';
 import {
   Backdrop,
@@ -28,7 +28,7 @@ interface DropdownOverlayProps {
   onClose: () => void;
   noItemsText?: string;
   currentVal?: DropdownValue;
-  onItemSelect: (value: ValueType[]) => void;
+  onItemSelect: (value: DropdownValueType[]) => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   selectAllOption?: string;
   hasLoadMoreItemsButton?: boolean;

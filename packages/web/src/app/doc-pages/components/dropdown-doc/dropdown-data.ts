@@ -11,11 +11,11 @@ export const dropdownData: ComponentData = {
       isRequired: true,
       type: 'Array<object>',
       description:
-        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string, icon?: string, isDisabled?: boolean, status?: string, tooltip?: string, children?: Array<object>}',
+        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string | number, label: string, icon?: string, isDisabled?: boolean, status?: string, tooltip?: string, children?: Array<object>}',
     },
     value: {
       isRequired: false,
-      type: 'string',
+      type: 'string | string[] | number | number[]',
       description:
         'Set a default value to the dropdown. The value is the value of the selected element from the items list.',
       default: 'undefined',
