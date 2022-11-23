@@ -106,8 +106,6 @@ export const DatepickerInput: React.FC<Props> = ({
 
     if (!day || !month || !year || year < 1800 || !isValidDate(date)) {
       onErrorChange('invalidDate');
-      setInputValue('');
-      emitNewValue(null);
       return false;
     } else if (minDate && date.getTime() < minDate.getTime()) {
       onErrorChange('beforeMinDate');
@@ -127,9 +125,7 @@ export const DatepickerInput: React.FC<Props> = ({
     // Handle empty value first
     if (!inputValue.length) {
       emitNewValue(null);
-      if (required) {
-        onErrorChange('required');
-      }
+      onErrorChange(required ? 'required' : undefined);
       return;
     }
 
