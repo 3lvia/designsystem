@@ -54,5 +54,39 @@ describe('Elvis Context Menu', () => {
 
       expect(menuItem).not.toBeInTheDocument();
     });
+
+    it('the first option receives focus', () => {
+      const dropdownList = screen.getByTestId('dropdown-list');
+      const buttons: NodeListOf<HTMLButtonElement | HTMLAnchorElement> =
+        dropdownList.querySelectorAll('button, a');
+      expect(buttons.length).toBe(3);
+      expect(buttons.item(0).tabIndex).toBe(0);
+      expect(buttons.item(1).tabIndex).toBe(-1);
+      expect(buttons.item(2).tabIndex).toBe(-1);
+    });
+
+    it('arrow down will focus the next item in the list', async () => {
+      const user = userEvent.setup();
+      await user.keyboard('{arrowdown}');
+
+      const dropdownList = screen.getByTestId('dropdown-list');
+      const buttons: NodeListOf<HTMLButtonElement | HTMLAnchorElement> =
+        dropdownList.querySelectorAll('button, a');
+      expect(buttons.item(0).tabIndex).toBe(-1);
+      expect(buttons.item(1).tabIndex).toBe(0);
+      expect(buttons.item(2).tabIndex).toBe(-1);
+    });
+
+    it('arrow up will focus the last item in the list', async () => {
+      const user = userEvent.setup();
+      await user.keyboard('{arrowup}');
+
+      const dropdownList = screen.getByTestId('dropdown-list');
+      const buttons: NodeListOf<HTMLButtonElement | HTMLAnchorElement> =
+        dropdownList.querySelectorAll('button, a');
+      expect(buttons.item(0).tabIndex).toBe(-1);
+      expect(buttons.item(1).tabIndex).toBe(-1);
+      expect(buttons.item(2).tabIndex).toBe(0);
+    });
   });
 });
