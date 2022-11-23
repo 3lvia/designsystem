@@ -104,10 +104,7 @@ export const DatepickerInput: React.FC<Props> = ({
   const validateInputValue = (day?: number, month?: number, year?: number): boolean => {
     const date = new Date(`${year}/${month}/${day}`);
 
-    if (!(day || month || year) && required) {
-      onErrorChange('required');
-      return false;
-    } else if (!isValidDate(date)) {
+    if (!day || !month || !year || year < 1800 || !isValidDate(date)) {
       onErrorChange('invalidDate');
       return false;
     } else if (minDate && date.getTime() < minDate.getTime()) {
@@ -125,13 +122,15 @@ export const DatepickerInput: React.FC<Props> = ({
   };
 
   const onBlur = (): void => {
-    const [day, month, year] = inputValue.split('.');
-    const isValid = validateInputValue(+day, +month, +year);
-
+    // Handle empty value first
     if (!inputValue.length) {
       emitNewValue(null);
+      onErrorChange(required ? 'required' : undefined);
       return;
     }
+
+    const [day, month, year] = inputValue.split('.');
+    const isValid = validateInputValue(+day, +month, +year);
 
     if (isValid) {
       const newValue = new Date(date ? date : new Date());
