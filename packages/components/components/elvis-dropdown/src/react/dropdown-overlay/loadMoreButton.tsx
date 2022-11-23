@@ -1,12 +1,12 @@
 import React, { MouseEvent } from 'react';
 import { Icon } from '@elvia/elvis-icon/react';
 import { TertiaryButton } from '@elvia/elvis-toolbox';
-import { DropdownItem } from '../elviaDropdown.types';
+import { DropdownItem, ValueType } from '../elviaDropdown.types';
 import { LoadMoreButtonStyles, SpinContainer } from './dropdownOverlayStyles';
 
 interface LoadMoreProps {
   item: DropdownItem;
-  focusedValue?: string;
+  focusedValue?: ValueType;
   onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
   isCompact: boolean;

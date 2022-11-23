@@ -1,4 +1,4 @@
-import { DropdownItem, DropdownValue } from './elviaDropdown.types';
+import { DropdownItem, DropdownValue, ValueType } from './elviaDropdown.types';
 
 export const flattenTree = (tree: DropdownItem[] = [], flatList: DropdownItem[] = []): DropdownItem[] => {
   tree.forEach((item) => {
@@ -11,7 +11,7 @@ export const flattenTree = (tree: DropdownItem[] = [], flatList: DropdownItem[] 
   return flatList;
 };
 
-export const getValueAsList = (value: DropdownValue): string[] => {
+export const getValueAsList = (value: DropdownValue): ValueType[] => {
   if (Array.isArray(value)) {
     return value.slice();
   } else if (value) {
