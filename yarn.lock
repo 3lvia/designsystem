@@ -2748,8 +2748,8 @@ __metadata:
   resolution: "@elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range"
   dependencies:
     "@elvia/elvis-component-wrapper": ^3.0.3
-    "@elvia/elvis-datepicker": ^6.0.6
-    "@elvia/elvis-toolbox": ^5.8.2
+    "@elvia/elvis-datepicker": ^6.0.8
+    "@elvia/elvis-toolbox": ^6.0.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2763,8 +2763,8 @@ __metadata:
   resolution: "@elvia/elvis-datepicker-range@portal:../components/components/elvis-datepicker-range::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-component-wrapper": ^3.0.3
-    "@elvia/elvis-datepicker": ^6.0.6
-    "@elvia/elvis-toolbox": ^5.8.2
+    "@elvia/elvis-datepicker": ^6.0.8
+    "@elvia/elvis-toolbox": ^6.0.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2773,7 +2773,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.0.6, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.0.8, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
@@ -3261,23 +3261,6 @@ __metadata:
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: e85e1da71c79eb0b2d3568e7af99426c38711c763d7c22220367104b4d89591b2e3ed3930c5b9fd1360a36012518d862e0ae5463660aba83234a681b92040e35
-  languageName: node
-  linkType: hard
-
-"@elvia/elvis-toolbox@npm:^5.8.2":
-  version: 5.8.2
-  resolution: "@elvia/elvis-toolbox@npm:5.8.2"
-  dependencies:
-    "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": "*"
-    "@elvia/elvis-typography": ^2.3.1
-    styled-components: ^5.3.6
-    tslib: ^2.4.0
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 96c5a6675863babda61c7bcddcadadefd2726b52b1a0cb007e1e2bd568ebce1daccbcc4c19739c8cd642c318410807d5fc92b1f39933ab7bcfb896327f2044cd
   languageName: node
   linkType: hard
 
