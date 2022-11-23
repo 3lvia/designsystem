@@ -6,10 +6,9 @@
   "license": "ISC",
   "author": "",
   "scripts": {
-    "build": "gulp --gulpfile build/gulpfile.ts cleanup && gulp --gulpfile build/gulpfile.ts && webpack --mode=production --stats=minimal  --config ./webpack.config.js",
-    "build:production": "gulp --gulpfile build/gulpfile.ts cleanup && gulp --gulpfile build/gulpfile.ts production && webpack --mode=production --stats=minimal  --config ./webpack.config.js",
-    "start": "concurrently \"webpack --watch --mode=production --stats=minimal \" \"gulp --gulpfile build/gulpfile.ts watch\"",
-    "start:nocdn": "gulp --gulpfile build/gulpfile.ts watch",
+    "build": "gulp --gulpfile build/gulpfile.ts cleanup && gulp --gulpfile build/gulpfile.ts",
+    "build:production": "gulp --gulpfile build/gulpfile.ts cleanup && gulp --gulpfile build/gulpfile.ts production",
+    "start": "gulp --gulpfile build/gulpfile.ts watch",
     "clean": "gulp --gulpfile build/gulpfile.ts cleanup",
     "test": "jest --config jest.config.js --colors",
     "test:start": "jest --config jest.config.js --watch --colors",
@@ -77,9 +76,7 @@
     "styled-components": "^5.3.3",
     "ts-loader": "^8.0.3",
     "ts-node": "^10.9.1",
-    "typescript-plugin-styled-components": "^2.0.0",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^4.6.0"
+    "typescript-plugin-styled-components": "^2.0.0"
   },
   "peerDependencies": {
     "typescript": "~4.8.2"
