@@ -43,7 +43,7 @@ export const useRovingFocus = (rovingFocusContainer: RefObject<HTMLElement>): vo
       }
     });
 
-    console.log(focusableItemsArray);
+    /* console.log(focusableItemsArray); */
     return focusableItemsArray;
   };
 
