@@ -3,7 +3,6 @@ import { CSSProperties } from 'react';
 
 export type VerticalPosition = 'bottom' | 'top';
 export type HorizontalPosition = 'left' | 'center' | 'right';
-export type PopoverType = 'informative' | 'list';
 
 export interface PopoverProps {
   /**
@@ -15,7 +14,7 @@ export interface PopoverProps {
   /**
    * @deprecated Deprecated in version 7.0.0. Use the 'ContextMenu' component instead.
    */
-  type?: PopoverType;
+  type?: 'informative' | 'list';
   /**
    * @deprecated Deprecated in version 5.0.0. Replaced by `isSelectable`.
    */

@@ -8,7 +8,6 @@ import {
   CloseButtonContainer,
   Heading,
   PopoverContainer,
-  PopoverList,
   PopoverTypography,
   TriggerContainer,
   PopoverContent,
@@ -26,17 +25,13 @@ import {
 const Popover: FC<PopoverProps> = function ({
   heading,
   content,
-  type = 'informative',
-  isSelectable = false,
-  hasDivider = false,
-  horizontalPosition = type === 'list' ? 'left' : 'center',
-  verticalPosition = type === 'list' ? 'bottom' : 'top',
+  horizontalPosition = 'center',
+  verticalPosition = 'top',
   trigger,
   hasCloseButton = true,
   isShowing = false,
   onOpen,
   onClose,
-  disableAutoClose = false,
   className,
   inlineStyle,
   webcomponent,
@@ -50,7 +45,7 @@ const Popover: FC<PopoverProps> = function ({
   const triggerRef = useRef<HTMLDivElement>(null);
 
   /* **NB**: `type` is in the useEffectDependencies because this component has slots that depend on the type. */
-  useSlot('content', webcomponent, { ref: contentRef, useEffectDependencies: [type] });
+  useSlot('content', webcomponent, { ref: contentRef });
   useSlot('trigger', webcomponent, { ref: triggerRef });
 
   const {
@@ -91,7 +86,7 @@ const Popover: FC<PopoverProps> = function ({
 
   useEffect(() => {
     updatePreferredPosition();
-  }, [isShowingConnectedOverlayState, content, type, horizontalPosition, verticalPosition, heading]);
+  }, [isShowingConnectedOverlayState, content, horizontalPosition, verticalPosition, heading]);
 
   /**
    * Dispatch onOpen and onClose events.
@@ -121,8 +116,6 @@ const Popover: FC<PopoverProps> = function ({
     releaseFocusTrap();
   };
 
-  const togglePopover = () => setIsShowingConnectedOverlayState(!isShowingConnectedOverlayState);
-
   const onEscape = (keydown: KeyboardEvent) =>
     keydown.key === 'Escape' && setIsShowingConnectedOverlayState(false);
 
@@ -132,7 +125,7 @@ const Popover: FC<PopoverProps> = function ({
   return (
     <PopoverContainer ref={popoverContainerRef} role="dialog" {...rest}>
       <TriggerContainer
-        onClick={togglePopover}
+        onClick={() => setIsShowingConnectedOverlayState(!isShowingConnectedOverlayState)}
         overlayIsOpen={isShowingConnectedOverlayState}
         ref={triggerRef}
       >
@@ -146,60 +139,30 @@ const Popover: FC<PopoverProps> = function ({
             <PopoverContent
               className={className ?? ''}
               style={{ ...inlineStyle }}
-              type={type}
               ref={popoverRef}
               aria-modal="true"
               data-testid="popover-content"
             >
-              {type === 'informative' && (
-                <>
-                  {hasCloseButton && (
-                    <CloseButtonContainer>
-                      <IconButton
-                        size="sm"
-                        onClick={() => setIsShowingConnectedOverlayState(false)}
-                        aria-label="Lukk"
-                      >
-                        <Icon name="closeBold" size="xs" />
-                      </IconButton>
-                    </CloseButtonContainer>
-                  )}
-                  {heading && <Heading>{heading}</Heading>}
-                </>
+              {hasCloseButton && (
+                <CloseButtonContainer>
+                  <IconButton
+                    size="sm"
+                    onClick={() => setIsShowingConnectedOverlayState(false)}
+                    aria-label="Lukk"
+                  >
+                    <Icon name="closeBold" size="xs" />
+                  </IconButton>
+                </CloseButtonContainer>
               )}
-              {content && type === 'informative' && (
-                <PopoverTypography isStringOnly={isStringOnly(content)} hasCloseButton={hasCloseButton}>
-                  {content}
-                </PopoverTypography>
-              )}
-              {!content && type === 'informative' && (
-                <PopoverTypography
-                  isStringOnly={isStringOnly(content)}
-                  hasCloseButton={hasCloseButton}
-                  ref={contentRef}
-                ></PopoverTypography>
-              )}
-              {content && type === 'list' && (
-                <PopoverTypography
-                  isStringOnly={isStringOnly(content)}
-                  hasCloseButton={hasCloseButton}
-                  onClick={() => !disableAutoClose && setIsShowingConnectedOverlayState(false)}
-                >
-                  <PopoverList hasDivider={hasDivider} isSelectable={isSelectable}>
-                    {content}
-                  </PopoverList>
-                </PopoverTypography>
-              )}
-              {!content && type === 'list' && (
-                <PopoverList hasDivider={hasDivider} isSelectable={isSelectable}>
-                  <PopoverTypography
-                    isStringOnly={isStringOnly(content)}
-                    hasCloseButton={hasCloseButton}
-                    onClick={() => !disableAutoClose && setIsShowingConnectedOverlayState(false)}
-                    ref={contentRef}
-                  ></PopoverTypography>
-                </PopoverList>
-              )}
+              {heading && <Heading>{heading}</Heading>}
+
+              <PopoverTypography
+                isStringOnly={isStringOnly(content)}
+                hasCloseButton={hasCloseButton}
+                ref={contentRef}
+              >
+                {content}
+              </PopoverTypography>
             </PopoverContent>
           </>,
           document.body,
