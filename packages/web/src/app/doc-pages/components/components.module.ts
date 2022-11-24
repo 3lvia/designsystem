@@ -11,6 +11,7 @@ import { CardDocModule } from './card-doc/card-doc.module';
 import { CarouselDocModule } from './carousel-doc/carousel-doc.module';
 import { ChipDocModule } from './chip-doc/chip-doc.module';
 import { ContentLoaderDocModule } from './content-loader-doc/content-loader-doc.module';
+import { ContextMenuDocModule } from './context-menu-doc/context-menu-doc.module';
 import { DividerDocModule } from './divider-doc/divider-doc.module';
 import { DropdownDocModule } from './dropdown-doc/dropdown-doc.module';
 import { FileUploadDocModule } from './file-upload-doc/file-upload-doc.module';
@@ -49,6 +50,7 @@ import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
     CarouselDocModule,
     ChipDocModule,
     ContentLoaderDocModule,
+    ContextMenuDocModule,
     DividerDocModule,
     DropdownDocModule,
     FileUploadDocModule,

@@ -11,11 +11,7 @@
 
   <div class="example-wrapper">
     <h3>Context menu</h3>
-    <elvia-context-menu
-      [hasDivider]="true"
-      (onOpen)="isContextMenuShowing = true"
-      (onClose)="isContextMenuShowing = false"
-    >
+    <elvia-context-menu (onOpen)="isContextMenuShowing = true" (onClose)="isContextMenuShowing = false">
       <button
         slot="trigger"
         class="e-btn e-btn--icon e-mr-8"
@@ -29,7 +25,7 @@
       </button>
 
       <div slot="content">
-        <div class="ewc-popover__list-group">
+        <div class="ewc-context-menu__list-group">
           <button>
             <span>Be om tilgang</span>
           </button>
@@ -37,7 +33,7 @@
             <span>Legg til bruker</span>
           </button>
         </div>
-        <div class="ewc-popover__list-group">
+        <div class="ewc-context-menu__list-group">
           <a>
             <span>Endre passord</span>
           </a>
@@ -299,13 +295,13 @@
       (onOpen)="isPopoverShowing = true"
       (onClose)="isPopoverShowing = false"
       heading="BankID"
-      horizontalPosition="right"
+      horizontalPosition="left"
       verticalPosition="top"
       width="200"
     >
       <button slot="trigger" class="e-btn">Show popover</button>
       <div slot="content">
-        Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
+        <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
         <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
       </div>
     </elvia-popover>

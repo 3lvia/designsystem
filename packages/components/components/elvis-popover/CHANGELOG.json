@@ -2,6 +2,21 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "24.11.22",
+      "version": "7.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The prop <span class=\"code-text\">type</span> has been removed. This is because a new component <span class=\"code-text\">ContextMenu</span> has been created to replace the <span class=\"code-text\">type='list'</span> prop.",
+            "The prop <span class=\"code-text\">isSelectable</span> has been removed since it serves no purpose after remove the context menu feature.",
+            "The prop <span class=\"code-text\">hasDivider</span> has been removed since it serves no purpose after remove the context menu feature.",
+            "The prop <span class=\"code-text\">disableAutoClose</span> has been removed since it serves no purpose after remove the context menu feature."
+          ]
+        }
+      ]
+    },
+    {
       "date": "23.11.22",
       "version": "6.0.3",
       "changelog": [

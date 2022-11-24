@@ -27,7 +27,6 @@ const popoverData: ComponentData = {
       cegFormType: 'toggle',
       cegDefault: true,
       cegOption: exampleContents.texts.md['eng-GBR'].title,
-      cegDependency: [{ name: 'type', value: 'informative' }],
     },
     hasCloseButton: {
       isRequired: false,
@@ -39,20 +38,6 @@ const popoverData: ComponentData = {
       cegFormType: 'toggle',
       cegDefault: true,
       cegOption: 'false',
-      cegDependency: [{ name: 'type', value: 'informative' }],
-    },
-    hasDivider: {
-      isRequired: false,
-      type: 'boolean',
-      description:
-        'With type list you can add a divider to group content. The divider will appear between each "ewc-popover__list-group" element section.',
-      default: 'true',
-      cegDisplayName: 'Divider',
-      cegType: 'boolean',
-      cegFormType: 'toggle',
-      cegDefault: false,
-      cegOption: 'true',
-      cegDependency: [{ name: 'type', value: 'list' }],
     },
     isShowing: {
       isRequired: false,
@@ -92,13 +77,6 @@ const popoverData: ComponentData = {
       cegFormType: 'radio',
       cegOptions: ['left', 'center', 'right'],
     },
-    disableAutoClose: {
-      isRequired: false,
-      type: 'boolean',
-      description:
-        'If true, closes the popover whenever the user clicks anywhere inside the popover. Set to false if you want to control the closing yourself with isShowing property.',
-      default: 'true',
-    },
     className: {
       isRequired: false,
       type: 'string',
@@ -112,16 +90,81 @@ const popoverData: ComponentData = {
         "Custom CSS style object that can be added to the popover. Example: {marginTop: '8px', width: '100%'}. Note: This applies to the content, not the trigger.",
     },
   },
-  // Not used here, as there are separate files with code for each component type.
-  codeReact: ``,
-  codeAngular: ``,
-  codeVue: ``,
-  codeNativeHTML: ``,
+  codeReact: `<Popover
+  heading="BankID"
+  trigger={
+    <button className={'e-btn e-btn--icon e-btn--circled ' + (isShowing ? 'e-btn---selected' : '')} aria-label="Popover trigger">
+      <span className="e-btn__icon">
+        <i className="e-icon e-icon--information_circle" aria-hidden="true"></i>
+        <i className="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+      </span>
+    </button>
+  }
+  content={
+    <>
+      <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
+      <button class="e-btn" onClick={() => setIsPopoverShowing(!isPopoverShowing)}>Lukke popover</button>
+    </>
+  }
+></Popover>`,
+  codeAngular: `<elvia-popover 
+  heading="BankID"
+>
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" [ngClass]="'e-btn---selected': isShowing" aria-label="Popover trigger">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+    </span>
+  </button>
+
+  <div slot="content">
+    <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
+    <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
+  </div>
+</elvia-popover>`,
+  codeVue: `<elvia-popover 
+  heading="BankID"
+>
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" :class="[isActive ? isShowing : 'e-btn---selected']" aria-label="Popover trigger">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+    </span>
+  </button>
+
+  <div slot="content">
+    <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
+    <button class="e-btn" @click="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
+  </div>
+</elvia-popover>`,
+  codeNativeHTML: `<elvia-popover 
+  id="example-elvia-popover"
+  heading="BankID"
+  isShowing="false"
+>
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Popover trigger" id="popover-trigger-button">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+    </span>
+  </button>
+
+  <div slot="content">
+    <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
+    <button class="e-btn" id="popover-close-btn">Lukke popover</button>
+  </div>
+</elvia-popover>`,
   codeNativeScript: `  const popover = document.getElementById('example-elvia-popover');
   const popoverTrigger = document.getElementById('popover-trigger-button');
   popover.addEventListener('onOpen', () => {
+    popover.setProps({isShowing: true});
     console.log('Do what you want when popover is opened.');
     popoverTrigger.classList.add('e-btn---selected');
+
+    const closeBtn = document.getElementById('popover-close-btn');
+    closeBtn.addEventListener('click', () => {
+      popover.setProps({isShowing: false});
+    });
   });
   popover.addEventListener('onClose', () => {
     console.log('Do what you want when popover is closed.');

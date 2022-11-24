@@ -105,11 +105,8 @@ const Popover: FC<PopoverProps> = function ({
   }, [isShowingConnectedOverlayState]);
 
   const handleOnOpen = () => {
-    if (!webcomponent && onOpen) {
-      onOpen();
-    } else if (webcomponent) {
-      webcomponent.triggerEvent('onOpen');
-    }
+    onOpen?.();
+    webcomponent?.triggerEvent('onOpen');
 
     document.addEventListener('keydown', onEscape);
     trapFocus(popoverRef);
@@ -117,11 +114,8 @@ const Popover: FC<PopoverProps> = function ({
   };
 
   const handleOnClose = () => {
-    if (!webcomponent && onClose) {
-      onClose();
-    } else if (webcomponent) {
-      webcomponent.triggerEvent('onClose');
-    }
+    onClose?.();
+    webcomponent?.triggerEvent('onClose');
 
     document.removeEventListener('keydown', onEscape, false);
     releaseFocusTrap();

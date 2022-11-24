@@ -64,8 +64,8 @@ export const ItemList = styled.div<{ isSelectable: boolean; hasDivider: boolean 
 
   > button,
   > a,
-  .ewc-popover__list-group > button,
-  .ewc-popover__list-group > a {
+  .ewc-context-menu__list-group > button,
+  .ewc-context-menu__list-group > a {
     width: 100%;
     border: none;
     padding: 10px 16px;
@@ -95,7 +95,7 @@ export const ItemList = styled.div<{ isSelectable: boolean; hasDivider: boolean 
       `}
   }
 
-  .ewc-popover__list-group {
+  .ewc-context-menu__list-group {
     h1,
     h2,
     h3,
@@ -110,7 +110,7 @@ export const ItemList = styled.div<{ isSelectable: boolean; hasDivider: boolean 
   ${(props) =>
     props.hasDivider &&
     css`
-      .ewc-popover__list-group:not(:last-of-type) {
+      .ewc-context-menu__list-group:not(:last-of-type) {
         border-bottom: 1px solid ${getColor('grey-10')};
       }
     `};
