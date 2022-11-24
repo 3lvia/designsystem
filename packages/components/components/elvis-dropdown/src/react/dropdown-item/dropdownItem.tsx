@@ -97,7 +97,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       setFocusedItem(item);
       setHoveredItem(item);
     }
-    if (item.children && isGtMobile) {
+    if (item.children && isGtMobile && !item.isDisabled) {
       if (isSsr()) {
         showChildList(true);
       } else {
@@ -108,16 +108,22 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   };
 
   const onItemClick = () => {
-    if (isGtMobile || isMulti || !item.children) {
-      onClick(item);
-    } else {
-      showChildList(true);
+    if (!item.isDisabled) {
+      if (isGtMobile || isMulti || !item.children) {
+        onClick(item);
+      } else {
+        showChildList(true);
+      }
     }
   };
 
   useEffect(() => {
     if (focusedItem?.value === item.value) {
-      if (pressedKey?.code === 'ArrowRight' && item.children) {
+      if (
+        (pressedKey?.code === 'ArrowRight' || pressedKey?.code === 'Enter') &&
+        item.children &&
+        !item.isDisabled
+      ) {
         setIsShowing(true);
       } else if (pressedKey?.code === 'ArrowLeft' && parentItem) {
         setFocusedItem(parentItem);
@@ -174,6 +180,10 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         aria-haspopup={item.children ? 'listbox' : 'false'}
         aria-expanded={isShowing}
         aria-selected={selfOrAllChildrenAreSelected}
+        aria-label={`
+        ${item.label}
+        ${item.children ? ', undermeny' : ''} 
+        ${item.tooltip ? ', Merknad: ' + item.tooltip : ''}`}
         data-testid="dropdown-item"
       >
         {isMulti && (

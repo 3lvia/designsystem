@@ -66,24 +66,6 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   cursor: pointer;
   height: var(--item-height);
 
-  ${({ isDisabled }) => {
-    if (isDisabled) {
-      return css`
-        cursor: not-allowed;
-        color: ${getColor('disabled')};
-      `;
-    }
-    return css`
-      &:hover {
-        background-color: ${getColor('grey-05')};
-
-        ${StyledCheckbox} {
-          background-color: ${getColor('elvia-charge')};
-        }
-      }
-    `;
-  }}
-
   ${({ isActive, isMulti }) =>
     isActive &&
     !isMulti &&
@@ -91,9 +73,10 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
       background-color: ${getColor('grey-10')};
     `};
 
-  ${({ isMulti, isGtMobile }) =>
+  ${({ isMulti, isGtMobile, isDisabled }) =>
     !isGtMobile &&
     !isMulti &&
+    !isDisabled &&
     css`
       &:hover {
         ${OpenOverlayButton} {
@@ -117,6 +100,28 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
       ${getTypographyCss('text-md')};
     `;
   }};
+
+  ${({ isDisabled }) => {
+    if (isDisabled) {
+      return css`
+        cursor: not-allowed;
+        color: ${getColor('disabled')};
+
+        ${OpenOverlayButton} {
+          opacity: 0.3;
+        }
+      `;
+    }
+    return css`
+      &:hover {
+        background-color: ${getColor('grey-05')};
+
+        ${StyledCheckbox} {
+          background-color: ${getColor('elvia-charge')};
+        }
+      }
+    `;
+  }}
 
   ${({ isFocused, isActive, isMulti }) =>
     isFocused &&

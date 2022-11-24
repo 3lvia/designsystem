@@ -78,6 +78,7 @@ export class v2PlaygroundComponent {
         { label: 'Stavanger', value: 'stavanger' },
         { label: 'Kristiansand', value: 'kristiansand' },
       ],
+      isDisabled: true,
     },
     {
       value: 1,
