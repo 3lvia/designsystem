@@ -109,7 +109,7 @@ information on how to use them.
 
 #### Step 4 - Pull request and publish
 
-> NOTE! You will need to set up two-factor authentication with NPM to publish your changes.
+> NOTE! You will need to set up two-factor authentication with NPM to manually publish your changes.
 > [Elvia NPM](https://www.npmjs.com/org/elvia).
 
 1. **Update version**: When doing updates to Elvis remember to always update the version in
@@ -151,5 +151,7 @@ information on how to use them.
    checkpoint-list in the pull request.
 6. **Merge branch**: When the branch has been approved by one other member of the team, merge the changes into
    master.
-7. **Publish to NPM**: by navigating to `packages/elvis` in master (after pulling the updates) and use the
-   command `npm publish --otp=<code>`.
+7. **Publish to NPM**: Whenever something is merged or pushed to master, any packages with a new version in
+   their `package.json` will be automatically published to NPM. If you for some reason need to manually
+   publish a version (e.g. publishing a beta-version) this can be done by navigating to `packages/elvis` and
+   running the command `npm publish --otp=<OTP-code>`.

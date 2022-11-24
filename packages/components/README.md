@@ -223,7 +223,7 @@ library), this class needs to be deprecated.
 
 #### Step 8 - Pull request and publish
 
-> NOTE! You will need to set up two-factor authentication with NPM to publish your changes.
+> NOTE! You will need to set up two-factor authentication with NPM to manually publish your changes.
 > [Elvia NPM](https://www.npmjs.com/org/elvia).
 
 1. **Update version**: When doing updates remember to alway update the version for that component
@@ -242,8 +242,10 @@ library), this class needs to be deprecated.
    checkpoint-list in the pull request.
 7. **Merge branch**: When the branch has been approved from one other member of the team, merge the changes
    into master.
-8. **Publish to NPM**: by navigating to `packages/components/components/your-component` in master (after
-   pulling the updates) and use the command `npm publish --otp=<code>`.
+8. **Publish to NPM**: Whenever something is merged or pushed to master, any packages with a new version in
+   their `package.json` will be automatically published to NPM. If you for some reason need to manually
+   publish a version (e.g. publishing a beta-version) this can be done by navigating to
+   `packages/components/components/your-component` and running the command `npm publish --otp=<OTP-code>`.
 
 ### Deprecating props
 
