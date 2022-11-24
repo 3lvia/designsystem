@@ -44,8 +44,6 @@ const Popover: FC<PopoverProps> = function ({
   const contentRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
 
-  /* **NB**: `type` is in the useEffectDependencies because this component has slots that depend on the type. */
-  useSlot('content', webcomponent, { ref: contentRef });
   useSlot('trigger', webcomponent, { ref: triggerRef });
 
   const {
@@ -56,6 +54,11 @@ const Popover: FC<PopoverProps> = function ({
     horizontalPosition: mapPositionToHorizontalPosition(horizontalPosition),
     verticalPosition: verticalPosition,
     alignWidths: false,
+  });
+
+  useSlot('content', webcomponent, {
+    ref: contentRef,
+    useEffectDependencies: [isShowingConnectedOverlayState],
   });
 
   const { trapFocus, releaseFocusTrap } = useFocusTrap();

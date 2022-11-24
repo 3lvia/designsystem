@@ -12,24 +12,26 @@ const contextMenuHeadingsCode = {
     </button>
   }
   content={
-    <div className="ewc-popover__list-group">
-      <h1>Kundeforhold</h1>
-      <button>
-        <span>Be om tilgang</span>
-      </button>
-      <button>
-        <span>Legg til bruker</span>
-      </button>
-    </div>
-    <div className="ewc-popover__list-group">
-      <h1>Innlogging</h1>
-      <a>
-        <span>Endre passord</span>
-      </a>
-      <a>
-        <span>To-faktor autentisering</span>
-      </a>
-    </div>
+    <>
+      <div className="ewc-popover__list-group">
+        <h1>Kundeforhold</h1>
+        <button>
+          <span>Be om tilgang</span>
+        </button>
+        <button>
+          <span>Legg til bruker</span>
+        </button>
+      </div>
+      <div className="ewc-popover__list-group">
+        <h1>Innlogging</h1>
+        <a>
+          <span>Endre passord</span>
+        </a>
+        <a>
+          <span>To-faktor autentisering</span>
+        </a>
+      </div>
+    </>
   }
 ></ContextMenu>
 `,

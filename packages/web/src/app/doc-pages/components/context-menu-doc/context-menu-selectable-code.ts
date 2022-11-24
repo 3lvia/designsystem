@@ -13,18 +13,20 @@ const contextMenuSelectableCode = {
     </button>
   }
 	content={
-    <div className="ewc-context-menu__list-group">
-      <button>
-        <elvia-icon name="checkBold" size="xs"></elvia-icon>
-        <span>Dato - nyeste til eldste</span>
-      </button>
-      <button>
-        <span>Dato - eldste til nyeste</span>
-      </button>
-      <button>
-        <span>Relevans</span>
-      </button>
-    </div>
+    <>
+      <div className="ewc-context-menu__list-group">
+        <button>
+          <elvia-icon name="checkBold" size="xs"></elvia-icon>
+          <span>Dato - nyeste til eldste</span>
+        </button>
+        <button>
+          <span>Dato - eldste til nyeste</span>
+        </button>
+        <button>
+          <span>Relevans</span>
+        </button>
+      </div>
+    </>
 	}
 ></ContextMenu>
 `,

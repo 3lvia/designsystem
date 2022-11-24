@@ -7,10 +7,9 @@ describe('Elvis Context Menu', () => {
   beforeEach(() => {
     render(
       <ContextMenu
-        hasDivider
         trigger={<button data-testid="trigger">Trigger</button>}
         content={
-          <div data-testid="dropdown-list">
+          <>
             <div className="ewc-popover__list-group">
               <button>
                 <span>Be om tilgang</span>
@@ -24,7 +23,7 @@ describe('Elvis Context Menu', () => {
                 <span>Endre passord</span>
               </a>
             </div>
-          </div>
+          </>
         }
       />,
     );

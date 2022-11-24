@@ -12,22 +12,24 @@ const contextMenuIconsCode = {
     </button>
   }
   content={
-    <div className="ewc-context-menu__list-group">
-      <button>
-        <elvia-icon name="edit" size="xs"></elvia-icon>
-        <span>Rediger</span>
-      </button>
-      <button>
-        <elvia-icon name="bin" size="xs"></elvia-icon>
-        <span>Slett</span>
-      </button>
-    </div>
-    <div className="ewc-context-menu__list-group">
-      <a>
-        <elvia-icon name="download" size="xs"></elvia-icon>
-        <span>Last ned</span>
-      </a>
-    </div>
+    <>
+      <div className="ewc-context-menu__list-group">
+        <button>
+          <elvia-icon name="edit" size="xs"></elvia-icon>
+          <span>Rediger</span>
+        </button>
+        <button>
+          <elvia-icon name="bin" size="xs"></elvia-icon>
+          <span>Slett</span>
+        </button>
+      </div>
+      <div className="ewc-context-menu__list-group">
+        <a>
+          <elvia-icon name="download" size="xs"></elvia-icon>
+          <span>Last ned</span>
+        </a>
+      </div>
+    </>
   }
 ></Popover>
 `,
