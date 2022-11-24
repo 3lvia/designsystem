@@ -137,8 +137,8 @@ To start developing components and styling follow the guides below:
 
 ### Publish
 
-All packages that are merged to the master branch with a new version in their package.json will automatically
-be published to npm. If you wish to publish beta versions of packages that can be done manually.
+All packages that are merged to the master branch with a new version in their `package.json` will
+automatically be published to npm. If you wish to publish beta versions of packages that can be done manually.
 
 If for some reason a package publishing fails, you can publish all the packages to npm at once by using
 `yarn publish --otp <INSERT_OTP>` from root. It will publish all packages where the version number is updated
