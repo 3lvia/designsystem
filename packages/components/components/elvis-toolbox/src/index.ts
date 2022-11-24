@@ -26,6 +26,7 @@ export { useLongPress } from './hooks/useLongPress';
 export { useIsOverflowing } from './hooks/useIsOverflowing';
 export { useWebComponentState } from './hooks/useWebComponentState';
 export { useSlot } from './hooks/useSlot';
+export { useRovingFocus } from './hooks/useRovingFocus';
 
 export { BaseProps } from './prop-blocks/baseProps';
 export { ErrorOptions, HasError } from './prop-blocks/hasError';

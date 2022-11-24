@@ -15,7 +15,7 @@ import {
 import { Icon } from '@elvia/elvis-icon/react';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { carouselConfig, carouselItemConfig } from './config';
-import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, useRovingFocus } from '@elvia/elvis-toolbox';
 
 export interface CarouselItem {
   /**
@@ -61,6 +61,8 @@ export interface CarouselProps {
   webcomponent?: ElvisComponentWrapper;
 }
 
+let UNIQUE_CAROUSEL_ID = 0;
+
 export const Carousel: FC<CarouselProps> = function ({
   items,
   loop = true,
@@ -91,8 +93,10 @@ export const Carousel: FC<CarouselProps> = function ({
   const [slideDirection, setSlideDirection] = useState<SlideDirection>('left');
   const [isHoveringRightButton, setIsHoveringRightButton] = useState(false);
   const [isHoveringLeftButton, setIsHoveringLeftButton] = useState(false);
+  const [id] = useState(`ewc-carousel-${UNIQUE_CAROUSEL_ID++}`);
 
   const itemsRef = useRef<HTMLDivElement>(null);
+  const navigationElementsRef = useRef<HTMLDivElement>(null);
 
   const hideLeftArrow = !loop && index === 0;
   const hideRightArrow = !loop && index === lengthOfItems - 1;
@@ -134,11 +138,13 @@ export const Carousel: FC<CarouselProps> = function ({
     }
   }, [items]);
 
+  useRovingFocus(navigationElementsRef);
+
   /**
    * Map the slots to a list of items.
    *
    * Getting the item by getting the slot starting with 'heading-' and 'item-' and ending with a number
-   * and create a new object with the html-content of these slots.
+   * and create a new object with the HTML-content of these slots.
    */
   const getMappedSlottedItems = (slots: Record<string, any>, numberOfItemSlots: number): CarouselItem[] => {
     const newItems: CarouselItem[] = [];
@@ -167,7 +173,11 @@ export const Carousel: FC<CarouselProps> = function ({
     setIsDown(true);
   };
 
-  const handleMouseMove = (e: MouseEvent | TouchEvent): void => {
+  /**
+   * If the user is dragging, get the x position of the mouse and
+   * if the distance is greater than 400, change the index of the carousel.
+   */
+  const handleMouseMove = (e: MouseEvent | TouchEvent) => {
     if (!isDown) {
       return;
     }
@@ -245,6 +255,7 @@ export const Carousel: FC<CarouselProps> = function ({
       className={className ?? ''}
       style={inlineStyle}
       data-testid="carousel-container"
+      id={id}
       {...rest}
     >
       <CarouselElements>
@@ -278,10 +289,11 @@ export const Carousel: FC<CarouselProps> = function ({
           </CarouselElementContainer>
         )}
       </CarouselElements>
-      <CarouselNavigationRow>
+      <CarouselNavigationRow ref={navigationElementsRef}>
         <CarouselLeftButton
-          aria-label={`Gå til forrige side`}
+          aria-controls={id}
           aria-hidden={hideLeftArrow}
+          aria-label={`Gå til forrige side`}
           hidden={hideLeftArrow}
           onClick={() => handleValueChange(index, 'left')}
           onMouseEnter={() => setIsHoveringLeftButton(true)}
@@ -323,8 +335,9 @@ export const Carousel: FC<CarouselProps> = function ({
           </CarouselCheckButton>
         ) : (
           <CarouselRightButton
-            aria-label={`Gå til neste side`}
+            aria-controls={id}
             aria-hidden={hideRightArrow}
+            aria-label={`Gå til neste side`}
             hidden={hideRightArrow}
             onClick={() => handleValueChange(index, 'right')}
             onMouseEnter={() => setIsHoveringRightButton(true)}
