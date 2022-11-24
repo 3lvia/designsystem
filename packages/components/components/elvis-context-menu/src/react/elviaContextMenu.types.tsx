@@ -5,8 +5,6 @@ export type HorizontalPosition = 'left' | 'center' | 'right';
 
 export interface ContextMenuProps extends BaseProps {
   content?: string | JSX.Element;
-  disableAutoClose?: boolean;
-  hasDivider?: boolean;
   horizontalPosition?: HorizontalPosition;
   isSelectable?: boolean;
   isShowing?: boolean;

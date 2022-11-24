@@ -8,8 +8,6 @@ import { ContextMenuOverlay } from './contextMenuOverlay';
 
 export const ContextMenu: React.FC<ContextMenuProps> = ({
   content = '',
-  disableAutoClose = false,
-  hasDivider = false,
   horizontalPosition = 'left',
   verticalPosition = 'bottom',
   isSelectable = false,
@@ -89,8 +87,6 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
             <Backdrop onClick={() => setIsOverlayShowing(false)} />
             <ContextMenuOverlay
               content={content}
-              disableAutoClose={disableAutoClose}
-              hasDivider={hasDivider}
               isSelectable={isSelectable}
               ref={popoverRef}
               onClose={() => setIsOverlayShowing(false)}

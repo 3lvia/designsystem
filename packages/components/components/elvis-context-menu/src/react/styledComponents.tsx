@@ -46,7 +46,7 @@ export const ContextMenuContent = styled.div`
   animation: ${fadeIn} 200ms ease-in;
 `;
 
-export const ItemList = styled.div<{ isSelectable: boolean; hasDivider: boolean }>`
+export const ItemList = styled.div<{ isSelectable: boolean }>`
   display: flex;
   flex-direction: column;
   min-width: 216px;
@@ -60,6 +60,10 @@ export const ItemList = styled.div<{ isSelectable: boolean; hasDivider: boolean 
 
   @supports (max-height: 50svh) {
     max-height: calc(50svh - 8px);
+  }
+
+  .ewc-context-menu__list-group:not(:last-of-type) {
+    border-bottom: 1px solid ${getColor('grey-10')};
   }
 
   > button,
@@ -106,12 +110,4 @@ export const ItemList = styled.div<{ isSelectable: boolean; hasDivider: boolean 
       margin: 20px 16px 4px 16px;
     }
   }
-
-  ${(props) =>
-    props.hasDivider &&
-    css`
-      .ewc-context-menu__list-group:not(:last-of-type) {
-        border-bottom: 1px solid ${getColor('grey-10')};
-      }
-    `};
 `;

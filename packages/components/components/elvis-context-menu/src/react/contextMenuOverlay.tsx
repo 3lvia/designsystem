@@ -5,27 +5,12 @@ import { useRovingFocus } from './useRovingFocus';
 
 interface Props extends BaseProps {
   content?: string | JSX.Element;
-  disableAutoClose: boolean;
-  onClose: () => void;
-  hasDivider: boolean;
   isSelectable: boolean;
+  onClose: () => void;
 }
 
 export const ContextMenuOverlay = React.forwardRef<HTMLDivElement, Props>(
-  (
-    {
-      content,
-      disableAutoClose,
-      onClose,
-      hasDivider,
-      isSelectable,
-      className,
-      inlineStyle,
-      webcomponent,
-      ...rest
-    },
-    ref,
-  ) => {
+  ({ content, onClose, isSelectable, className, inlineStyle, webcomponent, ...rest }, ref) => {
     const contentRef = useRef<HTMLDivElement>(null);
     useSlot('content', webcomponent, { ref: contentRef });
     useRovingFocus(contentRef);
@@ -43,15 +28,9 @@ export const ContextMenuOverlay = React.forwardRef<HTMLDivElement, Props>(
         style={{ ...inlineStyle }}
         ref={ref}
         aria-modal="true"
-        data-testid="popover-content"
         {...rest}
       >
-        <ItemList
-          onClick={() => !disableAutoClose && onClose()}
-          hasDivider={hasDivider}
-          isSelectable={isSelectable}
-          ref={contentRef}
-        >
+        <ItemList onClick={() => onClose()} isSelectable={isSelectable} ref={contentRef}>
           {content}
         </ItemList>
       </ContextMenuContent>
