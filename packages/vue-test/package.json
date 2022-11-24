@@ -16,6 +16,7 @@
     "@elvia/elvis-card": "*",
     "@elvia/elvis-carousel": "*",
     "@elvia/elvis-chip": "*",
+    "@elvia/elvis-context-menu": "*",
     "@elvia/elvis-datepicker": "*",
     "@elvia/elvis-datepicker-range": "*",
     "@elvia/elvis-divider": "*",

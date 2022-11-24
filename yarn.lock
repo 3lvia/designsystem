@@ -2741,6 +2741,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@elvia/elvis-context-menu@*, @elvia/elvis-context-menu@workspace:packages/components/components/elvis-context-menu":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-context-menu@workspace:packages/components/components/elvis-context-menu"
+  dependencies:
+    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-component-wrapper": ^3.0.3
+    "@elvia/elvis-icon": ^1.3.5
+    "@elvia/elvis-toolbox": ^6.0.0
+    "@elvia/elvis-typography": ^2.3.1
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@elvia/elvis-context-menu@portal:../components/components/elvis-context-menu::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-context-menu@portal:../components/components/elvis-context-menu::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
@@ -2756,23 +2773,6 @@ __metadata:
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: node
-  linkType: soft
-
-"@elvia/elvis-context-menu@workspace:packages/components/components/elvis-context-menu":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-context-menu@workspace:packages/components/components/elvis-context-menu"
-  dependencies:
-    "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^3.0.3
-    "@elvia/elvis-icon": ^1.3.5
-    "@elvia/elvis-toolbox": ^6.0.0
-    "@elvia/elvis-typography": ^2.3.1
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  languageName: unknown
   linkType: soft
 
 "@elvia/elvis-datepicker-range@*, @elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range":
@@ -29344,6 +29344,7 @@ __metadata:
     "@elvia/elvis-card": "*"
     "@elvia/elvis-carousel": "*"
     "@elvia/elvis-chip": "*"
+    "@elvia/elvis-context-menu": "*"
     "@elvia/elvis-datepicker": "*"
     "@elvia/elvis-datepicker-range": "*"
     "@elvia/elvis-divider": "*"
