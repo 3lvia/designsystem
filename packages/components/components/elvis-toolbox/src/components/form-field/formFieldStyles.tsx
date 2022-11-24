@@ -4,17 +4,39 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { FormFieldError } from './errorStyles';
 
+const setActiveBorder = (isCompact?: boolean) => {
+  return css`
+    border: 2px solid ${getColor('elvia-charge')};
+    padding: ${isCompact ? '0px 3px 0px 7px' : '0px 7px 0px 15px'};
+  `;
+};
+
+export const FormFieldInputContainer = styled.div`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0px 8px 0px 16px;
+  border: 1px solid ${getColor('elvia-off')};
+  height: 48px;
+  border-radius: 4px;
+  cursor: text;
+  transition: border-color 150ms;
+`;
+
 export interface FormFieldContainerProps {
-  fullWidth?: boolean;
+  isFullWidth?: boolean;
   isCompact?: boolean;
+  isActive?: boolean;
+  isInvalid?: boolean;
+  isDisabled?: boolean;
 }
 
 /**
  *
  * @example
- * <FormFieldContainer isCompact isFullWidth>
+ * <FormFieldContainer isCompact isFullWidth isActive isInvalid isDisabled>
  *   <FormFieldLabel hasOptionalText>Label text</FormFieldLabel>
- *   <FormFieldInputContainer isDisabled isActive isInvalid>
+ *   <FormFieldInputContainer>
  *     <FormFieldInput />
  *   </FormFieldInputContainer>
  * </FormFieldContainer>
@@ -28,8 +50,8 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
   box-sizing: border-box;
   text-align: left;
 
-  ${(props) =>
-    props.fullWidth &&
+  ${({ isFullWidth }) =>
+    isFullWidth &&
     css`
       width: 100%;
 
@@ -38,8 +60,8 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       }
     `}
 
-  ${(props) => {
-    if (props.isCompact) {
+  ${({ isCompact }) => {
+    if (isCompact) {
       return css`
         padding-top: 0.5rem;
 
@@ -56,11 +78,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
 
         ${FormFieldInputContainer} {
           padding: 0px 4px 0px 8px;
-          height: 34px;
-
-          &:focus-within {
-            padding: 0px 3px 0px 7px;
-          }
+          height: 32px;
         }
 
         ${FormFieldInput} {
@@ -77,6 +95,38 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       padding-top: 0px;
     `;
   }}
+
+  ${({ isDisabled }) =>
+    isDisabled &&
+    css`
+      && ${FormFieldInputContainer} {
+         {
+          cursor: not-allowed;
+          border-color: ${getColor('disabled')};
+        }
+      }
+    `};
+
+  ${({ isInvalid, isCompact }) =>
+    isInvalid &&
+    css`
+      ${FormFieldInputContainer} {
+        ${setActiveBorder(isCompact)};
+        border-color: ${getColor('error')};
+      }
+    `};
+
+  ${({ isActive, isCompact }) =>
+    isActive &&
+    css`
+      ${FormFieldInputContainer} {
+        ${setActiveBorder(isCompact)}
+      }
+    `}
+
+  ${FormFieldInputContainer}:focus-within {
+    ${(props) => setActiveBorder(props.isCompact)}
+  }
 `;
 
 interface LabelProps {
@@ -95,53 +145,6 @@ export const FormFieldLabel = styled.div<LabelProps>`
         font-weight: 400;
       }
     `}
-`;
-
-export interface FormFieldInputContainerProps {
-  isDisabled?: boolean;
-  isActive?: boolean;
-  isInvalid?: boolean;
-}
-
-const setActiveBorder = (props: FormFieldInputContainerProps) => {
-  return css`
-    border: 2px solid ${props.isInvalid ? getColor('error') : getColor('elvia-charge')};
-    padding: 0px 7px 0px 15px;
-  `;
-};
-
-export const FormFieldInputContainer = styled.div<FormFieldInputContainerProps>`
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0px 8px 0px 16px;
-  border: 1px solid ${getColor('elvia-off')};
-  height: 48px;
-  border-radius: 4px;
-  cursor: text;
-  transition: border-color 150ms;
-
-  &:focus-within {
-    ${setActiveBorder}
-  }
-
-  ${(props) => {
-    if (props.isInvalid) {
-      return setActiveBorder(props);
-    }
-
-    if (props.isDisabled) {
-      return css`
-        cursor: not-allowed;
-        border-color: ${getColor('disabled')};
-      `;
-    }
-
-    if (props.isActive) {
-      return setActiveBorder(props);
-    }
-    return '';
-  }}
 `;
 
 export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))`

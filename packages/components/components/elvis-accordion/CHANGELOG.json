@@ -2,6 +2,39 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.11.22",
+      "version": "2.8.10",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated dependencies on internal packages."]
+        }
+      ]
+    },
+    {
+      "date": "22.11.22",
+      "version": "2.8.9",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue with calculating the height of the content when there is margin on the content.",
+            "Fixed an issue where content with <span class=\"code-text\">display: absolute</span> sometimes caused the closed accordion to take up too much space."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "21.11.22",
+      "version": "2.8.8",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added support for React 18."]
+        }
+      ]
+    },
+    {
       "date": "07.11.22",
       "version": "2.8.7",
       "changelog": [

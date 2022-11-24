@@ -4,10 +4,11 @@ import { DropdownItemStatus } from './statusToIconMap';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 
-export type DropdownValue = string | string[] | undefined | null;
+export type DropdownValueType = string | number;
+export type DropdownValue = DropdownValueType | DropdownValueType[] | undefined | null;
 
 export interface DropdownItem {
-  value: string;
+  value: DropdownValueType;
   label: string;
   icon?: IconName;
   isDisabled?: boolean;
@@ -41,7 +42,7 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue> {
   selectAllOption?: string;
   noOptionsMessage?: string;
   hasLoadMoreItemsButton?: boolean;
-  onItemHover?: (hoveredItem: string | undefined) => void;
+  onItemHover?: (hoveredItem: DropdownValueType | undefined) => void;
   onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
 }

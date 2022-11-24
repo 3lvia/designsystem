@@ -27,11 +27,11 @@ const fadeOut = keyframes`
 
 export const CursorCurve = styled.div`
   position: absolute;
-  top: 45px;
+  top: calc(var(--item-height) - 1px);
   right: 100%;
   width: 30%;
   height: 20%;
-  min-height: 40px;
+  min-height: var(--item-height);
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 80% 50%, 50% 20%);
 `;
 
@@ -46,9 +46,9 @@ export const DropdownPopup = styled.div.attrs(() => ({
   fadeOut: boolean;
   isCompact: boolean;
   isInvisible: boolean;
-  overflows?: 'top' | 'bottom' | 'both';
   animate: boolean;
 }>`
+  --item-height: 48px;
   background-color: ${getColor('elvia-on')};
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
   animation: ${fadeIn} 300ms ease;
@@ -57,45 +57,13 @@ export const DropdownPopup = styled.div.attrs(() => ({
   overflow: hidden;
   width: 100%;
 
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 60px;
-    pointer-events: none;
-    transition: opacity 200ms;
-    opacity: 0;
-  }
-
-  &::before {
-    background: linear-gradient(rgb(255 255 255 / 1), rgb(255 255 255 / 0));
-    top: 0;
-  }
-
-  &::after {
-    background: linear-gradient(rgb(255 255 255 / 0), rgb(255 255 255 / 1));
-    bottom: 0;
-  }
-
   ${({ isCompact }) =>
     isCompact &&
     css`
-      ${ItemList} {
-        max-height: calc(40px * 5 + 40px / 2);
-      }
-
-      ${LoadMoreButtonStyles} {
-        height: 40px;
-      }
+      --item-height: 40px;
 
       ${NoItemsMessage} {
         ${getTypographyCss('text-sm')};
-      }
-
-      ${CursorCurve} {
-        top: 39px;
       }
 
       ${BackButtonStyles} {
@@ -118,31 +86,6 @@ export const DropdownPopup = styled.div.attrs(() => ({
       visibility: hidden;
     `};
 
-  ${({ overflows }) => {
-    if (overflows === 'top') {
-      return css`
-        &::before {
-          opacity: 1;
-        }
-      `;
-    } else if (overflows === 'bottom') {
-      return css`
-        &::after {
-          opacity: 1;
-        }
-      `;
-    } else if (overflows === 'both') {
-      return css`
-        &::before,
-        &::after {
-          opacity: 1;
-        }
-      `;
-    }
-
-    return '';
-  }}
-
   ${({ animate }) =>
     !animate &&
     css`
@@ -151,7 +94,7 @@ export const DropdownPopup = styled.div.attrs(() => ({
 `;
 
 export const ItemList = styled.div`
-  max-height: calc(48px * 5 + 48px / 2);
+  max-height: calc(var(--item-height) * 7.5);
   overflow-y: auto;
 `;
 
@@ -167,6 +110,7 @@ export const Backdrop = styled.div`
   bottom: 0;
   left: 0;
   position: fixed;
+  z-index: 99999;
 `;
 
 export const Divider = styled.hr`
@@ -184,7 +128,7 @@ export const RotateAnimation = keyframes`
 export const SpinContainer = styled.div``;
 
 export const LoadMoreButtonStyles = styled.div<{ isLoading?: boolean }>`
-  height: 48px;
+  height: var(--item-height);
   width: 100%;
   display: flex;
   align-items: center;
@@ -214,5 +158,11 @@ export const BackButtonStyles = styled(DropdownItemStyles)`
   ${IconButton} {
     pointer-events: none;
     cursor: inherit;
+  }
+
+  &:hover {
+    ${IconButton} {
+      background-color: ${getColor('elvia-charge')};
+    }
   }
 `;

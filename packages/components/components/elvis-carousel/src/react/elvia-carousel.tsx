@@ -26,8 +26,8 @@ export interface CarouselItem {
    * @deprecated Deprecated in version 2.0.0. Use item instead.
    */
   element?: JSX.Element | string | HTMLElement;
-  heading?: JSX.Element | string | HTMLElement;
-  item: JSX.Element | string | HTMLElement;
+  heading?: JSX.Element | string;
+  item: JSX.Element | string;
 }
 export type SlideDirection = 'left' | 'right';
 

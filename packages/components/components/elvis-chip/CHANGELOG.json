@@ -2,6 +2,40 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.11.22",
+      "version": "2.2.8",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated dependencies on internal packages."]
+        }
+      ]
+    },
+    {
+      "date": "21.11.22",
+      "version": "2.2.7",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "The animations for color changes have been updated.",
+            "Refactored the component.",
+            "Removed dependency on <span class=\"code-text\">classnames</span> package."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "21.11.22",
+      "version": "2.2.6",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added support for React 18."]
+        }
+      ]
+    },
+    {
       "date": "02.11.22",
       "version": "2.2.5",
       "changelog": [

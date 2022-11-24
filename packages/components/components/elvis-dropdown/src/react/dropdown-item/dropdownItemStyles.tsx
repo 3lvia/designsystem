@@ -4,12 +4,14 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 import { StyledCheckbox } from '../checkbox/checkboxStyles';
 
-export const TooltipContainer = styled.div<{ noRightContent: boolean }>`
+export const TooltipContainer = styled.div<{ noRightContent: boolean; isRootOverlay?: boolean }>`
+  padding-right: 16px;
   overflow: hidden;
   flex: 1;
 
-  ${(props) =>
-    props.noRightContent &&
+  ${({ noRightContent, isRootOverlay }) =>
+    noRightContent &&
+    !isRootOverlay &&
     css`
       padding-right: 40px;
       max-width: 300px;
@@ -51,6 +53,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   isCompact?: boolean;
   isMulti?: boolean;
   isInvisible?: boolean;
+  isGtMobile?: boolean;
 }>`
   display: flex;
   gap: 16px;
@@ -61,6 +64,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   padding: 0 0 0 16px;
   align-items: center;
   cursor: pointer;
+  height: var(--item-height);
 
   ${({ isDisabled }) => {
     if (isDisabled) {
@@ -87,11 +91,21 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
       background-color: ${getColor('grey-10')};
     `};
 
+  ${({ isMulti, isGtMobile }) =>
+    !isGtMobile &&
+    !isMulti &&
+    css`
+      &:hover {
+        ${OpenOverlayButton} {
+          background-color: ${getColor('elvia-charge')};
+        }
+      }
+    `};
+
   ${({ isCompact }) => {
     if (isCompact) {
       return css`
         ${getTypographyCss('text-sm')};
-        height: 40px;
 
         ${IconContainer} {
           width: 40px;
@@ -101,7 +115,6 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
 
     return css`
       ${getTypographyCss('text-md')};
-      height: 48px;
     `;
   }};
 

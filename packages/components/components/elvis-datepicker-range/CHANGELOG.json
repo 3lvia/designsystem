@@ -2,6 +2,38 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.11.22",
+      "version": "2.0.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Empty value was marked as invalid in Firefox and Safari, even when not required"]
+        }
+      ]
+    },
+    {
+      "date": "21.11.22",
+      "version": "2.0.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Update <span class=\"code-text\">@elvia/elvis-toolbox</span> to improve Icon Button styles."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "21.11.22",
+      "version": "2.0.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added support for React 18."]
+        }
+      ]
+    },
+    {
       "date": "07.11.22",
       "version": "2.0.3",
       "changelog": [

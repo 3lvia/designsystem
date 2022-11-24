@@ -2,6 +2,52 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.11.22",
+      "version": "6.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated dependencies on internal packages."]
+        }
+      ]
+    },
+    {
+      "date": "22.11.22",
+      "version": "6.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The styled <span class=\"code-text\">form field</span> component had their props moved to the container component.",
+            "The hook <span class=\"code-text\">useConnectedOverlay</span> will now adapt better if the overlay content change while its open."
+          ],
+          "fixes": [
+            "Move props previously added to <span class=\"code-text\">FormFieldInputContainer</span> to <span class=\"code-text\">FormFieldContainer</span>."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "21.11.22",
+      "version": "5.8.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where the Icon Button would become oval-shaped in a Full-Width input."]
+        }
+      ]
+    },
+    {
+      "date": "21.11.22",
+      "version": "5.8.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Added support for React 18."]
+        }
+      ]
+    },
+    {
       "date": "03.11.22",
       "version": "5.8.0",
       "changelog": [

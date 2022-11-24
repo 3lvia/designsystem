@@ -14,6 +14,7 @@ import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
 import { copyDay, isValidDate } from './dateHelpers';
+import { flushSync } from 'react-dom';
 
 export const Datepicker: React.FC<DatepickerProps> = ({
   clearButtonText = 'Nullstill',
@@ -117,7 +118,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   };
 
   const setVisibility = (isShowing: boolean): void => {
-    setIsShowing(isShowing);
+    flushSync(() => setIsShowing(isShowing));
 
     if (!isShowing) {
       openPopoverButtonRef.current?.focus();
@@ -226,7 +227,10 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         isCompact={isCompact}
         className={className ?? ''}
         style={{ ...inlineStyle }}
-        fullWidth={isFullWidth}
+        isFullWidth={isFullWidth}
+        isDisabled={isDisabled}
+        isActive={isShowing}
+        isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
         data-testid="wrapper"
       >
         {!!label && (
@@ -234,13 +238,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             {label}
           </FormFieldLabel>
         )}
-        <FormFieldInputContainer
-          ref={connectedElementRef}
-          isDisabled={isDisabled}
-          isActive={isShowing}
-          isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
-          data-testid="input-container"
-        >
+        <FormFieldInputContainer ref={connectedElementRef} data-testid="input-container">
           <DatepickerInput
             date={date}
             disabled={isDisabled}

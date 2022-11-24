@@ -1,9 +1,7 @@
 {
   "name": "@elvia/elvis-datepicker-range",
-  "version": "2.0.3",
-  "description": "",
+  "version": "2.0.6",
   "main": "web_component.js",
-  "author": "",
   "license": "MIT",
   "files": [
     "web_component.js",
@@ -14,14 +12,14 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "^3.0.1",
-    "@elvia/elvis-datepicker": "^6.0.4",
-    "@elvia/elvis-toolbox": "^5.5.0",
+    "@elvia/elvis-component-wrapper": "^3.0.3",
+    "@elvia/elvis-datepicker": "^6.0.8",
+    "@elvia/elvis-toolbox": "^6.0.1",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0",
-    "react-is": "^16.8.0 || ^17.0.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0"
   }
 }

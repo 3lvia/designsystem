@@ -1,7 +1,7 @@
-import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useRef, useState } from 'react';
+import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 import { config } from './config';
-import { DropdownItem, DropdownProps } from './elviaDropdown.types';
+import { DropdownItem, DropdownProps, DropdownValueType } from './elviaDropdown.types';
 import {
   warnDeprecatedProps,
   FormFieldLabel,
@@ -16,6 +16,17 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
 import { flattenTree, getValueAsList } from './dropdownListUtils';
+import { flushSync } from 'react-dom';
+
+const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
+  if (!filter) {
+    return items;
+  } else {
+    const flatList = flattenTree(items).filter((item) => !item.children);
+    const filteredItems = flatList.filter((item) => item.label.toLowerCase().includes(filter.toLowerCase()));
+    return filteredItems;
+  }
+};
 
 const Dropdown: React.FC<DropdownProps> = ({
   items = [],
@@ -50,10 +61,9 @@ const Dropdown: React.FC<DropdownProps> = ({
   const { inputMode } = useInputModeDetection();
   const isGtMobile = useBreakpoint('gt-mobile');
   const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
-  const [filteredItems, setFilteredItems] = useState<DropdownItem[]>([]);
   const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
   const [focusedItem, setFocusedItem] = useState<DropdownItem>();
-  const [hoveredItem, setHoveredItem] = useState<DropdownItem>();
+  const filteredItems = useMemo(() => filterItems(items, filter), [items, filter]);
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -64,7 +74,22 @@ const Dropdown: React.FC<DropdownProps> = ({
     alignWidths: true,
   });
 
-  const setSelectedItem = (values: string[]): void => {
+  const focusOnSelectedValue = (): void => {
+    if (focusedItem || !currentVal) {
+      return;
+    }
+
+    if (isMulti) {
+      setFocusedItem(filteredItems[0]);
+    } else if (!Array.isArray(currentVal)) {
+      const currentValInList = filteredItems.find((item) => item.value === currentVal);
+      if (currentValInList) {
+        setFocusedItem(currentValInList);
+      }
+    }
+  };
+
+  const setSelectedItem = (values: DropdownValueType[]): void => {
     if (isMulti) {
       const arrayCopy = getValueAsList(currentVal);
 
@@ -81,6 +106,8 @@ const Dropdown: React.FC<DropdownProps> = ({
     } else {
       setCurrentVal(values[0]);
     }
+
+    focusOnSelectedValue();
   };
 
   const emitLoadMoreItems = (): void => {
@@ -91,13 +118,6 @@ const Dropdown: React.FC<DropdownProps> = ({
   const emitHoveredItem = (item?: DropdownItem): void => {
     onItemHover?.(item?.value);
     webcomponent?.triggerEvent('onItemHover', item?.value);
-  };
-
-  const updateHoveredItem = (item?: DropdownItem): void => {
-    emitHoveredItem(item);
-    if (item?.value !== hoveredItem?.value) {
-      setHoveredItem(item);
-    }
   };
 
   const updateFocusedItem = (item?: DropdownItem): void => {
@@ -114,7 +134,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
     const closeOnEsc = (ev: KeyboardEvent) => {
       if (ev.code === 'Escape') {
-        setIsShowing(false);
+        flushSync(() => setIsShowing(false));
       }
     };
 
@@ -122,44 +142,21 @@ const Dropdown: React.FC<DropdownProps> = ({
     return () => window.removeEventListener('keydown', closeOnEsc);
   }, [isShowing]);
 
-  useEffect(() => {
-    const filterItems = () => {
-      if (!filter) {
-        setFilteredItems(items);
-      } else {
-        const flatList = flattenTree(items).filter((item) => !item.children);
-        const filteredItems = flatList.filter((item) =>
-          item.label.toLowerCase().includes(filter.toLowerCase()),
-        );
-        setFilteredItems(filteredItems);
-      }
-    };
-    filterItems();
-  }, [filter]);
-
-  useEffect(() => {
-    if (items?.length && filteredItems !== items) {
-      setFilteredItems(items);
-    }
-  }, [items]);
-
   return (
     <>
       <DropdownContainer
         isCompact={isCompact}
         className={className ?? ''}
         style={{ ...inlineStyle }}
-        fullWidth={isFullWidth}
+        isFullWidth={isFullWidth}
+        isDisabled={isDisabled}
+        isActive={isShowing}
+        isInvalid={!!errorMessage}
         data-testid="wrapper"
         aria-haspopup="true"
       >
         {!!label && <FormFieldLabel>{label}</FormFieldLabel>}
-        <DropdownInputContainer
-          ref={connectedElementRef}
-          isDisabled={isDisabled}
-          isActive={isShowing}
-          isInvalid={!!errorMessage}
-        >
+        <DropdownInputContainer ref={connectedElementRef}>
           <DropdownInput
             placeholder={placeholder}
             placeholderIcon={placeholderIcon}
@@ -169,7 +166,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             dropdownIsOpen={isShowing}
             isDisabled={isDisabled}
             items={items}
-            onOpenDropdown={() => setIsShowing(true)}
+            onOpenDropdown={() => flushSync(() => setIsShowing(true))}
             onKeyPress={setPressedKey}
             currentVal={currentVal}
             focusedItem={focusedItem}
@@ -195,7 +192,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           isMulti={isMulti}
           onItemSelect={setSelectedItem}
           isCompact={isCompact}
-          onClose={() => setIsShowing(false)}
+          onClose={() => flushSync(() => setIsShowing(false))}
           filteredItems={filteredItems}
           inputIsKeyboard={inputMode === 'keyboard'}
           allItems={items}
@@ -207,7 +204,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           isLoadingMoreItems={isLoadingMoreItems}
           focusedItem={focusedItem}
           setFocusedItem={updateFocusedItem}
-          setHoveredItem={updateHoveredItem}
+          setHoveredItem={emitHoveredItem}
           isSearchMode={!!filter}
         />
       )}

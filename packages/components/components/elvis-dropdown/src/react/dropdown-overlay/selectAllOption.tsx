@@ -2,12 +2,12 @@ import React, { MouseEvent, useEffect, useState } from 'react';
 import { Checkbox } from '../checkbox/checkbox';
 import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';
 import { flattenTree, getValueAsList } from '../dropdownListUtils';
-import { DropdownItem, DropdownValue } from '../elviaDropdown.types';
+import { DropdownItem, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
 import { Divider } from './dropdownOverlayStyles';
 
 interface SelectAllOptionProps {
   item: DropdownItem;
-  focusedValue?: string;
+  focusedValue?: DropdownValueType;
   isCompact?: boolean;
   items: DropdownItem[];
   selectedItems: DropdownValue;
