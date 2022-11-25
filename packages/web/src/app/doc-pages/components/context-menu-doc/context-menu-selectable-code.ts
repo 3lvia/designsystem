@@ -13,7 +13,7 @@ const contextMenuSelectableCode = {
     </button>
   }
 	content={
-    <div role="menu">
+    <>
       <div className="ewc-context-menu__list-group">
         <button role="menuitem">
           <elvia-icon name="checkBold" size="xs"></elvia-icon>
@@ -26,7 +26,7 @@ const contextMenuSelectableCode = {
           <span>Relevans</span>
         </button>
       </div>
-    </div>
+    </>
 	}
 ></ContextMenu>
 `,
@@ -42,7 +42,7 @@ const contextMenuSelectableCode = {
       <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content" role="menu">
+  <div slot="content">
     <div class="ewc-context-menu__list-group">
       <button role="menuitem">
         <elvia-icon name="checkBold" size="xs"></elvia-icon>
@@ -70,7 +70,7 @@ const contextMenuSelectableCode = {
       <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content" role="menu">
+  <div slot="content">
     <div class="ewc-context-menu__list-group">
       <button role="menuitem">
         <elvia-icon name="checkBold" size="xs"></elvia-icon>
@@ -96,7 +96,7 @@ const contextMenuSelectableCode = {
       <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content" role="menu">
+  <div slot="content">
     <div class="ewc-context-menu__list-group">
       <button role="menuitem">
         <elvia-icon name="checkBold" size="xs"></elvia-icon>

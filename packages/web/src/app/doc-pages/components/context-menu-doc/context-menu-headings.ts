@@ -12,7 +12,7 @@ const contextMenuHeadingsCode = {
     </button>
   }
   content={
-    <div role="menu">
+    <>
       <div className="ewc-popover__list-group">
         <h1>Kundeforhold</h1>
         <button role="menuitem">
@@ -31,7 +31,7 @@ const contextMenuHeadingsCode = {
           <span>To-faktor autentisering</span>
         </a>
       </div>
-    </div>
+    </>
   }
 ></ContextMenu>
 `,
@@ -46,7 +46,7 @@ const contextMenuHeadingsCode = {
       <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content" role="menu">
+  <div slot="content">
     <div class="ewc-context-menu__list-group">
       <h1>Kundeforhold</h1>
       <button role="menuitem">
@@ -79,7 +79,7 @@ const contextMenuHeadingsCode = {
       <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content" role="menu">
+  <div slot="content">
     <div class="ewc-context-menu__list-group">
       <h1>Kundeforhold</h1>
       <button role="menuitem">
@@ -110,7 +110,7 @@ const contextMenuHeadingsCode = {
       <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content" role="menu">
+  <div slot="content">
     <div class="ewc-context-menu__list-group">
       <h1>Kundeforhold</h1>
       <button role="menuitem">

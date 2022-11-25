@@ -46,7 +46,7 @@
 
       <app-component-subsection [sectionTitle]="'Responsive'">
         <ng-container ngProjectAs="sectionContent">
-          The context menu include responsive functionality and is suited for all devices. However you should
+          The context menu includes responsive functionality and is suited for all devices. However you should
           keep in mind that it can be overwhelming on mobile if the context menu has a lot of content.
         </ng-container>
       </app-component-subsection>
@@ -109,9 +109,9 @@
               to open or close the popover.
             </div>
             <div>
-              <span class="keyboard-button">ArrowUp</span>
+              <span class="keyboard-button">ArrowUp/ArrowLeft</span>
               or
-              <span class="keyboard-button">ArrowDown</span>
+              <span class="keyboard-button">ArrowDown/ArrowRight</span>
               to cycle between the options.
             </div>
             <div>
@@ -124,16 +124,12 @@
       <app-component-subsection [sectionTitle]="'Screen reader support'">
         <ng-container ngProjectAs="sectionContent">
           <div>
-            In order to make the context menu accessible for screen readers, remember to add the following
-            attributes to your DOM elements:
+            To make the context menu accessible for screen readers, remember to add the following attributes
+            to your DOM elements:
             <ul class="e-list">
               <li>
                 <span class="code-text">aria-haspopup="menu"</span>
                 should be added to the trigger element.
-              </li>
-              <li>
-                <span class="code-text">role="menu"</span>
-                should be added to the content container.
               </li>
               <li>
                 <span class="code-text">role="menuitem"</span>
@@ -141,7 +137,9 @@
               </li>
             </ul>
 
-            If you are unsure of how to do this, see the example code at the top of the page.
+            <span class="code-text">role="menu"</span>
+            is added to the overlay by default. If you are unsure of how to apply the attributes, see the
+            example code at the top of the page.
           </div>
         </ng-container>
       </app-component-subsection>

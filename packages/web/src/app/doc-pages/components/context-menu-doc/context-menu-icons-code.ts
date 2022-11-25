@@ -12,7 +12,7 @@ const contextMenuIconsCode = {
     </button>
   }
   content={
-    <div role="menu">
+    <>
       <div className="ewc-context-menu__list-group">
         <button role="menuitem">
           <elvia-icon name="edit" size="xs"></elvia-icon>
@@ -29,7 +29,7 @@ const contextMenuIconsCode = {
           <span>Last ned</span>
         </a>
       </div>
-    </div>
+    </>
   }
 ></Popover>
 `,
@@ -44,7 +44,7 @@ const contextMenuIconsCode = {
       <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content" role="menu">
+  <div slot="content">
     <div class="ewc-context-menu__list-group">
       <button role="menuitem">
         <elvia-icon name="edit" size="xs"></elvia-icon>
@@ -76,7 +76,7 @@ const contextMenuIconsCode = {
     </span>
   </button>
 
-  <div slot="content" role="menu">
+  <div slot="content">
     <div class="ewc-context-menu__list-group">
       <button role="menuitem">
         <elvia-icon name="edit" size="xs"></elvia-icon>
@@ -105,7 +105,7 @@ const contextMenuIconsCode = {
       <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content" role="menu">
+  <div slot="content">
     <div class="ewc-context-menu__list-group">
       <button role="menuitem">
         <elvia-icon name="edit" size="xs"></elvia-icon>

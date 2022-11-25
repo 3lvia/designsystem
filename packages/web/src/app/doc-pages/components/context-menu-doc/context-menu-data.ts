@@ -81,7 +81,7 @@ const contextMenuData: ComponentData = {
     </button>
   }
   content={
-    <div role="menu">
+    <>
       <div className="ewc-context-menu__list-group">
         <button role="menuitem">
           <span>Be om tilgang</span>
@@ -95,7 +95,7 @@ const contextMenuData: ComponentData = {
           <span>Endre passord</span>
         </a>
       </div>
-    </div>
+    </>
   }
 ></ContextMenu>`,
   codeAngular: `<elvia-context-menu 
@@ -108,7 +108,7 @@ const contextMenuData: ComponentData = {
       <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content" role="menu">
+  <div slot="content">
     <div class="ewc-context-menu__list-group">
       <button role="menuitem">
         <span>Be om tilgang</span>
@@ -134,7 +134,7 @@ const contextMenuData: ComponentData = {
       <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content" role="menu">
+  <div slot="content">
     <div class="ewc-context-menu__list-group">
       <button role="menuitem">
         <span>Be om tilgang</span>
@@ -159,7 +159,7 @@ const contextMenuData: ComponentData = {
       <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content" role="menu">
+  <div slot="content">
     <div class="ewc-context-menu__list-group">
       <button role="menuitem">
         <span>Be om tilgang</span>

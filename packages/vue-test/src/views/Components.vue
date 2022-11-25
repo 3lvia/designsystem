@@ -110,7 +110,7 @@
           </span>
         </button>
 
-        <div slot="content" role="menu">
+        <div slot="content">
           <div class="ewc-context-menu__list-group">
             <button role="menuitem">
               <span>Be om tilgang</span>
