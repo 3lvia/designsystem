@@ -1,6 +1,18 @@
 {
   "content": [
     {
+      "version": "9.5.2",
+      "date": "November 25, 2022",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed the readonly input <span class=\"code-text\">e-input---readonly</span> taking up too little space."
+          ]
+        }
+      ]
+    },
+    {
       "version": "9.5.1",
       "date": "November 23, 2022",
       "changelog": [
