@@ -128,7 +128,7 @@ const Popover: FC<PopoverProps> = function ({
   return (
     <PopoverContainer ref={popoverContainerRef} role="dialog" {...rest}>
       <TriggerContainer
-        onClick={() => setIsShowingConnectedOverlayState(!isShowingConnectedOverlayState)}
+        onClick={() => setIsShowingConnectedOverlayState((isShowing) => !isShowing)}
         overlayIsOpen={isShowingConnectedOverlayState}
         ref={triggerRef}
       >
