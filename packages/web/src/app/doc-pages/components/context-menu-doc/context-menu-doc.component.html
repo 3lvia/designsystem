@@ -121,6 +121,30 @@
           </div>
         </ng-container>
       </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Screen reader support'">
+        <ng-container ngProjectAs="sectionContent">
+          <div>
+            In order to make the context menu accessible for screen readers, remember to add the following
+            attributes to your DOM elements:
+            <ul class="e-list">
+              <li>
+                <span class="code-text">aria-haspopup="menu"</span>
+                should be added to the trigger element.
+              </li>
+              <li>
+                <span class="code-text">role="menu"</span>
+                should be added to the content container.
+              </li>
+              <li>
+                <span class="code-text">role="menuitem"</span>
+                should be added to each menu item.
+              </li>
+            </ul>
+
+            If you are unsure of how to do this, see the example code at the top of the page.
+          </div>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

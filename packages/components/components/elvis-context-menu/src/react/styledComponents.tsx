@@ -11,21 +11,9 @@ const fadeIn = keyframes`
 }
 `;
 
-// TODO: Evaluate
-export const TriggerContainer = styled.div<{ overlayIsOpen: boolean }>`
+export const TriggerContainer = styled.div`
   display: inline-block;
   user-select: none;
-  cursor: pointer;
-
-  div {
-    display: flex;
-  }
-
-  ${(props) =>
-    props.overlayIsOpen &&
-    css`
-      z-index: 110;
-    `};
 `;
 
 export const Backdrop = styled.div`
@@ -37,7 +25,6 @@ export const Backdrop = styled.div`
   z-index: 99999;
 `;
 
-// TODO: Evaluate
 export const ContextMenuContent = styled.div`
   position: absolute;
   max-width: calc(100% - 16px);
@@ -73,6 +60,7 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
     width: 100%;
     border: none;
     padding: 10px 16px;
+    margin: 0;
     cursor: pointer;
     display: flex;
     align-items: center;

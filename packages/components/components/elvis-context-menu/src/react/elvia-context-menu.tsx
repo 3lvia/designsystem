@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
+import React, { useEffect, useRef, useState } from 'react';
 import { useConnectedOverlay, useSlot, useFocusTrap } from '@elvia/elvis-toolbox';
 import { ContextMenuProps } from './elviaContextMenu.types';
-import { Backdrop, TriggerContainer } from './styledComponents';
+import { TriggerContainer } from './styledComponents';
 import { mapPositionToHorizontalPosition } from './mapPosition';
 import { ContextMenuOverlay } from './contextMenuOverlay';
 
@@ -23,18 +22,19 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   const popoverRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
+  const [prevFocusedElement, setPrevFocusedElement] = useState<HTMLElement>();
 
   useSlot('trigger', webcomponent, { ref: triggerRef });
 
-  const {
-    isShowing: isOverlayShowing,
-    setIsShowing: setIsOverlayShowing,
-    updatePreferredPosition,
-  } = useConnectedOverlay(triggerRef, popoverRef, {
-    horizontalPosition: mapPositionToHorizontalPosition(horizontalPosition),
-    verticalPosition: verticalPosition,
-    alignWidths: false,
-  });
+  const { isShowing: isOverlayShowing, setIsShowing: setIsOverlayShowing } = useConnectedOverlay(
+    triggerRef,
+    popoverRef,
+    {
+      horizontalPosition: mapPositionToHorizontalPosition(horizontalPosition),
+      verticalPosition: verticalPosition,
+      alignWidths: false,
+    },
+  );
 
   useEffect(() => {
     if (isShowing !== isOverlayShowing) {
@@ -42,19 +42,15 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     }
   }, [isShowing]);
 
-  /* Saving the original focused element before the popover is opened, and then returning focus to that
-  element when the popover is closed. */
   useEffect(() => {
-    const originalFocusedElement = document.activeElement as HTMLElement;
-
     if (isOverlayShowing) {
+      setPrevFocusedElement(document.activeElement as HTMLElement);
       handleOnOpen();
-      setTimeout(() => updatePreferredPosition());
-    } else if (!isOverlayShowing) {
+    } else {
       handleOnClose();
+      prevFocusedElement?.focus();
+      setPrevFocusedElement(undefined);
     }
-
-    return () => originalFocusedElement?.focus();
   }, [isOverlayShowing]);
 
   const handleOnOpen = () => {
@@ -73,31 +69,22 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 
   return (
     <>
-      <TriggerContainer
-        onClick={() => setIsOverlayShowing(!isOverlayShowing)}
-        overlayIsOpen={isOverlayShowing}
-        ref={triggerRef}
-      >
+      <TriggerContainer onClick={() => setIsOverlayShowing(true)} ref={triggerRef}>
         {trigger}
       </TriggerContainer>
 
-      {isOverlayShowing &&
-        createPortal(
-          <>
-            <Backdrop onClick={() => setIsOverlayShowing(false)} />
-            <ContextMenuOverlay
-              content={content}
-              isSelectable={isSelectable}
-              ref={popoverRef}
-              onClose={() => setIsOverlayShowing(false)}
-              className={className}
-              inlineStyle={inlineStyle}
-              webcomponent={webcomponent}
-              {...rest}
-            />
-          </>,
-          document.body,
-        )}
+      {isOverlayShowing && (
+        <ContextMenuOverlay
+          content={content}
+          isSelectable={isSelectable}
+          ref={popoverRef}
+          onClose={() => setIsOverlayShowing(false)}
+          className={className}
+          inlineStyle={inlineStyle}
+          webcomponent={webcomponent}
+          {...rest}
+        />
+      )}
     </>
   );
 };

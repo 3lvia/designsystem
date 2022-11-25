@@ -4,7 +4,7 @@ const contextMenuIconsCode = {
   onOpen={() => setIsShowing(true)}
   onClose={() => setIsShowing(false)}
   trigger={
-    <button className={'e-btn e-btn--icon e-btn--circled ' + (isShowing ? 'e-btn---selected' : '')} aria-label="More menu">
+    <button aria-haspopup="menu" className={'e-btn e-btn--icon e-btn--circled ' + (isShowing ? 'e-btn---selected' : '')} aria-label="More menu">
       <span className="e-btn__icon">
         <i className="e-icon e-icon--information_circle" aria-hidden="true"></i>
         <i className="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
@@ -12,24 +12,24 @@ const contextMenuIconsCode = {
     </button>
   }
   content={
-    <>
+    <div role="menu">
       <div className="ewc-context-menu__list-group">
-        <button>
+        <button role="menuitem">
           <elvia-icon name="edit" size="xs"></elvia-icon>
           <span>Rediger</span>
         </button>
-        <button>
+        <button role="menuitem">
           <elvia-icon name="bin" size="xs"></elvia-icon>
           <span>Slett</span>
         </button>
       </div>
       <div className="ewc-context-menu__list-group">
-        <a>
+        <a role="menuitem">
           <elvia-icon name="download" size="xs"></elvia-icon>
           <span>Last ned</span>
         </a>
       </div>
-    </>
+    </div>
   }
 ></Popover>
 `,
@@ -38,25 +38,25 @@ const contextMenuIconsCode = {
   (onOpen)="isShowing = true"
   (onClose)="isShowing = false"
 >
-  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" [ngClass]="'e-btn---selected': isShowing" aria-label="More menu">
+  <button aria-haspopup="menu" slot="trigger" class="e-btn e-btn--icon e-btn--circled" [ngClass]="'e-btn---selected': isShowing" aria-label="More menu">
     <span class="e-btn__icon">
       <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
       <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content">
+  <div slot="content" role="menu">
     <div class="ewc-context-menu__list-group">
-      <button>
+      <button role="menuitem">
         <elvia-icon name="edit" size="xs"></elvia-icon>
         <span>Rediger</span>
       </button>
-      <button>
+      <button role="menuitem">
         <elvia-icon name="bin" size="xs"></elvia-icon>
         <span>Slett</span>
       </button>
     </div>
     <div class="ewc-context-menu__list-group">
-      <a>
+      <a role="menuitem">
         <elvia-icon name="download" size="xs"></elvia-icon>
         <span>Last ned</span>
       </a>
@@ -69,26 +69,26 @@ const contextMenuIconsCode = {
   @on-open="isShowing = true"
   @on-close="isShowing = false"
 >
-  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" :class="[isActive ? isShowing : 'e-btn---selected']" aria-label="More menu">
+  <button aria-haspopup="menu" slot="trigger" class="e-btn e-btn--icon e-btn--circled" :class="[isActive ? isShowing : 'e-btn---selected']" aria-label="More menu">
     <span class="e-btn__icon">
       <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
       <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
     </span>
   </button>
 
-  <div slot="content">
+  <div slot="content" role="menu">
     <div class="ewc-context-menu__list-group">
-      <button>
+      <button role="menuitem">
         <elvia-icon name="edit" size="xs"></elvia-icon>
         <span>Rediger</span>
       </button>
-      <button>
+      <button role="menuitem">
         <elvia-icon name="bin" size="xs"></elvia-icon>
         <span>Slett</span>
       </button>
     </div>
     <div class="ewc-context-menu__list-group">
-      <a>
+      <a role="menuitem">
         <elvia-icon name="download" size="xs"></elvia-icon>
         <span>Last ned</span>
       </a>
@@ -99,25 +99,25 @@ const contextMenuIconsCode = {
   codeNativeHTML: `<elvia-context-menu 
   id="example-elvia-context-menu-icons"
 >
-  <button slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu" id="context-menu-trigger-icons">
+  <button aria-haspopup="menu" slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu" id="context-menu-trigger-icons">
     <span class="e-btn__icon">
       <i class="e-icon e-icon--more_menu e-icon--inverted" aria-hidden="true"></i>
       <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content">
+  <div slot="content" role="menu">
     <div class="ewc-context-menu__list-group">
-      <button>
+      <button role="menuitem">
         <elvia-icon name="edit" size="xs"></elvia-icon>
         <span>Rediger</span>
       </button>
-      <button>
+      <button role="menuitem">
         <elvia-icon name="bin" size="xs"></elvia-icon>
         <span>Slett</span>
       </button>
     </div>
     <div class="ewc-context-menu__list-group">
-      <a>
+      <a role="menuitem">
         <elvia-icon name="download" size="xs"></elvia-icon>
         <span>Last ned</span>
       </a>

@@ -74,7 +74,7 @@ const contextMenuData: ComponentData = {
   onOpen={() => setIsShowing(true)}
   onClose={() => setIsShowing(false)}
   trigger={
-    <button className={'e-btn e-btn--icon e-btn--circled ' + (isShowing ? 'e-btn---selected' : '')}>
+    <button aria-haspopup="menu" className={'e-btn e-btn--icon e-btn--circled ' + (isShowing ? 'e-btn---selected' : '')}>
       <span className="e-btn__icon">
       <i class="e-icon e-icon--more_menu e-icon--inverted" aria-hidden="true"></i>
       <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
@@ -82,18 +82,20 @@ const contextMenuData: ComponentData = {
     </button>
   }
   content={
-    <div className="ewc-context-menu__list-group">
-      <button>
-        <span>Be om tilgang</span>
-      </button>
-      <button>
-        <span>Legg til bruker</span>
-      </button>
-    </div>
-    <div className="ewc-context-menu__list-group">
-      <a>
-        <span>Endre passord</span>
-      </a>
+    <div role="menu">
+      <div className="ewc-context-menu__list-group">
+        <button role="menuitem">
+          <span>Be om tilgang</span>
+        </button>
+        <button role="menuitem">
+          <span>Legg til bruker</span>
+        </button>
+      </div>
+      <div className="ewc-context-menu__list-group">
+        <a role="menuitem">
+          <span>Endre passord</span>
+        </a>
+      </div>
     </div>
   }
 ></ContextMenu>`,
@@ -101,23 +103,23 @@ const contextMenuData: ComponentData = {
   (onOpen)="isShowing=true"
   (onClose)="isShowing=false"
 >
-  <button slot="trigger" class="e-btn e-btn--icon e-mr-8" [ngClass]="'e-btn---selected': isShowing" aria-label="More menu">
+  <button aria-haspopup="menu" slot="trigger" class="e-btn e-btn--icon e-mr-8" [ngClass]="'e-btn---selected': isShowing" aria-label="More menu">
     <span class="e-btn__icon">
       <i class="e-icon e-icon--more_menu e-icon--inverted" aria-hidden="true"></i>
       <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content">
+  <div slot="content" role="menu">
     <div class="ewc-context-menu__list-group">
-      <button>
+      <button role="menuitem">
         <span>Be om tilgang</span>
       </button>
-      <button>
+      <button role="menuitem">
         <span>Legg til bruker</span>
       </button>
     </div>
     <div class="ewc-context-menu__list-group">
-      <a>
+      <a role="menuitem">
         <span>Endre passord</span>
       </a>
     </div>
@@ -127,23 +129,23 @@ const contextMenuData: ComponentData = {
   @on-open="isShowing=true"
   @on-close="isShowing=false"
 >
-  <button slot="trigger" class="e-btn e-btn--icon e-mr-8" :class="[isActive ? isShowing : 'e-btn---selected']" aria-label="More menu">
+  <button aria-haspopup="menu" slot="trigger" class="e-btn e-btn--icon e-mr-8" :class="[isActive ? isShowing : 'e-btn---selected']" aria-label="More menu">
     <span class="e-btn__icon">
       <i class="e-icon e-icon--more_menu e-icon--inverted" aria-hidden="true"></i>
       <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content">
+  <div slot="content" role="menu">
     <div class="ewc-context-menu__list-group">
-      <button>
+      <button role="menuitem">
         <span>Be om tilgang</span>
       </button>
-      <button>
+      <button role="menuitem">
         <span>Legg til bruker</span>
       </button>
     </div>
     <div class="ewc-context-menu__list-group">
-      <a>
+      <a role="menuitem">
         <span>Endre passord</span>
       </a>
     </div>
@@ -152,23 +154,23 @@ const contextMenuData: ComponentData = {
   codeNativeHTML: `<elvia-context-menu 
   id="example-elvia-context-menu"
 >
-  <button slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu" id="context-menu-trigger-button">
+  <button aria-haspopup="menu" slot="trigger" class="e-btn e-btn--icon e-mr-8" aria-label="More menu" id="context-menu-trigger-button">
     <span class="e-btn__icon">
       <i class="e-icon e-icon--more_menu e-icon--inverted" aria-hidden="true"></i>
       <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="content">
+  <div slot="content" role="menu">
     <div class="ewc-context-menu__list-group">
-      <button>
+      <button role="menuitem">
         <span>Be om tilgang</span>
       </button>
-      <button>
+      <button role="menuitem">
         <span>Legg til bruker</span>
       </button>
     </div>
     <div class="ewc-context-menu__list-group">
-      <a>
+      <a role="menuitem">
         <span>Endre passord</span>
       </a>
     </div>

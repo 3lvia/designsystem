@@ -102,6 +102,7 @@
           class="e-btn e-btn--icon e-mr-8"
           :class="{ 'e-btn---selected': isContextMenuShowing }"
           aria-label="More menu"
+          aria-haspopup="menu"
         >
           <span class="e-btn__icon">
             <i class="e-icon e-icon--more_menu e-icon--inverted" aria-hidden="true"></i>
@@ -109,17 +110,17 @@
           </span>
         </button>
 
-        <div slot="content">
+        <div slot="content" role="menu">
           <div class="ewc-context-menu__list-group">
-            <button>
+            <button role="menuitem">
               <span>Be om tilgang</span>
             </button>
-            <button>
+            <button role="menuitem">
               <span>Legg til bruker</span>
             </button>
           </div>
           <div class="ewc-context-menu__list-group">
-            <a>
+            <a role="menuitem">
               <span>Endre passord</span>
             </a>
           </div>

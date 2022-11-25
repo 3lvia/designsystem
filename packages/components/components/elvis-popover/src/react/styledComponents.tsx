@@ -30,7 +30,7 @@ export const PopoverContent = styled.div`
   flex-direction: column;
   position: absolute;
   max-width: calc(100% - 16px);
-  z-index: 111;
+  z-index: 99999;
   pointer-events: all;
   padding: 32px;
   background-color: ${getColor('elvia-on')};
@@ -76,7 +76,7 @@ export const Backdrop = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 99999;
 `;
 
 export const Heading = styled.h3`
