@@ -9,6 +9,7 @@ import { Checkbox } from '../checkbox/checkbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { statusToIconMap } from '../statusToIconMap';
 import { flushSync } from 'react-dom';
+import { getColor } from '@elvia/elvis-colors';
 
 interface DropdownItemProps {
   item: DropdownItemOption;
@@ -224,7 +225,11 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
                 showChildList(true);
               }}
             >
-              <Icon name="arrowRight" size={isCompact ? 'xs' : 'sm'} />
+              <Icon
+                name="arrowRight"
+                size={isCompact ? 'xs' : 'sm'}
+                color={item.isDisabled ? getColor('disabled') : ''}
+              />
             </OpenOverlayButton>
           </IconContainer>
         )}

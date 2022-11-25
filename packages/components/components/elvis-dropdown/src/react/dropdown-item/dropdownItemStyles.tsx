@@ -106,10 +106,6 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
       return css`
         cursor: not-allowed;
         color: ${getColor('disabled')};
-
-        ${OpenOverlayButton} {
-          opacity: 0.3;
-        }
       `;
     }
     return css`
