@@ -2545,7 +2545,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^3.0.3, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
+"@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^3.0.3, @elvia/elvis-component-wrapper@^3.1.0, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper"
   dependencies:
@@ -2560,19 +2560,6 @@ __metadata:
     react-dom: ^18.2.0
   languageName: unknown
   linkType: soft
-
-"@elvia/elvis-component-wrapper@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "@elvia/elvis-component-wrapper@npm:3.1.0"
-  dependencies:
-    json5: ^2.2.1
-    lodash.isequal: ^4.5.0
-    lodash.throttle: ^4.1.1
-    react: ^18.2.0
-    react-dom: ^18.2.0
-  checksum: 550663e8f2703eb61bd723a08c777dffa91961e9746fac63ed791fe12666c06cde637028c560598c7d6682b165afc3113c84c1ae81d2580554cfd21f59fcb157
-  languageName: node
-  linkType: hard
 
 "@elvia/elvis-components@workspace:packages/components":
   version: 0.0.0-use.local
