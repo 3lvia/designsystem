@@ -37,17 +37,7 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
   display: flex;
   flex-direction: column;
   min-width: 216px;
-  max-height: calc(50vh - 8px);
-  overflow: auto;
-  box-sizing: border-box;
   text-align: left;
-  color: ${getColor('elvia-off')};
-  border-radius: 8px;
-  background-color: ${getColor('elvia-on')};
-
-  @supports (max-height: 50svh) {
-    max-height: calc(50svh - 8px);
-  }
 
   .ewc-context-menu__list-group:not(:last-of-type) {
     border-bottom: 1px solid ${getColor('grey-10')};
@@ -57,16 +47,30 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
   > a,
   .ewc-context-menu__list-group > button,
   .ewc-context-menu__list-group > a {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
     width: 100%;
     border: none;
     padding: 10px 16px;
     margin: 0;
     cursor: pointer;
-    display: flex;
-    align-items: center;
+    color: ${getColor('elvia-off')};
     ${getTypographyCss('text-md')}
     background-color: ${getColor('elvia-on')};
     text-decoration: none;
+
+    &.ewc-context-menu__first-child {
+      border-radius: 8px 8px 0 0;
+    }
+
+    &.ewc-context-menu__last-child {
+      border-radius: 0 0 8px 8px;
+    }
+
+    &.ewc-context-menu__first-child.ewc-context-menu__last-child {
+      border-radius: 8px;
+    }
 
     i {
       margin-right: 16px;
@@ -76,15 +80,15 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
       background: ${getColor('grey-05')};
     }
 
-    ${(props) =>
-      props.isSelectable &&
+    ${({ isSelectable }) =>
+      isSelectable &&
       css`
         padding: 10px 16px 10px 48px;
 
         i {
           margin-left: -32px;
         }
-      `}
+      `};
   }
 
   .ewc-context-menu__list-group {

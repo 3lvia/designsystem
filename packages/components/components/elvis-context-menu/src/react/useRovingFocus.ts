@@ -1,32 +1,40 @@
-import { RefObject, useEffect } from 'react';
+import { RefObject, useEffect, useRef } from 'react';
 
-export const useRovingFocus = (listRef?: RefObject<HTMLElement>): void => {
+export const useRovingFocus = <T extends HTMLElement>(): RefObject<T> => {
+  const ref = useRef<T>(null);
+
   const getNewFocusedIndex = (
     ev: KeyboardEvent,
     items: NodeListOf<HTMLElement>,
     currentIndex: number,
   ): number => {
-    if (ev.code === 'ArrowRight' || ev.code === 'ArrowDown') {
+    if (['ArrowRight', 'ArrowDown'].includes(ev.code)) {
       ev.preventDefault();
       if (currentIndex === items.length - 1) {
         return 0;
       } else {
         return ++currentIndex;
       }
-    } else if (ev.code === 'ArrowLeft' || ev.code === 'ArrowUp') {
+    } else if (['ArrowLeft', 'ArrowUp'].includes(ev.code)) {
       ev.preventDefault();
       if (currentIndex === 0) {
         return items.length - 1;
       } else {
         return --currentIndex;
       }
+    } else if (ev.code === 'Home') {
+      ev.preventDefault();
+      return 0;
+    } else if (ev.code === 'End') {
+      ev.preventDefault();
+      return items.length - 1;
     }
 
     return currentIndex;
   };
 
   useEffect(() => {
-    const list = listRef?.current;
+    const list = ref?.current;
 
     if (!list) {
       return;
@@ -57,5 +65,7 @@ export const useRovingFocus = (listRef?: RefObject<HTMLElement>): void => {
     list.addEventListener('keydown', onKeyDown);
 
     return () => list.removeEventListener('keydown', onKeyDown);
-  }, [listRef, listRef?.current]);
+  }, [ref, ref?.current]);
+
+  return ref;
 };
