@@ -2,7 +2,7 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "24.11.22",
+      "date": "25.11.22",
       "version": "7.0.0",
       "changelog": [
         {
@@ -11,7 +11,11 @@
             "The prop <span class=\"code-text\">type</span> has been removed. This is because a new component <span class=\"code-text\">ContextMenu</span> has been created to replace the <span class=\"code-text\">type='list'</span> prop.",
             "The prop <span class=\"code-text\">isSelectable</span> has been removed since it serves no purpose after remove the context menu feature.",
             "The prop <span class=\"code-text\">hasDivider</span> has been removed since it serves no purpose after remove the context menu feature.",
-            "The prop <span class=\"code-text\">disableAutoClose</span> has been removed since it serves no purpose after remove the context menu feature."
+            "The prop <span class=\"code-text\">disableAutoClose</span> has been removed since it serves no purpose after remove the context menu feature.",
+            "The popover component will now have proper stacking when used in combination with modals and other overflowing components."
+          ],
+          "fixes": [
+            "If the context menu feature of the popover was used, please install the new NPM package <span class=\"code-text\">@elvia/elvis-context-menu</span>. The API of the component is the same as before, except for the removed props mentioned."
           ]
         }
       ]
