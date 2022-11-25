@@ -18,9 +18,7 @@ export const useRovingFocus = (listRef?: RefObject<HTMLElement>): void => {
         }
       });
 
-      const onKeyDown = (ev: KeyboardEvent): void => {
-        tabbableItems.item(focusedIndex).tabIndex = -1;
-
+      const setNewFocusedIndex = (ev: KeyboardEvent): void => {
         if (ev.code === 'ArrowRight' || ev.code === 'ArrowDown') {
           ev.preventDefault();
           if (focusedIndex === tabbableItems.length - 1) {
@@ -36,6 +34,12 @@ export const useRovingFocus = (listRef?: RefObject<HTMLElement>): void => {
             --focusedIndex;
           }
         }
+      };
+
+      const onKeyDown = (ev: KeyboardEvent): void => {
+        tabbableItems.item(focusedIndex).tabIndex = -1;
+
+        setNewFocusedIndex(ev);
 
         const item = tabbableItems.item(focusedIndex);
         item.focus();
