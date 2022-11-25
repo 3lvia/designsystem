@@ -47,14 +47,14 @@ const contextMenuData: ComponentData = {
     },
     horizontalPosition: {
       isRequired: false,
-      type: 'left | center | right',
+      type: 'left | right',
       description: 'Position horizontally.',
       default: 'left',
       cegDisplayName: 'Horizontal position',
       cegDefault: 'left',
       cegType: 'string',
       cegFormType: 'radio',
-      cegOptions: ['left', 'center', 'right'],
+      cegOptions: ['left', 'right'],
     },
     className: {
       isRequired: false,
