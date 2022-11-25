@@ -47,6 +47,8 @@ export const useRovingFocus = (listRef?: RefObject<HTMLElement>): void => {
       };
 
       list.addEventListener('keydown', onKeyDown);
+
+      return () => list.removeEventListener('keydown', onKeyDown);
     }
   }, [listRef, listRef?.current]);
 };
