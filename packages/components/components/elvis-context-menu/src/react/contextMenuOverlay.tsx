@@ -1,5 +1,5 @@
 import { BaseProps, useSlot } from '@elvia/elvis-toolbox';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { createPortal } from 'react-dom';
 import { Backdrop, ContextMenuContent, ItemList } from './styledComponents';
 import { useRovingFocus } from './useRovingFocus';
@@ -21,16 +21,6 @@ export const ContextMenuOverlay = React.forwardRef<HTMLDivElement, Props>(
         onClose();
       }
     };
-
-    useEffect(() => {
-      if (contentRef.current) {
-        const items = contentRef.current.querySelectorAll('button, a');
-        if (items.length) {
-          items.item(0)?.classList.add('ewc-context-menu__first-child');
-          items.item(items.length - 1)?.classList.add('ewc-context-menu__last-child');
-        }
-      }
-    }, [contentRef.current]);
 
     return createPortal(
       <>

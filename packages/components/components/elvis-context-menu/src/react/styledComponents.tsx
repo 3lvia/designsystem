@@ -38,6 +38,14 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
   flex-direction: column;
   min-width: 216px;
   text-align: left;
+  max-height: calc(50vh - 8px);
+  background-color: ${getColor('elvia-on')};
+  overflow: auto;
+  border-radius: 8px;
+
+  @supports (max-height: 50svh) {
+    max-height: calc(50svh - 8px);
+  }
 
   .ewc-context-menu__list-group:not(:last-of-type) {
     border-bottom: 1px solid ${getColor('grey-10')};
@@ -57,20 +65,8 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
     cursor: pointer;
     color: ${getColor('elvia-off')};
     ${getTypographyCss('text-md')}
-    background-color: ${getColor('elvia-on')};
+    background-color: transparent;
     text-decoration: none;
-
-    &.ewc-context-menu__first-child {
-      border-radius: 8px 8px 0 0;
-    }
-
-    &.ewc-context-menu__last-child {
-      border-radius: 0 0 8px 8px;
-    }
-
-    &.ewc-context-menu__first-child.ewc-context-menu__last-child {
-      border-radius: 8px;
-    }
 
     i {
       margin-right: 16px;
