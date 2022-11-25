@@ -21,8 +21,7 @@ export class ContextMenuDocComponent {
   description = getComponent('context-menu').description;
   title = getComponent('context-menu').title;
 
-  // TODO: Check this
-  does = ['Help user complete small actions', 'When space is limited'];
+  does = ['Help user perform actions when space is limited'];
   donts = ['When the actions are cruicial to complete a workflow'];
 
   constructor(private titleService: Title) {
