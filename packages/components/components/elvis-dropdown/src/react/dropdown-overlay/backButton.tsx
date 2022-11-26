@@ -1,6 +1,7 @@
 import { Icon } from '@elvia/elvis-icon/react';
 import { IconButton } from '@elvia/elvis-toolbox';
 import React, { MouseEvent } from 'react';
+import { getDropdownItemId } from '../dropdownListUtils';
 import { DropdownItem, DropdownValueType } from '../elviaDropdown.types';
 import { BackButtonStyles } from './dropdownOverlayStyles';
 
@@ -27,6 +28,7 @@ export const BackButton: React.FC<SelectAllOptionProps> = ({
 
   return (
     <BackButtonStyles
+      id={getDropdownItemId(item.value)}
       onClick={() => onClick()}
       onMouseEnter={() => onHover(item)}
       onMouseDown={preventInputElementBlur}

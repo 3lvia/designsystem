@@ -3,6 +3,7 @@ import { Icon } from '@elvia/elvis-icon/react';
 import { TertiaryButton } from '@elvia/elvis-toolbox';
 import { DropdownItem, DropdownValueType } from '../elviaDropdown.types';
 import { LoadMoreButtonStyles, SpinContainer } from './dropdownOverlayStyles';
+import { getDropdownItemId } from '../dropdownListUtils';
 
 interface LoadMoreProps {
   item: DropdownItem;
@@ -32,7 +33,7 @@ export const LoadMoreButton: React.FC<LoadMoreProps> = ({
         onMouseEnter={() => onHover(item)}
         onMouseDown={preventInputElementBlur}
         isLoading={isLoadingMoreItems}
-        id={`ewc-dropdown-item-${item.value}`}
+        id={getDropdownItemId(item.value)}
       >
         <TertiaryButton tabIndex={-1} isActive={focusedValue === item.value} size={isCompact ? 'sm' : 'md'}>
           <SpinContainer>
