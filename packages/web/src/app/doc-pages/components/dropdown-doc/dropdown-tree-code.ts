@@ -28,9 +28,9 @@ const dropdownTreeCode = {
         value: 'england',
         label: 'England',
         children: [
-          { value: 'london', label: 'London', icon: 'adjust' },
-          { value: 'manchester', label: 'Manchester', icon: 'addCircle' },
-          { value: 'birmingham', label: 'Birmingham', icon: 'search' },
+          { value: 'london', label: 'London' },
+          { value: 'manchester', label: 'Manchester' },
+          { value: 'birmingham', label: 'Birmingham' },
         ],
       },
     ]} 
@@ -68,9 +68,9 @@ const dropdownTreeCode = {
         value: 'england',
         label: 'England',
         children: [
-          { value: 'london', label: 'London', icon: 'adjust' },
-          { value: 'manchester', label: 'Manchester', icon: 'addCircle' },
-          { value: 'birmingham', label: 'Birmingham', icon: 'search' },
+          { value: 'london', label: 'London' },
+          { value: 'manchester', label: 'Manchester' },
+          { value: 'birmingham', label: 'Birmingham' },
         ],
       },
     ]"
@@ -108,9 +108,9 @@ const dropdownTreeCode = {
         value: 'england',
         label: 'England',
         children: [
-          { value: 'london', label: 'London', icon: 'adjust' },
-          { value: 'manchester', label: 'Manchester', icon: 'addCircle' },
-          { value: 'birmingham', label: 'Birmingham', icon: 'search' },
+          { value: 'london', label: 'London' },
+          { value: 'manchester', label: 'Manchester' },
+          { value: 'birmingham', label: 'Birmingham' },
         ],
       },
     ]"
@@ -153,9 +153,9 @@ const dropdownTreeCode = {
         value: 'england',
         label: 'England',
         children: [
-          { value: 'london', label: 'London', icon: 'adjust' },
-          { value: 'manchester', label: 'Manchester', icon: 'addCircle' },
-          { value: 'birmingham', label: 'Birmingham', icon: 'search' },
+          { value: 'london', label: 'London' },
+          { value: 'manchester', label: 'Manchester' },
+          { value: 'birmingham', label: 'Birmingham' },
         ],
       },
     ];
