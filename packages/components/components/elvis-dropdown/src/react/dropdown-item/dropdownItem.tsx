@@ -13,7 +13,6 @@ import { getColor } from '@elvia/elvis-colors';
 
 interface DropdownItemProps {
   item: DropdownItemOption;
-  parentItem?: DropdownItemOption;
   currentVal?: DropdownValue;
   isCompact?: boolean;
   isMulti: boolean;
@@ -31,7 +30,6 @@ interface DropdownItemProps {
 
 export const DropdownItem: React.FC<DropdownItemProps> = ({
   item,
-  parentItem,
   currentVal,
   isCompact,
   isMulti,
@@ -126,9 +124,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         !item.isDisabled
       ) {
         setIsShowing(true);
-      } else if (pressedKey?.code === 'ArrowLeft' && parentItem) {
-        setFocusedItem(parentItem);
-        setHoveredItem(parentItem);
       }
     }
   }, [pressedKey]);
