@@ -42,7 +42,7 @@ const popoverData: ComponentData = {
     isShowing: {
       isRequired: false,
       type: 'boolean',
-      description: 'Determines the popover is showing or not.',
+      description: 'Determines if the popover is visible.',
       default: 'false',
     },
     onOpen: {

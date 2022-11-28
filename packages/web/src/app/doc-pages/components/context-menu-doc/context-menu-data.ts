@@ -21,7 +21,7 @@ const contextMenuData: ComponentData = {
     isShowing: {
       isRequired: false,
       type: 'boolean',
-      description: 'Determines the context menu is showing or not.',
+      description: 'Determines whether the context menu is showing or not.',
       default: 'false',
     },
     onOpen: {
