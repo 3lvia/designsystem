@@ -15,14 +15,14 @@ const contextMenuSelectableCode = {
 	content={
     <>
       <div className="ewc-context-menu__list-group">
-        <button role="menuitem">
+        <button role="menuitemradio">
           <elvia-icon name="checkBold" size="xs"></elvia-icon>
           <span>Dato - nyeste til eldste</span>
         </button>
-        <button role="menuitem">
+        <button role="menuitemradio">
           <span>Dato - eldste til nyeste</span>
         </button>
-        <button role="menuitem">
+        <button role="menuitemradio">
           <span>Relevans</span>
         </button>
       </div>
@@ -44,14 +44,14 @@ const contextMenuSelectableCode = {
   </button>
   <div slot="content">
     <div class="ewc-context-menu__list-group">
-      <button role="menuitem">
+      <button role="menuitemradio">
         <elvia-icon name="checkBold" size="xs"></elvia-icon>
         <span>Dato - nyeste til eldste</span>
       </button>
-      <button role="menuitem">
+      <button role="menuitemradio">
         <span>Dato - eldste til nyeste</span>
       </button>
-      <button role="menuitem">
+      <button role="menuitemradio">
         <span>Relevans</span>
       </button>
     </div>
@@ -72,14 +72,14 @@ const contextMenuSelectableCode = {
   </button>
   <div slot="content">
     <div class="ewc-context-menu__list-group">
-      <button role="menuitem">
+      <button role="menuitemradio">
         <elvia-icon name="checkBold" size="xs"></elvia-icon>
         <span>Dato - nyeste til eldste</span>
       </button>
-      <button role="menuitem">
+      <button role="menuitemradio">
         <span>Dato - eldste til nyeste</span>
       </button>
-      <button role="menuitem">
+      <button role="menuitemradio">
         <span>Relevans</span>
       </button>
     </div>
@@ -98,14 +98,14 @@ const contextMenuSelectableCode = {
   </button>
   <div slot="content">
     <div class="ewc-context-menu__list-group">
-      <button role="menuitem">
+      <button role="menuitemradio">
         <elvia-icon name="checkBold" size="xs"></elvia-icon>
         <span>Dato - nyeste til eldste</span>
       </button>
-      <button role="menuitem">
+      <button role="menuitemradio">
         <span>Dato - eldste til nyeste</span>
       </button>
-      <button role="menuitem">
+      <button role="menuitemradio">
         <span>Relevans</span>
       </button>
     </div>
