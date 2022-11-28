@@ -33,6 +33,9 @@ function getComponentConfigs() {
 function setGetList(attributes: ComponentAttribute[]) {
   let list = '';
   attributes.forEach((attr) => {
+    if (attr.type === 'event') {
+      return;
+    }
     const lowercase = attr.name.toLowerCase();
 
     list += `
