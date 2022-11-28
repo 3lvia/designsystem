@@ -35,6 +35,9 @@ export class v2PlaygroundComponent {
     { value: 2025, color: 'purple', isDisabled: true },
   ];
 
+  // Context menu
+  isContextMenuShowing = false;
+
   // Datepicker
   date = new Date(2022, 9, 10, 22, 42, 42, 42);
   minDate = new Date(2022, 9, 5);

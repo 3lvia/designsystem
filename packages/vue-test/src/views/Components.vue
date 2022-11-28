@@ -93,6 +93,41 @@
       </div>
     </div>
 
+    <!-- Context menu -->
+    <div class="example-wrapper">
+      <h3>Context menu</h3>
+      <elvia-context-menu @onOpen="isContextMenuShowing = true" @onClose="isContextMenuShowing = false">
+        <button
+          slot="trigger"
+          class="e-btn e-btn--icon e-mr-8"
+          :class="{ 'e-btn---selected': isContextMenuShowing }"
+          aria-label="More menu"
+          aria-haspopup="menu"
+        >
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--more_menu e-icon--inverted" aria-hidden="true"></i>
+            <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
+          </span>
+        </button>
+
+        <div slot="content">
+          <div class="ewc-context-menu__list-group">
+            <button role="menuitem">
+              <span>Be om tilgang</span>
+            </button>
+            <button role="menuitem">
+              <span>Legg til bruker</span>
+            </button>
+          </div>
+          <div class="ewc-context-menu__list-group">
+            <a role="menuitem">
+              <span>Endre passord</span>
+            </a>
+          </div>
+        </div>
+      </elvia-context-menu>
+    </div>
+
     <!--Datepicker-->
     <div class="example-wrapper">
       <h3>Datepicker</h3>
@@ -257,6 +292,9 @@ export default defineComponent({
       { value: 2024, color: 'blue', isDisabled: true },
     ];
 
+    // Context menu
+    const isContextMenuShowing = ref(false);
+
     // Dropdown
     const dropdownDefaultOption = '675';
     const dropdownOptions = [
@@ -303,22 +341,23 @@ export default defineComponent({
     };
 
     return {
-      openAccordion,
       breadcrumbsTest,
       breadcrumbsTestNoUrl,
       carouselValue,
+      defaultPaginationValue,
       deletableChipsList,
       dropdownDefaultOption,
       dropdownOptions,
-      isModalShowing,
-      vPos,
       hPos,
-      radius,
-      defaultPaginationValue,
+      incrementCarouselStep,
+      isContextMenuShowing,
+      isModalShowing,
       logValue,
       moveSpotlight,
-      incrementCarouselStep,
       onTimepickerChange,
+      openAccordion,
+      radius,
+      vPos,
     };
   },
 });

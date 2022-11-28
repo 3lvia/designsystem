@@ -38,5 +38,25 @@ export const config: ComponentConfig = {
       newProp: 'isSelectable',
       isDirectReplacement: true,
     },
+    type: {
+      version: '7.0.0',
+      explanation:
+        'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+    },
+    isSelectable: {
+      version: '7.0.0',
+      explanation:
+        'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+    },
+    hasDivider: {
+      version: '7.0.0',
+      explanation:
+        'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+    },
+    disableAutoClose: {
+      version: '7.0.0',
+      explanation:
+        'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+    },
   },
 };

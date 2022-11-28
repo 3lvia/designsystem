@@ -169,6 +169,16 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
   },
   {
+    title: 'Context Menu',
+    description:
+      'A list of actions in a popover that often are used together with a more-menu icon button. This can be used when the space is limited or when you want to group actions. The context menu closes immediately after selecting action or clicking outside.',
+    docUrl: Pages.ContextMenu,
+    absolutePath: '/components/' + Pages.ContextMenu,
+    status: DocPageStatus.Done,
+    figmaUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover?node-id=2191%3A5482',
+    type: 'Component',
+  },
+  {
     title: 'Date Picker',
     description:
       'Date picker is a simple way for the user to quickly select a date in a calendar dialog. It uses a text field and a visual calendar in a popover.',

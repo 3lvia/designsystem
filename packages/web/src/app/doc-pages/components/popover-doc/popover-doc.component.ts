@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { popoverData } from './popover-data';
-import { popoverInformativeCode } from './popover-informative-code';
-import { popoverListCode } from './popover-list-code';
-import { popoverListHeadingsCode } from './popover-list-headings';
-import { popoverListIconsCode } from './popover-list-icons-code';
-import { popoverListSelectableCode } from './popover-list-selectable-code';
 import { Title } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-popover-doc',
   templateUrl: './popover-doc.component.html',
@@ -14,10 +10,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class PopoverDocComponent {
   componentData = popoverData;
-  popoverListIconsCode = popoverListIconsCode;
-  popoverListHeadingsCode = popoverListHeadingsCode;
-  popoverListSelectableCode = popoverListSelectableCode;
-  typesData = [popoverInformativeCode, popoverListCode];
   loadedPopoverStructure = false;
   figmaUrl = getComponent('popover').figmaUrl;
   description = getComponent('popover').description;

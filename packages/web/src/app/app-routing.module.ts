@@ -21,6 +21,7 @@ import { ChipDocComponent } from './doc-pages/components/chip-doc/chip-doc.compo
 import { ColorDocComponent } from './doc-pages/other-pages/color-doc/color-doc.component';
 import { ContactComponent } from './doc-pages/other-pages/contact/contact.component';
 import { ContentLoaderDocComponent } from './doc-pages/components/content-loader-doc/content-loader-doc.component';
+import { ContextMenuDocComponent } from './doc-pages/components/context-menu-doc/context-menu-doc.component';
 import { ContributeComponent } from './doc-pages/other-pages/contribute/contribute.component';
 import { DatepickerDocComponent } from './doc-pages/components/forms/datepicker-doc/datepicker-doc.component';
 import { DatepickerRangeDocComponent } from './doc-pages/components/forms/datepicker-range-doc/datepicker-range-doc.component';
@@ -203,6 +204,10 @@ const routes: Routes = [
           {
             path: Pages.ContentLoader,
             component: ContentLoaderDocComponent,
+          },
+          {
+            path: Pages.ContextMenu,
+            component: ContextMenuDocComponent,
           },
           {
             path: Pages.Divider,
