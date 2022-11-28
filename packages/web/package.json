@@ -51,7 +51,7 @@
     "@elvia/elvis-tooltip": "portal:../components/components/elvis-tooltip",
     "@elvia/elvis-typography": "portal:../elvis-typography",
     "classlist.js": "^1.1.20150312",
-    "contentful": "^8.5.8",
+    "contentful": "^9.2.13",
     "dotenv": "^10.0.0",
     "fuse.js": "^6.6.2",
     "glob": "^7.1.6",
