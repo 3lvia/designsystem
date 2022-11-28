@@ -30,10 +30,14 @@ function getComponentConfigs() {
   );
 }
 
+function shouldIgnoreAttribute(attr: ComponentAttribute) {
+  return attr.type === 'event' || attr.deprecatedDetails;
+}
+
 function setGetList(attributes: ComponentAttribute[]) {
   let list = '';
   attributes.forEach((attr) => {
-    if (attr.type === 'event') {
+    if (shouldIgnoreAttribute(attr)) {
       return;
     }
     const lowercase = attr.name.toLowerCase();
@@ -77,10 +81,11 @@ function buildWebComponentsMagically() {
             return;
           }
 
-          const lowercaseAttr = component.attributes.map((attr) => attr.name.toLowerCase());
+          const filteredAttributes = component.attributes.filter((attr) => !shouldIgnoreAttribute(attr));
+          const observedAttributes = filteredAttributes.map((attr) => attr.name.toLowerCase());
 
           file.contents = Buffer.from(
-            String(file.contents).replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(lowercaseAttr)),
+            String(file.contents).replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(observedAttributes)),
           ); // Observed attributes has to be lowercase to meet spec
           file.contents = Buffer.from(
             String(file.contents).replace(/{{INSERT_COMPONENT_NAME}}/, elementName),
@@ -120,9 +125,9 @@ function buildWebComponentsMagically() {
       .pipe(gulp.dest(`../components/${parentName ? parentName : packageName}/dist/web_component/js/`));
   }
 
-  const tasks = componentConfigs.map((component: ComponentConfig) => {
+  const tasks = componentConfigs.map((component) => {
     const subComponents = component.subComponents
-      ? component.subComponents.map((subComponent: ComponentConfig) =>
+      ? component.subComponents.map((subComponent) =>
           createWebComponent(subComponent, getPackageName(subComponent)),
         )
       : [];
@@ -134,7 +139,7 @@ function buildWebComponentsMagically() {
 
 // Convert Typescript and JSX/TSX to JS. Also convert scss to css.
 function TSX_to_JS() {
-  const tasks = componentConfigs.map((component: ComponentConfig) => {
+  const tasks = componentConfigs.map((component) => {
     const packageName = getPackageName(component);
     return mergeStream(
       gulp
@@ -175,7 +180,7 @@ function TSX_to_JS() {
 }
 
 function reactTypescriptDeclarations() {
-  const globsToCreateDeclarationsFor = componentConfigs.map((component: ComponentConfig) => {
+  const globsToCreateDeclarationsFor = componentConfigs.map((component) => {
     const packageName = getPackageName(component);
     return `../components/${packageName}/src/react/**/!(*.test).ts*`;
   });

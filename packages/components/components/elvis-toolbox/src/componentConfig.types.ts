@@ -21,7 +21,7 @@ export interface ComponentAttribute {
   /**
    * Type of attribute.
    */
-  type: string;
+  type: 'string' | 'number' | 'boolean' | 'object' | 'Date' | 'function' | 'event';
   /**
    * Supply deprecated details if the attribute has been deprecated.
    */

@@ -1,13 +1,13 @@
 import { ComponentConfig, ComponentAttribute, DeprecatedDetails } from './componentConfig.types';
 import { isSsr } from './isSsr';
 
-interface propInfo {
+interface PropInfo {
   propName: string;
   componentName: string;
   deprecatedDetails: DeprecatedDetails | undefined;
 }
 
-const consoleWarnDeprecatedProp = (propInfo: propInfo, isSlot: boolean) => {
+const consoleWarnDeprecatedProp = (propInfo: PropInfo, isSlot: boolean) => {
   const { propName, componentName, deprecatedDetails } = propInfo;
   if (deprecatedDetails === undefined) {
     return;
@@ -84,9 +84,11 @@ export const warnDeprecatedProps = (config: ComponentConfig, props: { [propName:
     const webcomponent = props['webcomponent'];
     if (webcomponent) {
       // Check for deprecated slots on webcomponent.
-      for (const slotName in webcomponent['_slots']) {
-        if (isDeprecatedProp(slotName, deprecatedProps)) {
-          consoleWarnDeprecatedProp(getPropInfo(slotName, deprecatedProps, config), true);
+      if ('_slots' in webcomponent) {
+        for (const slotName in webcomponent['_slots']) {
+          if (isDeprecatedProp(slotName, deprecatedProps)) {
+            consoleWarnDeprecatedProp(getPropInfo(slotName, deprecatedProps, config), true);
+          }
         }
       }
       // Check for deprecated callback function on webcomponent Angular.
@@ -104,12 +106,14 @@ export const warnDeprecatedProps = (config: ComponentConfig, props: { [propName:
         }
       }
       // Check for deprecated callback function on webcomponent Vue.
-      for (const callback in webcomponent['_vei']) {
-        // Get callback name (e.g. onOnHide -> onHide).
-        const callbackName = callback.charAt(2).toLowerCase() + callback.substring(3);
-        if (isDeprecatedProp(callbackName, deprecatedProps) && !warnedCallbacks.includes(callbackName)) {
-          consoleWarnDeprecatedProp(getPropInfo(callbackName, deprecatedProps, config), false);
-          warnedCallbacks.push(callbackName);
+      if ('_vei' in webcomponent) {
+        for (const callback in webcomponent['_vei']) {
+          // Get callback name (e.g. onOnHide -> onHide).
+          const callbackName = callback.charAt(2).toLowerCase() + callback.substring(3);
+          if (isDeprecatedProp(callbackName, deprecatedProps) && !warnedCallbacks.includes(callbackName)) {
+            consoleWarnDeprecatedProp(getPropInfo(callbackName, deprecatedProps, config), false);
+            warnedCallbacks.push(callbackName);
+          }
         }
       }
     }
