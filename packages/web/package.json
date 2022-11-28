@@ -88,7 +88,7 @@
     "contentful-management": "^7.51.1",
     "contentful-typescript-codegen": "^3.2.3",
     "eslint": "^8.23.1",
-    "lint-staged": "^10.2.7",
+    "lint-staged": "^13.0.4",
     "object-path": ">=0.11.5",
     "stylelint": "^10.0.1 || ^11.0.0 || ^12.0.0 || ^13.0.0",
     "ts-node": "8.10.2",
