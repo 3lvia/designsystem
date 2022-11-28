@@ -2589,7 +2589,6 @@ __metadata:
     "@types/jest": ^29.2.3
     "@types/merge-stream": ^1.1.2
     "@types/styled-components": ^5.1.19
-    ajv: ^8.8.2
     babel-jest: ^29.3.1
     babel-plugin-styled-components: ^1.13.3
     babel-preset-minify: ^0.5.2
@@ -7971,7 +7970,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ajv@npm:^8.0.0, ajv@npm:^8.0.1, ajv@npm:^8.6.0, ajv@npm:^8.8.0, ajv@npm:^8.8.2":
+"ajv@npm:^8.0.0, ajv@npm:^8.0.1, ajv@npm:^8.6.0, ajv@npm:^8.8.0":
   version: 8.11.2
   resolution: "ajv@npm:8.11.2"
   dependencies:
