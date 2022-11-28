@@ -35,6 +35,9 @@ export class v2PlaygroundComponent {
     { value: 2025, color: 'purple', isDisabled: true },
   ];
 
+  // Context menu
+  isContextMenuShowing = false;
+
   // Datepicker
   date = new Date(2022, 9, 10, 22, 42, 42, 42);
   minDate = new Date(2022, 9, 5);
@@ -60,7 +63,7 @@ export class v2PlaygroundComponent {
   dropdownItems: ElviaDropdownItem[] = [
     {
       value: 0,
-      label: 'Norge med en veldig lang tekst som kommer til å overflowe',
+      label: 'Norge',
       children: [
         { label: 'Oslo', value: 'oslo' },
         {
@@ -82,11 +85,16 @@ export class v2PlaygroundComponent {
     {
       value: 1,
       label: 'Sverige',
+      isDisabled: true,
       status: 'info',
       tooltip: 'Sweden is a country',
     },
     { value: 'danmark', label: 'Danmark' },
-    { value: 'finland', label: 'Finland' },
+    {
+      value: 'finland',
+      label: 'Finland  med en veldig lang tekst som kommer til å overflowe',
+      isDisabled: true,
+    },
     { value: 'spania', label: 'Spania' },
     { value: 'tyskland', label: 'Tyskland' },
     {

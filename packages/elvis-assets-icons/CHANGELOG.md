@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 2.6.1 (28.11.22)
+
+### Bug fix
+
+- Fixed a bug where the Wrench icon would be cut off
+
 ## 2.6.0 (27.10.22)
 
 ### New feature

@@ -1,7 +1,7 @@
 import React, { MouseEvent, useEffect, useState } from 'react';
 import { Checkbox } from '../checkbox/checkbox';
 import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';
-import { flattenTree, getValueAsList } from '../dropdownListUtils';
+import { flattenTree, getDropdownItemId, getValueAsList } from '../dropdownListUtils';
 import { DropdownItem, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
 import { Divider } from './dropdownOverlayStyles';
 
@@ -56,7 +56,7 @@ export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
         onMouseDown={preventInputElementBlur}
         isFocused={focusedValue === item.value}
         isCompact={isCompact}
-        id={`ewc-dropdown-item-${item.value}`}
+        id={getDropdownItemId(item.value)}
       >
         <Checkbox
           isCompact={isCompact}

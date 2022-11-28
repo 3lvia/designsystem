@@ -5,18 +5,54 @@ export const config: ComponentConfig = {
   attributes: [
     { name: 'heading', type: 'string' },
     { name: 'content', type: 'string' },
-    { name: 'type', type: 'string' },
-    { name: 'isSelectable', type: 'boolean' },
-    { name: 'hasDivider', type: 'boolean' },
     { name: 'horizontalPosition', type: 'string' },
     { name: 'verticalPosition', type: 'string' },
     { name: 'trigger', type: 'string' },
     { name: 'hasCloseButton', type: 'boolean' },
     { name: 'isShowing', type: 'boolean' },
-    { name: 'disableAutoClose', type: 'boolean' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
     // Deprecated attributes
+    {
+      name: 'type',
+      type: 'string',
+      deprecatedDetails: {
+        version: '7.0.0',
+        isCallbackFunction: true,
+        explanation:
+          'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+      },
+    },
+    {
+      name: 'isSelectable',
+      type: 'boolean',
+      deprecatedDetails: {
+        version: '7.0.0',
+        isCallbackFunction: true,
+        explanation:
+          'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+      },
+    },
+    {
+      name: 'hasDivider',
+      type: 'boolean',
+      deprecatedDetails: {
+        version: '7.0.0',
+        isCallbackFunction: true,
+        explanation:
+          'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+      },
+    },
+    {
+      name: 'disableAutoClose',
+      type: 'boolean',
+      deprecatedDetails: {
+        version: '7.0.0',
+        isCallbackFunction: true,
+        explanation:
+          'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+      },
+    },
     {
       name: 'header',
       type: 'string',

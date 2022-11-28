@@ -3,16 +3,16 @@ import { isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, RefObject, useEffect, useMemo, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
 import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
-import { flattenTree, getValueAsList } from '../dropdownListUtils';
+import { flattenTree, getDropdownItemId, getValueAsList } from '../dropdownListUtils';
 import { DropdownItemStyles, IconContainer, OpenOverlayButton } from './dropdownItemStyles';
 import { Checkbox } from '../checkbox/checkbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { statusToIconMap } from '../statusToIconMap';
 import { flushSync } from 'react-dom';
+import { getColor } from '@elvia/elvis-colors';
 
 interface DropdownItemProps {
   item: DropdownItemOption;
-  parentItem?: DropdownItemOption;
   currentVal?: DropdownValue;
   isCompact?: boolean;
   isMulti: boolean;
@@ -30,7 +30,6 @@ interface DropdownItemProps {
 
 export const DropdownItem: React.FC<DropdownItemProps> = ({
   item,
-  parentItem,
   currentVal,
   isCompact,
   isMulti,
@@ -97,7 +96,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       setFocusedItem(item);
       setHoveredItem(item);
     }
-    if (item.children && isGtMobile) {
+    if (item.children && isGtMobile && !item.isDisabled) {
       if (isSsr()) {
         showChildList(true);
       } else {
@@ -108,20 +107,23 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   };
 
   const onItemClick = () => {
-    if (isGtMobile || isMulti || !item.children) {
-      onClick(item);
-    } else {
-      showChildList(true);
+    if (!item.isDisabled) {
+      if (isGtMobile || isMulti || !item.children) {
+        onClick(item);
+      } else {
+        showChildList(true);
+      }
     }
   };
 
   useEffect(() => {
     if (focusedItem?.value === item.value) {
-      if (pressedKey?.code === 'ArrowRight' && item.children) {
+      if (
+        (pressedKey?.code === 'ArrowRight' || pressedKey?.code === 'Enter') &&
+        item.children &&
+        !item.isDisabled
+      ) {
         setIsShowing(true);
-      } else if (pressedKey?.code === 'ArrowLeft' && parentItem) {
-        setFocusedItem(parentItem);
-        setHoveredItem(parentItem);
       }
     }
   }, [pressedKey]);
@@ -169,11 +171,15 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         onClick={() => onItemClick()}
         onMouseEnter={() => onMouseOver()}
         onMouseDown={(ev) => ev.preventDefault()}
-        id={`ewc-dropdown-item-${item.value}`}
+        id={getDropdownItemId(item.value)}
         aria-disabled={item.isDisabled}
         aria-haspopup={item.children ? 'listbox' : 'false'}
         aria-expanded={isShowing}
         aria-selected={selfOrAllChildrenAreSelected}
+        aria-label={`
+        ${item.label}
+        ${item.children ? ', undermeny' : ''} 
+        ${item.tooltip ? ', Merknad: ' + item.tooltip : ''}`}
         data-testid="dropdown-item"
       >
         {isMulti && (
@@ -214,7 +220,11 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
                 showChildList(true);
               }}
             >
-              <Icon name="arrowRight" size={isCompact ? 'xs' : 'sm'} />
+              <Icon
+                name="arrowRight"
+                size={isCompact ? 'xs' : 'sm'}
+                color={item.isDisabled ? getColor('disabled') : ''}
+              />
             </OpenOverlayButton>
           </IconContainer>
         )}

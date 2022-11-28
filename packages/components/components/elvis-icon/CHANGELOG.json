@@ -2,6 +2,22 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.11.22",
+      "version": "1.3.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where the Wrench icon would be cut off."]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Update <span class=\"code-text\">@elvia/elvis-assets-icons dependency</span> to ^2.6.1"
+          ]
+        }
+      ]
+    },
+    {
       "date": "21.11.22",
       "version": "1.3.5",
       "changelog": [

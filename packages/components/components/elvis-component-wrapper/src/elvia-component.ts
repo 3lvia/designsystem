@@ -232,7 +232,7 @@ export class ElvisComponentWrapper extends HTMLElement {
       return stringToConvert;
     }
     if (attrType === 'boolean') {
-      return stringToConvert.toLowerCase() === 'true' ? true : false;
+      return stringToConvert.toLowerCase() === 'true' || stringToConvert === '' ? true : false;
     }
     if (attrType === 'number') {
       return parseFloat(stringToConvert);

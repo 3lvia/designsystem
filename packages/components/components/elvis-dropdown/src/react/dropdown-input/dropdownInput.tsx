@@ -1,7 +1,7 @@
 import { Icon, IconName } from '@elvia/elvis-icon/react';
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { DropdownItem, DropdownValue } from '../elviaDropdown.types';
-import { flattenTree } from '../dropdownListUtils';
+import { flattenTree, getDropdownItemId } from '../dropdownListUtils';
 
 import { Input } from './dropdownInputStyles';
 
@@ -99,7 +99,7 @@ export const DropdownInput: React.FC<Props> = ({
       )}
       {!!currentValIcon && <Icon name={currentValIcon} color="elvia-off" />}
       <Input
-        aria-activedescendant={focusedItem ? `ewc-dropdown-item-${focusedItem.value}` : undefined}
+        aria-activedescendant={focusedItem ? getDropdownItemId(focusedItem.value) : undefined}
         disabled={isDisabled}
         placeholder={placeholder}
         onChange={(ev) => onInputChange(ev.target.value ?? '')}

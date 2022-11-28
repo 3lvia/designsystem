@@ -35,27 +35,10 @@ export const CursorCurve = styled.div`
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 80% 50%, 50% 20%);
 `;
 
-export const DropdownPopupContainer = styled.div`
+export const DropdownPopupContainer = styled.div<{ isCompact: boolean }>`
   position: absolute;
   z-index: 99999;
-`;
-
-export const DropdownPopup = styled.div.attrs(() => ({
-  role: 'listbox',
-}))<{
-  fadeOut: boolean;
-  isCompact: boolean;
-  isInvisible: boolean;
-  animate: boolean;
-}>`
   --item-height: 48px;
-  background-color: ${getColor('elvia-on')};
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
-  animation: ${fadeIn} 300ms ease;
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
-  width: 100%;
 
   ${({ isCompact }) =>
     isCompact &&
@@ -69,7 +52,23 @@ export const DropdownPopup = styled.div.attrs(() => ({
       ${BackButtonStyles} {
         ${getTypographyCss('text-sm-strong')}
       }
-    `}
+    `};
+`;
+
+export const DropdownPopup = styled.div.attrs(() => ({
+  role: 'listbox',
+}))<{
+  fadeOut: boolean;
+  isInvisible: boolean;
+  animate: boolean;
+}>`
+  background-color: ${getColor('elvia-on')};
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
+  animation: ${fadeIn} 300ms ease;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
 
   ${(props) => {
     if (props.fadeOut) {
