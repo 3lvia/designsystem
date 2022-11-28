@@ -81,9 +81,9 @@ export const tooltipData: ComponentData = {
   codeReact: `<Tooltip
   showDelay={400}
   trigger={
-    <button class="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--star" aria-hidden="true"></i>
+    <button className="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
+      <span className="e-btn__icon">
+        <i className="e-icon e-icon--star" aria-hidden="true"></i>
       </span>
     </button>
   }
