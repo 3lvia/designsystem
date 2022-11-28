@@ -8,6 +8,7 @@ import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';
 import { Card } from '@elvia/elvis-card/react';
 import { Carousel } from '@elvia/elvis-carousel/react';
 import { Chip } from '@elvia/elvis-chip/react';
+import { ContextMenu } from '@elvia/elvis-context-menu/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';
 import { Divider } from '@elvia/elvis-divider/react';
@@ -54,6 +55,9 @@ function App() {
 
   // Chip
   const [chipSelected, setChipSelected] = useState(false);
+
+  // Context menu
+  const [isContextMenuShowing, setIsContextMenuShowing] = useState(false);
 
   // Datepicker
   let minDate = new Date();
@@ -322,6 +326,42 @@ function App() {
                 value="Selectable"
                 color="red"
               ></Chip>
+            </div>
+            {/* CONTEXT MENU */}
+            <div className="example-wrapper">
+              <h3>Context menu</h3>
+              <ContextMenu
+                onOpen={() => setIsContextMenuShowing(true)}
+                onClose={() => setIsContextMenuShowing(false)}
+                trigger={
+                  <button
+                    className={`e-btn e-btn--icon ${isContextMenuShowing ? 'e-btn---selected' : ''}`}
+                    aria-label="More menu"
+                  >
+                    <span className="e-btn__icon">
+                      <i className="e-icon e-icon--more_menu e-icon--inverted" aria-hidden="true"></i>
+                      <i className="e-icon e-icon--more_menu" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                }
+                content={
+                  <>
+                    <div className="ewc-context-menu__list-group">
+                      <button>
+                        <span>Be om tilgang</span>
+                      </button>
+                      <button>
+                        <span>Legg til bruker</span>
+                      </button>
+                    </div>
+                    <div className="ewc-context-menu__list-group">
+                      <a>
+                        <span>Endre passord</span>
+                      </a>
+                    </div>
+                  </>
+                }
+              ></ContextMenu>
             </div>
             {/* DATEPICKER */}
             <div className="example-wrapper">

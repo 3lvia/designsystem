@@ -25,6 +25,7 @@ export enum Pages {
   Chip = 'chip',
   ComponentsStart = 'components',
   ContentLoader = 'content-loader',
+  ContextMenu = 'context-menu',
   Datepicker = 'datepicker',
   DatepickerRange = 'datepicker-range',
   Divider = 'divider',

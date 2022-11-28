@@ -9,145 +9,54 @@
 <!--BODY-->
 <div class="page-body e-mt-72">
   <!--CEG-->
-  <app-component-example-generator
-    [componentData]="componentData"
-    [typesData]="typesData"
-  ></app-component-example-generator>
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
-  <!--TYPE-->
-  <app-component-section [sectionTitle]="'Type'">
+  <!--STRUCTURE-->
+  <app-component-section [sectionTitle]="'Structure'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Informative'">
+      A popover is a shell with options like close button, heading and text. Content like text and inputs are
+      added inside. Popover closes after clicking outside the popover, “X” or ESC KEY.
+      <div class="e-content-loader e-mb-32 e-w-100 responsive-height" *ngIf="!loadedPopoverStructure"></div>
+      <img
+        alt="Informative popover structure"
+        src="./../../../../assets/popover/Group 2791.svg"
+        class="usage-image-desktop e-w-100 responsive-height"
+        (load)="hideContentLoader($event)"
+      />
+      <div class="usage-image-mobile e-w-100">
+        <app-component-subsubsection [sectionTitle]="'Heading'">
+          <ng-container ngProjectAs="sectionContent">
+            The heading should be short and clear. The heading is optional.
+          </ng-container>
+        </app-component-subsubsection>
+        <app-component-subsubsection [sectionTitle]="'Content'">
+          <ng-container ngProjectAs="sectionContent">
+            You can have different type of content like text, buttons, input etc. The content will have 100%
+            width, unless the content only consists of text, then the recommended max-width is 450px.
+          </ng-container>
+        </app-component-subsubsection>
+        <app-component-subsubsection [sectionTitle]="'Trigger'">
+          <ng-container ngProjectAs="sectionContent">The trigger can be any kind of button.</ng-container>
+        </app-component-subsubsection>
+        <app-component-subsubsection [sectionTitle]="'Close button'">
+          <ng-container ngProjectAs="sectionContent">
+            The popover will close if you click outside, ESC key, or the button connected to it. The close
+            button is optional and can be removed in special cases like in a menu list.
+          </ng-container>
+        </app-component-subsubsection>
+      </div>
+
+      <app-component-subsubsection [sectionTitle]="'Text'">
         <ng-container ngProjectAs="sectionContent">
-          In informative popover we offer popover as a shell with options like close button, heading and text.
-          Then you can add the content you need within the area - like text and inputs for example. Popover
-          closes after clicking outside the popover, “X” or ESC KEY.
-          <div
-            class="e-content-loader e-mb-32 e-w-100 responsive-height"
-            *ngIf="!loadedPopoverStructure"
-          ></div>
-          <img
-            alt="Informative popover structure"
-            src="./../../../../assets/popover/Group 2791.svg"
-            class="usage-image-desktop e-w-100 responsive-height"
-            (load)="hideContentLoader($event)"
-          />
-          <div class="usage-image-mobile e-w-100">
-            <app-component-subsubsection [sectionTitle]="'Heading'">
-              <ng-container ngProjectAs="sectionContent">
-                The heading should be short and clear. The heading is optional.
-              </ng-container>
-            </app-component-subsubsection>
-            <app-component-subsubsection [sectionTitle]="'Content'">
-              <ng-container ngProjectAs="sectionContent">
-                You can have different type of content like text, buttons, input etc. The content will have
-                100% width, unless the content only consists of text, then the recommended max-width is 450px.
-              </ng-container>
-            </app-component-subsubsection>
-            <app-component-subsubsection [sectionTitle]="'Trigger'">
-              <ng-container ngProjectAs="sectionContent">The trigger can be any kind of button.</ng-container>
-            </app-component-subsubsection>
-            <app-component-subsubsection [sectionTitle]="'Close button'">
-              <ng-container ngProjectAs="sectionContent">
-                The popover will close if you click outside, ESC key, or the button connected to it. The close
-                button is optional and can be removed in special cases like in a menu list.
-              </ng-container>
-            </app-component-subsubsection>
-          </div>
-
-          <app-component-subsubsection [sectionTitle]="'Text'">
-            <ng-container ngProjectAs="sectionContent">
-              Recommended width for text popover is 450px. This is measured with the line length and number of
-              characters - to get a good readability.
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Custom content'">
-            <ng-container ngProjectAs="sectionContent">
-              Insert input, selection controls, buttons etc.
-            </ng-container>
-          </app-component-subsubsection>
+          Recommended width for text popover is 450px. This is measured with the line length and number of
+          characters - to get a good readability.
         </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'List'">
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Custom content'">
         <ng-container ngProjectAs="sectionContent">
-          A list of actions in a popover that often are used together with a more-menu icon button. This can
-          be used when the space is limited or when you want to group actions. Popover closes immediately
-          after selecting action or clicking outside.
-          <img
-            alt="List popover structure"
-            src="./../../../../assets/popover/Popover list example.svg"
-            class="usage-image-desktop e-w-100 e-mt-40"
-          />
-          <div class="usage-image-mobile e-w-100">
-            <app-component-subsubsection [sectionTitle]="'Trigger'">
-              <ng-container ngProjectAs="sectionContent">
-                The trigger is often a 'more menu' icon button
-              </ng-container>
-            </app-component-subsubsection>
-            <app-component-subsubsection [sectionTitle]="'Hover'">
-              <ng-container ngProjectAs="sectionContent">
-                You get a light grey color as a background when you hover
-              </ng-container>
-            </app-component-subsubsection>
-            <app-component-subsubsection [sectionTitle]="'Content'">
-              <ng-container ngProjectAs="sectionContent">
-                Structures as a list of buttons where the entire area is clickable
-              </ng-container>
-            </app-component-subsubsection>
-          </div>
+          Insert input, selection controls, buttons etc.
         </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
-  <!--OPTIONS-->
-  <app-component-section [sectionTitle]="'Options'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'List'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-subsubsection [sectionTitle]="'Icons'">
-            <ng-container ngProjectAs="sectionContent">
-              Use icons to help users easily recognize known actions.
-
-              <app-component-example-generator
-                [componentData]="popoverListIconsCode"
-                [inlineExample]="true"
-              ></app-component-example-generator>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Headings'">
-            <ng-container ngProjectAs="sectionContent">
-              Different actions can be separated by headings and provide more context to the actions.
-
-              <app-component-example-generator
-                [componentData]="popoverListHeadingsCode"
-                [inlineExample]="true"
-              ></app-component-example-generator>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Selectable'">
-            <ng-container ngProjectAs="sectionContent">
-              Always one alternative selected, works likes a radio button.
-
-              <app-component-example-generator
-                [componentData]="popoverListSelectableCode"
-                [inlineExample]="true"
-              ></app-component-example-generator>
-            </ng-container>
-          </app-component-subsubsection>
-
-          <app-component-subsubsection [sectionTitle]="'Divider'">
-            <ng-container ngProjectAs="sectionContent">
-              Similar actions can be grouped by a divider. Use the prop
-              <span class="code-text">hasDivider</span>
-              and group the actions that should have divider between them with the class
-              <span class="code-text">ewc-popover__list-group</span>
-              .
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
+      </app-component-subsubsection>
     </ng-container>
   </app-component-section>
 
