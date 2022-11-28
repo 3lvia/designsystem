@@ -3,7 +3,7 @@ import { isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, RefObject, useEffect, useMemo, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
 import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
-import { flattenTree, getValueAsList } from '../dropdownListUtils';
+import { flattenTree, getDropdownItemId, getValueAsList } from '../dropdownListUtils';
 import { DropdownItemStyles, IconContainer, OpenOverlayButton } from './dropdownItemStyles';
 import { Checkbox } from '../checkbox/checkbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
@@ -13,7 +13,6 @@ import { getColor } from '@elvia/elvis-colors';
 
 interface DropdownItemProps {
   item: DropdownItemOption;
-  parentItem?: DropdownItemOption;
   currentVal?: DropdownValue;
   isCompact?: boolean;
   isMulti: boolean;
@@ -31,7 +30,6 @@ interface DropdownItemProps {
 
 export const DropdownItem: React.FC<DropdownItemProps> = ({
   item,
-  parentItem,
   currentVal,
   isCompact,
   isMulti,
@@ -126,9 +124,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         !item.isDisabled
       ) {
         setIsShowing(true);
-      } else if (pressedKey?.code === 'ArrowLeft' && parentItem) {
-        setFocusedItem(parentItem);
-        setHoveredItem(parentItem);
       }
     }
   }, [pressedKey]);
@@ -176,7 +171,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         onClick={() => onItemClick()}
         onMouseEnter={() => onMouseOver()}
         onMouseDown={(ev) => ev.preventDefault()}
-        id={`ewc-dropdown-item-${item.value}`}
+        id={getDropdownItemId(item.value)}
         aria-disabled={item.isDisabled}
         aria-haspopup={item.children ? 'listbox' : 'false'}
         aria-expanded={isShowing}

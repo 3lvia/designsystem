@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.11.22",
+      "version": "5.1.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix issues with the back-button which is visible in mobile view."]
+        }
+      ]
+    },
+    {
       "date": "25.11.22",
       "version": "5.1.1",
       "changelog": [

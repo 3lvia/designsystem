@@ -150,26 +150,37 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       }
     };
 
+    const closeOpenOverlay = (): void => {
+      if (parentItem) {
+        setFadeOut(true);
+        setFocusedItem(parentItem);
+      }
+    };
+
     const handleOverlayKeyboardNavigation = (ev: KeyboardEvent<HTMLInputElement>): void => {
-      const tabList = fullTabList;
-      const currentIndex = tabList.findIndex((item) => item.value === focusedItem?.value);
+      const currentIndex = fullTabList.findIndex((item) => item.value === focusedItem?.value);
       if (['Enter', 'Tab'].includes(ev.code)) {
         ev.preventDefault();
         if (focusedItem?.value === selectAllItem.value) {
           toggleAllSelection();
         } else if (focusedItem?.value === loadMoreItem.value) {
           onLoadMoreItems && onLoadMoreItems();
-        } else if (focusedItem) {
+        } else if (focusedItem?.value === backItem.value) {
+          closeOpenOverlay();
+        } else if (focusedItem && !focusedItem.children) {
           selectItem(focusedItem);
         }
       } else if (ev.code === 'ArrowUp') {
         ev.preventDefault();
-        const newIndex = currentIndex - 1 < 0 ? tabList.length - 1 : currentIndex - 1;
-        setFocusedItem(tabList[newIndex]);
+        const newIndex = currentIndex - 1 < 0 ? fullTabList.length - 1 : currentIndex - 1;
+        setFocusedItem(fullTabList[newIndex]);
       } else if (ev.code === 'ArrowDown') {
         ev.preventDefault();
-        const newIndex = currentIndex + 1 > tabList.length - 1 ? 0 : currentIndex + 1;
-        setFocusedItem(tabList[newIndex]);
+        const newIndex = currentIndex + 1 > fullTabList.length - 1 ? 0 : currentIndex + 1;
+        setFocusedItem(fullTabList[newIndex]);
+      } else if (ev.code === 'ArrowLeft') {
+        ev.preventDefault();
+        closeOpenOverlay();
       }
     };
 
@@ -226,12 +237,12 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
           ref={ref}
           data-testid="popover"
           onMouseLeave={() => setHoveredItem && setHoveredItem(undefined)}
+          isCompact={isCompact}
         >
           {!isRootOverlay && isGtMobile && <CursorCurve />}
           <DropdownPopup
             fadeOut={fadeOut}
             onAnimationEnd={onAnimationEnd}
-            isCompact={isCompact}
             isInvisible={!isGtMobile && !focusIsOnDirectDescendant}
             animate={!!isRootOverlay || isGtMobile}
           >
@@ -240,10 +251,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
               {!isGtMobile && !isRootOverlay && (
                 <BackButton
                   item={backItem}
-                  onClick={() => {
-                    setFadeOut(true);
-                    setFocusedItem(parentItem);
-                  }}
+                  onClick={() => closeOpenOverlay()}
                   onHover={(item) => setFocusedItem(item)}
                   focusedValue={focusedItem?.value}
                   isCompact={isCompact}
@@ -289,7 +297,6 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   onClick={(item) => selectItem(item)}
                   pressedKey={pressedKey}
                   listRef={listRef}
-                  parentItem={parentItem}
                   isGtMobile={isGtMobile}
                 >
                   {item.icon && !isMulti && allItemsHaveIcons && (
