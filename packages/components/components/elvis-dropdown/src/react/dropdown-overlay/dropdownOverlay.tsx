@@ -237,12 +237,12 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
           ref={ref}
           data-testid="popover"
           onMouseLeave={() => setHoveredItem && setHoveredItem(undefined)}
+          isCompact={isCompact}
         >
           {!isRootOverlay && isGtMobile && <CursorCurve />}
           <DropdownPopup
             fadeOut={fadeOut}
             onAnimationEnd={onAnimationEnd}
-            isCompact={isCompact}
             isInvisible={!isGtMobile && !focusIsOnDirectDescendant}
             animate={!!isRootOverlay || isGtMobile}
           >
