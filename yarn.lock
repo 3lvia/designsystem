@@ -6073,10 +6073,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:12.20.40":
-  version: 12.20.40
-  resolution: "@types/node@npm:12.20.40"
-  checksum: 13aa73ef10d12eff313b04fc304f3fcd1f7e6ebd5a6d54a99076190f01ed34d4fef0103255be5a691c5a3323e78f6b2b0a8c79286ed7166cd4f0fa21d7946fdc
+"@types/node@npm:16.11.7":
+  version: 16.11.7
+  resolution: "@types/node@npm:16.11.7"
+  checksum: 2706403e6efc4aa40fdce8f0b5d9884d5600c3c8610aedc7fa5e7e298d30366f7e8b7296028d52898dca3edef4c3e827b03bf20952c4780f13fa4e79864f7a86
   languageName: node
   linkType: hard
 
@@ -13711,7 +13711,7 @@ __metadata:
     "@elvia/elvis-typography": "portal:../elvis-typography"
     "@types/lodash.debounce": ^4.0.6
     "@types/natural-compare-lite": ^1.4.0
-    "@types/node": 12.20.40
+    "@types/node": 16.11.7
     "@typescript-eslint/eslint-plugin": 5.37.0
     "@typescript-eslint/parser": 5.37.0
     babel-eslint: ^10.1.0
