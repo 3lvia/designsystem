@@ -114,6 +114,7 @@ const Card: FC<CardProps> = function ({
       iconRef.current.appendChild(webcomponent.getSlot('icon'));
     }
   }, [isShowingHoverIcon, webcomponent]);
+  console.log('trigger lint staged');
 
   /** Handle setting hover icon when animation is done */
   useEffect(() => {
