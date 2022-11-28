@@ -19,3 +19,7 @@ export const getValueAsList = (value: DropdownValue): DropdownValueType[] => {
   }
   return [];
 };
+
+export const getDropdownItemId = (value: DropdownValueType): string => {
+  return `ewc-dropdown-item-${value}`;
+};
