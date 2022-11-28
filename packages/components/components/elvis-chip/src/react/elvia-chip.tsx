@@ -5,7 +5,7 @@ import { Icon } from '@elvia/elvis-icon/react';
 import { useHover } from '@react-aria/interactions';
 import { getColor } from '@elvia/elvis-colors';
 import { warnDeprecatedProps, useWebComponentState } from '@elvia/elvis-toolbox';
-import config from './config';
+import { config } from './config';
 
 export const Chip: FC<ChipProps> = function ({
   ariaLabel,

@@ -1,22 +1,43 @@
 import { ComponentConfig } from '@elvia/elvis-toolbox';
 
-export const cardConfig: ComponentConfig = {
-  componentName: 'Card',
-  deprecatedProps: {
-    shape: {
-      version: '2.0.0',
-      isDirectReplacement: false,
-      explanation: 'The shape property has been removed as circle card is no longer supported.',
+export const config: ComponentConfig = {
+  name: 'Card',
+  attributes: [
+    { name: 'icon', type: 'string' },
+    { name: 'iconHover', type: 'string' },
+    { name: 'heading', type: 'string' },
+    { name: 'headingLevel', type: 'string' },
+    { name: 'description', type: 'string' },
+    { name: 'borderColor', type: 'string' },
+    { name: 'type', type: 'string' },
+    { name: 'hasBorder', type: 'boolean' },
+    { name: 'width', type: 'string' },
+    { name: 'minWidth', type: 'number' },
+    { name: 'maxWidth', type: 'number' },
+    { name: 'maxDescriptionLines', type: 'number' },
+    { name: 'tag', type: 'string' },
+    { name: 'cornerIcon', type: 'string' },
+    { name: 'className', type: 'string' },
+    { name: 'inlineStyle', type: 'object' },
+    // Deprecated attributes
+    {
+      name: 'header',
+      type: 'string',
+      deprecatedDetails: { version: '2.0.0', newProp: 'heading', isDirectReplacement: true },
     },
-    header: {
-      version: '2.0.0',
-      newProp: 'heading',
-      isDirectReplacement: true,
+    {
+      name: 'shape',
+      type: 'string',
+      deprecatedDetails: {
+        version: '2.0.0',
+        isDirectReplacement: false,
+        explanation: 'The shape property has been removed as circle card is no longer supported.',
+      },
     },
-    label: {
-      version: '2.0.0',
-      newProp: 'tag',
-      isDirectReplacement: true,
+    {
+      name: 'label',
+      type: 'string',
+      deprecatedDetails: { version: '2.0.0', newProp: 'tag', isDirectReplacement: true },
     },
-  },
+  ],
 };

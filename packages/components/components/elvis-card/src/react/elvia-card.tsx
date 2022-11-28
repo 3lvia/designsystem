@@ -16,7 +16,7 @@ import {
 import { warnDeprecatedProps, useIsOverflowing } from '@elvia/elvis-toolbox';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
-import { cardConfig } from './config';
+import { config } from './config';
 
 export interface CardProps {
   icon?: string | JSX.Element;
@@ -72,7 +72,7 @@ const Card: FC<CardProps> = function ({
   webcomponent,
   ...rest
 }) {
-  warnDeprecatedProps(cardConfig, arguments[0]);
+  warnDeprecatedProps(config, arguments[0]);
 
   const [isHoveringArea, setIsHoveringArea] = useState(false);
   const [isShowingHoverIcon, setIsShowingHoverIcon] = useState(false);

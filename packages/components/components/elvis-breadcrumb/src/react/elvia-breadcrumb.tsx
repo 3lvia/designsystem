@@ -9,7 +9,7 @@ import {
 import { Icon } from '@elvia/elvis-icon/react';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
-import { breadcrumbConfig, breadcrumbLinkConfig } from './config';
+import { config } from './config';
 
 interface BreadcrumbLink {
   /**
@@ -48,10 +48,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
   webcomponent,
   ...rest
 }) {
-  warnDeprecatedProps(breadcrumbConfig, arguments[0]);
-  items.forEach((item) => {
-    warnDeprecatedProps(breadcrumbLinkConfig, item);
-  });
+  warnDeprecatedProps(config, arguments[0]);
 
   const [childrenLength, setChildrenLength] = useState<number>(0);
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);

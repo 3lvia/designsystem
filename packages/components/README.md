@@ -99,7 +99,7 @@ specifications. The file explains how to add the props and the meaning of the ea
 
 ```javascript
 {
-    reactName: 'Divider',
+    name: 'Divider',
     attributes: [
       { name: 'type', type: 'string' },
       { name: 'title', type: 'string' },
@@ -259,20 +259,15 @@ import { ComponentConfig } from '@elvia/elvis-toolbox';
 
 const config: ComponentConfig = {
   componentName: 'Card',
-  deprecatedProps: {
-    // Rule 1.6, introduce theme functionality
-    hasBorder: {
-      version: '2.0.0',
-      newProp: 'theme',
-      explanation: 'This prop has been replaced by the new theme functionality.',
+  attributes: [
+    { name: 'icon', type: 'string' },
+    // Deprecated attributes
+    {
+      name: 'header',
+      type: 'string',
+      deprecatedDetails: { version: '2.0.0', newProp: 'heading', isDirectReplacement: true },
     },
-    // Rule 1.8, use heading
-    header: {
-      version: '2.0.0',
-      newProp: 'heading',
-      isDirectReplacement: true,
-    },
-  },
+  ],
 };
 
 export default config;
