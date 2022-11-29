@@ -1,4 +1,4 @@
-import { RefObject, useState, useEffect, useRef } from 'react';
+import { RefObject, useEffect, useRef } from 'react';
 
 /**
  * useRovingFocus is a custom hook that allows you to implement a roving focus.
@@ -8,9 +8,10 @@ import { RefObject, useState, useEffect, useRef } from 'react';
  */
 export const useRovingFocus = <T extends HTMLElement>(): RefObject<T> => {
   const ref = useRef<T>(null);
-  const [focusableItems, setFocusableItems] = useState<HTMLElement[]>([]);
-  const [focusedItem, setFocusedItem] = useState<HTMLElement>();
-  const [focusedIndex, setFocusedIndex] = useState(0);
+
+  const focusedItem = useRef<HTMLElement>();
+  const focusedIndex = useRef(0);
+  const unsubscriber = useRef<() => void>();
 
   const getFocusableItems = (container: T): HTMLElement[] => {
     if (!container) {
@@ -26,13 +27,13 @@ export const useRovingFocus = <T extends HTMLElement>(): RefObject<T> => {
     }) as HTMLElement[];
   };
 
-  const getNewIndex = (ev: KeyboardEvent, currentIndex: number): number => {
+  const getNewIndex = (ev: KeyboardEvent, listLength: number, currentIndex: number): number => {
     switch (ev.key) {
       case 'ArrowUp':
       case 'ArrowLeft':
         ev.preventDefault();
         if (currentIndex === 0) {
-          return focusableItems.length - 1;
+          return listLength - 1;
         } else {
           return currentIndex - 1;
         }
@@ -40,7 +41,7 @@ export const useRovingFocus = <T extends HTMLElement>(): RefObject<T> => {
       case 'ArrowDown':
       case 'ArrowRight':
         ev.preventDefault();
-        if (currentIndex === focusableItems.length - 1) {
+        if (currentIndex === listLength - 1) {
           return 0;
         } else {
           return currentIndex + 1;
@@ -52,7 +53,7 @@ export const useRovingFocus = <T extends HTMLElement>(): RefObject<T> => {
 
       case 'End':
         ev.preventDefault();
-        return focusableItems.length - 1;
+        return listLength - 1;
     }
 
     return currentIndex;
@@ -60,36 +61,30 @@ export const useRovingFocus = <T extends HTMLElement>(): RefObject<T> => {
 
   // Restore focused item and focused index after the list has mutated
   const restoreTabPosition = (updatedItemList: HTMLElement[]): void => {
-    const updatedIndex = focusedItem ? updatedItemList.indexOf(focusedItem) : -1;
+    const updatedIndex = focusedItem.current ? updatedItemList.indexOf(focusedItem.current) : -1;
 
     if (updatedIndex !== -1) {
-      setFocusedIndex(updatedIndex);
+      focusedIndex.current = updatedIndex;
+    } else if (focusedIndex.current !== -1) {
+      const clampedIndex = Math.min(updatedItemList.length, focusedIndex.current);
+      updatedItemList[clampedIndex]?.focus();
+      focusedItem.current = updatedItemList[clampedIndex];
+      focusedIndex.current = clampedIndex;
     } else {
-      if (focusedIndex !== -1) {
-        const clampedIndex = Math.min(updatedItemList.length, focusedIndex);
-        updatedItemList[clampedIndex]?.focus();
-        setFocusedItem(updatedItemList[clampedIndex]);
-        setFocusedIndex(clampedIndex);
-      } else {
-        setFocusedItem(updatedItemList[0]);
-        setFocusedIndex(0);
-      }
+      focusedItem.current = updatedItemList[0];
+      focusedIndex.current = 0;
     }
   };
 
-  const setTabIndexes = (): void => {
-    const listClone = [...focusableItems];
-    if (focusedItem) {
-      listClone.forEach((item) => (item.tabIndex = item === focusedItem ? 0 : -1));
+  const setTabIndexes = (list: HTMLElement[]): void => {
+    if (focusedItem.current) {
+      list.forEach((item) => (item.tabIndex = item === focusedItem.current ? 0 : -1));
     } else {
-      listClone.forEach((item, index) => (item.tabIndex = index === 0 ? 0 : -1));
-      setFocusedItem(focusableItems.find((item) => item.tabIndex === 0));
+      list.forEach((item, index) => (item.tabIndex = index === 0 ? 0 : -1));
+      focusedItem.current = list.find((item) => item.tabIndex === 0);
     }
-    console.log('setting');
-    // setFocusableItems(listClone);
   };
 
-  // Create list of focusable elements from container
   useEffect(() => {
     const container = ref.current;
 
@@ -98,8 +93,9 @@ export const useRovingFocus = <T extends HTMLElement>(): RefObject<T> => {
     }
 
     const observer = new MutationObserver(() => {
-      const focusableItems = getFocusableItems(container);
-      setFocusableItems(focusableItems);
+      unsubscriber.current?.();
+      const items = getFocusableItems(container);
+      unsubscriber.current = initializeKeydownHandler(container, items);
     });
 
     observer.observe(container, {
@@ -112,44 +108,40 @@ export const useRovingFocus = <T extends HTMLElement>(): RefObject<T> => {
     return () => observer.disconnect();
   }, [ref.current]);
 
-  useEffect(() => {
-    if (focusedItem) {
-      restoreTabPosition(focusableItems);
+  const initializeKeydownHandler = (container: T, items: HTMLElement[]): (() => void) => {
+    if (focusedItem.current) {
+      restoreTabPosition(items);
     }
 
-    setTabIndexes();
+    setTabIndexes(items);
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      const newIndex = getNewIndex(event, focusedIndex);
+      const newIndex = getNewIndex(event, items.length, focusedIndex.current);
 
-      setFocusableItems((list) => {
-        const listClone = [...list];
-        listClone[focusedIndex].tabIndex = -1;
-        listClone[newIndex].tabIndex = 0;
-        return listClone;
-      });
-      focusableItems[newIndex]?.focus();
+      items[focusedIndex.current].tabIndex = -1;
+      items[newIndex].tabIndex = 0;
+      items[newIndex]?.focus();
 
-      setFocusedItem(focusableItems[newIndex]);
-      setFocusedIndex(newIndex);
+      focusedItem.current = items[newIndex];
+      focusedIndex.current = newIndex;
     };
 
     const handleClick = (event: MouseEvent) => {
-      const index = focusableItems.findIndex((item) => item === (event.target as HTMLElement));
+      const index = items.findIndex((item) => item === (event.target as HTMLElement));
       if (index !== -1) {
-        setFocusedItem(focusableItems[index]);
-        setFocusedIndex(index);
+        focusedItem.current = items[index];
+        focusedIndex.current = index;
       }
     };
 
-    ref.current?.addEventListener('keydown', handleKeyDown);
-    ref.current?.addEventListener('click', handleClick);
+    container.addEventListener('keydown', handleKeyDown);
+    container.addEventListener('click', handleClick);
 
     return () => {
-      ref.current?.removeEventListener('keydown', handleKeyDown);
-      ref.current?.removeEventListener('click', handleClick);
+      container.removeEventListener('keydown', handleKeyDown);
+      container.removeEventListener('click', handleClick);
     };
-  }, [focusableItems]);
+  };
 
   return ref;
 };
