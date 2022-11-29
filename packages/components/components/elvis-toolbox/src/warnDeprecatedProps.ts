@@ -1,27 +1,44 @@
+import { ComponentConfig, ComponentAttribute, DeprecatedDetails } from './componentConfig.types';
 import { isSsr } from './isSsr';
 
-const consoleWarnDeprecatedProp = (
-  name: string,
-  deprecatedProp: ComponentConfig['deprecatedProps'][0],
-  componentName: string,
-  isSlot: boolean,
-) => {
-  const propOrCallbackOrSlot = deprecatedProp.isCallbackFunction
+interface PropInfo {
+  propName: string;
+  componentName: string;
+  deprecatedDetails: DeprecatedDetails | undefined;
+}
+
+const consoleWarnDeprecatedProp = (propInfo: PropInfo, isSlot: boolean) => {
+  const { propName, componentName, deprecatedDetails } = propInfo;
+  if (deprecatedDetails === undefined) {
+    return;
+  }
+  const propOrCallbackOrSlot = deprecatedDetails.isCallbackFunction
     ? 'callback function'
     : isSlot
     ? 'slot'
     : 'prop';
-  const versionString = deprecatedProp.version ? ` from version ${deprecatedProp.version}` : '';
-  const newPropString = deprecatedProp.newProp
-    ? `\nSee prop '${deprecatedProp.newProp}' for replacement.`
+  const versionString = deprecatedDetails.version ? ` from version ${deprecatedDetails.version}` : '';
+  const newPropString = deprecatedDetails.newProp
+    ? `\nSee prop '${deprecatedDetails.newProp}' for replacement.`
     : '';
-  const directReplacementString = deprecatedProp.isDirectReplacement
+  const directReplacementString = deprecatedDetails.isDirectReplacement
     ? `\nThis prop can be directly replaced by the new prop name.`
     : '';
-  const explanationString = deprecatedProp.explanation ? `\n${deprecatedProp.explanation}` : '';
+  const explanationString = deprecatedDetails.explanation ? `\n${deprecatedDetails.explanation}` : '';
   console.warn(
-    `Deprecation warning in ${componentName}:\nThe ${propOrCallbackOrSlot} '${name}' is deprecated${versionString}.${newPropString}${directReplacementString}${explanationString}`,
+    `Deprecation warning in ${componentName}:\nThe ${propOrCallbackOrSlot} '${propName}' is deprecated${versionString}.${newPropString}${directReplacementString}${explanationString}`,
   );
+};
+
+const isDeprecatedProp = (propName: string, deprecatedProps: ComponentAttribute[]) => {
+  return deprecatedProps.some((attr) => attr.name === propName);
+};
+
+const getPropInfo = (propName: string, deprecatedProps: ComponentAttribute[], config: ComponentConfig) => {
+  const propIndex = deprecatedProps.map((object) => object.name).indexOf(propName);
+  const componentName = 'elvia' + config.name.replace(/([A-Z])/g, '-$1').toLowerCase();
+  const deprecatedDetails = deprecatedProps[propIndex].deprecatedDetails;
+  return { propName, componentName, deprecatedDetails };
 };
 
 /**
@@ -54,81 +71,51 @@ export const warnDeprecatedProps = (config: ComponentConfig, props: { [propName:
   if (isSsr() || window.location.href.indexOf('localhost') === -1) {
     return;
   }
-  /** List of deprecated callbacks that have already been console warned. Used to avoid duplicated warnings. */
+  const deprecatedProps = config.attributes.filter((attr) => attr.deprecatedDetails);
+  // List of deprecated callbacks that have already been console warned. Used to avoid duplicated warnings.
   const warnedCallbacks: string[] = [];
-  const deprecatedProps = config.deprecatedProps;
-  for (const prop in props) {
+
+  for (const propName in props) {
     // Check for deprecated props
-    if (prop in deprecatedProps) {
-      consoleWarnDeprecatedProp(prop, deprecatedProps[prop], config.componentName, false);
+    if (isDeprecatedProp(propName, deprecatedProps)) {
+      consoleWarnDeprecatedProp(getPropInfo(propName, deprecatedProps, config), false);
     }
 
     const webcomponent = props['webcomponent'];
     if (webcomponent) {
       // Check for deprecated slots on webcomponent.
-      for (const slot in webcomponent['_slots']) {
-        if (slot in deprecatedProps) {
-          consoleWarnDeprecatedProp(slot, deprecatedProps[slot], config.componentName, true);
+      if ('_slots' in webcomponent) {
+        for (const slotName in webcomponent['_slots']) {
+          if (isDeprecatedProp(slotName, deprecatedProps)) {
+            consoleWarnDeprecatedProp(getPropInfo(slotName, deprecatedProps, config), true);
+          }
         }
       }
       // Check for deprecated callback function on webcomponent Angular.
       for (const webcomponentAttribute in webcomponent) {
         if (/^__zone_symbol__.*false/.test(webcomponentAttribute)) {
           const callbackName: string | undefined = webcomponent[webcomponentAttribute]?.[0]?.['eventName'];
-          if (callbackName && callbackName in deprecatedProps && !warnedCallbacks.includes(callbackName)) {
-            consoleWarnDeprecatedProp(
-              callbackName,
-              deprecatedProps[callbackName],
-              config.componentName,
-              false,
-            );
+          if (
+            callbackName &&
+            isDeprecatedProp(callbackName, deprecatedProps) &&
+            !warnedCallbacks.includes(callbackName)
+          ) {
+            consoleWarnDeprecatedProp(getPropInfo(callbackName, deprecatedProps, config), false);
             warnedCallbacks.push(callbackName);
           }
         }
       }
       // Check for deprecated callback function on webcomponent Vue.
-      for (const callback in webcomponent['_vei']) {
-        // Get callback name (e.g. onOnHide -> onHide).
-        const callbackName = callback.charAt(2).toLowerCase() + callback.substring(3);
-        if (callbackName in deprecatedProps && !warnedCallbacks.includes(callbackName)) {
-          consoleWarnDeprecatedProp(callbackName, deprecatedProps[callbackName], config.componentName, false);
-          warnedCallbacks.push(callbackName);
+      if ('_vei' in webcomponent) {
+        for (const callback in webcomponent['_vei']) {
+          // Get callback name (e.g. onOnHide -> onHide).
+          const callbackName = callback.charAt(2).toLowerCase() + callback.substring(3);
+          if (isDeprecatedProp(callbackName, deprecatedProps) && !warnedCallbacks.includes(callbackName)) {
+            consoleWarnDeprecatedProp(getPropInfo(callbackName, deprecatedProps, config), false);
+            warnedCallbacks.push(callbackName);
+          }
         }
       }
     }
   }
 };
-
-export interface ComponentConfig {
-  /**
-   * Name of component.
-   */
-  componentName: string;
-  /**
-   * All the deprecated props of a component.
-   */
-  deprecatedProps: {
-    [propName: string]: {
-      /**
-       * The version number when the prop was deprecated.
-       */
-      version: string;
-      /**
-       * Name of replacement prop, if any exists.
-       */
-      newProp?: string;
-      /**
-       * Set to true to indicate that the new prop name is a direct replacement to the old prop.
-       */
-      isDirectReplacement?: boolean;
-      /**
-       * Set to true to indicate that the prop is a callback function. This will change the console warning.
-       */
-      isCallbackFunction?: boolean;
-      /**
-       * Explanation of why the prop has been deprecated.
-       */
-      explanation?: string;
-    };
-  };
-}

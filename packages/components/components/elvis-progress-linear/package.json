@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-progress-linear",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "@elvia/elvis-colors": "^1.4.2",
-    "@elvia/elvis-component-wrapper": "^3.0.3",
+    "@elvia/elvis-component-wrapper": "^4.0.0",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {

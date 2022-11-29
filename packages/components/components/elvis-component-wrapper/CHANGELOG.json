@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "29.11.22",
+      "version": "4.0.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["The component config has been moved into each component."]
+        }
+      ]
+    },
+    {
       "date": "25.11.22",
       "version": "3.1.0",
       "changelog": [

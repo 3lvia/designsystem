@@ -1,26 +1,32 @@
 import { ComponentConfig } from '@elvia/elvis-toolbox';
 
-const config: ComponentConfig = {
-  componentName: 'Chip',
-  deprecatedProps: {
-    // Rule 1.3: Better naming for booleans
-    disabled: {
-      version: '2.0.0',
-      newProp: 'isDisabled',
-      isDirectReplacement: true,
+export const config: ComponentConfig = {
+  name: 'Chip',
+  attributes: [
+    { name: 'ariaLabel', type: 'string' },
+    { name: 'color', type: 'string' },
+    { name: 'isDisabled', type: 'boolean' },
+    { name: 'type', type: 'string' },
+    { name: 'isLoading', type: 'boolean' },
+    { name: 'isSelected', type: 'boolean' },
+    { name: 'value', type: 'string' },
+    { name: 'className', type: 'string' },
+    { name: 'inlineStyle', type: 'object' },
+    // Deprecated attributes
+    {
+      name: 'disabled',
+      type: 'boolean',
+      deprecatedDetails: { version: '2.0.0', newProp: 'isDisabled', isDirectReplacement: true },
     },
-    // Rule 1.3: Better naming for booleans
-    selected: {
-      version: '2.0.0',
-      newProp: 'isSelected',
-      isDirectReplacement: true,
+    {
+      name: 'selected',
+      type: 'boolean',
+      deprecatedDetails: { version: '2.0.0', newProp: 'isSelected', isDirectReplacement: true },
     },
-    valueOnChange: {
-      version: '2.0.0',
-      newProp: 'isSelectedOnChange',
-      isCallbackFunction: true,
+    {
+      name: 'valueOnChange',
+      type: 'event',
+      deprecatedDetails: { version: '2.0.0', newProp: 'isSelectedOnChange', isCallbackFunction: true },
     },
-  },
+  ],
 };
-
-export default config;
