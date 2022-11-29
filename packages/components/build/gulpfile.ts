@@ -31,7 +31,7 @@ function getComponentConfigs() {
 }
 
 function shouldIgnoreAttribute(attr: ComponentAttribute) {
-  return attr.type === 'event' || attr.deprecatedDetails;
+  return attr.type === 'event';
 }
 
 function setGetList(attributes: ComponentAttribute[]) {
