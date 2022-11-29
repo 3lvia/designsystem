@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-spotlight",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "",
   "main": "web_component.js",
   "author": "",
@@ -14,7 +14,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "^3.0.3",
+    "@elvia/elvis-component-wrapper": "^4.0.0",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-chip",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -15,9 +15,9 @@
   ],
   "dependencies": {
     "@elvia/elvis-colors": "^1.4.2",
-    "@elvia/elvis-component-wrapper": "^3.0.3",
+    "@elvia/elvis-component-wrapper": "^4.0.0",
     "@elvia/elvis-icon": "^1.3.5",
-    "@elvia/elvis-toolbox": "^6.0.1",
+    "@elvia/elvis-toolbox": "^7.0.0",
     "@react-aria/interactions": "^3.8.4",
     "styled-components": "^5.3.3"
   },
