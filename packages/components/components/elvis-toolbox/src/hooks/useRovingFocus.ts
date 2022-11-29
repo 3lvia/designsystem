@@ -1,175 +1,108 @@
-import { RefObject, useState, useEffect } from 'react';
+import { RefObject, useState, useEffect, useRef } from 'react';
 
 /**
  * useRovingFocus is a custom hook that allows you to implement a roving focus.
  *
- * @param elementRef
  * @internal
  * @since 8.0.0
  */
-export const useRovingFocus = (rovingFocusContainer: RefObject<HTMLElement>): void => {
-  const [focusableItems, setFocusableItems] = useState<Array<HTMLElement> | null>(null);
-  const [currentItem, setCurrentItem] = useState<HTMLElement | null | undefined>(null);
+export const useRovingFocus = <T extends HTMLElement>(): RefObject<T> => {
+  const ref = useRef<T>(null);
+  const [focusableItems, setFocusableItems] = useState<HTMLElement[]>([]);
+  const [focusedItem, setFocusedItem] = useState<HTMLElement>();
+  const [focusedIndex, setFocusedIndex] = useState(0);
 
-  //get all initial focusable items. rerun if rovingFocusContainer updates
-  const getFocusableItems = (rovingFocusContainer: RefObject<HTMLElement>) => {
-    if (!rovingFocusContainer.current) {
-      return;
+  const getFocusableItems = (container: T): HTMLElement[] => {
+    if (!container) {
+      return [];
     }
 
-    const focusableItemsArray = Array.from(
-      rovingFocusContainer.current.querySelectorAll(
-        'a[href], button, textarea, input, select, details, [tabindex]:not([tabindex="-1"]',
+    return Array.from(
+      container.querySelectorAll(
+        'a[href], button, textarea, input, select, details, [tabindex]:not([tabindex=“-1”]',
       ),
     ).filter((element) => {
       return !element.hasAttribute('disabled') && element.getAttribute('aria-hidden') !== 'true';
     }) as HTMLElement[];
+  };
 
-    focusableItemsArray.forEach((item, index) => {
-      if (currentItem && focusableItemsArray.includes(currentItem)) {
-        if (item === currentItem) {
-          item.tabIndex = 0;
-          item.focus();
+  const getNewIndex = (ev: KeyboardEvent, currentIndex: number): number => {
+    switch (ev.key) {
+      case 'ArrowUp':
+      case 'ArrowLeft':
+        ev.preventDefault();
+        if (currentIndex === 0) {
+          return focusableItems.length - 1;
         } else {
-          item.tabIndex = -1;
+          return currentIndex - 1;
         }
+
+      case 'ArrowDown':
+      case 'ArrowRight':
+        ev.preventDefault();
+        if (currentIndex === focusableItems.length - 1) {
+          return 0;
+        } else {
+          return currentIndex + 1;
+        }
+
+      case 'Home':
+        ev.preventDefault();
+        return 0;
+
+      case 'End':
+        ev.preventDefault();
+        return focusableItems.length - 1;
+    }
+
+    return currentIndex;
+  };
+
+  // Restore focused item and focused index after the list has mutated
+  const restoreTabPosition = (updatedItemList: HTMLElement[]): void => {
+    const updatedIndex = focusedItem ? updatedItemList.indexOf(focusedItem) : -1;
+
+    if (updatedIndex !== -1) {
+      setFocusedIndex(updatedIndex);
+    } else {
+      if (focusedIndex !== -1) {
+        const clampedIndex = Math.min(updatedItemList.length, focusedIndex);
+        updatedItemList[clampedIndex]?.focus();
+        setFocusedItem(updatedItemList[clampedIndex]);
+        setFocusedIndex(clampedIndex);
       } else {
-        if (index === 0) {
-          item.tabIndex = 0;
-          item.focus();
-        } else {
-          item.tabIndex = -1;
-        }
-      }
-    });
-
-    /* console.log(focusableItemsArray); */
-    return focusableItemsArray;
-  };
-
-  const updateRoveFocusArray = (elementToFocus: HTMLElement) => {
-    if (focusableItems) {
-      const newFocusableItems = [...focusableItems];
-
-      newFocusableItems.forEach((item) => (item.tabIndex = item === elementToFocus ? 0 : -1));
-
-      const newCurrentItem = newFocusableItems.find((item) => item.tabIndex === 0);
-
-      if (newFocusableItems && newCurrentItem) {
-        setCurrentItem(newCurrentItem);
-        setFocusableItems(newFocusableItems);
-        newCurrentItem.focus();
+        setFocusedItem(updatedItemList[0]);
+        setFocusedIndex(0);
       }
     }
   };
 
-  useEffect(() => {
-    console.log('currentItem', currentItem);
-  }, [currentItem]);
+  const setTabIndexes = (): void => {
+    const listClone = [...focusableItems];
+    if (focusedItem) {
+      listClone.forEach((item) => (item.tabIndex = item === focusedItem ? 0 : -1));
+    } else {
+      listClone.forEach((item, index) => (item.tabIndex = index === 0 ? 0 : -1));
+      setFocusedItem(focusableItems.find((item) => item.tabIndex === 0));
+    }
+    console.log('setting');
+    // setFocusableItems(listClone);
+  };
 
-  //Generate the focusable items array -> put it in state
+  // Create list of focusable elements from container
   useEffect(() => {
-    if (!rovingFocusContainer) {
+    const container = ref.current;
+
+    if (!container) {
       return;
     }
 
-    const focusableItemsArray = getFocusableItems(rovingFocusContainer);
-
-    if (focusableItemsArray) {
-      setCurrentItem(focusableItemsArray.find((item) => item.tabIndex === 0));
-      setFocusableItems(focusableItemsArray);
-    }
-  }, [rovingFocusContainer, rovingFocusContainer.current]);
-
-  //Generate Event Listeners and clean up
-  useEffect(() => {
-    if (!rovingFocusContainer || !rovingFocusContainer.current) {
-      return;
-    }
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (!event.target) {
-        return;
-      }
-
-      if (focusableItems && currentItem) {
-        const index = focusableItems.indexOf(currentItem);
-
-        switch (event.key) {
-          case 'ArrowLeft':
-            //if first item, go to last item
-            if (currentItem === focusableItems[0]) {
-              updateRoveFocusArray(focusableItems[focusableItems.length - 1]);
-            } else {
-              updateRoveFocusArray(focusableItems[index - 1]);
-            }
-
-            event.preventDefault();
-            break;
-
-          case 'ArrowRight':
-            //if first last, go to first item
-            if (currentItem === focusableItems[focusableItems.length - 1]) {
-              updateRoveFocusArray(focusableItems[0]);
-            } else {
-              updateRoveFocusArray(focusableItems[index + 1]);
-            }
-            event.preventDefault();
-            break;
-
-          case 'Home':
-            console.log('home key');
-            updateRoveFocusArray(focusableItems[0]);
-            event.preventDefault();
-            break;
-
-          case 'End':
-            console.log('End key');
-            updateRoveFocusArray(focusableItems[focusableItems.length - 1]);
-            event.preventDefault();
-            break;
-
-          default:
-            break;
-        }
-      }
-    };
-
-    const handleClick = (event: MouseEvent) => {
-      if (focusableItems && focusableItems.includes(event.target as HTMLElement)) {
-        updateRoveFocusArray(event.target as HTMLElement);
-      }
-    };
-
-    rovingFocusContainer.current.addEventListener('keydown', handleKeyDown);
-    rovingFocusContainer.current.addEventListener('click', handleClick);
-
-    return () => {
-      rovingFocusContainer.current?.removeEventListener('keydown', handleKeyDown);
-      rovingFocusContainer.current?.removeEventListener('click', handleClick);
-    };
-  });
-
-  //watch the DOM for any changes to the focusable items (for example if a butten gets hidden og shown)
-  useEffect(() => {
-    if (!rovingFocusContainer.current) {
-      return;
-    }
-
-    const elementToObserve = rovingFocusContainer.current;
-
-    //callback
     const observer = new MutationObserver(() => {
-      console.info('running observer');
-      const focusableItemsArray = getFocusableItems(rovingFocusContainer);
-
-      if (focusableItemsArray) {
-        setCurrentItem(focusableItemsArray.find((item) => item.tabIndex === 0));
-        setFocusableItems(focusableItemsArray);
-      }
+      const focusableItems = getFocusableItems(container);
+      setFocusableItems(focusableItems);
     });
 
-    observer.observe(elementToObserve, {
+    observer.observe(container, {
       subtree: true,
       childList: true,
       attributes: true,
@@ -177,5 +110,46 @@ export const useRovingFocus = (rovingFocusContainer: RefObject<HTMLElement>): vo
     });
 
     return () => observer.disconnect();
-  }, [rovingFocusContainer.current]);
+  }, [ref.current]);
+
+  useEffect(() => {
+    if (focusedItem) {
+      restoreTabPosition(focusableItems);
+    }
+
+    setTabIndexes();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const newIndex = getNewIndex(event, focusedIndex);
+
+      setFocusableItems((list) => {
+        const listClone = [...list];
+        listClone[focusedIndex].tabIndex = -1;
+        listClone[newIndex].tabIndex = 0;
+        return listClone;
+      });
+      focusableItems[newIndex]?.focus();
+
+      setFocusedItem(focusableItems[newIndex]);
+      setFocusedIndex(newIndex);
+    };
+
+    const handleClick = (event: MouseEvent) => {
+      const index = focusableItems.findIndex((item) => item === (event.target as HTMLElement));
+      if (index !== -1) {
+        setFocusedItem(focusableItems[index]);
+        setFocusedIndex(index);
+      }
+    };
+
+    ref.current?.addEventListener('keydown', handleKeyDown);
+    ref.current?.addEventListener('click', handleClick);
+
+    return () => {
+      ref.current?.removeEventListener('keydown', handleKeyDown);
+      ref.current?.removeEventListener('click', handleClick);
+    };
+  }, [focusableItems]);
+
+  return ref;
 };

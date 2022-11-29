@@ -96,7 +96,7 @@ export const Carousel: FC<CarouselProps> = function ({
   const [id] = useState(`ewc-carousel-${UNIQUE_CAROUSEL_ID++}`);
 
   const itemsRef = useRef<HTMLDivElement>(null);
-  const navigationElementsRef = useRef<HTMLDivElement>(null);
+  const navigationElementsRef = useRovingFocus<HTMLDivElement>();
 
   const hideLeftArrow = !loop && index === 0;
   const hideRightArrow = !loop && index === lengthOfItems - 1;
@@ -137,8 +137,6 @@ export const Carousel: FC<CarouselProps> = function ({
       }
     }
   }, [items]);
-
-  useRovingFocus(navigationElementsRef);
 
   /**
    * Map the slots to a list of items.

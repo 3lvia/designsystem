@@ -2,12 +2,14 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "??.??.22",
+      "date": "28.11.22",
       "version": "6.1.0",
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["hei"]
+          "changes": [
+            "Added new internal hook <span class=\"code-text\">useRovingFocus</span> to handle list keyboard navigation."
+          ]
         }
       ]
     },

@@ -91,7 +91,7 @@ const contextMenuData: ComponentData = {
         </button>
       </div>
       <div className="ewc-context-menu__list-group">
-        <a role="menuitem">
+        <a role="menuitem" href="#">
           <span>Endre passord</span>
         </a>
       </div>
@@ -118,7 +118,7 @@ const contextMenuData: ComponentData = {
       </button>
     </div>
     <div class="ewc-context-menu__list-group">
-      <a role="menuitem">
+      <a role="menuitem" href="#">
         <span>Endre passord</span>
       </a>
     </div>
@@ -144,7 +144,7 @@ const contextMenuData: ComponentData = {
       </button>
     </div>
     <div class="ewc-context-menu__list-group">
-      <a role="menuitem">
+      <a role="menuitem" href="#">
         <span>Endre passord</span>
       </a>
     </div>
@@ -169,7 +169,7 @@ const contextMenuData: ComponentData = {
       </button>
     </div>
     <div class="ewc-context-menu__list-group">
-      <a role="menuitem">
+      <a role="menuitem" href="#">
         <span>Endre passord</span>
       </a>
     </div>

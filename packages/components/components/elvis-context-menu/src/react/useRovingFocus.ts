@@ -40,6 +40,25 @@ export const useRovingFocus = <T extends HTMLElement>(): RefObject<T> => {
       return;
     }
 
+    let subscriber: () => void | undefined;
+    const observer = new MutationObserver(() => {
+      subscriber = initiateRoving(list);
+    });
+
+    observer.observe(list, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      attributeFilter: ['aria-hidden', 'style', 'class'],
+    });
+
+    return () => {
+      observer.disconnect();
+      subscriber?.();
+    };
+  }, [ref?.current]);
+
+  const initiateRoving = (list: T): (() => void) => {
     let focusedIndex = 0;
     const tabbableItems: NodeListOf<HTMLButtonElement | HTMLAnchorElement> =
       list.querySelectorAll('button, a');
@@ -65,7 +84,7 @@ export const useRovingFocus = <T extends HTMLElement>(): RefObject<T> => {
     list.addEventListener('keydown', onKeyDown);
 
     return () => list.removeEventListener('keydown', onKeyDown);
-  }, [ref, ref?.current]);
+  };
 
   return ref;
 };
