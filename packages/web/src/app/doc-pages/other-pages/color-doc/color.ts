@@ -30,14 +30,14 @@ const makeHexValue6Length = (hex: string): string => {
 };
 
 const convertColorObject = (category: string): Color[] => {
-  return Object.entries(colors[category]).map(([name, color]) => {
+  return (Object.entries(colors[category]) as any).map(([name, color]) => {
     return {
       title: name,
       labels: color['alt-labels']?.filter((label: string) => !label.includes('elvis')),
       hex: makeHexValue6Length(color.color),
       rgba: category === 'grey-colors' ? getGreyRgba(name) : hexToRgb(color.color),
-      contrastBlack: contrasts[category][name].contrasts.black,
-      contrastWhite: contrasts[category][name].contrasts.white,
+      contrastBlack: contrasts[category as keyof typeof contrasts][name].contrasts.black,
+      contrastWhite: contrasts[category as keyof typeof contrasts][name].contrasts.white,
       lg: category === 'primary-colors',
     };
   });
