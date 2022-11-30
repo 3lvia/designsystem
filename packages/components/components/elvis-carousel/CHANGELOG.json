@@ -3,11 +3,11 @@
   "content": [
     {
       "date": "30.11.22",
-      "version": "2.1.11",
+      "version": "2.2.0",
       "changelog": [
         {
-          "type": "patch",
-          "changes": ["Use hook for keyboard navigation from toolbox."]
+          "type": "new_feature",
+          "changes": ["Add roving focus keyboard navigation to button list."]
         }
       ]
     },
