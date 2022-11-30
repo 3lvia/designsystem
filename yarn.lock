@@ -3216,11 +3216,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
+    "@types/gulp": ^4.0.10
+    "@types/gulp-typescript": ^2.13.0
     del: ^6.0.0
     gulp: ^4.0.2
-    gulp-header: ^2.0.9
-    gulp-prettier: ^4.0.0
-    gulp-tap: ^2.0.0
+    gulp-typescript: ^6.0.0-alpha.1
+    ts-node: ^10.9.1
   languageName: unknown
   linkType: soft
 
@@ -5872,7 +5873,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp@npm:^4.0.9":
+"@types/gulp-typescript@npm:^2.13.0":
+  version: 2.13.0
+  resolution: "@types/gulp-typescript@npm:2.13.0"
+  dependencies:
+    gulp-typescript: "*"
+  checksum: ab8212e2c1b5ee568f4cc435842dff6b690f76e5f6cc46da759d43e5106e836ae209a2058656a4f0438ecdcfe5302e116ec4874945cbe0d562241ce14c51f6fb
+  languageName: node
+  linkType: hard
+
+"@types/gulp@npm:^4.0.10, @types/gulp@npm:^4.0.9":
   version: 4.0.10
   resolution: "@types/gulp@npm:4.0.10"
   dependencies:
@@ -8005,7 +8015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-colors@npm:^3.0.0":
+"ansi-colors@npm:^3.0.0, ansi-colors@npm:^3.0.5":
   version: 3.2.4
   resolution: "ansi-colors@npm:3.2.4"
   checksum: 026c51880e9f8eb59b112669a87dbea4469939ff94b131606303bbd697438a6691b16b9db3027aa9bf132a244214e83ab1508b998496a34d2aea5b437ac9e62d
@@ -16836,6 +16846,22 @@ __metadata:
   dependencies:
     through2: ^3.0.1
   checksum: f8e812de7a552a275dfae0c32eff9ddd075cfe000dcc113aed55deb488c8f95d99f4bdf555a878961d4164621a7357702bb572a2bcec08efbe539a6533fe2929
+  languageName: node
+  linkType: hard
+
+"gulp-typescript@npm:*":
+  version: 5.0.1
+  resolution: "gulp-typescript@npm:5.0.1"
+  dependencies:
+    ansi-colors: ^3.0.5
+    plugin-error: ^1.0.1
+    source-map: ^0.7.3
+    through2: ^3.0.0
+    vinyl: ^2.1.0
+    vinyl-fs: ^3.0.3
+  peerDependencies:
+    typescript: ~2.7.1 || >=2.8.0-dev || >=2.9.0-dev || ~3.0.0 || >=3.0.0-dev || >=3.1.0-dev || >= 3.2.0-dev || >= 3.3.0-dev
+  checksum: f38786f46c8130650eac8196ddb182271a3c77c6f4e2f21a4786099617f543f4f5ea5aed0c3624bb317042250130cdee8e2b901711a21acec1334577b93088f2
   languageName: node
   linkType: hard
 
@@ -29123,7 +29149,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"through2@npm:^3.0.1":
+"through2@npm:^3.0.0, through2@npm:^3.0.1":
   version: 3.0.2
   resolution: "through2@npm:3.0.2"
   dependencies:
@@ -30397,7 +30423,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vinyl@npm:^2.0.0, vinyl@npm:^2.2.0":
+"vinyl@npm:^2.0.0, vinyl@npm:^2.1.0, vinyl@npm:^2.2.0":
   version: 2.2.1
   resolution: "vinyl@npm:2.2.1"
   dependencies:
