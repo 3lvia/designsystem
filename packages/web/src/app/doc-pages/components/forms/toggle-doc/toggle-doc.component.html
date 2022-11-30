@@ -10,14 +10,29 @@
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <label class="e-toggle" role="switch">
+    <label class="e-toggle">
       Label
-      <input class="e-toggle__input" type="checkbox" />
+      <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
     </label>
     <div class="e-w-100">
       <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
     </div>
   </div>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+
+      <app-component-subsection [sectionTitle]="'Use label'">
+        <ng-container ngProjectAs="sectionContent">
+          You should always have a label next to the toggle to tell the user what they are turning on/off.
+          When stacking multiple toggels vertically, the label should be placed right to align the buttons for
+          ease of use.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
 
   <!--STATES-->
   <app-component-section [sectionTitle]="'States'">
@@ -30,15 +45,43 @@
     </ng-container>
   </app-component-section>
 
-  <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'">
+  <!-- OPTIONS -->
+  <app-component-section [sectionTitle]="'Options'">
     <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-
-      <app-component-subsection [sectionTitle]="'Use label'">
+      <app-component-subsection [sectionTitle]="'Label position'">
         <ng-container ngProjectAs="sectionContent">
-          You should always have a label next to the toggle to tell the user what they are turning on/off. Use
-          the label in the component or add typography yourself.
+          Place the label on the right or left side of the toggle.
+          <app-component-example-v1 [codeHTML]="exampleLabelPosition"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'No label'">
+        <ng-container ngProjectAs="sectionContent">
+          The toggle is also available without a given label. You are
+          <strong>required</strong>
+          to create your custom labels. In case it is required, do not forget to supply the
+          <span class="code-text">aria-label</span>
+          attribute.
+          <app-component-example-v1 [codeHTML]="exampleNoLabel"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- SIZE -->
+  <app-component-section [sectionTitle]="'Size'">
+    <ng-container ngProjectAs="sectionContent">
+      The toggles come in two sizes. Regardless of the size you choose, you should never combine the two and
+      always use the same size of toggle throughout the page.
+      <app-component-subsection [sectionTitle]="'Normal'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="exampleToggleSizeNormal"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Compact'">
+        <ng-container ngProjectAs="sectionContent">
+          Compact toggles are typically used in Elvia’s internal systems, where screen real estate is an
+          important factor.
+          <app-component-example-v1 [codeHTML]="exampleToggleSizeCompact"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -47,6 +90,17 @@
   <!--ACCESSIBILITY-->
   <app-component-section [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Changing the aria-checked attribute'">
+        <ng-container ngProjectAs="sectionContent">
+          When a click event is fired on the toggle, your click handler must change the value of the
+          <span class="code-text">aria-checked</span>
+          attribute from
+          <span class="code-text">true</span>
+          to
+          <span class="code-text">false</span>
+          , or vice versa.
+        </ng-container>
+      </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Keyboard navigation'">
         <ng-container ngProjectAs="sectionContent">
           The toggle is built up of a checkbox making the keyboard navigation identical to the keyboard
