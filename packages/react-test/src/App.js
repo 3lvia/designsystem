@@ -170,22 +170,7 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <div className="e-bg-white">
-                <Carousel
-                  loop={false}
-                  hasConfirmationCheckmark={true}
-                  items={[
-                    { heading: <h3 className="e-title-sm">HAN-port</h3>, item: <div>Hallo</div> },
-                    { heading: <h3 className="e-title-sm">HUN-port</h3>, item: <div>Hola</div> },
-                    { heading: <h3 className="e-title-sm">AMS-meter</h3>, item: 'Hei' },
-                    {
-                      heading: <h3 className="e-title-sm">About login</h3>,
-                      item: <p>Halla</p>,
-                    },
-                  ]}
-                  onFinish={() => console.log('Carousel -> onFinish')}
-                ></Carousel>
-              </div>
+              <div className="e-bg-white"></div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
@@ -292,7 +277,7 @@ function App() {
             {/* CAROUSEL */}
             <div className="example-wrapper">
               <h3>Carousel</h3>
-              {/* <Carousel
+              <Carousel
                 loop={false}
                 hasConfirmationCheckmark={true}
                 items={[
@@ -304,7 +289,7 @@ function App() {
                   },
                 ]}
                 onFinish={() => console.log('Hide')}
-              ></Carousel> */}
+              ></Carousel>
             </div>
             {/* CHIP */}
             <div className="example-wrapper">
@@ -467,7 +452,7 @@ function App() {
                 valueOnChange={(value) => console.log(value)}
               ></SegmentedControl>
               <div className="e-mt-8">
-                {/* <SegmentedControl
+                <SegmentedControl
                   type="icon"
                   items={[
                     { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: '', label: '' },
@@ -476,7 +461,7 @@ function App() {
                   size={'large'}
                   value={0}
                   valueOnChange={(value) => console.log(value)}
-                ></SegmentedControl> */}
+                ></SegmentedControl>
               </div>
             </div>
             {/* SLIDER */}
