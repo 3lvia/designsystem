@@ -5,6 +5,7 @@
   "license": "MIT",
   "author": "",
   "main": "dist/elviaTypography.js",
+  "types": "dist/elviaTypography.d.ts",
   "style": "dist/elviaTypography.scss",
   "scripts": {
     "build": "gulp"
