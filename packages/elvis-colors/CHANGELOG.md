@@ -1,5 +1,14 @@
 # Elvia Colors Changelog
 
+## 1.4.3 (30.11.22)
+
+### Patch
+
+- The Typescript union type for all the color names is no longer generated during build, instead it comes
+  directly from Typescript.
+- The package has been rewritten in Typescript.
+- The build script is now written in Typescript.
+
 ## 1.4.2 (29.08.22)
 
 ### Patch
