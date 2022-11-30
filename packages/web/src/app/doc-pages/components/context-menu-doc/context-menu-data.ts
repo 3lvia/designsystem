@@ -24,6 +24,12 @@ const contextMenuData: ComponentData = {
       description: 'Determines whether the context menu is showing or not.',
       default: 'false',
     },
+    isSelectable: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Determines whether the context menu is selectable',
+      default: 'false',
+    },
     onOpen: {
       isRequired: false,
       type: '() => void',
