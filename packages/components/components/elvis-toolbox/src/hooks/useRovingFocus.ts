@@ -86,9 +86,15 @@ export const useRovingFocus = <T extends HTMLElement>(
 
   // Restore focused item and focused index after the list has mutated
   const restoreTabPosition = (itemList: HTMLElement[]): void => {
-    let updatedIndex = itemList.findIndex(
-      (item) => focusedItem.current && item.isSameNode(focusedItem.current),
-    );
+    let updatedIndex = itemList.findIndex((item) => {
+      if (!focusedItem.current) {
+        return false;
+      }
+      return (
+        item.isEqualNode(focusedItem.current) ||
+        (item.textContent && item.textContent === focusedItem.current.textContent)
+      );
+    });
 
     if (updatedIndex === -1) {
       if (focusedIndex.current !== -1) {
@@ -100,6 +106,7 @@ export const useRovingFocus = <T extends HTMLElement>(
 
     focusedIndex.current = updatedIndex;
     focusedItem.current = itemList[updatedIndex];
+    focusedItem.current.focus();
   };
 
   const setTabIndexes = (list: HTMLElement[]): void => {
@@ -117,25 +124,27 @@ export const useRovingFocus = <T extends HTMLElement>(
       return;
     }
 
-    const observer = new MutationObserver(() => {
+    const startRovingFocus = (): void => {
       unsubscriber.current?.();
       const items = getFocusableItems(container);
 
       if (focusedItem.current) {
         restoreTabPosition(items);
       }
-
       setTabIndexes(items);
 
       unsubscriber.current = initializeKeydownHandler(container, items);
-    });
+    };
 
+    const observer = new MutationObserver(startRovingFocus);
     observer.observe(container, {
       subtree: true,
       childList: true,
       attributes: true,
       attributeFilter: ['aria-hidden', 'style', 'class'],
     });
+
+    startRovingFocus();
 
     return () => observer.disconnect();
   }, [ref.current]);
@@ -162,12 +171,19 @@ export const useRovingFocus = <T extends HTMLElement>(
       setFocusedItem(index);
     };
 
+    const handleBlur = () => {
+      // console.log('blur');
+      // focusedItem.current = undefined;
+    };
+
     container.addEventListener('keydown', handleKeyDown);
     container.addEventListener('click', handleClick);
+    container.addEventListener('blur', handleBlur, true);
 
     return () => {
       container.removeEventListener('keydown', handleKeyDown);
       container.removeEventListener('click', handleClick);
+      container.removeEventListener('blur', handleBlur, true);
     };
   };
 
