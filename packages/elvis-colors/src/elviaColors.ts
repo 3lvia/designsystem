@@ -164,7 +164,11 @@ const getColorObject = (colorName: ElviaColor) => {
   }, null);
 
   if (color === null) {
-    console.error(`Cannot get color ${colorName} from elvis-colors.`);
+    console.error(
+      `Cannot get color ${colorName} from elvis-colors.${
+        colorName !== colorName.toLowerCase() ? ' Did you forget to use kebab-case?' : ''
+      }`,
+    );
   }
   return color?.[1];
 };
