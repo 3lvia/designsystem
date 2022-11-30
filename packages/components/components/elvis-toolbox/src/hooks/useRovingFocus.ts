@@ -6,10 +6,17 @@ interface Options<T extends HTMLElement> {
 }
 
 /**
- * useRovingFocus is a custom hook that allows you to implement a roving focus.
+ * A custom hook that allows you to implement roving focus in lists.
  *
- * @internal
- * @since 8.0.0
+ * * @param options An optional object for configuring the behavior of the roving focus.
+ *
+ * @example
+ * export const Component: FC<Props> = () => {
+ *   const listRef = useRovingFocus<HTMLDivElement>({ dir: 'horizontal' });
+ *   ...
+ * }
+ *
+ * @since 7.1.0
  */
 export const useRovingFocus = <T extends HTMLElement>(
   options?: Partial<Options<T>>,
