@@ -24,7 +24,7 @@ export const useRovingFocus = <T extends HTMLElement>(
 
   const focusedItem = useRef<HTMLElement>();
   const focusedIndex = useRef(0);
-  const unsubscriber = useRef<() => void>();
+  const removeEventListeners = useRef<() => void>();
 
   const getFocusableItems = (container: T): HTMLElement[] => {
     if (!container) {
@@ -84,17 +84,20 @@ export const useRovingFocus = <T extends HTMLElement>(
     return currentIndex;
   };
 
-  // Restore focused item and focused index after the list has mutated
-  const restoreTabPosition = (itemList: HTMLElement[]): void => {
-    let updatedIndex = itemList.findIndex((item) => {
-      if (!focusedItem.current) {
+  const getItemIndex = (list: HTMLElement[], item?: HTMLElement | null): number => {
+    return list.findIndex((listItem) => {
+      if (!item) {
         return false;
       }
       return (
-        item.isEqualNode(focusedItem.current) ||
-        (item.textContent && item.textContent === focusedItem.current.textContent)
+        listItem.isEqualNode(item) || (listItem.textContent && listItem.textContent === item.textContent)
       );
     });
+  };
+
+  // Restore focused item and focused index after the list has mutated
+  const restoreTabPosition = (itemList: HTMLElement[]): void => {
+    let updatedIndex = getItemIndex(itemList, focusedItem.current);
 
     if (updatedIndex === -1) {
       if (focusedIndex.current !== -1) {
@@ -125,7 +128,7 @@ export const useRovingFocus = <T extends HTMLElement>(
     }
 
     const startRovingFocus = (): void => {
-      unsubscriber.current?.();
+      removeEventListeners.current?.();
       const items = getFocusableItems(container);
 
       if (focusedItem.current) {
@@ -133,7 +136,7 @@ export const useRovingFocus = <T extends HTMLElement>(
       }
       setTabIndexes(items);
 
-      unsubscriber.current = initializeKeydownHandler(container, items);
+      removeEventListeners.current = initializeKeydownHandler(container, items);
     };
 
     const observer = new MutationObserver(startRovingFocus);
@@ -150,6 +153,21 @@ export const useRovingFocus = <T extends HTMLElement>(
   }, [ref.current]);
 
   const initializeKeydownHandler = (container: T, items: HTMLElement[]): (() => void) => {
+    /**
+     * We clear the focused item when an element in the DOM receives focus. This may seem
+     * strange, but is necessary to prevent focusing the item if the roving focus container
+     * mutates due to external changes on the page (e.g. a paginator updating based on a filter).
+     * In this way, the `restoreTabPosition()` method in the mutation observer won't trigger since
+     * it only fires when we have a focused item in the roving focus container.
+     *
+     * Clearing the focused item will also happen when an item in the roving focus container receives
+     * focus. However, this is not an issue, since the focus event is fired before the keydown event,
+     * where we set the focused item to a new value.
+     */
+    const clearFocusedItem = () => {
+      focusedItem.current = undefined;
+    };
+
     const setFocusedItem = (newIndex: number): void => {
       if (newIndex !== -1) {
         items[focusedIndex.current].tabIndex = -1;
@@ -171,19 +189,14 @@ export const useRovingFocus = <T extends HTMLElement>(
       setFocusedItem(index);
     };
 
-    const handleBlur = () => {
-      // console.log('blur');
-      // focusedItem.current = undefined;
-    };
-
+    document.addEventListener('focus', clearFocusedItem, true);
     container.addEventListener('keydown', handleKeyDown);
     container.addEventListener('click', handleClick);
-    container.addEventListener('blur', handleBlur, true);
 
     return () => {
+      document.removeEventListener('focus', clearFocusedItem, true);
       container.removeEventListener('keydown', handleKeyDown);
       container.removeEventListener('click', handleClick);
-      container.removeEventListener('blur', handleBlur, true);
     };
   };
 
