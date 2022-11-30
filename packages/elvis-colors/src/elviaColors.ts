@@ -172,16 +172,16 @@ const getColorObject = (colorName: ElviaColor) => {
 /**
  * Get a color from elvis-colors.
  * @param colorName Name of color in elvis-colors package.
- * @returns Hex value of requested color.
+ * @returns Hex value of requested color, or an empty string if the color is not found.
  */
-export const getColor = (colorName: ElviaColor): string | '' => {
+export const getColor = (colorName: ElviaColor): string => {
   return getColorObject(colorName)?.color ?? '';
 };
 
 /**
  * Get a contrast text color from elvis-colors.
  * @param colorName Name of color in elvis-colors package.
- * @returns Hex value of the contrast text color corresponding to the requested color.
+ * @returns Hex value of the contrast text color corresponding to the requested color, or an empty string if the color is not found.
  */
 export const getContrastText = (colorName: ElviaColor): string => {
   return getColorObject(colorName)?.contrastText ?? '';
