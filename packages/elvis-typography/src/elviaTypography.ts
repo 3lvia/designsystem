@@ -300,7 +300,7 @@ const camelCaseToKebabCase = (camel: string): string => {
 
 /**
  * @param typographyName Name of requested typography.
- * @returns CSS-formated string with all the properties of the typography, including a media query for mobile font properties.
+ * @returns CSS-formatted string with all the properties of the typography, including a media query for mobile font properties.
  */
 export const getTypographyCss = <Key extends TypographyName>(typographyName: Key): string => {
   const typography = getTypography(typographyName);
