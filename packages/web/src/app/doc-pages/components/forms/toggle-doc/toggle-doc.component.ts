@@ -65,11 +65,11 @@ export class ToggleDocComponent {
 </label>`;
 
   exampleToggleSizeNormal = `<label class="e-toggle">Normal size
-<input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
+  <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
 </label>`;
 
   exampleToggleSizeCompact = `<label class="e-toggle e-toggle--compact">Compact size
-<input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
+  <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
 </label>`;
 
   exampleInverted = `<div class="e-title-caps">Off</div>
