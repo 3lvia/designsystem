@@ -1,6 +1,21 @@
 {
   "content": [
     {
+      "version": "9.6.0",
+      "date": "November 30, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The Toggle component can now have its label on either the left or right side of the switch.",
+            "The Toggle component is now available in two sizes: normal and compact.",
+            "There is no longer a constant 8px margin on the left side of the toggle component."
+          ],
+          "components": [{ "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }]
+        }
+      ]
+    },
+    {
       "version": "9.5.3",
       "date": "November 28, 2022",
       "changelog": [

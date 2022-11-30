@@ -1,8 +1,7 @@
-@use '../../variables/colors';
-@use '../../variables/animation';
-@use '../../utilities/outline';
-@use '../../utilities/breakpoints';
 @use '../../utilities/helpers';
+@use '../../utilities/outline';
+@use '../../variables/colors';
+@use '../../variables/typography.scss';
 
 $toggle-border-radius: 50px;
 
@@ -21,16 +20,10 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   flex-direction: row;
   align-items: center;
   cursor: pointer;
+  gap: 8px;
 
   // Label
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: 400;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-  color: colors.color('font-color');
+  @include typography.typography('text-medium');
 
   // Larger touch-target
   &::after {
@@ -51,10 +44,11 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   &__input {
     position: relative;
     width: $toggle-width;
-    height: 0;
-    margin: -16px 0 0 8px;
+    height: 16px;
     outline: none;
     cursor: pointer;
+    flex: none;
+    margin: 0;
 
     // Background
     &::before {
@@ -68,6 +62,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
       border-radius: $toggle-border-radius;
       cursor: pointer;
     }
+
     // Switch
     &::after {
       content: '';
@@ -81,6 +76,11 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
       transition: 0.1s;
       cursor: pointer;
     }
+  }
+
+  &.e-toggle--compact {
+    // Compact Label
+    @include typography.typography('text-small');
   }
 
   // Checked

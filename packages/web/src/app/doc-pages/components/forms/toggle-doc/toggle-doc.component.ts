@@ -19,32 +19,58 @@ export class ToggleDocComponent {
   does = ['Single state that is either on or off.'];
   donts = ['Never use a switch in place of a button (actions).'];
 
-  exampleOverview = `<label class="e-toggle" role="switch">Label
-  <input class="e-toggle__input" type="checkbox" />
-</label>
-`;
+  exampleOverview = `<label class="e-toggle">Label
+  <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
+</label>`;
 
   example1 = `<div class="e-title-caps">Off</div>
-<label class="e-toggle" role="switch">
+<label class="e-toggle">
   Label
-  <input class="e-toggle__input" type="checkbox" />
+  <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
 </label>
 <div class="e-title-caps e-mt-24 e-mb-8">On</div>
-<label class="e-toggle" role="switch">
+<label class="e-toggle">
   Label
   <input class="e-toggle__input" type="checkbox" checked />
 </label>
 <div class="e-title-caps e-mt-24 e-mb-8">Disabled off</div>
-<label class="e-toggle" role="switch">
+<label class="e-toggle">
   Label
-  <input class="e-toggle__input" type="checkbox" disabled />
+  <input class="e-toggle__input e-toggle---disabled" type="checkbox" role="switch" aria-checked="false" disabled />
 </label>
 <div class="e-title-caps e-mt-24 e-mb-8">Disabled on</div>
-<label class="e-toggle" role="switch">
+<label class="e-toggle">
   Label
-  <input class="e-toggle__input" type="checkbox" checked disabled />
+  <input class="e-toggle__input e-toggle---checked e-toggle---disabled" type="checkbox" role="switch" aria-checked="true" checked disabled />
+</label>`;
+
+  exampleLabelPosition = `<div class="e-title-caps e-mb-8">Label left</div>
+<label class="e-toggle">
+  <!-- place the label text _before_ the input element -->
+  Week number
+  <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
 </label>
-`;
+
+<div class="e-title-caps e-mt-24 e-mb-8">Label right</div>
+<label class="e-toggle">
+  <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
+  Week number
+  <!-- place the label text _after_ the input element -->
+</label>
+  `;
+
+  exampleNoLabel = `<div class="e-title-caps e-mb-8">No label</div>
+<label class="e-toggle">
+  <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" aria-label="bryter uten etikett" />
+</label>`;
+
+  exampleToggleSizeNormal = `<label class="e-toggle">Normal size
+  <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
+</label>`;
+
+  exampleToggleSizeCompact = `<label class="e-toggle e-toggle--compact">Compact size
+  <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
+</label>`;
 
   exampleInverted = `<div class="e-title-caps">Off</div>
 <label class="e-toggle e-toggle--inverted" role="switch">

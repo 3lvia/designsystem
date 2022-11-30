@@ -962,13 +962,14 @@
 			"element": {
 				"e-toggle__input": {}
 			},
+			"modifier": {
+				"e-toggle--compact": {},
+				"e-toggle--inverted": {}
+			},
 			"psuedo": {
 				"e-toggle---checked": {},
 				"e-toggle---focus": {},
 				"e-toggle---disabled": {}
-			},
-			"modifier": {
-				"e-toggle--inverted": {}
 			}
 		},
 		"e-dragdrop": {
@@ -1859,6 +1860,7 @@
 		"e-tooltip__content--right": {},
 		"e-toggle": {},
 		"e-toggle__input": {},
+		"e-toggle--compact": {},
 		"e-toggle---checked": {},
 		"e-toggle---focus": {},
 		"e-toggle---disabled": {},
