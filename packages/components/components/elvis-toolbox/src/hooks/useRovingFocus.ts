@@ -83,25 +83,21 @@ export const useRovingFocus = <T extends HTMLElement>(options?: Partial<Options<
   };
 
   // Restore focused item and focused index after the list has mutated
-  const restoreTabPosition = (updatedItemList: HTMLElement[]): void => {
-    const updatedIndex = focusedItem.current
-      ? updatedItemList.map((item) => item.innerHTML).indexOf(focusedItem.current.innerHTML)
-      : -1;
+  const restoreTabPosition = (itemList: HTMLElement[]): void => {
+    let updatedIndex = itemList.findIndex(
+      (item) => focusedItem.current && item.isSameNode(focusedItem.current),
+    );
 
-    // TODO: This is duplicated thrice
-    if (updatedIndex !== -1) {
-      focusedIndex.current = updatedIndex;
-      focusedItem.current = updatedItemList[updatedIndex];
-      updatedItemList[updatedIndex]?.focus();
-    } else if (focusedIndex.current !== -1) {
-      const clampedIndex = Math.min(updatedItemList.length - 1, focusedIndex.current);
-      focusedItem.current = updatedItemList[clampedIndex];
-      focusedIndex.current = clampedIndex;
-      updatedItemList[clampedIndex]?.focus();
-    } else {
-      focusedItem.current = updatedItemList[0];
-      focusedIndex.current = 0;
+    if (updatedIndex === -1) {
+      if (focusedIndex.current !== -1) {
+        updatedIndex = Math.min(itemList.length - 1, focusedIndex.current);
+      } else {
+        updatedIndex = 0;
+      }
     }
+
+    focusedIndex.current = updatedIndex;
+    focusedItem.current = itemList[updatedIndex];
   };
 
   const setTabIndexes = (list: HTMLElement[]): void => {
@@ -143,23 +139,25 @@ export const useRovingFocus = <T extends HTMLElement>(options?: Partial<Options<
   }, [ref.current]);
 
   const initializeKeydownHandler = (container: T, items: HTMLElement[]): (() => void) => {
+    const setFocusedItem = (newIndex: number): void => {
+      if (newIndex !== -1) {
+        items[focusedIndex.current].tabIndex = -1;
+        items[newIndex].tabIndex = 0;
+        items[newIndex]?.focus();
+
+        focusedItem.current = items[newIndex];
+        focusedIndex.current = newIndex;
+      }
+    };
+
     const handleKeyDown = (event: KeyboardEvent) => {
       const newIndex = getNewIndex(event, items.length, focusedIndex.current);
-
-      items[focusedIndex.current].tabIndex = -1;
-      items[newIndex].tabIndex = 0;
-      items[newIndex]?.focus();
-
-      focusedItem.current = items[newIndex];
-      focusedIndex.current = newIndex;
+      setFocusedItem(newIndex);
     };
 
     const handleClick = (event: MouseEvent) => {
       const index = items.findIndex((item) => item === (event.target as HTMLElement));
-      if (index !== -1) {
-        focusedItem.current = items[index];
-        focusedIndex.current = index;
-      }
+      setFocusedItem(index);
     };
 
     container.addEventListener('keydown', handleKeyDown);
