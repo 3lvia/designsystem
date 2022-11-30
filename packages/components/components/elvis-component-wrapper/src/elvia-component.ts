@@ -32,7 +32,7 @@ export class ElvisComponentWrapper extends HTMLElement {
       'elvia' +
       this.webComponent
         .getComponentData()
-        .reactName.replace(/([A-Z])/g, '-$1')
+        .name.replace(/([A-Z])/g, '-$1')
         .toLowerCase()
     );
   }
@@ -287,8 +287,8 @@ declare class ElviaComponent extends ElvisComponentWrapper {
   static get observedAttributes(): string[];
   /** Data from `elvia-components.config.js`. */
   getComponentData(): {
-    reactName: string;
+    name: string;
     attributes: { name: string; type: string }[];
-    subComponents?: { reactName: string; attributes: { name: string; type: string }[] }[];
+    subComponents?: { name: string; attributes: { name: string; type: string }[] }[];
   };
 }

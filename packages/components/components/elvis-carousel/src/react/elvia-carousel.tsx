@@ -14,7 +14,7 @@ import {
 } from './StyledComponents';
 import { Icon } from '@elvia/elvis-icon/react';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { carouselConfig, carouselItemConfig } from './config';
+import { config } from './config';
 import { warnDeprecatedProps, useRovingFocus } from '@elvia/elvis-toolbox';
 
 export interface CarouselItem {
@@ -76,13 +76,7 @@ export const Carousel: FC<CarouselProps> = function ({
   webcomponent,
   ...rest
 }) {
-  warnDeprecatedProps(carouselConfig, arguments[0]);
-
-  if (Array.isArray(items)) {
-    items.forEach((item) => {
-      warnDeprecatedProps(carouselItemConfig, item);
-    });
-  }
+  warnDeprecatedProps(config, arguments[0]);
 
   const [carouselItems, setCarouselItems] = useState<CarouselItem[] | number>();
   const [lengthOfItems, setLengthOfItems] = useState<number>(0);

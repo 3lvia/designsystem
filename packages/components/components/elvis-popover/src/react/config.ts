@@ -1,62 +1,96 @@
 import { ComponentConfig } from '@elvia/elvis-toolbox';
 
 export const config: ComponentConfig = {
-  componentName: 'Popover',
-  deprecatedProps: {
-    // Rule 1.2: Fullstendige ord
-    hasCloseBtn: {
-      version: '5.0.0',
-      newProp: 'hasCloseButton',
-      isDirectReplacement: true,
+  name: 'Popover',
+  attributes: [
+    { name: 'heading', type: 'string' },
+    { name: 'content', type: 'string' },
+    { name: 'horizontalPosition', type: 'string' },
+    { name: 'verticalPosition', type: 'string' },
+    { name: 'trigger', type: 'string' },
+    { name: 'hasCloseButton', type: 'boolean' },
+    { name: 'isShowing', type: 'boolean' },
+    { name: 'className', type: 'string' },
+    { name: 'inlineStyle', type: 'object' },
+    // Deprecated attributes
+    {
+      name: 'type',
+      type: 'string',
+      deprecatedDetails: {
+        version: '7.0.0',
+        isCallbackFunction: true,
+        explanation:
+          'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+      },
     },
-    // Rule 1.8: Reserverte ord (Title)
-    header: {
-      version: '5.0.0',
-      newProp: 'heading',
-      isDirectReplacement: true,
+    {
+      name: 'isSelectable',
+      type: 'boolean',
+      deprecatedDetails: {
+        version: '7.0.0',
+        isCallbackFunction: true,
+        explanation:
+          'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+      },
     },
-    // Rule 1.4: Event handler
-    isShowingOnChange: {
-      version: '5.0.0',
-      isCallbackFunction: true,
-      explanation:
-        'Events related to removing or adding elements to the DOM should follow our naming guidelines and be named "onOpen" & "onClose"',
+    {
+      name: 'hasDivider',
+      type: 'boolean',
+      deprecatedDetails: {
+        version: '7.0.0',
+        isCallbackFunction: true,
+        explanation:
+          'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+      },
     },
-    // Rule 1.2: Fullstendige ord
-    posX: {
-      version: '5.0.0',
-      newProp: 'horizontalPosition',
-      isDirectReplacement: true,
-    }, // Rule 1.2: Fullstendige ord
-    posY: {
-      version: '5.0.0',
-      newProp: 'verticalPosition',
-      isDirectReplacement: true,
-    }, // Rule 1.6: Variant / state / valg
-    selectable: {
-      version: '5.0.0',
-      newProp: 'isSelectable',
-      isDirectReplacement: true,
+    {
+      name: 'disableAutoClose',
+      type: 'boolean',
+      deprecatedDetails: {
+        version: '7.0.0',
+        isCallbackFunction: true,
+        explanation:
+          'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+      },
     },
-    type: {
-      version: '7.0.0',
-      explanation:
-        'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+    {
+      name: 'header',
+      type: 'string',
+      deprecatedDetails: { version: '5.0.0', newProp: 'heading', isDirectReplacement: true },
     },
-    isSelectable: {
-      version: '7.0.0',
-      explanation:
-        'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+    {
+      name: 'selectable',
+      type: 'boolean',
+      deprecatedDetails: { version: '5.0.0', newProp: 'isSelectable', isDirectReplacement: true },
     },
-    hasDivider: {
-      version: '7.0.0',
-      explanation:
-        'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+    {
+      name: 'posX',
+      type: 'string',
+      deprecatedDetails: {
+        version: '5.0.0',
+        newProp: 'horizontalPosition',
+        isDirectReplacement: true,
+      },
     },
-    disableAutoClose: {
-      version: '7.0.0',
-      explanation:
-        'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
+    {
+      name: 'posY',
+      type: 'string',
+      deprecatedDetails: { version: '5.0.0', newProp: 'verticalPosition', isDirectReplacement: true },
     },
-  },
+    {
+      name: 'hasCloseBtn',
+      type: 'boolean',
+      deprecatedDetails: { version: '5.0.0', newProp: 'hasCloseButton', isDirectReplacement: true },
+    },
+    {
+      name: 'isShowingOnChange',
+      type: 'event',
+      deprecatedDetails: {
+        version: '5.0.0',
+        isCallbackFunction: true,
+        explanation:
+          'Events related to removing or adding elements to the DOM should follow our naming guidelines and be named "onOpen" & "onClose"',
+      },
+    },
+  ],
 };
