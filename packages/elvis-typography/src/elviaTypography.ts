@@ -1,4 +1,4 @@
-const ElviaTypography = {
+export const ElviaTypography = {
   'title-lg': {
     altLabels: ['title-large'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
@@ -273,35 +273,52 @@ const ElviaTypography = {
   },
 };
 
-const getTypography = (typographyName) => {
-  if (!ElviaTypography[typographyName]) {
-    console.error(`Cannot get typography ${typographyName} from elvis-typography.`);
-  } else {
+export default ElviaTypography;
+
+export type TypographyName = keyof typeof ElviaTypography;
+
+/**
+ * Get a typography style from elvis-typography.
+ * @param typographyName Name of requested typography.
+ * @returns Object containing CSS properties of typography.
+ *
+ */
+export const getTypography = <Key extends TypographyName>(
+  typographyName: Key,
+): typeof ElviaTypography[Key] | null => {
+  if (ElviaTypography[typographyName]) {
     return ElviaTypography[typographyName];
+  } else {
+    console.error(`Cannot get typography ${typographyName} from elvis-typography.`);
+    return null;
   }
 };
 
-exports.getTypography = getTypography;
-
-const camelCaseToKebabCase = (camel) => {
+const camelCaseToKebabCase = (camel: string): string => {
   return camel.replace(/([A-Z])/g, (match) => `-${match.toLowerCase()}`);
 };
 
-const getTypographyCss = (typographyName) => {
-  if (!ElviaTypography[typographyName]) {
+/**
+ * @param typographyName Name of requested typography.
+ * @returns CSS-formated string with all the properties of the typography, including a media query for mobile font properties.
+ */
+export const getTypographyCss = <Key extends TypographyName>(typographyName: Key): string => {
+  const typography = getTypography(typographyName);
+  if (!typography) {
     console.error(`Cannot get typography ${typographyName} from elvis-typography.`);
     return '';
   }
   let typographyString = '';
-  const mobileProperties = {};
-  for (const property in ElviaTypography[typographyName]) {
-    const value = ElviaTypography[typographyName][property];
-    if (property.endsWith('Mobile')) {
-      mobileProperties[property] = value;
-    } else if (property !== 'altLabels') {
+  for (const property in typography) {
+    const value = typography[property];
+    if (!property.endsWith('Mobile') && property !== 'altLabels') {
       typographyString += `${camelCaseToKebabCase(property)}: ${value};\n`;
     }
   }
+  const mobileProperties = Object.fromEntries(
+    Object.entries(typography).filter(([key]) => key.endsWith('Mobile')),
+  );
+
   if (Object.keys(mobileProperties).length > 0) {
     typographyString += `@media (max-width: 767px) {\n`;
     {
@@ -314,7 +331,3 @@ const getTypographyCss = (typographyName) => {
   }
   return typographyString;
 };
-
-exports.getTypographyCss = getTypographyCss;
-
-exports.default = ElviaTypography;
