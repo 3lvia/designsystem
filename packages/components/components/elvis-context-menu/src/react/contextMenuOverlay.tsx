@@ -11,7 +11,7 @@ interface Props extends BaseProps {
 
 export const ContextMenuOverlay = React.forwardRef<HTMLDivElement, Props>(
   ({ content, onClose, isSelectable, className, inlineStyle, webcomponent, ...rest }, ref) => {
-    const contentRef = useRovingFocus<HTMLDivElement>({ dir: 'vertical' });
+    const { ref: contentRef } = useRovingFocus<HTMLDivElement>({ dir: 'vertical' });
     useSlot('content', webcomponent, { ref: contentRef });
 
     const handleKeyDown = (ev: React.KeyboardEvent<HTMLElement>): void => {

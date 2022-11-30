@@ -138,7 +138,7 @@ const Pagination: FC<PaginationProps> = function ({
     ...labelOptions,
   });
   const isMobile = windowWidth < 768;
-  const listContainerRef = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
+  const { ref: listContainerRef } = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
 
   /** If selectedDropdownValue is not a number, hide the pagination TODO: Varsle bruker? */
   if (isNaN(parseInt(selectedDropdownValue))) {

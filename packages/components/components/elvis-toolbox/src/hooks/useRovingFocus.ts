@@ -11,7 +11,9 @@ interface Options<T extends HTMLElement> {
  * @internal
  * @since 8.0.0
  */
-export const useRovingFocus = <T extends HTMLElement>(options?: Partial<Options<T>>): RefObject<T> => {
+export const useRovingFocus = <T extends HTMLElement>(
+  options?: Partial<Options<T>>,
+): { ref: RefObject<T> } => {
   const defaultRef = useRef<T>(null);
   const ref = options?.elementRef ?? defaultRef;
 
@@ -169,5 +171,5 @@ export const useRovingFocus = <T extends HTMLElement>(options?: Partial<Options<
     };
   };
 
-  return ref;
+  return { ref };
 };
