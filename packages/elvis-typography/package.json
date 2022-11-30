@@ -5,6 +5,7 @@
   "license": "MIT",
   "author": "",
   "main": "dist/elviaTypography.js",
+  "types": "dist/elviaTypography.d.ts",
   "style": "dist/elviaTypography.scss",
   "scripts": {
     "build": "gulp"
@@ -15,10 +16,11 @@
     "dist/**/*"
   ],
   "devDependencies": {
+    "@types/gulp": "^4.0.10",
+    "@types/gulp-typescript": "^2.13.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
-    "gulp-header": "^2.0.9",
-    "gulp-prettier": "^4.0.0",
-    "gulp-tap": "^2.0.0"
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "ts-node": "^10.9.1"
   }
 }
