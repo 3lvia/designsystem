@@ -64,5 +64,5 @@ requested color.
 
 ## Maintaining
 
-The json and scss-files are generated from the colors object in the js file. When making changes, remember to
+The json and scss-files are generated from the colors object in the ts file. When making changes, remember to
 run `yarn build` afterwards.

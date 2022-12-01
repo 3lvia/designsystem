@@ -1,6 +1,4 @@
-const kebabCase = require('lodash.kebabcase');
-
-const colors = {
+export const colors = {
   'primary-colors': {
     white: {
       color: '#fff',
@@ -129,40 +127,66 @@ const colors = {
       color: '#0064fa',
     },
   },
-};
-exports.colors = colors;
-exports.default = colors;
+} as const;
 
-const getColorObject = (colorName) => {
-  // Iterate through every color category in colors
-  for (const category in colors) {
-    // Then iterate through every color in a category
-    for (const colorLabel in colors[category]) {
-      // If the requested color is found, return the color object
-      if (colorLabel === kebabCase(colorName)) {
-        return colors[category][colorLabel];
-        // If not, check if a given color has any alt-labels
-      } else if (colors[category][colorLabel]['alt-labels']) {
-        // Iterate through alt-labels
-        for (const altLabel in colors[category][colorLabel]['alt-labels']) {
-          // If an alt-label corresponds to the requested color, return the color object
-          if (colors[category][colorLabel]['alt-labels'][altLabel] === kebabCase(colorName)) {
-            return colors[category][colorLabel];
-          }
-        }
-      }
-    }
+export default colors;
+type Colors = typeof colors;
+
+type ColorNames = Colors extends Record<string, infer Category>
+  ? Category extends Record<string, any>
+    ? keyof Category
+    : never
+  : never;
+
+type AltLabels = Colors extends Record<string, infer Category>
+  ? Category extends Record<string, infer Color>
+    ? Color extends Record<'alt-labels', infer AltLabels>
+      ? AltLabels extends ReadonlyArray<infer Label>
+        ? Label
+        : never
+      : never
+    : never
+  : never;
+
+export type ElviaColor =
+  | ColorNames
+  | AltLabels
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  | (string & {});
+
+const getColorObject = (colorName: ElviaColor) => {
+  const color = Object.values(colors).reduce((acc, category) => {
+    const color = Object.entries(category).find(([label, color]) => {
+      const altLabels = 'alt-labels' in color ? color['alt-labels'] : [];
+      return label === colorName || altLabels.includes(colorName);
+    });
+    return color ?? acc;
+  }, null);
+
+  if (color === null) {
+    console.error(
+      `Cannot get color ${colorName} from elvis-colors.${
+        colorName !== colorName.toLowerCase() ? ' Did you forget to use kebab-case?' : ''
+      }`,
+    );
   }
-  console.error(`Cannot get color ${colorName} from elvis-colors.`);
+  return color?.[1];
 };
 
-const getColor = (colorName) => {
-  return getColorObject(colorName).color;
+/**
+ * Get a color from elvis-colors.
+ * @param colorName Name of color in elvis-colors package.
+ * @returns Hex value of requested color, or an empty string if the color is not found.
+ */
+export const getColor = (colorName: ElviaColor): string => {
+  return getColorObject(colorName)?.color ?? '';
 };
 
-const getContrastText = (colorName) => {
-  return getColorObject(colorName).contrastText;
+/**
+ * Get a contrast text color from elvis-colors.
+ * @param colorName Name of color in elvis-colors package.
+ * @returns Hex value of the contrast text color corresponding to the requested color, or an empty string if the color is not found.
+ */
+export const getContrastText = (colorName: ElviaColor): string => {
+  return getColorObject(colorName)?.contrastText ?? '';
 };
-
-exports.getColor = getColor;
-exports.getContrastText = getContrastText;

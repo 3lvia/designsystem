@@ -2535,13 +2535,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
-    "@types/lodash.kebabcase": ^4.1.7
+    "@types/gulp": ^4.0.10
+    "@types/gulp-typescript": ^2.13.0
     del: ^6.0.0
     gulp: ^4.0.2
-    gulp-header: ^2.0.9
-    gulp-prettier: ^4.0.0
-    gulp-tap: ^2.0.0
-    lodash.kebabcase: ^4.1.1
+    gulp-typescript: ^6.0.0-alpha.1
+    ts-node: ^10.9.1
   languageName: unknown
   linkType: soft
 
@@ -5999,15 +5998,6 @@ __metadata:
   dependencies:
     "@types/lodash": "*"
   checksum: 0f065989408a9e0584e6c27495be2cd4602e62650f55266aa195812582444463c0c8570c674ae84f947c11748f49ab43fd5b482fa120e08eeee4c23b162edc38
-  languageName: node
-  linkType: hard
-
-"@types/lodash.kebabcase@npm:^4.1.7":
-  version: 4.1.7
-  resolution: "@types/lodash.kebabcase@npm:4.1.7"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 8c28dae574d0d15d316b8412f1edf7628398f0d1d34bec978af9d8b9f1286749492c23680817e74c6bd15e14b45b0006c79b320ebd260f9b8c0ac85668e0c409
   languageName: node
   linkType: hard
 
@@ -16779,17 +16769,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-prettier@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "gulp-prettier@npm:4.0.0"
-  dependencies:
-    plugin-error: ^1.0.1
-    prettier: ^2.0.0
-    through2: ^4.0.2
-  checksum: 83a9faf7c246d1e1a2495acbd1d7d343921ab7cb7bd856751d3b14495aa79177bdd4cca6a8549205754be52f335324554c9effeeb1a609bc5e08944636c2f957
-  languageName: node
-  linkType: hard
-
 "gulp-rename@npm:^2.0.0":
   version: 2.0.0
   resolution: "gulp-rename@npm:2.0.0"
@@ -25309,7 +25288,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^1.18.2 || ^2.0.0, prettier@npm:^2.0.0, prettier@npm:^2.0.5":
+"prettier@npm:^1.18.2 || ^2.0.0, prettier@npm:^2.0.5":
   version: 2.7.1
   resolution: "prettier@npm:2.7.1"
   bin:
