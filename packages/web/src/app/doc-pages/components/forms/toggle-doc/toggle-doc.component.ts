@@ -53,10 +53,6 @@ export class ToggleDocComponent {
 </label>
   `;
 
-  exampleNoLabel = `<label class="e-toggle">
-  <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" aria-label="bryter uten etikett" />
-</label>`;
-
   exampleToggleSizeNormal = `<label class="e-toggle">Normal size
   <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
 </label>`;
