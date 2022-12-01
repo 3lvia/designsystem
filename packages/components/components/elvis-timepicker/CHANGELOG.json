@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "02.12.22",
+      "version": "2.1.12",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where the time picker would not close if the user clicked outside of it."]
+        }
+      ]
+    },
+    {
       "date": "29.11.22",
       "version": "2.1.11",
       "changelog": [

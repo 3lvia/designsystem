@@ -59,6 +59,7 @@ export const Backdrop = styled.div`
   bottom: 0;
   left: 0;
   position: fixed;
+  z-index: 99999;
 `;
 
 export const NumberPickerContainer = styled.div`
