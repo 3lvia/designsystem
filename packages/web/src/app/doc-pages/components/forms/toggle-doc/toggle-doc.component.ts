@@ -23,44 +23,37 @@ export class ToggleDocComponent {
   <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
 </label>`;
 
-  example1 = `<div class="e-title-caps">Off</div>
-<label class="e-toggle">
+  example1 = `<label class="e-toggle e-mt-8">
   Label
   <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
 </label>
-<div class="e-title-caps e-mt-24 e-mb-8">On</div>
-<label class="e-toggle">
+<label class="e-toggle e-mt-8">
   Label
   <input class="e-toggle__input" type="checkbox" checked />
 </label>
-<div class="e-title-caps e-mt-24 e-mb-8">Disabled off</div>
-<label class="e-toggle">
+<label class="e-toggle e-mt-8">
   Label
   <input class="e-toggle__input e-toggle---disabled" type="checkbox" role="switch" aria-checked="false" disabled />
 </label>
-<div class="e-title-caps e-mt-24 e-mb-8">Disabled on</div>
-<label class="e-toggle">
+<label class="e-toggle e-mt-8">
   Label
   <input class="e-toggle__input e-toggle---checked e-toggle---disabled" type="checkbox" role="switch" aria-checked="true" checked disabled />
 </label>`;
 
-  exampleLabelPosition = `<div class="e-title-caps e-mb-8">Label left</div>
-<label class="e-toggle">
+  exampleLabelPosition = `<label class="e-toggle">
   <!-- place the label text _before_ the input element -->
   Week number
   <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
 </label>
 
-<div class="e-title-caps e-mt-24 e-mb-8">Label right</div>
-<label class="e-toggle">
+<label class="e-toggle e-mt-16">
   <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
   Week number
   <!-- place the label text _after_ the input element -->
 </label>
   `;
 
-  exampleNoLabel = `<div class="e-title-caps e-mb-8">No label</div>
-<label class="e-toggle">
+  exampleNoLabel = `<label class="e-toggle">
   <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" aria-label="bryter uten etikett" />
 </label>`;
 
@@ -72,22 +65,18 @@ export class ToggleDocComponent {
   <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
 </label>`;
 
-  exampleInverted = `<div class="e-title-caps">Off</div>
-<label class="e-toggle e-toggle--inverted" role="switch">
+  exampleInverted = `<label class="e-toggle e-toggle--inverted" role="switch">
   Label
   <input class="e-toggle__input" type="checkbox" />
 </label>
-<div class="e-title-caps e-mt-24 e-mb-8">On</div>
 <label class="e-toggle e-toggle--inverted" role="switch">
   Label
   <input class="e-toggle__input" type="checkbox" checked />
 </label>
-<div class="e-title-caps e-mt-24 e-mb-8">Disabled off</div>
 <label class="e-toggle e-toggle--inverted" role="switch">
   Label
   <input class="e-toggle__input" type="checkbox" disabled />
 </label>
-<div class="e-title-caps e-mt-24 e-mb-8">Disabled on</div>
 <label class="e-toggle e-toggle--inverted" role="switch">
   Label
   <input class="e-toggle__input" type="checkbox" checked disabled />
