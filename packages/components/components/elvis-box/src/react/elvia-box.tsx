@@ -26,6 +26,11 @@ const Box: FC<BoxProps> = ({
   const { ref: boxContent } = useSlot<HTMLDivElement>('content', webcomponent);
   const { ref: boxTitle } = useSlot<HTMLDivElement>('title', webcomponent);
 
+  console.log(
+    'nonce value:',
+    typeof window.__webpack_nonce__ !== undefined ? window.__webpack_nonce__ : 'undefined',
+  );
+
   return (
     <div className={`${className ? className : ''}`} style={inlineStyle} {...rest}>
       <BoxArea data-testid="box-area">
