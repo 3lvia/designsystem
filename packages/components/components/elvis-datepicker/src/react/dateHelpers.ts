@@ -19,8 +19,8 @@ export const isSameDay = (d1?: Date | null, d2?: Date | null): boolean => {
   }
 
   return (
-    `${d1.getFullYear()}${d1.getMonth()}${d1.getDate()}` ===
-    `${d2.getFullYear()}${d2.getMonth()}${d2.getDate()}`
+    formatDate(d1, { year: 'numeric', month: 'numeric', day: 'numeric' }) ===
+    formatDate(d2, { year: 'numeric', month: 'numeric', day: 'numeric' })
   );
 };
 
