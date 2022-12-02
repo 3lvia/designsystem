@@ -41,7 +41,10 @@ const fadeInOpacity = keyframes`
   }
 `;
 
-export const CarouselContainer = styled.div`
+export const CarouselContainer = styled.section.attrs(() => ({
+  'aria-roledescription': 'carousel',
+  'aria-live': 'polite',
+}))`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -57,7 +60,9 @@ interface CarouselElementContainerProps {
   slideDirection: 'left' | 'right';
 }
 
-export const CarouselElementContainer = styled.div<CarouselElementContainerProps>`
+export const CarouselElementContainer = styled.div.attrs(() => ({
+  'aria-roledescription': 'slide',
+}))<CarouselElementContainerProps>`
   margin-bottom: 24px;
 
   // Prevent imagine dragging

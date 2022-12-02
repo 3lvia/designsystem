@@ -15,7 +15,7 @@ import {
   PaginatorSelectorArrowBtn,
 } from './styledComponents';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { useRovingFocus, warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import { config } from './config';
 
 export interface PaginationProps {
@@ -138,6 +138,7 @@ const Pagination: FC<PaginationProps> = function ({
     ...labelOptions,
   });
   const isMobile = windowWidth < 768;
+  const { ref: listContainerRef } = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
 
   /** If selectedDropdownValue is not a number, hide the pagination TODO: Varsle bruker? */
   if (isNaN(parseInt(selectedDropdownValue))) {
@@ -424,9 +425,10 @@ const Pagination: FC<PaginationProps> = function ({
           {labelOptionsState.of} {numberOfElements.toLocaleString('nb-NO')} {labelOptionsState.label}
         </PaginatorInfoAmount>
       </PaginatorInfoContainer>
-      <PaginatorSelectorArea role="navigation">
+      <PaginatorSelectorArea role="navigation" ref={listContainerRef}>
         <PaginatorSelectorArrowBtn
           visible={shouldHaveLeftArrow()}
+          aria-hidden={!shouldHaveLeftArrow()}
           onClick={() => setSelectedPageNumber(selectedPageNumber - 1)}
           data-testid="selector-arrow-btn-left"
           aria-label="Forrige side"
@@ -439,6 +441,7 @@ const Pagination: FC<PaginationProps> = function ({
           onClick={() => setSelectedPageNumber(selectedPageNumber + 1)}
           data-testid="selector-arrow-btn-right"
           aria-label="Neste side"
+          aria-hidden={!shouldHaveRightArrow()}
         >
           <Icon name="arrowLongRight" size="xs" />
         </PaginatorSelectorArrowBtn>

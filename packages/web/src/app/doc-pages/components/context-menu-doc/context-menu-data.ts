@@ -24,6 +24,12 @@ const contextMenuData: ComponentData = {
       description: 'Determines whether the context menu is showing or not.',
       default: 'false',
     },
+    isSelectable: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Determines whether the context menu is selectable',
+      default: 'false',
+    },
     onOpen: {
       isRequired: false,
       type: '() => void',
@@ -91,7 +97,7 @@ const contextMenuData: ComponentData = {
         </button>
       </div>
       <div className="ewc-context-menu__list-group">
-        <a role="menuitem">
+        <a role="menuitem" href="#">
           <span>Endre passord</span>
         </a>
       </div>
@@ -118,7 +124,7 @@ const contextMenuData: ComponentData = {
       </button>
     </div>
     <div class="ewc-context-menu__list-group">
-      <a role="menuitem">
+      <a role="menuitem" href="#">
         <span>Endre passord</span>
       </a>
     </div>
@@ -144,7 +150,7 @@ const contextMenuData: ComponentData = {
       </button>
     </div>
     <div class="ewc-context-menu__list-group">
-      <a role="menuitem">
+      <a role="menuitem" href="#">
         <span>Endre passord</span>
       </a>
     </div>
@@ -169,7 +175,7 @@ const contextMenuData: ComponentData = {
       </button>
     </div>
     <div class="ewc-context-menu__list-group">
-      <a role="menuitem">
+      <a role="menuitem" href="#">
         <span>Endre passord</span>
       </a>
     </div>
