@@ -153,7 +153,7 @@ describe('Elvis Popover', () => {
 
       await user.click(popoverTrigger);
 
-      const popoverContent = screen.getByTestId('popover-content');
+      const popoverContent = screen.getByTestId('popover');
       expect(popoverContent).toHaveStyle('margin: 24px');
       expect(popoverContent).toHaveClass('test-class');
     });
