@@ -1,19 +1,5 @@
-import React, { FC } from 'react';
-type IconSizes =
-  | 'xxs'
-  | 'xs'
-  | 'sm'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | 'xxl'
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  | (string & {});
-
-export interface IconWrapperProps {
-  icon: string;
-  size?: IconSizes;
-}
+import React, { useMemo } from 'react';
+import { IconWrapperType } from './iconWrapper.types';
 
 /**
  * Use this wrapper to render icons from `@elvia/elvis-assets-icons` as React components.
@@ -22,12 +8,13 @@ export interface IconWrapperProps {
  * ...
  * export const Component: FC<Props> = ({content, webcomponent}) => {
  *  ...
- *  return (<IconWrapper icon={expandCircleColor.getIcon()} size="md" />)
+ *  return (<IconWrapper icon={expandCircleColor} size="md" />)
  * }
  * @since 7.3.0
+ * @internal
  */
-export const IconWrapper: FC<IconWrapperProps> = ({ icon, size = 'sm' }) => {
-  const getIconSize = (): string => {
+export const IconWrapper: IconWrapperType = ({ icon, color, size = 'sm', ...rest }) => {
+  const transformedSize = useMemo(() => {
     switch (size) {
       case 'xxs':
         return '8px';
@@ -46,19 +33,21 @@ export const IconWrapper: FC<IconWrapperProps> = ({ icon, size = 'sm' }) => {
       default:
         return size;
     }
-  };
-  const getIconWithSize = (): string => {
-    const newSize = getIconSize();
-    return icon
-      .replace(/width="([^"]*)"/, `width="${newSize}"`)
-      .replace(/height="([^"]*)"/, `height="${newSize}"`);
-  };
+  }, [size]);
+
+  const iconWithColor = useMemo(() => icon.getIcon(color), [icon, color]);
+  const transformedIcon = useMemo(() => {
+    return iconWithColor
+      .replace(/width="([^"]*)"/, `width="${transformedSize}"`)
+      .replace(/height="([^"]*)"/, `height="${transformedSize}"`);
+  }, [iconWithColor, transformedSize]);
 
   return (
     <i
-      dangerouslySetInnerHTML={{ __html: getIconWithSize() }}
+      dangerouslySetInnerHTML={{ __html: transformedIcon }}
       style={{ display: 'flex' }}
       aria-hidden="true"
+      {...rest}
     />
   );
 };

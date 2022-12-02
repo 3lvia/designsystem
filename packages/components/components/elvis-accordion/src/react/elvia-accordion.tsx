@@ -205,11 +205,7 @@ const Accordion: FC<AccordionProps> = ({
           >
             {shouldShowLeftIcon() && (
               <IconWrapper
-                icon={
-                  isHoveringButton || isHovering
-                    ? expandCircleFilledColor.getIcon()
-                    : expandCircleColor.getIcon()
-                }
+                icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
                 size={size === 'small' ? 'xs' : 'sm'}
               />
             )}
@@ -226,11 +222,7 @@ const Accordion: FC<AccordionProps> = ({
             </AccordionLabel>
             {shouldShowRightIcon() && (
               <IconWrapper
-                icon={
-                  isHoveringButton || isHovering
-                    ? expandCircleFilledColor.getIcon()
-                    : expandCircleColor.getIcon()
-                }
+                icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
                 size={size === 'small' ? 'xs' : 'sm'}
               />
             )}
