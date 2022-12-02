@@ -1,6 +1,6 @@
 import Popover from './elvia-popover';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('Elvis Popover', () => {
@@ -54,10 +54,12 @@ describe('Elvis Popover', () => {
       const popoverCloseBtn = screen.getByRole('button', { name: 'Lukk' });
       await user.click(popoverCloseBtn);
 
-      const popoverContent = screen.queryByText('Content');
-      const popoverHeading = screen.queryByText('Header');
-      expect(popoverContent).not.toBeInTheDocument();
-      expect(popoverHeading).not.toBeInTheDocument();
+      await waitFor(() => {
+        const popoverContent = screen.queryByText('Content');
+        const popoverHeading = screen.queryByText('Header');
+        expect(popoverContent).not.toBeInTheDocument();
+        expect(popoverHeading).not.toBeInTheDocument();
+      });
     });
 
     it('should have correct header', async () => {
@@ -86,17 +88,16 @@ describe('Elvis Popover', () => {
 
       //open
       await user.click(popoverTrigger);
-      const popoverContent = screen.queryByText('Content');
-      const popoverHeading = screen.queryByText('Header');
-
-      expect(popoverContent).toBeInTheDocument();
-      expect(popoverHeading).toBeInTheDocument();
+      expect(screen.queryByText('Content')).toBeInTheDocument();
+      expect(screen.queryByText('Header')).toBeInTheDocument();
 
       //close
       await user.keyboard('{Escape}');
 
-      expect(popoverContent).not.toBeInTheDocument();
-      expect(popoverHeading).not.toBeInTheDocument();
+      await waitFor(() => {
+        expect(screen.queryByText('Content')).not.toBeInTheDocument();
+        expect(screen.queryByText('Header')).not.toBeInTheDocument();
+      });
     });
   });
 

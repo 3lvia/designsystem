@@ -1,6 +1,8 @@
 import styled, { css, keyframes } from 'styled-components';
 
-const fadeIn = keyframes`
+export const exitDuration = 200;
+
+const fadeInAnimation = keyframes`
   0% {
     opacity: 0;
     translate: 0 -4px;
@@ -12,7 +14,7 @@ const fadeIn = keyframes`
   }
 `;
 
-const fadeOut = keyframes`
+const fadeOutAnimation = keyframes`
   0% {
     opacity: 1;
     transform: scale(1);
@@ -27,14 +29,11 @@ const fadeOut = keyframes`
 export const OverlayContainer = styled.div<{ fadeOut: boolean }>`
   position: absolute;
   z-index: 99999;
-  animation: ${fadeIn} 300ms ease;
+  animation: ${fadeInAnimation} 300ms ease;
 
-  ${(props) => {
-    if (props.fadeOut) {
-      return css`
-        animation: ${fadeOut} 200ms ease;
-      `;
-    }
-    return '';
-  }};
+  ${({ fadeOut }) =>
+    fadeOut &&
+    css`
+      animation: ${fadeOutAnimation} ${exitDuration}ms ease forwards;
+    `};
 `;
