@@ -19,7 +19,7 @@ describe('Elvis Context Menu', () => {
               </button>
             </div>
             <div className="ewc-popover__list-group">
-              <a>
+              <a href="#">
                 <span>Endre passord</span>
               </a>
             </div>

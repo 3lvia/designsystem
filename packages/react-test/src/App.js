@@ -170,18 +170,7 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <div className="e-bg-white">
-                <Dropdown
-                  value={defaultDropdownOptions}
-                  placeholder="Select country"
-                  label="New dropdown"
-                  isSearchable
-                  items={dropdownOptions}
-                  isMulti
-                  isLoadingMoreItems={isLoadingMoreItems}
-                  onLoadMoreItems={onLoadMoreItems}
-                ></Dropdown>
-              </div>
+              <div className="e-bg-white"></div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
@@ -380,6 +369,16 @@ function App() {
             {/* DROPDOWN */}
             <div className="example-wrapper">
               <h3>Dropdown</h3>
+              <Dropdown
+                value={defaultDropdownOptions}
+                placeholder="Select country"
+                label="New dropdown"
+                isSearchable
+                items={dropdownOptions}
+                isMulti
+                isLoadingMoreItems={isLoadingMoreItems}
+                onLoadMoreItems={onLoadMoreItems}
+              ></Dropdown>
             </div>
             {/* ICON */}
             <div className="example-wrapper">
