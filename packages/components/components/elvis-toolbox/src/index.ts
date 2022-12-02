@@ -2,7 +2,7 @@ export { isSsr } from './isSsr';
 export { outlineListener } from './outlineListener';
 export { warnDeprecatedProps } from './warnDeprecatedProps';
 export { ComponentConfig, ComponentAttribute, DeprecatedDetails } from './componentConfig.types';
-export { IconWrapper, IconWrapperProps } from './iconWrapper';
+export { IconWrapper, IconWrapperProps } from './components/iconWrapper/iconWrapper';
 
 export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button';
 export { IconButton } from './components/button/iconButton';
