@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "02.12.22",
+      "version": "7.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Add reusable styled backdrop component"]
+        }
+      ]
+    },
+    {
+      "date": "02.12.22",
       "version": "7.1.0",
       "changelog": [
         {
