@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.12.22",
+      "version": "7.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Add reusable overlay component"]
+        }
+      ]
+    },
+    {
       "date": "02.12.22",
       "version": "7.2.0",
       "changelog": [
