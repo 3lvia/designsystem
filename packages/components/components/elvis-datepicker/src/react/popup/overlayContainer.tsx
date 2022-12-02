@@ -4,7 +4,6 @@ import { createPortal } from 'react-dom';
 import { Icon } from '@elvia/elvis-icon/react';
 import { Calendar } from '../calendar/calendar';
 import {
-  Backdrop,
   OverlayContainer as Container,
   PopoverBody,
   PopoverFooter,
@@ -15,7 +14,7 @@ import {
 import { YearPicker } from '../yearPicker/yearPicker';
 import { formatDate } from '../dateHelpers';
 import { DatepickerRangeProps } from '../elviaDatepicker.types';
-import { TertiaryButton } from '@elvia/elvis-toolbox';
+import { TertiaryButton, Backdrop } from '@elvia/elvis-toolbox';
 
 interface Props {
   onClose: () => void;
