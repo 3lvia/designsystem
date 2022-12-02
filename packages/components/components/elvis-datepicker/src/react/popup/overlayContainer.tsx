@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
 
 import { Icon } from '@elvia/elvis-icon/react';
 import { Calendar } from '../calendar/calendar';
@@ -14,7 +13,7 @@ import {
 import { YearPicker } from '../yearPicker/yearPicker';
 import { formatDate } from '../dateHelpers';
 import { DatepickerRangeProps } from '../elviaDatepicker.types';
-import { TertiaryButton, Backdrop } from '@elvia/elvis-toolbox';
+import { TertiaryButton, Overlay } from '@elvia/elvis-toolbox';
 
 interface Props {
   onClose: () => void;
@@ -49,12 +48,6 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
     const [yearPickerIsOpen, setYearPickerIsOpen] = useState(false);
     const [viewedDate, setViewedDate] = useState(selectedDate || new Date());
 
-    const onAnimationEnd = () => {
-      if (fadeOut) {
-        onClose();
-      }
-    };
-
     const onYearChange = (selectedYear: number): void => {
       const newDate = new Date(viewedDate);
       newDate.setFullYear(selectedYear);
@@ -68,37 +61,14 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
     };
 
     useEffect(() => {
-      const closeOnEsc = (ev: KeyboardEvent) => {
-        if (ev.key === 'Escape') {
-          setFadeOut(true);
-        }
-      };
-
-      window.addEventListener('keydown', closeOnEsc);
-
-      return () => {
-        window.removeEventListener('keydown', closeOnEsc);
-      };
-    }, []);
-
-    useEffect(() => {
       if (selectedDate) {
         setViewedDate(selectedDate);
       }
     }, [selectedDate]);
 
-    return createPortal(
-      <>
-        <Backdrop onClick={() => setFadeOut(true)} data-testid="backdrop" />
-        <Container
-          ref={ref}
-          data-testid="popover"
-          role="dialog"
-          aria-label="Datovelger popup"
-          aria-modal="true"
-          fadeOut={fadeOut}
-          onAnimationEnd={onAnimationEnd}
-        >
+    return (
+      <Overlay onClose={onClose} ref={ref} startFade={fadeOut}>
+        <Container data-testid="popover" role="dialog" aria-label="Datovelger popup" aria-modal="true">
           <PopoverHeader>
             <SelectedDateName>
               {formatDate(selectedDate, { weekday: 'long', day: 'numeric', month: 'long' })}
@@ -158,8 +128,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
             )}
           </PopoverBody>
         </Container>
-      </>,
-      document.body,
+      </Overlay>
     );
   },
 );
