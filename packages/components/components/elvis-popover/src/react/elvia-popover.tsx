@@ -4,7 +4,6 @@ import { Icon } from '@elvia/elvis-icon/react';
 import type { PopoverProps } from './elviaPopover.types';
 import { mapPositionToHorizontalPosition } from './mapPosition';
 import {
-  Backdrop,
   CloseButtonContainer,
   Heading,
   PopoverContainer,
@@ -14,6 +13,7 @@ import {
 } from './styledComponents';
 import { config } from './config';
 import {
+  Backdrop,
   IconButton,
   outlineListener,
   useConnectedOverlay,

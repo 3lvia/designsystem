@@ -70,15 +70,6 @@ export const PopoverTypography = styled.div<PopoverTypographyProps>`
     `}
 `;
 
-export const Backdrop = styled.div`
-  height: 100%;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 99999;
-`;
-
 export const Heading = styled.h3`
   ${getTypographyCss('text-sm-strong')}
   margin: 0;
