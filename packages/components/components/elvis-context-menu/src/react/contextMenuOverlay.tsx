@@ -1,7 +1,7 @@
-import { BaseProps, useSlot, useRovingFocus } from '@elvia/elvis-toolbox';
+import { BaseProps, useSlot, useRovingFocus, Backdrop } from '@elvia/elvis-toolbox';
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { Backdrop, ContextMenuContent, ItemList } from './styledComponents';
+import { ContextMenuContent, ItemList } from './styledComponents';
 
 interface Props extends BaseProps {
   content?: string | JSX.Element;

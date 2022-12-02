@@ -73,14 +73,6 @@ export const PopoverFooter = styled.div`
   padding: 16px 24px;
 `;
 
-export const Backdrop = styled.div`
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-`;
-
 export interface RotatingContainerProps {
   isRotated: boolean;
 }

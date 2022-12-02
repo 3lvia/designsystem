@@ -5,7 +5,6 @@ export { ComponentConfig, ComponentAttribute, DeprecatedDetails } from './compon
 
 export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button';
 export { IconButton } from './components/button/iconButton';
-export { TooltipPopup, TooltipPosition, TooltipPopupProps } from './components/tooltip/tooltip';
 export {
   FormFieldInput,
   FormFieldContainer,
@@ -14,6 +13,8 @@ export {
   FormFieldLabel,
 } from './components/form-field/formFieldStyles';
 export { FormFieldError, FormFieldErrorContainer } from './components/form-field/errorStyles';
+export { Backdrop } from './components/backdrop/backdrop';
+export { TooltipPopup, TooltipPosition, TooltipPopupProps } from './components/tooltip/tooltip';
 
 export { useBreakpoint } from './hooks/useBreakpoint';
 export {

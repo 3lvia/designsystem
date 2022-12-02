@@ -2,6 +2,29 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "02.12.22",
+      "version": "6.0.11",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Use shared backdrop component."]
+        }
+      ]
+    },
+    {
+      "date": "02.12.22",
+      "version": "6.0.10",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the calendar would not close if the user clicked outside of it.",
+            "Fixed an issue where two dates could be marked as active if the day and month were the same digit."
+          ]
+        }
+      ]
+    },
+    {
       "date": "29.11.22",
       "version": "6.0.9",
       "changelog": [
