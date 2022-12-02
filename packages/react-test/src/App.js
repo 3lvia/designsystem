@@ -369,6 +369,16 @@ function App() {
             {/* DROPDOWN */}
             <div className="example-wrapper">
               <h3>Dropdown</h3>
+              <Dropdown
+                value={defaultDropdownOptions}
+                placeholder="Select country"
+                label="New dropdown"
+                isSearchable
+                items={dropdownOptions}
+                isMulti
+                isLoadingMoreItems={isLoadingMoreItems}
+                onLoadMoreItems={onLoadMoreItems}
+              ></Dropdown>
             </div>
             {/* ICON */}
             <div className="example-wrapper">
