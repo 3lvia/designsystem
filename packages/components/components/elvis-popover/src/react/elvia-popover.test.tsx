@@ -1,6 +1,6 @@
 import Popover from './elvia-popover';
 import React from 'react';
-import { render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('Elvis Popover', () => {
@@ -80,24 +80,6 @@ describe('Elvis Popover', () => {
 
       const popoverContent = screen.queryByText('Content');
       expect(popoverContent).toBeInTheDocument();
-    });
-
-    it('should be closed if the user presses Escape', async () => {
-      const user = userEvent.setup();
-      const popoverTrigger = screen.getByRole('button', { name: 'Trigger' });
-
-      //open
-      await user.click(popoverTrigger);
-      expect(screen.queryByText('Content')).toBeInTheDocument();
-      expect(screen.queryByText('Header')).toBeInTheDocument();
-
-      //close
-      await user.keyboard('{Escape}');
-
-      await waitFor(() => {
-        expect(screen.queryByText('Content')).not.toBeInTheDocument();
-        expect(screen.queryByText('Header')).not.toBeInTheDocument();
-      });
     });
   });
 
