@@ -53,15 +53,6 @@ export const OverlayContainer = styled.div<OverlayContainerProps>`
   }}
 `;
 
-export const Backdrop = styled.div`
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  z-index: 99999;
-`;
-
 export const NumberPickerContainer = styled.div`
   flex: 1;
   display: flex;

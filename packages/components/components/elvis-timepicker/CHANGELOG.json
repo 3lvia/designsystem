@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "02.12.22",
+      "version": "2.1.13",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Use shared backdrop component."]
+        }
+      ]
+    },
+    {
+      "date": "02.12.22",
       "version": "2.1.12",
       "changelog": [
         {

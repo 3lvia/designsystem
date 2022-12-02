@@ -1,9 +1,10 @@
+import { Backdrop } from '@elvia/elvis-toolbox';
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ChangeType, MinuteInterval } from '../elviaTimepicker.types';
 import { NumberPicker } from './numberPicker';
 
-import { Backdrop, OverlayContainer as Container } from './popupStyles';
+import { OverlayContainer as Container } from './popupStyles';
 
 interface Props {
   onClose: () => void;
