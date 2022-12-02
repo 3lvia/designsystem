@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "02.12.22",
+      "version": "5.1.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Use shared backdrop component."]
+        }
+      ]
+    },
+    {
       "date": "29.11.22",
       "version": "5.1.3",
       "changelog": [

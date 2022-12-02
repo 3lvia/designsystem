@@ -5,7 +5,6 @@ import { flattenTree, getValueAsList } from '../dropdownListUtils';
 import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
 import { BackButton } from './backButton';
 import {
-  Backdrop,
   CursorCurve,
   DropdownPopup,
   DropdownPopupContainer,
@@ -16,6 +15,7 @@ import { LoadMoreButton } from './loadMoreButton';
 import { SelectAllOption } from './selectAllOption';
 import { ItemValue } from '../dropdown-item/itemValue';
 import { Icon } from '@elvia/elvis-icon/react';
+import { Backdrop } from '@elvia/elvis-toolbox';
 
 interface DropdownOverlayProps {
   isRootOverlay?: boolean;
