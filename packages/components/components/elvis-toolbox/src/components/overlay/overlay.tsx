@@ -9,6 +9,33 @@ interface OverlayProps {
   children: ReactNode;
 }
 
+/**
+ * A HOC that can be used with the useConnectedOverlay hook to create positioned connected overlays.
+ * To enable fade out when the overlay is removed from the DOM, use the `onClose` prop to set the visible
+ * state, and start fade out by setting the `startFade` prop to `true`.
+ *
+ * @example
+ * export const Component: FC<Props> = () => {
+ *   const connectedElementRef = useRef<HTMLDivElement>(null);
+ *   const popoverRef = useRef<HTMLDivElement>(null);
+ *   const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef);
+ *   const [ fadeOut, setFadeOut ] = useState(false);
+ *   ...
+ *
+ *   return (
+ *     ...
+ *     { isShowing && (
+ *       <Overlay onClose={() => setIsShowing(false)} startFade={fadeOut}>
+ *         ...
+ *         <button onClick={() => setFadeOut(true)}>Close overlay</button>
+ *         ...
+ *       </Overlay>
+ *     )}
+ *   )
+ * }
+ *
+ * @since 2.1.0
+ */
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
   ({ onClose, startFade = false, children }, ref) => {
     const [fadeOut, setFadeOut] = useState(false);
