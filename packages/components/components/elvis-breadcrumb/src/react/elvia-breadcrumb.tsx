@@ -6,9 +6,10 @@ import {
   BreadcrumbListWrapper,
   BreadcrumbMobileWrapper,
 } from './styledComponents';
-import { Icon } from '@elvia/elvis-icon/react';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, IconWrapper } from '@elvia/elvis-toolbox';
+import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
+import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
 import { config } from './config';
 
 interface BreadcrumbLink {
@@ -87,10 +88,10 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
   const MobileBreadcrumb = () => {
     return (
       <BreadcrumbWrapper>
-        <Icon
-          name="arrowLeftBold"
+        <IconWrapper
+          icon={arrowLeftBold}
           size="xxs"
-          inlineStyle={{
+          style={{
             marginRight: '8px',
           }}
         />
@@ -138,10 +139,10 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
           >
             {item.text}
           </BreadcrumbLinkStyle>
-          <Icon
-            name="arrowRightBold"
+          <IconWrapper
+            icon={arrowRightBold}
             size="xxs"
-            inlineStyle={{
+            style={{
               margin: '0px 8px',
             }}
           />

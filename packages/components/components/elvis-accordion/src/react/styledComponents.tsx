@@ -101,7 +101,7 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
     props.isFullWidth && props.currType === 'normal' ? 'space-between' : 'inherit'};
   align-items: center;
 
-  i {
+  svg {
     transform: rotate(0deg);
     transition: transform 0.2s ease-out;
 

@@ -16,6 +16,8 @@ export {
 export { FormFieldError, FormFieldErrorContainer } from './components/form-field/errorStyles';
 export { Overlay } from './components/overlay/overlay';
 export { TooltipPopup, TooltipPosition, TooltipPopupProps } from './components/tooltip/tooltip';
+export { IconWrapper } from './components/iconWrapper/iconWrapper';
+export { IconWrapperProps } from './components/iconWrapper/iconWrapper.types';
 
 export { useBreakpoint } from './hooks/useBreakpoint';
 export {

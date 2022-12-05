@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
-import { outlineListener, useSlot } from '@elvia/elvis-toolbox';
+import { outlineListener, useSlot, IconWrapper } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
 import {
   AccordionLabelPosition,
@@ -17,7 +17,8 @@ import {
   AccordionDetailText,
   AccordionContent,
 } from './styledComponents';
-import { Icon } from '@elvia/elvis-icon/react';
+import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
+import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 export interface AccordionProps {
@@ -204,8 +205,8 @@ const Accordion: FC<AccordionProps> = ({
             aria-label={decideButtonAriaLabel()}
           >
             {shouldShowLeftIcon() && (
-              <Icon
-                name={isHoveringButton || isHovering ? 'expandCircleFilledColor' : 'expandCircleColor'}
+              <IconWrapper
+                icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
                 size={size === 'small' ? 'xs' : 'sm'}
               />
             )}
@@ -221,8 +222,8 @@ const Accordion: FC<AccordionProps> = ({
               </AccordionDetailText>
             </AccordionLabel>
             {shouldShowRightIcon() && (
-              <Icon
-                name={isHoveringButton || isHovering ? 'expandCircleFilledColor' : 'expandCircleColor'}
+              <IconWrapper
+                icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
                 size={size === 'small' ? 'xs' : 'sm'}
               />
             )}
