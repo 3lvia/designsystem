@@ -26,7 +26,7 @@ const fadeOutAnimation = keyframes`
   }
 `;
 
-export const OverlayContainer = styled.div<{ fadeOut: boolean }>`
+export const OverlayContainer = styled.div<{ fadeOut: boolean; noAnimation: boolean }>`
   position: absolute;
   z-index: 99999;
   animation: ${fadeInAnimation} 300ms ease;
@@ -35,5 +35,11 @@ export const OverlayContainer = styled.div<{ fadeOut: boolean }>`
     fadeOut &&
     css`
       animation: ${fadeOutAnimation} ${exitDuration}ms ease forwards;
+    `};
+
+  ${({ noAnimation }) =>
+    noAnimation &&
+    css`
+      animation-duration: 0ms;
     `};
 `;

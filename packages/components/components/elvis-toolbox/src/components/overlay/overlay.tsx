@@ -6,6 +6,8 @@ import { exitDuration, OverlayContainer } from './overlayStyles';
 interface OverlayProps {
   onClose: () => void;
   startFade?: boolean;
+  hasBackdrop?: boolean;
+  hasAnimation?: boolean;
   children: ReactNode;
 }
 
@@ -37,17 +39,20 @@ interface OverlayProps {
  * @since 2.1.0
  */
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
-  ({ onClose, startFade = false, children }, ref) => {
+  ({ onClose, startFade = false, hasBackdrop = true, hasAnimation = true, children }, ref) => {
     const [fadeOut, setFadeOut] = useState(false);
     const [isDestroyed, setIsDestroyed] = useState(false);
 
     const animateOut = (): void => {
       setFadeOut(true);
-      setTimeout(() => {
-        if (!isDestroyed) {
-          flushSync(() => onClose());
-        }
-      }, exitDuration);
+      setTimeout(
+        () => {
+          if (!isDestroyed) {
+            flushSync(() => onClose());
+          }
+        },
+        hasAnimation ? exitDuration : 0,
+      );
     };
 
     useEffect(() => {
@@ -69,8 +74,8 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
 
     return createPortal(
       <>
-        <Backdrop onClick={() => animateOut()} data-testid="backdrop" />
-        <OverlayContainer ref={ref} fadeOut={fadeOut}>
+        {hasBackdrop && <Backdrop onClick={() => animateOut()} data-testid="backdrop" />}
+        <OverlayContainer ref={ref} fadeOut={fadeOut} noAnimation={!hasAnimation}>
           {children}
         </OverlayContainer>
       </>,
