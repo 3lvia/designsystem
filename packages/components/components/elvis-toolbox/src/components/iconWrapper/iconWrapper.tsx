@@ -45,9 +45,9 @@ export const IconWrapper: IconWrapperType = ({ icon, color, size = 'sm', ...rest
   return (
     <i
       dangerouslySetInnerHTML={{ __html: transformedIcon }}
-      style={{ display: 'flex' }}
       aria-hidden="true"
       {...rest}
+      style={{ display: 'flex', ...rest.style }}
     />
   );
 };
