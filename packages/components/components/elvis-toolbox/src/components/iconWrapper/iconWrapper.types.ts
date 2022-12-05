@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { ElviaColor } from '@elvia/elvis-colors';
 
 type IconSizes =
@@ -12,7 +12,8 @@ type IconSizes =
   // eslint-disable-next-line @typescript-eslint/ban-types
   | (string & {});
 
-export interface IconWrapperProps<TIcon extends { getIcon: (color?: ElviaColor | 'inverted') => string }> {
+export interface IconWrapperProps<TIcon extends { getIcon: (color?: ElviaColor | 'inverted') => string }>
+  extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   /**
    * The icon to render from `@elvia/elvis-assets-icons`.
    */

@@ -17,7 +17,8 @@ import {
   AccordionDetailText,
   AccordionContent,
 } from './styledComponents';
-import { expandCircleColor, expandCircleFilledColor } from '@elvia/elvis-assets-icons';
+import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
+import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 export interface AccordionProps {
