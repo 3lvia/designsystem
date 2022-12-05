@@ -1,6 +1,5 @@
-import { BaseProps, useSlot, useRovingFocus, Backdrop } from '@elvia/elvis-toolbox';
-import React from 'react';
-import { createPortal } from 'react-dom';
+import { BaseProps, useSlot, useRovingFocus, Overlay } from '@elvia/elvis-toolbox';
+import React, { useState } from 'react';
 import { ContextMenuContent, ItemList } from './styledComponents';
 
 interface Props extends BaseProps {
@@ -11,22 +10,22 @@ interface Props extends BaseProps {
 
 export const ContextMenuOverlay = React.forwardRef<HTMLDivElement, Props>(
   ({ content, onClose, isSelectable, className, inlineStyle, webcomponent, ...rest }, ref) => {
+    const [fadeOut, setFadeOut] = useState(false);
     const { ref: contentRef } = useRovingFocus<HTMLDivElement>({ dir: 'vertical' });
     useSlot('content', webcomponent, { ref: contentRef });
 
     const handleKeyDown = (ev: React.KeyboardEvent<HTMLElement>): void => {
-      if (['Enter', 'Space', 'Escape', 'Tab'].includes(ev.code)) {
+      if (['Enter', 'Space', 'Tab'].includes(ev.code)) {
         ev.preventDefault();
-        onClose();
+        setFadeOut(true);
       }
     };
 
-    return createPortal(
-      <>
-        <Backdrop onClick={() => onClose()} />
-        <ContextMenuContent className={className} style={{ ...inlineStyle }} ref={ref} {...rest}>
+    return (
+      <Overlay ref={ref} onClose={onClose} startFade={fadeOut}>
+        <ContextMenuContent className={className} style={{ ...inlineStyle }} {...rest}>
           <ItemList
-            onClick={() => onClose()}
+            onClick={() => setFadeOut(true)}
             onKeyDown={handleKeyDown}
             isSelectable={isSelectable}
             ref={contentRef}
@@ -35,8 +34,7 @@ export const ContextMenuOverlay = React.forwardRef<HTMLDivElement, Props>(
             {content}
           </ItemList>
         </ContextMenuContent>
-      </>,
-      document.body,
+      </Overlay>
     );
   },
 );

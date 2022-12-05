@@ -1,5 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { Icon } from '@elvia/elvis-icon/react';
 import type { PopoverProps } from './elviaPopover.types';
 import { mapPositionToHorizontalPosition } from './mapPosition';
@@ -13,7 +12,7 @@ import {
 } from './styledComponents';
 import { config } from './config';
 import {
-  Backdrop,
+  Overlay,
   IconButton,
   outlineListener,
   useConnectedOverlay,
@@ -43,6 +42,7 @@ const Popover: FC<PopoverProps> = function ({
   const popoverContainerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
+  const [fadeOut, setFadeOut] = useState(false);
 
   useSlot('trigger', webcomponent, { ref: triggerRef });
 
@@ -106,7 +106,6 @@ const Popover: FC<PopoverProps> = function ({
     onOpen?.();
     webcomponent?.triggerEvent('onOpen');
 
-    document.addEventListener('keydown', onEscape);
     trapFocus(popoverRef);
     updatePreferredPosition();
   };
@@ -115,12 +114,8 @@ const Popover: FC<PopoverProps> = function ({
     onClose?.();
     webcomponent?.triggerEvent('onClose');
 
-    document.removeEventListener('keydown', onEscape, false);
     releaseFocusTrap();
   };
-
-  const onEscape = (keydown: KeyboardEvent) =>
-    keydown.key === 'Escape' && setIsShowingConnectedOverlayState(false);
 
   //does not work on slots
   const isStringOnly = (value: any) => typeof value === 'string';
@@ -135,41 +130,32 @@ const Popover: FC<PopoverProps> = function ({
         {trigger}
       </TriggerContainer>
 
-      {isShowingConnectedOverlayState &&
-        createPortal(
-          <>
-            <Backdrop onClick={() => setIsShowingConnectedOverlayState(false)}></Backdrop>
-            <PopoverContent
-              className={className ?? ''}
-              style={{ ...inlineStyle }}
-              ref={popoverRef}
-              aria-modal="true"
-              data-testid="popover-content"
-            >
-              {hasCloseButton && (
-                <CloseButtonContainer>
-                  <IconButton
-                    size="sm"
-                    onClick={() => setIsShowingConnectedOverlayState(false)}
-                    aria-label="Lukk"
-                  >
-                    <Icon name="closeBold" size="xs" />
-                  </IconButton>
-                </CloseButtonContainer>
-              )}
-              {heading && <Heading>{heading}</Heading>}
+      {isShowingConnectedOverlayState && (
+        <Overlay
+          ref={popoverRef}
+          onClose={() => setIsShowingConnectedOverlayState(false)}
+          startFade={fadeOut}
+        >
+          <PopoverContent className={className} style={inlineStyle} aria-modal="true" data-testid="popover">
+            {hasCloseButton && (
+              <CloseButtonContainer>
+                <IconButton size="sm" onClick={() => setFadeOut(true)} aria-label="Lukk">
+                  <Icon name="closeBold" size="xs" />
+                </IconButton>
+              </CloseButtonContainer>
+            )}
+            {heading && <Heading>{heading}</Heading>}
 
-              <PopoverTypography
-                isStringOnly={isStringOnly(content)}
-                hasCloseButton={hasCloseButton}
-                ref={contentRef}
-              >
-                {content}
-              </PopoverTypography>
-            </PopoverContent>
-          </>,
-          document.body,
-        )}
+            <PopoverTypography
+              isStringOnly={isStringOnly(content)}
+              hasCloseButton={hasCloseButton}
+              ref={contentRef}
+            >
+              {content}
+            </PopoverTypography>
+          </PopoverContent>
+        </Overlay>
+      )}
     </PopoverContainer>
   );
 };

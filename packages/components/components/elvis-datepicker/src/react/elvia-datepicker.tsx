@@ -14,7 +14,6 @@ import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
 import { copyDay, isValidDate } from './dateHelpers';
-import { flushSync } from 'react-dom';
 
 export const Datepicker: React.FC<DatepickerProps> = ({
   clearButtonText = 'Nullstill',
@@ -118,7 +117,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   };
 
   const setVisibility = (isShowing: boolean): void => {
-    flushSync(() => setIsShowing(isShowing));
+    setIsShowing(isShowing);
 
     if (!isShowing) {
       openPopoverButtonRef.current?.focus();

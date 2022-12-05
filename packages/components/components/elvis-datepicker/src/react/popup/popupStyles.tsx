@@ -1,50 +1,13 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
-const fadeIn = keyframes`
-  0% {
-    opacity: 0.3;
-  }
-  
-  100% {
-    opacity: 1;
-  }
-  `;
-
-const fadeOut = keyframes`
-  0% {
-    opacity: 1;
-  }
-  
-  100% {
-    transform: scale(0.9);
-    opacity: 0.0;
-  }
-`;
-
-interface OverlayContainerProps {
-  fadeOut: boolean;
-}
-
-export const OverlayContainer = styled.div<OverlayContainerProps>`
+export const OverlayContainer = styled.div`
   background-color: ${getColor('elvia-on')};
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
-  position: absolute;
-  z-index: 99999;
-  animation: ${fadeIn} 300ms ease;
   min-width: 304px;
-
-  ${(props) => {
-    if (props.fadeOut) {
-      return css`
-        animation: ${fadeOut} 200ms ease;
-      `;
-    }
-    return '';
-  }}
 `;
 
 export const PopoverHeader = styled.div`

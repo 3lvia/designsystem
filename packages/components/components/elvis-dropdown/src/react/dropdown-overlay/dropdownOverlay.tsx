@@ -1,5 +1,4 @@
 import React, { useEffect, useState, KeyboardEvent, useRef, useMemo } from 'react';
-import { createPortal } from 'react-dom';
 import { DropdownItem } from '../dropdown-item/dropdownItem';
 import { flattenTree, getValueAsList } from '../dropdownListUtils';
 import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
@@ -15,7 +14,7 @@ import { LoadMoreButton } from './loadMoreButton';
 import { SelectAllOption } from './selectAllOption';
 import { ItemValue } from '../dropdown-item/itemValue';
 import { Icon } from '@elvia/elvis-icon/react';
-import { Backdrop } from '@elvia/elvis-toolbox';
+import { Overlay } from '@elvia/elvis-toolbox';
 
 interface DropdownOverlayProps {
   isRootOverlay?: boolean;
@@ -115,12 +114,6 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
 
     const getSelectableChildren = (items: DropdownItemOption[]): DropdownItemOption[] => {
       return flattenTree(items ?? []).filter((child) => !child.isDisabled && !child.children);
-    };
-
-    const onAnimationEnd = () => {
-      if (fadeOut) {
-        onClose();
-      }
     };
 
     const selectItem = (item: DropdownItemOption) => {
@@ -230,22 +223,21 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       focusFirstItemOnInit();
     }, []);
 
-    return createPortal(
-      <>
-        {isRootOverlay && <Backdrop onClick={() => setFadeOut(true)} />}
+    return (
+      <Overlay
+        ref={ref}
+        hasBackdrop={!!isRootOverlay}
+        onClose={onClose}
+        startFade={fadeOut}
+        hasAnimation={!!isRootOverlay || isGtMobile}
+      >
         <DropdownPopupContainer
-          ref={ref}
           data-testid="popover"
           onMouseLeave={() => setHoveredItem && setHoveredItem(undefined)}
           isCompact={isCompact}
         >
           {!isRootOverlay && isGtMobile && <CursorCurve />}
-          <DropdownPopup
-            fadeOut={fadeOut}
-            onAnimationEnd={onAnimationEnd}
-            isInvisible={!isGtMobile && !focusIsOnDirectDescendant}
-            animate={!!isRootOverlay || isGtMobile}
-          >
+          <DropdownPopup isInvisible={!isGtMobile && !focusIsOnDirectDescendant}>
             <ItemList ref={listRef}>
               {!filteredItems?.length && <NoItemsMessage>{noItemsText}</NoItemsMessage>}
               {!isGtMobile && !isRootOverlay && (
@@ -322,8 +314,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
             </ItemList>
           </DropdownPopup>
         </DropdownPopupContainer>
-      </>,
-      document.body,
+      </Overlay>
     );
   },
 );

@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.12.22",
+      "version": "6.0.12",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Use shared overlay component."]
+        }
+      ]
+    },
+    {
       "date": "02.12.22",
       "version": "6.0.11",
       "changelog": [

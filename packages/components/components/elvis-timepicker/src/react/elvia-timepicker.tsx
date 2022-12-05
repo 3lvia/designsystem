@@ -13,7 +13,6 @@ import {
 import { TimepickerInput } from './timepickerInput';
 import { TimepickerError } from './error/timepickerError';
 import { getErrorText } from './getErrorText';
-import { flushSync } from 'react-dom';
 
 export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   value,
@@ -75,7 +74,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   };
 
   const setVisibility = (isShowing: boolean): void => {
-    flushSync(() => setIsShowing(isShowing));
+    setIsShowing(isShowing);
 
     if (!isShowing) {
       openPopoverButtonRef.current?.focus();
