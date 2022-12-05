@@ -72,11 +72,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     } else {
       dateISO = 'Invalid Date';
     }
-    if (!webcomponent) {
-      valueOnChangeISOString?.(dateISO);
-    } else {
-      webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
-    }
+
+    valueOnChangeISOString?.(dateISO);
+    webcomponent?.triggerEvent('valueOnChangeISOString', dateISO);
   };
 
   const updateValue = (newDate: Date | null, emit = true): void => {
@@ -102,19 +100,13 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   };
 
   const emitOnClose = () => {
-    if (!webcomponent && onClose) {
-      onClose();
-    } else if (webcomponent) {
-      webcomponent.triggerEvent('onClose');
-    }
+    onClose?.();
+    webcomponent?.triggerEvent('onClose');
   };
 
   const emitOnOpen = () => {
-    if (!webcomponent && onOpen) {
-      onOpen();
-    } else if (webcomponent) {
-      webcomponent.triggerEvent('onOpen');
-    }
+    onOpen?.();
+    webcomponent?.triggerEvent('onOpen');
   };
 
   const setVisibility = (isShowing: boolean): void => {
@@ -140,19 +132,14 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     setError(newError);
 
     const errorText = getErrorText(newError, minDate, maxDate);
-    if (!webcomponent && errorOnChange) {
-      errorOnChange(errorText);
-    } else if (webcomponent) {
-      webcomponent.triggerEvent('errorOnChange', errorText);
-    }
+
+    errorOnChange?.(errorText);
+    webcomponent?.triggerEvent('errorOnChange', errorText);
   };
 
   const triggerResetEvent = (): void => {
-    if (!webcomponent && onReset) {
-      onReset();
-    } else if (webcomponent) {
-      webcomponent.triggerEvent('onReset');
-    }
+    onReset?.();
+    webcomponent?.triggerEvent('onReset');
   };
 
   // We need to re-initiate the focus-trap since the DOM has changed
