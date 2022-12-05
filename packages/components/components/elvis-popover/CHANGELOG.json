@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "05.12.22",
+      "version": "7.0.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Reduced bundle size by improving the way icons are imported and used. "]
+        }
+      ]
+    },
+    {
+      "date": "05.12.22",
       "version": "7.0.3",
       "changelog": [
         {

@@ -12,11 +12,16 @@ import {
   CarouselRightButton,
   CarouselCheckButton,
 } from './StyledComponents';
-import { Icon } from '@elvia/elvis-icon/react';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { config } from './config';
-import { warnDeprecatedProps, useRovingFocus } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, useRovingFocus, IconWrapper } from '@elvia/elvis-toolbox';
 
+import arrowLeftCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleColor';
+import arrowLeftCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleFilledColor';
+import arrowRightCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowRightCircleColor';
+import arrowRightCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arrowRightCircleFilledColor';
+import checkCircleColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleColor';
+import checkCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleFilledColor';
 export interface CarouselItem {
   /**
    * @deprecated Deprecated in version 2.0.0. Use heading instead.
@@ -292,8 +297,8 @@ export const Carousel: FC<CarouselProps> = function ({
           onMouseLeave={() => setIsHoveringLeftButton(false)}
           data-testid="carousel-left-arrow"
         >
-          <Icon
-            name={isHoveringLeftButton ? 'arrowLeftCircleFilledColor' : 'arrowLeftCircleColor'}
+          <IconWrapper
+            icon={isHoveringLeftButton ? arrowLeftCircleFilledColor : arrowLeftCircleColor}
             size="md"
           />
         </CarouselLeftButton>
@@ -323,7 +328,7 @@ export const Carousel: FC<CarouselProps> = function ({
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-onboarding-checkmark"
           >
-            <Icon name={isHoveringRightButton ? 'checkCircleFilledColor' : 'checkCircleColor'} size="md" />
+            <IconWrapper icon={isHoveringRightButton ? checkCircleFilledColor : checkCircleColor} size="md" />
           </CarouselCheckButton>
         ) : (
           <CarouselRightButton
@@ -336,8 +341,8 @@ export const Carousel: FC<CarouselProps> = function ({
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-right-arrow"
           >
-            <Icon
-              name={isHoveringRightButton ? 'arrowRightCircleFilledColor' : 'arrowRightCircleColor'}
+            <IconWrapper
+              icon={isHoveringRightButton ? arrowRightCircleFilledColor : arrowRightCircleColor}
               size="md"
             />
           </CarouselRightButton>

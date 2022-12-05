@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Icon } from '@elvia/elvis-icon/react';
+import { IconWrapper } from '@elvia/elvis-toolbox';
+import calendar from '@elvia/elvis-assets-icons/dist/icons/calendar';
 import { OverlayContainer } from './popup/overlayContainer';
 import { ErrorType, DatepickerProps } from './elviaDatepicker.types';
 import {
@@ -259,7 +260,11 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             aria-label="Åpne datovelger"
             aria-haspopup="dialog"
           >
-            <Icon name="calendar" color={isDisabled ? 'disabled' : 'black'} size={isCompact ? 'xs' : 'sm'} />
+            <IconWrapper
+              icon={calendar}
+              color={isDisabled ? 'disabled' : 'black'}
+              size={isCompact ? 'xs' : 'sm'}
+            />
           </IconButton>
         </FormFieldInputContainer>
         {((error && !errorOptions.hideText) || errorOptions.text) && (

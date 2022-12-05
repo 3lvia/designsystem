@@ -1,10 +1,13 @@
-import { Icon } from '@elvia/elvis-icon/react';
 import React, { useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { MobileUserMenuProps } from '../elviaHeader.types';
 import { Hr, AppTitle, Backdrop, IconButton } from '../styledComponents';
 import { usePopoverHandler } from '../usePopoverHandler';
 import { Email, MenuButton, MenuContainer, MenuTitle, UserGrid, Username } from './mobileMenuStyles';
+import { IconWrapper } from '@elvia/elvis-toolbox';
+import moreMenu from '@elvia/elvis-assets-icons/dist/icons/moreMenu';
+import removeCircleColor from '@elvia/elvis-assets-icons/dist/icons/removeCircleColor';
+import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
 
 export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, username, onSignOutClick }) => {
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
@@ -25,8 +28,8 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, use
         ref={triggerButtonRef}
         data-testid="mobile-menu-trigger"
       >
-        <Icon
-          name={userMenuIsOpen ? 'removeCircleColor' : 'moreMenu'}
+        <IconWrapper
+          icon={userMenuIsOpen ? removeCircleColor : moreMenu}
           color="black"
           size={userMenuIsOpen ? 'md' : 'sm'}
         />
@@ -55,7 +58,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, use
               <Hr></Hr>
               <section>
                 <MenuButton onClick={onSignOutClick} data-testid="mobile-sign-out-trigger">
-                  <Icon name="logout" size="xs" color="black" />
+                  <IconWrapper icon={logout} size="xs" color="black" />
                   Logg ut
                 </MenuButton>
               </section>

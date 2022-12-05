@@ -1,7 +1,7 @@
-import { Icon } from '@elvia/elvis-icon/react';
 import React, { useEffect, useState } from 'react';
 
-import { FormFieldErrorContainer, FormFieldError } from '@elvia/elvis-toolbox';
+import { FormFieldErrorContainer, FormFieldError, IconWrapper } from '@elvia/elvis-toolbox';
+import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
 
 interface Props {
   errorText?: string;
@@ -21,7 +21,7 @@ export const DatepickerError: React.FC<Props> = ({ errorText, customText }) => {
 
   return (
     <FormFieldErrorContainer>
-      <Icon name="removeCircle" color="error" size="xs" />
+      <IconWrapper icon={removeCircle} color="error" size="xs" />
       <FormFieldError data-testid="error">{text}</FormFieldError>
     </FormFieldErrorContainer>
   );

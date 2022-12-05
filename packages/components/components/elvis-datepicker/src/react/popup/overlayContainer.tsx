@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import { Icon } from '@elvia/elvis-icon/react';
 import { Calendar } from '../calendar/calendar';
 import {
   OverlayContainer as Container,
@@ -13,7 +12,9 @@ import {
 import { YearPicker } from '../yearPicker/yearPicker';
 import { formatDate } from '../dateHelpers';
 import { DatepickerRangeProps } from '../elviaDatepicker.types';
-import { TertiaryButton, Overlay } from '@elvia/elvis-toolbox';
+import { TertiaryButton, Overlay, IconWrapper } from '@elvia/elvis-toolbox';
+import arrowDown from '@elvia/elvis-assets-icons/dist/icons/arrowDown';
+import reset from '@elvia/elvis-assets-icons/dist/icons/reset';
 
 interface Props {
   onClose: () => void;
@@ -81,7 +82,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
             >
               {formatDate(viewedDate, { year: 'numeric' })}
               <RotatingContainer isRotated={yearPickerIsOpen}>
-                <Icon name="arrowDown" size="xs" />
+                <IconWrapper icon={arrowDown} size="xs" />
               </RotatingContainer>
             </TertiaryButton>
           </PopoverHeader>
@@ -120,7 +121,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
                     aria-label="Nullstill dato"
                     size="sm"
                   >
-                    <Icon name="reset" size="xs" />
+                    <IconWrapper icon={reset} size="xs" />
                     {clearButtonText}
                   </TertiaryButton>
                 </PopoverFooter>

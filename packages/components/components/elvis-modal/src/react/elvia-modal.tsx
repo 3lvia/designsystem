@@ -9,13 +9,13 @@ import {
   ModalText,
   ModalActions,
 } from './styledComponents';
-import { Icon } from '@elvia/elvis-icon/react';
 import { getColor } from '@elvia/elvis-colors';
 import { useClickOutside } from './useClickOutside';
 import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { warnDeprecatedProps, useFocusTrap, useSlot } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, useFocusTrap, useSlot, IconWrapper } from '@elvia/elvis-toolbox';
+import close from '@elvia/elvis-assets-icons/dist/icons/close';
 import { config } from './config';
 
 export interface ModalProps {
@@ -157,10 +157,10 @@ export const ModalComponent: FC<ModalProps> = function ({
             aria-label="Lukk modal"
             data-testid="modal-close-btn"
           >
-            <Icon
-              name="close"
+            <IconWrapper
+              icon={close}
               color={hasIllustration ? getColor('white') : undefined}
-              inlineStyle={{ filter: isHoveringCloseButton && hasIllustration ? 'invert(1)' : undefined }}
+              style={{ filter: isHoveringCloseButton && hasIllustration ? 'invert(1)' : undefined }}
             />
           </ModalCloseButton>
         )}

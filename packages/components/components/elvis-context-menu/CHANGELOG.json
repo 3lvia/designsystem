@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "05.12.22",
+      "version": "1.0.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Removed unused dependency on <span class=\"code-text\">@elvia/elvis-icon</span>. "]
+        }
+      ]
+    },
+    {
+      "date": "05.12.22",
       "version": "1.0.4",
       "changelog": [
         {

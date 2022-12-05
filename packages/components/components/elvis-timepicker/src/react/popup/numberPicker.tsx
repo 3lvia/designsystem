@@ -1,6 +1,8 @@
 import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
 import { padDigit } from '../padDigit';
-import { IconButton } from '@elvia/elvis-toolbox';
+import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
+import arrowUpBold from '@elvia/elvis-assets-icons/dist/icons/arrowUpBold';
+import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
 import {
   ArrowButtonContainer,
   HorizontalLine,
@@ -9,7 +11,6 @@ import {
   NumberPickerContainer,
   NumberPickerTitle,
 } from './popupStyles';
-import { Icon } from '@elvia/elvis-icon/react';
 import { listButtonHeight } from './buttonHeight';
 
 interface Props {
@@ -112,7 +113,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
             onClick={() => shuffleTo('previous')}
             data-testid={`${title}-prev-value-button`}
           >
-            <Icon name="arrowUpBold" size="xs" />
+            <IconWrapper icon={arrowUpBold} size="xs" />
           </IconButton>
         </ArrowButtonContainer>
         {loopedNumbers.map((number, index) => (
@@ -134,7 +135,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
             onClick={() => shuffleTo('next')}
             data-testid={`${title}-next-value-button`}
           >
-            <Icon name="arrowDownBold" size="xs" />
+            <IconWrapper icon={arrowDownBold} size="xs" />
           </IconButton>
         </ArrowButtonContainer>
       </NumberList>

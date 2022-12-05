@@ -3,6 +3,18 @@
   "content": [
     {
       "date": "05.12.22",
+      "version": "2.0.10",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Reduced bundle size by improving the way icons are imported and used in <span class=\"code-text\">@elvia/elvis-datepicker</span>. "
+          ]
+        }
+      ]
+    },
+    {
+      "date": "05.12.22",
       "version": "2.0.9",
       "changelog": [
         {

@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.12.22",
+      "version": "2.2.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Reduced bundle size by improving the way icons are imported and used. "]
+        }
+      ]
+    },
+    {
       "date": "02.12.22",
       "version": "2.2.0",
       "changelog": [

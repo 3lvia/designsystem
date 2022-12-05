@@ -11,8 +11,10 @@ import {
   UserGrid,
   Username,
 } from './desktopMenuStyles';
-import { Icon } from '@elvia/elvis-icon/react';
 import { usePopoverHandler } from '../usePopoverHandler';
+import { IconWrapper } from '@elvia/elvis-toolbox';
+import profile from '@elvia/elvis-assets-icons/dist/icons/profile';
+import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
 
 export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOutClick }) => {
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
@@ -34,7 +36,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
         ref={triggerButtonRef}
         data-testid="desktop-menu-trigger"
       >
-        <Icon name="profile" size="xs" />
+        <IconWrapper icon={profile} size="xs" />
         {username}
       </TriggerButton>
       {userMenuIsOpen &&
@@ -54,7 +56,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
               <MenuHr></MenuHr>
               <section>
                 <MenuButton onClick={onSignOutClick} data-testid="desktop-sign-out-trigger">
-                  <Icon name="logout" size="xs" color="black" />
+                  <IconWrapper icon={logout} size="xs" color="black" />
                   Logg ut
                 </MenuButton>
               </section>
