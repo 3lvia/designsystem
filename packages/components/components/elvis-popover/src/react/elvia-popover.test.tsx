@@ -1,6 +1,6 @@
 import Popover from './elvia-popover';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('Elvis Popover', () => {
@@ -54,10 +54,12 @@ describe('Elvis Popover', () => {
       const popoverCloseBtn = screen.getByRole('button', { name: 'Lukk' });
       await user.click(popoverCloseBtn);
 
-      const popoverContent = screen.queryByText('Content');
-      const popoverHeading = screen.queryByText('Header');
-      expect(popoverContent).not.toBeInTheDocument();
-      expect(popoverHeading).not.toBeInTheDocument();
+      await waitFor(() => {
+        const popoverContent = screen.queryByText('Content');
+        const popoverHeading = screen.queryByText('Header');
+        expect(popoverContent).not.toBeInTheDocument();
+        expect(popoverHeading).not.toBeInTheDocument();
+      });
     });
 
     it('should have correct header', async () => {
@@ -78,25 +80,6 @@ describe('Elvis Popover', () => {
 
       const popoverContent = screen.queryByText('Content');
       expect(popoverContent).toBeInTheDocument();
-    });
-
-    it('should be closed if the user presses Escape', async () => {
-      const user = userEvent.setup();
-      const popoverTrigger = screen.getByRole('button', { name: 'Trigger' });
-
-      //open
-      await user.click(popoverTrigger);
-      const popoverContent = screen.queryByText('Content');
-      const popoverHeading = screen.queryByText('Header');
-
-      expect(popoverContent).toBeInTheDocument();
-      expect(popoverHeading).toBeInTheDocument();
-
-      //close
-      await user.keyboard('{Escape}');
-
-      expect(popoverContent).not.toBeInTheDocument();
-      expect(popoverHeading).not.toBeInTheDocument();
     });
   });
 
@@ -153,7 +136,7 @@ describe('Elvis Popover', () => {
 
       await user.click(popoverTrigger);
 
-      const popoverContent = screen.getByTestId('popover-content');
+      const popoverContent = screen.getByTestId('popover');
       expect(popoverContent).toHaveStyle('margin: 24px');
       expect(popoverContent).toHaveClass('test-class');
     });

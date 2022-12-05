@@ -3,6 +3,7 @@ export { outlineListener } from './outlineListener';
 export { warnDeprecatedProps } from './warnDeprecatedProps';
 export { ComponentConfig, ComponentAttribute, DeprecatedDetails } from './componentConfig.types';
 
+export { Backdrop } from './components/backdrop/backdrop';
 export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button';
 export { IconButton } from './components/button/iconButton';
 export {
@@ -13,7 +14,7 @@ export {
   FormFieldLabel,
 } from './components/form-field/formFieldStyles';
 export { FormFieldError, FormFieldErrorContainer } from './components/form-field/errorStyles';
-export { Backdrop } from './components/backdrop/backdrop';
+export { Overlay } from './components/overlay/overlay';
 export { TooltipPopup, TooltipPosition, TooltipPopupProps } from './components/tooltip/tooltip';
 export { IconWrapper } from './components/iconWrapper/iconWrapper';
 export { IconWrapperProps } from './components/iconWrapper/iconWrapper.types';

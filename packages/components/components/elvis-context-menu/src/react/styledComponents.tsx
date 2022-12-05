@@ -1,15 +1,6 @@
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css, keyframes } from 'styled-components';
-
-const fadeIn = keyframes`
-0% {
-     opacity: 0;
-}
- 100% {
-     opacity: 1;
-}
-`;
+import styled, { css } from 'styled-components';
 
 export const TriggerContainer = styled.div`
   display: inline-block;
@@ -17,11 +8,8 @@ export const TriggerContainer = styled.div`
 `;
 
 export const ContextMenuContent = styled.div`
-  position: absolute;
   max-width: calc(100% - 16px);
-  z-index: 99999;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
-  animation: ${fadeIn} 200ms ease-in;
 `;
 
 export const ItemList = styled.div<{ isSelectable: boolean }>`

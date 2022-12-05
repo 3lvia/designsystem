@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ContextMenu from './elvia-context-menu';
 
@@ -48,10 +48,9 @@ describe('Elvis Context Menu', () => {
     it('the context menu closes when an item is selected', async () => {
       const user = userEvent.setup();
 
-      const menuItem = screen.getByText('Be om tilgang');
-      await user.click(menuItem);
+      await user.click(screen.getByText('Be om tilgang'));
 
-      expect(menuItem).not.toBeInTheDocument();
+      await waitForElementToBeRemoved(() => screen.queryByText('Be om tilgang'));
     });
 
     it('the first option receives focus', () => {

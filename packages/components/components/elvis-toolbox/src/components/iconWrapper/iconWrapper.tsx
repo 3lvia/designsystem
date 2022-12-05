@@ -10,7 +10,7 @@ import { IconWrapperType } from './iconWrapper.types';
  *  ...
  *  return (<IconWrapper icon={expandCircleColor} size="md" />)
  * }
- * @since 7.3.0
+ * @since 7.4.0
  * @internal
  */
 export const IconWrapper: IconWrapperType = ({ icon, color, size = 'sm', ...rest }) => {

@@ -1,6 +1,5 @@
-import { Backdrop } from '@elvia/elvis-toolbox';
-import React, { useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
+import { Overlay } from '@elvia/elvis-toolbox';
+import React from 'react';
 import { ChangeType, MinuteInterval } from '../elviaTimepicker.types';
 import { NumberPicker } from './numberPicker';
 
@@ -15,34 +14,12 @@ interface Props {
 
 export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
   ({ onClose, onChange, minuteInterval, currentTime }, ref) => {
-    const [fadeOut, setFadeOut] = useState(false);
     const hours = new Array(24).fill('').map((_, index) => index);
     const minutes = new Array(60 / +minuteInterval).fill('').map((_, index) => index * +minuteInterval);
 
-    const onAnimationEnd = () => {
-      if (fadeOut) {
-        onClose();
-      }
-    };
-
-    useEffect(() => {
-      const closeOnEsc = (ev: KeyboardEvent) => {
-        if (ev.key === 'Escape') {
-          setFadeOut(true);
-        }
-      };
-
-      window.addEventListener('keydown', closeOnEsc);
-
-      return () => {
-        window.removeEventListener('keydown', closeOnEsc);
-      };
-    }, []);
-
-    return createPortal(
-      <>
-        <Backdrop onClick={() => setFadeOut(true)} data-testid="backdrop" />
-        <Container ref={ref} data-testid="popover" fadeOut={fadeOut} onAnimationEnd={onAnimationEnd}>
+    return (
+      <Overlay ref={ref} onClose={onClose}>
+        <Container data-testid="popover">
           <NumberPicker
             title="Time"
             currentValue={currentTime?.getHours()}
@@ -58,8 +35,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
             />
           )}
         </Container>
-      </>,
-      document.body,
+      </Overlay>
     );
   },
 );

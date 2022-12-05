@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
@@ -11,15 +11,6 @@ interface PopoverTypographyProps {
   hasCloseButton: boolean;
 }
 
-const fadeIn = keyframes`
-0% {
-     opacity: 0;
-}
- 100% {
-     opacity: 1;
-}
-`;
-
 export const PopoverContainer = styled.div`
   display: flex;
   box-sizing: border-box;
@@ -27,20 +18,16 @@ export const PopoverContainer = styled.div`
 
 export const PopoverContent = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
-  position: absolute;
   max-width: calc(100% - 16px);
-  z-index: 99999;
-  pointer-events: all;
   padding: 32px;
   background-color: ${getColor('elvia-on')};
   color: ${getColor('elvia-off')};
   text-align: left;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
   border-radius: 8px;
-  animation: ${fadeIn} 200ms ease-in;
   white-space: normal;
-  margin: 0;
 `;
 
 export const TriggerContainer = styled.div<TriggerContainerProps>`
@@ -56,7 +43,7 @@ export const TriggerContainer = styled.div<TriggerContainerProps>`
   ${(props) =>
     props.overlayIsOpen &&
     css`
-      z-index: 110;
+      z-index: 999999;
     `};
 `;
 

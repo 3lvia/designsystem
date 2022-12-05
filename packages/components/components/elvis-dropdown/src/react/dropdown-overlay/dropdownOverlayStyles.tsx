@@ -4,27 +4,6 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
 import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';
 
-const fadeIn = keyframes`
-  0% {
-    opacity: 0.3;
-  }
-  
-  100% {
-    opacity: 1;
-  }
-  `;
-
-const fadeOut = keyframes`
-  0% {
-    opacity: 1;
-  }
-  
-  100% {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-`;
-
 export const CursorCurve = styled.div`
   position: absolute;
   top: calc(var(--item-height) - 1px);
@@ -36,8 +15,7 @@ export const CursorCurve = styled.div`
 `;
 
 export const DropdownPopupContainer = styled.div<{ isCompact: boolean }>`
-  position: absolute;
-  z-index: 99999;
+  position: relative;
   --item-height: 48px;
 
   ${({ isCompact }) =>
@@ -55,40 +33,18 @@ export const DropdownPopupContainer = styled.div<{ isCompact: boolean }>`
     `};
 `;
 
-export const DropdownPopup = styled.div.attrs(() => ({
-  role: 'listbox',
-}))<{
-  fadeOut: boolean;
-  isInvisible: boolean;
-  animate: boolean;
-}>`
+export const DropdownPopup = styled.div.attrs(() => ({ role: 'listbox' }))<{ isInvisible: boolean }>`
   background-color: ${getColor('elvia-on')};
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
-  animation: ${fadeIn} 300ms ease;
   position: relative;
   border-radius: 4px;
   overflow: hidden;
   width: 100%;
 
-  ${(props) => {
-    if (props.fadeOut) {
-      return css`
-        animation: ${fadeOut} 100ms ease;
-      `;
-    }
-    return '';
-  }};
-
   ${({ isInvisible }) =>
     isInvisible &&
     css`
       visibility: hidden;
-    `};
-
-  ${({ animate }) =>
-    !animate &&
-    css`
-      animation-duration: 0ms;
     `};
 `;
 
