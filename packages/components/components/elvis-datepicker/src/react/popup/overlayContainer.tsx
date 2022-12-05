@@ -60,6 +60,12 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
       onCalendarViewToggle();
     };
 
+    const resetDate = (): void => {
+      onChange(null);
+      onReset();
+      setViewedDate(new Date());
+    };
+
     useEffect(() => {
       if (selectedDate) {
         setViewedDate(selectedDate);
@@ -112,14 +118,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
                   dateRangeProps={dateRangeProps}
                 />
                 <PopoverFooter>
-                  <TertiaryButton
-                    onClick={() => {
-                      onChange(null);
-                      onReset();
-                    }}
-                    aria-label="Nullstill dato"
-                    size="sm"
-                  >
+                  <TertiaryButton onClick={resetDate} aria-label="Nullstill dato" size="sm">
                     <Icon name="reset" size="xs" />
                     {clearButtonText}
                   </TertiaryButton>
