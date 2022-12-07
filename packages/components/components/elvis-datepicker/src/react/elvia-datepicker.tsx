@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { IconWrapper } from '@elvia/elvis-toolbox';
 import calendar from '@elvia/elvis-assets-icons/dist/icons/calendar';
 import { OverlayContainer } from './popup/overlayContainer';
 import { ErrorType, DatepickerProps } from './elviaDatepicker.types';
@@ -10,6 +9,7 @@ import {
   FormFieldContainer,
   FormFieldLabel,
   FormFieldInputContainer,
+  IconWrapper,
 } from '@elvia/elvis-toolbox';
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
