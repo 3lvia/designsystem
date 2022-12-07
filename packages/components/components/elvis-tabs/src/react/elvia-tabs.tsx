@@ -1,10 +1,12 @@
 import React, { FC, useEffect, useState, useRef, CSSProperties } from 'react';
 import classNames from 'classnames';
-import { outlineListener } from '@elvia/elvis-toolbox';
-import { Icon } from '@elvia/elvis-icon/react';
+import { outlineListener, IconWrapper } from '@elvia/elvis-toolbox';
 import { TabsStyles } from './styledComponents';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import throttle from 'lodash.throttle';
+import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
+import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
+
 export interface TabsProps {
   items: string[];
   value?: number;
@@ -202,11 +204,11 @@ const Tabs: FC<TabsProps> = ({
             scrollSideways('left');
           }}
         >
-          <Icon
-            name="arrowLeftBold"
+          <IconWrapper
+            icon={arrowLeftBold}
             size="xxs"
             color={isInverted ? 'white' : undefined}
-            inlineStyle={{
+            style={{
               position: 'absolute',
               top: '11px',
               visibility: isOnLeftEnd ? 'hidden' : 'visible',
@@ -241,11 +243,11 @@ const Tabs: FC<TabsProps> = ({
             scrollSideways('right');
           }}
         >
-          <Icon
-            name="arrowRightBold"
+          <IconWrapper
+            icon={arrowRightBold}
             size="xxs"
             color={isInverted ? 'white' : undefined}
-            inlineStyle={{
+            style={{
               position: 'absolute',
               top: '11px',
               visibility: isOnRightEnd ? 'hidden' : 'visible',

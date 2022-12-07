@@ -1,4 +1,3 @@
-import { Icon } from '@elvia/elvis-icon/react';
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 import {
   dateIsWithinMinMaxBoundary,
@@ -11,7 +10,9 @@ import { DatepickerRangeProps, DateRange } from '../elviaDatepicker.types';
 
 import { Container, CalendarHeader, DayButton, DayName, GridContainer, MonthName } from './calendarStyles';
 import { DateRangeHighlighter } from './DateRangeHighlighter';
-import { IconButton } from '@elvia/elvis-toolbox';
+import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
+import arrowLongLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeftBold';
+import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
 
 interface Props {
   selectedDate?: Date | null;
@@ -153,7 +154,7 @@ export const Calendar: React.FC<Props> = ({
           data-testid="prev-month-btn"
           size="sm"
         >
-          <Icon name="arrowLongLeftBold" size="xs" />
+          <IconWrapper icon={arrowLongLeftBold} size="xs" />
         </IconButton>
         <MonthName data-testid="month-name" aria-live="polite">
           {formatDate(viewedDate, { month: 'long', year: 'numeric' })}
@@ -164,7 +165,7 @@ export const Calendar: React.FC<Props> = ({
           data-testid="next-month-btn"
           size="sm"
         >
-          <Icon name="arrowLongRightBold" size="xs" />
+          <IconWrapper icon={arrowLongRightBold} size="xs" />
         </IconButton>
       </CalendarHeader>
       <GridContainer>

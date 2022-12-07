@@ -1,7 +1,7 @@
-import { Icon } from '@elvia/elvis-icon/react';
 import React from 'react';
 
-import { FormFieldErrorContainer, FormFieldError } from '@elvia/elvis-toolbox';
+import { FormFieldErrorContainer, FormFieldError, IconWrapper } from '@elvia/elvis-toolbox';
+import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
 
 interface Props {
   errorText?: string;
@@ -10,7 +10,7 @@ interface Props {
 export const DropdownError: React.FC<Props> = ({ errorText }) => {
   return (
     <FormFieldErrorContainer>
-      <Icon name="removeCircle" color="error" size="xs" />
+      <IconWrapper icon={removeCircle} color="error" size="xs" />
       <FormFieldError data-testid="error">{errorText}</FormFieldError>
     </FormFieldErrorContainer>
   );

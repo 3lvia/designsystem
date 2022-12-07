@@ -3,7 +3,8 @@ import React from 'react';
 import Header from './elvia-header';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
-import { Icon } from '@elvia/elvis-icon/react';
+import { IconWrapper } from '@elvia/elvis-toolbox';
+import dashboard from '@elvia/elvis-assets-icons/dist/icons/dashboard';
 import { UserEvent } from '@testing-library/user-event/dist/types/setup/setup';
 
 const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
@@ -46,7 +47,7 @@ describe('Elvia Header', () => {
             <div className="e-sidenav__container">
               <a href="/" className="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
                 <div className="e-sidenav__icon-container">
-                  <Icon name="dashboard" size="sm"></Icon>
+                  <IconWrapper icon={dashboard} size="sm"></IconWrapper>
                 </div>
                 <div className="e-sidenav__item-text">Dashbord</div>
               </a>
@@ -165,7 +166,7 @@ describe('Elvia Header', () => {
             <div className="e-sidenav__container">
               <a href="/" className="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
                 <div className="e-sidenav__icon-container">
-                  <Icon name="dashboard" size="sm"></Icon>
+                  <IconWrapper icon={dashboard} size="sm"></IconWrapper>
                 </div>
                 <div className="e-sidenav__item-text">Dashbord</div>
               </a>

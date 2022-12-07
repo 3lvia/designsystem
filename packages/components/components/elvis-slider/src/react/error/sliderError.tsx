@@ -1,6 +1,7 @@
-import { Icon } from '@elvia/elvis-icon/react';
 import React, { useEffect, useState } from 'react';
 import { ErrorContainer, ErrorText } from './errorStyles';
+import { IconWrapper } from '@elvia/elvis-toolbox';
+import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
 
 interface SliderErrorProps {
   errorMessage: string | undefined;
@@ -16,7 +17,7 @@ export const SliderError: React.FC<SliderErrorProps> = ({ errorMessage }) => {
 
   return (
     <ErrorContainer>
-      <Icon name="removeCircle" color="error" size="xs" />
+      <IconWrapper icon={removeCircle} color="error" size="xs" />
       <ErrorText>{errorText}</ErrorText>
     </ErrorContainer>
   );

@@ -1,6 +1,5 @@
 import React, { FC, useState, useEffect, CSSProperties } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
-import { Icon } from '@elvia/elvis-icon/react';
 import { DropdownItem, VisibleElements, PaginationLabel } from './elvia-pagination.types';
 import {
   Paginator,
@@ -15,7 +14,9 @@ import {
   PaginatorSelectorArrowBtn,
 } from './styledComponents';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { useRovingFocus, warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { useRovingFocus, warnDeprecatedProps, IconWrapper } from '@elvia/elvis-toolbox';
+import arrowLongLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeft';
+import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
 import { config } from './config';
 
 export interface PaginationProps {
@@ -433,7 +434,7 @@ const Pagination: FC<PaginationProps> = function ({
           data-testid="selector-arrow-btn-left"
           aria-label="Forrige side"
         >
-          <Icon name="arrowLongLeft" size="xs" />
+          <IconWrapper icon={arrowLongLeft} size="xs" />
         </PaginatorSelectorArrowBtn>
         {showPaginationNumbers ? <PaginatorNumbersAndDots /> : null}
         <PaginatorSelectorArrowBtn
@@ -443,7 +444,7 @@ const Pagination: FC<PaginationProps> = function ({
           aria-label="Neste side"
           aria-hidden={!shouldHaveRightArrow()}
         >
-          <Icon name="arrowLongRight" size="xs" />
+          <IconWrapper icon={arrowLongRight} size="xs" />
         </PaginatorSelectorArrowBtn>
       </PaginatorSelectorArea>
     </Paginator>
