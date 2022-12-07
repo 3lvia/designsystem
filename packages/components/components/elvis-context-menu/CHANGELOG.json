@@ -3,11 +3,15 @@
   "content": [
     {
       "date": "07.12.22",
-      "version": "1.0.5",
+      "version": "1.1.0",
       "changelog": [
         {
+          "type": "new_feature",
+          "changes": ["Added design for disabled buttons and links in the context menu."]
+        },
+        {
           "type": "patch",
-          "changes": ["Removed unused dependency on <span class=\"code-text\">@elvia/elvis-icon</span>. "]
+          "changes": ["Removed unused dependency on <span class=\"code-text\">@elvia/elvis-icon</span>."]
         }
       ]
     },
