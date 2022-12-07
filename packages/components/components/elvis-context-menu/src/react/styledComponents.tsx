@@ -51,8 +51,12 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
       margin-right: 16px;
     }
 
-    :hover {
+    :hover:not(:disabled) {
       background: ${getColor('grey-05')};
+    }
+    :disabled {
+      cursor: not-allowed;
+      color: ${getColor('disabled')};
     }
 
     ${({ isSelectable }) =>
