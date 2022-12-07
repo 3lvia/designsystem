@@ -93,6 +93,19 @@
           ></app-component-example-generator>
         </ng-container>
       </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Disabled '">
+        <ng-container ngProjectAs="sectionContent">
+          Buttons and links inside the context menu may be disabled. If you use icons, make sure to set their
+          color to
+          <span class="code-text">disabled</span>
+          yourself.
+
+          <app-component-example-generator
+            [componentData]="contextMenuDisabledCode"
+            [inlineExample]="true"
+          ></app-component-example-generator>
+        </ng-container>
+      </app-component-subsubsection>
     </ng-container>
   </app-component-section>
 
