@@ -5,6 +5,7 @@ import { OutlineProps } from './elviaOutline.types';
 import { GlobalOutlineReset, StyledOutline } from './styledComponents';
 
 export const Outline: React.FC<OutlineProps> = ({ inlineStyle, className }) => {
+  const offset = 4;
   const [domRect, setDomRect] = useState<DOMRect>();
   const [borderRadius, setBorderRadius] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -67,9 +68,9 @@ export const Outline: React.FC<OutlineProps> = ({ inlineStyle, className }) => {
           animate={!isScrolling}
           style={{
             ...inlineStyle,
-            transform: `translate(${domRect.left}px, ${domRect.top}px)`,
-            width: `${domRect.width}px`,
-            height: `${domRect.height}px`,
+            transform: `translate(${domRect.left - offset}px, ${domRect.top - offset}px)`,
+            width: `${domRect.width + offset * 2}px`,
+            height: `${domRect.height + offset * 2}px`,
             borderRadius: `${borderRadius}px`,
           }}
         />
