@@ -28,7 +28,15 @@ export const useSlot = <
   webcomponent: TWebcomponent | undefined,
   options?: {
     ref?: React.RefObject<TValue>;
+    /**
+     * Called when a slot is found or not, with whether it was found or not as argument.
+     * Remember to wrap the callback in a `useCallback` to avoid infinite loops.
+     */
     callback?: (foundSlot: boolean) => void;
+    /**
+     * Extra dependencies for the `useEffect` hook.
+     * Remember to wrap in a `useMemo` to avoid infinite loops.
+     */
     useEffectDependencies?: unknown[];
   },
 ): { ref: React.RefObject<TValue> } => {
