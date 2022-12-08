@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.12.22",
+      "version": "7.4.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["<span class=\"code-text\">useInputModeDetection</span> triggering on mouse move"]
+        }
+      ]
+    },
+    {
       "date": "05.12.22",
       "version": "7.4.0",
       "changelog": [

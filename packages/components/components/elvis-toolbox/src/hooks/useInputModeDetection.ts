@@ -24,12 +24,12 @@ export const useInputModeDetection = (
     const setIsTouch = () => setInputMode('touch');
 
     const elementToObserve = element?.current ?? document.body;
-    elementToObserve.addEventListener('mousemove', setIsMouse);
+    elementToObserve.addEventListener('click', setIsMouse);
     elementToObserve.addEventListener('keydown', setIsKeyboard);
     elementToObserve.addEventListener('touchstart', setIsTouch);
 
     return () => {
-      elementToObserve.removeEventListener('mousemove', setIsMouse);
+      elementToObserve.removeEventListener('click', setIsMouse);
       elementToObserve.removeEventListener('keydown', setIsKeyboard);
       elementToObserve.removeEventListener('touchstart', setIsTouch);
     };
