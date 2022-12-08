@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
+import React, { CSSProperties, FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { outlineListener, useSlot, IconWrapper } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
 import {
@@ -95,8 +95,8 @@ const Accordion: FC<AccordionProps> = ({
   }, []);
 
   const { ref: accordionContentRef } = useSlot<HTMLDivElement>('content', webcomponent, {
-    callback: (foundSlot) => setHasContent(foundSlot),
-    useEffectDependencies: [type],
+    callback: useCallback((foundSlot: boolean) => setHasContent(foundSlot), []),
+    useEffectDependencies: useMemo(() => [type], [type]),
   });
 
   useEffect(() => {
