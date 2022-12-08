@@ -2868,6 +2868,36 @@ __metadata:
   languageName: node
   linkType: soft
 
+"@elvia/elvis-outline@portal:../components/components/elvis-outline::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-outline@portal:../components/components/elvis-outline::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
+  dependencies:
+    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-component-wrapper": ^4.0.0
+    "@elvia/elvis-toolbox": ^7.4.1
+    styled-components: ^5.3.6
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  languageName: node
+  linkType: soft
+
+"@elvia/elvis-outline@workspace:packages/components/components/elvis-outline":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-outline@workspace:packages/components/components/elvis-outline"
+  dependencies:
+    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-component-wrapper": ^4.0.0
+    "@elvia/elvis-toolbox": ^7.4.1
+    styled-components: ^5.3.6
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@elvia/elvis-pagination@*, @elvia/elvis-pagination@workspace:packages/components/components/elvis-pagination":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-pagination@workspace:packages/components/components/elvis-pagination"
@@ -3145,7 +3175,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-toolbox@^7.0.0, @elvia/elvis-toolbox@^7.1.0, @elvia/elvis-toolbox@^7.3.0, @elvia/elvis-toolbox@^7.4.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@^7.0.0, @elvia/elvis-toolbox@^7.1.0, @elvia/elvis-toolbox@^7.3.0, @elvia/elvis-toolbox@^7.4.0, @elvia/elvis-toolbox@^7.4.1, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
@@ -13664,6 +13694,7 @@ __metadata:
     "@elvia/elvis-header": "portal:../components/components/elvis-header"
     "@elvia/elvis-icon": "portal:../components/components/elvis-icon"
     "@elvia/elvis-modal": "portal:../components/components/elvis-modal"
+    "@elvia/elvis-outline": "portal:../components/components/elvis-outline"
     "@elvia/elvis-pagination": "portal:../components/components/elvis-pagination"
     "@elvia/elvis-popover": "portal:../components/components/elvis-popover"
     "@elvia/elvis-progress-linear": "portal:../components/components/elvis-progress-linear"

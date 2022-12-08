@@ -40,6 +40,7 @@
     "@elvia/elvis-header": "portal:../components/components/elvis-header",
     "@elvia/elvis-icon": "portal:../components/components/elvis-icon",
     "@elvia/elvis-modal": "portal:../components/components/elvis-modal",
+    "@elvia/elvis-outline": "portal:../components/components/elvis-outline",
     "@elvia/elvis-pagination": "portal:../components/components/elvis-pagination",
     "@elvia/elvis-popover": "portal:../components/components/elvis-popover",
     "@elvia/elvis-progress-linear": "portal:../components/components/elvis-progress-linear",
