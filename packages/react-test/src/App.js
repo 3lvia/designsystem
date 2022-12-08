@@ -465,8 +465,8 @@ function App() {
                 <SegmentedControl
                   type="icon"
                   items={[
-                    { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: '', label: '' },
-                    { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: '', label: '' },
+                    { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: '' },
+                    { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: '' },
                   ]}
                   size={'large'}
                   value={0}
