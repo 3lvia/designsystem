@@ -24,6 +24,8 @@ export const useInputModeDetection = (
       // Click events are also triggered from pressing enter on buttons
       if (ev.pointerType === 'mouse') {
         setInputMode('mouse');
+      } else if (ev.pointerType === 'touch') {
+        setInputMode('touch');
       }
     };
     const setIsTouch = () => setInputMode('touch');
