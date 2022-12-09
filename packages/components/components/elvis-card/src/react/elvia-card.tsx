@@ -1,5 +1,4 @@
 import React, { FC, useRef, useEffect, useState, CSSProperties } from 'react';
-import { Icon } from '@elvia/elvis-icon/react';
 import { CardType, BorderColor, HeadingLevel } from './elvia-card.types';
 import {
   CardArea,
@@ -13,7 +12,8 @@ import {
   CardCornerIcon,
   CardColoredLineContainer,
 } from './styledComponents';
-import { warnDeprecatedProps, useIsOverflowing } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, useIsOverflowing, IconWrapper } from '@elvia/elvis-toolbox';
+import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { config } from './config';
@@ -181,7 +181,7 @@ const Card: FC<CardProps> = function ({
       </CardContent>
       {type === 'detail' && (
         <CardHoverArrow data-testid="card-detail-hover-arrow">
-          <Icon name="arrowLongRight" />
+          <IconWrapper icon={arrowLongRight} />
         </CardHoverArrow>
       )}
       {type === 'detail' && (cornerIcon || cornerIconRef) && (

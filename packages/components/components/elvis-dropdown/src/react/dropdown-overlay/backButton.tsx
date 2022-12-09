@@ -1,9 +1,9 @@
-import { Icon } from '@elvia/elvis-icon/react';
-import { IconButton } from '@elvia/elvis-toolbox';
+import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
 import React, { MouseEvent } from 'react';
 import { getDropdownItemId } from '../dropdownListUtils';
 import { DropdownItem, DropdownValueType } from '../elviaDropdown.types';
 import { BackButtonStyles } from './dropdownOverlayStyles';
+import arrowLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLeft';
 
 interface SelectAllOptionProps {
   item: DropdownItem;
@@ -36,7 +36,7 @@ export const BackButton: React.FC<SelectAllOptionProps> = ({
       isCompact={isCompact}
     >
       <IconButton size={isCompact ? 'sm' : 'md'} disabled>
-        <Icon size={isCompact ? 'xs' : 'sm'} name="arrowLeft" />
+        <IconWrapper icon={arrowLeft} size={isCompact ? 'xs' : 'sm'} />
       </IconButton>
       {item.label}
     </BackButtonStyles>

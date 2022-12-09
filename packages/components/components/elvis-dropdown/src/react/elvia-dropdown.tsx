@@ -9,8 +9,9 @@ import {
   useInputModeDetection,
   useBreakpoint,
   useWebComponentState,
+  IconWrapper,
 } from '@elvia/elvis-toolbox';
-import { Icon } from '@elvia/elvis-icon/react';
+import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
 import { DropdownInput } from './dropdown-input/dropdownInput';
 import { DropdownContainer, DropdownInputContainer, IconRotator } from './styledComponents';
 import { DropdownError } from './error/dropdownError';
@@ -174,8 +175,8 @@ const Dropdown: React.FC<DropdownProps> = ({
           />
 
           <IconRotator isRotated={isShowing}>
-            <Icon
-              name="arrowDownBold"
+            <IconWrapper
+              icon={arrowDownBold}
               color={isDisabled ? 'disabled' : 'black'}
               size={isCompact ? 'xs' : 'sm'}
             />

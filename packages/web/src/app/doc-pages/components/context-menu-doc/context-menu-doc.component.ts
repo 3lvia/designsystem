@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { contextMenuData } from './context-menu-data';
+import { contextMenuDisabledCode } from './context-menu-disabled-code';
 import { contextMenuHeadingsCode } from './context-menu-headings';
 import { contextMenuIconsCode } from './context-menu-icons-code';
 import { contextMenuSelectableCode } from './context-menu-selectable-code';
@@ -16,6 +17,7 @@ export class ContextMenuDocComponent {
   contextMenuIconsCode = contextMenuIconsCode;
   contextMenuHeadingsCode = contextMenuHeadingsCode;
   contextMenuSelectableCode = contextMenuSelectableCode;
+  contextMenuDisabledCode = contextMenuDisabledCode;
   loadedContextMenuStructure = false;
   figmaUrl = getComponent('context-menu').figmaUrl;
   description = getComponent('context-menu').description;

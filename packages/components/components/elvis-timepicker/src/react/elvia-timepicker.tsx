@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Icon } from '@elvia/elvis-icon/react';
 import { OverlayContainer } from './popup/overlayContainer';
 import { ChangeType, ErrorType, TimepickerProps } from './elviaTimepicker.types';
 import {
@@ -9,7 +8,9 @@ import {
   FormFieldContainer,
   FormFieldLabel,
   FormFieldInputContainer,
+  IconWrapper,
 } from '@elvia/elvis-toolbox';
+import clock from '@elvia/elvis-assets-icons/dist/icons/clock';
 import { TimepickerInput } from './timepickerInput';
 import { TimepickerError } from './error/timepickerError';
 import { getErrorText } from './getErrorText';
@@ -149,7 +150,11 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             aria-label="Åpne tidvelger"
             aria-haspopup="dialog"
           >
-            <Icon name="clock" color={isDisabled ? 'disabled' : 'black'} size={isCompact ? 'xs' : 'sm'} />
+            <IconWrapper
+              icon={clock}
+              color={isDisabled ? 'disabled' : 'black'}
+              size={isCompact ? 'xs' : 'sm'}
+            />
           </IconButton>
         </FormFieldInputContainer>
         {((error && !errorOptions.hideText) || errorOptions.text) && (

@@ -1,9 +1,9 @@
 import React, { MouseEvent } from 'react';
-import { Icon } from '@elvia/elvis-icon/react';
-import { TertiaryButton } from '@elvia/elvis-toolbox';
+import { TertiaryButton, IconWrapper } from '@elvia/elvis-toolbox';
 import { DropdownItem, DropdownValueType } from '../elviaDropdown.types';
 import { LoadMoreButtonStyles, SpinContainer } from './dropdownOverlayStyles';
 import { getDropdownItemId } from '../dropdownListUtils';
+import sync from '@elvia/elvis-assets-icons/dist/icons/sync';
 
 interface LoadMoreProps {
   item: DropdownItem;
@@ -37,7 +37,7 @@ export const LoadMoreButton: React.FC<LoadMoreProps> = ({
       >
         <TertiaryButton tabIndex={-1} isActive={focusedValue === item.value} size={isCompact ? 'sm' : 'md'}>
           <SpinContainer>
-            <Icon size="xs" name="sync" />
+            <IconWrapper icon={sync} size="xs" />
           </SpinContainer>
           {item.label}
         </TertiaryButton>

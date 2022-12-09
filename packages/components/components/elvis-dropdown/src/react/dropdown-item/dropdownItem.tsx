@@ -1,5 +1,4 @@
-import { Icon } from '@elvia/elvis-icon/react';
-import { isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
+import { isSsr, useConnectedOverlay, IconWrapper } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, RefObject, useEffect, useMemo, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
 import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
@@ -10,6 +9,7 @@ import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { statusToIconMap } from '../statusToIconMap';
 import { flushSync } from 'react-dom';
 import { getColor } from '@elvia/elvis-colors';
+import arrowRight from '@elvia/elvis-assets-icons/dist/icons/arrowRight';
 
 interface DropdownItemProps {
   item: DropdownItemOption;
@@ -196,8 +196,8 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           <IconContainer>
             <Tooltip
               trigger={
-                <Icon
-                  name={statusToIconMap[item.status].name}
+                <IconWrapper
+                  icon={statusToIconMap[item.status].icon}
                   color={statusToIconMap[item.status].color}
                   size="xs"
                 />
@@ -220,8 +220,8 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
                 showChildList(true);
               }}
             >
-              <Icon
-                name="arrowRight"
+              <IconWrapper
+                icon={arrowRight}
                 size={isCompact ? 'xs' : 'sm'}
                 color={item.isDisabled ? getColor('disabled') : ''}
               />

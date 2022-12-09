@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 import { ChipComponent, ChipDot, ChipTitle, ChipLoading } from './styledComponents';
 import { ChipProps } from './elvia-chip.types';
-import { Icon } from '@elvia/elvis-icon/react';
 import { useHover } from '@react-aria/interactions';
 import { getColor } from '@elvia/elvis-colors';
-import { warnDeprecatedProps, useWebComponentState } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, useWebComponentState, IconWrapper } from '@elvia/elvis-toolbox';
 import { config } from './config';
+import check from '@elvia/elvis-assets-icons/dist/icons/check';
+import close from '@elvia/elvis-assets-icons/dist/icons/close';
 
 export const Chip: FC<ChipProps> = function ({
   ariaLabel,
@@ -70,10 +71,10 @@ export const Chip: FC<ChipProps> = function ({
       {...rest}
     >
       {type === 'choice' && (
-        <Icon
-          name="check"
-          customSize="12px"
-          inlineStyle={{
+        <IconWrapper
+          icon={check}
+          size="12px"
+          style={{
             opacity: decideChoiceCheckmarkIconOpacity(),
           }}
         />
@@ -97,7 +98,7 @@ export const Chip: FC<ChipProps> = function ({
         {value}
       </ChipTitle>
       {type === 'removable' && (
-        <Icon name="close" size="xxs" color={isDisabled ? getColor('disabled') : undefined} />
+        <IconWrapper icon={close} size="xxs" color={isDisabled ? getColor('disabled') : undefined} />
       )}
     </ChipComponent>
   );

@@ -2,6 +2,30 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "08.12.22",
+      "version": "2.0.11",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Bumped dependency on <span class=\"code-text\">@elvia/elvis-datepicker</span> to fix the date range hightlighting. "
+          ]
+        }
+      ]
+    },
+    {
+      "date": "07.12.22",
+      "version": "2.0.10",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Reduced bundle size by improving the way icons are imported and used in <span class=\"code-text\">@elvia/elvis-datepicker</span>. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "05.12.22",
       "version": "2.0.9",
       "changelog": [

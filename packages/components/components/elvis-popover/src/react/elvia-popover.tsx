@@ -1,5 +1,4 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
-import { Icon } from '@elvia/elvis-icon/react';
 import type { PopoverProps } from './elviaPopover.types';
 import { mapPositionToHorizontalPosition } from './mapPosition';
 import {
@@ -19,7 +18,9 @@ import {
   useFocusTrap,
   useSlot,
   warnDeprecatedProps,
+  IconWrapper,
 } from '@elvia/elvis-toolbox';
+import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
 
 const Popover: FC<PopoverProps> = function ({
   heading,
@@ -140,7 +141,7 @@ const Popover: FC<PopoverProps> = function ({
             {hasCloseButton && (
               <CloseButtonContainer>
                 <IconButton size="sm" onClick={() => setFadeOut(true)} aria-label="Lukk">
-                  <Icon name="closeBold" size="xs" />
+                  <IconWrapper icon={closeBold} size="xs" />
                 </IconButton>
               </CloseButtonContainer>
             )}

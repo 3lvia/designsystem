@@ -1,7 +1,8 @@
-import { Icon } from '@elvia/elvis-icon/react';
-import { useBreakpoint } from '@elvia/elvis-toolbox';
+import { useBreakpoint, IconWrapper } from '@elvia/elvis-toolbox';
 import React from 'react';
 import { IconContainer, SideNavContainer, ToggleWidthButton } from './sideNavStyles';
+import openMenu from '@elvia/elvis-assets-icons/dist/icons/openMenu';
+import closeMenu from '@elvia/elvis-assets-icons/dist/icons/closeMenu';
 
 interface SideNavProps {
   isExpanded: boolean;
@@ -19,7 +20,7 @@ export const SideNav = React.forwardRef<HTMLElement, SideNavProps>(
         {isGtMobile && (
           <ToggleWidthButton onClick={() => onSideNavToggle()} data-testid="sidenav-width-toggle">
             <IconContainer>
-              <Icon name={isExpanded ? 'closeMenu' : 'openMenu'} color="black" size="sm" />
+              <IconWrapper icon={isExpanded ? closeMenu : openMenu} color="black" size="sm" />
             </IconContainer>
             {isExpanded ? 'Minimer' : 'Maksimer'}
           </ToggleWidthButton>
