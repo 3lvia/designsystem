@@ -120,6 +120,10 @@ $toast-max-width: 400px;
       color: colors.color('font-color');
     }
 
+    .e-alert__content .e-alert__text {
+      max-width: unset;
+    }
+
     &.e-alert--warn {
       border-color: colors.color('orange');
     }

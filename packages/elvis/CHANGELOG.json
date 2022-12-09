@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "9.6.1",
+      "date": "December 9, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Removed the max width for the text in global alerts to better utilize screen space, as the alert itself does not have a max width."
+          ],
+          "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
+        }
+      ]
+    },
+    {
       "version": "9.6.0",
       "date": "November 30, 2022",
       "changelog": [
