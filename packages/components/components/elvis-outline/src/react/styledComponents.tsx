@@ -22,7 +22,10 @@ export const StyledOutline = styled.div<{ animate: boolean }>`
 `;
 
 export const GlobalOutlineReset = createGlobalStyle`
-  *:focus {
+  *:focus,
+  *:focus ~ *,
+  *:focus-visible,
+  *:focus-visible::before {
     outline: none !important;
   }
 `;
