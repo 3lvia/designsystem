@@ -22,7 +22,7 @@ export const Outline: React.FC<OutlineProps> = ({ inlineStyle, className }) => {
   const calculateBorderRadius = () => {
     let radius = getComputedStyle(document.activeElement as HTMLElement).borderRadius;
     radius = radius.substring(0, radius.length - 2);
-    setBorderRadius(Math.max(4, +radius));
+    setBorderRadius(+radius + offset);
   };
 
   useEffect(() => {
