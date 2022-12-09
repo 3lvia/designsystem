@@ -39,6 +39,8 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
       opacity: 0;
       outline: none;
       position: absolute;
+      width: $form-radiobutton-compact-mark-size;
+      height: $form-radiobutton-compact-mark-size;
       z-index: -1;
 
       // states styles for input
@@ -102,6 +104,10 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
     outline: none;
     position: absolute;
     z-index: -1;
+    margin: 0;
+    width: $form-radiobutton-mark-size;
+    height: $form-radiobutton-mark-size;
+    border-radius: 50%;
 
     // states styles for input
     &:checked ~ #{$this}__mark {

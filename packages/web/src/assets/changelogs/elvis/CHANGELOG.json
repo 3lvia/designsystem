@@ -1,6 +1,25 @@
 {
   "content": [
     {
+      "version": "9.6.1",
+      "date": "December 12, 2022",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "The hidden input in the checkbox component is now aligned with the visual checkbox",
+            "The hidden input in the radio button component is now aligned with the visual radio button",
+            "The hidden input in the toggle component is now aligned with the visual toggle"
+          ],
+          "components": [
+            { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
+            { "displayName": "Radiobutton", "url": "https://design.elvia.io/components/radiobutton" },
+            { "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "9.6.0",
       "date": "November 30, 2022",
       "changelog": [

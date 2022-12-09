@@ -45,6 +45,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
     position: relative;
     width: $toggle-width;
     height: 16px;
+    border-radius: 50px;
     outline: none;
     cursor: pointer;
     flex: none;
