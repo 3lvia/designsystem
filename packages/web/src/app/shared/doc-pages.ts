@@ -295,6 +295,15 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
   },
   {
+    title: 'Outline',
+    description:
+      'Outline is an accessibility oriented component that can be used to show an animated outline while using keyboard. The outline is placed at a new stacking context in the browser, meaning that the outline will not suffer from the usual issues of outlines, such as being clipped when used inside a scroll container.',
+    docUrl: Pages.Outline,
+    absolutePath: '/components/' + Pages.Outline,
+    status: DocPageStatus.Done,
+    type: 'Component',
+  },
+  {
     title: 'Pagination',
     description:
       'Pagination provides navigation to the page, by splitting content across pages and linking to them at the bottom of the page. This way the user is given a sense of control by being able to estimate the size of the data set as well as how much time it will take for them to find the information they’re looking for.',
