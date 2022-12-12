@@ -14,7 +14,7 @@ export const tooltipData: ComponentData = {
       cegDisplayName: 'Content',
       cegType: 'string',
       cegFormType: 'custom-text',
-      cegDefault: "I'm a tooltip!",
+      cegDefault: 'I am a tooltip!',
     },
     display: {
       isRequired: false,
