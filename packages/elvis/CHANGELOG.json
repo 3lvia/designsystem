@@ -1,6 +1,30 @@
 {
   "content": [
     {
+      "version": "9.7.0",
+      "date": "December 12, 2022",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["The search component now supports a loading state."],
+          "components": [{ "displayName": "Search", "url": "https://design.elvia.io/components/search" }]
+        },
+        {
+          "type": "patch",
+          "changes": ["The search component now uses Elvis typography styles."],
+          "components": [{ "displayName": "Search", "url": "https://design.elvia.io/components/search" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "The magnifying glass icon is now vertically centered.",
+            "The disabled and invalid state now uses the correct colors and padding."
+          ],
+          "components": [{ "displayName": "Search", "url": "https://design.elvia.io/components/search" }]
+        }
+      ]
+    },
+    {
       "version": "9.6.1",
       "date": "December 9, 2022",
       "changelog": [
