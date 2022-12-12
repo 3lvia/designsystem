@@ -25,6 +25,7 @@ export const GlobalOutlineReset = createGlobalStyle`
   *:focus,
   *:focus ~ *,
   *:focus-visible,
+  *:focus-within,
   *:focus-visible::before {
     outline: none !important;
   }
