@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     (document as any).fonts.ready.then(() => {
       this.fontLoaded = true;
     });
-    this.titleService.setTitle(this.overviewTitle);
+    this.titleService.setTitle('Elvia design system');
     this.isMobileScreenWidth = window.innerWidth <= 430;
   }
 
