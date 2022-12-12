@@ -1,14 +1,7 @@
-import React, { CSSProperties, FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { outlineListener, useSlot, IconWrapper } from '@elvia/elvis-toolbox';
-import { TypographyName } from '@elvia/elvis-typography';
+import { AccordionProps } from './elvia-accordion.types';
 import {
-  AccordionLabelPosition,
-  AccordionSize,
-  AccordionSpacingContent,
-  AccordionType,
-} from './elvia-accordion.types';
-import {
-  AccordionWrapper,
   AccordionArea,
   AccordionButtonArea,
   AccordionButton,
@@ -19,34 +12,6 @@ import {
 } from './styledComponents';
 import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
 import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-
-export interface AccordionProps {
-  content?: string | JSX.Element;
-  isOpen?: boolean;
-  isHovering?: boolean;
-  isFullWidth?: boolean;
-  openLabel?: string;
-  closeLabel?: string;
-  openDetailText?: string;
-  closeDetailText?: string;
-  openAriaLabel?: string;
-  closeAriaLabel?: string;
-  hasBoldLabel?: boolean;
-  isStartAligned?: boolean;
-  labelPosition?: AccordionLabelPosition;
-  size?: AccordionSize;
-  type?: AccordionType;
-  spacingAboveContent?: AccordionSpacingContent;
-  spacingBelowContent?: AccordionSpacingContent;
-  overflowHeight?: number;
-  typography?: TypographyName;
-  onOpen?: () => void;
-  onClose?: () => void;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
-}
 
 const Accordion: FC<AccordionProps> = ({
   content,
@@ -134,118 +99,111 @@ const Accordion: FC<AccordionProps> = ({
       return;
     }
     if (!isOpenState) {
-      if (!webcomponent && onOpen) {
-        onOpen();
-      } else if (webcomponent) {
-        webcomponent.triggerEvent('onOpen');
-      }
+      onOpen?.();
+      webcomponent?.triggerEvent('onOpen');
     } else {
-      if (!webcomponent && onClose) {
-        onClose();
-      } else if (webcomponent) {
-        webcomponent.triggerEvent('onClose');
-      }
+      onClose?.();
+      webcomponent?.triggerEvent('onClose');
     }
     setIsOpenState((prevIsOpenState) => !prevIsOpenState);
   };
 
   const decideButtonAriaLabel = (): string => {
     if (isOpenState) {
-      return closeAriaLabel ? closeAriaLabel : closeLabel ? closeLabel : 'Lukk';
+      return closeAriaLabel ?? closeLabel ?? 'Lukk';
     } else {
-      return openAriaLabel ? openAriaLabel : openLabel ? openLabel : 'Åpne';
+      return openAriaLabel ?? openLabel ?? 'Åpne';
     }
   };
+
   const shouldShowRightIcon = (): boolean => {
     return (isStartAligned && isFullWidth) || !isStartAligned;
   };
+
   const shouldShowLeftIcon = (): boolean => {
     return isStartAligned && !isFullWidth;
   };
 
   return (
-    <AccordionWrapper ref={accordionRef}>
-      <AccordionArea
-        aria-expanded={isOpenState}
-        className={`${className ? className : ''}`}
-        style={inlineStyle}
-        data-testid="accordion-area"
-        {...rest}
-      >
-        {type === 'overflow' ? (
-          <AccordionContent
-            type={type}
-            spacingAboveContent={spacingAboveContent}
-            spacingBelowContent={spacingBelowContent}
-            isOpenState={isOpenState}
-            overflowHeight={overflowHeight}
-            contentHeight={contentHeight}
-            hasContent={hasContent}
-            ref={accordionContentRef}
-            data-testid="accordion-content-overflow"
-          >
-            {content}
-          </AccordionContent>
-        ) : null}
-        <AccordionButtonArea labelPosition={labelPosition} type={type}>
-          <AccordionButton
-            size={size}
-            currType={type}
+    <AccordionArea
+      aria-expanded={isOpenState}
+      className={className}
+      style={inlineStyle}
+      data-testid="accordion-area"
+      ref={accordionRef}
+      {...rest}
+    >
+      {type === 'overflow' ? (
+        <AccordionContent
+          type={type}
+          spacingAboveContent={spacingAboveContent}
+          spacingBelowContent={spacingBelowContent}
+          isOpenState={isOpenState}
+          overflowHeight={overflowHeight}
+          contentHeight={contentHeight}
+          hasContent={hasContent}
+          ref={accordionContentRef}
+          data-testid="accordion-content-overflow"
+        >
+          {content}
+        </AccordionContent>
+      ) : null}
+      <AccordionButtonArea labelPosition={labelPosition} type={type}>
+        <AccordionButton
+          size={size}
+          currType={type}
+          isFullWidth={isFullWidth}
+          isOpenState={isOpenState}
+          hasBoldLabel={hasBoldLabel}
+          openDetailText={openDetailText}
+          typography={typography}
+          onClick={() => handleOnClick()}
+          onMouseEnter={() => setIsHoveringButton(true)}
+          onMouseLeave={() => setIsHoveringButton(false)}
+          data-testid="accordion-button-label"
+          aria-label={decideButtonAriaLabel()}
+        >
+          {shouldShowLeftIcon() && (
+            <IconWrapper
+              icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
+              size={size === 'small' ? 'xs' : 'sm'}
+            />
+          )}
+          <AccordionLabel
+            hasLabel={type !== 'single'}
+            openLabel={openLabel ?? ''}
+            isStartAligned={isStartAligned}
             isFullWidth={isFullWidth}
-            isOpenState={isOpenState}
-            hasBoldLabel={hasBoldLabel}
-            openDetailText={openDetailText}
-            openLabel={openLabel ? openLabel : ''}
-            closeLabel={closeLabel ? closeLabel : ''}
-            typography={typography}
-            onClick={() => handleOnClick()}
-            onMouseEnter={() => setIsHoveringButton(true)}
-            onMouseLeave={() => setIsHoveringButton(false)}
-            data-testid="accordion-button-label"
-            aria-label={decideButtonAriaLabel()}
           >
-            {shouldShowLeftIcon() && (
-              <IconWrapper
-                icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
-                size={size === 'small' ? 'xs' : 'sm'}
-              />
-            )}
-            <AccordionLabel
-              hasLabel={type !== 'single'}
-              openLabel={openLabel ? openLabel : ''}
-              isStartAligned={isStartAligned}
-              isFullWidth={isFullWidth}
-            >
-              <AccordionLabelText>{!isOpenState ? openLabel : closeLabel}</AccordionLabelText>
-              <AccordionDetailText size={size} openDetailText={openDetailText}>
-                {!isOpenState ? openDetailText : closeDetailText}
-              </AccordionDetailText>
-            </AccordionLabel>
-            {shouldShowRightIcon() && (
-              <IconWrapper
-                icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
-                size={size === 'small' ? 'xs' : 'sm'}
-              />
-            )}
-          </AccordionButton>
-        </AccordionButtonArea>
-        {type === 'normal' ? (
-          <AccordionContent
-            type={type}
-            spacingAboveContent={spacingAboveContent}
-            spacingBelowContent={spacingBelowContent}
-            isOpenState={isOpenState}
-            hasContent={hasContent}
-            contentHeight={contentHeight}
-            overflowHeight={overflowHeight}
-            data-testid="accordion-content-normal"
-            ref={accordionContentRef}
-          >
-            {content}
-          </AccordionContent>
-        ) : null}
-      </AccordionArea>
-    </AccordionWrapper>
+            <AccordionLabelText>{!isOpenState ? openLabel : closeLabel}</AccordionLabelText>
+            <AccordionDetailText size={size} openDetailText={openDetailText}>
+              {!isOpenState ? openDetailText : closeDetailText}
+            </AccordionDetailText>
+          </AccordionLabel>
+          {shouldShowRightIcon() && (
+            <IconWrapper
+              icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
+              size={size === 'small' ? 'xs' : 'sm'}
+            />
+          )}
+        </AccordionButton>
+      </AccordionButtonArea>
+      {type === 'normal' ? (
+        <AccordionContent
+          type={type}
+          spacingAboveContent={spacingAboveContent}
+          spacingBelowContent={spacingBelowContent}
+          isOpenState={isOpenState}
+          hasContent={hasContent}
+          contentHeight={contentHeight}
+          overflowHeight={overflowHeight}
+          data-testid="accordion-content-normal"
+          ref={accordionContentRef}
+        >
+          {content}
+        </AccordionContent>
+      ) : null}
+    </AccordionArea>
   );
 };
 

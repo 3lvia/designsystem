@@ -2,6 +2,24 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "12.12.22",
+      "version": "2.8.14",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue that caused the content of the accordion to still be tabbable when the accordion was closed. This fix applies only to the normal accordion, not the overflow accordion."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Simplified the structure of the component. This causes a minor change in the DOM structure, but should not affect the styling of the component."
+          ]
+        }
+      ]
+    },
+    {
       "date": "08.12.22",
       "version": "2.8.13",
       "changelog": [
