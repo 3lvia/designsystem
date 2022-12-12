@@ -16,7 +16,7 @@ export const StyledOutline = styled.div<{ animate: boolean }>`
       transition-duration: 0.1s;
 
       @media (prefers-reduced-motion) {
-        transition-duration: 0;
+        transition-duration: 0s;
       }
     `}
 `;
