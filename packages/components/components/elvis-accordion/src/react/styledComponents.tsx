@@ -10,21 +10,6 @@ import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
 
 const bezierCurve = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
-const colors = {
-  elviaBlack: getColor('black'),
-};
-
-const typography = {
-  textMd: getTypographyCss('text-md'),
-  textSm: getTypographyCss('text-sm'),
-  textMicro: getTypographyCss('text-micro'),
-};
-
-export const AccordionWrapper = styled.div`
-  display: flex;
-  width: 100%;
-`;
-
 export const AccordionArea = styled.div`
   display: flex;
   flex-direction: column;
@@ -76,11 +61,8 @@ interface AccordionButtonProps {
   currType: AccordionType;
   size: AccordionSize;
   hasBoldLabel: boolean;
-  openDetailText: string | undefined;
-  openLabel: string;
-  closeLabel: string;
+  openDetailText?: string;
   typography?: TypographyName;
-  onClick: any;
 }
 
 export const AccordionButton = styled.button<AccordionButtonProps>`
@@ -95,7 +77,7 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   ${(props) => props.typography && getTypographyCss(props.typography)}
   text-align: left;
   cursor: pointer;
-  color: ${colors.elviaBlack};
+  color: ${getColor('black')};
   width: ${(props) => (props.isFullWidth && props.currType === 'normal' ? '100%' : 'auto')};
   justify-content: ${(props) =>
     props.isFullWidth && props.currType === 'normal' ? 'space-between' : 'inherit'};
@@ -132,18 +114,18 @@ export const AccordionLabelText = styled.div`
   display: flex;
 `;
 
-const decideDetailTextSize = (size: string): string => {
+const decideDetailTextSize = (size: AccordionSize): string => {
   if (size === 'small') {
-    return typography.textMicro;
+    return getTypographyCss('text-micro');
   } else if (size === 'large') {
-    return typography.textMd;
+    return getTypographyCss('text-md');
   } else {
-    return typography.textSm;
+    return getTypographyCss('text-sm');
   }
 };
 
 interface AccordionDetailTextProps {
-  size: string;
+  size: AccordionSize;
   openDetailText: string | undefined;
 }
 
@@ -151,7 +133,7 @@ export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
   ${(props) => decideDetailTextSize(props.size)};
   display: flex;
   text-align: left;
-  color: ${colors.elviaBlack};
+  color: ${getColor('black')};
   margin-left: ${(props) => (props.openDetailText !== undefined ? '8px;' : '0px;')};
 `;
 
@@ -181,11 +163,9 @@ const decideContentMaxHeight = (
     return '0';
   }
 };
+
 const decideContentOpacity = (contentOpen: boolean, type: AccordionType): string => {
-  if (contentOpen) {
-    return '1';
-  }
-  if (!contentOpen && type === 'overflow') {
+  if (contentOpen || type === 'overflow') {
     return '1';
   }
   return '0';
@@ -210,19 +190,21 @@ interface AccordionContentProps {
 }
 
 export const AccordionContent = styled.div<AccordionContentProps>`
-  display: ${(props) => (props.hasContent ? 'block' : 'none')};
+  display: ${({ hasContent }) => (hasContent ? 'block' : 'none')};
+  visibility: ${({ type, isOpenState }) => (type === 'normal' && !isOpenState ? `hidden` : `visible`)};
   background: transparent;
   font-size: 16px;
   line-height: inherit;
-  margin-top: ${(props) => decideContentMarginTop(props.type, props.hasContent, props.spacingAboveContent)};
-  margin-bottom: ${(props) => (props.type === 'overflow' ? props.spacingBelowContent : 0)};
-  pointer-events: ${(props) => (props.isOpenState ? 'auto' : 'none')};
-  max-height: ${(props) =>
-    decideContentMaxHeight(props.isOpenState, props.type, props.contentHeight, props.overflowHeight)};
+  margin-top: ${({ type, hasContent, spacingAboveContent }) =>
+    decideContentMarginTop(type, hasContent, spacingAboveContent)};
+  margin-bottom: ${({ type, spacingBelowContent }) => (type === 'overflow' ? spacingBelowContent : 0)};
+  pointer-events: ${({ isOpenState }) => (isOpenState ? 'auto' : 'none')};
+  max-height: ${({ isOpenState, type, contentHeight, overflowHeight }) =>
+    decideContentMaxHeight(isOpenState, type, contentHeight, overflowHeight)};
   width: 100%;
-  opacity: ${(props) => decideContentOpacity(props.isOpenState, props.type)};
+  opacity: ${({ isOpenState, type }) => decideContentOpacity(isOpenState, type)};
   overflow-y: hidden;
-  transition: all ${(props) => decideContentTransitionSpeed(props.contentHeight)} ${bezierCurve};
+  transition: all ${({ contentHeight }) => decideContentTransitionSpeed(contentHeight)} ${bezierCurve};
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
