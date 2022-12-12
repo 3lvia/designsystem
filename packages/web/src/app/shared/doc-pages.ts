@@ -297,7 +297,7 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Outline',
     description:
-      'Outline is an accessibility oriented component that can be used to show an animated outline while using keyboard. The outline is placed at a new stacking context in the browser, meaning that the outline will not suffer from the usual issues of outlines, such as being clipped when used inside a scroll container.',
+      'Outline is an accessibility-oriented component that can be used to show an animated keyboard outline. The outline is placed at a new stacking context in the browser, meaning that it will not suffer from the usual outline issues, such as being clipped when used inside a scroll container.',
     docUrl: Pages.Outline,
     absolutePath: '/components/' + Pages.Outline,
     status: DocPageStatus.Done,

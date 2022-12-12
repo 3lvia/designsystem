@@ -2,7 +2,7 @@ import { getColor } from '@elvia/elvis-colors';
 import styled, { createGlobalStyle, css } from 'styled-components';
 
 export const StyledOutline = styled.div<{ animate: boolean }>`
-  border: 2px solid ${getColor('blue-berry')};
+  border: 2px solid ${getColor('focus-outline')};
   pointer-events: none;
   position: fixed;
   top: 0;
