@@ -29,4 +29,12 @@ export const GlobalOutlineReset = createGlobalStyle`
   *:focus-visible::before {
     outline: none !important;
   }
+  
+  *:focus-visible::-webkit-slider-thumb {
+    outline: none !important;
+  }
+  
+  :focus-visible::-moz-range-thumb {
+    outline: none !important;
+  }
 `;
