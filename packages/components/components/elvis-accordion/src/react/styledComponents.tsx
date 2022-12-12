@@ -37,19 +37,19 @@ export interface AccordionButtonAreaProps {
 
 export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
   display: flex;
-  justify-content: ${(props) => decideLabelPosition(props.labelPosition)};
+  justify-content: ${({ labelPosition }) => decideLabelPosition(labelPosition)};
   flex-direction: row;
   width: 100%;
 `;
 
-const decideButtonFontSize = (prop: AccordionSize) => {
-  if (prop === 'small') {
+const decideButtonFontSize = (size: AccordionSize) => {
+  if (size === 'small') {
     return '14px';
   }
-  if (prop === 'medium') {
+  if (size === 'medium') {
     return '16px';
   }
-  if (prop === 'large') {
+  if (size === 'large') {
     return '20px';
   }
   return '16px';
@@ -71,24 +71,25 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   display: flex;
   padding: 0;
   font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: ${(props) => (!props.hasBoldLabel && props.openDetailText === undefined ? '400' : '500')};
-  font-size: ${(props) => decideButtonFontSize(props.size)};
-  line-height: ${(props) => (props.size === 'small' ? '16px' : '24px')};
-  ${(props) => props.typography && getTypographyCss(props.typography)}
+  font-weight: ${({ hasBoldLabel, openDetailText }) =>
+    !hasBoldLabel && openDetailText === undefined ? '400' : '500'};
+  font-size: ${({ size }) => decideButtonFontSize(size)};
+  line-height: ${({ size }) => (size === 'small' ? '16px' : '24px')};
+  ${({ typography }) => typography && getTypographyCss(typography)}
   text-align: left;
   cursor: pointer;
   color: ${getColor('black')};
-  width: ${(props) => (props.isFullWidth && props.currType === 'normal' ? '100%' : 'auto')};
-  justify-content: ${(props) =>
-    props.isFullWidth && props.currType === 'normal' ? 'space-between' : 'inherit'};
+  width: ${({ isFullWidth, currType }) => (isFullWidth && currType === 'normal' ? '100%' : 'auto')};
+  justify-content: ${({ isFullWidth, currType }) =>
+    isFullWidth && currType === 'normal' ? 'space-between' : 'inherit'};
   align-items: center;
 
   svg {
     transform: rotate(0deg);
     transition: transform 0.2s ease-out;
 
-    ${(props) =>
-      props.isOpenState &&
+    ${({ isOpenState }) =>
+      isOpenState &&
       css`
         transform: rotate(180deg);
       `};
@@ -103,11 +104,11 @@ interface AccordionLabelProps {
 }
 
 export const AccordionLabel = styled.div<AccordionLabelProps>`
-  display: ${(props) => (props.openLabel && props.hasLabel ? 'flex' : 'none')};
+  display: ${({ openLabel, hasLabel }) => (openLabel && hasLabel ? 'flex' : 'none')};
   flex-direction: row;
   align-items: baseline;
-  margin-left: ${(props) => (props.isStartAligned && !props.isFullWidth ? '8px' : '0px')};
-  margin-right: ${(props) => (props.isStartAligned && !props.isFullWidth ? '0px' : '8px')};
+  margin-left: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '8px' : '0px')};
+  margin-right: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '0px' : '8px')};
 `;
 
 export const AccordionLabelText = styled.div`
@@ -130,11 +131,11 @@ interface AccordionDetailTextProps {
 }
 
 export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
-  ${(props) => decideDetailTextSize(props.size)};
+  ${({ size }) => decideDetailTextSize(size)};
   display: flex;
   text-align: left;
   color: ${getColor('black')};
-  margin-left: ${(props) => (props.openDetailText !== undefined ? '8px;' : '0px;')};
+  margin-left: ${({ openDetailText }) => (openDetailText !== undefined ? '8px;' : '0px;')};
 `;
 
 const decideContentMarginTop = (
