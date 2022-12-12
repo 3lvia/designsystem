@@ -10,21 +10,6 @@ import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
 
 const bezierCurve = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
-const colors = {
-  elviaBlack: getColor('black'),
-};
-
-const typography = {
-  textMd: getTypographyCss('text-md'),
-  textSm: getTypographyCss('text-sm'),
-  textMicro: getTypographyCss('text-micro'),
-};
-
-export const AccordionWrapper = styled.div`
-  display: flex;
-  width: 100%;
-`;
-
 export const AccordionArea = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,19 +37,19 @@ export interface AccordionButtonAreaProps {
 
 export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
   display: flex;
-  justify-content: ${(props) => decideLabelPosition(props.labelPosition)};
+  justify-content: ${({ labelPosition }) => decideLabelPosition(labelPosition)};
   flex-direction: row;
   width: 100%;
 `;
 
-const decideButtonFontSize = (prop: AccordionSize) => {
-  if (prop === 'small') {
+const decideButtonFontSize = (size: AccordionSize) => {
+  if (size === 'small') {
     return '14px';
   }
-  if (prop === 'medium') {
+  if (size === 'medium') {
     return '16px';
   }
-  if (prop === 'large') {
+  if (size === 'large') {
     return '20px';
   }
   return '16px';
@@ -76,11 +61,8 @@ interface AccordionButtonProps {
   currType: AccordionType;
   size: AccordionSize;
   hasBoldLabel: boolean;
-  openDetailText: string | undefined;
-  openLabel: string;
-  closeLabel: string;
+  openDetailText?: string;
   typography?: TypographyName;
-  onClick: any;
 }
 
 export const AccordionButton = styled.button<AccordionButtonProps>`
@@ -89,24 +71,25 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   display: flex;
   padding: 0;
   font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: ${(props) => (!props.hasBoldLabel && props.openDetailText === undefined ? '400' : '500')};
-  font-size: ${(props) => decideButtonFontSize(props.size)};
-  line-height: ${(props) => (props.size === 'small' ? '16px' : '24px')};
-  ${(props) => props.typography && getTypographyCss(props.typography)}
+  font-weight: ${({ hasBoldLabel, openDetailText }) =>
+    !hasBoldLabel && openDetailText === undefined ? '400' : '500'};
+  font-size: ${({ size }) => decideButtonFontSize(size)};
+  line-height: ${({ size }) => (size === 'small' ? '16px' : '24px')};
+  ${({ typography }) => typography && getTypographyCss(typography)}
   text-align: left;
   cursor: pointer;
-  color: ${colors.elviaBlack};
-  width: ${(props) => (props.isFullWidth && props.currType === 'normal' ? '100%' : 'auto')};
-  justify-content: ${(props) =>
-    props.isFullWidth && props.currType === 'normal' ? 'space-between' : 'inherit'};
+  color: ${getColor('black')};
+  width: ${({ isFullWidth, currType }) => (isFullWidth && currType === 'normal' ? '100%' : 'auto')};
+  justify-content: ${({ isFullWidth, currType }) =>
+    isFullWidth && currType === 'normal' ? 'space-between' : 'inherit'};
   align-items: center;
 
   svg {
     transform: rotate(0deg);
     transition: transform 0.2s ease-out;
 
-    ${(props) =>
-      props.isOpenState &&
+    ${({ isOpenState }) =>
+      isOpenState &&
       css`
         transform: rotate(180deg);
       `};
@@ -121,38 +104,38 @@ interface AccordionLabelProps {
 }
 
 export const AccordionLabel = styled.div<AccordionLabelProps>`
-  display: ${(props) => (props.openLabel && props.hasLabel ? 'flex' : 'none')};
+  display: ${({ openLabel, hasLabel }) => (openLabel && hasLabel ? 'flex' : 'none')};
   flex-direction: row;
   align-items: baseline;
-  margin-left: ${(props) => (props.isStartAligned && !props.isFullWidth ? '8px' : '0px')};
-  margin-right: ${(props) => (props.isStartAligned && !props.isFullWidth ? '0px' : '8px')};
+  margin-left: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '8px' : '0px')};
+  margin-right: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '0px' : '8px')};
 `;
 
 export const AccordionLabelText = styled.div`
   display: flex;
 `;
 
-const decideDetailTextSize = (size: string): string => {
+const decideDetailTextSize = (size: AccordionSize): string => {
   if (size === 'small') {
-    return typography.textMicro;
+    return getTypographyCss('text-micro');
   } else if (size === 'large') {
-    return typography.textMd;
+    return getTypographyCss('text-md');
   } else {
-    return typography.textSm;
+    return getTypographyCss('text-sm');
   }
 };
 
 interface AccordionDetailTextProps {
-  size: string;
+  size: AccordionSize;
   openDetailText: string | undefined;
 }
 
 export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
-  ${(props) => decideDetailTextSize(props.size)};
+  ${({ size }) => decideDetailTextSize(size)};
   display: flex;
   text-align: left;
-  color: ${colors.elviaBlack};
-  margin-left: ${(props) => (props.openDetailText !== undefined ? '8px;' : '0px;')};
+  color: ${getColor('black')};
+  margin-left: ${({ openDetailText }) => (openDetailText !== undefined ? '8px;' : '0px;')};
 `;
 
 const decideContentMarginTop = (
@@ -181,11 +164,9 @@ const decideContentMaxHeight = (
     return '0';
   }
 };
+
 const decideContentOpacity = (contentOpen: boolean, type: AccordionType): string => {
-  if (contentOpen) {
-    return '1';
-  }
-  if (!contentOpen && type === 'overflow') {
+  if (contentOpen || type === 'overflow') {
     return '1';
   }
   return '0';
@@ -210,19 +191,21 @@ interface AccordionContentProps {
 }
 
 export const AccordionContent = styled.div<AccordionContentProps>`
-  display: ${(props) => (props.hasContent ? 'block' : 'none')};
+  display: ${({ hasContent }) => (hasContent ? 'block' : 'none')};
+  visibility: ${({ type, isOpenState }) => (type === 'normal' && !isOpenState ? `hidden` : `visible`)};
   background: transparent;
   font-size: 16px;
   line-height: inherit;
-  margin-top: ${(props) => decideContentMarginTop(props.type, props.hasContent, props.spacingAboveContent)};
-  margin-bottom: ${(props) => (props.type === 'overflow' ? props.spacingBelowContent : 0)};
-  pointer-events: ${(props) => (props.isOpenState ? 'auto' : 'none')};
-  max-height: ${(props) =>
-    decideContentMaxHeight(props.isOpenState, props.type, props.contentHeight, props.overflowHeight)};
+  margin-top: ${({ type, hasContent, spacingAboveContent }) =>
+    decideContentMarginTop(type, hasContent, spacingAboveContent)};
+  margin-bottom: ${({ type, spacingBelowContent }) => (type === 'overflow' ? spacingBelowContent : 0)};
+  pointer-events: ${({ isOpenState }) => (isOpenState ? 'auto' : 'none')};
+  max-height: ${({ isOpenState, type, contentHeight, overflowHeight }) =>
+    decideContentMaxHeight(isOpenState, type, contentHeight, overflowHeight)};
   width: 100%;
-  opacity: ${(props) => decideContentOpacity(props.isOpenState, props.type)};
+  opacity: ${({ isOpenState, type }) => decideContentOpacity(isOpenState, type)};
   overflow-y: hidden;
-  transition: all ${(props) => decideContentTransitionSpeed(props.contentHeight)} ${bezierCurve};
+  transition: all ${({ contentHeight }) => decideContentTransitionSpeed(contentHeight)} ${bezierCurve};
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
