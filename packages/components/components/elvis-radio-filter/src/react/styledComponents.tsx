@@ -23,6 +23,7 @@ export const RadioFilterLabel = styled.label`
   border: ${(props: { isSelected: boolean }) =>
     `1px solid ${props.isSelected ? colors.elviaBlack : 'transparent'}`};
   cursor: pointer;
+  position: relative;
 
   &:hover:not(:disabled) {
     border: ${(props: { isSelected: boolean }) =>
@@ -40,6 +41,12 @@ export const RadioFilterInput = styled.input`
   position: absolute;
   opacity: 0;
   cursor: pointer;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 32px;
 `;
 
 export const RadioFilterTitle = styled.span`
