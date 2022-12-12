@@ -1,6 +1,6 @@
 @use '../../variables/colors';
 @use '../../utilities/icons';
-@use '../../utilities/helpers';
+@use '../../variables/typography.scss';
 
 .e-search {
   position: relative;
@@ -9,12 +9,7 @@
     display: none;
   }
 
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  color: colors.color('font-color');
+  @include typography.typography('text-md');
 
   &--instant {
     .e-input {
@@ -111,7 +106,7 @@
 .e-form-field {
   &.e-form-field--compact {
     .e-search--instant {
-      font-size: 14px;
+      @include typography.typography('text-sm');
       margin-top: -8px;
       .e-input {
         input,
