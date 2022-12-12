@@ -123,10 +123,11 @@
         visibility: visible;
         position: absolute;
         display: flex;
-        top: 10px;
+        top: 50%;
         left: 8px;
         height: 16px;
         width: 16px;
+        transform: translateY(-50%);
       }
       .e-btn {
         top: 1px;
