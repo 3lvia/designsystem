@@ -21,11 +21,9 @@ export const useInputModeDetection = (
   useEffect(() => {
     const setIsKeyboard = () => setInputMode('keyboard');
     const setIsMouse = (ev: PointerEvent) => {
-      // Click events are also triggered from pressing enter on buttons
-      if (ev.pointerType === 'mouse') {
+      // Filter out click events triggered by the mouse
+      if (ev.detail === 1) {
         setInputMode('mouse');
-      } else if (ev.pointerType === 'touch') {
-        setInputMode('touch');
       }
     };
     const setIsTouch = () => setInputMode('touch');
