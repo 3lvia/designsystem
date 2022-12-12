@@ -15,9 +15,14 @@
     .e-input {
       input,
       input:invalid,
-      input:disabled {
+      input:disabled,
+      &.e-input---disabled input,
+      &.e-input---loading input {
         padding: 12px 48px 12px 56px;
       }
+      &.e-input---invalid input,
+      &.e-input---focus input,
+      &.e-input---loading input,
       input:focus {
         padding: 11px 47px 11px 55px;
       }
@@ -61,13 +66,19 @@
       }
     }
   }
+
   &--on-submit {
     .e-input {
       input,
       input:invalid,
-      input:disabled {
+      input:disabled,
+      &.e-input---loading input,
+      &.e-input---disabled input {
         padding: 12px 48px 12px 12px;
       }
+      &.e-input---invalid input,
+      &.e-input---focus input,
+      &.e-input---loading input,
       input:focus {
         padding: 11px 47px 11px 11px;
       }
@@ -111,10 +122,15 @@
       .e-input {
         input,
         input:invalid,
-        input:disabled {
+        input:disabled,
+        &.e-input---disabled input,
+        &.e-input---loading input {
           max-height: 34px;
           padding: 6px 32px 6px 32px;
         }
+        &.e-input---invalid input,
+        &.e-input---focus input,
+        &.e-input---loading input,
         input:focus {
           padding: 5px 31px 5px 31px;
         }
@@ -140,10 +156,15 @@
       .e-input {
         input,
         input:invalid,
-        input:disabled {
+        input:disabled,
+        &.e-input---disabled input,
+        &.e-input---loading input {
           max-height: 34px;
           padding: 6px 32px 6px 10px;
         }
+        &.e-input---invalid input,
+        &.e-input---focus input,
+        &.e-input---loading input,
         input:focus {
           padding: 5px 31px 5px 9px;
         }
@@ -151,6 +172,31 @@
       .e-btn {
         top: 1px;
         right: 4px;
+      }
+    }
+  }
+
+  .e-search {
+    &--instant,
+    &--on-submit {
+      .e-input---disabled {
+        ~ i[class*='e-icon--search-color'] {
+          opacity: 30%;
+          cursor: not-allowed;
+        }
+
+        ~ .e-btn.e-btn--icon {
+          visibility: hidden;
+          .e-btn__icon {
+            i[class*='e-icon--close-bold'] {
+              visibility: hidden;
+            }
+          }
+        }
+
+        input:disabled::placeholder {
+          color: colors.color('grey-30') !important; //override ".e-input > input::placeholder"
+        }
       }
     }
   }
