@@ -437,7 +437,12 @@ export class CMSTransformService {
       ? data.fields.displayTitle[locale]
       : undefined;
     const altText = data.fields.displayImage[locale].fields.title[locale];
-    const displayImage = 'https:' + data.fields.displayImage[locale].fields.file[locale].url;
+    const displayImage =
+      'https:' + data.fields.displayImage[locale].fields.file[locale].url + '?fm=jpg&fl=progressive';
+    const displayImageWebp =
+      'https:' + data.fields.displayImage[locale].fields.file[locale].url + '?fm=webp&q=75&w=720';
+    const displayImageAvif =
+      'https:' + data.fields.displayImage[locale].fields.file[locale].url + '?fm=avif&q=75&w=720';
     const asset = 'https:' + data.fields.downloadableContent[locale].fields.file[locale].url;
     const fileType = asset.split('.').pop();
     fetch(asset)
@@ -451,11 +456,17 @@ export class CMSTransformService {
 
     return `<div class="cms-download-content ${inGrid ? '' : 'e-my-24'}">
       <div class="cms-display-image e-mb-24">
-        <img
-          class="cms-section__img normal-img"
-          src="${displayImage}"
-          alt="${altText}"
-        />
+        <picture>
+          <source type="image/avif" srcset="${displayImageAvif}"  />
+          <source type="image/webp" srcset="${displayImageWebp}"  />
+          <img
+            class="cms-section__img normal-img"
+            src="${displayImage}"
+            alt="${altText}"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
       </div>
       ${
         displayTitle !== undefined
