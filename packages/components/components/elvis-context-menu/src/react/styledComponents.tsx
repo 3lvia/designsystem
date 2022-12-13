@@ -2,9 +2,15 @@ import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
-export const TriggerContainer = styled.div`
+export const TriggerContainer = styled.div<{ isShowing: boolean }>`
   display: inline-block;
   user-select: none;
+
+  ${({ isShowing }) =>
+    isShowing &&
+    css`
+      z-index: 999999;
+    `};
 `;
 
 export const ContextMenuContent = styled.div`
