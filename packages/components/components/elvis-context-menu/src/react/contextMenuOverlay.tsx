@@ -1,6 +1,6 @@
 import { BaseProps, useSlot, useRovingFocus, Overlay } from '@elvia/elvis-toolbox';
 import React, { useState } from 'react';
-import { ContextMenuContent, ItemList } from './styledComponents';
+import { ItemList } from './styledComponents';
 
 interface Props extends BaseProps {
   content?: string | JSX.Element;
@@ -23,17 +23,18 @@ export const ContextMenuOverlay = React.forwardRef<HTMLDivElement, Props>(
 
     return (
       <Overlay ref={ref} onClose={onClose} startFade={fadeOut}>
-        <ContextMenuContent className={className} style={{ ...inlineStyle }} {...rest}>
-          <ItemList
-            onClick={() => setFadeOut(true)}
-            onKeyDown={handleKeyDown}
-            isSelectable={isSelectable}
-            ref={contentRef}
-            role="menu"
-          >
-            {content}
-          </ItemList>
-        </ContextMenuContent>
+        <ItemList
+          className={className}
+          style={{ ...inlineStyle }}
+          onClick={() => setFadeOut(true)}
+          onKeyDown={handleKeyDown}
+          isSelectable={isSelectable}
+          ref={contentRef}
+          role="menu"
+          {...rest}
+        >
+          {content}
+        </ItemList>
       </Overlay>
     );
   },

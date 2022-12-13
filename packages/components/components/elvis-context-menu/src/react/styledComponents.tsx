@@ -7,11 +7,6 @@ export const TriggerContainer = styled.div`
   user-select: none;
 `;
 
-export const ContextMenuContent = styled.div`
-  max-width: calc(100% - 16px);
-  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
-`;
-
 export const ItemList = styled.div<{ isSelectable: boolean }>`
   display: flex;
   flex-direction: column;
@@ -21,6 +16,7 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
   background-color: ${getColor('elvia-on')};
   overflow: auto;
   border-radius: 8px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
 
   @supports (max-height: 50svh) {
     max-height: calc(50svh - 8px);
@@ -46,6 +42,7 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
     ${getTypographyCss('text-md')}
     background-color: transparent;
     text-decoration: none;
+    white-space: nowrap;
 
     i {
       margin-right: 16px;
@@ -54,9 +51,15 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
     :hover:not(:disabled) {
       background: ${getColor('grey-05')};
     }
+
     :disabled {
       cursor: not-allowed;
       color: ${getColor('disabled')};
+    }
+
+    span {
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     ${({ isSelectable }) =>

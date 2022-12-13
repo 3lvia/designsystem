@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "14.12.22",
+      "version": "1.1.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Support long item texts"]
+        }
+      ]
+    },
+    {
       "date": "07.12.22",
       "version": "1.1.0",
       "changelog": [
