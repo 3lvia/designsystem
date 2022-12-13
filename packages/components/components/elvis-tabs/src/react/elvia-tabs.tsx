@@ -147,6 +147,7 @@ const Tabs: FC<TabsProps> = ({
         }
       }
       setTabInFocus(newTabToFocus);
+      scrollIntoView('ewc-tab-id-' + newTabToFocus);
       tabsCollection[newTabToFocus].setAttribute('tabIndex', '0');
       (tabsCollection[newTabToFocus] as HTMLElement).focus();
       if (!hasManualActivation) {
@@ -171,6 +172,12 @@ const Tabs: FC<TabsProps> = ({
       }
     };
     slideTimer();
+  };
+
+  const scrollIntoView = (elementId: string) => {
+    document
+      .getElementById(elementId)
+      ?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   };
 
   const tabsClasses = classNames('ewc-tabs', {
@@ -227,7 +234,10 @@ const Tabs: FC<TabsProps> = ({
                   aria-controls={item}
                   tabIndex={currValue === i ? 0 : -1}
                   className="ewc-tabs__item"
-                  onClick={() => updateValue(i)}
+                  onClick={() => {
+                    updateValue(i);
+                    scrollIntoView('ewc-tab-id-' + i);
+                  }}
                   data-testid="tab-button"
                 >
                   <span className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>
