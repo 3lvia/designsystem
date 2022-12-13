@@ -37,6 +37,29 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     },
   );
 
+  const handleOnOpen = () => {
+    onOpen?.();
+    webcomponent?.triggerEvent('onOpen');
+
+    trapFocus(popoverRef);
+  };
+
+  const handleOnClose = () => {
+    onClose?.();
+    webcomponent?.triggerEvent('onClose');
+
+    releaseFocusTrap();
+  };
+
+  const toggleVisibility = (): void => {
+    if (!isOverlayShowing) {
+      setIsOverlayShowing(true);
+      setFadeOut(false);
+    } else {
+      setFadeOut(true);
+    }
+  };
+
   useEffect(() => {
     if (isShowing !== isOverlayShowing) {
       setIsOverlayShowing(isShowing);
@@ -54,34 +77,9 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     }
   }, [isOverlayShowing]);
 
-  const handleOnOpen = () => {
-    onOpen?.();
-    webcomponent?.triggerEvent('onOpen');
-
-    trapFocus(popoverRef);
-  };
-
-  const handleOnClose = () => {
-    onClose?.();
-    webcomponent?.triggerEvent('onClose');
-
-    releaseFocusTrap();
-  };
-
   return (
     <>
-      <TriggerContainer
-        onClick={() => {
-          if (!isOverlayShowing) {
-            setIsOverlayShowing(true);
-            setFadeOut(false);
-          } else {
-            setFadeOut(true);
-          }
-        }}
-        ref={triggerRef}
-        isShowing={isOverlayShowing}
-      >
+      <TriggerContainer onClick={toggleVisibility} ref={triggerRef} isShowing={isOverlayShowing}>
         {trigger}
       </TriggerContainer>
 
