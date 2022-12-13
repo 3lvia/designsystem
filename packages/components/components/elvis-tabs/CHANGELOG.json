@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "14.12.22",
+      "version": "1.6.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["The active tab now scrolls into view if it is clicked while partly overflowing."]
+        }
+      ]
+    },
+    {
       "date": "07.12.22",
       "version": "1.5.12",
       "changelog": [
