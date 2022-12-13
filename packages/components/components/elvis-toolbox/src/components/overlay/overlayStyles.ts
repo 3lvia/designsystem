@@ -30,6 +30,7 @@ export const OverlayContainer = styled.div<{ fadeOut: boolean; noAnimation: bool
   position: absolute;
   z-index: 99999;
   animation: ${fadeInAnimation} 300ms ease;
+  max-width: calc(100% - 16px);
 
   ${({ fadeOut }) =>
     fadeOut &&
