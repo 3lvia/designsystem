@@ -23,6 +23,7 @@ import '@elvia/elvis-dropdown';
 import '@elvia/elvis-header';
 import '@elvia/elvis-icon';
 import '@elvia/elvis-modal';
+import '@elvia/elvis-outline';
 import '@elvia/elvis-pagination';
 import '@elvia/elvis-popover';
 import '@elvia/elvis-progress-linear';

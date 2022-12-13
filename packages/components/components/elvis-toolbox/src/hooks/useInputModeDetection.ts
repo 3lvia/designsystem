@@ -20,16 +20,21 @@ export const useInputModeDetection = (
 
   useEffect(() => {
     const setIsKeyboard = () => setInputMode('keyboard');
-    const setIsMouse = () => setInputMode('mouse');
+    const setIsMouse = (ev: PointerEvent) => {
+      // Filter out click events triggered by the mouse
+      if (ev.detail === 1) {
+        setInputMode('mouse');
+      }
+    };
     const setIsTouch = () => setInputMode('touch');
 
     const elementToObserve = element?.current ?? document.body;
-    elementToObserve.addEventListener('mousemove', setIsMouse);
+    elementToObserve.addEventListener('click', setIsMouse);
     elementToObserve.addEventListener('keydown', setIsKeyboard);
     elementToObserve.addEventListener('touchstart', setIsTouch);
 
     return () => {
-      elementToObserve.removeEventListener('mousemove', setIsMouse);
+      elementToObserve.removeEventListener('click', setIsMouse);
       elementToObserve.removeEventListener('keydown', setIsKeyboard);
       elementToObserve.removeEventListener('touchstart', setIsTouch);
     };

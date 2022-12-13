@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "13.12.22",
+      "version": "1.5.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Align invisible input with the size of the radio filter."]
+        }
+      ]
+    },
+    {
       "date": "29.11.22",
       "version": "1.5.4",
       "changelog": [

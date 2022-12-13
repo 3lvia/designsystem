@@ -37,6 +37,7 @@ export enum Pages {
   Link = 'link',
   List = 'list',
   Modal = 'modal',
+  Outline = 'outline',
   OverviewComp = 'overview-comp',
   Pagination = 'pagination',
   Popover = 'popover',

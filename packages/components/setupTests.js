@@ -13,6 +13,10 @@ global.MutationObserver = class {
   observe(element, initObject) {}
 };
 
+global.FocusEvent = class {
+  constructor(callback) {}
+};
+
 // JSDOM does not implement the scrollTo() function
 global.Element.prototype.scrollTo = () => {
   return;
