@@ -27,24 +27,15 @@ const Box: FC<BoxProps> = ({
   const { ref: boxTitle } = useSlot<HTMLDivElement>('title', webcomponent);
 
   return (
-    <div className={`${className ? className : ''}`} style={inlineStyle} {...rest}>
-      <BoxArea data-testid="box-area">
-        {title && <BoxTitle data-testid="box-title">{title}</BoxTitle>}
-        {!title && <BoxTitle ref={boxTitle}></BoxTitle>}
-        {content && (
-          <BoxContent hasBorder={hasBorder} data-testid="box-content">
-            {isColored && <BoxColoredLine data-testid="box-colored-line"></BoxColoredLine>}
-            {content}
-          </BoxContent>
-        )}
-        {!content && (
-          <BoxContent hasBorder={hasBorder} data-testid="box-no-content">
-            {isColored && <BoxColoredLine></BoxColoredLine>}
-            <div ref={boxContent}></div>
-          </BoxContent>
-        )}
-      </BoxArea>
-    </div>
+    <BoxArea className={className} style={inlineStyle} {...rest} data-testid="box-area">
+      <BoxTitle ref={boxTitle} data-testid="box-title">
+        {title}
+      </BoxTitle>
+      <BoxContent hasBorder={hasBorder} data-testid="box-content">
+        {isColored && <BoxColoredLine data-testid="box-colored-line"></BoxColoredLine>}
+        {content ? content : <div ref={boxContent}></div>}
+      </BoxContent>
+    </BoxArea>
   );
 };
 
