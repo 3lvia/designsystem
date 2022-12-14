@@ -2,7 +2,7 @@ import { useSlot } from './useSlot';
 import { renderHook } from '@testing-library/react';
 import React from 'react';
 
-describe('useWebComponentState', () => {
+describe('useSlot', () => {
   const existingSlotName = 'existingSlotName';
   const nonExistingSlotName = 'nonExistingSlotName';
   const defaultDiv = document.createElement('div');
