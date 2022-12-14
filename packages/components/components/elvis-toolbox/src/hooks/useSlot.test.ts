@@ -14,21 +14,16 @@ describe('useWebComponentState', () => {
   });
 
   describe('with Web Component', () => {
-    let webcomponent: {
-      getSlot: jest.Mock<Element, [slotName: string]>;
+    const webcomponent = {
+      getSlot: jest.fn((slotName: string) => {
+        if (slotName !== existingSlotName) {
+          return undefined as any;
+        }
+        const div = document.createElement('div');
+        div.innerHTML = `slot content ${slotName}`;
+        return div;
+      }),
     };
-    beforeEach(() => {
-      webcomponent = {
-        getSlot: jest.fn((slotName: string) => {
-          if (slotName !== existingSlotName) {
-            return undefined as any;
-          }
-          const div = document.createElement('div');
-          div.innerHTML = `slot content ${slotName}`;
-          return div;
-        }),
-      };
-    });
 
     it('should render hook and update ref content', () => {
       const { result } = renderHook(() => useSlot(existingSlotName, webcomponent));
