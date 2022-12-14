@@ -21,13 +21,15 @@ import React, { useEffect, useRef } from 'react';
  * @since 5.7.0
  */
 export const useSlot = <
-  TValue extends HTMLElement,
-  TWebcomponent extends { getSlot: (...args: unknown[]) => Node } = { getSlot: (...args: unknown[]) => Node },
+  TRefElement extends HTMLElement,
+  TWebcomponent extends { getSlot: (slotName: string) => Element } = {
+    getSlot: (slotName: string) => Element;
+  },
 >(
   slot: string,
   webcomponent: TWebcomponent | undefined,
   options?: {
-    ref?: React.RefObject<TValue>;
+    ref?: React.RefObject<TRefElement>;
     /**
      * Called when a slot is found or not, with whether it was found or not as argument.
      * Remember to wrap the callback in a `useCallback` to avoid infinite loops.
@@ -37,10 +39,10 @@ export const useSlot = <
      * Extra dependencies for the `useEffect` hook.
      * Remember to wrap in a `useMemo` to avoid infinite loops.
      */
-    useEffectDependencies?: unknown[];
+    useEffectDependencies?: React.DependencyList;
   },
-): { ref: React.RefObject<TValue> } => {
-  const defaultRef = useRef<TValue>(null);
+): { ref: React.RefObject<TRefElement> } => {
+  const defaultRef = useRef<TRefElement>(null);
   const ref = options?.ref ?? defaultRef;
   useEffect(() => {
     if (!webcomponent) {
