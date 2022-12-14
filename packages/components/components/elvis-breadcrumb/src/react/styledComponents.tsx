@@ -2,16 +2,6 @@ import styled from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
-const colors = {
-  elviaCharge: getColor('elvia-charge'),
-  elviaBlack: getColor('black'),
-  elviaGrey70: getColor('grey-70'),
-};
-
-const typography = {
-  textSm: getTypographyCss('text-sm'),
-};
-
 export const BreadcrumbWrapper = styled.nav`
   display: flex;
   align-items: center;
@@ -21,11 +11,11 @@ export const BreadcrumbWrapper = styled.nav`
   max-height: 22px;
   a:last-child {
     font-weight: 500;
-    color: ${colors.elviaBlack};
+    color: ${getColor('black')};
   }
   i:last-child {
     font-weight: 500;
-    color: ${colors.elviaBlack};
+    color: ${getColor('black')};
   }
 `;
 
@@ -47,21 +37,19 @@ export const BreadcrumbMobileWrapper = styled.li`
 
 type BreadcrumbLinkProps = {
   isClickable: boolean;
-  href: any;
 };
 
 export const BreadcrumbLinkStyle = styled.a<BreadcrumbLinkProps>`
-  ${typography.textSm}
+  ${getTypographyCss('text-sm')}
   position: relative;
   box-sizing: border-box;
   font-style: normal;
   letter-spacing: 0.2px;
   text-align: left;
   text-decoration: none;
-  color: ${colors.elviaGrey70};
-  pointer: ${(props: { isClickable: boolean }) => (props.isClickable ? 'cursor' : 'pointer')};
-  pointer-events: ${(props: { isClickable: boolean }) => (props.isClickable ? 'auto' : 'none')};
-  cursor: ${(props: { isClickable: boolean }) => (props.isClickable ? 'pointer' : 'default')};
+  color: ${getColor('grey-70')};
+  pointer-events: ${(props) => (props.isClickable ? 'auto' : 'none')};
+  cursor: ${(props) => (props.isClickable ? 'pointer' : 'default')};
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -73,7 +61,7 @@ export const BreadcrumbLinkStyle = styled.a<BreadcrumbLinkProps>`
     width: 0;
     height: 2px;
     border-radius: 25px;
-    background: ${colors.elviaCharge};
+    background: ${getColor('elvia-charge')};
     opacity: 1;
     transition: all 0.3s ease-in-out;
     visibility: hidden;
