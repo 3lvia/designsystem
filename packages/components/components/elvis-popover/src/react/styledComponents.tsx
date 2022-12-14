@@ -20,7 +20,6 @@ export const PopoverContent = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  max-width: calc(100% - 16px);
   padding: 32px;
   background-color: ${getColor('elvia-on')};
   color: ${getColor('elvia-off')};

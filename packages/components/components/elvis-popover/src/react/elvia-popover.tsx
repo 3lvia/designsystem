@@ -118,13 +118,22 @@ const Popover: FC<PopoverProps> = function ({
     releaseFocusTrap();
   };
 
+  const toggleVisibility = (): void => {
+    if (isShowingConnectedOverlayState) {
+      setFadeOut(true);
+    } else {
+      setFadeOut(false);
+      setIsShowingConnectedOverlayState(true);
+    }
+  };
+
   //does not work on slots
   const isStringOnly = (value: any) => typeof value === 'string';
 
   return (
     <PopoverContainer ref={popoverContainerRef} role="dialog" {...rest}>
       <TriggerContainer
-        onClick={() => setIsShowingConnectedOverlayState((isShowing) => !isShowing)}
+        onClick={toggleVisibility}
         overlayIsOpen={isShowingConnectedOverlayState}
         ref={triggerRef}
       >
@@ -140,7 +149,7 @@ const Popover: FC<PopoverProps> = function ({
           <PopoverContent className={className} style={inlineStyle} aria-modal="true" data-testid="popover">
             {hasCloseButton && (
               <CloseButtonContainer>
-                <IconButton size="sm" onClick={() => setFadeOut(true)} aria-label="Lukk">
+                <IconButton size="sm" onClick={toggleVisibility} aria-label="Lukk">
                   <IconWrapper icon={closeBold} size="xs" />
                 </IconButton>
               </CloseButtonContainer>
