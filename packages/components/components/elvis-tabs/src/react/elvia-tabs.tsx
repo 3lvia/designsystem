@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState, useRef, CSSProperties } from 'react';
 import classNames from 'classnames';
-import { outlineListener, IconWrapper } from '@elvia/elvis-toolbox';
+import { outlineListener, IconWrapper, isSsr } from '@elvia/elvis-toolbox';
 import { TabsStyles } from './styledComponents';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import throttle from 'lodash.throttle';
@@ -175,9 +175,11 @@ const Tabs: FC<TabsProps> = ({
   };
 
   const scrollIntoView = (elementId: string) => {
-    document
-      .getElementById(elementId)
-      ?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    if (!isSsr()) {
+      document
+        .getElementById(elementId)
+        ?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
   };
 
   const tabsClasses = classNames('ewc-tabs', {
