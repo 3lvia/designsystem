@@ -26,7 +26,7 @@ describe('useBreakpoint', () => {
     expect(result.current).toBe(true);
   });
 
-  it('should return true if breakpoint matches', () => {
+  it('should return false if breakpoint does not match', () => {
     setUpMockMatchMedia(false);
     const { result } = renderHook(() => useBreakpoint('gt-mobile'));
     expect(result.current).toBe(false);
