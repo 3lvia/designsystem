@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState, useRef, CSSProperties } from 'react';
 import classNames from 'classnames';
-import { outlineListener, IconWrapper } from '@elvia/elvis-toolbox';
+import { outlineListener, IconWrapper, isSsr } from '@elvia/elvis-toolbox';
 import { TabsStyles } from './styledComponents';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import throttle from 'lodash.throttle';
@@ -147,6 +147,7 @@ const Tabs: FC<TabsProps> = ({
         }
       }
       setTabInFocus(newTabToFocus);
+      scrollIntoView('ewc-tab-id-' + newTabToFocus);
       tabsCollection[newTabToFocus].setAttribute('tabIndex', '0');
       (tabsCollection[newTabToFocus] as HTMLElement).focus();
       if (!hasManualActivation) {
@@ -173,6 +174,14 @@ const Tabs: FC<TabsProps> = ({
     slideTimer();
   };
 
+  const scrollIntoView = (elementId: string) => {
+    if (!isSsr()) {
+      document
+        .getElementById(elementId)
+        ?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  };
+
   const tabsClasses = classNames('ewc-tabs', {
     ['ewc-tabs--inverted']: isInverted,
   });
@@ -190,14 +199,8 @@ const Tabs: FC<TabsProps> = ({
   });
 
   return (
-    <TabsStyles>
-      <div
-        className={tabsClasses + (className ? ' ' + className : '')}
-        style={inlineStyle}
-        ref={tabsRef}
-        data-testid="tabs-container"
-        {...rest}
-      >
+    <TabsStyles className={className} style={inlineStyle} {...rest}>
+      <div className={tabsClasses} ref={tabsRef} data-testid="tabs-container">
         <div
           className={arrowLeftClasses}
           onClick={() => {
@@ -227,7 +230,10 @@ const Tabs: FC<TabsProps> = ({
                   aria-controls={item}
                   tabIndex={currValue === i ? 0 : -1}
                   className="ewc-tabs__item"
-                  onClick={() => updateValue(i)}
+                  onClick={() => {
+                    updateValue(i);
+                    scrollIntoView('ewc-tab-id-' + i);
+                  }}
                   data-testid="tab-button"
                 >
                   <span className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>
