@@ -8,6 +8,12 @@
         {
           "type": "new_feature",
           "changes": ["The active tab now scrolls into view if it is clicked while partly overflowing."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "The <span class=\"code-text\">className</span> and <span class=\"code-text\">inlineStyle</span> props are now applied to the outermost element in the DOM, as expected."
+          ]
         }
       ]
     },

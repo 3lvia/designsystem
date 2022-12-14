@@ -199,14 +199,8 @@ const Tabs: FC<TabsProps> = ({
   });
 
   return (
-    <TabsStyles>
-      <div
-        className={tabsClasses + (className ? ' ' + className : '')}
-        style={inlineStyle}
-        ref={tabsRef}
-        data-testid="tabs-container"
-        {...rest}
-      >
+    <TabsStyles className={className} style={inlineStyle} {...rest}>
+      <div className={tabsClasses} ref={tabsRef} data-testid="tabs-container">
         <div
           className={arrowLeftClasses}
           onClick={() => {

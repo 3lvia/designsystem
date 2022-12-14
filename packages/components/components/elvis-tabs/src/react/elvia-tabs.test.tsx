@@ -73,8 +73,8 @@ describe('Elvis Tabs', () => {
 
     it('should have className and inlineStyle', () => {
       const tabsContainer = screen.getByTestId('tabs-container');
-      expect(tabsContainer).toHaveStyle('margin: 24px');
-      expect(tabsContainer).toHaveClass('test-class');
+      expect(tabsContainer.parentElement).toHaveStyle('margin: 24px');
+      expect(tabsContainer.parentElement).toHaveClass('test-class');
     });
   });
 });
