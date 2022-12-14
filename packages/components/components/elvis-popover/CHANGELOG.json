@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "14.12.22",
+      "version": "7.0.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Popover stuck after being closed by the X button."]
+        }
+      ]
+    },
+    {
       "date": "07.12.22",
       "version": "7.0.4",
       "changelog": [

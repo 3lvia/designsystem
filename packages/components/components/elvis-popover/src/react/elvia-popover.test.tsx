@@ -31,8 +31,10 @@ describe('Elvis Popover', () => {
       //close
       await user.click(popoverTrigger);
 
-      expect(popoverContent).not.toBeInTheDocument();
-      expect(popoverHeading).not.toBeInTheDocument();
+      await waitFor(() => {
+        expect(popoverContent).not.toBeInTheDocument();
+        expect(popoverHeading).not.toBeInTheDocument();
+      });
     });
 
     it('should have close btn', async () => {
