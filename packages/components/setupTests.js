@@ -21,3 +21,8 @@ global.FocusEvent = class {
 global.Element.prototype.scrollTo = () => {
   return;
 };
+
+// JSDOM does not implement the scrollTo() function
+global.Element.prototype.scrollIntoView = () => {
+  return;
+};
