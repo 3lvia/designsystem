@@ -150,12 +150,8 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
       );
     });
   };
-  let breadcrumb;
-  if (windowWidth !== undefined) {
-    breadcrumb = windowWidth < 768 ? MobileBreadcrumb() : DesktopBreadcrumb();
-  } else {
-    breadcrumb = DesktopBreadcrumb();
-  }
+  const breadcrumb =
+    windowWidth !== undefined && windowWidth < 768 ? MobileBreadcrumb() : DesktopBreadcrumb();
 
   return (
     <BreadcrumbWrapper

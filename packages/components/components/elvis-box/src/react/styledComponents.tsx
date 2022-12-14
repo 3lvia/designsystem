@@ -2,17 +2,6 @@ import styled from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
-const colors = {
-  elviaCharge: getColor('elvia-charge'),
-  elviaWhite: getColor('white'),
-  elviaBlack: getColor('black'),
-  grey10: getColor('grey-10'),
-};
-
-const typography = {
-  titleCaps: getTypographyCss('title-caps'),
-};
-
 export const BoxArea = styled.div`
   position: relative;
   display: block;
@@ -28,18 +17,18 @@ export const BoxColoredLine = styled.div`
   height: 4px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background: ${colors.elviaCharge};
+  background: ${getColor('elvia-charge')};
 `;
 
 export const BoxTitle = styled.div`
-  ${typography.titleCaps}
+  ${getTypographyCss('title-caps')}
   font-style: normal;
-  color: ${colors.elviaBlack};
+  color: ${getColor('black')};
   margin: 0px;
   margin-left: 8px;
   margin-bottom: 8px;
   * {
-    ${typography.titleCaps}
+    ${getTypographyCss('title-caps')}
     font-style: normal;
     text-transform: uppercase;
     margin: 0;
@@ -56,10 +45,10 @@ export const BoxContent = styled.div<BoxContentProps>`
   width: 100%;
   box-sizing: border-box;
   border-radius: 5px;
-  border: ${(props: { hasBorder: boolean }) => props.hasBorder === true && `1px solid ${colors.grey10}`};
-  background: ${colors.elviaWhite};
+  border: ${(props) => (props.hasBorder ? `1px solid ${getColor('grey-10')}` : 'none')};
+  background: ${getColor('white')};
   text-align: left;
-  color: ${colors.elviaBlack};
+  color: ${getColor('black')};
   padding: 40px;
   @media (max-width: 767px) {
     padding: 24px;

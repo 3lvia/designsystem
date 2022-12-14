@@ -60,7 +60,7 @@ describe('Elvis Box', () => {
     });
 
     it('should show box content with a grey border', () => {
-      const boxContent = screen.getByTestId('box-no-content');
+      const boxContent = screen.getByTestId('box-content');
       expect(boxContent).toHaveStyle(`border: 1px solid ${colors.grey10}`);
     });
   });
@@ -71,7 +71,7 @@ describe('Elvis Box', () => {
     });
 
     it('should have className and inlineStyle from props', () => {
-      const boxArea = screen.getByTestId('box-area').parentElement;
+      const boxArea = screen.getByTestId('box-area');
       expect(boxArea).toHaveStyle(`margin: 24px`);
       expect(boxArea).toHaveClass('test-class');
     });
