@@ -23,6 +23,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   const triggerRef = useRef<HTMLDivElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const [prevFocusedElement, setPrevFocusedElement] = useState<HTMLElement>();
+  const [fadeOut, setFadeOut] = useState(false);
 
   useSlot('trigger', webcomponent, { ref: triggerRef });
 
@@ -35,6 +36,29 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
       alignWidths: false,
     },
   );
+
+  const handleOnOpen = () => {
+    onOpen?.();
+    webcomponent?.triggerEvent('onOpen');
+
+    trapFocus(popoverRef);
+  };
+
+  const handleOnClose = () => {
+    onClose?.();
+    webcomponent?.triggerEvent('onClose');
+
+    releaseFocusTrap();
+  };
+
+  const toggleVisibility = (): void => {
+    if (!isOverlayShowing) {
+      setIsOverlayShowing(true);
+      setFadeOut(false);
+    } else {
+      setFadeOut(true);
+    }
+  };
 
   useEffect(() => {
     if (isShowing !== isOverlayShowing) {
@@ -53,23 +77,9 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     }
   }, [isOverlayShowing]);
 
-  const handleOnOpen = () => {
-    onOpen?.();
-    webcomponent?.triggerEvent('onOpen');
-
-    trapFocus(popoverRef);
-  };
-
-  const handleOnClose = () => {
-    onClose?.();
-    webcomponent?.triggerEvent('onClose');
-
-    releaseFocusTrap();
-  };
-
   return (
     <>
-      <TriggerContainer onClick={() => setIsOverlayShowing(true)} ref={triggerRef}>
+      <TriggerContainer onClick={toggleVisibility} ref={triggerRef} isShowing={isOverlayShowing}>
         {trigger}
       </TriggerContainer>
 
@@ -79,6 +89,8 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
           isSelectable={isSelectable}
           ref={popoverRef}
           onClose={() => setIsOverlayShowing(false)}
+          fadeOut={fadeOut}
+          setFadeOut={setFadeOut}
           className={className}
           inlineStyle={inlineStyle}
           webcomponent={webcomponent}

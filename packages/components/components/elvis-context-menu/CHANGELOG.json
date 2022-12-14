@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Support long item texts"]
+          "changes": ["Support long item texts", "Allow closing the context menu from the trigger button."]
         }
       ]
     },

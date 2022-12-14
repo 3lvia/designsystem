@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ContextMenu from './elvia-context-menu';
 
@@ -82,6 +82,14 @@ describe('Elvis Context Menu', () => {
       expect(buttons.item(0).tabIndex).toBe(-1);
       expect(buttons.item(1).tabIndex).toBe(-1);
       expect(buttons.item(2).tabIndex).toBe(0);
+    });
+
+    it('clicking the trigger again will close the list', async () => {
+      const user = userEvent.setup();
+      await user.click(screen.getByTestId('trigger'));
+
+      const menuItem = screen.queryByText('Be om tilgang');
+      await waitFor(() => expect(menuItem).not.toBeInTheDocument());
     });
   });
 });
