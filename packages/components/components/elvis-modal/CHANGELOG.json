@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added a new prop <span class=\"code-text\">disableBackdrop</span> thar can be used to remove the visual backdrop of the Modal."
+            "Added a new prop <span class=\"code-text\">disableBackdrop</span> that can be used to remove the visual backdrop of the Modal."
           ]
         },
         {
