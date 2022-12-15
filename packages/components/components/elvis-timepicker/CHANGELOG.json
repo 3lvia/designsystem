@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.12.22",
+      "version": "2.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Expose open and close events."]
+        }
+      ]
+    },
+    {
       "date": "07.12.22",
       "version": "2.1.15",
       "changelog": [

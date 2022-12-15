@@ -25,6 +25,8 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   isDisabled = false,
   isRequired = false,
   errorOptions = { hideText: false, isErrorState: false },
+  onOpen,
+  onClose,
   selectNowOnOpen = true,
   className,
   inlineStyle,
@@ -50,12 +52,9 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
       return;
     }
 
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(newTime);
-    } else if (webcomponent) {
-      webcomponent.setProps({ value: newTime }, true);
-      webcomponent.triggerEvent('valueOnChange', newTime);
-    }
+    valueOnChange?.(newTime);
+    webcomponent?.setProps({ value: newTime }, true);
+    webcomponent?.triggerEvent('valueOnChange', newTime);
   };
 
   const setHourOrMinute = (type: ChangeType, value: number): void => {
@@ -79,6 +78,9 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
 
     if (!isShowing) {
       openPopoverButtonRef.current?.focus();
+      emitOnClose();
+    } else {
+      emitOnOpen();
     }
   };
 
@@ -89,11 +91,18 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     setError(newError);
 
     const errorText = getErrorText(newError);
-    if (!webcomponent && errorOnChange) {
-      errorOnChange(errorText);
-    } else if (webcomponent) {
-      webcomponent.triggerEvent('errorOnChange', errorText);
-    }
+    errorOnChange?.(errorText);
+    webcomponent?.triggerEvent('errorOnChange', errorText);
+  };
+
+  const emitOnClose = () => {
+    onClose?.();
+    webcomponent?.triggerEvent('onClose');
+  };
+
+  const emitOnOpen = () => {
+    onOpen?.();
+    webcomponent?.triggerEvent('onOpen');
   };
 
   useEffect(() => {

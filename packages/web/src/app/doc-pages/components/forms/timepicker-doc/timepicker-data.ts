@@ -73,6 +73,16 @@ export const timepickerData: ComponentData = {
       type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean }>',
       description: 'An object that allows for custom configuration of the error handling in the time picker.',
     },
+    onOpen: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Callback for every time the time picker is being opened.',
+    },
+    onClose: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Callback for every time the time picker is being closed.',
+    },
     selectNowOnOpen: {
       isRequired: false,
       type: 'boolean',
