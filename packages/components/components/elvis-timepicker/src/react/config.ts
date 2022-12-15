@@ -8,6 +8,7 @@ export const config: ComponentConfig = {
     { name: 'isDisabled', type: 'boolean' },
     { name: 'isCompact', type: 'boolean' },
     { name: 'isRequired', type: 'boolean' },
+    { name: 'isOpen', type: 'boolean' },
     { name: 'errorOptions', type: 'object' },
     { name: 'selectNowOnOpen', type: 'boolean' },
     { name: 'label', type: 'string' },

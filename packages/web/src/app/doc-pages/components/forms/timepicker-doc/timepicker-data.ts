@@ -68,6 +68,12 @@ export const timepickerData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'Options',
     },
+    isOpen: {
+      isRequired: false,
+      type: 'boolean',
+      default: 'false',
+      description: 'Controlled picker open state.',
+    },
     errorOptions: {
       isRequired: false,
       type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean }>',

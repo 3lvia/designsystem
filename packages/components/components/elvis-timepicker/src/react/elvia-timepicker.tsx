@@ -24,6 +24,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   isCompact = false,
   isDisabled = false,
   isRequired = false,
+  isOpen = false,
   errorOptions = { hideText: false, isErrorState: false },
   onOpen,
   onClose,
@@ -120,6 +121,13 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
 
     return () => releaseFocusTrap();
   }, [isShowing]);
+
+  // Allows app to open the time picker programatically
+  useEffect(() => {
+    if (isShowing !== isOpen) {
+      setVisibility(isOpen);
+    }
+  }, [isOpen]);
 
   /**
    * Needed for webcomponent -> To update the default value
