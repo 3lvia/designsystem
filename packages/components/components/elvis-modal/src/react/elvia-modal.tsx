@@ -39,6 +39,7 @@ export interface ModalProps {
   hasLockBodyScroll?: boolean;
   hasPadding?: boolean;
   disableClose?: boolean;
+  disableBackdrop?: boolean;
   maxWidth?: string;
   /**
    * @deprecated Removed in version 2.0.0. Replaced by `onClose()`.
@@ -61,6 +62,7 @@ export const ModalComponent: FC<ModalProps> = function ({
   hasLockBodyScroll = true,
   hasPadding = true,
   disableClose = false,
+  disableBackdrop = false,
   maxWidth,
   onClose,
   webcomponent,
@@ -134,6 +136,7 @@ export const ModalComponent: FC<ModalProps> = function ({
       role="dialog"
       aria-label={heading}
       isShowing={isShowing}
+      disableBackdrop={disableBackdrop}
       data-testid="modal-container"
       {...rest}
     >

@@ -79,6 +79,13 @@ const modalData: ComponentData = {
         'Disables closing of modal, should only be used in special cases where closing the modal was not intended.',
       default: 'false',
     },
+    disableBackdrop: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Removes the backdrop that is shown behind the modal. Should only be used in special cases where the backdrop was not intended.',
+      default: 'false',
+    },
     onClose: {
       isRequired: true,
       type: '() => void',
