@@ -3,6 +3,22 @@
   "content": [
     {
       "date": "07.12.22",
+      "version": "2.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added a new prop <span class=\"code-text\">disableBackdrop</span> thar can be used to remove the visual backdrop of the Modal."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Bumped internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "07.12.22",
       "version": "2.1.18",
       "changelog": [
         {

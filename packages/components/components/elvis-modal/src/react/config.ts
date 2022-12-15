@@ -13,6 +13,7 @@ export const config: ComponentConfig = {
     { name: 'hasLockBodyScroll', type: 'boolean' },
     { name: 'hasPadding', type: 'boolean' },
     { name: 'disableClose', type: 'boolean' },
+    { name: 'disableBackdrop', type: 'boolean' },
     { name: 'maxWidth', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
