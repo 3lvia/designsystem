@@ -1,8 +1,8 @@
-<h1>Angular Preview</h1>
+<h1 class="e-title-lg">Angular Preview</h1>
 <div class="components-examples">
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
-    <h3>Test your component here</h3>
+    <h3 class="e-title-sm">Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white"></div>
     <!--Inverted version-->
@@ -11,7 +11,7 @@
 
   <!--Accordion-->
   <div class="example-wrapper">
-    <h3>Accordion</h3>
+    <h3 class="e-title-sm">Accordion</h3>
     <button (click)="isOpen = !isOpen">helo</button>
     <elvia-accordion
       [isOpen]="isOpen"
@@ -42,7 +42,7 @@
 
   <!-- Badge -->
   <div class="example-wrapper">
-    <h3>Badge</h3>
+    <h3 class="e-title-sm">Badge</h3>
     <div style="display: flex; gap: 1rem">
       <elvia-badge [count]="0">
         <button
@@ -76,10 +76,10 @@
 
   <!--Box-->
   <div class="example-wrapper">
-    <h3>Box</h3>
+    <h3 class="e-title-sm">Box</h3>
     <div style="padding: 8px">
       <elvia-box [hasBorder]="true">
-        <h3 slot="title">Title</h3>
+        <h3 class="e-title-sm" slot="title">Title</h3>
         <div slot="content">Webcomponentent content for the box component</div>
       </elvia-box>
     </div>
@@ -87,13 +87,13 @@
 
   <!--Breadcrumb-->
   <div class="example-wrapper">
-    <h3>Breadcrumbs</h3>
+    <h3 class="e-title-sm">Breadcrumbs</h3>
     <elvia-breadcrumb [items]="breadcrumbsTestNoUrl"></elvia-breadcrumb>
   </div>
 
   <!--Card-->
   <div class="example-wrapper">
-    <h3>Card</h3>
+    <h3 class="e-title-sm">Card</h3>
     <div class="e-gap-32" style="display: grid; grid-template-columns: 1fr 1fr">
       <elvia-card [heading]="'Hover!'" [borderColor]="'red'">
         <i slot="icon" class="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>
@@ -129,10 +129,10 @@
 
   <!--Carousel-->
   <div class="example-wrapper">
-    <h3>Carousel</h3>
+    <h3 class="e-title-sm">Carousel</h3>
     <elvia-carousel [loop]="false" [hasConfirmationCheckmark]="true">
       <div slot="title-1">
-        <h3 class="e-title-sm">title 1</h3>
+        <h3 class="e-title-sm" class="e-title-sm">title 1</h3>
       </div>
       <div slot="item-1">
         <img
@@ -142,7 +142,7 @@
         />
       </div>
       <div slot="title-2">
-        <h3 class="e-title-sm">title 2</h3>
+        <h3 class="e-title-sm" class="e-title-sm">title 2</h3>
       </div>
       <div slot="item-2">
         <img
@@ -156,7 +156,7 @@
 
   <!--Chip-->
   <div class="example-wrapper">
-    <h3>Deletable chips</h3>
+    <h3 class="e-title-sm">Deletable chips</h3>
     <div style="display: flex; flex-direction: row">
       <div *ngFor="let chip of deletableChipsList">
         <elvia-chip
@@ -173,7 +173,7 @@
     Value deleted: {{ deleteValue }}
 
     <div class="e-bg-white">
-      <h3>Clickable chips</h3>
+      <h3 class="e-title-sm">Clickable chips</h3>
       <button class="e-btn e-mb-16" (click)="changeChipStates()">Flip states</button>
       <div style="display: flex; flex-direction: row">
         <div *ngFor="let chip of filteredKeys">
@@ -195,7 +195,7 @@
 
   <!-- Context menu -->
   <div class="example-wrapper">
-    <h3>Context menu</h3>
+    <h3 class="e-title-sm">Context menu</h3>
     <elvia-context-menu (onOpen)="isContextMenuShowing = true" (onClose)="isContextMenuShowing = false">
       <button
         slot="trigger"
@@ -230,23 +230,23 @@
 
   <!--Datepicker-->
   <div class="example-wrapper">
-    <h3>DatePicker</h3>
+    <h3 class="e-title-sm">DatePicker</h3>
     <elvia-datepicker [value]="date" (valueOnChange)="writeDate($event.detail.value)"></elvia-datepicker>
   </div>
 
   <!--Date range picker-->
   <div class="example-wrapper">
-    <h3>Date range picker</h3>
+    <h3 class="e-title-sm">Date range picker</h3>
     <elvia-datepicker-range></elvia-datepicker-range>
   </div>
 
   <!--Divider-->
   <div class="example-wrapper">
-    <h3>Divider</h3>
+    <h3 class="e-title-sm">Divider</h3>
     <elvia-divider type="title" typography="caps">
-      <h3 slot="title">Title</h3>
+      <h3 class="e-title-sm" slot="title">Title</h3>
     </elvia-divider>
-    <h3>Vertical divider</h3>
+    <h3 class="e-title-sm">Vertical divider</h3>
     <div style="height: 100px">
       <elvia-divider type="simple" orientation="vertical"></elvia-divider>
     </div>
@@ -254,7 +254,7 @@
 
   <!--Dropdown-->
   <div class="example-wrapper">
-    <h3>Dropdown</h3>
+    <h3 class="e-title-sm">Dropdown</h3>
     <elvia-dropdown
       [items]="dropdownItems"
       label="Select location"
@@ -264,14 +264,14 @@
 
   <!--Icon-->
   <div class="example-wrapper">
-    <h3>Icon</h3>
+    <h3 class="e-title-sm">Icon</h3>
     <elvia-icon name="arrowRightBold"></elvia-icon>
     <elvia-icon name="arrowLeftBold"></elvia-icon>
   </div>
 
   <!--Modal-->
   <div class="example-wrapper">
-    <h3>Modal</h3>
+    <h3 class="e-title-sm">Modal</h3>
     <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
     <elvia-modal
       (onClose)="isModalShowing = !isModalShowing"
@@ -293,7 +293,7 @@
 
   <!--Paginator-->
   <div class="example-wrapper">
-    <h3>Paginator</h3>
+    <h3 class="e-title-sm">Paginator</h3>
     <elvia-pagination
       numberOfElements="156"
       [value]="defaultPaginationValue"
@@ -304,7 +304,7 @@
 
   <!--Popover-->
   <div class="example-wrapper">
-    <h3>Popover</h3>
+    <h3 class="e-title-sm">Popover</h3>
     <elvia-popover
       [isShowing]="isPopoverShowing"
       (onOpen)="isPopoverShowing = true"
@@ -324,7 +324,7 @@
 
   <!--Progress linear-->
   <div class="example-wrapper">
-    <h3>Progress linear</h3>
+    <h3 class="e-title-sm">Progress linear</h3>
     <elvia-progress-linear
       [isIndeterminate]="indeterminate"
       [value]="progressValue"
@@ -342,7 +342,7 @@
 
   <!--Radio filter-->
   <div class="example-wrapper">
-    <h3>Radio filter</h3>
+    <h3 class="e-title-sm">Radio filter</h3>
     <elvia-radio-filter
       [items]="[
         { label: 'All', value: 'all' },
@@ -357,7 +357,7 @@
 
   <!--Segmented control-->
   <div class="example-wrapper">
-    <h3>Segmented control</h3>
+    <h3 class="e-title-sm">Segmented control</h3>
     <elvia-segmented-control
       [items]="[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]"
       (valueOnChange)="logValue('Segmented', $event.detail.value)"
@@ -374,7 +374,7 @@
 
   <!--Slider-->
   <div class="example-wrapper">
-    <h3>Slider</h3>
+    <h3 class="e-title-sm">Slider</h3>
     <h4>Simple Slider</h4>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem">
       <elvia-slider [type]="'simple'" [min]="0" [max]="100"></elvia-slider>
@@ -450,19 +450,19 @@
 
   <!--Spotlight-->
   <div class="example-wrapper">
-    <h3>Spotlight</h3>
+    <h3 class="e-title-sm">Spotlight</h3>
     <!-- <elvia-spotlight [position]="{ horizontal: 300, vertical: 300 }" [radius]="80"></elvia-spotlight> -->
   </div>
 
   <!--Tabs-->
   <div class="example-wrapper">
-    <h3>Tabs</h3>
+    <h3 class="e-title-sm">Tabs</h3>
     <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1"></elvia-tabs>
   </div>
 
   <!--Timepicker-->
   <div class="example-wrapper">
-    <h3>Timepicker</h3>
+    <h3 class="e-title-sm">Timepicker</h3>
     <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
       <elvia-timepicker></elvia-timepicker>
 
@@ -482,7 +482,7 @@
 
   <!--Tooltip-->
   <div class="example-wrapper">
-    <h3>Tooltip</h3>
+    <h3 class="e-title-sm">Tooltip</h3>
 
     <div class="e-flex e-flex-direction-row e-gap-16">
       <p class="e-text-md">
