@@ -1,6 +1,6 @@
 import Timepicker from './elvia-timepicker';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 export const padDigit = (d: number): string => {
@@ -10,8 +10,15 @@ export const padDigit = (d: number): string => {
 
 describe('Elvis Timepicker', () => {
   describe('Basic', () => {
+    let onOpenListener: jest.Mock;
+    let onCloseListener: jest.Mock;
+
     beforeEach(() => {
-      render(<Timepicker selectNowOnOpen={false}></Timepicker>);
+      onOpenListener = jest.fn();
+      onCloseListener = jest.fn();
+      render(
+        <Timepicker selectNowOnOpen={false} onOpen={onOpenListener} onClose={onCloseListener}></Timepicker>,
+      );
     });
 
     it('should have a default label', () => {
@@ -72,6 +79,25 @@ describe('Elvis Timepicker', () => {
         // 4 + 2 duplicates on each side for looping
         const minuteButtons = screen.getAllByTestId('Minutt-number-button');
         expect(minuteButtons.length).toBe(8);
+      });
+
+      it('an open event is emitted', () => {
+        expect(onOpenListener).toHaveBeenCalled();
+      });
+
+      describe('and the backdrop is clicked', () => {
+        beforeEach(async () => {
+          const user = userEvent.setup();
+          await user.click(screen.getByTestId('backdrop'));
+        });
+
+        it('the time picker closes', async () => {
+          await waitFor(() => expect(screen.queryByTestId('popover')).not.toBeInTheDocument());
+        });
+
+        it('an close event is emitted', async () => {
+          await waitFor(() => expect(onCloseListener).toHaveBeenCalled());
+        });
       });
 
       describe('and the next-hour button is clicked', () => {

@@ -9,6 +9,9 @@ export interface TimepickerProps extends BaseProps, HasValue<Date | null>, HasEr
   isDisabled: boolean;
   isCompact: boolean;
   isRequired: boolean;
+  isOpen: boolean;
+  onClose: () => void;
+  onOpen: () => void;
   selectNowOnOpen: boolean;
   label: string;
 }
