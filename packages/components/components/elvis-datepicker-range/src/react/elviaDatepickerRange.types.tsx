@@ -37,6 +37,7 @@ export interface DatepickerRangeProps extends BaseProps, HasValue<DateRange> {
   isDisabled?: boolean;
   isRequired?: IsRequired | boolean;
   isVertical?: boolean;
+  hasTimepicker?: boolean;
   hasSelectDateOnOpen?: boolean;
   errorOptions?: ErrorOptions;
   hasAutoOpenEndDatepicker?: boolean;

@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.12.22",
+      "version": "2.1.0",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Bumped dependency on <span class=\"code-text\">@elvia/elvis-datepicker</span> to fix the date range hightlighting. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "08.12.22",
       "version": "2.0.11",
       "changelog": [

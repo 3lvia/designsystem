@@ -74,6 +74,17 @@ const datepickerRangeData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'State',
     },
+    hasTimepicker: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Displays time pickers to enable time selection.',
+      default: false,
+      cegDisplayName: 'Has timepicker',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Options',
+    },
     hasSelectDateOnOpen: {
       isRequired: false,
       type: 'boolean',

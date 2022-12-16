@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Datepicker, DatepickerProps } from '@elvia/elvis-datepicker/react';
-import { DatepickerRangeWrapper } from './styledComponents';
+import { DatepickerRangeWrapper, RowContainer } from './styledComponents';
 import {
   DatepickerRangeProps,
   emptyDateRange,
@@ -12,6 +12,7 @@ import {
   DisableDates,
   defaultLabelOptions,
 } from './elviaDatepickerRange.types';
+import { Timepicker } from '@elvia/elvis-timepicker/react';
 
 export const DatepickerRange: FC<DatepickerRangeProps> = ({
   value,
@@ -24,6 +25,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   isRequired,
   isVertical,
   hasSelectDateOnOpen = true,
+  hasTimepicker = false,
   hasAutoOpenEndDatepicker,
   errorOptions = {
     start: { hideText: false, isErrorState: false, text: '' },
@@ -39,10 +41,12 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   ...rest
 }) => {
   const [selectedDateRange, setSelectedDateRange] = useState(value ?? emptyDateRange);
+  const [startTimepickerIsOpen, setStartTimepickerIsOpen] = useState(false);
   const [endDatepickerIsOpen, setEndDatepickerIsOpen] = useState(false);
+  const [endTimepickerIsOpen, setEndTimepickerIsOpen] = useState(false);
   const [isRequiredState, setIsRequiredState] = useState<IsRequired>();
   const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>(emptyErrorMessage);
-  const [shouldOpenEndDatePicker, setShouldOpenEndDatePicker] = useState(false);
+  const [shouldOpenNextPicker, setShouldOpenNextPicker] = useState(false);
 
   useEffect(() => {
     if (typeof isRequired === 'boolean') {
@@ -121,7 +125,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   const handleStartDatepickerValueOnChange = (newDate: Date | null) => {
-    setShouldOpenEndDatePicker(
+    setShouldOpenNextPicker(
       !selectedDateRange.start ||
         !selectedDateRange.end ||
         newDate?.getTime() !== selectedDateRange.start.getTime(),
@@ -169,6 +173,35 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
+  const openNextPicker = (): void => {
+    console.log('Should open: ', shouldOpenNextPicker);
+    if (!hasAutoOpenEndDatepicker) {
+      return;
+    }
+
+    if (startTimepickerIsOpen) {
+      setStartTimepickerIsOpen(false);
+      setEndDatepickerIsOpen(true);
+    } else if (endDatepickerIsOpen) {
+      setEndDatepickerIsOpen(false);
+      if (hasTimepicker) {
+        setEndTimepickerIsOpen(true);
+      } else {
+        setShouldOpenNextPicker(false);
+      }
+    } else if (endTimepickerIsOpen) {
+      setEndTimepickerIsOpen(false);
+      setShouldOpenNextPicker(false);
+    } else {
+      // The first datepicker is open
+      if (hasTimepicker) {
+        setStartTimepickerIsOpen(true);
+      } else {
+        setEndDatepickerIsOpen(true);
+      }
+    }
+  };
+
   /** These props are passed through directly to both the underlying datepickers. */
   const passThroughProps: Partial<DatepickerProps> = {
     minDate,
@@ -187,54 +220,81 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
       data-testid="datepicker-range-wrapper"
       {...rest}
     >
-      <Datepicker
-        {...passThroughProps}
-        label={labelOptions?.start ?? defaultLabelOptions.start}
-        value={selectedDateRange.start}
-        valueOnChange={handleStartDatepickerValueOnChange}
-        isRequired={isRequiredState?.start}
-        onClose={() => {
-          hasAutoOpenEndDatepicker && shouldOpenEndDatePicker && setEndDatepickerIsOpen(true);
-        }}
-        onOpen={onStartPickerOpen}
-        onReset={() => {
-          setSelectedDateRange({ ...selectedDateRange, start: null });
-        }}
-        dateRangeProps={{
-          selectedDateRange: selectedDateRange,
-          whichRangePicker: 'start',
-        }}
-        disableDate={disableDatesWrapper()?.start}
-        errorOptions={errorOptions?.start}
-        errorOnChange={(error: string) =>
-          setCurrentErrorMessages((current) => ({ ...current, start: error }))
-        }
-        hasSelectDateOnOpen={false}
-      ></Datepicker>
-      <Datepicker
-        {...passThroughProps}
-        label={labelOptions?.end ?? defaultLabelOptions.end}
-        value={selectedDateRange.end}
-        valueOnChange={handleEndDatepickerValueOnChange}
-        isRequired={isRequiredState?.end}
-        onClose={() => {
-          setEndDatepickerIsOpen(false);
-          setShouldOpenEndDatePicker(false);
-        }}
-        onOpen={onEndPickerOpen}
-        onReset={() => {
-          setSelectedDateRange({ ...selectedDateRange, end: null });
-        }}
-        isOpen={endDatepickerIsOpen}
-        dateRangeProps={{
-          selectedDateRange: selectedDateRange,
-          whichRangePicker: 'end',
-        }}
-        disableDate={disableDatesWrapper()?.end}
-        errorOptions={errorOptions?.end}
-        errorOnChange={(error: string) => setCurrentErrorMessages((current) => ({ ...current, end: error }))}
-        hasSelectDateOnOpen={false}
-      ></Datepicker>
+      <RowContainer>
+        <Datepicker
+          {...passThroughProps}
+          label={labelOptions?.start ?? defaultLabelOptions.start}
+          value={selectedDateRange.start}
+          valueOnChange={handleStartDatepickerValueOnChange}
+          isRequired={isRequiredState?.start}
+          onClose={() => shouldOpenNextPicker && openNextPicker()}
+          onOpen={onStartPickerOpen}
+          onReset={() => {
+            setSelectedDateRange({ ...selectedDateRange, start: null });
+          }}
+          dateRangeProps={{
+            selectedDateRange: selectedDateRange,
+            whichRangePicker: 'start',
+          }}
+          disableDate={disableDatesWrapper()?.start}
+          errorOptions={errorOptions?.start}
+          errorOnChange={(error: string) =>
+            setCurrentErrorMessages((current) => ({ ...current, start: error }))
+          }
+          hasSelectDateOnOpen={false}
+        ></Datepicker>
+        {hasTimepicker && (
+          <Timepicker
+            label=""
+            isCompact={isCompact}
+            isDisabled={isDisabled}
+            value={selectedDateRange.start}
+            valueOnChange={handleStartDatepickerValueOnChange}
+            isRequired={isRequiredState?.start}
+            onOpen={() => setStartTimepickerIsOpen(true)}
+            onClose={() => shouldOpenNextPicker && openNextPicker()}
+            isOpen={startTimepickerIsOpen}
+          />
+        )}
+      </RowContainer>
+      <RowContainer>
+        <Datepicker
+          {...passThroughProps}
+          label={labelOptions?.end ?? defaultLabelOptions.end}
+          value={selectedDateRange.end}
+          valueOnChange={handleEndDatepickerValueOnChange}
+          isRequired={isRequiredState?.end}
+          onClose={() => shouldOpenNextPicker && openNextPicker()}
+          onOpen={onEndPickerOpen}
+          onReset={() => {
+            setSelectedDateRange({ ...selectedDateRange, end: null });
+          }}
+          isOpen={endDatepickerIsOpen}
+          dateRangeProps={{
+            selectedDateRange: selectedDateRange,
+            whichRangePicker: 'end',
+          }}
+          disableDate={disableDatesWrapper()?.end}
+          errorOptions={errorOptions?.end}
+          errorOnChange={(error: string) =>
+            setCurrentErrorMessages((current) => ({ ...current, end: error }))
+          }
+          hasSelectDateOnOpen={false}
+        ></Datepicker>
+        {hasTimepicker && (
+          <Timepicker
+            label=""
+            isCompact={isCompact}
+            isDisabled={isDisabled}
+            value={selectedDateRange.end}
+            valueOnChange={handleEndDatepickerValueOnChange}
+            isRequired={isRequiredState?.end}
+            onOpen={() => setEndTimepickerIsOpen(true)}
+            onClose={() => shouldOpenNextPicker && openNextPicker()}
+            isOpen={endTimepickerIsOpen}
+          />
+        )}
+      </RowContainer>
     </DatepickerRangeWrapper>
   );
 };
