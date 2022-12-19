@@ -7,6 +7,8 @@ import throttle from 'lodash.throttle';
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
 
+let EWC_UNIQUE_TABS_ID = 0;
+
 export interface TabsProps {
   items: string[];
   value?: number;
@@ -35,6 +37,7 @@ const Tabs: FC<TabsProps> = ({
   const [isOnRightEnd, setIsOnRightEnd] = useState(true);
   const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
   const [tabInFocus, setTabInFocus] = useState(value);
+  const [uniqueId] = useState(`ewc-tabs-${EWC_UNIQUE_TABS_ID++}`);
   const tabsRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
   const lengthToScroll = 140;
@@ -147,7 +150,7 @@ const Tabs: FC<TabsProps> = ({
         }
       }
       setTabInFocus(newTabToFocus);
-      scrollIntoView('ewc-tab-id-' + newTabToFocus);
+      scrollIntoView(uniqueId + newTabToFocus);
       tabsCollection[newTabToFocus].setAttribute('tabIndex', '0');
       (tabsCollection[newTabToFocus] as HTMLElement).focus();
       if (!hasManualActivation) {
@@ -224,7 +227,7 @@ const Tabs: FC<TabsProps> = ({
               items.map((item, i) => (
                 <button
                   role="tab"
-                  id={'ewc-tab-id-' + i}
+                  id={uniqueId + i}
                   key={i}
                   aria-selected={currValue === i}
                   aria-controls={item}
@@ -232,7 +235,7 @@ const Tabs: FC<TabsProps> = ({
                   className="ewc-tabs__item"
                   onClick={() => {
                     updateValue(i);
-                    scrollIntoView('ewc-tab-id-' + i);
+                    scrollIntoView(uniqueId + i);
                   }}
                   data-testid="tab-button"
                 >
