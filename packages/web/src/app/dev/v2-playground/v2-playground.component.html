@@ -308,6 +308,21 @@
   <!--Popover-->
   <div class="example-wrapper">
     <h3>Popover</h3>
+    <elvia-popover
+      [isShowing]="isPopoverShowing"
+      (onOpen)="isPopoverShowing = true"
+      (onClose)="isPopoverShowing = false"
+      heading="BankID"
+      horizontalPosition="left"
+      verticalPosition="top"
+      width="200"
+    >
+      <button slot="trigger" class="e-btn">Show popover</button>
+      <div slot="content">
+        <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
+        <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
+      </div>
+    </elvia-popover>
   </div>
 
   <!--Progress linear-->

@@ -2,13 +2,13 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "16.12.22",
+      "date": "19.12.22",
       "version": "2.1.0",
       "changelog": [
         {
-          "type": "bug_fix",
+          "type": "new_feature",
           "changes": [
-            "Bumped dependency on <span class=\"code-text\">@elvia/elvis-datepicker</span> to fix the date range hightlighting. "
+            "Add prop <span class=\"code-text\">hasTimepicker</span> to enable time picking in the datepicker range."
           ]
         }
       ]
