@@ -176,7 +176,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   const openNextPicker = (): void => {
-    if (!hasAutoOpenEndDatepicker) {
+    if (!shouldOpenNextPicker || !hasAutoOpenEndDatepicker) {
       return;
     }
 
@@ -222,7 +222,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           value={selectedDateRange.start}
           valueOnChange={handleStartDatepickerValueOnChange}
           isRequired={isRequiredState?.start}
-          onClose={() => shouldOpenNextPicker && openNextPicker()}
+          onClose={openNextPicker}
           onOpen={onStartPickerOpen}
           onReset={() => {
             setSelectedDateRange({ ...selectedDateRange, start: null });
@@ -247,7 +247,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             valueOnChange={handleStartDatepickerValueOnChange}
             isRequired={isRequiredState?.start}
             onOpen={() => setOpenPicker('startTime')}
-            onClose={() => shouldOpenNextPicker && openNextPicker()}
+            onClose={openNextPicker}
             isOpen={openPicker === 'startTime'}
           />
         )}
@@ -259,7 +259,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           value={selectedDateRange.end}
           valueOnChange={handleEndDatepickerValueOnChange}
           isRequired={isRequiredState?.end}
-          onClose={() => shouldOpenNextPicker && openNextPicker()}
+          onClose={openNextPicker}
           onOpen={onEndPickerOpen}
           onReset={() => {
             setSelectedDateRange({ ...selectedDateRange, end: null });
@@ -285,7 +285,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             valueOnChange={handleEndDatepickerValueOnChange}
             isRequired={isRequiredState?.end}
             onOpen={() => setOpenPicker('endTime')}
-            onClose={() => shouldOpenNextPicker && openNextPicker()}
+            onClose={openNextPicker}
             isOpen={openPicker === 'endTime'}
           />
         )}
