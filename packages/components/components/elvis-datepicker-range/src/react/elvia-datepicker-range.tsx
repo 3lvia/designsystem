@@ -14,6 +14,8 @@ import {
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 
+type Picker = 'startDate' | 'startTime' | 'endDate' | 'endTime';
+
 export const DatepickerRange: FC<DatepickerRangeProps> = ({
   value,
   valueOnChange,
@@ -41,9 +43,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   ...rest
 }) => {
   const [selectedDateRange, setSelectedDateRange] = useState(value ?? emptyDateRange);
-  const [startTimepickerIsOpen, setStartTimepickerIsOpen] = useState(false);
-  const [endDatepickerIsOpen, setEndDatepickerIsOpen] = useState(false);
-  const [endTimepickerIsOpen, setEndTimepickerIsOpen] = useState(false);
+  const [openPicker, setOpenPicker] = useState<Picker>();
   const [isRequiredState, setIsRequiredState] = useState<IsRequired>();
   const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>(emptyErrorMessage);
   const [shouldOpenNextPicker, setShouldOpenNextPicker] = useState(false);
@@ -152,6 +152,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   const onStartPickerOpen = () => {
+    setOpenPicker('startDate');
+
     if (hasSelectDateOnOpen && !selectedDateRange.start) {
       const endDate = selectedDateRange.end?.getTime();
       const startDate = endDate && endDate < Date.now() ? new Date(endDate) : new Date();
@@ -162,7 +164,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   const onEndPickerOpen = () => {
-    setEndDatepickerIsOpen(true);
+    setOpenPicker('endDate');
 
     if (hasSelectDateOnOpen && !selectedDateRange.end) {
       const startDate = selectedDateRange.start?.getTime();
@@ -174,31 +176,24 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   const openNextPicker = (): void => {
-    console.log('Should open: ', shouldOpenNextPicker);
     if (!hasAutoOpenEndDatepicker) {
       return;
     }
 
-    if (startTimepickerIsOpen) {
-      setStartTimepickerIsOpen(false);
-      setEndDatepickerIsOpen(true);
-    } else if (endDatepickerIsOpen) {
-      setEndDatepickerIsOpen(false);
+    if (openPicker === 'startDate') {
+      setOpenPicker(hasTimepicker ? 'startTime' : 'endDate');
+    } else if (openPicker === 'startTime') {
+      setOpenPicker('endDate');
+    } else if (openPicker === 'endDate') {
       if (hasTimepicker) {
-        setEndTimepickerIsOpen(true);
+        setOpenPicker('endTime');
       } else {
+        setOpenPicker(undefined);
         setShouldOpenNextPicker(false);
       }
-    } else if (endTimepickerIsOpen) {
-      setEndTimepickerIsOpen(false);
+    } else if (openPicker === 'endTime') {
+      setOpenPicker(undefined);
       setShouldOpenNextPicker(false);
-    } else {
-      // The first datepicker is open
-      if (hasTimepicker) {
-        setStartTimepickerIsOpen(true);
-      } else {
-        setEndDatepickerIsOpen(true);
-      }
     }
   };
 
@@ -251,9 +246,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             value={selectedDateRange.start}
             valueOnChange={handleStartDatepickerValueOnChange}
             isRequired={isRequiredState?.start}
-            onOpen={() => setStartTimepickerIsOpen(true)}
+            onOpen={() => setOpenPicker('startTime')}
             onClose={() => shouldOpenNextPicker && openNextPicker()}
-            isOpen={startTimepickerIsOpen}
+            isOpen={openPicker === 'startTime'}
           />
         )}
       </RowContainer>
@@ -269,7 +264,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           onReset={() => {
             setSelectedDateRange({ ...selectedDateRange, end: null });
           }}
-          isOpen={endDatepickerIsOpen}
+          isOpen={openPicker === 'endDate'}
           dateRangeProps={{
             selectedDateRange: selectedDateRange,
             whichRangePicker: 'end',
@@ -289,9 +284,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             value={selectedDateRange.end}
             valueOnChange={handleEndDatepickerValueOnChange}
             isRequired={isRequiredState?.end}
-            onOpen={() => setEndTimepickerIsOpen(true)}
+            onOpen={() => setOpenPicker('endTime')}
             onClose={() => shouldOpenNextPicker && openNextPicker()}
-            isOpen={endTimepickerIsOpen}
+            isOpen={openPicker === 'endTime'}
           />
         )}
       </RowContainer>
