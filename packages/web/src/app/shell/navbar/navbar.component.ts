@@ -27,7 +27,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   isLandingPage = false;
   isLoaded = false;
 
-  navbarList: any[];
+  navbarList: CMSNavbarItem[] = [];
   activeNavbarItem: any;
   prevActiveNavbarItem: any;
   subMenuRoute: string;

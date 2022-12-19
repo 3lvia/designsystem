@@ -4,6 +4,7 @@ import { DomSanitizer, Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
+import { filter, startWith } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
 import { IDocumentationPage } from 'contentful/types';
@@ -44,23 +45,20 @@ export class CMSPageComponent implements OnDestroy {
     this.checkIfPageExistsInProject();
 
     const localizationSub = this.localizationService.listenLocalization();
-    const routerSub = this.router.events;
-    this.routerSubscription = combineLatest([localizationSub, routerSub]).subscribe((value) => {
-      if (value[1] instanceof NavigationEnd) {
-        const firstRoute = value[1].url.split('/')[1];
-        const secondRoute = value[1].url.split('/')[2];
-        this.checkIfPageExistsInProject();
-        if (this.hasChecked && this.isCmsPage) {
-          if (firstRoute === 'preview' && secondRoute) {
-            this.getDocPageFromCMS(value[0], secondRoute);
-          } else if (!environment.production) {
-            this.getDocPageFromCMS(value[0]);
-          } else {
-            this.getDocPageFromPreGeneratedList(value[0]);
-          }
+    this.routerSubscription = combineLatest([localizationSub, this.activatedRoute.url]).subscribe((value) => {
+      const firstRoute = value[1][0]?.path;
+      const secondRoute = value[1][1]?.path;
+      this.checkIfPageExistsInProject();
+      if (this.hasChecked && this.isCmsPage) {
+        if (firstRoute === 'preview' && secondRoute) {
+          this.getDocPageFromCMS(value[0], secondRoute);
+        } else if (!environment.production) {
+          this.getDocPageFromCMS(value[0]);
         } else {
-          this.cmsService.contentLoadedFromCMS();
+          this.getDocPageFromPreGeneratedList(value[0]);
         }
+      } else {
+        this.cmsService.contentLoadedFromCMS();
       }
     });
   }
@@ -75,7 +73,7 @@ export class CMSPageComponent implements OnDestroy {
    *
    * @param locale Current locale (see localization.service.ts).
    */
-  async getDocPageFromPreGeneratedList(locale: Locale): Promise<any> {
+  async getDocPageFromPreGeneratedList(locale: Locale): Promise<void> {
     this.removeClickEventListenersForCopyPath();
 
     const id = await this.cmsService.getPageSysId(locale);
@@ -91,7 +89,7 @@ export class CMSPageComponent implements OnDestroy {
    * @param locale Current locale (see localization.service.ts).
    * @param pageId Contentful ID of the requested page. If no ID is provided, it will be found based on the current path.
    */
-  async getDocPageFromCMS(locale: Locale, pageId?: string): Promise<any> {
+  async getDocPageFromCMS(locale: Locale, pageId?: string): Promise<void> {
     this.removeClickEventListenersForCopyPath();
 
     const id = pageId ? pageId : await this.cmsService.getPageSysId(locale);
