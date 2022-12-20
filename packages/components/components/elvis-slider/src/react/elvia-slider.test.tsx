@@ -3,6 +3,8 @@ import React from 'react';
 import Slider from './elvia-slider';
 import userEvent from '@testing-library/user-event';
 import { render, screen, fireEvent, act } from '@testing-library/react';
+import { axe, toHaveNoViolations } from 'jest-axe';
+expect.extend(toHaveNoViolations);
 
 //====================
 // Simple Slider
@@ -454,6 +456,23 @@ describe('Elvia Slider', () => {
       const rigthumberInput = screen.getByTestId('right-number-input');
 
       expect(rigthumberInput).toBeDisabled();
+    });
+  });
+
+  describe('the accessibility', () => {
+    test('of sliders should have no axe violations', async () => {
+      render(
+        <div data-testid="sliders">
+          <Slider type={'simple'} min={0} max={100} />
+          <Slider type={'range'} min={0} max={100} />
+          <Slider type={'range'} min={0} max={100} hasInputField={true} />
+        </div>,
+      );
+
+      const sliders = screen.getByTestId('sliders');
+      const results = await axe(sliders);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });
