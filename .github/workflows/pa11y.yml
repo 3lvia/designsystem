@@ -1,4 +1,4 @@
-name: pa11y tests
+name: Pa11y accessibility tests
 on: [pull_request]
 
 jobs:
@@ -10,8 +10,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - run: yarn install
-      - run: ng serve & npx wait-on http://localhost:4200
+      - name: Install
+        run: yarn install --immutable
+      - name: Build Elvis
+        run: yarn start:web
       - name: Run pa11y
         run: |
           yarn add -g pa11y
