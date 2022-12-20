@@ -19,13 +19,19 @@ export const useInputModeDetection = (
   const [inputMode, setInputMode] = useState<InputMode>('mouse');
 
   useEffect(() => {
-    const setIsKeyboard = () => setInputMode('keyboard');
+    const setIsKeyboard = (ev: KeyboardEvent) => {
+      if (['Tab', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(ev.code)) {
+        setInputMode('keyboard');
+      }
+    };
+
     const setIsMouse = (ev: PointerEvent) => {
       // Filter out click events triggered by the mouse
       if (ev.detail === 1) {
         setInputMode('mouse');
       }
     };
+
     const setIsTouch = () => setInputMode('touch');
 
     const elementToObserve = element?.current ?? document.body;
