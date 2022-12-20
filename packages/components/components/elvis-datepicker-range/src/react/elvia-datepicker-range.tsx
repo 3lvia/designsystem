@@ -68,6 +68,17 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     return !isNaN(date as number) && date instanceof Date;
   };
 
+  const setTime = (date: Date | number, when: 'start' | 'end'): Date => {
+    const dateCopy = new Date(date);
+    if (when === 'start') {
+      dateCopy.setHours(0, 0, 0, 0);
+    } else {
+      dateCopy.setHours(23, 59, 59, 59);
+    }
+
+    return dateCopy;
+  };
+
   /**
    * Handle valueOnChangeISOString event. If newDate.start/end is not valid, formatISO crashes the component.
    */
@@ -131,23 +142,31 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         newDate?.getTime() !== selectedDateRange.start.getTime(),
     );
     // If start datepicker is set to a date after the end datepicker, set the end date to newValue.
-    if (newDate && selectedDateRange?.end && newDate > selectedDateRange.end) {
-      setSelectedDateRange({ start: newDate, end: newDate });
-    } else {
-      setSelectedDateRange((current) => {
-        return { ...current, start: newDate };
-      });
+    if (newDate) {
+      const date = setTime(newDate, 'start');
+
+      if (selectedDateRange?.end && date > selectedDateRange.end) {
+        setSelectedDateRange({ start: date, end: date });
+      } else {
+        setSelectedDateRange((current) => {
+          return { ...current, start: date };
+        });
+      }
     }
   };
 
   const handleEndDatepickerValueOnChange = (newDate: Date | null) => {
     // If end datepicker is set to a date before the start date, set both to end datepicker value.
-    if (newDate && selectedDateRange?.start && newDate < selectedDateRange.start) {
-      setSelectedDateRange({ start: newDate, end: newDate });
-    } else {
-      setSelectedDateRange((current) => {
-        return { ...current, end: newDate };
-      });
+    if (newDate) {
+      const date = setTime(newDate, 'end');
+
+      if (selectedDateRange?.start && date < selectedDateRange.start) {
+        setSelectedDateRange({ start: date, end: date });
+      } else {
+        setSelectedDateRange((current) => {
+          return { ...current, end: date };
+        });
+      }
     }
   };
 
@@ -156,7 +175,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
 
     if (hasSelectDateOnOpen && !selectedDateRange.start) {
       const endDate = selectedDateRange.end?.getTime();
-      const startDate = endDate && endDate < Date.now() ? new Date(endDate) : new Date();
+      const startDate =
+        endDate && endDate < Date.now() ? setTime(endDate, 'start') : setTime(new Date(), 'start');
       setSelectedDateRange((current) => {
         return { ...current, start: startDate };
       });
@@ -168,7 +188,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
 
     if (hasSelectDateOnOpen && !selectedDateRange.end) {
       const startDate = selectedDateRange.start?.getTime();
-      const endDate = startDate && Date.now() < startDate ? new Date(startDate) : new Date();
+      const endDate =
+        startDate && Date.now() < startDate ? setTime(startDate, 'end') : setTime(new Date(), 'end');
       setSelectedDateRange((current) => {
         return { ...current, end: endDate };
       });
