@@ -14,6 +14,8 @@ jobs:
         run: yarn install --immutable
       - name: build web
         run: yarn build
+        env:
+          CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
       - name: start web
         run: yarn start:web
       - name: Run pa11y on web
