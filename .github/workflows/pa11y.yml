@@ -10,11 +10,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: Install
+      - name: Yarn Install
         run: yarn install --immutable
-      - name: Build Elvis
+      - name: build web
+        run: yarn build:web
+      - name: start web
         run: yarn start:web
-      - name: Run pa11y
+      - name: Run pa11y on web
         run: |
           yarn add -g pa11y
           pa11y http://localhost:4200
