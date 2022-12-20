@@ -9,7 +9,7 @@ jobs:
       - name: Use Node.js 19.x
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 19.x
       - name: Yarn Install
         run: yarn install --immutable
       - name: build web
