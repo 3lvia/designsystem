@@ -1,7 +1,18 @@
 {
-    "extends": "stylelint-config-sass-guidelines",
-    "rules": {
-        "indentation": "tab",
-        "number-leading-zero": null
+  "extends": ["stylelint-config-sass-guidelines", "stylelint-config-prettier-scss"],
+  "plugins": ["stylelint-selector-bem-pattern"],
+  "rules": {
+    "indentation": 2,
+    "number-leading-zero": null,
+    "max-nesting-depth": null,
+    "plugin/selector-bem-pattern": {
+      "preset": "bem",
+      "componentName": "[A-Z]+",
+      "componentSelectors": {
+        "initial": "^\\.{componentName}(?:-[a-z]+)?$",
+        "combined": "^\\.combined-{componentName}-[a-z]+$"
+      },
+      "utilitySelectors": "^\\.util-[a-z]+$"
     }
+  }
 }
