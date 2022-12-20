@@ -13,7 +13,7 @@ jobs:
       - name: Yarn Install
         run: yarn install --immutable
       - name: build web
-        run: yarn build:web
+        run: yarn build
       - name: start web
         run: yarn start:web
       - name: Run pa11y on web
