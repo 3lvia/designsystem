@@ -1,0 +1,12 @@
+{
+  "standard": "WCAG2AAA",
+  "level": "error",
+  "runners": ["axe", "htmlcs"],
+  "defaults": { "concurrency": 4, "timeout": 90000, "wait": 5000, "ignore": [] },
+  "viewport": {
+    "width": 320,
+    "height": 480,
+    "deviceScaleFactor": 2,
+    "isMobile": true
+  }
+}
