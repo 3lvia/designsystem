@@ -1,0 +1,18 @@
+name: pa11y tests
+on: [pull_request]
+
+jobs:
+  pa11y:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: yarn install
+      - run: ng serve & npx wait-on http://localhost:4200
+      - name: Run pa11y
+        run: |
+          yarn add -g pa11y
+          pa11y http://localhost:4200
