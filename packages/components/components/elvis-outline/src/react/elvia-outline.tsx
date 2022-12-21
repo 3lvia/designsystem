@@ -9,7 +9,7 @@ export const Outline: React.FC<OutlineProps> = ({ inlineStyle, className }) => {
   const [domRect, setDomRect] = useState<DOMRect>();
   const [borderRadius, setBorderRadius] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
-  const { isMouse: usingMouse } = useInputModeDetection();
+  const { inputMode } = useInputModeDetection();
 
   const setPosition = () => {
     const pos = document.activeElement?.getBoundingClientRect();
@@ -61,7 +61,7 @@ export const Outline: React.FC<OutlineProps> = ({ inlineStyle, className }) => {
   return (
     <>
       <GlobalOutlineReset />
-      {!usingMouse && domRect && (
+      {inputMode === 'keyboard' && domRect && (
         <StyledOutline
           data-testid="outline"
           className={className}
