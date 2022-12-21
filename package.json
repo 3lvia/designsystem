@@ -45,8 +45,7 @@
   },
   "lint-staged": {
     "packages/elvis/**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
-      "yarn prettier:elvis",
-      "npx stylelint 'packages/elvis/src/*/*.scss'"
+      "yarn prettier:elvis"
     ],
     "packages/web/**/*.+(js|ts|tsx)": [
       "yarn prettier:web",
