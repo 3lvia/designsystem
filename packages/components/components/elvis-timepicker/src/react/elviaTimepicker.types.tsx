@@ -14,4 +14,10 @@ export interface TimepickerProps extends BaseProps, HasValue<Date | null>, HasEr
   onOpen: () => void;
   selectNowOnOpen: boolean;
   label: string;
+
+  /**
+   * Used by the datepicker range component. Internal use only.
+   * @internal
+   */
+  onInputFocus: () => void;
 }

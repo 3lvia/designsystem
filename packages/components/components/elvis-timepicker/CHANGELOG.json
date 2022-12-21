@@ -2,6 +2,20 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "21.12.22",
+      "version": "2.2.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Expose onInputFocus event."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Not possible to reset the value via prop."]
+        }
+      ]
+    },
+    {
       "date": "16.12.22",
       "version": "2.2.0",
       "changelog": [

@@ -28,6 +28,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   errorOptions = { hideText: false, isErrorState: false },
   onOpen,
   onClose,
+  onInputFocus,
   selectNowOnOpen = true,
   className,
   inlineStyle,
@@ -133,9 +134,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
    * Needed for webcomponent -> To update the default value
    */
   useEffect(() => {
-    if (value) {
-      updateValue(value, false);
-    }
+    updateValue(value || null, false);
   }, [value]);
 
   return (
@@ -154,6 +153,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             time={time}
             disabled={isDisabled}
             onChange={updateValue}
+            onFocus={() => onInputFocus?.()}
             required={isRequired}
             onErrorChange={onError}
           />
