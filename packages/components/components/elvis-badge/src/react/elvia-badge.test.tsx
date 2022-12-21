@@ -2,8 +2,6 @@ import Badge from './elvia-badge';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { getColor } from '@elvia/elvis-colors';
-import { axe, toHaveNoViolations } from 'jest-axe';
-expect.extend(toHaveNoViolations);
 
 const colors = {
   elviaBlack: getColor('black'),
@@ -123,7 +121,6 @@ describe('Elvis Badge', () => {
 
   describe('the accessibility', () => {
     it('should have no axe violations', async () => {
-      /*  NOTE: Color contrast checks do not work in JSDOM so are turned off in jest-axe. */
       render(
         <div data-testid="badge">
           <Badge
@@ -139,7 +136,7 @@ describe('Elvis Badge', () => {
       );
 
       const badge = screen.getByTestId('badge');
-      const results = await axe(badge);
+      const results = await global.axe(badge);
 
       expect(results).toHaveNoViolations();
     });

@@ -3,8 +3,6 @@ import React from 'react';
 import Slider from './elvia-slider';
 import userEvent from '@testing-library/user-event';
 import { render, screen, fireEvent, act } from '@testing-library/react';
-import { axe, toHaveNoViolations } from 'jest-axe';
-expect.extend(toHaveNoViolations);
 
 //====================
 // Simple Slider
@@ -453,9 +451,9 @@ describe('Elvia Slider', () => {
       render(
         <Slider type={type} min={min} max={max} isDisabled={isDisabled} hasInputField={hasInputField} />,
       );
-      const rigthumberInput = screen.getByTestId('right-number-input');
+      const rightNumberInput = screen.getByTestId('right-number-input');
 
-      expect(rigthumberInput).toBeDisabled();
+      expect(rightNumberInput).toBeDisabled();
     });
   });
 
@@ -470,7 +468,7 @@ describe('Elvia Slider', () => {
       );
 
       const sliders = screen.getByTestId('sliders');
-      const results = await axe(sliders);
+      const results = await global.axe(sliders);
 
       expect(results).toHaveNoViolations();
     });

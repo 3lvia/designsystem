@@ -2,8 +2,6 @@ import Divider from './elvia-divider';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { getColor } from '@elvia/elvis-colors';
-import { axe, toHaveNoViolations } from 'jest-axe';
-expect.extend(toHaveNoViolations);
 
 const colors = {
   elviaWhite: getColor('white'),
@@ -147,9 +145,8 @@ describe('Elvis Divider', () => {
     });
 
     it('should have no axe violations', async () => {
-      /*  NOTE: Color contrast checks do not work in JSDOM so are turned off in jest-axe. */
       const dividers = screen.getByTestId('dividers');
-      const results = await axe(dividers);
+      const results = await global.axe(dividers);
       expect(results).toHaveNoViolations();
     });
   });
