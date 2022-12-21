@@ -11,6 +11,7 @@ export const config: ComponentConfig = {
     { name: 'isRequired', type: 'object' },
     { name: 'isVertical', type: 'object' },
     { name: 'hasTimepicker', type: 'boolean' },
+    { name: 'timepickerInterval', type: 'string' },
     { name: 'hasSelectDateOnOpen', type: 'boolean' },
     { name: 'errorOptions', type: 'object' },
     { name: 'hasAutoOpenEndDatepicker', type: 'boolean' },

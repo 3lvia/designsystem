@@ -28,6 +28,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   isVertical,
   hasSelectDateOnOpen = true,
   hasTimepicker = false,
+  timepickerInterval = '15',
   hasAutoOpenEndDatepicker,
   errorOptions = {
     start: { hideText: false, isErrorState: false, text: '' },
@@ -47,6 +48,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const [isRequiredState, setIsRequiredState] = useState<IsRequired>();
   const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>(emptyErrorMessage);
   const [shouldOpenNextPicker, setShouldOpenNextPicker] = useState(false);
+  const [startTimepickerHasBeenTouched, setStartTimepickerHasBeenTouched] = useState(false);
+  const [endTimepickerHasBeenTouched, setEndTimepickerHasBeenTouched] = useState(false);
 
   useEffect(() => {
     if (typeof isRequired === 'boolean') {
@@ -135,7 +138,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     return disableDates;
   };
 
-  const handleStartDatepickerValueOnChange = (newDate: Date | null) => {
+  const handleStartDateValueOnChange = (newDate: Date | null, change: 'date' | 'time') => {
     setShouldOpenNextPicker(
       !selectedDateRange.start ||
         !selectedDateRange.end ||
@@ -143,7 +146,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     );
     // If start datepicker is set to a date after the end datepicker, set the end date to newValue.
     if (newDate) {
-      const date = setTime(newDate, 'start');
+      let date = newDate;
+      if (change === 'date') {
+        date = setTime(newDate, 'start');
+        setStartTimepickerHasBeenTouched(false);
+      }
 
       if (selectedDateRange?.end && date > selectedDateRange.end) {
         setSelectedDateRange({ start: date, end: date });
@@ -155,10 +162,14 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const handleEndDatepickerValueOnChange = (newDate: Date | null) => {
+  const handleEndDatepickerValueOnChange = (newDate: Date | null, change: 'date' | 'time') => {
     // If end datepicker is set to a date before the start date, set both to end datepicker value.
     if (newDate) {
-      const date = setTime(newDate, 'end');
+      const date = newDate;
+      if (change === 'date') {
+        setTime(newDate, 'end');
+        setEndTimepickerHasBeenTouched(false);
+      }
 
       if (selectedDateRange?.start && date < selectedDateRange.start) {
         setSelectedDateRange({ start: date, end: date });
@@ -241,7 +252,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           {...passThroughProps}
           label={labelOptions?.start ?? defaultLabelOptions.start}
           value={selectedDateRange.start}
-          valueOnChange={handleStartDatepickerValueOnChange}
+          valueOnChange={(date) => handleStartDateValueOnChange(date, 'date')}
           isRequired={isRequiredState?.start}
           onClose={openNextPicker}
           onOpen={onStartPickerOpen}
@@ -264,10 +275,16 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             label=""
             isCompact={isCompact}
             isDisabled={isDisabled}
-            value={selectedDateRange.start}
-            valueOnChange={handleStartDatepickerValueOnChange}
+            value={startTimepickerHasBeenTouched ? selectedDateRange.start : undefined}
+            valueOnChange={(time) => handleStartDateValueOnChange(time, 'time')}
+            onInputFocus={() => setStartTimepickerHasBeenTouched(true)}
             isRequired={isRequiredState?.start}
-            onOpen={() => setOpenPicker('startTime')}
+            selectNowOnOpen={false}
+            minuteInterval={timepickerInterval}
+            onOpen={() => {
+              setStartTimepickerHasBeenTouched(true);
+              setOpenPicker('startTime');
+            }}
             onClose={openNextPicker}
             isOpen={openPicker === 'startTime'}
           />
@@ -278,7 +295,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           {...passThroughProps}
           label={labelOptions?.end ?? defaultLabelOptions.end}
           value={selectedDateRange.end}
-          valueOnChange={handleEndDatepickerValueOnChange}
+          valueOnChange={(date) => handleEndDatepickerValueOnChange(date, 'date')}
           isRequired={isRequiredState?.end}
           onClose={openNextPicker}
           onOpen={onEndPickerOpen}
@@ -302,10 +319,16 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             label=""
             isCompact={isCompact}
             isDisabled={isDisabled}
-            value={selectedDateRange.end}
-            valueOnChange={handleEndDatepickerValueOnChange}
+            value={endTimepickerHasBeenTouched ? selectedDateRange.end : undefined}
+            valueOnChange={(time) => handleEndDatepickerValueOnChange(time, 'time')}
+            onInputFocus={() => setEndTimepickerHasBeenTouched(true)}
             isRequired={isRequiredState?.end}
-            onOpen={() => setOpenPicker('endTime')}
+            selectNowOnOpen={false}
+            minuteInterval={timepickerInterval}
+            onOpen={() => {
+              setEndTimepickerHasBeenTouched(true);
+              setOpenPicker('endTime');
+            }}
             onClose={openNextPicker}
             isOpen={openPicker === 'endTime'}
           />

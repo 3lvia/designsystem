@@ -38,6 +38,6 @@ export const DatepickerRangeWrapper = styled.div<DatepickerRangeWrapperProps>`
 
 export const RowContainer = styled.div`
   display: flex;
-  gap: 0 16px;
+  gap: 0 8px;
   align-items: flex-end;
 `;
