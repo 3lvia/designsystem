@@ -22,7 +22,7 @@ describe('Elvis Tabs', () => {
 
     it('should have default value Oranges', () => {
       const orangesTab = screen.getByText('Oranges');
-      expect(orangesTab).toHaveClass('ewc-tabs__label--selected');
+      expect(orangesTab).toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
     });
 
     it('should update value when clicking new tab', async () => {
@@ -32,10 +32,10 @@ describe('Elvis Tabs', () => {
       await user.click(tabs[1]);
 
       const applesTab = screen.getByText('Apples');
-      expect(applesTab).toHaveClass('ewc-tabs__label--selected');
+      expect(applesTab).toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
 
       const orangesTab = screen.getByText('Oranges');
-      expect(orangesTab).not.toHaveClass('ewc-tabs__label--selected');
+      expect(orangesTab).not.toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
     });
   });
 
@@ -45,8 +45,8 @@ describe('Elvis Tabs', () => {
     });
 
     it('should have default value Pears', () => {
-      const orangesTab = screen.getByText('Pears');
-      expect(orangesTab).toHaveClass('ewc-tabs__label--selected');
+      const pearsTab = screen.getByText('Pears');
+      expect(pearsTab).toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
     });
   });
 
@@ -55,26 +55,13 @@ describe('Elvis Tabs', () => {
       render(<Tabs items={items} isInverted={true}></Tabs>);
     });
 
-    it('should have class inverted', () => {
-      const tabsContainer = screen.getByTestId('tabs-container');
-      expect(tabsContainer).toHaveClass('ewc-tabs--inverted');
+    it('should have white label', () => {
+      const tabLabel = screen.getAllByTestId('tab-label');
+      expect(tabLabel[0]).toHaveStyle('color: white');
     });
-  });
-
-  describe('className and inlineStyle passed to wrapper', () => {
-    beforeEach(() => {
-      render(<Tabs items={items} className="test-class" inlineStyle={{ margin: '24px' }}></Tabs>);
-    });
-
-    it('should have class ewc-tabs', () => {
-      const tabsContainer = screen.getByTestId('tabs-container');
-      expect(tabsContainer).toHaveClass('ewc-tabs');
-    });
-
-    it('should have className and inlineStyle', () => {
-      const tabsContainer = screen.getByTestId('tabs-container');
-      expect(tabsContainer.parentElement).toHaveStyle('margin: 24px');
-      expect(tabsContainer.parentElement).toHaveClass('test-class');
+    it('should have white text-shadow when selected', () => {
+      const tabLabel = screen.getAllByTestId('tab-label');
+      expect(tabLabel[0]).toHaveStyle('text-shadow: 0 0 0 white,0 0 0.5px white');
     });
   });
 });

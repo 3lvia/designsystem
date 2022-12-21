@@ -1,7 +1,13 @@
 import React, { FC, useEffect, useState, useRef, CSSProperties } from 'react';
-import classNames from 'classnames';
-import { outlineListener, IconWrapper, isSsr } from '@elvia/elvis-toolbox';
-import { TabsStyles } from './styledComponents';
+import { IconWrapper, isSsr } from '@elvia/elvis-toolbox';
+import {
+  TabsContainer,
+  ItemsContainer,
+  ScrollContainer,
+  Tab,
+  TabLabel,
+  ArrowButton,
+} from './styledComponents';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import throttle from 'lodash.throttle';
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
@@ -44,8 +50,6 @@ const Tabs: FC<TabsProps> = ({
   const scrollSteps = 12;
 
   /**
-   * Start outline listener
-   *
    * Start resize and scroll listener that updates arrow visibility
    */
   useEffect(() => {
@@ -53,16 +57,12 @@ const Tabs: FC<TabsProps> = ({
       return;
     }
 
-    outlineListener(tabsRef.current);
-
     const throttledResizeCount = throttle(updateArrowVisibility, 100);
     const throttledScrollCount = throttle(updateArrowVisibility, 50);
     window.addEventListener('resize', throttledResizeCount);
     itemsRef.current.addEventListener('scroll', throttledScrollCount);
 
     return () => {
-      outlineListener(tabsRef.current, true);
-
       window.removeEventListener('resize', throttledResizeCount);
       if (itemsRef.current) {
         itemsRef.current.removeEventListener('scroll', throttledScrollCount);
@@ -185,86 +185,75 @@ const Tabs: FC<TabsProps> = ({
     }
   };
 
-  const tabsClasses = classNames('ewc-tabs', {
-    ['ewc-tabs--inverted']: isInverted,
-  });
-  const arrowLeftClasses = classNames('ewc-tabs__arrow', 'ewc-tabs__arrow--left', {
-    ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
-  });
-  const arrowRightClasses = classNames('ewc-tabs__arrow', 'ewc-tabs__arrow--right', {
-    ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
-  });
-  const itemsClasses = classNames('ewc-tabs__items', {
-    ['right-arrow-fade']: !isOnRightEnd,
-    ['left-arrow-fade']: !isOnLeftEnd,
-    ['both-arrows-fade']: !isOnLeftEnd && !isOnRightEnd,
-    ['ewc-tabs--scrolling']: !isOnLeftEnd || !isOnRightEnd,
-  });
-
   return (
-    <TabsStyles className={className} style={inlineStyle} {...rest}>
-      <div className={tabsClasses} ref={tabsRef} data-testid="tabs-container">
-        <div
-          className={arrowLeftClasses}
-          onClick={() => {
-            scrollSideways('left');
+    <TabsContainer
+      className={className}
+      style={inlineStyle}
+      {...rest}
+      ref={tabsRef}
+      data-testid="tabs-container"
+    >
+      <ArrowButton
+        isVisible={isOnRightEnd && isOnLeftEnd}
+        isLeftArrow={true}
+        onClick={() => {
+          scrollSideways('left');
+        }}
+      >
+        <IconWrapper
+          icon={arrowLeftBold}
+          size="xxs"
+          color={isInverted ? 'white' : undefined}
+          style={{
+            position: 'absolute',
+            top: '11px',
+            visibility: isOnLeftEnd ? 'hidden' : 'visible',
           }}
-        >
-          <IconWrapper
-            icon={arrowLeftBold}
-            size="xxs"
-            color={isInverted ? 'white' : undefined}
-            style={{
-              position: 'absolute',
-              top: '11px',
-              visibility: isOnLeftEnd ? 'hidden' : 'visible',
-            }}
-          />
-        </div>
-        <div className={itemsClasses}>
-          <div className="ewc-tabs__items-scroll" ref={itemsRef} role="tablist" aria-label={ariaLabel}>
-            {items &&
-              items.map((item, i) => (
-                <button
-                  role="tab"
-                  id={uniqueId + i}
-                  key={i}
-                  aria-selected={currValue === i}
-                  aria-controls={item}
-                  tabIndex={currValue === i ? 0 : -1}
-                  className="ewc-tabs__item"
-                  onClick={() => {
-                    updateValue(i);
-                    scrollIntoView(uniqueId + i);
-                  }}
-                  data-testid="tab-button"
-                >
-                  <span className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>
-                    {item}
-                  </span>
-                </button>
-              ))}
-          </div>
-        </div>
-        <div
-          className={arrowRightClasses}
-          onClick={() => {
-            scrollSideways('right');
+        />
+      </ArrowButton>
+      <ItemsContainer isInverted={isInverted} isOnLeftEnd={isOnLeftEnd} isOnRightEnd={isOnRightEnd}>
+        <ScrollContainer ref={itemsRef} role="tablist" aria-label={ariaLabel}>
+          {items &&
+            items.map((item, i) => (
+              <Tab
+                role="tab"
+                id={uniqueId + i}
+                key={i}
+                aria-selected={currValue === i}
+                aria-controls={item}
+                tabIndex={currValue === i ? 0 : -1}
+                onClick={() => {
+                  updateValue(i);
+                  scrollIntoView(uniqueId + i);
+                }}
+                data-testid="tab-button"
+              >
+                <TabLabel isSelected={currValue == i} isInverted={isInverted} data-testid="tab-label">
+                  {item}
+                </TabLabel>
+              </Tab>
+            ))}
+        </ScrollContainer>
+      </ItemsContainer>
+      <ArrowButton
+        isVisible={isOnRightEnd && isOnLeftEnd}
+        isLeftArrow={false}
+        onClick={() => {
+          scrollSideways('right');
+        }}
+      >
+        <IconWrapper
+          icon={arrowRightBold}
+          size="xxs"
+          color={isInverted ? 'white' : undefined}
+          style={{
+            position: 'absolute',
+            top: '11px',
+            visibility: isOnRightEnd ? 'hidden' : 'visible',
           }}
-        >
-          <IconWrapper
-            icon={arrowRightBold}
-            size="xxs"
-            color={isInverted ? 'white' : undefined}
-            style={{
-              position: 'absolute',
-              top: '11px',
-              visibility: isOnRightEnd ? 'hidden' : 'visible',
-            }}
-          />
-        </div>
-      </div>
-    </TabsStyles>
+        />
+      </ArrowButton>
+    </TabsContainer>
   );
 };
 
