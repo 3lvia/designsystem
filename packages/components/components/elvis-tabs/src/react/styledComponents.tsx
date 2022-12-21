@@ -28,7 +28,7 @@ type ArrowButtonProps = {
 };
 
 export const ArrowButton = styled.div<ArrowButtonProps>`
-  ${({ isVisible, isLeftArrow }) => `
+  ${({ isVisible, isLeftArrow }) => css`
     display: ${isVisible ? 'none' : 'block'};
     position: absolute;
     width: 8px;
@@ -39,7 +39,7 @@ export const ArrowButton = styled.div<ArrowButtonProps>`
     user-select: none;
     padding: ${isLeftArrow ? '16px 28px 16px 8px' : '16px 8px 16px 28px'};
     right: ${!isLeftArrow && '24px'};
-  
+
     &:hover {
       cursor: pointer;
     }
@@ -73,14 +73,14 @@ export const ItemsContainer = styled.div<ItemsContainerProps>`
     !props.isOnLeftEnd || !props.isOnRightEnd ? `calc(100% - (2 * ${iconButtonWidth}px))` : '100%'};
   ${(props) =>
     props.isInverted &&
-    `
-    &::before {
-      background-image: linear-gradient(to right, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
-    }
-    &::after {
-      background-image: linear-gradient(to left, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
-    }
-  `};
+    css`
+      &::before {
+        background-image: linear-gradient(to right, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
+      }
+      &::after {
+        background-image: linear-gradient(to left, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
+      }
+    `};
 `;
 
 export const ScrollContainer = styled.div`
@@ -135,39 +135,40 @@ type TabLabelProps = {
 };
 
 export const TabLabel = styled.span<TabLabelProps>`
-  ${getTypographyCss('title-caps')}
-  line-height: ${tabsLineHeight}px;
-  font-weight: normal;
-  color: ${(props) => (props.isInverted ? 'white' : 'black')};
-  text-shadow: ${(props) => decideLabelTextShadow(props.isSelected, props.isInverted)};
+  ${({ isSelected, isInverted }) => css`
+    ${getTypographyCss('title-caps')}
+    line-height: ${tabsLineHeight}px;
+    font-weight: normal;
+    color: ${isInverted ? 'white' : 'black'};
+    text-shadow: ${decideLabelTextShadow(isSelected, isInverted)};
 
-  display: block;
-  position: relative;
-  border: none;
-  padding: 0 8px;
-  background: transparent;
-  height: ${tabsHeight}px;
-
-  &::before {
-    ${Underline}
-    width: 100%;
-    background-color: ${(props) => (props.isInverted ? getColor('grey-80') : getColor('grey-10'))};
-  }
-
-  &::after {
-    ${Underline}
     display: block;
-    width: ${(props) => (props.isSelected || (props.isInverted && props.isSelected) ? '100%' : '0')};
-    transition: all 0.3s ease-in-out;
-    background-color: ${(props) =>
-      props.isSelected || (props.isInverted && props.isSelected) ? getColor('green') : 'transparent'};
-  }
+    position: relative;
+    border: none;
+    padding: 0 8px;
+    background: transparent;
+    height: ${tabsHeight}px;
 
-  &:hover {
-    cursor: pointer;
-    &::after {
-      background-color: ${getColor('green')};
+    &::before {
+      ${Underline}
       width: 100%;
+      background-color: ${isInverted ? getColor('grey-80') : getColor('grey-10')};
     }
-  }
+
+    &::after {
+      ${Underline}
+      display: block;
+      width: ${isSelected || (isInverted && isSelected) ? '100%' : '0'};
+      transition: all 0.3s ease-in-out;
+      background-color: ${isSelected || (isInverted && isSelected) ? getColor('green') : 'transparent'};
+    }
+
+    &:hover {
+      cursor: pointer;
+      &::after {
+        background-color: ${getColor('green')};
+        width: 100%;
+      }
+    }
+  `}
 `;
