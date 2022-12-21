@@ -101,7 +101,7 @@ const generateElvisColorMapScss = async () => {
 
 const transpileElviaColors = async () => {
   const tsProject = typescript.createProject('../components/tsconfig.json');
-  return gulp.src('./src/elviaColors.ts').pipe(tsProject()).pipe(gulp.dest('./dist/'));
+  return gulp.src('./src/**/*.ts').pipe(tsProject()).pipe(gulp.dest('./dist/'));
 };
 
 function cleanup() {
