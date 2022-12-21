@@ -61,11 +61,22 @@
       <span class="code-text">valueOnChangeISOString</span>
       (e.g.
       <span class="code-text">'2022-06-20'</span>
-      ). When using
-      <span class="code-text">valueOnChange</span>
-      , the returned date object will contain the selected date, with the time set to
-      <span class="code-text">00:00:00</span>
-      .
+      ).
+    </ng-container>
+  </app-component-section>
+
+  <!--OPTIONS-->
+  <app-component-section [sectionTitle]="'Options'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Reset time'">
+        <ng-container ngProjectAs="sectionContent">
+          When using the
+          <span class="code-text">resetTime</span>
+          prop, the returned date object will contain the selected date, with the time set to
+          <span class="code-text">00:00:00</span>
+          .
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
