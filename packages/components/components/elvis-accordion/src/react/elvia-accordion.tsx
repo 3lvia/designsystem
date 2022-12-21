@@ -126,7 +126,6 @@ const Accordion: FC<AccordionProps> = ({
 
   return (
     <AccordionArea
-      aria-expanded={isOpenState}
       className={className}
       style={inlineStyle}
       data-testid="accordion-area"
@@ -150,6 +149,7 @@ const Accordion: FC<AccordionProps> = ({
       ) : null}
       <AccordionButtonArea labelPosition={labelPosition} type={type}>
         <AccordionButton
+          aria-expanded={isOpenState}
           size={size}
           currType={type}
           isFullWidth={isFullWidth}
