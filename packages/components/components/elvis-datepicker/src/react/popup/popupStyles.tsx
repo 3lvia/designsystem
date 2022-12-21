@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 export const OverlayContainer = styled.div`
-  background-color: ${getColor('elvia-on')};
+  background-color: ${getThemeColor('color-background-overlay')};
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   min-width: 304px;
@@ -14,7 +14,7 @@ export const PopoverHeader = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 8px 24px;
-  border-bottom: 1px solid ${getColor('grey-10')};
+  border-bottom: 1px solid ${getThemeColor('color-background-accent')};
   margin-bottom: 8px;
 `;
 

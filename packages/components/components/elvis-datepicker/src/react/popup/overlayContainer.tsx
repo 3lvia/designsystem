@@ -15,6 +15,7 @@ import { DatepickerRangeProps } from '../elviaDatepicker.types';
 import { TertiaryButton, Overlay, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowDown from '@elvia/elvis-assets-icons/dist/icons/arrowDown';
 import reset from '@elvia/elvis-assets-icons/dist/icons/reset';
+import { getThemeColor } from '@elvia/elvis-colors';
 
 interface Props {
   onClose: () => void;
@@ -120,7 +121,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
                 />
                 <PopoverFooter>
                   <TertiaryButton onClick={resetDate} aria-label="Nullstill dato" size="sm">
-                    <IconWrapper icon={reset} size="xs" />
+                    <IconWrapper icon={reset} size="xs" color={getThemeColor('color-text-primary')} />
                     {clearButtonText}
                   </TertiaryButton>
                 </PopoverFooter>

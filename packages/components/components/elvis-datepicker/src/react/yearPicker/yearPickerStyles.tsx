@@ -1,11 +1,11 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getColor, getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
 export const buttonHeight = 48;
 
 export const YearPickerContainer = styled.div`
-  background-color: ${getColor('elvia-on')};
+  background-color: ${getThemeColor('color-background-overlay')};
   width: 100%;
 `;
 
@@ -49,17 +49,17 @@ export const YearButton = styled.button<Partial<YearButtonProps>>`
   padding: 0;
   height: ${buttonHeight}px;
   cursor: pointer;
-  background-color: ${getColor('elvia-on')};
+  background-color: ${getThemeColor('color-background-overlay')};
   border: none;
   width: 100%;
 
   &:hover:not(:disabled) {
-    background-color: ${getColor('grey-05')};
+    background-color: ${getThemeColor('color-state-hover-grey')};
   }
 
   &:disabled {
     cursor: default;
-    color: ${getColor('disabled')};
+    color: ${getThemeColor('color-state-disabled')};
   }
 
   ${(props) =>
