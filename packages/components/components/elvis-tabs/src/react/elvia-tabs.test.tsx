@@ -21,8 +21,12 @@ describe('Elvis Tabs', () => {
     });
 
     it('should have default value Oranges', () => {
-      const orangesTab = screen.getByText('Oranges');
-      expect(orangesTab).toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
+      const selectedTab = screen.getByRole('tab', { selected: true });
+      const selectedLabel = selectedTab.querySelector('span');
+
+      if (selectedLabel) {
+        expect(selectedLabel.innerHTML).toBe('Oranges');
+      }
     });
 
     it('should update value when clicking new tab', async () => {
@@ -31,11 +35,21 @@ describe('Elvis Tabs', () => {
 
       await user.click(tabs[1]);
 
-      const applesTab = screen.getByText('Apples');
-      expect(applesTab).toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
+      const selectedTab = screen.getByRole('tab', { selected: true });
+      const selectedLabel = selectedTab.querySelector('span');
 
-      const orangesTab = screen.getByText('Oranges');
-      expect(orangesTab).not.toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
+      if (selectedLabel) {
+        expect(selectedLabel.innerHTML).toBe('Apples');
+      }
+    });
+
+    it('should have black label', () => {
+      const tabLabel = screen.getAllByTestId('tab-label');
+      expect(tabLabel[0]).toHaveStyle('color: black');
+    });
+    it('should have black text-shadow when selected', () => {
+      const tabLabel = screen.getAllByTestId('tab-label');
+      expect(tabLabel[0]).toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
     });
   });
 
@@ -45,8 +59,12 @@ describe('Elvis Tabs', () => {
     });
 
     it('should have default value Pears', () => {
-      const pearsTab = screen.getByText('Pears');
-      expect(pearsTab).toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
+      const selectedTab = screen.getByRole('tab', { selected: true });
+      const selectedLabel = selectedTab.querySelector('span');
+
+      if (selectedLabel) {
+        expect(selectedLabel.innerHTML).toBe('Pears');
+      }
     });
   });
 
