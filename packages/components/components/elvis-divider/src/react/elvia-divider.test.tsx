@@ -1,7 +1,8 @@
 import Divider from './elvia-divider';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { getColor } from '@elvia/elvis-colors';
+import { render, screen } from '@testing-library/react';
 
 const colors = {
   elviaWhite: getColor('white'),
@@ -146,7 +147,7 @@ describe('Elvis Divider', () => {
 
     it('should have no axe violations', async () => {
       const dividers = screen.getByTestId('dividers');
-      const results = await global.axe(dividers);
+      const results = await axe(dividers);
       expect(results).toHaveNoViolations();
     });
   });

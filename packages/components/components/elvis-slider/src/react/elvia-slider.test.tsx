@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 import React from 'react';
 import Slider from './elvia-slider';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 
 //====================
@@ -468,7 +469,7 @@ describe('Elvia Slider', () => {
       );
 
       const sliders = screen.getByTestId('sliders');
-      const results = await global.axe(sliders);
+      const results = await axe(sliders);
 
       expect(results).toHaveNoViolations();
     });
