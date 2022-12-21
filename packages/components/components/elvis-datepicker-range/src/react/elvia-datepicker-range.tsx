@@ -147,7 +147,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     // If start datepicker is set to a date after the end datepicker, set the end date to newValue.
     if (newDate) {
       let date = newDate;
-      if (change === 'date') {
+      if (change === 'date' && !startTimepickerHasBeenTouched) {
         date = setTime(newDate, 'start');
         setStartTimepickerHasBeenTouched(false);
       }
@@ -166,7 +166,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     // If end datepicker is set to a date before the start date, set both to end datepicker value.
     if (newDate) {
       const date = newDate;
-      if (change === 'date') {
+      if (change === 'date' && !endTimepickerHasBeenTouched) {
         setTime(newDate, 'end');
         setEndTimepickerHasBeenTouched(false);
       }
