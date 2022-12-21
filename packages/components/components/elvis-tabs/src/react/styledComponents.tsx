@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
+import { getTypographyCss } from '@elvia/elvis-typography';
 
 const iconButtonWidth = 24;
 const tabsLineHeight = 20;
@@ -27,20 +28,22 @@ type ArrowButtonProps = {
 };
 
 export const ArrowButton = styled.div<ArrowButtonProps>`
-  display: ${(props) => (props.isVisible ? 'none' : 'block')};
-  position: absolute;
-  width: 8px;
-  height: calc(${tabsHeightWithFocus}px - (16px * 2));
-  z-index: 10;
-  transition: visibility 0.5s ease-in;
-  box-sizing: content-box;
-  user-select: none;
-  padding: ${(props) => (props.isLeftArrow ? '16px 28px 16px 8px' : '16px 8px 16px 28px')};
-  right: ${(props) => !props.isLeftArrow && '24px'};
-
-  &:hover {
-    cursor: pointer;
-  }
+  ${({ isVisible, isLeftArrow }) => `
+    display: ${isVisible ? 'none' : 'block'};
+    position: absolute;
+    width: 8px;
+    height: calc(${tabsHeightWithFocus}px - (16px * 2));
+    z-index: 10;
+    transition: visibility 0.5s ease-in;
+    box-sizing: content-box;
+    user-select: none;
+    padding: ${isLeftArrow ? '16px 28px 16px 8px' : '16px 8px 16px 28px'};
+    right: ${!isLeftArrow && '24px'};
+  
+    &:hover {
+      cursor: pointer;
+    }
+  `}
 `;
 
 const decideFade = (isOnRightEnd: boolean, isOnLeftEnd: boolean): string => {
@@ -98,10 +101,6 @@ export const Tab = styled.button`
   border: 0;
   padding: 0;
   background: transparent;
-  &:focus {
-    outline: 2px solid ${getColor('focus-outline')};
-    outline-offset: 2px;
-  }
   &:not(:last-of-type) {
     margin-right: 24px;
     @media screen and (max-width: 767px) {
@@ -114,9 +113,9 @@ const Underline = css`
   content: '';
   position: absolute;
   height: 4px;
-  bottom: 0px;
+  bottom: 0;
   top: ${tabsLineHeight}px + ${tabsLabelPaddingBottom}px;
-  left: 0px;
+  left: 0;
   border-radius: 50px;
 `;
 
@@ -136,20 +135,16 @@ type TabLabelProps = {
 };
 
 export const TabLabel = styled.span<TabLabelProps>`
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
+  ${getTypographyCss('title-caps')}
   line-height: ${tabsLineHeight}px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
+  font-weight: normal;
   color: ${(props) => (props.isInverted ? 'white' : 'black')};
   text-shadow: ${(props) => decideLabelTextShadow(props.isSelected, props.isInverted)};
 
   display: block;
   position: relative;
   border: none;
-  padding: 0px 8px;
+  padding: 0 8px;
   background: transparent;
   height: ${tabsHeight}px;
 
@@ -170,7 +165,7 @@ export const TabLabel = styled.span<TabLabelProps>`
 
   &:hover {
     cursor: pointer;
-    &:not(.ewc-tabs__label--selected)::after {
+    &::after {
       background-color: ${getColor('green')};
       width: 100%;
     }
