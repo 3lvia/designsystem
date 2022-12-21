@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 import React from 'react';
 import Slider from './elvia-slider';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 
 //====================
@@ -451,9 +452,26 @@ describe('Elvia Slider', () => {
       render(
         <Slider type={type} min={min} max={max} isDisabled={isDisabled} hasInputField={hasInputField} />,
       );
-      const rigthumberInput = screen.getByTestId('right-number-input');
+      const rightNumberInput = screen.getByTestId('right-number-input');
 
-      expect(rigthumberInput).toBeDisabled();
+      expect(rightNumberInput).toBeDisabled();
+    });
+  });
+
+  describe('the accessibility', () => {
+    test('of sliders should have no axe violations', async () => {
+      render(
+        <div data-testid="sliders">
+          <Slider type={'simple'} min={0} max={100} />
+          <Slider type={'range'} min={0} max={100} />
+          <Slider type={'range'} min={0} max={100} hasInputField={true} />
+        </div>,
+      );
+
+      const sliders = screen.getByTestId('sliders');
+      const results = await axe(sliders);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });
