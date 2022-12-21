@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "20.12.22",
+      "version": "2.0.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Add missing dependency."]
+        }
+      ]
+    },
+    {
       "date": "29.11.22",
       "version": "2.0.3",
       "changelog": [
