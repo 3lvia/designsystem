@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "20.12.22",
+      "version": "7.4.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "<span class=\"code-text\">useInputModeDetection</span> triggering too often for keyboard input"
+          ]
+        }
+      ]
+    },
+    {
       "date": "15.12.22",
       "version": "7.4.3",
       "changelog": [
