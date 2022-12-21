@@ -35,3 +35,6 @@ export const getThemeColor = (label: ColorLabel, themeName: ThemeName = 'dark'):
   }
   return color.hex;
 };
+
+// TODO: Add a way to get a base color from theme, not just a color label.
+// This is needed for colors such as "selected" state, as they do not have labels.
