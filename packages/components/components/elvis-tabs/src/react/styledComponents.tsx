@@ -65,14 +65,13 @@ type ItemsContainerProps = {
 };
 
 export const ItemsContainer = styled.div<ItemsContainerProps>`
-  position: relative;
-  display: flex;
-  user-select: none;
-  mask: ${(props) => decideFade(props.isOnRightEnd, props.isOnLeftEnd)};
-  width: ${(props) =>
-    !props.isOnLeftEnd || !props.isOnRightEnd ? `calc(100% - (2 * ${iconButtonWidth}px))` : '100%'};
-  ${(props) =>
-    props.isInverted &&
+  ${({ isOnRightEnd, isOnLeftEnd, isInverted }) => css`
+    position: relative;
+    display: flex;
+    user-select: none;
+    mask: ${decideFade(isOnRightEnd, isOnLeftEnd)};
+    width: ${!isOnLeftEnd || !isOnRightEnd ? `calc(100% - (2 * ${iconButtonWidth}px))` : '100%'};
+    ${isInverted &&
     css`
       &::before {
         background-image: linear-gradient(to right, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
@@ -81,6 +80,7 @@ export const ItemsContainer = styled.div<ItemsContainerProps>`
         background-image: linear-gradient(to left, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
       }
     `};
+  `}
 `;
 
 export const ScrollContainer = styled.div`
