@@ -240,7 +240,11 @@
   <div class="example-wrapper">
     <h3>Date range picker</h3>
     <elvia-datepicker-range></elvia-datepicker-range>
-    <elvia-datepicker-range hasTimepicker></elvia-datepicker-range>
+    <elvia-datepicker-range
+      hasTimepicker
+      [minDate]="minDateRange"
+      [maxDate]="maxDateRange"
+    ></elvia-datepicker-range>
   </div>
 
   <!--Divider-->
