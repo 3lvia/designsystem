@@ -19,5 +19,5 @@ export interface TimepickerProps extends BaseProps, HasValue<Date | null>, HasEr
    * Used by the datepicker range component. Internal use only.
    * @internal
    */
-  onInputFocus: () => void;
+  onFocus: () => void;
 }

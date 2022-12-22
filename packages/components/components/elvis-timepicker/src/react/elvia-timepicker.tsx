@@ -28,7 +28,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   errorOptions = { hideText: false, isErrorState: false },
   onOpen,
   onClose,
-  onInputFocus,
+  onFocus,
   selectNowOnOpen = true,
   className,
   inlineStyle,
@@ -153,14 +153,17 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             time={time}
             disabled={isDisabled}
             onChange={updateValue}
-            onFocus={() => onInputFocus?.()}
+            onFocus={() => onFocus?.()}
             required={isRequired}
             onErrorChange={onError}
           />
           <IconButton
             disabled={isDisabled}
             isActive={isShowing}
-            onClick={() => setVisibility(!isShowing)}
+            onClick={() => {
+              onFocus?.();
+              setVisibility(!isShowing);
+            }}
             ref={openPopoverButtonRef}
             size={isCompact ? 'sm' : 'md'}
             data-testid="popover-toggle"
