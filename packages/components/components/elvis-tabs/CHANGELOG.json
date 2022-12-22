@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "19.12.22",
+      "version": "1.6.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where having multiple tabs on the same page would cause the \"scroll to view\"-functionality to always scroll to the first tab on the page."
+          ]
+        }
+      ]
+    },
+    {
       "date": "14.12.22",
       "version": "1.6.0",
       "changelog": [

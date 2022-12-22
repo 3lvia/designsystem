@@ -5,6 +5,7 @@
 
 import 'jsdom-global/register';
 import '@testing-library/jest-dom';
+import 'jest-axe/extend-expect';
 
 global.ResizeObserver = require('resize-observer-polyfill');
 global.MutationObserver = class {

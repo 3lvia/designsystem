@@ -189,8 +189,6 @@ const accordionData: ComponentData = {
   codeReact:
     `<Accordion
   type={"normal"}
-  openLabel={"Show"}
-  closeLabel={"Hide"}
   labelPosition={"center"}
   size={"medium"}
   content={"` +
