@@ -191,5 +191,5 @@ export const getContrastText = (colorName: ElviaColor): string => {
   return getColorObject(colorName)?.contrastText ?? '';
 };
 
-export { getThemeColor } from './getThemeColor';
+export { getThemeColor, getCustomThemeColor } from './getThemeColor';
 export { ThemeName, ColorLabel } from './theme';

@@ -1,6 +1,6 @@
 import type { Color, ColorLabel, Theme, ThemeName } from './theme';
-import { darkTheme } from './themes/darkTheme';
-import { lightTheme } from './themes/lightTheme';
+import { lightTheme, lightThemeColors, LightThemeColorName } from './themes/lightTheme';
+import { darkTheme, darkThemeColors, DarkThemeColorName } from './themes/darkTheme';
 
 const getTheme = (name: ThemeName): Theme => {
   switch (name) {
@@ -28,6 +28,14 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName): Color | n
   return color;
 };
 
+/**
+ * Get a color from a theme by label.
+ * @param label
+ * @param themeName
+ * @returns Hex color string.
+ * @example
+ * const color = getThemeColor('color-background-primary');
+ */
 export const getThemeColor = (label: ColorLabel, themeName: ThemeName = 'dark'): string => {
   const color = getThemeColorObject(label, themeName);
   if (!color) {
@@ -36,5 +44,54 @@ export const getThemeColor = (label: ColorLabel, themeName: ThemeName = 'dark'):
   return color.hex;
 };
 
-// TODO: Add a way to get a base color from theme, not just a color label.
-// This is needed for colors such as "selected" state, as they do not have labels.
+const getThemeColors = <TThemeName extends ThemeName>(
+  name: TThemeName,
+): TThemeName extends 'light'
+  ? typeof lightThemeColors
+  : TThemeName extends 'dark'
+  ? typeof darkThemeColors
+  : typeof lightThemeColors => {
+  switch (name) {
+    case 'dark':
+      return darkThemeColors as any;
+    case 'light':
+      return lightThemeColors as any;
+    default:
+      return lightThemeColors as any;
+  }
+};
+
+type ColorNameToThemeMap = {
+  light: LightThemeColorName;
+  dark: DarkThemeColorName;
+};
+
+/**
+ * Create a custom mapping between colors from themes.
+ * @param colorNameToThemeMap A map of theme names to color names
+ * @param themeName
+ * @returns Hex color string.
+ *
+ * @example
+ * const color = getCustomThemeColor({
+ *  light: 'grey-10',
+ *  dark: 'grey-60',
+ * });
+ */
+export const getCustomThemeColor = (
+  colorNameToThemeMap: ColorNameToThemeMap,
+  themeName: ThemeName = 'dark',
+): string => {
+  const colors = getThemeColors(themeName);
+  const label = colorNameToThemeMap[themeName];
+  const color =
+    colors['primary-colors'][label as keyof typeof colors['primary-colors']] ??
+    colors['signal-colors'][label as keyof typeof colors['signal-colors']] ??
+    colors['data-colors'][label as keyof typeof colors['data-colors']] ??
+    colors['grey-colors'][label as keyof typeof colors['grey-colors']];
+  if (!color) {
+    console.error(`Color ${label} for theme ${themeName} not found.`);
+    return '';
+  }
+  return color.color;
+};
