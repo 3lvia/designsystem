@@ -111,9 +111,9 @@ const datepickerRangeData: ComponentData = {
     hasAutoOpenEndDatepicker: {
       isRequired: false,
       type: 'boolean',
-      description: 'Auto opens the end datepicker when the start datepicker is closed.',
+      description: 'Auto opens the next picker when the currently open picker is closed.',
       default: 'false',
-      cegDisplayName: 'Auto open end datepicker',
+      cegDisplayName: 'Auto open next picker',
       cegType: 'boolean',
       cegDefault: false,
       cegFormType: 'checkbox',
