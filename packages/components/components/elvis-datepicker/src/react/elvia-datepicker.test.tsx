@@ -1,9 +1,10 @@
-import Datepicker from './elvia-datepicker';
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import Datepicker from './elvia-datepicker';
 import userEvent from '@testing-library/user-event';
-import { getColor } from '@elvia/elvis-colors';
+import { axe } from 'jest-axe';
 import { formatDate } from './dateHelpers';
+import { getColor } from '@elvia/elvis-colors';
+import { render, screen, waitFor } from '@testing-library/react';
 
 describe('Elvis Datepicker', () => {
   describe('Default', () => {
@@ -256,6 +257,27 @@ describe('Elvis Datepicker', () => {
     it('should have error state', () => {
       const datepickerWrapper = screen.getByTestId('input-container');
       expect(datepickerWrapper).toHaveStyle(`border-color: ${getColor('error')}`);
+    });
+  });
+
+  describe('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="dateppickers-wrapper">
+          <Datepicker />
+          <Datepicker value={new Date('2024/04/02')}></Datepicker>
+        </div>,
+      );
+
+      const user = userEvent.setup();
+
+      //open the second datepicker to see if the popover has a11y violations
+      await user.click(screen.getAllByTestId('popover-toggle')[1]);
+
+      const datepickers = screen.getByTestId('dateppickers-wrapper');
+      const results = await axe(datepickers);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });
