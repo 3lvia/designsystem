@@ -1,7 +1,8 @@
 import Carousel from './elvia-carousel';
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import { render, screen, waitFor } from '@testing-library/react';
 
 describe('Elvis Carousel', () => {
   const items = [
@@ -168,6 +169,21 @@ describe('Elvis Carousel', () => {
 
       const newCheckmark = await screen.findByTestId('carousel-onboarding-checkmark');
       expect(newCheckmark).toBeInTheDocument();
+    });
+  });
+
+  describe('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="carousels">
+          <Carousel items={items} />
+        </div>,
+      );
+
+      const carousels = screen.getByTestId('carousels');
+      const results = await axe(carousels);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });
