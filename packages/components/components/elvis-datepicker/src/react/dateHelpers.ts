@@ -1,14 +1,18 @@
+export const isBefore = (d1?: Date | null, d2?: Date | null): boolean => {
+  return !d2 || (!!d1 && d1.getTime() <= d2.getTime());
+};
+
+export const isAfter = (d1?: Date | null, d2?: Date | null): boolean => {
+  return !d2 || (!!d1 && d1.getTime() >= d2.getTime());
+};
+
 export const dateIsWithinMinMaxBoundary = (
   date?: Date | null,
   minDate?: Date | null,
   maxDate?: Date | null,
 ): boolean => {
-  if (!date) {
-    return false;
-  }
-
-  const dateIsAfterMinDate = !minDate || date.getTime() >= minDate.getTime();
-  const dateIsBeforeMaxDate = !maxDate || date.getTime() <= maxDate.getTime();
+  const dateIsAfterMinDate = isAfter(date, minDate);
+  const dateIsBeforeMaxDate = isBefore(date, maxDate);
 
   return dateIsAfterMinDate && dateIsBeforeMaxDate;
 };

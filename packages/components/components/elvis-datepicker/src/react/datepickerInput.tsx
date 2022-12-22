@@ -12,6 +12,7 @@ interface Props {
   maxDate?: Date;
   placeholder?: string;
   onChange: (newValue: Date | null) => void;
+  onFocus: () => void;
   currentError?: ErrorType;
   onErrorChange: (error?: ErrorType) => void;
 }
@@ -24,6 +25,7 @@ export const DatepickerInput: React.FC<Props> = ({
   maxDate,
   placeholder,
   onChange,
+  onFocus,
   currentError,
   onErrorChange,
 }) => {
@@ -147,6 +149,11 @@ export const DatepickerInput: React.FC<Props> = ({
     return formatDate(date, { day: '2-digit', month: '2-digit', year: 'numeric' });
   };
 
+  const onInputFocus = (): void => {
+    setTouched(true);
+    onFocus();
+  };
+
   useEffect(() => {
     setInputValue(getFormattedInputValue(date));
 
@@ -179,7 +186,7 @@ export const DatepickerInput: React.FC<Props> = ({
       onKeyDown={onKeyDown}
       onChange={parseInput}
       onBlur={onBlur}
-      onFocus={() => setTouched(true)}
+      onFocus={onInputFocus}
       data-testid="input"
       aria-live="polite"
       required={required}
