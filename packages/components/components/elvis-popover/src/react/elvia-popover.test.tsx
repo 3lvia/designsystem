@@ -154,8 +154,6 @@ describe('Elvis Popover', () => {
         </div>,
       );
 
-      screen.debug();
-
       const popovers = screen.getByTestId('popovers-wrapper');
       const results = await axe(popovers);
 
