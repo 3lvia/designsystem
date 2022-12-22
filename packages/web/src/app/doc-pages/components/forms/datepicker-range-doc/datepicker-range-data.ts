@@ -85,6 +85,17 @@ const datepickerRangeData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'Options',
     },
+    timepickerInterval: {
+      isRequired: false,
+      type: '"1" | "5" | "10" | "15" | "60"',
+      default: '"15"',
+      description: 'The number of minute steps in the timepicker, if visible.',
+      cegDisplayName: 'Timepicker interval',
+      cegDefault: '15',
+      cegType: 'string',
+      cegFormType: 'radio',
+      cegOptions: ['1', '5', '10', '15', '60'],
+    },
     hasSelectDateOnOpen: {
       isRequired: false,
       type: 'boolean',
