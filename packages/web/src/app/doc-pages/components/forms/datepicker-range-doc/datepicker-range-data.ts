@@ -95,6 +95,7 @@ const datepickerRangeData: ComponentData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['1', '5', '10', '15', '60'],
+      cegDependency: [{ name: 'hasTimepicker', value: 'true' }],
     },
     hasSelectDateOnOpen: {
       isRequired: false,
@@ -136,13 +137,11 @@ const datepickerRangeData: ComponentData = {
       isRequired: false,
       type: 'Date',
       description: 'Makes dates before the provided minimum date disabled.',
-      cegDisplayName: 'Min date',
     },
     maxDate: {
       isRequired: false,
       type: 'Date',
       description: 'Makes dates after the provided maximum date disabled.',
-      cegDisplayName: 'Max date',
     },
     disableDates: {
       isRequired: false,
