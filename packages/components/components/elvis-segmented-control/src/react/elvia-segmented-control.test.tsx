@@ -1,18 +1,15 @@
-import '@testing-library/jest-dom';
 import React from 'react';
+import '@testing-library/jest-dom';
 import SegmentedControl from './elvia-segmented-control';
 import userEvent from '@testing-library/user-event';
-import { render, screen } from '@testing-library/react';
 import { IconSegmentedControl } from './elviaSegmentedControl.types';
+import { axe } from 'jest-axe';
+import { render, screen } from '@testing-library/react';
 
-//========================
-// Text Segmented Control
-//========================
 describe('Elvia Segmented Control', () => {
   describe('The default segmented control', () => {
     const items = [{ label: 'Weekly' }, { label: 'Monthly' }, { label: 'Yearly' }];
 
-    //==================== RENDERING ====================
     test('should contain text', () => {
       render(<SegmentedControl items={items} />);
       const segmentedControlText = screen.queryAllByTestId('segmented-control-text');
@@ -43,7 +40,6 @@ describe('Elvia Segmented Control', () => {
       expect(segmentedControlText[0]).toHaveTextContent(items[0].label);
     });
 
-    //========== MIMICKING USER INTERACTIONS ==========
     test('should change value when clicked', async () => {
       const user = userEvent.setup();
       render(<SegmentedControl items={items} />);
@@ -60,7 +56,6 @@ describe('Elvia Segmented Control', () => {
       { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: 'label' },
     ];
 
-    //==================== RENDERING ====================
     test('should contain icon', () => {
       render(<SegmentedControl type="icon" items={items} />);
       const segmentedControlText = screen.queryAllByTestId('segmented-control-text');
@@ -75,6 +70,30 @@ describe('Elvia Segmented Control', () => {
       const segmentedControlLabel = screen.queryAllByTestId('segmented-control-label');
 
       expect(segmentedControlLabel[0]).toHaveAttribute('aria-label', 'label');
+    });
+  });
+
+  //Fails. To pass: create unique id for each segmented control item
+  describe.skip('the accessibility', () => {
+    const items = [{ label: 'Weekly' }, { label: 'Monthly' }, { label: 'Yearly' }];
+    const iconItems: IconSegmentedControl[] = [
+      { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: 'label' },
+      { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: 'label' },
+    ];
+
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="segmented-controls">
+          <SegmentedControl items={items} />
+          <SegmentedControl items={items} />
+          <SegmentedControl items={iconItems} />
+        </div>,
+      );
+
+      const segmentedControls = screen.getByTestId('segmented-controls');
+      const results = await axe(segmentedControls);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });
