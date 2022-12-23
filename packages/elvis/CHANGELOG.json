@@ -1962,7 +1962,7 @@
           ],
           "fixes": [],
           "components": [
-            { "displayName": "Buttons", "url": "https://design.elvia.io/components/button#Overview" }
+            { "displayName": "Button", "url": "https://design.elvia.io/components/button#Overview" }
           ],
           "pages": []
         }
