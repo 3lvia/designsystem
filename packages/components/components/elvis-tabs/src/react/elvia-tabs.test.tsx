@@ -1,7 +1,8 @@
-import Tabs from './elvia-tabs';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import Tabs from './elvia-tabs';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import { render, screen } from '@testing-library/react';
 
 describe('Elvis Tabs', () => {
   const items = ['Oranges', 'Apples', 'Pears'];
@@ -75,6 +76,23 @@ describe('Elvis Tabs', () => {
       const tabsContainer = screen.getByTestId('tabs-container');
       expect(tabsContainer.parentElement).toHaveStyle('margin: 24px');
       expect(tabsContainer.parentElement).toHaveClass('test-class');
+    });
+  });
+
+  //FAILS. To pass fix: Invalid ARIA attribute value: aria-controls="item".
+  describe.skip('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="tabs-wrapper">
+          <Tabs items={items} />
+          <Tabs items={items} value={2} />
+        </div>,
+      );
+
+      const tabs = screen.getByTestId('tabs-wrapper');
+      const results = await axe(tabs);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });
