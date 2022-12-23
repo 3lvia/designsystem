@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
+import changelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-button-doc',
@@ -11,6 +12,7 @@ export class ButtonDocComponent {
   title = getComponent('button').title;
   figmaUrl = getComponent('button').figmaUrl;
   description = getComponent('button').description;
+  changelog = changelogJson.content;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');
