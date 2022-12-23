@@ -1,0 +1,18 @@
+{
+  "name": "@elvia/elvis-button",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "web_component.js",
+  "files": [
+    "web_component.js",
+    "CHANGELOG.json",
+    "README.md",
+    "dist/**/*"
+  ],
+  "dependencies": {
+    "@elvia/elvis-assets-icons": "^2.6.1",
+    "@elvia/elvis-colors": "^1.4.3",
+    "@elvia/elvis-typography": "^2.3.1",
+    "lit": "^2.5.0"
+  }
+}

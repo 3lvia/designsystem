@@ -30,6 +30,7 @@
     "@elvia/elvis-badge": "portal:../components/components/elvis-badge",
     "@elvia/elvis-box": "portal:../components/components/elvis-box",
     "@elvia/elvis-breadcrumb": "portal:../components/components/elvis-breadcrumb",
+    "@elvia/elvis-button": "portal:../components/components/elvis-button",
     "@elvia/elvis-card": "portal:../components/components/elvis-card",
     "@elvia/elvis-carousel": "portal:../components/components/elvis-carousel",
     "@elvia/elvis-chip": "portal:../components/components/elvis-chip",
