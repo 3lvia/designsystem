@@ -1,4 +1,11 @@
 <ng-template #changelogTemplate>
+  <p *ngIf="componentToFilter">
+    This changelog only contains Elvis versions that affected the
+    {{ componentToFilter | lowercase }} component and may thus appear incomplete. See the complete Elvis
+    changelog on the
+    <a class="e-link e-link--inline" href="https://design.elvia.io/about/whats-new">What's new?</a>
+    page.
+  </p>
   <table>
     <caption class="e-sr-only">Component changes</caption>
     <tr class="e-sr-only">
