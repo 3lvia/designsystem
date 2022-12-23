@@ -21,8 +21,6 @@ export class ComponentChangelogComponent implements OnInit {
    */
   @Input() componentToFilter: string;
 
-  constructor() {}
-
   filteredChangelog = [];
 
   filterChangelog(componentToFilter) {
