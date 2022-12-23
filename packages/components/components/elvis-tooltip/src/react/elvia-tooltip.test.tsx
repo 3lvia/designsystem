@@ -1,8 +1,9 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import Tooltip from './elvia-tooltip';
+import userEvent from '@testing-library/user-event';
 import { TooltipProps } from './elviaTooltip.types';
+import { axe } from 'jest-axe';
+import { render, screen, waitFor } from '@testing-library/react';
 
 const tooltipContent = 'Tooltip content';
 const triggerText = 'Trigger';
@@ -65,6 +66,30 @@ describe('Elvis Tooltip', () => {
     it('should apply the display prop to the trigger container', async () => {
       const trigger = screen.getByText(triggerText);
       expect(trigger.parentElement).toHaveStyle('display: flow');
+    });
+  });
+
+  describe('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="tooltip-wrapper">
+          <Tooltip
+            content={<span>{tooltipContent}</span>}
+            showDelay={0}
+            trigger={<button>{triggerText}</button>}
+          />
+        </div>,
+      );
+
+      const user = userEvent.setup();
+      const trigger = screen.getByText(triggerText);
+
+      await user.hover(trigger);
+
+      const tooltip = screen.getByTestId('tooltip-wrapper');
+      const results = await axe(tooltip);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });
