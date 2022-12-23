@@ -2,6 +2,7 @@ import Accordion from './elvia-accordion';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 
 describe('Elvis Accordion', () => {
   describe('Type = normal', () => {
@@ -84,6 +85,34 @@ describe('Elvis Accordion', () => {
 
       expect(accordionArea).toHaveStyle('margin: 24px');
       expect(accordionArea).toHaveClass('test-class');
+    });
+  });
+
+  describe('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="accordions">
+          <Accordion
+            labelPosition="center"
+            openLabel="open"
+            closeLabel="close"
+            content="TextContent"
+            type="normal"
+          />
+          <Accordion
+            labelPosition="center"
+            openLabel="open"
+            closeLabel="close"
+            content="TextContent"
+            type="normal"
+          />
+        </div>,
+      );
+
+      const accordions = screen.getByTestId('accordions');
+      const results = await axe(accordions);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

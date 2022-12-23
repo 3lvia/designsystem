@@ -264,7 +264,7 @@ export const Carousel: FC<CarouselProps> = function ({
           >
             {typeof carouselItems[index].heading === 'string' && (
               <CarouselHeading data-testid="carousel-item-heading">
-                <h2 className="e-heading-sm">{carouselItems[index].heading}</h2>
+                {carouselItems[index].heading}
               </CarouselHeading>
             )}
             {typeof carouselItems[index].heading === 'object' && (
