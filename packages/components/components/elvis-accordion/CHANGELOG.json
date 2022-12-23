@@ -8,12 +8,6 @@
         {
           "type": "patch",
           "changes": ["Moved the aria-expanded attribute to the button that open/closes the accordion."]
-        },
-        {
-          "type": "patch",
-          "changes": [
-            "Simplified the structure of the component. This causes a minor change in the DOM structure, but should not affect the styling of the component."
-          ]
         }
       ]
     },
