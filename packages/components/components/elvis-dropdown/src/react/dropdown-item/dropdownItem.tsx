@@ -175,7 +175,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         aria-disabled={item.isDisabled}
         aria-haspopup={item.children ? 'listbox' : 'false'}
         aria-expanded={isShowing}
-        aria-selected={selfOrAllChildrenAreSelected}
+        aria-selected={item.isDisabled ? undefined : selfOrAllChildrenAreSelected}
         aria-label={`
         ${item.label}
         ${item.children ? ', undermeny' : ''} 
