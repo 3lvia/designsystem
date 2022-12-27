@@ -2,16 +2,6 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "27.12.22",
-      "version": "7.5.0",
-      "changelog": [
-        {
-          "type": "new_feature",
-          "changes": ["Added a <span class=\"code-text\">id</span> prop to the overlay component"]
-        }
-      ]
-    },
-    {
       "date": "20.12.22",
       "version": "7.4.4",
       "changelog": [
