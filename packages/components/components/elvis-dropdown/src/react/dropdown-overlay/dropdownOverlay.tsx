@@ -227,7 +227,6 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
 
     return (
       <Overlay
-        id={id}
         ref={ref}
         hasBackdrop={!!isRootOverlay}
         onClose={onClose}
@@ -236,6 +235,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       >
         <DropdownPopupContainer
           data-testid="popover"
+          id={id}
           onMouseLeave={() => setHoveredItem && setHoveredItem(undefined)}
           isCompact={isCompact}
         >
