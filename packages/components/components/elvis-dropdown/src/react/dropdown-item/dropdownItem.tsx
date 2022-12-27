@@ -85,7 +85,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
       return children.some(currentValIncludesItem) && !children.every(currentValIncludesItem);
     }
     return false;
-  }, [selectableChildren, isMulti]);
+  }, [selectableChildren, isMulti, currentVal]);
 
   const showChildList = (isShowing: boolean): void => {
     flushSync(() => setIsShowing(isShowing));
