@@ -90,8 +90,9 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
           threshold: 0.4,
           minMatchCharLength: 1,
           keys: [
-            { name: 'title', weight: 1 },
+            { name: 'title', weight: 2 },
             { name: 'description', weight: 0.5 },
+            { name: 'searchTerms', weight: 0.066 },
           ],
         });
       })
@@ -107,6 +108,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     if (!this.searchService.isInitialized) {
       return;
     }
+
     this.activeResults = this.searchService.search(this.searchString);
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
@@ -152,6 +154,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
           type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
           absolutePath: docPage.absolutePath,
           fragmentPath: docPage.fragmentPath,
+          searchTerms: docPage.searchTerms,
         };
       }),
       docPagesNotFromCMS.map((docPage) => {
