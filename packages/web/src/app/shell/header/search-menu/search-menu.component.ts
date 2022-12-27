@@ -26,6 +26,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   searchString = '';
   searchItems: SearchItem[] = [];
   activeResults: SearchItem[] = [];
+  synonymComponents: SearchItem[] = [];
   isPrideMonth = false;
 
   private onDestroy = new Subject<void>();
@@ -113,6 +114,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
       this.showResults = true;
+      this.getComponentsWithSynonym();
       setTimeout(() => {
         this.highlightSearchMatches();
       });
@@ -304,6 +306,12 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
 
   private addHighlightBackground(str: string) {
     return `<span style='background: ${getColor('elvia-charge')}'>${str}</span>`;
+  }
+
+  getComponentsWithSynonym(): void {
+    this.synonymComponents = this.activeResults.filter((item) =>
+      item.searchTerms?.includes(this.searchString),
+    );
   }
 
   private checkIfPrideMonth(): void {
