@@ -56,6 +56,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ariaLabel,
   ...rest
 }) => {
   warnDeprecatedProps(config, rest);
@@ -176,6 +177,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             currentVal={currentVal}
             focusedItem={focusedItem}
             id={id}
+            ariaLabel={ariaLabel}
           />
 
           <IconRotator isRotated={isShowing}>
