@@ -38,6 +38,7 @@ interface DropdownOverlayProps {
   setHoveredItem?: (item?: DropdownItemOption) => void;
   parentItem?: DropdownItemOption;
   isSearchMode?: boolean;
+  id?: string;
 }
 
 let uniqueId = 0;
@@ -66,6 +67,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       setHoveredItem,
       parentItem,
       isSearchMode,
+      id,
     },
     ref,
   ) => {
@@ -225,6 +227,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
 
     return (
       <Overlay
+        id={id}
         ref={ref}
         hasBackdrop={!!isRootOverlay}
         onClose={onClose}
@@ -237,7 +240,10 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
           isCompact={isCompact}
         >
           {!isRootOverlay && isGtMobile && <CursorCurve />}
-          <DropdownPopup isInvisible={!isGtMobile && !focusIsOnDirectDescendant}>
+          <DropdownPopup
+            isInvisible={!isGtMobile && !focusIsOnDirectDescendant}
+            aria-multiselectable={isMulti}
+          >
             <ItemList ref={listRef}>
               {!filteredItems?.length && <NoItemsMessage>{noItemsText}</NoItemsMessage>}
               {!isGtMobile && !isRootOverlay && (

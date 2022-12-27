@@ -58,12 +58,16 @@ const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   warnDeprecatedProps(config, rest);
 
+  let uniqueDropdownId = 0;
+
   const [filter, setFilter] = useState('');
   const { inputMode } = useInputModeDetection();
   const isGtMobile = useBreakpoint('gt-mobile');
   const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
   const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
   const [focusedItem, setFocusedItem] = useState<DropdownItem>();
+  const [id] = useState(`ewc-dropdown-overlay-${uniqueDropdownId++}`);
+
   const filteredItems = useMemo(() => filterItems(items, filter), [items, filter]);
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
@@ -171,7 +175,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             onKeyPress={setPressedKey}
             currentVal={currentVal}
             focusedItem={focusedItem}
-            isMulti={isMulti}
+            id={id}
           />
 
           <IconRotator isRotated={isShowing}>
@@ -186,6 +190,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       </DropdownContainer>
       {isShowing && (
         <DropdownOverlay
+          id={id}
           ref={popoverRef}
           isRootOverlay
           isGtMobile={isGtMobile}

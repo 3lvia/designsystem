@@ -18,7 +18,7 @@ interface Props {
   onOpenDropdown: () => void;
   currentVal?: DropdownValue | null;
   focusedItem?: DropdownItem;
-  isMulti: boolean;
+  id?: string;
 }
 
 export const DropdownInput: React.FC<Props> = ({
@@ -34,7 +34,7 @@ export const DropdownInput: React.FC<Props> = ({
   onOpenDropdown,
   currentVal,
   focusedItem,
-  isMulti,
+  id,
 }) => {
   const [inputValue, setInputValue] = useState('');
   const [currentValIcon, setCurrentValIcon] = useState<IconName>();
@@ -112,7 +112,7 @@ export const DropdownInput: React.FC<Props> = ({
         aria-haspopup="true"
         aria-expanded={dropdownIsOpen}
         aria-disabled={isDisabled}
-        aria-multiselectable={isMulti}
+        aria-controls={id}
       />
     </>
   );
