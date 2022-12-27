@@ -9,6 +9,7 @@ interface OverlayProps {
   hasBackdrop?: boolean;
   hasAnimation?: boolean;
   children: ReactNode;
+  id?: string;
 }
 
 /**
@@ -39,7 +40,7 @@ interface OverlayProps {
  * @since 2.1.0
  */
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
-  ({ onClose, startFade = false, hasBackdrop = true, hasAnimation = true, children }, ref) => {
+  ({ onClose, startFade = false, hasBackdrop = true, hasAnimation = true, id, children }, ref) => {
     const [fadeOut, setFadeOut] = useState(false);
     const [isDestroyed, setIsDestroyed] = useState(false);
 
@@ -75,7 +76,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
     return createPortal(
       <>
         {hasBackdrop && <Backdrop onClick={() => animateOut()} data-testid="backdrop" />}
-        <OverlayContainer ref={ref} fadeOut={fadeOut} noAnimation={!hasAnimation}>
+        <OverlayContainer ref={ref} fadeOut={fadeOut} noAnimation={!hasAnimation} id={id}>
           {children}
         </OverlayContainer>
       </>,
