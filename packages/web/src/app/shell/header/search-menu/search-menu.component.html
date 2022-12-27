@@ -100,7 +100,7 @@
         <ng-container *ngFor="let component of synonymComponents; let last = last; let first = first">
           <span *ngIf="!last && !first">,</span>
           <span *ngIf="last && !first">or</span>
-          <a class="e-link e-link--inline" [routerLink]="[component.absolutePath]">
+          <a class="e-link e-link--inline" [routerLink]="[component.absolutePath]" (click)="closeSearch()">
             {{ component.title }}
           </a>
         </ng-container>
