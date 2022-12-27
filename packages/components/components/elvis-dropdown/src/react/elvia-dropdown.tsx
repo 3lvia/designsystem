@@ -29,6 +29,8 @@ const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
   }
 };
 
+let uniqueDropdownId = 0;
+
 const Dropdown: React.FC<DropdownProps> = ({
   items = [],
   value,
@@ -57,8 +59,6 @@ const Dropdown: React.FC<DropdownProps> = ({
   ...rest
 }) => {
   warnDeprecatedProps(config, rest);
-
-  let uniqueDropdownId = 0;
 
   const [filter, setFilter] = useState('');
   const { inputMode } = useInputModeDetection();
