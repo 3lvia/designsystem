@@ -1,5 +1,6 @@
 @use '../header.component.scss';
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+@use '@elvia/elvis/src/variables/typography.scss';
 
 .header {
   position: fixed;
@@ -118,10 +119,7 @@
         display: none;
       }
 
-      font-family: 'Red Hat Text', Verdana, sans-serif;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
+      @include typography.typography('text-md');
       line-height: 22px;
 
       &.e-search--global {
@@ -186,6 +184,21 @@
         }
       }
     }
+
+    .component-suggestions {
+      /* This breaks fast due to line breaks */
+      /* position: relative;
+      height: 0;
+      margin: 8px 0 -8px 0; */
+      margin: 8px 0 0 0;
+      @include typography.typography('text-md');
+      width: 100%;
+
+      /* @include breakpoints.breakpoint-up(Mobile) {
+        height: unset;
+        margin: 8px 0 0 0;
+      } */
+    }
   }
 
   .no-results {
@@ -194,10 +207,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 64px;
-
-    font-family: 'Red Hat Text', Verdana, sans-serif;
-    font-size: 20px;
-    line-height: 32px;
+    @include typography.typography('text-lg');
   }
 
   .results {
@@ -237,10 +247,7 @@
         flex-direction: row;
         justify-content: space-between;
         .title {
-          font-family: 'Red Hat Display', Verdana, sans-serif;
-          font-weight: 700;
-          font-size: 18px;
-          line-height: 22px;
+          @include typography.typography('title-xs');
         }
         .e-tag {
           cursor: pointer;
@@ -248,14 +255,7 @@
       }
 
       .result-content {
-        margin-top: 8px;
-
-        font-family: 'Red Hat Text', Verdana, sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 28px;
-        color: var(--e-grey-80);
+        @include typography.typography('text-md');
       }
     }
   }
