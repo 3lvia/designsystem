@@ -232,7 +232,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/F4ycCcM9cGf9T12EhzbN3F/Dividers?node-id=1%3A2',
     type: 'Component',
-    searchTerms: ['line', 'separator', 'section'],
+    searchTerms: ['line', 'separator', 'section', 'hr', 'br'],
   },
   {
     title: 'Dropdown',
