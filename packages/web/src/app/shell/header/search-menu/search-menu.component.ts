@@ -309,7 +309,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     return `<span style='background: ${getColor('elvia-charge')}'>${str}</span>`;
   }
 
-  getComponentsWithSynonym(): void {
+  private getComponentsWithSynonym(): void {
     this.synonymComponents = this.activeResults.filter((item) =>
       item.searchTerms?.includes(this.searchString),
     );
