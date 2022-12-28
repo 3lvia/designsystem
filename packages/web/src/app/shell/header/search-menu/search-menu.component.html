@@ -72,40 +72,42 @@
     </div>
     <div class="elvis-search-header e-mt-8">
       <h2 class="e-title-md search-title">What are you looking for?</h2>
-      <div class="e-search e-search--global" [ngClass]="{ 'e-search--searched': searchString !== '' }">
-        <div class="e-input">
-          <input
-            [(ngModel)]="searchString"
-            type="text"
-            placeholder="Search"
-            id="search-field"
-            autocomplete="off"
-            (keyup)="onSearch()"
-            aria-label="Search through site content"
-          />
+      <div class="search-wrapper">
+        <div class="e-search e-search--global" [ngClass]="{ 'e-search--searched': searchString !== '' }">
+          <div class="e-input">
+            <input
+              [(ngModel)]="searchString"
+              type="text"
+              placeholder="Search"
+              id="search-field"
+              autocomplete="off"
+              (keyup)="onSearch()"
+              aria-label="Search through site content"
+            />
+          </div>
+          <button
+            class="e-btn e-btn--icon"
+            (click)="clearSearch()"
+            aria-label="Empty search field"
+            id="search-clear-button"
+          >
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--close-bold" aria-hidden="true"></i>
+            </span>
+          </button>
         </div>
-        <button
-          class="e-btn e-btn--icon"
-          (click)="clearSearch()"
-          aria-label="Empty search field"
-          id="search-clear-button"
-        >
-          <span class="e-btn__icon">
-            <i class="e-icon e-icon--close-bold" aria-hidden="true" aria-hidden="true"></i>
-          </span>
-        </button>
+        <p class="component-suggestions" *ngIf="showResults && synonymComponents.length > 0">
+          Looking for the
+          <ng-container *ngFor="let component of synonymComponents; let last = last; let first = first">
+            <span *ngIf="!last && !first">,</span>
+            <span *ngIf="last && !first">or</span>
+            <a class="e-link e-link--inline" [routerLink]="[component.absolutePath]" (click)="closeSearch()">
+              {{ component.title }}
+            </a>
+          </ng-container>
+          component?
+        </p>
       </div>
-      <p class="e-mt-8 e-mb-32" *ngIf="showResults && synonymComponents.length > 0">
-        Looking for the
-        <ng-container *ngFor="let component of synonymComponents; let last = last; let first = first">
-          <span *ngIf="!last && !first">,</span>
-          <span *ngIf="last && !first">or</span>
-          <a class="e-link e-link--inline" [routerLink]="[component.absolutePath]" (click)="closeSearch()">
-            {{ component.title }}
-          </a>
-        </ng-container>
-        component?
-      </p>
     </div>
 
     <div class="no-results" *ngIf="searchString.length !== 0 && this.activeResults.length === 0">
@@ -114,21 +116,27 @@
     </div>
 
     <div class="results" *ngIf="showResults">
-      <a
-        class="result-item"
-        *ngFor="let result of activeResults"
-        [routerLink]="[result.absolutePath]"
-        [fragment]="result.fragmentPath"
-        (click)="closeSearch()"
-      >
-        <div class="result-title">
-          <div class="title item-title" [id]="'search_' + result.title">{{ result.title }}</div>
-          <label class="e-tag" *ngIf="result.type">{{ result.type }}</label>
-        </div>
-        <div class="result-content" *ngIf="result.description">
-          <div class="description-item" [id]="encodeHTML(result.description)"></div>
-        </div>
-      </a>
+      <ng-container *ngFor="let result of activeResults; let last = last">
+        <article>
+          <a
+            class="result-item"
+            [routerLink]="[result.absolutePath]"
+            [fragment]="result.fragmentPath"
+            (click)="closeSearch()"
+          >
+            <div class="result-title">
+              <div class="title item-title" [id]="'search_' + result.title">{{ result.title }}</div>
+              <div class="e-tag" *ngIf="result.type">{{ result.type }}</div>
+            </div>
+            <div class="result-content" *ngIf="result.description">
+              <div class="description-item" [id]="encodeHTML(result.description)"></div>
+            </div>
+          </a>
+        </article>
+        <ng-container *ngIf="!last">
+          <elvia-divider></elvia-divider>
+        </ng-container>
+      </ng-container>
     </div>
   </div>
 </div>
