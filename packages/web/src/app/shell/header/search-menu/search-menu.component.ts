@@ -130,6 +130,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   clearSearch(): void {
     this.searchString = '';
     this.activeResults = [];
+    this.getComponentsWithSynonym();
     const search = document.getElementById('search-field');
     search.focus();
   }
