@@ -225,17 +225,12 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       resultItem.matches.forEach((match) => {
         if (match.key === 'title') {
           const titleElement = document.getElementById('search_' + resultItem.item.title);
-          if (titleElement) {
-            titleElement.innerHTML = this.getHighlightedTitleString(match, resultItem.item.title);
-          }
+          const innerHTML = this.getHighlightedTitleString(match, resultItem.item.title);
+          this.setHTML(titleElement, innerHTML);
         } else if (match.key === 'description') {
           const descriptionElement = document.getElementById(this.encodeHTML(resultItem.item.description));
-          if (descriptionElement) {
-            descriptionElement.innerHTML = this.getHighlightedDescriptionString(
-              match,
-              resultItem.item.description,
-            );
-          }
+          const innerHTML = this.getHighlightedDescriptionString(match, resultItem.item.description);
+          this.setHTML(descriptionElement, innerHTML);
         }
       });
       // If there are no matches for 'description', just insert the description without any highlighting
@@ -248,11 +243,13 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         if (description.length > 165) {
           description = description.substring(0, 165) + '...';
         }
-        if (descriptionElement) {
-          descriptionElement.innerHTML = description;
-        }
+        this.setHTML(descriptionElement, description);
       }
     });
+  }
+
+  private setHTML(element: HTMLElement, innerHTML: string) {
+    if (element) element.innerHTML = innerHTML;
   }
 
   private getHighlightedTitleString(match: Fuse.FuseResultMatch, title: string): string {
