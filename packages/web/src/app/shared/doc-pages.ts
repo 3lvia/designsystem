@@ -1,5 +1,5 @@
 import { DocPage } from './shared.interface';
-import { Pages, DocPageStatus } from './shared.enum';
+import { Pages, DocPageStatus, DocPageType } from './shared.enum';
 
 // Used for shortcuts at home page
 export const homeMenu: DocPage[] = [
@@ -46,7 +46,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.AccordionGroup,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/CTFyTP4zr2KuVjSXsgZO1s/Accordion?node-id=72%3A491',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Accordion',
@@ -56,7 +56,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Accordion,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/CTFyTP4zr2KuVjSXsgZO1s/Accordion?node-id=72%3A491',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Alert',
@@ -66,7 +66,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Alert,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-messages?node-id=165%3A0',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Autocomplete',
@@ -76,7 +76,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Autocomplete,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2742%3A0',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Badge',
@@ -86,7 +86,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Badge,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/RDqaOx4hfYvZyQXtaqdkgA/Badge',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Box',
@@ -96,7 +96,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Box,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Box?node-id=288%3A0',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Button',
@@ -106,7 +106,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Button,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons?node-id=0%3A1',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Breadcrumb',
@@ -116,7 +116,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Breadcrumb,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/JNbQmeFGfn7QOybUKbSvks/Breadcrumb?node-id=3%3A2',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Card',
@@ -126,7 +126,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Card,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/w0gte3tPfAypBQpdynPMcU/Card?node-id=1%3A8',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Carousel',
@@ -136,7 +136,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Carousel,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/Um5AotNfUftDorJHGbIy99/Navigational-controls?node-id=1023%3A15726',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Chip',
@@ -146,7 +146,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Chip,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/dPti8DhGm7C2Rjx4IZSQFw/Chip?node-id=1%3A237',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Checkbox',
@@ -156,7 +156,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Checkbox,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A452',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Content Loader',
@@ -166,7 +166,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.ContentLoader,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/gZpJ1gY3wXM06X04j1r2RR/Loading-%26-scroll?node-id=9%3A0',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Context Menu',
@@ -176,7 +176,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.ContextMenu,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover?node-id=2191%3A5482',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Date Picker',
@@ -186,7 +186,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Datepicker,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Date Range Picker',
@@ -196,7 +196,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.DatepickerRange,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Drag & Drop',
@@ -205,7 +205,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.DragAndDrop,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1811%3A1080',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Divider',
@@ -214,7 +214,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Divider,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/F4ycCcM9cGf9T12EhzbN3F/Dividers?node-id=1%3A2',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Dropdown',
@@ -224,7 +224,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Dropdown,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1285%3A842',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'File Upload',
@@ -233,7 +233,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.FileUpload,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Header',
@@ -243,7 +243,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Header,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/QRhfgr0sd9MPmACos1xDNT/Header?node-id=230%3A604',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Text Field',
@@ -252,7 +252,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Input,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1262%3A486',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Tag',
@@ -262,7 +262,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Tag,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-%26-chips?node-id=136%3A1738',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Link',
@@ -272,7 +272,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Link,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/sgrg5TId3ewAFznKBFh2Wb/Links?node-id=1%3A10',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'List',
@@ -282,7 +282,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.List,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/uT9r54Z9NP5JQXxRvZ4LBV/Lists?node-id=353%3A0',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Modal',
@@ -292,7 +292,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Modal,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/unlDZ5F7svra9dPNKYdTK9/Modal?node-id=2%3A0',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Outline',
@@ -301,7 +301,7 @@ export const componentsDocPages: DocPage[] = [
     docUrl: Pages.Outline,
     absolutePath: '/components/' + Pages.Outline,
     status: DocPageStatus.Done,
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Pagination',
@@ -311,7 +311,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Pagination,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/XCqUxqWe47Tu0x52JYEbsX/Pagination?node-id=0%3A1',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Popover',
@@ -321,7 +321,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Popover,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover?node-id=1%3A10',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Position Picker',
@@ -331,7 +331,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.PositionPicker,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2506%3A17',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Progressbar',
@@ -340,7 +340,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Progressbar,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/gZpJ1gY3wXM06X04j1r2RR/Loading-%26-scroll?node-id=73%3A9',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Radio Button',
@@ -350,7 +350,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Radiobutton,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A517',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Radio Filter',
@@ -360,7 +360,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.RadioFilter,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=813%3A821',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Search',
@@ -370,7 +370,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Search,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/Yz09cKdXxOvfP0KP7AkTI7/Search?node-id=1%3A2',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Segmented Control',
@@ -380,7 +380,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.SegmentedControl,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A436',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Slider',
@@ -390,7 +390,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Slider,
     status: DocPageStatus.Coming,
     figmaUrl: 'https://www.figma.com/file/Bpc4gmpy4T4eeWm51X5UmJ/Slider?node-id=0%3A1',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Spotlight',
@@ -400,7 +400,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Spotlight,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/rpflFlBIv4c5TNKLXJLktG/?node-id=2%3A8',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Stepper',
@@ -410,7 +410,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Stepper,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=622%3A0',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Tabs',
@@ -420,7 +420,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Tabs,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/v0KlQT8eAWiNN1ORHsmNjt/Tabs?node-id=1%3A72',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Table',
@@ -430,7 +430,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Table,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=3%3A292',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Toggle',
@@ -440,7 +440,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Toggle,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A49',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Time Picker',
@@ -450,7 +450,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Timepicker,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Thumbnail',
@@ -460,7 +460,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Thumbnail,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/cIyfnYdCJ6Nlj5fLVi245M/Thumbnail?node-id=11%3A30',
-    type: 'Component',
+    type: DocPageType.Component,
   },
   {
     title: 'Tooltip',
@@ -470,7 +470,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Tooltip,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/kisdszIRwlezU3B4ZYRjfG/Tooltip?node-id=1%3A10',
-    type: 'Component',
+    type: DocPageType.Component,
   },
 ];
 
@@ -532,7 +532,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     docUrl: Pages.Shadow,
     absolutePath: '/brand/' + Pages.Shadow,
     status: DocPageStatus.Done,
-    type: 'Brand',
+    type: DocPageType.Brand,
     figmaUrl: 'https://www.figma.com/file/E2yRkpqSSuRnq8RDXO4Mly/Shadow?node-id=90%3A24',
   },
   {
@@ -542,7 +542,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     docUrl: Pages.Color,
     absolutePath: '/brand/' + Pages.Color,
     status: DocPageStatus.Done,
-    type: 'Brand',
+    type: DocPageType.Brand,
     figmaUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=0%3A1',
   },
   {
@@ -558,7 +558,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/brand/' + Pages.Icon,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=0%3A1',
-    type: 'Brand',
+    type: DocPageType.Brand,
   },
   {
     title: 'Layout',
@@ -567,7 +567,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/brand/' + 'layout',
     description:
       'Layout provides rules to give designs consistent rhythm in the application, as well as across applications to ensure a holistic design in Elvia. The layout consist of grid, spacing and box design.',
-    type: 'Brand',
+    type: DocPageType.Brand,
   },
   {
     title: 'Typography',
@@ -577,7 +577,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/brand/' + Pages.Typography,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography?node-id=0%3A1',
-    type: 'Brand',
+    type: DocPageType.Brand,
   },
   {
     title: 'Utility Classes',
@@ -586,7 +586,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     docUrl: Pages.Utilities,
     absolutePath: '/tools/' + Pages.Utilities,
     status: DocPageStatus.Done,
-    type: 'Tools',
+    type: DocPageType.Tools,
   },
   {
     title: 'What’s New?',
@@ -604,7 +604,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     docUrl: Pages.Contact,
     absolutePath: '/about/' + Pages.Contact,
     status: DocPageStatus.Done,
-    type: 'About',
+    type: DocPageType.About,
   },
   {
     title: 'Contribute',
