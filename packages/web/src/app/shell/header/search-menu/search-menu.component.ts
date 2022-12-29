@@ -111,7 +111,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       return;
     }
 
-    if (this.checkIfSearchIsPrefixed()) {
+    if (this.searchIsPrefixed()) {
       this.activeResults = this.searchService
         .search(this.prefixedSearchString)
         .filter((result) => result.type?.toLocaleLowerCase() === this.searchPrefix.toLocaleLowerCase());
@@ -316,7 +316,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     return `<span style='background: ${getColor('elvia-charge')}'>${str}</span>`;
   }
 
-  private checkIfSearchIsPrefixed(): boolean {
+  private searchIsPrefixed(): boolean {
     if (this.searchString.includes(':')) {
       this.searchPrefix = this.searchString.split(':')[0].toLocaleLowerCase();
       this.prefixedSearchString = this.searchString.split(':')[1];
