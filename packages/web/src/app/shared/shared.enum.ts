@@ -74,3 +74,11 @@ export enum Pages {
   DevelopmentPlayground = 'playground',
   DevelopmentStart = 'dev',
 }
+
+export enum DocPageType {
+  About = 'About',
+  Brand = 'Brand',
+  Component = 'Component',
+  Pattern = 'Pattern',
+  Tools = 'Tools',
+}
