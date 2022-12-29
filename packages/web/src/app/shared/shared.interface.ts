@@ -1,3 +1,5 @@
+import { DocPageStatus, DocPageType } from './shared.enum';
+
 export interface NavbarAnchor {
   title: string;
   top: number;
@@ -14,6 +16,6 @@ export interface DocPage {
   docUrl?: string;
   externalUrl?: string;
   figmaUrl?: string;
-  status?: string;
-  type?: string;
+  status?: DocPageStatus;
+  type?: DocPageType;
 }
