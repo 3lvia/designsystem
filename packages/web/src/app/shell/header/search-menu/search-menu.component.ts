@@ -215,13 +215,17 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       resultItem.matches.forEach((match) => {
         if (match.key === 'title') {
           const titleElement = document.getElementById('search_' + resultItem.item.title);
-          titleElement.innerHTML = this.getHighlightedTitleString(match, resultItem.item.title);
+          if (titleElement) {
+            titleElement.innerHTML = this.getHighlightedTitleString(match, resultItem.item.title);
+          }
         } else if (match.key === 'description') {
           const descriptionElement = document.getElementById(this.encodeHTML(resultItem.item.description));
-          descriptionElement.innerHTML = this.getHighlightedDescriptionString(
-            match,
-            resultItem.item.description,
-          );
+          if (descriptionElement) {
+            descriptionElement.innerHTML = this.getHighlightedDescriptionString(
+              match,
+              resultItem.item.description,
+            );
+          }
         }
       });
       // If there are no matches for 'description', just insert the description without any highlighting
@@ -234,7 +238,9 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         if (description.length > 165) {
           description = description.substring(0, 165) + '...';
         }
-        descriptionElement.innerHTML = description;
+        if (descriptionElement) {
+          descriptionElement.innerHTML = description;
+        }
       }
     });
   }
