@@ -12,6 +12,7 @@ import { SearchService } from '../../../core/services/search.service';
 import Fuse from 'fuse.js';
 import { getColor } from '@elvia/elvis-colors';
 import { Router } from '@angular/router';
+import { DocPageType } from '../../../shared/shared.enum';
 
 @Component({
   selector: 'app-search-menu',
@@ -26,6 +27,8 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   searchString = '';
   searchItems: SearchItem[] = [];
   activeResults: SearchItem[] = [];
+  searchPrefix = '';
+  prefixedSearchString = '';
   isPrideMonth = false;
 
   private onDestroy = new Subject<void>();
@@ -107,7 +110,14 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     if (!this.searchService.isInitialized) {
       return;
     }
-    this.activeResults = this.searchService.search(this.searchString);
+
+    if (this.checkIfSearchIsPrefixed()) {
+      this.activeResults = this.searchService
+        .search(this.prefixedSearchString)
+        .filter((result) => result.type?.toLocaleLowerCase() === this.searchPrefix.toLocaleLowerCase());
+    } else {
+      this.activeResults = this.searchService.search(this.searchString);
+    }
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
       this.showResults = true;
@@ -307,6 +317,18 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
 
   private addHighlightBackground(str: string) {
     return `<span style='background: ${getColor('elvia-charge')}'>${str}</span>`;
+  }
+
+  private checkIfSearchIsPrefixed(): boolean {
+    if (this.searchString.includes(':')) {
+      this.searchPrefix = this.searchString.split(':')[0].toLocaleLowerCase();
+      this.prefixedSearchString = this.searchString.split(':')[1];
+
+      const types = Object.values<string>(DocPageType).map((type) => type.toLocaleLowerCase());
+
+      return types.includes(this.searchPrefix);
+    }
+    return false;
   }
 
   private checkIfPrideMonth(): void {
