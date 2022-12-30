@@ -42,10 +42,6 @@
   box-sizing: border-box;
   padding-top: 48px;
 
-  @include breakpoints.breakpoint-up(Mobile) {
-    padding-top: 32px;
-  }
-
   &::before {
     content: '';
     left: -50%;
@@ -55,6 +51,25 @@
     width: 200vw;
     height: calc(100% + 8px);
     z-index: -1;
+  }
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    padding-top: 32px;
+  }
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    @media (orientation: landscape) {
+      padding-top: 16px;
+      height: calc(100vh - 64px);
+      overflow-y: scroll;
+      overflow-x: hidden;
+      padding-bottom: 64px;
+      background-color: var(--e-white);
+
+      &::before {
+        display: none;
+      }
+    }
   }
 
   .menu {
