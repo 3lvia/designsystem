@@ -1,7 +1,8 @@
 import Box from './elvia-box';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { getColor } from '@elvia/elvis-colors';
+import { render, screen } from '@testing-library/react';
 
 const colors = {
   green: getColor('green'),
@@ -74,6 +75,22 @@ describe('Elvis Box', () => {
       const boxArea = screen.getByTestId('box-area');
       expect(boxArea).toHaveStyle(`margin: 24px`);
       expect(boxArea).toHaveClass('test-class');
+    });
+  });
+
+  describe('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="boxes">
+          <Box title="Hello Box" content=""></Box>
+          <Box isColored content="Some content"></Box>
+        </div>,
+      );
+
+      const boxes = screen.getByTestId('boxes');
+      const results = await axe(boxes);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

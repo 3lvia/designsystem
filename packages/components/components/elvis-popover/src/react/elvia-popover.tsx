@@ -131,7 +131,7 @@ const Popover: FC<PopoverProps> = function ({
   const isStringOnly = (value: any) => typeof value === 'string';
 
   return (
-    <PopoverContainer ref={popoverContainerRef} role="dialog" {...rest}>
+    <PopoverContainer ref={popoverContainerRef} {...rest}>
       <TriggerContainer
         onClick={toggleVisibility}
         overlayIsOpen={isShowingConnectedOverlayState}
@@ -146,7 +146,15 @@ const Popover: FC<PopoverProps> = function ({
           onClose={() => setIsShowingConnectedOverlayState(false)}
           startFade={fadeOut}
         >
-          <PopoverContent className={className} style={inlineStyle} aria-modal="true" data-testid="popover">
+          <PopoverContent
+            className={className}
+            style={inlineStyle}
+            aria-modal="true"
+            data-testid="popover"
+            role="dialog"
+            aria-labelledby={heading ? 'ewc-popover-heading' : undefined}
+            aria-describedby={content ? 'ewc-popover-content' : undefined}
+          >
             {hasCloseButton && (
               <CloseButtonContainer>
                 <IconButton size="sm" onClick={toggleVisibility} aria-label="Lukk">

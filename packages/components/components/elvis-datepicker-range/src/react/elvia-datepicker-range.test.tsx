@@ -1,5 +1,6 @@
-import DatepickerRange from './elvia-datepicker-range';
 import React from 'react';
+import DatepickerRange from './elvia-datepicker-range';
+import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';
 
 describe('Elvis DatepickerRange', () => {
@@ -79,6 +80,22 @@ describe('Elvis DatepickerRange', () => {
       datePickers.forEach((datepicker) => {
         expect(datepicker).toHaveStyle('padding-top: 0.5rem');
       });
+    });
+  });
+
+  describe('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="datepicker-ranges">
+          <DatepickerRange />
+          <DatepickerRange />
+        </div>,
+      );
+
+      const datepickerRanges = screen.getByTestId('datepicker-ranges');
+      const results = await axe(datepickerRanges);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

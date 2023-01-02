@@ -20,6 +20,16 @@
       ]
     },
     {
+      "date": "23.12.22",
+      "version": "2.2.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Minor internal accessability improvements."]
+        }
+      ]
+    },
+    {
       "date": "16.12.22",
       "version": "2.2.0",
       "changelog": [

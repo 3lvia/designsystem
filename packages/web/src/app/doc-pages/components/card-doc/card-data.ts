@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 const cardData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-card',
-  elementNameW: 'elvia-card',
-  elementNameR: 'Card',
+  name: 'Card',
   attributes: {
     icon: {
       isRequired: false,

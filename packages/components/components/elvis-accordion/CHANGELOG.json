@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.12.22",
+      "version": "2.8.15",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Moved the aria-expanded attribute to the button that open/closes the accordion."]
+        }
+      ]
+    },
+    {
       "date": "12.12.22",
       "version": "2.8.14",
       "changelog": [

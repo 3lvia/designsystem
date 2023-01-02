@@ -46,7 +46,9 @@ export const TriggerContainer = styled.div<TriggerContainerProps>`
     `};
 `;
 
-export const PopoverTypography = styled.div<PopoverTypographyProps>`
+export const PopoverTypography = styled.div.attrs({
+  id: 'ewc-popover-content',
+})<PopoverTypographyProps>`
   ${getTypographyCss('text-sm')}
   ${({ isStringOnly, hasCloseButton }) =>
     isStringOnly &&
@@ -56,7 +58,9 @@ export const PopoverTypography = styled.div<PopoverTypographyProps>`
     `}
 `;
 
-export const Heading = styled.h3`
+export const Heading = styled.h3.attrs({
+  id: 'ewc-popover-heading',
+})`
   ${getTypographyCss('text-sm-strong')}
   margin: 0;
   padding: 0;

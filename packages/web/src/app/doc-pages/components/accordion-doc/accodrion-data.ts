@@ -4,9 +4,7 @@ import ComponentData from '../component-data.interface';
 
 const accordionData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-accordion',
-  elementNameW: 'elvia-accordion',
-  elementNameR: 'Accordion',
+  name: 'Accordion',
   attributes: {
     isOpen: {
       isRequired: false,

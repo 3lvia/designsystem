@@ -1,7 +1,8 @@
 import React from 'react';
-import { render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import ContextMenu from './elvia-context-menu';
+import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import { render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 
 describe('Elvis Context Menu', () => {
   beforeEach(() => {
@@ -90,6 +91,60 @@ describe('Elvis Context Menu', () => {
 
       const menuItem = screen.queryByText('Be om tilgang');
       await waitFor(() => expect(menuItem).not.toBeInTheDocument());
+    });
+  });
+
+  describe('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="context-menu-wrapper">
+          <ContextMenu
+            trigger={<button data-testid="trigger">Trigger</button>}
+            content={
+              <div data-testid="menu">
+                <div className="ewc-popover__list-group">
+                  <button>
+                    <span>Be om tilgang</span>
+                  </button>
+                  <button>
+                    <span>Legg til bruker</span>
+                  </button>
+                </div>
+                <div className="ewc-popover__list-group">
+                  <a href="#">
+                    <span>Endre passord</span>
+                  </a>
+                </div>
+              </div>
+            }
+          />
+          <ContextMenu
+            trigger={<button data-testid="trigger">Trigger</button>}
+            content={
+              <div data-testid="menu">
+                <div className="ewc-popover__list-group">
+                  <button>
+                    <span>Be om tilgang</span>
+                  </button>
+                  <button>
+                    <span>Legg til bruker</span>
+                  </button>
+                </div>
+                <div className="ewc-popover__list-group">
+                  <a href="#">
+                    <span>Endre passord</span>
+                  </a>
+                </div>
+              </div>
+            }
+          />
+        </div>,
+      );
+
+      const contextMenu = screen.getByTestId('context-menu-wrapper');
+      const results = await axe(contextMenu);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });
