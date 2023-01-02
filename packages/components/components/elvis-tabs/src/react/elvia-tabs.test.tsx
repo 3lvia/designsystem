@@ -84,12 +84,11 @@ describe('Elvis Tabs', () => {
     });
   });
 
-  //FAILS. To pass fix: Invalid ARIA attribute value: aria-controls="item".
-  describe.skip('the accessibility', () => {
+  describe('the accessibility', () => {
     it('should have no axe violations', async () => {
       render(
         <div data-testid="tabs-wrapper">
-          <Tabs items={items} />
+          <Tabs items={items} tabIdPrefix={'test'} />
           <Tabs items={items} value={2} />
         </div>,
       );

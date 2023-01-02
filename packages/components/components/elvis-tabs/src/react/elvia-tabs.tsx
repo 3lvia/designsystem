@@ -213,7 +213,7 @@ const Tabs: FC<TabsProps> = ({
                 id={uniqueId + i}
                 key={i}
                 aria-selected={currValue === i}
-                aria-controls={item}
+                aria-controls={uniqueId + i}
                 tabIndex={currValue === i ? 0 : -1}
                 onClick={() => {
                   updateValue(i);
