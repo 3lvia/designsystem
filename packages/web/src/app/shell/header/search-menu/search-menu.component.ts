@@ -26,6 +26,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   searchString = '';
   searchItems: SearchItem[] = [];
   activeResults: SearchItem[] = [];
+  resultsToDisplay: SearchItem[] = [];
   synonymComponents: SearchItem[] = [];
   isPrideMonth = false;
 
@@ -111,6 +112,9 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     }
 
     this.activeResults = this.searchService.search(this.searchString);
+    this.resultsToDisplay = this.searchService.searchResults
+      .filter((result) => !result.matches?.every((match) => match.key === 'searchTerms'))
+      .map((result) => result.item);
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
       this.showResults = true;
@@ -221,12 +225,12 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       resultItem.matches.forEach((match) => {
         if (match.key === 'title') {
           const titleElement = document.getElementById('search_' + resultItem.item.title);
-          titleElement.innerHTML = this.getHighlightedTitleString(match, resultItem.item.title);
+          this.setInnerHTML(titleElement, this.getHighlightedTitleString(match, resultItem.item.title));
         } else if (match.key === 'description') {
           const descriptionElement = document.getElementById(this.encodeHTML(resultItem.item.description));
-          descriptionElement.innerHTML = this.getHighlightedDescriptionString(
-            match,
-            resultItem.item.description,
+          this.setInnerHTML(
+            descriptionElement,
+            this.getHighlightedDescriptionString(match, resultItem.item.description),
           );
         }
       });
@@ -240,9 +244,13 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         if (description.length > 165) {
           description = description.substring(0, 165) + '...';
         }
-        descriptionElement.innerHTML = description;
+        this.setInnerHTML(descriptionElement, description);
       }
     });
+  }
+
+  private setInnerHTML(element: HTMLElement, innerHTML: string) {
+    if (element) element.innerHTML = innerHTML;
   }
 
   private getHighlightedTitleString(match: Fuse.FuseResultMatch, title: string): string {

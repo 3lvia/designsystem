@@ -53,8 +53,8 @@
   class="content"
   [ngClass]="{
     'content-result': showResults,
-    'content-no-result': searchString.length !== 0 && this.activeResults.length === 0,
-    'long-result': this.activeResults.length > 2
+    'content-no-result': searchString.length !== 0 && this.resultsToDisplay.length === 0,
+    'long-result': this.resultsToDisplay.length > 2
   }"
 >
   <div class="inner-content">
@@ -110,13 +110,13 @@
       </div>
     </div>
 
-    <div class="no-results" *ngIf="searchString.length !== 0 && this.activeResults.length === 0">
+    <div class="no-results" *ngIf="searchString.length !== 0 && this.resultsToDisplay.length === 0">
       <div>Oh snap 😕</div>
       <div>We can’t find what you are looking for</div>
     </div>
 
     <div class="results" *ngIf="showResults">
-      <ng-container *ngFor="let result of activeResults; let last = last">
+      <ng-container *ngFor="let result of resultsToDisplay; let last = last">
         <article>
           <a
             class="result-item"
