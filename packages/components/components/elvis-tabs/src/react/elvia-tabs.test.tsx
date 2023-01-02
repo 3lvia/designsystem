@@ -54,6 +54,18 @@ describe('Elvis Tabs', () => {
     });
   });
 
+  describe('className and inlineStyle passed to wrapper', () => {
+    beforeEach(() => {
+      render(<Tabs items={items} className="test-class" inlineStyle={{ margin: '24px' }}></Tabs>);
+    });
+
+    it('should have className and inlineStyle', () => {
+      const tabsContainer = screen.getByTestId('tabs-container');
+      expect(tabsContainer).toHaveStyle('margin: 24px');
+      expect(tabsContainer).toHaveClass('test-class');
+    });
+  });
+
   describe('Value = 2', () => {
     beforeEach(() => {
       render(<Tabs items={items} value={2}></Tabs>);

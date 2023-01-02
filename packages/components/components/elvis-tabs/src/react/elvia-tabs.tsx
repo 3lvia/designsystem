@@ -185,7 +185,13 @@ const Tabs: FC<TabsProps> = ({
   };
 
   return (
-    <TabsContainer className={className} style={inlineStyle} {...rest} ref={tabsRef}>
+    <TabsContainer
+      className={className}
+      style={inlineStyle}
+      ref={tabsRef}
+      data-testid="tabs-container"
+      {...rest}
+    >
       <ArrowButton
         isVisible={isOnRightEnd && isOnLeftEnd}
         isLeftArrow={true}
