@@ -39,18 +39,15 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName): Color | n
 export const getThemeColor = (label: ColorLabel, themeName: ThemeName = 'dark'): string => {
   const color = getThemeColorObject(label, themeName);
   if (!color) {
+    console.error(`Color ${label} not found.`);
     return '';
   }
   return color.hex;
 };
 
-const getThemeColors = <TThemeName extends ThemeName>(
+const getBaseThemeColors = <TThemeName extends ThemeName>(
   name: TThemeName,
-): TThemeName extends 'light'
-  ? typeof lightThemeColors
-  : TThemeName extends 'dark'
-  ? typeof darkThemeColors
-  : typeof lightThemeColors => {
+): TThemeName extends 'dark' ? typeof darkThemeColors : typeof lightThemeColors => {
   switch (name) {
     case 'dark':
       return darkThemeColors as any;
@@ -82,7 +79,7 @@ export const getCustomThemeColor = (
   colorNameToThemeMap: ColorNameToThemeMap,
   themeName: ThemeName = 'dark',
 ): string => {
-  const colors = getThemeColors(themeName);
+  const colors = getBaseThemeColors(themeName);
   const label = colorNameToThemeMap[themeName];
   const color =
     colors['primary-colors'][label as keyof typeof colors['primary-colors']] ??
