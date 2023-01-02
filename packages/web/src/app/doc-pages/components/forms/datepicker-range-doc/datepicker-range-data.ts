@@ -110,12 +110,12 @@ const datepickerRangeData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'Options',
     },
-    hasTimepicker: {
+    hasTimepickers: {
       isRequired: false,
       type: 'boolean',
       description: 'Displays time pickers to enable time selection.',
       default: false,
-      cegDisplayName: 'Has timepicker',
+      cegDisplayName: 'Has timepickers',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
@@ -131,7 +131,7 @@ const datepickerRangeData: ComponentData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['1', '5', '10', '15', '60'],
-      cegDependency: [{ name: 'hasTimepicker', value: 'true' }],
+      cegDependency: [{ name: 'hasTimepickers', value: 'true' }],
     },
     minDate: {
       isRequired: false,

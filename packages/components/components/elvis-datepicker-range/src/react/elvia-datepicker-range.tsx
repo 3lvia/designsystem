@@ -27,7 +27,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   isRequired,
   isVertical,
   hasSelectDateOnOpen = true,
-  hasTimepicker = false,
+  hasTimepickers = false,
   timepickerInterval = '15',
   hasAutoOpenEndDatepicker,
   errorOptions = {
@@ -231,11 +231,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
 
     if (openPicker === 'startDate') {
-      setOpenPicker(hasTimepicker ? 'startTime' : 'endDate');
+      setOpenPicker(hasTimepickers ? 'startTime' : 'endDate');
     } else if (openPicker === 'startTime') {
       setOpenPicker('endDate');
     } else if (openPicker === 'endDate') {
-      if (hasTimepicker) {
+      if (hasTimepickers) {
         setOpenPicker('endTime');
       } else {
         setOpenPicker(undefined);
@@ -289,7 +289,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           }
           hasSelectDateOnOpen={false}
         ></Datepicker>
-        {hasTimepicker && (
+        {hasTimepickers && (
           <Timepicker
             label=""
             isCompact={isCompact}
@@ -331,7 +331,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           }
           hasSelectDateOnOpen={false}
         ></Datepicker>
-        {hasTimepicker && (
+        {hasTimepickers && (
           <Timepicker
             label=""
             isCompact={isCompact}

@@ -32,7 +32,7 @@ describe('Elvis DatepickerRange', () => {
 
   describe('with time picker', () => {
     beforeEach(() => {
-      render(<DatepickerRange hasTimepicker></DatepickerRange>);
+      render(<DatepickerRange hasTimepickers></DatepickerRange>);
     });
 
     it('should display a start- and end-time picker', () => {

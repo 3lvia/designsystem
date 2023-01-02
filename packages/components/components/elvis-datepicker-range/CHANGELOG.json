@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Add prop <span class=\"code-text\">hasTimepicker</span> to enable time picking in the datepicker range."
+            "Add prop <span class=\"code-text\">hasTimepickers</span> to enable time picking in the datepicker range."
           ]
         }
       ]
