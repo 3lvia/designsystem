@@ -240,10 +240,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
           isCompact={isCompact}
         >
           {!isRootOverlay && isGtMobile && <CursorCurve />}
-          <DropdownPopup
-            isInvisible={!isGtMobile && !focusIsOnDirectDescendant}
-            aria-multiselectable={isMulti}
-          >
+          <DropdownPopup isInvisible={!isGtMobile && !focusIsOnDirectDescendant}>
             <ItemList ref={listRef}>
               {!filteredItems?.length && <NoItemsMessage>{noItemsText}</NoItemsMessage>}
               {!isGtMobile && !isRootOverlay && (
