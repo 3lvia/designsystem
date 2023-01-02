@@ -192,18 +192,9 @@
     }
 
     .component-suggestions {
-      /* This breaks fast due to line breaks */
-      /* position: relative;
-      height: 0;
-      margin: 8px 0 -8px 0; */
-      margin: 8px 0 0 0;
       @include typography.typography('text-md');
+      margin: 8px 0 0 0;
       width: 100%;
-
-      /* @include breakpoints.breakpoint-up(Mobile) {
-        height: unset;
-        margin: 8px 0 0 0;
-      } */
     }
   }
 
