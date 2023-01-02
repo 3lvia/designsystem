@@ -25,7 +25,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   isDisabled = false,
   isRequired = false,
   isOpen = false,
-  errorOptions = { hideText: false, isErrorState: false },
+  errorOptions = { hideText: false, isErrorState: false, hasErrorPlaceholder: true },
   onOpen,
   onClose,
   selectNowOnOpen = true,
@@ -147,6 +147,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
         isDisabled={isDisabled}
         isActive={isShowing}
         isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
+        hasErrorPlaceholder={errorOptions.hasErrorPlaceholder}
       >
         {!!label && <FormFieldLabel data-testid="label">{label}</FormFieldLabel>}
         <FormFieldInputContainer ref={connectedElementRef}>

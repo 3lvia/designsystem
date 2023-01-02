@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.1.23",
+      "version": "2.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added the <span class=\"code-text\">hasErrorPlaceholder</span> option to the <span class=\"code-text\">errorOptions</span> object. This prop can be set to false to remove the padding under the form field}"
+          ]
+        }
+      ]
+    },
+    {
       "date": "23.12.22",
       "version": "2.2.1",
       "changelog": [

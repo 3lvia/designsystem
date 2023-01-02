@@ -29,6 +29,7 @@ export interface FormFieldContainerProps {
   isActive?: boolean;
   isInvalid?: boolean;
   isDisabled?: boolean;
+  hasErrorPlaceholder?: boolean;
 }
 
 /**
@@ -46,9 +47,14 @@ export interface FormFieldContainerProps {
 export const FormFieldContainer = styled.label<FormFieldContainerProps>`
   display: inline-block;
   position: relative;
-  padding-bottom: 1.5rem;
   box-sizing: border-box;
   text-align: left;
+
+  ${({ hasErrorPlaceholder }) =>
+    hasErrorPlaceholder &&
+    css`
+      padding-bottom: '1.5rem';
+    `}
 
   ${({ isFullWidth }) =>
     isFullWidth &&
