@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 export const sliderData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-slider',
-  elementNameW: 'elvia-slider',
-  elementNameR: 'Slider',
+  name: 'Slider',
   attributes: {
     type: {
       default: '"simple"',

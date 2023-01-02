@@ -3,9 +3,7 @@ import ComponentData from '../../components/component-data.interface';
 
 const elvisIconData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-icon',
-  elementNameW: 'elvia-icon',
-  elementNameR: 'Icon',
+  name: 'Icon',
   attributes: {
     name: {
       isRequired: true,

@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 export const dividerData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-divider',
-  elementNameW: 'elvia-divider',
-  elementNameR: 'Divider',
+  name: 'Divider',
   attributes: {
     type: {
       isRequired: false,
