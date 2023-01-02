@@ -1,8 +1,9 @@
 import Card from './elvia-card';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { getColor } from '@elvia/elvis-colors';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import { getColor } from '@elvia/elvis-colors';
+import { render, screen } from '@testing-library/react';
 
 describe('Elvis Card', () => {
   describe('Type = simple square', () => {
@@ -227,6 +228,38 @@ describe('Elvis Card', () => {
       const cardArea = screen.getByTestId('card-area');
       expect(cardArea).toHaveStyle('margin: 24px');
       expect(cardArea).toHaveClass('test-class');
+    });
+  });
+
+  describe('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="cards">
+          <Card icon={'Icon'} heading={'Heading'} description={'Description'} tag={'Tag'}></Card>
+          <Card
+            icon={'Icon'}
+            heading={'Heading'}
+            description={'Description'}
+            borderColor={'red'}
+            tag={'Tag'}
+            width={'150px'}
+            minWidth={200}
+            maxWidth={220}
+          ></Card>
+          <Card
+            icon=""
+            type={'detail'}
+            tag={'Tag'}
+            description={'Description'}
+            cornerIcon={'CornerIcon'}
+          ></Card>
+        </div>,
+      );
+
+      const cards = screen.getByTestId('cards');
+      const results = await axe(cards);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

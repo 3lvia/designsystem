@@ -1,7 +1,8 @@
-import Tabs from './elvia-tabs';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import Tabs from './elvia-tabs';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import { render, screen } from '@testing-library/react';
 
 describe('Elvis Tabs', () => {
   const items = ['Oranges', 'Apples', 'Pears'];
@@ -80,6 +81,23 @@ describe('Elvis Tabs', () => {
     it('should have white text-shadow when selected', () => {
       const tabLabel = screen.getAllByTestId('tab-label');
       expect(tabLabel[0]).toHaveStyle('text-shadow: 0 0 0 white,0 0 0.5px white');
+    });
+  });
+
+  //FAILS. To pass fix: Invalid ARIA attribute value: aria-controls="item".
+  describe.skip('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="tabs-wrapper">
+          <Tabs items={items} />
+          <Tabs items={items} value={2} />
+        </div>,
+      );
+
+      const tabs = screen.getByTestId('tabs-wrapper');
+      const results = await axe(tabs);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

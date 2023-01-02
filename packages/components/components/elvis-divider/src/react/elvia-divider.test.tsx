@@ -1,7 +1,8 @@
 import Divider from './elvia-divider';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { getColor } from '@elvia/elvis-colors';
+import { render, screen } from '@testing-library/react';
 
 const colors = {
   elviaWhite: getColor('white'),
@@ -131,6 +132,23 @@ describe('Elvis Divider', () => {
       const dividerArea = screen.getByTestId('divider-area');
       expect(dividerArea).toHaveStyle(`margin: 24px`);
       expect(dividerArea).toHaveClass(`test-class`);
+    });
+  });
+
+  describe('the accessability', () => {
+    beforeEach(() => {
+      render(
+        <div data-testid="dividers">
+          <Divider type="simple"></Divider>
+          <Divider type="title" title={<h2>Title</h2>}></Divider>
+        </div>,
+      );
+    });
+
+    it('should have no axe violations', async () => {
+      const dividers = screen.getByTestId('dividers');
+      const results = await axe(dividers);
+      expect(results).toHaveNoViolations();
     });
   });
 });

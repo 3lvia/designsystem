@@ -1,5 +1,6 @@
-import RadioFilter, { Option } from './elvia-radio-filter';
 import React from 'react';
+import RadioFilter, { Option } from './elvia-radio-filter';
+import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';
 
 describe('Elvis RadioFilter', () => {
@@ -55,6 +56,22 @@ describe('Elvis RadioFilter', () => {
       const radioFilterGroup = screen.getByTestId('radio-filter-group');
       expect(radioFilterGroup).toHaveStyle('margin: 24px');
       expect(radioFilterGroup).toHaveClass('test-class');
+    });
+  });
+
+  describe('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="radio-filers">
+          <RadioFilter items={items} name="radio-filter" value="" />
+          <RadioFilter items={items} value="unread" name="radio-filter" />
+        </div>,
+      );
+
+      const radioFilters = screen.getByTestId('radio-filers');
+      const results = await axe(radioFilters);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

@@ -1,8 +1,9 @@
-import Dropdown from './elvia-dropdown';
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
-import { DropdownItem } from './elviaDropdown.types';
+import Dropdown from './elvia-dropdown';
 import userEvent from '@testing-library/user-event';
+import { DropdownItem } from './elviaDropdown.types';
+import { axe } from 'jest-axe';
+import { render, screen, waitFor } from '@testing-library/react';
 
 const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
   Object.defineProperty(window, 'matchMedia', {
@@ -323,6 +324,29 @@ describe('Elvis Dropdown', () => {
         expect(dropdownWrapper).toHaveStyle('margin: 24px');
         expect(dropdownWrapper).toHaveClass('test-class');
       });
+    });
+  });
+
+  //To pass tests: move some aria-roles, update aria-selected, add aria-label prop
+  describe.skip('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="dropdowns-wrapper">
+          {/* <Dropdown label={'Label'} items={items} /> */}
+          <Dropdown label={'Label'} hasSelectAllOption isMulti items={treeItems} />
+        </div>,
+      );
+
+      const user = userEvent.setup();
+      const dropdown = screen.getAllByRole('combobox');
+
+      await user.click(dropdown[0]);
+
+      const dropdowns = screen.getByTestId('dropdowns-wrapper');
+      screen.debug();
+      const results = await axe(dropdowns);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

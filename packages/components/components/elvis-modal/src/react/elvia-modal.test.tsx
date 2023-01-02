@@ -1,5 +1,6 @@
-import Modal from './elvia-modal';
 import React from 'react';
+import Modal from './elvia-modal';
+import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';
 
 describe('Elvis Modal', () => {
@@ -105,6 +106,36 @@ describe('Elvis Modal', () => {
       const modalWrapper = screen.getByTestId('modal-wrapper');
       expect(modalWrapper).toHaveStyle('margin: 24px');
       expect(modalWrapper).toHaveClass('test-class');
+    });
+  });
+
+  describe('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="modals">
+          <Modal
+            isShowing={false}
+            heading="Title"
+            content={<p>Content</p>}
+            primaryButton={<button>Primary</button>}
+          ></Modal>
+          <Modal
+            heading="Title"
+            content={<p>Content</p>}
+            primaryButton={<button>Primary</button>}
+            secondaryButton={<button>Secondary</button>}
+            illustration={<svg />}
+            hasCloseButton
+            isShowing
+          ></Modal>
+        </div>,
+      );
+
+      screen.debug();
+      const modals = screen.getByTestId('modals');
+      const results = await axe(modals);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

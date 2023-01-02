@@ -1,7 +1,8 @@
-import Timepicker from './elvia-timepicker';
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import Timepicker from './elvia-timepicker';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import { render, screen, waitFor } from '@testing-library/react';
 
 export const padDigit = (d: number): string => {
   const paddedNumber = `0${d}`;
@@ -222,6 +223,31 @@ describe('Elvis Timepicker', () => {
         const input = screen.getByTestId('input');
         expect(input).toHaveValue(`${padDigit(now.getHours())}.${padDigit(now.getMinutes())}`);
       });
+    });
+  });
+
+  describe('the accessibility', () => {
+    const onOpenListener: jest.Mock = jest.fn();
+    const onCloseListener: jest.Mock = jest.fn();
+
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="timepickers">
+          <Timepicker isDisabled={true} />
+          <Timepicker selectNowOnOpen={false} onOpen={onOpenListener} onClose={onCloseListener} />
+        </div>,
+      );
+
+      const user = userEvent.setup();
+      const popoverToggle = screen.getAllByTestId('popover-toggle');
+
+      await user.click(popoverToggle[1]);
+
+      const timepickers = screen.getByTestId('timepickers');
+      const results = await axe(timepickers);
+
+      screen.debug();
+      expect(results).toHaveNoViolations();
     });
   });
 });

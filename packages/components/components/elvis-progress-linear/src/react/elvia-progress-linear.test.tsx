@@ -1,5 +1,6 @@
-import ProgressLinear from './elvia-progress-linear';
 import React from 'react';
+import ProgressLinear from './elvia-progress-linear';
+import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';
 
 describe('Elvis Progress Linear', () => {
@@ -47,6 +48,22 @@ describe('Elvis Progress Linear', () => {
       const progressWrapper = screen.getByTestId('progress-wrapper');
       expect(progressWrapper).toHaveStyle('margin: 24px');
       expect(progressWrapper).toHaveClass('test-class');
+    });
+  });
+
+  //Skipped. see https://elvia.atlassian.net/browse/LEGO-2151?atlOrigin=eyJpIjoiZTI4MDEzYzJkYTBkNDczZGJiMDZhZTA3ZmM3ZDk5MGMiLCJwIjoiaiJ9
+  describe.skip('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="progress-linears-wrapper">
+          <ProgressLinear value={48} />
+        </div>,
+      );
+
+      const progressLinears = screen.getByTestId('progress-linears-wrapper');
+      const results = await axe(progressLinears);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

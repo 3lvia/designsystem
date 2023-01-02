@@ -44,6 +44,7 @@ const fadeInOpacity = keyframes`
 export const CarouselContainer = styled.section.attrs(() => ({
   'aria-roledescription': 'carousel',
   'aria-live': 'polite',
+  role: 'group',
 }))`
   display: flex;
   justify-content: center;
@@ -60,9 +61,7 @@ interface CarouselElementContainerProps {
   slideDirection: 'left' | 'right';
 }
 
-export const CarouselElementContainer = styled.div.attrs(() => ({
-  'aria-roledescription': 'slide',
-}))<CarouselElementContainerProps>`
+export const CarouselElementContainer = styled.div<CarouselElementContainerProps>`
   margin-bottom: 24px;
 
   // Prevent imagine dragging
