@@ -1,7 +1,8 @@
-import Pagination from './elvia-pagination';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import Pagination from './elvia-pagination';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import { render, screen } from '@testing-library/react';
 
 const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
   Object.defineProperty(window, 'matchMedia', {
@@ -131,6 +132,28 @@ describe('Elvis Pagination', () => {
       const pagination = screen.getByTestId('pagination');
       expect(pagination).toHaveStyle(`margin: 24px`);
       expect(pagination).toHaveClass(`test-class`);
+    });
+  });
+
+  describe.skip('the accessibility', () => {
+    /* will fail if there are multiple paginators on same page -> considered user error */
+    /* depends on fixes in dropdown before this test can be un-skipped */
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="paginations">
+          <Pagination />
+          <Pagination
+            numberOfElements={100}
+            alignment={'right'}
+            labelOptions={{ displaying: 'Showing', of: 'of', label: 'elements' }}
+          />
+        </div>,
+      );
+
+      const paginations = screen.getByTestId('paginations');
+      const results = await axe(paginations);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

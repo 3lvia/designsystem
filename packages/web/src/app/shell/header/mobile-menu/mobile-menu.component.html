@@ -19,6 +19,18 @@
 </header>
 
 <div class="content">
+  <div class="menu" *ngIf="!isLoaded && !mainMenu">
+    <div class="menu-items" *ngFor="let _ of [].constructor(5)">
+      <div class="links e-pt-24 e-pb-24">
+        <div class="e-content-loader e-content-loader--text"></div>
+      </div>
+      <div class="divider"></div>
+    </div>
+    <div class="version">
+      <div style="width: 30px; height: 14px" class="e-content-loader e-content-loader--text"></div>
+    </div>
+  </div>
+
   <div class="menu" *ngIf="mainMenu">
     <div class="menu-items" *ngFor="let menuItem of mainMenu.pages">
       <div class="links e-pt-24 e-pb-24" (click)="navigate(menuItem.path)">
