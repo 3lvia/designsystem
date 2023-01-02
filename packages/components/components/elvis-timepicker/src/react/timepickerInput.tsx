@@ -6,6 +6,7 @@ import { Input } from './styledComponents';
 
 interface Props {
   disabled?: boolean;
+  isFullWidth: boolean;
   required: boolean;
   time?: Date | null;
   onChange: (newValue: Date | null) => void;
@@ -15,6 +16,7 @@ interface Props {
 
 export const TimepickerInput: React.FC<Props> = ({
   disabled,
+  isFullWidth,
   required,
   time,
   onChange,
@@ -175,6 +177,7 @@ export const TimepickerInput: React.FC<Props> = ({
     <Input
       ref={inputElement}
       disabled={disabled}
+      isFullWidth={isFullWidth}
       placeholder="tt.mm"
       value={inputValue}
       onKeyDown={onKeyDown}

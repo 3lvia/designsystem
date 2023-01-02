@@ -22,6 +22,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   label = 'Velg tid',
   minuteInterval = '15',
   isCompact = false,
+  isFullWidth = false,
   isDisabled = false,
   isRequired = false,
   isOpen = false,
@@ -144,6 +145,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
         className={className ?? ''}
         style={{ ...inlineStyle }}
         isDisabled={isDisabled}
+        isFullWidth={isFullWidth}
         isActive={isShowing}
         isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
       >
@@ -152,6 +154,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           <TimepickerInput
             time={time}
             disabled={isDisabled}
+            isFullWidth={isFullWidth}
             onChange={updateValue}
             onFocus={() => onFocus?.()}
             required={isRequired}

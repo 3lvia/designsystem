@@ -8,6 +8,7 @@ export interface TimepickerProps extends BaseProps, HasValue<Date | null>, HasEr
   minuteInterval: MinuteInterval;
   isDisabled: boolean;
   isCompact: boolean;
+  isFullWidth: boolean;
   isRequired: boolean;
   isOpen: boolean;
   onClose: () => void;
