@@ -12,15 +12,13 @@ import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import throttle from 'lodash.throttle';
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
-
-let EWC_UNIQUE_TABS_ID = 0;
-
 export interface TabsProps {
   items: string[];
   value?: number;
   isInverted?: boolean;
   hasManualActivation?: boolean;
   ariaLabel?: string;
+  tabIdPrefix?: string;
   valueOnChange?: (value: number) => void;
   className?: string;
   inlineStyle?: CSSProperties;
@@ -33,6 +31,7 @@ const Tabs: FC<TabsProps> = ({
   isInverted,
   hasManualActivation = false,
   ariaLabel,
+  tabIdPrefix,
   valueOnChange,
   className,
   inlineStyle,
@@ -43,7 +42,7 @@ const Tabs: FC<TabsProps> = ({
   const [isOnRightEnd, setIsOnRightEnd] = useState(true);
   const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
   const [tabInFocus, setTabInFocus] = useState(value);
-  const [uniqueId] = useState(`ewc-tabs-${EWC_UNIQUE_TABS_ID++}`);
+  const [uniqueId] = useState(`ewc-tabs-${tabIdPrefix ? tabIdPrefix + '-' : ''}`);
   const tabsRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
   const lengthToScroll = 140;
