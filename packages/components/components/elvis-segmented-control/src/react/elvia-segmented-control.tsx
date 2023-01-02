@@ -20,7 +20,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   webcomponent,
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(value);
-  const segmentedControlName = uniqueId('ewc-segmented-control-');
+  const segmentedControlId = uniqueId('ewc-segmented-control-');
 
   const setSelected = (selectedIndex: number): void => {
     setSelectedIndex(selectedIndex);
@@ -50,14 +50,14 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
             size={size}
             isSelected={index === selectedIndex}
             key={index}
-            htmlFor={'segmented-control-' + index}
+            htmlFor={segmentedControlId + index}
             aria-label={type === 'icon' ? (control as IconSegmentedControl).ariaLabel : undefined}
             data-testid="segmented-control-label"
           >
             <SegmentedControlInput
               type="radio"
-              id={'segmented-control-' + index}
-              name={segmentedControlName}
+              id={segmentedControlId + index}
+              name={segmentedControlId}
               checked={index === selectedIndex}
               onChange={() => setSelected(index)}
               data-testid="segmented-control-input"

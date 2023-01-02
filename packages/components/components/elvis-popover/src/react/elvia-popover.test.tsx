@@ -1,7 +1,8 @@
-import Popover from './elvia-popover';
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import Popover from './elvia-popover';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import { render, screen, waitFor } from '@testing-library/react';
 
 describe('Elvis Popover', () => {
   describe('Default', () => {
@@ -141,6 +142,22 @@ describe('Elvis Popover', () => {
       const popoverContent = screen.getByTestId('popover');
       expect(popoverContent).toHaveStyle('margin: 24px');
       expect(popoverContent).toHaveClass('test-class');
+    });
+  });
+
+  describe('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="popovers-wrapper">
+          <Popover trigger={<button>Trigger</button>} heading="Header" content="Content" />
+          <Popover trigger={<button>Trigger</button>} heading="Header" content="Content" isShowing />
+        </div>,
+      );
+
+      const popovers = screen.getByTestId('popovers-wrapper');
+      const results = await axe(popovers);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

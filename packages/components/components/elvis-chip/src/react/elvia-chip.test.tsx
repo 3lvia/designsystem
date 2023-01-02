@@ -1,7 +1,8 @@
 import Chip from './elvia-chip';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { getColor } from '@elvia/elvis-colors';
+import { render, screen } from '@testing-library/react';
 
 const colors = {
   green: getColor('green-apple'),
@@ -95,6 +96,25 @@ describe('Elvis Chip', () => {
       const chipButton = screen.getByTestId('chip-button');
       expect(chipButton).toHaveStyle('margin: 24px');
       expect(chipButton).toHaveClass('test-class');
+    });
+  });
+
+  describe('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="chips">
+          <Chip value="chip value"></Chip>
+          <Chip type="legend" value="chip value"></Chip>
+          <Chip type="legend" value="chip value" isSelected></Chip>
+          <Chip type="choice" value="chip value" isSelected></Chip>
+          <Chip value="chip value" isDisabled></Chip>
+        </div>,
+      );
+
+      const chips = screen.getByTestId('chips');
+      const results = await axe(chips);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });
