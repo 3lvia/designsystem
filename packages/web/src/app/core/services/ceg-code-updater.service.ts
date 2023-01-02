@@ -93,6 +93,6 @@ export class CegCodeUpdaterService {
   }
 
   getWebComponentElementName(name: string) {
-    return 'elvia-' + name.toLowerCase();
+    return 'elvia' + name.replace(/([A-Z])/g, '-$1').toLowerCase();
   }
 }

@@ -565,7 +565,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
    * @returns An object containing the component's `ComponentData`, or `ComponentTypeData` if using separate component data for each component type.
    */
   private getComponentDataForCurrentType(): ComponentData | ComponentTypeData {
-    console.log('Typesdata: ', this.typesData);
     if (this.typesData) {
       const selectedTypeIndex = (
         this.typeOptions.find((option) => option.label === this.selectedType) ?? this.typeOptions[0]

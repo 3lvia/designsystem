@@ -13,6 +13,6 @@ export class ComponentInstallationComponent implements OnInit {
 
   ngOnInit() {
     this.reactElementName = this.componentData.name;
-    this.packageName = 'elvis-' + this.componentData.name.toLowerCase();
+    this.packageName = 'elvis' + this.componentData.name.replace(/([A-Z])/g, '-$1').toLowerCase();
   }
 }
