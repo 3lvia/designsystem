@@ -296,6 +296,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isDisabled={isDisabled}
             value={isTouched('startTime') ? selectedDateRange.start : undefined}
             valueOnChange={(time) => handleStartDateValueOnChange(time, 'time')}
+            isFullWidth={isFullWidth && isVertical}
             onFocus={() => setTouched('startTime')}
             isRequired={isRequiredState?.start}
             selectNowOnOpen={false}
@@ -338,6 +339,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isDisabled={isDisabled}
             value={isTouched('endTime') ? selectedDateRange.end : undefined}
             valueOnChange={(time) => handleEndDatepickerValueOnChange(time, 'time')}
+            isFullWidth={isFullWidth && isVertical}
             onFocus={() => setTouched('endTime')}
             isRequired={isRequiredState?.end}
             selectNowOnOpen={false}
