@@ -55,6 +55,10 @@ pre {
   .active-code {
     font-family: 'Red Hat Mono', Verdana, sans-serif;
     color: white;
+    background: unset;
+    font-size: inherit;
+    border-radius: unset;
+    padding: inherit;
   }
   .script-tag {
     height: 18px;
