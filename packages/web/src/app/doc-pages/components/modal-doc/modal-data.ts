@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 const modalData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-modal',
-  elementNameW: 'elvia-modal',
-  elementNameR: 'Modal',
+  name: 'Modal',
   attributes: {
     isShowing: {
       isRequired: true,

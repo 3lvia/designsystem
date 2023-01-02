@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 export const badgeData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-badge',
-  elementNameW: 'elvia-badge',
-  elementNameR: 'Badge',
+  name: 'Badge',
   attributes: {
     content: {
       isRequired: true,

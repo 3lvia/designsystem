@@ -13,9 +13,7 @@ import ComponentData from './components/component-data.interface';
 // Define the componentData
 const componentData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-component', // Component name (package name)
-  elementNameW: 'elvia-component', // Component name for the DOM (Custom element)
-  elementNameR: 'Component', // Component name for the DOM (React)
+  name: 'Component', // Component name
   /* All attributes should be added to this list. 
     Some attributes will need more information depending on whether they should be displayed in the CEG or not.
     However 3 attributes are required for all components: 'isRequired', 'type' and 'description'.

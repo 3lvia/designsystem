@@ -4,9 +4,7 @@ import ComponentData from '../component-data.interface';
 
 export const tabsData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-tabs',
-  elementNameW: 'elvia-tabs',
-  elementNameR: 'Tabs',
+  name: 'Tabs',
   attributes: {
     items: {
       isRequired: true,

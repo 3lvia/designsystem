@@ -166,7 +166,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       this.updateSelected('name', value, 'string');
     }
     /** HACK: CEG hide accordion large size when single (Replace if more scenarios appear) */
-    if (this.selectedType === 'Single' && this.componentData.name === 'elvis-accordion') {
+    if (this.selectedType === 'Single' && this.componentData.name === 'Accordion') {
       document.getElementById('Size-large-true').parentElement.classList.add('e-none');
     }
   }
@@ -565,6 +565,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
    * @returns An object containing the component's `ComponentData`, or `ComponentTypeData` if using separate component data for each component type.
    */
   private getComponentDataForCurrentType(): ComponentData | ComponentTypeData {
+    console.log('Typesdata: ', this.typesData);
     if (this.typesData) {
       const selectedTypeIndex = (
         this.typeOptions.find((option) => option.label === this.selectedType) ?? this.typeOptions[0]

@@ -28,8 +28,8 @@ export class CegCodeUpdaterService {
     newValue: string,
     type: string,
   ): CegCodes {
-    const elNameR = componentData.elementNameR;
-    const elNameW = componentData.elementNameW;
+    const elNameR = componentData.name;
+    const elNameW = this.getWebComponentElementName(componentData.name);
     return {
       react: this.cegService.addNewProp(cegCodes.react, attr, newValue, 'react', type, elNameR),
       angular: this.cegService.addNewProp(cegCodes.angular, attr, newValue, 'angular', type, elNameW),
@@ -71,8 +71,8 @@ export class CegCodeUpdaterService {
   }
 
   addSlotAndProp(cegCodes: CegCodes, componentData: ComponentData, attr: string, value: string): CegCodes {
-    const elNameR = componentData.elementNameR;
-    const elNameW = componentData.elementNameW;
+    const elNameR = componentData.name;
+    const elNameW = this.getWebComponentElementName(componentData.name);
     return {
       react: this.cegService.addNewSlotAndProp(cegCodes.react, attr, value, 'react', elNameR),
       angular: this.cegService.addNewSlotAndProp(cegCodes.angular, attr, value, 'angular', elNameW),
@@ -82,13 +82,17 @@ export class CegCodeUpdaterService {
   }
 
   removeSlotAndProp(cegCodes: CegCodes, componentData: ComponentData, attr: string, value: string): CegCodes {
-    const elNameR = componentData.elementNameR;
-    const elNameW = componentData.elementNameW;
+    const elNameR = componentData.name;
+    const elNameW = this.getWebComponentElementName(componentData.name);
     return {
       react: this.cegService.removeSlotAndProp(cegCodes.react, attr, value, 'react', elNameR),
       angular: this.cegService.removeSlotAndProp(cegCodes.angular, attr, value, 'angular', elNameW),
       vue: this.cegService.removeSlotAndProp(cegCodes.vue, attr, value, 'vue', elNameW),
       native: this.cegService.removeSlotAndProp(cegCodes.native, attr, value, 'native', elNameW),
     };
+  }
+
+  getWebComponentElementName(name: string) {
+    return 'elvia-' + name.toLowerCase();
   }
 }

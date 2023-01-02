@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 export const dropdownData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-dropdown',
-  elementNameW: 'elvia-dropdown',
-  elementNameR: 'Dropdown',
+  name: 'Dropdown',
   attributes: {
     items: {
       isRequired: true,

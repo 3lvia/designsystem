@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 export const chipData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-chip',
-  elementNameW: 'elvia-chip',
-  elementNameR: 'Chip',
+  name: 'Chip',
   attributes: {
     type: {
       isRequired: false,
