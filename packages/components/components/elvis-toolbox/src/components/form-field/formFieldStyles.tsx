@@ -53,7 +53,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
   ${({ hasErrorPlaceholder }) =>
     hasErrorPlaceholder &&
     css`
-      padding-bottom: '1.5rem';
+      padding-bottom: 1.5rem;
     `}
 
   ${({ isFullWidth }) =>
