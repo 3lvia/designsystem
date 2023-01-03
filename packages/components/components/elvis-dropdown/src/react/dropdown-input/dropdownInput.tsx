@@ -13,7 +13,7 @@ interface Props {
   isDisabled: boolean;
   items: DropdownItem[];
   onChange: (query: string) => void;
-  onKeyPress: (ev: KeyboardEvent<HTMLInputElement>) => void;
+  onKeyPress: (ev?: KeyboardEvent<HTMLInputElement>) => void;
   dropdownIsOpen: boolean;
   onOpenDropdown: () => void;
   currentVal?: DropdownValue | null;
@@ -108,6 +108,7 @@ export const DropdownInput: React.FC<Props> = ({
         value={inputValue}
         onClick={() => onOpenDropdown()}
         onKeyDown={onKeyDown}
+        onKeyUp={() => onKeyPress(undefined)}
         readOnly={!isEditable || !dropdownIsOpen}
         role="combobox"
         aria-autocomplete="none"

@@ -7,7 +7,6 @@ import { DropdownItemStyles, IconContainer, OpenOverlayButton } from './dropdown
 import { Checkbox } from '../checkbox/checkbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { statusToIconMap } from '../statusToIconMap';
-import { flushSync } from 'react-dom';
 import { getColor } from '@elvia/elvis-colors';
 import arrowRight from '@elvia/elvis-assets-icons/dist/icons/arrowRight';
 
@@ -88,7 +87,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   }, [selectableChildren, isMulti, currentVal]);
 
   const showChildList = (isShowing: boolean): void => {
-    flushSync(() => setIsShowing(isShowing));
+    setIsShowing(isShowing);
   };
 
   const onMouseOver = () => {
