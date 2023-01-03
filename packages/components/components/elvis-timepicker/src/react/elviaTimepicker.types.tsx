@@ -8,10 +8,17 @@ export interface TimepickerProps extends BaseProps, HasValue<Date | null>, HasEr
   minuteInterval: MinuteInterval;
   isDisabled: boolean;
   isCompact: boolean;
+  isFullWidth: boolean;
   isRequired: boolean;
   isOpen: boolean;
   onClose: () => void;
   onOpen: () => void;
   selectNowOnOpen: boolean;
   label: string;
+
+  /**
+   * Used by the datepicker range component. Internal use only.
+   * @internal
+   */
+  onFocus: () => void;
 }
