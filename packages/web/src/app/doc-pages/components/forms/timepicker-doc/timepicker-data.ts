@@ -3,9 +3,7 @@ import ComponentData from '../../component-data.interface';
 
 export const timepickerData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-timepicker',
-  elementNameW: 'elvia-timepicker',
-  elementNameR: 'Timepicker',
+  name: 'Timepicker',
   attributes: {
     value: {
       isRequired: false,

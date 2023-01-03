@@ -1,7 +1,4 @@
 const cardLinkCode = {
-  name: 'elvis-card',
-  elementNameW: 'elvia-card',
-  elementNameR: 'Card',
   codeReact: `<Link to="/home">
   <Card 
     icon={<i slot="icon" className="e-icon e-icon--home e-icon--sm" aria-hidden="true"></i>}

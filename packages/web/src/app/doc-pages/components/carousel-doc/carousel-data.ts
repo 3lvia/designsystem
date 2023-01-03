@@ -4,9 +4,7 @@ import ComponentData from '../component-data.interface';
 
 export const carouselData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-carousel',
-  elementNameW: 'elvia-carousel',
-  elementNameR: 'Carousel',
+  name: 'Carousel',
   attributes: {
     items: {
       isRequired: true,

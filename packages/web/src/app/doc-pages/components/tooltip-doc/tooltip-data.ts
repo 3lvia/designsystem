@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 export const tooltipData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-tooltip',
-  elementNameW: 'elvia-tooltip',
-  elementNameR: 'Tooltip',
+  name: 'Tooltip',
   attributes: {
     content: {
       isRequired: true,

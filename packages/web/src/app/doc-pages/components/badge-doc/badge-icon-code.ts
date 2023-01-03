@@ -1,7 +1,4 @@
 const badgeIconCode = {
-  name: 'elvis-badge',
-  elementNameW: 'elvia-badge',
-  elementNameR: 'Badge',
   codeReact: `<button class="e-btn e-btn--icon e-mr-8" aria-label="Beskrivelse av ikon-knapp">
   <Badge content={
     <span slot="content"class="e-btn__icon">

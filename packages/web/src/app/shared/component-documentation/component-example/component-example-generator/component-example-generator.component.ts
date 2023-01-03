@@ -166,7 +166,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       this.updateSelected('name', value, 'string');
     }
     /** HACK: CEG hide accordion large size when single (Replace if more scenarios appear) */
-    if (this.selectedType === 'Single' && this.componentData.name === 'elvis-accordion') {
+    if (this.selectedType === 'Single' && this.componentData.name === 'Accordion') {
       document.getElementById('Size-large-true').parentElement.classList.add('e-none');
     }
   }
