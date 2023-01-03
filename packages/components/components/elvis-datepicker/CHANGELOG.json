@@ -7,7 +7,12 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Add internal focus event.", "Always view selectable date when datepicker opens."]
+          "changes": [
+            "Now scrolling to current year if no date is selected",
+            "Removed gradient in year picker to match other components",
+            "Add internal focus event.",
+            "Always view selectable date when datepicker opens."
+          ]
         }
       ]
     },
