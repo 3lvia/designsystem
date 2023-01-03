@@ -3,9 +3,7 @@ import ComponentData from '../../component-data.interface';
 
 const datepickerRangeData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-datepicker-range',
-  elementNameW: 'elvia-datepicker-range',
-  elementNameR: 'DatepickerRange',
+  name: 'DatepickerRange',
   attributes: {
     value: {
       isRequired: false,

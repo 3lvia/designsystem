@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 export const paginationData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-pagination',
-  elementNameW: 'elvia-pagination',
-  elementNameR: 'Pagination',
+  name: 'Pagination',
   attributes: {
     value: {
       isRequired: false,

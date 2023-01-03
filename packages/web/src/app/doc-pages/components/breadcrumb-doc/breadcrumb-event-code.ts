@@ -1,7 +1,4 @@
 const breadcrumbEventCode = {
-  name: 'elvis-breadcrumb',
-  elementNameW: 'elvia-breadcrumb',
-  elementNameR: 'Breadcrumb',
   codeReact: `<Breadcrumb 
   items={[
     {text: 'Home'},

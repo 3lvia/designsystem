@@ -198,20 +198,10 @@ export interface ComponentChangelogChange {
  */
 export default interface ComponentData extends ComponentDataCode {
   /**
-   * Component name (package name). Prefixed with 'elvis'.
-   * @example 'elvis-component'
+   * Component name.
+   * @example 'SegmentedControl'
    */
-  name: `elvis-${string}`;
-  /**
-   * Component name for the DOM (Custom element). Prefixed with 'elvia-'.
-   * @example 'elvia-component'
-   */
-  elementNameW: `elvia-${string}`;
-  /**
-   * Component name for the DOM (React).
-   * @example 'Component'
-   */
-  elementNameR: string;
+  name: `${string}`;
   /**
    * All the component's attributes should be in this object.
    * Some attributes will need more information depending on whether they should be displayed in the CEG or not,

@@ -73,8 +73,7 @@ describe('Elvia Segmented Control', () => {
     });
   });
 
-  //Fails. To pass: create unique id for each segmented control item
-  describe.skip('the accessibility', () => {
+  describe('the accessibility', () => {
     const items = [{ label: 'Weekly' }, { label: 'Monthly' }, { label: 'Yearly' }];
     const iconItems: IconSegmentedControl[] = [
       { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: 'label' },
@@ -86,7 +85,8 @@ describe('Elvia Segmented Control', () => {
         <div data-testid="segmented-controls">
           <SegmentedControl items={items} />
           <SegmentedControl items={items} />
-          <SegmentedControl items={iconItems} />
+          <SegmentedControl type="icon" items={iconItems} />
+          <SegmentedControl type="icon" items={iconItems} />
         </div>,
       );
 

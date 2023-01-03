@@ -4,9 +4,7 @@ import ComponentData from '../component-data.interface';
 
 const boxData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-box',
-  elementNameW: 'elvia-box',
-  elementNameR: 'Box',
+  name: 'Box',
   attributes: {
     content: {
       isRequired: true,

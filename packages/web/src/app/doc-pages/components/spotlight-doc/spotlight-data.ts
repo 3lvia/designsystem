@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 const spotlightData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-spotlight',
-  elementNameW: 'elvia-spotlight',
-  elementNameR: 'Spotlight',
+  name: 'Spotlight',
   attributes: {
     position: {
       isRequired: true,
