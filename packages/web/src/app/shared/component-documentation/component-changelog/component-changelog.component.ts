@@ -19,11 +19,11 @@ export class ComponentChangelogComponent implements OnInit {
   /**
    * The component to filter for (only display changelog for this component)
    */
-  @Input() componentToFilter?: string;
+  @Input() elvisComponentToFilter?: string;
 
   filteredChangelog = [];
 
-  private filterChangelog(componentToFilter: string) {
+  private filterChangelog(elvisComponentToFilter: string) {
     let numberOfReleasesSkipped = 0;
     // Loop through each entry in the changelog.
     this.changelog.forEach((elvisChangelogEntry) => {
@@ -33,7 +33,7 @@ export class ComponentChangelogComponent implements OnInit {
         // Loop through each component name in the entry.
         components?.forEach(({ displayName }) => {
           if (
-            displayName.toLowerCase() === componentToFilter.toLowerCase() &&
+            displayName.toLowerCase() === elvisComponentToFilter.toLowerCase() &&
             !this.filteredChangelog.includes(elvisChangelogEntry)
           ) {
             wasSkipped = false;
