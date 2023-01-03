@@ -99,7 +99,7 @@
         <p class="component-suggestions" *ngIf="showResults && synonymComponents.length > 0">
           Looking for the
           <ng-container *ngFor="let component of synonymComponents; let last = last; let first = first">
-            <span *ngIf="!last && !first">,</span>
+            <span *ngIf="!last && !first">,&nbsp;</span>
             <span *ngIf="last && !first">or</span>
             <a class="e-link e-link--inline" [routerLink]="[component.absolutePath]" (click)="closeSearch()">
               {{ component.title }}
