@@ -92,6 +92,10 @@ export const ScrollContainer = styled.div`
   padding: ${tabsFocusPadding}px;
   height: ${tabsHeightWithFocus}px;
   scrollbar-width: none;
+  gap: 24px;
+  @media screen and (max-width: 767px) {
+    gap: 16px;
+  }
   &::-webkit-scrollbar {
     display: none;
   }
@@ -101,12 +105,6 @@ export const Tab = styled.button`
   border: 0;
   padding: 0;
   background: transparent;
-  &:not(:last-of-type) {
-    margin-right: 24px;
-    @media screen and (max-width: 767px) {
-      margin-right: 16px;
-    }
-  }
 `;
 
 const Underline = css`
