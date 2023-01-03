@@ -42,9 +42,9 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
   const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
     offset: 8,
-    horizontalPosition: 'center',
+    horizontalPosition: 'left-inside',
     verticalPosition: 'bottom',
-    alignWidths: true,
+    alignWidths: false,
   });
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
 

@@ -14,6 +14,7 @@ export const OverlayContainer = styled.div`
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   display: flex;
+  width: 120px;
 `;
 
 export const NumberPickerContainer = styled.div`
