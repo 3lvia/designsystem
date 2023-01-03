@@ -58,7 +58,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     popoverRef,
     {
       offset: 8,
-      horizontalPosition: 'left-inside',
+      horizontalPosition: 'right-inside',
       verticalPosition: 'bottom',
       alignWidths: false,
     },

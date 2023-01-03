@@ -42,7 +42,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
   const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
     offset: 8,
-    horizontalPosition: 'left-inside',
+    horizontalPosition: 'right-inside',
     verticalPosition: 'bottom',
     alignWidths: false,
   });
