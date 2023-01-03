@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import elvisChangelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
 
 @Component({
   selector: 'app-component-changelog',
@@ -47,8 +48,9 @@ export class ComponentChangelogComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.componentToFilter) {
-      this.filterChangelog(this.componentToFilter);
+    if (this.elvisComponentToFilter) {
+      this.changelog = elvisChangelogJson.content;
+      this.filterChangelog(this.elvisComponentToFilter);
       this.changelog = this.filteredChangelog;
     }
   }
