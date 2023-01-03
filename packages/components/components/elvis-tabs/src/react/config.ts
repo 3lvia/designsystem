@@ -8,6 +8,7 @@ export const config: ComponentConfig = {
     { name: 'ariaLabel', type: 'string' },
     { name: 'isInverted', type: 'boolean' },
     { name: 'hasManualActivation', type: 'boolean' },
+    { name: 'tabIdPrefix', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
   ],

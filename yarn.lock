@@ -3130,8 +3130,8 @@ __metadata:
     "@elvia/elvis-colors": ^1.4.2
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-toolbox": ^7.4.1
+    "@elvia/elvis-typography": ^2.3.1
     "@types/lodash.throttle": ^4.1.7
-    classnames: ^2.3.1
     lodash.throttle: ^4.1.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -3149,7 +3149,7 @@ __metadata:
     "@elvia/elvis-colors": ^1.4.2
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-toolbox": ^7.4.1
-    classnames: ^2.3.1
+    "@elvia/elvis-typography": ^2.3.1
     lodash.throttle: ^4.1.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -10475,13 +10475,6 @@ __metadata:
   version: 1.1.20150312
   resolution: "classlist.js@npm:1.1.20150312"
   checksum: cf5f0af7800ccbfbe6ff7fa421f233e253a624aed914ebd6ad6be0462cf7641a1d0ddbbc93bbf6db3ca56d9a28a0a6d40cbc75bf980fd40b9d0a0cc6167bee23
-  languageName: node
-  linkType: hard
-
-"classnames@npm:^2.3.1":
-  version: 2.3.2
-  resolution: "classnames@npm:2.3.2"
-  checksum: 2c62199789618d95545c872787137262e741f9db13328e216b093eea91c85ef2bfb152c1f9e63027204e2559a006a92eb74147d46c800a9f96297ae1d9f96f4e
   languageName: node
   linkType: hard
 

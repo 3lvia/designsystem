@@ -46,6 +46,12 @@ export const tabsData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'Keyboard navigation',
     },
+    tabIdPrefix: {
+      isRequired: false,
+      type: 'string',
+      description:
+        'If you have more than one set of tabs on your page you need to add a prefix for the tab-ids so that the sets can be differentiated.',
+    },
     valueOnChange: {
       isRequired: false,
       type: '(value: number) => CustomEvent',
