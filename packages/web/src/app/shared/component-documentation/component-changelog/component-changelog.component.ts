@@ -22,10 +22,8 @@ export class ComponentChangelogComponent implements OnInit {
 
   filteredChangelog = [];
 
-  numberOfReleasesSkipped: number;
-
-  filterChangelog(componentToFilter: string) {
-    this.numberOfReleasesSkipped = 0;
+  private filterChangelog(componentToFilter: string) {
+    let numberOfReleasesSkipped = 0;
     // Loop through each entry in the changelog.
     this.changelog.forEach((elvisChangelogEntry) => {
       let wasSkipped = true;
@@ -38,13 +36,13 @@ export class ComponentChangelogComponent implements OnInit {
             !this.filteredChangelog.includes(elvisChangelogEntry)
           ) {
             wasSkipped = false;
-            this.filteredChangelog.push({ skipped: this.numberOfReleasesSkipped });
+            this.filteredChangelog.push({ skipped: numberOfReleasesSkipped });
             this.filteredChangelog.push(elvisChangelogEntry);
-            this.numberOfReleasesSkipped = 0;
+            numberOfReleasesSkipped = 0;
           }
         });
       });
-      if (wasSkipped) this.numberOfReleasesSkipped++;
+      if (wasSkipped) numberOfReleasesSkipped++;
     });
   }
 
