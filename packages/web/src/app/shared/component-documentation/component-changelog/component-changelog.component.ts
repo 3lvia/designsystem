@@ -15,11 +15,10 @@ export class ComponentChangelogComponent implements OnInit {
    * Will hide all but first element
    */
   @Input() isFrontpage = false;
-
   /**
    * The component to filter for (only display changelog for this component)
    */
-  @Input() componentToFilter: string;
+  @Input() componentToFilter?: string;
 
   filteredChangelog = [];
 

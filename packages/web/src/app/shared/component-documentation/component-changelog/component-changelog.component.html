@@ -1,5 +1,5 @@
 <ng-template #changelogTemplate>
-  <p *ngIf="componentToFilter">
+  <p *ngIf="componentToFilter" class="e-m-0">
     This changelog only contains Elvis versions that affected the
     {{ componentToFilter | lowercase }} component and may thus appear incomplete. See the complete Elvis
     changelog on the
@@ -12,53 +12,68 @@
       <th class="changelog-date py-0" scope="col">Date and version</th>
       <th class="changelog-content py-0" scope="col">Changes</th>
     </tr>
-    <tr
-      class="changelog-row py-5"
-      [ngClass]="{ 'changelog-divider': !isLast }"
-      *ngFor="let el of isFrontpage ? changelog.slice(0, 1) : changelog; last as isLast"
-    >
-      <td class="changelog-date">
-        <span class="e-title-sm">{{ el.version }}</span>
-        <span class="changelog-date-span">{{ el.date }}</span>
-      </td>
-      <td class="changelog-content">
-        <div class="changelog-section" *ngFor="let changelog of el.changelog">
-          <div class="changelog-section-title">{{ changelog.type | ChangelogTypePipe }}</div>
-          <div *ngIf="changelog.components && changelog.components.length > 0">
-            Components:
-            <ng-container *ngFor="let component of changelog.components; let last = last; let first = first">
-              <span *ngIf="!last && !first">,</span>
-              <span *ngIf="last && !first">&</span>
-              <a class="e-link e-link--inline" [href]="component.url">
-                {{ component.displayName }}
-              </a>
-            </ng-container>
-          </div>
+    <tbody>
+      <tr
+        *ngFor="let el of isFrontpage ? changelog.slice(0, 1) : changelog; last as isLast; first as isFirst"
+      >
+        <div class="changelog-row py-5" *ngIf="!el.skipped">
+          <td class="changelog-date">
+            <span class="e-title-sm">{{ el.version }}</span>
+            <span class="changelog-date-span">{{ el.date }}</span>
+          </td>
+          <td class="changelog-content" *ngIf="!el.skipped">
+            <div class="changelog-section" *ngFor="let changelog of el.changelog">
+              <div class="changelog-section-title">{{ changelog.type | ChangelogTypePipe }}</div>
+              <div *ngIf="changelog.components && changelog.components.length > 0">
+                Components:
+                <ng-container
+                  *ngFor="let component of changelog.components; let last = last; let first = first"
+                >
+                  <span *ngIf="!last && !first">,</span>
+                  <span *ngIf="last && !first">&</span>
+                  <a class="e-link e-link--inline" [href]="component.url">
+                    {{ component.displayName }}
+                  </a>
+                </ng-container>
+              </div>
 
-          <div *ngIf="changelog.pages && changelog.pages.length > 0">
-            Pages:
-            <ng-container *ngFor="let component of changelog.pages; let last = last; let first = first">
-              <span *ngIf="!last && !first">,</span>
-              <span *ngIf="last && !first">&</span>
-              <a class="e-link e-link--inline" [href]="component.url">
-                {{ component.displayName }}
-              </a>
-            </ng-container>
-          </div>
-          <ul class="e-list">
-            <li *ngFor="let change of changelog.changes">
-              <p [innerHTML]="change">{{ change }}</p>
-            </li>
-          </ul>
-          <ng-container *ngIf="changelog.fixes && changelog.fixes.length > 0">
-            <strong>How to fix</strong>
-            <ul>
-              <li *ngFor="let fix of changelog.fixes" [innerHTML]="fix">{{ fix }}</li>
-            </ul>
-          </ng-container>
+              <div *ngIf="changelog.pages && changelog.pages.length > 0">
+                Pages:
+                <ng-container *ngFor="let component of changelog.pages; let last = last; let first = first">
+                  <span *ngIf="!last && !first">,&nbsp</span>
+                  <span *ngIf="last && !first">&</span>
+                  <a class="e-link e-link--inline" [href]="component.url">
+                    {{ component.displayName }}
+                  </a>
+                </ng-container>
+              </div>
+              <ul class="e-list">
+                <li *ngFor="let change of changelog.changes">
+                  <p [innerHTML]="change">{{ change }}</p>
+                </li>
+              </ul>
+              <ng-container *ngIf="changelog.fixes && changelog.fixes.length > 0">
+                <strong>How to fix</strong>
+                <ul>
+                  <li *ngFor="let fix of changelog.fixes" [innerHTML]="fix">{{ fix }}</li>
+                </ul>
+              </ng-container>
+            </div>
+          </td>
         </div>
-      </td>
-    </tr>
+        <elvia-divider *ngIf="!isLast && !el.skipped"></elvia-divider>
+
+        <ng-container *ngIf="el.skipped && el.skipped > 0 && !isFirst" [ngPlural]="el.skipped">
+          <ng-template ngPluralCase="1">
+            <p class="e-text-micro e-my-16">{{ el.skipped }} unrelated release</p>
+          </ng-template>
+          <ng-template ngPluralCase="other">
+            <p class="e-text-micro e-my-16">{{ el.skipped }} unrelated releases</p>
+          </ng-template>
+          <elvia-divider></elvia-divider>
+        </ng-container>
+      </tr>
+    </tbody>
   </table>
 </ng-template>
 
