@@ -22,7 +22,7 @@ interface YearButtonProps {
   themeName: ThemeName;
 }
 
-export const YearButton = styled.button<Partial<YearButtonProps>>`
+export const YearButton = styled.button<YearButtonProps>`
   ${getTypographyCss('text-md')};
   display: flex;
   align-items: center;
