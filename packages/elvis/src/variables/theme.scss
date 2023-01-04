@@ -1,0 +1,111 @@
+// TODO: generate this from colors package
+:root {
+  --e-theme-light-white: #fff;
+  --e-theme-light-grey-05: #f4f4f4;
+  --e-theme-light-grey-10: #e9e9e9;
+  --e-theme-light-grey-20: #d3d3d3;
+  --e-theme-light-grey-30: #bdbdbd;
+  --e-theme-light-grey-70: #676767;
+  --e-theme-light-grey-80: #515151;
+  --e-theme-light-grey: #262626;
+  --e-theme-light-black: #000;
+  --e-theme-light-green: #29d305;
+  --e-theme-light-yellow: #ffff00;
+  --e-theme-light-orange: #ffa000;
+  --e-theme-light-red: #ee0701;
+  --e-theme-light-green-apple: #21ac04;
+  --e-theme-light-violet-grape: #490192;
+  --e-theme-light-blue-berry: #006ddb;
+  --e-theme-light-purple-plum: #b66dff;
+  --e-theme-light-orange-mango: #db6d00;
+  --e-theme-light-red-tomato: #b90202;
+
+  --e-theme-dark-white: #ededed;
+  --e-theme-dark-green: #35bb18;
+  --e-theme-dark-black: #171717;
+  --e-theme-dark-yellow: #ebeb18;
+  --e-theme-dark-orange: #e59712;
+  --e-theme-dark-red: #c82520;
+  --e-theme-dark-green-apple: #2d9f15;
+  --e-theme-dark-violet-grape: #692da5;
+  --e-theme-dark-blue-berry: #0967c7;
+  --e-theme-dark-purple-plum: #9963cf;
+  --e-theme-dark-orange-mango: #c5670c;
+  --e-theme-dark-red-tomato: #9e1111;
+  --e-theme-dark-grey-80: #1f1f1f;
+  --e-theme-dark-grey-70: #242424;
+  --e-theme-dark-grey-60: #333333;
+  --e-theme-dark-grey-50: #424242;
+  --e-theme-dark-grey-40: #5e5e5e;
+  --e-theme-dark-grey-20: #a1a1a1;
+  --e-theme-dark-grey-10: #c4c4c4;
+
+  --e-theme-focus-outline: #0064fa;
+}
+
+.e-theme-light,
+:root {
+  --e-color-background-primary: var(--e-theme-light-white);
+  --e-color-background-secondary: var(--e-theme-light-grey-05);
+  --e-color-background-tertiary: var(--e-theme-light-grey);
+  --e-color-background-element: var(--e-theme-light-white);
+  --e-color-background-element-zebra: var(--e-theme-light-grey-05);
+  --e-color-background-overlay: var(--e-theme-light-white);
+  --e-color-background-header: var(--e-theme-light-white);
+  --e-color-background-accent: var(--e-theme-light-grey-10);
+  --e-color-background-accent-strong: var(--e-theme-light-grey-20);
+
+  --e-color-text-primary: var(--e-theme-light-black);
+  --e-color-text-secondary: var(--e-theme-light-grey-80);
+  --e-color-text-placeholder: var(--e-theme-light-grey-70);
+
+  --e-color-state-on: var(--e-theme-light-green);
+  --e-color-state-caution: var(--e-theme-light-yellow);
+  --e-color-state-warning: var(--e-theme-light-orange);
+  --e-color-state-error: var(--e-theme-light-red);
+  --e-color-state-hover-green: var(--e-theme-light-green);
+  --e-color-state-hover-grey: var(--e-theme-light-grey-05);
+  --e-color-state-disabled: var(--e-theme-light-grey-30);
+  --e-color-state-focus: var(--e-theme-focus-outline);
+
+  --e-color-data-green: var(--e-theme-light-green-apple);
+  --e-color-data-violet: var(--e-theme-light-violet-grape);
+  --e-color-data-blue: var(--e-theme-light-blue-berry);
+  --e-color-data-purple: var(--e-theme-light-purple-plum);
+  --e-color-data-orange: var(--e-theme-light-orange-mango);
+  --e-color-data-red: var(--e-theme-light-red-tomato);
+}
+
+.e-theme-dark {
+  --e-color-background-primary: var(--e-theme-dark-grey-80);
+  --e-color-background-secondary: var(--e-theme-dark-grey-80);
+  --e-color-background-tertiary: var(--e-theme-dark-grey-80);
+  --e-color-background-element: var(--e-theme-dark-grey-80);
+  --e-color-background-element-zebra: var(--e-theme-dark-grey-70);
+  --e-color-background-overlay: var(--e-theme-dark-grey-70);
+  --e-color-background-header: var(--e-theme-dark-black);
+  --e-color-background-accent: var(--e-theme-dark-grey-60);
+  --e-color-background-accent-strong: var(--e-theme-dark-grey-40);
+
+  --e-color-text-primary: var(--e-theme-dark-white);
+  --e-color-text-secondary: var(--e-theme-dark-grey-10);
+  --e-color-text-placeholder: var(--e-theme-dark-grey-20);
+
+  --e-color-state-on: var(--e-theme-dark-green);
+  --e-color-state-caution: var(--e-theme-dark-yellow);
+  --e-color-state-warning: var(--e-theme-dark-orange);
+  --e-color-state-error: var(--e-theme-dark-red);
+  --e-color-state-hover-green: var(--e-theme-dark-green);
+  --e-color-state-hover-grey: var(--e-theme-dark-grey-60);
+  --e-color-state-disabled: var(--e-theme-dark-grey-40);
+  --e-color-state-focus: var(--e-theme-focus-outline);
+
+  --e-color-data-green: var(--e-theme-dark-green-apple);
+  --e-color-data-violet: var(--e-theme-dark-violet-grape);
+  --e-color-data-blue: var(--e-theme-dark-blue-berry);
+  --e-color-data-purple: var(--e-theme-dark-purple-plum);
+  --e-color-data-orange: var(--e-theme-dark-orange-mango);
+  --e-color-data-red: var(--e-theme-dark-red-tomato);
+
+  background: var(--e-color-background-primary);
+}
