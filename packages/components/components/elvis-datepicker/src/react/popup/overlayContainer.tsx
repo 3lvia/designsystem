@@ -102,7 +102,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
             >
               {formatDate(viewedDate, { year: 'numeric' })}
               <RotatingContainer isRotated={yearPickerIsOpen}>
-                <IconWrapper icon={arrowDown} size="xs" />
+                <IconWrapper icon={arrowDown} size="xs" color={getThemeColor('color-text-primary')} />
               </RotatingContainer>
             </TertiaryButton>
           </PopoverHeader>

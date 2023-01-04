@@ -11,6 +11,7 @@ import {
   FormFieldInputContainer,
   IconWrapper,
 } from '@elvia/elvis-toolbox';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
@@ -254,7 +255,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           >
             <IconWrapper
               icon={calendar}
-              color={isDisabled ? 'disabled' : 'black'}
+              color={isDisabled ? getThemeColor('color-state-disabled') : getThemeColor('color-text-primary')}
               size={isCompact ? 'xs' : 'sm'}
             />
           </IconButton>

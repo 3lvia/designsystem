@@ -81,7 +81,6 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       if (closestParentWithThemeClass) {
         const themeClass = closestParentWithThemeClass.className.match(/e-theme-(dark|light)/)?.[0];
         setOverlayThemeClass(themeClass);
-        console.log(themeClass);
       }
     }, []);
 

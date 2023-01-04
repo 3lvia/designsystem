@@ -99,7 +99,7 @@ export declare type IconName =`;
       icon = icon.replace(/fillBlack/g, "fill='black'");
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
-    } else if (!color.startsWith('#')) {
+    } else if (!color.startsWith('#') && !color.startsWith('var')) {
       return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
     return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
@@ -182,7 +182,7 @@ const getColor = require('@elvia/elvis-colors')['getColor'];
       icon = icon.replace(/fillBlack/g, "fill='black'");
       icon = icon.replace(/fillGreen/g, "fill='#29D305'");
       return icon;
-      } else if (!color.startsWith('#')) {
+      } else if (!color.startsWith('#') && !color.startsWith('var')) {
         return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
     }
     return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
