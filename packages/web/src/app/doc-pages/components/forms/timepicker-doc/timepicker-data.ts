@@ -3,9 +3,7 @@ import ComponentData from '../../component-data.interface';
 
 export const timepickerData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-timepicker',
-  elementNameW: 'elvia-timepicker',
-  elementNameR: 'Timepicker',
+  name: 'Timepicker',
   attributes: {
     value: {
       isRequired: false,
@@ -38,9 +36,20 @@ export const timepickerData: ComponentData = {
     isDisabled: {
       isRequired: false,
       type: 'boolean',
-      description: 'Disabled time picker.',
+      description: 'Disables the time picker.',
       default: 'false',
       cegDisplayName: 'Disabled',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'State',
+    },
+    isFullWidth: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Gives the time picker full width.',
+      default: 'false',
+      cegDisplayName: 'Full width',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',

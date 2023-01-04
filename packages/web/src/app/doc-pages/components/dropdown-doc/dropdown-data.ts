@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 export const dropdownData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-dropdown',
-  elementNameW: 'elvia-dropdown',
-  elementNameR: 'Dropdown',
+  name: 'Dropdown',
   attributes: {
     items: {
       isRequired: true,
@@ -166,6 +164,11 @@ export const dropdownData: ComponentData = {
       isRequired: false,
       type: 'boolean',
       description: 'Set the dropdown "Load more"-button to a loading state when loading more items.',
+    },
+    ariaLabel: {
+      isRequired: false,
+      type: 'string',
+      description: 'Add an Aria label for accessibility if no explicit label is provided.',
     },
     className: {
       isRequired: false,

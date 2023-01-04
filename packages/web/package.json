@@ -73,13 +73,13 @@
     "zone.js": "~0.11.8"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^15.0.1",
+    "@angular-devkit/build-angular": "^15.0.4",
     "@angular-eslint/builder": "15.1.0",
     "@angular-eslint/eslint-plugin": "15.1.0",
     "@angular-eslint/eslint-plugin-template": "15.1.0",
     "@angular-eslint/schematics": "15.1.0",
     "@angular-eslint/template-parser": "15.1.0",
-    "@angular/cli": "^15.0.1",
+    "@angular/cli": "^15.0.4",
     "@angular/compiler-cli": "^15.0.1",
     "@angular/language-service": "^15.0.1",
     "@types/lodash.debounce": "^4.0.6",

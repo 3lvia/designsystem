@@ -1,5 +1,6 @@
-import DatepickerRange from './elvia-datepicker-range';
 import React from 'react';
+import DatepickerRange from './elvia-datepicker-range';
+import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';
 
 describe('Elvis DatepickerRange', () => {
@@ -27,6 +28,16 @@ describe('Elvis DatepickerRange', () => {
     it('should have vertical stacking', () => {
       const datepickerRangeWrapper = screen.getByTestId('datepicker-range-wrapper');
       expect(datepickerRangeWrapper).toHaveStyle('flex-direction: column');
+    });
+  });
+
+  describe('with time picker', () => {
+    beforeEach(() => {
+      render(<DatepickerRange hasTimepickers></DatepickerRange>);
+    });
+
+    it('should display a start- and end-time picker', () => {
+      expect(screen.getAllByPlaceholderText('tt.mm').length).toBe(2);
     });
   });
 
@@ -69,6 +80,22 @@ describe('Elvis DatepickerRange', () => {
       datePickers.forEach((datepicker) => {
         expect(datepicker).toHaveStyle('padding-top: 0.5rem');
       });
+    });
+  });
+
+  describe('the accessibility', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="datepicker-ranges">
+          <DatepickerRange />
+          <DatepickerRange />
+        </div>,
+      );
+
+      const datepickerRanges = screen.getByTestId('datepicker-ranges');
+      const results = await axe(datepickerRanges);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

@@ -3,9 +3,7 @@ import ComponentData from '../../component-data.interface';
 
 export const segmentedControlData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-segmented-control',
-  elementNameW: 'elvia-segmented-control',
-  elementNameR: 'SegmentedControl',
+  name: 'SegmentedControl',
   attributes: {
     items: {
       isRequired: true,

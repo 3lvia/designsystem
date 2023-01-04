@@ -38,6 +38,7 @@ interface DropdownOverlayProps {
   setHoveredItem?: (item?: DropdownItemOption) => void;
   parentItem?: DropdownItemOption;
   isSearchMode?: boolean;
+  id?: string;
 }
 
 let uniqueId = 0;
@@ -66,6 +67,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       setHoveredItem,
       parentItem,
       isSearchMode,
+      id,
     },
     ref,
   ) => {
@@ -233,6 +235,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       >
         <DropdownPopupContainer
           data-testid="popover"
+          id={id}
           onMouseLeave={() => setHoveredItem && setHoveredItem(undefined)}
           isCompact={isCompact}
         >

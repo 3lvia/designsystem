@@ -10,7 +10,7 @@ import {
   SelectedDateName,
 } from './popupStyles';
 import { YearPicker } from '../yearPicker/yearPicker';
-import { formatDate } from '../dateHelpers';
+import { formatDate, isAfter, isBefore } from '../dateHelpers';
 import { DatepickerRangeProps } from '../elviaDatepicker.types';
 import { TertiaryButton, Overlay, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowDown from '@elvia/elvis-assets-icons/dist/icons/arrowDown';
@@ -47,7 +47,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
   ) => {
     const [fadeOut, setFadeOut] = useState(false);
     const [yearPickerIsOpen, setYearPickerIsOpen] = useState(false);
-    const [viewedDate, setViewedDate] = useState(selectedDate || new Date());
+    const [viewedDate, setViewedDate] = useState(new Date());
 
     const onYearChange = (selectedYear: number): void => {
       const newDate = new Date(viewedDate);
@@ -72,6 +72,19 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
         setViewedDate(selectedDate);
       }
     }, [selectedDate]);
+
+    useEffect(() => {
+      const initializeViewedDate = () => {
+        if (selectedDate) {
+          setViewedDate(selectedDate);
+        } else if (minDate && isBefore(viewedDate, minDate)) {
+          setViewedDate(minDate);
+        } else if (maxDate && isAfter(viewedDate, maxDate)) {
+          setViewedDate(maxDate);
+        }
+      };
+      initializeViewedDate();
+    }, []);
 
     return (
       <Overlay onClose={onClose} ref={ref} startFade={fadeOut}>

@@ -1,4 +1,5 @@
 import { BaseProps, ErrorOptions as SinglePickerErrorOptions, HasValue } from '@elvia/elvis-toolbox';
+import { MinuteInterval } from '@elvia/elvis-timepicker/react';
 
 export type BothDatepickers<T> = {
   start: T;
@@ -37,6 +38,8 @@ export interface DatepickerRangeProps extends BaseProps, HasValue<DateRange> {
   isDisabled?: boolean;
   isRequired?: IsRequired | boolean;
   isVertical?: boolean;
+  hasTimepickers?: boolean;
+  timepickerInterval?: MinuteInterval;
   hasSelectDateOnOpen?: boolean;
   errorOptions?: ErrorOptions;
   hasAutoOpenEndDatepicker?: boolean;

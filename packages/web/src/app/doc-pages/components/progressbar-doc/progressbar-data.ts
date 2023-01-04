@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 export const progressbarData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-progress-linear',
-  elementNameW: 'elvia-progress-linear',
-  elementNameR: 'ProgressLinear',
+  name: 'ProgressLinear',
   attributes: {
     value: {
       isRequired: false,

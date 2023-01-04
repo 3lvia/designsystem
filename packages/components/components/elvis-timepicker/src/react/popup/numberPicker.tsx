@@ -108,6 +108,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
       >
         <ArrowButtonContainer>
           <IconButton
+            aria-label={`Forrige ${title}`}
             size="sm"
             tabIndex={-1}
             onClick={() => shuffleTo('previous')}
@@ -124,12 +125,14 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
             onClick={() => onSelect(number)}
             data-testid={`${title}-number-button`}
             data-id={`${title}-${padDigit(number)}`}
+            aria-label={`${title} ${padDigit(number)}`}
           >
             {padDigit(number)}
           </NumberButton>
         ))}
         <ArrowButtonContainer>
           <IconButton
+            aria-label={`Neste ${title}`}
             size="sm"
             tabIndex={-1}
             onClick={() => shuffleTo('next')}
