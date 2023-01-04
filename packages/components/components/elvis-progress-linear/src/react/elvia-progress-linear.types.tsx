@@ -13,3 +13,5 @@ export interface ProgressLinearProps {
 }
 
 export type ProgressLinearSize = 'small' | 'medium';
+
+export type ProgressLinearRole = 'meter' | 'progressbar';

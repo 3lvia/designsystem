@@ -8,6 +8,9 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
   isError,
   ariaValueText,
   size = 'small',
+  ariaRole = 'progressbar',
+  ariaLabel,
+  id,
   className,
   inlineStyle,
   ...rest
@@ -20,6 +23,9 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
       aria-valuenow={value}
       aria-valuemin={0}
       aria-valuemax={100}
+      role={ariaRole}
+      id={id ? id : undefined}
+      aria-label={ariaLabel ? ariaLabel : 'Progresjon'}
       aria-valuetext={ariaValueText ? ariaValueText : 'Progresjonen er nå på ' + value + '%.'}
       className={className ? className : ''}
       {...rest}

@@ -51,6 +51,26 @@ export const progressbarData: ComponentData = {
       description:
         'Use to better communicate to the user how far along the progressbar has come. E.g. "8% (34 minutes) remaining".',
       default: '"Progress is currently at {value}%."',
+      default: '"Progresjonen er nå på {value}%."',
+    },
+    ariaLabel: {
+      isRequired: false,
+      type: 'string',
+      description: 'Add an Aria label for accessibility.',
+      default: '"Progresjon"',
+    },
+    ariaRole: {
+      isRequired: false,
+      type: '"progressbar" | "meter"',
+      description:
+        'role="progressbar" indicates that the progresbar displays the progress of a task. role="meter" indicates that the progresbar is used as a gauge.',
+      default: '"progressbar"',
+    },
+    id: {
+      isRequired: false,
+      type: 'string',
+      description:
+        'The id of the progressbar. Can be used to set the aria-labelledby attribute on other elements.',
     },
     size: {
       isRequired: false,
