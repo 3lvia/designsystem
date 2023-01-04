@@ -1,0 +1,9 @@
+<div class="related-container" *ngIf="relatedComponents">
+  <ng-container *ngFor="let relatedComponent of relatedComponents">
+    <div>
+      <elvia-card [hasBorder]="true" [heading]="relatedComponent">
+        <i slot="icon" class="e-icon e-icon--electricity_safety e-icon--md" aria-hidden="true"></i>
+      </elvia-card>
+    </div>
+  </ng-container>
+</div>

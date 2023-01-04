@@ -52,4 +52,12 @@
       <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
     </ng-container>
   </app-component-section>
+
+  <app-component-section [sectionTitle]="'Related'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-related
+        [relatedComponents]="['Komponent1', 'Komponent2', 'Komponent3', 'Komponent4']"
+      ></app-component-related>
+    </ng-container>
+  </app-component-section>
 </div>

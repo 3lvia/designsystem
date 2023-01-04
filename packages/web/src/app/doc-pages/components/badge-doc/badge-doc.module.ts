@@ -10,6 +10,7 @@ import { ComponentPropertiesTableModule } from 'src/app/shared/component-documen
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
+import { ComponentRelatedModule } from 'src/app/shared/component-documentation/component-related/component-related.module';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
@@ -27,6 +28,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     ComponentExampleGeneratorModule,
     ComponentPropertiesTableModule,
     ComponentChangelogModule,
+    ComponentRelatedModule,
     RouterModule,
   ],
   declarations: [BadgeDocComponent],

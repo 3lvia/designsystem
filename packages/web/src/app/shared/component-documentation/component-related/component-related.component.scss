@@ -1,0 +1,13 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
+.related-container {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  margin-left: -72px;
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    margin-left: 0px;
+    gap: 16px;
+  }
+}
