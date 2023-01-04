@@ -1,16 +1,6 @@
-import React, { CSSProperties, FC } from 'react';
-import { ProgressLinearSize } from './elvia-progress-linear.types';
+import React, { FC } from 'react';
+import { ProgressLinearProps } from './elvia-progress-linear.types';
 import { ProgressLinearWrapper, ProgressLinearProgress } from './styledComponents';
-
-export interface ProgressLinearProps {
-  value?: number;
-  isIndeterminate?: boolean;
-  isError?: boolean;
-  ariaValueText?: string;
-  size?: ProgressLinearSize;
-  className?: string;
-  inlineStyle?: CSSProperties;
-}
 
 const ProgressLinear: FC<ProgressLinearProps> = ({
   value = 0,
