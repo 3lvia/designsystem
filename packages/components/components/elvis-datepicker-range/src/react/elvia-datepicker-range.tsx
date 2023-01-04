@@ -320,6 +320,12 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             onOpen={() => setOpenPicker('startTime')}
             onClose={openNextPicker}
             isOpen={openPicker === 'startTime'}
+            errorOptions={{
+              hideText: false,
+              isErrorState: false,
+              text: '',
+              hasErrorPlaceholder: errorOptions?.start?.hasErrorPlaceholder,
+            }}
           />
         )}
       </RowContainer>
@@ -363,6 +369,12 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             onOpen={() => setOpenPicker('endTime')}
             onClose={openNextPicker}
             isOpen={openPicker === 'endTime'}
+            errorOptions={{
+              hideText: false,
+              isErrorState: false,
+              text: '',
+              hasErrorPlaceholder: errorOptions?.end?.hasErrorPlaceholder,
+            }}
           />
         )}
       </RowContainer>
