@@ -202,6 +202,18 @@
           </div>
         </ng-container>
       </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'ARIA'">
+        <ng-container ngProjectAs="sectionContent">
+          <ul class="e-list">
+            <li>
+              <strong>aria-label:</strong>
+              Use the
+              <span class="code-text">ariaLabel</span>
+              prop to give the dropdown an accessible name if no explicit label is provided.
+            </li>
+          </ul>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

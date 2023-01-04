@@ -2,6 +2,25 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.01.23",
+      "version": "2.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Added tabIdPrefix prop for when you have more than one set of tabs on your page. You need to add a prefix for the tab-ids so that the sets can be differentiated. This will be a very edge case breaking change for those who used version 1.6.1 and have multiple tabs on the same page."
+          ],
+          "fixes": [
+            "To fix the scrolling problem between multiple tabs on the same page, be sure to provide the tabIdPrefix prop."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Refactor from css to styledComponents and some component refactoring."]
+        }
+      ]
+    },
+    {
       "date": "19.12.22",
       "version": "1.6.1",
       "changelog": [

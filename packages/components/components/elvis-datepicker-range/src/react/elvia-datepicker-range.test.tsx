@@ -31,6 +31,16 @@ describe('Elvis DatepickerRange', () => {
     });
   });
 
+  describe('with time picker', () => {
+    beforeEach(() => {
+      render(<DatepickerRange hasTimepickers></DatepickerRange>);
+    });
+
+    it('should display a start- and end-time picker', () => {
+      expect(screen.getAllByPlaceholderText('tt.mm').length).toBe(2);
+    });
+  });
+
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       render(<DatepickerRange className="testclass" inlineStyle={{ paddingTop: '24px' }}></DatepickerRange>);
