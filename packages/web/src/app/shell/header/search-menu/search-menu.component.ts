@@ -90,7 +90,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
           includeScore: true,
           includeMatches: true,
           threshold: 0.35,
-          minMatchCharLength: 2,
+          minMatchCharLength: 1,
           keys: [
             { name: 'title', weight: 1 },
             { name: 'description', weight: 0.5 },
