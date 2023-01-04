@@ -73,7 +73,8 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange, minDat
   useEffect(() => {
     const setActiveYear = () => {
       const listClone = years.slice();
-      listClone.forEach((year) => (year.isActive = year.year === selectedDate?.getFullYear()));
+      const selectedYear = selectedDate ? selectedDate?.getFullYear() : new Date().getFullYear();
+      listClone.forEach((year) => (year.isActive = year.year === selectedYear));
       const activeYearIndex = listClone.findIndex((year) => year.isActive);
       if (activeYearIndex !== -1) {
         setFocusedYearIndex(activeYearIndex);
@@ -82,9 +83,7 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange, minDat
       setYears(listClone);
     };
 
-    if (selectedDate) {
-      setActiveYear();
-    }
+    setActiveYear();
   }, [selectedDate]);
 
   useEffect(() => {

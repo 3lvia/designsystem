@@ -6,6 +6,7 @@ export const config: ComponentConfig = {
     { name: 'value', type: 'Date' },
     { name: 'minuteInterval', type: 'string' },
     { name: 'isDisabled', type: 'boolean' },
+    { name: 'isFullWidth', type: 'boolean' },
     { name: 'isCompact', type: 'boolean' },
     { name: 'isRequired', type: 'boolean' },
     { name: 'isOpen', type: 'boolean' },

@@ -22,12 +22,14 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   label = 'Velg tid',
   minuteInterval = '15',
   isCompact = false,
+  isFullWidth = false,
   isDisabled = false,
   isRequired = false,
   isOpen = false,
   errorOptions = { hideText: false, isErrorState: false, hasErrorPlaceholder: true },
   onOpen,
   onClose,
+  onFocus,
   selectNowOnOpen = true,
   className,
   inlineStyle,
@@ -40,9 +42,9 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
   const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
     offset: 8,
-    horizontalPosition: 'center',
+    horizontalPosition: 'right-inside',
     verticalPosition: 'bottom',
-    alignWidths: true,
+    alignWidths: false,
   });
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
 
@@ -133,9 +135,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
    * Needed for webcomponent -> To update the default value
    */
   useEffect(() => {
-    if (value) {
-      updateValue(value, false);
-    }
+    updateValue(value || null, false);
   }, [value]);
 
   return (
@@ -145,6 +145,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
         className={className ?? ''}
         style={{ ...inlineStyle }}
         isDisabled={isDisabled}
+        isFullWidth={isFullWidth}
         isActive={isShowing}
         isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
         hasErrorPlaceholder={errorOptions.hasErrorPlaceholder}
@@ -154,14 +155,19 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           <TimepickerInput
             time={time}
             disabled={isDisabled}
+            isFullWidth={isFullWidth}
             onChange={updateValue}
+            onFocus={() => onFocus?.()}
             required={isRequired}
             onErrorChange={onError}
           />
           <IconButton
             disabled={isDisabled}
             isActive={isShowing}
-            onClick={() => setVisibility(!isShowing)}
+            onClick={() => {
+              onFocus?.();
+              setVisibility(!isShowing);
+            }}
             ref={openPopoverButtonRef}
             size={isCompact ? 'sm' : 'md'}
             data-testid="popover-toggle"

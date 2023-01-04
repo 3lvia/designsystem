@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "04.01.23",
+      "version": "2.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add prop <span class=\"code-text\">hasTimepickers</span> to enable time picking in the datepicker range."
+          ]
+        }
+      ]
+    },
+    {
       "date": "08.12.22",
       "version": "2.0.11",
       "changelog": [

@@ -213,10 +213,12 @@
       <div slot="content">
         <div class="ewc-context-menu__list-group">
           <button role="menuitem">
-            <span>Be om tilgang</span>
+            <elvia-icon name="edit" size="xs"></elvia-icon>
+            <span>Oppdater og valider på nytt</span>
           </button>
           <button role="menuitem">
-            <span>Legg til bruker</span>
+            <elvia-icon name="bin" size="xs"></elvia-icon>
+            <span>Slett</span>
           </button>
         </div>
         <div class="ewc-context-menu__list-group">
@@ -241,6 +243,12 @@
   <!--Date range picker-->
   <div class="example-wrapper">
     <h3>Date range picker</h3>
+    <elvia-datepicker-range></elvia-datepicker-range>
+    <elvia-datepicker-range
+      hasTimepickers
+      [minDate]="minDateRange"
+      [maxDate]="maxDateRange"
+    ></elvia-datepicker-range>
     <elvia-datepicker-range [errorOptions]="errorOptions"></elvia-datepicker-range>
   </div>
 

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Datepicker, DatepickerProps } from '@elvia/elvis-datepicker/react';
-import { DatepickerRangeWrapper } from './styledComponents';
+import { DatepickerRangeWrapper, RowContainer } from './styledComponents';
 import {
   DatepickerRangeProps,
   emptyDateRange,
@@ -12,6 +12,9 @@ import {
   DisableDates,
   defaultLabelOptions,
 } from './elviaDatepickerRange.types';
+import { Timepicker } from '@elvia/elvis-timepicker/react';
+
+type Picker = 'startDate' | 'startTime' | 'endDate' | 'endTime';
 
 export const DatepickerRange: FC<DatepickerRangeProps> = ({
   value,
@@ -24,6 +27,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   isRequired,
   isVertical,
   hasSelectDateOnOpen = true,
+  hasTimepickers = false,
+  timepickerInterval = '15',
   hasAutoOpenEndDatepicker,
   errorOptions = {
     start: { hideText: false, isErrorState: false, text: '' },
@@ -39,10 +44,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   ...rest
 }) => {
   const [selectedDateRange, setSelectedDateRange] = useState(value ?? emptyDateRange);
-  const [endDatepickerIsOpen, setEndDatepickerIsOpen] = useState(false);
+  const [touchedPickers, setTouchedPickers] = useState<Picker[]>([]);
+  const [openPicker, setOpenPicker] = useState<Picker>();
   const [isRequiredState, setIsRequiredState] = useState<IsRequired>();
   const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>(emptyErrorMessage);
-  const [shouldOpenEndDatePicker, setShouldOpenEndDatePicker] = useState(false);
+  const [shouldOpenNextPicker, setShouldOpenNextPicker] = useState(false);
 
   useEffect(() => {
     if (typeof isRequired === 'boolean') {
@@ -62,6 +68,29 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
 
   const isValidDate = (date: unknown): boolean => {
     return !isNaN(date as number) && date instanceof Date;
+  };
+
+  const setTime = (date: Date | number, when: 'startOfDay' | 'endOfDay'): Date => {
+    const dateCopy = new Date(date);
+    if (when === 'startOfDay') {
+      dateCopy.setHours(0, 0, 0, 0);
+    } else {
+      dateCopy.setHours(23, 59, 59, 59);
+    }
+
+    return dateCopy;
+  };
+
+  const isTouched = (picker: Picker) => touchedPickers.includes(picker);
+
+  const setTouched = (picker: Picker) => {
+    if (!isTouched(picker)) {
+      setTouchedPickers((pickers) => {
+        const listCopy = pickers.slice();
+        listCopy.push(picker);
+        return listCopy;
+      });
+    }
   };
 
   /**
@@ -120,37 +149,61 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     return disableDates;
   };
 
-  const handleStartDatepickerValueOnChange = (newDate: Date | null) => {
-    setShouldOpenEndDatePicker(
+  const handleStartDateValueOnChange = (newDate: Date | null, change: 'date' | 'time') => {
+    setShouldOpenNextPicker(
       !selectedDateRange.start ||
         !selectedDateRange.end ||
         newDate?.getTime() !== selectedDateRange.start.getTime(),
     );
+
     // If start datepicker is set to a date after the end datepicker, set the end date to newValue.
-    if (newDate && selectedDateRange?.end && newDate > selectedDateRange.end) {
-      setSelectedDateRange({ start: newDate, end: newDate });
-    } else {
-      setSelectedDateRange((current) => {
-        return { ...current, start: newDate };
-      });
+    if (newDate) {
+      let date = newDate;
+      if (change === 'date' && !isTouched('startTime')) {
+        date = setTime(newDate, 'startOfDay');
+      } else if (change === 'time' && !isTouched('startDate') && minDate) {
+        date.setFullYear(minDate.getFullYear(), minDate.getMonth(), minDate.getDate());
+      }
+
+      if (selectedDateRange?.end && date > selectedDateRange.end) {
+        setSelectedDateRange({ start: date, end: date });
+      } else {
+        setSelectedDateRange((current) => {
+          return { ...current, start: date };
+        });
+      }
     }
   };
 
-  const handleEndDatepickerValueOnChange = (newDate: Date | null) => {
+  const handleEndDatepickerValueOnChange = (newDate: Date | null, change: 'date' | 'time') => {
     // If end datepicker is set to a date before the start date, set both to end datepicker value.
-    if (newDate && selectedDateRange?.start && newDate < selectedDateRange.start) {
-      setSelectedDateRange({ start: newDate, end: newDate });
-    } else {
-      setSelectedDateRange((current) => {
-        return { ...current, end: newDate };
-      });
+    if (newDate) {
+      const date = newDate;
+      if (change === 'date' && !isTouched('endTime')) {
+        setTime(newDate, 'endOfDay');
+      } else if (change === 'time' && !isTouched('endDate') && maxDate) {
+        date.setFullYear(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate());
+      }
+
+      if (selectedDateRange?.start && date < selectedDateRange.start) {
+        setSelectedDateRange({ start: date, end: date });
+      } else {
+        setSelectedDateRange((current) => {
+          return { ...current, end: date };
+        });
+      }
     }
   };
 
   const onStartPickerOpen = () => {
+    setOpenPicker('startDate');
+
     if (hasSelectDateOnOpen && !selectedDateRange.start) {
       const endDate = selectedDateRange.end?.getTime();
-      const startDate = endDate && endDate < Date.now() ? new Date(endDate) : new Date();
+      const startDate =
+        endDate && endDate < Date.now()
+          ? setTime(endDate, 'startOfDay')
+          : setTime(minDate || new Date(), 'startOfDay');
       setSelectedDateRange((current) => {
         return { ...current, start: startDate };
       });
@@ -158,14 +211,39 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   const onEndPickerOpen = () => {
-    setEndDatepickerIsOpen(true);
+    setOpenPicker('endDate');
 
     if (hasSelectDateOnOpen && !selectedDateRange.end) {
       const startDate = selectedDateRange.start?.getTime();
-      const endDate = startDate && Date.now() < startDate ? new Date(startDate) : new Date();
+      const endDate =
+        startDate && Date.now() < startDate
+          ? setTime(startDate, 'endOfDay')
+          : setTime(maxDate || new Date(), 'endOfDay');
       setSelectedDateRange((current) => {
         return { ...current, end: endDate };
       });
+    }
+  };
+
+  const openNextPicker = (): void => {
+    if (!shouldOpenNextPicker || !hasAutoOpenEndDatepicker) {
+      return;
+    }
+
+    if (openPicker === 'startDate') {
+      setOpenPicker(hasTimepickers ? 'startTime' : 'endDate');
+    } else if (openPicker === 'startTime') {
+      setOpenPicker('endDate');
+    } else if (openPicker === 'endDate') {
+      if (hasTimepickers) {
+        setOpenPicker('endTime');
+      } else {
+        setOpenPicker(undefined);
+        setShouldOpenNextPicker(false);
+      }
+    } else if (openPicker === 'endTime') {
+      setOpenPicker(undefined);
+      setShouldOpenNextPicker(false);
     }
   };
 
@@ -187,54 +265,91 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
       data-testid="datepicker-range-wrapper"
       {...rest}
     >
-      <Datepicker
-        {...passThroughProps}
-        label={labelOptions?.start ?? defaultLabelOptions.start}
-        value={selectedDateRange.start}
-        valueOnChange={handleStartDatepickerValueOnChange}
-        isRequired={isRequiredState?.start}
-        onClose={() => {
-          hasAutoOpenEndDatepicker && shouldOpenEndDatePicker && setEndDatepickerIsOpen(true);
-        }}
-        onOpen={onStartPickerOpen}
-        onReset={() => {
-          setSelectedDateRange({ ...selectedDateRange, start: null });
-        }}
-        dateRangeProps={{
-          selectedDateRange: selectedDateRange,
-          whichRangePicker: 'start',
-        }}
-        disableDate={disableDatesWrapper()?.start}
-        errorOptions={errorOptions?.start}
-        errorOnChange={(error: string) =>
-          setCurrentErrorMessages((current) => ({ ...current, start: error }))
-        }
-        hasSelectDateOnOpen={false}
-      ></Datepicker>
-      <Datepicker
-        {...passThroughProps}
-        label={labelOptions?.end ?? defaultLabelOptions.end}
-        value={selectedDateRange.end}
-        valueOnChange={handleEndDatepickerValueOnChange}
-        isRequired={isRequiredState?.end}
-        onClose={() => {
-          setEndDatepickerIsOpen(false);
-          setShouldOpenEndDatePicker(false);
-        }}
-        onOpen={onEndPickerOpen}
-        onReset={() => {
-          setSelectedDateRange({ ...selectedDateRange, end: null });
-        }}
-        isOpen={endDatepickerIsOpen}
-        dateRangeProps={{
-          selectedDateRange: selectedDateRange,
-          whichRangePicker: 'end',
-        }}
-        disableDate={disableDatesWrapper()?.end}
-        errorOptions={errorOptions?.end}
-        errorOnChange={(error: string) => setCurrentErrorMessages((current) => ({ ...current, end: error }))}
-        hasSelectDateOnOpen={false}
-      ></Datepicker>
+      <RowContainer>
+        <Datepicker
+          {...passThroughProps}
+          label={labelOptions?.start ?? defaultLabelOptions.start}
+          value={isTouched('startDate') ? selectedDateRange.start : undefined}
+          valueOnChange={(date) => handleStartDateValueOnChange(date, 'date')}
+          isRequired={isRequiredState?.start}
+          onClose={openNextPicker}
+          onFocus={() => setTouched('startDate')}
+          onOpen={onStartPickerOpen}
+          onReset={() => {
+            setSelectedDateRange({ ...selectedDateRange, start: null });
+          }}
+          dateRangeProps={{
+            selectedDateRange: selectedDateRange,
+            whichRangePicker: 'start',
+          }}
+          disableDate={disableDatesWrapper()?.start}
+          errorOptions={errorOptions?.start}
+          errorOnChange={(error: string) =>
+            setCurrentErrorMessages((current) => ({ ...current, start: error }))
+          }
+          hasSelectDateOnOpen={false}
+        ></Datepicker>
+        {hasTimepickers && (
+          <Timepicker
+            label=""
+            isCompact={isCompact}
+            isDisabled={isDisabled}
+            value={isTouched('startTime') ? selectedDateRange.start : undefined}
+            valueOnChange={(time) => handleStartDateValueOnChange(time, 'time')}
+            isFullWidth={isFullWidth && isVertical}
+            onFocus={() => setTouched('startTime')}
+            isRequired={isRequiredState?.start}
+            selectNowOnOpen={false}
+            minuteInterval={timepickerInterval}
+            onOpen={() => setOpenPicker('startTime')}
+            onClose={openNextPicker}
+            isOpen={openPicker === 'startTime'}
+          />
+        )}
+      </RowContainer>
+      <RowContainer>
+        <Datepicker
+          {...passThroughProps}
+          label={labelOptions?.end ?? defaultLabelOptions.end}
+          value={isTouched('endDate') ? selectedDateRange.end : undefined}
+          valueOnChange={(date) => handleEndDatepickerValueOnChange(date, 'date')}
+          isRequired={isRequiredState?.end}
+          onClose={openNextPicker}
+          onFocus={() => setTouched('endDate')}
+          onOpen={onEndPickerOpen}
+          onReset={() => {
+            setSelectedDateRange({ ...selectedDateRange, end: null });
+          }}
+          isOpen={openPicker === 'endDate'}
+          dateRangeProps={{
+            selectedDateRange: selectedDateRange,
+            whichRangePicker: 'end',
+          }}
+          disableDate={disableDatesWrapper()?.end}
+          errorOptions={errorOptions?.end}
+          errorOnChange={(error: string) =>
+            setCurrentErrorMessages((current) => ({ ...current, end: error }))
+          }
+          hasSelectDateOnOpen={false}
+        ></Datepicker>
+        {hasTimepickers && (
+          <Timepicker
+            label=""
+            isCompact={isCompact}
+            isDisabled={isDisabled}
+            value={isTouched('endTime') ? selectedDateRange.end : undefined}
+            valueOnChange={(time) => handleEndDatepickerValueOnChange(time, 'time')}
+            isFullWidth={isFullWidth && isVertical}
+            onFocus={() => setTouched('endTime')}
+            isRequired={isRequiredState?.end}
+            selectNowOnOpen={false}
+            minuteInterval={timepickerInterval}
+            onOpen={() => setOpenPicker('endTime')}
+            onClose={openNextPicker}
+            isOpen={openPicker === 'endTime'}
+          />
+        )}
+      </RowContainer>
     </DatepickerRangeWrapper>
   );
 };

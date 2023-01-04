@@ -165,6 +165,11 @@ export const dropdownData: ComponentData = {
       type: 'boolean',
       description: 'Set the dropdown "Load more"-button to a loading state when loading more items.',
     },
+    ariaLabel: {
+      isRequired: false,
+      type: 'string',
+      description: 'Add an Aria label for accessibility if no explicit label is provided.',
+    },
     className: {
       isRequired: false,
       type: 'string',
