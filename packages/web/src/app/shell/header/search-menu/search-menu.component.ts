@@ -135,7 +135,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     this.searchString = '';
     this.activeResults = [];
     this.resultsToDisplay = [];
-    this.getComponentsWithSynonym();
+    this.synonymComponents = [];
     const search = document.getElementById('search-field');
     search.focus();
   }
@@ -318,10 +318,17 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     return `<span style='background: ${getColor('elvia-charge')}'>${str}</span>`;
   }
 
+  /** Take the activeResults and filter out all the components that
+   * have a searchTerm that starts with searchString.
+   * Suggest these components in the "looking for...?"" section */
   private getComponentsWithSynonym(): void {
-    this.synonymComponents = this.activeResults.filter((item) =>
-      item.searchTerms?.includes(this.searchString),
-    );
+    if (this.searchString && this.searchString.length >= 2 && this.activeResults) {
+      this.synonymComponents = this.activeResults.filter(({ searchTerms }) =>
+        searchTerms?.some((term) => term.startsWith(this.searchString.trim())),
+      );
+    } else {
+      this.synonymComponents = [];
+    }
   }
 
   private checkIfPrideMonth(): void {
