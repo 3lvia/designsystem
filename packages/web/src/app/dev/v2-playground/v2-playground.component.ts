@@ -52,6 +52,10 @@ export class v2PlaygroundComponent {
 
   // Datepicker range
   dateRangeDates = { start: new Date(2022, 9, 10), end: new Date(2022, 9, 20) };
+  errorOptionsRange = {
+    start: { hasErrorPlaceholder: false },
+    end: { hasErrorPlaceholder: false },
+  };
   labelOptions = { start: 'Start-dato', end: 'Sluttdato' };
   minDateRange = new Date(2022, 6, 26);
   maxDateRange = new Date(2022, 6, 30);
