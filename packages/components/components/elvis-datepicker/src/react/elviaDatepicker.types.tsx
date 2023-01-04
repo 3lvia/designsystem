@@ -41,4 +41,10 @@ export interface DatepickerProps extends BaseProps, HasValue<Date | null>, HasEr
    * @internal
    */
   dateRangeProps?: DatepickerRangeProps;
+
+  /**
+   * This is used for internal purposes, and should not be used by the user.
+   * @internal
+   */
+  onFocus?: () => void;
 }

@@ -1,11 +1,12 @@
-import '@testing-library/jest-dom';
 import React from 'react';
+import '@testing-library/jest-dom';
 import Header from './elvia-header';
-import userEvent from '@testing-library/user-event';
-import { render, screen } from '@testing-library/react';
-import { IconWrapper } from '@elvia/elvis-toolbox';
 import dashboard from '@elvia/elvis-assets-icons/dist/icons/dashboard';
+import userEvent from '@testing-library/user-event';
+import { IconWrapper } from '@elvia/elvis-toolbox';
 import { UserEvent } from '@testing-library/user-event/dist/types/setup/setup';
+import { axe } from 'jest-axe';
+import { render, screen } from '@testing-library/react';
 
 const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
   Object.defineProperty(window, 'matchMedia', {
@@ -201,6 +202,73 @@ describe('Elvia Header', () => {
         const element = screen.getByTestId('mobile-menu');
         expect(element).not.toBeEmptyDOMElement();
       });
+    });
+  });
+
+  describe('the accessibility (desktop)', () => {
+    it('should have no axe violations', async () => {
+      render(
+        <div data-testid="header-wrapper">
+          <Header
+            username={username}
+            email={email}
+            appTitle={appTitle}
+            pageTitle={pageTitle}
+            appContent={<div data-testid="main-content">Main content</div>}
+            onLogoClick={() => (logoHasBeenClicked = true)}
+            onSignOutClick={() => (signOutButtonHasBeenClicked = true)}
+            navItems={
+              <div className="e-sidenav__container">
+                <a href="/" className="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
+                  <div className="e-sidenav__icon-container">
+                    <IconWrapper icon={dashboard} size="sm"></IconWrapper>
+                  </div>
+                  <div className="e-sidenav__item-text">Dashbord</div>
+                </a>
+              </div>
+            }
+          />
+        </div>,
+      );
+
+      const header = screen.getByTestId('header-wrapper');
+      const results = await axe(header);
+
+      expect(results).toHaveNoViolations();
+    });
+  });
+
+  describe('the accessibility (mobile)', () => {
+    it('should have no axe violations', async () => {
+      mockMatchMedia({ isGtMobile: false });
+      render(
+        <div data-testid="header-wrapper">
+          <Header
+            username={username}
+            email={email}
+            appTitle={appTitle}
+            pageTitle={pageTitle}
+            appContent={<div data-testid="main-content">Main content</div>}
+            onLogoClick={() => (logoHasBeenClicked = true)}
+            onSignOutClick={() => (signOutButtonHasBeenClicked = true)}
+            navItems={
+              <div className="e-sidenav__container">
+                <a href="/" className="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
+                  <div className="e-sidenav__icon-container">
+                    <IconWrapper icon={dashboard} size="sm"></IconWrapper>
+                  </div>
+                  <div className="e-sidenav__item-text">Dashbord</div>
+                </a>
+              </div>
+            }
+          />
+        </div>,
+      );
+
+      const header = screen.getByTestId('header-wrapper');
+      const results = await axe(header);
+
+      expect(results).toHaveNoViolations();
     });
   });
 });

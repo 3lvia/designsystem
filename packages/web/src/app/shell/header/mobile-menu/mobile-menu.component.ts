@@ -13,6 +13,7 @@ export class MobileMenuComponent implements OnDestroy {
   version = packageJson.version;
   mainMenu: any;
   devMode = false;
+  isLoaded = false;
 
   private onDestroy = new Subject<void>();
 
@@ -28,6 +29,7 @@ export class MobileMenuComponent implements OnDestroy {
     this.localizationService.listenLocalization().subscribe((locale) => {
       this.cmsService.getMenu(locale).then((data) => {
         this.mainMenu = data;
+        this.isLoaded = true;
       });
     });
 

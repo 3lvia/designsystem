@@ -4,9 +4,7 @@ import ComponentData from '../component-data.interface';
 
 const accordionData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-accordion',
-  elementNameW: 'elvia-accordion',
-  elementNameR: 'Accordion',
+  name: 'Accordion',
   attributes: {
     isOpen: {
       isRequired: false,
@@ -189,8 +187,6 @@ const accordionData: ComponentData = {
   codeReact:
     `<Accordion
   type={"normal"}
-  openLabel={"Show"}
-  closeLabel={"Hide"}
   labelPosition={"center"}
   size={"medium"}
   content={"` +

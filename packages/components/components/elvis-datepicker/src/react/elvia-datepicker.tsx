@@ -19,6 +19,7 @@ import { copyDay, isValidDate } from './dateHelpers';
 export const Datepicker: React.FC<DatepickerProps> = ({
   clearButtonText = 'Nullstill',
   dateRangeProps,
+  onFocus,
   disableDate,
   errorOptions = { hideText: false, isErrorState: false },
   hasOptionalText,
@@ -57,7 +58,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     popoverRef,
     {
       offset: 8,
-      horizontalPosition: 'left-inside',
+      horizontalPosition: 'right-inside',
       verticalPosition: 'bottom',
       alignWidths: false,
     },
@@ -231,6 +232,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             disabled={isDisabled}
             placeholder={placeholder}
             onChange={updateValue}
+            onFocus={() => onFocus?.()}
             required={isRequired}
             currentError={error}
             onErrorChange={onError}
@@ -240,7 +242,10 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           <IconButton
             disabled={isDisabled}
             isActive={isShowing}
-            onClick={() => setVisibility(!isShowing)}
+            onClick={() => {
+              onFocus?.();
+              setVisibility(!isShowing);
+            }}
             ref={openPopoverButtonRef}
             size={isCompact ? 'sm' : 'md'}
             data-testid="popover-toggle"

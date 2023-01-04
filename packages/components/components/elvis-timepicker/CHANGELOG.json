@@ -2,6 +2,34 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.01.23",
+      "version": "2.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Add <code>isFullWidth</code> prop."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Expose onFocus event."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Not possible to reset the value via prop."]
+        }
+      ]
+    },
+    {
+      "date": "23.12.22",
+      "version": "2.2.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Minor internal accessability improvements."]
+        }
+      ]
+    },
+    {
       "date": "16.12.22",
       "version": "2.2.0",
       "changelog": [

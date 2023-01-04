@@ -45,4 +45,5 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue> {
   onItemHover?: (hoveredItem: DropdownValueType | undefined) => void;
   onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
+  ariaLabel?: string;
 }

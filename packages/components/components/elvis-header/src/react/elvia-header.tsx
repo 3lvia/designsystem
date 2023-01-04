@@ -77,6 +77,7 @@ export const Header: React.FC<HeaderProps> = ({
       <StyledHeader isGtMobile={isGtMobile}>
         <LogoContainer isGtMobile={isGtMobile}>
           <IconButton
+            aria-label="logo"
             data-testid="header-logo"
             onClick={() => {
               if (!webcomponent && onLogoClick) {

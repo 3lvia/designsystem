@@ -1,7 +1,4 @@
 const modalMultipageCode = {
-  name: 'elvis-modal',
-  elementNameW: 'elvia-modal',
-  elementNameR: 'Modal',
   codeReact: `<button onClick={() => setIsModalShowingState(true)} className="e-btn">Åpne modal</button>
 <Modal
   isShowing={isModalShowing}
