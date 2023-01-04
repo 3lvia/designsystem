@@ -75,6 +75,9 @@
   --e-color-data-orange: var(--e-theme-light-orange-mango);
   --e-color-data-red: var(--e-theme-light-red-tomato);
 }
+.e-theme-light {
+  background: var(--e-color-background-primary);
+}
 
 .e-theme-dark {
   --e-color-background-primary: var(--e-theme-dark-grey-80);
