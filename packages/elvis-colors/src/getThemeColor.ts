@@ -64,20 +64,25 @@ type ColorNameToThemeMap = {
 };
 
 /**
- * Create a custom mapping between colors from themes.
+ * Create a custom mapping between colors from themes. This is useful when you need a color combination that there is no label for.
+ *
+ * **NB**: This requires that you have access to what theme is currently active in the component, in JS. This can be done by using the `useCurrentTheme` hook.
  * @param colorNameToThemeMap A map of theme names to color names
- * @param themeName
+ * @param themeName The current theme name.
  * @returns Hex color string.
  *
  * @example
+ * import { useCurrentTheme } from '@elvia/elvis-toolbox';
+ * const { currentTheme } = useCurrentTheme(ref);
+ * ...
  * const color = getCustomThemeColor({
  *  light: 'grey-10',
  *  dark: 'grey-60',
- * });
+ * }, currentTheme);
  */
 export const getCustomThemeColor = (
   colorNameToThemeMap: ColorNameToThemeMap,
-  themeName: ThemeName = 'light',
+  themeName: ThemeName,
 ): string => {
   const colors = getBaseThemeColors(themeName);
   const label = colorNameToThemeMap[themeName];
