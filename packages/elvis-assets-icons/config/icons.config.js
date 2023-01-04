@@ -434,8 +434,31 @@ module.exports = [
     terms: ['external', 'open', 'link'],
     thirdparty: { name: ['streamline'], duplicate: ['new_tab'] },
   },
-  { name: 'note_approved-color', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'note_check-color', terms: [], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'note_approved',
+    terms: ['draft', 'report', 'summary', 'check', 'list', 'todo'],
+    thirdparty: { name: ['streamline'] },
+  },
+  {
+    name: 'note_approved-color',
+    terms: ['draft', 'report', 'summary', 'check', 'list', 'todo'],
+    thirdparty: { name: ['streamline'], duplicate: ['note_approved'] },
+  },
+  {
+    name: 'note_check-color',
+    terms: ['draft', 'report', 'summary', 'check', 'list', 'todo'],
+    thirdparty: { name: ['streamline'] },
+  },
+  {
+    name: 'note_not_approved',
+    terms: ['draft', 'report', 'summary', 'list', 'todo', 'rejected', 'remove', 'revoke', 'strike'],
+    thirdparty: { name: ['streamline'], duplicate: ['note_approved'] },
+  },
+  {
+    name: 'note_not_approved-color',
+    terms: ['draft', 'report', 'summary', 'list', 'todo', 'rejected', 'remove', 'revoke', 'strike'],
+    thirdparty: { name: ['streamline'], duplicate: ['note_approved'] },
+  },
   { name: 'notification', terms: ['alarm', 'bell', 'alert'], thirdparty: { name: ['streamline'] } },
   { name: 'notification-bold', terms: ['alarm', 'bell', 'alert'], thirdparty: { name: ['streamline'] } },
   { name: 'open_menu', terms: [], thirdparty: { name: ['streamline'] } },
