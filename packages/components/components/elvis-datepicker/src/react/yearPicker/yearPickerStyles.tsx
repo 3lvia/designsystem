@@ -1,4 +1,4 @@
-import { getThemeColor, getCustomThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor, getCustomThemeColor, ThemeName } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
@@ -19,6 +19,7 @@ export const ScrollContainer = styled.div`
 interface YearButtonProps {
   isActive: boolean;
   isFocused: boolean;
+  themeName: ThemeName;
 }
 
 export const YearButton = styled.button<Partial<YearButtonProps>>`
@@ -35,7 +36,8 @@ export const YearButton = styled.button<Partial<YearButtonProps>>`
   color: ${getThemeColor('color-text-primary')};
 
   &:hover:not(:disabled) {
-    background-color: ${getCustomThemeColor({ light: 'grey-05', dark: 'grey-50' })};
+    background-color: ${({ themeName }) =>
+      getCustomThemeColor({ light: 'grey-05', dark: 'grey-50' }, themeName)};
   }
 
   &:disabled {
@@ -43,15 +45,15 @@ export const YearButton = styled.button<Partial<YearButtonProps>>`
     color: ${getThemeColor('color-state-disabled')};
   }
 
-  ${(props) =>
-    props.isFocused &&
+  ${({ isFocused, themeName }) =>
+    isFocused &&
     css`
-      background-color: ${getCustomThemeColor({ light: 'grey-05', dark: 'grey-50' })};
+      background-color: ${getCustomThemeColor({ light: 'grey-05', dark: 'grey-50' }, themeName)};
     `};
 
-  ${(props) =>
-    props.isActive &&
+  ${({ isActive, themeName }) =>
+    isActive &&
     css`
-      background-color: ${getCustomThemeColor({ light: 'grey-10', dark: 'grey-60' })};
+      background-color: ${getCustomThemeColor({ light: 'grey-10', dark: 'grey-60' }, themeName)};
     `};
 `;

@@ -1,5 +1,6 @@
-import React, { forwardRef, ReactNode, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { forwardRef, ReactNode, useEffect, useRef, useState } from 'react';
 import { createPortal, flushSync } from 'react-dom';
+import { useCurrentTheme } from '../../hooks/useCurrentTheme';
 import { Backdrop } from '../backdrop/backdrop';
 import { exitDuration, OverlayContainer, OverlayDOMPosition } from './overlayStyles';
 
@@ -43,7 +44,8 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
     const [fadeOut, setFadeOut] = useState(false);
     const [isDestroyed, setIsDestroyed] = useState(false);
     const overlayDOMPositionRef = useRef<HTMLDivElement>(null);
-    const [overlayThemeClass, setOverlayThemeClass] = useState<string>();
+
+    const { themeClass } = useCurrentTheme(overlayDOMPositionRef);
 
     const animateOut = (): void => {
       setFadeOut(true);
@@ -74,27 +76,12 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       };
     }, []);
 
-    useLayoutEffect(() => {
-      const closestParentWithThemeClass = overlayDOMPositionRef.current?.closest(
-        '.e-theme-dark, .e-theme-light',
-      );
-      if (closestParentWithThemeClass) {
-        const themeClass = closestParentWithThemeClass.className.match(/e-theme-(dark|light)/)?.[0];
-        setOverlayThemeClass(themeClass);
-      }
-    }, []);
-
     return (
       <OverlayDOMPosition ref={overlayDOMPositionRef}>
         {createPortal(
           <>
             {hasBackdrop && <Backdrop onClick={() => animateOut()} data-testid="backdrop" />}
-            <OverlayContainer
-              ref={ref}
-              fadeOut={fadeOut}
-              noAnimation={!hasAnimation}
-              className={overlayThemeClass}
-            >
+            <OverlayContainer ref={ref} fadeOut={fadeOut} noAnimation={!hasAnimation} className={themeClass}>
               {children}
             </OverlayContainer>
           </>,

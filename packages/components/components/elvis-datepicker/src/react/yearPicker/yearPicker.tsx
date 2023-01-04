@@ -1,3 +1,4 @@
+import { useCurrentTheme } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
 import { buttonHeight, ScrollContainer, YearButton, YearPickerContainer } from './yearPickerStyles';
 
@@ -23,6 +24,7 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange, minDat
     }),
   );
   const [focusedYearIndex, setFocusedYearIndex] = useState<number>(0);
+  const { currentTheme } = useCurrentTheme(scrollContainer);
 
   const scrollToActiveButton = (scrollToIndex: number): void => {
     scrollContainer.current?.scrollTo({ top: buttonHeight * (scrollToIndex - 1) });
@@ -102,6 +104,7 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange, minDat
             isFocused={focusedYearIndex === index}
             onClick={() => onYearChange(year.year)}
             disabled={year.isDisabled}
+            themeName={currentTheme}
           >
             {year.year}
           </YearButton>
