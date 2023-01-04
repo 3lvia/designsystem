@@ -136,8 +136,6 @@ describe('Elvis Pagination', () => {
   });
 
   describe('the accessibility', () => {
-    /* will fail if there are multiple paginators on same page -> considered user error */
-    /* depends on fixes in dropdown before this test can be un-skipped */
     it('should have no axe violations', async () => {
       render(
         <div data-testid="pagination-wrapper">
