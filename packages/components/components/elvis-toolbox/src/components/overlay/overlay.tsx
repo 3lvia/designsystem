@@ -1,7 +1,7 @@
-import React, { forwardRef, ReactNode, useEffect, useState } from 'react';
+import React, { forwardRef, ReactNode, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal, flushSync } from 'react-dom';
 import { Backdrop } from '../backdrop/backdrop';
-import { exitDuration, OverlayContainer } from './overlayStyles';
+import { exitDuration, OverlayContainer, OverlayDOMPosition } from './overlayStyles';
 
 interface OverlayProps {
   onClose: () => void;
@@ -42,6 +42,8 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
   ({ onClose, startFade = false, hasBackdrop = true, hasAnimation = true, children }, ref) => {
     const [fadeOut, setFadeOut] = useState(false);
     const [isDestroyed, setIsDestroyed] = useState(false);
+    const overlayDOMPositionRef = useRef<HTMLDivElement>(null);
+    const [overlayThemeClass, setOverlayThemeClass] = useState<string>();
 
     const animateOut = (): void => {
       setFadeOut(true);
@@ -72,14 +74,34 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       };
     }, []);
 
-    return createPortal(
-      <>
-        {hasBackdrop && <Backdrop onClick={() => animateOut()} data-testid="backdrop" />}
-        <OverlayContainer ref={ref} fadeOut={fadeOut} noAnimation={!hasAnimation}>
-          {children}
-        </OverlayContainer>
-      </>,
-      document.body,
+    useLayoutEffect(() => {
+      const closestParentWithThemeClass = overlayDOMPositionRef.current?.closest(
+        '.e-theme-dark, .e-theme-light',
+      );
+      if (closestParentWithThemeClass) {
+        const themeClass = closestParentWithThemeClass.className.match(/e-theme-(dark|light)/)?.[0];
+        setOverlayThemeClass(themeClass);
+        console.log(themeClass);
+      }
+    }, []);
+
+    return (
+      <OverlayDOMPosition ref={overlayDOMPositionRef}>
+        {createPortal(
+          <>
+            {hasBackdrop && <Backdrop onClick={() => animateOut()} data-testid="backdrop" />}
+            <OverlayContainer
+              ref={ref}
+              fadeOut={fadeOut}
+              noAnimation={!hasAnimation}
+              className={overlayThemeClass}
+            >
+              {children}
+            </OverlayContainer>
+          </>,
+          document.body,
+        )}
+      </OverlayDOMPosition>
     );
   },
 );
