@@ -31,8 +31,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   timepickerInterval = '15',
   hasAutoOpenEndDatepicker,
   errorOptions = {
-    start: { hideText: false, isErrorState: false, text: '' },
-    end: { hideText: false, isErrorState: false, text: '' },
+    start: { hideText: false, isErrorState: false, text: '', hasErrorPlaceholder: true },
+    end: { hideText: false, isErrorState: false, text: '', hasErrorPlaceholder: true },
   },
   errorOnChange,
   minDate,
