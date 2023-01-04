@@ -32,17 +32,17 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName): Color | n
  * Get a color from a theme by label.
  * @param label
  * @param themeName
- * @returns Hex color string.
+ * @returns CSS-variable for label, with fallback to the color hex.
  * @example
  * const color = getThemeColor('color-background-primary');
  */
-export const getThemeColor = (label: ColorLabel, themeName: ThemeName = 'dark'): string => {
+export const getThemeColor = (label: ColorLabel, themeName: ThemeName = 'light'): string => {
   const color = getThemeColorObject(label, themeName);
   if (!color) {
     console.error(`Color ${label} not found.`);
     return '';
   }
-  return color.hex;
+  return `var(--e-${label}, ${color.hex})`;
 };
 
 const getBaseThemeColors = <TThemeName extends ThemeName>(
@@ -77,7 +77,7 @@ type ColorNameToThemeMap = {
  */
 export const getCustomThemeColor = (
   colorNameToThemeMap: ColorNameToThemeMap,
-  themeName: ThemeName = 'dark',
+  themeName: ThemeName = 'light',
 ): string => {
   const colors = getBaseThemeColors(themeName);
   const label = colorNameToThemeMap[themeName];
