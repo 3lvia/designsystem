@@ -100,6 +100,7 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
 
   ${(props) =>
     props.isFocused &&
+    !props.isDisabled &&
     css`
       background-color: ${getColor('elvia-charge')};
     `};

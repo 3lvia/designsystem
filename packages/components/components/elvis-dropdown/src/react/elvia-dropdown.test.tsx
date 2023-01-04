@@ -328,11 +328,12 @@ describe('Elvis Dropdown', () => {
   });
 
   //To pass tests: move some aria-roles, update aria-selected, add aria-label prop
-  describe.skip('the accessibility', () => {
+  describe('the accessibility', () => {
     it('should have no axe violations', async () => {
       render(
         <div data-testid="dropdowns-wrapper">
-          {/* <Dropdown label={'Label'} items={items} /> */}
+          <Dropdown label={'Label'} hasSelectAllOption isMulti items={treeItems} />
+          <Dropdown ariaLabel="testing aria label" hasSelectAllOption isMulti items={treeItems} />
           <Dropdown label={'Label'} hasSelectAllOption isMulti items={treeItems} />
         </div>,
       );
@@ -340,10 +341,9 @@ describe('Elvis Dropdown', () => {
       const user = userEvent.setup();
       const dropdown = screen.getAllByRole('combobox');
 
-      await user.click(dropdown[0]);
+      await user.click(dropdown[2]);
 
       const dropdowns = screen.getByTestId('dropdowns-wrapper');
-      screen.debug();
       const results = await axe(dropdowns);
 
       expect(results).toHaveNoViolations();

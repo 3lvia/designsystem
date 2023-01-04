@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 export const outlineData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-outline',
-  elementNameW: 'elvia-outline',
-  elementNameR: 'Outline',
+  name: 'Outline',
   attributes: {
     className: {
       isRequired: false,
