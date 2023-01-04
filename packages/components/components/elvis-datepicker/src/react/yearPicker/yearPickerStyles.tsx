@@ -14,26 +14,6 @@ export const ScrollContainer = styled.div`
   overflow-x: hidden;
   position: relative;
   height: 306px;
-
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    position: sticky;
-    width: 100%;
-    height: 60px;
-    pointer-events: none;
-  }
-  /* 
-  &::before {
-    background: linear-gradient(rgb(255 255 255 / 1), rgb(255 255 255 / 0));
-    top: 0;
-  }
-
-  &::after {
-    background: linear-gradient(rgb(255 255 255 / 0), rgb(255 255 255 / 1));
-    bottom: 0;
-  } */
 `;
 
 interface YearButtonProps {

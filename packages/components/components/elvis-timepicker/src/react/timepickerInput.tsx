@@ -6,13 +6,23 @@ import { Input } from './styledComponents';
 
 interface Props {
   disabled?: boolean;
+  isFullWidth: boolean;
   required: boolean;
   time?: Date | null;
   onChange: (newValue: Date | null) => void;
+  onFocus: () => void;
   onErrorChange: (error?: ErrorType) => void;
 }
 
-export const TimepickerInput: React.FC<Props> = ({ disabled, required, time, onChange, onErrorChange }) => {
+export const TimepickerInput: React.FC<Props> = ({
+  disabled,
+  isFullWidth,
+  required,
+  time,
+  onChange,
+  onFocus,
+  onErrorChange,
+}) => {
   const inputElement = useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = useState('');
   const [hasSelectedText, setHasSelectedText] = useState(false);
@@ -136,15 +146,17 @@ export const TimepickerInput: React.FC<Props> = ({ disabled, required, time, onC
     emitNewValue(newValue);
   };
 
-  const getFormattedInputValue = (date: Date): string => {
+  const getFormattedInputValue = (date?: Date | null): string => {
+    if (!date) {
+      return '';
+    }
+
     return `${padDigit(date.getHours())}.${padDigit(date.getMinutes())}`;
   };
 
   useEffect(() => {
-    if (time) {
-      setInputValue(getFormattedInputValue(time));
-      onErrorChange(undefined);
-    }
+    setInputValue(getFormattedInputValue(time));
+    onErrorChange(undefined);
   }, [time]);
 
   // Focus and select the text when the parent container is double clicked
@@ -165,11 +177,13 @@ export const TimepickerInput: React.FC<Props> = ({ disabled, required, time, onC
     <Input
       ref={inputElement}
       disabled={disabled}
+      isFullWidth={isFullWidth}
       placeholder="tt.mm"
       value={inputValue}
       onKeyDown={onKeyDown}
       onChange={parseInput}
       onBlur={onBlur}
+      onFocus={onFocus}
       data-testid="input"
       aria-live="polite"
       required={required}

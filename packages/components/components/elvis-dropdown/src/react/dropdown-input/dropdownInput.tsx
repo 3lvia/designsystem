@@ -13,12 +13,13 @@ interface Props {
   isDisabled: boolean;
   items: DropdownItem[];
   onChange: (query: string) => void;
-  onKeyPress: (ev: KeyboardEvent<HTMLInputElement>) => void;
+  onKeyPress: (ev?: KeyboardEvent<HTMLInputElement>) => void;
   dropdownIsOpen: boolean;
   onOpenDropdown: () => void;
   currentVal?: DropdownValue | null;
   focusedItem?: DropdownItem;
-  isMulti: boolean;
+  id?: string;
+  ariaLabel?: string;
 }
 
 export const DropdownInput: React.FC<Props> = ({
@@ -34,7 +35,8 @@ export const DropdownInput: React.FC<Props> = ({
   onOpenDropdown,
   currentVal,
   focusedItem,
-  isMulti,
+  id,
+  ariaLabel,
 }) => {
   const [inputValue, setInputValue] = useState('');
   const [currentValIcon, setCurrentValIcon] = useState<IconName>();
@@ -106,13 +108,15 @@ export const DropdownInput: React.FC<Props> = ({
         value={inputValue}
         onClick={() => onOpenDropdown()}
         onKeyDown={onKeyDown}
+        onKeyUp={() => onKeyPress(undefined)}
         readOnly={!isEditable || !dropdownIsOpen}
         role="combobox"
         aria-autocomplete="none"
         aria-haspopup="true"
         aria-expanded={dropdownIsOpen}
         aria-disabled={isDisabled}
-        aria-multiselectable={isMulti}
+        aria-controls={id}
+        aria-label={ariaLabel}
       />
     </>
   );
