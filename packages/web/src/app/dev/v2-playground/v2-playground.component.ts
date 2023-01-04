@@ -42,6 +42,7 @@ export class v2PlaygroundComponent {
   date = new Date(2022, 9, 10, 22, 42, 42, 42);
   minDate = new Date(2022, 9, 5);
   maxDate = new Date(2023, 9, 25);
+  errorOptions = { hasErrorPlaceholder: false };
   disableDate = (date: Date) => date.getDate() % 3 === 0;
   writeDate = (d: Date) => console.log('Retrieving in Angular: ', d);
   dateOnClose = () => console.log('Datepicker closed');

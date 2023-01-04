@@ -4,19 +4,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white">
-      <elvia-datepicker [value]="date" (valueOnChange)="writeDate($event.detail.value)"></elvia-datepicker>
-      <elvia-datepicker
-        [value]="date"
-        (valueOnChange)="writeDate($event.detail.value)"
-        hasErrorPlaceholder="true"
-      ></elvia-datepicker>
-      <elvia-datepicker
-        [value]="date"
-        (valueOnChange)="writeDate($event.detail.value)"
-        [hasErrorPlaceholder]="false"
-      ></elvia-datepicker>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -246,14 +234,14 @@
     <elvia-datepicker
       [value]="date"
       (valueOnChange)="writeDate($event.detail.value)"
-      hasErrorPlaceholder="false"
+      [errorOptions]="errorOptions"
     ></elvia-datepicker>
   </div>
 
   <!--Date range picker-->
   <div class="example-wrapper">
     <h3>Date range picker</h3>
-    <elvia-datepicker-range hasErrorPlaceholder="true"></elvia-datepicker-range>
+    <elvia-datepicker-range [errorOptions]="errorOptions"></elvia-datepicker-range>
   </div>
 
   <!--Divider-->
@@ -482,7 +470,7 @@
     <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
       <elvia-timepicker></elvia-timepicker>
 
-      <elvia-timepicker hasErrorPlaceholder="false"></elvia-timepicker>
+      <elvia-timepicker [errorOptions]="errorOptions"></elvia-timepicker>
 
       <elvia-timepicker label="Custom label"></elvia-timepicker>
 
