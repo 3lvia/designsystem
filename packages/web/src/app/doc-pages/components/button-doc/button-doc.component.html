@@ -244,7 +244,9 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Links with button style'">
         <ng-container ngProjectAs="sectionContent">
-          The e-btn class can also be used on anchor tags to make links appear like buttons.
+          The
+          <code>e-btn</code>
+          class can also be used on anchor tags to make links appear like buttons.
           <app-component-example-v1
             [codeHTML]="buttonLinks"
             [codeInverted]="buttonLinksInverted"
@@ -264,14 +266,14 @@
             <li>
               <strong>Aria label:</strong>
               Remember to always add a descriptive
-              <span class="code-text">aria-label</span>
+              <code>aria-label</code>
               to all icon-button.
             </li>
             <li>
               <strong>Aria hidden:</strong>
               Most icons are purely decorative and should therefore be excluded from the accessibility tree by
               adding
-              <span class="code-text">aria-hidden="true"</span>
+              <code>aria-hidden="true"</code>
               to the icon element.
             </li>
           </ul>
@@ -292,6 +294,13 @@
   <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-btn'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties [componentName]="'e-btn'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
+
+  <!--Changelog-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>
