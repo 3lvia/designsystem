@@ -89,10 +89,10 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         this.searchService.initializeSearch(this.searchItems, {
           includeScore: true,
           includeMatches: true,
-          threshold: 0.4,
-          minMatchCharLength: 1,
+          threshold: 0.35,
+          minMatchCharLength: 2,
           keys: [
-            { name: 'title', weight: 2 },
+            { name: 'title', weight: 1 },
             { name: 'description', weight: 0.5 },
             { name: 'searchTerms', weight: 0.066 },
           ],
