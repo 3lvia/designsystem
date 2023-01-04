@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-button-doc',
