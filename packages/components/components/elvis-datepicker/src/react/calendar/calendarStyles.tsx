@@ -43,7 +43,6 @@ export const GridContainer = styled.div`
 
 export const DayName = styled.div`
   ${getTypographyCss('text-sm')};
-  color: ${getThemeColor('color-text-placeholder')};
   text-align: center;
 `;
 
@@ -54,7 +53,6 @@ interface DayButtonProps {
 
 export const DayButton = styled.button<Partial<DayButtonProps>>`
   ${getTypographyCss('text-sm')};
-  color: ${getThemeColor('color-text-primary')};
   width: 2rem;
   height: 2rem;
   border-radius: 999px;

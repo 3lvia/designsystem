@@ -9,7 +9,7 @@ interface UseCurrentThemeApi {
 /**
  *
  * @param ref Ref to a DOM element inside the current component. This is used to find the closest parent with a theme class.
- * @returns
+ * @returns The current theme name and the theme class name. Defaults to light theme.
  */
 export const useCurrentTheme = (ref: React.RefObject<HTMLElement>): UseCurrentThemeApi => {
   const [currentTheme, setCurrentTheme] = useState<ThemeName>('light');

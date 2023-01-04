@@ -33,7 +33,6 @@ export const YearButton = styled.button<Partial<YearButtonProps>>`
   background-color: ${getThemeColor('color-background-overlay')};
   border: none;
   width: 100%;
-  color: ${getThemeColor('color-text-primary')};
 
   &:hover:not(:disabled) {
     background-color: ${({ themeName }) =>

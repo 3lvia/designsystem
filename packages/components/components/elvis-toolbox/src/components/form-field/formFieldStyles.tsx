@@ -135,7 +135,6 @@ interface LabelProps {
 
 export const FormFieldLabel = styled.div<LabelProps>`
   ${getTypographyCss('text-label')}
-  color: ${getThemeColor('color-text-primary')};
   margin-bottom: 5px;
 
   ${(props) =>
@@ -150,7 +149,6 @@ export const FormFieldLabel = styled.div<LabelProps>`
 
 export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))`
   ${getTypographyCss('text-md')}
-  color: ${getThemeColor('color-text-primary')};
   min-width: 0;
   padding: 0;
   margin: 0;
