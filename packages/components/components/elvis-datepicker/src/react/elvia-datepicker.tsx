@@ -21,7 +21,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   dateRangeProps,
   onFocus,
   disableDate,
-  errorOptions = { hideText: false, isErrorState: false },
+  errorOptions = { hideText: false, isErrorState: false, hasErrorPlaceholder: true },
   hasOptionalText,
   hasSelectDateOnOpen = true,
   isCompact = false,
@@ -217,6 +217,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         style={{ ...inlineStyle }}
         isFullWidth={isFullWidth}
         isDisabled={isDisabled}
+        hasErrorPlaceholder={errorOptions.hasErrorPlaceholder}
         isActive={isShowing}
         isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
         data-testid="wrapper"

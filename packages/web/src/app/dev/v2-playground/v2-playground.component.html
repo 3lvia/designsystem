@@ -233,18 +233,25 @@
   <!--Datepicker-->
   <div class="example-wrapper">
     <h3>DatePicker</h3>
-    <elvia-datepicker [value]="date" (valueOnChange)="writeDate($event.detail.value)"></elvia-datepicker>
+    <elvia-datepicker
+      [value]="date"
+      (valueOnChange)="writeDate($event.detail.value)"
+      [errorOptions]="errorOptions"
+    ></elvia-datepicker>
   </div>
 
   <!--Date range picker-->
   <div class="example-wrapper">
     <h3>Date range picker</h3>
     <elvia-datepicker-range></elvia-datepicker-range>
+    <elvia-datepicker-range [errorOptions]="errorOptionsRange"></elvia-datepicker-range>
     <elvia-datepicker-range
       hasTimepickers
       [minDate]="minDateRange"
       [maxDate]="maxDateRange"
+      [errorOptions]="errorOptionsRange"
     ></elvia-datepicker-range>
+    <elvia-datepicker-range></elvia-datepicker-range>
   </div>
 
   <!--Divider-->
@@ -472,6 +479,8 @@
     <h3>Timepicker</h3>
     <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
       <elvia-timepicker></elvia-timepicker>
+
+      <elvia-timepicker [errorOptions]="errorOptions"></elvia-timepicker>
 
       <elvia-timepicker label="Custom label"></elvia-timepicker>
 
