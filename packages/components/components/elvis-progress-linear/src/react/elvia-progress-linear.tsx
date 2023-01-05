@@ -24,8 +24,8 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
       aria-valuemin={0}
       aria-valuemax={100}
       role={ariaRole}
-      id={id ? id : undefined}
-      aria-label={ariaLabel ? ariaLabel : 'Progresjon'}
+      id={id}
+      aria-label={ariaLabel ?? 'Progresjon'}
       aria-valuetext={ariaValueText ? ariaValueText : 'Progresjonen er nå på ' + value + '%.'}
       className={className ? className : ''}
       {...rest}
