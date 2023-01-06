@@ -155,7 +155,7 @@ export const Calendar: React.FC<Props> = ({
           data-testid="prev-month-btn"
           size="sm"
         >
-          <IconWrapper icon={arrowLongLeftBold} size="xs" color={getThemeColor('color-text-primary')} />
+          <IconWrapper icon={arrowLongLeftBold} size="xs" color={getThemeColor('text-primary')} />
         </IconButton>
         <MonthName data-testid="month-name" aria-live="polite">
           {formatDate(viewedDate, { month: 'long', year: 'numeric' })}
@@ -166,7 +166,7 @@ export const Calendar: React.FC<Props> = ({
           data-testid="next-month-btn"
           size="sm"
         >
-          <IconWrapper icon={arrowLongRightBold} size="xs" color={getThemeColor('color-text-primary')} />
+          <IconWrapper icon={arrowLongRightBold} size="xs" color={getThemeColor('text-primary')} />
         </IconButton>
       </CalendarHeader>
       <GridContainer>

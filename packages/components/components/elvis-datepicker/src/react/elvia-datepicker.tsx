@@ -256,7 +256,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           >
             <IconWrapper
               icon={calendar}
-              color={isDisabled ? getThemeColor('color-state-disabled') : getThemeColor('color-text-primary')}
+              color={isDisabled ? getThemeColor('state-disabled') : getThemeColor('text-primary')}
               size={isCompact ? 'xs' : 'sm'}
             />
           </IconButton>

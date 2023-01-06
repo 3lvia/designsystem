@@ -34,7 +34,7 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName): Color | n
  * @param themeName
  * @returns CSS-variable for label, with fallback to the color hex.
  * @example
- * const color = getThemeColor('color-background-primary');
+ * const color = getThemeColor('background-primary');
  */
 export const getThemeColor = (label: ColorLabel, themeName: ThemeName = 'light'): string => {
   const color = getThemeColorObject(label, themeName);
@@ -42,7 +42,7 @@ export const getThemeColor = (label: ColorLabel, themeName: ThemeName = 'light')
     console.error(`Color ${label} not found.`);
     return '';
   }
-  return `var(--e-${label}, ${color.hex})`;
+  return `var(--e-color-${label}, ${color.hex})`;
 };
 
 const getBaseThemeColors = <TThemeName extends ThemeName>(

@@ -63,17 +63,17 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
   cursor: inherit;
 
   &:disabled {
-    color: ${getThemeColor('color-state-disabled')};
+    color: ${getThemeColor('state-disabled')};
 
     &::after {
-      background-color: ${getThemeColor('color-state-disabled')};
+      background-color: ${getThemeColor('state-disabled')};
     }
   }
 
   ${(props) =>
     props.isActive &&
     css`
-      background-color: ${getThemeColor('color-state-on')};
+      background-color: ${getThemeColor('state-on')};
       font-weight: 500;
     `}
 
@@ -85,7 +85,7 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
         position: absolute;
         width: 4px;
         height: 4px;
-        background-color: ${getThemeColor('color-state-on')};
+        background-color: ${getThemeColor('state-on')};
         bottom: 0;
         border-radius: 50%;
         left: 50%;

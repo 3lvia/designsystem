@@ -41,7 +41,7 @@ const getDateRangeBackground = (piece: Partial<DateRangePiece>) => {
       top: 4px;
       left: ${piece.isStart ? '4px' : '0px'};
       border-radius: ${getBorderRadius(piece)};
-      background-color: ${getThemeColor('color-state-hover-grey')};
+      background-color: ${getThemeColor('state-hover-grey')};
     }
   `;
 };
@@ -73,11 +73,11 @@ export const DateRangeDayContainer = styled.div<Partial<Props>>`
         cursor: pointer;
 
         &:hover ${DayButton} {
-          border-color: ${getThemeColor('color-state-hover-green')};
+          border-color: ${getThemeColor('state-hover-green')};
         }
 
         ${DayButton} {
-          border-color: ${props.isFocused ? getThemeColor('color-state-on') : 'transparent'};
+          border-color: ${props.isFocused ? getThemeColor('state-on') : 'transparent'};
         }
       `;
     }
@@ -103,7 +103,7 @@ export const DateRangeDayContainer = styled.div<Partial<Props>>`
     props.isOtherSelectedDate &&
     css`
       ${DayButton} {
-        border-color: ${getThemeColor('color-text-primary')};
+        border-color: ${getThemeColor('text-primary')};
       }
     `};
 `;

@@ -20,32 +20,26 @@ export interface Color {
 }
 
 type BackgroundLabels =
-  | 'color-background-primary'
-  | 'color-background-secondary'
-  | 'color-background-tertiary'
-  | 'color-background-element'
-  | 'color-background-element-zebra'
-  | 'color-background-overlay'
-  | 'color-background-header'
-  | 'color-background-accent'
-  | 'color-background-accent-strong';
-type TextLabels = 'color-text-primary' | 'color-text-secondary' | 'color-text-placeholder';
+  | 'background-primary'
+  | 'background-secondary'
+  | 'background-tertiary'
+  | 'background-element'
+  | 'background-element-zebra'
+  | 'background-overlay'
+  | 'background-header'
+  | 'background-accent'
+  | 'background-accent-strong';
+type TextLabels = 'text-primary' | 'text-secondary' | 'text-placeholder';
 type StateLabels =
-  | 'color-state-on'
-  | 'color-state-caution'
-  | 'color-state-warning'
-  | 'color-state-error'
-  | 'color-state-hover-green'
-  | 'color-state-hover-grey'
-  | 'color-state-disabled'
-  | 'color-state-focus';
-type DataLabels =
-  | 'color-data-green'
-  | 'color-data-violet'
-  | 'color-data-blue'
-  | 'color-data-purple'
-  | 'color-data-orange'
-  | 'color-data-red';
+  | 'state-on'
+  | 'state-caution'
+  | 'state-warning'
+  | 'state-error'
+  | 'state-hover-green'
+  | 'state-hover-grey'
+  | 'state-disabled'
+  | 'state-focus';
+type DataLabels = 'data-green' | 'data-violet' | 'data-blue' | 'data-purple' | 'data-orange' | 'data-red';
 
 export type ColorLabel = BackgroundLabels | TextLabels | StateLabels | DataLabels;
 

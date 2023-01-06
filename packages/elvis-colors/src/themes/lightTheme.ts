@@ -121,109 +121,109 @@ export type LightThemeColorName = typeof lightThemeColors extends Record<string,
 
 export const lightTheme: Theme = {
   background: {
-    'color-background-primary': {
+    'background-primary': {
       hex: lightThemeColors['primary-colors'].white.color,
       contrast: lightThemeColors['primary-colors'].white.contrastText,
     },
-    'color-background-secondary': {
+    'background-secondary': {
       hex: lightThemeColors['grey-colors']['grey-05'].color,
       contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
     },
-    'color-background-tertiary': {
+    'background-tertiary': {
       hex: lightThemeColors['primary-colors'].grey.color,
       contrast: lightThemeColors['primary-colors'].grey.contrastText,
     },
-    'color-background-element': {
+    'background-element': {
       hex: lightThemeColors['primary-colors'].white.color,
       contrast: lightThemeColors['primary-colors'].white.contrastText,
     },
-    'color-background-element-zebra': {
+    'background-element-zebra': {
       hex: lightThemeColors['grey-colors']['grey-05'].color,
       contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
     },
-    'color-background-overlay': {
+    'background-overlay': {
       hex: lightThemeColors['primary-colors'].white.color,
       contrast: lightThemeColors['primary-colors'].white.contrastText,
     },
-    'color-background-header': {
+    'background-header': {
       hex: lightThemeColors['primary-colors'].white.color,
       contrast: lightThemeColors['primary-colors'].white.contrastText,
     },
-    'color-background-accent': {
+    'background-accent': {
       hex: lightThemeColors['grey-colors']['grey-10'].color,
       contrast: lightThemeColors['grey-colors']['grey-10'].contrastText,
     },
-    'color-background-accent-strong': {
+    'background-accent-strong': {
       hex: lightThemeColors['grey-colors']['grey-20'].color,
       contrast: lightThemeColors['grey-colors']['grey-20'].contrastText,
     },
   },
   text: {
-    'color-text-primary': {
+    'text-primary': {
       hex: lightThemeColors['primary-colors'].black.color,
     },
-    'color-text-secondary': {
+    'text-secondary': {
       hex: lightThemeColors['grey-colors']['grey-80'].color,
     },
-    'color-text-placeholder': {
+    'text-placeholder': {
       hex: lightThemeColors['grey-colors']['grey-70'].color,
     },
   },
   state: {
-    'color-state-on': {
+    'state-on': {
       hex: lightThemeColors['primary-colors'].green.color,
       contrast: lightThemeColors['primary-colors'].green.contrastText,
     },
-    'color-state-caution': {
+    'state-caution': {
       hex: lightThemeColors['signal-colors'].yellow.color,
       contrast: lightThemeColors['signal-colors'].yellow.contrastText,
     },
-    'color-state-warning': {
+    'state-warning': {
       hex: lightThemeColors['signal-colors'].orange.color,
       contrast: lightThemeColors['signal-colors'].orange.contrastText,
     },
-    'color-state-error': {
+    'state-error': {
       hex: lightThemeColors['signal-colors'].red.color,
       contrast: lightThemeColors['signal-colors'].red.contrastText,
     },
-    'color-state-hover-green': {
+    'state-hover-green': {
       hex: lightThemeColors['primary-colors'].green.color,
       contrast: lightThemeColors['primary-colors'].green.contrastText,
     },
-    'color-state-hover-grey': {
+    'state-hover-grey': {
       hex: lightThemeColors['grey-colors']['grey-05'].color,
       contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
     },
-    'color-state-disabled': {
+    'state-disabled': {
       hex: lightThemeColors['grey-colors']['grey-30'].color,
       contrast: lightThemeColors['grey-colors']['grey-30'].contrastText,
     },
-    'color-state-focus': {
+    'state-focus': {
       hex: lightThemeColors['internal-colors']['focus-outline'].color,
     },
   },
   data: {
-    'color-data-green': {
+    'data-green': {
       hex: lightThemeColors['data-colors']['green-apple'].color,
       contrast: lightThemeColors['data-colors']['green-apple'].contrastText,
     },
-    'color-data-violet': {
+    'data-violet': {
       hex: lightThemeColors['data-colors']['violet-grape'].color,
       contrast: lightThemeColors['data-colors']['violet-grape'].contrastText,
     },
-    'color-data-blue': {
+    'data-blue': {
       hex: lightThemeColors['data-colors']['blue-berry'].color,
       contrast: lightThemeColors['data-colors']['blue-berry'].contrastText,
     },
-    'color-data-purple': {
+    'data-purple': {
       hex: lightThemeColors['data-colors']['purple-plum'].color,
       contrast: lightThemeColors['data-colors']['purple-plum'].contrastText,
     },
-    'color-data-orange': {
+    'data-orange': {
       hex: lightThemeColors['data-colors']['orange-mango'].color,
       contrast: lightThemeColors['data-colors']['orange-mango'].contrastText,
     },
-    'color-data-red': {
+    'data-red': {
       hex: lightThemeColors['data-colors']['red-tomato'].color,
       contrast: lightThemeColors['data-colors']['red-tomato'].contrastText,
     },
