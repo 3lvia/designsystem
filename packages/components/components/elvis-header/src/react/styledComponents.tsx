@@ -186,6 +186,7 @@ interface AppContentProps extends ResponsiveProps {
 export const AppContent = styled.main<AppContentProps>`
   padding-top: ${toolbarHeight};
   transition: padding-left ${sidebarAnimation};
+  padding-left: ${toolbarHeight};
 
   ${(props) => {
     if (props.isGtMobile && props.sidenavPadding) {
