@@ -35,14 +35,18 @@
               <strong>Aria label:</strong>
               Remember to always supply a
               <code>aria-label</code>
-              for the progressbar.
+              for the progressbar. Use the
+              <code>ariaLabel</code>
+              prop.
             </li>
             <li>
               <strong>Role:</strong>
               Use
               <code>role="meter"</code>
               when using the progress bar component as a gauge to improve accessibility for screen reader
-              users.
+              users. Use the
+              <code>ariaRole</code>
+              prop.
             </li>
           </ul>
         </ng-container>
@@ -53,7 +57,9 @@
           <code>aria-describedby</code>
           attribute on the region being loaded and set it to reference the progress bar's
           <code>id</code>
-          . Set the
+          (use the
+          <code>componentId</code>
+          prop). Set the
           <code>aria-busy</code>
           attribute on the region to
           <code>true</code>
