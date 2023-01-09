@@ -179,6 +179,26 @@ function TSX_to_JS() {
   return mergeStream(tasks);
 }
 
+// Convert Lit Typescript to JS
+function litToJs() {
+  const tsConfig = typescript.createProject('../tsconfig.json');
+
+  return mergeStream(
+    gulp
+      .src(['../components/*/src/*.lit.ts'], { base: '..' })
+      .pipe(cache('litToJs'))
+      .pipe(sourcemaps.init())
+      .pipe(tsConfig())
+      .pipe(sourcemaps.write('.'))
+      .pipe(
+        rename((path) => {
+          path.dirname = path.dirname.replace('src', 'dist');
+        }),
+      )
+      .pipe(gulp.dest('../')),
+  );
+}
+
 function reactTypescriptDeclarations() {
   const globsToCreateDeclarationsFor = componentConfigs.map((component) => {
     const packageName = getPackageName(component);
@@ -308,6 +328,7 @@ gulp.task(
     getComponentConfigs,
     buildElviaComponentToJS,
     TSX_to_JS,
+    litToJs,
     copyChangelogs,
     reactTypescriptDeclarations,
     buildWebComponentsMagically,
@@ -327,6 +348,7 @@ gulp.task(
     getComponentConfigs,
     buildElviaComponentToJS,
     TSX_to_JS,
+    litToJs,
     copyChangelogs,
     // reactTypescriptDeclarations, -- Currently disabled until we can make it take shorter time, remember to build before publish
     buildWebComponentsMagically,
@@ -348,6 +370,7 @@ gulp.task('watch', function () {
       getComponentConfigs,
       buildElviaComponentToJS,
       TSX_to_JS,
+      litToJs,
       reactTypescriptDeclarations,
       copyChangelogs,
       buildWebComponentsMagically,

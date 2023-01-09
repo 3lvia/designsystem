@@ -2,9 +2,8 @@
   "name": "@elvia/elvis-button",
   "version": "1.0.0",
   "license": "MIT",
-  "main": "web_component.js",
+  "main": "dist/elvia-button.lit.js",
   "files": [
-    "web_component.js",
     "CHANGELOG.json",
     "README.md",
     "dist/**/*"
