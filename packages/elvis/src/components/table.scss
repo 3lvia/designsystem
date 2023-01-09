@@ -402,6 +402,7 @@ $grey10: colors.color('grey-10');
 }
 
 // DEPRECATED
+/* stylelint-disable -- do not lint deprecated styles. */
 .e-table .e-table__sort-header {
   cursor: pointer;
   .e-table__sort-icon {
@@ -450,3 +451,4 @@ $grey10: colors.color('grey-10');
     }
   }
 }
+/* stylelint-endabled */
