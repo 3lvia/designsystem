@@ -40,6 +40,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   allOptionsSelectedLabel = 'Alle',
   label = '',
   errorMessage = '',
+  errorOptions = { hideText: false, isErrorState: false, hasErrorPlaceholder: true },
   menuPosition = 'auto',
   placeholder = '',
   placeholderIcon,
@@ -147,6 +148,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     return () => window.removeEventListener('keydown', closeOnEsc);
   }, [isShowing]);
 
+  console.log(errorOptions);
   return (
     <>
       <DropdownContainer
@@ -155,6 +157,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         style={{ ...inlineStyle }}
         isFullWidth={isFullWidth}
         isDisabled={isDisabled}
+        hasErrorPlaceholder={errorOptions.hasErrorPlaceholder}
         isActive={isShowing}
         isInvalid={!!errorMessage}
         data-testid="wrapper"
@@ -187,6 +190,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             />
           </IconRotator>
         </DropdownInputContainer>
+        {/* Fix error */}
         {!!errorMessage && <DropdownError errorText={errorMessage} />}
       </DropdownContainer>
       {isShowing && (

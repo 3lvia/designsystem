@@ -274,6 +274,13 @@
       label="Select location"
       (valueOnChange)="onDropdownSelect($event.detail.value)"
     ></elvia-dropdown>
+    <h3>Dropdown</h3>
+    <elvia-dropdown
+      [items]="dropdownItems"
+      label="Select location"
+      (valueOnChange)="onDropdownSelect($event.detail.value)"
+      [errorOptions]="errorOptions"
+    ></elvia-dropdown>
   </div>
 
   <!--Icon-->

@@ -8,6 +8,7 @@ export const config: ComponentConfig = {
     { name: 'isSearchable', type: 'boolean' },
     { name: 'allOptionsSelectedLabel', type: 'string' },
     { name: 'errorMessage', type: 'string' },
+    { name: 'errorOptions', type: 'object' },
     { name: 'label', type: 'string' },
     { name: 'menuPosition', type: 'string' },
     { name: 'placeholder', type: 'string' },
