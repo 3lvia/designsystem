@@ -30,6 +30,9 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue>, HasEr
   isFullWidth?: boolean;
   isSearchable?: boolean;
   allOptionsSelectedLabel?: string;
+  /**
+   * @deprecated Removed in version 6.0.0. Replaced by `errorOptions.text`.
+   */
   errorMessage?: string;
   label?: string;
   menuPosition?: DropdownMenuPosition;
