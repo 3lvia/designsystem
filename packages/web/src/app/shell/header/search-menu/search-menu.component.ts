@@ -318,14 +318,25 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     return `<span style='background: ${getColor('elvia-charge')}'>${str}</span>`;
   }
 
-  /** Take the activeResults and filter out all the components that
-   * have a searchTerm that starts with searchString.
-   * Suggest these components in the "looking for...?"" section */
+  /** Filters activeResults and assigns the resulting array to synonymComponents.
+   * The filter condition depends on searchString:
+   * - If searchString is < 3, searchString must be an element of searchTerms.
+   * - If searchString is >= 3, searchString must be a substring of one searchTerm.
+   *
+   * Results truncate to 5. Suggest these in "looking for...?"".
+   */
   private getComponentsWithSynonym(): void {
-    if (this.searchString && this.searchString.length >= 2 && this.activeResults) {
-      this.synonymComponents = this.activeResults.filter(({ searchTerms }) =>
-        searchTerms?.some((term) => term.startsWith(this.searchString.trim())),
-      );
+    if (this.activeResults && this.searchString) {
+      this.synonymComponents = this.activeResults.filter(({ searchTerms }) => {
+        if (this.searchString.length >= 3) {
+          return searchTerms?.some((term) =>
+            term.toLowerCase().includes(this.searchString.trim().toLowerCase()),
+          );
+        } else if (this.searchString.length < 3) {
+          return searchTerms?.includes(this.searchString.trim().toLowerCase());
+        }
+      });
+      this.synonymComponents = this.synonymComponents.slice(0, 5);
     } else {
       this.synonymComponents = [];
     }
