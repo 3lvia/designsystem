@@ -2,13 +2,13 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "05.01.23",
+      "date": "09.01.23",
       "version": "2.1.0",
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
-            "Added the props <code>ariaLabel</code>, <code>ariaRole</code>, and <code>id</code> for improved accessibility."
+            "Added the props <code>ariaLabel</code>, <code>ariaRole</code>, and <code>componentId</code> for improved accessibility."
           ]
         },
         {
