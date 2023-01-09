@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Error placement was corrected after 2.4.0 bug."]
+          "changes": ["Error placement was corrected after 2.2.0 bug."]
         }
       ]
     },
