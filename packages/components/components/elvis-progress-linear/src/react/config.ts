@@ -9,7 +9,7 @@ export const config: ComponentConfig = {
     { name: 'ariaLabel', type: 'string' },
     { name: 'ariaRole', type: 'string' },
     { name: 'ariaValueText', type: 'string' },
-    { name: 'id', type: 'string' },
+    { name: 'componentId', type: 'string' },
     { name: 'size', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },

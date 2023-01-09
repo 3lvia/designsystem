@@ -4,7 +4,7 @@ export interface ProgressLinearProps {
   ariaRole?: ProgressLinearRole;
   ariaValueText?: string;
   className?: string;
-  id?: string;
+  componentId?: string;
   inlineStyle?: CSSProperties;
   isError?: boolean;
   isIndeterminate?: boolean;

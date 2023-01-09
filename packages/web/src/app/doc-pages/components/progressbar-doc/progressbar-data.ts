@@ -65,7 +65,7 @@ export const progressbarData: ComponentData = {
         'role="progressbar" indicates that the progresbar displays the progress of a task. role="meter" indicates that the progresbar is used as a gauge.',
       default: '"progressbar"',
     },
-    id: {
+    componentId: {
       isRequired: false,
       type: 'string',
       description:
