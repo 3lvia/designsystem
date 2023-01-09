@@ -178,6 +178,7 @@ describe('Elvis Dropdown', () => {
       });
     });
 
+    // TODO: Rewrite
     describe('when an error text is provided', () => {
       beforeEach(() => {
         render(<Dropdown items={items} errorMessage="Error message"></Dropdown>);

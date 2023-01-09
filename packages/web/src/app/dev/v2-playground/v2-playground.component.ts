@@ -42,7 +42,7 @@ export class v2PlaygroundComponent {
   date = new Date(2022, 9, 10, 22, 42, 42, 42);
   minDate = new Date(2022, 9, 5);
   maxDate = new Date(2023, 9, 25);
-  errorOptions = { isErrorState: true, text: 'Hello' };
+  errorOptions = { hasErrorPlaceholder: false, isErrorState: true, text: 'Hello' };
   disableDate = (date: Date) => date.getDate() % 3 === 0;
   writeDate = (d: Date) => console.log('Retrieving in Angular: ', d);
   dateOnClose = () => console.log('Datepicker closed');
@@ -53,8 +53,8 @@ export class v2PlaygroundComponent {
   // Datepicker range
   dateRangeDates = { start: new Date(2022, 9, 10), end: new Date(2022, 9, 20) };
   errorOptionsRange = {
-    start: { isErrorState: true, hasErrorPlaceholder: false },
-    end: { hasErrorPlaceholder: false },
+    start: { hasErrorPlaceholder: false, text: 'hei' },
+    end: { isErrorState: true, hasErrorPlaceholder: false },
   };
   labelOptions = { start: 'Start-dato', end: 'Sluttdato' };
   minDateRange = new Date(2022, 6, 26);

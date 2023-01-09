@@ -27,7 +27,7 @@ export const config: ComponentConfig = {
     {
       name: 'errorMessage',
       type: 'string',
-      deprecatedDetails: { version: '6.0.0', newProp: 'errorOptions.text' },
+      deprecatedDetails: { version: '6.0.0', newProp: 'errorOptions.text', isDirectReplacement: true },
     },
     {
       name: 'options',

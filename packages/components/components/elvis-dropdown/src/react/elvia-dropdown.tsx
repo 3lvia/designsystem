@@ -156,7 +156,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         style={{ ...inlineStyle }}
         isFullWidth={isFullWidth}
         isDisabled={isDisabled}
-        hasErrorPlaceholder={errorOptions.hasErrorPlaceholder}
+        hasErrorPlaceholder={!!errorOptions.hasErrorPlaceholder || !!errorOptions.text}
         isActive={isShowing}
         isInvalid={!!errorOptions.text || !!errorOptions.isErrorState}
         data-testid="wrapper"
@@ -189,8 +189,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             />
           </IconRotator>
         </DropdownInputContainer>
-        {/* Fix error */}
-        {errorOptions.text && <DropdownError errorText={errorOptions.text} />}
+        {!!errorOptions.text && <DropdownError errorText={errorOptions.text} />}
       </DropdownContainer>
       {isShowing && (
         <DropdownOverlay

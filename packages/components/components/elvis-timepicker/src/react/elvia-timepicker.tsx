@@ -148,7 +148,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
         isFullWidth={isFullWidth}
         isActive={isShowing}
         isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
-        hasErrorPlaceholder={errorOptions.hasErrorPlaceholder}
+        hasErrorPlaceholder={!!errorOptions.hasErrorPlaceholder || !!errorOptions.text}
       >
         {!!label && <FormFieldLabel data-testid="label">{label}</FormFieldLabel>}
         <FormFieldInputContainer ref={connectedElementRef}>

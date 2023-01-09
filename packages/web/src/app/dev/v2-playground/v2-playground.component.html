@@ -11,6 +11,19 @@
         (valueOnChange)="onDropdownSelect($event.detail.value)"
         [errorOptions]="errorOptions"
       ></elvia-dropdown>
+      <elvia-datepicker-range [errorOptions]="errorOptionsRange"></elvia-datepicker-range>
+      <elvia-datepicker
+        [value]="date"
+        (valueOnChange)="writeDate($event.detail.value)"
+        [errorOptions]="errorOptions"
+      ></elvia-datepicker>
+      <elvia-datepicker-range
+        hasTimepickers
+        [minDate]="minDateRange"
+        [maxDate]="maxDateRange"
+        [errorOptions]="errorOptionsRange"
+      ></elvia-datepicker-range>
+      <elvia-timepicker [errorOptions]="errorOptions"></elvia-timepicker>
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>

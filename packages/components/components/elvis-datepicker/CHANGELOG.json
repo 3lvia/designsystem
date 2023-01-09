@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.01.23",
+      "version": "6.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Error placement was corrected after 2.4.0 bug."]
+        }
+      ]
+    },
+    {
       "date": "05.1.23",
       "version": "6.1.0",
       "changelog": [
