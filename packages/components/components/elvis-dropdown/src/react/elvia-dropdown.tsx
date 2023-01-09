@@ -39,8 +39,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   isSearchable = false,
   allOptionsSelectedLabel = 'Alle',
   label = '',
-  errorMessage = '',
-  errorOptions = { hideText: false, isErrorState: false, hasErrorPlaceholder: true },
+  errorOptions = { isErrorState: false, hasErrorPlaceholder: true },
   menuPosition = 'auto',
   placeholder = '',
   placeholderIcon,
@@ -159,7 +158,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         isDisabled={isDisabled}
         hasErrorPlaceholder={errorOptions.hasErrorPlaceholder}
         isActive={isShowing}
-        isInvalid={!!errorMessage}
+        isInvalid={!!errorOptions.text || !!errorOptions.isErrorState}
         data-testid="wrapper"
         aria-haspopup="true"
       >
@@ -191,7 +190,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           </IconRotator>
         </DropdownInputContainer>
         {/* Fix error */}
-        {!!errorMessage && <DropdownError errorText={errorMessage} />}
+        {errorOptions.text && <DropdownError errorText={errorOptions.text} />}
       </DropdownContainer>
       {isShowing && (
         <DropdownOverlay
