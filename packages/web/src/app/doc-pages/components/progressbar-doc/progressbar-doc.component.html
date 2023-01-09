@@ -1,6 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
-  <ng-container ngProjectAs="headerTitle">Progressbar</ng-container>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -17,7 +17,7 @@
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      The progressbar is used to show loading, both locally and for full page actions where the
+      The progress bar is used to show loading, both locally and for full page actions where the
       <a class="e-link e-link--inline" [routerLink]="['/components/contentLoader']">Content loader</a>
       isn't suitable. It is for example used in
       <a class="e-link e-link--inline" [routerLink]="['/components/fileUpload']">File Upload</a>
@@ -35,7 +35,7 @@
               <strong>Aria label:</strong>
               Remember to always supply a
               <code>aria-label</code>
-              for the progressbar. Use the
+              for the progress bar. Use the
               <code>ariaLabel</code>
               prop.
             </li>

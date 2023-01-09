@@ -49,7 +49,7 @@ export const progressbarData: ComponentData = {
       isRequired: false,
       type: 'boolean',
       description:
-        'Use to better communicate to the user how far along the progressbar has come. E.g. "8% (34 minutes) remaining".',
+        'Use to better communicate to the user how far along the progress bar has come. E.g. "8% (34 minutes) remaining".',
       default: '"Progresjonen er nå på {value}%."',
     },
     ariaLabel: {
@@ -62,19 +62,19 @@ export const progressbarData: ComponentData = {
       isRequired: false,
       type: '"progressbar" | "meter"',
       description:
-        'Role="progressbar" indicates that the progressbar displays the progress of a task. \nRole="meter" indicates that the progressbar is used as a gauge.',
+        'Role="progressbar" indicates that the progress bar displays the progress of a task. \nRole="meter" indicates that the progress bar is used as a gauge.',
       default: '"progressbar"',
     },
     componentId: {
       isRequired: false,
       type: 'string',
       description:
-        'The id of the progressbar. Can be used to set the aria-labelledby attribute on other elements.',
+        'The id of the progress bar. Can be used to set the aria-labelledby attribute on other elements.',
     },
     size: {
       isRequired: false,
       type: '"small" | "medium"',
-      description: 'The size of the progressbar.',
+      description: 'The size of the progress bar.',
       default: '"small"',
       cegDisplayName: 'Size',
       cegDefault: 'small',
@@ -85,13 +85,13 @@ export const progressbarData: ComponentData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom CSS classes that can be added to the progressbar.',
+      description: 'Custom CSS classes that can be added to the progress bar.',
     },
     inlineStyle: {
       isRequired: false,
       type: '{[cssProperty: string]: string}',
       description:
-        "Custom CSS style object that can be added to the progressbar. Example: {marginTop: '8px', width: '100%'}",
+        "Custom CSS style object that can be added to the progress bar. Example: {marginTop: '8px', width: '100%'}",
     },
   },
   codeReact: `<ProgressLinear
