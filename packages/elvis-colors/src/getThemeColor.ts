@@ -39,7 +39,7 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName): Color | n
 export const getThemeColor = (label: ColorLabel, themeName: ThemeName = 'light'): string => {
   const color = getThemeColorObject(label, themeName);
   if (!color) {
-    console.error(`Color ${label} not found.`);
+    console.error(`Color '${label}' not found.`);
     return '';
   }
   return `var(--e-color-${label}, ${color.hex})`;
@@ -92,7 +92,7 @@ export const getCustomThemeColor = (
     colors['data-colors'][label as keyof typeof colors['data-colors']] ??
     colors['grey-colors'][label as keyof typeof colors['grey-colors']];
   if (!color) {
-    console.error(`Color ${label} for theme ${themeName} not found.`);
+    console.error(`Color '${label}' for theme '${themeName}' not found.`);
     return '';
   }
   return color.color;
