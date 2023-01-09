@@ -147,7 +147,6 @@ const Dropdown: React.FC<DropdownProps> = ({
     return () => window.removeEventListener('keydown', closeOnEsc);
   }, [isShowing]);
 
-  console.log(errorOptions);
   return (
     <>
       <DropdownContainer
