@@ -51,12 +51,12 @@ describe('Elvis Progress Linear', () => {
     });
   });
 
-  //Skipped. see https://elvia.atlassian.net/browse/LEGO-2151?atlOrigin=eyJpIjoiZTI4MDEzYzJkYTBkNDczZGJiMDZhZTA3ZmM3ZDk5MGMiLCJwIjoiaiJ9
-  describe.skip('the accessibility', () => {
+  describe('the accessibility', () => {
     it('should have no axe violations', async () => {
       render(
         <div data-testid="progress-linears-wrapper">
           <ProgressLinear value={48} />
+          <ProgressLinear value={24} />
         </div>,
       );
 
