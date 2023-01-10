@@ -9,13 +9,12 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class CegComponent implements AfterContentInit {
   @Input() componentData;
 
-  dynamicCode: SafeHtml;
-  controlTypeOrder = ['counter', 'radio', 'toggle', 'checkbox'];
+  componentPreviewCode: SafeHtml;
 
   constructor(private domSanitizer: DomSanitizer) {}
 
   ngAfterContentInit(): void {
-    this.dynamicCode = this.domSanitizer.bypassSecurityTrustHtml(this.componentData.codeNativeHTML);
+    this.componentPreviewCode = this.domSanitizer.bypassSecurityTrustHtml(this.componentData.codeNativeHTML);
     if (this.componentData.codeNativeScript) {
       setTimeout(() => eval(this.componentData.codeNativeScript), 1000);
     }
