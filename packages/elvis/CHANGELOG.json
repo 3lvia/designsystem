@@ -1,19 +1,29 @@
 {
   "content": [
     {
-      "version": "9.8.1",
+      "version": "9.9.0",
       "date": "January 10, 2023",
       "changelog": [
         {
+          "type": "new_feature",
+          "changes": [
+            "Elvis now warns if you're using deprecated descendant combinations. e.g <code>.e-alert-close</code> as descendant of <code>.e-alert--close</code> generates a warning."
+          ]
+        },
+        {
           "type": "bug_fix",
           "changes": [
-            "Fixed a bug where the placeholder text of disabled inputs was too dark",
+            "Fixed a bug where the placeholder text of disabled inputs was too dark.",
             "Fixed a bug where the text inside a button wrapped onto a new line if too long."
           ],
           "pages": [
             { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },
             { "displayName": "Button", "url": "https://design.elvia.io/components/button" }
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Elvis now checks for deprecated classes a bit more efficiently."]
         }
       ]
     },
