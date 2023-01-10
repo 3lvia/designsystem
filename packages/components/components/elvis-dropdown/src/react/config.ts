@@ -7,7 +7,7 @@ export const config: ComponentConfig = {
     { name: 'isFullWidth', type: 'boolean' },
     { name: 'isSearchable', type: 'boolean' },
     { name: 'allOptionsSelectedLabel', type: 'string' },
-    { name: 'errorMessage', type: 'string' },
+    { name: 'errorOptions', type: 'object' },
     { name: 'label', type: 'string' },
     { name: 'menuPosition', type: 'string' },
     { name: 'placeholder', type: 'string' },
@@ -24,6 +24,11 @@ export const config: ComponentConfig = {
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
     // Deprecated attributes
+    {
+      name: 'errorMessage',
+      type: 'string',
+      deprecatedDetails: { version: '6.0.0', newProp: 'errorOptions.text', isDirectReplacement: true },
+    },
     {
       name: 'options',
       type: 'object',
