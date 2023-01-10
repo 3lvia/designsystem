@@ -135,13 +135,10 @@ describe('Elvis Pagination', () => {
     });
   });
 
-  describe.skip('the accessibility', () => {
-    /* will fail if there are multiple paginators on same page -> considered user error */
-    /* depends on fixes in dropdown before this test can be un-skipped */
+  describe('the accessibility', () => {
     it('should have no axe violations', async () => {
       render(
-        <div data-testid="paginations">
-          <Pagination />
+        <div data-testid="pagination-wrapper">
           <Pagination
             numberOfElements={100}
             alignment={'right'}
@@ -150,8 +147,8 @@ describe('Elvis Pagination', () => {
         </div>,
       );
 
-      const paginations = screen.getByTestId('paginations');
-      const results = await axe(paginations);
+      const pagination = screen.getByTestId('pagination-wrapper');
+      const results = await axe(pagination);
 
       expect(results).toHaveNoViolations();
     });

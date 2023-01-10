@@ -1,16 +1,6 @@
-import React, { CSSProperties, FC } from 'react';
-import { ProgressLinearSize } from './elvia-progress-linear.types';
+import React, { FC } from 'react';
+import { ProgressLinearProps } from './elvia-progress-linear.types';
 import { ProgressLinearWrapper, ProgressLinearProgress } from './styledComponents';
-
-export interface ProgressLinearProps {
-  value?: number;
-  isIndeterminate?: boolean;
-  isError?: boolean;
-  ariaValueText?: string;
-  size?: ProgressLinearSize;
-  className?: string;
-  inlineStyle?: CSSProperties;
-}
 
 const ProgressLinear: FC<ProgressLinearProps> = ({
   value = 0,
@@ -18,6 +8,9 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
   isError,
   ariaValueText,
   size = 'small',
+  ariaRole = 'progressbar',
+  ariaLabel,
+  componentId,
   className,
   inlineStyle,
   ...rest
@@ -30,6 +23,9 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
       aria-valuenow={value}
       aria-valuemin={0}
       aria-valuemax={100}
+      role={ariaRole}
+      id={componentId}
+      aria-label={ariaLabel ?? 'Progresjon'}
       aria-valuetext={ariaValueText ? ariaValueText : 'Progresjonen er nå på ' + value + '%.'}
       className={className ? className : ''}
       {...rest}

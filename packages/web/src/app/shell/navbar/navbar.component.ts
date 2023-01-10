@@ -28,11 +28,11 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   isLoaded = false;
 
   navbarList: CMSNavbarItem[] = [];
-  activeNavbarItem: any;
-  prevActiveNavbarItem: any;
+  activeNavbarItem: CMSNavbarItem;
+  prevActiveNavbarItem: CMSNavbarItem;
   subMenuRoute: string;
   oldSubMenuRoute: string;
-  clickedNavbarItem;
+  clickedNavbarItem: CMSNavbarItem;
   isCmsPage = false;
 
   visibleAnchors: NavbarAnchor[] = [];
@@ -66,10 +66,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       if (value[1] instanceof NavigationEnd) {
         this.setSubMenuRoute();
         this.isLandingPage = this.router.url.split('/')[2] === undefined;
-        if (this.subMenuRoute !== this.oldSubMenuRoute) {
-          this.updateNavbarList(value[0]);
-        }
-
+        this.updateNavbarList(value[0]);
         this.checkIfPageExistsInProject();
         if (!this.isCmsPage) {
           setTimeout(() => {

@@ -467,6 +467,7 @@ $loading-dot-sm: 8px;
     }
   }
 
+  /* stylelint-disable -- Do not lint deprecated styles. */
   // DEPRECATED
   &.e-btn--danger {
     .e-btn__icon i {
@@ -579,6 +580,7 @@ $loading-dot-sm: 8px;
       background-clip: padding-box;
     }
   }
+  /* stylelint-enable */
 
   // ICON BTN
   &.e-btn--icon {

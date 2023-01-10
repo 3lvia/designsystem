@@ -267,6 +267,13 @@
       label="Select location"
       (valueOnChange)="onDropdownSelect($event.detail.value)"
     ></elvia-dropdown>
+    <h3>Dropdown</h3>
+    <elvia-dropdown
+      [items]="dropdownItems"
+      label="Select location"
+      (valueOnChange)="onDropdownSelect($event.detail.value)"
+      [errorOptions]="errorOptions"
+    ></elvia-dropdown>
   </div>
 
   <!--Icon-->
@@ -472,6 +479,8 @@
     <h3>Timepicker</h3>
     <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
       <elvia-timepicker></elvia-timepicker>
+
+      <elvia-timepicker [errorOptions]="errorOptions"></elvia-timepicker>
 
       <elvia-timepicker label="Custom label"></elvia-timepicker>
 

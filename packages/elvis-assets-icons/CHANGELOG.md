@@ -1,5 +1,14 @@
 # Elvis-assets-icon
 
+## 2.7.0 (04.01.23)
+
+### New feature
+
+- New icons:
+  1. `note_approved`
+  2. `note_not_approved`
+  3. `note_not_approved-color`
+
 ## 2.6.1 (28.11.22)
 
 ### Bug fix

@@ -2,6 +2,21 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.01.23",
+      "version": "6.0.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added the <span class=\"code-text\">errorOptions</span> object which introduces the props <span class=\"code-text\">errorOptions.hasErrorPlaceholder</span> option to the <span class=\"code-text\">errorOptions</span> can be set to false to remove the padding under the form field, <span class=\"code-text\">errorOptions.isErrorState</span> that sets the dropdown i an errorState, and <span class=\"code-text\">errorOptions.text</span> that replaces <span class=\"code-text\">errorMessage</span>."
+          ],
+          "fixes": [
+            "Replace the <span class=\"code-text\">errorMessage</span> prop with  <span class=\"code-text\">errorOptions.text</span>"
+          ]
+        }
+      ]
+    },
+    {
       "date": "03.01.23",
       "version": "5.2.0",
       "changelog": [

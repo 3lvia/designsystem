@@ -93,7 +93,7 @@ describe('Elvis Dropdown', () => {
     });
 
     it('should have error message', () => {
-      render(<Dropdown errorMessage="Error" items={[]}></Dropdown>);
+      render(<Dropdown errorOptions={{ text: 'Error message' }} items={[]}></Dropdown>);
       const dropdownError = screen.queryByTestId('error');
       expect(dropdownError).toHaveTextContent('Error');
     });
@@ -180,7 +180,7 @@ describe('Elvis Dropdown', () => {
 
     describe('when an error text is provided', () => {
       beforeEach(() => {
-        render(<Dropdown items={items} errorMessage="Error message"></Dropdown>);
+        render(<Dropdown items={items} errorOptions={{ text: 'Error message' }}></Dropdown>);
       });
 
       it('the error is displayed', () => {

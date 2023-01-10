@@ -98,6 +98,7 @@ $grey-ten: colors.color('grey-10');
     line-height: 100%;
   }
 
+  /* stylelint-disable -- Do not lint deprecated styles. */
   // DEPRECATED
   &.e-link--external,
   &.e-link--new-tab {
@@ -115,6 +116,7 @@ $grey-ten: colors.color('grey-10');
       }
     }
   }
+  /* stylelint-enable */
 
   &.e-link--back,
   &.e-link--action {
@@ -186,6 +188,7 @@ $grey-ten: colors.color('grey-10');
     }
   }
 
+  /* stylelint-disable -- Do not lint deprecated styles. */
   // DEPRECATED
   &.e-link--jumbo {
     @include typography.typography('title-xs');
@@ -440,4 +443,5 @@ $grey-ten: colors.color('grey-10');
       }
     }
   }
+  /* stylelint-enable */
 }

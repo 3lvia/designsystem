@@ -31,8 +31,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   timepickerInterval = '15',
   hasAutoOpenEndDatepicker,
   errorOptions = {
-    start: { hideText: false, isErrorState: false, text: '' },
-    end: { hideText: false, isErrorState: false, text: '' },
+    start: { hideText: false, isErrorState: false, text: '', hasErrorPlaceholder: true },
+    end: { hideText: false, isErrorState: false, text: '', hasErrorPlaceholder: true },
   },
   errorOnChange,
   minDate,
@@ -256,6 +256,22 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     isDisabled,
   };
 
+  const handleStartDatePickerValueOnChange = (newDate: Date | null) => {
+    handleStartDateValueOnChange(newDate, 'date');
+  };
+
+  const handleStartTimePickerValueOnChange = (newDate: Date | null) => {
+    handleStartDateValueOnChange(newDate, 'time');
+  };
+
+  const handleEndDatePickerValueOnChange = (newDate: Date | null) => {
+    handleEndDatepickerValueOnChange(newDate, 'date');
+  };
+
+  const handleEndTimePickerValueOnChange = (newDate: Date | null) => {
+    handleEndDatepickerValueOnChange(newDate, 'time');
+  };
+
   return (
     <DatepickerRangeWrapper
       isFullWidth={isFullWidth ?? false}
@@ -270,7 +286,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           {...passThroughProps}
           label={labelOptions?.start ?? defaultLabelOptions.start}
           value={isTouched('startDate') ? selectedDateRange.start : undefined}
-          valueOnChange={(date) => handleStartDateValueOnChange(date, 'date')}
+          valueOnChange={handleStartDatePickerValueOnChange}
           isRequired={isRequiredState?.start}
           onClose={openNextPicker}
           onFocus={() => setTouched('startDate')}
@@ -295,7 +311,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isCompact={isCompact}
             isDisabled={isDisabled}
             value={isTouched('startTime') ? selectedDateRange.start : undefined}
-            valueOnChange={(time) => handleStartDateValueOnChange(time, 'time')}
+            valueOnChange={handleStartTimePickerValueOnChange}
             isFullWidth={isFullWidth && isVertical}
             onFocus={() => setTouched('startTime')}
             isRequired={isRequiredState?.start}
@@ -304,6 +320,12 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             onOpen={() => setOpenPicker('startTime')}
             onClose={openNextPicker}
             isOpen={openPicker === 'startTime'}
+            errorOptions={{
+              hideText: false,
+              isErrorState: false,
+              text: '',
+              hasErrorPlaceholder: !!errorOptions?.start?.hasErrorPlaceholder || !!errorOptions?.start?.text,
+            }}
           />
         )}
       </RowContainer>
@@ -312,7 +334,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           {...passThroughProps}
           label={labelOptions?.end ?? defaultLabelOptions.end}
           value={isTouched('endDate') ? selectedDateRange.end : undefined}
-          valueOnChange={(date) => handleEndDatepickerValueOnChange(date, 'date')}
+          valueOnChange={handleEndDatePickerValueOnChange}
           isRequired={isRequiredState?.end}
           onClose={openNextPicker}
           onFocus={() => setTouched('endDate')}
@@ -338,7 +360,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isCompact={isCompact}
             isDisabled={isDisabled}
             value={isTouched('endTime') ? selectedDateRange.end : undefined}
-            valueOnChange={(time) => handleEndDatepickerValueOnChange(time, 'time')}
+            valueOnChange={handleEndTimePickerValueOnChange}
             isFullWidth={isFullWidth && isVertical}
             onFocus={() => setTouched('endTime')}
             isRequired={isRequiredState?.end}
@@ -347,6 +369,12 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             onOpen={() => setOpenPicker('endTime')}
             onClose={openNextPicker}
             isOpen={openPicker === 'endTime'}
+            errorOptions={{
+              hideText: false,
+              isErrorState: false,
+              text: '',
+              hasErrorPlaceholder: !!errorOptions?.end?.hasErrorPlaceholder || !!errorOptions?.end?.text,
+            }}
           />
         )}
       </RowContainer>

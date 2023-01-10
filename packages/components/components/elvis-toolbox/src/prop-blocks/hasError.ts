@@ -2,6 +2,7 @@ export interface ErrorOptions {
   text: string;
   hideText: boolean;
   isErrorState: boolean;
+  hasErrorPlaceholder: boolean;
 }
 
 export interface HasError {
