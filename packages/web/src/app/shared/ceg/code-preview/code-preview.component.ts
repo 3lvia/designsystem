@@ -18,28 +18,29 @@ export class CodePreviewComponent implements AfterContentInit {
   constructor(private highlightService: HighlightService) {}
 
   ngAfterContentInit(): void {
+    this.activeCode = this.componentData.codeAngular;
     this.codes = [
       this.componentData.codeAngular,
       this.componentData.codeReact,
       this.componentData.codeVue,
       this.componentData.codeNativeHTML,
     ];
-    this.activeCode = this.componentData.codeAngular;
+
     this.highlightCode();
   }
 
-  updateCode = (newActiveLanguageIndex: number): void => {
+  highlightCode(): void {
+    const activeLanguageType = this.activeLanguageIndex === 1 ? 'jsx' : 'html';
+    if (this.activeCode) {
+      this.activeCode = this.highlightService.highlight(this.activeCode, activeLanguageType);
+    }
+  }
+
+  changeLanguage = (newActiveLanguageIndex: number): void => {
     this.activeLanguageIndex = newActiveLanguageIndex;
     this.activeCode = this.codes[newActiveLanguageIndex];
     this.highlightCode();
   };
-
-  highlightCode(): void {
-    const currentLanguage = this.activeLanguageIndex === 1 ? 'jsx' : 'html';
-    if (this.activeCode) {
-      this.activeCode = this.highlightService.highlight(this.activeCode, currentLanguage);
-    }
-  }
 
   copyCode(): void {
     navigator.clipboard.writeText(this.activeCode);

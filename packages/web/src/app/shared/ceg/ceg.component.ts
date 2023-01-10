@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterContentInit, Component, Input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
@@ -6,7 +6,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   templateUrl: './ceg.component.html',
   styleUrls: ['./ceg.component.scss'],
 })
-export class CegComponent {
+export class CegComponent implements AfterContentInit {
   @Input() componentData;
 
   dynamicCode: SafeHtml;
