@@ -2,12 +2,12 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "10.1.23",
-      "version": "2.2.1",
+      "date": "10.01.23",
+      "version": "2.2.2",
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Updated the <code>@elvia/elvis-datepicker</code> to <code>^6.1.1</code>"]
+          "changes": ["Updated the <code>@elvia/elvis-datepicker</code> to <code>^6.1.2</code>"]
         }
       ]
     },

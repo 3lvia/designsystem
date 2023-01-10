@@ -6,7 +6,7 @@
       "version": "6.1.2",
       "changelog": [
         {
-          "type": "patch",
+          "type": "bug_fix",
           "changes": [
             "Fixed a bug where the Date Picker would display a 'invalid date' error when resetting the date."
           ]
