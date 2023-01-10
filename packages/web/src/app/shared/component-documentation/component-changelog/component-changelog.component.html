@@ -1,5 +1,5 @@
 <ng-template #changelogTemplate>
-  <p *ngIf="elvisComponentToFilter" class="e-m-0">
+  <p *ngIf="elvisComponentToFilter && changelog.length > 0" class="e-m-0">
     This changelog only contains Elvis versions that affected the
     {{ elvisComponentToFilter | lowercase }} component and may thus appear incomplete. See the complete Elvis
     changelog on the
@@ -75,6 +75,13 @@
       </tr>
     </tbody>
   </table>
+  <ng-container *ngIf="changelog.length === 0">
+    <div class="empty-state">
+      <img src="/assets/empty-states/nothing_new_on_white.svg" alt="" />
+      <div class="e-title-caps e-mt-16">no changelog</div>
+      <p class="e-text-sm-light e-text-center e-mt-16">There are no changes for this component yet.</p>
+    </div>
+  </ng-container>
 </ng-template>
 
 <!-- No accordion  -->
