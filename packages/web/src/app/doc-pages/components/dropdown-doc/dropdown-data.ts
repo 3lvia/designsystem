@@ -21,7 +21,7 @@ export const dropdownData: ComponentData = {
     errorOptions: {
       isRequired: false,
       type: 'Partial<{ text: string; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
-      description: 'An object that allows for custom configuration of the error handling in the date picker.',
+      description: 'An object that allows for custom configuration of the error handling in the dropdown.',
     },
     isCompact: {
       isRequired: false,
