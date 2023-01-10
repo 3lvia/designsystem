@@ -114,25 +114,37 @@ function psuedoIsOnElement(className) {
  * @example generateDeprecatedClass('e-card')
  */
 function generateDeprecatedClass(className, child = false) {
-  return `
-    {
-      name: "${child ? child : className}",
-      version: "${deprecatedElvisClasses[className].version}",
-      ${
-        deprecatedElvisClasses[className].replacement
-          ? `replacement: {
-          name: "${deprecatedElvisClasses[className].replacement.name}",
-          type: "${deprecatedElvisClasses[className].replacement.type}",
-          documentation: "${deprecatedElvisClasses[className].replacement.documentation}",
-          },`
-          : ''
-      }
-      ${
-        deprecatedElvisClasses[className].sunset
-          ? `sunset: "${deprecatedElvisClasses[className].sunset}"`
-          : ''
-      }
-      },`;
+  const classData = deprecatedElvisClasses[className];
+  const { version, requiredAncestor, replacement, sunset } = classData;
+  let output = `
+  {
+    name: "${child || className}",
+    version: "${version}"`;
+
+  if (requiredAncestor) {
+    output += `,
+    requiredAncestor: "${requiredAncestor}"`;
+  }
+
+  if (replacement) {
+    const { name: name, type: type, documentation: doc } = replacement;
+    output += `,
+    replacement: {
+      name: "${name}",
+      type: "${type}",
+      documentation: "${doc}"
+    }`;
+  }
+
+  if (sunset) {
+    output += `,
+    sunset: "${sunset}"`;
+  }
+
+  output += `
+  },`;
+
+  return output;
 }
 
 /**
