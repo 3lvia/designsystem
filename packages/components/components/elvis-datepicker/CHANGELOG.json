@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "10.1.23",
+      "version": "6.1.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Fixed a bug where the Date Picker would display a 'invalid date' error when resetting the date."
+          ]
+        }
+      ]
+    },
+    {
       "date": "05.1.23",
       "version": "6.1.0",
       "changelog": [
