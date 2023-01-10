@@ -129,6 +129,33 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  const warnedClasses = [];
+
+  /** 
+   * Compare the used classes to the deprecated classes list. 
+   * If deprecated classes (or a descendant combination) are being used, warn the user in the console. */
+  function checkDeprecatedElvisClass() {
+    if (localhost){
+
+      const usedClasses = getUsedClasses();
+      
+      /* Checking if the used class is deprecated. */
+      usedClasses.forEach(usedClass => {
+        const usedDeprecatedClass = deprecatedElvisClasses.find(deprecatedElvisClass => deprecatedElvisClass.name === usedClass);
+        // If the class is deprecated and has not been warned yet, warn the user.
+        if (usedDeprecatedClass && !warnedClasses.includes(usedDeprecatedClass.name)) {
+          if(usedDeprecatedClass.requiredAncestor && !descendantCombinationExist(usedDeprecatedClass)){
+            return;
+          } else {
+          warnedClasses.push(usedDeprecatedClass.name);
+          generateDeprecationWarning(usedDeprecatedClass);
+          }
+          
+        }
+      });
+    }
+  }
+
   /**
    * Generate a deprecation warning for the usage of a deprecated Elvis class.
    * @param {Object} usedDeprecatedClass - The deprecated Elvis class
@@ -145,40 +172,26 @@ document.addEventListener('DOMContentLoaded', function () {
     name,
     version,
     replacement,
-    sunset
+    sunset,
+    requiredAncestor
   }) {
     let sunsetString = sunset ? `The sunset date is set for ${sunset}.` : '';
     let replacementString = replacement ? `\n \nIt has been replaced with the ${replacement.type} '${replacement.name}'. See ${replacement.documentation}.` : '';
+    let nameString = requiredAncestor ? `descendant combination (.${requiredAncestor} .${name})` : `class ${name}`;
     
-    return console.warn(`Deprecation warning: The Elvis class '${name}' has been deprecated since version ${version}. ${sunsetString} ${replacementString}`);
+    return console.warn(`Deprecation warning: The Elvis ${nameString} has been deprecated since version ${version}. ${sunsetString} ${replacementString}`);
   }
 
-  /* Array containing classes that have been warned to the user. Helps avoid duplicated errors in the console.*/
-  const warnedClasses = [];
-
-  /** Create an array with all the classes used in the DOM starting with 'e-'. 
-   * Use the filter to only include unique classes once. 
-   * Then compare the used classes to the deprecated classes list. 
-   * If deprecated classes are being used, warn the user in the console. */
-  function checkDeprecatedElvisClass() {
-    if (localhost) {
-
-      /* Getting all the classes that start with 'e-' and then it is filtering out the duplicates. https://stackoverflow.com/q/59162535/14447555*/
-      const usedClasses = [].concat(...[...document.querySelectorAll('[class^="e-"]')].map(element => [...element.classList])).filter((className, index, array) => array.indexOf(className) == index).sort();
-
-      /* Checking if the used class is deprecated. */
-      usedClasses.forEach(usedClass => {
-        const usedDeprecatedClass = deprecatedElvisClasses.find(deprecatedElvisClass => deprecatedElvisClass.name === usedClass);
-
-        // If the class is deprecated and has not been warned yet, warn the user.
-        if (usedDeprecatedClass && !warnedClasses.includes(usedDeprecatedClass.name)) {
-          warnedClasses.push(usedDeprecatedClass.name);
-          generateDeprecationWarning(usedDeprecatedClass);
-        }
-      });
-    }
+  /** Get all classes in the DOM that start with 'e-' */
+  function getUsedClasses() {
+    return [...new Set([...document.querySelectorAll('[class^="e-"]')].flatMap(element => [...element.classList]))].sort();
   }
 
+  /** Check if the deprecated class is used as a descendant combination in the DOM. */
+  function descendantCombinationExist({requiredAncestor: ancestor, name}) {
+    return document.querySelector(`.${ancestor} .${name}`);
+  }
+  
   function setCorrectColor(classList, icon) {
     let fill;
 

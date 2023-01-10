@@ -54,38 +54,43 @@ Read about the
 - **Deprecating outdated classes**:
 
   To deprecate an Elvis class, add it to the `deprecated-classes.json` file located at
-  `packages/elvis/.internal/deprecated-classes.json`.
+  `packages/elvis/.internal/deprecated-classes.json`. <br/>Do not remove the class from the library before the
+  sunset date. <br/>Do not include the period in the deprecated class name.
 
   To get started quickly, copy an existing entry and change the values. Place new additions as the first
   element within the JSON object.
 
   ```json
       "e-deprecated-class": {
-          "deprecateChildren": true,
+          "deprecateChildren": true, // optional
+          "requiredAncestor": "e-deprecated-class-ancestor", // optional
           "version": "2.0.0",
-          "replacement": {
+          "replacement": {  // optional
       	    "name": "e-better-replacement",
       	    "type": "class",
       	    "documentation": "https://design.elvia.io/e-better-replacement"
           },
-          "sunset": "March 2023"
+          "sunset": "March 2023"  // optional
       }
   ```
 
   Glossary:
 
   - `deprecateChildren`: If true, all other Elvis classes that include the name specified above will be
-    deprecated.
+    deprecated (optional).
+
+  - `requiredAncestor`: If specified, the requiredAncestor class will only cause a warning if the specified
+    'requiredAncestor' class is present as an ancestor in the DOM (optional).
 
   - `sunset`: An approximate date of when classes will be removed from Elvis (optional).
 
-#### Step 0 - Before you begin
+#### **Step 0 - Before you begin**
 
 1. Make sure you have done the
    [main project setup](https://github.com/3lvia/designsystem/blob/master/README.md).
 2. Navigate to `packages/elvis`
 
-#### Step 1 - Running project
+#### **Step 1 - Running project**
 
 1. Run `yarn build` to build the classes
 2. Run `yarn start` to start/watch for changes while developing
@@ -93,13 +98,13 @@ Read about the
    time and using the classes in the doc-pages in `packages/web`. E.g.
    `packages/web/src/app/doc-pages/components/button-doc`
 
-#### Step 2 - Create the classes / component
+#### **Step 2 - Create the classes / component**
 
 1. In `packages/elvis/src` choose between the `components`, `utilities` and `variables` folders depending on
    what you are creating.
 2. Create your classes, utilities, or variables with the rules explained over in mind.
 
-#### Step 3 - Document the classes
+#### **Step 3 - Document the classes**
 
 The classes should be documented in the `packages/web` folder so that users of the design system can find
 information on how to use them.
@@ -107,7 +112,7 @@ information on how to use them.
 - Navigate to `packages/web/src/app/doc-pages/components` and find the component you want to add documentation
   to or create a new module (like the ones existing already).
 
-#### Step 4 - Pull request and publish
+#### **Step 4 - Pull request and publish**
 
 > NOTE! You will need to set up two-factor authentication with NPM to manually publish your changes.
 > [Elvia NPM](https://www.npmjs.com/org/elvia).
