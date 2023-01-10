@@ -1,6 +1,6 @@
 import { Overlay } from '@elvia/elvis-toolbox';
 import React, { useEffect, useState } from 'react';
-import { AppLink, AppListContainer, ImageContainer } from './appDrawerStyles';
+import { AppLink, AppListContainer, Icon, IconContainer, IconLetters } from './appDrawerStyles';
 import { appList } from './appList';
 
 interface Props {
@@ -20,7 +20,7 @@ export const AppOverlay = React.forwardRef<HTMLDivElement, Props>(({ onClose }, 
     if (urlParts[1]) {
       setDomain(`${urlParts[1]}.${urlParts[0]}`);
     }
-    setActiveUrl(() => urlParts[urlParts.length - 1].split('//')[1]);
+    setActiveUrl(urlParts[urlParts.length - 1].split('//')[1]);
   }, []);
 
   return (
@@ -34,7 +34,10 @@ export const AppOverlay = React.forwardRef<HTMLDivElement, Props>(({ onClose }, 
             isActive={activeUrl === link.url}
             onClick={() => setFadeOut(true)}
           >
-            <ImageContainer dangerouslySetInnerHTML={{ __html: link.icon }} />
+            <IconContainer>
+              <Icon dangerouslySetInnerHTML={{ __html: link.icon }} />
+              <IconLetters>{link.iconLetters}</IconLetters>
+            </IconContainer>
             {link.name}
           </AppLink>
         ))}
