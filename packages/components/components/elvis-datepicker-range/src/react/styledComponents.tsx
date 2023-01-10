@@ -9,6 +9,7 @@ export const DatepickerRangeWrapper = styled.div<DatepickerRangeWrapperProps>`
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   gap: 16px;
 
   @media (max-width: 767px) {
