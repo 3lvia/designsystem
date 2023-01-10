@@ -413,7 +413,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added code>e-btn---selected</code> classes that can be used when a button has a selected state."
+            "Added <code>e-btn---selected</code> classes that can be used when a button has a selected state."
           ],
           "components": [{ "displayName": "Button", "url": "https://design.elvia.io/components/button" }]
         }
@@ -1059,7 +1059,7 @@
               "displayName": "Segmented Control",
               "url": "https://design.elvia.io/components/segmented-control"
             },
-            { "displayName": "file Upload", "url": "https://design.elvia.io/components/fileUpload" },
+            { "displayName": "File Upload", "url": "https://design.elvia.io/components/fileUpload" },
             {
               "displayName": "Position Picker",
               "url": "https://design.elvia.io/components/position-picker"
@@ -1386,7 +1386,7 @@
             "Jumbo links can be fixed by just changing <code>e-icon--arrow_right-bold</code> to <code>e-icon--arrow_long_right-bold</code>.",
 
             "For back and forward links read the documentation with examples to replace these.",
-            "code>e-search--local</code> have been replaced by two new search variants; <code>e-search--instant</code> & <code>e-search--on-submit</code>.",
+            "<code>e-search--local</code> have been replaced by two new search variants; <code>e-search--instant</code> & <code>e-search--on-submit</code>.",
             "The class <code>e-search--global</code> has also been removed and is no longer supported in Elvis."
           ],
           "components": [
