@@ -13,21 +13,21 @@ import { ComponentExampleGeneratorModule } from 'src/app/shared/component-docume
 import { RouterModule } from '@angular/router';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
+import { CegModule } from 'src/app/shared/ceg/ceg.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ComponentHeaderModule,
-    ComponentExampleV1Module,
     ComponentPropertiesModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
     WhenToUseModule,
     ComponentPropertiesTableModule,
-    ComponentExampleGeneratorModule,
     RouterModule,
     ComponentInstallationModule,
     ComponentChangelogModule,
+    CegModule,
   ],
   declarations: [BreadcrumbDocComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

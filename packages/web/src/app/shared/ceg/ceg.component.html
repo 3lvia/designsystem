@@ -1,0 +1,42 @@
+<div class="ceg-container">
+  <!--Top filters-->
+  <div class="ceg-top-filters-container">
+    <!-- <elvia-dropdown
+      [items]="typeControl.options"
+      label="Type"
+      [value]="typeControl.value"
+      [formControlName]="'type'"
+      *ngIf="typeControl"
+    ></elvia-dropdown>
+    <elvia-dropdown
+      [items]="themeControl.options"
+      label="Theme"
+      [value]="themeControl.value"
+      [formControlName]="'theme'"
+      *ngIf="themeControl"
+    ></elvia-dropdown> -->
+  </div>
+
+  <!--Component preview-->
+  <div class="ceg-component-container">
+    <div [innerHTML]="dynamicCode" class="ceg-component"></div>
+  </div>
+
+  <!--Side filters-->
+  <div class="ceg-side-filters-container"></div>
+
+  <!--Code preview-->
+  <div class="ceg-code-container e-mt-n8">
+    <elvia-accordion
+      openLabel="View code"
+      closeLabel="Hide code"
+      size="small"
+      type="normal"
+      spacingAboveContent="16px"
+    >
+      <div slot="content">
+        <app-code-preview [componentData]="componentData"></app-code-preview>
+      </div>
+    </elvia-accordion>
+  </div>
+</div>
