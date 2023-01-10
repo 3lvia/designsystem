@@ -1,16 +1,8 @@
 import React, { useRef } from 'react';
-import { Backdrop } from '../styledComponents';
+import { Backdrop, TriggerButton } from '../styledComponents';
 import { UserMenuProps } from '../elviaHeader.types';
 import { createPortal } from 'react-dom';
-import {
-  Email,
-  MenuButton,
-  MenuContainer,
-  MenuHr,
-  TriggerButton,
-  UserGrid,
-  Username,
-} from './desktopMenuStyles';
+import { Email, MenuButton, MenuContainer, MenuHr, UserGrid, Username } from './desktopMenuStyles';
 import { usePopoverHandler } from '../usePopoverHandler';
 import { IconWrapper } from '@elvia/elvis-toolbox';
 import profile from '@elvia/elvis-assets-icons/dist/icons/profile';

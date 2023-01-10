@@ -47,6 +47,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       setFadeOut(true);
       setTimeout(
         () => {
+          console.log('here 2', isDestroyed);
           if (!isDestroyed) {
             flushSync(() => onClose());
           }
@@ -68,6 +69,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
 
       return () => {
         window.removeEventListener('keydown', closeOnEsc);
+        console.log('Destroying');
         setIsDestroyed(true);
       };
     }, []);

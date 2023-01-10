@@ -3,7 +3,6 @@ import { HeaderProps } from './elviaHeader.types';
 import { useBreakpoint } from '@elvia/elvis-toolbox';
 import {
   AppContent,
-  AppTitle,
   StyledHeader,
   Hr,
   IconButton,
@@ -14,6 +13,7 @@ import {
 import { MobileMenu } from './mobileMenu/mobileMenu';
 import { DesktopMenu } from './desktopMenu/desktopMenu';
 import { SideNav } from './sideNav/sideNav';
+import { AppDrawer } from './appDrawer/AppDrawer';
 
 export const Header: React.FC<HeaderProps> = ({
   appTitle,
@@ -30,6 +30,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const isGtMobile = useBreakpoint('gt-mobile');
   const isGtTablet = useBreakpoint('gt-tablet');
+  const [initialized, setInitialized] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const pageContainerElement = useRef<HTMLElement>(null);
   const pageTitleRef = useRef<HTMLHeadingElement>(null);
@@ -72,6 +73,8 @@ export const Header: React.FC<HeaderProps> = ({
     }
   }, [webcomponent]);
 
+  useEffect(() => setInitialized(false), [isGtMobile]);
+
   return (
     <div className={className ?? ''} style={{ ...inlineStyle }}>
       <StyledHeader isGtMobile={isGtMobile}>
@@ -104,7 +107,7 @@ export const Header: React.FC<HeaderProps> = ({
         </LogoContainer>
         {isGtMobile && (
           <>
-            <AppTitle data-testid="app-title">{appTitle}</AppTitle>
+            <AppDrawer appTitle={appTitle} />
             <Hr direction="vertical" isGtTablet={isGtTablet} />
           </>
         )}
@@ -126,6 +129,7 @@ export const Header: React.FC<HeaderProps> = ({
       <AppContent
         ref={pageContainerElement}
         isGtMobile={isGtMobile}
+        initialized={initialized}
         sidenavPadding={hasNavItems()}
         hidden={!hasAppContent()}
         isExpanded={isExpanded}

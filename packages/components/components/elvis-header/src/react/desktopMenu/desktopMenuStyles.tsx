@@ -52,41 +52,6 @@ export const MenuContainer = styled.div<MenuContainerProps>`
     `};
 `;
 
-interface TriggerButtonProps {
-  isActive: boolean;
-}
-
-export const TriggerButton = styled(TertiaryButton)<TriggerButtonProps>`
-  margin-right: 24px;
-  position: relative;
-  height: calc(100% - 8px); // Shows the full keyboard-focus outline without clipping
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: calc(100% + 2px); // To revert the height-hack
-    height: 2px;
-    background-color: ${getColor('green')};
-    transform: scaleX(0);
-    transition: transform 300ms ease-in-out;
-    transform-origin: center left;
-  }
-
-  &:hover::after {
-    transform: scaleX(1);
-  }
-
-  ${(props) =>
-    props.isActive &&
-    css`
-      &::after {
-        transform: scaleX(1);
-      }
-    `}
-`;
-
 export const MenuTitle = styled.div`
   ${getTypographyCss('text-sm-strong')}
   margin-bottom: 8px;

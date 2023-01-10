@@ -113,10 +113,6 @@ export const TertiaryButton = styled.button`
   cursor: pointer;
   position: relative;
 
-  &:not(:last-of-type) {
-    margin-bottom: 16px;
-  }
-
   &:after {
     content: '';
     display: block;
@@ -132,6 +128,44 @@ export const TertiaryButton = styled.button`
   &:hover:not([disabled]):after {
     background-color: ${getColor('green')};
   }
+`;
+
+interface TriggerButtonProps {
+  isActive: boolean;
+}
+
+export const TriggerButton = styled(TertiaryButton)<TriggerButtonProps>`
+  position: relative;
+  height: calc(100% - 8px); // Shows the full keyboard-focus outline without clipping
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 2px); // To revert the height-hack
+    height: 2px;
+    background-color: ${getColor('green')};
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+    transform-origin: center left;
+  }
+
+  &:last-child {
+    margin-right: 24px;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      &::after {
+        transform: scaleX(1);
+      }
+    `}
 `;
 
 export const IconButton = styled.button`
@@ -180,13 +214,14 @@ export const Hr = styled.hr<Partial<HrProps>>`
 
 interface AppContentProps extends ResponsiveProps {
   sidenavPadding: boolean;
+  initialized: boolean;
   isExpanded: boolean;
 }
 
 export const AppContent = styled.main<AppContentProps>`
   padding-top: ${toolbarHeight};
   transition: padding-left ${sidebarAnimation};
-  padding-left: ${toolbarHeight};
+  transition-duration: ${(props) => (props.initialized ? '400ms' : '0ms')};
 
   ${(props) => {
     if (props.isGtMobile && props.sidenavPadding) {
