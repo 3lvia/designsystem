@@ -114,8 +114,7 @@ function psuedoIsOnElement(className) {
  * @example generateDeprecatedClass('e-card')
  */
 function generateDeprecatedClass(className, child = false) {
-  const classData = deprecatedElvisClasses[className];
-  const { version, requiredAncestor, replacement, sunset } = classData;
+  const { version, requiredAncestor, replacement, sunset } = deprecatedElvisClasses[className];
   let output = `
   {
     name: "${child || className}",
