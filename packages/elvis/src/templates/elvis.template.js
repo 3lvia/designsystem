@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
    * Compare the used classes to the deprecated classes list. 
    * If deprecated classes (or a descendant combination) are being used, warn the user in the console. */
   function checkDeprecatedElvisClass() {
-    if (!localhost) return
+    if (localhost){
 
       const usedClasses = getUsedClasses();
       
@@ -153,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
           
         }
       });
+    }
   }
 
   /**

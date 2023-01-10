@@ -13,7 +13,7 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed a bug where the placeholder text of disabled inputs was too dark",
+            "Fixed a bug where the placeholder text of disabled inputs was too dark.",
             "Fixed a bug where the text inside a button wrapped onto a new line if too long."
           ],
           "pages": [
