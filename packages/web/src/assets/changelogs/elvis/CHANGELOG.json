@@ -7,7 +7,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Elvis now warns if you're using deprecated descendant combinations. e.g <code>.e-alert-close</code> as descendant of <code>.e-alert--close</code> generates a warning."
+            "Elvis now warns if if you use a class that is deprecated in its context, e.g. <code>e-alert--close</code> being used in an <code>e-alert--local</code>."
           ]
         },
         {
