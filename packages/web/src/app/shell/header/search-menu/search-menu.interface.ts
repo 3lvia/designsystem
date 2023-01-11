@@ -4,4 +4,5 @@ export interface SearchItem {
   type: string;
   absolutePath: string;
   fragmentPath?: string;
+  searchTerms?: string[];
 }

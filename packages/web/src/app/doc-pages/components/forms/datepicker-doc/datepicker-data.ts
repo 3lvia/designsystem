@@ -3,9 +3,7 @@ import ComponentData from '../../component-data.interface';
 
 const datepickerData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-datepicker',
-  elementNameW: 'elvia-datepicker',
-  elementNameR: 'Datepicker',
+  name: 'Datepicker',
   attributes: {
     value: {
       isRequired: false,
@@ -157,7 +155,7 @@ const datepickerData: ComponentData = {
     },
     errorOptions: {
       isRequired: false,
-      type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean }>',
+      type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
       description: 'An object that allows for custom configuration of the error handling in the date picker.',
     },
     errorOnChange: {

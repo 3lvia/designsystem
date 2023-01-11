@@ -1,5 +1,7 @@
 @use '../header.component.scss';
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+@use '@elvia/elvis/src/variables/typography.scss';
+@use '@elvia/elvis/src/variables/colors';
 
 .header {
   position: fixed;
@@ -81,7 +83,6 @@
   .inner-content {
     margin-bottom: 152px;
     width: 100%;
-    // overflow: auto;
   }
 
   .close-btn-desk {
@@ -104,6 +105,13 @@
       margin-top: 0px;
     }
 
+    .search-wrapper {
+      width: calc(100% - 32px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 365px;
+    }
     .search-title {
       margin: 0px;
       @include breakpoints.breakpoint-up(Mobile) {
@@ -118,24 +126,21 @@
         display: none;
       }
 
-      font-family: 'Red Hat Text', Verdana, sans-serif;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
+      @include typography.typography('text-md');
       line-height: 22px;
 
       &.e-search--global {
         display: flex;
         flex-direction: row;
+        align-items: center;
         margin-top: 40px;
-        width: 365px;
+        width: 100%;
 
         @include breakpoints.breakpoint-up(Tablet) {
           margin-top: 32px;
         }
         @include breakpoints.breakpoint-up(Mobile) {
           margin-top: 24px;
-          width: auto;
         }
 
         .e-input {
@@ -164,9 +169,8 @@
             display: flex;
             position: absolute;
             right: 0;
-            bottom: 1px;
             @media screen and (-ms-high-contrast: none) {
-              top: 0px;
+              top: 0;
             }
             .e-btn__icon {
               width: 16px;
@@ -179,28 +183,31 @@
               i[class*='e-icon--close-bold'] {
                 position: absolute;
                 display: flex;
-                top: 0px;
+                top: 0;
               }
             }
           }
         }
       }
     }
+
+    .component-suggestions {
+      @include typography.typography('text-md');
+      margin: 8px 0 0 0;
+      width: 100%;
+    }
   }
 
   .no-results {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
     margin-top: 64px;
-
-    font-family: 'Red Hat Text', Verdana, sans-serif;
-    font-size: 20px;
-    line-height: 32px;
+    @include typography.typography('text-lg');
   }
 
   .results {
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     margin-top: 64px;
     width: 700px;
@@ -213,6 +220,7 @@
       overflow: auto;
       max-height: unset;
       height: calc(100vh - 210px);
+      padding-bottom: 128px;
     }
     @include breakpoints.breakpoint-up(Mobile) {
       width: auto;
@@ -222,40 +230,30 @@
 
     .result-item {
       display: flex;
+      gap: 8px;
       flex-direction: column;
       cursor: pointer;
+      padding: 32px 16px 32px 16px;
 
-      &:not(:last-of-type) {
-        padding-bottom: 32px;
-        border-bottom: 1px solid var(--e-grey-10);
+      &:hover {
+        background-color: colors.color('grey-05');
       }
-      &:not(:first-of-type) {
-        padding-top: 32px;
-      }
+
       .result-title {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         .title {
-          font-family: 'Red Hat Display', Verdana, sans-serif;
-          font-weight: 700;
-          font-size: 18px;
-          line-height: 22px;
+          @include typography.typography('title-xs');
         }
         .e-tag {
           cursor: pointer;
+          max-height: 24px;
         }
       }
 
       .result-content {
-        margin-top: 8px;
-
-        font-family: 'Red Hat Text', Verdana, sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 28px;
-        color: var(--e-grey-80);
+        @include typography.typography('text-md');
       }
     }
   }

@@ -1,4 +1,9 @@
 {
+  "e-alert--close": {
+    "requiredAncestor": "e-alert--local",
+    "version": "9.9.0",
+    "sunset": "July 2023"
+  },
   "e-link--shortcut": {
     "deprecateChildren": true,
     "version": "9.5.0",

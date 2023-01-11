@@ -16,4 +16,5 @@ export interface DocPage {
   figmaUrl?: string;
   status?: string;
   type?: string;
+  searchTerms?: string[];
 }

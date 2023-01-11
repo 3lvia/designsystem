@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 export const headerData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-header',
-  elementNameW: 'elvia-header',
-  elementNameR: 'Header',
+  name: 'Header',
   attributes: {
     username: {
       isRequired: true,

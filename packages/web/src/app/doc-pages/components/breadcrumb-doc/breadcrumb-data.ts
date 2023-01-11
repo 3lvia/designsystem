@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 const breadcrumbData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-breadcrumb',
-  elementNameW: 'elvia-breadcrumb',
-  elementNameR: 'Breadcrumb',
+  name: 'Breadcrumb',
   attributes: {
     items: {
       isRequired: true,

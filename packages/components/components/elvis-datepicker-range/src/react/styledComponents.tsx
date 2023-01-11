@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface DatepickerRangeWrapperProps {
   readonly isVertical: boolean;
@@ -8,11 +8,37 @@ interface DatepickerRangeWrapperProps {
 export const DatepickerRangeWrapper = styled.div<DatepickerRangeWrapperProps>`
   box-sizing: border-box;
   display: flex;
-  flex-direction: ${(props) => (props.isVertical ? 'column' : 'row')};
-  width: ${(props) => (props.isFullWidth ? '100%' : 'auto')};
-  align-items: top;
+  flex-direction: row;
+  align-items: flex-start;
   gap: 16px;
+
   @media (max-width: 767px) {
     flex-direction: column;
   }
+
+  ${({ isVertical }) =>
+    isVertical &&
+    css`
+      flex-direction: column;
+
+      ${RowContainer} {
+        flex-wrap: wrap;
+      }
+    `};
+
+  ${({ isFullWidth }) =>
+    isFullWidth &&
+    css`
+      width: 100%;
+
+      ${RowContainer} {
+        flex: 1;
+      }
+    `};
+`;
+
+export const RowContainer = styled.div`
+  display: flex;
+  gap: 0 8px;
+  align-items: flex-end;
 `;

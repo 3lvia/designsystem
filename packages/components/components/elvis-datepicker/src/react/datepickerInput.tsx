@@ -12,6 +12,7 @@ interface Props {
   maxDate?: Date;
   placeholder?: string;
   onChange: (newValue: Date | null) => void;
+  onFocus: () => void;
   currentError?: ErrorType;
   onErrorChange: (error?: ErrorType) => void;
 }
@@ -24,6 +25,7 @@ export const DatepickerInput: React.FC<Props> = ({
   maxDate,
   placeholder,
   onChange,
+  onFocus,
   currentError,
   onErrorChange,
 }) => {
@@ -104,7 +106,14 @@ export const DatepickerInput: React.FC<Props> = ({
   const validateInputValue = (day?: number, month?: number, year?: number): boolean => {
     const date = new Date(`${year}/${month}/${day}`);
 
-    if (!day || !month || !year || year < 1800 || !isValidDate(date)) {
+    const noDate = !day || !month || !year;
+
+    if (!required && noDate) {
+      return true;
+    } else if (required && noDate) {
+      onErrorChange('required');
+      return false;
+    } else if (noDate || year < 1800 || !isValidDate(date)) {
       onErrorChange('invalidDate');
       return false;
     } else if (minDate && date.getTime() < minDate.getTime()) {
@@ -147,6 +156,11 @@ export const DatepickerInput: React.FC<Props> = ({
     return formatDate(date, { day: '2-digit', month: '2-digit', year: 'numeric' });
   };
 
+  const onInputFocus = (): void => {
+    setTouched(true);
+    onFocus();
+  };
+
   useEffect(() => {
     setInputValue(getFormattedInputValue(date));
 
@@ -179,7 +193,7 @@ export const DatepickerInput: React.FC<Props> = ({
       onKeyDown={onKeyDown}
       onChange={parseInput}
       onBlur={onBlur}
-      onFocus={() => setTouched(true)}
+      onFocus={onInputFocus}
       data-testid="input"
       aria-live="polite"
       required={required}

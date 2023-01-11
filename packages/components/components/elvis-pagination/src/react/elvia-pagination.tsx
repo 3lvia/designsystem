@@ -420,6 +420,7 @@ const Pagination: FC<PaginationProps> = function ({
             value={selectedDropdownValue}
             valueOnChange={(event: any) => handleDropdownValueChange(event)}
             data-testid="dropdown"
+            ariaLabel={`viser ${selectedDropdownValue} ${labelOptionsState.label} per side`}
           ></Dropdown>
         </PaginatorInfoDropdown>
         <PaginatorInfoAmount data-testid="info-amount">

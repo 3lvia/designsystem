@@ -1,5 +1,5 @@
 import { IconName } from '@elvia/elvis-icon/react';
-import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
+import { BaseProps, HasValue, HasError } from '@elvia/elvis-toolbox';
 import { DropdownItemStatus } from './statusToIconMap';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
@@ -17,7 +17,7 @@ export interface DropdownItem {
   children?: DropdownItem[];
 }
 
-export interface DropdownProps extends BaseProps, HasValue<DropdownValue> {
+export interface DropdownProps extends BaseProps, HasValue<DropdownValue>, HasError {
   /**
    * @deprecated Removed in version 3.0.0. Replaced by `items`.
    */
@@ -30,6 +30,9 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue> {
   isFullWidth?: boolean;
   isSearchable?: boolean;
   allOptionsSelectedLabel?: string;
+  /**
+   * @deprecated Removed in version 6.0.0. Replaced by `errorOptions.text`.
+   */
   errorMessage?: string;
   label?: string;
   menuPosition?: DropdownMenuPosition;
@@ -45,4 +48,5 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue> {
   onItemHover?: (hoveredItem: DropdownValueType | undefined) => void;
   onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
+  ariaLabel?: string;
 }

@@ -83,7 +83,9 @@
   }
 
   // DEPRECATED
+  /* stylelint-disable -- Do not lint deprecated styles */
   &---hover {
     border-color: colors.color('elvia-charge');
   }
+  /* stylelint-enable */
 }

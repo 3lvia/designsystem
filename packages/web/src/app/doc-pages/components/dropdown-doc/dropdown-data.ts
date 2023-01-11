@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 export const dropdownData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-dropdown',
-  elementNameW: 'elvia-dropdown',
-  elementNameR: 'Dropdown',
+  name: 'Dropdown',
   attributes: {
     items: {
       isRequired: true,
@@ -20,11 +18,10 @@ export const dropdownData: ComponentData = {
         'Set a default value to the dropdown. The value is the value of the selected element from the items list.',
       default: 'undefined',
     },
-    errorMessage: {
+    errorOptions: {
       isRequired: false,
-      type: 'string',
-      description: 'Display an error message and red border on dropdown.',
-      default: `''`,
+      type: 'Partial<{ text: string; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
+      description: 'An object that allows for custom configuration of the error handling in the dropdown.',
     },
     isCompact: {
       isRequired: false,
@@ -166,6 +163,11 @@ export const dropdownData: ComponentData = {
       isRequired: false,
       type: 'boolean',
       description: 'Set the dropdown "Load more"-button to a loading state when loading more items.',
+    },
+    ariaLabel: {
+      isRequired: false,
+      type: 'string',
+      description: 'Add an Aria label for accessibility if no explicit label is provided.',
     },
     className: {
       isRequired: false,

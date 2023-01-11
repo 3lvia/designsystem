@@ -4,9 +4,7 @@ import ComponentData from '../component-data.interface';
 
 const popoverData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-popover',
-  elementNameW: 'elvia-popover',
-  elementNameR: 'Popover',
+  name: 'Popover',
   attributes: {
     content: {
       isRequired: true,

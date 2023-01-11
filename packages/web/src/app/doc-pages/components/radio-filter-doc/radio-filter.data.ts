@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 const radioFilterData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-radio-filter',
-  elementNameW: 'elvia-radio-filter',
-  elementNameR: 'RadioFilter',
+  name: 'RadioFilter',
   attributes: {
     items: {
       isRequired: true,

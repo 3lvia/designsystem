@@ -17,7 +17,6 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
 import { flattenTree, getValueAsList } from './dropdownListUtils';
-import { flushSync } from 'react-dom';
 
 const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
   if (!filter) {
@@ -29,6 +28,8 @@ const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
   }
 };
 
+let uniqueDropdownId = 0;
+
 const Dropdown: React.FC<DropdownProps> = ({
   items = [],
   value,
@@ -38,7 +39,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   isSearchable = false,
   allOptionsSelectedLabel = 'Alle',
   label = '',
-  errorMessage = '',
+  errorOptions = { isErrorState: false, hasErrorPlaceholder: true },
   menuPosition = 'auto',
   placeholder = '',
   placeholderIcon,
@@ -54,6 +55,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ariaLabel,
   ...rest
 }) => {
   warnDeprecatedProps(config, rest);
@@ -64,6 +66,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [currentVal, setCurrentVal] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
   const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
   const [focusedItem, setFocusedItem] = useState<DropdownItem>();
+  const [id] = useState(`ewc-dropdown-overlay-${uniqueDropdownId++}`);
+
   const filteredItems = useMemo(() => filterItems(items, filter), [items, filter]);
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
@@ -135,7 +139,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
     const closeOnEsc = (ev: KeyboardEvent) => {
       if (ev.code === 'Escape') {
-        flushSync(() => setIsShowing(false));
+        setIsShowing(false);
       }
     };
 
@@ -151,8 +155,9 @@ const Dropdown: React.FC<DropdownProps> = ({
         style={{ ...inlineStyle }}
         isFullWidth={isFullWidth}
         isDisabled={isDisabled}
+        hasErrorPlaceholder={!!errorOptions.hasErrorPlaceholder || !!errorOptions.text}
         isActive={isShowing}
-        isInvalid={!!errorMessage}
+        isInvalid={!!errorOptions.text || !!errorOptions.isErrorState}
         data-testid="wrapper"
         aria-haspopup="true"
       >
@@ -167,11 +172,12 @@ const Dropdown: React.FC<DropdownProps> = ({
             dropdownIsOpen={isShowing}
             isDisabled={isDisabled}
             items={items}
-            onOpenDropdown={() => flushSync(() => setIsShowing(true))}
+            onOpenDropdown={() => setIsShowing(true)}
             onKeyPress={setPressedKey}
             currentVal={currentVal}
             focusedItem={focusedItem}
-            isMulti={isMulti}
+            id={id}
+            ariaLabel={ariaLabel}
           />
 
           <IconRotator isRotated={isShowing}>
@@ -182,10 +188,11 @@ const Dropdown: React.FC<DropdownProps> = ({
             />
           </IconRotator>
         </DropdownInputContainer>
-        {!!errorMessage && <DropdownError errorText={errorMessage} />}
+        {!!errorOptions.text && <DropdownError errorText={errorOptions.text} />}
       </DropdownContainer>
       {isShowing && (
         <DropdownOverlay
+          id={id}
           ref={popoverRef}
           isRootOverlay
           isGtMobile={isGtMobile}
@@ -193,7 +200,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           isMulti={isMulti}
           onItemSelect={setSelectedItem}
           isCompact={isCompact}
-          onClose={() => flushSync(() => setIsShowing(false))}
+          onClose={() => setIsShowing(false)}
           filteredItems={filteredItems}
           inputIsKeyboard={inputMode === 'keyboard'}
           allItems={items}

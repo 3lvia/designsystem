@@ -2,6 +2,46 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.01.23",
+      "version": "2.4.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Error placement was corrected after 2.4.0 bug."]
+        }
+      ]
+    },
+    {
+      "date": "05.01.23",
+      "version": "2.4.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added the <span class=\"code-text\">hasErrorPlaceholder</span> option to the <span class=\"code-text\">errorOptions</span> object. This prop can be set to false to remove the padding under the form field."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "03.01.23",
+      "version": "2.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Add <code>isFullWidth</code> prop."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Expose onFocus event."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Not possible to reset the value via prop."]
+        }
+      ]
+    },
+    {
       "date": "23.12.22",
       "version": "2.2.1",
       "changelog": [

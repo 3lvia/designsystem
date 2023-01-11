@@ -53,7 +53,7 @@ $form-input-padding-compact-active: 3px 9px;
 
   > input {
     @include helpers.placeholder() {
-      color: colors.color('grey-70') !important;
+      color: colors.color('grey-70');
     }
   }
   .e-input--placeholder {
@@ -100,6 +100,10 @@ $form-input-padding-compact-active: 3px 9px;
     color: colors.color('disabled');
     border-color: colors.color('disabled');
     cursor: not-allowed;
+
+    @include helpers.placeholder() {
+      color: colors.color('grey-30');
+    }
   }
 
   &.e-input---readonly {

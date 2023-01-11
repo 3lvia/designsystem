@@ -3,9 +3,7 @@ import ComponentData from '../../component-data.interface';
 
 const datepickerRangeData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-datepicker-range',
-  elementNameW: 'elvia-datepicker-range',
-  elementNameR: 'DatepickerRange',
+  name: 'DatepickerRange',
   attributes: {
     value: {
       isRequired: false,
@@ -74,6 +72,18 @@ const datepickerRangeData: ComponentData = {
       cegOption: 'true',
       cegDisplayGroup: 'State',
     },
+    isVertical: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Set to true to force datepickers to stack vertically instead of horizontally. This is useful for devices with limited screen space.',
+      default: 'false',
+      cegDisplayName: 'Vertical Stacking',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Options',
+    },
     hasSelectDateOnOpen: {
       isRequired: false,
       type: 'boolean',
@@ -89,38 +99,47 @@ const datepickerRangeData: ComponentData = {
     hasAutoOpenEndDatepicker: {
       isRequired: false,
       type: 'boolean',
-      description: 'Auto opens the end datepicker when the start datepicker is closed.',
+      description: 'Auto opens the next picker when the currently open picker is closed.',
       default: 'false',
-      cegDisplayName: 'Auto open end datepicker',
+      cegDisplayName: 'Auto open next picker',
       cegType: 'boolean',
       cegDefault: false,
       cegFormType: 'checkbox',
       cegOption: 'true',
       cegDisplayGroup: 'Options',
     },
-    isVertical: {
+    hasTimepickers: {
       isRequired: false,
       type: 'boolean',
-      description:
-        'Set to true to force datepickers to stack vertically instead of horizontally. This is useful for devices with limited screen space.',
-      default: 'false',
-      cegDisplayName: 'Vertical Stacking',
+      description: 'Displays time pickers to enable time selection.',
+      default: false,
+      cegDisplayName: 'Has timepickers',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
       cegDisplayGroup: 'Options',
     },
+    timepickerInterval: {
+      isRequired: false,
+      type: '"1" | "5" | "10" | "15" | "60"',
+      default: '"15"',
+      description: 'The number of minute steps in the timepicker, if visible.',
+      cegDisplayName: 'Timepicker interval',
+      cegDefault: '15',
+      cegType: 'string',
+      cegFormType: 'radio',
+      cegOptions: ['1', '5', '10', '15', '60'],
+      cegDependency: [{ name: 'hasTimepickers', value: 'true' }],
+    },
     minDate: {
       isRequired: false,
       type: 'Date',
       description: 'Makes dates before the provided minimum date disabled.',
-      cegDisplayName: 'Min date',
     },
     maxDate: {
       isRequired: false,
       type: 'Date',
       description: 'Makes dates after the provided maximum date disabled.',
-      cegDisplayName: 'Max date',
     },
     disableDates: {
       isRequired: false,
@@ -129,7 +148,7 @@ const datepickerRangeData: ComponentData = {
     },
     errorOptions: {
       isRequired: false,
-      type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean }>',
+      type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
       description: 'An object that allows for custom configuration of the error handling.',
     },
     errorOnChange: {

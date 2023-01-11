@@ -15,6 +15,7 @@ export const config: ComponentConfig = {
     { name: 'minWidth', type: 'number' },
     { name: 'maxWidth', type: 'number' },
     { name: 'maxDescriptionLines', type: 'number' },
+    { name: 'maxHeadingLines', type: 'number' },
     { name: 'tag', type: 'string' },
     { name: 'cornerIcon', type: 'string' },
     { name: 'className', type: 'string' },

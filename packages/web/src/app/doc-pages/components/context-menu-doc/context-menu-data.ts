@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 const contextMenuData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-context-menu',
-  elementNameW: 'elvia-context-menu',
-  elementNameR: 'ContextMenu',
+  name: 'ContextMenu',
   attributes: {
     content: {
       isRequired: true,

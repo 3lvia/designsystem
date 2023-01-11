@@ -3,9 +3,7 @@ import ComponentData from '../component-data.interface';
 
 const cardData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'elvis-card',
-  elementNameW: 'elvia-card',
-  elementNameR: 'Card',
+  name: 'Card',
   attributes: {
     icon: {
       isRequired: false,
@@ -90,6 +88,13 @@ const cardData: ComponentData = {
       default: '3',
       description:
         'Max number of text lines in description. Overflow is clamped with an ellipsis. NB: This prop is only used for detail cards.',
+    },
+    maxHeadingLines: {
+      isRequired: false,
+      type: 'number',
+      default: '1 | 2',
+      description:
+        'Max number of text lines in heading. Overflow is clamped with an ellipsis. Default 1 (2 for detail type card).',
     },
     tag: {
       isRequired: false,
