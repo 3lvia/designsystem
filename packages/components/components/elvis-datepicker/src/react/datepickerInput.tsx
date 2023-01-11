@@ -134,7 +134,7 @@ export const DatepickerInput: React.FC<Props> = ({
     // Handle empty value first
     if (!inputValue.length) {
       emitNewValue(null);
-      onErrorChange(required ? 'required' : undefined);
+      validateInputValue();
       return;
     }
 
