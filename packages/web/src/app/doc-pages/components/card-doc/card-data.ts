@@ -92,7 +92,9 @@ const cardData: ComponentData = {
     maxHeadingLines: {
       isRequired: false,
       type: 'number',
-      description: 'Max number of text lines in heading. Overflow is clamped with an ellipsis.',
+      default: '1 | 2',
+      description:
+        'Max number of text lines in heading. Overflow is clamped with an ellipsis. Default 1 (2 for detail type card).',
     },
     tag: {
       isRequired: false,
