@@ -1707,7 +1707,7 @@
             "Renamed <code>e-dragdrop---hover</code> to <code>.e-dragdrop--dragover</code>.",
             "Removed hover styles applied by the <code>:hover</code> pseudo-class. Use <code>.e-dragdrop--dragover</code> instead."
           ],
-          "pages": [
+          "components": [
             { "displayName": "Drag & Drop", "url": "https://design.elvia.io/components/drag-and-drop" }
           ]
         }
