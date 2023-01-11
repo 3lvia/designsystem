@@ -18,11 +18,10 @@ export const dropdownData: ComponentData = {
         'Set a default value to the dropdown. The value is the value of the selected element from the items list.',
       default: 'undefined',
     },
-    errorMessage: {
+    errorOptions: {
       isRequired: false,
-      type: 'string',
-      description: 'Display an error message and red border on dropdown.',
-      default: `''`,
+      type: 'Partial<{ text: string; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
+      description: 'An object that allows for custom configuration of the error handling in the dropdown.',
     },
     isCompact: {
       isRequired: false,

@@ -246,7 +246,6 @@ describe('Elvis Timepicker', () => {
       const timepickers = screen.getByTestId('timepickers');
       const results = await axe(timepickers);
 
-      screen.debug();
       expect(results).toHaveNoViolations();
     });
   });

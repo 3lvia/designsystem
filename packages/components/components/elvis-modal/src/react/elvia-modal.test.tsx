@@ -131,7 +131,6 @@ describe('Elvis Modal', () => {
         </div>,
       );
 
-      screen.debug();
       const modals = screen.getByTestId('modals');
       const results = await axe(modals);
 
