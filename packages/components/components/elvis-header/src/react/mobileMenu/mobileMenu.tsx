@@ -1,9 +1,17 @@
 import React, { useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { MobileUserMenuProps } from '../elviaHeader.types';
-import { Hr, AppTitle, Backdrop, IconButton } from '../styledComponents';
-import { usePopoverHandler } from '../usePopoverHandler';
-import { Email, MenuButton, MenuContainer, MenuTitle, UserGrid, Username } from './mobileMenuStyles';
+import { Hr, AppTitle, IconButton } from '../styledComponents';
+import { usePopoverHandler } from './usePopoverHandler';
+import {
+  Backdrop,
+  Email,
+  MenuButton,
+  MenuContainer,
+  MenuTitle,
+  UserGrid,
+  Username,
+} from './mobileMenuStyles';
 import { IconWrapper } from '@elvia/elvis-toolbox';
 import moreMenu from '@elvia/elvis-assets-icons/dist/icons/moreMenu';
 import removeCircleColor from '@elvia/elvis-assets-icons/dist/icons/removeCircleColor';

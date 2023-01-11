@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HeaderProps } from './elviaHeader.types';
-import { useBreakpoint } from '@elvia/elvis-toolbox';
+import { useBreakpoint, useSlot } from '@elvia/elvis-toolbox';
 import {
   AppContent,
   StyledHeader,
@@ -13,7 +13,7 @@ import {
 import { MobileMenu } from './mobileMenu/mobileMenu';
 import { DesktopMenu } from './desktopMenu/desktopMenu';
 import { SideNav } from './sideNav/sideNav';
-import { AppDrawer } from './appDrawer/AppDrawer';
+import { AppDrawer } from './appDrawer/appDrawer';
 
 export const Header: React.FC<HeaderProps> = ({
   appTitle,
@@ -32,9 +32,10 @@ export const Header: React.FC<HeaderProps> = ({
   const isGtTablet = useBreakpoint('gt-tablet');
   const [initialized, setInitialized] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const pageContainerElement = useRef<HTMLElement>(null);
-  const pageTitleRef = useRef<HTMLHeadingElement>(null);
-  const sidenavRef = useRef<HTMLElement>(null);
+
+  const { ref: pageContainerRef } = useSlot('appContent', webcomponent);
+  const { ref: pageTitleRef } = useSlot<HTMLHeadingElement>('pageTitle', webcomponent);
+  const { ref: sidenavRef } = useSlot('navItems', webcomponent);
 
   const hasNavItems = (): boolean => {
     return !!webcomponent?.getSlot('navItems') || !!navItems;
@@ -51,27 +52,6 @@ export const Header: React.FC<HeaderProps> = ({
       webcomponent.triggerEvent('onSignOutClick');
     }
   };
-
-  /** Get app content slot */
-  useEffect(() => {
-    if (!webcomponent) {
-      return;
-    }
-    if (pageContainerElement.current && webcomponent.getSlot('appContent')) {
-      pageContainerElement.current.innerHTML = '';
-      pageContainerElement.current.appendChild(webcomponent.getSlot('appContent'));
-    }
-
-    if (pageTitleRef.current && webcomponent.getSlot('pageTitle')) {
-      pageTitleRef.current.innerHTML = '';
-      pageTitleRef.current.appendChild(webcomponent.getSlot('pageTitle'));
-    }
-
-    if (sidenavRef.current && webcomponent.getSlot('navItems')) {
-      sidenavRef.current.innerHTML = '';
-      sidenavRef.current.appendChild(webcomponent.getSlot('navItems'));
-    }
-  }, [webcomponent]);
 
   useEffect(() => setInitialized(false), [isGtMobile]);
 
@@ -127,7 +107,7 @@ export const Header: React.FC<HeaderProps> = ({
         </SideNav>
       )}
       <AppContent
-        ref={pageContainerElement}
+        ref={pageContainerRef}
         isGtMobile={isGtMobile}
         initialized={initialized}
         sidenavPadding={hasNavItems()}

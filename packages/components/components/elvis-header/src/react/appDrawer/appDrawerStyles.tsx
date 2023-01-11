@@ -30,7 +30,8 @@ export const Icon = styled.div`
   width: 100%;
   height: 100%;
   filter: grayscale(1) brightness(0.8);
-  transition: filter 450ms ease;
+  transition: filter 300ms ease;
+  transition-delay: 100ms;
 
   svg {
     width: 100%;

@@ -27,6 +27,18 @@ const fadeOut = keyframes`
   }
   `;
 
+const backdropFadeIn = keyframes`
+from { opacity: 0; }
+
+to { opacity: 1; }
+`;
+
+const backdropFadeOut = keyframes`
+from { opacity: 1; }
+
+to { opacity: 0; }
+`;
+
 interface MenuContainerProps {
   fadeOut: boolean;
 }
@@ -65,6 +77,22 @@ export const MenuContainer = styled.div<MenuContainerProps>`
   & > * {
     position: relative;
   }
+`;
+
+export const Backdrop = styled.div<{ fadeOut: boolean }>`
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: ${toolbarHeight};
+  bottom: 0;
+  right: 0;
+  left: 0;
+  animation: ${backdropFadeIn} 300ms;
+
+  ${(props) =>
+    props.fadeOut &&
+    css`
+      animation: ${backdropFadeOut} 200ms ease;
+    `}
 `;
 
 export const MenuTitle = styled.div`

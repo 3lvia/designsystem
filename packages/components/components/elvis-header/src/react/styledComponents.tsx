@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
@@ -8,42 +8,9 @@ export const headerZIndex = 109;
 export const sidebarMaxWidth = '280px';
 export const sidebarAnimation = '400ms cubic-bezier(0.71, 0, 0.31, 1)';
 
-const fadeIn = keyframes`
-  from { opacity: 0; }
-
-  to { opacity: 1; }
-`;
-
-const fadeOut = keyframes`
-  from { opacity: 1; }
-
-  to { opacity: 0; }
-`;
-
-interface BackdropProps {
-  transparent: boolean;
-  fadeOut: boolean;
-}
-
 interface ResponsiveProps {
   isGtMobile: boolean;
 }
-
-export const Backdrop = styled.div<Partial<BackdropProps>>`
-  background: ${(props) => (props.transparent ? 'transparent' : 'rgba(0, 0, 0, 0.5)')};
-  position: fixed;
-  top: ${toolbarHeight};
-  bottom: 0;
-  right: 0;
-  left: 0;
-  animation: ${fadeIn} 300ms;
-
-  ${(props) =>
-    props.fadeOut &&
-    css`
-      animation: ${fadeOut} 200ms ease;
-    `}
-`;
 
 export const StyledHeader = styled.header<ResponsiveProps>`
   background-color: ${getColor('elvia-on')};
