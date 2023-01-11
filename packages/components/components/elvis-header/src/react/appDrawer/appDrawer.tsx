@@ -36,6 +36,7 @@ export const AppDrawer: React.FC<Props> = ({ appTitle }) => {
         <AppOverlay
           onClose={() => {
             setIsShowing(false);
+            connectedElementRef.current?.focus();
             console.log('close');
           }}
           ref={popoverRef}

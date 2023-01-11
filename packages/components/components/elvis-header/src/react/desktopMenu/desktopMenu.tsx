@@ -1,12 +1,19 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { TriggerButton } from '../styledComponents';
 import { UserMenuProps } from '../elviaHeader.types';
 import { Email, Footer, MenuContainer, MenuHr, UserGrid, Username } from './desktopMenuStyles';
-import { IconWrapper, Overlay, TertiaryButton, useConnectedOverlay } from '@elvia/elvis-toolbox';
+import {
+  IconWrapper,
+  Overlay,
+  TertiaryButton,
+  useConnectedOverlay,
+  useFocusTrap,
+} from '@elvia/elvis-toolbox';
 import profile from '@elvia/elvis-assets-icons/dist/icons/profile';
 import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
 
 export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOutClick }) => {
+  const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const connectedElementRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef(null);
   const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
@@ -15,6 +22,15 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
     verticalPosition: 'bottom',
     alignWidths: false,
   });
+
+  useEffect(() => {
+    if (isShowing) {
+      trapFocus(popoverRef);
+    } else {
+      releaseFocusTrap();
+      connectedElementRef.current?.focus();
+    }
+  }, [isShowing]);
 
   return (
     <>
