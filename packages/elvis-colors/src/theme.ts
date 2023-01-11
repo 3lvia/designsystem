@@ -51,4 +51,4 @@ export interface Theme {
 }
 
 export type ThemeName = 'light' | 'dark';
-export type ThemeClassName = 'e-theme-light' | 'e-theme-dark';
+export type ThemeClassName = `e-theme-${ThemeName}`;
