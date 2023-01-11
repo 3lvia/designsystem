@@ -1,12 +1,37 @@
-.code-preview {
-  overflow: auto;
-  margin-top: 24px;
-  margin-bottom: 0;
-  padding-bottom: 10px;
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
-  code {
-    background: var(--e-grey);
-    font-size: 14px;
-    line-height: 18px;
+.preview-language-tabs {
+  margin-right: 48px;
+  @include breakpoints.breakpoint-up(Mobile) {
+    margin-right: 0;
+  }
+}
+.preview-copy-code {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  @include breakpoints.breakpoint-up(Mobile) {
+    top: unset;
+    bottom: 24px;
+  }
+}
+
+figure {
+  margin: 0;
+  @include breakpoints.breakpoint-up(Mobile) {
+    margin-bottom: 48px;
+  }
+
+  .code-preview {
+    overflow: auto;
+    margin-top: 24px;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+
+    code {
+      background: var(--e-grey);
+      font-size: 14px;
+      line-height: 18px;
+    }
   }
 }

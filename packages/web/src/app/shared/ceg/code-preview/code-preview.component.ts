@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, Input } from '@angular/core';
+import { OnInit, Component, Input } from '@angular/core';
 import { HighlightService } from 'src/app/core/services/highlight.service';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 
@@ -7,17 +7,17 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
   templateUrl: './code-preview.component.html',
   styleUrls: ['./code-preview.component.scss'],
 })
-export class CodePreviewComponent implements AfterContentInit {
+export class CodePreviewComponent implements OnInit {
   @Input() componentData: ComponentData;
   languages = ['angular', 'react', 'vue', 'native'];
   activeLanguageIndex = 0;
-  activeCode;
   codes;
-  showCopiedText = false;
+  activeCode;
+  highlightedCode;
 
   constructor(private highlightService: HighlightService) {}
 
-  ngAfterContentInit(): void {
+  ngOnInit(): void {
     this.activeCode = this.componentData.codeAngular;
     this.codes = [
       this.componentData.codeAngular,
@@ -29,25 +29,16 @@ export class CodePreviewComponent implements AfterContentInit {
     this.highlightCode();
   }
 
-  highlightCode(): void {
+  highlightCode = (): void => {
     const activeLanguageType = this.activeLanguageIndex === 1 ? 'jsx' : 'html';
     if (this.activeCode) {
-      this.activeCode = this.highlightService.highlight(this.activeCode, activeLanguageType);
+      this.highlightedCode = this.highlightService.highlight(this.activeCode, activeLanguageType);
     }
-  }
+  };
 
   changeLanguage = (newActiveLanguageIndex: number): void => {
     this.activeLanguageIndex = newActiveLanguageIndex;
     this.activeCode = this.codes[newActiveLanguageIndex];
     this.highlightCode();
   };
-
-  copyCode(): void {
-    navigator.clipboard.writeText(this.activeCode);
-    this.showCopiedText = true;
-    const copyTimeout = setTimeout(() => {
-      clearTimeout(copyTimeout);
-      this.showCopiedText = false;
-    }, 3000);
-  }
 }

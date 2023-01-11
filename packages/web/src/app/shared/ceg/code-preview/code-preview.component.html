@@ -1,22 +1,27 @@
 <div class="e-bg-grey e-br-8 e-p-24 e-align-center">
-  <div class="e-flex e-justify-content-between">
+  <div class="preview-language-tabs">
     <elvia-tabs
       (valueOnChange)="changeLanguage($event.detail.value)"
       [isInverted]="true"
       [value]="activeLanguageIndex"
       [items]="languages"
     ></elvia-tabs>
-
-    <div class="e-flex e-align-items-center e-gap-8">
-      <div *ngIf="showCopiedText">Copied!</div>
-      <button class="e-btn e-btn--icon e-btn--sm e-btn--inverted" (click)="copyCode()" aria-label="Copy code">
-        <span class="e-btn__icon">
-          <i class="e-icon e-icon--copy" aria-hidden="true" aria-hidden="true"></i>
-          <i class="e-icon e-icon--copy e-icon--inverted" aria-hidden="true"></i>
-        </span>
-      </button>
-    </div>
   </div>
 
-  <pre class="code-preview"><code [innerHtml]="activeCode"></code></pre>
+  <div class="preview-copy-code">
+    <app-copy [message]="activeCode">
+      <ng-container ngProjectAs="copyContent">
+        <button class="e-btn e-btn--icon e-btn--sm e-btn--inverted" aria-label="Copy code">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--copy" aria-hidden="true" aria-hidden="true"></i>
+            <i class="e-icon e-icon--copy e-icon--inverted" aria-hidden="true"></i>
+          </span>
+        </button>
+      </ng-container>
+    </app-copy>
+  </div>
+
+  <figure>
+    <pre class="code-preview"><code [innerHtml]="highlightedCode"></code></pre>
+  </figure>
 </div>
