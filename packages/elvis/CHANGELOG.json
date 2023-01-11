@@ -1700,6 +1700,16 @@
             "New classes have been added for the internal-systems as well as classes for vertical gutters."
           ],
           "pages": [{ "displayName": "Grid", "url": "https://design.elvia.io/brand/grid" }]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Renamed <code>e-dragdrop---hover</code> to <code>.e-dragdrop--dragover</code>.",
+            "Removed hover styles applied by the <code>:hover</code> pseudo-class. Use <code>.e-dragdrop--dragover</code> instead."
+          ],
+          "pages": [
+            { "displayName": "Drag & Drop", "url": "https://design.elvia.io/components/drag-and-drop" }
+          ]
         }
       ]
     },
