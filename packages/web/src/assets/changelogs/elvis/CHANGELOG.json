@@ -495,7 +495,8 @@
           "type": "bug_fix",
           "changes": ["Fixed a bug that was introduced in version 8.4.5 that broke group accordions."],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
+            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
           ]
         }
       ]
@@ -510,7 +511,8 @@
             "Fixed a bug causing nested accordion icons to rotate along with the outermost accordion when opened."
           ],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
+            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
           ]
         }
       ]
@@ -526,7 +528,8 @@
             "If you are using <code>flex-direction: row</code> inside the accordion group, this might break if you have not defined <code>display: flex</code> yourself."
           ],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
+            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
           ]
         }
       ]
@@ -1146,7 +1149,8 @@
             "Now possible to disable hover on icons when hovering accordion title, by using the new modifier <code>e-accordion__title--no-icon-hover</code>."
           ],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
+            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
           ]
         },
         {
@@ -1166,7 +1170,8 @@
           "type": "bug_fix",
           "changes": ["Now possible to use a single accordion inside a group accordion content area."],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
+            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
           ]
         }
       ]
@@ -1263,7 +1268,8 @@
           "components": [
             { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
             { "displayName": "Button", "url": "https://design.elvia.io/components/button" },
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
+            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
           ]
         }
       ]
@@ -1313,7 +1319,8 @@
             "Update to icons(from 32px to 24px), and font-size(18px to 20px) for large accordions."
           ],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
+            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
           ]
         }
       ]
@@ -1610,6 +1617,7 @@
           ],
           "components": [
             { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
+            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" },
             { "displayName": "Header", "url": "https://design.elvia.io/components/header" },
             { "displayName": "Table", "url": "https://design.elvia.io/components/table" }
           ]
@@ -1692,6 +1700,16 @@
             "New classes have been added for the internal-systems as well as classes for vertical gutters."
           ],
           "pages": [{ "displayName": "Grid", "url": "https://design.elvia.io/brand/grid" }]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Renamed <code>e-dragdrop---hover</code> to <code>.e-dragdrop--dragover</code>.",
+            "Removed hover styles applied by the <code>:hover</code> pseudo-class. Use <code>.e-dragdrop--dragover</code> instead."
+          ],
+          "pages": [
+            { "displayName": "Drag & Drop", "url": "https://design.elvia.io/components/drag-and-drop" }
+          ]
         }
       ]
     },
@@ -1705,7 +1723,7 @@
             "Switched from <code>@import</code> to <code>@use</code>. The <code>@use</code> rule is the primary replacement for <code>@import</code>, which will be deprecated in near future (2022 latest). <code>@use</code> is currently not supported by the node-sass compiler. Dart-sass is the primary implementation of Sass and do support the use of <code>@use</code>. Read more about the advantages of <code>@use</code> here:<a class=\"e-link e-link--inline\" href=\"https://sass-lang.com/blog/the-module-system-is-launched\">Sass module system</a><div class=\"e-mt-8\"></div>"
           ],
           "fixes": [
-            "If you are using our stylesheets directly and your sass-compiler do not support the use of @use you will have to migrate as well."
+            "If you are using our stylesheets directly and your sass-compiler do not support the use of <code>@use</code> you will have to migrate as well."
           ]
         }
       ]
