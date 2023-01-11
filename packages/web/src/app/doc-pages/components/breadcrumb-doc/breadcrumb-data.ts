@@ -52,23 +52,23 @@ const breadcrumbData: ComponentData = {
 ></elvia-breadcrumb>`,
   codeNativeHTML: `<elvia-breadcrumb id="example-elvia-breadcrumb">
 </elvia-breadcrumb>`,
-  codeNativeScript: `  const breadcrumb = document.getElementById('example-elvia-breadcrumb');
-  const items = [
-    {
-      href: 'https://design.elvia.io/',
-      text: 'Home',
-    },
-    {
-      href: 'https://design.elvia.io/components',
-      text: 'Components',
-    },
-    {
-      href: 'https://design.elvia.io/components/breadcrumb',
-      text: 'Breadcrumbs',
-    },
-  ];
-  breadcrumb.setProps({items: items });
-  `,
+  codeNativeScript: `const breadcrumb = document.getElementById('example-elvia-breadcrumb');
+const items = [
+  {
+    href: 'https://design.elvia.io/',
+    text: 'Home',
+  },
+  {
+    href: 'https://design.elvia.io/components',
+    text: 'Components',
+  },
+  {
+    href: 'https://design.elvia.io/components/breadcrumb',
+    text: 'Breadcrumbs',
+  },
+];
+breadcrumb.setProps({items: items });
+`,
 };
 
 export { breadcrumbData };

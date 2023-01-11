@@ -32,7 +32,14 @@ export class CodePreviewComponent implements OnInit {
   highlightCode = (): void => {
     const activeLanguageType = this.activeLanguageIndex === 1 ? 'jsx' : 'html';
     if (this.activeCode) {
-      this.highlightedCode = this.highlightService.highlight(this.activeCode, activeLanguageType);
+      this.highlightedCode =
+        this.activeLanguageIndex !== 3
+          ? this.highlightService.highlight(this.activeCode, activeLanguageType)
+          : this.highlightService.highlight(this.activeCode, activeLanguageType) +
+            '\n \n' +
+            this.highlightService.highlight('<!--Script-->', 'html') +
+            '\n' +
+            this.highlightService.highlight(this.componentData.codeNativeScript, 'js');
     }
   };
 
