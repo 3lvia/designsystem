@@ -17,6 +17,7 @@ const borderColors: BorderColors = {
   green: getColor('green'),
   'blue-berry': getColor('blue-berry'),
   blueBerry: getColor('blue-berry'),
+  blue: getColor('blue-berry'),
   red: getColor('red'),
   orange: getColor('orange'),
 };
