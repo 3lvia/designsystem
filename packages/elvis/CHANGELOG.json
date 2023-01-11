@@ -1723,7 +1723,7 @@
             "Switched from <code>@import</code> to <code>@use</code>. The <code>@use</code> rule is the primary replacement for <code>@import</code>, which will be deprecated in near future (2022 latest). <code>@use</code> is currently not supported by the node-sass compiler. Dart-sass is the primary implementation of Sass and do support the use of <code>@use</code>. Read more about the advantages of <code>@use</code> here:<a class=\"e-link e-link--inline\" href=\"https://sass-lang.com/blog/the-module-system-is-launched\">Sass module system</a><div class=\"e-mt-8\"></div>"
           ],
           "fixes": [
-            "If you are using our stylesheets directly and your sass-compiler do not support the use of @use you will have to migrate as well."
+            "If you are using our stylesheets directly and your sass-compiler do not support the use of <code>@use</code> you will have to migrate as well."
           ]
         }
       ]
