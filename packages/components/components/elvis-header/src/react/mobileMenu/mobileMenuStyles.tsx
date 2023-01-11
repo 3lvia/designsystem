@@ -1,7 +1,7 @@
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
-import { headerZIndex, TertiaryButton, toolbarHeight } from '../styledComponents';
+import { headerZIndex, toolbarHeight } from '../styledComponents';
 
 const fadeIn = keyframes`
   from {
@@ -28,28 +28,24 @@ const fadeOut = keyframes`
   `;
 
 const backdropFadeIn = keyframes`
-from { opacity: 0; }
+  from { opacity: 0; }
 
-to { opacity: 1; }
+  to { opacity: 1; }
 `;
 
 const backdropFadeOut = keyframes`
-from { opacity: 1; }
+  from { opacity: 1; }
 
-to { opacity: 0; }
+  to { opacity: 0; }
 `;
 
-interface MenuContainerProps {
-  fadeOut: boolean;
-}
-
-export const MenuContainer = styled.div<MenuContainerProps>`
+export const MenuContainer = styled.div<{ fadeOut: boolean }>`
   position: fixed;
   top: ${toolbarHeight};
-  padding: 8px 24px 62px;
+  padding: 8px 24px 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  align-items: center;
   width: 100%;
   z-index: ${headerZIndex};
   overflow: hidden;
@@ -95,26 +91,16 @@ export const Backdrop = styled.div<{ fadeOut: boolean }>`
     `}
 `;
 
-export const MenuTitle = styled.div`
-  ${getTypographyCss('text-sm')}
-  color: ${getColor('text-light')};
-  margin-bottom: 8px;
-`;
-
-export const UserGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
-  gap: 0 8px;
-`;
-
-export const ProfilePicture = styled.img`
-  width: 40px;
-  height: 40px;
+export const ImageContainer = styled.div`
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background-color: #fafafa;
-  grid-row: 1 / -1;
-  align-self: center;
+  background-color: ${getColor('grey-05')};
+  margin-bottom: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Username = styled.div`
@@ -123,8 +109,5 @@ export const Username = styled.div`
 
 export const Email = styled.div`
   ${getTypographyCss('text-sm')}
-`;
-
-export const MenuButton = styled(TertiaryButton)`
-  font-weight: 500;
+  margin-bottom: 24px;
 `;

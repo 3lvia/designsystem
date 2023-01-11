@@ -1,8 +1,8 @@
 import { Icon } from '@elvia/elvis-icon/react';
 import { useConnectedOverlay } from '@elvia/elvis-toolbox';
 import React, { useRef } from 'react';
-import { TriggerButton, AppTitle } from '../styledComponents';
-import { SpinContainer } from './appDrawerStyles';
+import { TriggerButton } from '../styledComponents';
+import { SpinContainer, AppTitle } from './appDrawerStyles';
 import { AppOverlay } from './appOverlay';
 
 interface Props {

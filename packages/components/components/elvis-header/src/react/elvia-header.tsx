@@ -53,12 +53,15 @@ export const Header: React.FC<HeaderProps> = ({
     }
   };
 
-  useEffect(() => setInitialized(false), [isGtMobile]);
+  useEffect(() => {
+    // This flag prevents animation of the page content padding on init
+    setTimeout(() => setInitialized(true), 1);
+  }, [isGtMobile]);
 
   return (
     <div className={className ?? ''} style={{ ...inlineStyle }}>
       <StyledHeader isGtMobile={isGtMobile}>
-        <LogoContainer isGtMobile={isGtMobile}>
+        <LogoContainer>
           <IconButton
             aria-label="logo"
             data-testid="header-logo"
@@ -91,7 +94,7 @@ export const Header: React.FC<HeaderProps> = ({
             <Hr direction="vertical" isGtTablet={isGtTablet} />
           </>
         )}
-        <PageTitle data-testid="page-title" isGtMobile={isGtMobile} ref={pageTitleRef}>
+        <PageTitle data-testid="page-title" ref={pageTitleRef}>
           {pageTitle}
         </PageTitle>
         {!isGtMobile && (
