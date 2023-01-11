@@ -47,6 +47,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/CTFyTP4zr2KuVjSXsgZO1s/Accordion?node-id=72%3A491',
     type: 'Component',
+    searchTerms: ['expandable', 'disclosure', 'pocket', 'collapse'],
   },
   {
     title: 'Accordion',
@@ -57,6 +58,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/CTFyTP4zr2KuVjSXsgZO1s/Accordion?node-id=72%3A491',
     type: 'Component',
+    searchTerms: ['expandable', 'disclosure', 'pocket', 'collapse'],
   },
   {
     title: 'Alert',
@@ -67,6 +69,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-messages?node-id=165%3A0',
     type: 'Component',
+    searchTerms: ['notifications', 'feedback', 'banner', 'flag', 'snackbar', 'message', 'confirmation'],
   },
   {
     title: 'Autocomplete',
@@ -77,6 +80,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2742%3A0',
     type: 'Component',
+    searchTerms: ['predictive', 'word completion'],
   },
   {
     title: 'Badge',
@@ -87,6 +91,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/RDqaOx4hfYvZyQXtaqdkgA/Badge',
     type: 'Component',
+    searchTerms: ['notification', 'mark', 'counter'],
   },
   {
     title: 'Box',
@@ -97,6 +102,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Box?node-id=288%3A0',
     type: 'Component',
+    searchTerms: ['tile'],
   },
   {
     title: 'Button',
@@ -107,6 +113,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons?node-id=0%3A1',
     type: 'Component',
+    searchTerms: ['cta', 'call to action', 'click'],
   },
   {
     title: 'Breadcrumb',
@@ -117,6 +124,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/JNbQmeFGfn7QOybUKbSvks/Breadcrumb?node-id=3%3A2',
     type: 'Component',
+    searchTerms: ['navigation', 'path'],
   },
   {
     title: 'Card',
@@ -127,6 +135,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/w0gte3tPfAypBQpdynPMcU/Card?node-id=1%3A8',
     type: 'Component',
+    searchTerms: ['collection', 'tile'],
   },
   {
     title: 'Carousel',
@@ -137,6 +146,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/Um5AotNfUftDorJHGbIy99/Navigational-controls?node-id=1023%3A15726',
     type: 'Component',
+    searchTerms: ['horizontal', 'scroll', 'viewer', 'gallery'],
   },
   {
     title: 'Chip',
@@ -147,6 +157,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/dPti8DhGm7C2Rjx4IZSQFw/Chip?node-id=1%3A237',
     type: 'Component',
+    searchTerms: ['legend', 'pills', 'filter'],
   },
   {
     title: 'Checkbox',
@@ -157,6 +168,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A452',
     type: 'Component',
+    searchTerms: ['tick', 'select', 'option', 'selection', 'multiselect'],
   },
   {
     title: 'Content Loader',
@@ -167,6 +179,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/gZpJ1gY3wXM06X04j1r2RR/Loading-%26-scroll?node-id=9%3A0',
     type: 'Component',
+    searchTerms: ['placeholder', 'skeleton', 'loading', 'shimmer', 'loader'],
   },
   {
     title: 'Context Menu',
@@ -177,6 +190,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover?node-id=2191%3A5482',
     type: 'Component',
+    searchTerms: ['menu', 'popup', 'more', 'actions'],
   },
   {
     title: 'Date Picker',
@@ -187,6 +201,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
     type: 'Component',
+    searchTerms: ['calendar', 'date', 'time', 'input'],
   },
   {
     title: 'Date Range Picker',
@@ -197,6 +212,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
     type: 'Component',
+    searchTerms: ['calendar', 'date', 'time', 'input'],
   },
   {
     title: 'Drag & Drop',
@@ -206,6 +222,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1811%3A1080',
     type: 'Component',
+    searchTerms: ['file', 'upload'],
   },
   {
     title: 'Divider',
@@ -215,6 +232,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/F4ycCcM9cGf9T12EhzbN3F/Dividers?node-id=1%3A2',
     type: 'Component',
+    searchTerms: ['line', 'separator', 'section', 'hr', 'br'],
   },
   {
     title: 'Dropdown',
@@ -225,6 +243,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1285%3A842',
     type: 'Component',
+    searchTerms: ['select', 'option', 'multiselect', 'pull-down', 'combobox'],
   },
   {
     title: 'File Upload',
@@ -234,6 +253,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132',
     type: 'Component',
+    searchTerms: ['file', 'upload'],
   },
   {
     title: 'Header',
@@ -244,6 +264,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/QRhfgr0sd9MPmACos1xDNT/Header?node-id=230%3A604',
     type: 'Component',
+    searchTerms: ['navigation', 'menu', 'top', 'bar', 'logo', 'title', 'toolbar', 'sidebar', 'topbar'],
   },
   {
     title: 'Text Field',
@@ -253,6 +274,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1262%3A486',
     type: 'Component',
+    searchTerms: ['input', 'text', 'number', 'email', 'password', 'textarea'],
   },
   {
     title: 'Tag',
@@ -263,6 +285,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-%26-chips?node-id=136%3A1738',
     type: 'Component',
+    searchTerms: ['label', 'lozenge', 'status', 'ribbon', 'category', 'categorize', 'organize'],
   },
   {
     title: 'Link',
@@ -273,6 +296,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/sgrg5TId3ewAFznKBFh2Wb/Links?node-id=1%3A10',
     type: 'Component',
+    searchTerms: ['anchor', 'url', 'href', 'navigate', 'navigation', 'click'],
   },
   {
     title: 'List',
@@ -283,6 +307,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/uT9r54Z9NP5JQXxRvZ4LBV/Lists?node-id=353%3A0',
     type: 'Component',
+    searchTerms: ['bullet', 'numbered', 'unordered', 'ordered', 'ul', 'ol', 'li'],
   },
   {
     title: 'Modal',
@@ -293,6 +318,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/unlDZ5F7svra9dPNKYdTK9/Modal?node-id=2%3A0',
     type: 'Component',
+    searchTerms: ['dialog', 'popup', 'confirm', 'prompt', 'window', 'layer', 'overlay'],
   },
   {
     title: 'Outline',
@@ -302,6 +328,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Outline,
     status: DocPageStatus.Done,
     type: 'Component',
+    searchTerms: ['keyboard', 'focus', 'accessibility', 'a11y', 'outline', 'focus-visible'],
   },
   {
     title: 'Pagination',
@@ -312,6 +339,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/XCqUxqWe47Tu0x52JYEbsX/Pagination?node-id=0%3A1',
     type: 'Component',
+    searchTerms: ['page', 'navigation', 'next', 'previous'],
   },
   {
     title: 'Popover',
@@ -322,6 +350,17 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover?node-id=1%3A10',
     type: 'Component',
+    searchTerms: [
+      'dialog',
+      'popup',
+      'confirm',
+      'prompt',
+      'window',
+      'layer',
+      'overlay',
+      'overflow',
+      'callout',
+    ],
   },
   {
     title: 'Position Picker',
@@ -332,6 +371,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2506%3A17',
     type: 'Component',
+    searchTerms: ['map', 'coordinates', 'position', 'location', 'lat', 'lng', 'latitude', 'longitude'],
   },
   {
     title: 'Progressbar',
@@ -341,6 +381,17 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/gZpJ1gY3wXM06X04j1r2RR/Loading-%26-scroll?node-id=73%3A9',
     type: 'Component',
+    searchTerms: [
+      'spinner',
+      'loading',
+      'progress',
+      'bar',
+      'line',
+      'percentage',
+      'percent',
+      'status',
+      'meter',
+    ],
   },
   {
     title: 'Radio Button',
@@ -351,6 +402,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A517',
     type: 'Component',
+    searchTerms: ['choice', 'option', 'select', 'toggle'],
   },
   {
     title: 'Radio Filter',
@@ -361,6 +413,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=813%3A821',
     type: 'Component',
+    searchTerms: ['choice', 'option', 'select', 'filter'],
   },
   {
     title: 'Search',
@@ -371,6 +424,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/Yz09cKdXxOvfP0KP7AkTI7/Search?node-id=1%3A2',
     type: 'Component',
+    searchTerms: ['find', 'filter'],
   },
   {
     title: 'Segmented Control',
@@ -381,6 +435,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A436',
     type: 'Component',
+    searchTerms: ['content switch', 'choice', 'option', 'select', 'filter'],
   },
   {
     title: 'Slider',
@@ -391,6 +446,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Coming,
     figmaUrl: 'https://www.figma.com/file/Bpc4gmpy4T4eeWm51X5UmJ/Slider?node-id=0%3A1',
     type: 'Component',
+    searchTerms: ['range', 'input', 'adjust', 'value', 'number', 'handle', 'track'],
   },
   {
     title: 'Spotlight',
@@ -401,6 +457,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/rpflFlBIv4c5TNKLXJLktG/?node-id=2%3A8',
     type: 'Component',
+    searchTerms: ['highlight', 'focus'],
   },
   {
     title: 'Stepper',
@@ -411,6 +468,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=622%3A0',
     type: 'Component',
+    searchTerms: ['steps', 'progress', 'process'],
   },
   {
     title: 'Tabs',
@@ -421,6 +479,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/v0KlQT8eAWiNN1ORHsmNjt/Tabs?node-id=1%3A72',
     type: 'Component',
+    searchTerms: ['pivot', 'choice', 'option', 'view', 'filter'],
   },
   {
     title: 'Table',
@@ -431,6 +490,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=3%3A292',
     type: 'Component',
+    searchTerms: ['data', 'row', 'column', 'th', 'td', 'tr', 'tbody', 'thead', 'tfoot'],
   },
   {
     title: 'Toggle',
@@ -441,6 +501,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A49',
     type: 'Component',
+    searchTerms: ['switch', 'on', 'off', 'option', 'state', 'radio', 'lever'],
   },
   {
     title: 'Time Picker',
@@ -451,6 +512,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
     type: 'Component',
+    searchTerms: ['clock', 'hour', 'minute', 'interval', 'duration', 'period', 'input'],
   },
   {
     title: 'Thumbnail',
@@ -461,6 +523,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/cIyfnYdCJ6Nlj5fLVi245M/Thumbnail?node-id=11%3A30',
     type: 'Component',
+    searchTerms: ['image', 'preview', 'picture', 'photo', 'gallery'],
   },
   {
     title: 'Tooltip',
@@ -471,6 +534,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/kisdszIRwlezU3B4ZYRjfG/Tooltip?node-id=1%3A10',
     type: 'Component',
+    searchTerms: ['info', 'infotip', 'help', 'hint', 'popup'],
   },
 ];
 

@@ -26,6 +26,8 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   searchString = '';
   searchItems: SearchItem[] = [];
   activeResults: SearchItem[] = [];
+  resultsToDisplay: SearchItem[] = [];
+  synonymComponents: SearchItem[] = [];
   isPrideMonth = false;
 
   private onDestroy = new Subject<void>();
@@ -87,11 +89,12 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         this.searchService.initializeSearch(this.searchItems, {
           includeScore: true,
           includeMatches: true,
-          threshold: 0.4,
+          threshold: 0.35,
           minMatchCharLength: 1,
           keys: [
             { name: 'title', weight: 1 },
             { name: 'description', weight: 0.5 },
+            { name: 'searchTerms', weight: 0.066 },
           ],
         });
       })
@@ -107,10 +110,15 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     if (!this.searchService.isInitialized) {
       return;
     }
+
     this.activeResults = this.searchService.search(this.searchString);
+    this.resultsToDisplay = this.searchService.searchResults
+      .filter((result) => !result.matches?.every((match) => match.key === 'searchTerms'))
+      .map((result) => result.item);
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
       this.showResults = true;
+      this.getComponentsWithSynonym();
       setTimeout(() => {
         this.highlightSearchMatches();
       });
@@ -126,6 +134,8 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   clearSearch(): void {
     this.searchString = '';
     this.activeResults = [];
+    this.resultsToDisplay = [];
+    this.synonymComponents = [];
     const search = document.getElementById('search-field');
     search.focus();
   }
@@ -152,6 +162,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
           type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
           absolutePath: docPage.absolutePath,
           fragmentPath: docPage.fragmentPath,
+          searchTerms: docPage.searchTerms,
         };
       }),
       docPagesNotFromCMS.map((docPage) => {
@@ -215,12 +226,12 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       resultItem.matches.forEach((match) => {
         if (match.key === 'title') {
           const titleElement = document.getElementById('search_' + resultItem.item.title);
-          titleElement.innerHTML = this.getHighlightedTitleString(match, resultItem.item.title);
+          this.setInnerHTML(titleElement, this.getHighlightedTitleString(match, resultItem.item.title));
         } else if (match.key === 'description') {
           const descriptionElement = document.getElementById(this.encodeHTML(resultItem.item.description));
-          descriptionElement.innerHTML = this.getHighlightedDescriptionString(
-            match,
-            resultItem.item.description,
+          this.setInnerHTML(
+            descriptionElement,
+            this.getHighlightedDescriptionString(match, resultItem.item.description),
           );
         }
       });
@@ -234,9 +245,13 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         if (description.length > 165) {
           description = description.substring(0, 165) + '...';
         }
-        descriptionElement.innerHTML = description;
+        this.setInnerHTML(descriptionElement, description);
       }
     });
+  }
+
+  private setInnerHTML(element: HTMLElement, innerHTML: string) {
+    if (element) element.innerHTML = innerHTML;
   }
 
   private getHighlightedTitleString(match: Fuse.FuseResultMatch, title: string): string {
@@ -301,6 +316,30 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
 
   private addHighlightBackground(str: string) {
     return `<span style='background: ${getColor('elvia-charge')}'>${str}</span>`;
+  }
+
+  /** Filters activeResults and assigns the resulting array to synonymComponents.
+   * The filter condition depends on searchString:
+   * - If searchString is < 3, searchString must be an element of searchTerms.
+   * - If searchString is >= 3, searchString must be a substring of one searchTerm.
+   *
+   * Results truncate to 5. Suggest these in "looking for...?"".
+   */
+  private getComponentsWithSynonym(): void {
+    if (this.activeResults && this.searchString) {
+      this.synonymComponents = this.activeResults.filter(({ searchTerms }) => {
+        if (this.searchString.length >= 3) {
+          return searchTerms?.some((term) =>
+            term.toLowerCase().includes(this.searchString.trim().toLowerCase()),
+          );
+        } else if (this.searchString.length < 3) {
+          return searchTerms?.includes(this.searchString.trim().toLowerCase());
+        }
+      });
+      this.synonymComponents = this.synonymComponents.slice(0, 5);
+    } else {
+      this.synonymComponents = [];
+    }
   }
 
   private checkIfPrideMonth(): void {

@@ -31,7 +31,7 @@ export interface CardProps {
   borderColor?: BorderColor;
   type?: CardType;
   /**
-   * @deprecated Decrecated in version 2.0.0. Card no longer supports circle type.
+   * @deprecated Deprecated in version 2.0.0. Card no longer supports circle type.
    */
   shape?: never;
   hasBorder?: boolean;
@@ -40,8 +40,9 @@ export interface CardProps {
   minWidth?: number;
   maxWidth?: number;
   maxDescriptionLines?: number;
+  maxHeadingLines?: number;
   /**
-   * @deprecated Decrecated in version 2.0.0. Instead use `tag`.
+   * @deprecated Deprecated in version 2.0.0. Instead use `tag`.
    */
   label?: never;
   tag?: string;
@@ -65,6 +66,7 @@ const Card: FC<CardProps> = function ({
   minWidth,
   maxWidth,
   maxDescriptionLines = 3,
+  maxHeadingLines,
   tag,
   cornerIcon,
   className,
@@ -146,7 +148,7 @@ const Card: FC<CardProps> = function ({
       style={inlineStyle}
       {...rest}
     >
-      {type === 'simple' && borderColor && (
+      {type === 'simple' && !!borderColor && (
         <CardColoredLineContainer hasBorder={hasBorder}>
           <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
         </CardColoredLineContainer>
@@ -157,10 +159,16 @@ const Card: FC<CardProps> = function ({
             {isShowingHoverIcon && iconHover ? iconHover : icon}
           </CardIcon>
         )}
-        {heading && (
+        {!!heading && (
           <Tooltip
             trigger={
-              <CardHeading as={headingLevel} ref={headingRef} type={type} data-testid="card-heading">
+              <CardHeading
+                as={headingLevel}
+                ref={headingRef}
+                type={type}
+                maxHeadingLines={maxHeadingLines}
+                data-testid="card-heading"
+              >
                 {heading}
               </CardHeading>
             }
@@ -168,7 +176,7 @@ const Card: FC<CardProps> = function ({
             isDisabled={!headingIsOverflowing}
           />
         )}
-        {description && (
+        {!!description && (
           <CardDescription
             type={type}
             maxDescriptionLines={type === 'simple' ? 1 : maxDescriptionLines}
@@ -184,7 +192,7 @@ const Card: FC<CardProps> = function ({
           <IconWrapper icon={arrowLongRight} />
         </CardHoverArrow>
       )}
-      {type === 'detail' && (cornerIcon || cornerIconRef) && (
+      {type === 'detail' && (!!cornerIcon || !!cornerIconRef) && (
         <CardCornerIcon hasBorder={hasBorder} ref={cornerIconRef} data-testid="card-corner-icon">
           {cornerIcon}
         </CardCornerIcon>

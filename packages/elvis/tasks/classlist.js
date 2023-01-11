@@ -114,25 +114,36 @@ function psuedoIsOnElement(className) {
  * @example generateDeprecatedClass('e-card')
  */
 function generateDeprecatedClass(className, child = false) {
-  return `
-    {
-      name: "${child ? child : className}",
-      version: "${deprecatedElvisClasses[className].version}",
-      ${
-        deprecatedElvisClasses[className].replacement
-          ? `replacement: {
-          name: "${deprecatedElvisClasses[className].replacement.name}",
-          type: "${deprecatedElvisClasses[className].replacement.type}",
-          documentation: "${deprecatedElvisClasses[className].replacement.documentation}",
-          },`
-          : ''
-      }
-      ${
-        deprecatedElvisClasses[className].sunset
-          ? `sunset: "${deprecatedElvisClasses[className].sunset}"`
-          : ''
-      }
-      },`;
+  const { version, requiredAncestor, replacement, sunset } = deprecatedElvisClasses[className];
+  let output = `
+  {
+    name: "${child || className}",
+    version: "${version}"`;
+
+  if (requiredAncestor) {
+    output += `,
+    requiredAncestor: "${requiredAncestor}"`;
+  }
+
+  if (replacement) {
+    const { name: name, type: type, documentation: doc } = replacement;
+    output += `,
+    replacement: {
+      name: "${name}",
+      type: "${type}",
+      documentation: "${doc}"
+    }`;
+  }
+
+  if (sunset) {
+    output += `,
+    sunset: "${sunset}"`;
+  }
+
+  output += `
+  },`;
+
+  return output;
 }
 
 /**
@@ -163,18 +174,18 @@ function getChildren(parentToMatch) {
 const injectDeprecatedElvisClasses = async () => {
   let embeddedJs = `
   let deprecatedElvisClasses = [`;
-  for (const className in deprecatedElvisClasses) {
-    embeddedJs += generateDeprecatedClass(className);
+  for (const currentClassName in deprecatedElvisClasses) {
+    embeddedJs += generateDeprecatedClass(currentClassName);
 
-    //if the deprecated class has deprecateChildren === treu, add all children to the generated string
-    if (deprecatedElvisClasses[className].deprecateChildren === true) {
-      const children = getChildren(className);
+    //if the deprecated class has deprecateChildren === true, add all children to the generated string
+    if (deprecatedElvisClasses[currentClassName].deprecateChildren) {
+      const children = getChildren(currentClassName);
       children.forEach((child) => {
         //used to avoid duplicated deprecated classes
         if (Object.keys(deprecatedElvisClasses).includes(child)) {
           return;
         }
-        embeddedJs += generateDeprecatedClass(className, child);
+        embeddedJs += generateDeprecatedClass(currentClassName, child);
       });
     }
   }

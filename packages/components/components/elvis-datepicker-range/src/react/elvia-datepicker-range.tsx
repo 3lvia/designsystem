@@ -324,7 +324,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
               hideText: false,
               isErrorState: false,
               text: '',
-              hasErrorPlaceholder: errorOptions?.start?.hasErrorPlaceholder,
+              hasErrorPlaceholder: !!errorOptions?.start?.hasErrorPlaceholder || !!errorOptions?.start?.text,
             }}
           />
         )}
@@ -373,7 +373,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
               hideText: false,
               isErrorState: false,
               text: '',
-              hasErrorPlaceholder: errorOptions?.end?.hasErrorPlaceholder,
+              hasErrorPlaceholder: !!errorOptions?.end?.hasErrorPlaceholder || !!errorOptions?.end?.text,
             }}
           />
         )}
