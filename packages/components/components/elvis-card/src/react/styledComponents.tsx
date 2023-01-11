@@ -75,16 +75,23 @@ export const CardContent = styled.div<CardContentProps>`
   width: fit-content;
 `;
 
+const getHeadingLineClamp = (type: CardType, maxLines?: number) => {
+  if (maxLines) {
+    return maxLines;
+  }
+  return type === 'simple' ? 1 : 2;
+};
+
 export const CardHeading = styled.h3<CardHeadingProps>`
   width: fit-content;
   margin: 0;
-  ${(props) => (props.type === 'simple' ? getTypographyCss('text-sm-strong') : getTypographyCss('title-xs'))};
-  text-align: ${(props) => (props.type === 'simple' ? 'center' : 'left')};
+  ${({ type }) => getTypographyCss(type === 'simple' ? 'text-sm-strong' : 'title-xs')};
+  text-align: ${({ type }) => (type === 'simple' ? 'center' : 'left')};
   color: ${getColor('black')};
   display: flexbox;
   overflow: hidden;
-  -webkit-line-clamp: ${(props) => (props.type === 'simple' ? 1 : 2)};
-  line-clamp: ${(props) => (props.type === 'simple' ? 1 : 2)};
+  -webkit-line-clamp: ${({ type, maxHeadingLines }) => getHeadingLineClamp(type, maxHeadingLines)};
+  line-clamp: ${({ type, maxHeadingLines }) => getHeadingLineClamp(type, maxHeadingLines)};
   -webkit-box-orient: vertical;
   overflow-wrap: break-word;
 `;
@@ -92,14 +99,14 @@ export const CardHeading = styled.h3<CardHeadingProps>`
 export const CardDescription = styled.p<CardDescriptionProps>`
   padding: 0;
   margin: 0;
-  ${(props) => (props.type === 'simple' ? getTypographyCss('text-micro') : getTypographyCss('text-sm'))};
-  text-align: ${(props) => (props.type === 'simple' ? 'center' : 'left')};
+  ${({ type }) => getTypographyCss(type === 'simple' ? 'text-micro' : 'text-sm')};
+  text-align: ${({ type }) => (type === 'simple' ? 'center' : 'left')};
   color: ${getColor('black')};
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  -webkit-line-clamp: ${(props) => props.maxDescriptionLines};
-  line-clamp: ${(props) => props.maxDescriptionLines};
+  -webkit-line-clamp: ${({ maxDescriptionLines }) => maxDescriptionLines};
+  line-clamp: ${({ maxDescriptionLines }) => maxDescriptionLines};
 `;
 
 export const CardIcon = styled.div`

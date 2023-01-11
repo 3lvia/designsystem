@@ -21,6 +21,7 @@ export interface CardContentProps {
 
 export interface CardHeadingProps {
   type: CardType;
+  maxHeadingLines?: number;
 }
 
 export interface CardDescriptionProps {
