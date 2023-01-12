@@ -8,6 +8,7 @@
   "rules": {
     "indentation": 2,
     "declaration-property-value-disallowed-list": null,
+    "scss/at-extend-no-missing-placeholder": null,
     "max-nesting-depth": null,
     "number-leading-zero": null,
     "order/properties-alphabetical-order": null,
