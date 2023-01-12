@@ -8,33 +8,34 @@ $autocomplete-padding-item-compact: 6px 10px;
 
 .e-autocomplete {
   position: absolute;
+  z-index: 100;
   display: block;
-  background-color: colors.color('elvia-on');
   width: 100%;
   max-width: 448px;
   max-height: 262px;
-  overflow-y: auto;
-  margin-top: 4px;
   border: 1px solid colors.color('grey-10');
   border-radius: 4px;
+  margin-top: 4px;
+  background-color: colors.color('elvia-on');
   box-shadow: shadows.getShadow('medium');
-  z-index: 100;
+  overflow-y: auto;
   text-align: left;
 
   &__item {
-    cursor: pointer;
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    padding: $autocomplete-padding-item;
-    z-index: 100;
     @include typography.typography('text-md');
+    z-index: 100;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: $autocomplete-padding-item;
+    cursor: pointer;
 
     @include helpers.hover() {
       &:hover {
         background-color: colors.color('grey-10');
       }
     }
+
     &:active {
       background-color: colors.color('grey-10');
     }
@@ -46,8 +47,8 @@ $autocomplete-padding-item-compact: 6px 10px;
   &.e-form-field--compact {
     .e-autocomplete {
       &__item {
-        padding: $autocomplete-padding-item-compact;
         @include typography.typography('text-sm');
+        padding: $autocomplete-padding-item-compact;
       }
     }
   }
