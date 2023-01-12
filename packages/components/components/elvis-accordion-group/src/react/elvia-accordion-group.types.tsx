@@ -1,6 +1,6 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
 
-interface AccordionLabel {
+export interface AccordionLabel {
   open: string;
   close: string;
 }
