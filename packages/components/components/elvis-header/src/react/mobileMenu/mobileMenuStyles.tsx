@@ -42,7 +42,7 @@ const backdropFadeOut = keyframes`
 export const MenuContainer = styled.div<{ fadeOut: boolean }>`
   position: fixed;
   top: ${toolbarHeight};
-  padding: 8px 24px 24px;
+  padding: 0px 32px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,12 +83,13 @@ export const Backdrop = styled.div<{ fadeOut: boolean }>`
   right: 0;
   left: 0;
   animation: ${backdropFadeIn} 300ms;
+  z-index: ${headerZIndex};
 
   ${(props) =>
     props.fadeOut &&
     css`
       animation: ${backdropFadeOut} 200ms ease;
-    `}
+    `};
 `;
 
 export const ImageContainer = styled.div`
@@ -103,11 +104,45 @@ export const ImageContainer = styled.div`
   justify-content: center;
 `;
 
-export const Username = styled.div`
+export const TextSmallStrong = styled.div`
   ${getTypographyCss('text-sm-strong')}
 `;
 
-export const Email = styled.div`
+export const TextMicro = styled.div`
+  ${getTypographyCss('text-micro')};
+`;
+
+export const TextSmall = styled.div`
   ${getTypographyCss('text-sm')}
+`;
+
+export const ButtonBase = styled.button`
+  border: none;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  padding: 8px 0;
+  cursor: pointer;
+`;
+
+export const AppSelectorTrigger = styled(ButtonBase)`
+  border: 1px solid ${getColor('grey-10')};
+  border-width: 1px 0;
+  margin: 24px 0;
+`;
+
+export const BackButton = styled(ButtonBase)`
+  margin: 0 0 32px;
+`;
+
+export const ButtonSpacer = styled.div`
+  width: 24px;
+`;
+
+export const AppListContainer = styled.div`
   margin-bottom: 24px;
 `;

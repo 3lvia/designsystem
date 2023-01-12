@@ -15,6 +15,10 @@ import { DesktopMenu } from './desktopMenu/desktopMenu';
 import { SideNav } from './sideNav/sideNav';
 import { AppDrawer } from './appDrawer/appDrawer';
 
+/**
+ *
+ * TODO: Test de nye slotsene
+ */
 export const Header: React.FC<HeaderProps> = ({
   appTitle,
   username,

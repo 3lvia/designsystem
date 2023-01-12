@@ -135,8 +135,8 @@ function App() {
 
   return (
     <Header
-      appTitle="React SSR app"
-      email="e23455@elvia.no"
+      appTitle="Louvre"
+      email="kristine.leonardsen@elvia.no"
       username="Kristine Leonardsen"
       navItems={
         <div className="e-sidenav__container">
