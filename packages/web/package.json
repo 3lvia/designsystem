@@ -26,6 +26,7 @@
     "@contentful/rich-text-types": "^15.11.1",
     "@elvia/elvis": "portal:../elvis",
     "@elvia/elvis-accordion": "portal:../components/components/elvis-accordion",
+    "@elvia/elvis-accordion-group": "portal:../components/components/elvis-accordion-group",
     "@elvia/elvis-assets-icons": "portal:../elvis-assets-icons",
     "@elvia/elvis-badge": "portal:../components/components/elvis-badge",
     "@elvia/elvis-box": "portal:../components/components/elvis-box",

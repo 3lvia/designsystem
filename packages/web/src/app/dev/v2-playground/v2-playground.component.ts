@@ -14,6 +14,24 @@ export class v2PlaygroundComponent {
   accordionHtmlContent = `<div>HTML content<div>`;
   isOpen = false;
 
+  // Accordion group
+  accordionGroupItems = [
+    'Det er ikke bare utendørs du bør følge med på farlige forhold, det finnes også ting i hjemmet du bør være obs på. Opplever du for eksempel å få støt når du tar på vannkranen eller andre elektriske apparater, er det et dårlig tegn. Det samme gjelder om sikringen går uten at du vet hvorfor, eller at sikringen går hver gang du bruker to apparater samtidig. Dette skal ikke skje og kan være tegn på at det er fare på ferde i det elektriske anlegget. ',
+    'Strøm er det du betaler for ditt faktiske strømforbruk, mens nettleie er det du betaler for at strømmen overføres til boligen din. Strøm og nettleie er to forskjellige ting, men er avhengige av hverandre. Du er derfor nødt til å betale for begge deler for å bruke strøm hjemme.',
+    'For å åpne HAN-porten kan du logge inn på Min side og bestille dette.',
+  ];
+  accordionGroupLabels = [
+    {
+      open: 'Følg med på farlige forhold hjemme',
+      close: 'Følg med på farlige forhold hjemme',
+    },
+    {
+      open: 'Hva er forskjellen mellom strøm og nettleie?',
+      close: 'Hva er forskjellen mellom strøm og nettleie?',
+    },
+    { open: 'HAN-port', close: 'HAN-port' },
+  ];
+
   // Breadcrumb
   breadcrumbsTestNoUrl = [{ text: 'Elvia.no' }, { text: 'Nettleie' }, { text: 'Elvias leveringsplikt' }];
 

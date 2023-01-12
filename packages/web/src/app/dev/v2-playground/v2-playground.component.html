@@ -5,16 +5,11 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <elvia-datepicker
-        (valueOnChange)="writeDate($event.detail.value)"
-        [isRequired]="false"
-      ></elvia-datepicker>
-      <span class="e-ml-16">
-        <elvia-datepicker
-          (valueOnChange)="writeDate($event.detail.value)"
-          [isRequired]="true"
-        ></elvia-datepicker>
-      </span>
+      <elvia-accordion-group [items]="accordionGroupItems" [labels]="accordionGroupLabels">
+        <!-- <div slot="items">
+          <p *ngFor="let item of accordionGroupItems">{{ item }}</p>
+        </div> -->
+      </elvia-accordion-group>
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
