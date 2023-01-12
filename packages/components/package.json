@@ -79,6 +79,6 @@
     "typescript-plugin-styled-components": "^2.0.0"
   },
   "peerDependencies": {
-    "typescript": "~4.8.2"
+    "typescript": "~4.9.4"
   }
 }
