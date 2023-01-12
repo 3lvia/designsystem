@@ -7,7 +7,10 @@
     <div class="e-bg-white">
       <elvia-accordion-group [labels]="accordionGroupLabels">
         <div slot="items">
-          <p *ngFor="let item of accordionGroupItems">{{ item }}</p>
+          <div *ngFor="let item of accordionGroupItems">
+            {{ item }}
+            <code>e-bg-green</code>
+          </div>
         </div>
       </elvia-accordion-group>
     </div>

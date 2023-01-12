@@ -19,16 +19,10 @@ const AccordionGroup: FC<AccordionGroupProps> = ({
   useEffect(() => {
     const itemsSlot = webcomponent?.getSlot('items');
     if (itemsSlot) {
-      const elements = Array.from(itemsSlot.children).map((item, id) => {
-        return (
-          <AccordionSlotContent
-            dangerouslySetInnerHTML={{ __html: item.innerHTML }}
-            key={id}
-          ></AccordionSlotContent>
-        );
-      });
-
-      setItemsState(elements);
+      const newItems = Array.from(itemsSlot.children).map((item, id) => (
+        <AccordionSlotContent dangerouslySetInnerHTML={{ __html: item.innerHTML }} key={id} />
+      ));
+      setItemsState(newItems);
     }
   }, [webcomponent]);
 
