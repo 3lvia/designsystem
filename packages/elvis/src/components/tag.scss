@@ -7,19 +7,15 @@ $label-radius: 4px;
 $label-font-size: 11px;
 $label-colors: map-merge(colors.$just-colors, colors.$primary-colors);
 
-%status-content {
-  left: 8px;
-  display: inline-flex;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
 @mixin circle($color) {
   padding: 4px 8px 4px 24px;
 
   &::before {
-    @extend %status-content;
+    left: 8px;
+    display: inline-flex;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
     position: absolute;
     background-color: colors.color($color);
     content: ' ';
