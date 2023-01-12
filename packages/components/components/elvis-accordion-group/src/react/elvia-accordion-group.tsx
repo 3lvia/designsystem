@@ -10,6 +10,7 @@ const AccordionGroup: FC<AccordionGroupProps> = ({
   webcomponent,
   ...rest
 }) => {
+  const [openAccordionIndex, setOpenAccordionIndex] = useState<number>();
   const [itemsState, setItemsState] = useState(items);
 
   useEffect(() => {
@@ -37,6 +38,8 @@ const AccordionGroup: FC<AccordionGroupProps> = ({
           isFullWidth
           content={item}
           key={index}
+          onOpen={() => setOpenAccordionIndex(index)}
+          isOpen={openAccordionIndex === index}
         />
       ))}
     </AccordionGroupWrapper>
