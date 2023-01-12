@@ -1,6 +1,5 @@
-import { Theme } from '../theme';
+import { BaseColors, Theme } from '../theme';
 
-// TODO: satisfies BaseColors
 export const lightThemeColors = {
   'primary-colors': {
     white: {
@@ -111,7 +110,7 @@ export const lightThemeColors = {
       color: '#0064fa',
     },
   },
-} as const;
+} as const satisfies BaseColors;
 
 export type LightThemeColorName = typeof lightThemeColors extends Record<string, infer Category>
   ? Category extends Record<string, any>
@@ -119,7 +118,7 @@ export type LightThemeColorName = typeof lightThemeColors extends Record<string,
     : never
   : never;
 
-export const lightTheme: Theme = {
+export const lightTheme = {
   background: {
     'background-primary': {
       hex: lightThemeColors['primary-colors'].white.color,
@@ -228,4 +227,4 @@ export const lightTheme: Theme = {
       contrast: lightThemeColors['data-colors']['red-tomato'].contrastText,
     },
   },
-} as const;
+} as const satisfies Theme;
