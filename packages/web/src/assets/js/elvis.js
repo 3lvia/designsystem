@@ -2124,10 +2124,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   },
   {
-    name: "e-btn--icon.e-btn--danger",
-    version: "7.8.0"
-  },
-  {
     name: "e-table__sort-header",
     version: "7.5.0"
   },
