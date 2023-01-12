@@ -63,9 +63,14 @@ export const IconLetters = styled.div`
   align-items: center;
   justify-content: center;
   color: transparent;
+
+  // Works in all browsers, despite webkit prefix
   -webkit-text-stroke: 1px ${getColor('elvis-on')};
   -webkit-backface-visibility: hidden;
+
+  // Fixes text jumping after scale animation completes
   backface-visibility: hidden;
+
   position: relative;
   height: 100%;
 `;
