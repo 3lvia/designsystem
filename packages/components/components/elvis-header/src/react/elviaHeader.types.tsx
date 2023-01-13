@@ -1,6 +1,7 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
 
 export interface UserMenuProps {
+  onMenuToggle: (isShowing: boolean) => void;
   onSignOutClick?: () => void;
   username: string;
   email: string;

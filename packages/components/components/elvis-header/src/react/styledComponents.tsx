@@ -9,7 +9,7 @@ export const headerZIndex = 109;
 export const sidebarMaxWidth = '280px';
 export const sidebarAnimation = '400ms cubic-bezier(0.71, 0, 0.31, 1)';
 
-export const StyledHeader = styled.header<{ isGtMobile: boolean }>`
+export const StyledHeader = styled.header<{ isGtMobile: boolean; menuIsOpen: boolean }>`
   background-color: ${getColor('elvia-on')};
   height: ${toolbarHeight};
   display: flex;
@@ -20,8 +20,8 @@ export const StyledHeader = styled.header<{ isGtMobile: boolean }>`
   right: 0;
   z-index: ${headerZIndex};
 
-  ${(props) =>
-    props.isGtMobile &&
+  ${({ isGtMobile }) =>
+    isGtMobile &&
     css`
       border-bottom: 2px solid ${getColor('grey-05')};
 
@@ -33,7 +33,13 @@ export const StyledHeader = styled.header<{ isGtMobile: boolean }>`
       ${PageTitle} {
         margin: 0 auto 0 0;
       }
-    `}
+    `};
+
+  ${({ menuIsOpen }) =>
+    menuIsOpen &&
+    css`
+      z-index: 999999;
+    `};
 `;
 
 export const SquareContainer = styled.div`

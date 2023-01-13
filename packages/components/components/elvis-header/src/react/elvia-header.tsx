@@ -34,6 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [initialized, setInitialized] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
+  const [desktopMenuIsOpen, setDesktopMenuIsOpen] = useState(false);
   const [applicationTitle, setApplicationTitle] = useState('');
 
   const { ref: pageContainerRef } = useSlot('appContent', webcomponent);
@@ -67,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <div className={className ?? ''} style={{ ...inlineStyle }}>
-      <StyledHeader isGtMobile={isGtMobile}>
+      <StyledHeader isGtMobile={isGtMobile} menuIsOpen={desktopMenuIsOpen}>
         <LogoContainer>
           <IconButton
             aria-label="logo"
@@ -97,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({
         </LogoContainer>
         {isGtMobile && (
           <>
-            <AppDrawer appTitle={applicationTitle} />
+            <AppDrawer appTitle={applicationTitle} onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)} />
             <Hr direction="vertical" isGtTablet={isGtTablet} />
           </>
         )}
@@ -111,12 +112,18 @@ export const Header: React.FC<HeaderProps> = ({
               email={email}
               username={username}
               onSignOutClick={signOutClick}
-              onMenuOpen={() => setMobileMenuIsOpen(true)}
-              onMenuClose={() => setMobileMenuIsOpen(false)}
+              onMenuToggle={(isOpen) => setMobileMenuIsOpen(isOpen)}
             />
           </SquareContainer>
         )}
-        {isGtMobile && <DesktopMenu email={email} username={username} onSignOutClick={signOutClick} />}
+        {isGtMobile && (
+          <DesktopMenu
+            email={email}
+            username={username}
+            onSignOutClick={signOutClick}
+            onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)}
+          />
+        )}
       </StyledHeader>
       {hasNavItems() && (
         <SideNav ref={sidenavRef} onSideNavToggle={() => setIsExpanded(!isExpanded)} isExpanded={isExpanded}>

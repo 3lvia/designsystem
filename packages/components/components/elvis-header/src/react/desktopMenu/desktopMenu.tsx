@@ -1,7 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import { TriggerButton } from '../styledComponents';
 import { UserMenuProps } from '../elviaHeader.types';
-import { Email, Footer, MenuContainer, MenuHr, UserGrid, Username } from './desktopMenuStyles';
+import {
+  Email,
+  Footer,
+  ImageContainer,
+  MenuContainer,
+  MenuHr,
+  UserGrid,
+  Username,
+} from './desktopMenuStyles';
 import {
   IconWrapper,
   Overlay,
@@ -9,10 +17,10 @@ import {
   useConnectedOverlay,
   useFocusTrap,
 } from '@elvia/elvis-toolbox';
-import profile from '@elvia/elvis-assets-icons/dist/icons/profile';
 import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
+import { ProfilePicture } from '../ProfilePicture';
 
-export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOutClick }) => {
+export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOutClick, onMenuToggle }) => {
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const connectedElementRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef(null);
@@ -24,6 +32,8 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
   });
 
   useEffect(() => {
+    onMenuToggle(isShowing);
+
     if (isShowing) {
       trapFocus(popoverRef);
     } else {
@@ -45,13 +55,18 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
         ref={connectedElementRef}
         data-testid="desktop-menu-trigger"
       >
-        <IconWrapper icon={profile} size="xs" />
+        <ImageContainer thumbnail>
+          <ProfilePicture />
+        </ImageContainer>
         {username}
       </TriggerButton>
       {isShowing && (
         <Overlay ref={popoverRef} onClose={() => setIsShowing(false)}>
           <MenuContainer data-testid="desktop-menu">
             <UserGrid>
+              <ImageContainer>
+                <ProfilePicture />
+              </ImageContainer>
               <Username data-testid="desktop-username">{username}</Username>
               <Email data-testid="desktop-email">{email}</Email>
             </UserGrid>
