@@ -121,6 +121,7 @@ export const TextSmall = styled.div`
 `;
 
 export const ButtonBase = styled.button`
+  color: ${getColor('text')};
   border: none;
   text-align: left;
   width: 100%;

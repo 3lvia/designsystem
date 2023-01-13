@@ -19,6 +19,7 @@ import moreMenu from '@elvia/elvis-assets-icons/dist/icons/moreMenu';
 import removeCircleColor from '@elvia/elvis-assets-icons/dist/icons/removeCircleColor';
 import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
 import arrowLeftCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleColor';
+import arrowLeftCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleFilledColor';
 import { AppList } from '../appList/appList';
 import { AppSelector } from './appSelector';
 
@@ -37,6 +38,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
   onMenuClose,
 }) => {
   const [view, setView] = useState<'mainPage' | 'appSelector' | 'themeSelector'>('mainPage');
+  const [backButtonIsHovered, setBackButtonIsHovered] = useState(false);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef(null);
   const { userMenuIsOpen, setIsShowing, onAnimationEnd, fadeOut } = usePopoverHandler(
@@ -129,8 +131,15 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
 
               {view === 'appSelector' && (
                 <>
-                  <BackButton onClick={() => setView('mainPage')}>
-                    <IconWrapper icon={arrowLeftCircleColor} size="sm" />
+                  <BackButton
+                    onClick={() => setView('mainPage')}
+                    onMouseEnter={() => setBackButtonIsHovered(true)}
+                    onMouseLeave={() => setBackButtonIsHovered(false)}
+                  >
+                    <IconWrapper
+                      icon={backButtonIsHovered ? arrowLeftCircleFilledColor : arrowLeftCircleColor}
+                      size="sm"
+                    />
                     <TextMdStrong>Velg applikasjon</TextMdStrong>
                     <ButtonSpacer />
                   </BackButton>
