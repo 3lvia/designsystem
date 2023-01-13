@@ -249,6 +249,7 @@
       }
 
       .e-accordion__content {
+        @include typography.typography('text-lg');
         padding-top: 0;
         padding-left: 19px;
         transition: opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1),
