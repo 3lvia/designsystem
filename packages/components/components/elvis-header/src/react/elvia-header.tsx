@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({
   }, [isGtMobile]);
 
   useEffect(() => {
-    setApplicationTitle(appTitle ?? getActiveApp());
+    setApplicationTitle(appTitle ?? getActiveApp('name'));
   }, [appTitle]);
 
   return (

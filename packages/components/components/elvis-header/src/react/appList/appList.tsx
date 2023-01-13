@@ -11,7 +11,7 @@ export const AppList: React.FC<Props> = ({ onLinkClick }) => {
   const [domain, setDomain] = useState('');
 
   useEffect(() => {
-    setActiveUrl(getActiveApp());
+    setActiveUrl(getActiveApp('url'));
     setDomain(getCurrentDomain());
   }, []);
 

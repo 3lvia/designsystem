@@ -113,14 +113,13 @@ const getUrlParts = (): string[] => {
   return url.host.split('.');
 };
 
-export const getActiveApp = (): string => {
-  const app = getUrlParts()[0];
-
-  if (app.length > 1) {
-    return app[0].toUpperCase() + app.substring(1).toLowerCase();
+export const getActiveApp = (kind: 'url' | 'name'): string => {
+  const url = getUrlParts()[0];
+  if (kind === 'url') {
+    return url;
+  } else {
+    return appList.find((app) => app.url === url)?.name || '';
   }
-
-  return '';
 };
 
 export const getCurrentDomain = (): string => {
