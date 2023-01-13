@@ -10,7 +10,7 @@
     "declaration-property-value-disallowed-list": null,
     "max-nesting-depth": null,
     "number-leading-zero": null,
-    "selector-max-compound-select": null,
+    "selector-max-compound-selectors": null,
     "order/properties-alphabetical-order": null,
     "selector-class-pattern": null,
     "selector-no-qualifying-type": null,

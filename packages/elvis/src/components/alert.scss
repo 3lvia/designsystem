@@ -255,26 +255,18 @@ $toast-max-width: 400px;
     max-width: $local-max-width;
     padding: $local-padding;
     border-radius: 8px;
-    @include breakpoints.breakpoint-up(Mobile) {
-      padding: $local-mobile-padding;
-    }
 
     @include breakpoints.breakpoint-up(Mobile) {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-
-      .e-alert__icon {
-        margin-top: 0;
-        margin-right: 0;
-      }
+      padding: $local-mobile-padding;
 
       .e-alert__content {
         margin-top: 8px;
       }
 
-      .e-alert__title,
       .e-alert__text {
         text-align: center;
       }
@@ -282,21 +274,30 @@ $toast-max-width: 400px;
 
     .e-alert__icon {
       margin-top: 11px;
+
+      @include breakpoints.breakpoint-up(Mobile) {
+        margin: 0;
+      }
     }
 
     .e-alert__title {
       @include typography.typography('text-md-strong');
       margin-bottom: 0;
       color: colors.color('font-color');
+
+      @include breakpoints.breakpoint-up(Mobile) {
+        text-align: center;
+      }
     }
 
     //DEPRECATED
-    /* .e-alert__close {
+    /* stylelint-disable -- Do not lint deprecated styles. */
+    .e-alert__close {
       justify-content: flex-end;
-      align-items: flex-start;
       margin-top: -14px;
       margin-right: -22px;
-    } */
+    }
+    /* stylelint-enable */
 
     &.e-alert--warn {
       border-color: colors.color('orange');
