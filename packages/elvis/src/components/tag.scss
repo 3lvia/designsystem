@@ -7,21 +7,18 @@ $label-radius: 4px;
 $label-font-size: 11px;
 $label-colors: map-merge(colors.$just-colors, colors.$primary-colors);
 
-%status-content {
-  display: inline-flex;
-  border-radius: 50%;
-  height: 8px;
-  width: 8px;
-  left: 8px;
-}
-
 @mixin circle($color) {
   padding: 4px 8px 4px 24px;
+
   &::before {
-    content: ' ';
+    left: 8px;
+    display: inline-flex;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
     position: absolute;
     background-color: colors.color($color);
-    @extend %status-content;
+    content: ' ';
   }
 }
 
@@ -34,14 +31,13 @@ $label-colors: map-merge(colors.$just-colors, colors.$primary-colors);
   padding: $label-padding;
   border-radius: $label-radius;
   background: colors.color('grey-10');
-
+  color: colors.color('font-color');
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: $label-font-size;
   font-weight: 400;
-  line-height: 16px;
   letter-spacing: 0.5px;
+  line-height: 16px;
   text-transform: uppercase;
-  color: colors.color('font-color');
   white-space: nowrap;
 
   @each $colorName, $map in $label-colors {

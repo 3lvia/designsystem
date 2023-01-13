@@ -7,8 +7,10 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-documentatio
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
+import { ComponentChangelogModule } from 'src/app//shared/component-documentation/component-changelog/component-changelog.module';
 
 @NgModule({
+  declarations: [ToggleDocComponent],
   imports: [
     CommonModule,
     ComponentHeaderModule,
@@ -17,7 +19,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
     ComponentSectionModule,
     ComponentSubsectionModule,
     WhenToUseModule,
+    ComponentChangelogModule,
   ],
-  declarations: [ToggleDocComponent],
 })
 export class ToggleDocModule {}
