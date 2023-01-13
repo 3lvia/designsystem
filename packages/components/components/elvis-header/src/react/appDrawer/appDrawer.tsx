@@ -29,7 +29,7 @@ export const AppDrawer: React.FC<Props> = ({ appTitle }) => {
       >
         <AppTitle>{appTitle}</AppTitle>
         <SpinContainer rotated={isShowing}>
-          <Icon size="xxs" name="arrowDown" />
+          <Icon size="xs" name="arrowDown" />
         </SpinContainer>
       </TriggerButton>
       {isShowing && (

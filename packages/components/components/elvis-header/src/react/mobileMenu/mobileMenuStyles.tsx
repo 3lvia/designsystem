@@ -108,6 +108,10 @@ export const TextSmallStrong = styled.div`
   ${getTypographyCss('text-sm-strong')}
 `;
 
+export const TextMdStrong = styled.div`
+  ${getTypographyCss('text-md-strong')}
+`;
+
 export const TextMicro = styled.div`
   ${getTypographyCss('text-micro')};
 `;

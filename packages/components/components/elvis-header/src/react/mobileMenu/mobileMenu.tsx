@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { MobileUserMenuProps } from '../elviaHeader.types';
+import { UserMenuProps } from '../elviaHeader.types';
 import { IconButton } from '../styledComponents';
 import { usePopoverHandler } from './usePopoverHandler';
 import {
@@ -12,6 +12,7 @@ import {
   BackButton,
   ButtonSpacer,
   AppListContainer,
+  TextMdStrong,
 } from './mobileMenuStyles';
 import { IconWrapper, TertiaryButton } from '@elvia/elvis-toolbox';
 import moreMenu from '@elvia/elvis-assets-icons/dist/icons/moreMenu';
@@ -21,7 +22,20 @@ import arrowLeftCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeft
 import { AppList } from '../appList/appList';
 import { AppSelector } from './appSelector';
 
-export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, username, onSignOutClick }) => {
+interface MobileUserMenuProps extends UserMenuProps {
+  appTitle: string;
+  onMenuOpen: () => void;
+  onMenuClose: () => void;
+}
+
+export const MobileMenu: React.FC<MobileUserMenuProps> = ({
+  appTitle,
+  email,
+  username,
+  onSignOutClick,
+  onMenuOpen,
+  onMenuClose,
+}) => {
   const [view, setView] = useState<'mainPage' | 'appSelector' | 'themeSelector'>('mainPage');
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef(null);
@@ -29,6 +43,14 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, use
     triggerButtonRef,
     popoverRef,
   );
+
+  useEffect(() => {
+    if (!userMenuIsOpen) {
+      onMenuClose();
+    } else {
+      onMenuOpen();
+    }
+  }, [userMenuIsOpen]);
 
   return (
     <>
@@ -109,7 +131,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({ appTitle, email, use
                 <>
                   <BackButton onClick={() => setView('mainPage')}>
                     <IconWrapper icon={arrowLeftCircleColor} size="sm" />
-                    <TextSmallStrong>Applikasjoner</TextSmallStrong>
+                    <TextMdStrong>Velg applikasjon</TextMdStrong>
                     <ButtonSpacer />
                   </BackButton>
                   <AppListContainer>

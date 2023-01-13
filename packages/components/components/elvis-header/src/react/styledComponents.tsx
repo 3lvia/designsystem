@@ -48,9 +48,16 @@ export const LogoContainer = styled(SquareContainer)`
   padding: 19px 16px;
 `;
 
-export const PageTitle = styled.h1`
+export const PageTitle = styled.h1<{ isInvisible: boolean }>`
   ${getTypographyCss('text-md')};
+  transition: opacity 150ms;
   margin: 0 auto;
+
+  ${({ isInvisible }) =>
+    isInvisible &&
+    css`
+      opacity: 0;
+    `};
 `;
 
 export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`

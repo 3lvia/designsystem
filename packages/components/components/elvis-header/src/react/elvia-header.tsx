@@ -36,6 +36,7 @@ export const Header: React.FC<HeaderProps> = ({
   const isGtTablet = useBreakpoint('gt-tablet');
   const [initialized, setInitialized] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
 
   const { ref: pageContainerRef } = useSlot('appContent', webcomponent);
   const { ref: pageTitleRef } = useSlot<HTMLHeadingElement>('pageTitle', webcomponent);
@@ -98,12 +99,19 @@ export const Header: React.FC<HeaderProps> = ({
             <Hr direction="vertical" isGtTablet={isGtTablet} />
           </>
         )}
-        <PageTitle data-testid="page-title" ref={pageTitleRef}>
+        <PageTitle data-testid="page-title" ref={pageTitleRef} isInvisible={mobileMenuIsOpen}>
           {pageTitle}
         </PageTitle>
         {!isGtMobile && (
           <SquareContainer>
-            <MobileMenu appTitle={appTitle} email={email} username={username} onSignOutClick={signOutClick} />
+            <MobileMenu
+              appTitle={appTitle}
+              email={email}
+              username={username}
+              onSignOutClick={signOutClick}
+              onMenuOpen={() => setMobileMenuIsOpen(true)}
+              onMenuClose={() => setMobileMenuIsOpen(false)}
+            />
           </SquareContainer>
         )}
         {isGtMobile && <DesktopMenu email={email} username={username} onSignOutClick={signOutClick} />}
