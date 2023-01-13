@@ -42,7 +42,7 @@ const backdropFadeOut = keyframes`
 export const MenuContainer = styled.div<{ fadeOut: boolean }>`
   position: fixed;
   top: ${toolbarHeight};
-  padding: 0px 32px 32px;
+  padding: 0 32px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;

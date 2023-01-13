@@ -9,7 +9,7 @@ interface Props {
 
 export const AppOverlay = React.forwardRef<HTMLDivElement, Props>(({ onClose }, ref) => {
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
-  const listContainerRef = useRef(null);
+  const listContainerRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
