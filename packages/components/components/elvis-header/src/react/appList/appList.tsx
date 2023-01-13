@@ -12,8 +12,7 @@ interface Props {
   onLinkClick?: () => void;
 }
 
-export const AppList = React.forwardRef<HTMLDivElement, Props>(({ onLinkClick }, ref) => {
-  // TODO: Trenger disse være useState? Trenger vi forward Ref
+export const AppList: React.FC<Props> = ({ onLinkClick }) => {
   const [activeUrl, setActiveUrl] = useState('');
   const [domain, setDomain] = useState('elvia.io/');
 
@@ -131,7 +130,7 @@ export const AppList = React.forwardRef<HTMLDivElement, Props>(({ onLinkClick },
   }, []);
 
   return (
-    <AppListContainer ref={ref}>
+    <AppListContainer>
       {appList.map((link) => (
         <AppLink
           href={`https://${link.url}.${domain}`}
@@ -148,6 +147,4 @@ export const AppList = React.forwardRef<HTMLDivElement, Props>(({ onLinkClick },
       ))}
     </AppListContainer>
   );
-});
-
-AppList.displayName = 'AppListComponent';
+};
