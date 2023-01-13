@@ -29,24 +29,30 @@ $grey-ten: colors.color('grey-10');
 .e-link {
   // Default for links is md
   @extend .e-link--md;
+  position: relative;
   display: inline;
   box-sizing: border-box;
   border-bottom: 2px solid colors.color('elvia-off');
+  color: colors.color('font-color');
   cursor: pointer;
 
   font-family: 'Red Hat Display', Verdana, sans-serif;
-  color: colors.color('font-color');
-  text-align: inherit;
-  position: relative;
-  text-decoration: none;
   font-weight: 600;
+  text-align: inherit;
+  text-decoration: none;
+  @include helpers.hover() {
+    &:hover {
+      border-bottom-color: colors.color('elvia-charge');
+    }
+  }
 
   &__icon {
     display: inline-flex;
     align-items: center;
+
     i {
-      display: flex;
       @include icons.icon-size('xxs');
+      display: flex;
     }
   }
 
@@ -58,35 +64,35 @@ $grey-ten: colors.color('grey-10');
   }
 
   &.e-link--lg {
+    border-bottom: 2.5px solid colors.color('elvia-off');
     font-size: $link-lg-font-size;
     line-height: $link-lg-line-height;
-    border-bottom: 2.5px solid colors.color('elvia-off');
   }
+
   &.e-link--md {
     font-size: $link-md-font-size;
     line-height: $link-md-line-height;
   }
+
   &.e-link--sm {
     font-size: $link-sm-font-size;
     line-height: $link-sm-line-height;
   }
+
   &.e-link--inverted {
-    color: colors.color('font-color-light');
     border-color: colors.color('elvia-on');
+    color: colors.color('font-color-light');
   }
 
   &:active,
   &.e-link---hover {
     border-bottom-color: colors.color('elvia-charge');
   }
-  @include helpers.hover() {
-    &:hover {
-      border-bottom-color: colors.color('elvia-charge');
-    }
-  }
+
   &.e-link---focus {
     @include outline.e-outline-pseudoclass();
   }
+
   &:focus {
     @include outline.e-outline();
   }
@@ -123,6 +129,17 @@ $grey-ten: colors.color('grey-10');
     display: inline-flex;
     align-items: center;
     border: transparent;
+    @include helpers.hover() {
+      &:hover {
+        .e-link__icon i[class*='filled-color'] {
+          visibility: visible;
+        }
+
+        .e-link__icon i:not([class*='filled-color']) {
+          visibility: hidden;
+        }
+      }
+    }
 
     .e-link__title + .e-link__icon,
     .e-link__icon + .e-link__title {
@@ -132,36 +149,43 @@ $grey-ten: colors.color('grey-10');
     .e-link__icon i[class*='filled-color'] {
       visibility: hidden;
     }
+
     .e-link__icon {
       position: relative;
       right: 0;
+
       i {
         position: absolute;
         top: 0;
+        right: 0;
         bottom: 0;
         left: 0;
-        right: 0;
         display: flex;
       }
     }
 
     &.e-link--lg {
-      line-height: $link-action-lg-line-height;
       font-size: $link-action-lg-font-size;
+      line-height: $link-action-lg-line-height;
+
       .e-link__icon {
         @include icons.icon-size('sm');
       }
     }
+
     &.e-link--md {
-      line-height: $link-action-md-line-height;
       font-size: $link-action-md-font-size;
+      line-height: $link-action-md-line-height;
+
       .e-link__icon {
         @include icons.icon-size('sm');
       }
     }
+
     &.e-link--sm {
-      line-height: $link-action-sm-line-height;
       font-size: $link-action-sm-font-size;
+      line-height: $link-action-sm-line-height;
+
       .e-link__icon {
         @include icons.icon-size('xs');
       }
@@ -172,18 +196,9 @@ $grey-ten: colors.color('grey-10');
       .e-link__icon i[class*='filled-color'] {
         visibility: visible;
       }
+
       .e-link__icon i:not([class*='filled-color']) {
         visibility: hidden;
-      }
-    }
-    @include helpers.hover() {
-      &:hover {
-        .e-link__icon i[class*='filled-color'] {
-          visibility: visible;
-        }
-        .e-link__icon i:not([class*='filled-color']) {
-          visibility: hidden;
-        }
       }
     }
   }
