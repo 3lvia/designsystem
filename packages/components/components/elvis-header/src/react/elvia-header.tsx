@@ -14,6 +14,7 @@ import { MobileMenu } from './mobileMenu/mobileMenu';
 import { DesktopMenu } from './desktopMenu/desktopMenu';
 import { SideNav } from './sideNav/sideNav';
 import { AppDrawer } from './appDrawer/appDrawer';
+import { getActiveApp } from './elviaApps';
 
 export const Header: React.FC<HeaderProps> = ({
   appTitle,
@@ -33,6 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [initialized, setInitialized] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
+  const [applicationTitle, setApplicationTitle] = useState('');
 
   const { ref: pageContainerRef } = useSlot('appContent', webcomponent);
   const { ref: pageTitleRef } = useSlot<HTMLHeadingElement>('pageTitle', webcomponent);
@@ -58,6 +60,10 @@ export const Header: React.FC<HeaderProps> = ({
     // This flag prevents animation of the page content padding on init
     setTimeout(() => setInitialized(true), 1);
   }, [isGtMobile]);
+
+  useEffect(() => {
+    setApplicationTitle(appTitle ?? getActiveApp());
+  }, [appTitle]);
 
   return (
     <div className={className ?? ''} style={{ ...inlineStyle }}>
@@ -91,7 +97,7 @@ export const Header: React.FC<HeaderProps> = ({
         </LogoContainer>
         {isGtMobile && (
           <>
-            <AppDrawer appTitle={appTitle} />
+            <AppDrawer appTitle={applicationTitle} />
             <Hr direction="vertical" isGtTablet={isGtTablet} />
           </>
         )}
@@ -101,7 +107,7 @@ export const Header: React.FC<HeaderProps> = ({
         {!isGtMobile && (
           <SquareContainer>
             <MobileMenu
-              appTitle={appTitle}
+              appTitle={applicationTitle}
               email={email}
               username={username}
               onSignOutClick={signOutClick}
