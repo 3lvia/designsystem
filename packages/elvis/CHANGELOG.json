@@ -35,7 +35,7 @@
             "Fixed a bug where the placeholder text of disabled inputs was too dark.",
             "Fixed a bug where the text inside a button wrapped onto a new line if too long."
           ],
-          "pages": [
+          "components": [
             { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },
             { "displayName": "Button", "url": "https://design.elvia.io/components/button" }
           ]
