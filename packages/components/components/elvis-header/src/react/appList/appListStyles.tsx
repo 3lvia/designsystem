@@ -63,26 +63,30 @@ export const AppLink = styled.a<{ isActive: boolean }>`
   gap: 8px;
   transition: transform 0.2s ease;
 
-  ${({ isActive }) =>
-    isActive &&
-    css`
-      ${getTypographyCss('text-micro-strong')};
+  ${({ isActive }) => {
+    if (isActive) {
+      return css`
+        ${getTypographyCss('text-micro-strong')};
 
-      ${IconLetters} {
-        -webkit-text-stroke-width: 0;
-        color: ${getColor('elvia-on')};
-      }
+        ${IconLetters} {
+          -webkit-text-stroke-width: 0;
+          color: ${getColor('elvia-on')};
+        }
 
-      ${Icon} {
-        filter: none;
-      }
-    `};
+        ${Icon} {
+          filter: none;
+        }
+      `;
+    } else {
+      return css`
+        &:hover {
+          transform: scale(1.1);
 
-  &:hover {
-    transform: scale(1.1);
-
-    ${Icon} {
-      filter: none;
+          ${Icon} {
+            filter: none;
+          }
+        }
+      `;
     }
-  }
+  }}
 `;
