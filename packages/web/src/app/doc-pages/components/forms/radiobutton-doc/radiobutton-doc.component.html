@@ -1,6 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">Radio Button</ng-container>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -99,6 +99,13 @@
   <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-radio'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties [componentName]="'e-radio'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
+
+  <!--Changelog-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>

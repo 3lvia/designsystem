@@ -173,9 +173,6 @@
       "documentation": "https://design.elvia.io/components/file-upload#States"
     }
   },
-  "e-btn--icon.e-btn--danger": {
-    "version": "7.8.0"
-  },
   "e-table__sort-header": {
     "version": "7.5.0"
   },
