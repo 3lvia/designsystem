@@ -153,7 +153,13 @@
       &.e-stepper__step--active ~ .e-stepper__step,
       &.e-stepper__step--active-done ~ .e-stepper__step {
         .e-stepper__step-number {
-          cursor: not-allowed;
+          @include helpers.hover() {
+            &:hover {
+              border-color: colors.color('grey-30');
+              color: colors.color('grey-30');
+              cursor: not-allowed;
+            }
+          }
         }
         .e-stepper__step-title {
           cursor: not-allowed;
