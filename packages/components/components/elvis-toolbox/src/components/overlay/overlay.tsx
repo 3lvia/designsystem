@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode, useEffect, useState } from 'react';
+import React, { forwardRef, ReactNode, useEffect, useRef, useState } from 'react';
 import { createPortal, flushSync } from 'react-dom';
 import { Backdrop } from '../backdrop/backdrop';
 import { exitDuration, OverlayContainer } from './overlayStyles';
@@ -41,13 +41,13 @@ interface OverlayProps {
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
   ({ onClose, startFade = false, hasBackdrop = true, hasAnimation = true, children }, ref) => {
     const [fadeOut, setFadeOut] = useState(false);
-    const [isDestroyed, setIsDestroyed] = useState(false);
+    const isDestroyed = useRef(false);
 
     const animateOut = (): void => {
       setFadeOut(true);
       setTimeout(
         () => {
-          if (!isDestroyed) {
+          if (!isDestroyed.current) {
             flushSync(() => onClose());
           }
         },
@@ -62,13 +62,14 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
     }, [startFade]);
 
     useEffect(() => {
+      isDestroyed.current = false;
       const closeOnEsc = (ev: KeyboardEvent) => ev.code === 'Escape' && animateOut();
 
       window.addEventListener('keydown', closeOnEsc);
 
       return () => {
         window.removeEventListener('keydown', closeOnEsc);
-        setIsDestroyed(true);
+        isDestroyed.current = true;
       };
     }, []);
 

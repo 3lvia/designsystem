@@ -24,9 +24,9 @@ export const headerData: ComponentData = {
       cegDefault: 'e12345@elvia.no',
     },
     appTitle: {
-      isRequired: true,
+      isRequired: false,
       type: 'string',
-      description: 'The name of the application.',
+      description: 'The name of the application. If no title is provided, the title is assumed from the URL.',
       cegDisplayName: 'App title',
       cegType: 'string',
       cegFormType: 'custom-text',

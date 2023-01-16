@@ -1,22 +1,19 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { CSSProperties } from 'react';
+import { BaseProps } from '@elvia/elvis-toolbox';
 
 export interface UserMenuProps {
+  onMenuToggle: (isShowing: boolean) => void;
   onSignOutClick?: () => void;
   username: string;
   email: string;
 }
 
-export interface MobileUserMenuProps extends UserMenuProps {
-  appTitle: string;
-}
-
-export interface HeaderProps extends MobileUserMenuProps {
-  pageTitle: string | JSX.Element;
-  navItems?: JSX.Element;
+export interface HeaderProps extends BaseProps {
   appContent?: JSX.Element;
+  appTitle?: string;
+  email: string;
+  navItems?: JSX.Element;
   onLogoClick?: () => void;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
+  onSignOutClick?: () => void;
+  pageTitle: string | JSX.Element;
+  username: string;
 }
