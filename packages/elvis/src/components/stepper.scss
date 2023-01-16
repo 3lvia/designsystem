@@ -164,6 +164,10 @@
         .e-stepper__step-title {
           cursor: not-allowed;
         }
+
+        .e-stepper__step-line {
+          background: colors.color('grey-10');
+        }
       }
     }
   }
