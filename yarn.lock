@@ -2498,7 +2498,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^2.5.1, @elvia/elvis-assets-icons@^2.6.1, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
+"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^2.5.1, @elvia/elvis-assets-icons@^2.6.1, @elvia/elvis-assets-icons@^2.7.0, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
@@ -2977,10 +2977,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-header@workspace:packages/components/components/elvis-header"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-assets-icons": ^2.7.0
+    "@elvia/elvis-colors": ^1.4.3
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.0
+    "@elvia/elvis-toolbox": ^7.5.1
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -2994,10 +2994,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-header@portal:../components/components/elvis-header::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-assets-icons": ^2.7.0
+    "@elvia/elvis-colors": ^1.4.3
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.0
+    "@elvia/elvis-toolbox": ^7.5.1
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -3386,7 +3386,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-toolbox@^7.0.0, @elvia/elvis-toolbox@^7.4.0, @elvia/elvis-toolbox@^7.4.1, @elvia/elvis-toolbox@^7.4.2, @elvia/elvis-toolbox@^7.4.3, @elvia/elvis-toolbox@^7.4.4, @elvia/elvis-toolbox@^7.5.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@^7.0.0, @elvia/elvis-toolbox@^7.4.0, @elvia/elvis-toolbox@^7.4.1, @elvia/elvis-toolbox@^7.4.2, @elvia/elvis-toolbox@^7.4.3, @elvia/elvis-toolbox@^7.4.4, @elvia/elvis-toolbox@^7.5.0, @elvia/elvis-toolbox@^7.5.1, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:

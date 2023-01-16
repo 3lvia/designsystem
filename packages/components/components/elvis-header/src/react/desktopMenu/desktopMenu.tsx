@@ -1,69 +1,85 @@
-import React, { useRef } from 'react';
-import { Backdrop } from '../styledComponents';
+import React, { useEffect, useRef } from 'react';
+import { TriggerButton } from '../styledComponents';
 import { UserMenuProps } from '../elviaHeader.types';
-import { createPortal } from 'react-dom';
 import {
   Email,
-  MenuButton,
+  Footer,
+  ImageContainer,
   MenuContainer,
   MenuHr,
-  TriggerButton,
   UserGrid,
   Username,
 } from './desktopMenuStyles';
-import { usePopoverHandler } from '../usePopoverHandler';
-import { IconWrapper } from '@elvia/elvis-toolbox';
-import profile from '@elvia/elvis-assets-icons/dist/icons/profile';
+import {
+  IconWrapper,
+  Overlay,
+  TertiaryButton,
+  useConnectedOverlay,
+  useFocusTrap,
+} from '@elvia/elvis-toolbox';
 import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
+import { ProfilePicture } from '../ProfilePicture';
 
-export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOutClick }) => {
-  const triggerButtonRef = useRef<HTMLButtonElement>(null);
+export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOutClick, onMenuToggle }) => {
+  const { trapFocus, releaseFocusTrap } = useFocusTrap();
+  const connectedElementRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef(null);
-  const { userMenuIsOpen, setIsShowing, onAnimationEnd, fadeOut } = usePopoverHandler(
-    triggerButtonRef,
-    popoverRef,
-  );
+  const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
+    offset: 8,
+    horizontalPosition: 'right-inside',
+    verticalPosition: 'bottom',
+    alignWidths: false,
+  });
+
+  useEffect(() => {
+    onMenuToggle(isShowing);
+
+    if (isShowing) {
+      trapFocus(popoverRef);
+    } else {
+      releaseFocusTrap();
+      connectedElementRef.current?.focus();
+    }
+  }, [isShowing]);
 
   return (
     <>
       <TriggerButton
-        onClick={() => setIsShowing(!userMenuIsOpen)}
+        size="sm"
+        onClick={() => setIsShowing(!isShowing)}
         type="button"
         aria-label="Åpne brukermeny"
-        aria-expanded={userMenuIsOpen}
+        aria-expanded={isShowing}
         aria-haspopup="dialog"
-        isActive={!fadeOut}
-        ref={triggerButtonRef}
+        isActive={isShowing}
+        ref={connectedElementRef}
         data-testid="desktop-menu-trigger"
       >
-        <IconWrapper icon={profile} size="xs" />
+        <ImageContainer thumbnail>
+          <ProfilePicture />
+        </ImageContainer>
         {username}
       </TriggerButton>
-      {userMenuIsOpen &&
-        createPortal(
-          <>
-            <Backdrop transparent={true} fadeOut={fadeOut} onClick={() => setIsShowing(false)} />
-            <MenuContainer
-              data-testid="desktop-menu"
-              fadeOut={fadeOut}
-              onAnimationEnd={onAnimationEnd}
-              ref={popoverRef}
-            >
-              <UserGrid>
-                <Username data-testid="desktop-username">{username}</Username>
-                <Email data-testid="desktop-email">{email}</Email>
-              </UserGrid>
-              <MenuHr></MenuHr>
-              <section>
-                <MenuButton onClick={onSignOutClick} data-testid="desktop-sign-out-trigger">
-                  <IconWrapper icon={logout} size="xs" color="black" />
-                  Logg ut
-                </MenuButton>
-              </section>
-            </MenuContainer>
-          </>,
-          document.body,
-        )}
+      {isShowing && (
+        <Overlay ref={popoverRef} onClose={() => setIsShowing(false)}>
+          <MenuContainer data-testid="desktop-menu">
+            <UserGrid>
+              <ImageContainer>
+                <ProfilePicture />
+              </ImageContainer>
+              <Username data-testid="desktop-username">{username}</Username>
+              <Email data-testid="desktop-email">{email}</Email>
+            </UserGrid>
+            <MenuHr></MenuHr>
+            <Footer>
+              <TertiaryButton size="sm" onClick={onSignOutClick} data-testid="desktop-sign-out-trigger">
+                <IconWrapper icon={logout} size="xs" color="black" />
+                Logg ut
+              </TertiaryButton>
+            </Footer>
+          </MenuContainer>
+        </Overlay>
+      )}
     </>
   );
 };
