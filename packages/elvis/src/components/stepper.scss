@@ -1,41 +1,46 @@
 @use '../variables/colors';
 @use '../utilities/helpers';
+@use '../variables/typography';
 
 .e-stepper {
+  position: relative;
   display: inline-flex;
   flex-direction: column;
-  position: relative;
 
   &__steps {
     display: flex;
     flex-direction: row;
+    gap: 4px;
   }
+
   &__step {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 4px;
 
     &-number {
-      color: colors.color('font-color');
-      cursor: pointer;
-
-      height: 32px;
       @include typography.typography('title-xs');
+      display: grid;
       width: 32px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      height: 32px;
       border: 2px solid colors.color('elvia-off');
       border-radius: 50%;
+      color: colors.color('font-color');
+      cursor: pointer;
+      place-items: center;
+      user-select: none;
     }
+
     &-line {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 15px 4px;
+      display: grid;
       width: 58px;
       height: 2px;
-      background: colors.color('elvia-off');
       border-radius: 50px;
+      margin: 0;
+      background: colors.color('elvia-off');
+      place-items: center;
+
       &:not(:first-of-type) {
         display: none;
       }
@@ -49,19 +54,17 @@
 
     &-lines {
       display: flex;
+      height: 32px;
       flex-direction: row;
+      align-items: center;
+      gap: 6px;
+
       .e-stepper__step-line {
-        display: flex;
-        background: colors.color('grey-30');
+        display: inline;
         width: 6px;
         height: 2px;
-        margin: 15px 3px;
-        &:first-of-type {
-          margin-left: 6px;
-        }
-        &:last-of-type {
-          margin-right: 6px;
-        }
+        margin: 0;
+        background: colors.color('grey-30');
       }
     }
   }
@@ -72,6 +75,7 @@
     justify-content: center;
     margin: 32px 0;
   }
+
   &__content {
     .e-stepper__actions {
       display: flex;
@@ -82,16 +86,22 @@
 
   &.e-stepper--vertical {
     flex-direction: column;
+    gap: 4px;
+
     .e-stepper__step {
       flex-direction: column;
+      align-items: flex-start;
+
       .e-stepper__step-line {
         width: 2px;
         height: 12px;
-        margin: 4px 15px;
+        margin-left: 15px;
       }
+
       .e-stepper__step-header {
         display: flex;
         flex-direction: row;
+        gap: 16px;
 
         .e-stepper__step-title {
           display: flex;
@@ -99,33 +109,34 @@
           cursor: pointer;
         }
       }
+
       .e-stepper__content {
-        border-left: 2px solid colors.color('grey-30');
-        margin: 4px 15px;
         padding: 28px 30px;
+        border-left: 2px solid colors.color('grey-30');
+        margin: 0 15px;
       }
+
       &.e-stepper__step--active .e-stepper__step-title {
         @include typography.typography('title-small');
       }
+
       &:last-of-type .e-stepper__content {
         border-color: transparent;
       }
     }
+
     .e-stepper__step-lines {
       display: flex;
+      height: unset;
       flex-direction: column;
+      align-items: flex-start;
+
       .e-stepper__step-line {
         display: flex;
-        background: colors.color('grey-30');
         width: 2px;
         height: 6px;
-        margin: 3px 15px;
-        &:first-of-type {
-          margin-top: 6px;
-        }
-        &:last-of-type {
-          margin-bottom: 6px;
-        }
+        margin-left: 15px;
+        background: colors.color('grey-30');
       }
     }
   }
@@ -133,9 +144,10 @@
   &.e-stepper--forced {
     .e-stepper__step {
       &-number {
-        color: colors.color('grey-30');
         border: 2px solid colors.color('grey-30');
+        color: colors.color('grey-30');
       }
+
       &.e-stepper__step--active ~ .e-stepper__step,
       &.e-stepper__step--active-done ~ .e-stepper__step {
         .e-stepper__step-number {
@@ -147,6 +159,7 @@
             }
           }
         }
+
         .e-stepper__step-title {
           cursor: not-allowed;
         }
@@ -160,20 +173,22 @@
 
   .e-stepper__step-number:hover,
   .e-stepper__step-number--hover {
-    color: colors.color('font-color');
     border-color: colors.color('elvia-charge');
+    color: colors.color('font-color');
   }
 
   .e-stepper__step.e-stepper__step--active {
     .e-stepper__step-number {
-      color: colors.color('font-color');
       border-color: colors.color('elvia-charge');
+      color: colors.color('font-color');
     }
-    & ~ .e-stepper__step {
+
+    ~ .e-stepper__step {
       .e-stepper__step-line {
         background: colors.color('grey-30');
       }
     }
+
     .e-stepper__step-title {
       display: flex;
     }
@@ -181,12 +196,13 @@
 
   .e-stepper__step.e-stepper__step--done {
     .e-stepper__step-number {
+      @extend %checkbox-mark;
       @include helpers.user-select(none);
-      color: transparent;
       border-color: colors.color('elvia-off');
       background: colors.color('elvia-off');
-      @extend %checkbox-mark;
+      color: transparent;
     }
+
     .e-stepper__step-line {
       background: colors.color('elvia-off');
     }
@@ -194,17 +210,19 @@
 
   .e-stepper__step.e-stepper__step--active-done {
     .e-stepper__step-number {
-      @include helpers.user-select(none);
-      color: transparent;
-      background: colors.color('elvia-off');
       @extend %checkbox-mark;
+      @include helpers.user-select(none);
       border-color: colors.color('elvia-charge');
+      background: colors.color('elvia-off');
+      color: transparent;
     }
-    & ~ .e-stepper__step {
+
+    ~ .e-stepper__step {
       .e-stepper__step-line {
         background: colors.color('grey-30');
       }
     }
+
     .e-stepper__step-title {
       display: flex;
     }
@@ -212,37 +230,38 @@
 
   .e-stepper__step.e-stepper__step--error {
     .e-stepper__step-number {
-      color: colors.color('font-color');
       border-color: colors.color('red');
+      color: colors.color('font-color');
     }
   }
 }
 
 %checkbox-mark {
   position: relative;
+
   &::before {
-    content: '';
+    @include helpers.transform(translateX(10px) rotate(-43deg));
+    @include helpers.transform-origin(left bottom);
     position: absolute;
     top: 12px;
     left: 2px;
-    height: 8px;
     width: 2px;
-    background-color: colors.color('elvia-on');
+    height: 8px;
     border-radius: 15px;
-    @include helpers.transform(translateX(10px) rotate(-43deg));
-    @include helpers.transform-origin(left bottom);
+    background-color: colors.color('elvia-on');
+    content: '';
   }
 
   &::after {
-    content: '';
+    @include helpers.transform(translateX(10px) rotate(43deg));
+    @include helpers.transform-origin(left bottom);
     position: absolute;
     top: 4px;
     left: 1px;
-    height: 15px;
     width: 2px;
-    background-color: colors.color('elvia-on');
+    height: 15px;
     border-radius: 15px;
-    @include helpers.transform(translateX(10px) rotate(43deg));
-    @include helpers.transform-origin(left bottom);
+    background-color: colors.color('elvia-on');
+    content: '';
   }
 }
