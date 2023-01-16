@@ -34,13 +34,15 @@ export class ComponentChangelogComponent implements OnInit {
     this.changelog.forEach((elvisChangelogEntry) => {
       let wasSkipped = true;
       elvisChangelogEntry.changelog.forEach(({ components }) => {
-        components?.forEach(({ displayName }) => {
+        components?.some(({ displayName }) => {
           if (
             displayName.toLowerCase() === elvisComponentToFilter.toLowerCase() &&
             !this.filteredChangelog.includes(elvisChangelogEntry)
           ) {
             wasSkipped = false;
-            this.filteredChangelog.push({ skipped: numberOfReleasesSkipped });
+            if (this.filteredChangelog.length !== 0 && numberOfReleasesSkipped > 0) {
+              this.filteredChangelog.push({ skipped: numberOfReleasesSkipped });
+            }
             this.filteredChangelog.push(elvisChangelogEntry);
             numberOfReleasesSkipped = 0;
           }

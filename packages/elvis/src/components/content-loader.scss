@@ -10,20 +10,19 @@
     from {
       opacity: 0.3;
     }
+
     to {
       opacity: 1;
     }
   }
+
   &::after {
-    content: '';
     width: 100%;
     height: 100%;
-    background: colors.color('grey-05');
     border-radius: 16px;
-    -o-animation: wave 1s infinite alternate;
-    -moz-animation: wave 1s infinite alternate;
-    -webkit-animation: wave 1s infinite alternate;
     animation: wave 1s infinite alternate;
+    background: colors.color('grey-05');
+    content: '';
   }
 
   &.e-content-loader--inverted {
@@ -31,10 +30,12 @@
       background: colors.color('grey-90');
     }
   }
+
   &.e-content-loader--grey {
     &::after {
       background: colors.color('grey-10');
     }
+
     &.e-content-loader--inverted {
       &::after {
         background: colors.color('grey-90');
@@ -43,7 +44,7 @@
   }
 
   &.e-content-loader--circle {
-    &:after {
+    &::after {
       border-radius: 50%;
     }
   }
@@ -51,14 +52,17 @@
   &.e-content-loader--text {
     width: 100%;
     height: 24px;
-    &:after {
+
+    &::after {
       width: 100%;
       height: 100%;
       border-radius: 8px;
     }
+
     &.e-content-loader--short {
       width: 100%;
-      &:after {
+
+      &::after {
         width: 70%;
       }
     }

@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TagDocComponent } from './tag-doc.component';
-import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { ComponentExampleV1Module } from 'src/app/shared/component-documentation/component-example/component-example-v1/component-example-v1.module';
+import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
 import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
-import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
-import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
+import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
+import { TagDocComponent } from './tag-doc.component';
+import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 
 @NgModule({
+  declarations: [TagDocComponent],
   imports: [
     CommonModule,
     ComponentHeaderModule,
@@ -17,7 +19,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
     ComponentSectionModule,
     ComponentSubsectionModule,
     WhenToUseModule,
+    ComponentChangelogModule,
   ],
-  declarations: [TagDocComponent],
 })
 export class TagDocModule {}

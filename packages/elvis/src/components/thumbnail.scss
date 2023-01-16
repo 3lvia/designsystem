@@ -6,41 +6,41 @@ $border-radius: 8px;
 
 .e-thumbnail {
   position: relative;
-  padding: 0px;
+  padding: 0;
+  border: 0;
   margin: 0;
   background: transparent;
-  border: 0;
-  font-size: 100%;
-  vertical-align: baseline;
   cursor: pointer;
+  font-size: 100%;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  vertical-align: baseline;
 
   img {
     width: 56px;
+    border-radius: $border-radius;
     aspect-ratio: 1/1;
     object-fit: cover;
     vertical-align: bottom;
-    border-radius: $border-radius;
   }
 
   &::after {
     --offset: 8px;
-    content: '';
-    display: block;
-    width: calc(100% + var(--offset));
-    height: calc(100% + var(--offset));
     position: absolute;
     top: calc(var(--offset) / 2 * -1);
     left: calc(var(--offset) / 2 * -1);
-    border-radius: calc($border-radius + var(--offset) / 2);
-    border: 2px solid colors.color('elvia-charge');
+    display: block;
+    width: calc(100% + var(--offset));
+    height: calc(100% + var(--offset));
     box-sizing: border-box;
-
+    border: 2px solid colors.color('elvia-charge');
+    border-radius: calc($border-radius + var(--offset) / 2);
+    content: '';
     opacity: 0;
     transform: scale(0.9);
     transition: 0.15s all ease;
   }
+
   &.e-thumbnail---selected {
     &::after {
       border: 2px solid colors.color('black');
@@ -48,6 +48,7 @@ $border-radius: 8px;
       transform: scale(1);
     }
   }
+
   &.e-thumbnail---hover,
   &:hover {
     &::after {
