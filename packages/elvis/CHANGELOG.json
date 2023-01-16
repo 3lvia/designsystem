@@ -10,12 +10,12 @@
             "Fixed a bug where a step would get incorrect hover styles when disabled.",
             "Fixed a bug where the line connecting to a disabled step was displayed in the incorrect color."
           ],
-          "pages": [{ "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" }]
+          "components": [{ "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" }]
         },
         {
           "type": "patch",
           "changes": ["Stepper now uses Elvis typography styles.", "Internal refactoring of styles."],
-          "pages": [{ "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" }]
+          "components": [{ "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" }]
         }
       ]
     },
