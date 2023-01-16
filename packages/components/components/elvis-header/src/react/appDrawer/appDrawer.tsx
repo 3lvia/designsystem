@@ -1,9 +1,9 @@
-import { Icon } from '@elvia/elvis-icon/react';
-import { useConnectedOverlay } from '@elvia/elvis-toolbox';
+import { IconWrapper, useConnectedOverlay } from '@elvia/elvis-toolbox';
 import React, { useEffect, useRef } from 'react';
 import { TriggerButton } from '../styledComponents';
 import { SpinContainer, AppTitle } from './appDrawerStyles';
 import { AppOverlay } from './appOverlay';
+import arrowDown from '@elvia/elvis-assets-icons/dist/icons/arrowDown';
 
 interface Props {
   appTitle?: string;
@@ -30,11 +30,11 @@ export const AppDrawer: React.FC<Props> = ({ appTitle, onMenuToggle }) => {
         isActive={isShowing}
         data-testid="app-title"
         ref={connectedElementRef}
-        onClick={() => setIsShowing(!isShowing)}
+        onClick={() => setIsShowing((prevIsShowing) => !prevIsShowing)}
       >
         <AppTitle>{appTitle}</AppTitle>
         <SpinContainer rotated={isShowing}>
-          <Icon size="xs" name="arrowDown" />
+          <IconWrapper size="xs" icon={arrowDown} />
         </SpinContainer>
       </TriggerButton>
       {isShowing && (
