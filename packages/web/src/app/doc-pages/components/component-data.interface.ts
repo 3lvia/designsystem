@@ -183,7 +183,7 @@ export interface ComponentDataCode {
 export interface ComponentChangelog {
   date: string;
   version: string;
-  changelog: Array<ComponentChangelogChange>;
+  changelog: ComponentChangelogChange[];
 }
 
 /**
