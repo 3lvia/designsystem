@@ -4,3 +4,27 @@
     line-height: 22px;
   }
 }
+
+.changelog-filter {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.no-properties-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px;
+
+  width: 100%;
+  & img {
+    width: 75px;
+  }
+  & span {
+    text-align: center;
+    margin: 0 16px;
+  }
+}

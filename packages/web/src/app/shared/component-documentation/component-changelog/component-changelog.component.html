@@ -1,12 +1,43 @@
-<ng-template #changelogTemplate>
-  <p *ngIf="elvisComponentToFilter" class="e-m-0">
+<ng-template #changelogFilter>
+  <div class="changelog-filter">
+    <elvia-radio-filter
+      [items]="changelogRadioFilterItems"
+      [value]="radioFilterValue"
+      (valueOnChange)="radioFilterValue = $event.detail.value; searchChangelog()"
+    ></elvia-radio-filter>
+    <div class="e-form-field">
+      <div class="e-search e-search--instant" [ngClass]="{ 'e-search--searched': searchValue.length > 0 }">
+        <div class="e-input">
+          <input
+            aria-label="Search changelog"
+            type="search"
+            placeholder="Search"
+            [(ngModel)]="searchValue"
+            (ngModelChange)="searchChangelog()"
+          />
+        </div>
+        <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+        <button class="e-btn e-btn--icon e-btn--lg" (click)="clearSearch()" aria-label="Clear search">
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #changelogTemplateHeader>
+  <p *ngIf="!isFrontpage && elvisComponentToFilter" class="e-m-0 e-pb-16">
     This changelog only contains Elvis versions that affected the
     {{ elvisComponentToFilter | lowercase }} component and may thus appear incomplete. See the complete Elvis
     changelog on the
     <a class="e-link e-link--inline" [routerLink]="'/about/whats-new'">What's new?</a>
     page.
   </p>
-  <table>
+  <ng-container *ngIf="!isFrontpage" [ngTemplateOutlet]="changelogFilter"></ng-container>
+</ng-template>
+
+<ng-template #changelogTemplateContent>
+  <table *ngIf="filteredChangelog.length > 0">
     <caption class="e-sr-only">Component changes</caption>
     <tr class="e-sr-only">
       <th class="changelog-date py-0" scope="col">Date and version</th>
@@ -14,7 +45,11 @@
     </tr>
     <tbody>
       <tr
-        *ngFor="let el of isFrontpage ? changelog.slice(0, 1) : changelog; last as isLast; first as isFirst"
+        *ngFor="
+          let el of isFrontpage ? filteredChangelog.slice(0, 1) : filteredChangelog;
+          last as isLast;
+          first as isFirst
+        "
       >
         <div class="changelog-row py-5" *ngIf="!el.skipped">
           <td class="changelog-date">
@@ -49,7 +84,7 @@
               </div>
               <ul class="e-list">
                 <li *ngFor="let change of changelog.changes">
-                  <p [innerHTML]="change">{{ change }}</p>
+                  <p [innerHTML]="change" [id]="getChangelogEntryId(el.date, el.version, change)"></p>
                 </li>
               </ul>
               <ng-container *ngIf="changelog.fixes && changelog.fixes.length > 0">
@@ -75,15 +110,21 @@
       </tr>
     </tbody>
   </table>
+  <div class="no-properties-found" *ngIf="filteredChangelog.length === 0">
+    <img src="assets/no-results/no-results.svg" alt="" aria-hidden="true" />
+    <span class="e-title-caps e-text-center">No entries found matching your search</span>
+  </div>
 </ng-template>
 
 <!-- No accordion  -->
 <ng-container *ngIf="!hasAccordion || changelog.length <= 2; else accordionTemplate">
-  <ng-container *ngTemplateOutlet="changelogTemplate"></ng-container>
+  <ng-container *ngTemplateOutlet="changelogTemplateHeader"></ng-container>
+  <ng-container *ngTemplateOutlet="changelogTemplateContent"></ng-container>
 </ng-container>
 
 <!-- With accordion -->
 <ng-template #accordionTemplate>
+  <ng-container *ngTemplateOutlet="changelogTemplateHeader"></ng-container>
   <elvia-accordion
     type="overflow"
     overflowHeight="500"
@@ -91,10 +132,9 @@
     [closeLabel]="'Hide'"
     [labelPosition]="'right'"
     [size]="'small'"
-    ngElse
   >
     <div slot="content">
-      <ng-container *ngTemplateOutlet="changelogTemplate"></ng-container>
+      <ng-container *ngTemplateOutlet="changelogTemplateContent"></ng-container>
     </div>
   </elvia-accordion>
 </ng-template>
