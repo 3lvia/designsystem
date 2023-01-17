@@ -187,11 +187,12 @@ export interface ComponentChangelog {
 }
 
 /**
- * Each segment in the changelog for a spesific update.
+ * Each segment in the changelog for a specific update.
  */
 export interface ComponentChangelogChange {
-  type?: string; // TODO: Should be required, but old changelogs dont always implement this
-  changes: Array<string>;
+  type: 'breaking_changes' | 'new_feature' | 'bug_fix' | 'patch' | (string & {});
+  changes: string[];
+  fixes?: string[];
 }
 /**
  * Interface for component data for documentation pages.
