@@ -314,7 +314,7 @@ $toast-max-width: 400px;
     padding: $toast-padding;
     border-color: colors.color('elvia-charge');
     border-radius: 8px;
-    box-shadow: shadows.getShadow('medium');
+    box-shadow: shadows.get-shadow('medium');
 
     .e-alert__icon {
       width: 24px;
