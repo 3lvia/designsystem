@@ -5,19 +5,22 @@
   from {
     @include helpers.transform(rotate(0deg));
   }
+
   to {
     @include helpers.transform(rotate(360deg));
   }
 }
 
-@mixin dotAnimation($name, $color) {
+@mixin dot-animation($name, $color) {
   @include helpers.keyframes($name) {
     0% {
       background: transparent;
     }
+
     50% {
       background: $color;
     }
+
     100% {
       background: transparent;
     }
