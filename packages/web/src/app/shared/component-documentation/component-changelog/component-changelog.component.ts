@@ -215,6 +215,32 @@ export class ComponentChangelogComponent implements OnInit {
               element.innerHTML = change;
             }
           });
+          entry.pages?.forEach((page) => {
+            const element = document.getElementById(
+              this.getChangelogCategoryId(
+                changelogEntry.date,
+                changelogEntry.version,
+                page.displayName,
+                entry.type,
+              ),
+            );
+            if (element) {
+              element.innerHTML = page.displayName;
+            }
+          });
+          entry.components?.forEach((component) => {
+            const element = document.getElementById(
+              this.getChangelogCategoryId(
+                changelogEntry.date,
+                changelogEntry.version,
+                component.displayName,
+                entry.type,
+              ),
+            );
+            if (element) {
+              element.innerHTML = component.displayName;
+            }
+          });
         });
       }
     });
