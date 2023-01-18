@@ -7,8 +7,7 @@
   padding: 0 !important;
   border: 0 !important;
   margin: -1px !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  clip: rect(1px, 1px, 1px, 1px) !important;
   clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
-  white-space: nowrap !important; /* 3 */
+  white-space: nowrap !important;
 }
