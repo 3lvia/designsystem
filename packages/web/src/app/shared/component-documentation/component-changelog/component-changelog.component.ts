@@ -127,6 +127,7 @@ export class ComponentChangelogComponent implements OnInit {
             if (element) {
               element.innerHTML = this.getHighlightedHTMLString(match);
             }
+            break;
           }
           case 'changelog.pages.displayName': {
             const changelogType =
@@ -143,6 +144,7 @@ export class ComponentChangelogComponent implements OnInit {
             if (element) {
               element.innerHTML = this.getHighlightedHTMLString(match);
             }
+            break;
           }
           case 'changelog.components.displayName': {
             const changelogType =
@@ -159,6 +161,7 @@ export class ComponentChangelogComponent implements OnInit {
             if (element) {
               element.innerHTML = this.getHighlightedHTMLString(match);
             }
+            break;
           }
         }
       });
