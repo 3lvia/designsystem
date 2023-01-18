@@ -13,9 +13,8 @@
   &__label {
     @include typography.typography('text-medium-strong');
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     color: colors.color('font-color');
-    line-height: 22px;
     text-align: left;
 
     &.e-form-field__label--optional::after {
