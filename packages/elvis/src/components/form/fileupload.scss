@@ -9,7 +9,7 @@
   padding: 32px 0;
   border: 2px dashed colors.color('grey-20');
   border-radius: 4px;
-  gap: 16px;
+  gap: 8px;
 
   &__icon,
   &__description,
@@ -20,7 +20,7 @@
   }
 
   &__description {
-    @include typography.typography('text-option');
+    @include typography.typography('text-medium');
     color: colors.color('font-color');
   }
 
