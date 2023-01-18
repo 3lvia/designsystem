@@ -135,10 +135,12 @@ const generateElviaColorsThemeVariablesScss = async () => {
   fileContent += `.e-theme-light,\n:root {\n`;
   Object.entries(lightVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
   fileContent += `}\n`;
-  fileContent += `.e-theme-light {\n\tbackground: var(--e-color-background-primary);\n}\n`;
+  fileContent += `.e-theme-light {\n\tbackground: var(--e-color-background-primary);\n`;
+  fileContent += `\tcolor: var(--e-color-text-primary);\n}\n`;
   fileContent += `.e-theme-dark {\n`;
   Object.entries(darkVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
   fileContent += `\tbackground: var(--e-color-background-primary);\n`;
+  fileContent += `\tcolor: var(--e-color-text-primary);\n`;
   fileContent += `}\n`;
 
   fs.writeFileSync('./dist/themeVariables.scss', fileContent);
