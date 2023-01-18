@@ -103,24 +103,63 @@ export class ComponentChangelogComponent implements OnInit {
 
   /**
    * Create a unique ID for each changelog entry.
-   * @returns
    */
   getChangelogEntryId(date: string, version: string, change: string): string {
     return 'changelog-change-' + this.encodeHTML(`${date} v${version} ${change}`);
+  }
+
+  getChangelogCategoryId(date: string, version: string, change: string, type: string): string {
+    return 'changelog-' + this.encodeHTML(`${type} ${date} v${version} ${change}`);
   }
 
   private highlightSearchMatches(): void {
     this.resetHighlighting();
     this.searchService.searchResults?.forEach((resultItem) => {
       resultItem.matches.forEach((match) => {
-        const elementId = this.getChangelogEntryId(
-          (resultItem.item as ComponentChangelog).date,
-          (resultItem.item as ComponentChangelog).version,
-          match.value,
-        );
-        const element = document.getElementById(elementId);
-        if (element) {
-          element.innerHTML = this.getHighlightedHTMLString(match);
+        switch (match.key) {
+          case 'changelog.changes': {
+            const elementId = this.getChangelogEntryId(
+              (resultItem.item as ComponentChangelog).date,
+              (resultItem.item as ComponentChangelog).version,
+              match.value,
+            );
+            const element = document.getElementById(elementId);
+            if (element) {
+              element.innerHTML = this.getHighlightedHTMLString(match);
+            }
+          }
+          case 'changelog.pages.displayName': {
+            const changelogType =
+              (resultItem.item as ComponentChangelog).changelog.find((entry) =>
+                entry.pages?.some((page) => page.displayName === match.value),
+              )?.type ?? 'CHANGELOG_TYPE_NOT_FOUND';
+            const elementId = this.getChangelogCategoryId(
+              (resultItem.item as ComponentChangelog).date,
+              (resultItem.item as ComponentChangelog).version,
+              match.value,
+              changelogType,
+            );
+            const element = document.getElementById(elementId);
+            if (element) {
+              element.innerHTML = this.getHighlightedHTMLString(match);
+            }
+          }
+          case 'changelog.components.displayName': {
+            const changelogType =
+              (resultItem.item as ComponentChangelog).changelog.find((entry) =>
+                entry.components?.some((component) => component.displayName === match.value),
+              )?.type ?? 'CHANGELOG_TYPE_NOT_FOUND';
+            const elementId = this.getChangelogCategoryId(
+              (resultItem.item as ComponentChangelog).date,
+              (resultItem.item as ComponentChangelog).version,
+              match.value,
+              changelogType,
+            );
+            const element = document.getElementById(elementId);
+            if (element) {
+              element.innerHTML = this.getHighlightedHTMLString(match);
+            }
+          }
         }
       });
     });
@@ -128,9 +167,6 @@ export class ComponentChangelogComponent implements OnInit {
 
   private getHighlightedHTMLString(match: Fuse.FuseResultMatch): string {
     const value = match.value;
-    if (!value) {
-      return;
-    }
     // Add any part of the description that is before the first match
     let highlightedValue = value.substring(0, match.indices[0][0]);
 
@@ -216,7 +252,11 @@ export class ComponentChangelogComponent implements OnInit {
       includeMatches: true,
       shouldSort: false,
       ignoreLocation: true,
-      keys: [{ name: 'changelog.changes', weight: 1 }],
+      keys: [
+        { name: 'changelog.changes', weight: 1 },
+        { name: 'changelog.components.displayName', weight: 1 },
+        { name: 'changelog.pages.displayName', weight: 1 },
+      ],
     });
   }
 

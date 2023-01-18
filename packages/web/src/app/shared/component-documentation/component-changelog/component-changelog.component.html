@@ -66,7 +66,11 @@
                 >
                   <span *ngIf="!last && !first">,</span>
                   <span *ngIf="last && !first">&</span>
-                  <a class="e-link e-link--inline" [href]="component.url">
+                  <a
+                    class="e-link e-link--inline"
+                    [href]="component.url"
+                    [id]="getChangelogCategoryId(el.date, el.version, component.displayName, changelog.type)"
+                  >
                     {{ component.displayName }}
                   </a>
                 </ng-container>
@@ -77,7 +81,11 @@
                 <ng-container *ngFor="let component of changelog.pages; let last = last; let first = first">
                   <span *ngIf="!last && !first">,&nbsp</span>
                   <span *ngIf="last && !first">&</span>
-                  <a class="e-link e-link--inline" [href]="component.url">
+                  <a
+                    class="e-link e-link--inline"
+                    [href]="component.url"
+                    [id]="getChangelogCategoryId(el.date, el.version, component.displayName, changelog.type)"
+                  >
                     {{ component.displayName }}
                   </a>
                 </ng-container>
