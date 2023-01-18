@@ -11,9 +11,9 @@
   text-align: left;
 
   &__label {
-    @include typography.typography('text-medium-strong');
+    @include typography.typography('text-label');
     display: block;
-    margin-bottom: 1px;
+    margin-bottom: 5px;
     color: colors.color('font-color');
     text-align: left;
 
