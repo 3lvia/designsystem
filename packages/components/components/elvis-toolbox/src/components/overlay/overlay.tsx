@@ -42,7 +42,7 @@ interface OverlayProps {
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
   ({ onClose, startFade = false, hasBackdrop = true, hasAnimation = true, children }, ref) => {
     const [fadeOut, setFadeOut] = useState(false);
-    const [isDestroyed, setIsDestroyed] = useState(false);
+    const isDestroyed = useRef(false);
     const overlayDOMPositionRef = useRef<HTMLDivElement>(null);
 
     const { themeClass } = useCurrentTheme(overlayDOMPositionRef);
@@ -51,7 +51,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       setFadeOut(true);
       setTimeout(
         () => {
-          if (!isDestroyed) {
+          if (!isDestroyed.current) {
             flushSync(() => onClose());
           }
         },
@@ -66,13 +66,14 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
     }, [startFade]);
 
     useEffect(() => {
+      isDestroyed.current = false;
       const closeOnEsc = (ev: KeyboardEvent) => ev.code === 'Escape' && animateOut();
 
       window.addEventListener('keydown', closeOnEsc);
 
       return () => {
         window.removeEventListener('keydown', closeOnEsc);
-        setIsDestroyed(true);
+        isDestroyed.current = true;
       };
     }, []);
 

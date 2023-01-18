@@ -1,5 +1,6 @@
 import { useFocusTrap } from '@elvia/elvis-toolbox';
 import { RefObject, useState } from 'react';
+import { flushSync } from 'react-dom';
 
 interface ReturnType {
   userMenuIsOpen: boolean;
@@ -38,7 +39,7 @@ export const usePopoverHandler = (
 
   const onAnimationEnd = (): void => {
     if (fadeOut) {
-      setUserMenuIsOpen(false);
+      flushSync(() => setUserMenuIsOpen(false));
     }
   };
 
