@@ -1,17 +1,28 @@
-const del = require('del');
-const gulp = require('gulp');
-const tap = require('gulp-tap');
-const sass = require('sass');
 const cleanCSS = require('gulp-clean-css');
-const rename = require('gulp-rename');
-const postcss = require('gulp-postcss');
 const cssvariables = require('postcss-css-variables');
+const del = require('del');
 const doiuse = require('doiuse');
+const gulp = require('gulp');
+const gulpStylelint = require('gulp-stylelint');
+const postcss = require('gulp-postcss');
+const rename = require('gulp-rename');
+const sass = require('sass');
+const tap = require('gulp-tap');
 
 // Delete old css
 function clean() {
   let filesToDelete = ['css/'];
   return del(filesToDelete);
+}
+
+function lintScssTask() {
+  return gulp.src('./src/**/*.scss').pipe(
+    gulpStylelint({
+      failAfterError: true,
+      fix: true,
+      reporters: [{ formatter: 'string', console: true }],
+    }),
+  );
 }
 
 // Generate elvis.css from scss files
@@ -79,5 +90,5 @@ function minifyElvisStyle() {
     .pipe(gulp.dest('./css/'));
 }
 
-const generateCSS = gulp.series(clean, generateElvisStyle, minifyElvisStyle, browserSupport);
+const generateCSS = gulp.series(clean, lintScssTask, generateElvisStyle, minifyElvisStyle, browserSupport);
 exports.generateCSS = generateCSS;
