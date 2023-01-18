@@ -10,7 +10,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
 
   'title-md': {
@@ -24,7 +24,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
 
   'title-sm': {
@@ -38,7 +38,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
 
   'title-xs': {
@@ -51,7 +51,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
 
   'title-caps': {
@@ -63,7 +63,7 @@ export const ElviaTypography = {
     letterSpacing: '0.8px',
     fontStyle: 'unset',
     textTransform: 'uppercase',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
 
   'text-lead': {
@@ -76,7 +76,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
 
   'text-lg': {
@@ -90,7 +90,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
 
   'text-lg-strong': {
@@ -104,7 +104,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
 
   'text-lg-light': {
@@ -130,7 +130,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
   'text-md-strong': {
     altLabels: ['text-medium-strong'],
@@ -141,7 +141,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
   'text-md-light': {
     altLabels: ['text-medium-light'],
@@ -164,7 +164,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
   'text-sm-strong': {
     altLabels: ['text-small-strong'],
@@ -175,7 +175,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
   'text-sm-light': {
     altLabels: ['text-small-light'],
@@ -197,7 +197,7 @@ export const ElviaTypography = {
     letterSpacing: '0.2px',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
 
   'text-micro-strong': {
@@ -208,7 +208,7 @@ export const ElviaTypography = {
     letterSpacing: '0.2px',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
 
   'text-micro-light': {
@@ -232,7 +232,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'italic',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
 
   'text-img': {
@@ -245,7 +245,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'italic',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
     textAlign: 'center',
   },
 
@@ -258,7 +258,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
   'text-option': {
     deprecated: '1.0.0',
@@ -269,7 +269,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'var(--e-color-text-primary, inherit)',
+    color: 'inherit',
   },
 };
 
