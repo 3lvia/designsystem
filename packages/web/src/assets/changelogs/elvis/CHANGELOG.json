@@ -1,26 +1,6 @@
 {
   "content": [
     {
-      "version": "9.9.1",
-      "date": "January 16, 2023",
-      "changelog": [
-        {
-          "type": "bug_fix",
-          "changes": [
-            "Fixed a bug where a step would get incorrect hover styles when disabled.",
-            "Fixed a bug where the step title would be misaligned with the step number.",
-            "Fixed a bug where the line connecting to a disabled step was displayed in the incorrect color."
-          ],
-          "components": [{ "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" }]
-        },
-        {
-          "type": "patch",
-          "changes": ["Stepper now uses Elvis typography styles.", "Internal refactoring of styles."],
-          "components": [{ "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" }]
-        }
-      ]
-    },
-    {
       "version": "9.9.0",
       "date": "January 10, 2023",
       "changelog": [
@@ -36,7 +16,7 @@
             "Fixed a bug where the placeholder text of disabled inputs was too dark.",
             "Fixed a bug where the text inside a button wrapped onto a new line if too long."
           ],
-          "components": [
+          "pages": [
             { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },
             { "displayName": "Button", "url": "https://design.elvia.io/components/button" }
           ]
