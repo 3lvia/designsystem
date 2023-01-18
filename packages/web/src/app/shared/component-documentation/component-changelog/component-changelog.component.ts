@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { getColor } from '@elvia/elvis-colors';
 import { SearchService } from 'src/app/core/services/search.service';
 import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
@@ -46,8 +47,12 @@ export class ComponentChangelogComponent implements OnInit {
   searchValue = '';
   radioFilterValue: ChangelogRadioFilter = 'all';
   filteredChangelog: Changelog = [];
+  filterIsDirty = false;
 
-  constructor(private searchService: SearchService<ChangelogEntry>) {}
+  constructor(
+    private searchService: SearchService<ChangelogEntry>,
+    private breakpointObserver: BreakpointObserver,
+  ) {}
 
   ngOnInit() {
     if (this.elvisComponentToFilter) {
@@ -55,10 +60,18 @@ export class ComponentChangelogComponent implements OnInit {
     }
     this.filteredChangelog = this.changelog;
     this.initializeSearchService();
-    this.searchChangelog();
+
+    // Reset search value and filter when the screen is resized to mobile
+    this.breakpointObserver.observe('(max-width: 767px)').subscribe((result) => {
+      if (result.matches) {
+        this.searchValue = '';
+        this.searchChangelog();
+      }
+    });
   }
 
   searchChangelog() {
+    this.filterIsDirty = true;
     if (!this.searchService.isInitialized) {
       return;
     }
@@ -67,7 +80,7 @@ export class ComponentChangelogComponent implements OnInit {
     if (this.radioFilterValue !== 'all') {
       this.filteredChangelog = this.filteredChangelog.filter((changelog) => {
         return (
-          'changelog' in changelog && // Filter out skipped entries
+          'changelog' in changelog && // Filter out skipped entries (for elvis changelogs)
           changelog.changelog.some((changelogEntry) => {
             return changelogEntry.type === this.radioFilterValue;
           })
@@ -120,11 +133,25 @@ export class ComponentChangelogComponent implements OnInit {
     }
     // Add any part of the description that is before the first match
     let highlightedValue = value.substring(0, match.indices[0][0]);
+
+    const longestMatch = match.indices.reduce((longest, current) => {
+      return current[1] - current[0] > longest[1] - longest[0] ? current : longest;
+    });
+
+    // Only highlight the long matches, not the short ones
+    const matchesToHighlight = match.indices.filter((matchIndices) => {
+      return matchIndices[1] - matchIndices[0] > (longestMatch[1] - longestMatch[0]) / 2;
+    });
+
     // Add each match, and the part of the description between matches
     match.indices.forEach((matchIndices, index, items) => {
       const [matchStart, matchEnd] = matchIndices;
       // Only highlight if more than one character, and not part of an HTML tag
-      if (matchEnd - matchStart > 0 && !this.checkIfSubstringIsPartOfHtmlTag(value, matchStart, matchEnd)) {
+      if (
+        matchEnd - matchStart > 0 &&
+        !this.isSubstringPartOfHtmlTag(value, matchStart, matchEnd) &&
+        matchesToHighlight.includes(matchIndices)
+      ) {
         highlightedValue += this.addHighlightBackground(value.substring(matchStart, matchEnd + 1));
       } else {
         highlightedValue += value.substring(matchStart, matchEnd + 1);
@@ -175,7 +202,7 @@ export class ComponentChangelogComponent implements OnInit {
    * Check if the substring is part of an HTML tag by counting the number of opening and closing tags before and after the substring.
    * If the number of opening and closing tags are not equal, the substring is part of an HTML tag.
    */
-  private checkIfSubstringIsPartOfHtmlTag(
+  private isSubstringPartOfHtmlTag(
     wholeString: string,
     substringStartIndex: number,
     substringEndIndex: number,

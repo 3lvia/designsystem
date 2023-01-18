@@ -26,7 +26,7 @@
 </ng-template>
 
 <ng-template #changelogTemplateHeader>
-  <p *ngIf="!isFrontpage && elvisComponentToFilter" class="e-m-0 e-pb-16">
+  <p *ngIf="!isFrontpage && elvisComponentToFilter" class="e-m-0 e-mb-32">
     This changelog only contains Elvis versions that affected the
     {{ elvisComponentToFilter | lowercase }} component and may thus appear incomplete. See the complete Elvis
     changelog on the
@@ -132,6 +132,7 @@
     [closeLabel]="'Hide'"
     [labelPosition]="'right'"
     [size]="'small'"
+    [isOpen]="filterIsDirty"
   >
     <div slot="content">
       <ng-container *ngTemplateOutlet="changelogTemplateContent"></ng-container>

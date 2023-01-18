@@ -1,3 +1,5 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
 .e-list {
   .prop-element-title {
     font-size: 14px;
@@ -10,6 +12,15 @@
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 16px;
+
+  .e-form-field {
+    margin-left: auto;
+    @include breakpoints.breakpoint-up(Mobile) {
+      display: none;
+    }
+  }
 }
 
 .no-properties-found {
