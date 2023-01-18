@@ -3,33 +3,24 @@
 
 .e-position-picker {
   display: flex;
+  max-width: 375px;
   flex-wrap: wrap;
+  padding: 32px 0;
   border: 1px solid colors.color('elvia-off');
   border-radius: 4px;
-  padding: 32px 0;
-  max-width: 375px;
+  gap: 16px;
 
-  &__icon {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 22px;
-  }
-
+  &__icon,
+  &__action,
   &__description {
     display: flex;
     width: 100%;
     justify-content: center;
-    margin-bottom: 22px;
-    margin-top: 8px;
-
-    @include typography.typography('text-label');
-    color: colors.color('font-color');
   }
 
-  &__action {
-    display: flex;
-    width: 100%;
-    justify-content: center;
+  &__description {
+    @include typography.typography('text-label'); //deprecated!
+    margin-top: 8px;
+    color: colors.color('font-color');
   }
 }

@@ -998,8 +998,8 @@
 		"e-position-picker": {
 			"element": {
 				"e-position-picker__icon": {},
-				"e-position-picker__description": {},
-				"e-position-picker__action": {}
+				"e-position-picker__action": {},
+				"e-position-picker__description": {}
 			}
 		},
 		"e-radio": {
@@ -1902,8 +1902,8 @@
 		"e-fileupload---hover": {},
 		"e-position-picker": {},
 		"e-position-picker__icon": {},
-		"e-position-picker__description": {},
 		"e-position-picker__action": {},
+		"e-position-picker__description": {},
 		"e-radio": {},
 		"e-radio--compact": {},
 		"e-radio--sm": {},
