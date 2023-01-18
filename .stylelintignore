@@ -1,5 +1,7 @@
 packages/elvis/src/components/form/segmented-controls.scss
 
+packages/elvis/src/components/form/position-picker.scss
+
 packages/elvis/src/components/form/select.scss
 
 packages/elvis/src/components/card.scss

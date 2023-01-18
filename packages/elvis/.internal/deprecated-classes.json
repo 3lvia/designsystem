@@ -1,4 +1,9 @@
 {
+  "e-position-picker": {
+    "deprecateChildren": true,
+    "version": "10.0.0",
+    "sunset": "July 2023"
+  },
   "e-alert--close": {
     "requiredAncestor": "e-alert--local",
     "version": "9.9.0",
