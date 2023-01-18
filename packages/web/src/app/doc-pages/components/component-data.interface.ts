@@ -193,6 +193,8 @@ export interface ComponentChangelogChange {
   type: 'breaking_changes' | 'new_feature' | 'bug_fix' | 'patch' | (string & {});
   changes: string[];
   fixes?: string[];
+  pages?: { displayName: string; url: string }[];
+  components?: { displayName: string; url: string }[];
 }
 /**
  * Interface for component data for documentation pages.
