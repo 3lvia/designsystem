@@ -15,6 +15,7 @@
     display: block;
     margin-bottom: 5px;
     color: colors.color('font-color');
+    line-height: 22px;
     text-align: left;
 
     &.e-form-field__label--optional::after {
