@@ -149,7 +149,7 @@ export class ComponentChangelogComponent implements OnInit {
       // Only highlight if more than one character, and not part of an HTML tag
       if (
         matchEnd - matchStart > 0 &&
-        !this.isSubstringPartOfHtmlTag(value, matchStart, matchEnd) &&
+        !this.isSubstringPartOfHtmlTag(value, matchStart) &&
         matchesToHighlight.includes(matchIndices)
       ) {
         highlightedValue += this.addHighlightBackground(value.substring(matchStart, matchEnd + 1));
@@ -199,24 +199,15 @@ export class ComponentChangelogComponent implements OnInit {
   }
 
   /**
-   * Check if the substring is part of an HTML tag by counting the number of opening and closing tags before and after the substring.
+   * Check if the substring is part of an HTML tag by counting the number of opening and closing tags before the substring.
    * If the number of opening and closing tags are not equal, the substring is part of an HTML tag.
+   * **NB**: Does not work if < or > is used in the substring as a character, not as a tag.
    */
-  private isSubstringPartOfHtmlTag(
-    wholeString: string,
-    substringStartIndex: number,
-    substringEndIndex: number,
-  ): boolean {
+  private isSubstringPartOfHtmlTag(wholeString: string, substringStartIndex: number): boolean {
     const beforeMatch = wholeString.substring(0, substringStartIndex);
-    const afterMatch = wholeString.substring(substringEndIndex + 1, wholeString.length);
     const numberOfOpeningTagsBeforeMatch = (beforeMatch.match(/</g) || []).length;
     const numberOfClosingTagsBeforeMatch = (beforeMatch.match(/>/g) || []).length;
-    const numberOfOpeningTagsAfterMatch = (afterMatch.match(/</g) || []).length;
-    const numberOfClosingTagsAfterMatch = (afterMatch.match(/>/g) || []).length;
-    return (
-      numberOfOpeningTagsBeforeMatch !== numberOfClosingTagsBeforeMatch ||
-      numberOfOpeningTagsAfterMatch !== numberOfClosingTagsAfterMatch
-    );
+    return numberOfOpeningTagsBeforeMatch !== numberOfClosingTagsBeforeMatch;
   }
 
   private initializeSearchService(): void {
