@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "19.01.22",
+      "version": "2.8.16",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Improved the detection of changing height of content in overflow accordion to better animate opening and closing."
+          ]
+        }
+      ]
+    },
+    {
       "date": "23.12.22",
       "version": "2.8.15",
       "changelog": [

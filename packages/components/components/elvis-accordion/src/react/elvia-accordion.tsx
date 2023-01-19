@@ -83,10 +83,12 @@ const Accordion: FC<AccordionProps> = ({
     if (!current) return;
 
     const updateContentHeight = () => {
-      setContentHeight(current.scrollHeight);
+      setTimeout(() => {
+        setContentHeight(() => current.scrollHeight);
+      });
     };
     const observer = new MutationObserver(updateContentHeight);
-    observer.observe(current, { childList: true, subtree: true });
+    observer.observe(current, { childList: true, subtree: true, characterData: true, attributes: true });
     updateContentHeight();
 
     return () => {
