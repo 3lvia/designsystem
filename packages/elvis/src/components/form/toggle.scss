@@ -15,6 +15,8 @@ $toggle-inverted-width: 30px;
 $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-slider-size} + 2px) / 2);
 
 .e-toggle {
+  // Label
+  @include typography.typography('text-medium');
   position: relative;
   display: flex;
   flex-direction: row;
@@ -22,22 +24,17 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   cursor: pointer;
   gap: 8px;
 
-  // Label
-  @include typography.typography('text-medium');
-
   // Larger touch-target
   &::after {
-    content: '';
     position: absolute;
-    left: -4px;
     top: -4px;
+    left: -4px;
     width: calc(100% + 8px);
     height: calc(100% + 8px);
+    content: '';
   }
 
-  & input[type='checkbox'] {
-    -moz-appearance: none;
-    -webkit-appearance: none;
+  input[type='checkbox'] {
     appearance: none;
   }
 
@@ -45,37 +42,37 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
     position: relative;
     width: $toggle-width;
     height: 16px;
-    border-radius: 50px;
-    outline: none;
-    cursor: pointer;
     flex: none;
+    border-radius: 50px;
     margin: 0;
+    cursor: pointer;
+    outline: none;
 
     // Background
     &::before {
-      content: '';
       position: absolute;
-      left: 0;
       top: 0;
-      height: $toggle-height;
+      left: 0;
       width: $toggle-width;
-      background: colors.color('black');
+      height: $toggle-height;
       border-radius: $toggle-border-radius;
+      background: colors.color('black');
+      content: '';
       cursor: pointer;
     }
 
     // Switch
     &::after {
-      content: '';
       position: absolute;
-      left: $toggle-slider-margin;
       top: $toggle-slider-margin;
-      height: $toggle-slider-size;
+      left: $toggle-slider-margin;
       width: $toggle-slider-size;
-      background: colors.color('white');
+      height: $toggle-slider-size;
       border-radius: 50%;
-      transition: 0.1s;
+      background: colors.color('white');
+      content: '';
       cursor: pointer;
+      transition: 0.1s;
     }
   }
 
@@ -87,19 +84,22 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   // Checked
   &.e-toggle---checked .e-toggle__input::after,
   input:checked.e-toggle__input::after {
-    background: colors.color('elvia-charge');
     @include helpers.transform(translateX(16px));
+    background: colors.color('elvia-charge');
   }
 
   // Focus
   &.e-toggle---focus input.e-toggle__input {
     outline: none;
+
     &::before {
       @include outline.e-outline-pseudoclass();
     }
   }
+
   input:focus-visible.e-toggle__input {
     outline: none;
+
     &::before {
       @include outline.e-outline();
     }
@@ -109,10 +109,12 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   &.e-toggle---disabled,
   input:disabled {
     cursor: not-allowed;
+
     &.e-toggle__input::before {
       background-color: colors.color('disabled');
       cursor: not-allowed;
     }
+
     &.e-toggle__input::after {
       background-color: colors.color('grey-10');
       cursor: not-allowed;
@@ -124,11 +126,12 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
     color: colors.color('font-color-light');
 
     .e-toggle__input::before {
-      height: $toggle-inverted-height;
       width: $toggle-inverted-width;
-      border: 1px solid colors.color('elvia-on');
+      height: $toggle-inverted-height;
       box-sizing: content-box;
+      border: 1px solid colors.color('elvia-on');
     }
+
     .e-toggle__input::after {
       left: $toggle-inverted-slider-padding;
     }
@@ -136,9 +139,10 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
     &.e-toggle---disabled,
     input:disabled {
       &.e-toggle__input::before {
-        background-color: colors.color('grey');
         border: 1px solid colors.color('grey-70');
+        background-color: colors.color('grey');
       }
+
       &.e-toggle__input::after {
         background-color: colors.color('grey-70');
       }
