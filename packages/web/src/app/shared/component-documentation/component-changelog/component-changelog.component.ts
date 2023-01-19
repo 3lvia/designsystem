@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { Component, Input, OnInit } from '@angular/core';
 import { getColor } from '@elvia/elvis-colors';
+import Fuse from 'fuse.js';
 import { SearchService } from 'src/app/core/services/search.service';
 import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
 import elvisChangelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
-import Fuse from 'fuse.js';
+import { ChangelogTypePipe } from './component-changelog-pipe';
 
 // Extend the ComponentChangelog interface with a skipped property to be able to
 // show changelog entries that have been skipped in the elvis changelog
@@ -49,6 +50,8 @@ export class ComponentChangelogComponent implements OnInit {
   filteredChangelog: Changelog = [];
   accordionIsOpen = false;
 
+  changelogTypePipe = new ChangelogTypePipe();
+
   constructor(
     private searchService: SearchService<ChangelogEntry>,
     private breakpointObserver: BreakpointObserver,
@@ -87,6 +90,7 @@ export class ComponentChangelogComponent implements OnInit {
         );
       });
     }
+    console.log(this.searchService.searchResults);
     setTimeout(() => {
       if (this.searchValue.length > 1) {
         this.highlightSearchMatches();
@@ -150,6 +154,16 @@ export class ComponentChangelogComponent implements OnInit {
               (resultItem.item as ComponentChangelog).version,
               match.value,
               changelogType,
+            );
+            this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
+            break;
+          }
+          case 'changelog.type': {
+            const elementId = this.getChangelogCategoryId(
+              (resultItem.item as ComponentChangelog).date,
+              (resultItem.item as ComponentChangelog).version,
+              match.value,
+              '',
             );
             this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
             break;
@@ -225,6 +239,15 @@ export class ComponentChangelogComponent implements OnInit {
             );
             this.updateElementInnerHTML(elementId, page.displayName);
           });
+          this.updateElementInnerHTML(
+            this.getChangelogCategoryId(
+              changelogEntry.date,
+              changelogEntry.version,
+              this.changelogTypePipe.transform(entry.type),
+              '',
+            ),
+            this.changelogTypePipe.transform(entry.type),
+          );
         });
       }
     });
@@ -266,6 +289,12 @@ export class ComponentChangelogComponent implements OnInit {
         { name: 'changelog.changes', weight: 1 },
         { name: 'changelog.components.displayName', weight: 1 },
         { name: 'changelog.pages.displayName', weight: 1 },
+        {
+          name: 'changelog.type',
+          weight: 1,
+          getFn: (obj: ComponentChangelog) =>
+            this.changelogTypePipe.transform(obj.changelog.find((change) => change.type).type),
+        },
       ],
     });
   }

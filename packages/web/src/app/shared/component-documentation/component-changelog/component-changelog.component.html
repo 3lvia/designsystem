@@ -58,7 +58,12 @@
           </td>
           <td class="changelog-content" *ngIf="!el.skipped">
             <div class="changelog-section" *ngFor="let changelog of el.changelog">
-              <div class="changelog-section-title">{{ changelog.type | ChangelogTypePipe }}</div>
+              <div
+                class="changelog-section-title"
+                [id]="getChangelogCategoryId(el.date, el.version, changelog.type | ChangelogTypePipe, '')"
+              >
+                {{ changelog.type | ChangelogTypePipe }}
+              </div>
               <div *ngIf="changelog.components && changelog.components.length > 0">
                 Components:
                 <ng-container
