@@ -90,7 +90,6 @@ export class ComponentChangelogComponent implements OnInit {
         );
       });
     }
-    console.log(this.searchService.searchResults);
     setTimeout(() => {
       if (this.searchValue.length > 1) {
         this.highlightSearchMatches();
@@ -293,7 +292,8 @@ export class ComponentChangelogComponent implements OnInit {
           name: 'changelog.type',
           weight: 1,
           getFn: (obj: ComponentChangelog) =>
-            this.changelogTypePipe.transform(obj.changelog.find((change) => change.type).type),
+            // Map the changelog type to the display name so that it can be searched
+            obj.changelog.map((change) => this.changelogTypePipe.transform(change.type)),
         },
       ],
     });
