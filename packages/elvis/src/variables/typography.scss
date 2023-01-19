@@ -6,7 +6,7 @@
 $font-family: 'Red Hat Display', Verdana, sans-serif;
 $font-family-secondary: 'Red Hat Text', Verdana, sans-serif;
 
-@function get-value($name, $value) {
+@function getValue($name, $value) {
   $typography-map: null;
 
   @if map-has-key($typography, $name) {
@@ -30,17 +30,17 @@ $font-family-secondary: 'Red Hat Text', Verdana, sans-serif;
 }
 
 @mixin typography($name) {
-  color: get-value($name, color);
-  font-family: get-value($name, family);
-  font-size: get-value($name, size);
-  font-style: get-value($name, style);
-  font-weight: get-value($name, weight);
-  letter-spacing: get-value($name, letter-spacing);
-  line-height: get-value($name, height);
-  text-transform: get-value($name, transform);
+  color: getValue($name, color);
+  font-family: getValue($name, family);
+  font-size: getValue($name, size);
+  font-style: getValue($name, style);
+  font-weight: getValue($name, weight);
+  letter-spacing: getValue($name, letter-spacing);
+  line-height: getValue($name, height);
+  text-transform: getValue($name, transform);
   @include breakpoints.breakpoint-up(Mobile) {
-    font-size: get-value($name, size-m);
-    line-height: get-value($name, height-m);
+    font-size: getValue($name, size-m);
+    line-height: getValue($name, height-m);
   }
 }
 
