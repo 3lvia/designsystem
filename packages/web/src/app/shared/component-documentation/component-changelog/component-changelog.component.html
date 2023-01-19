@@ -144,7 +144,9 @@
     [closeLabel]="'Hide'"
     [labelPosition]="'right'"
     [size]="'small'"
-    [isOpen]="filterIsDirty"
+    [isOpen]="accordionIsOpen"
+    (onOpen)="accordionIsOpen = true"
+    (onClose)="accordionIsOpen = false"
   >
     <div slot="content">
       <ng-container *ngTemplateOutlet="changelogTemplateContent"></ng-container>

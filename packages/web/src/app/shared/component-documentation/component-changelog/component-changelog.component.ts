@@ -47,7 +47,7 @@ export class ComponentChangelogComponent implements OnInit {
   searchValue = '';
   radioFilterValue: ChangelogRadioFilter = 'all';
   filteredChangelog: Changelog = [];
-  filterIsDirty = false;
+  accordionIsOpen = false;
 
   constructor(
     private searchService: SearchService<ChangelogEntry>,
@@ -71,7 +71,7 @@ export class ComponentChangelogComponent implements OnInit {
   }
 
   searchChangelog() {
-    this.filterIsDirty = true;
+    this.accordionIsOpen = true;
     if (!this.searchService.isInitialized) {
       return;
     }
@@ -123,10 +123,7 @@ export class ComponentChangelogComponent implements OnInit {
               (resultItem.item as ComponentChangelog).version,
               match.value,
             );
-            const element = document.getElementById(elementId);
-            if (element) {
-              element.innerHTML = this.getHighlightedHTMLString(match);
-            }
+            this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
             break;
           }
           case 'changelog.pages.displayName': {
@@ -140,10 +137,7 @@ export class ComponentChangelogComponent implements OnInit {
               match.value,
               changelogType,
             );
-            const element = document.getElementById(elementId);
-            if (element) {
-              element.innerHTML = this.getHighlightedHTMLString(match);
-            }
+            this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
             break;
           }
           case 'changelog.components.displayName': {
@@ -157,10 +151,7 @@ export class ComponentChangelogComponent implements OnInit {
               match.value,
               changelogType,
             );
-            const element = document.getElementById(elementId);
-            if (element) {
-              element.innerHTML = this.getHighlightedHTMLString(match);
-            }
+            this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
             break;
           }
         }
@@ -206,6 +197,13 @@ export class ComponentChangelogComponent implements OnInit {
     return highlightedValue;
   }
 
+  private updateElementInnerHTML(elementId: string, newInnerHTML: string): void {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.innerHTML = newInnerHTML;
+    }
+  }
+
   private resetHighlighting(): void {
     this.filteredChangelog.forEach((changelogEntry) => {
       if ('changelog' in changelogEntry) {
@@ -218,31 +216,14 @@ export class ComponentChangelogComponent implements OnInit {
               element.innerHTML = change;
             }
           });
-          entry.pages?.forEach((page) => {
-            const element = document.getElementById(
-              this.getChangelogCategoryId(
-                changelogEntry.date,
-                changelogEntry.version,
-                page.displayName,
-                entry.type,
-              ),
+          [...(entry.pages ?? []), ...(entry.components ?? [])].forEach((page) => {
+            const elementId = this.getChangelogCategoryId(
+              changelogEntry.date,
+              changelogEntry.version,
+              page.displayName,
+              entry.type,
             );
-            if (element) {
-              element.innerHTML = page.displayName;
-            }
-          });
-          entry.components?.forEach((component) => {
-            const element = document.getElementById(
-              this.getChangelogCategoryId(
-                changelogEntry.date,
-                changelogEntry.version,
-                component.displayName,
-                entry.type,
-              ),
-            );
-            if (element) {
-              element.innerHTML = component.displayName;
-            }
+            this.updateElementInnerHTML(elementId, page.displayName);
           });
         });
       }
