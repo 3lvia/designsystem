@@ -17,7 +17,7 @@ $autocomplete-padding-item-compact: 6px 10px;
   border-radius: 4px;
   margin-top: 4px;
   background-color: colors.color('elvia-on');
-  box-shadow: shadows.get-shadow('medium');
+  box-shadow: shadows.getShadow('medium');
   overflow-y: auto;
   text-align: left;
 

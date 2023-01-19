@@ -16,7 +16,7 @@ $card-actions-button-spacing: 25px;
 // DEPRECATED
 .e-card {
   border-radius: $card-radius;
-  box-shadow: shadows.get-shadow('soft');
+  box-shadow: shadows.getShadow('soft');
   display: inline-flex;
   width: 100%;
   flex-direction: column;
@@ -35,19 +35,19 @@ $card-actions-button-spacing: 25px;
   }
 
   &--shadow-soft {
-    box-shadow: shadows.get-shadow('soft');
+    box-shadow: shadows.getShadow('soft');
   }
 
   &--shadow-medium {
-    box-shadow: shadows.get-shadow('medium');
+    box-shadow: shadows.getShadow('medium');
   }
 
   &--shadow-hard {
-    box-shadow: shadows.get-shadow('hard');
+    box-shadow: shadows.getShadow('hard');
   }
 
   &--on-white {
-    box-shadow: shadows.get-shadow('medium');
+    box-shadow: shadows.getShadow('medium');
   }
 
   &__title {
