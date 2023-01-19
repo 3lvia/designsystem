@@ -4,36 +4,27 @@
 @use '../../utilities/helpers';
 
 .e-fileupload {
-  border: 2px dashed colors.color('grey-20');
-  border-radius: 4px;
   display: flex;
   flex-wrap: wrap;
   padding: 32px 0;
+  border: 2px dashed colors.color('grey-20');
+  border-radius: 4px;
+  gap: 8px;
 
-  &__icon {
-    display: flex;
+  &__icon,
+  &__description,
+  &__input {
+    display: grid;
     width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 16px;
+    place-items: center;
   }
 
   &__description {
-    @include typography.typography('text-option');
+    @include typography.typography('text-medium');
     color: colors.color('font-color');
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 16px;
   }
 
   &__input {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-
     input[type='file'] {
       display: none;
     }
@@ -42,38 +33,38 @@
       z-index: 1;
       display: inline-flex;
       align-items: center;
-      border-bottom: 2.5px solid transparent;
-      border-radius: 0px;
-      padding: 0px;
+      padding: 0;
       padding-bottom: 3.5px;
+      border-radius: 0;
+      border-bottom: 2.5px solid transparent;
+      color: colors.color('font-color');
       cursor: pointer;
 
       font-family: 'Red Hat Display', Verdana, sans-serif;
+      font-size: 16px;
       font-style: normal;
       font-weight: 500;
-      font-size: 16px;
       line-height: 24px;
-      color: colors.color('font-color');
-
-      &:disabled {
-        color: colors.color('disabled');
-        cursor: not-allowed;
-      }
       @include helpers.hover() {
         &:hover {
           border-color: colors.color('elvia-charge');
         }
       }
 
+      &:disabled {
+        color: colors.color('disabled');
+        cursor: not-allowed;
+      }
+
       &:active {
-        border-bottom: 1.5px solid colors.color('elvia-charge');
         padding-bottom: 4.5px;
+        border-bottom: 1.5px solid colors.color('elvia-charge');
       }
 
       i {
         @include icons.icon-size('sm');
-        margin-right: 8px;
         display: flex;
+        margin-right: 8px;
       }
     }
   }
