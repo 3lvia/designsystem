@@ -285,7 +285,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         <Datepicker
           {...passThroughProps}
           label={labelOptions?.start ?? defaultLabelOptions.start}
-          value={isTouched('startDate') ? selectedDateRange.start : undefined}
+          value={hasTimepickers && !isTouched('startDate') ? undefined : selectedDateRange.start}
           valueOnChange={handleStartDatePickerValueOnChange}
           isRequired={isRequiredState?.start}
           onClose={openNextPicker}
@@ -333,7 +333,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         <Datepicker
           {...passThroughProps}
           label={labelOptions?.end ?? defaultLabelOptions.end}
-          value={isTouched('endDate') ? selectedDateRange.end : undefined}
+          value={hasTimepickers && !isTouched('endDate') ? undefined : selectedDateRange.end}
           valueOnChange={handleEndDatePickerValueOnChange}
           isRequired={isRequiredState?.end}
           onClose={openNextPicker}
