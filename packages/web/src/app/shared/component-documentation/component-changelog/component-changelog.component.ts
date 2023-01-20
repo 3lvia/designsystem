@@ -212,12 +212,13 @@ export class ComponentChangelogComponent implements OnInit {
       if ('changelog' in changelogEntry) {
         changelogEntry.changelog.forEach((entry) => {
           entry.changes.forEach((change) => {
-            const element = document.getElementById(
-              this.changelogIdPipe.transform(changelogEntry.date, changelogEntry.version, change, 'entry'),
+            const elementId = this.changelogIdPipe.transform(
+              changelogEntry.date,
+              changelogEntry.version,
+              change,
+              'entry',
             );
-            if (element) {
-              element.innerHTML = change;
-            }
+            this.updateElementInnerHTML(elementId, change);
           });
           [...(entry.pages ?? []), ...(entry.components ?? [])].forEach((page) => {
             const elementId = this.changelogIdPipe.transform(
@@ -272,7 +273,7 @@ export class ComponentChangelogComponent implements OnInit {
           weight: 1,
           getFn: (obj: ComponentChangelog) =>
             // Map the changelog type to the display name so that it can be searched
-            obj.changelog.map((change) => this.changelogTypePipe.transform(change.type)),
+            obj.changelog?.map((change) => this.changelogTypePipe.transform(change.type)),
         },
       ],
     });
