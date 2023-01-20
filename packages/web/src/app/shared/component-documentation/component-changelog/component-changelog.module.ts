@@ -6,11 +6,12 @@ import { ComponentChangelogComponent } from './component-changelog.component';
 import { ChangelogTypePipe } from './component-changelog-pipe';
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-divider';
+import { ChangelogIdPipe } from './component-changelog-id-pipe';
 
 @NgModule({
   imports: [CommonModule, RouterModule, FormsModule],
-  declarations: [ComponentChangelogComponent, ChangelogTypePipe],
-  exports: [ComponentChangelogComponent, ChangelogTypePipe],
+  declarations: [ComponentChangelogComponent, ChangelogTypePipe, ChangelogIdPipe],
+  exports: [ComponentChangelogComponent, ChangelogTypePipe, ChangelogIdPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentChangelogModule {}

@@ -60,7 +60,7 @@
             <div class="changelog-section" *ngFor="let changelog of el.changelog">
               <div
                 class="changelog-section-title"
-                [id]="getChangelogCategoryId(el.date, el.version, changelog.type | ChangelogTypePipe, '')"
+                [id]="el.date | ChangelogIdPipe: el.version:(changelog.type | ChangelogTypePipe):''"
               >
                 {{ changelog.type | ChangelogTypePipe }}
               </div>
@@ -76,7 +76,7 @@
                   <a
                     class="e-link e-link--inline"
                     [href]="component.url"
-                    [id]="getChangelogCategoryId(el.date, el.version, component.displayName, changelog.type)"
+                    [id]="el.date | ChangelogIdPipe: el.version:component.displayName:changelog.type"
                   >
                     {{ component.displayName }}
                   </a>
@@ -93,7 +93,7 @@
                   <a
                     class="e-link e-link--inline"
                     [href]="component.url"
-                    [id]="getChangelogCategoryId(el.date, el.version, component.displayName, changelog.type)"
+                    [id]="el.date | ChangelogIdPipe: el.version:component.displayName:changelog.type"
                   >
                     {{ component.displayName }}
                   </a>
@@ -101,7 +101,7 @@
               </div>
               <ul class="e-list">
                 <li *ngFor="let change of changelog.changes">
-                  <p [innerHTML]="change" [id]="getChangelogEntryId(el.date, el.version, change)"></p>
+                  <p [innerHTML]="change" [id]="el.date | ChangelogIdPipe: el.version:change:'entry'"></p>
                 </li>
               </ul>
               <ng-container *ngIf="changelog.fixes && changelog.fixes.length > 0">

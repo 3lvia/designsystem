@@ -5,6 +5,7 @@ import Fuse from 'fuse.js';
 import { SearchService } from 'src/app/core/services/search.service';
 import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
 import elvisChangelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
+import { ChangelogIdPipe } from './component-changelog-id-pipe';
 import { ChangelogTypePipe } from './component-changelog-pipe';
 
 // Extend the ComponentChangelog interface with a skipped property to be able to
@@ -50,6 +51,7 @@ export class ComponentChangelogComponent implements OnInit {
   filteredChangelog: Changelog = [];
   accordionIsOpen = false;
 
+  changelogIdPipe = new ChangelogIdPipe();
   changelogTypePipe = new ChangelogTypePipe();
 
   constructor(
@@ -104,27 +106,17 @@ export class ComponentChangelogComponent implements OnInit {
     this.searchChangelog();
   }
 
-  /**
-   * Create a unique ID for each changelog entry.
-   */
-  getChangelogEntryId(date: string, version: string, change: string): string {
-    return 'changelog-change-' + this.encodeHTML(`${date} v${version} ${change}`);
-  }
-
-  getChangelogCategoryId(date: string, version: string, change: string, type: string): string {
-    return 'changelog-' + this.encodeHTML(`${type} ${date} v${version} ${change}`);
-  }
-
   private highlightSearchMatches(): void {
     this.resetHighlighting();
     this.searchService.searchResults?.forEach((resultItem) => {
       resultItem.matches.forEach((match) => {
         switch (match.key) {
           case 'changelog.changes': {
-            const elementId = this.getChangelogEntryId(
+            const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
               (resultItem.item as ComponentChangelog).version,
               match.value,
+              'entry',
             );
             this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
             break;
@@ -134,7 +126,7 @@ export class ComponentChangelogComponent implements OnInit {
               (resultItem.item as ComponentChangelog).changelog.find((entry) =>
                 entry.pages?.some((page) => page.displayName === match.value),
               )?.type ?? 'CHANGELOG_TYPE_NOT_FOUND';
-            const elementId = this.getChangelogCategoryId(
+            const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
               (resultItem.item as ComponentChangelog).version,
               match.value,
@@ -148,7 +140,7 @@ export class ComponentChangelogComponent implements OnInit {
               (resultItem.item as ComponentChangelog).changelog.find((entry) =>
                 entry.components?.some((component) => component.displayName === match.value),
               )?.type ?? 'CHANGELOG_TYPE_NOT_FOUND';
-            const elementId = this.getChangelogCategoryId(
+            const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
               (resultItem.item as ComponentChangelog).version,
               match.value,
@@ -158,7 +150,7 @@ export class ComponentChangelogComponent implements OnInit {
             break;
           }
           case 'changelog.type': {
-            const elementId = this.getChangelogCategoryId(
+            const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
               (resultItem.item as ComponentChangelog).version,
               match.value,
@@ -223,14 +215,14 @@ export class ComponentChangelogComponent implements OnInit {
         changelogEntry.changelog.forEach((entry) => {
           entry.changes.forEach((change) => {
             const element = document.getElementById(
-              this.getChangelogEntryId(changelogEntry.date, changelogEntry.version, change),
+              this.changelogIdPipe.transform(changelogEntry.date, changelogEntry.version, change, 'entry'),
             );
             if (element) {
               element.innerHTML = change;
             }
           });
           [...(entry.pages ?? []), ...(entry.components ?? [])].forEach((page) => {
-            const elementId = this.getChangelogCategoryId(
+            const elementId = this.changelogIdPipe.transform(
               changelogEntry.date,
               changelogEntry.version,
               page.displayName,
@@ -239,7 +231,7 @@ export class ComponentChangelogComponent implements OnInit {
             this.updateElementInnerHTML(elementId, page.displayName);
           });
           this.updateElementInnerHTML(
-            this.getChangelogCategoryId(
+            this.changelogIdPipe.transform(
               changelogEntry.date,
               changelogEntry.version,
               this.changelogTypePipe.transform(entry.type),
@@ -250,16 +242,6 @@ export class ComponentChangelogComponent implements OnInit {
         });
       }
     });
-  }
-
-  private encodeHTML(txt: string): string {
-    return txt
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/&/g, '&amp;')
-      .replace(/'/g, '&apos;')
-      .replace(/"/g, '&quot;')
-      .replace(/\s/g, '-');
   }
 
   private addHighlightBackground(str: string): string {
