@@ -48,6 +48,31 @@
     </ng-container>
   </app-component-section>
 
+  <!--GROUP-->
+  <app-component-section [sectionTitle]="'Group'">
+    <ng-container ngProjectAs="sectionContent">
+      To create an accordion group, use multiple accordions with
+      <code>isFullWidth=true</code>
+      grouped together, along with dividers and spacing.
+      <app-component-subsection [sectionTitle]="'Usage'">
+        <ng-container ngProjectAs="sectionContent">
+          NB: Keep if there should be separate do's and don'ts for group accordion.
+          <app-when-to-use [whens]="doesGroupAccordion" [whenNots]="dontsGroupAccordion"></app-when-to-use>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Implementation'">
+        <ng-container ngProjectAs="sectionContent">
+          Here, implementation details for how to create a group accordion will come.
+          <app-component-example-generator
+            [componentData]="accordionGroupData"
+            [inlineExample]="true"
+            [tabIdPrefix]="'accordion-group'"
+          ></app-component-example-generator>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--ACCESSIBILITY-->
   <app-component-section [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">

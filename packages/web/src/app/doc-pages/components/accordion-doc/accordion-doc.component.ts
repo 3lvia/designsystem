@@ -3,6 +3,7 @@ import { getComponent } from 'src/app/shared/doc-pages';
 import { exampleContents } from 'src/app/shared/example-contents';
 import { accordionData } from './accodrion-data';
 import { Title } from '@angular/platform-browser';
+import { accordionGroupData } from './accordion-group-data';
 
 @Component({
   selector: 'app-accordion-doc',
@@ -12,6 +13,7 @@ import { Title } from '@angular/platform-browser';
 export class AccordionDocComponent {
   @ViewChild('accordionLiveExample') accordionLiveExample: ElementRef;
   componentData = accordionData;
+  accordionGroupData = accordionGroupData;
   examples = exampleContents;
   figmaUrl = getComponent('accordion').figmaUrl;
   title = getComponent('accordion').title;
@@ -27,6 +29,15 @@ export class AccordionDocComponent {
     'When you have a lot of content and the content is not important to always have available.',
   ];
   dontsAccordion = [
+    'Don’t hide necessary and critical information to the user to complete their task in a accordion.',
+    'Don’t use it for navigation elements.',
+  ];
+
+  doesGroupAccordion = [
+    'Organize related information.',
+    'When you have a lot of content and the content is not important to always have available.',
+  ];
+  dontsGroupAccordion = [
     'Don’t hide necessary and critical information to the user to complete their task in a accordion.',
     'Don’t use it for navigation elements.',
   ];
