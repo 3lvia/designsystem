@@ -76,24 +76,27 @@ export class ComponentChangelogComponent implements OnInit {
   }
 
   searchChangelog() {
+    const minSearchValueLength = 1;
     this.accordionIsOpen = true;
     if (!this.searchService.isInitialized) {
       return;
     }
     this.filteredChangelog =
-      this.searchValue.length > 1 ? this.searchService.search(this.searchValue) : this.changelog;
+      this.searchValue.length > minSearchValueLength
+        ? this.searchService.search(this.searchValue.trim())
+        : this.changelog;
     if (this.radioFilterValue !== 'all') {
-      this.filteredChangelog = this.filteredChangelog.filter((changelog) => {
+      this.filteredChangelog = this.filteredChangelog.filter((change) => {
         return (
-          'changelog' in changelog && // Filter out skipped entries (for elvis changelogs)
-          changelog.changelog.some((changelogEntry) => {
+          'changelog' in change && // Filter out 'skipped entries' (for elvis changelogs)
+          change.changelog.some((changelogEntry) => {
             return changelogEntry.type === this.radioFilterValue;
           })
         );
       });
     }
     setTimeout(() => {
-      if (this.searchValue.length > 1) {
+      if (this.searchValue.length > minSearchValueLength) {
         this.highlightSearchMatches();
       } else {
         this.resetHighlighting();
@@ -165,27 +168,22 @@ export class ComponentChangelogComponent implements OnInit {
   }
 
   private getHighlightedHTMLString(match: Fuse.FuseResultMatch): string {
-    const value = match.value;
+    const { value, indices } = match;
     // Add any part of the description that is before the first match
-    let highlightedValue = value.substring(0, match.indices[0][0]);
+    let highlightedValue = value.substring(0, indices[0][0]);
 
-    const longestMatch = match.indices.reduce((longest, current) => {
+    const longestMatch = indices.reduce((longest, current) => {
       return current[1] - current[0] > longest[1] - longest[0] ? current : longest;
     });
-
-    // Only highlight the long matches, not the short ones
-    const matchesToHighlight = match.indices.filter((matchIndices) => {
-      return matchIndices[1] - matchIndices[0] > (longestMatch[1] - longestMatch[0]) / 2;
-    });
+    const lengthOfLongestMatch = longestMatch[1] - longestMatch[0];
 
     // Add each match, and the part of the description between matches
-    match.indices.forEach((matchIndices, index, items) => {
+    indices.forEach((matchIndices, index, items) => {
       const [matchStart, matchEnd] = matchIndices;
-      // Only highlight if more than one character, and not part of an HTML tag
+      // Only highlight if match is long enough, and not part of an HTML tag
       if (
-        matchEnd - matchStart > 0 &&
-        !this.isSubstringPartOfHtmlTag(value, matchStart) &&
-        matchesToHighlight.includes(matchIndices)
+        matchEnd - matchStart >= lengthOfLongestMatch / 2 &&
+        !this.isSubstringPartOfHtmlTag(value, matchStart)
       ) {
         highlightedValue += this.addHighlightBackground(value.substring(matchStart, matchEnd + 1));
       } else {
@@ -193,12 +191,12 @@ export class ComponentChangelogComponent implements OnInit {
       }
 
       // If not the last match, add the part of the description upto next match
-      if (index !== match.indices.length - 1) {
+      if (index !== indices.length - 1) {
         highlightedValue += value.substring(matchEnd + 1, items[index + 1][0]);
       }
     });
     // Add the part after the last match
-    highlightedValue += value.substring(match.indices[match.indices.length - 1][1] + 1, value.length);
+    highlightedValue += value.substring(indices[indices.length - 1][1] + 1, value.length);
     return highlightedValue;
   }
 
@@ -230,15 +228,13 @@ export class ComponentChangelogComponent implements OnInit {
             );
             this.updateElementInnerHTML(elementId, page.displayName);
           });
-          this.updateElementInnerHTML(
-            this.changelogIdPipe.transform(
-              changelogEntry.date,
-              changelogEntry.version,
-              this.changelogTypePipe.transform(entry.type),
-              '',
-            ),
+          const elementId = this.changelogIdPipe.transform(
+            changelogEntry.date,
+            changelogEntry.version,
             this.changelogTypePipe.transform(entry.type),
+            '',
           );
+          this.updateElementInnerHTML(elementId, this.changelogTypePipe.transform(entry.type));
         });
       }
     });
@@ -251,6 +247,7 @@ export class ComponentChangelogComponent implements OnInit {
   /**
    * Check if the substring is part of an HTML tag by counting the number of opening and closing tags before the substring.
    * If the number of opening and closing tags are not equal, the substring is part of an HTML tag.
+   *
    * **NB**: Does not work if < or > is used in the substring as a character, not as a tag.
    */
   private isSubstringPartOfHtmlTag(wholeString: string, substringStartIndex: number): boolean {
