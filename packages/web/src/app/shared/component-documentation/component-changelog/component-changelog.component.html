@@ -50,8 +50,10 @@
           last as isLast;
           first as isFirst
         "
+        class="changelog-row"
+        [ngClass]="{ 'changelog-row--skipped': el.skipped }"
       >
-        <div class="changelog-row py-5" *ngIf="!el.skipped">
+        <ng-container *ngIf="!el.skipped">
           <td class="changelog-date">
             <span class="e-title-sm">{{ el.version }}</span>
             <span class="changelog-date-span">{{ el.date }}</span>
@@ -112,8 +114,7 @@
               </ng-container>
             </div>
           </td>
-        </div>
-        <elvia-divider *ngIf="!isLast && !el.skipped"></elvia-divider>
+        </ng-container>
 
         <ng-container *ngIf="el.skipped && el.skipped > 0 && !isFirst" [ngPlural]="el.skipped">
           <ng-template ngPluralCase="1">
@@ -122,7 +123,6 @@
           <ng-template ngPluralCase="other">
             <p class="e-text-micro e-my-16">{{ el.skipped }} unrelated releases</p>
           </ng-template>
-          <elvia-divider></elvia-divider>
         </ng-container>
       </tr>
     </tbody>
