@@ -19,7 +19,7 @@ function lintScssTask() {
   return gulp.src('./src/**/*.scss').pipe(
     gulpStylelint({
       failAfterError: true,
-      fix: true,
+      fix: false,
       reporters: [{ formatter: 'string', console: true }],
     }),
   );
