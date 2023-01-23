@@ -1,4 +1,4 @@
-@use "sass:map";
+@use 'sass:map';
 // Multiples of 8
 $sizes: (
   'xxs': 8px,
@@ -22,6 +22,7 @@ $sizes: (
   $size: get-icon-size($icon-size);
   width: $size;
   height: $size;
+
   img,
   i {
     width: $size;
@@ -29,14 +30,14 @@ $sizes: (
   }
 }
 
-$defaultSize: 'md';
+$default-size: 'md';
 
 .e-icon {
-  @include icon-size($defaultSize);
-  background-size: contain;
+  @include icon-size($default-size);
+  display: inline-block;
   background-position: center;
   background-repeat: no-repeat;
-  display: inline-block;
+  background-size: contain;
 }
 
 // Making icon size classes

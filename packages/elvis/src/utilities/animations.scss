@@ -5,6 +5,7 @@
   from {
     @include helpers.transform(rotate(0deg));
   }
+
   to {
     @include helpers.transform(rotate(360deg));
   }
@@ -15,9 +16,11 @@
     0% {
       background: transparent;
     }
+
     50% {
       background: $color;
     }
+
     100% {
       background: transparent;
     }

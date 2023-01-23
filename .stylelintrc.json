@@ -9,6 +9,7 @@
     "indentation": 2,
     "declaration-property-value-disallowed-list": null,
     "dollar-variable-pattern": null,
+    "scss/at-mixin-pattern": null,
     "max-nesting-depth": null,
     "number-leading-zero": null,
     "order/properties-alphabetical-order": null,

@@ -9,16 +9,19 @@
     display: none !important;
   }
 }
+
 .e-none-lg {
   @media (max-width: breakpoints.$mindesktop-max) and (min-width: breakpoints.$tablet-max + 1) {
     display: none !important;
   }
 }
+
 .e-none-md {
   @media (max-width: breakpoints.$tablet-max) and (min-width: breakpoints.$mobile-max + 1) {
     display: none !important;
   }
 }
+
 .e-none-sm {
   @media (max-width: breakpoints.$mobile-max) {
     display: none !important;
