@@ -51,17 +51,11 @@
   <!--GROUP-->
   <app-component-section [sectionTitle]="'Group'">
     <ng-container ngProjectAs="sectionContent">
-      Accordions can be grouped with titles. This can be used to organize a lot of content and is easy for the
-      user to scan and select what’s relevant. Example of use is as an FAQ section. See the
+      Group multiple accordions to make it easy for users to find relevant content faster. Let users know what
+      to expect by making sure the accordion labels are descriptive. Think of the usefulness of a
+      well-structured FAQ (Frequently Asked Questions). Read more on group patterns at our
       <a [routerLink]="['/patterns/groups']" class="e-link e-link--inline">group documentation page</a>
-      for more information on how to use group patterns.
-      <app-component-subsection [sectionTitle]="'Usage'">
-        <ng-container ngProjectAs="sectionContent">
-          <strong>NB:</strong>
-          Keep if there should be separate do's and don'ts for group accordion. Currently the same list.
-          <app-when-to-use [whens]="doesGroupAccordion" [whenNots]="dontsGroupAccordion"></app-when-to-use>
-        </ng-container>
-      </app-component-subsection>
+      .
       <app-component-subsection [sectionTitle]="'Implementation'">
         <ng-container ngProjectAs="sectionContent">
           To create an accordion group, use multiple accordions with

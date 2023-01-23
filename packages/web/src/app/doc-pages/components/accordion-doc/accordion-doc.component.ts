@@ -29,13 +29,4 @@ export class AccordionDocComponent {
     'Don’t hide necessary and critical information to the user to complete their task in a accordion.',
     'Don’t use it for navigation elements.',
   ];
-
-  doesGroupAccordion = [
-    'Organize related information.',
-    'When you have a lot of content and the content is not important to always have available.',
-  ];
-  dontsGroupAccordion = [
-    'Don’t hide necessary and critical information to the user to complete their task in a accordion.',
-    'Don’t use it for navigation elements.',
-  ];
 }
