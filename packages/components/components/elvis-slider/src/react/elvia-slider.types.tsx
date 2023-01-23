@@ -5,15 +5,17 @@ export type SliderType = 'simple' | 'range';
 
 export interface SliderProps {
   className?: string;
+  hasHintValues?: boolean;
   hasInputField?: boolean;
   hasPercent?: boolean;
   hasTooltip?: boolean;
-  hasHintValues?: boolean;
   inlineStyle?: CSSProperties;
+  isCompact?: boolean;
   isDisabled?: boolean;
   label?: string | LabelTextType;
   max?: number;
   min?: number;
+  title?: string;
   type?: SliderType;
   unit?: string;
   value?: number | SliderValues;
@@ -21,34 +23,27 @@ export interface SliderProps {
   webcomponent?: ElvisComponentWrapper;
 }
 
+export type BothSliders<T> = {
+  left: T;
+  right: T;
+};
+
 export type Extremum = {
   minimum: number;
   maximum: number;
 };
 
-export type SliderValues = {
-  left: number;
-  right: number;
-};
+export type SliderValues = BothSliders<number>;
 
-export type TextFieldsValues = {
-  left?: number | string;
-  right?: number | string;
-};
+export type TextFieldsValues = Partial<BothSliders<number | string>>;
 
-export type ToolTipState = {
-  left: boolean;
-  right?: boolean;
-};
+export type ToolTipState = BothSliders<boolean>;
 
 export type SliderErrors = {
   leftTextfield?: string;
   rightTextfield?: string;
 };
 
-export type LabelTextType = {
-  left: string;
-  right: string;
-};
+export type LabelTextType = BothSliders<string>;
 
 export type TooltipPopupSides = 'left' | 'right';
