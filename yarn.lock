@@ -3477,7 +3477,7 @@ __metadata:
     doiuse: ^4.4.0
     express: ^4.17.2
     gulp: ^4.0.2
-    gulp-autoprefixer: 8.0.0
+    gulp-autoprefixer: ^8.0.0
     gulp-clean-css: ^4.2.0
     gulp-imagemin: ^7.1.0
     gulp-postcss: ^8.0.0
@@ -16944,7 +16944,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-autoprefixer@npm:8.0.0":
+"gulp-autoprefixer@npm:^8.0.0":
   version: 8.0.0
   resolution: "gulp-autoprefixer@npm:8.0.0"
   dependencies:
