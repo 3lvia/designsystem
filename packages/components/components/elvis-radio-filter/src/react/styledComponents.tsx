@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 
-const colors = {
-  elviaCharge: getColor('elvia-charge'),
-  elviaBlack: getColor('black'),
-  outline: getColor('focus-outline'),
-};
-
 export const RadioFilterGroup = styled.div`
   display: flex;
   flex-direction: row;
@@ -17,20 +11,24 @@ export const RadioFilterGroup = styled.div`
   margin: 0;
 `;
 
-export const RadioFilterLabel = styled.label`
+interface RadioFilterLabelProps {
+  isSelected: boolean;
+}
+
+export const RadioFilterLabel = styled.label<RadioFilterLabelProps>`
+  display: grid;
+  place-items: center;
   border-radius: 32px;
   padding: 4px 12px;
-  border: ${(props: { isSelected: boolean }) =>
-    `1px solid ${props.isSelected ? colors.elviaBlack : 'transparent'}`};
+  border: ${({ isSelected }) => `1px solid ${isSelected ? getColor('black') : 'transparent'}`};
   cursor: pointer;
   position: relative;
 
   &:hover:not(:disabled) {
-    border: ${(props: { isSelected: boolean }) =>
-      `1px solid ${props.isSelected ? colors.elviaBlack : colors.elviaCharge}`};
+    border-color: ${({ isSelected }) => `${isSelected ? getColor('black') : getColor('elvia-charge')}`};
   }
   &:focus-within {
-    outline: 2px solid ${colors.outline};
+    outline: 2px solid ${getColor('focus-outline')};
     outline-offset: 2px;
   }
   white-space: nowrap;

@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.01.23",
+      "version": "1.5.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug that sometimes caused the radio filter label to not be center aligned."]
+        }
+      ]
+    },
+    {
       "date": "13.12.22",
       "version": "1.5.5",
       "changelog": [
