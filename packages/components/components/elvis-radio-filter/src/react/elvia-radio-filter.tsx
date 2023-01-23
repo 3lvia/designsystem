@@ -53,11 +53,11 @@ export const RadioFilter: FC<RadioFilterProps> = ({
             <RadioFilterInput
               type="radio"
               name={name}
-              aria-label={ariaLabel ? ariaLabel : label + ' filtrering valgt'}
+              aria-label={ariaLabel ?? label + ' filtrering valgt'}
               aria-checked={optionsValue === selectedValue}
               checked={optionsValue === selectedValue}
               onChange={() => setSelectedValue(optionsValue)}
-            ></RadioFilterInput>
+            />
             <RadioFilterTitle>{label}</RadioFilterTitle>
           </RadioFilterLabel>
         ))}
