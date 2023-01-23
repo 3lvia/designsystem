@@ -2,6 +2,7 @@ const del = require('del');
 const gulp = require('gulp');
 const tap = require('gulp-tap');
 const sass = require('sass');
+const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
@@ -26,7 +27,7 @@ function generateElvisStyle() {
         );
       }),
     )
-
+    .pipe(autoprefixer({ cascade: false }))
     .pipe(rename('elvis.css'))
     .pipe(gulp.dest('./css/'));
 }
