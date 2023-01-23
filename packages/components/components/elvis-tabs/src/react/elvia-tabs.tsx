@@ -42,11 +42,15 @@ const Tabs: FC<TabsProps> = ({
   const [isOnRightEnd, setIsOnRightEnd] = useState(true);
   const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
   const [tabInFocus, setTabInFocus] = useState(value);
-  const [uniqueId] = useState(`ewc-tabs-${tabIdPrefix ? tabIdPrefix + '-' : ''}`);
+  const [uniqueId, setUniqueId] = useState(`ewc-tabs-${tabIdPrefix ? tabIdPrefix + '-' : ''}`);
   const tabsRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
   const lengthToScroll = 140;
   const scrollSteps = 12;
+
+  useEffect(() => {
+    setUniqueId(`ewc-tabs-${tabIdPrefix ? tabIdPrefix + '-' : ''}`);
+  }, [tabIdPrefix]);
 
   /**
    * Start resize and scroll listener that updates arrow visibility
