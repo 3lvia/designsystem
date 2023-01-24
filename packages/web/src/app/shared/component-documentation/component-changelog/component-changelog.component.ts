@@ -69,8 +69,7 @@ export class ComponentChangelogComponent implements OnInit {
     // Reset search value and filter when the screen is resized to mobile
     this.breakpointObserver.observe('(max-width: 767px)').subscribe((result) => {
       if (result.matches) {
-        this.searchValue = '';
-        this.searchChangelog();
+        this.clearSearch();
       }
     });
   }
