@@ -4,11 +4,12 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ComponentChangelogComponent } from './component-changelog.component';
 import { ChangelogTypePipe } from './component-changelog-pipe';
-import '@elvia/elvis-accordion';
 import { ChangelogIdPipe } from './component-changelog-id-pipe';
+import { ComponentDocumentationDatePipe } from '../component-documentation-date-pipe';
+import '@elvia/elvis-accordion';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, ComponentDocumentationDatePipe],
   declarations: [ComponentChangelogComponent, ChangelogTypePipe, ChangelogIdPipe],
   exports: [ComponentChangelogComponent, ChangelogTypePipe, ChangelogIdPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

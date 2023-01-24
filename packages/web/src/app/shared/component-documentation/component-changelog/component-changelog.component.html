@@ -56,7 +56,7 @@
         <ng-container *ngIf="!el.skipped">
           <td class="changelog-date">
             <span class="e-title-sm">{{ el.version }}</span>
-            <span class="changelog-date-span">{{ el.date }}</span>
+            <span class="changelog-date-span">{{ el.date | DocumentationDatePipe }}</span>
           </td>
           <td class="changelog-content" *ngIf="!el.skipped">
             <div class="changelog-section" *ngFor="let changelog of el.changelog">
