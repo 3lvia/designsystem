@@ -36,8 +36,8 @@
         padding-left: $value !important;
       }
       &-py-#{$label} {
-        padding-bottom: $value !important;
         padding-top: $value !important;
+        padding-bottom: $value !important;
       }
       &-m-#{$label} {
         margin: $value !important;

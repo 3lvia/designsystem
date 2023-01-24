@@ -9,16 +9,19 @@
     visibility: hidden !important;
   }
 }
+
 .e-invisible-lg {
   @media (max-width: breakpoints.$mindesktop-max) and (min-width: (breakpoints.$tablet-max + 1)) {
     visibility: hidden !important;
   }
 }
+
 .e-invisible-md {
   @media (max-width: breakpoints.$tablet-max) and (min-width: (breakpoints.$mobile-max + 1)) {
     visibility: hidden !important;
   }
 }
+
 .e-invisible-sm {
   @media (max-width: breakpoints.$mobile-max) {
     visibility: hidden !important;
@@ -26,6 +29,6 @@
 }
 
 .e-hide {
-  height: 0;
   overflow: hidden;
+  height: 0;
 }
