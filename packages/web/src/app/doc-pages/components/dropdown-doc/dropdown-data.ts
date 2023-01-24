@@ -93,10 +93,10 @@ export const dropdownData: ComponentData = {
     },
     selectAllOption: {
       isRequired: false,
-      type: '{label: string; value: string}',
+      type: 'string',
       description:
-        'Change the label and/or value of the select all-option inside the opened dropdown. Only available in multiselect dropdown.',
-      default: '{label: "Alle", value: "*"}',
+        'Change the label of the select all-option inside the opened dropdown. Only available in multiselect dropdown.',
+      default: 'Alle',
       cegDisplayName: 'Select all option',
     },
     allOptionsSelectedLabel: {
