@@ -8,8 +8,7 @@
           "type": "breaking_changes",
           "changes": [
             "The spacing between elements in the File Upload component has been changed from 22px to 8px. This changes the total height of the component.",
-            "Removed styles for the <code>:invalid</code> CSS pseudo-class for <code>e-input</code>.",
-            "Added <code>:user-invalid</code> CSS pseudo-class for <code>e-input</code> (Firefox only)."
+            "Removed styles for the <code>:invalid</code> CSS pseudo-class for <code>e-input</code>."
           ],
           "fixes": [
             "Adjust your design to accommodate for the new File Upload height.",
@@ -19,6 +18,13 @@
             { "displayName": "File Upload", "url": "https://design.elvia.io/components/file-upload" },
             { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
           ]
+        },
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added <code>:user-invalid</code> CSS pseudo-class for <code>e-input</code> (Firefox only)."
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
         },
         {
           "type": "bug_fix",
