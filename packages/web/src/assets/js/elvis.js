@@ -809,6 +809,26 @@ document.addEventListener('DOMContentLoaded', function () {
   
   let deprecatedElvisClasses = [
   {
+    name: "e-position-picker",
+    version: "10.0.0",
+    sunset: "July 2023"
+  },
+  {
+    name: "e-position-picker__icon",
+    version: "10.0.0",
+    sunset: "July 2023"
+  },
+  {
+    name: "e-position-picker__description",
+    version: "10.0.0",
+    sunset: "July 2023"
+  },
+  {
+    name: "e-position-picker__action",
+    version: "10.0.0",
+    sunset: "July 2023"
+  },
+  {
     name: "e-alert--close",
     version: "9.9.0",
     requiredAncestor: "e-alert--local",
