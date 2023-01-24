@@ -5,12 +5,10 @@ export class ComponentDocumentationDatePipe implements PipeTransform {
   transform(value: string): string {
     try {
       let date: Date;
-      if (value.length === 8) {
-        date = new Date(
-          parseInt(value.substring(6, 8), 10) + 2000,
-          parseInt(value.substring(3, 5), 10) - 1,
-          parseInt(value.substring(0, 2), 10),
-        );
+      // Check if value is in format DD.MM.YY
+      if (/\d\d\.\d\d\.\d\d/.test(value)) {
+        const [day, month, year] = value.split('.');
+        date = new Date(parseInt(year) + 2000, parseInt(month) - 1, parseInt(day));
       } else {
         date = new Date(value);
       }
