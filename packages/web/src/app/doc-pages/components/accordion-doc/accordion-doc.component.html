@@ -1,6 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
-  <ng-container ngProjectAs="headerTitle">Accordion</ng-container>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -45,6 +45,36 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="doesAccordion" [whenNots]="dontsAccordion"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--GROUP-->
+  <app-component-section [sectionTitle]="'Group'">
+    <ng-container ngProjectAs="sectionContent">
+      Group multiple accordions to make it easy for users to find relevant content faster. Let users know what
+      to expect by making sure the accordion labels are descriptive. Think of the usefulness of a
+      well-structured FAQ (Frequently Asked Questions). Read more on group patterns at our
+      <a [routerLink]="['/patterns/groups']" class="e-link e-link--inline">group documentation page</a>
+      .
+      <app-component-subsection [sectionTitle]="'Implementation'">
+        <ng-container ngProjectAs="sectionContent">
+          To create an accordion group, use multiple accordions with
+          <code>isFullWidth=true</code>
+          grouped together, along with dividers and spacing. If you want only one accordion to be open at a
+          time, you can use the
+          <code>isOpen</code>
+          property along with the
+          <code>onOpen</code>
+          /
+          <code>onClose</code>
+          events to control the state of the accordions.
+          <app-component-example-generator
+            [componentData]="accordionGroupData"
+            [inlineExample]="true"
+            [tabIdPrefix]="'accordion-group'"
+          ></app-component-example-generator>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

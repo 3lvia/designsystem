@@ -35,6 +35,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() overflowX: string;
   @Input() alignedTop = false;
   @Input() height = '340';
+  @Input() tabIdPrefix = 'ceg';
 
   codeAngularSub: Subscription;
   codeReactSub: Subscription;

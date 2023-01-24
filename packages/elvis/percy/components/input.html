@@ -75,7 +75,31 @@
     <div class="e-form-field e-w-50">
       <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
       <div class="e-input e-input---invalid">
-        <button class="e-btn e-btn--icon" (click)="showMockPassword()">
+        <button class="e-btn e-btn--icon">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--view_on" aria-hidden="true"></i>
+          </span>
+        </button>
+        <input id="validationExample" type="password" value="Passord" #validationExample />
+      </div>
+      <span class="e-form-field__error e-form-field__error--visible">
+        <span>
+          <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs" aria-hidden="true"></i>
+        </span>
+        <span>
+          Passord må inneholde både bokstaver og tall. (using
+          <code>e-input---invalid</code>
+          .
+          <em>Should</em>
+          be red)
+        </span>
+      </span>
+    </div>
+
+    <div class="e-form-field e-w-50 e-mt-16">
+      <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
+      <div class="e-input">
+        <button class="e-btn e-btn--icon">
           <span class="e-btn__icon">
             <i class="e-icon e-icon--view_on" aria-hidden="true"></i>
           </span>
@@ -86,7 +110,13 @@
         <span>
           <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs" aria-hidden="true"></i>
         </span>
-        <span>Passord må inneholde både bokstaver og tall</span>
+        <span>
+          Passord må inneholde både bokstaver og tall. (using
+          <code>invalid</code>
+          HTML attribute. Should
+          <em>not</em>
+          be red)
+        </span>
       </span>
     </div>
 
