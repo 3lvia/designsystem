@@ -54,7 +54,7 @@ export const headerData: ComponentData = {
       default: 'undefined',
       description: 'The page content. Usually a div, wrapping a router outlet.',
     },
-    onLogoCLick: {
+    onLogoClick: {
       isRequired: false,
       type: '() => void',
       description: 'An event that is triggered when the Elvia logo is clicked.',
