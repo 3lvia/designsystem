@@ -1,9 +1,7 @@
 {
   "name": "@elvia/elvis-header",
   "version": "1.2.1",
-  "description": "",
   "license": "MIT",
-  "author": "",
   "main": "web_component.js",
   "files": [
     "web_component.js",
