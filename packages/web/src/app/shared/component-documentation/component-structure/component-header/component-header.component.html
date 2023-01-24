@@ -20,7 +20,7 @@
           <label class="e-tag e-tag--orange">Figma only</label>
         </div>
         <div *ngIf="!figmaOnly && lastUpdated" class="doc-page-heading__date e-text-micro-light">
-          Last updated {{ lastUpdated }}
+          Last updated {{ lastUpdated | DocumentationDatePipe }}
         </div>
       </div>
       <div class="component-header__description component-header-description-animation">
