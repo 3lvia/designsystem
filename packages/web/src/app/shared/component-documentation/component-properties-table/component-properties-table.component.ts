@@ -12,6 +12,7 @@ interface ComponentProp extends AttributeType {
   selector: 'app-component-properties-table',
   templateUrl: './component-properties-table.component.html',
   styleUrls: ['./component-properties-table.component.scss'],
+  providers: [SearchService],
 })
 export class ComponentPropertiesTableComponent implements OnInit {
   @Input() componentData: ComponentData;
