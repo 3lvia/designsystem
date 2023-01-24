@@ -1,8 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
-import { exampleContents } from 'src/app/shared/example-contents';
 import { accordionData } from './accodrion-data';
 import { Title } from '@angular/platform-browser';
+import { accordionGroupData } from './accordion-group-data';
 
 @Component({
   selector: 'app-accordion-doc',
@@ -12,11 +12,10 @@ import { Title } from '@angular/platform-browser';
 export class AccordionDocComponent {
   @ViewChild('accordionLiveExample') accordionLiveExample: ElementRef;
   componentData = accordionData;
-  examples = exampleContents;
+  accordionGroupData = accordionGroupData;
   figmaUrl = getComponent('accordion').figmaUrl;
   title = getComponent('accordion').title;
   description = getComponent('accordion').description;
-  showCode = false;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');
@@ -30,12 +29,4 @@ export class AccordionDocComponent {
     'Don’t hide necessary and critical information to the user to complete their task in a accordion.',
     'Don’t use it for navigation elements.',
   ];
-
-  toggleOpen(): void {
-    if (this.accordionLiveExample.nativeElement.classList.contains('e-accordion__item--open')) {
-      this.accordionLiveExample.nativeElement.classList.remove('e-accordion__item--open');
-    } else {
-      this.accordionLiveExample.nativeElement.classList.add('e-accordion__item--open');
-    }
-  }
 }

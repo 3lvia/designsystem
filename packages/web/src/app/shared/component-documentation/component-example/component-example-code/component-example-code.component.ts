@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class ComponentExampleCodeComponent implements OnInit, OnChanges, OnDestroy {
   @Input() componentData;
-  @Input() inlineExample;
+  @Input() inlineExample: boolean;
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
@@ -22,6 +22,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, OnDestr
   @Input() isInverted = false;
   @Input() doDontComp = false;
   @Input() noSubscriptions = false;
+  @Input() tabIdPrefix: boolean;
 
   codeNative = '';
   copyMessage = '';

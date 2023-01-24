@@ -57,7 +57,7 @@
           <label class="e-form-field__label" for="phone">Phone</label>
           <div class="e-form-field__input">
             <div id="phone" class="e-input e-input--small">
-              <input type="text" value="+47" />
+              <input type="text" value="+47" aria-label="stepper" />
             </div>
             <div class="e-input e-mb-24">
               <input type="text" placeholder="Placeholder text" />
@@ -111,7 +111,7 @@
             <label class="e-form-field__label" for="phone">Phone</label>
             <div class="e-form-field__input">
               <div id="phone" class="e-input e-input--small">
-                <input type="text" value="+47" />
+                <input type="text" value="+47" aria-label="stepper2" />
               </div>
               <div class="e-input e-mb-24">
                 <input type="text" placeholder="Placeholder text" />
@@ -131,6 +131,158 @@
         <div class="e-stepper__step-header">
           <div class="e-stepper__step-number">4</div>
           <div class="e-stepper__step-title">Send</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-title-xs e-my-16">Forced</div>
+    <div class="e-stepper e-stepper--horizontal e-stepper--forced">
+      <div class="e-stepper__steps">
+        <!--STEP-->
+        <div class="e-stepper__step e-stepper__step--done">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">1</div>
+          </div>
+        </div>
+
+        <!--STEP-->
+        <div class="e-stepper__step e-stepper__step--active-done">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">2</div>
+          </div>
+        </div>
+
+        <!--STEP-->
+        <div class="e-stepper__step">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">3</div>
+          </div>
+        </div>
+
+        <!--STEP-->
+        <div class="e-stepper__step">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">4</div>
+          </div>
+        </div>
+      </div>
+
+      <!--CONTENT - PUT DESIRED CONTENT HERE FOR EACH STEP-->
+      <div class="e-stepper__content">
+        <div class="e-stepper__title">Contact</div>
+        <div class="e-form-field e-mb-24">
+          <label class="e-form-field__label" for="normal">Email</label>
+          <div class="e-input">
+            <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
+          </div>
+        </div>
+        <div class="e-form-field e-form-field--combined">
+          <label class="e-form-field__label" for="phone">Phone</label>
+          <div class="e-form-field__input">
+            <div id="phone" class="e-input e-input--small">
+              <input type="text" value="+47" aria-label="stepper3" />
+            </div>
+            <div class="e-input e-mb-24">
+              <input type="text" placeholder="99 99 99 99" />
+            </div>
+          </div>
+        </div>
+        <div class="e-stepper__actions">
+          <button class="e-btn e-btn--secondary">Back</button>
+          <button class="e-btn e-btn--primary">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-title-xs e-my-16">Long</div>
+    <div class="e-stepper e-stepper--horizontal">
+      <div class="e-stepper__steps">
+        <!--STEP-->
+        <div class="e-stepper__step e-stepper__step--done">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">1</div>
+          </div>
+        </div>
+
+        <!--DASHED LINES-->
+        <div class="e-stepper__step-lines">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+        </div>
+
+        <!--STEP-->
+        <div class="e-stepper__step e-stepper__step--error">
+          <!--<div class="e-stepper__step-line"></div>-->
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">3</div>
+          </div>
+        </div>
+
+        <!--STEP-->
+        <div class="e-stepper__step e-stepper__step--active">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">4</div>
+          </div>
+        </div>
+
+        <!--STEP-->
+        <div class="e-stepper__step">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">5</div>
+          </div>
+        </div>
+
+        <!--DASHED LINES-->
+        <div class="e-stepper__step-lines">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+        </div>
+
+        <!--STEP-->
+        <div class="e-stepper__step">
+          <!--<div class="e-stepper__step-line"></div>-->
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">7</div>
+          </div>
+        </div>
+      </div>
+
+      <!--CONTENT-->
+      <div class="e-stepper__content">
+        <div class="e-stepper__title">Contact</div>
+        <div class="e-form-field e-mb-24">
+          <label class="e-form-field__label" for="normal">Email</label>
+          <div class="e-input">
+            <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
+          </div>
+        </div>
+        <div class="e-form-field e-form-field--combined">
+          <label class="e-form-field__label" for="phone">Phone</label>
+          <div class="e-form-field__input">
+            <div id="phone" class="e-input e-input--small">
+              <input type="text" value="+47" aria-label="stepper4" />
+            </div>
+            <div class="e-input e-mb-24">
+              <input type="text" placeholder="99 99 99 99" />
+            </div>
+          </div>
+        </div>
+        <div class="e-stepper__actions">
+          <button class="e-btn e-btn--secondary">Back</button>
+          <button class="e-btn e-btn--primary">Next</button>
         </div>
       </div>
     </div>

@@ -26,15 +26,15 @@
 
   @each $label in $labels {
     .e-#{$label} {
+      color: $color;
       font-family: $family;
       font-size: $size;
-      text-align: $align;
-      line-height: $height;
-      font-weight: $weight;
       font-style: $style;
+      font-weight: $weight;
       letter-spacing: $letter-spacing;
+      line-height: $height;
+      text-align: $align;
       text-transform: $transform;
-      color: $color;
       @include breakpoints.breakpoint-up(Mobile) {
         font-size: $size-m;
         line-height: $height-m;

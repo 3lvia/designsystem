@@ -1,70 +1,34 @@
-@use "../variables/shared-sizes";
+@use '../variables/shared-sizes';
 
 @mixin transform($value) {
-  -o-transform: $value;
-  -ms-transform: $value;
-  -webkit-transform: $value;
   transform: $value;
 }
 @mixin transform-origin($value) {
-  -o-transform-origin: $value;
-  -ms-transform-origin: $value;
-  -webkit-transform-origin: $value;
   transform-origin: $value;
 }
 
 @mixin animation($name, $duration, $timing, $type) {
-  -o-animation: $name $duration $timing $type;
-  -moz-animation: $name $duration $timing $type;
-  -webkit-animation: $name $duration $timing $type;
   animation: $name $duration $timing $type;
 }
 @mixin animation-delay($value) {
-  -o-animation-delay: $value;
-  -moz-animation-delay: $value;
-  -webkit-animation-delay: $value;
   animation-delay: $value;
 }
 
 @mixin user-select($value) {
   -webkit-touch-callout: $value;
-  -webkit-user-select: $value;
-  -khtml-user-select: $value;
-  -moz-user-select: $value;
-  -ms-user-select: $value;
   user-select: $value;
 }
 
 @mixin keyframes($value) {
-  @-webkit-keyframes #{$value} {
-    @content;
-  }
-  @-moz-keyframes #{$value} {
-    @content;
-  }
-  @-o-keyframes #{$value} {
-    @content;
-  }
   @keyframes #{$value} {
     @content;
   }
 }
 
 @mixin placeholder() {
-  &::-moz-placeholder {
-    /* Mozilla Firefox 19+ */
+  &::placeholder {
     @content;
     opacity: 1;
-  }
-
-  &:-ms-input-placeholder {
-    /* Microsoft Edge */
-    @content;
-  }
-
-  &::placeholder {
-    /* Most modern browsers support this now. */
-    @content;
   }
 }
 

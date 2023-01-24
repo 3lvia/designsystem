@@ -1,3 +1,4 @@
+const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const cssvariables = require('postcss-css-variables');
 const del = require('del');
@@ -37,7 +38,7 @@ function generateElvisStyle() {
         );
       }),
     )
-
+    .pipe(autoprefixer({ cascade: false }))
     .pipe(rename('elvis.css'))
     .pipe(gulp.dest('./css/'));
 }

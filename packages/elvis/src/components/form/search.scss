@@ -3,13 +3,12 @@
 @use '../../variables/typography.scss';
 
 .e-search {
+  @include typography.typography('text-md');
   position: relative;
 
   &::-ms-clear {
     display: none;
   }
-
-  @include typography.typography('text-md');
 
   &--instant {
     .e-input {
@@ -20,6 +19,7 @@
       &.e-input---loading input {
         padding: 12px 48px 12px 56px;
       }
+
       &.e-input---invalid input,
       &.e-input---focus input,
       &.e-input---loading input,
@@ -29,18 +29,19 @@
     }
 
     i[class*='e-icon--search-color'] {
-      visibility: visible;
       position: absolute;
-      display: flex;
       top: 12px;
       left: 16px;
-      height: 24px;
+      display: flex;
       width: 24px;
+      height: 24px;
+      visibility: visible;
     }
 
     &.e-search--searched {
       .e-btn.e-btn--icon {
         visibility: visible;
+
         .e-btn__icon {
           i[class*='e-icon--close-bold'] {
             visibility: visible;
@@ -50,18 +51,20 @@
     }
 
     .e-btn.e-btn--icon {
-      visibility: hidden;
       position: absolute;
       top: 8px;
       right: 12px;
       width: 32px;
       height: 32px;
+      visibility: hidden;
+
       .e-btn__icon {
         @include icons.icon-size('xs');
+
         i[class*='e-icon--close-bold'] {
-          visibility: hidden;
           position: absolute;
           display: flex;
+          visibility: hidden;
         }
       }
     }
@@ -76,6 +79,7 @@
       &.e-input---disabled input {
         padding: 12px 48px 12px 12px;
       }
+
       &.e-input---invalid input,
       &.e-input---focus input,
       &.e-input---loading input,
@@ -87,6 +91,7 @@
     &.e-search--searched {
       .e-btn.e-btn--icon {
         visibility: visible;
+
         .e-btn__icon {
           i[class*='e-icon--close-bold'] {
             visibility: visible;
@@ -96,18 +101,20 @@
     }
 
     .e-btn.e-btn--icon {
-      visibility: hidden;
       position: absolute;
       top: 8px;
       right: 12px;
       width: 32px;
       height: 32px;
+      visibility: hidden;
+
       .e-btn__icon {
         @include icons.icon-size('xs');
+
         i[class*='e-icon--close-bold'] {
-          visibility: hidden;
           position: absolute;
           display: flex;
+          visibility: hidden;
         }
       }
     }
@@ -119,6 +126,7 @@
     .e-search--instant {
       @include typography.typography('text-sm');
       margin-top: -8px;
+
       .e-input {
         input,
         input:invalid,
@@ -126,33 +134,38 @@
         &.e-input---disabled input,
         &.e-input---loading input {
           max-height: 34px;
-          padding: 6px 32px 6px 32px;
+          padding: 6px 32px;
         }
+
         &.e-input---invalid input,
         &.e-input---focus input,
         &.e-input---loading input,
         input:focus {
-          padding: 5px 31px 5px 31px;
+          padding: 5px 31px;
         }
       }
+
       i[class*='e-icon--search-color'] {
-        visibility: visible;
         position: absolute;
-        display: flex;
         top: 50%;
         left: 8px;
-        height: 16px;
+        display: flex;
         width: 16px;
+        height: 16px;
         transform: translateY(-50%);
+        visibility: visible;
       }
+
       .e-btn {
         top: 1px;
         right: 4px;
       }
     }
+
     .e-search--on-submit {
-      font-size: 14px;
       margin-top: -8px;
+      font-size: 14px;
+
       .e-input {
         input,
         input:invalid,
@@ -162,6 +175,7 @@
           max-height: 34px;
           padding: 6px 32px 6px 10px;
         }
+
         &.e-input---invalid input,
         &.e-input---focus input,
         &.e-input---loading input,
@@ -169,6 +183,7 @@
           padding: 5px 31px 5px 9px;
         }
       }
+
       .e-btn {
         top: 1px;
         right: 4px;
@@ -181,12 +196,13 @@
     &--on-submit {
       .e-input---disabled {
         ~ i[class*='e-icon--search-color'] {
-          opacity: 30%;
           cursor: not-allowed;
+          opacity: 30%;
         }
 
         ~ .e-btn.e-btn--icon {
           visibility: hidden;
+
           .e-btn__icon {
             i[class*='e-icon--close-bold'] {
               visibility: hidden;
