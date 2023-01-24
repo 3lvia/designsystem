@@ -2,23 +2,21 @@
   "content": [
     {
       "version": "10.0.0",
-      "date": "January xx, 2023",
+      "date": "January 24, 2023",
       "changelog": [
         {
           "type": "breaking_changes",
           "changes": [
             "The spacing between elements in the File Upload component has been changed from 22px to 8px. This changes the total height of the component.",
-            "The Position Picker component is now deprecated.",
-            "Removed styles for the <code>:invalid</code> CSS pseudo-class for <code>e-input</code>."
+            "Removed styles for the <code>:invalid</code> CSS pseudo-class for <code>e-input</code>.",
+            "Added <code>:user-invalid</code> CSS pseudo-class for <code>e-input</code> (Firefox only)."
           ],
           "fixes": [
             "Adjust your design to accommodate for the new File Upload height.",
-            "Replace all occurrences of the Position Picker component with a custom replacement.",
             "Add the <code>e-input---invalid</code> class to your invalid <code>e-input</code> elements to get the styles for invalid inputs."
           ],
           "components": [
             { "displayName": "File Upload", "url": "https://design.elvia.io/components/file-upload" },
-            { "displayName": "Position Picker", "url": "https://design.elvia.io/components/position-picker" },
             { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
           ]
         },
@@ -37,8 +35,14 @@
         },
         {
           "type": "patch",
-          "changes": ["Stepper now uses Elvis typography styles."],
-          "components": [{ "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" }]
+          "changes": [
+            "Stepper now uses Elvis typography styles.",
+            "The Position Picker component is now marked as deprecated."
+          ],
+          "components": [
+            { "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" },
+            { "displayName": "Position Picker", "url": "https://design.elvia.io/components/position-picker" }
+          ]
         },
         {
           "type": "patch",
