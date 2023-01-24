@@ -101,12 +101,12 @@
       .e-stepper__step-header {
         display: flex;
         flex-direction: row;
-        gap: 16px;
         align-items: center;
+        gap: 16px;
 
         .e-stepper__step-title {
-          display: flex;
           @include typography.typography('text-md');
+          display: flex;
           cursor: pointer;
         }
       }
