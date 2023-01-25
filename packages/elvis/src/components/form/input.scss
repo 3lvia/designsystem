@@ -17,38 +17,38 @@ $form-input-padding-compact: 4px 10px;
 $form-input-padding-compact-active: 3px 9px;
 
 @property --e-input---loading-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
   inherits: false;
+  initial-value: 0deg;
+  syntax: '<angle>';
 }
 
 .e-input {
-  max-width: 448px;
-  width: 100%;
   position: relative;
+  width: 100%;
+  max-width: 448px;
   text-align: left;
 
   > input,
   > textarea {
+    @include typography.typography('text-option');
     display: flex;
+    width: 100%;
+    max-width: 448px;
+    box-sizing: border-box;
     align-items: center;
+    padding: $form-input-padding;
     border: $form-input-border;
     border-radius: $form-input-border-radius;
-    box-sizing: border-box;
-    background: colors.color('elvia-on');
-    max-width: 448px;
-    width: 100%;
     margin: 0;
-    padding: $form-input-padding;
-    @include typography.typography('text-option');
+    background: colors.color('elvia-on');
     color: colors.color('font-color');
   }
 
   > textarea {
-    min-height: 16px;
     height: 91px;
-    resize: vertical;
+    min-height: 16px;
     overflow-y: auto;
+    resize: vertical;
   }
 
   > input {
@@ -56,6 +56,7 @@ $form-input-padding-compact-active: 3px 9px;
       color: colors.color('grey-70');
     }
   }
+
   .e-input--placeholder {
     color: colors.color('grey-70') !important;
   }
@@ -66,40 +67,45 @@ $form-input-padding-compact-active: 3px 9px;
 
   .e-btn.e-btn--icon {
     position: absolute;
-    right: 4px;
     top: 4px;
+    right: 4px;
     cursor: pointer;
   }
 
   &.e-input---invalid > input,
-  &.e-input---invalid > textarea,
-  > input:invalid,
-  > textarea:invalid {
-    border: 2px solid colors.color('red');
+  &.e-input---invalid > textarea {
     padding: $form-input-padding-active;
+    border: 2px solid colors.color('red');
+  }
+
+  input:user-invalid,
+  textarea:user-invalid {
+    padding: $form-input-padding-active;
+    border: 2px solid colors.color('red');
   }
 
   &.e-input---focus > input,
   &.e-input---focus > textarea {
     @include outline.e-outline-pseudoclass();
-    border: 2px solid colors.color('elvia-charge');
     padding: $form-input-padding-active;
+    border: 2px solid colors.color('elvia-charge');
   }
+
   > input:focus,
   > textarea:focus {
     @include outline.e-outline();
-    border: 2px solid colors.color('elvia-charge');
     padding: $form-input-padding-active;
+    border: 2px solid colors.color('elvia-charge');
   }
 
   &.e-input---disabled > input,
   &.e-input---disabled > textarea,
   > input:disabled,
   > textarea:disabled {
-    opacity: 1;
-    color: colors.color('disabled');
     border-color: colors.color('disabled');
+    color: colors.color('disabled');
     cursor: not-allowed;
+    opacity: 1;
 
     @include helpers.placeholder() {
       color: colors.color('grey-30');
@@ -111,10 +117,10 @@ $form-input-padding-compact-active: 3px 9px;
     > input:focus,
     > input:read-only,
     > input:read-only:focus {
-      background: colors.color('grey-02');
-      border: 1px solid transparent;
-      color: colors.color('text-light');
       padding: $form-input-padding;
+      border: 1px solid transparent;
+      background: colors.color('grey-02');
+      color: colors.color('text-light');
     }
   }
 
@@ -124,6 +130,7 @@ $form-input-padding-compact-active: 3px 9px;
       from {
         --e-input---loading-angle: 0deg;
       }
+
       to {
         --e-input---loading-angle: 180deg;
       }
@@ -135,6 +142,8 @@ $form-input-padding-compact-active: 3px 9px;
         padding: $form-input-padding-active;
         border: solid 2px transparent;
         border-radius: $form-input-border-radius;
+        animation: 1.7s eInputLoadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
+        background-clip: padding-box, border-box;
         background-image: linear-gradient(colors.color('elvia-on'), colors.color('elvia-on')),
           linear-gradient(
             var(--e-input---loading-angle),
@@ -143,8 +152,6 @@ $form-input-padding-compact-active: 3px 9px;
             colors.color('elvia-charge')
           );
         background-origin: border-box;
-        background-clip: padding-box, border-box;
-        animation: 1.7s eInputLoadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
       }
     }
   }
@@ -153,6 +160,7 @@ $form-input-padding-compact-active: 3px 9px;
       from {
         border-color: rgba(colors.color('elvia-charge'), 1);
       }
+
       to {
         border-color: rgba(colors.color('elvia-charge'), 0.1);
       }
@@ -173,11 +181,12 @@ $form-input-padding-compact-active: 3px 9px;
   input[type='time']::-webkit-calendar-picker-indicator {
     display: none;
   }
+
   input[type='search']::-webkit-search-decoration,
   input[type='search']::-webkit-search-cancel-button,
   input[type='search']::-webkit-search-results-button,
   input[type='search']::-webkit-search-results-decoration {
-    -webkit-appearance: none;
+    -webkit-appearance: none; /* stylelint-disable-line */
   }
 }
 
@@ -189,24 +198,23 @@ $form-input-padding-compact-active: 3px 9px;
 .e-input.e-input--compact {
   input,
   textarea {
-    padding: $form-input-padding-compact;
     @include typography.typography('text-sm');
+    padding: $form-input-padding-compact;
     color: colors.color('font-color');
   }
 
   &.e-input---invalid input,
-  &.e-input---invalid textarea,
-  input:invalid,
-  textarea:invalid {
-    border: 2px solid colors.color('red');
+  &.e-input---invalid textarea {
     padding: $form-input-padding-compact-active;
+    border: 2px solid colors.color('red');
   }
+
   &.e-input---focus input,
   &.e-input---focus textarea,
   > input:focus,
   > textarea:focus {
-    border: 2px solid colors.color('elvia-charge');
     padding: $form-input-padding-compact-active;
+    border: 2px solid colors.color('elvia-charge');
   }
 
   &.e-input---readonly {
@@ -214,10 +222,10 @@ $form-input-padding-compact-active: 3px 9px;
     > input:focus,
     > input:read-only,
     > input:read-only:focus {
-      background: colors.color('grey-02');
-      border: 1px solid transparent;
-      color: colors.color('text-light');
       padding: $form-input-padding-compact-active;
+      border: 1px solid transparent;
+      background: colors.color('grey-02');
+      color: colors.color('text-light');
     }
   }
 
@@ -233,9 +241,11 @@ $form-input-padding-compact-active: 3px 9px;
     right: 1px;
     width: 32px;
     height: 32px;
+
     .e-btn__icon {
       width: 16px;
       height: 16px;
+
       i {
         @include icons.icon-size('xs');
       }

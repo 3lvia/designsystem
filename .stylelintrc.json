@@ -8,12 +8,15 @@
   "rules": {
     "indentation": 2,
     "declaration-property-value-disallowed-list": null,
-    "scss/at-extend-no-missing-placeholder": null,
     "max-nesting-depth": null,
     "number-leading-zero": null,
-    "selector-max-compound-selectors": null,
     "order/properties-alphabetical-order": null,
+    "scss/at-extend-no-missing-placeholder": null,
+    "scss/at-function-pattern": null,
+    "scss/at-mixin-pattern": null,
+    "scss/dollar-variable-pattern": null,
     "selector-class-pattern": null,
+    "selector-max-compound-selectors": null,
     "selector-no-qualifying-type": null,
     "selector-pseudo-element-colon-notation": ["double"],
     "plugin/selector-bem-pattern": {
