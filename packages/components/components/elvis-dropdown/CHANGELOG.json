@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "25.01.23",
+      "version": "6.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Set correct type for <code>selectAllOption</code> in wrapper config.",
+            "Hide 'Select all' option when performing a filter that gives no results."
+          ]
+        }
+      ]
+    },
+    {
       "date": "09.01.23",
       "version": "6.0.0",
       "changelog": [

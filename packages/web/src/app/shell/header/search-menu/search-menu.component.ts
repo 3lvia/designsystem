@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
   selector: 'app-search-menu',
   templateUrl: './search-menu.component.html',
   styleUrls: ['./search-menu.component.scss'],
+  providers: [SearchService],
 })
 export class SearchMenuComponent implements OnInit, OnDestroy {
   mainMenu: CMSMenu;

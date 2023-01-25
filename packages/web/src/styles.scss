@@ -225,18 +225,26 @@ kbd,
   line-height: 32px;
   display: flex;
   flex-direction: row;
+  padding: 40px 0;
   column-gap: 24px;
   @include breakpoints.breakpoint-up(Mobile) {
     flex-direction: column;
     row-gap: 16px;
   }
+  &:not(:last-of-type) {
+    border-bottom: 1px solid var(--e-grey-10);
+  }
+  &--skipped {
+    padding: 0;
+  }
 }
 
 .changelog-date {
-  width: 27%;
+  min-width: 150px;
   display: flex;
   flex-direction: column;
   .changelog-date-span {
+    white-space: nowrap;
     color: var(--e-grey-80);
   }
   @-moz-document url-prefix() {
@@ -251,9 +259,8 @@ kbd,
 
 .changelog-content {
   display: flex;
-  row-gap: 32px;
+  row-gap: 24px;
   flex-direction: column;
-  width: 75%;
   @include breakpoints.breakpoint-up(Mobile) {
     width: 100%;
   }

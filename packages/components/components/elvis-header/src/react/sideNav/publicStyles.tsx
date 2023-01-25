@@ -25,6 +25,7 @@ export const publicStyles = (isGtMobile: boolean): FlattenInterpolation<ThemePro
     .e-sidenav__item {
       ${getTypographyCss('text-md')}
       text-decoration: none;
+      white-space: nowrap;
       color: inherit;
       background: transparent;
       border: none;
@@ -59,11 +60,23 @@ export const publicStyles = (isGtMobile: boolean): FlattenInterpolation<ThemePro
       justify-content: center;
       flex: none;
       border: 1px solid transparent;
+
+      i[class*='color'] {
+        display: none;
+      }
     }
 
     .e-sidenav__item--active {
       .e-sidenav__icon-container {
         border-color: ${getColor('elvia-off')};
+
+        i {
+          display: none;
+        }
+
+        i[class*='color'] {
+          display: initial;
+        }
       }
     }
   `;

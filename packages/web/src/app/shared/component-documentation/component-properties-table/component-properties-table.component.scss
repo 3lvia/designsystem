@@ -46,14 +46,10 @@
   align-items: center;
   gap: 16px;
   padding: 32px;
-
   width: 100%;
-  & img {
+
+  img {
     width: 75px;
-  }
-  & span {
-    text-align: center;
-    margin: 0 16px;
   }
 }
 
