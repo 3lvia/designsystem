@@ -110,29 +110,29 @@ const Slider: React.FC<SliderProps> = ({
 
   /** CALCULATIONS FOR THE CUSTOM TRACK
    * - thumbWidth: Used to horizontally center the tooltip over the "thumb" of the slider.
-   * - left: The amount of pixels the left thumb is from the left side of the slider.
-   * - right: The amount of pixels the right thumb is from the right side of the slider (only used in type range).
-   * - middleFilled: The filled track between the two thumbs (only used in type range).
+   * - `leftThumbPosition`: The amount of pixels the left thumb is from the left side of the slider.
+   * - `rightThumbPosition`: The amount of pixels the right thumb is from the right side of the slider (only used in `type="range"`).
+   * - middleFilled: The filled track between the two thumbs (only used in `type="range"`).
    * - resizeObserver: update the width of the slider if it changes because of window resize or parent elements.
    * - useLayoutEffect is used here to get the width after the DOM is finished rendering
    * Read more: https://stackoverflow.com/a/61665977/14447555 and https://stackoverflow.com/a/73248253/14447555
    */
   const thumbWidth = 20;
-  const left =
-    ((sliderValues.left - EXTREMUM.minimum) / (EXTREMUM.maximum - EXTREMUM.minimum)) *
+  const leftThumbPosition =
+    ((sliderValues.left - Extremum.minimum) / (Extremum.maximum - Extremum.minimum)) *
       (sliderWidth - thumbWidth / 2 - thumbWidth / 2) +
     thumbWidth / 2;
 
-  let right: number | undefined;
+  let rightThumbPosition: number | undefined;
   let middleFilled: number | undefined;
 
   if (type === 'range' && sliderValues.right) {
-    right =
-      ((sliderValues.right - EXTREMUM.maximum) / (EXTREMUM.minimum - EXTREMUM.maximum)) *
+    rightThumbPosition =
+      ((sliderValues.right - Extremum.maximum) / (Extremum.minimum - Extremum.maximum)) *
         (sliderWidth - thumbWidth / 2 - thumbWidth / 2) +
       thumbWidth / 2;
 
-    middleFilled = sliderWidth - left - right;
+    middleFilled = sliderWidth - leftThumbPosition - rightThumbPosition;
   }
 
   /* measuring DOM elements */
