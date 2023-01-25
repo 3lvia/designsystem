@@ -106,6 +106,7 @@ export const SliderContainer = styled.div`
 export const NumberInput = styled.input.attrs(() => ({
   inputMode: 'decimal',
   type: 'number',
+  novalidate: true,
 }))<NumberInputProps>`
   -moz-appearance: textfield;
   ${getTypographyCss('text-sm')}
