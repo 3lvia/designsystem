@@ -98,15 +98,15 @@ const Slider: React.FC<SliderProps> = ({
     return false;
   };
 
-  /* percentValue is the percentage relative to the min and max values. Used when the "hasPercent" prop is true. */
+  /** The percentage relative to the `min` and `max` values. Used when `hasPercent = true`. */
   const percentValue = useMemo(() => {
     if (type === 'simple' && hasPercent) {
-      return Math.round(
-        ((sliderValues.left - EXTREMUM.minimum) / (EXTREMUM.maximum - EXTREMUM.minimum)) * 100,
-      );
+      const percent = ((sliderValues.left - Extremum.minimum) / (Extremum.maximum - Extremum.minimum)) * 100;
+      return Math.round(percent);
+    } else {
+      return undefined;
     }
-    return undefined;
-  }, [sliderValues.left, EXTREMUM]);
+  }, [sliderValues.left, Extremum]);
 
   /** CALCULATIONS FOR THE CUSTOM TRACK
    * - thumbWidth: Used to horizontally center the tooltip over the "thumb" of the slider.
