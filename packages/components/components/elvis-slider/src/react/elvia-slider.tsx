@@ -159,21 +159,18 @@ const Slider: React.FC<SliderProps> = ({
   });
 
   useLayoutEffect(() => {
-    if (sliderRef.current !== null) {
-      resizeObserver.observe(sliderRef.current);
-    }
+    const observedElements: (HTMLDivElement | null)[] = [
+      sliderRef.current,
+      leftHelpTextRef.current,
+      rightHelpTextRef.current,
+      leftTextInputRef.current,
+    ];
 
-    if (leftHelpTextRef.current !== null) {
-      resizeObserver.observe(leftHelpTextRef.current);
-    }
-
-    if (rightHelpTextRef.current !== null) {
-      resizeObserver.observe(rightHelpTextRef.current);
-    }
-
-    if (leftTextInputRef.current !== null) {
-      resizeObserver.observe(leftTextInputRef.current);
-    }
+    observedElements.forEach((observedElement) => {
+      if (observedElement !== null) {
+        resizeObserver.observe(observedElement);
+      }
+    });
 
     return function cleanup() {
       resizeObserver.disconnect();
