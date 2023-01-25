@@ -155,7 +155,7 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   display: grid;
   grid-auto-flow: column;
   gap: 8px;
-  align-items: center;
+  align-items: baseline;
   justify-items: stretch;
 
   ${(props) => {
