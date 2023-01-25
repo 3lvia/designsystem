@@ -423,14 +423,8 @@ export const TooltipWrapper = styled.div<TooltipWrapperProps>`
 `;
 
 export const TooltipPopup = styled(TooltipPopupBase)`
-  min-width: 1.5rem;
   max-width: unset;
   position: relative;
-  background-color: ${getColor('elvia-off')};
-
-  &:after {
-    border-top-color: ${getColor('elvia-off')};
-  }
 `;
 
 /*
