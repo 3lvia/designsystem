@@ -5,23 +5,6 @@ import { TooltipPopup as TooltipPopupBase } from '@elvia/elvis-toolbox';
 export { TooltipPopupProps } from '@elvia/elvis-toolbox';
 import { TooltipPopupSides, SliderType } from './elvia-slider.types';
 
-//#region Helpers
-const colors = {
-  disabled: getColor('disabled'),
-  elviaBlack: getColor('black'),
-  elviaCharge: getColor('green'),
-  elviaWhite: getColor('white'),
-  error: getColor('red'),
-  grey20: getColor('grey-20'),
-  grey30: getColor('grey-30'),
-  placeholder: getColor('placeholder'),
-};
-
-const typography = {
-  smallText: getTypographyCss('text-sm'),
-};
-//#endregion
-
 //#region Types
 type StyledSliderProps = {
   sliderType: SliderType;
@@ -66,9 +49,9 @@ const REMOVE_DEFAULT_STYLES = css`
 `;
 
 const THUMB = css`
-  background-color: ${colors.elviaBlack};
+  background-color: ${getColor('black')};
   border-radius: 50%;
-  border: solid 1.5px ${colors.elviaWhite};
+  border: solid 1.5px ${getColor('white')};
   cursor: pointer;
   height: 17px;
   opacity: 1;
@@ -80,16 +63,16 @@ const THUMB = css`
   z-index: 3;
 
   @media (hover: none) and (pointer: coarse) {
-    border: solid 2px ${colors.elviaWhite};
     height: 25px;
     width: 25px;
+    border: solid 2px ${getColor('white')};
   }
 `;
 
 const ACTIVE_THUMB = css`
-  background-color: ${colors.elviaCharge};
-  border: solid 1px ${colors.elviaWhite};
   cursor: -webkit-grabbing;
+  background-color: ${getColor('green')};
+  border: solid 1px ${getColor('white')};
   cursor: grabbing;
 `;
 
@@ -99,15 +82,15 @@ const FOCUS_OUTLINE_THUMB = css`
 `;
 
 const HOVER_THUMB = css`
-  border: solid 1px ${colors.elviaWhite};
+  border: solid 1px ${getColor('white')};
   height: 20px;
   width: 20px;
 `;
 
 const DISABLED_THUMB = css`
-  background-color: ${colors.grey30};
-  border: solid 1.5px ${colors.elviaWhite};
   cursor: -webkit-not-allowed;
+  background-color: ${getColor('grey-30')};
+  border: solid 1.5px ${getColor('white')};
   cursor: not-allowed;
 `;
 //#endregion
@@ -124,12 +107,12 @@ export const NumberInput = styled.input.attrs(() => ({
   inputMode: 'decimal',
   type: 'number',
 }))<NumberInputProps>`
-  ${typography.smallText}
   -moz-appearance: textfield;
+  ${getTypographyCss('text-sm')}
   align-items: center;
-  background-color: ${colors.elviaWhite};
+  background-color: ${getColor('white')};
   border-radius: 4px;
-  border: 1px solid ${colors.elviaBlack};
+  border: 1px solid ${getColor('black')};
   box-sizing: border-box;
   display: flex;
   max-width: 448px;
@@ -147,19 +130,19 @@ export const NumberInput = styled.input.attrs(() => ({
   }
 
   :focus {
-    border: 2px solid ${colors.elviaCharge};
+    border: 2px solid ${getColor('green')};
     padding: 3px 9px;
   }
 
   :disabled {
-    border-color: ${colors.disabled};
-    color: ${colors.disabled};
+    border-color: ${getColor('disabled')};
+    color: ${getColor('disabled')};
     cursor: not-allowed;
     user-select: none;
   }
 
   &[aria-invalid='true'] {
-    border: 2px solid ${colors.error};
+    border: 2px solid ${getColor('red')};
   }
 `;
 
@@ -249,7 +232,7 @@ export const NumberInputContainer = styled.div`
 
 export const LabelText = styled.div`
   box-sizing: border-box;
-  background-color: ${colors.elviaWhite};
+  background-color: ${getColor('white')};
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 10px;
   font-weight: 500;
@@ -261,24 +244,24 @@ export const LabelText = styled.div`
   user-select: none;
   z-index: 1;
   white-space: nowrap;
-  border-bottom: 1px solid ${colors.elviaWhite}; //to remove overflowing greenborder Safari iOS (16)
+  border-bottom: 1px solid ${getColor('white')}; //to remove overflowing greenborder Safari iOS (16)
 `;
 
 export const HelpValue = styled.p<HelperTextProps>`
   display: inline;
   width: fit-content;
   margin: 0;
-  ${typography.smallText}
-  color: ${colors.placeholder};
 
   ${(props) => {
     return props.isDisabled
       ? css`
-          color: ${colors.disabled};
           user-select: none;
         `
       : '';
   }}
+  ${getTypographyCss('text-sm')}
+  color: ${getColor('placeholder')};
+  color: ${getColor('disabled')};
 `;
 
 export const SliderWrapper = styled.div<SliderWrapperProps>`
@@ -391,7 +374,7 @@ export const StyledSlider = styled.input.attrs(() => ({
 `;
 
 export const SliderTrack = styled.div`
-  background-color: ${colors.grey20};
+  background-color: ${getColor('grey-20')};
   border-radius: 50px;
   height: 3px;
   position: absolute;
@@ -405,7 +388,7 @@ export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>((props
     width: props.type === 'simple' ? `${props.trackWidth}px` : `${props.rangeTrackWidth}px`,
   },
 }))<SliderFilledTrackProps>`
-  background-color: ${(props) => (props.isDisabled ? colors.grey30 : colors.elviaBlack)};
+  background-color: ${({ isDisabled }) => (isDisabled ? getColor('grey-30') : getColor('black'))};
   border-radius: 50px;
   height: 5px;
   position: absolute;
