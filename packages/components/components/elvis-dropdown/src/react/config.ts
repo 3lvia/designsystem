@@ -17,7 +17,7 @@ export const config: ComponentConfig = {
     { name: 'isDisabled', type: 'boolean' },
     { name: 'isMulti', type: 'boolean' },
     { name: 'hasSelectAllOption', type: 'boolean' },
-    { name: 'selectAllOption', type: 'object' },
+    { name: 'selectAllOption', type: 'string' },
     { name: 'noOptionsMessage', type: 'string' },
     { name: 'hasLoadMoreItemsButton', type: 'boolean' },
     { name: 'isLoadingMoreItems', type: 'boolean' },

@@ -2,6 +2,20 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "25.01.23",
+      "version": "1.2.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Ensure Elvia logo has the right size.",
+            "Prevent sidenav item text from wrapping.",
+            "Show colored icon when active."
+          ]
+        }
+      ]
+    },
+    {
       "date": "16.01.23",
       "version": "1.2.0",
       "changelog": [

@@ -92,7 +92,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       if (!isGtMobile && !isRootOverlay) {
         itemList.unshift(backItem);
       }
-      if (selectAllOption) {
+      if (selectAllOption && itemList.length) {
         itemList.unshift(selectAllItem);
       }
       if (hasLoadMoreItemsButton) {
@@ -253,7 +253,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   inputIsKeyboard={inputIsKeyboard}
                 />
               )}
-              {selectAllOption && isRootOverlay && (
+              {selectAllOption && isRootOverlay && !!filteredItems.length && (
                 <SelectAllOption
                   focusedValue={focusedItem?.value}
                   isCompact={isCompact}
