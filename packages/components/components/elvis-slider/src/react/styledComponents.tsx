@@ -122,7 +122,7 @@ export const NumberInput = styled.input.attrs(() => ({
   padding: 4px 10px;
   position: relative;
   text-transform: unset;
-  width: ${(props) => Math.max(props.label.length, props.max.toString().length) + 2}ch;
+  width: ${({ label, max }) => Math.max(label.length, max.toString().length) + 2}ch;
 
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
@@ -159,16 +159,16 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   align-items: baseline;
   justify-items: stretch;
 
-  ${(props) => {
-    return !props.leftInputPriority ? 'grid-auto-columns: 1fr;' : ''; //Keep all columns the same width, used to center the input field.
+  ${({ leftInputPriority }) => {
+    return !leftInputPriority ? 'grid-auto-columns: 1fr;' : ''; //Keep all columns the same width, used to center the input field.
   }}
 
   p:first-child {
     text-align: left;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    ${(props) => {
-      return props.leftInputPriority ? 'visibility: hidden;' : '';
+    ${({ leftInputPriority }) => {
+      return leftInputPriority ? 'visibility: hidden;' : '';
     }}
   }
 
@@ -252,17 +252,15 @@ export const HelpValue = styled.p<HelperTextProps>`
   display: inline;
   width: fit-content;
   margin: 0;
-
-  ${(props) => {
-    return props.isDisabled
-      ? css`
-          user-select: none;
-        `
-      : '';
-  }}
   ${getTypographyCss('text-sm')}
   color: ${getColor('placeholder')};
-  color: ${getColor('disabled')};
+
+  ${({ isDisabled }) =>
+    isDisabled &&
+    css`
+      color: ${getColor('disabled')};
+      user-select: none;
+    `}
 `;
 
 export const SliderWrapper = styled.div<SliderWrapperProps>`
@@ -276,7 +274,7 @@ export const SliderWrapper = styled.div<SliderWrapperProps>`
   }
 
   input[type='range']:first-child {
-    z-index: ${(props) => (props.leftOnTop ? 5 : 3)};
+    z-index: ${({ leftOnTop }) => (leftOnTop ? 5 : 3)};
   }
 `;
 
@@ -290,7 +288,7 @@ export const StyledSlider = styled.input.attrs(() => ({
   }
 
   height: 0;
-  pointer-events: ${(props) => (props.sliderType === 'simple' ? 'auto' : 'none')};
+  pointer-events: ${({ sliderType }) => (sliderType === 'simple' ? 'auto' : 'none')};
   position: absolute;
   transition-duration: 3s;
   z-index: 3;
@@ -383,12 +381,14 @@ export const SliderTrack = styled.div`
   z-index: 1;
 `;
 
-export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>((props) => ({
-  style: {
-    left: props.type === 'range' ? `${props.trackWidth}px` : undefined,
-    width: props.type === 'simple' ? `${props.trackWidth}px` : `${props.rangeTrackWidth}px`,
-  },
-}))<SliderFilledTrackProps>`
+export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>(
+  ({ type, trackWidth, rangeTrackWidth }) => ({
+    style: {
+      left: type === 'range' ? `${trackWidth}px` : undefined,
+      width: type === 'simple' ? `${trackWidth}px` : `${rangeTrackWidth}px`,
+    },
+  }),
+)<SliderFilledTrackProps>`
   background-color: ${({ isDisabled }) => (isDisabled ? getColor('grey-30') : getColor('black'))};
   border-radius: 50px;
   height: 5px;
@@ -402,8 +402,8 @@ interface TooltipWrapperProps {
 
 export const TooltipWrapper = styled.div<TooltipWrapperProps>`
   position: absolute;
-  transform: ${(props) => (props.side === 'left' ? 'translateX(-50%)' : 'translateX(50%)')};
   top: -46px;
+  transform: ${({ side }) => (side === 'left' ? 'translateX(-50%)' : 'translateX(50%)')};
 `;
 
 export const TooltipPopup = styled(TooltipPopupBase)`
