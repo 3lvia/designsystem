@@ -16,6 +16,7 @@ export const config: ComponentConfig = {
     { name: 'placeholder', type: 'string' },
     { name: 'isOpen', type: 'boolean' },
     { name: 'hasOptionalText', type: 'boolean' },
+    { name: 'resetTime', type: 'boolean' },
     { name: 'clearButtonText', type: 'string' },
     { name: 'disableDate', type: 'function' },
     { name: 'className', type: 'string' },
