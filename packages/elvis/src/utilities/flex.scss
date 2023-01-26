@@ -42,6 +42,14 @@
   align-items: flex-end;
 }
 
+.e-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.e-flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
 .e-gap-8 {
   gap: 8px;
 }
