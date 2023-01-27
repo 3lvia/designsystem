@@ -6,7 +6,7 @@ import {
   visibleDotsBreakingPoint,
   visibleDotsBreakingPointMo,
 } from './constants';
-import { PageElement } from './PageElement';
+import { FirstPageNumber, LastPageNumber } from './PageElement';
 import { PaginatorDots, PaginatorNumbersArea } from './styledComponents';
 
 interface PaginatorNumbersAndDotsProps {
@@ -52,37 +52,12 @@ export const PaginatorNumbersAndDots: FC<PaginatorNumbersAndDotsProps> = ({
     );
   }, [selectedPageNumber, numberOfPages, isMobile]);
 
-  const FirstPageNumber = (): JSX.Element => {
-    return (
-      <PageElement
-        pageNumber={1}
-        selectedPageNumber={selectedPageNumber}
-        setSelectedPageNumber={setSelectedPageNumber}
-      />
-    );
-  };
-
-  const LastPageNumber = (): JSX.Element | null => {
-    if (
-      lastNumberLimit !== undefined &&
-      lastNumberLimit <= numberOfElements &&
-      !(selectedPageNumber >= numberOfPages - 3)
-    ) {
-      return null;
-    }
-
-    return (
-      <PageElement
-        pageNumber={numberOfPages}
-        selectedPageNumber={selectedPageNumber}
-        setSelectedPageNumber={setSelectedPageNumber}
-      />
-    );
-  };
-
   return (
     <PaginatorNumbersArea>
-      <FirstPageNumber />
+      <FirstPageNumber
+        selectedPageNumber={selectedPageNumber}
+        setSelectedPageNumber={setSelectedPageNumber}
+      />
       {shouldHaveVisibleFirstDots && <PaginatorDots>...</PaginatorDots>}
       <BetweenPageNumbers
         isMobile={isMobile}
@@ -91,7 +66,15 @@ export const PaginatorNumbersAndDots: FC<PaginatorNumbersAndDotsProps> = ({
         setSelectedPageNumber={setSelectedPageNumber}
       />
       {shouldHaveVisibleLastDots && <PaginatorDots>...</PaginatorDots>}
-      {numberOfPages > 1 && <LastPageNumber />}
+      {numberOfPages > 1 && (
+        <LastPageNumber
+          selectedPageNumber={selectedPageNumber}
+          setSelectedPageNumber={setSelectedPageNumber}
+          numberOfElements={numberOfElements}
+          numberOfPages={numberOfPages}
+          lastNumberLimit={lastNumberLimit}
+        />
+      )}
     </PaginatorNumbersArea>
   );
 };
