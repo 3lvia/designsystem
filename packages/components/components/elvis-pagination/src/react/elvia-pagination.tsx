@@ -96,30 +96,24 @@ const Pagination: FC<PaginationProps> = function ({
     }
   }, [selectedDropdownValue]);
 
+  /** If the selected range is programmatically changed, update what page is selected */
   useEffect(() => {
-    updateSelectedPageByVisibleElements(value);
-  }, [value]);
+    updateSelectedPageByVisibleElements();
+  }, [visibleElements, numberOfPages]);
 
+  /** Keep labelOptions prop in sync with the shown label options */
   useEffect(() => {
     setLabelOptionsState({ ...defaultLabelOptions, ...labelOptions });
   }, [labelOptions]);
 
-  useEffect(() => {
-    if (numberOfElements !== 0) {
-      handleDropdownValueChange(selectedDropdownValue.toString());
-    }
-  }, [numberOfElements]);
-
-  useEffect(() => {
-    updateSelectedPageByVisibleElements(visibleElements);
-  }, [numberOfPages]);
-
+  /** Handle updating the selected range when changing page number */
   useEffect(() => {
     if (numberOfElements !== 0) {
       updateVisibleElementsForSelectedPageNumberChange();
     }
   }, [selectedPageNumber]);
 
+  /** Handle updating the selected range when changing the dropdown */
   useEffect(() => {
     updateVisibleElementsForDropdownChange();
   }, [selectedDropdownValue]);
@@ -148,6 +142,9 @@ const Pagination: FC<PaginationProps> = function ({
   }, []);
 
   const triggerValueOnChangeEvent = (): void => {
+    if (visibleElements.start === undefined || visibleElements.end === undefined) {
+      return;
+    }
     valueOnChange?.(visibleElements);
     webcomponent?.setProps({ value: visibleElements }, true);
     webcomponent?.triggerEvent('valueOnChange', visibleElements);
@@ -170,10 +167,6 @@ const Pagination: FC<PaginationProps> = function ({
   };
 
   const updateVisibleElementsForSelectedPageNumberChange = (): void => {
-    if (numberOfElements === 0) {
-      setVisibleElements({ start: 0, end: 0 });
-      return;
-    }
     const firstElementIndex = selectedDropdownValue * selectedPageNumber - selectedDropdownValue + 1;
     const lastElementIndex = Math.min(firstElementIndex + selectedDropdownValue - 1, numberOfElements);
     setVisibleElements({
@@ -183,7 +176,7 @@ const Pagination: FC<PaginationProps> = function ({
   };
 
   /** Update selected page when value (visible elements) changed */
-  const updateSelectedPageByVisibleElements = (visibleElements: VisibleElements): void => {
+  const updateSelectedPageByVisibleElements = (): void => {
     if (visibleElements.start === undefined || visibleElements.end === undefined) {
       return;
     }
