@@ -14,17 +14,7 @@ export interface PaginationLabel {
   label?: string;
 }
 
-export interface PaginationProps extends BaseProps {
-  value?: VisibleElements;
-  numberOfElements?: number;
-  lastNumberLimit?: number;
-  alignment?: 'left' | 'right';
-  dropdownItems?: DropdownItem[];
-  dropdownMenuPosition?: 'top' | 'bottom' | 'auto';
-  dropdownSelectedItemIndex?: number;
-  dropdownSelectedItemIndexOnChange?: (value: number) => void;
-  labelOptions?: PaginationLabel;
-  valueOnChange?: (value: VisibleElements) => void;
+export interface DeprecatedPaginationProps {
   /**
    * @deprecated Removed in version 3.0.0. Replaced by `alignment`.
    */
@@ -53,6 +43,19 @@ export interface PaginationProps extends BaseProps {
    * @deprecated Removed in version 3.0.0. Replaced by `labelOptions.of`.
    */
   labelOf?: string;
+}
+
+export interface PaginationProps extends BaseProps, DeprecatedPaginationProps {
+  value?: VisibleElements;
+  valueOnChange?: (value: VisibleElements) => void;
+  numberOfElements?: number;
+  lastNumberLimit?: number;
+  alignment?: 'left' | 'right';
+  dropdownItems?: DropdownItem[];
+  dropdownMenuPosition?: 'top' | 'bottom' | 'auto';
+  dropdownSelectedItemIndex?: number;
+  dropdownSelectedItemIndexOnChange?: (value: number) => void;
+  labelOptions?: PaginationLabel;
 }
 
 export const defaultPaginationDropdownItems: DropdownItem[] = [
