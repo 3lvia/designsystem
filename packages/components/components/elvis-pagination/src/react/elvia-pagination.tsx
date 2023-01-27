@@ -1,15 +1,19 @@
-import React, { FC, useState, useEffect, useMemo } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
-import { DropdownItem, VisibleElements, PaginationLabel, PaginationProps } from './elvia-pagination.types';
+import {
+  VisibleElements,
+  PaginationLabel,
+  PaginationProps,
+  defaultPaginationValue,
+  defaultPaginationDropdownItems,
+  defaultPaginationLabelOptions,
+} from './elvia-pagination.types';
 import {
   Paginator,
-  PaginatorPage,
-  PaginatorDots,
   PaginatorInfoAmount,
   PaginatorInfoContainer,
   PaginatorInfoDropdown,
   PaginatorInfoText,
-  PaginatorNumbersArea,
   PaginatorSelectorArea,
   PaginatorSelectorArrowBtn,
 } from './styledComponents';
@@ -17,29 +21,16 @@ import { useRovingFocus, warnDeprecatedProps, IconWrapper } from '@elvia/elvis-t
 import arrowLongLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeft';
 import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
 import { config } from './config';
-
-const defaultPaginationOptions: DropdownItem[] = [
-  { value: '10', label: '10' },
-  { value: '20', label: '20' },
-  { value: '30', label: '30' },
-  { value: '40', label: '40' },
-];
-
-const defaultLabelOptions: PaginationLabel = {
-  displaying: 'Viser',
-  of: 'av',
-  label: 'elementer',
-};
-const defaultValue: VisibleElements = { start: undefined, end: undefined };
+import { PaginatorNumbersAndDots } from './PaginatorNumbersAndDots';
 
 const Pagination: FC<PaginationProps> = function ({
   // Value represents the current visible elements in the pagination
-  value = defaultValue,
+  value = defaultPaginationValue,
   numberOfElements = 0,
   lastNumberLimit,
   alignment = 'left',
   dropdownMenuPosition = 'bottom',
-  dropdownItems = defaultPaginationOptions,
+  dropdownItems = defaultPaginationDropdownItems,
   dropdownSelectedItemIndex = 0,
   dropdownSelectedItemIndexOnChange,
   labelOptions,
@@ -51,23 +42,6 @@ const Pagination: FC<PaginationProps> = function ({
 }) {
   warnDeprecatedProps(config, arguments[0]);
 
-  /** Max page numbers that can be visible at the same time */
-  const maxVisiblePageNumbers = 9;
-  const maxVisiblePageNumbersMo = 7;
-  /** How many pages that should be displayed between the dots when there are dots on both sides */
-  const numOfPagesBetweenDots = 5;
-  const numOfPagesBetweenDotsMo = 3;
-
-  /** How many pages that can be displayed on each end before/after dots. 2 represents the space for the dots and the last or first number*/
-  const numOfPagesBeforeDots = maxVisiblePageNumbers - 2;
-  const numOfPagesBeforeDotsMo = maxVisiblePageNumbersMo - 2;
-  /** How many pages that should visible on each side of the selected page when in center (Dots are visible on both sides) */
-  const numOfPagesBesideSelected = Math.floor(numOfPagesBetweenDots / 2);
-  const numOfPagesBesideSelectedMo = Math.floor(numOfPagesBetweenDotsMo / 2);
-  /** How many pages that can be navigated to at each end before dots are displayed instead of numbers */
-  const visibleDotsBreakingPoint = numOfPagesBeforeDots - numOfPagesBesideSelected;
-  const visibleDotsBreakingPointMo = numOfPagesBeforeDotsMo - numOfPagesBesideSelectedMo;
-
   const [selectedPageNumber, setSelectedPageNumber] = useState(1);
   const [selectedDropdownValue, setSelectedDropdownValue] = useState(
     parseInt(dropdownItems[dropdownSelectedItemIndex].value),
@@ -75,12 +49,10 @@ const Pagination: FC<PaginationProps> = function ({
   const [showPaginationNumbers, setShowPaginationNumbers] = useState(true);
   /** Calculate number of pages based on total elements divided by amount of elements showing. */
   const [numberOfPages, setNumberOfPages] = useState(Math.ceil(numberOfElements / selectedDropdownValue));
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [labelOptionsState, setLabelOptionsState] = useState<PaginationLabel>({
-    ...defaultLabelOptions,
+    ...defaultPaginationLabelOptions,
     ...labelOptions,
   });
-  const isMobile = useMemo(() => windowWidth < 768, [windowWidth]);
   const { ref: listContainerRef } = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
   const [visibleElements, setVisibleElements] = useState<VisibleElements>(value);
 
@@ -103,7 +75,7 @@ const Pagination: FC<PaginationProps> = function ({
 
   /** Keep labelOptions prop in sync with the shown label options */
   useEffect(() => {
-    setLabelOptionsState({ ...defaultLabelOptions, ...labelOptions });
+    setLabelOptionsState({ ...defaultPaginationLabelOptions, ...labelOptions });
   }, [labelOptions]);
 
   /** Handle updating the selected range when changing page number */
@@ -129,17 +101,6 @@ const Pagination: FC<PaginationProps> = function ({
   useEffect(() => {
     setSelectedDropdownValue(parseInt(dropdownItems[dropdownSelectedItemIndex].value));
   }, [dropdownItems, dropdownSelectedItemIndex]);
-
-  useEffect(() => {
-    const setWindowDimensions = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    setWindowDimensions();
-    window.addEventListener('resize', setWindowDimensions);
-    return () => {
-      window.removeEventListener('resize', setWindowDimensions);
-    };
-  }, []);
 
   const triggerValueOnChangeEvent = (): void => {
     if (visibleElements.start === undefined || visibleElements.end === undefined) {
@@ -189,126 +150,11 @@ const Pagination: FC<PaginationProps> = function ({
     }
   };
 
-  /** -- PAGES -- */
-  const getAriaLabel = (pageNumber: number): string => {
-    return pageNumber === selectedPageNumber ? 'Valgt side' : 'Velg side ' + pageNumber;
+  const shouldHaveLeftArrow = (): boolean => {
+    return showPaginationNumbers && selectedPageNumber > 1;
   };
-
-  const getPageElement = (pageNumber: number): JSX.Element => {
-    return (
-      <PaginatorPage
-        key={pageNumber}
-        pageNumber={pageNumber}
-        onClick={() => setSelectedPageNumber(pageNumber)}
-        selected={pageNumber === selectedPageNumber}
-        aria-current={pageNumber === selectedPageNumber}
-        aria-label={getAriaLabel(pageNumber)}
-        data-testid={`paginator-button-${pageNumber}`}
-      >
-        {pageNumber.toLocaleString('nb-NO')}
-      </PaginatorPage>
-    );
-  };
-
-  const getDotsElement = (dotKey: string): JSX.Element => {
-    return <PaginatorDots key={dotKey}>...</PaginatorDots>;
-  };
-
-  const shouldHaveVisibleFirstDots = () => {
-    return (
-      selectedPageNumber > (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
-      numberOfPages > (isMobile ? maxVisiblePageNumbersMo : maxVisiblePageNumbers)
-    );
-  };
-
-  const shouldHaveVisibleLastDots = (): boolean => {
-    return (
-      selectedPageNumber <=
-        numberOfPages - (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
-      numberOfPages > (isMobile ? maxVisiblePageNumbersMo : maxVisiblePageNumbers)
-    );
-  };
-
-  const isNumberFirstOrLast = (pageNumber: number): boolean => {
-    return pageNumber === 1 || pageNumber === numberOfPages;
-  };
-  const areAllPageNumbersVisible = (): boolean => {
-    return numberOfPages === (isMobile ? maxVisiblePageNumbersMo : maxVisiblePageNumbers);
-  };
-
-  const isNumberAtBeginningAndVisible = (pageNumber: number): boolean => {
-    return (
-      selectedPageNumber <= (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
-      pageNumber <= (isMobile ? numOfPagesBeforeDotsMo : numOfPagesBeforeDots)
-    );
-  };
-  const isNumberInCenterAndVisible = (pageNumber: number): boolean => {
-    return (
-      selectedPageNumber > (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
-      selectedPageNumber <=
-        numberOfPages - (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
-      pageNumber >= selectedPageNumber - (isMobile ? numOfPagesBesideSelectedMo : numOfPagesBesideSelected) &&
-      pageNumber <= selectedPageNumber + (isMobile ? numOfPagesBesideSelectedMo : numOfPagesBesideSelected)
-    );
-  };
-  const isNumberAtEndAndVisible = (pageNumber: number): boolean => {
-    return (
-      selectedPageNumber >
-        numberOfPages - (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
-      pageNumber > numberOfPages - (isMobile ? numOfPagesBeforeDotsMo : numOfPagesBeforeDots)
-    );
-  };
-
-  const PaginatorNumbersAndDots: FC = () => {
-    const visibleNumbersAndDots = [];
-    const pageNumbersArray = Array.from(Array(numberOfPages + 1).keys()).slice(1);
-    const betweenPageNumbers: JSX.Element[] = [];
-
-    const getFirstPageNumber = (): JSX.Element => {
-      return getPageElement(1);
-    };
-
-    const getBetweenPageNumbers = (): (JSX.Element | null)[] => {
-      pageNumbersArray.forEach((pageNumber) => {
-        if (isNumberFirstOrLast(pageNumber)) {
-          return;
-        } else if (areAllPageNumbersVisible()) {
-          betweenPageNumbers.push(getPageElement(pageNumber));
-        } else if (isNumberAtBeginningAndVisible(pageNumber)) {
-          betweenPageNumbers.push(getPageElement(pageNumber));
-        } else if (isNumberInCenterAndVisible(pageNumber)) {
-          betweenPageNumbers.push(getPageElement(pageNumber));
-        } else if (isNumberAtEndAndVisible(pageNumber)) {
-          betweenPageNumbers.push(getPageElement(pageNumber));
-        }
-      });
-
-      return betweenPageNumbers;
-    };
-
-    const getLastPageNumber = (): JSX.Element | null => {
-      // TODO: Handle all user errors at one place
-      if (numberOfElements <= selectedDropdownValue) {
-        return null;
-      }
-      if (lastNumberLimit !== undefined) {
-        if (lastNumberLimit <= numberOfElements && !(selectedPageNumber >= numberOfPages - 3)) {
-          return null;
-        }
-      }
-
-      return getPageElement(numberOfPages);
-    };
-
-    visibleNumbersAndDots.push(
-      getFirstPageNumber(),
-      shouldHaveVisibleFirstDots() ? getDotsElement('first-dots') : null,
-      getBetweenPageNumbers(),
-      shouldHaveVisibleLastDots() ? getDotsElement('last-dots') : null,
-      getLastPageNumber(),
-    );
-
-    return <PaginatorNumbersArea>{visibleNumbersAndDots}</PaginatorNumbersArea>;
+  const shouldHaveRightArrow = (): boolean => {
+    return showPaginationNumbers && selectedPageNumber < numberOfPages;
   };
 
   /** -- DROPDOWN -- */
@@ -336,13 +182,6 @@ const Pagination: FC<PaginationProps> = function ({
     dropdownSelectedItemIndexOnChange?.(selectedIndex);
     webcomponent?.setProps({ dropdownSelectedItemIndex: selectedIndex }, true);
     webcomponent?.triggerEvent('dropdownSelectedItemIndexOnChange', selectedIndex);
-  };
-
-  const shouldHaveLeftArrow = (): boolean => {
-    return showPaginationNumbers && selectedPageNumber > 1;
-  };
-  const shouldHaveRightArrow = (): boolean => {
-    return showPaginationNumbers && selectedPageNumber < numberOfPages;
   };
 
   return (
@@ -382,7 +221,15 @@ const Pagination: FC<PaginationProps> = function ({
         >
           <IconWrapper icon={arrowLongLeft} size="xs" />
         </PaginatorSelectorArrowBtn>
-        {showPaginationNumbers && <PaginatorNumbersAndDots />}
+        {showPaginationNumbers && (
+          <PaginatorNumbersAndDots
+            numberOfPages={numberOfPages}
+            selectedPageNumber={selectedPageNumber}
+            setSelectedPageNumber={setSelectedPageNumber}
+            numberOfElements={numberOfElements}
+            lastNumberLimit={lastNumberLimit}
+          />
+        )}
         <PaginatorSelectorArrowBtn
           visible={shouldHaveRightArrow()}
           aria-hidden={!shouldHaveRightArrow()}
