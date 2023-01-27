@@ -324,6 +324,7 @@
       [value]="defaultPaginationValue"
       [alignment]="'right'"
       dropdownMenuPosition="top"
+      (valueOnChange)="logValue('Pagination', $event.detail.value)"
     ></elvia-pagination>
   </div>
 

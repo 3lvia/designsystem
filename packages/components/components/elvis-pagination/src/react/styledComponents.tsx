@@ -148,11 +148,7 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
   }
 `;
 
-type PaginatorDotsProps = {
-  hide: boolean;
-};
-
-export const PaginatorDots = styled.div<PaginatorDotsProps>`
+export const PaginatorDots = styled.div`
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -163,8 +159,8 @@ export const PaginatorDots = styled.div<PaginatorDotsProps>`
   color: ${colors.elviaBlack};
 
   align-items: center;
-  display: ${(props) => (props.hide ? 'none' : 'flex')};
+  display: flex;
   height: 36px;
   justify-content: center;
-  width: ${(props) => (props.hide ? '0px' : '36px')};
+  width: 36px;
 `;

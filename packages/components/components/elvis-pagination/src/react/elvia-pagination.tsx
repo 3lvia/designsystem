@@ -1,6 +1,6 @@
-import React, { FC, useState, useEffect, CSSProperties } from 'react';
+import React, { FC, useState, useEffect, useMemo } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
-import { DropdownItem, VisibleElements, PaginationLabel } from './elvia-pagination.types';
+import { DropdownItem, VisibleElements, PaginationLabel, PaginationProps } from './elvia-pagination.types';
 import {
   Paginator,
   PaginatorPage,
@@ -13,73 +13,16 @@ import {
   PaginatorSelectorArea,
   PaginatorSelectorArrowBtn,
 } from './styledComponents';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { useRovingFocus, warnDeprecatedProps, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowLongLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeft';
 import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
 import { config } from './config';
 
-export interface PaginationProps {
-  value?: VisibleElements;
-  numberOfElements?: number;
-  lastNumberLimit?: number;
-  alignment?: 'left' | 'right';
-  dropdownItems?: DropdownItem[];
-  dropdownMenuPosition?: 'top' | 'bottom' | 'auto';
-  dropdownSelectedItemIndex?: number;
-  dropdownSelectedItemIndexOnChange?: (value: number) => void;
-  labelOptions?: PaginationLabel;
-  valueOnChange?: (value: VisibleElements) => void;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `alignment`.
-   */
-  isRightAligned?: boolean;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `dropdownMenuPosition`.
-   */
-  dropdownMenuPos?: string;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `dropdownSelectedItemIndex`.
-   */
-  selectedDropdownItemIndex?: number;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `dropdownSelectedItemIndexOnChange`.
-   */
-  selectedDropdownItemIndexOnChange?: (value: number) => void;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `labelOptions.displaying`.
-   */
-  labelDisplaying?: string;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `labelOptions.label`.
-   */
-  label?: string;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `labelOptions.of`.
-   */
-  labelOf?: string;
-}
-
 const defaultPaginationOptions: DropdownItem[] = [
-  {
-    value: '10',
-    label: '10',
-  },
-  {
-    value: '20',
-    label: '20',
-  },
-  {
-    value: '30',
-    label: '30',
-  },
-  {
-    value: '40',
-    label: '40',
-  },
+  { value: '10', label: '10' },
+  { value: '20', label: '20' },
+  { value: '30', label: '30' },
+  { value: '40', label: '40' },
 ];
 
 const defaultLabelOptions: PaginationLabel = {
@@ -87,10 +30,11 @@ const defaultLabelOptions: PaginationLabel = {
   of: 'av',
   label: 'elementer',
 };
+const defaultValue: VisibleElements = { start: undefined, end: undefined };
 
 const Pagination: FC<PaginationProps> = function ({
   // Value represents the current visible elements in the pagination
-  value = { start: undefined, end: undefined },
+  value = defaultValue,
   numberOfElements = 0,
   lastNumberLimit,
   alignment = 'left',
@@ -126,26 +70,31 @@ const Pagination: FC<PaginationProps> = function ({
 
   const [selectedPageNumber, setSelectedPageNumber] = useState(1);
   const [selectedDropdownValue, setSelectedDropdownValue] = useState(
-    dropdownItems[dropdownSelectedItemIndex].value,
+    parseInt(dropdownItems[dropdownSelectedItemIndex].value),
   );
   const [showPaginationNumbers, setShowPaginationNumbers] = useState(true);
   /** Calculate number of pages based on total elements divided by amount of elements showing. */
-  const [numberOfPages, setNumberOfPages] = useState(
-    Math.ceil(numberOfElements / parseInt(selectedDropdownValue)),
-  );
+  const [numberOfPages, setNumberOfPages] = useState(Math.ceil(numberOfElements / selectedDropdownValue));
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [labelOptionsState, setLabelOptionsState] = useState<PaginationLabel>({
     ...defaultLabelOptions,
     ...labelOptions,
   });
-  const isMobile = windowWidth < 768;
+  const isMobile = useMemo(() => windowWidth < 768, [windowWidth]);
   const { ref: listContainerRef } = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
+  const [visibleElements, setVisibleElements] = useState<VisibleElements>(value);
+
+  useEffect(() => {
+    setVisibleElements(value);
+  }, [value]);
 
   /** If selectedDropdownValue is not a number, hide the pagination TODO: Varsle bruker? */
-  if (isNaN(parseInt(selectedDropdownValue))) {
-    setNumberOfPages(0);
-    setShowPaginationNumbers(false);
-  }
+  useEffect(() => {
+    if (isNaN(selectedDropdownValue)) {
+      setNumberOfPages(0);
+      setShowPaginationNumbers(false);
+    }
+  }, [selectedDropdownValue]);
 
   useEffect(() => {
     updateSelectedPageByVisibleElements(value);
@@ -157,71 +106,85 @@ const Pagination: FC<PaginationProps> = function ({
 
   useEffect(() => {
     if (numberOfElements !== 0) {
-      handleDropdownValueChange(selectedDropdownValue);
+      handleDropdownValueChange(selectedDropdownValue.toString());
     }
   }, [numberOfElements]);
 
   useEffect(() => {
-    dispatchVisibleElementsValueEvent(selectedPageNumber);
-  }, [selectedPageNumber, selectedDropdownValue]);
+    updateSelectedPageByVisibleElements(visibleElements);
+  }, [numberOfPages]);
 
   useEffect(() => {
-    setNumberOfPages(Math.ceil(numberOfElements / parseInt(selectedDropdownValue)));
+    if (numberOfElements !== 0) {
+      updateVisibleElementsForSelectedPageNumberChange();
+    }
+  }, [selectedPageNumber]);
+
+  useEffect(() => {
+    updateVisibleElementsForDropdownChange();
+  }, [selectedDropdownValue]);
+
+  useEffect(() => {
+    triggerValueOnChangeEvent();
+  }, [visibleElements]);
+
+  useEffect(() => {
+    setNumberOfPages(Math.ceil(numberOfElements / selectedDropdownValue));
   }, [numberOfElements, selectedDropdownValue]);
 
   useEffect(() => {
-    setSelectedDropdownValue(dropdownItems[dropdownSelectedItemIndex].value);
+    setSelectedDropdownValue(parseInt(dropdownItems[dropdownSelectedItemIndex].value));
   }, [dropdownItems, dropdownSelectedItemIndex]);
 
   useEffect(() => {
+    const setWindowDimensions = () => {
+      setWindowWidth(window.innerWidth);
+    };
     setWindowDimensions();
-  }, []);
-
-  useEffect(() => {
     window.addEventListener('resize', setWindowDimensions);
     return () => {
       window.removeEventListener('resize', setWindowDimensions);
     };
-  });
+  }, []);
 
-  const setWindowDimensions = () => {
-    setWindowWidth(window.innerWidth);
+  const triggerValueOnChangeEvent = (): void => {
+    valueOnChange?.(visibleElements);
+    webcomponent?.setProps({ value: visibleElements }, true);
+    webcomponent?.triggerEvent('valueOnChange', visibleElements);
   };
 
-  const shouldHaveLeftArrow = (): boolean => {
-    return showPaginationNumbers && selectedPageNumber > 1;
-  };
-  const shouldHaveRightArrow = (): boolean => {
-    return showPaginationNumbers && selectedPageNumber < numberOfPages;
+  const updateVisibleElementsForDropdownChange = (): void => {
+    setVisibleElements((previousValue) => {
+      if (previousValue.start === undefined) {
+        return previousValue;
+      }
+      // Get the new value start index where the range contains the previous start
+      const firstElementIndex =
+        Math.floor((previousValue.start - 1) / selectedDropdownValue) * selectedDropdownValue + 1;
+      const lastElementIndex = Math.min(firstElementIndex + selectedDropdownValue - 1, numberOfElements);
+      return {
+        start: firstElementIndex,
+        end: lastElementIndex,
+      };
+    });
   };
 
-  /** Update visible elements value and dispatch value events */
-  const dispatchVisibleElementsValueEvent = (selectedPageNumber: number): void => {
-    if (selectedPageNumber <= 0 || selectedPageNumber > numberOfPages) {
+  const updateVisibleElementsForSelectedPageNumberChange = (): void => {
+    if (numberOfElements === 0) {
+      setVisibleElements({ start: 0, end: 0 });
       return;
     }
-
-    const firstElementIndex =
-      parseInt(selectedDropdownValue) * selectedPageNumber - parseInt(selectedDropdownValue) + 1;
-    let lastElementIndex = firstElementIndex + parseInt(selectedDropdownValue) - 1;
-    // TODO: Test om man slipper denne ekstra sjekken
-    if (selectedPageNumber === numberOfPages) {
-      lastElementIndex = numberOfElements;
-    }
-
-    const newValue = { start: firstElementIndex, end: lastElementIndex };
-
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(newValue);
-    } else if (webcomponent) {
-      webcomponent.setProps({ value: newValue }, true);
-      webcomponent.triggerEvent('valueOnChange', newValue);
-    }
+    const firstElementIndex = selectedDropdownValue * selectedPageNumber - selectedDropdownValue + 1;
+    const lastElementIndex = Math.min(firstElementIndex + selectedDropdownValue - 1, numberOfElements);
+    setVisibleElements({
+      start: firstElementIndex,
+      end: lastElementIndex,
+    });
   };
 
   /** Update selected page when value (visible elements) changed */
   const updateSelectedPageByVisibleElements = (visibleElements: VisibleElements): void => {
-    if (visibleElements.start == undefined || visibleElements.end == undefined) {
+    if (visibleElements.start === undefined || visibleElements.end === undefined) {
       return;
     }
     const numberOfVisibleElements = visibleElements.end - visibleElements.start + 1;
@@ -238,46 +201,39 @@ const Pagination: FC<PaginationProps> = function ({
     return pageNumber === selectedPageNumber ? 'Valgt side' : 'Velg side ' + pageNumber;
   };
 
-  const getPageElement = (pageNumber: number, pageIndex: number): JSX.Element => {
+  const getPageElement = (pageNumber: number): JSX.Element => {
     return (
       <PaginatorPage
-        key={pageIndex}
+        key={pageNumber}
         pageNumber={pageNumber}
         onClick={() => setSelectedPageNumber(pageNumber)}
-        selected={isSelectedPageNumber(pageNumber)}
-        aria-label={getAriaLabel(pageNumber)}
+        selected={pageNumber === selectedPageNumber}
         aria-current={pageNumber === selectedPageNumber}
-        data-testid={`paginator-button-${pageIndex}`}
+        aria-label={getAriaLabel(pageNumber)}
+        data-testid={`paginator-button-${pageNumber}`}
       >
         {pageNumber.toLocaleString('nb-NO')}
       </PaginatorPage>
     );
   };
 
-  const getDotsElement = (dotKey: string, isVisible: boolean): JSX.Element => {
-    return (
-      <PaginatorDots key={dotKey} hide={!isVisible}>
-        ...
-      </PaginatorDots>
-    );
+  const getDotsElement = (dotKey: string): JSX.Element => {
+    return <PaginatorDots key={dotKey}>...</PaginatorDots>;
   };
 
-  const shouldHaveVisibleFirstDots = (): boolean => {
+  const shouldHaveVisibleFirstDots = () => {
     return (
       selectedPageNumber > (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
       numberOfPages > (isMobile ? maxVisiblePageNumbersMo : maxVisiblePageNumbers)
     );
   };
+
   const shouldHaveVisibleLastDots = (): boolean => {
     return (
       selectedPageNumber <=
         numberOfPages - (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
       numberOfPages > (isMobile ? maxVisiblePageNumbersMo : maxVisiblePageNumbers)
     );
-  };
-
-  const isSelectedPageNumber = (pageNumber: number): boolean => {
-    return pageNumber === selectedPageNumber;
   };
 
   const isNumberFirstOrLast = (pageNumber: number): boolean => {
@@ -310,28 +266,27 @@ const Pagination: FC<PaginationProps> = function ({
     );
   };
 
-  /** Returns the numbers and dots that should be visible inside the paginator as a JSX element */
-  const PaginatorNumbersAndDots = (): JSX.Element => {
+  const PaginatorNumbersAndDots: FC = () => {
     const visibleNumbersAndDots = [];
     const pageNumbersArray = Array.from(Array(numberOfPages + 1).keys()).slice(1);
     const betweenPageNumbers: JSX.Element[] = [];
 
     const getFirstPageNumber = (): JSX.Element => {
-      return getPageElement(1, 0);
+      return getPageElement(1);
     };
 
     const getBetweenPageNumbers = (): (JSX.Element | null)[] => {
-      pageNumbersArray.forEach((pageNumber, pageIndex) => {
+      pageNumbersArray.forEach((pageNumber) => {
         if (isNumberFirstOrLast(pageNumber)) {
           return;
         } else if (areAllPageNumbersVisible()) {
-          betweenPageNumbers.push(getPageElement(pageNumber, pageIndex));
+          betweenPageNumbers.push(getPageElement(pageNumber));
         } else if (isNumberAtBeginningAndVisible(pageNumber)) {
-          betweenPageNumbers.push(getPageElement(pageNumber, pageIndex));
+          betweenPageNumbers.push(getPageElement(pageNumber));
         } else if (isNumberInCenterAndVisible(pageNumber)) {
-          betweenPageNumbers.push(getPageElement(pageNumber, pageIndex));
+          betweenPageNumbers.push(getPageElement(pageNumber));
         } else if (isNumberAtEndAndVisible(pageNumber)) {
-          betweenPageNumbers.push(getPageElement(pageNumber, pageIndex));
+          betweenPageNumbers.push(getPageElement(pageNumber));
         }
       });
 
@@ -340,7 +295,7 @@ const Pagination: FC<PaginationProps> = function ({
 
     const getLastPageNumber = (): JSX.Element | null => {
       // TODO: Handle all user errors at one place
-      if (numberOfElements <= parseInt(selectedDropdownValue)) {
+      if (numberOfElements <= selectedDropdownValue) {
         return null;
       }
       if (lastNumberLimit !== undefined) {
@@ -349,14 +304,14 @@ const Pagination: FC<PaginationProps> = function ({
         }
       }
 
-      return getPageElement(numberOfPages, numberOfPages - 1);
+      return getPageElement(numberOfPages);
     };
 
     visibleNumbersAndDots.push(
       getFirstPageNumber(),
-      getDotsElement('first-dots', shouldHaveVisibleFirstDots()),
+      shouldHaveVisibleFirstDots() ? getDotsElement('first-dots') : null,
       getBetweenPageNumbers(),
-      getDotsElement('last-dots', shouldHaveVisibleLastDots()),
+      shouldHaveVisibleLastDots() ? getDotsElement('last-dots') : null,
       getLastPageNumber(),
     );
 
@@ -369,14 +324,10 @@ const Pagination: FC<PaginationProps> = function ({
     return !isNaN(parseInt(dropdownItem));
   };
 
-  const isValidSelectedPageNumber = (): boolean => {
-    return selectedPageNumber > 0 && selectedPageNumber <= numberOfPages;
-  };
-
   /** Update pagination values and dispatch dropdownSelectedItemIndex events */
   const handleDropdownValueChange = (newSelectedDropdownValue: string): void => {
     // Don't update or dispatch new event if the value is identical to previous value.
-    if (newSelectedDropdownValue === selectedDropdownValue) {
+    if (parseInt(newSelectedDropdownValue) === selectedDropdownValue) {
       return;
     }
     if (!isValidDropdownItem(newSelectedDropdownValue)) {
@@ -386,18 +337,19 @@ const Pagination: FC<PaginationProps> = function ({
     if (!showPaginationNumbers) {
       setShowPaginationNumbers(true);
     }
-    if (!isValidSelectedPageNumber) {
-      setSelectedPageNumber(numberOfPages);
-    }
-    setSelectedDropdownValue(newSelectedDropdownValue);
+    setSelectedDropdownValue(parseInt(newSelectedDropdownValue));
 
-    const selectedIndex = dropdownItems.map((item) => item.value).indexOf(newSelectedDropdownValue);
-    if (!webcomponent && dropdownSelectedItemIndexOnChange) {
-      dropdownSelectedItemIndexOnChange(selectedIndex);
-    } else if (webcomponent) {
-      webcomponent.setProps({ dropdownSelectedItemIndex: selectedIndex }, true);
-      webcomponent.triggerEvent('dropdownSelectedItemIndexOnChange', selectedIndex);
-    }
+    const selectedIndex = dropdownItems.findIndex((item) => item.value === newSelectedDropdownValue);
+    dropdownSelectedItemIndexOnChange?.(selectedIndex);
+    webcomponent?.setProps({ dropdownSelectedItemIndex: selectedIndex }, true);
+    webcomponent?.triggerEvent('dropdownSelectedItemIndexOnChange', selectedIndex);
+  };
+
+  const shouldHaveLeftArrow = (): boolean => {
+    return showPaginationNumbers && selectedPageNumber > 1;
+  };
+  const shouldHaveRightArrow = (): boolean => {
+    return showPaginationNumbers && selectedPageNumber < numberOfPages;
   };
 
   return (
@@ -417,11 +369,11 @@ const Pagination: FC<PaginationProps> = function ({
             items={dropdownItems}
             menuPosition={dropdownMenuPosition}
             className="number-of-items-dropdown"
-            value={selectedDropdownValue}
-            valueOnChange={(event: any) => handleDropdownValueChange(event)}
+            value={selectedDropdownValue.toString()}
+            valueOnChange={(event: string) => handleDropdownValueChange(event)}
             data-testid="dropdown"
             ariaLabel={`viser ${selectedDropdownValue} ${labelOptionsState.label} per side`}
-          ></Dropdown>
+          />
         </PaginatorInfoDropdown>
         <PaginatorInfoAmount data-testid="info-amount">
           {labelOptionsState.of} {numberOfElements.toLocaleString('nb-NO')} {labelOptionsState.label}
@@ -437,13 +389,13 @@ const Pagination: FC<PaginationProps> = function ({
         >
           <IconWrapper icon={arrowLongLeft} size="xs" />
         </PaginatorSelectorArrowBtn>
-        {showPaginationNumbers ? <PaginatorNumbersAndDots /> : null}
+        {showPaginationNumbers && <PaginatorNumbersAndDots />}
         <PaginatorSelectorArrowBtn
           visible={shouldHaveRightArrow()}
+          aria-hidden={!shouldHaveRightArrow()}
           onClick={() => setSelectedPageNumber(selectedPageNumber + 1)}
           data-testid="selector-arrow-btn-right"
           aria-label="Neste side"
-          aria-hidden={!shouldHaveRightArrow()}
         >
           <IconWrapper icon={arrowLongRight} size="xs" />
         </PaginatorSelectorArrowBtn>
