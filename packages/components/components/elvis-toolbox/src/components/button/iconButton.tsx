@@ -1,4 +1,4 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import styled, { css } from 'styled-components';
 import { ButtonProps, Size } from './button';
 
@@ -31,7 +31,7 @@ export const IconButton = styled.button.attrs(() => ({ type: 'button' }))<Partia
   place-items: center;
   ${({ size }) => getSize(size ?? 'md')};
   border: 1px solid transparent;
-  background-color: ${({ isActive }) => (isActive ? getColor('elvia-charge') : 'transparent')};
+  background-color: ${({ isActive }) => (isActive ? getThemeColor('state-on') : 'transparent')};
   border-radius: 99px;
   padding: 0;
   margin: 0;
@@ -44,8 +44,8 @@ export const IconButton = styled.button.attrs(() => ({ type: 'button' }))<Partia
     cursor: pointer;
 
     &:hover {
-      background-color: ${getColor('elvia-charge')};
-      border-color: ${getColor('elvia-charge')};
+      background-color: ${getThemeColor('state-on')};
+      border-color: ${getThemeColor('state-on')};
     }
 
     &:active {

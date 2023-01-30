@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Form field and overlay now support dark theme.",
+            "Form field, button, icon button, and overlay now support dark theme.",
             "Added new hook <code>useCurrentTheme</code>."
           ]
         }
