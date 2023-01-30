@@ -1132,9 +1132,7 @@
 		"e-gap-16": {},
 		"e-gap-24": {},
 		"e-gap-32": {},
-		"e-gap-40": {},
-		"e-theme-light": {},
-		"e-theme-dark": {}
+		"e-gap-40": {}
 	},
 	"flat": {
 		"e-icon": {},
@@ -2021,8 +2019,6 @@
 		"e-gap-16": {},
 		"e-gap-24": {},
 		"e-gap-32": {},
-		"e-gap-40": {},
-		"e-theme-light": {},
-		"e-theme-dark": {}
+		"e-gap-40": {}
 	}
 }
