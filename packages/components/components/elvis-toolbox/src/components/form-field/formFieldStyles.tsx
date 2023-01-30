@@ -7,7 +7,7 @@ import { FormFieldError } from './errorStyles';
 const setActiveBorder = (isCompact?: boolean) => {
   return css`
     border: 2px solid ${getThemeColor('state-on')};
-    padding: ${isCompact ? '0px 3px 0px 7px' : '0px 7px 0px 15px'};
+    padding: ${isCompact ? '0 3px 0 7px' : '0 7px 0 15px'};
   `;
 };
 
@@ -15,7 +15,7 @@ export const FormFieldInputContainer = styled.div`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 0px 8px 0px 16px;
+  padding: 0 8px 0 16px;
   border: 1px solid ${getThemeColor('text-primary')};
   height: 48px;
   border-radius: 4px;
@@ -83,7 +83,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
         }
 
         ${FormFieldInputContainer} {
-          padding: 0px 4px 0px 8px;
+          padding: 0 4px 0 8px;
           height: 32px;
         }
 
@@ -98,7 +98,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
     }
 
     return css`
-      padding-top: 0px;
+      padding-top: 0;
     `;
   }}
 

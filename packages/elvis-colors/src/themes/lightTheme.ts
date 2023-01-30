@@ -3,111 +3,111 @@ import { BaseColors, Theme } from '../theme';
 export const lightThemeColors = {
   'primary-colors': {
     white: {
-      color: '#fff',
-      contrastText: '#000',
+      color: '#FFFFFF',
+      contrastText: '#000000',
     },
     green: {
-      color: '#29d305',
-      contrastText: '#000',
+      color: '#29D305',
+      contrastText: '#000000',
     },
     black: {
-      color: '#000',
-      contrastText: '#fff',
+      color: '#000000',
+      contrastText: '#FFFFFF',
     },
     grey: {
       color: '#262626',
-      contrastText: '#fff',
+      contrastText: '#FFFFFF',
     },
   },
   'signal-colors': {
     yellow: {
-      color: '#ffff00',
-      contrastText: '#000',
+      color: '#FFFF00',
+      contrastText: '#000000',
     },
     orange: {
-      color: '#ffa000',
-      contrastText: '#000',
+      color: '#FFA000',
+      contrastText: '#000000',
     },
     red: {
-      color: '#ee0701',
-      contrastText: '#000',
+      color: '#EE0701',
+      contrastText: '#000000',
     },
   },
   'data-colors': {
     'green-apple': {
-      color: '#21ac04',
-      contrastText: '#000',
+      color: '#21AC04',
+      contrastText: '#000000',
     },
     'violet-grape': {
       color: '#490192',
-      contrastText: '#fff',
+      contrastText: '#FFFFFF',
     },
     'blue-berry': {
-      color: '#006ddb',
-      contrastText: '#fff',
+      color: '#006DDB',
+      contrastText: '#FFFFFF',
     },
     'purple-plum': {
-      color: '#b66dff',
-      contrastText: '#000',
+      color: '#B66DFF',
+      contrastText: '#000000',
     },
     'orange-mango': {
-      color: '#db6d00',
-      contrastText: '#000',
+      color: '#DB6D00',
+      contrastText: '#000000',
     },
     'red-tomato': {
-      color: '#b90202',
-      contrastText: '#fff',
+      color: '#B90202',
+      contrastText: '#FFFFFF',
     },
   },
   'grey-colors': {
     'grey-90': {
-      color: '#3b3b3b',
-      contrastText: '#fff',
+      color: '#3B3B3B',
+      contrastText: '#FFFFFF',
     },
     'grey-80': {
       color: '#515151',
-      contrastText: '#fff',
+      contrastText: '#FFFFFF',
     },
     'grey-70': {
       color: '#676767',
-      contrastText: '#fff',
+      contrastText: '#FFFFFF',
     },
     'grey-60': {
-      color: '#7c7c7c',
-      contrastText: '#000',
+      color: '#7C7C7C',
+      contrastText: '#000000',
     },
     'grey-50': {
       color: '#929292',
-      contrastText: '#000',
+      contrastText: '#000000',
     },
     'grey-40': {
-      color: '#a8a8a8',
-      contrastText: '#000',
+      color: '#A8A8A8',
+      contrastText: '#000000',
     },
     'grey-30': {
-      color: '#bdbdbd',
-      contrastText: '#000',
+      color: '#BDBDBD',
+      contrastText: '#000000',
     },
     'grey-20': {
-      color: '#d3d3d3',
-      contrastText: '#000',
+      color: '#D3D3D3',
+      contrastText: '#000000',
     },
     'grey-10': {
-      color: '#e9e9e9',
-      contrastText: '#000',
+      color: '#E9E9E9',
+      contrastText: '#000000',
     },
     'grey-05': {
-      color: '#f4f4f4',
-      contrastText: '#000',
+      color: '#F4F4F4',
+      contrastText: '#000000',
     },
     'grey-02': {
-      color: '#fafafa',
-      contrastText: '#000',
+      color: '#FAFAFA',
+      contrastText: '#000000',
     },
   },
   'internal-colors': {
     'focus-outline': {
-      color: '#0064fa',
+      color: '#0064FA',
     },
   },
 } as const satisfies BaseColors;
