@@ -35,6 +35,8 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName): Color | n
  * @returns CSS-variable for label, with fallback to the color hex.
  * @example
  * const color = getThemeColor('background-primary');
+ *
+ * @since 1.5.0
  */
 export const getThemeColor = (label: ColorLabel, themeName: ThemeName = 'light'): string => {
   const color = getThemeColorObject(label, themeName);
@@ -79,6 +81,8 @@ type ColorNameToThemeMap = {
  *  light: 'grey-10',
  *  dark: 'grey-60',
  * }, currentTheme);
+ *
+ * @since 1.5.0
  */
 export const getCustomThemeColor = (
   colorNameToThemeMap: ColorNameToThemeMap,
