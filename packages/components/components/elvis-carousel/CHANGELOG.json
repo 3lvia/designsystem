@@ -194,12 +194,12 @@
           "type": "breaking_changes",
           "changes": ["Renamed props and callback functions. Structure for items in carousel has changed."],
           "fixes": [
-            "Rename prop: <span class=\"code-text\">elements</span> => <span class=\"code-text\">items</span>",
-            "New carousel-item structure in React: <span class=\"code-text\">{title: \"\", element: \"\"}</span> => <span class=\"code-text\">{heading: \"\", item: \"\"}</span>",
+            "Rename prop: <span class=\"code-text\">elements</span> to <span class=\"code-text\">items</span>",
+            "New carousel-item structure in React: <span class=\"code-text\">{title: \"\", element: \"\"}</span> to <span class=\"code-text\">{heading: \"\", item: \"\"}</span>",
             "New carousel-item slot-names in Web Component: Name the slots \"item-1\", \"heading-1\", \"item-2\", \"heading-2\" and so on.",
-            "Rename prop: <span class=\"code-text\">hideArrows</span> => <span class=\"code-text\">loop</span>. Make sure to invert the boolean.",
-            "Rename prop: <span class=\"code-text\">useOnboardingCheckmark</span> => <span class=\"code-text\">hasConfirmationCheckmark</span>",
-            "Rename prop: <span class=\"code-text\">onHide</span> => <span class=\"code-text\">onFinish</span>"
+            "Rename prop: <span class=\"code-text\">hideArrows</span> to <span class=\"code-text\">loop</span>. Make sure to invert the boolean.",
+            "Rename prop: <span class=\"code-text\">useOnboardingCheckmark</span> to <span class=\"code-text\">hasConfirmationCheckmark</span>",
+            "Rename prop: <span class=\"code-text\">onHide</span> to <span class=\"code-text\">onFinish</span>"
           ]
         }
       ]
