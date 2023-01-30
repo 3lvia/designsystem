@@ -11904,18 +11904,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-typescript-codegen@npm:^3.2.3":
-  version: 3.2.3
-  resolution: "contentful-typescript-codegen@npm:3.2.3"
+"contentful-typescript-codegen@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "contentful-typescript-codegen@npm:3.4.0"
   dependencies:
     fs-extra: ^9.1.0
     lodash: ^4.17.21
     meow: ^9.0.0
   peerDependencies:
     prettier: ">= 1"
+    ts-node: ">= 9.0.0"
+  peerDependenciesMeta:
+    ts-node:
+      optional: true
   bin:
     contentful-typescript-codegen: dist/contentful-typescript-codegen.js
-  checksum: c41e21189aa19c1eebefb19b091fa5604492224ac5548695a3e6ccf76635e6e2d0044e156ecc1be2150d80d3c74f5a6276114bda69388cc954a94f4959e1d0a7
+  checksum: e3bc5a59d866f400cfc477cbabfd77427fc21c6ee16dc63a4b22b3ac7e09364bc85850e44d3fea78ead8a7783d7e3a48bb307ff0f939d80e15373fe529870c2c
   languageName: node
   linkType: hard
 
@@ -14500,7 +14504,7 @@ __metadata:
     classlist.js: ^1.1.20150312
     contentful: ^9.2.13
     contentful-management: ^7.51.1
-    contentful-typescript-codegen: ^3.2.3
+    contentful-typescript-codegen: ^3.4.0
     dotenv: ^10.0.0
     eslint: ^8.23.1
     fuse.js: ^6.6.2
