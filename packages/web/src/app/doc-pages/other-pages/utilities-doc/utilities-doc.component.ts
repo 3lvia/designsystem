@@ -143,6 +143,16 @@ export class UtilitiesDocComponent {
           styling: 'align-items: flex-end',
         },
         {
+          className: 'e-flex-wrap',
+          description: 'Wrap the items',
+          styling: 'flex-wrap: wrap',
+        },
+        {
+          className: 'e-flex-wrap-reverse',
+          description: 'Wrap the items in reverse',
+          styling: 'flex-wrap: wrap-reverse',
+        },
+        {
           className: 'e-gap-number',
           description: 'Decides the gap between flex elements, from 0-40 following 8px multiplication.',
           styling: 'gap: {number}px',
