@@ -236,11 +236,11 @@
           "type": "breaking_changes",
           "changes": ["Renamed several props for more consistent naming conventions. "],
           "fixes": [
-            "Change prop <span class=\"code-text\">dropdownMenuPos</span> => <span class=\"code-text\">dropdownMenuPosition</span>.",
-            "Change prop <span class=\"code-text\">selectedDropdownItemIndex</span> => <span class=\"code-text\">dropdownSelectedItemIndex</span>.",
-            "Change event <span class=\"code-text\">selectedDropdownItemIndexOnChange</span> => <span class=\"code-text\">dropdownSelectedItemIndexOnChange</span>.",
+            "Change prop <span class=\"code-text\">dropdownMenuPos</span> to <span class=\"code-text\">dropdownMenuPosition</span>.",
+            "Change prop <span class=\"code-text\">selectedDropdownItemIndex</span> to <span class=\"code-text\">dropdownSelectedItemIndex</span>.",
+            "Change event <span class=\"code-text\">selectedDropdownItemIndexOnChange</span> to <span class=\"code-text\">dropdownSelectedItemIndexOnChange</span>.",
             "Combine the props <span class=\"code-text\">labelDisplaying</span>, <span class=\"code-text\">labelOf</span>, and <span class=\"code-text\">label</span> into the new <span class=\"code-text\">labelOptions</span> prop.",
-            "Change prop <span class=\"code-text\">isRightAligned</span> => <span class=\"code-text\">alignment</span>. No longer a boolean, but instead either <span class=\"code-text\">'left'</span> or <span class=\"code-text\">'right'</span>. "
+            "Change prop <span class=\"code-text\">isRightAligned</span> to <span class=\"code-text\">alignment</span>. No longer a boolean, but instead either <span class=\"code-text\">'left'</span> or <span class=\"code-text\">'right'</span>. "
           ]
         }
       ]
