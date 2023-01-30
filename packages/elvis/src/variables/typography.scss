@@ -45,7 +45,7 @@ $font-family-secondary: 'Red Hat Text', Verdana, sans-serif;
 }
 
 body {
-  color: #000;
+  color: var(--e-color-text-primary, #000);
   font-family: $font-family;
 }
 
