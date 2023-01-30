@@ -1,5 +1,12 @@
 # Elvis-assets-icon
 
+## 2.7.1 (30.01.23)
+
+### Patch
+
+- Added support for using css-variables to set the color of icons.
+- Bumped dependency on `@elvia/elvis-colors` to 1.5.0.
+
 ## 2.7.0 (04.01.23)
 
 ### New feature

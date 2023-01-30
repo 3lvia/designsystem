@@ -2498,11 +2498,11 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^2.5.1, @elvia/elvis-assets-icons@^2.6.1, @elvia/elvis-assets-icons@^2.7.0, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
+"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^2.5.1, @elvia/elvis-assets-icons@^2.6.1, @elvia/elvis-assets-icons@^2.7.0, @elvia/elvis-assets-icons@^2.7.1, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-colors": ^1.5.0
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-svgmin: ^4.1.0
@@ -2514,7 +2514,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@portal:../elvis-assets-icons::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-colors": ^1.5.0
   languageName: node
   linkType: soft
 
@@ -2724,7 +2724,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-colors@^1.4.2, @elvia/elvis-colors@^1.4.3, @elvia/elvis-colors@workspace:packages/elvis-colors":
+"@elvia/elvis-colors@^1.4.2, @elvia/elvis-colors@^1.4.3, @elvia/elvis-colors@^1.5.0, @elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
@@ -2735,6 +2735,12 @@ __metadata:
     gulp-typescript: ^6.0.0-alpha.1
     ts-node: ^10.9.1
   languageName: unknown
+  linkType: soft
+
+"@elvia/elvis-colors@portal:../elvis-colors::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-colors@portal:../elvis-colors::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
+  languageName: node
   linkType: soft
 
 "@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^4.0.0, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
@@ -2858,9 +2864,9 @@ __metadata:
   resolution: "@elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range"
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-datepicker": ^6.1.3
+    "@elvia/elvis-datepicker": ^6.2.0
     "@elvia/elvis-timepicker": ^2.3.0
-    "@elvia/elvis-toolbox": ^7.5.0
+    "@elvia/elvis-toolbox": ^7.6.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2874,9 +2880,9 @@ __metadata:
   resolution: "@elvia/elvis-datepicker-range@portal:../components/components/elvis-datepicker-range::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-datepicker": ^6.1.3
+    "@elvia/elvis-datepicker": ^6.2.0
     "@elvia/elvis-timepicker": ^2.3.0
-    "@elvia/elvis-toolbox": ^7.5.0
+    "@elvia/elvis-toolbox": ^7.6.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2885,14 +2891,14 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.1.3, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.2.0, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-assets-icons": ^2.7.1
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.5.0
+    "@elvia/elvis-toolbox": ^7.6.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -2906,10 +2912,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@portal:../components/components/elvis-datepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-assets-icons": ^2.7.1
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.5.0
+    "@elvia/elvis-toolbox": ^7.6.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -3386,11 +3392,11 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-toolbox@^7.0.0, @elvia/elvis-toolbox@^7.4.0, @elvia/elvis-toolbox@^7.4.1, @elvia/elvis-toolbox@^7.4.2, @elvia/elvis-toolbox@^7.4.3, @elvia/elvis-toolbox@^7.4.4, @elvia/elvis-toolbox@^7.5.0, @elvia/elvis-toolbox@^7.5.1, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@^7.0.0, @elvia/elvis-toolbox@^7.4.0, @elvia/elvis-toolbox@^7.4.1, @elvia/elvis-toolbox@^7.4.2, @elvia/elvis-toolbox@^7.4.3, @elvia/elvis-toolbox@^7.4.4, @elvia/elvis-toolbox@^7.5.0, @elvia/elvis-toolbox@^7.5.1, @elvia/elvis-toolbox@^7.6.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.6
@@ -3406,7 +3412,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@portal:../components/components/elvis-toolbox::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.6
@@ -14101,6 +14107,7 @@ __metadata:
     "@elvia/elvis-card": "portal:../components/components/elvis-card"
     "@elvia/elvis-carousel": "portal:../components/components/elvis-carousel"
     "@elvia/elvis-chip": "portal:../components/components/elvis-chip"
+    "@elvia/elvis-colors": "portal:../elvis-colors"
     "@elvia/elvis-context-menu": "portal:../components/components/elvis-context-menu"
     "@elvia/elvis-datepicker": "portal:../components/components/elvis-datepicker"
     "@elvia/elvis-datepicker-range": "portal:../components/components/elvis-datepicker-range"

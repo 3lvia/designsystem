@@ -44,3 +44,7 @@ export const OverlayContainer = styled.div<{ fadeOut: boolean; noAnimation: bool
       animation-duration: 0ms;
     `};
 `;
+
+export const OverlayDOMPosition = styled.div`
+  display: none;
+`;
