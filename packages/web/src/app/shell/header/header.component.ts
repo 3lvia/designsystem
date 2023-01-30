@@ -4,7 +4,6 @@ import { OverlayRef } from '@angular/cdk/overlay';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import { SearchMenuComponent } from './search-menu/search-menu.component';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
-import packageJson from '@elvia/elvis/package.json';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 
 @Component({
@@ -13,7 +12,6 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  version = packageJson.version;
   searchMenuOpen = false;
   searchOverlay: OverlayRef;
   headerLogoLoaded = false;

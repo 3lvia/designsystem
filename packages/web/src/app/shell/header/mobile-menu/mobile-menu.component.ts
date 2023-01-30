@@ -1,7 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import packageJson from '@elvia/elvis/package.json';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 @Component({
@@ -10,7 +9,6 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
   styleUrls: ['./mobile-menu.component.scss'],
 })
 export class MobileMenuComponent implements OnDestroy {
-  version = packageJson.version;
   mainMenu: any;
   devMode = false;
   isLoaded = false;
