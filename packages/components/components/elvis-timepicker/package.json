@@ -2,6 +2,7 @@
   "name": "@elvia/elvis-timepicker",
   "version": "2.4.1",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/timepicker",
   "main": "web_component.js",
   "files": [
     "web_component.js",
@@ -23,5 +24,16 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "react-is": {
+      "optional": true
+    }
   }
 }
