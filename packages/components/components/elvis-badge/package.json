@@ -3,6 +3,7 @@
   "version": "1.0.4",
   "description": "",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/badge",
   "author": "",
   "main": "web_component.js",
   "files": [

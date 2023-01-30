@@ -3,6 +3,7 @@
   "version": "7.0.7",
   "description": "",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/popover",
   "author": "",
   "main": "web_component.js",
   "files": [

@@ -5,6 +5,7 @@
   "main": "web_component.js",
   "author": "",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/spotlight",
   "files": [
     "web_component.js",
     "react.js",

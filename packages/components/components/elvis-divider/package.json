@@ -3,6 +3,7 @@
   "version": "1.4.4",
   "description": "",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/divider",
   "author": "",
   "main": "web_component.js",
   "files": [

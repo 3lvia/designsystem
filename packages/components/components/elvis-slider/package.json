@@ -3,6 +3,7 @@
   "version": "2.1.8",
   "description": "",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/slider",
   "author": "",
   "main": "web_component.js",
   "files": [

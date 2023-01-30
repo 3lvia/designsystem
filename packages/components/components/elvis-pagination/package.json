@@ -3,6 +3,7 @@
   "version": "3.3.3",
   "description": "",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/pagination",
   "author": "",
   "main": "web_component.js",
   "files": [

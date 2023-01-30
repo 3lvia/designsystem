@@ -2,6 +2,7 @@
   "name": "@elvia/elvis-datepicker",
   "version": "6.2.0",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/datepicker",
   "main": "web_component.js",
   "files": [
     "web_component.js",

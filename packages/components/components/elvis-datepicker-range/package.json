@@ -3,6 +3,7 @@
   "version": "2.3.0",
   "main": "web_component.js",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/datepicker-range",
   "files": [
     "web_component.js",
     "react.js",

@@ -3,6 +3,7 @@
   "version": "2.0.1",
   "description": "",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/tabs",
   "author": "",
   "main": "web_component.js",
   "types": "elvia-tabs.d.ts",

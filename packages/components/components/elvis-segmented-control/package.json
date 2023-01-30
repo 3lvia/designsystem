@@ -3,6 +3,7 @@
   "version": "1.0.7",
   "description": "",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/segmented-control",
   "author": "",
   "main": "web_component.js",
   "files": [
