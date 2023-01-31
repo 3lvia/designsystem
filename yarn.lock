@@ -9476,7 +9476,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.21.2, axios@npm:^0.21.4":
+"axios@npm:^0.21.2":
   version: 0.21.4
   resolution: "axios@npm:0.21.4"
   dependencies:
@@ -9485,7 +9485,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.27.0":
+"axios@npm:^0.27.0, axios@npm:^0.27.1":
   version: 0.27.2
   resolution: "axios@npm:0.27.2"
   dependencies:
@@ -11855,17 +11855,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^7.51.1":
-  version: 7.54.2
-  resolution: "contentful-management@npm:7.54.2"
+"contentful-management@npm:^10.27.2":
+  version: 10.27.2
+  resolution: "contentful-management@npm:10.27.2"
   dependencies:
     "@types/json-patch": 0.0.30
-    axios: ^0.21.4
-    contentful-sdk-core: ^6.10.4
-    fast-copy: ^2.1.0
+    axios: ^0.27.1
+    contentful-sdk-core: ^7.0.1
+    fast-copy: ^3.0.0
     lodash.isplainobject: ^4.0.6
-    type-fest: ^2.5.3
-  checksum: 4e602f3c99d4de7000246c5478bc06bb32aafae27e57285a1df2b59100f7090f9815c52c29342929a6dd6c709fe360608317e3b2bd6d854758ec3e1766bfdd95
+  checksum: 33cf6b99634ea9339b1d0af1f554adf42d10fc56e20b399995e95e7772a2388bc445ae9fbf8be5e1e8832659fb64e248b5ee72fe2ceaadfdd8d825d8d5ba856e
   languageName: node
   linkType: hard
 
@@ -11878,16 +11877,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-sdk-core@npm:^6.10.4":
-  version: 6.11.0
-  resolution: "contentful-sdk-core@npm:6.11.0"
+"contentful-sdk-core@npm:^7.0.1":
+  version: 7.0.5
+  resolution: "contentful-sdk-core@npm:7.0.5"
   dependencies:
-    fast-copy: ^2.1.0
+    fast-copy: ^2.1.7
     lodash.isplainobject: ^4.0.6
     lodash.isstring: ^4.0.1
     p-throttle: ^4.1.1
     qs: ^6.9.4
-  checksum: 69ec31d085b1c1b69f5e6f9f5195c6cd60081a70ed85de6c093db2e37745cbc6cef1735bf707758d2ed8a55e7c14969395d999c416238c530d75abe7ef3f5a60
+  checksum: b6c3543077f0f139fcecb693d8b3fb0478ae178b805f3ffea05b160525d0b4aeaf1ca9f3d2a022b8fcf88cbb02bba058327b3568acdebfc738302cd1ba4131cd
   languageName: node
   linkType: hard
 
@@ -14503,7 +14502,7 @@ __metadata:
     babel-eslint: ^10.1.0
     classlist.js: ^1.1.20150312
     contentful: ^9.2.13
-    contentful-management: ^7.51.1
+    contentful-management: ^10.27.2
     contentful-typescript-codegen: ^3.4.0
     dotenv: ^10.0.0
     eslint: ^8.23.1
@@ -15920,10 +15919,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-copy@npm:^2.1.0, fast-copy@npm:^2.1.7":
+"fast-copy@npm:^2.1.7":
   version: 2.1.7
   resolution: "fast-copy@npm:2.1.7"
   checksum: af8016c174b02bd4f706ffdf9f138511b17b748665b291fec6c5ca1922cb55da35cf86ded46b31890930bcf9b1c2481c03c793a47110ab81ec385e14972b9d7e
+  languageName: node
+  linkType: hard
+
+"fast-copy@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "fast-copy@npm:3.0.0"
+  checksum: 58edbc2dcc10e948f5a67fb278dc3d696a65ac68036c3f872fc6c839522b071d3151c7bcea779946f96e01f9a1fdd9b76621532ee32f51000b1403ee673e14ba
   languageName: node
   linkType: hard
 
@@ -30756,13 +30762,6 @@ __metadata:
   version: 0.8.1
   resolution: "type-fest@npm:0.8.1"
   checksum: d61c4b2eba24009033ae4500d7d818a94fd6d1b481a8111612ee141400d5f1db46f199c014766b9fa9b31a6a7374d96fc748c6d688a78a3ce5a33123839becb7
-  languageName: node
-  linkType: hard
-
-"type-fest@npm:^2.5.3":
-  version: 2.19.0
-  resolution: "type-fest@npm:2.19.0"
-  checksum: a4ef07ece297c9fba78fc1bd6d85dff4472fe043ede98bd4710d2615d15776902b595abf62bd78339ed6278f021235fb28a96361f8be86ed754f778973a0d278
   languageName: node
   linkType: hard
 
