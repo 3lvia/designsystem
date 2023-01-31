@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "31.01.23",
+      "version": "2.3.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["<code>isFullWidth</code> works in combination with vertical alignment."]
+        }
+      ]
+    },
+    {
       "date": "30.01.23",
       "version": "2.3.0",
       "changelog": [
