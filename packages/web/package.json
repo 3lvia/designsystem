@@ -85,7 +85,7 @@
     "@typescript-eslint/eslint-plugin": "5.44.0",
     "@typescript-eslint/parser": "5.44.0",
     "babel-eslint": "^10.1.0",
-    "contentful-management": "^7.51.1",
+    "contentful-management": "^10.27.2",
     "contentful-typescript-codegen": "^3.4.0",
     "eslint": "^8.23.1",
     "lint-staged": "^13.0.4",
