@@ -1,13 +1,14 @@
-import React, { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react';
+import React, { Dispatch, FC, SetStateAction, useMemo } from 'react';
 import { BetweenPageNumbers } from './BetweenPageNumbers';
 import {
   maxVisiblePageNumbers,
-  maxVisiblePageNumbersMo,
+  maxVisiblePageNumbersSm,
   visibleDotsBreakingPoint,
-  visibleDotsBreakingPointMo,
+  visibleDotsBreakingPointSm,
 } from './constants';
 import { FirstPageNumber, LastPageNumber } from './PageElement';
 import { PaginatorDots, PaginatorNumbersArea } from './styledComponents';
+import { useBreakpoint } from '@elvia/elvis-toolbox';
 
 interface PaginatorNumbersAndDotsProps {
   numberOfPages: number;
@@ -24,31 +25,20 @@ export const PaginatorNumbersAndDots: FC<PaginatorNumbersAndDotsProps> = ({
   numberOfElements,
   lastNumberLimit,
 }) => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const updateIsMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    updateIsMobile();
-    window.addEventListener('resize', updateIsMobile);
-    return () => {
-      window.removeEventListener('resize', updateIsMobile);
-    };
-  }, []);
+  const isMobile = !useBreakpoint('gt-mobile');
 
   const shouldHaveVisibleFirstDots = useMemo(() => {
     return (
-      selectedPageNumber > (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
-      numberOfPages > (isMobile ? maxVisiblePageNumbersMo : maxVisiblePageNumbers)
+      selectedPageNumber > (isMobile ? visibleDotsBreakingPointSm : visibleDotsBreakingPoint) &&
+      numberOfPages > (isMobile ? maxVisiblePageNumbersSm : maxVisiblePageNumbers)
     );
   }, [selectedPageNumber, numberOfPages, isMobile]);
 
   const shouldHaveVisibleLastDots = useMemo(() => {
     return (
       selectedPageNumber <=
-        numberOfPages - (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
-      numberOfPages > (isMobile ? maxVisiblePageNumbersMo : maxVisiblePageNumbers)
+        numberOfPages - (isMobile ? visibleDotsBreakingPointSm : visibleDotsBreakingPoint) &&
+      numberOfPages > (isMobile ? maxVisiblePageNumbersSm : maxVisiblePageNumbers)
     );
   }, [selectedPageNumber, numberOfPages, isMobile]);
 

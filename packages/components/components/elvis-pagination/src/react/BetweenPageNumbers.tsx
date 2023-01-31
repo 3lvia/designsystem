@@ -1,13 +1,13 @@
 import React, { FC, Dispatch, SetStateAction, useMemo } from 'react';
 import {
   maxVisiblePageNumbers,
-  maxVisiblePageNumbersMo,
+  maxVisiblePageNumbersSm,
   numOfPagesBeforeDots,
-  numOfPagesBeforeDotsMo,
+  numOfPagesBeforeDotsSm,
   numOfPagesBesideSelected,
-  numOfPagesBesideSelectedMo,
+  numOfPagesBesideSelectedSm,
   visibleDotsBreakingPoint,
-  visibleDotsBreakingPointMo,
+  visibleDotsBreakingPointSm,
 } from './constants';
 import { PageElement } from './PageElement';
 
@@ -25,31 +25,31 @@ export const BetweenPageNumbers: FC<BetweenPageNumbersProps> = ({
   setSelectedPageNumber,
 }) => {
   const allPageNumbersAreVisible = useMemo(() => {
-    return numberOfPages === (isMobile ? maxVisiblePageNumbersMo : maxVisiblePageNumbers);
+    return numberOfPages === (isMobile ? maxVisiblePageNumbersSm : maxVisiblePageNumbers);
   }, [numberOfPages, isMobile]);
 
   const isNumberAtBeginningAndVisible = (pageNumber: number): boolean => {
     return (
-      selectedPageNumber <= (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
-      pageNumber <= (isMobile ? numOfPagesBeforeDotsMo : numOfPagesBeforeDots)
+      selectedPageNumber <= (isMobile ? visibleDotsBreakingPointSm : visibleDotsBreakingPoint) &&
+      pageNumber <= (isMobile ? numOfPagesBeforeDotsSm : numOfPagesBeforeDots)
     );
   };
 
   const isNumberInCenterAndVisible = (pageNumber: number): boolean => {
     return (
-      selectedPageNumber > (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
+      selectedPageNumber > (isMobile ? visibleDotsBreakingPointSm : visibleDotsBreakingPoint) &&
       selectedPageNumber <=
-        numberOfPages - (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
-      pageNumber >= selectedPageNumber - (isMobile ? numOfPagesBesideSelectedMo : numOfPagesBesideSelected) &&
-      pageNumber <= selectedPageNumber + (isMobile ? numOfPagesBesideSelectedMo : numOfPagesBesideSelected)
+        numberOfPages - (isMobile ? visibleDotsBreakingPointSm : visibleDotsBreakingPoint) &&
+      pageNumber >= selectedPageNumber - (isMobile ? numOfPagesBesideSelectedSm : numOfPagesBesideSelected) &&
+      pageNumber <= selectedPageNumber + (isMobile ? numOfPagesBesideSelectedSm : numOfPagesBesideSelected)
     );
   };
 
   const isNumberAtEndAndVisible = (pageNumber: number): boolean => {
     return (
       selectedPageNumber >
-        numberOfPages - (isMobile ? visibleDotsBreakingPointMo : visibleDotsBreakingPoint) &&
-      pageNumber > numberOfPages - (isMobile ? numOfPagesBeforeDotsMo : numOfPagesBeforeDots)
+        numberOfPages - (isMobile ? visibleDotsBreakingPointSm : visibleDotsBreakingPoint) &&
+      pageNumber > numberOfPages - (isMobile ? numOfPagesBeforeDotsSm : numOfPagesBeforeDots)
     );
   };
 
