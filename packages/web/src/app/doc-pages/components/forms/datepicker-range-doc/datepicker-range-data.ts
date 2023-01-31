@@ -148,7 +148,7 @@ const datepickerRangeData: ComponentData = {
     },
     errorOptions: {
       isRequired: false,
-      type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
+      type: 'Partial<{start: { text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }, end: { text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }}>',
       description: 'An object that allows for custom configuration of the error handling.',
     },
     errorOnChange: {
