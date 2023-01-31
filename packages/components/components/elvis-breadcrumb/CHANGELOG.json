@@ -137,8 +137,8 @@
             "Renamed props for more consistent naming conventions. Changed BreadcrumbLink structure. "
           ],
           "fixes": [
-            "Change prop: <span class=\"code-text\">breadcrumbs</span> => <span class=\"code-text\">items</span>",
-            "Change event: <span class=\"code-text\">breadcrumbsOnChange</span> => <span class=\"code-text\">onLinkClick</span>",
+            "Change prop: <span class=\"code-text\">breadcrumbs</span> to <span class=\"code-text\">items</span>",
+            "Change event: <span class=\"code-text\">breadcrumbsOnChange</span> to <span class=\"code-text\">onLinkClick</span>",
             "Change the link items to {'href': '...', 'text': '...'}"
           ]
         }

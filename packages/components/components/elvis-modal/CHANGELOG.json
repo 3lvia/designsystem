@@ -227,9 +227,9 @@
           "type": "breaking_changes",
           "changes": ["Renamed several props for more consistent naming conventions. "],
           "fixes": [
-            "Change prop <span class=\"code-text\">title</span> => <span class=\"code-text\">heading</span>.",
-            "Change prop <span class=\"code-text\">hasCloseBtn</span> => <span class=\"code-text\">hasCloseButton</span>.",
-            "Change event listener / callback function <span class=\"code-text\">onHide</span> => <span class=\"code-text\">onClose</span>."
+            "Change prop <span class=\"code-text\">title</span> to <span class=\"code-text\">heading</span>.",
+            "Change prop <span class=\"code-text\">hasCloseBtn</span> to <span class=\"code-text\">hasCloseButton</span>.",
+            "Change event listener / callback function <span class=\"code-text\">onHide</span> to <span class=\"code-text\">onClose</span>."
           ]
         }
       ]

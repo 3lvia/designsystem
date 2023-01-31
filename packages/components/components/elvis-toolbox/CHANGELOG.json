@@ -125,7 +125,7 @@
       "version": "7.0.0",
       "changelog": [
         {
-          "type": "patch",
+          "type": "breaking_changes",
           "changes": ["Deprecated warning function refactored and component config types added."]
         }
       ]
