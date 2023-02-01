@@ -480,7 +480,16 @@ module.exports = [
   { name: 'phone_image', terms: ['mobile', 'picture', 'content'], thirdparty: { name: ['streamline'] } },
   { name: 'pdf_document', terms: ['adobe', 'file'], thirdparty: { name: ['streamline'] } },
   { name: 'pie_chart', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'pin', terms: [], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'piggy_bank-color',
+    terms: ['save', 'saving', 'heart', 'cost', 'money', 'expenses', 'green', 'safe', 'reduce'],
+    thirdparty: { name: ['streamline'] },
+  },
+  {
+    name: 'pin',
+    terms: [],
+    thirdparty: { name: ['streamline'] },
+  },
   {
     name: 'pin-color',
     terms: ['place', 'location', 'locate', 'position', 'area', 'map'],

@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "31.01.23",
+      "version": "2.2.11",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the content of a chip would wrap to a new line when space becomes limited."
+          ]
+        }
+      ]
+    },
+    {
       "date": "07.12.22",
       "version": "2.2.10",
       "changelog": [
