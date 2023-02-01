@@ -2,7 +2,7 @@
 
 ## 2.8.0 (01.02.23)
 
-### Patch
+### New feature
 
 - Added new icon `piggy_bank-color`.
 
