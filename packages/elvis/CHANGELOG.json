@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "10.2.0",
+      "date": "February 1, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Add new icon: <code>piggy_bank-color</code>."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "10.1.0",
       "date": "January 26, 2023",
       "changelog": [
