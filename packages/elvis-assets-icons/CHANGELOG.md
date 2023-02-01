@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 2.8.0 (01.02.23)
+
+### Patch
+
+- Added new icon `piggy_bank-color`.
+
 ## 2.7.1 (30.01.23)
 
 ### Patch
