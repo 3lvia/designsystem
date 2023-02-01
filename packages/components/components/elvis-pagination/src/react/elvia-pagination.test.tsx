@@ -99,7 +99,7 @@ describe('Elvis Pagination', () => {
     it('should have hidden right arrow after clicking last paginator number', async () => {
       const user = userEvent.setup();
 
-      const lastPageButton = screen.getByTestId('paginator-button-9');
+      const lastPageButton = screen.getByTestId('paginator-button-10');
       await user.click(lastPageButton);
       const selectorArrowBtnRight = screen.getByTestId('selector-arrow-btn-right');
       expect(selectorArrowBtnRight).toHaveStyle(`visibility: hidden`);
