@@ -9,10 +9,7 @@ export const BreadcrumbWrapper = styled.nav`
   flex-direction: row;
   flex-wrap: nowrap;
   max-height: 22px;
-  a:last-child {
-    font-weight: 500;
-    color: ${getThemeColor('text-primary')};
-  }
+  a:last-child,
   i:last-child {
     font-weight: 500;
     color: ${getThemeColor('text-primary')};
