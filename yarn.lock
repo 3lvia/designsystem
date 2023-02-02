@@ -2828,10 +2828,12 @@ __metadata:
   dependencies:
     "@types/gulp": ^4.0.10
     "@types/gulp-typescript": ^2.13.0
+    "@types/node": ^18.11.18
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-typescript: ^6.0.0-alpha.1
     ts-node: ^10.9.1
+    typescript: ^4.9.4
   languageName: unknown
   linkType: soft
 
@@ -2885,6 +2887,7 @@ __metadata:
     "@types/jest": ^29.2.3
     "@types/jest-axe": ^3.5.5
     "@types/merge-stream": ^1.1.2
+    "@types/node": ^18.11.18
     "@types/styled-components": ^5.1.19
     babel-jest: ^29.3.1
     babel-plugin-styled-components: ^1.13.3
@@ -3822,10 +3825,12 @@ __metadata:
   dependencies:
     "@types/gulp": ^4.0.10
     "@types/gulp-typescript": ^2.13.0
+    "@types/node": ^18.11.18
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-typescript: ^6.0.0-alpha.1
     ts-node: ^10.9.1
+    typescript: ^4.9.4
   languageName: unknown
   linkType: soft
 
@@ -6798,10 +6803,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/marked@npm:^4.0.3":
-  version: 4.0.7
-  resolution: "@types/marked@npm:4.0.7"
-  checksum: 4907b6a606578cd864bad429aca3c234591e6ed56bd141c575140487269b825a480ace9a85e4d003d1de1f007004c9d9b2fe600038ded5bba75aef59118e58d5
+"@types/marked@npm:^4.0.8":
+  version: 4.0.8
+  resolution: "@types/marked@npm:4.0.8"
+  checksum: 68278fa7acaa5d920cdc239d675b5daf842e0ad4779e4848cd617d9baf2ac1afccb5a264c331e37d80031d647e1640cb983cd31e73d45b28552670b4853fad8e
   languageName: node
   linkType: hard
 
@@ -6876,6 +6881,13 @@ __metadata:
   version: 14.18.33
   resolution: "@types/node@npm:14.18.33"
   checksum: 4e23f95186d8ae1d38c999bc6b46fe94e790da88744b0a3bfeedcbd0d9ffe2cb0ff39e85f43014f6739e5270292c1a1f6f97a1fc606fd573a0c17fda9a1d42de
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.11.18":
+  version: 18.11.18
+  resolution: "@types/node@npm:18.11.18"
+  checksum: 03f17f9480f8d775c8a72da5ea7e9383db5f6d85aa5fefde90dd953a1449bd5e4ffde376f139da4f3744b4c83942166d2a7603969a6f8ea826edfb16e6e3b49d
   languageName: node
   linkType: hard
 
@@ -14495,6 +14507,7 @@ __metadata:
     "@elvia/elvis-tooltip": "portal:../components/components/elvis-tooltip"
     "@elvia/elvis-typography": "portal:../elvis-typography"
     "@types/lodash.debounce": ^4.0.6
+    "@types/marked": ^4.0.8
     "@types/natural-compare-lite": ^1.4.0
     "@types/node": 16.11.7
     "@typescript-eslint/eslint-plugin": 5.44.0
@@ -14510,8 +14523,9 @@ __metadata:
     glob: ^7.1.6
     lint-staged: ^13.0.4
     lodash.debounce: ^4.0.8
+    marked: ^4.2.12
     natural-compare-lite: ^1.4.0
-    ngx-markdown: ^14.0.1
+    ngx-markdown: ^15.1.0
     object-path: ">=0.11.5"
     prettier: ^2.0.5
     prismjs: ^1.24.1
@@ -14519,7 +14533,7 @@ __metadata:
     sass: ^1.56.0
     stylelint: ^10.0.1 || ^11.0.0 || ^12.0.0 || ^13.0.0
     stylelint-config-sass-guidelines: ^7.0.0
-    ts-node: 8.10.2
+    ts-node: ^10.9.1
     tslib: ^2.0.0
     typescript: ~4.9.4
     webpack: ^5.12.0
@@ -14570,10 +14584,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"emoji-toolkit@npm:^6.6.0":
-  version: 6.6.0
-  resolution: "emoji-toolkit@npm:6.6.0"
-  checksum: 8f7a7216626d5d5cdb0505906dfd44cbe65cee76c8a9a15a3dfc20736fe98f457db23874376ec6e643da93fcb83a6c9dbc58cae76d24fb77e76dd87f06991ce2
+"emoji-toolkit@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "emoji-toolkit@npm:7.0.0"
+  checksum: 0e1ad04dbbbd1ab6d0c735ed2ab24deb8ba2b9d9901367c5a7b12cf7c1f35803cd6082af26e96f7a2bd7371d8af7493aa24664e54df365729fdf6785f28860e3
   languageName: node
   linkType: hard
 
@@ -22125,12 +22139,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:^4.0.17":
-  version: 4.2.2
-  resolution: "marked@npm:4.2.2"
+"marked@npm:^4.2.12":
+  version: 4.2.12
+  resolution: "marked@npm:4.2.12"
   bin:
     marked: bin/marked.js
-  checksum: 1593e0632ff8dee1b9c8b669f26c8ce41e675bcb08ef75052845d4943db2c4d887edacd5b2120cf99a2cc06e9fbffc346ebaf98a7555273fda6a935adbfacf50
+  checksum: bd551cd61028ee639d4ca2ccdfcc5a6ba4227c1b143c4538f3cde27f569dcb57df8e6313560394645b418b84a7336c07ab1e438b89b6324c29d7d8cdd3102d63
   languageName: node
   linkType: hard
 
@@ -22991,25 +23005,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ngx-markdown@npm:^14.0.1":
-  version: 14.0.1
-  resolution: "ngx-markdown@npm:14.0.1"
+"ngx-markdown@npm:^15.1.0":
+  version: 15.1.0
+  resolution: "ngx-markdown@npm:15.1.0"
   dependencies:
-    "@types/marked": ^4.0.3
     clipboard: ^2.0.11
-    emoji-toolkit: ^6.6.0
+    emoji-toolkit: ^7.0.0
     katex: ^0.16.0
-    marked: ^4.0.17
     mermaid: ^9.1.2
     prismjs: ^1.28.0
     tslib: ^2.3.0
   peerDependencies:
-    "@angular/common": ^14.0.0
-    "@angular/core": ^14.0.0
-    "@angular/platform-browser": ^14.0.0
+    "@angular/common": ^15.0.0
+    "@angular/core": ^15.0.0
+    "@angular/platform-browser": ^15.0.0
+    "@types/marked": ^4.0.3
+    marked: ^4.0.17
     rxjs: ^6.5.3 || ^7.4.0
-    zone.js: ^0.11.4
-  checksum: 81534d920d7bd908e90c2ab8dd65ed5785861e064b3e5517d1a008e95a7a3adc8c4071539456e64842e38f10857a30b5decb747b35f5571eb380845044b07124
+    zone.js: ~0.11.4 || ~0.12.0
+  dependenciesMeta:
+    clipboard:
+      optional: true
+    emoji-toolkit:
+      optional: true
+    katex:
+      optional: true
+    mermaid:
+      optional: true
+    prismjs:
+      optional: true
+  checksum: 7e3a1f01115c20d9697c8d12eb473c842eb5fc08db7bb4a0bb63a7a063e039a1ad8dbbbcbf05d5983bc268d38291dc16a11f409c2b5f279f441826d7c14c46a1
   languageName: node
   linkType: hard
 
@@ -28626,7 +28651,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:0.5.21, source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.17, source-map-support@npm:^0.5.5, source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.20":
+"source-map-support@npm:0.5.21, source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.5, source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.20":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:
@@ -30570,26 +30595,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:8.10.2":
-  version: 8.10.2
-  resolution: "ts-node@npm:8.10.2"
-  dependencies:
-    arg: ^4.1.0
-    diff: ^4.0.1
-    make-error: ^1.1.1
-    source-map-support: ^0.5.17
-    yn: 3.1.1
-  peerDependencies:
-    typescript: ">=2.7"
-  bin:
-    ts-node: dist/bin.js
-    ts-node-script: dist/bin-script.js
-    ts-node-transpile-only: dist/bin-transpile.js
-    ts-script: dist/bin-script-deprecated.js
-  checksum: 480adb076fdab6dbabd726c6056d651ddc567feda0d3e4770d809c01d000715a0f61f80be0e4a92ef87b7f4a494b79d9595d62de4a3931d740122ae26f0e10d8
-  languageName: node
-  linkType: hard
-
 "ts-node@npm:^10.9.1":
   version: 10.9.1
   resolution: "ts-node@npm:10.9.1"
@@ -30821,6 +30826,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:^4.9.4":
+  version: 4.9.5
+  resolution: "typescript@npm:4.9.5"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: ee000bc26848147ad423b581bd250075662a354d84f0e06eb76d3b892328d8d4440b7487b5a83e851b12b255f55d71835b008a66cbf8f255a11e4400159237db
+  languageName: node
+  linkType: hard
+
 "typescript@npm:~4.9.4":
   version: 4.9.4
   resolution: "typescript@npm:4.9.4"
@@ -30828,6 +30843,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: e782fb9e0031cb258a80000f6c13530288c6d63f1177ed43f770533fdc15740d271554cdae86701c1dd2c83b082cea808b07e97fd68b38a172a83dbf9e0d0ef9
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>":
+  version: 4.9.5
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=d73830"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 2eee5c37cad4390385db5db5a8e81470e42e8f1401b0358d7390095d6f681b410f2c4a0c496c6ff9ebd775423c7785cdace7bcdad76c7bee283df3d9718c0f20
   languageName: node
   linkType: hard
 
