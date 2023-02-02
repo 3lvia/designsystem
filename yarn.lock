@@ -2923,6 +2923,7 @@ __metadata:
     ts-loader: ^8.0.3
     ts-node: ^10.9.1
     typescript-plugin-styled-components: ^2.0.0
+    webpack: ^5.12.0
   peerDependencies:
     typescript: ~4.9.4
   languageName: unknown
