@@ -12,11 +12,10 @@ body {
   padding: 32px 32px 72px;
 }
 .theme-toggle-button {
-  // sticky position at the bottom of the page
   position: fixed;
   bottom: 48px;
   left: 16px;
-  z-index: 1000;
+  z-index: 999999;
 }
 
 h1 {
