@@ -2,6 +2,25 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "01.02.22",
+      "version": "3.3.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Improved how the pagination handles changes in the dropdown when not on the 1st page.",
+            "The component has been refactored. This causes some changes to the DOM structure, but should not affect the styling or API."
+          ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that caused the pagination to not always dispatch an event when changing the value in the dropdown."
+          ]
+        }
+      ]
+    },
+    {
       "date": "17.01.22",
       "version": "3.3.3",
       "changelog": [
