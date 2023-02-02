@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import { Datepicker, DatepickerProps } from '@elvia/elvis-datepicker/react';
 import { DatepickerRangeWrapper, RowContainer } from './styledComponents';
 import {
@@ -49,6 +49,13 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const [isRequiredState, setIsRequiredState] = useState<IsRequired>();
   const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>(emptyErrorMessage);
   const [shouldOpenNextPicker, setShouldOpenNextPicker] = useState(false);
+
+  /**
+   * Usually the value in the inputs are hidden before its touched.
+   * We should however not hide the value in the inputs if the date
+   * is passed as a prop.
+   */
+  const valueIsSentAsProp = useMemo(() => !!value, [value]);
 
   useEffect(() => {
     if (typeof isRequired === 'boolean') {
@@ -120,21 +127,27 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  useEffect(() => {
-    handleValueOnChangeISOString(selectedDateRange);
-    if (!webcomponent) {
-      valueOnChange?.(selectedDateRange);
-    } else {
-      webcomponent.setProps({ value: selectedDateRange }, true);
-      webcomponent.triggerEvent('valueOnChange', selectedDateRange);
+  const setNewDateRange = (newDateRange: DateRange, emit = true): void => {
+    setSelectedDateRange(newDateRange);
+
+    if (!emit) {
+      return;
     }
-  }, [selectedDateRange]);
+
+    handleValueOnChangeISOString(newDateRange);
+    if (!webcomponent) {
+      valueOnChange?.(newDateRange);
+    } else {
+      webcomponent.setProps({ value: newDateRange }, true);
+      webcomponent.triggerEvent('valueOnChange', newDateRange);
+    }
+  };
 
   useEffect(() => {
     if (value) {
-      setSelectedDateRange(value);
+      setNewDateRange(value, false);
     } else {
-      setSelectedDateRange(emptyDateRange);
+      setNewDateRange(emptyDateRange, false);
     }
   }, [value]);
 
@@ -166,11 +179,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
       }
 
       if (selectedDateRange?.end && date > selectedDateRange.end) {
-        setSelectedDateRange({ start: date, end: date });
+        setNewDateRange({ start: date, end: date });
       } else {
-        setSelectedDateRange((current) => {
-          return { ...current, start: date };
-        });
+        setNewDateRange({ ...selectedDateRange, start: date });
       }
     }
   };
@@ -186,11 +197,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
       }
 
       if (selectedDateRange?.start && date < selectedDateRange.start) {
-        setSelectedDateRange({ start: date, end: date });
+        setNewDateRange({ start: date, end: date });
       } else {
-        setSelectedDateRange((current) => {
-          return { ...current, end: date };
-        });
+        setNewDateRange({ ...selectedDateRange, end: date });
       }
     }
   };
@@ -204,9 +213,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         endDate && endDate < Date.now()
           ? setTime(endDate, 'startOfDay')
           : setTime(minDate || new Date(), 'startOfDay');
-      setSelectedDateRange((current) => {
-        return { ...current, start: startDate };
-      });
+      setNewDateRange({ ...selectedDateRange, start: startDate });
     }
   };
 
@@ -219,9 +226,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         startDate && Date.now() < startDate
           ? setTime(startDate, 'endOfDay')
           : setTime(maxDate || new Date(), 'endOfDay');
-      setSelectedDateRange((current) => {
-        return { ...current, end: endDate };
-      });
+      setNewDateRange({ ...selectedDateRange, end: endDate });
     }
   };
 
@@ -285,14 +290,18 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         <Datepicker
           {...passThroughProps}
           label={labelOptions?.start ?? defaultLabelOptions.start}
-          value={hasTimepickers && !isTouched('startDate') ? undefined : selectedDateRange.start}
+          value={
+            hasTimepickers && !valueIsSentAsProp && !isTouched('startDate')
+              ? undefined
+              : selectedDateRange.start
+          }
           valueOnChange={handleStartDatePickerValueOnChange}
           isRequired={isRequiredState?.start}
           onClose={openNextPicker}
           onFocus={() => setTouched('startDate')}
           onOpen={onStartPickerOpen}
           onReset={() => {
-            setSelectedDateRange({ ...selectedDateRange, start: null });
+            setNewDateRange({ ...selectedDateRange, start: null });
           }}
           dateRangeProps={{
             selectedDateRange: selectedDateRange,
@@ -310,7 +319,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             label=""
             isCompact={isCompact}
             isDisabled={isDisabled}
-            value={isTouched('startTime') ? selectedDateRange.start : undefined}
+            value={isTouched('startTime') || valueIsSentAsProp ? selectedDateRange.start : undefined}
             valueOnChange={handleStartTimePickerValueOnChange}
             isFullWidth={isFullWidth && isVertical}
             onFocus={() => setTouched('startTime')}
@@ -333,14 +342,16 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         <Datepicker
           {...passThroughProps}
           label={labelOptions?.end ?? defaultLabelOptions.end}
-          value={hasTimepickers && !isTouched('endDate') ? undefined : selectedDateRange.end}
+          value={
+            hasTimepickers && !valueIsSentAsProp && !isTouched('endDate') ? undefined : selectedDateRange.end
+          }
           valueOnChange={handleEndDatePickerValueOnChange}
           isRequired={isRequiredState?.end}
           onClose={openNextPicker}
           onFocus={() => setTouched('endDate')}
           onOpen={onEndPickerOpen}
           onReset={() => {
-            setSelectedDateRange({ ...selectedDateRange, end: null });
+            setNewDateRange({ ...selectedDateRange, end: null });
           }}
           isOpen={openPicker === 'endDate'}
           dateRangeProps={{
@@ -359,7 +370,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             label=""
             isCompact={isCompact}
             isDisabled={isDisabled}
-            value={isTouched('endTime') ? selectedDateRange.end : undefined}
+            value={isTouched('endTime') || valueIsSentAsProp ? selectedDateRange.end : undefined}
             valueOnChange={handleEndTimePickerValueOnChange}
             isFullWidth={isFullWidth && isVertical}
             onFocus={() => setTouched('endTime')}
