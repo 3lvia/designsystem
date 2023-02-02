@@ -11,6 +11,12 @@ body {
   border-top: 1px solid #29d305;
   padding: 32px 32px 72px;
 }
+.theme-toggle-button {
+  // sticky position at the bottom of the page
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+}
 
 h1 {
   text-align: center;
