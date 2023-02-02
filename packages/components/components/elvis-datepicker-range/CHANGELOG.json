@@ -2,12 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "31.01.23",
+      "date": "02.02.23",
       "version": "2.3.1",
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["<code>isFullWidth</code> works in combination with vertical alignment."]
+          "changes": [
+            "<code>isFullWidth</code> works in combination with vertical alignment.",
+            "If a <code>value</code> is provided, it is displayed in the inputs before they are touched.",
+            "The component no longer emits an value on init."
+          ]
         }
       ]
     },
