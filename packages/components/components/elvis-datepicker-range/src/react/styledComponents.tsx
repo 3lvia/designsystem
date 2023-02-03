@@ -29,6 +29,8 @@ export const DatepickerRangeWrapper = styled.div<DatepickerRangeWrapperProps>`
   ${({ isFullWidth }) =>
     isFullWidth &&
     css`
+      width: 100%;
+
       ${RowContainer} {
         flex: 1;
         width: 100%;
