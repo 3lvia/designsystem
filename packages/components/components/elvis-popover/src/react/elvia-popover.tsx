@@ -21,6 +21,7 @@ import {
   IconWrapper,
 } from '@elvia/elvis-toolbox';
 import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
+import { getThemeColor } from '@elvia/elvis-colors';
 
 const Popover: FC<PopoverProps> = function ({
   heading,
@@ -158,7 +159,7 @@ const Popover: FC<PopoverProps> = function ({
             {hasCloseButton && (
               <CloseButtonContainer>
                 <IconButton size="sm" onClick={toggleVisibility} aria-label="Lukk">
-                  <IconWrapper icon={closeBold} size="xs" />
+                  <IconWrapper icon={closeBold} color={getThemeColor('text-primary')} size="xs" />
                 </IconButton>
               </CloseButtonContainer>
             )}
