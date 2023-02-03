@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor, ThemeName } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 interface TriggerContainerProps {
@@ -16,7 +16,11 @@ export const PopoverContainer = styled.div`
   box-sizing: border-box;
 `;
 
-export const PopoverContent = styled.div`
+interface PopoverContentProps {
+  currentTheme: ThemeName;
+}
+
+export const PopoverContent = styled.div<PopoverContentProps>`
   display: flex;
   position: relative;
   flex-direction: column;
@@ -24,9 +28,13 @@ export const PopoverContent = styled.div`
   background-color: ${getThemeColor('background-overlay')};
   color: ${getThemeColor('text-primary')};
   text-align: left;
-  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
   border-radius: 8px;
   white-space: normal;
+  ${({ currentTheme }) =>
+    currentTheme === 'light' &&
+    css`
+      box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
+    `}
 `;
 
 export const TriggerContainer = styled.div<TriggerContainerProps>`
