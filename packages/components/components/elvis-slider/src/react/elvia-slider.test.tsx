@@ -48,7 +48,7 @@ describe('Elvia Slider', () => {
       expect(inputField).not.toBeInTheDocument();
     });
 
-    test('should display the tooptip containing the value on hover', async () => {
+    test('should display the tooltip containing the value on hover', async () => {
       const user = userEvent.setup();
       const sliderInput = screen.getByRole('slider');
 
@@ -69,7 +69,7 @@ describe('Elvia Slider', () => {
   });
 
   describe('The simple slider with the "hasPercent" prop', () => {
-    test('should display a tooptip containing the percentage between min and max', async () => {
+    test('should display a tooltip containing the percentage between min and max', async () => {
       const user = userEvent.setup();
       render(<Slider value={10} hasPercent />);
 
@@ -84,7 +84,7 @@ describe('Elvia Slider', () => {
   });
 
   describe('The simple slider with the "unit" prop', () => {
-    test('should display the tooptip containing a custom unit', async () => {
+    test('should display the tooltip containing a custom unit', async () => {
       const user = userEvent.setup();
       render(<Slider value={10} unit={' kWh'} />);
 
@@ -110,13 +110,13 @@ describe('Elvia Slider', () => {
     });
   });
 
-  describe('The simple slider with the "title" prop', () => {
-    test('should display a custom title', () => {
-      render(<Slider title={'kilovolt'} />);
+  describe('The simple slider with the "heading" prop', () => {
+    test('should display a custom heading', () => {
+      render(<Slider heading={'kilovolt'} />);
 
-      const sliderTitle = screen.queryByText('kilovolt');
+      const sliderHeading = screen.queryByText('kilovolt');
 
-      expect(sliderTitle).toBeInTheDocument();
+      expect(sliderHeading).toBeInTheDocument();
     });
   });
 
@@ -424,7 +424,7 @@ describe('Elvia Slider', () => {
           <Slider type={'simple'} hasHintValues />
           <Slider type={'simple'} isCompact />
           <Slider type={'simple'} isDisabled />
-          <Slider type={'simple'} title={'temperatur'} />
+          <Slider type={'simple'} heading={'temperatur'} />
           <Slider type={'simple'} unit={' grader'} />
         </div>,
       );
