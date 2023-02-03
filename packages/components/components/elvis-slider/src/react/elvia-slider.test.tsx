@@ -5,456 +5,412 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 
-//====================
 // Simple Slider
-//====================
 describe('Elvia Slider', () => {
   describe('The default simple slider', () => {
-    const type = 'simple';
-    const min = 1;
-    const max = 100;
-
-    //==================== RENDERING ====================
-    test('should contain a single input type=range', () => {
-      render(<Slider type={type} min={min} max={max} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
-
-      expect(leftSliderInput).toBeInTheDocument();
-      expect(leftSliderInput).toHaveAttribute('type', 'range');
-      expect(screen.getAllByRole('slider')).toHaveLength(1);
+    beforeEach(() => {
+      render(<Slider />);
     });
 
-    test('should have a "min" attribute with the value 1', () => {
-      render(<Slider type={type} min={min} max={max} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
+    test('should contain a single input type=range', () => {
+      const sliderInput = screen.getByRole('slider');
 
-      expect(leftSliderInput).toHaveAttribute('min', '1');
+      expect(sliderInput).toBeInTheDocument();
+    });
+
+    test('should have a "min" attribute with the value 0', () => {
+      const sliderInput = screen.getByRole('slider');
+
+      expect(sliderInput).toHaveAttribute('min', '0');
     });
 
     test('should have a "max" attribute with the value 100', () => {
-      render(<Slider type={type} min={min} max={max} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
+      const sliderInput = screen.getByRole('slider');
 
-      expect(leftSliderInput).toHaveAttribute('max', '100');
+      expect(sliderInput).toHaveAttribute('max', '100');
     });
 
     test('should have a default equal to the "min" attribute', () => {
-      render(<Slider type={type} min={min} max={max} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
+      const sliderInput = screen.getByRole('slider');
 
-      expect(leftSliderInput).toHaveValue('1');
+      expect(sliderInput).toHaveValue('0');
     });
 
     test('should be enabled', () => {
-      render(<Slider type={type} min={min} max={max} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
+      const sliderInput = screen.getByRole('slider');
 
-      expect(leftSliderInput).toBeEnabled();
+      expect(sliderInput).toBeEnabled();
     });
 
     test('should not have a input field', () => {
-      render(<Slider type={type} min={min} max={max} />);
-      const sliderContainer = screen.getByTestId('slider-container');
-      const leftNumberInput = screen.queryByTestId('left-number-input');
+      const inputField = screen.queryByRole('textbox');
 
-      expect(sliderContainer).not.toContainElement(leftNumberInput);
+      expect(inputField).not.toBeInTheDocument();
     });
-
-    //========== MIMICKING USER INTERACTIONS ==========
 
     test('should display the tooptip containing the value on hover', async () => {
       const user = userEvent.setup();
-      render(<Slider type={type} min={min} max={max} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
+      const sliderInput = screen.getByRole('slider');
 
-      expect(leftSliderInput).toBeEnabled();
+      await user.hover(sliderInput);
 
-      await user.hover(leftSliderInput);
-      const leftTooltipPopup = await screen.findByTestId('left-tooltip-popup');
-      expect(leftTooltipPopup).toBeInTheDocument();
-      expect(leftTooltipPopup).toHaveTextContent(min.toString());
-    });
-
-    test('should display the tooptip containing the percentage between min and max if percent is true', async () => {
-      const user = userEvent.setup();
-      render(<Slider type={type} min={min} max={max} hasPercent={true} value={11} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
-
-      await user.hover(leftSliderInput);
-
-      const leftTooltipPopup = await screen.findByTestId('left-tooltip-popup');
-      expect(leftTooltipPopup).toBeInTheDocument();
-      expect(leftTooltipPopup).toHaveTextContent(`${10} %`);
-    });
-
-    test('should display the tooptip containing a custom unit if defined', async () => {
-      const user = userEvent.setup();
-      render(<Slider type={type} min={min} max={max} unit={' dB'} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
-
-      await user.hover(leftSliderInput);
-
-      const leftTooltipPopup = await screen.findByTestId('left-tooltip-popup');
-      expect(leftTooltipPopup).toBeInTheDocument();
-      expect(leftTooltipPopup).toHaveTextContent(`${min} dB`);
+      const tooltip = await screen.findByRole('tooltip');
+      expect(tooltip).toBeInTheDocument();
+      expect(tooltip).toHaveTextContent('0');
     });
 
     /* Using FireEvent here as type=range is not fully supported by UserEvent (?): https://github.com/testing-library/user-event/issues/871 */
     test('should update the value when the slider is changed', async () => {
-      render(<Slider type={type} min={min} max={max} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
+      const sliderInput = screen.getByRole('slider');
 
-      fireEvent.change(leftSliderInput, { target: { value: 50 } });
-      expect(leftSliderInput).toHaveValue('50');
+      fireEvent.change(sliderInput, { target: { value: 50 } });
+      expect(sliderInput).toHaveValue('50');
+    });
+  });
+
+  describe('The simple slider with the "hasPercent" prop', () => {
+    test('should display a tooptip containing the percentage between min and max', async () => {
+      const user = userEvent.setup();
+      render(<Slider value={10} hasPercent />);
+
+      const sliderInput = screen.getByRole('slider');
+
+      await user.hover(sliderInput);
+
+      const tooltip = screen.getByRole('tooltip');
+      expect(tooltip).toBeInTheDocument();
+      expect(tooltip).toHaveTextContent(`${10} %`);
+    });
+  });
+
+  describe('The simple slider with the "unit" prop', () => {
+    test('should display the tooptip containing a custom unit', async () => {
+      const user = userEvent.setup();
+      render(<Slider value={10} unit={' kWh'} />);
+
+      const sliderInput = screen.getByRole('slider');
+
+      await user.hover(sliderInput);
+
+      const tooltip = screen.getByRole('tooltip');
+      expect(tooltip).toBeInTheDocument();
+      expect(tooltip).toHaveTextContent(`${10} kWh`);
+    });
+  });
+
+  describe('The simple slider with the "hasHintValues" prop', () => {
+    test('should display two strings equal to the min and max value', () => {
+      render(<Slider hasHintValues />);
+
+      const leftHintValue = screen.getByText('0');
+      const rightHintValue = screen.getByText('100');
+
+      expect(leftHintValue).toBeInTheDocument();
+      expect(rightHintValue).toBeInTheDocument();
+    });
+  });
+
+  describe('The simple slider with the "title" prop', () => {
+    test('should display a custom title', () => {
+      render(<Slider title={'kilovolt'} />);
+
+      const sliderTitle = screen.queryByText('kilovolt');
+
+      expect(sliderTitle).toBeInTheDocument();
+    });
+  });
+
+  describe('The simple slider with the "ariaLabel" prop', () => {
+    test('should contain a custom aria label', () => {
+      render(<Slider ariaLabel={'ampere'} />);
+
+      const customAriaLabel = screen.queryByLabelText('ampere');
+
+      expect(customAriaLabel).toBeInTheDocument();
+    });
+  });
+
+  describe('The simple slider with the "errorOptions" prop', () => {
+    beforeEach(() => {
+      render(
+        <Slider
+          hasInputField
+          errorOptions={{ text: 'jordfeil', isErrorState: true, hasErrorPlaceholder: true, hideText: false }}
+        />,
+      );
+    });
+
+    test('should have a custom error message', () => {
+      const customErrorText = screen.queryByText('jordfeil');
+      expect(customErrorText).toBeInTheDocument();
+    });
+
+    test('should have a invalid input type="text"', () => {
+      const inputField = screen.getByRole('textbox');
+      expect(inputField).toBeInvalid();
     });
   });
 
   describe('The simple slider with a input field', () => {
-    const type = 'simple';
-    const min = 1;
-    const max = 100;
-    const hasInputField = true;
-
-    //==================== RENDERING ====================
-    test('should have input type=number with a "min" attribute with the value 1', () => {
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const leftNumberInput = screen.getByTestId('left-number-input');
-
-      expect(leftNumberInput).toHaveAttribute('min', '1');
+    beforeEach(() => {
+      render(<Slider hasInputField />);
     });
 
-    test('should have input type=number with a "max" attribute with the value 100', () => {
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const leftNumberInput = screen.getByTestId('left-number-input');
+    test('should have one enabled input type=text', () => {
+      const inputField = screen.getByRole('textbox');
 
-      expect(leftNumberInput).toHaveAttribute('max', '100');
+      expect(inputField).toBeInTheDocument();
+      expect(inputField).toBeEnabled();
     });
 
-    test('should have input type=number with a default value loosely equal to the "min" attribute', () => {
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const leftNumberInput = screen.getByTestId('left-number-input');
+    test('should have input type=text with a default value loosely equal to the "min" attribute', () => {
+      const inputField = screen.getByRole('textbox');
 
-      expect(leftNumberInput).toHaveValue(min);
-    });
-
-    test('should have one enabled type=number ', () => {
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const leftNumberInput = screen.getByTestId('left-number-input');
-
-      expect(leftNumberInput).toBeEnabled();
+      expect(inputField).toHaveValue('0');
     });
 
     test('should have a label that says "Verdi"', () => {
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const leftLabel = screen.getByTestId('left-label');
-
-      expect(leftLabel).toHaveTextContent('Verdi');
+      const inputLabel = screen.queryByLabelText('Verdi');
+      expect(inputLabel).toBeInTheDocument();
     });
-
-    //========== MIMICKING USER INTERACTIONS ==========
 
     test('should update the slider when the number input changes by typing', async () => {
       const user = userEvent.setup();
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
-      const leftNumberInput = screen.getByTestId('left-number-input');
+      const sliderInput = screen.getByRole('slider');
+      const inputField = screen.getByRole('textbox');
 
-      await user.click(leftNumberInput);
+      await user.click(inputField);
       await user.keyboard('{Backspace}');
-      await user.type(leftNumberInput, '20');
+      await user.type(inputField, '20');
       act(() => {
-        leftNumberInput.blur();
+        inputField.blur();
       });
 
-      expect(leftNumberInput).toBeEnabled();
-      expect(leftSliderInput).toHaveValue('20'); //see if the value was updated or not (it should update from 1 to 20)
+      expect(inputField).toBeEnabled();
+      expect(sliderInput).toHaveValue('20'); //see if the value was updated or not (it should update from 0 to 20)
     });
 
     /* Using FireEvent here as type=range is not fully supported by UserEvent (?): https://github.com/testing-library/user-event/issues/871 */
-    test('should update the number input when the slider value changes', () => {
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
-      const leftNumberInput = screen.getByTestId('left-number-input');
+    test('should update the text input when the slider value changes', () => {
+      const slider = screen.getByRole('slider');
+      const inputField = screen.getByRole('textbox');
 
-      fireEvent.change(leftSliderInput, { target: { value: 50 } });
-      expect(leftNumberInput).toHaveValue(50);
+      fireEvent.change(slider, { target: { value: 50 } });
+      expect(inputField).toHaveValue('50');
     });
 
-    test('should not update the slider if the input value is less than minimum', async () => {
+    test('set the value to the minimum if the user inputs a number below the minimum', async () => {
       const user = userEvent.setup();
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
-      const leftNumberInput = screen.getByTestId('left-number-input');
 
-      await user.click(leftNumberInput);
+      const slider = screen.getByRole('slider');
+      const inputField = screen.getByRole('textbox');
+
+      await user.click(inputField);
       await user.keyboard('{Backspace}');
-      await user.type(leftNumberInput, '0');
+      await user.type(inputField, '-10');
       act(() => {
-        leftNumberInput.blur(); //the input field needs to be blurred to trigger the onBlur event to validate the input
+        inputField.blur(); //the input field needs to be blurred to trigger the onBlur event to validate the input
       });
-      expect(leftNumberInput).toBeInvalid();
-      expect(leftSliderInput).toHaveValue('1'); //see if the value was updated or not (it should not)
+
+      expect(slider).toHaveValue('0'); //default min
     });
 
-    test('should not update the slider if the input value is greater than maximum', async () => {
+    test('set the value to the maximum if the user inputs a number above the maximum', async () => {
       const user = userEvent.setup();
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
-      const leftNumberInput = screen.getByTestId('left-number-input');
 
-      await user.click(leftNumberInput);
+      const slider = screen.getByRole('slider');
+      const inputField = screen.getByRole('textbox');
+
+      await user.click(inputField);
       await user.keyboard('{Backspace}');
-      await user.type(leftNumberInput, '200');
+      await user.type(inputField, '10000');
       act(() => {
-        leftNumberInput.blur();
+        inputField.blur();
       });
 
-      expect(leftNumberInput).toBeInvalid();
-      expect(leftSliderInput).toHaveValue('1');
+      expect(slider).toHaveValue('100'); //default max
     });
   });
 
   describe('The simple slider with a input field and custom label', () => {
-    const type = 'simple';
-    const min = 1;
-    const max = 100;
-    const hasInputField = true;
-    const label = 'kWh';
-
     test('should have a label that is equal to the custom label ("kWh")', () => {
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} label={label} />);
-      const leftLabel = screen.getByTestId('left-label');
+      render(<Slider hasInputField label={'kWh'} />);
 
-      expect(leftLabel).toHaveTextContent('kWh');
+      const customInputLabel = screen.queryByLabelText('kWh');
+      expect(customInputLabel).toBeInTheDocument();
     });
   });
 
   describe('The disabled simple slider', () => {
-    const type = 'simple';
-    const min = 1;
-    const max = 100;
-    const isDisabled = true;
-
-    test('should be disabled', () => {
-      render(<Slider type={type} min={min} max={max} isDisabled={isDisabled} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
-
-      expect(leftSliderInput).toBeDisabled();
+    beforeEach(() => {
+      render(<Slider isDisabled />);
     });
 
-    //========== MIMICKING USER INTERACTIONS ==========
+    test('should be disabled', () => {
+      const slider = screen.getByRole('slider');
 
-    test('should not display the tooptip on hover', async () => {
+      expect(slider).toBeDisabled();
+    });
+
+    test('should not display the tooltip on hover', async () => {
       const user = userEvent.setup();
-      render(<Slider type={type} min={min} max={max} isDisabled={isDisabled} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
+      const slider = screen.getByRole('slider');
 
-      expect(leftSliderInput).toBeDisabled();
+      await user.hover(slider);
 
-      await user.hover(leftSliderInput);
+      const tooltip = screen.queryByRole('tooltip');
 
-      const leftTooltipPopup = await screen.queryByTestId('left-tooltip-popup');
-
-      //it is not in the document
-      expect(leftTooltipPopup).toBe(null);
+      expect(tooltip).not.toBeInTheDocument();
     });
   });
 
   describe('The disabled simple slider with a input field', () => {
-    const type = 'simple';
-    const min = 1;
-    const max = 100;
-    const hasInputField = true;
-    const isDisabled = true;
-
     test('should have a input field that is disabled', () => {
-      render(
-        <Slider type={type} min={min} max={max} isDisabled={isDisabled} hasInputField={hasInputField} />,
-      );
-      const leftNumberInput = screen.getByTestId('left-number-input');
+      render(<Slider isDisabled hasInputField />);
+      const inputField = screen.getByRole('textbox');
 
-      expect(leftNumberInput).toBeDisabled();
+      expect(inputField).toBeDisabled();
     });
   });
 
-  //====================
   // Range Slider
-  //====================
-
   describe('The default range slider', () => {
-    const type = 'range';
-    const min = 1;
-    const max = 100;
+    beforeEach(() => {
+      render(<Slider type={'range'} />);
+    });
 
     test('should contain two inputs type=range', () => {
-      render(<Slider type={type} min={min} max={max} />);
-
       expect(screen.getAllByRole('slider')).toHaveLength(2);
     });
 
-    //not testing the left slider because it is the same as the simple slider
-    test('should have a "min" attribute with the value 1 on the right slider', () => {
-      render(<Slider type={type} min={min} max={max} />);
-      const rightSliderInput = screen.getByTestId('right-slider');
+    test('should have a "min" attribute with the value 0 on the right slider', () => {
+      const rightSlider = screen.getAllByRole('slider')[1];
 
-      expect(rightSliderInput).toHaveAttribute('min', '1');
+      expect(rightSlider).toHaveAttribute('min', '0');
     });
 
     test('should have a "max" attribute with the value 100 on the right slider', () => {
-      render(<Slider type={type} min={min} max={max} />);
-      const rightSliderInput = screen.getByTestId('right-slider');
+      const rightSlider = screen.getAllByRole('slider')[1];
 
-      expect(rightSliderInput).toHaveAttribute('max', '100');
+      expect(rightSlider).toHaveAttribute('max', '100');
     });
 
     test('should have a right slider that is enabled', () => {
-      render(<Slider type={type} min={min} max={max} />);
-      const rightSliderInput = screen.getByTestId('right-slider');
+      const rightSlider = screen.getAllByRole('slider')[1];
 
-      expect(rightSliderInput).toBeEnabled();
+      expect(rightSlider).toBeEnabled();
     });
   });
 
   describe('The range slider with input fields', () => {
-    const type = 'range';
-    const min = 1;
-    const max = 100;
-    const hasInputField = true;
-
-    test('should contain two inputs type=number', () => {
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-
-      expect(screen.getAllByRole('spinbutton')).toHaveLength(2);
+    beforeEach(() => {
+      render(<Slider type={'range'} hasInputField />);
     });
 
-    test('should have a right input type=number with a "max" attribute with the value 100', () => {
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const rightNumberInput = screen.getByTestId('right-number-input');
-
-      expect(rightNumberInput).toHaveAttribute('max', '100');
+    test('should contain two inputs type=text', () => {
+      expect(screen.getAllByRole('textbox')).toHaveLength(2);
     });
 
-    test('should have a right input type=number with a default value loosely equal to the "max" attribute', () => {
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const rightNumberInput = screen.getByTestId('right-number-input');
+    test('should have a right input type=text with a default value loosely equal to the "max" attribute', () => {
+      const rightInput = screen.getAllByRole('textbox')[1];
 
-      expect(rightNumberInput).toHaveValue(100);
+      expect(rightInput).toHaveValue('100');
     });
 
-    test('should have two type=number enabled', () => {
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const rightNumberInput = screen.getByTestId('right-number-input');
+    test('should have two type=text enabled', () => {
+      const rightInput = screen.getAllByRole('textbox')[1];
 
-      expect(rightNumberInput).toBeEnabled();
+      expect(rightInput).toBeEnabled();
     });
 
-    test('should labels that say "Fra" and "Til"', () => {
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} />);
-      const leftLabel = screen.getByTestId('left-label');
-      const rightLabel = screen.getByTestId('right-label');
+    test('should labels that say "Fra" and "Til" by default', () => {
+      const leftLabel = screen.queryByLabelText('Fra');
+      const rightLabel = screen.queryByLabelText('Til');
 
-      expect(leftLabel).toHaveTextContent('Fra');
-      expect(rightLabel).toHaveTextContent('Til');
+      expect(leftLabel).toBeInTheDocument();
+      expect(rightLabel).toBeInTheDocument();
     });
+  });
 
-    //========== MIMICKING USER INTERACTIONS ==========
+  describe('The range slider with input fields interactions', () => {
+    test('if user sets left slider to higher value than  right slider, make the left slider equal to the right slider', async () => {
+      render(<Slider type={'range'} hasInputField value={{ left: 0, right: 80 }} />);
 
-    test('should not update the sliders if the left input is greater than the right input', async () => {
       const user = userEvent.setup();
-      render(
-        <Slider
-          type={type}
-          min={min}
-          max={max}
-          hasInputField={hasInputField}
-          value={{ left: min, right: 80 }}
-        />,
-      );
-      const leftSliderInput = screen.getByTestId('left-slider');
-      const leftNumberInput = screen.getByTestId('left-number-input');
 
-      await user.click(leftNumberInput);
+      const [leftSlider, rightSlider] = screen.getAllByRole('slider');
+
+      const leftInput = screen.getAllByRole('textbox')[0];
+
+      await user.click(leftInput);
       await user.keyboard('{Backspace}');
-      await user.type(leftNumberInput, '81');
+      await user.type(leftInput, '91');
       act(() => {
-        leftNumberInput.blur();
+        leftInput.blur();
       });
 
-      expect(leftNumberInput).toBeInvalid();
-      expect(leftSliderInput).toHaveValue('1');
+      expect(leftSlider).toHaveValue('80');
+      expect(rightSlider).toHaveValue('80');
     });
 
-    test('should not update the sliders if the right input is smaller than the left input', async () => {
-      const user = userEvent.setup();
-      render(
-        <Slider
-          type={type}
-          min={min}
-          max={max}
-          hasInputField={hasInputField}
-          value={{ left: 20, right: max }}
-        />,
-      );
-      const rightSliderInput = screen.getByTestId('right-slider');
-      const rightNumberInput = screen.getByTestId('right-number-input');
+    test('if user sets  right slider to lower value than the left slider, make the right slider equal to the left slider', async () => {
+      render(<Slider type={'range'} hasInputField value={{ left: 20, right: 100 }} />);
 
-      await user.click(rightNumberInput);
-      await user.keyboard('{Backspace}');
-      await user.type(rightNumberInput, '19');
+      const user = userEvent.setup();
+
+      const [leftSlider, rightSlider] = screen.getAllByRole('slider');
+
+      const rightInput = screen.getAllByRole('textbox')[1];
+
+      await user.click(rightInput);
+      await user.keyboard('{Backspace} {Backspace} {Backspace}');
+      await user.type(rightInput, '10');
       act(() => {
-        rightNumberInput.blur();
+        rightInput.blur();
       });
 
-      expect(rightNumberInput).toBeInvalid();
-      expect(rightSliderInput).toHaveValue('100'); //see if the value was updated or not (it should not)
+      expect(leftSlider).toHaveValue('20');
+      expect(rightSlider).toHaveValue('20');
     });
   });
 
-  describe('The range slider with input fields and a custom label', () => {
-    const type = 'range';
-    const min = 1;
-    const max = 100;
-    const hasInputField = true;
-    const label = 'GB';
-
-    test('should have labels that are equal to the custom label ("GB")', () => {
-      render(<Slider type={type} min={min} max={max} hasInputField={hasInputField} label={label} />);
-      const rightLabel = screen.getByTestId('right-label');
-
-      expect(rightLabel).toHaveTextContent('GB');
-    });
-  });
-
-  describe('The disabled range slider', () => {
-    const type = 'range';
-    const min = 1;
-    const max = 100;
-    const isDisabled = true;
-
-    test('should be disabled', () => {
-      render(<Slider type={type} min={min} max={max} isDisabled={isDisabled} />);
-      const leftSliderInput = screen.getByTestId('left-slider');
-      const rightSliderInput = screen.getByTestId('right-slider');
-
-      expect(leftSliderInput).toBeDisabled();
-      expect(rightSliderInput).toBeDisabled();
-    });
-  });
-
-  describe('The disabled range slider with input fields', () => {
-    const type = 'range';
-    const min = 1;
-    const max = 100;
-    const hasInputField = true;
-    const isDisabled = true;
-
-    test('should have two input fields that are disabled', () => {
+  describe('Range slider with errorOptions', () => {
+    beforeEach(() => {
       render(
-        <Slider type={type} min={min} max={max} isDisabled={isDisabled} hasInputField={hasInputField} />,
+        <Slider
+          type="range"
+          hasInputField
+          errorOptions={{
+            left: { text: '', isErrorState: false, hasErrorPlaceholder: false, hideText: false },
+            right: { text: 'Error message', isErrorState: true, hasErrorPlaceholder: true, hideText: false },
+          }}
+        />,
       );
-      const rightNumberInput = screen.getByTestId('right-number-input');
+    });
 
-      expect(rightNumberInput).toBeDisabled();
+    test('displays custom error message', () => {
+      const customError = screen.queryByText('Error message');
+      expect(customError).toBeInTheDocument();
+    });
+
+    test('input fields have correct validation state', () => {
+      const [leftInput, rightInput] = screen.getAllByRole('textbox');
+      expect(leftInput).toBeValid();
+      expect(rightInput).toBeInvalid();
+    });
+  });
+
+  describe('Disabled range slider', () => {
+    test('all components are disabled', () => {
+      render(<Slider type="range" isDisabled hasInputField />);
+
+      const [leftSlider, rightSlider] = screen.getAllByRole('slider');
+      const [leftInput, rightInput] = screen.getAllByRole('textbox');
+
+      expect(leftSlider).toBeDisabled();
+      expect(rightSlider).toBeDisabled();
+      expect(leftInput).toBeDisabled();
+      expect(rightInput).toBeDisabled();
     });
   });
 
@@ -462,9 +418,14 @@ describe('Elvia Slider', () => {
     test('of sliders should have no axe violations', async () => {
       render(
         <div data-testid="sliders">
-          <Slider type={'simple'} min={0} max={100} />
-          <Slider type={'range'} min={0} max={100} />
-          <Slider type={'range'} min={0} max={100} hasInputField={true} />
+          <Slider type={'range'} />
+          <Slider type={'range'} hasInputField={true} />
+          <Slider type={'simple'} />
+          <Slider type={'simple'} hasHintValues />
+          <Slider type={'simple'} isCompact />
+          <Slider type={'simple'} isDisabled />
+          <Slider type={'simple'} title={'temperatur'} />
+          <Slider type={'simple'} unit={' grader'} />
         </div>,
       );
 
