@@ -28,10 +28,6 @@ export const RadioFilterLabel = styled.label<RadioFilterLabelProps>`
     border-color: ${({ isSelected }) =>
       `${isSelected ? getThemeColor('text-primary') : getThemeColor('state-hover-green')}`};
   }
-  &:focus-within {
-    outline: 2px solid ${getThemeColor('state-focus')};
-    outline-offset: 2px;
-  }
   white-space: nowrap;
   margin: 0;
 `;
