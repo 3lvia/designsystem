@@ -135,7 +135,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
   }
 `;
 
-interface LabelProps {
+export interface LabelProps {
   hasOptionalText?: boolean;
 }
 
