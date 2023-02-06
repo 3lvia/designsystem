@@ -107,8 +107,7 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
     isSelected ? getThemeColor('background-primary') : getThemeColor('text-primary')};
   text-shadow: ${({ isSelected }) => (isSelected ? `0 0 0 currentColor, 0 0 0.5px currentColor` : '0')};
 
-  transition: color 250ms ${controlAnimation}, border 200ms linear;
-
+  transition: color 250ms ${controlAnimation}, border 200ms linear, text-shadow 200ms ${controlAnimation};
   &:hover {
     text-shadow: 0 0 0 currentColor, 0 0 0.5px currentColor;
     border: ${({ scType, isSelected }) => getControlBorder(scType, isSelected, true)};
