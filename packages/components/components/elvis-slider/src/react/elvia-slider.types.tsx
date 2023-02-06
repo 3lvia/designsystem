@@ -1,49 +1,41 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { CSSProperties } from 'react';
+import { BaseProps, HasValue, ErrorOptions as ErrorOptionsBase } from '@elvia/elvis-toolbox';
 
-export type SliderType = 'simple' | 'range';
-
-export interface SliderProps {
-  className?: string;
+export interface SliderProps extends BaseProps, HasValue<number | BothSliders<number>> {
+  ariaLabel?: string | BothSliders<string>;
   hasHintValues?: boolean;
   hasInputField?: boolean;
   hasPercent?: boolean;
   hasTooltip?: boolean;
-  inlineStyle?: CSSProperties;
   isCompact?: boolean;
   isDisabled?: boolean;
-  label?: string | LabelTextType;
+  label?: string | BothSliders<string>;
   max?: number;
   min?: number;
-  title?: string;
+  heading?: string;
   type?: SliderType;
   unit?: string;
-  value?: number | SliderValues;
-  valueOnChange?: (value: number | SliderValues) => void;
-  webcomponent?: ElvisComponentWrapper;
+  errorOptions?: ErrorOptions;
 }
+
+export type SliderType = 'simple' | 'range';
+export type Sides = 'left' | 'right';
 
 export type BothSliders<T> = {
   left: T;
   right: T;
 };
 
-export type Extremum = {
-  minimum: number;
-  maximum: number;
-};
-
 export type SliderValues = BothSliders<number>;
+export type FormFieldInputValues = Partial<BothSliders<string>>;
 
-export type TextFieldsValues = Partial<BothSliders<number | string>>;
+interface SimpleSliderErrorOptions extends Partial<ErrorOptionsBase> {
+  type?: 'simple';
+}
 
-export type ToolTipState = BothSliders<boolean>;
+interface RangeSliderErrorOptions extends BothSliders<Partial<ErrorOptionsBase>> {
+  type?: 'range';
+}
 
-export type SliderErrors = {
-  leftTextfield?: string;
-  rightTextfield?: string;
-};
+export type ErrorOptions = SimpleSliderErrorOptions | RangeSliderErrorOptions;
 
-export type LabelTextType = BothSliders<string>;
-
-export type TooltipPopupSides = 'left' | 'right';
+export type ErrorOptionKeys = keyof ErrorOptionsBase;
