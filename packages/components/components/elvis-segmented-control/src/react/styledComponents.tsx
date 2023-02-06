@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { SegmentedControlContainerProps, SegmentedControlLabelProps } from './elviaSegmentedControl.types';
 
@@ -50,9 +50,9 @@ const getFontSize = (size: string) => {
 
 const getControlBorder = (scType: string, isSelected: boolean, isHovering?: boolean): string => {
   if (scType === 'icon' && isSelected) {
-    return '1px solid black';
+    return `1px solid ${getThemeColor('text-primary')}`;
   } else if (scType === 'icon' && isHovering) {
-    return '1px solid ' + getColor('green');
+    return `1px solid ${getThemeColor('state-on')}`;
   } else {
     return '1px solid transparent';
   }
@@ -64,10 +64,10 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
   grid-auto-flow: column;
   position: relative;
   width: max-content;
-  border: ${(props) => (props.scType === 'text' ? '1px solid black' : 'none')};
+  border: ${(props) => (props.scType === 'text' ? `1px solid ${getThemeColor('text-primary')}` : 'none')};
   border-radius: 100px;
   gap: ${(props) => (props.scType === 'text' ? '0' : '8px')};
-  background: ${(props) => (props.scType === 'text' ? getColor('white') : 'transparent')};
+  background: ${(props) => (props.scType === 'text' ? getThemeColor('background-primary') : 'transparent')};
 
   // Selected control background
   ${(props) =>
@@ -81,7 +81,7 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
         top: 0;
         left: ${(100 / props.numberOfControls) * props.selectedIndex}%;
         border-radius: 100px;
-        background-color: ${getColor('black')};
+        background-color: ${getThemeColor('text-primary')};
         transition: left 250ms ${controlAnimation};
       }
     `}
@@ -99,14 +99,20 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   ${getTypographyCss('text-md')}
   font-size: ${(props) => getFontSize(props.size)};
   text-align: center;
-  color: ${(props) => (props.isSelected ? getColor('white') : getColor('black'))};
-  text-shadow: ${(props) => (props.isSelected ? '0 0 0 white, 0 0 0.5px white' : '0')};
+  color: ${(props) =>
+    props.isSelected ? getThemeColor('background-primary') : getThemeColor('text-primary')};
+  text-shadow: ${(props) =>
+    props.isSelected
+      ? `0 0 0 ${getThemeColor('background-primary')}, 0 0 0.5px ${getThemeColor('background-primary')}`
+      : '0'};
 
   transition: color 250ms ${controlAnimation}, border 200ms linear;
 
   &:hover {
     text-shadow: ${(props) =>
-      props.isSelected ? '0 0 0 white, 0 0 0.5px white' : '0 0 0 black, 0 0 0.5px black'};
+      props.isSelected
+        ? `0 0 0 ${getThemeColor('background-primary')}, 0 0 0.5px ${getThemeColor('background-primary')}`
+        : `0 0 0 ${getThemeColor('text-primary')}, 0 0 0.5px ${getThemeColor('text-primary')}`};
     border: ${(props) => getControlBorder(props.scType, props.isSelected, true)};
   }
 `;
