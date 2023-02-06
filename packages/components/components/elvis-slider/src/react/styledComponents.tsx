@@ -34,61 +34,68 @@ type HelperTextProps = {
 };
 //#endregion
 
-//#region Slider + Slider pseudo elements
-const REMOVE_DEFAULT_STYLES = css`
-  -moz-box-shadow: none;
-  -webkit-appearance: none;
-  -webkit-box-shadow: none;
+//#region Slider + Slider Thumbs
+const removeDefaultStyles = css`
   -webkit-tap-highlight-color: transparent;
+  appearance: none;
   box-shadow: none;
   margin: 0;
   padding: 0;
 `;
 
-const THUMB = css`
+const defaultThumb = css`
+  aspect-ratio: 1/1;
   background-color: ${getColor('black')};
   border-radius: 50%;
   border: solid 1.5px ${getColor('white')};
   cursor: pointer;
-  height: 17px;
+  height: 16px;
   opacity: 1;
   pointer-events: all;
   position: relative;
-  transition-duration: 0.15s;
+  transition-duration: 0.25s;
   transition-property: height, width;
-  width: 17px;
+  width: 16px;
   z-index: 3;
 
   @media (hover: none) and (pointer: coarse) {
-    height: 25px;
-    width: 25px;
     border: solid 2px ${getColor('white')};
+    height: 24px;
+    width: 24px;
   }
 `;
 
-const ACTIVE_THUMB = css`
-  cursor: -webkit-grabbing;
+const activeThumb = css`
   background-color: ${getColor('green')};
   border: solid 1px ${getColor('white')};
   cursor: grabbing;
+  height: 20px;
+  transition: background-color 0.1s;
+  width: 20px;
+
+  @media (hover: none) and (pointer: coarse) {
+    border: solid 2px ${getColor('white')};
+    height: 28px;
+    width: 28px;
+  }
 `;
 
-const FOCUS_OUTLINE_THUMB = css`
-  outline: 3px solid #0064fa;
-  outline-offset: 1px;
-`;
-
-const HOVER_THUMB = css`
+const hoverThumb = css`
   border: solid 1px ${getColor('white')};
   height: 20px;
   width: 20px;
 `;
 
-const DISABLED_THUMB = css`
-  cursor: -webkit-not-allowed;
+const disabledThumb = css`
+  opacity: 1;
   background-color: ${getColor('grey-30')};
   border: solid 1.5px ${getColor('white')};
   cursor: not-allowed;
+`;
+
+const focusOutlineThumb = css`
+  outline-offset: 1px;
+  outline: 3px solid ${getColor('focus-outline')};
 `;
 //#endregion
 
@@ -277,10 +284,10 @@ export const SliderWrapper = styled.div<SliderWrapperProps>`
 export const StyledSlider = styled.input.attrs(() => ({
   type: 'range',
 }))<StyledSliderProps>`
-  ${REMOVE_DEFAULT_STYLES}
+  ${removeDefaultStyles}
 
   ::-webkit-slider-thumb {
-    ${REMOVE_DEFAULT_STYLES}
+    ${removeDefaultStyles}
   }
 
   height: 0;
@@ -290,19 +297,11 @@ export const StyledSlider = styled.input.attrs(() => ({
   z-index: 3;
 
   ::-webkit-slider-thumb {
-    ${THUMB};
+    ${defaultThumb};
   }
 
   ::-moz-range-thumb {
-    ${THUMB}
-  }
-
-  :active:enabled::-webkit-slider-thumb {
-    ${ACTIVE_THUMB}
-  }
-
-  :active:enabled::-moz-range-thumb {
-    ${ACTIVE_THUMB}
+    ${defaultThumb}
   }
 
   /***** Focus Styles *****/
@@ -311,48 +310,45 @@ export const StyledSlider = styled.input.attrs(() => ({
   }
 
   :focus-visible::-webkit-slider-thumb {
-    ${FOCUS_OUTLINE_THUMB}
+    ${focusOutlineThumb}
   }
 
   :focus-visible::-moz-range-thumb {
-    ${FOCUS_OUTLINE_THUMB}
+    ${focusOutlineThumb}
   }
 
   /***** Hover Styles *****/
   :hover:enabled::-webkit-slider-thumb {
-    ${HOVER_THUMB}
+    ${hoverThumb}
   }
 
   :hover:enabled::-moz-range-thumb {
-    ${HOVER_THUMB}
+    ${hoverThumb}
   }
 
   /***** Disabled Styles *****/
   :disabled::-webkit-slider-thumb {
-    ${DISABLED_THUMB}
+    ${disabledThumb}
   }
 
   :disabled {
-    -webkit-opacity: 1;
-    opacity: 1;
+    opacity: 1; // to keep the thumb opaque in Safari iOS (16) Do not move to ":disabled::-webkit-slider-thumb"
   }
 
   :disabled::-moz-range-thumb {
-    ${DISABLED_THUMB}
+    ${disabledThumb}
   }
 
-  @media (hover: none) and (pointer: coarse) {
-    :active:enabled::-webkit-slider-thumb {
-      ${ACTIVE_THUMB}
-      height: 28px;
-      width: 28px;
-    }
+  /***** Active Styles *****/
+  :active:enabled::-webkit-slider-thumb {
+    ${activeThumb}
+  }
 
-    :active:enabled::-moz-range-thumb {
-      ${ACTIVE_THUMB}
-      height: 28px;
-      width: 28px;
-    }
+  :active:enabled::-moz-range-thumb {
+    ${activeThumb}
+  }
+`;
+
   }
 `;
 
