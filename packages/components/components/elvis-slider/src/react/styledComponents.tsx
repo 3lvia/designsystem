@@ -1,9 +1,6 @@
 import styled, { css } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import { TooltipPopup as TooltipPopupBase } from '@elvia/elvis-toolbox';
-export { TooltipPopupProps } from '@elvia/elvis-toolbox';
-import { TooltipPopupSides, SliderType } from './elvia-slider.types';
 
 //#region Types
 type StyledSliderProps = {
@@ -381,21 +378,6 @@ export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>(
   height: 5px;
   position: absolute;
   z-index: 2;
-`;
-
-interface TooltipWrapperProps {
-  side: TooltipPopupSides;
-}
-
-export const TooltipWrapper = styled.div<TooltipWrapperProps>`
-  position: absolute;
-  top: -46px;
-  transform: ${({ side }) => (side === 'left' ? 'translateX(-50%)' : 'translateX(50%)')};
-`;
-
-export const TooltipPopup = styled(TooltipPopupBase)`
-  max-width: unset;
-  position: relative;
 `;
 
 /**
