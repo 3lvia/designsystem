@@ -1,6 +1,13 @@
 import styled, { css } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import {
+  FormFieldInput as FormFieldInputBase,
+  FormFieldInputContainer as FormFieldInputContainerBase,
+  FormFieldLabel as FormFieldLabelBase,
+} from '@elvia/elvis-toolbox';
+export { LabelProps } from '@elvia/elvis-toolbox';
+import { BothSliders, Sides, SliderType } from './elvia-slider.types';
 
 //#region Types
 type StyledSliderProps = {
@@ -10,28 +17,49 @@ type StyledSliderProps = {
 type SliderFilledTrackProps = {
   isDisabled: boolean;
   rangeTrackWidth?: number;
-  type: SliderType;
   trackWidth: number;
-};
-
-type NumberInputProps = {
-  max: number;
-  label: string;
+  type: SliderType;
 };
 
 type SliderWrapperProps = {
-  leftOnTop: boolean;
+  isCompact: boolean;
+  isLeftSliderOnTop: boolean;
+};
+
+type FormFieldInputContainerProps = {
+  isCompact: boolean;
+  maxValueLength: number;
+};
+
+type HintValueProps = {
+  hasErrorPlaceholder: boolean;
+  isCompact: boolean;
+  isDisabled: boolean;
+  side: Sides;
+};
+
+type HeadingProps = {
+  isCompact: boolean;
+};
+
+type MaxValueLengthMeasurementProps = {
+  isCompact: boolean;
+};
+
+type FormFieldLabelProps = {
+  isCompact: boolean;
+  side: Sides;
+  isFullWidth?: boolean;
 };
 
 type InputFieldsContainerProps = {
-  leftInputPriority: boolean;
+  replaceHintValueWithInput: BothSliders<boolean>;
+  fullWithRangeInputs: boolean;
+  hasInputField: boolean;
   type: SliderType;
   hasHintValues: boolean;
 };
 
-type HelperTextProps = {
-  isDisabled: boolean;
-};
 //#endregion
 
 //#region Slider + Slider Thumbs
@@ -101,162 +129,91 @@ const focusOutlineThumb = css`
 
 export const SliderContainer = styled.div`
   box-sizing: border-box;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
   min-width: 112px;
   position: relative;
-  margin-bottom: 24px;
+  row-gap: 4px;
+  width: 100%;
 `;
 
-export const NumberInput = styled.input.attrs(() => ({
-  inputMode: 'decimal',
-  type: 'number',
-  novalidate: true,
-}))<NumberInputProps>`
-  -moz-appearance: textfield;
-  ${getTypographyCss('text-sm')}
+export const Heading = styled.p<HeadingProps>`
   align-items: center;
-  background-color: ${getColor('white')};
-  border-radius: 4px;
-  border: 1px solid ${getColor('black')};
-  box-sizing: border-box;
   display: flex;
-  max-width: 448px;
-  min-height: 34px;
-  min-width: 50px;
-  padding: 4px 10px;
-  position: relative;
-  text-transform: unset;
-  width: ${({ label, max }) => Math.max(label.length, max.toString().length) + 2}ch;
+  margin: 0;
+  padding: 0;
 
-  ::-webkit-outer-spin-button,
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  :focus {
-    border: 2px solid ${getColor('green')};
-    padding: 3px 9px;
-  }
-
-  :disabled {
-    border-color: ${getColor('disabled')};
-    color: ${getColor('disabled')};
-    cursor: not-allowed;
-    user-select: none;
-  }
-
-  &[aria-invalid='true'] {
-    border: 2px solid ${getColor('red')};
-  }
-`;
-
-export const SliderLabel = styled.label`
-  display: flex;
-`;
-
-export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
-  display: grid;
-  grid-auto-flow: column;
-  gap: 8px;
-  align-items: baseline;
-  justify-items: stretch;
-
-  ${({ leftInputPriority }) => {
-    return !leftInputPriority ? 'grid-auto-columns: 1fr;' : ''; //Keep all columns the same width, used to center the input field.
+  ${({ isCompact }) => {
+    return isCompact
+      ? css`
+          font-family: 'Red Hat Text', Verdana, sans-serif;
+          font-size: 10px;
+          font-weight: 500;
+          height: 10px;
+          letter-spacing: 0;
+          line-height: 10px;
+          margin-bottom: -6px;
+          text-align: left;
+        `
+      : css`
+          height: 22px;
+          ${getTypographyCss('text-md-strong')}
+        `;
   }}
-
-  p:first-child {
-    text-align: left;
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    ${({ leftInputPriority }) => {
-      return leftInputPriority ? 'visibility: hidden;' : '';
-    }}
-  }
-
-  p:last-child {
-    text-align: right;
-    justify-self: end;
-  }
-
-  //the first number input field
-  div:first-of-type {
-    grid-row: 1 / 2;
-
-    ${(props) => {
-      if (props.leftInputPriority && props.type === 'simple') {
-        return css`
-          grid-column: 1 / 3;
-
-          /* for aligning text text to the left */
-          ${NumberInput} {
-            text-align: left;
-          }
-          ${SliderLabel} {
-            justify-content: flex-start;
-          }
-        `;
-      } else if (props.type === 'simple' && props.hasHintValues) {
-        return css`
-          /* for aligning label text to the center */
-          ${NumberInput} {
-            text-align: center;
-          }
-          ${SliderLabel} {
-            justify-content: center;
-          }
-
-          justify-self: center;
-        `;
-      }
-      return '';
-    }}
-  }
-
-  div:not(:first-child):last-child {
-    /* for aligning label text to the right */
-    ${NumberInput} {
-      text-align: right;
-    }
-    ${SliderLabel} {
-      justify-content: flex-end;
-    }
-    justify-self: end;
-  }
 `;
 
-export const NumberInputContainer = styled.div`
-  box-sizing: border-box;
-  display: block;
-  padding-top: 8px;
-  position: relative;
-  width: fit-content;
-`;
-
-export const LabelText = styled.div`
-  box-sizing: border-box;
-  background-color: ${getColor('white')};
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  line-height: 100%;
-  margin: 0 8px;
-  padding: 0 2px;
+export const MaxValueLengthMeasurement = styled.span.attrs({
+  'aria-hidden': 'true',
+})<MaxValueLengthMeasurementProps>`
+  padding: 0;
   position: absolute;
-  top: 0;
-  user-select: none;
-  z-index: 1;
-  white-space: nowrap;
-  border-bottom: 1px solid ${getColor('white')}; //to remove overflowing greenborder Safari iOS (16)
+  margin: 0;
+  height: 0;
+  overflow: hidden;
+  white-space: pre;
+  ${getTypographyCss('text-md')}
+
+  ${({ isCompact }) =>
+    isCompact &&
+    css`
+      font-size: 0.875rem;
+    `}
 `;
 
-export const HelpValue = styled.p<HelperTextProps>`
-  display: inline;
-  width: fit-content;
+export const FormFieldInputContainer = styled(FormFieldInputContainerBase)<FormFieldInputContainerProps>`
+  min-width: ${({ isCompact }) => (isCompact ? '56px' : '80px')};
+  width: ${({ maxValueLength }) => (maxValueLength ? `${maxValueLength + 26}px` : 'unset')};
+`;
+
+export const FormFieldInput = styled(FormFieldInputBase)`
+  width: 100%;
+`;
+
+export const FormFieldLabel = styled(FormFieldLabelBase)<FormFieldLabelProps>`
+  text-align: ${({ side, isFullWidth }) => (side === 'left' || isFullWidth ? 'left' : 'right')};
+
+  ${({ isCompact, side, isFullWidth }) =>
+    !isFullWidth &&
+    isCompact &&
+    side === 'right' &&
+    css`
+      margin-right: 7px;
+      right: 0;
+    `}
+`;
+
+export const HintValue = styled.p.attrs({
+  'aria-hidden': 'true',
+})<HintValueProps>`
+  display: inline-flex;
+  align-items: center;
   margin: 0;
   ${getTypographyCss('text-sm')}
   color: ${getColor('placeholder')};
+  height: ${({ isCompact }) => (isCompact ? '32px' : '48px')};
+  margin-bottom: ${({ hasErrorPlaceholder }) => (hasErrorPlaceholder ? '1.5rem' : '0')};
+  width: 100%;
+  justify-content: ${({ side }) => (side === 'left' ? 'start' : 'end')};
 
   ${({ isDisabled }) =>
     isDisabled &&
@@ -266,23 +223,85 @@ export const HelpValue = styled.p<HelperTextProps>`
     `}
 `;
 
-export const SliderWrapper = styled.div<SliderWrapperProps>`
-  align-items: center;
-  display: flex;
-  height: 2rem;
-  position: relative;
+export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
+  justify-content: space-between;
+  align-items: end;
+  gap: 8px;
+  display: grid;
+  grid-auto-flow: ${({ fullWithRangeInputs }) => (fullWithRangeInputs ? 'row' : 'column')};
+  grid-auto-columns: ${({ fullWithRangeInputs }) => (fullWithRangeInputs ? '1fr' : 'auto')};
 
-  input[type='range'] {
-    width: 100%;
+  ${({ replaceHintValueWithInput = {}, hasInputField, type }) => {
+    const { left, right } = replaceHintValueWithInput;
+    if (hasInputField && type === 'simple') {
+      if (left && right) {
+        return css`
+          grid-auto-columns: 1fr;
+        `;
+      } else if (left || right) {
+        return css`
+          grid-auto-columns: auto 1fr;
+        `;
+      } else {
+        return css`
+          grid-auto-columns: 1fr auto 1fr;
+        `;
+      }
+    }
+    return;
+  }}
+
+  label:first-of-type {
+    grid-column: ${({ hasHintValues, type }) => (hasHintValues && type === 'simple' ? '2 / 3' : 'auto')};
+    grid-row: 1 / 2;
+
+    ${({ replaceHintValueWithInput = {} }) => {
+      const { left, right } = replaceHintValueWithInput;
+
+      if (left && right) {
+        return css`
+          grid-column: 1 / 4;
+        `;
+      } else if (left) {
+        return css`
+          grid-column: 1 / 3;
+        `;
+      } else if (right) {
+        return css`
+          grid-column: 2 / 4;
+        `;
+      } else {
+        return css``;
+      }
+    }}
   }
 
-  input[type='range']:first-child {
-    z-index: ${({ leftOnTop }) => (leftOnTop ? 5 : 3)};
+  ${HintValue}:first-of-type {
+    grid-column: ${({ hasInputField, type }) => (hasInputField && type === 'simple' ? '1 / 2' : 'auto')};
+    grid-row: 1 / 2;
+    ${({ replaceHintValueWithInput }) =>
+      replaceHintValueWithInput.left &&
+      css`
+        visibility: hidden;
+        width: 0;
+      `}
+  }
+
+  ${HintValue}:last-of-type {
+    grid-column: ${({ hasInputField, type }) => (hasInputField && type === 'simple' ? '3 / 4' : 'auto')};
+    grid-row: 1 / 2;
+    ${({ replaceHintValueWithInput }) =>
+      replaceHintValueWithInput.right &&
+      css`
+        visibility: hidden;
+        width: 0;
+      `}
   }
 `;
 
 export const StyledSlider = styled.input.attrs(() => ({
   type: 'range',
+  role: 'slider',
 }))<StyledSliderProps>`
   ${removeDefaultStyles}
 
@@ -293,7 +312,6 @@ export const StyledSlider = styled.input.attrs(() => ({
   height: 0;
   pointer-events: ${({ sliderType }) => (sliderType === 'simple' ? 'auto' : 'none')};
   position: absolute;
-  transition-duration: 3s;
   z-index: 3;
 
   ::-webkit-slider-thumb {
@@ -349,6 +367,25 @@ export const StyledSlider = styled.input.attrs(() => ({
   }
 `;
 
+export const SliderWrapper = styled.div<SliderWrapperProps>`
+  align-items: center;
+  display: flex;
+  height: 52px;
+  position: relative;
+
+  ${({ isCompact }) =>
+    isCompact &&
+    css`
+      height: 36px;
+      padding: 12px 0 4px;
+    `}
+
+  ${StyledSlider} {
+    width: 100%;
+  }
+
+  ${StyledSlider}:first-child {
+    z-index: ${({ isLeftSliderOnTop }) => (isLeftSliderOnTop ? 5 : 3)};
   }
 `;
 
@@ -361,6 +398,7 @@ export const SliderTrack = styled.div`
   z-index: 1;
 `;
 
+//`left` and `width` are as inline styles to avoid creating new classnames on every change
 export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>(
   ({ type, trackWidth, rangeTrackWidth }) => ({
     style: {

@@ -1,200 +1,144 @@
 import React, { useEffect, useState, useRef, useLayoutEffect, useMemo } from 'react';
-import { isSsr } from '@elvia/elvis-toolbox';
 import {
-  Extremum,
-  SliderErrors,
+  FormFieldContainer,
+  FormFieldError,
+  FormFieldErrorContainer,
+  IconWrapper,
+  useInputModeDetection,
+} from '@elvia/elvis-toolbox';
+
+import { Tooltip } from './tooltip/tooltip';
+
+import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
+
+import {
+  FormFieldInputValues,
+  Sides,
   SliderProps,
   SliderValues,
-  TextFieldsValues,
-  ToolTipState,
+  ErrorOptionKeys,
+  BothSliders,
 } from './elvia-slider.types';
+
 import {
-  HelpValue,
+  FormFieldInput,
+  FormFieldInputContainer,
+  FormFieldLabel,
+  HintValue,
   InputFieldsContainer,
-  LabelText,
-  NumberInput,
-  NumberInputContainer,
+  MaxValueLengthMeasurement,
   SliderContainer,
   SliderFilledTrack,
   SliderTrack,
   SliderWrapper,
   StyledSlider,
-  TooltipPopup,
-  SliderLabel,
-  TooltipWrapper,
+  Heading,
 } from './styledComponents';
 
-import { SliderError } from './error/sliderError';
+let uniqueSliderId = 0;
 
 const Slider: React.FC<SliderProps> = ({
+  ariaLabel,
   className,
+  errorOptions,
   hasHintValues = false,
   hasInputField = false,
   hasPercent = false,
   hasTooltip = true,
   inlineStyle,
+  isCompact = false,
   isDisabled = false,
   label,
   max = 100,
-  min = 1,
+  min = 0,
+  heading,
   type = 'simple',
-  unit = '',
+  unit,
   value,
   valueOnChange,
   webcomponent,
   ...rest
 }) => {
-  const leftTextInputRef = useRef<HTMLInputElement>(null);
-  const sliderRef = useRef<HTMLInputElement>(null);
-  const leftHelpTextRef = useRef<HTMLInputElement>(null);
-  const rightHelpTextRef = useRef<HTMLInputElement>(null);
-
-  const EXTREMUM: Extremum = {
-    minimum: +min,
-    maximum: +max,
-  };
-
-  const [leftOnTop, setLeftOnTop] = useState<boolean>(false);
-  const [leftInputReplacesHelp, setLeftInputReplacesHelp] = useState<boolean>(false);
-
-  const [sliderValues, setSliderValues] = useState<SliderValues>({ left: +min, right: +max });
-
-  const [textFieldsValues, setTextFieldsValues] = useState<TextFieldsValues>({
-    left: sliderValues.left,
-    right: sliderValues.right,
+  const [sliderValues, setSliderValues] = useState<SliderValues>({ left: min, right: max });
+  const [formFieldInputValues, setFormFieldInputValues] = useState<FormFieldInputValues>({
+    left: sliderValues.left.toString(),
+    right: sliderValues.right.toString(),
   });
+  const [showTooltip, setShowTooltip] = useState<BothSliders<boolean>>({ left: false, right: false });
+  const [id] = useState(`ewc-slider-${uniqueSliderId++}`);
+  const [isLeftSliderOnTop, setIsLeftSliderOnTop] = useState(false);
+  const [totalSliderWidth, setTotalSliderWidth] = useState(0);
+  const [preferredInputLength, setPreferredInputLength] = useState(0);
 
-  const [showTooltip, setShowTooltip] = useState<ToolTipState>({
+  const [inputFieldsContainerWidth, setInputFieldsContainerWidth] = useState(0);
+  const [leftInputFieldWidth, setLeftInputFieldWidth] = useState(0);
+  const [leftHintValueWidth, setLeftHintValueWidth] = useState(0);
+  const [rightHintValueWidth, setRightHintValueWidth] = useState(0);
+
+  const [replaceHintValueWithInput, setReplaceHintValueWithInput] = useState<BothSliders<boolean>>({
     left: false,
     right: false,
   });
 
-  const [sliderWidth, setSliderWidth] = useState(0);
-  const [numberInputFieldContainerWidth, setNumberInputFieldContainerWidth] = useState(0);
+  const [fullWithRangeInputs, setFullWithRangeInputs] = useState(false);
 
-  const [errors, setErrors] = useState<SliderErrors>({
-    leftTextfield: undefined,
-    rightTextfield: undefined,
-  });
+  const inputFieldsContainerRef = useRef<HTMLDivElement>(null);
+  const leftFormFieldInputRef = useRef<HTMLLabelElement>(null);
+  const leftHintTextRef = useRef<HTMLParagraphElement>(null);
+  const leftInputLabelLengthMeasurementRef = useRef<HTMLSpanElement>(null);
+  const maxValueLengthMeasurementRef = useRef<HTMLSpanElement>(null);
+  const rightHintTextRef = useRef<HTMLParagraphElement>(null);
+  const rightInputLabelLengthMeasurementRef = useRef<HTMLSpanElement>(null);
+  const sliderRef = useRef<HTMLInputElement>(null);
 
-  //If the device is a touch device, return true
-  const isTouchDevice = () => {
-    if (isSsr()) return false;
-
-    if (!isSsr()) {
-      if (window.matchMedia('(pointer: coarse)').matches) {
-        return true;
-      }
-      if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-        return true;
-      }
-    }
-
-    return false;
-  };
+  const { inputMode } = useInputModeDetection();
 
   const percentValue = useMemo(() => {
     if (type === 'simple' && hasPercent) {
-      const percent = ((sliderValues.left - Extremum.minimum) / (Extremum.maximum - Extremum.minimum)) * 100;
-      return Math.round(percent);
+      const { left: currentValue } = sliderValues;
+      return Math.round(((currentValue - min) / (max - min)) * 100);
+    }
+    return undefined;
+  }, [sliderValues.left, min, max, hasPercent, type]);
+
+  /* thumbWidth: Used to horizontally center the tooltip over the "thumb" of the slider. */
+  const thumbWidth = inputMode === 'touch' ? 28 : 20;
+
+  /**
+   * Calculates the position of a thumb on a slider, in px from the left side of the slider.
+   * @see https://stackoverflow.com/a/61665977/14447555 by user 'ibrcic' for the original implementation.
+   */
+  const calculateThumbPosition = (side: Sides) => {
+    const { left: leftValue, right: rightValue } = sliderValues;
+
+    if (side === 'left') {
+      return ((leftValue - min) / (max - min)) * (totalSliderWidth - thumbWidth) + thumbWidth / 2;
     } else {
-      return undefined;
+      return ((rightValue - max) / (min - max)) * (totalSliderWidth - thumbWidth) + thumbWidth / 2;
     }
-  }, [sliderValues.left, Extremum]);
+  };
 
-  const thumbWidth = 20;
-  const leftThumbPosition =
-    ((sliderValues.left - Extremum.minimum) / (Extremum.maximum - Extremum.minimum)) *
-      (sliderWidth - thumbWidth / 2 - thumbWidth / 2) +
-    thumbWidth / 2;
-
-  let rightThumbPosition: number | undefined;
-  let middleFilled: number | undefined;
-
-  if (type === 'range' && sliderValues.right) {
-    rightThumbPosition =
-      ((sliderValues.right - Extremum.maximum) / (Extremum.minimum - Extremum.maximum)) *
-        (sliderWidth - thumbWidth / 2 - thumbWidth / 2) +
-      thumbWidth / 2;
-
-    middleFilled = sliderWidth - leftThumbPosition - rightThumbPosition;
-  }
-
-  /* measuring DOM elements */
-  const resizeObserver = new ResizeObserver(() => {
-    if (sliderRef.current !== null) {
-      setSliderWidth(sliderRef.current.offsetWidth);
+  /** The width in px of the filled track between the two thumbs */
+  const getFilledMiddleTrackWidth = () => {
+    if (type !== 'range' || sliderValues.right === sliderValues.left) {
+      return 0;
     }
 
-    if (
-      leftHelpTextRef.current !== null &&
-      rightHelpTextRef.current !== null &&
-      leftTextInputRef.current !== null &&
-      sliderRef.current !== null
-    ) {
-      const total = Math.ceil(
-        leftHelpTextRef.current.offsetWidth +
-          rightHelpTextRef.current.offsetWidth +
-          leftTextInputRef.current.offsetWidth +
-          2 * 8, // 2 * 4px for Grid gap
-      );
+    const leftThumbPosition = calculateThumbPosition('left');
+    const rightThumbPosition = calculateThumbPosition('right');
 
-      setNumberInputFieldContainerWidth(total);
-    }
-  });
-
-  useLayoutEffect(() => {
-    const observedElements: (HTMLDivElement | null)[] = [
-      sliderRef.current,
-      leftHelpTextRef.current,
-      rightHelpTextRef.current,
-      leftTextInputRef.current,
-    ];
-
-    observedElements.forEach((observedElement) => {
-      if (observedElement !== null) {
-        resizeObserver.observe(observedElement);
-      }
-    });
-
-    return function cleanup() {
-      resizeObserver.disconnect();
-    };
-  }, [sliderRef.current, leftHelpTextRef.current, rightHelpTextRef.current, leftTextInputRef.current]);
-
-  const updateValue = (newSliderValues: SliderValues): void => {
-    const newValue = {
-      left: newSliderValues.left,
-      right: newSliderValues.right,
-    };
-
-    setSliderValues(newSliderValues);
-    const newValueToEmit = type === 'simple' ? newValue.left : newValue;
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(newValueToEmit);
-    } else if (webcomponent) {
-      webcomponent.setProps({ value: newValueToEmit }, true);
-      webcomponent.triggerEvent('valueOnChange', newValueToEmit);
-    }
+    return totalSliderWidth - leftThumbPosition - rightThumbPosition;
   };
 
   useEffect(() => {
     if (hasInputField) {
-      setTextFieldsValues({ ...textFieldsValues, left: sliderValues.left, right: sliderValues.right });
+      setFormFieldInputValues({
+        ...formFieldInputValues,
+        left: sliderValues.left.toString().replace('.', ','),
+        right: sliderValues.right.toString().replace('.', ','),
+      });
     }
   }, [sliderValues]);
-
-  useEffect(() => {
-    setSliderValues({ left: +min, right: +max });
-  }, [min, max]);
-
-  useEffect(() => {
-    if (sliderWidth < numberInputFieldContainerWidth) {
-      setLeftInputReplacesHelp(true);
-    } else {
-      setLeftInputReplacesHelp(false);
-    }
-  }, [sliderWidth, numberInputFieldContainerWidth]);
 
   /** Used to set the default value of the slider.
    * If only a single number is given, give the number to the left thumb.
@@ -211,21 +155,121 @@ const Slider: React.FC<SliderProps> = ({
     }
 
     /* If the user does not give a default value, set the value to the min and max. */
-    setSliderValues({ left: +min, right: +max });
+    setSliderValues({ left: min, right: max });
   }, [value]);
 
-  const inputFieldIsInvalid = (input: 'left' | 'right') => {
-    if (input === 'left' && errors.leftTextfield) {
-      return true;
-    }
-    if (input === 'right' && errors.rightTextfield) {
-      return true;
-    }
-    return false;
-  };
+  useEffect(() => {
+    getInputLength();
+  }, [
+    maxValueLengthMeasurementRef.current,
+    leftInputLabelLengthMeasurementRef.current,
+    rightInputLabelLengthMeasurementRef.current,
+    max,
+  ]);
 
-  const isNumericValue = (value: string): boolean => {
-    return /^\d+$/.test(value);
+  useEffect(() => {
+    if (leftFormFieldInputRef.current) {
+      setLeftInputFieldWidth(leftFormFieldInputRef.current.offsetWidth);
+    }
+  }, [leftFormFieldInputRef.current]);
+
+  //check overflow (Simple Slider only)
+  useEffect(() => {
+    if (type === 'simple') {
+      const inputAndHintsWidth = leftInputFieldWidth + leftHintValueWidth + rightHintValueWidth + 16; //8*2 for grid gap
+      const isOverflowing = inputAndHintsWidth > inputFieldsContainerWidth;
+
+      let newReplaceHintValueWithInput = { left: false, right: false };
+
+      if (isOverflowing && hasHintValues) {
+        if (min === 0) {
+          // Check if we need to replace _left_ hint value with input
+          if (leftInputFieldWidth + rightHintValueWidth + 8 < inputFieldsContainerWidth) {
+            newReplaceHintValueWithInput.left = true;
+          } else {
+            newReplaceHintValueWithInput = { left: true, right: true };
+          }
+        } else {
+          // Check if we need to replace _right_ hint value with input
+          if (leftInputFieldWidth + leftHintValueWidth + 8 < inputFieldsContainerWidth) {
+            newReplaceHintValueWithInput.right = true;
+          } else {
+            newReplaceHintValueWithInput = { left: true, right: true };
+          }
+        }
+      }
+
+      setReplaceHintValueWithInput(newReplaceHintValueWithInput);
+    }
+  }, [leftInputFieldWidth, leftHintValueWidth, rightHintValueWidth, inputFieldsContainerWidth]);
+
+  //check overflow (Range Slider only)
+  useEffect(() => {
+    if (type === 'range') {
+      setFullWithRangeInputs(leftInputFieldWidth * 2 + 8 > inputFieldsContainerWidth);
+    }
+  }, [leftInputFieldWidth, inputFieldsContainerWidth]);
+
+  //dynamic widths
+  const resizeObserver = new ResizeObserver(() => {
+    if (sliderRef.current) {
+      setTotalSliderWidth(sliderRef.current.offsetWidth);
+    }
+
+    if (inputFieldsContainerRef.current) {
+      setInputFieldsContainerWidth(inputFieldsContainerRef.current.offsetWidth);
+    }
+  });
+
+  useLayoutEffect(() => {
+    const elementsToObserve: (HTMLElement | null)[] = [sliderRef.current, inputFieldsContainerRef.current];
+
+    elementsToObserve.forEach((element) => {
+      if (element) {
+        resizeObserver.observe(element);
+      }
+    });
+
+    return function cleanup() {
+      resizeObserver.disconnect();
+    };
+  }, [sliderRef.current, inputFieldsContainerRef.current]);
+
+  //static widths
+  useLayoutEffect(() => {
+    if (maxValueLengthMeasurementRef.current) {
+      setPreferredInputLength(maxValueLengthMeasurementRef.current.offsetWidth);
+    }
+
+    if (leftHintTextRef.current) {
+      setLeftHintValueWidth(leftHintTextRef.current.offsetWidth);
+    }
+
+    if (rightHintTextRef.current) {
+      setRightHintValueWidth(rightHintTextRef.current.offsetWidth);
+    }
+  }, [
+    maxValueLengthMeasurementRef.current,
+    inputFieldsContainerRef.current,
+    leftHintTextRef.current,
+    rightHintTextRef.current,
+  ]);
+
+  const updateValue = (newSliderValues: SliderValues) => {
+    const newValue = {
+      left: newSliderValues.left,
+      right: newSliderValues.right,
+    };
+
+    setSliderValues(newValue);
+
+    const newValueToEmit = type === 'simple' ? newValue.left : newValue;
+    if (!webcomponent && valueOnChange) {
+      valueOnChange(newValueToEmit);
+    } else if (webcomponent) {
+      webcomponent.setProps({ value: newValueToEmit }, true);
+      webcomponent.triggerEvent('valueOnChange', newValueToEmit);
+    }
   };
 
   const handleSliderValueChange = (event: React.FormEvent<HTMLInputElement>) => {
@@ -253,264 +297,373 @@ const Slider: React.FC<SliderProps> = ({
     updateValue({ ...sliderValues, [name]: newSliderValue });
   };
 
-  const handleNumberInputValueChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const { name, value } = event.target as HTMLInputElement;
+  const handleFormFieldInputValueChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const { name, value: incomingValue } = event.target as HTMLInputElement;
+    name === 'left' ? setIsLeftSliderOnTop(true) : setIsLeftSliderOnTop(false);
+
     const isModifierKey = ['deleteContentBackward', 'deleteContentForward'].includes(
       (event.nativeEvent as InputEvent).inputType,
     );
 
-    /* Set the left thumb on top of the right thumb when the left input field is changed */
-    name === 'left' ? setLeftOnTop(true) : setLeftOnTop(false);
-    setErrors({ leftTextfield: undefined, rightTextfield: undefined });
+    //only digits. optional minus sign. optional comma or period. optional digits after comma or period
+    const incomingValueWithoutSpaces = incomingValue.replace(/\s/g, '');
+    const isValidNumber = /^-?\d*(?:[.,]\d*)?$/.test(incomingValueWithoutSpaces);
 
-    if (!(isNumericValue(value) || isModifierKey)) {
-      return;
+    if (incomingValue === '' || isModifierKey || isValidNumber) {
+      setFormFieldInputValues({ ...formFieldInputValues, [name]: incomingValueWithoutSpaces });
     }
-
-    setTextFieldsValues({ ...textFieldsValues, [name]: value });
   };
 
-  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    const { name, value, validity } = event.target as HTMLInputElement;
+  const handleFormFieldInputBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    const name = event.target.name as Sides;
+    const { value: incomingValue } = event.target as HTMLInputElement;
+    const newValue = Number(incomingValue.replace(',', '.').replace(/,$/g, ''));
 
-    if (value === '' || !value) {
-      updateValue({ ...sliderValues, [name]: name === 'left' ? +min : +max });
+    if (!newValue) {
+      updateValue({ ...sliderValues, [name]: name === 'left' ? min : max });
       return;
     }
 
     if (type === 'range') {
-      if (textFieldsValues.left == textFieldsValues.right) {
-        setErrors({ ...errors, [`${name}Textfield`]: 'Verdiene kan ikke være like.' });
-        return;
-      }
-
       if (name === 'left') {
-        if (+value > sliderValues.right) {
-          setErrors({
-            ...errors,
-            leftTextfield: 'Den nedre verdien kan ikke være større enn den øvre verdien.',
-          });
+        if (newValue >= sliderValues.right) {
+          updateValue({ ...sliderValues, [name]: sliderValues.right });
           return;
         }
       }
 
       if (name === 'right') {
-        if (+value < sliderValues.left) {
-          setErrors({
-            ...errors,
-            rightTextfield: 'Den øvre verdien kan ikke være mindre enn den nedre verdien.',
-          });
+        if (newValue <= sliderValues.left) {
+          updateValue({ ...sliderValues, [name]: sliderValues.left });
           return;
         }
       }
     }
 
-    if (validity.rangeOverflow) {
-      setErrors({
-        ...errors,
-        [`${name}Textfield`]: `Verdien kan ikke være større enn ${EXTREMUM.maximum.toLocaleString()}.`,
-      });
+    if (newValue > max) {
+      updateValue({ ...sliderValues, [name]: max });
       return;
     }
 
-    if (validity.rangeUnderflow) {
-      setErrors({
-        ...errors,
-        [`${name}Textfield`]: `Verdien kan ikke være mindre enn ${EXTREMUM.minimum.toLocaleString()}.`,
-      });
+    if (newValue < min) {
+      updateValue({ ...sliderValues, [name]: min });
       return;
     }
 
-    if (!validity.valid || validity.badInput || validity.stepMismatch) {
-      setErrors({ ...errors, [`${name}Textfield`]: 'Ugyldig verdi.' });
-      return;
-    }
-
-    updateValue({ ...sliderValues, [name]: +value });
+    updateValue({ ...sliderValues, [name]: newValue });
   };
 
-  const getLabel = (inputSide: 'left' | 'right') => {
+  const getLabel = (side: Sides): string => {
     if (label) {
+      if (typeof label === 'object') {
+        return label[side];
+      }
       if (typeof label === 'string') {
         return label;
       }
-
-      if (typeof label === 'object') {
-        return inputSide === 'left' ? label.left : label.right;
-      }
     }
-
     if (type === 'range') {
-      return inputSide === 'left' ? 'Fra' : 'Til';
+      return side === 'left' ? 'Fra' : 'Til';
     }
-
     return 'Verdi';
   };
 
+  const getAriaLabel = (side: Sides): string => {
+    if (ariaLabel) {
+      return returnAriaLabelFromProp(side);
+    } else {
+      return generateAutomaticAriaLabel(side);
+    }
+  };
+
+  const returnAriaLabelFromProp = (side: Sides): string => {
+    if (typeof ariaLabel === 'object') {
+      return ariaLabel[side];
+    }
+
+    if (typeof ariaLabel === 'string') {
+      return ariaLabel;
+    }
+
+    return 'Glidebryter';
+  };
+
+  const generateAutomaticAriaLabel = (side: Sides): string => {
+    let newAriaLabel = '';
+    if (type === 'range') {
+      const prefix = side === 'left' ? 'Startverdi' : 'Sluttverdi';
+      newAriaLabel = `${prefix} ${heading ?? ''} rekkeviddeglidebryter ${
+        unit ? ' med verdi ' + sliderValues[side] + unit : ''
+      }`;
+    }
+
+    if (type === 'simple' && (heading || unit)) {
+      newAriaLabel = `${heading ?? ''} ${unit ? 'skyveknapp, ' + sliderValues.left + unit : ''}`;
+    }
+
+    return newAriaLabel ? newAriaLabel.replace(/\s+/g, ' ').trim() : 'Glidebryter';
+  };
+
+  const getInputLength = (): void => {
+    const measurements = [
+      maxValueLengthMeasurementRef.current?.offsetWidth,
+      leftInputLabelLengthMeasurementRef.current?.offsetWidth,
+      rightInputLabelLengthMeasurementRef.current?.offsetWidth,
+    ].filter((measurement) => measurement !== null && measurement !== undefined) as number[];
+    setPreferredInputLength(Math.max(...measurements, 0));
+  };
+
+  const getTooltipContent = (side: Sides) => {
+    const value = side === 'left' ? sliderValues.left.toLocaleString() : sliderValues.right.toLocaleString();
+
+    if (type === 'range') {
+      return `${value}${unit || ''}`;
+    }
+
+    if (type === 'simple') {
+      if (hasPercent) {
+        return `${percentValue} %`;
+      }
+      return `${value}${unit || ''}`;
+    }
+
+    return value;
+  };
+
+  const handleTooltip = (side?: Sides) => {
+    setShowTooltip({ left: side === 'left', right: side === 'right' });
+  };
+
+  const createHandleTooltipEvents = (side: Sides) => ({
+    onBlur: () => handleTooltip(),
+    onFocus: () => handleTooltip(side),
+    onPointerLeave: () => handleTooltip(),
+    onPointerOver: () => handleTooltip(side),
+  });
+
+  const getErrorOptionValue = (side: Sides, key: ErrorOptionKeys) => {
+    if (errorOptions) {
+      errorOptions.type = type;
+
+      switch (errorOptions.type) {
+        case 'simple':
+          return errorOptions[key] ?? false;
+        case 'range':
+          return errorOptions[side][key] ?? false;
+      }
+    } else {
+      return false;
+    }
+  };
+
+  const getShowErrorText = () => {
+    return (!getErrorOptionValue('left', 'hideText') || !getErrorOptionValue('right', 'hideText')) as boolean;
+  };
+
+  const getHasErrorPlaceholder = () => {
+    return (getErrorOptionValue('left', 'hasErrorPlaceholder') ||
+      getErrorOptionValue('right', 'hasErrorPlaceholder')) as boolean;
+  };
+
+  const getHasErrorText = () => {
+    return (getErrorOptionValue('left', 'text') || getErrorOptionValue('right', 'text')) as boolean;
+  };
+
+  const getErrorText = (): string => {
+    const leftText = getErrorOptionValue('left', 'text') as string;
+    const leftHideText = getErrorOptionValue('left', 'hideText');
+    if (leftText && !leftHideText) {
+      return leftText;
+    }
+
+    const rightText = getErrorOptionValue('right', 'text') as string;
+    const rightHideText = getErrorOptionValue('right', 'hideText');
+    if (rightText && !rightHideText) {
+      return rightText;
+    }
+
+    return '';
+  };
+
   return (
-    <SliderContainer
-      className={className ?? ''}
-      style={{ ...inlineStyle }}
-      {...rest}
-      data-testid="slider-container"
-      aria-disabled={isDisabled}
-    >
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
+    <>
+      <SliderContainer
+        aria-disabled={isDisabled}
+        className={className ?? ''}
+        style={{ ...inlineStyle }}
+        {...rest}
       >
-        <SliderWrapper leftOnTop={leftOnTop}>
+        {heading && (
+          <Heading id={`${id}-heading`} isCompact={isCompact}>
+            {heading}
+          </Heading>
+        )}
+        <SliderWrapper isLeftSliderOnTop={isLeftSliderOnTop} isCompact={isCompact}>
           {/* ↓ The actual HTML input type=range ↓*/}
           <StyledSlider
-            aria-label="Slider start"
+            aria-label={getAriaLabel('left')}
+            aria-valuemax={max}
+            aria-valuemin={min}
             disabled={isDisabled}
-            max={EXTREMUM.maximum}
-            min={EXTREMUM.minimum}
+            max={max}
+            min={min}
             name="left"
             onChange={handleSliderValueChange}
             ref={sliderRef}
             sliderType={type}
-            value={+sliderValues.left}
-            onTouchStart={() => setShowTooltip({ ...showTooltip, left: true })}
-            onTouchEnd={() => setShowTooltip({ ...showTooltip, left: false })}
-            onMouseOver={() => setShowTooltip({ ...showTooltip, left: true })}
-            onMouseLeave={() => setShowTooltip({ ...showTooltip, left: false })}
-            onFocus={() => setShowTooltip({ ...showTooltip, left: true })}
-            onBlur={() => setShowTooltip({ ...showTooltip, left: false })}
-            data-testid="left-slider"
+            value={sliderValues.left}
+            {...createHandleTooltipEvents('left')}
           />
 
-          {/* ↓ Show the left tooltip if the user hovers or clicks on the thumb ↓*/}
-          {showTooltip.left && !isDisabled && (hasTooltip || isTouchDevice()) && (
-            <TooltipWrapper
-              side="left"
-              style={{
-                left: `${left}px`,
-              }}
-            >
-              <TooltipPopup data-testid="left-tooltip-popup" position="top" fadeOut={false}>
-                {type === 'simple' && hasPercent
-                  ? `${percentValue} %`
-                  : `${sliderValues.left.toLocaleString()}${unit}`}
-              </TooltipPopup>
-            </TooltipWrapper>
+          {showTooltip.left && !isDisabled && (hasTooltip || inputMode === 'touch') && (
+            <Tooltip content={getTooltipContent('left')} position={calculateThumbPosition('left')} />
           )}
 
           {type === 'range' && (
             <>
               {/* ↓ The actual HTML input type=range ↓*/}
               <StyledSlider
-                aria-label="Slider end"
+                aria-label={getAriaLabel('right')}
+                aria-valuemax={max}
+                aria-valuemin={min}
                 disabled={isDisabled}
-                max={EXTREMUM.maximum}
-                min={EXTREMUM.minimum}
+                max={max}
+                min={min}
                 name="right"
                 onChange={handleSliderValueChange}
                 sliderType={type}
-                value={+sliderValues.right}
-                onTouchStart={() => setShowTooltip({ ...showTooltip, right: true })}
-                onTouchEnd={() => setShowTooltip({ ...showTooltip, right: false })}
-                onMouseOver={() => setShowTooltip({ ...showTooltip, right: true })}
-                onMouseLeave={() => setShowTooltip({ ...showTooltip, right: false })}
-                onFocus={() => setShowTooltip({ ...showTooltip, right: true })}
-                onBlur={() => setShowTooltip({ ...showTooltip, right: false })}
-                data-testid="right-slider"
+                value={sliderValues.right}
+                {...createHandleTooltipEvents('right')}
               />
 
-              {/* ↓ Show the right tooltip if the user hovers or click on the thumb ↓*/}
-              {showTooltip.right && !isDisabled && (hasTooltip || isTouchDevice()) && (
-                <TooltipWrapper
-                  side="right"
-                  style={{
-                    right: `${right}px`,
-                  }}
-                >
-                  <TooltipPopup data-testid="right-tooltip-popup" position="top" fadeOut={false}>
-                    {`${sliderValues.right.toLocaleString()}${unit}`}
-                  </TooltipPopup>
-                </TooltipWrapper>
+              {showTooltip.right && !isDisabled && (hasTooltip || inputMode === 'touch') && (
+                <Tooltip
+                  side={'right'}
+                  content={getTooltipContent('right')}
+                  position={calculateThumbPosition('right')}
+                />
               )}
             </>
           )}
 
-          {/* ↓ Our custom styled track ↓ */}
+          {/* ↓ Custom styled track ↓ */}
           <SliderTrack />
           <SliderFilledTrack
-            trackWidth={left}
-            type={type}
-            rangeTrackWidth={middleFilled}
             isDisabled={isDisabled}
-          ></SliderFilledTrack>
+            rangeTrackWidth={getFilledMiddleTrackWidth()}
+            trackWidth={calculateThumbPosition('left')}
+            type={type}
+          />
         </SliderWrapper>
 
+        {/* ↓ The input fields  */}
+        {hasInputField && (
+          //hidden
+          <MaxValueLengthMeasurement ref={maxValueLengthMeasurementRef} isCompact={isCompact}>
+            {max}
+          </MaxValueLengthMeasurement>
+        )}
         <InputFieldsContainer
-          leftInputPriority={leftInputReplacesHelp}
+          ref={inputFieldsContainerRef}
+          replaceHintValueWithInput={replaceHintValueWithInput}
+          fullWithRangeInputs={fullWithRangeInputs}
           type={type}
+          hasInputField={hasInputField}
           hasHintValues={hasHintValues}
         >
           {hasHintValues && !(type === 'range' && hasInputField) && (
-            <HelpValue isDisabled={isDisabled} ref={leftHelpTextRef}>
-              {EXTREMUM.minimum.toLocaleString()}
-            </HelpValue>
+            <HintValue
+              hasErrorPlaceholder={getHasErrorPlaceholder()}
+              isCompact={isCompact}
+              isDisabled={isDisabled}
+              side={'left'}
+            >
+              <span ref={leftHintTextRef}>{min.toLocaleString()}</span>
+            </HintValue>
           )}
+
           {hasInputField && (
-            /* ↓ HTML number input fields ↓ */
-            <NumberInputContainer>
-              <SliderLabel>
-                <LabelText data-testid="left-label">{getLabel('left')}</LabelText>
-                {/* LEFT INPUT */}
-                <NumberInput
+            <FormFieldContainer
+              isCompact={isCompact}
+              isDisabled={isDisabled}
+              isInvalid={getErrorOptionValue('left', 'isErrorState') as boolean}
+              isFullWidth={Object.values(replaceHintValueWithInput).includes(true) || fullWithRangeInputs}
+              hasErrorPlaceholder={getHasErrorPlaceholder()}
+              ref={leftFormFieldInputRef}
+            >
+              <FormFieldLabel side={'left'} isCompact={isCompact} id={`${id}-left-label`}>
+                <span ref={leftInputLabelLengthMeasurementRef}>{getLabel('left')}</span>
+              </FormFieldLabel>
+              <FormFieldInputContainer isCompact={isCompact} maxValueLength={preferredInputLength}>
+                <FormFieldInput
+                  aria-invalid={getErrorOptionValue('left', 'isErrorState') as boolean}
+                  aria-disabled={isDisabled}
+                  aria-labelledby={heading ? `${id}-heading ${id}-left-label` : undefined}
+                  autoComplete="off"
                   disabled={isDisabled}
-                  max={EXTREMUM.maximum}
-                  min={EXTREMUM.minimum}
                   name="left"
-                  title=" "
-                  onBlur={handleBlur}
-                  onChange={handleNumberInputValueChange}
-                  ref={leftTextInputRef}
-                  value={textFieldsValues.left}
-                  aria-invalid={`${inputFieldIsInvalid('left')}`}
-                  aria-errormessage={errors.rightTextfield ? 'left-error' : undefined}
-                  label={getLabel('left')}
-                  data-testid="left-number-input"
+                  onBlur={handleFormFieldInputBlur}
+                  onChange={handleFormFieldInputValueChange}
+                  value={formFieldInputValues.left}
                 />
-              </SliderLabel>
-            </NumberInputContainer>
+              </FormFieldInputContainer>
+            </FormFieldContainer>
+          )}
+
+          {hasHintValues && !(type === 'range' && hasInputField) && (
+            <HintValue
+              hasErrorPlaceholder={getHasErrorPlaceholder()}
+              isCompact={isCompact}
+              isDisabled={isDisabled}
+              side={'right'}
+            >
+              <span ref={rightHintTextRef}>{max.toLocaleString()}</span>
+            </HintValue>
           )}
 
           {hasInputField && type === 'range' && (
-            <NumberInputContainer>
-              <SliderLabel>
-                <LabelText data-testid="right-label">{getLabel('right')}</LabelText>
-                {/* RIGHT INPUT */}
-                <NumberInput
-                  title=" "
+            <FormFieldContainer
+              isCompact={isCompact}
+              isDisabled={isDisabled}
+              isInvalid={getErrorOptionValue('right', 'isErrorState') as boolean}
+              hasErrorPlaceholder={getHasErrorPlaceholder()}
+              isFullWidth={fullWithRangeInputs}
+            >
+              <FormFieldLabel
+                side={'right'}
+                isFullWidth={fullWithRangeInputs}
+                isCompact={isCompact}
+                id={`${id}-right-label`}
+              >
+                <span ref={rightInputLabelLengthMeasurementRef}>{getLabel('right')}</span>
+              </FormFieldLabel>
+
+              <FormFieldInputContainer isCompact={isCompact} maxValueLength={preferredInputLength}>
+                <FormFieldInput
+                  aria-disabled={isDisabled}
+                  aria-labelledby={heading ? `${id}-heading ${id}-right-label` : undefined}
+                  aria-invalid={getErrorOptionValue('right', 'isErrorState') as boolean}
+                  aria-errormessage={`${id}-error-text`}
                   disabled={isDisabled}
-                  max={EXTREMUM.maximum}
-                  min={EXTREMUM.minimum}
                   name="right"
-                  onBlur={handleBlur}
-                  onChange={handleNumberInputValueChange}
-                  value={textFieldsValues.right}
-                  aria-invalid={`${inputFieldIsInvalid('right')}`}
-                  aria-errormessage={errors.rightTextfield ? 'right-error' : undefined}
-                  label={getLabel('right')}
-                  data-testid="right-number-input"
+                  onBlur={handleFormFieldInputBlur}
+                  onChange={handleFormFieldInputValueChange}
+                  value={formFieldInputValues.right}
                 />
-              </SliderLabel>
-            </NumberInputContainer>
+              </FormFieldInputContainer>
+            </FormFieldContainer>
           )}
-          {hasHintValues && !(type === 'range' && hasInputField) && (
-            <HelpValue isDisabled={isDisabled} ref={rightHelpTextRef}>
-              {EXTREMUM.maximum.toLocaleString()}
-            </HelpValue>
+          {hasInputField && getShowErrorText() && getHasErrorPlaceholder() && getHasErrorText() && (
+            <FormFieldErrorContainer>
+              <IconWrapper icon={removeCircle} color="error" size="xs" />
+              <FormFieldError data-testid="error" id={`${id}-error-text`}>
+                {getErrorText()}
+              </FormFieldError>
+            </FormFieldErrorContainer>
           )}
         </InputFieldsContainer>
-        {errors.leftTextfield && <SliderError id="left-error" errorMessage={errors.leftTextfield} />}
-        {errors.rightTextfield && <SliderError id="right-error" errorMessage={errors.rightTextfield} />}
-      </form>
-    </SliderContainer>
+      </SliderContainer>
+    </>
   );
 };
 
