@@ -44,30 +44,39 @@
         <ng-container ngProjectAs="sectionContent">
           <div class="accessibility-keyboard-navigation">
             <div>
-              <span class="keyboard-button icon" aria-label="Arrow up">
-                <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px" aria-label="Arrow down">
+              <kbd class="icon">
+                <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true"></i>
+              </kbd>
+              <kbd class="icon" style="margin-left: 0px">
                 <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px" aria-label="Arrow left">
+              </kbd>
+              <kbd class="icon" style="margin-left: 0px">
                 <i class="e-icon e-icon--arrow_left e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px" aria-label="Arrow right">
+              </kbd>
+              <kbd class="icon" style="margin-left: 0px">
                 <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              to increase/decrease the value for for the slider when the thumb is selected.
-            </div>
-            <div>
-              <span class="keyboard-button icon" aria-label="Arrow up">
-                <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px" aria-label="Arrow down">
-                <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              to increase/decrease the value for for the slider when the number input is selected.
+              </kbd>
+              to increase/decrease the value for the slider when the thumb is selected.
             </div>
           </div>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'ARIA'">
+        <ng-container ngProjectAs="sectionContent">
+          <ul class="e-list">
+            <li>
+              <strong>Aria label:</strong>
+              Always provide an aria-label for the slider using the
+              <code>ariaLabel</code>
+              prop. If one is not provided, the slider will attempt to generate one using the
+              <code>heading</code>
+              ,
+              <code>unit</code>
+              , and
+              <code>type</code>
+              props.
+            </li>
+          </ul>
         </ng-container>
       </app-component-subsection>
     </ng-container>
