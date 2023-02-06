@@ -1,6 +1,6 @@
 import { BaseProps, HasValue, ErrorOptions as ErrorOptionsBase } from '@elvia/elvis-toolbox';
 
-export interface SliderProps extends BaseProps, HasValue<number | BothSliders<number>> {
+export interface SliderProps extends BaseProps, HasValue<number | SliderValues> {
   ariaLabel?: string | BothSliders<string>;
   hasHintValues?: boolean;
   hasInputField?: boolean;
