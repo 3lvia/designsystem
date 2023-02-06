@@ -258,7 +258,6 @@ const Slider: React.FC<SliderProps> = ({
     setErrors({ leftTextfield: undefined, rightTextfield: undefined });
 
     if (type === 'range') {
-      /* Thumbs can not cross */
       if (name === 'left') {
         const newValue: number = Math.min(+value, sliderValues.right - 1);
         updateValue({ ...sliderValues, ['left']: +newValue });
