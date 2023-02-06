@@ -229,30 +229,28 @@ const Slider: React.FC<SliderProps> = ({
   };
 
   const handleSliderValueChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const { name, value } = event.target as HTMLInputElement;
+    const { name, value: incomingValue } = event.target as HTMLInputElement;
+    let newSliderValue = +incomingValue;
 
-    name === 'left' ? setLeftOnTop(true) : setLeftOnTop(false);
-    setErrors({ leftTextfield: undefined, rightTextfield: undefined });
-
-    if (type === 'range') {
-      if (name === 'left') {
-        const newValue: number = Math.min(+value, sliderValues.right - 1);
-        updateValue({ ...sliderValues, ['left']: +newValue });
-        return;
-      }
-
-      if (name === 'right') {
-        const newValue: number = Math.max(+value, sliderValues.left + 1);
-        updateValue({ ...sliderValues, ['right']: +newValue });
-        return;
-      }
-    }
-
-    if (+value > EXTREMUM.maximum || +value < EXTREMUM.minimum) {
+    //Prevents negative values from fast slider changes (bug).
+    if (+incomingValue > max || +incomingValue < min) {
       return;
     }
 
-    updateValue({ ...sliderValues, [name]: +value });
+    // Thumbs can not cross, but can be alike
+    if (type === 'range') {
+      if (name === 'left') {
+        newSliderValue = Math.min(+incomingValue, sliderValues.right);
+      }
+
+      if (name === 'right') {
+        newSliderValue = Math.max(+incomingValue, sliderValues.left);
+      }
+
+      setIsLeftSliderOnTop(name === 'left');
+    }
+
+    updateValue({ ...sliderValues, [name]: newSliderValue });
   };
 
   const handleNumberInputValueChange = (event: React.FormEvent<HTMLInputElement>) => {
