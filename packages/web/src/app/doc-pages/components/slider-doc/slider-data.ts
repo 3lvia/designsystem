@@ -34,7 +34,7 @@ export const sliderData: ComponentData = {
     hasHintValues: {
       default: 'false',
       description:
-        'Decides if the slider should display its minimum and maximum values at each end of the slider. Not available of type="range" with hasInputField="true".',
+        'Display the minimum and maximum values at each end of the slider. Unavailable for type="range" with hasInputField="true".',
       isRequired: false,
       type: 'boolean',
 
@@ -49,7 +49,7 @@ export const sliderData: ComponentData = {
     hasTooltip: {
       default: 'false',
       description:
-        'Decides if a tooltip should be displayed when the user uses the slider. A tooltip is always displayed on devices with touch as their primary input method.',
+        'Determine whether to show a tooltip when using the slider. Note: A tooltip is always displayed on touch devices.',
       isRequired: false,
       type: 'boolean',
 
@@ -64,7 +64,7 @@ export const sliderData: ComponentData = {
     hasPercent: {
       default: 'false',
       description:
-        'The tooltip should display the percentage of the distance between minimum and maximum values rather than the actual value itself. Only available on a simple slider.',
+        'Show the percentage in the tooltip, not the actual value. Only available for a type="simple".',
       isRequired: false,
       type: 'boolean',
 
@@ -83,7 +83,7 @@ export const sliderData: ComponentData = {
     unit: {
       isRequired: false,
       description:
-        'A custom unit displayed in the tooltip. For example "kWh", "kr/mnd". The unit will be overwritten if hasPercent is set to true.',
+        'Show a custom unit in the tooltip, like "kWh" or "kr/mnd". This will be replaced if the "hasPercent" prop is set to true.',
       type: 'string',
       default: '',
 
@@ -98,8 +98,7 @@ export const sliderData: ComponentData = {
 
     label: {
       isRequired: false,
-      description:
-        'A custom label displayed above the input(s). For example "Kilowatt hours". Labels can be set individually for range sliders by using a object: {left:"min", right:"max"}',
+      description: 'A custom label displayed above the input(s). For example "Kilowatt hours".',
       type: 'string | {left: string, right: string}',
       default: '',
 
@@ -109,26 +108,22 @@ export const sliderData: ComponentData = {
       cegDependency: [{ name: 'hasInputField', value: 'true' }],
     },
 
-    /* TODO: Legge til max i CEG, men bare dersom counten til max aldri kan bli mindre enn min */
     max: {
       default: 100,
-      description:
-        'The greatest value allowed inside the slider. This value must be greater than the value of the "min" attribute.',
+      description: 'The maximum allowed value within the slider. This must be higher than the "min" value.',
       isRequired: false,
       type: 'number',
     },
 
-    /* TODO: Legge til min i CEG, men bare dersom counten til min aldri kan bli større enn max */
     min: {
-      default: 1,
-      description:
-        'The lowest value allowed inside the slider. This value must be less than the value of the "max" attribute.',
+      default: 0,
+      description: 'The minimum allowed value within the slider. This must be lower than the "max" value.',
       isRequired: false,
       type: 'number',
     },
 
     value: {
-      default: '{left: 1, right: 100}',
+      default: '{left: 0, right: 100}',
       description: 'The default value of the slider. An object for range sliders.',
       isRequired: false,
       type: 'number | {left: number, right: number}',
@@ -136,7 +131,7 @@ export const sliderData: ComponentData = {
 
     isDisabled: {
       default: 'false',
-      description: 'Set the slider to a disabled state.',
+      description: 'Disable the slider.',
       isRequired: false,
       type: 'boolean',
 
@@ -160,7 +155,7 @@ export const sliderData: ComponentData = {
     valueOnChange: {
       isRequired: false,
       type: '(value: Number | object ) => CustomEvent',
-      description: 'Gets called every time the value is changed. Only returns a value if the input is valid.',
+      description: 'Gets called every time the value is changed.',
     },
   },
   codeReact: `<Slider 
