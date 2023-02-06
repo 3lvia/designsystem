@@ -441,6 +441,22 @@ export type CONTENT_TYPE =
   | 'subsection'
   | 'whenToUse';
 
+export type IEntry =
+  | ICenteredContent
+  | IDocumentationPage
+  | IDownloadContent
+  | IGrid
+  | IImage
+  | IInternalLink
+  | ILandingPage
+  | ILandingPageWithCards
+  | IMainMenu
+  | IOverviewCard
+  | ISection
+  | ISubMenu
+  | ISubsection
+  | IWhenToUse;
+
 export type LOCALE_CODE = 'en-GB' | 'nb-NO';
 
 export type CONTENTFUL_DEFAULT_LOCALE_CODE = 'en-GB';

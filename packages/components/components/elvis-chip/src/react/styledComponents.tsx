@@ -83,7 +83,7 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   padding: 7px 15px;
   border-radius: 24px;
   transition: background-color 150ms ease-in;
-
+  white-space: nowrap;
   position: relative;
   ${({ isHovering, isLoading, isDisabled, color, isSelected, chipType }) =>
     isHovering &&

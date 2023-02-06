@@ -3,11 +3,24 @@
   "content": [
     {
       "date": "nn.02.23",
-      "version": "7.5.2",
+      "version": "7.6.1",
       "changelog": [
         {
           "type": "patch",
           "changes": ["Internal changes for better reusable components."]
+        }
+      ]
+    },
+    {
+      "date": "30.01.23",
+      "version": "7.6.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Form field, button, icon button, and overlay now support dark theme.",
+            "Added new hook <code>useCurrentTheme</code>."
+          ]
         }
       ]
     },
@@ -122,7 +135,7 @@
       "version": "7.0.0",
       "changelog": [
         {
-          "type": "patch",
+          "type": "breaking_changes",
           "changes": ["Deprecated warning function refactored and component config types added."]
         }
       ]

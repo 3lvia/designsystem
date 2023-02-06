@@ -54,7 +54,7 @@ export const headerData: ComponentData = {
       default: 'undefined',
       description: 'The page content. Usually a div, wrapping a router outlet.',
     },
-    onLogoCLick: {
+    onLogoClick: {
       isRequired: false,
       type: '() => void',
       description: 'An event that is triggered when the Elvia logo is clicked.',
@@ -86,19 +86,22 @@ export const headerData: ComponentData = {
     <div className="e-sidenav__container">
       <Link to="/" className="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
         <div className="e-sidenav__icon-container">
-          <Icon name="dashboard" size="sm"></Icon>
+          <i class="e-icon e-icon--sm e-icon--search"></i>
+          <i class="e-icon e-icon--sm e-icon--search-color"></i>
         </div>
         <div className="e-sidenav__item-text">Dashbord</div>
       </Link>
       <Link to="/search" className="e-sidenav__item" aria-label="Søk">
         <div className="e-sidenav__icon-container">
-          <Icon name="search" size="sm"></Icon>
+          <i class="e-icon e-icon--sm e-icon--upload"></i>
+          <i class="e-icon e-icon--sm e-icon--upload e-icon--upload-color"></i>
         </div>
         <div className="e-sidenav__item-text">Søk</div>
       </Link>
       <Link to="/pin" className="e-sidenav__item" aria-label="Analyse">
         <div className="e-sidenav__icon-container">
-          <Icon name="pin" size="sm"></Icon>
+          <i class="e-icon e-icon--sm e-icon--full_battery"></i>
+          <i class="e-icon e-icon--sm e-icon--full_battery-color"></i>
         </div>
         <div className="e-sidenav__item-text">Analyse</div>
       </Link>
@@ -115,19 +118,22 @@ export const headerData: ComponentData = {
   <div slot="navItems" class="e-sidenav__container">
     <a routerLink="/" class="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
       <div class="e-sidenav__icon-container">
-        <elvia-icon name="dashboard" size="sm"></elvia-icon>
+        <i class="e-icon e-icon--sm e-icon--search"></i>
+        <i class="e-icon e-icon--sm e-icon--search-color"></i>
       </div>
       <div class="e-sidenav__item-text">Dashbord</div>
     </a>
     <a routerLink="/search" class="e-sidenav__item" aria-label="Søk">
       <div class="e-sidenav__icon-container">
-        <elvia-icon name="search" size="sm"></elvia-icon>
+        <i class="e-icon e-icon--sm e-icon--upload"></i>
+        <i class="e-icon e-icon--sm e-icon--upload e-icon--upload-color"></i>
       </div>
       <div class="e-sidenav__item-text">Søk</div>
     </a>
     <a routerLink="/pin" class="e-sidenav__item" aria-label="Analyse">
       <div class="e-sidenav__icon-container">
-        <elvia-icon name="pin" size="sm"></elvia-icon>
+        <i class="e-icon e-icon--sm e-icon--full_battery"></i>
+        <i class="e-icon e-icon--sm e-icon--full_battery-color"></i>
       </div>
       <div class="e-sidenav__item-text">Analyse</div>
     </a>
@@ -143,19 +149,22 @@ export const headerData: ComponentData = {
   <div slot="navItems" class="e-sidenav__container">
     <router-link to="/" class="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
       <div class="e-sidenav__icon-container">
-        <elvia-icon name="dashboard" size="sm"></elvia-icon>
+        <i class="e-icon e-icon--sm e-icon--search"></i>
+        <i class="e-icon e-icon--sm e-icon--search-color"></i>
       </div>
       <div class="e-sidenav__item-text">Dashbord</div>
     </router-link>
     <router-link to="/search" class="e-sidenav__item" aria-label="Søk">
       <div class="e-sidenav__icon-container">
-        <elvia-icon name="search" size="sm"></elvia-icon>
+        <i class="e-icon e-icon--sm e-icon--upload"></i>
+        <i class="e-icon e-icon--sm e-icon--upload e-icon--upload-color"></i>
       </div>
       <div class="e-sidenav__item-text">Søk</div>
     </router-link>
     <router-link to="/pin" class="e-sidenav__item" aria-label="Analyse">
       <div class="e-sidenav__icon-container">
-        <elvia-icon name="pin" size="sm"></elvia-icon>
+        <i class="e-icon e-icon--sm e-icon--full_battery"></i>
+        <i class="e-icon e-icon--sm e-icon--full_battery-color"></i>
       </div>
       <div class="e-sidenav__item-text">Analyse</div>
     </router-link>
@@ -170,19 +179,22 @@ export const headerData: ComponentData = {
   <div slot="navItems" class="e-sidenav__container">
     <a href="#" class="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
       <div class="e-sidenav__icon-container">
-        <elvia-icon name="dashboard" size="sm"></elvia-icon>
+        <i class="e-icon e-icon--sm e-icon--search"></i>
+        <i class="e-icon e-icon--sm e-icon--search-color"></i>
       </div>
       <div class="e-sidenav__item-text">Dashbord</div>
     </a>
     <a href="#" class="e-sidenav__item" aria-label="Søk">
       <div class="e-sidenav__icon-container">
-        <elvia-icon name="search" size="sm"></elvia-icon>
+        <i class="e-icon e-icon--sm e-icon--upload"></i>
+        <i class="e-icon e-icon--sm e-icon--upload e-icon--upload-color"></i>
       </div>
       <div class="e-sidenav__item-text">Søk</div>
     </a>
     <a href="#" class="e-sidenav__item" aria-label="Analyse">
       <div class="e-sidenav__icon-container">
-        <elvia-icon name="pin" size="sm"></elvia-icon>
+        <i class="e-icon e-icon--sm e-icon--full_battery"></i>
+        <i class="e-icon e-icon--sm e-icon--full_battery-color"></i>
       </div>
       <div class="e-sidenav__item-text">Analyse</div>
     </a>

@@ -2,6 +2,20 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.02.23",
+      "version": "2.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for dark theme."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "09.01.23",
       "version": "2.1.0",
       "changelog": [
@@ -65,8 +79,8 @@
           "type": "breaking_changes",
           "changes": [
             "Removed bottom margin for the progressbar. Now it has no margin, which means spacing must be added manually.",
-            "The sizes have been rearranged to open up for possible new sizes in the future. Medium -> Small and Large -> Medium.",
-            "SCSS -> StyledComponents"
+            "The sizes have been rearranged to open up for possible new sizes in the future. Medium to Small and Large to Medium.",
+            "SCSS to StyledComponents"
           ],
           "fixes": [
             "If you want the same margin as previously, use <span class=\"code-text\">margin-bottom: 40px</span>",

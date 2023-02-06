@@ -1,8 +1,9 @@
 {
   "name": "@elvia/elvis",
-  "version": "10.0.0",
+  "version": "10.2.0",
   "description": "Elvia design system",
   "license": "ISC",
+  "homepage": "https://design.elvia.io/",
   "author": "",
   "main": "",
   "scripts": {

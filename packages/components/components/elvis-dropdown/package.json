@@ -1,8 +1,9 @@
 {
   "name": "@elvia/elvis-dropdown",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "main": "web_component.js",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/dropdown",
   "files": [
     "web_component.js",
     "react.js",
@@ -25,5 +26,16 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "react-is": {
+      "optional": true
+    }
   }
 }

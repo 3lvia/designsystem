@@ -1,4 +1,4 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
@@ -43,7 +43,7 @@ export const GridContainer = styled.div`
 
 export const DayName = styled.div`
   ${getTypographyCss('text-sm')};
-  color: ${getColor('placeholder')};
+  color: ${getThemeColor('text-placeholder')};
   text-align: center;
 `;
 
@@ -54,7 +54,6 @@ interface DayButtonProps {
 
 export const DayButton = styled.button<Partial<DayButtonProps>>`
   ${getTypographyCss('text-sm')};
-  color: ${getColor('text')};
   width: 2rem;
   height: 2rem;
   border-radius: 999px;
@@ -65,17 +64,17 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
   cursor: inherit;
 
   &:disabled {
-    color: ${getColor('disabled')};
+    color: ${getThemeColor('state-disabled')};
 
     &::after {
-      background-color: ${getColor('disabled')};
+      background-color: ${getThemeColor('state-disabled')};
     }
   }
 
   ${(props) =>
     props.isActive &&
     css`
-      background-color: ${getColor('elvia-charge')};
+      background-color: ${getThemeColor('state-on')};
       font-weight: 500;
     `}
 
@@ -87,7 +86,7 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
         position: absolute;
         width: 4px;
         height: 4px;
-        background-color: ${getColor('elvia-charge')};
+        background-color: ${getThemeColor('state-on')};
         bottom: 0;
         border-radius: 50%;
         left: 50%;

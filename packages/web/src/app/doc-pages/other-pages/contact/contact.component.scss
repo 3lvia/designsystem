@@ -17,10 +17,10 @@
       }
     }
     &.trygve {
-      margin-top: -270px;
+      margin-top: -80px;
     }
     &.viljar {
-      margin-top: -80px;
+      margin-top: -70px;
     }
     &.hilde {
       margin-top: -100px;
@@ -30,6 +30,9 @@
     }
     &.erik {
       margin-top: -270px;
+    }
+    &.fride {
+      margin-top: -230px;
     }
     &.fride,
     &.trygve,
@@ -113,6 +116,12 @@
     }
     &.tom {
       right: -6%;
+      @include breakpoints.breakpoint-up(Mobile) {
+        left: 0px;
+      }
+    }
+    &.kari {
+      left: 8%;
       @include breakpoints.breakpoint-up(Mobile) {
         left: 0px;
       }

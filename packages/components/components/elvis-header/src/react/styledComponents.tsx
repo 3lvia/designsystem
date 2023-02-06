@@ -111,6 +111,10 @@ export const IconButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  svg {
+    width: 26px;
+  }
 `;
 
 export interface HrProps {

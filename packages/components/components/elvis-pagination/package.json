@@ -1,8 +1,9 @@
 {
   "name": "@elvia/elvis-pagination",
-  "version": "3.3.3",
+  "version": "3.3.4",
   "description": "",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/pagination",
   "author": "",
   "main": "web_component.js",
   "files": [
@@ -26,5 +27,16 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "react-is": {
+      "optional": true
+    }
   }
 }

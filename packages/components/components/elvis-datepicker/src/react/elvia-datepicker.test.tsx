@@ -3,7 +3,7 @@ import Datepicker from './elvia-datepicker';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { formatDate } from './dateHelpers';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { render, screen, waitFor } from '@testing-library/react';
 
 describe('Elvis Datepicker', () => {
@@ -175,7 +175,7 @@ describe('Elvis Datepicker', () => {
 
     it('should have error style', () => {
       const datepickerWrapper = screen.getByTestId('input-container');
-      expect(datepickerWrapper).toHaveStyle(`border-color: ${getColor('error')}`);
+      expect(datepickerWrapper).toHaveStyle(`border-color: ${getThemeColor('state-error')}`);
     });
 
     it('should have custom error in DOM', () => {
@@ -256,7 +256,7 @@ describe('Elvis Datepicker', () => {
 
     it('should have error state', () => {
       const datepickerWrapper = screen.getByTestId('input-container');
-      expect(datepickerWrapper).toHaveStyle(`border-color: ${getColor('error')}`);
+      expect(datepickerWrapper).toHaveStyle(`border-color: ${getThemeColor('state-error')}`);
     });
   });
 

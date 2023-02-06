@@ -44,24 +44,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/architect@npm:0.1501.0":
-  version: 0.1501.0
-  resolution: "@angular-devkit/architect@npm:0.1501.0"
+"@angular-devkit/architect@npm:0.1501.3":
+  version: 0.1501.3
+  resolution: "@angular-devkit/architect@npm:0.1501.3"
   dependencies:
-    "@angular-devkit/core": 15.1.0
+    "@angular-devkit/core": 15.1.3
     rxjs: 6.6.7
-  checksum: 37895f0f4d6c8e101f5570104814abaed97ce1343d9ab2b52c42bfe05996011cd0dbfe1bfa4342b243c63a6f6e9e955bd228a5bbef8bcc56afc9e4a8cfdf76c6
+  checksum: 3bf1bdb9a076d9ffe4b82e8cc22d72aa9fb18c450eddc0ab8cef3f82e17877d030ce3217be590142a3d6607b5b3270e1cc36d5929e8048e2ecd39dba1140ac9e
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-angular@npm:^15.1.0":
-  version: 15.1.0
-  resolution: "@angular-devkit/build-angular@npm:15.1.0"
+"@angular-devkit/build-angular@npm:^15.1.3":
+  version: 15.1.3
+  resolution: "@angular-devkit/build-angular@npm:15.1.3"
   dependencies:
     "@ampproject/remapping": 2.2.0
-    "@angular-devkit/architect": 0.1501.0
-    "@angular-devkit/build-webpack": 0.1501.0
-    "@angular-devkit/core": 15.1.0
+    "@angular-devkit/architect": 0.1501.3
+    "@angular-devkit/build-webpack": 0.1501.3
+    "@angular-devkit/core": 15.1.3
     "@babel/core": 7.20.12
     "@babel/generator": 7.20.7
     "@babel/helper-annotate-as-pure": 7.18.6
@@ -72,7 +72,7 @@ __metadata:
     "@babel/runtime": 7.20.7
     "@babel/template": 7.20.7
     "@discoveryjs/json-ext": 0.5.7
-    "@ngtools/webpack": 15.1.0
+    "@ngtools/webpack": 15.1.3
     ansi-colors: 4.1.3
     autoprefixer: 10.4.13
     babel-loader: 9.1.2
@@ -83,8 +83,8 @@ __metadata:
     copy-webpack-plugin: 11.0.0
     critters: 0.0.16
     css-loader: 6.7.3
-    esbuild: 0.16.16
-    esbuild-wasm: 0.16.16
+    esbuild: 0.16.17
+    esbuild-wasm: 0.16.17
     glob: 8.0.3
     https-proxy-agent: 5.0.1
     inquirer: 8.2.4
@@ -146,26 +146,26 @@ __metadata:
       optional: true
     tailwindcss:
       optional: true
-  checksum: 265ed920c5668cfbef4c3f4701dcde4e67c99fca15b0e8d45770cc19cf3cff22f54f08bff086b29b9ff4cad791dca09af5219a8434a7c50108ec745d6a08e19e
+  checksum: 885339d266eada735cdfa6a3dae44e0d81817c42b395cd149a842a08353aece17f7846d59d749be7df602f81b8035e0ccf8f96b1a5e46a94fdc1dd9b82e4cd7f
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-webpack@npm:0.1501.0":
-  version: 0.1501.0
-  resolution: "@angular-devkit/build-webpack@npm:0.1501.0"
+"@angular-devkit/build-webpack@npm:0.1501.3":
+  version: 0.1501.3
+  resolution: "@angular-devkit/build-webpack@npm:0.1501.3"
   dependencies:
-    "@angular-devkit/architect": 0.1501.0
+    "@angular-devkit/architect": 0.1501.3
     rxjs: 6.6.7
   peerDependencies:
     webpack: ^5.30.0
     webpack-dev-server: ^4.0.0
-  checksum: 4d9e2c48c6df5f49e9906b9490a0a3f7be8e8c91bceab0a051862d79bdbc5cb93bea2821b49e2a0ea9c753882d4476a198cecbbc77f36cec9b3d7c26d66683bb
+  checksum: c233349e24204176a0e814520b3bff3371ac4aa107335e055314b8a07ee4234b3897916ff3a378b20b531f2304f47d96d4dc339b943023b88d5309e030c2817c
   languageName: node
   linkType: hard
 
-"@angular-devkit/core@npm:15.1.0":
-  version: 15.1.0
-  resolution: "@angular-devkit/core@npm:15.1.0"
+"@angular-devkit/core@npm:15.1.3":
+  version: 15.1.3
+  resolution: "@angular-devkit/core@npm:15.1.3"
   dependencies:
     ajv: 8.12.0
     ajv-formats: 2.1.1
@@ -177,20 +177,20 @@ __metadata:
   peerDependenciesMeta:
     chokidar:
       optional: true
-  checksum: 064c806d49601c46dd7ba80efa1bc0fd697035413423e7e08e7ce51b59bb16967408f12793acfa6d4c1b905b3f63583143a6ae37a62da5b0402e60c9dc772b97
+  checksum: 7bc98ab63860fb0d44a3b4910751c70463e41bb1e1c0c34ccd426880b1b56c8d39315d458aa685731277538ce7db1f3fc263442fb6bd9ca4505dc2bdc12452d3
   languageName: node
   linkType: hard
 
-"@angular-devkit/schematics@npm:15.1.0":
-  version: 15.1.0
-  resolution: "@angular-devkit/schematics@npm:15.1.0"
+"@angular-devkit/schematics@npm:15.1.3":
+  version: 15.1.3
+  resolution: "@angular-devkit/schematics@npm:15.1.3"
   dependencies:
-    "@angular-devkit/core": 15.1.0
+    "@angular-devkit/core": 15.1.3
     jsonc-parser: 3.2.0
     magic-string: 0.27.0
     ora: 5.4.1
     rxjs: 6.6.7
-  checksum: 2c208cb79d058cb0c9db4be51b8ca863f577a4512720e9ece4541e9c1c8172cf01c4680be449771005980cd2adc3279b66feecb1cee18602c373e7ba96320fbf
+  checksum: a2ca26003da9f684a5dd50c4fdfbde497a2bb299aa0a84a9c4d91c7b9b50d26f4907e346089dc1eed3e72e14f8ddd2a20e4f3326eb2c767a1b70bc54d3853e61
   languageName: node
   linkType: hard
 
@@ -310,14 +310,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cli@npm:^15.1.0":
-  version: 15.1.0
-  resolution: "@angular/cli@npm:15.1.0"
+"@angular/cli@npm:^15.1.3":
+  version: 15.1.3
+  resolution: "@angular/cli@npm:15.1.3"
   dependencies:
-    "@angular-devkit/architect": 0.1501.0
-    "@angular-devkit/core": 15.1.0
-    "@angular-devkit/schematics": 15.1.0
-    "@schematics/angular": 15.1.0
+    "@angular-devkit/architect": 0.1501.3
+    "@angular-devkit/core": 15.1.3
+    "@angular-devkit/schematics": 15.1.3
+    "@schematics/angular": 15.1.3
     "@yarnpkg/lockfile": 1.1.0
     ansi-colors: 4.1.3
     ini: 3.0.1
@@ -334,7 +334,7 @@ __metadata:
     yargs: 17.6.2
   bin:
     ng: bin/ng.js
-  checksum: dde363b32d42041475246cde402b5b90719363eba2b84db1ca711e1c50a9fd1e9befc63aa6d44f675521c791297f0b43fd3f72c3a9c392991b8d85a92d7ab502
+  checksum: 78aeddd607b75f02c9c30fbb5b5d995e1bfd9eabb1ce44e55d813d869d6a084ab0891136567534e587771538e40d511e432a800f16aa8f7623b04a47a9564930
   languageName: node
   linkType: hard
 
@@ -547,15 +547,6 @@ __metadata:
   version: 0.10.1
   resolution: "@assemblyscript/loader@npm:0.10.1"
   checksum: fd1f57bdf2c55252a48c2d93fbec3c5a9ef4ca40e581e8709dd8ee437613eb47af74c8cdba011a324077eda9605d6f24983f429c2ce18b0b582ddcc5acf75c26
-  languageName: node
-  linkType: hard
-
-"@babel/code-frame@npm:7.12.11":
-  version: 7.12.11
-  resolution: "@babel/code-frame@npm:7.12.11"
-  dependencies:
-    "@babel/highlight": ^7.10.4
-  checksum: 3963eff3ebfb0e091c7e6f99596ef4b258683e4ba8a134e4e95f77afe85be5c931e184fff6435fb4885d12eba04a5e25532f7fbc292ca13b48e7da943474e2f3
   languageName: node
   linkType: hard
 
@@ -990,7 +981,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/highlight@npm:^7.10.4, @babel/highlight@npm:^7.18.6":
+"@babel/highlight@npm:^7.18.6":
   version: 7.18.6
   resolution: "@babel/highlight@npm:7.18.6"
   dependencies:
@@ -2478,6 +2469,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2495,14 +2493,21 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
-"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^2.5.1, @elvia/elvis-assets-icons@^2.6.1, @elvia/elvis-assets-icons@^2.7.0, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
+"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^2.5.1, @elvia/elvis-assets-icons@^2.6.1, @elvia/elvis-assets-icons@^2.7.0, @elvia/elvis-assets-icons@^2.7.1, @elvia/elvis-assets-icons@^2.8.0, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-colors": ^1.5.0
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-svgmin: ^4.1.0
@@ -2514,7 +2519,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@portal:../elvis-assets-icons::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-colors": ^1.5.0
   languageName: node
   linkType: soft
 
@@ -2536,6 +2541,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2551,6 +2563,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2567,6 +2586,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2583,6 +2609,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2590,16 +2623,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-breadcrumb@workspace:packages/components/components/elvis-breadcrumb"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-assets-icons": ^2.8.0
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.0
+    "@elvia/elvis-toolbox": ^7.6.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2607,16 +2647,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-breadcrumb@portal:../components/components/elvis-breadcrumb::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-assets-icons": ^2.8.0
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.0
+    "@elvia/elvis-toolbox": ^7.6.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2635,6 +2682,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2653,6 +2707,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2670,6 +2731,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2687,6 +2755,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2704,6 +2779,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2721,20 +2803,35 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
-"@elvia/elvis-colors@^1.4.2, @elvia/elvis-colors@^1.4.3, @elvia/elvis-colors@workspace:packages/elvis-colors":
+"@elvia/elvis-colors@^1.4.2, @elvia/elvis-colors@^1.4.3, @elvia/elvis-colors@^1.5.0, @elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
     "@types/gulp": ^4.0.10
     "@types/gulp-typescript": ^2.13.0
+    "@types/node": ^18.11.18
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-typescript: ^6.0.0-alpha.1
     ts-node: ^10.9.1
+    typescript: ^4.9.4
   languageName: unknown
+  linkType: soft
+
+"@elvia/elvis-colors@portal:../elvis-colors::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-colors@portal:../elvis-colors::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
+  languageName: node
   linkType: soft
 
 "@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^4.0.0, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
@@ -2781,6 +2878,7 @@ __metadata:
     "@types/jest": ^29.2.3
     "@types/jest-axe": ^3.5.5
     "@types/merge-stream": ^1.1.2
+    "@types/node": ^18.11.18
     "@types/styled-components": ^5.1.19
     babel-jest: ^29.3.1
     babel-plugin-styled-components: ^1.13.3
@@ -2816,6 +2914,7 @@ __metadata:
     ts-loader: ^8.0.3
     ts-node: ^10.9.1
     typescript-plugin-styled-components: ^2.0.0
+    webpack: ^5.12.0
   peerDependencies:
     typescript: ~4.9.4
   languageName: unknown
@@ -2834,6 +2933,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2850,6 +2956,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2858,14 +2971,21 @@ __metadata:
   resolution: "@elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range"
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-datepicker": ^6.1.3
+    "@elvia/elvis-datepicker": ^6.2.0
     "@elvia/elvis-timepicker": ^2.3.0
-    "@elvia/elvis-toolbox": ^7.5.0
+    "@elvia/elvis-toolbox": ^7.6.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2874,31 +2994,45 @@ __metadata:
   resolution: "@elvia/elvis-datepicker-range@portal:../components/components/elvis-datepicker-range::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-datepicker": ^6.1.3
+    "@elvia/elvis-datepicker": ^6.2.0
     "@elvia/elvis-timepicker": ^2.3.0
-    "@elvia/elvis-toolbox": ^7.5.0
+    "@elvia/elvis-toolbox": ^7.6.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.1.3, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.2.0, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-assets-icons": ^2.7.1
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.5.0
+    "@elvia/elvis-toolbox": ^7.6.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2906,16 +3040,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@portal:../components/components/elvis-datepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-assets-icons": ^2.7.1
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.5.0
+    "@elvia/elvis-toolbox": ^7.6.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2932,6 +3073,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2951,6 +3099,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2970,6 +3125,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -2987,6 +3149,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3004,6 +3173,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -3018,6 +3194,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3032,6 +3215,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -3049,6 +3239,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3066,6 +3263,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -3081,6 +3285,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -3096,6 +3307,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3114,6 +3332,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3132,6 +3357,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -3139,16 +3371,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-popover@workspace:packages/components/components/elvis-popover"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-assets-icons": ^2.8.0
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.3
+    "@elvia/elvis-toolbox": ^7.6.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3156,16 +3395,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-popover@portal:../components/components/elvis-popover::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-assets-icons": ^2.8.0
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.3
+    "@elvia/elvis-toolbox": ^7.6.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -3173,14 +3419,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-progress-linear@workspace:packages/components/components/elvis-progress-linear"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.3
+    "@elvia/elvis-toolbox": ^7.6.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3188,14 +3441,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-progress-linear@portal:../components/components/elvis-progress-linear::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.3
+    "@elvia/elvis-toolbox": ^7.6.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -3203,14 +3463,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-radio-filter@workspace:packages/components/components/elvis-radio-filter"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.0
+    "@elvia/elvis-toolbox": ^7.6.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3231,6 +3498,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3250,6 +3524,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -3260,13 +3541,20 @@ __metadata:
     "@elvia/elvis-assets-icons": ^2.6.1
     "@elvia/elvis-colors": ^1.4.3
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.5.2
+    "@elvia/elvis-toolbox": ^7.4.3
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3277,13 +3565,20 @@ __metadata:
     "@elvia/elvis-assets-icons": ^2.6.1
     "@elvia/elvis-colors": ^1.4.3
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.5.2
+    "@elvia/elvis-toolbox": ^7.4.3
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -3298,6 +3593,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3312,6 +3614,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -3331,6 +3640,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3349,6 +3665,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -3366,6 +3689,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3383,14 +3713,21 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
-"@elvia/elvis-toolbox@^7.0.0, @elvia/elvis-toolbox@^7.4.0, @elvia/elvis-toolbox@^7.4.1, @elvia/elvis-toolbox@^7.4.2, @elvia/elvis-toolbox@^7.4.3, @elvia/elvis-toolbox@^7.4.4, @elvia/elvis-toolbox@^7.5.0, @elvia/elvis-toolbox@^7.5.1, @elvia/elvis-toolbox@^7.5.2, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@^7.0.0, @elvia/elvis-toolbox@^7.4.0, @elvia/elvis-toolbox@^7.4.1, @elvia/elvis-toolbox@^7.4.2, @elvia/elvis-toolbox@^7.4.3, @elvia/elvis-toolbox@^7.4.4, @elvia/elvis-toolbox@^7.5.0, @elvia/elvis-toolbox@^7.5.1, @elvia/elvis-toolbox@^7.6.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.6
@@ -3399,6 +3736,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3406,7 +3750,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@portal:../components/components/elvis-toolbox::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.3
+    "@elvia/elvis-colors": ^1.5.0
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.6
@@ -3415,6 +3759,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -3429,6 +3780,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3443,6 +3801,13 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
   languageName: node
   linkType: soft
 
@@ -3452,10 +3817,12 @@ __metadata:
   dependencies:
     "@types/gulp": ^4.0.10
     "@types/gulp-typescript": ^2.13.0
+    "@types/node": ^18.11.18
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-typescript: ^6.0.0-alpha.1
     ts-node: ^10.9.1
+    typescript: ^4.9.4
   languageName: unknown
   linkType: soft
 
@@ -3536,174 +3903,157 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/android-arm64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/android-arm64@npm:0.16.16"
+"@esbuild/android-arm64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/android-arm64@npm:0.16.17"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/android-arm@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/android-arm@npm:0.16.16"
+"@esbuild/android-arm@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/android-arm@npm:0.16.17"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"@esbuild/android-x64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/android-x64@npm:0.16.16"
+"@esbuild/android-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/android-x64@npm:0.16.17"
   conditions: os=android & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/darwin-arm64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/darwin-arm64@npm:0.16.16"
+"@esbuild/darwin-arm64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/darwin-arm64@npm:0.16.17"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/darwin-x64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/darwin-x64@npm:0.16.16"
+"@esbuild/darwin-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/darwin-x64@npm:0.16.17"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/freebsd-arm64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/freebsd-arm64@npm:0.16.16"
+"@esbuild/freebsd-arm64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/freebsd-arm64@npm:0.16.17"
   conditions: os=freebsd & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/freebsd-x64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/freebsd-x64@npm:0.16.16"
+"@esbuild/freebsd-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/freebsd-x64@npm:0.16.17"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-arm64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/linux-arm64@npm:0.16.16"
+"@esbuild/linux-arm64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-arm64@npm:0.16.17"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-arm@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/linux-arm@npm:0.16.16"
+"@esbuild/linux-arm@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-arm@npm:0.16.17"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@esbuild/linux-ia32@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/linux-ia32@npm:0.16.16"
+"@esbuild/linux-ia32@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-ia32@npm:0.16.17"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
 
-"@esbuild/linux-loong64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/linux-loong64@npm:0.16.16"
+"@esbuild/linux-loong64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-loong64@npm:0.16.17"
   conditions: os=linux & cpu=loong64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-mips64el@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/linux-mips64el@npm:0.16.16"
+"@esbuild/linux-mips64el@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-mips64el@npm:0.16.17"
   conditions: os=linux & cpu=mips64el
   languageName: node
   linkType: hard
 
-"@esbuild/linux-ppc64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/linux-ppc64@npm:0.16.16"
+"@esbuild/linux-ppc64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-ppc64@npm:0.16.17"
   conditions: os=linux & cpu=ppc64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-riscv64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/linux-riscv64@npm:0.16.16"
+"@esbuild/linux-riscv64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-riscv64@npm:0.16.17"
   conditions: os=linux & cpu=riscv64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-s390x@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/linux-s390x@npm:0.16.16"
+"@esbuild/linux-s390x@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-s390x@npm:0.16.17"
   conditions: os=linux & cpu=s390x
   languageName: node
   linkType: hard
 
-"@esbuild/linux-x64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/linux-x64@npm:0.16.16"
+"@esbuild/linux-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-x64@npm:0.16.17"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/netbsd-x64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/netbsd-x64@npm:0.16.16"
+"@esbuild/netbsd-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/netbsd-x64@npm:0.16.17"
   conditions: os=netbsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/openbsd-x64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/openbsd-x64@npm:0.16.16"
+"@esbuild/openbsd-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/openbsd-x64@npm:0.16.17"
   conditions: os=openbsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/sunos-x64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/sunos-x64@npm:0.16.16"
+"@esbuild/sunos-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/sunos-x64@npm:0.16.17"
   conditions: os=sunos & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/win32-arm64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/win32-arm64@npm:0.16.16"
+"@esbuild/win32-arm64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/win32-arm64@npm:0.16.17"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/win32-ia32@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/win32-ia32@npm:0.16.16"
+"@esbuild/win32-ia32@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/win32-ia32@npm:0.16.17"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@esbuild/win32-x64@npm:0.16.16":
-  version: 0.16.16
-  resolution: "@esbuild/win32-x64@npm:0.16.16"
+"@esbuild/win32-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/win32-x64@npm:0.16.17"
   conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@eslint/eslintrc@npm:^0.4.3":
-  version: 0.4.3
-  resolution: "@eslint/eslintrc@npm:0.4.3"
-  dependencies:
-    ajv: ^6.12.4
-    debug: ^4.1.1
-    espree: ^7.3.0
-    globals: ^13.9.0
-    ignore: ^4.0.6
-    import-fresh: ^3.2.1
-    js-yaml: ^3.13.1
-    minimatch: ^3.0.4
-    strip-json-comments: ^3.1.1
-  checksum: 03a7704150b868c318aab6a94d87a33d30dc2ec579d27374575014f06237ba1370ae11178db772f985ef680d469dc237e7b16a1c5d8edaaeb8c3733e7a95a6d3
   languageName: node
   linkType: hard
 
@@ -3823,17 +4173,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@humanwhocodes/config-array@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "@humanwhocodes/config-array@npm:0.5.0"
-  dependencies:
-    "@humanwhocodes/object-schema": ^1.2.0
-    debug: ^4.1.1
-    minimatch: ^3.0.4
-  checksum: 44ee6a9f05d93dd9d5935a006b17572328ba9caff8002442f601736cbda79c580cc0f5a49ce9eb88fbacc5c3a6b62098357c2e95326cd17bb9f1a6c61d6e95e7
-  languageName: node
-  linkType: hard
-
 "@humanwhocodes/module-importer@npm:^1.0.1":
   version: 1.0.1
   resolution: "@humanwhocodes/module-importer@npm:1.0.1"
@@ -3841,7 +4180,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@humanwhocodes/object-schema@npm:^1.2.0, @humanwhocodes/object-schema@npm:^1.2.1":
+"@humanwhocodes/object-schema@npm:^1.2.1":
   version: 1.2.1
   resolution: "@humanwhocodes/object-schema@npm:1.2.1"
   checksum: a824a1ec31591231e4bad5787641f59e9633827d0a2eaae131a288d33c9ef0290bd16fda8da6f7c0fcb014147865d12118df10db57f27f41e20da92369fcb3f1
@@ -5251,14 +5590,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngtools/webpack@npm:15.1.0":
-  version: 15.1.0
-  resolution: "@ngtools/webpack@npm:15.1.0"
+"@ngtools/webpack@npm:15.1.3":
+  version: 15.1.3
+  resolution: "@ngtools/webpack@npm:15.1.3"
   peerDependencies:
     "@angular/compiler-cli": ^15.0.0
     typescript: ">=4.8.2 <5.0"
     webpack: ^5.54.0
-  checksum: 1d2ba8a9a596340a63a5f9567d15cc496c11ffff70850947c0978aa2d93b5c2403fb825b836632072f19ecc2312909437a5f64668e71edcc7c06a97fd057cbff
+  checksum: 67c995f8ac9792a05c91a89011f9a9f05968915e4704c91d1c5f68da050f3cfd1875561c090cd47e8161a03213fc91cd2ef1142cb2fe14345e3df4e7a2ff72c0
   languageName: node
   linkType: hard
 
@@ -5410,9 +5749,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nrwl/nx-cloud@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@nrwl/nx-cloud@npm:15.0.2"
+"@nrwl/nx-cloud@npm:15.0.3":
+  version: 15.0.3
+  resolution: "@nrwl/nx-cloud@npm:15.0.3"
   dependencies:
     axios: ^0.21.2
     chalk: 4.1.0
@@ -5424,7 +5763,7 @@ __metadata:
     yargs-parser: ">=21.0.1"
   bin:
     nx-cloud: bin/nx-cloud.js
-  checksum: eae0c7f881af0213251afd10e9ce968d1578177fad60a5cc769951eaeb67cfd38d9860bf4d9399d763051a3e9e417d35540d4c260d005247a9a3a16e264cc1d3
+  checksum: 8ac91cf5224d0f4d3e59285d2511428a8fe4fe47a4783dbc1556106c7999f9536114f81903a54eb9a396e0705a33c81b6f9ecb0159b8dcb151f045285094b56e
   languageName: node
   linkType: hard
 
@@ -5620,14 +5959,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@schematics/angular@npm:15.1.0":
-  version: 15.1.0
-  resolution: "@schematics/angular@npm:15.1.0"
+"@schematics/angular@npm:15.1.3":
+  version: 15.1.3
+  resolution: "@schematics/angular@npm:15.1.3"
   dependencies:
-    "@angular-devkit/core": 15.1.0
-    "@angular-devkit/schematics": 15.1.0
+    "@angular-devkit/core": 15.1.3
+    "@angular-devkit/schematics": 15.1.3
     jsonc-parser: 3.2.0
-  checksum: 746bb2f050dbd89c5bcc9e3fabecf57ec1c3da654edefe48607deff5478b645c27de217f703663c81453222b727dd1e5afa9b1892fea788246986709fc2704cc
+  checksum: b310a160503b425b82abc78914f018ccf82dec964f6666dcd4b5f4cf483ccf78e3928a852fe68749bbd2fd745511617bc4e1189a422f1fcf3a632ce8f061bc2b
   languageName: node
   linkType: hard
 
@@ -6428,10 +6767,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/marked@npm:^4.0.3":
-  version: 4.0.7
-  resolution: "@types/marked@npm:4.0.7"
-  checksum: 4907b6a606578cd864bad429aca3c234591e6ed56bd141c575140487269b825a480ace9a85e4d003d1de1f007004c9d9b2fe600038ded5bba75aef59118e58d5
+"@types/marked@npm:^4.0.8":
+  version: 4.0.8
+  resolution: "@types/marked@npm:4.0.8"
+  checksum: 68278fa7acaa5d920cdc239d675b5daf842e0ad4779e4848cd617d9baf2ac1afccb5a264c331e37d80031d647e1640cb983cd31e73d45b28552670b4853fad8e
   languageName: node
   linkType: hard
 
@@ -6506,6 +6845,13 @@ __metadata:
   version: 14.18.33
   resolution: "@types/node@npm:14.18.33"
   checksum: 4e23f95186d8ae1d38c999bc6b46fe94e790da88744b0a3bfeedcbd0d9ffe2cb0ff39e85f43014f6739e5270292c1a1f6f97a1fc606fd573a0c17fda9a1d42de
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.11.18":
+  version: 18.11.18
+  resolution: "@types/node@npm:18.11.18"
+  checksum: 03f17f9480f8d775c8a72da5ea7e9383db5f6d85aa5fefde90dd953a1449bd5e4ffde376f139da4f3744b4c83942166d2a7603969a6f8ea826edfb16e6e3b49d
   languageName: node
   linkType: hard
 
@@ -8204,7 +8550,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn-jsx@npm:^5.2.0, acorn-jsx@npm:^5.3.1, acorn-jsx@npm:^5.3.2":
+"acorn-jsx@npm:^5.2.0, acorn-jsx@npm:^5.3.2":
   version: 5.3.2
   resolution: "acorn-jsx@npm:5.3.2"
   peerDependencies:
@@ -9106,7 +9452,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.21.2, axios@npm:^0.21.4":
+"axios@npm:^0.21.2":
   version: 0.21.4
   resolution: "axios@npm:0.21.4"
   dependencies:
@@ -9115,7 +9461,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.27.0":
+"axios@npm:^0.27.0, axios@npm:^0.27.1":
   version: 0.27.2
   resolution: "axios@npm:0.27.2"
   dependencies:
@@ -11485,17 +11831,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^7.51.1":
-  version: 7.54.2
-  resolution: "contentful-management@npm:7.54.2"
+"contentful-management@npm:^10.27.2":
+  version: 10.27.2
+  resolution: "contentful-management@npm:10.27.2"
   dependencies:
     "@types/json-patch": 0.0.30
-    axios: ^0.21.4
-    contentful-sdk-core: ^6.10.4
-    fast-copy: ^2.1.0
+    axios: ^0.27.1
+    contentful-sdk-core: ^7.0.1
+    fast-copy: ^3.0.0
     lodash.isplainobject: ^4.0.6
-    type-fest: ^2.5.3
-  checksum: 4e602f3c99d4de7000246c5478bc06bb32aafae27e57285a1df2b59100f7090f9815c52c29342929a6dd6c709fe360608317e3b2bd6d854758ec3e1766bfdd95
+  checksum: 33cf6b99634ea9339b1d0af1f554adf42d10fc56e20b399995e95e7772a2388bc445ae9fbf8be5e1e8832659fb64e248b5ee72fe2ceaadfdd8d825d8d5ba856e
   languageName: node
   linkType: hard
 
@@ -11508,16 +11853,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-sdk-core@npm:^6.10.4":
-  version: 6.11.0
-  resolution: "contentful-sdk-core@npm:6.11.0"
+"contentful-sdk-core@npm:^7.0.1":
+  version: 7.0.5
+  resolution: "contentful-sdk-core@npm:7.0.5"
   dependencies:
-    fast-copy: ^2.1.0
+    fast-copy: ^2.1.7
     lodash.isplainobject: ^4.0.6
     lodash.isstring: ^4.0.1
     p-throttle: ^4.1.1
     qs: ^6.9.4
-  checksum: 69ec31d085b1c1b69f5e6f9f5195c6cd60081a70ed85de6c093db2e37745cbc6cef1735bf707758d2ed8a55e7c14969395d999c416238c530d75abe7ef3f5a60
+  checksum: b6c3543077f0f139fcecb693d8b3fb0478ae178b805f3ffea05b160525d0b4aeaf1ca9f3d2a022b8fcf88cbb02bba058327b3568acdebfc738302cd1ba4131cd
   languageName: node
   linkType: hard
 
@@ -11534,18 +11879,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-typescript-codegen@npm:^3.2.3":
-  version: 3.2.3
-  resolution: "contentful-typescript-codegen@npm:3.2.3"
+"contentful-typescript-codegen@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "contentful-typescript-codegen@npm:3.4.0"
   dependencies:
     fs-extra: ^9.1.0
     lodash: ^4.17.21
     meow: ^9.0.0
   peerDependencies:
     prettier: ">= 1"
+    ts-node: ">= 9.0.0"
+  peerDependenciesMeta:
+    ts-node:
+      optional: true
   bin:
     contentful-typescript-codegen: dist/contentful-typescript-codegen.js
-  checksum: c41e21189aa19c1eebefb19b091fa5604492224ac5548695a3e6ccf76635e6e2d0044e156ecc1be2150d80d3c74f5a6276114bda69388cc954a94f4959e1d0a7
+  checksum: e3bc5a59d866f400cfc477cbabfd77427fc21c6ee16dc63a4b22b3ac7e09364bc85850e44d3fea78ead8a7783d7e3a48bb307ff0f939d80e15373fe529870c2c
   languageName: node
   linkType: hard
 
@@ -14071,7 +14420,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "elvia-designsystem@workspace:packages/web"
   dependencies:
-    "@angular-devkit/build-angular": ^15.1.0
+    "@angular-devkit/build-angular": ^15.1.3
     "@angular-eslint/builder": 15.1.0
     "@angular-eslint/eslint-plugin": 15.1.0
     "@angular-eslint/eslint-plugin-template": 15.1.0
@@ -14079,7 +14428,7 @@ __metadata:
     "@angular-eslint/template-parser": 15.1.0
     "@angular/animations": ^15.1.0
     "@angular/cdk": ^15.1.0
-    "@angular/cli": ^15.1.0
+    "@angular/cli": ^15.1.3
     "@angular/common": ^15.1.0
     "@angular/compiler": ^15.1.0
     "@angular/compiler-cli": ^15.1.0
@@ -14101,6 +14450,7 @@ __metadata:
     "@elvia/elvis-card": "portal:../components/components/elvis-card"
     "@elvia/elvis-carousel": "portal:../components/components/elvis-carousel"
     "@elvia/elvis-chip": "portal:../components/components/elvis-chip"
+    "@elvia/elvis-colors": "portal:../elvis-colors"
     "@elvia/elvis-context-menu": "portal:../components/components/elvis-context-menu"
     "@elvia/elvis-datepicker": "portal:../components/components/elvis-datepicker"
     "@elvia/elvis-datepicker-range": "portal:../components/components/elvis-datepicker-range"
@@ -14121,6 +14471,7 @@ __metadata:
     "@elvia/elvis-tooltip": "portal:../components/components/elvis-tooltip"
     "@elvia/elvis-typography": "portal:../elvis-typography"
     "@types/lodash.debounce": ^4.0.6
+    "@types/marked": ^4.0.8
     "@types/natural-compare-lite": ^1.4.0
     "@types/node": 16.11.7
     "@typescript-eslint/eslint-plugin": 5.44.0
@@ -14128,27 +14479,25 @@ __metadata:
     babel-eslint: ^10.1.0
     classlist.js: ^1.1.20150312
     contentful: ^9.2.13
-    contentful-management: ^7.51.1
-    contentful-typescript-codegen: ^3.2.3
+    contentful-management: ^10.27.2
+    contentful-typescript-codegen: ^3.4.0
     dotenv: ^10.0.0
     eslint: ^8.23.1
     fuse.js: ^6.6.2
     glob: ^7.1.6
     lint-staged: ^13.0.4
     lodash.debounce: ^4.0.8
+    marked: ^4.2.12
     natural-compare-lite: ^1.4.0
-    ngx-markdown: ^14.0.1
+    ngx-markdown: ^15.1.0
     object-path: ">=0.11.5"
     prettier: ^2.0.5
     prismjs: ^1.24.1
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-is: ^18.2.0
     rxjs: ^6.5.5
     sass: ^1.56.0
     stylelint: ^10.0.1 || ^11.0.0 || ^12.0.0 || ^13.0.0
     stylelint-config-sass-guidelines: ^7.0.0
-    ts-node: 8.10.2
+    ts-node: ^10.9.1
     tslib: ^2.0.0
     typescript: ~4.9.4
     webpack: ^5.12.0
@@ -14199,10 +14548,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"emoji-toolkit@npm:^6.6.0":
-  version: 6.6.0
-  resolution: "emoji-toolkit@npm:6.6.0"
-  checksum: 8f7a7216626d5d5cdb0505906dfd44cbe65cee76c8a9a15a3dfc20736fe98f457db23874376ec6e643da93fcb83a6c9dbc58cae76d24fb77e76dd87f06991ce2
+"emoji-toolkit@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "emoji-toolkit@npm:7.0.0"
+  checksum: 0e1ad04dbbbd1ab6d0c735ed2ab24deb8ba2b9d9901367c5a7b12cf7c1f35803cd6082af26e96f7a2bd7371d8af7493aa24664e54df365729fdf6785f28860e3
   languageName: node
   linkType: hard
 
@@ -14266,7 +14615,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enquirer@npm:^2.3.5, enquirer@npm:^2.3.6, enquirer@npm:~2.3.6":
+"enquirer@npm:^2.3.6, enquirer@npm:~2.3.6":
   version: 2.3.6
   resolution: "enquirer@npm:2.3.6"
   dependencies:
@@ -14465,41 +14814,41 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-wasm@npm:0.16.16":
-  version: 0.16.16
-  resolution: "esbuild-wasm@npm:0.16.16"
+"esbuild-wasm@npm:0.16.17":
+  version: 0.16.17
+  resolution: "esbuild-wasm@npm:0.16.17"
   bin:
     esbuild: bin/esbuild
-  checksum: a49f7c4824c0738aa1c98ad285aae65ace7698d1613bb1370ea366f49c247d2cde36b0f3ed85e759ad12f6a3537a96b9f53aea1ed41adc43eede8a25d7a77ce6
+  checksum: 5708217900af65546409f677ec8053c7e77e0967afa6967c4612fac4cb25533b2fb984250fc19226c158434f00ef72eed93c94242487f7170931a5ccd5db2039
   languageName: node
   linkType: hard
 
-"esbuild@npm:0.16.16":
-  version: 0.16.16
-  resolution: "esbuild@npm:0.16.16"
+"esbuild@npm:0.16.17":
+  version: 0.16.17
+  resolution: "esbuild@npm:0.16.17"
   dependencies:
-    "@esbuild/android-arm": 0.16.16
-    "@esbuild/android-arm64": 0.16.16
-    "@esbuild/android-x64": 0.16.16
-    "@esbuild/darwin-arm64": 0.16.16
-    "@esbuild/darwin-x64": 0.16.16
-    "@esbuild/freebsd-arm64": 0.16.16
-    "@esbuild/freebsd-x64": 0.16.16
-    "@esbuild/linux-arm": 0.16.16
-    "@esbuild/linux-arm64": 0.16.16
-    "@esbuild/linux-ia32": 0.16.16
-    "@esbuild/linux-loong64": 0.16.16
-    "@esbuild/linux-mips64el": 0.16.16
-    "@esbuild/linux-ppc64": 0.16.16
-    "@esbuild/linux-riscv64": 0.16.16
-    "@esbuild/linux-s390x": 0.16.16
-    "@esbuild/linux-x64": 0.16.16
-    "@esbuild/netbsd-x64": 0.16.16
-    "@esbuild/openbsd-x64": 0.16.16
-    "@esbuild/sunos-x64": 0.16.16
-    "@esbuild/win32-arm64": 0.16.16
-    "@esbuild/win32-ia32": 0.16.16
-    "@esbuild/win32-x64": 0.16.16
+    "@esbuild/android-arm": 0.16.17
+    "@esbuild/android-arm64": 0.16.17
+    "@esbuild/android-x64": 0.16.17
+    "@esbuild/darwin-arm64": 0.16.17
+    "@esbuild/darwin-x64": 0.16.17
+    "@esbuild/freebsd-arm64": 0.16.17
+    "@esbuild/freebsd-x64": 0.16.17
+    "@esbuild/linux-arm": 0.16.17
+    "@esbuild/linux-arm64": 0.16.17
+    "@esbuild/linux-ia32": 0.16.17
+    "@esbuild/linux-loong64": 0.16.17
+    "@esbuild/linux-mips64el": 0.16.17
+    "@esbuild/linux-ppc64": 0.16.17
+    "@esbuild/linux-riscv64": 0.16.17
+    "@esbuild/linux-s390x": 0.16.17
+    "@esbuild/linux-x64": 0.16.17
+    "@esbuild/netbsd-x64": 0.16.17
+    "@esbuild/openbsd-x64": 0.16.17
+    "@esbuild/sunos-x64": 0.16.17
+    "@esbuild/win32-arm64": 0.16.17
+    "@esbuild/win32-ia32": 0.16.17
+    "@esbuild/win32-x64": 0.16.17
   dependenciesMeta:
     "@esbuild/android-arm":
       optional: true
@@ -14547,7 +14896,7 @@ __metadata:
       optional: true
   bin:
     esbuild: bin/esbuild
-  checksum: d3163ec01e017776df6b68e1825caa2323918f0d03eb92250bdcdff80410a2c0eb5b3807955db84d83b1b91cf24af9815a1d19efc2343c490be3e5d7b27a834f
+  checksum: 4c2cc609ecfb426554bc3f75beb92d89eb2d0c515cfceebaa36c7599d7dcaab7056b70f6d6b51e72b45951ddf9021ee28e356cf205f8e42cc055d522312ea30c
   languageName: node
   linkType: hard
 
@@ -14845,7 +15194,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-visitor-keys@npm:^1.0.0, eslint-visitor-keys@npm:^1.1.0, eslint-visitor-keys@npm:^1.3.0":
+"eslint-visitor-keys@npm:^1.0.0, eslint-visitor-keys@npm:^1.1.0":
   version: 1.3.0
   resolution: "eslint-visitor-keys@npm:1.3.0"
   checksum: 37a19b712f42f4c9027e8ba98c2b06031c17e0c0a4c696cd429bd9ee04eb43889c446f2cd545e1ff51bef9593fcec94ecd2c2ef89129fcbbf3adadbef520376a
@@ -14929,56 +15278,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.1.0":
-  version: 7.32.0
-  resolution: "eslint@npm:7.32.0"
-  dependencies:
-    "@babel/code-frame": 7.12.11
-    "@eslint/eslintrc": ^0.4.3
-    "@humanwhocodes/config-array": ^0.5.0
-    ajv: ^6.10.0
-    chalk: ^4.0.0
-    cross-spawn: ^7.0.2
-    debug: ^4.0.1
-    doctrine: ^3.0.0
-    enquirer: ^2.3.5
-    escape-string-regexp: ^4.0.0
-    eslint-scope: ^5.1.1
-    eslint-utils: ^2.1.0
-    eslint-visitor-keys: ^2.0.0
-    espree: ^7.3.1
-    esquery: ^1.4.0
-    esutils: ^2.0.2
-    fast-deep-equal: ^3.1.3
-    file-entry-cache: ^6.0.1
-    functional-red-black-tree: ^1.0.1
-    glob-parent: ^5.1.2
-    globals: ^13.6.0
-    ignore: ^4.0.6
-    import-fresh: ^3.0.0
-    imurmurhash: ^0.1.4
-    is-glob: ^4.0.0
-    js-yaml: ^3.13.1
-    json-stable-stringify-without-jsonify: ^1.0.1
-    levn: ^0.4.1
-    lodash.merge: ^4.6.2
-    minimatch: ^3.0.4
-    natural-compare: ^1.4.0
-    optionator: ^0.9.1
-    progress: ^2.0.0
-    regexpp: ^3.1.0
-    semver: ^7.2.1
-    strip-ansi: ^6.0.0
-    strip-json-comments: ^3.1.0
-    table: ^6.0.9
-    text-table: ^0.2.0
-    v8-compile-cache: ^2.0.3
-  bin:
-    eslint: bin/eslint.js
-  checksum: cc85af9985a3a11085c011f3d27abe8111006d34cc274291b3c4d7bea51a4e2ff6135780249becd919ba7f6d6d1ecc38a6b73dacb6a7be08d38453b344dc8d37
-  languageName: node
-  linkType: hard
-
 "eslint@npm:^8.17.0, eslint@npm:^8.23.1, eslint@npm:^8.3.0":
   version: 8.27.0
   resolution: "eslint@npm:8.27.0"
@@ -15036,17 +15335,6 @@ __metadata:
     acorn-jsx: ^5.2.0
     eslint-visitor-keys: ^1.1.0
   checksum: 99c508950b5b9f53d008d781d2abb7a4ef3496ea699306fb6eb737c7e513aa594644314364c50ec27abb220124c6851fff64a6b62c358479534369904849360b
-  languageName: node
-  linkType: hard
-
-"espree@npm:^7.3.0, espree@npm:^7.3.1":
-  version: 7.3.1
-  resolution: "espree@npm:7.3.1"
-  dependencies:
-    acorn: ^7.4.0
-    acorn-jsx: ^5.3.1
-    eslint-visitor-keys: ^1.3.0
-  checksum: aa9b50dcce883449af2e23bc2b8d9abb77118f96f4cb313935d6b220f77137eaef7724a83c3f6243b96bc0e4ab14766198e60818caad99f9519ae5a336a39b45
   languageName: node
   linkType: hard
 
@@ -15548,10 +15836,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-copy@npm:^2.1.0, fast-copy@npm:^2.1.7":
+"fast-copy@npm:^2.1.7":
   version: 2.1.7
   resolution: "fast-copy@npm:2.1.7"
   checksum: af8016c174b02bd4f706ffdf9f138511b17b748665b291fec6c5ca1922cb55da35cf86ded46b31890930bcf9b1c2481c03c793a47110ab81ec385e14972b9d7e
+  languageName: node
+  linkType: hard
+
+"fast-copy@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "fast-copy@npm:3.0.0"
+  checksum: 58edbc2dcc10e948f5a67fb278dc3d696a65ac68036c3f872fc6c839522b071d3151c7bcea779946f96e01f9a1fdd9b76621532ee32f51000b1403ee673e14ba
   languageName: node
   linkType: hard
 
@@ -16734,7 +17029,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^13.15.0, globals@npm:^13.6.0, globals@npm:^13.9.0":
+"globals@npm:^13.15.0":
   version: 13.17.0
   resolution: "globals@npm:13.17.0"
   dependencies:
@@ -21747,12 +22042,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:^4.0.17":
-  version: 4.2.2
-  resolution: "marked@npm:4.2.2"
+"marked@npm:^4.2.12":
+  version: 4.2.12
+  resolution: "marked@npm:4.2.12"
   bin:
     marked: bin/marked.js
-  checksum: 1593e0632ff8dee1b9c8b669f26c8ce41e675bcb08ef75052845d4943db2c4d887edacd5b2120cf99a2cc06e9fbffc346ebaf98a7555273fda6a935adbfacf50
+  checksum: bd551cd61028ee639d4ca2ccdfcc5a6ba4227c1b143c4538f3cde27f569dcb57df8e6313560394645b418b84a7336c07ab1e438b89b6324c29d7d8cdd3102d63
   languageName: node
   linkType: hard
 
@@ -22613,25 +22908,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ngx-markdown@npm:^14.0.1":
-  version: 14.0.1
-  resolution: "ngx-markdown@npm:14.0.1"
+"ngx-markdown@npm:^15.1.0":
+  version: 15.1.0
+  resolution: "ngx-markdown@npm:15.1.0"
   dependencies:
-    "@types/marked": ^4.0.3
     clipboard: ^2.0.11
-    emoji-toolkit: ^6.6.0
+    emoji-toolkit: ^7.0.0
     katex: ^0.16.0
-    marked: ^4.0.17
     mermaid: ^9.1.2
     prismjs: ^1.28.0
     tslib: ^2.3.0
   peerDependencies:
-    "@angular/common": ^14.0.0
-    "@angular/core": ^14.0.0
-    "@angular/platform-browser": ^14.0.0
+    "@angular/common": ^15.0.0
+    "@angular/core": ^15.0.0
+    "@angular/platform-browser": ^15.0.0
+    "@types/marked": ^4.0.3
+    marked: ^4.0.17
     rxjs: ^6.5.3 || ^7.4.0
-    zone.js: ^0.11.4
-  checksum: 81534d920d7bd908e90c2ab8dd65ed5785861e064b3e5517d1a008e95a7a3adc8c4071539456e64842e38f10857a30b5decb747b35f5571eb380845044b07124
+    zone.js: ~0.11.4 || ~0.12.0
+  dependenciesMeta:
+    clipboard:
+      optional: true
+    emoji-toolkit:
+      optional: true
+    katex:
+      optional: true
+    mermaid:
+      optional: true
+    prismjs:
+      optional: true
+  checksum: 7e3a1f01115c20d9697c8d12eb473c842eb5fc08db7bb4a0bb63a7a063e039a1ad8dbbbcbf05d5983bc268d38291dc16a11f409c2b5f279f441826d7c14c46a1
   languageName: node
   linkType: hard
 
@@ -26433,7 +26739,7 @@ __metadata:
     "@elvia/elvis-typography": "*"
     "@types/react": ^18.0.25
     "@types/react-dom": ^18.0.9
-    eslint: ^7.1.0
+    eslint: ^8.23.1
     eslint-plugin-react: ^7.27.0
     express: ^4.17.1
     ignore-styles: ^5.0.1
@@ -26725,7 +27031,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regexpp@npm:^3.1.0, regexpp@npm:^3.2.0":
+"regexpp@npm:^3.2.0":
   version: 3.2.0
   resolution: "regexpp@npm:3.2.0"
   checksum: a78dc5c7158ad9ddcfe01aa9144f46e192ddbfa7b263895a70a5c6c73edd9ce85faf7c0430e59ac38839e1734e275b9c3de5c57ee3ab6edc0e0b1bdebefccef8
@@ -27295,7 +27601,7 @@ __metadata:
   resolution: "root@workspace:."
   dependencies:
     "@date-io/core": ^1.3.6
-    "@nrwl/nx-cloud": 15.0.2
+    "@nrwl/nx-cloud": 15.0.3
     "@typescript-eslint/eslint-plugin": ^5.27.1
     "@typescript-eslint/parser": ^5.27.1
     "@vue/cli-plugin-eslint": ~5.0.0-rc.1
@@ -27716,7 +28022,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.3.8, semver@npm:^7.0.0, semver@npm:^7.1.1, semver@npm:^7.2.1, semver@npm:^7.3.2, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8":
+"semver@npm:7.3.8, semver@npm:^7.0.0, semver@npm:^7.1.1, semver@npm:^7.3.2, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8":
   version: 7.3.8
   resolution: "semver@npm:7.3.8"
   dependencies:
@@ -28248,7 +28554,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:0.5.21, source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.17, source-map-support@npm:^0.5.5, source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.20":
+"source-map-support@npm:0.5.21, source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.5, source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.20":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:
@@ -29468,7 +29774,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"table@npm:^6.0.9, table@npm:^6.6.0, table@npm:^6.8.1":
+"table@npm:^6.6.0, table@npm:^6.8.1":
   version: 6.8.1
   resolution: "table@npm:6.8.1"
   dependencies:
@@ -30192,26 +30498,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:8.10.2":
-  version: 8.10.2
-  resolution: "ts-node@npm:8.10.2"
-  dependencies:
-    arg: ^4.1.0
-    diff: ^4.0.1
-    make-error: ^1.1.1
-    source-map-support: ^0.5.17
-    yn: 3.1.1
-  peerDependencies:
-    typescript: ">=2.7"
-  bin:
-    ts-node: dist/bin.js
-    ts-node-script: dist/bin-script.js
-    ts-node-transpile-only: dist/bin-transpile.js
-    ts-script: dist/bin-script-deprecated.js
-  checksum: 480adb076fdab6dbabd726c6056d651ddc567feda0d3e4770d809c01d000715a0f61f80be0e4a92ef87b7f4a494b79d9595d62de4a3931d740122ae26f0e10d8
-  languageName: node
-  linkType: hard
-
 "ts-node@npm:^10.9.1":
   version: 10.9.1
   resolution: "ts-node@npm:10.9.1"
@@ -30387,13 +30673,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^2.5.3":
-  version: 2.19.0
-  resolution: "type-fest@npm:2.19.0"
-  checksum: a4ef07ece297c9fba78fc1bd6d85dff4472fe043ede98bd4710d2615d15776902b595abf62bd78339ed6278f021235fb28a96361f8be86ed754f778973a0d278
-  languageName: node
-  linkType: hard
-
 "type-is@npm:~1.6.18":
   version: 1.6.18
   resolution: "type-is@npm:1.6.18"
@@ -30450,6 +30729,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:^4.9.4":
+  version: 4.9.5
+  resolution: "typescript@npm:4.9.5"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: ee000bc26848147ad423b581bd250075662a354d84f0e06eb76d3b892328d8d4440b7487b5a83e851b12b255f55d71835b008a66cbf8f255a11e4400159237db
+  languageName: node
+  linkType: hard
+
 "typescript@npm:~4.9.4":
   version: 4.9.4
   resolution: "typescript@npm:4.9.4"
@@ -30457,6 +30746,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: e782fb9e0031cb258a80000f6c13530288c6d63f1177ed43f770533fdc15740d271554cdae86701c1dd2c83b082cea808b07e97fd68b38a172a83dbf9e0d0ef9
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>":
+  version: 4.9.5
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=d73830"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 2eee5c37cad4390385db5db5a8e81470e42e8f1401b0358d7390095d6f681b410f2c4a0c496c6ff9ebd775423c7785cdace7bcdad76c7bee283df3d9718c0f20
   languageName: node
   linkType: hard
 

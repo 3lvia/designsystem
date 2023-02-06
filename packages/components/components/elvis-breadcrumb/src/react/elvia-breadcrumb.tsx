@@ -1,4 +1,4 @@
-import React, { useState, useEffect, CSSProperties } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BreadcrumbWrapper,
   BreadcrumbDesktopWrapper,
@@ -6,11 +6,11 @@ import {
   BreadcrumbListWrapper,
   BreadcrumbMobileWrapper,
 } from './styledComponents';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { warnDeprecatedProps, IconWrapper } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, IconWrapper, BaseProps } from '@elvia/elvis-toolbox';
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
 import { config } from './config';
+import { getThemeColor } from '@elvia/elvis-colors';
 
 interface BreadcrumbLink {
   /**
@@ -25,20 +25,20 @@ interface BreadcrumbLink {
   text: string;
 }
 
-export interface BreadcrumbProps {
+interface DeprecatedBreadcrumbProps {
   /**
    * @deprecated Deprecated in version 2.0.0. Use items instead.
    */
   breadcrumbs?: BreadcrumbLink[];
-  items: BreadcrumbLink[];
   /**
    * @deprecated Deprecated in version 2.0.0. Use onLinkClick instead.
    */
   breadcrumbsOnChange?: (value: number) => void;
+}
+
+export interface BreadcrumbProps extends BaseProps, DeprecatedBreadcrumbProps {
+  items: BreadcrumbLink[];
   onLinkClick?: (value: number) => void;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = function ({
@@ -90,6 +90,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
       <BreadcrumbWrapper>
         <IconWrapper
           icon={arrowLeftBold}
+          color={getThemeColor('text-primary')}
           size="xxs"
           style={{
             marginRight: '8px',
@@ -141,6 +142,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
           </BreadcrumbLinkStyle>
           <IconWrapper
             icon={arrowRightBold}
+            color={getThemeColor('text-primary')}
             size="xxs"
             style={{
               margin: '0px 8px',

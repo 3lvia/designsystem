@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { FormFieldError } from './errorStyles';
 
 const setActiveBorder = (isCompact?: boolean) => {
   return css`
-    border: 2px solid ${getColor('elvia-charge')};
-    padding: ${isCompact ? '0px 3px 0px 7px' : '0px 7px 0px 15px'};
+    border: 2px solid ${getThemeColor('state-on')};
+    padding: ${isCompact ? '0 3px 0 7px' : '0 7px 0 15px'};
   `;
 };
 
@@ -15,8 +15,8 @@ export const FormFieldInputContainer = styled.div`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 0px 8px 0px 16px;
-  border: 1px solid ${getColor('elvia-off')};
+  padding: 0 8px 0 16px;
+  border: 1px solid ${getThemeColor('text-primary')};
   height: 48px;
   border-radius: 4px;
   cursor: text;
@@ -73,7 +73,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
 
         ${FormFieldLabel} {
           font-size: 0.625rem;
-          background-color: ${getColor('elvia-on')};
+          background-color: ${getThemeColor('background-primary')};
           position: absolute;
           margin-left: 7px;
           top: 0;
@@ -83,7 +83,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
         }
 
         ${FormFieldInputContainer} {
-          padding: 0px 4px 0px 8px;
+          padding: 0 4px 0 8px;
           height: 32px;
         }
 
@@ -98,7 +98,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
     }
 
     return css`
-      padding-top: 0px;
+      padding-top: 0;
     `;
   }}
 
@@ -108,7 +108,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       && ${FormFieldInputContainer} {
          {
           cursor: not-allowed;
-          border-color: ${getColor('disabled')};
+          border-color: ${getThemeColor('state-disabled')};
         }
       }
     `};
@@ -118,7 +118,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
     css`
       ${FormFieldInputContainer} {
         ${setActiveBorder(isCompact)};
-        border-color: ${getColor('error')};
+        border-color: ${getThemeColor('state-error')};
       }
     `};
 
@@ -163,6 +163,6 @@ export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))`
   cursor: inherit;
 
   &:disabled {
-    color: ${getColor('disabled')};
+    color: ${getThemeColor('state-disabled')};
   }
 `;
