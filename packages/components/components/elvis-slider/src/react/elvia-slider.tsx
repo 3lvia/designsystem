@@ -54,26 +54,21 @@ const Slider: React.FC<SliderProps> = ({
     maximum: +max,
   };
 
-  /* Used to set the z-index for the left thumb. */
   const [leftOnTop, setLeftOnTop] = useState<boolean>(false);
   const [leftInputReplacesHelp, setLeftInputReplacesHelp] = useState<boolean>(false);
 
-  /* The actual values of the HTML Range input(s) */
   const [sliderValues, setSliderValues] = useState<SliderValues>({ left: +min, right: +max });
 
-  /* Setting the state of the left and right number input fields. */
   const [textFieldsValues, setTextFieldsValues] = useState<TextFieldsValues>({
     left: sliderValues.left,
     right: sliderValues.right,
   });
 
-  /* Setting the state of the left and right tooltips. */
   const [showTooltip, setShowTooltip] = useState<ToolTipState>({
     left: false,
     right: false,
   });
 
-  /* The width of the entire slider in the DOM. Used to calculate the size of our custom track */
   const [sliderWidth, setSliderWidth] = useState(0);
   const [numberInputFieldContainerWidth, setNumberInputFieldContainerWidth] = useState(0);
 
@@ -98,7 +93,6 @@ const Slider: React.FC<SliderProps> = ({
     return false;
   };
 
-  /** The percentage relative to the `min` and `max` values. Used when `hasPercent = true`. */
   const percentValue = useMemo(() => {
     if (type === 'simple' && hasPercent) {
       const percent = ((sliderValues.left - Extremum.minimum) / (Extremum.maximum - Extremum.minimum)) * 100;
@@ -108,15 +102,6 @@ const Slider: React.FC<SliderProps> = ({
     }
   }, [sliderValues.left, Extremum]);
 
-  /** CALCULATIONS FOR THE CUSTOM TRACK
-   * - thumbWidth: Used to horizontally center the tooltip over the "thumb" of the slider.
-   * - `leftThumbPosition`: The amount of pixels the left thumb is from the left side of the slider.
-   * - `rightThumbPosition`: The amount of pixels the right thumb is from the right side of the slider (only used in `type="range"`).
-   * - middleFilled: The filled track between the two thumbs (only used in `type="range"`).
-   * - resizeObserver: update the width of the slider if it changes because of window resize or parent elements.
-   * - useLayoutEffect is used here to get the width after the DOM is finished rendering
-   * Read more: https://stackoverflow.com/a/61665977/14447555 and https://stackoverflow.com/a/73248253/14447555
-   */
   const thumbWidth = 20;
   const leftThumbPosition =
     ((sliderValues.left - Extremum.minimum) / (Extremum.maximum - Extremum.minimum)) *
@@ -177,7 +162,6 @@ const Slider: React.FC<SliderProps> = ({
     };
   }, [sliderRef.current, leftHelpTextRef.current, rightHelpTextRef.current, leftTextInputRef.current]);
 
-  /* Used for the web component to extract values. Also updates SliderValues state */
   const updateValue = (newSliderValues: SliderValues): void => {
     const newValue = {
       left: newSliderValues.left,
@@ -194,7 +178,6 @@ const Slider: React.FC<SliderProps> = ({
     }
   };
 
-  /* To avoid that text fields "are a step behind" */
   useEffect(() => {
     if (hasInputField) {
       setTextFieldsValues({ ...textFieldsValues, left: sliderValues.left, right: sliderValues.right });
@@ -231,7 +214,6 @@ const Slider: React.FC<SliderProps> = ({
     setSliderValues({ left: +min, right: +max });
   }, [value]);
 
-  //Function to check if a input currently has errors assigned to it.
   const inputFieldIsInvalid = (input: 'left' | 'right') => {
     if (input === 'left' && errors.leftTextfield) {
       return true;
@@ -246,11 +228,6 @@ const Slider: React.FC<SliderProps> = ({
     return /^\d+$/.test(value);
   };
 
-  /**
-   * on change handler for the sliders.
-   * Used to update the values when the users use the thumbs on the slider to change values.
-   * Includes validation for range type.
-   */
   const handleSliderValueChange = (event: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = event.target as HTMLInputElement;
 
@@ -271,19 +248,13 @@ const Slider: React.FC<SliderProps> = ({
       }
     }
 
-    //used to prevent a bug where if the user changes the slider very fast it can give negative values
     if (+value > EXTREMUM.maximum || +value < EXTREMUM.minimum) {
       return;
     }
 
-    //update slider values if all validation passes.
     updateValue({ ...sliderValues, [name]: +value });
   };
 
-  /**
-   * onChange handler to update the values in the number input fields. Only allow numeric values.
-   * Bug: allows non-numeric values in Firefox
-   */
   const handleNumberInputValueChange = (event: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = event.target as HTMLInputElement;
     const isModifierKey = ['deleteContentBackward', 'deleteContentForward'].includes(
@@ -301,11 +272,6 @@ const Slider: React.FC<SliderProps> = ({
     setTextFieldsValues({ ...textFieldsValues, [name]: value });
   };
 
-  /**
-   * OnBlur handler for the number input fields.
-   * Validates the input of the fields before sending the values to the Slider if validation passes.
-   * Generates error messages if validation fails.
-   */
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     const { name, value, validity } = event.target as HTMLInputElement;
 
@@ -362,7 +328,6 @@ const Slider: React.FC<SliderProps> = ({
       return;
     }
 
-    //if input passes all validation
     updateValue({ ...sliderValues, [name]: +value });
   };
 
