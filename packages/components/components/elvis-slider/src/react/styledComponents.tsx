@@ -151,7 +151,6 @@ export const SliderLabel = styled.label`
   display: flex;
 `;
 
-//Styling the helpVales and the inputs
 export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   display: grid;
   grid-auto-flow: column;
@@ -301,57 +300,46 @@ export const StyledSlider = styled.input.attrs(() => ({
     ${THUMB}
   }
 
-  /***** Active Styles *****/
-  /***** Chrome, Safari, Opera, and Edge Chromium *****/
   :active:enabled::-webkit-slider-thumb {
     ${ACTIVE_THUMB}
   }
 
-  /******** Firefox ********/
   :active:enabled::-moz-range-thumb {
     ${ACTIVE_THUMB}
   }
 
   /***** Focus Styles *****/
-  /* Removes default focus */
   :focus {
     outline: none;
   }
 
-  /***** Chrome, Safari, Opera, and Edge Chromium *****/
   :focus-visible::-webkit-slider-thumb {
     ${FOCUS_OUTLINE_THUMB}
   }
 
-  /******** Firefox ********/
   :focus-visible::-moz-range-thumb {
     ${FOCUS_OUTLINE_THUMB}
   }
 
   /***** Hover Styles *****/
-  /***** Chrome, Safari, Opera, and Edge Chromium *****/
   :hover:enabled::-webkit-slider-thumb {
     ${HOVER_THUMB}
   }
 
-  /******** Firefox ********/
   :hover:enabled::-moz-range-thumb {
     ${HOVER_THUMB}
   }
 
   /***** Disabled Styles *****/
-  /***** Chrome, Safari, Opera, and Edge Chromium *****/
   :disabled::-webkit-slider-thumb {
     ${DISABLED_THUMB}
   }
 
-  /* to keep the thumb opaque in Safari iOS (16) Do not move to ":disabled::-webkit-slider-thumb"  */
   :disabled {
     -webkit-opacity: 1;
     opacity: 1;
   }
 
-  /******** Firefox ********/
   :disabled::-moz-range-thumb {
     ${DISABLED_THUMB}
   }
@@ -363,7 +351,6 @@ export const StyledSlider = styled.input.attrs(() => ({
       width: 28px;
     }
 
-    /******** Firefox ********/
     :active:enabled::-moz-range-thumb {
       ${ACTIVE_THUMB}
       height: 28px;
@@ -411,9 +398,7 @@ export const TooltipPopup = styled(TooltipPopupBase)`
   position: relative;
 `;
 
-/*
-Note that while we’re repeating code in this file, that’s necessary as you can’t comma-separate the sliders pseudo elements type of selectors. 
-Browsers will drop the entire selector if it doesn’t understand a part of it.
-
-https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
-*/
+/**
+ * Developer note: Repeating css in this file is necessary as comma-separating sliders pseudo-element selectors is not supported by browsers and may cause the entire selector to be dropped.
+ * See: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+ */
