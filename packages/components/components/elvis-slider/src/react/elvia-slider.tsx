@@ -159,6 +159,10 @@ const Slider: React.FC<SliderProps> = ({
   }, [value]);
 
   useEffect(() => {
+    setSliderValues({ left: min, right: max });
+  }, [min, max]);
+
+  useEffect(() => {
     getInputLength();
   }, [
     maxValueLengthMeasurementRef.current,
