@@ -130,15 +130,34 @@ const Slider: React.FC<SliderProps> = ({
     return totalSliderWidth - leftThumbPosition - rightThumbPosition;
   };
 
-  useEffect(() => {
-    if (hasInputField) {
-      setFormFieldInputValues({
-        ...formFieldInputValues,
-        left: sliderValues.left.toString().replace('.', ','),
-        right: sliderValues.right.toString().replace('.', ','),
-      });
+  useLayoutEffect(() => {
+    const elementsToObserve: (HTMLElement | null)[] = [sliderRef.current, inputFieldsContainerRef.current];
+
+    elementsToObserve.forEach((element) => {
+      if (element) {
+        resizeObserver.observe(element);
+      }
+    });
+
+    return function cleanup() {
+      resizeObserver.disconnect();
+    };
+  }, [sliderRef.current, inputFieldsContainerRef.current]);
+
+  //static widths
+  useLayoutEffect(() => {
+    if (maxValueLengthMeasurementRef.current) {
+      setPreferredInputLength(maxValueLengthMeasurementRef.current.offsetWidth);
     }
-  }, [sliderValues]);
+
+    if (leftHintTextRef.current) {
+      setLeftHintValueWidth(leftHintTextRef.current.offsetWidth);
+    }
+
+    if (rightHintTextRef.current) {
+      setRightHintValueWidth(rightHintTextRef.current.offsetWidth);
+    }
+  }, [maxValueLengthMeasurementRef.current, leftHintTextRef.current, rightHintTextRef.current]);
 
   /** Used to set the default value of the slider.
    * If only a single number is given, give the number to the left thumb.
@@ -156,11 +175,17 @@ const Slider: React.FC<SliderProps> = ({
 
     /* If the user does not give a default value, set the value to the min and max. */
     setSliderValues({ left: min, right: max });
-  }, [value]);
+  }, [value, min, max]);
 
   useEffect(() => {
-    setSliderValues({ left: min, right: max });
-  }, [min, max]);
+    if (hasInputField) {
+      setFormFieldInputValues({
+        ...formFieldInputValues,
+        left: sliderValues.left.toString().replace('.', ','),
+        right: sliderValues.right.toString().replace('.', ','),
+      });
+    }
+  }, [sliderValues]);
 
   useEffect(() => {
     getInputLength();
@@ -224,40 +249,6 @@ const Slider: React.FC<SliderProps> = ({
       setInputFieldsContainerWidth(inputFieldsContainerRef.current.offsetWidth);
     }
   });
-
-  useLayoutEffect(() => {
-    const elementsToObserve: (HTMLElement | null)[] = [sliderRef.current, inputFieldsContainerRef.current];
-
-    elementsToObserve.forEach((element) => {
-      if (element) {
-        resizeObserver.observe(element);
-      }
-    });
-
-    return function cleanup() {
-      resizeObserver.disconnect();
-    };
-  }, [sliderRef.current, inputFieldsContainerRef.current]);
-
-  //static widths
-  useLayoutEffect(() => {
-    if (maxValueLengthMeasurementRef.current) {
-      setPreferredInputLength(maxValueLengthMeasurementRef.current.offsetWidth);
-    }
-
-    if (leftHintTextRef.current) {
-      setLeftHintValueWidth(leftHintTextRef.current.offsetWidth);
-    }
-
-    if (rightHintTextRef.current) {
-      setRightHintValueWidth(rightHintTextRef.current.offsetWidth);
-    }
-  }, [
-    maxValueLengthMeasurementRef.current,
-    inputFieldsContainerRef.current,
-    leftHintTextRef.current,
-    rightHintTextRef.current,
-  ]);
 
   const updateValue = (newSliderValues: SliderValues) => {
     const newValue = {
