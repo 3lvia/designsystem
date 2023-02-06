@@ -40,7 +40,7 @@ export const sliderData: ComponentData = {
 
       cegDefault: false,
       cegDisplayGroup: 'Options',
-      cegDisplayName: 'Help values',
+      cegDisplayName: 'Display hint values',
       cegFormType: 'checkbox',
       cegOption: 'true',
       cegType: 'boolean',
@@ -141,6 +141,42 @@ export const sliderData: ComponentData = {
       cegOption: 'true',
       cegType: 'boolean',
     },
+
+    heading: {
+      isRequired: false,
+      type: 'string',
+      description: 'A heading above the slider.',
+
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'input',
+      cegDefault: '',
+    },
+
+    isCompact: {
+      default: 'false',
+      description: 'Set the slider to a smaller compact style.',
+      isRequired: false,
+      type: 'boolean',
+
+      cegDisplayName: 'Compact',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Size',
+    },
+
+    ariaLabel: {
+      isRequired: false,
+      type: 'string | {left: string, right: string}',
+      description: 'Aria labels for the slider(s).',
+    },
+
+    errorOptions: {
+      isRequired: false,
+      type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }> | {left: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>, right: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>}',
+      description: 'An object that allows for custom configuration of the error handling.',
+    },
+
     className: {
       description: 'Custom CSS classes that can be added to the slider.',
       isRequired: false,
