@@ -5,7 +5,132 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <h4>Simple Slider</h4>
+      <h5>Default</h5>
+      <elvia-slider (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
+      <br />
+      <h5>hasHintValues</h5>
+      <elvia-slider [hasHintValues]="true" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
+      <br />
+      <h5>hasInputField</h5>
+      <elvia-slider [hasInputField]="true" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
+      <br />
+      <h5>heading-prop</h5>
+      <elvia-slider
+        [heading]="'dette er heading-en'"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+      <br />
+      <h5>errorOptions</h5>
+      <elvia-slider
+        [errorOptions]="{
+          text: 'Feilmelding her',
+          isErrorState: true,
+          hideText: false,
+          hasErrorPlaceholder: true
+        }"
+        [hasInputField]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+      <br />
+      <h5>Default (isCompact)</h5>
+      <elvia-slider [isCompact]="true" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
+      <br />
+      <h5>hasHintValues (isCompact)</h5>
+      <elvia-slider
+        [isCompact]="true"
+        [hasHintValues]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+      <br />
+      <h5>hasInputField (isCompact)</h5>
+      <elvia-slider
+        [isCompact]="true"
+        [hasInputField]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+      <br />
+      <h5>heading-prop (isCompact)</h5>
+      <elvia-slider
+        [isCompact]="true"
+        [heading]="'dette er heading-en'"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+      <br />
+      <h5>errorOptions (isCompact)</h5>
+      <elvia-slider
+        [isCompact]="true"
+        [errorOptions]="{
+          text: 'Feilmelding her',
+          isErrorState: true,
+          hideText: false,
+          hasErrorPlaceholder: true
+        }"
+        [hasInputField]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+      <br />
+      <h5>unit (se tooltip)</h5>
+      <elvia-slider [unit]="' kWh'" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
+      <br />
+      <h5>label</h5>
+      <elvia-slider
+        [label]="'kilowatt'"
+        [hasInputField]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+      <br />
+      <h5>disabled</h5>
+      <elvia-slider [isDisabled]="true" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
+      <br />
+      <elvia-slider
+        [hasInputField]="true"
+        [isDisabled]="true"
+        [value]="50"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+
+      <h5>percent (se tooltip)</h5>
+      <elvia-slider [hasPercent]="true" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
+      <br />
+      <h5>edge case</h5>
+      <elvia-slider
+        [min]="10000000"
+        [max]="10000000000000000"
+        [hasInputField]="true"
+        [hasHintValues]="true"
+        [hasPercent]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+
+      <br />
+      <h4>Range Slider</h4>
+      <elvia-slider
+        [min]="0"
+        [max]="100000000000000"
+        [hasInputField]="true"
+        [isCompact]="true"
+        [hasHintValues]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+      <elvia-slider
+        [min]="10000000"
+        [max]="10000000000000000"
+        [hasInputField]="true"
+        [isCompact]="true"
+        [hasHintValues]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+      <elvia-slider
+        [type]="'range'"
+        [max]="100000000000000"
+        [hasInputField]="true"
+        [isCompact]="true"
+        [hasHintValues]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -388,7 +513,7 @@
     ></elvia-segmented-control>
   </div>
 
-  <!--Slider-->
+  <!--Slider
   <div class="example-wrapper">
     <h3>Slider</h3>
     <h4>Simple Slider</h4>
@@ -462,7 +587,7 @@
         [hasInputField]="true"
       ></elvia-slider>
     </div>
-  </div>
+  </div>-->
 
   <!--Spotlight-->
   <div class="example-wrapper">
