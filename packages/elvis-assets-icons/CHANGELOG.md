@@ -1,5 +1,22 @@
 # Elvis-assets-icon
 
+## 2.9.0 (07.02.23)
+
+### New feature
+
+- New icons:
+  1. `cables_connected`.
+  2. `cables_connected-color`.
+  3. `cables_connecting-color`.
+  4. `cables_disconnected`.
+  5. `cables_disconnected-color`.
+  6. `community`.
+  7. `decent`.
+  8. `diversity`.
+  9. `health_safety_environment`.
+  10. `image-color`.
+  11. `open`.
+
 ## 2.8.0 (01.02.23)
 
 ### New feature
