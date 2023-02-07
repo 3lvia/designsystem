@@ -208,7 +208,7 @@ const Slider: React.FC<SliderProps> = ({
   }, [sliderValues]);
 
   //check overflow (Simple Slider only)
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (type === 'simple') {
       const inputAndHintsWidth = leftInputFieldWidth + leftHintValueWidth + rightHintValueWidth + 16; //8*2 for grid gap
       const isOverflowing = inputAndHintsWidth > inputFieldsContainerWidth;
@@ -241,14 +241,15 @@ const Slider: React.FC<SliderProps> = ({
     rightHintValueWidth,
     inputFieldsContainerWidth,
     hasHintValues,
+    hasInputField,
   ]);
 
   //check overflow (Range Slider only)
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (type === 'range' && hasInputField) {
       setFullWithRangeInputs(leftInputFieldWidth * 2 + 8 > inputFieldsContainerWidth);
     }
-  }, [leftInputFieldWidth, inputFieldsContainerWidth, hasInputField]);
+  }, [leftInputFieldWidth, inputFieldsContainerWidth, hasHintValues, hasInputField]);
 
   //dynamic widths
   const resizeObserver = new ResizeObserver(() => {
