@@ -268,7 +268,7 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
         `;
       } else if (right) {
         return css`
-          grid-column: 2 / 4;
+          grid-column: 3 / 4;
         `;
       } else {
         return css``;

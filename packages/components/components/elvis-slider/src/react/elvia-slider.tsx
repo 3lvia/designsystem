@@ -146,18 +146,38 @@ const Slider: React.FC<SliderProps> = ({
 
   //static widths
   useLayoutEffect(() => {
-    if (maxValueLengthMeasurementRef.current) {
-      setPreferredInputLength(maxValueLengthMeasurementRef.current.offsetWidth);
+    if (hasHintValues) {
+      if (leftHintTextRef.current) {
+        setLeftHintValueWidth(leftHintTextRef.current.offsetWidth);
+      }
+
+      if (rightHintTextRef.current) {
+        setRightHintValueWidth(rightHintTextRef.current.offsetWidth);
+      }
     }
 
-    if (leftHintTextRef.current) {
-      setLeftHintValueWidth(leftHintTextRef.current.offsetWidth);
-    }
+    if (hasInputField) {
+      if (leftFormFieldInputRef.current) {
+        setLeftInputFieldWidth(leftFormFieldInputRef.current.offsetWidth);
+      }
 
-    if (rightHintTextRef.current) {
-      setRightHintValueWidth(rightHintTextRef.current.offsetWidth);
+      const measurements = [
+        maxValueLengthMeasurementRef.current?.offsetWidth,
+        leftInputLabelLengthMeasurementRef.current?.offsetWidth,
+        rightInputLabelLengthMeasurementRef.current?.offsetWidth,
+      ].filter((measurement) => measurement !== null && measurement !== undefined) as number[];
+      setPreferredInputLength(Math.max(...measurements, 0));
     }
-  }, [maxValueLengthMeasurementRef.current, leftHintTextRef.current, rightHintTextRef.current]);
+  }, [
+    maxValueLengthMeasurementRef.current,
+    leftHintTextRef.current,
+    rightHintTextRef.current,
+    leftInputLabelLengthMeasurementRef.current,
+    rightInputLabelLengthMeasurementRef.current,
+    leftFormFieldInputRef.current,
+    hasInputField,
+    hasHintValues,
+  ]);
 
   /** Used to set the default value of the slider.
    * If only a single number is given, give the number to the left thumb.
@@ -187,23 +207,8 @@ const Slider: React.FC<SliderProps> = ({
     }
   }, [sliderValues]);
 
-  useEffect(() => {
-    getInputLength();
-  }, [
-    maxValueLengthMeasurementRef.current,
-    leftInputLabelLengthMeasurementRef.current,
-    rightInputLabelLengthMeasurementRef.current,
-    max,
-  ]);
-
-  useEffect(() => {
-    if (leftFormFieldInputRef.current) {
-      setLeftInputFieldWidth(leftFormFieldInputRef.current.offsetWidth);
-    }
-  }, [leftFormFieldInputRef.current]);
-
   //check overflow (Simple Slider only)
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (type === 'simple') {
       const inputAndHintsWidth = leftInputFieldWidth + leftHintValueWidth + rightHintValueWidth + 16; //8*2 for grid gap
       const isOverflowing = inputAndHintsWidth > inputFieldsContainerWidth;
@@ -230,14 +235,20 @@ const Slider: React.FC<SliderProps> = ({
 
       setReplaceHintValueWithInput(newReplaceHintValueWithInput);
     }
-  }, [leftInputFieldWidth, leftHintValueWidth, rightHintValueWidth, inputFieldsContainerWidth]);
+  }, [
+    leftInputFieldWidth,
+    leftHintValueWidth,
+    rightHintValueWidth,
+    inputFieldsContainerWidth,
+    hasHintValues,
+  ]);
 
   //check overflow (Range Slider only)
-  useEffect(() => {
-    if (type === 'range') {
+  useLayoutEffect(() => {
+    if (type === 'range' && hasInputField) {
       setFullWithRangeInputs(leftInputFieldWidth * 2 + 8 > inputFieldsContainerWidth);
     }
-  }, [leftInputFieldWidth, inputFieldsContainerWidth]);
+  }, [leftInputFieldWidth, inputFieldsContainerWidth, hasInputField]);
 
   //dynamic widths
   const resizeObserver = new ResizeObserver(() => {
@@ -397,15 +408,6 @@ const Slider: React.FC<SliderProps> = ({
     }
 
     return newAriaLabel ? newAriaLabel.replace(/\s+/g, ' ').trim() : 'Glidebryter';
-  };
-
-  const getInputLength = (): void => {
-    const measurements = [
-      maxValueLengthMeasurementRef.current?.offsetWidth,
-      leftInputLabelLengthMeasurementRef.current?.offsetWidth,
-      rightInputLabelLengthMeasurementRef.current?.offsetWidth,
-    ].filter((measurement) => measurement !== null && measurement !== undefined) as number[];
-    setPreferredInputLength(Math.max(...measurements, 0));
   };
 
   const getTooltipContent = (side: Sides) => {
