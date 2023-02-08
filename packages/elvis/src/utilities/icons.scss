@@ -56,6 +56,16 @@ $default-size: 'md';
     }
 
     &color- {
+      &disabled,
+      &gray {
+        --e-icon-color-primary: var(--e-color-state-disabled, #bdbdbd);
+      }
+
+      &disabled-light,
+      &gray-light {
+        --e-icon-color-primary: var(--e-color-state-hover-grey, #f4f4f4);
+      }
+
       &on,
       &green {
         --e-icon-color-primary: var(--e-icon-color-on);
@@ -74,6 +84,10 @@ $default-size: 'md';
       &warning,
       &orange {
         --e-icon-color-primary: var(--e-icon-color-warning);
+      }
+
+      &white {
+        --e-icon-color-primary: #fff; // TODO: Add label with white -> dark white
       }
     }
   }
