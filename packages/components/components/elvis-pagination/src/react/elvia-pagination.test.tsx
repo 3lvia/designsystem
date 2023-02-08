@@ -40,7 +40,7 @@ describe('Elvis Pagination', () => {
       expect(pagination).toHaveStyle(`justify-content: flex-start`);
     });
 
-    it('should have no numbers or arrows', () => {
+    it('should have no selection area', () => {
       expect(screen.queryByTestId('selector-area')).toBeFalsy();
     });
   });
@@ -69,6 +69,10 @@ describe('Elvis Pagination', () => {
     it('should be right aligned', () => {
       const pagination = screen.getByTestId('pagination');
       expect(pagination).toHaveStyle(`justify-content: flex-end`);
+    });
+
+    it('should have selection area', () => {
+      expect(screen.queryByTestId('selector-area')).toBeTruthy();
     });
 
     it('should have hidden left arrow', () => {
