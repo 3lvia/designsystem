@@ -49,9 +49,33 @@ $default-size: 'md';
   background-repeat: no-repeat;
   background-size: contain;
 
-  &.e-icon--inverted {
-    --e-icon-color-primary: var(--e-color-background-primary, #fff);
-    --e-icon-color-secondary: var(--e-color-text-primary, #000);
+  &.e-icon-- {
+    &inverted {
+      --e-icon-color-primary: var(--e-color-background-primary, #fff);
+      --e-icon-color-secondary: var(--e-color-text-primary, #000);
+    }
+
+    &color- {
+      &on,
+      &green {
+        --e-icon-color-primary: var(--e-icon-color-on);
+      }
+
+      &danger,
+      &red {
+        --e-icon-color-primary: var(--e-icon-color-danger);
+      }
+
+      &caution,
+      &yellow {
+        --e-icon-color-primary: var(--e-icon-color-caution);
+      }
+
+      &warning,
+      &orange {
+        --e-icon-color-primary: var(--e-icon-color-warning);
+      }
+    }
   }
 }
 

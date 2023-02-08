@@ -2,7 +2,15 @@
 	"block": {
 		"e-icon": {
 			"modifier": {
-				"e-icon--inverted": {},
+				"e-icon--color-inverted": {},
+				"e-icon--color-on": {},
+				"e-icon--color-green": {},
+				"e-icon--color-danger": {},
+				"e-icon--color-red": {},
+				"e-icon--color-caution": {},
+				"e-icon--color-yellow": {},
+				"e-icon--color-warning": {},
+				"e-icon--color-orange": {},
 				"e-icon--xxs": {},
 				"e-icon--custom12": {},
 				"e-icon--custom14": {},
@@ -1137,7 +1145,15 @@
 	},
 	"flat": {
 		"e-icon": {},
-		"e-icon--inverted": {},
+		"e-icon--color-inverted": {},
+		"e-icon--color-on": {},
+		"e-icon--color-green": {},
+		"e-icon--color-danger": {},
+		"e-icon--color-red": {},
+		"e-icon--color-caution": {},
+		"e-icon--color-yellow": {},
+		"e-icon--color-warning": {},
+		"e-icon--color-orange": {},
 		"e-icon--xxs": {},
 		"e-icon--custom12": {},
 		"e-icon--custom14": {},
