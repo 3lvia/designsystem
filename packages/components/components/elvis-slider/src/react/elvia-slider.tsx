@@ -455,7 +455,7 @@ const Slider: React.FC<SliderProps> = ({
   };
 
   const getShowErrorText = () => {
-    return (!getErrorOptionValue('left', 'hideText') || !getErrorOptionValue('right', 'hideText')) as boolean;
+    return !getErrorOptionValue('left', 'hideText') || !getErrorOptionValue('right', 'hideText');
   };
 
   const getHasErrorPlaceholder = () => {
