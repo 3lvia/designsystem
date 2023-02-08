@@ -30,14 +30,29 @@ $sizes: (
   }
 }
 
+@mixin icon-variables() {
+  --e-icon-color-primary: var(--e-color-text-primary, #000);
+  --e-icon-color-secondary: var(--e-color-background-primary, #fff);
+  --e-icon-color-on: var(--e-color-state-on, #29d305);
+  --e-icon-color-caution: var(--e-color-state-caution, #ff0);
+  --e-icon-color-warning: var(--e-color-state-warning, #ffa000);
+  --e-icon-color-danger: var(--e-color-state-danger, #ee0701);
+}
+
 $default-size: 'md';
 
 .e-icon {
+  @include icon-variables();
   @include icon-size($default-size);
   display: inline-block;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+
+  &.e-icon--inverted {
+    --e-icon-color-primary: var(--e-color-background-primary, #fff);
+    --e-icon-color-secondary: var(--e-color-text-primary, #000);
+  }
 }
 
 // Making icon size classes
