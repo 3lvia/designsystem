@@ -69,15 +69,22 @@ export const sliderData: ComponentData = {
       type: 'boolean',
 
       cegDefault: false,
-      cegDependency: [
-        { name: 'type', value: 'simple' },
-        { name: 'hasTooltip', value: 'true' },
-      ],
+      cegDependency: [{ name: 'hasTooltip', value: 'true' }],
       cegDisplayGroup: 'Options',
       cegDisplayName: 'Display percentage',
       cegFormType: 'checkbox',
       cegOption: 'true',
       cegType: 'boolean',
+    },
+
+    heading: {
+      isRequired: false,
+      type: 'string',
+      description: 'A heading above the slider.',
+
+      cegFormType: 'custom-text',
+      cegCustomTextType: 'input',
+      cegDefault: '',
     },
 
     unit: {
@@ -140,16 +147,6 @@ export const sliderData: ComponentData = {
       cegFormType: 'checkbox',
       cegOption: 'true',
       cegType: 'boolean',
-    },
-
-    heading: {
-      isRequired: false,
-      type: 'string',
-      description: 'A heading above the slider.',
-
-      cegFormType: 'custom-text',
-      cegCustomTextType: 'input',
-      cegDefault: '',
     },
 
     isCompact: {
