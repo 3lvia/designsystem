@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
       for (let i = 0; i < node.classList.length; i++) {
         if (icons[node.classList[i]]) {
           if (iconHasMutated(node)) {
-            node.style.backgroundImage = 'url("' + getIcon(node.classList) + '")';
+            node.innerHTML = getIcon(node.classList);
             node.setAttribute('e-id', getUniqueIdentifier(node.classList));
           }
         }
@@ -261,9 +261,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let elements = window.document.querySelectorAll('[class*="e-icon"]');
     for (let i = 0; i < elements.length; i++) {
       let element = elements[i];
-      // Uses e-id to avoid unnessesary changes to the DOM
+      // Uses e-id to avoid unnecessary changes to the DOM
       if (iconHasMutated(element)) {
-        element.style.backgroundImage = 'url("' + getIcon(element.classList) + '")';
+        element.innerHTML = getIcon(element.classList);
         element.setAttribute('e-id', getUniqueIdentifier(element.classList));
       }
     }
