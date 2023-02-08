@@ -40,13 +40,7 @@ const Badge: React.FC<BadgeProps> = ({
   return (
     <BadgeContainer className={`${className ?? ''}`} style={{ ...inlineStyle }} {...rest}>
       <div ref={contentRef}>{content}</div>
-      <BadgeCircle
-        count={getCount(count)}
-        badgeColor={badgeColor}
-        currentTheme={currentTheme}
-        role="status"
-        data-testid="badge-circle"
-      >
+      <BadgeCircle count={getCount(count)} badgeColor={badgeColor} currentTheme={currentTheme} role="status">
         {getCount(count)}
       </BadgeCircle>
     </BadgeContainer>
