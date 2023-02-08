@@ -8,6 +8,10 @@
         {
           "type": "patch",
           "changes": ["Internal changes for better reusable components."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where the disabled input field would have incorrect text color in WebKit."]
         }
       ]
     },

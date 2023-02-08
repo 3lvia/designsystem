@@ -164,5 +164,6 @@ export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))`
 
   &:disabled {
     color: ${getThemeColor('state-disabled')};
+    -webkit-text-fill-color: ${getThemeColor('state-disabled')}; //fix for Safari where text became invisible
   }
 `;
