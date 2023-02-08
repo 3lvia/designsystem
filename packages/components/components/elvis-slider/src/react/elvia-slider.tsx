@@ -213,23 +213,23 @@ const Slider: React.FC<SliderProps> = ({
       const inputAndHintsWidth = leftInputFieldWidth + leftHintValueWidth + rightHintValueWidth + 16; //8*2 for grid gap
       const isOverflowing = inputAndHintsWidth > inputFieldsContainerWidth;
 
-      let newReplaceHintValueWithInput = { left: false, right: false };
+      const newReplaceHintValueWithInput = { left: false, right: false };
 
-      if (isOverflowing && hasHintValues) {
-        if (min === 0) {
-          // Check if we need to replace _left_ hint value with input
-          if (leftInputFieldWidth + rightHintValueWidth + 8 < inputFieldsContainerWidth) {
-            newReplaceHintValueWithInput.left = true;
-          } else {
-            newReplaceHintValueWithInput = { left: true, right: true };
-          }
+      if (isOverflowing && hasHintValues && min === 0) {
+        // Check if we need to replace _left_ hint value with input
+        if (leftInputFieldWidth + rightHintValueWidth + 8 < inputFieldsContainerWidth) {
+          newReplaceHintValueWithInput.left = true;
         } else {
-          // Check if we need to replace _right_ hint value with input
-          if (leftInputFieldWidth + leftHintValueWidth + 8 < inputFieldsContainerWidth) {
-            newReplaceHintValueWithInput.right = true;
-          } else {
-            newReplaceHintValueWithInput = { left: true, right: true };
-          }
+          newReplaceHintValueWithInput.left = true;
+          newReplaceHintValueWithInput.right = true;
+        }
+      } else if (isOverflowing && hasHintValues && min !== 0) {
+        // Check if we need to replace _right_ hint value with input
+        if (leftInputFieldWidth + leftHintValueWidth + 8 < inputFieldsContainerWidth) {
+          newReplaceHintValueWithInput.right = true;
+        } else {
+          newReplaceHintValueWithInput.left = true;
+          newReplaceHintValueWithInput.right = true;
         }
       }
 
@@ -337,9 +337,7 @@ const Slider: React.FC<SliderProps> = ({
           updateValue({ ...sliderValues, [name]: sliderValues.right });
           return;
         }
-      }
-
-      if (name === 'right') {
+      } else {
         if (newValue <= sliderValues.left) {
           updateValue({ ...sliderValues, [name]: sliderValues.left });
           return;

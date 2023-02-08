@@ -105,7 +105,6 @@
       ></elvia-slider>
 
       <br />
-      <h4>Range Slider</h4>
       <elvia-slider
         [min]="0"
         [max]="100000000000000"
@@ -114,14 +113,18 @@
         [hasHintValues]="true"
         (valueOnChange)="sliderOnValueChange($event)"
       ></elvia-slider>
+      <br />
       <elvia-slider
-        [min]="10000000"
+        [min]="10000000000"
         [max]="10000000000000000"
         [hasInputField]="true"
         [isCompact]="true"
         [hasHintValues]="true"
         (valueOnChange)="sliderOnValueChange($event)"
       ></elvia-slider>
+      <br />
+      <h4>Range slider</h4>
+      <elvia-slider [type]="'range'" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
       <elvia-slider
         [type]="'range'"
         [max]="100000000000000"
@@ -130,6 +133,43 @@
         [hasHintValues]="true"
         (valueOnChange)="sliderOnValueChange($event)"
       ></elvia-slider>
+      <h5>hasHintValues</h5>
+      <elvia-slider
+        [type]="'range'"
+        [hasHintValues]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+      <br />
+      <h5>hasInputField</h5>
+      <elvia-slider
+        [type]="'range'"
+        [hasInputField]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+
+      <h5>Default Range (isCompact)</h5>
+      <elvia-slider
+        [type]="'range'"
+        [isCompact]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+      <br />
+      <h5>hasHintValues (isCompact)</h5>
+      <elvia-slider
+        [type]="'range'"
+        [isCompact]="true"
+        [hasHintValues]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+      <br />
+      <h5>hasInputField (isCompact)</h5>
+      <elvia-slider
+        [type]="'range'"
+        [isCompact]="true"
+        [hasInputField]="true"
+        (valueOnChange)="sliderOnValueChange($event)"
+      ></elvia-slider>
+      <br />
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
