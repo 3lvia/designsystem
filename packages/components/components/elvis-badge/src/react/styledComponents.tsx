@@ -1,31 +1,44 @@
 import { BadgeColor } from './elvia-badge.types';
 import styled from 'styled-components';
-import { getColor } from '@elvia/elvis-colors';
-
-//To-do: add colors for dark mode
-const colors = {
-  elviaBlack: getColor('black'),
-  elviaCharge: getColor('green'),
-  elviaRed: getColor('red'),
-  elviaWhite: getColor('white'),
-};
-
+import { getCustomThemeColor, getThemeColor } from '@elvia/elvis-colors';
 interface BadgeCircleProps {
   readonly badgeColor: BadgeColor;
   readonly count: string | undefined;
+  currentTheme: 'light' | 'dark';
 }
 
-/**
- * If the badge color is green or white, return black, otherwise return white.
- * @param {BadgeColor} badgeColor - The color of the badge.
- * @returns The correct color of the text.
- */
-const getTextColor = (badgeColor: BadgeColor) => {
-  if (badgeColor === 'green' || badgeColor === 'white') {
-    return colors.elviaBlack;
+const getTextColor = (color: BadgeColor, currentTheme: 'light' | 'dark') => {
+  switch (color) {
+    case 'green':
+      return getCustomThemeColor(
+        {
+          light: 'black',
+          dark: 'black',
+        },
+        currentTheme,
+      );
+    case 'red':
+      return getThemeColor('text-primary');
+    default:
+      return getThemeColor('background-header');
   }
+};
 
-  return colors.elviaWhite;
+const getBadgeColor = (color: BadgeColor, currentTheme: 'light' | 'dark') => {
+  switch (color) {
+    case 'green':
+      return getThemeColor('state-on');
+    case 'red':
+      return getThemeColor('state-error');
+    default:
+      return getCustomThemeColor(
+        {
+          light: 'black',
+          dark: 'white',
+        },
+        currentTheme,
+      );
+  }
 };
 
 export const BadgeContainer = styled.div`
@@ -34,9 +47,9 @@ export const BadgeContainer = styled.div`
 `;
 
 export const BadgeCircle = styled.div<BadgeCircleProps>`
-  background-color: ${({ badgeColor }) => getColor(badgeColor)};
+  background-color: ${({ badgeColor, currentTheme }) => getBadgeColor(badgeColor, currentTheme)};
   border-radius: 50px;
-  color: ${({ badgeColor }) => getTextColor(badgeColor)}; //to-do add support for dark mode
+  color: ${({ badgeColor, currentTheme }) => getTextColor(badgeColor, currentTheme)};
   display: grid;
   font-size: 0.5625rem;
   font-weight: 600;
