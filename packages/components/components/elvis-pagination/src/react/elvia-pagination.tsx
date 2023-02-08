@@ -97,7 +97,6 @@ const Pagination: FC<PaginationProps> = function ({
 
   useEffect(() => {
     setNumberOfPages(Math.ceil(numberOfElements / selectedDropdownValue));
-    console.log('CHANGED');
     if (Math.ceil(numberOfElements / selectedDropdownValue) < 2) {
       setShowPaginationNumbers(false);
     }
@@ -201,7 +200,7 @@ const Pagination: FC<PaginationProps> = function ({
         </PaginatorInfoAmount>
       </PaginatorInfoContainer>
       {showPaginationNumbers && (
-        <PaginatorSelectorArea role="navigation" ref={listContainerRef}>
+        <PaginatorSelectorArea role="navigation" ref={listContainerRef} data-testid="selector-area">
           <PaginatorSelectorArrowBtn
             visible={shouldHaveLeftArrow()}
             aria-hidden={!shouldHaveLeftArrow()}

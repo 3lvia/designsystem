@@ -40,8 +40,8 @@ describe('Elvis Pagination', () => {
       expect(pagination).toHaveStyle(`justify-content: flex-start`);
     });
 
-    it('should have no numbers and arrows', () => {
-      expect(screen.queryByTestId('selector-arrow-btn-left')).toBeFalsy();
+    it('should have no numbers or arrows', () => {
+      expect(screen.queryByTestId('selector-area')).toBeFalsy();
     });
   });
 
