@@ -247,8 +247,9 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
           grid-auto-columns: 1fr auto 1fr;
         `;
       }
+    } else {
+      return null;
     }
-    return;
   }}
 
   label:first-of-type {
@@ -270,9 +271,8 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
         return css`
           grid-column: 3 / 4;
         `;
-      } else {
-        return css``;
       }
+      return null;
     }}
   }
 
