@@ -73,6 +73,16 @@ export declare type IconName =`;
   for (const icon of iconsToInclude) {
     const fileContent = fs.readFileSync(icon.path).toString();
     const iconName = path.basename(icon.path, '.svg');
+    const iconWithCssVariables = fileContent
+      .replace(
+        /fill="#000"/g,
+        iconName.includes('-filled-color') ? 'fill="#000"' : 'fill="var(--e-color-text-primary, #000)"', // TODO: Label for black to black
+      )
+      .replace(/fill="#29D305"/g, 'fill="var(--e-color-state-on, #29D305)"')
+      .replace(/fill="#fff"/g, 'fill="var(--e-color-background-primary, #fff)"')
+      .replace(/fill="#FFA000"/g, 'fill="var(--e-color-state-warning, #FFA000)"')
+      .replace(/fill="#EE0701"/g, 'fill="var(--e-color-state-error, #EE0701)"')
+      .replace(/fill="#FFFF00"/g, 'fill="var(--e-color-state-caution, #FFFF00)"');
     jsModuleContents.push({
       name: createCamelCase(icon.name),
       content:
@@ -80,7 +90,7 @@ export declare type IconName =`;
         `export default {
   getIcon: function (color) {
     let icon =
-      '${fileContent}';
+      '${iconWithCssVariables}';
     let iconName = '${iconName}';
     icon = icon.replace('<svg ', '<svg viewBox="0 0 24 24" aria-hidden="true" ');
     if (!color) {
@@ -157,13 +167,23 @@ const getColor = require('@elvia/elvis-colors')['getColor'];
   for (const icon of iconsToInclude) {
     const fileContent = fs.readFileSync(icon.path).toString();
     const iconName = path.basename(icon.path, '.svg');
+    const iconWithCssVariables = fileContent
+      .replace(
+        /fill="#000"/g,
+        iconName.includes('-filled-color') ? 'fill="#000"' : 'fill="var(--e-icon-color-primary, #000)"', // TODO: Label for black to black
+      )
+      .replace(/fill="#fff"/g, 'fill="var(--e-icon-color-secondary, #fff)"')
+      .replace(/fill="#29D305"/g, 'fill="var(--e-icon-color-on, #29D305)"')
+      .replace(/fill="#FFFF00"/g, 'fill="var(--e-icon-color-on, #FFFF00)"')
+      .replace(/fill="#FFA000"/g, 'fill="var(--e-icon-color-warning, #FFA000)"')
+      .replace(/fill="#EE0701"/g, 'fill="var(--e-icon-color-error, #EE0701)"');
     jsModuleContents.push({
       name: createCamelCase(icon.name),
       content:
         jsModule +
         `module.exports = {
   getIcon: function(color) {
-    let icon = '${fileContent}'
+    let icon = '${iconWithCssVariables}'
     let iconName = '${iconName}'
     icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
     if(!color) {
