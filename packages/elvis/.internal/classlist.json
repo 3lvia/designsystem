@@ -2,6 +2,7 @@
 	"block": {
 		"e-icon": {
 			"modifier": {
+				"e-icon--inverted": {},
 				"e-icon--xxs": {},
 				"e-icon--custom12": {},
 				"e-icon--custom14": {},
@@ -1136,6 +1137,7 @@
 	},
 	"flat": {
 		"e-icon": {},
+		"e-icon--inverted": {},
 		"e-icon--xxs": {},
 		"e-icon--custom12": {},
 		"e-icon--custom14": {},
