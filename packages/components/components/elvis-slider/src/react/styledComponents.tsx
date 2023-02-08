@@ -60,6 +60,11 @@ type InputFieldsContainerProps = {
   hasHintValues: boolean;
 };
 
+type FormFieldInputProps = {
+  side: Sides;
+  isFullWidth: boolean;
+};
+
 //#endregion
 
 //#region Slider + Slider Thumbs
@@ -185,8 +190,9 @@ export const FormFieldInputContainer = styled(FormFieldInputContainerBase)<FormF
   width: ${({ maxValueLength }) => (maxValueLength ? `${maxValueLength + 26}px` : 'unset')};
 `;
 
-export const FormFieldInput = styled(FormFieldInputBase)`
+export const FormFieldInput = styled(FormFieldInputBase)<FormFieldInputProps>`
   width: 100%;
+  text-align: ${({ side, isFullWidth }) => (side === 'left' || isFullWidth ? 'left' : 'right')};
 `;
 
 export const FormFieldLabel = styled(FormFieldLabelBase)<FormFieldLabelProps>`
