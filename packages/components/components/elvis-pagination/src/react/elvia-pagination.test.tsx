@@ -40,14 +40,8 @@ describe('Elvis Pagination', () => {
       expect(pagination).toHaveStyle(`justify-content: flex-start`);
     });
 
-    it('should have hidden left arrow', () => {
-      const selectorArrowBtnLeft = screen.getByTestId('selector-arrow-btn-left');
-      expect(selectorArrowBtnLeft).toHaveStyle(`visibility: hidden`);
-    });
-
-    it('should have hidden right arrow', () => {
-      const selectorArrowBtnRight = screen.getByTestId('selector-arrow-btn-right');
-      expect(selectorArrowBtnRight).toHaveStyle(`visibility: hidden`);
+    it('should have no numbers and arrows', () => {
+      expect(screen.queryByTestId('selector-arrow-btn-left')).toBeFalsy();
     });
   });
 
