@@ -1,31 +1,9 @@
-import React, { CSSProperties, FC, useRef } from 'react';
+import React, { FC, useRef } from 'react';
 import { SpotlightArea, SpotlightCircle, SpotlightRect } from './styledComponents';
-import { useLockBodyScroll } from './useLockBodyScroll';
 import { useCurrentTheme } from '@elvia/elvis-toolbox';
 
-export type SpotlightShape = 'circle' | 'rectangle';
-
-export interface SpotlightPosition {
-  vertical: number;
-  horizontal: number;
-}
-
-export interface SpotlightRectangleProps {
-  width?: number;
-  height?: number;
-  borderRadius?: number;
-}
-
-export interface SpotlightProps {
-  position?: SpotlightPosition;
-  shape?: SpotlightShape;
-  radius?: number;
-  rectangleProps?: SpotlightRectangleProps;
-  hasLockBodyScroll?: boolean;
-  transitionDuration?: string;
-  className?: string;
-  inlineStyle?: CSSProperties;
-}
+import { useLockBodyScroll } from './useLockBodyScroll';
+import { SpotlightProps } from './elvia-spotlight.types';
 
 const Spotlight: FC<SpotlightProps> = ({
   position,
