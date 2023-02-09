@@ -3,8 +3,8 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { ProgressLinearSize } from './elvia-progress-linear.types';
 
 const loading = keyframes`
-	0% { width: 0%; margin-left: 0%; }
-	15% { width: 15%; margin-left: 0%; }
+	0% { width: 0; margin-left: 0; }
+	15% { width: 15%; margin-left: 0; }
 	85% { width: 15%; }
 	100% { width: 0; margin-left: 100%; }
 `;

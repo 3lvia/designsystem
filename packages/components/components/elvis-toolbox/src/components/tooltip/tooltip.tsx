@@ -1,4 +1,4 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getCustomThemeColor, ThemeName } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
 
@@ -33,13 +33,14 @@ export type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
 export interface TooltipPopupProps {
   position: TooltipPosition;
   fadeOut: boolean;
+  theme: ThemeName;
 }
 
 export const TooltipPopup = styled.div<TooltipPopupProps>`
   ${getTypographyCss('text-sm')}
   white-space: pre-wrap;
-  color: ${getColor('elvia-on')};
-  background: ${getColor('grey-80')};
+  color: ${({ theme }) => getCustomThemeColor({ light: 'white', dark: 'white' }, theme)};
+  background: ${({ theme }) => getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme)};
   display: grid;
   place-items: center;
   padding: 8px 10px;
@@ -59,8 +60,8 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
     height: 0;
   }
 
-  ${(props) => {
-    switch (props.position) {
+  ${({ position, theme }) => {
+    switch (position) {
       case 'top': {
         return css`
           transform-origin: center bottom;
@@ -68,7 +69,8 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
           &::after {
             border-left: ${arrowSize}px solid transparent;
             border-right: ${arrowSize}px solid transparent;
-            border-top: ${arrowSize}px solid ${getColor('grey-80')};
+            border-top: ${arrowSize}px solid
+              ${getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme)};
             top: 100%;
           }
         `;
@@ -80,7 +82,8 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
           &::after {
             border-top: ${arrowSize}px solid transparent;
             border-bottom: ${arrowSize}px solid transparent;
-            border-left: ${arrowSize}px solid ${getColor('grey-80')};
+            border-left: ${arrowSize}px solid
+              ${getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme)};
             left: 100%;
           }
         `;
@@ -92,7 +95,8 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
           &::after {
             border-top: ${arrowSize}px solid transparent;
             border-bottom: ${arrowSize}px solid transparent;
-            border-right: ${arrowSize}px solid ${getColor('grey-80')};
+            border-right: ${arrowSize}px solid
+              ${getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme)};
             right: 100%;
           }
         `;
@@ -104,7 +108,8 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
           &::after {
             border-left: ${arrowSize}px solid transparent;
             border-right: ${arrowSize}px solid transparent;
-            border-bottom: ${arrowSize}px solid ${getColor('grey-80')};
+            border-bottom: ${arrowSize}px solid
+              ${getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme)};
             bottom: 100%;
           }
         `;
@@ -112,8 +117,8 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
     }
   }}
 
-  ${(props) => {
-    if (props.fadeOut) {
+  ${({ fadeOut }) => {
+    if (fadeOut) {
       return css`
         animation: ${TooltipFadeOut} 200ms ease;
       `;
