@@ -16,7 +16,7 @@ function copyChangelogs() {
 function minifyElvisJs() {
   return gulp
     .src('elvis.js')
-    .pipe(minify({ ext: { min: '.min.js' }, noSource: true }))
+    .pipe(minify({ ext: { min: '.js', src: '.full.js' } }))
     .pipe(
       gulp.dest('.', {
         overwrite: true,

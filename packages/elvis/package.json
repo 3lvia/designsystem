@@ -13,7 +13,6 @@
   },
   "files": [
     "elvis.js",
-    "elvis.min.js",
     "CHANGELOG.json",
     "README.md",
     "npm-shrinkwrap.json",
