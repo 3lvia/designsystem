@@ -46,13 +46,13 @@ async function createEmbeddedIconsJS() {
     const fileContent = svgIcons[createCamelCase(iconsToInclude[i].name)].getIcon();
     const iconName = iconsToInclude[i].name;
 
-    const iconsWithReplacedDimentions = fileContent
+    const iconsWithReplacedDimensions = fileContent
       .replace(/width="([^"]*)"/, `width="100%"`)
       .replace(/height="([^"]*)"/, `height="100%"`);
     embeddedJs =
       embeddedJs +
       `
-     "e-icon--${iconName}":'${iconsWithReplacedDimentions}'`;
+     "e-icon--${iconName}":'${iconsWithReplacedDimensions}'`;
 
     if (i < iconsToInclude.length - 1) {
       embeddedJs += ',';
@@ -87,7 +87,6 @@ async function createEmbeddedIconsJS() {
   const template = fs.readFileSync('./src/templates/elvis.template.js').toString();
   const newContent = template.replace('//[[INJECT_ICONS]]', embeddedJs);
   fs.writeFileSync('elvis.js', newContent);
-  fs.writeFileSync('../web/src/assets/js/elvis.js', newContent);
 
   return true;
 }

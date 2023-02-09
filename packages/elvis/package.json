@@ -13,6 +13,7 @@
   },
   "files": [
     "elvis.js",
+    "elvis.min.js",
     "CHANGELOG.json",
     "README.md",
     "npm-shrinkwrap.json",
@@ -35,6 +36,7 @@
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-imagemin": "^7.1.0",
+    "gulp-minify": "^3.1.0",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-tap": "^2.0.0",
