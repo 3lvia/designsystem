@@ -31,6 +31,22 @@ function findUnusedIconFiles() {
   return remove;
 }
 
+function getIconWithCssVariables(icon, iconName) {
+  const iconWithCssVariables = icon
+    .replace(
+      /fill="#000"/g,
+      iconName.includes('-filled-color')
+        ? 'fill="#000"' // TODO: Label for black to black
+        : 'fill="var(--e-icon-color-primary, var(--e-color-text-primary, #000))"',
+    )
+    .replace(/fill="#fff"/g, 'fill="var(--e-icon-color-secondary, var(--e-color-background-primary, #fff))"')
+    .replace(/fill="#29D305"/g, 'fill="var(--e-icon-color-on, var(--e-color-state-on, #29D305))"')
+    .replace(/fill="#FFFF00"/g, 'fill="var(--e-icon-color-caution, var(--e-color-state-caution, #FFFF00))"')
+    .replace(/fill="#FFA000"/g, 'fill="var(--e-icon-color-warning, var(--e-color-state-warning, #FFA000))"')
+    .replace(/fill="#EE0701"/g, 'fill="var(--e-icon-color-error, var(--e-color-state-error, #EE0701))"');
+  return iconWithCssVariables;
+}
+
 // Optimize SVG icons
 function optimizeSVG() {
   const iconsToInclude = icons.map((i) => {
@@ -73,16 +89,7 @@ export declare type IconName =`;
   for (const icon of iconsToInclude) {
     const fileContent = fs.readFileSync(icon.path).toString();
     const iconName = path.basename(icon.path, '.svg');
-    const iconWithCssVariables = fileContent
-      .replace(
-        /fill="#000"/g,
-        iconName.includes('-filled-color') ? 'fill="#000"' : 'fill="var(--e-color-text-primary, #000)"', // TODO: Label for black to black
-      )
-      .replace(/fill="#29D305"/g, 'fill="var(--e-color-state-on, #29D305)"')
-      .replace(/fill="#fff"/g, 'fill="var(--e-color-background-primary, #fff)"')
-      .replace(/fill="#FFA000"/g, 'fill="var(--e-color-state-warning, #FFA000)"')
-      .replace(/fill="#EE0701"/g, 'fill="var(--e-color-state-error, #EE0701)"')
-      .replace(/fill="#FFFF00"/g, 'fill="var(--e-color-state-caution, #FFFF00)"');
+    const iconWithCssVariables = getIconWithCssVariables(fileContent, iconName);
     jsModuleContents.push({
       name: createCamelCase(icon.name),
       content:
@@ -167,16 +174,7 @@ const getColor = require('@elvia/elvis-colors')['getColor'];
   for (const icon of iconsToInclude) {
     const fileContent = fs.readFileSync(icon.path).toString();
     const iconName = path.basename(icon.path, '.svg');
-    const iconWithCssVariables = fileContent
-      .replace(
-        /fill="#000"/g,
-        iconName.includes('-filled-color') ? 'fill="#000"' : 'fill="var(--e-icon-color-primary, #000)"', // TODO: Label for black to black
-      )
-      .replace(/fill="#fff"/g, 'fill="var(--e-icon-color-secondary, #fff)"')
-      .replace(/fill="#29D305"/g, 'fill="var(--e-icon-color-on, #29D305)"')
-      .replace(/fill="#FFFF00"/g, 'fill="var(--e-icon-color-on, #FFFF00)"')
-      .replace(/fill="#FFA000"/g, 'fill="var(--e-icon-color-warning, #FFA000)"')
-      .replace(/fill="#EE0701"/g, 'fill="var(--e-icon-color-error, #EE0701)"');
+    const iconWithCssVariables = getIconWithCssVariables(fileContent, iconName);
     jsModuleContents.push({
       name: createCamelCase(icon.name),
       content:

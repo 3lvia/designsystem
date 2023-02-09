@@ -36,7 +36,7 @@ $sizes: (
   --e-icon-color-on: var(--e-color-state-on, #29d305);
   --e-icon-color-caution: var(--e-color-state-caution, #ff0);
   --e-icon-color-warning: var(--e-color-state-warning, #ffa000);
-  --e-icon-color-danger: var(--e-color-state-danger, #ee0701);
+  --e-icon-color-error: var(--e-color-state-error, #ee0701);
 }
 
 $default-size: 'md';
@@ -60,6 +60,7 @@ $default-size: 'md';
       }
 
       &disabled-light,
+      &grey-30,
       &gray-light {
         --e-icon-color-primary: var(--e-color-state-hover-grey, #f4f4f4); // TODO: is this the correct color?
       }
@@ -69,9 +70,10 @@ $default-size: 'md';
         --e-icon-color-primary: var(--e-icon-color-on);
       }
 
+      &error,
       &danger,
       &red {
-        --e-icon-color-primary: var(--e-icon-color-danger);
+        --e-icon-color-primary: var(--e-icon-color-error);
       }
 
       &caution,
