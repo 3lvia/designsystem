@@ -12,7 +12,6 @@ import {
   NumberPickerTitle,
 } from './popupStyles';
 import { listButtonHeight } from './buttonHeight';
-import { getThemeColor } from '@elvia/elvis-colors';
 
 interface Props {
   title: string;
@@ -116,7 +115,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
             onClick={() => shuffleTo('previous')}
             data-testid={`${title}-prev-value-button`}
           >
-            <IconWrapper icon={arrowUpBold} color={getThemeColor('text-primary')} size="xs" />
+            <IconWrapper icon={arrowUpBold} size="xs" />
           </IconButton>
         </ArrowButtonContainer>
         {loopedNumbers.map((number, index) => (
@@ -141,7 +140,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
             onClick={() => shuffleTo('next')}
             data-testid={`${title}-next-value-button`}
           >
-            <IconWrapper icon={arrowDownBold} color={getThemeColor('text-primary')} size="xs" />
+            <IconWrapper icon={arrowDownBold} size="xs" />
           </IconButton>
         </ArrowButtonContainer>
       </NumberList>
