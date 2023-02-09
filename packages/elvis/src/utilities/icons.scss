@@ -55,6 +55,7 @@ $default-size: 'md';
       --e-icon-color-secondary: var(--e-color-text-primary, #000);
     }
 
+    // TODO: Generate from color labels in color package
     &color- {
       &disabled,
       &gray {
@@ -63,7 +64,7 @@ $default-size: 'md';
 
       &disabled-light,
       &gray-light {
-        --e-icon-color-primary: var(--e-color-state-hover-grey, #f4f4f4);
+        --e-icon-color-primary: var(--e-color-state-hover-grey, #f4f4f4); // TODO: is this the correct color?
       }
 
       &on,
