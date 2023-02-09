@@ -8,7 +8,6 @@ import {
 } from './elviaSegmentedControl.types';
 import { SegmentedControlContainer, SegmentedControlLabel, SegmentedControlInput } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
-import { getThemeColor } from '@elvia/elvis-colors';
 
 export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   items,
@@ -70,14 +69,12 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
               (index !== selectedIndex ? (
                 <Icon
                   name={(control as IconSegmentedControl).iconName as IconName}
-                  color={getThemeColor('text-primary')}
                   size={size === 'large' ? 'sm' : 'xs'}
                   data-testid="segmented-control-icon"
                 />
               ) : (
                 <Icon
                   name={(control as IconSegmentedControl).iconNameSelected as IconName}
-                  color={getThemeColor('text-primary')}
                   size={size === 'large' ? 'sm' : 'xs'}
                   data-testid="segmented-control-icon"
                 />
