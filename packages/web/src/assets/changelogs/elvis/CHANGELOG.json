@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "10.3.0",
+      "date": "February 7, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add new icons: <code>cables_connected</code>, <code>cables_connected-color</code>, <code>cables_connecting-color</code>, <code>cables_disconnected</code>, <code>cables_disconnected-color</code>, <code>community</code>, <code>decent</code>, <code>diversity</code>, <code>health_safety_environment</code>, <code>image-color</code>, and <code>open</code>."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "10.2.0",
       "date": "February 1, 2023",
       "changelog": [
