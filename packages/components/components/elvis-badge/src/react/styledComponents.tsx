@@ -1,13 +1,13 @@
 import { BadgeColor } from './elvia-badge.types';
 import styled from 'styled-components';
-import { getCustomThemeColor, getThemeColor } from '@elvia/elvis-colors';
+import { getCustomThemeColor, getThemeColor, ThemeName } from '@elvia/elvis-colors';
 interface BadgeCircleProps {
   readonly badgeColor: BadgeColor;
   readonly count: string | undefined;
-  currentTheme: 'light' | 'dark';
+  currentTheme: ThemeName;
 }
 
-const getTextColor = (color: BadgeColor, currentTheme: 'light' | 'dark') => {
+const getTextColor = (color: BadgeColor, theme: ThemeName) => {
   switch (color) {
     case 'green':
       return getCustomThemeColor(
@@ -15,7 +15,7 @@ const getTextColor = (color: BadgeColor, currentTheme: 'light' | 'dark') => {
           light: 'black',
           dark: 'black',
         },
-        currentTheme,
+        theme,
       );
     case 'red':
       return getThemeColor('text-primary');
@@ -24,7 +24,7 @@ const getTextColor = (color: BadgeColor, currentTheme: 'light' | 'dark') => {
   }
 };
 
-const getBadgeColor = (color: BadgeColor, currentTheme: 'light' | 'dark') => {
+const getBadgeColor = (color: BadgeColor, theme: ThemeName) => {
   switch (color) {
     case 'green':
       return getThemeColor('state-on');
@@ -36,7 +36,7 @@ const getBadgeColor = (color: BadgeColor, currentTheme: 'light' | 'dark') => {
           light: 'black',
           dark: 'white',
         },
-        currentTheme,
+        theme,
       );
   }
 };
