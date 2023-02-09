@@ -24,20 +24,14 @@ const getTextColor = (color: BadgeColor, theme: ThemeName) => {
   }
 };
 
-const getBadgeColor = (color: BadgeColor, theme: ThemeName) => {
+const getBadgeColor = (color: BadgeColor) => {
   switch (color) {
     case 'green':
       return getThemeColor('state-on');
     case 'red':
       return getThemeColor('state-error');
     default:
-      return getCustomThemeColor(
-        {
-          light: 'black',
-          dark: 'white',
-        },
-        theme,
-      );
+      return getThemeColor('text-primary');
   }
 };
 
@@ -47,7 +41,7 @@ export const BadgeContainer = styled.div`
 `;
 
 export const BadgeCircle = styled.div<BadgeCircleProps>`
-  background-color: ${({ badgeColor, currentTheme }) => getBadgeColor(badgeColor, currentTheme)};
+  background-color: ${({ badgeColor }) => getBadgeColor(badgeColor)};
   border-radius: 50px;
   color: ${({ badgeColor, currentTheme }) => getTextColor(badgeColor, currentTheme)};
   display: grid;
