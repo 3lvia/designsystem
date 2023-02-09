@@ -45,9 +45,6 @@ $default-size: 'md';
   @include icon-variables();
   @include icon-size($default-size);
   display: inline-block;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
 
   &.e-icon-- {
     &inverted {
