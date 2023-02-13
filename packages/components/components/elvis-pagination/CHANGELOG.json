@@ -2,7 +2,7 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "08.02.22",
+      "date": "08.02.23",
       "version": "3.3.5",
       "changelog": [
         {
@@ -12,7 +12,7 @@
       ]
     },
     {
-      "date": "01.02.22",
+      "date": "01.02.23",
       "version": "3.3.4",
       "changelog": [
         {
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "date": "17.01.22",
+      "date": "17.01.23",
       "version": "3.3.3",
       "changelog": [
         {
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "date": "05.01.22",
+      "date": "05.01.23",
       "version": "3.3.2",
       "changelog": [
         {
