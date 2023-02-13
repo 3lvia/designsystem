@@ -97,7 +97,7 @@ const Pagination: FC<PaginationProps> = function ({
 
   useEffect(() => {
     setNumberOfPages(Math.ceil(numberOfElements / selectedDropdownValue));
-    if (Math.ceil(numberOfElements / selectedDropdownValue) < 2) {
+    if (numberOfElements > 0 && Math.ceil(numberOfElements / selectedDropdownValue) < 2) {
       setShowPaginationNumbers(false);
     }
   }, [numberOfElements, selectedDropdownValue]);
