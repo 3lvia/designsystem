@@ -55,6 +55,11 @@
         <div class="col-lg-6">
           <div class="image-div home-image-animation">
             <img
+              *ngIf="isBirthday"
+              src="assets/BirthdayIllustration.png"
+              alt="Designsystem birthday illustration"
+            />
+            <img
               *ngIf="christmas && !halloween"
               src="assets/holidayIllustrations/ChristmasIllustration.png"
               alt="Designsystem christmas illustration"
@@ -124,9 +129,9 @@
               [heading]="page.title"
               [hasBorder]="false"
             >
-              <img slot="icon" src="{{ page.imageUrl }}" alt="" aria-hidden="true" />
+              <img slot="icon" src="{{ page.imageUrl }}" alt="" />
               <div slot="iconHover">
-                <img src="{{ page.imageUrlOn }}" alt="" aria-hidden="true" />
+                <img src="{{ page.imageUrlOn }}" alt="" />
               </div>
             </elvia-card>
           </a>

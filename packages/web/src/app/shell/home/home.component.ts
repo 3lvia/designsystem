@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   christmas = false;
   halloweenMonth = 9;
   halloween = false;
+  isBirthday = false;
   locale: string;
   changelog = changelogJson.content;
 
@@ -54,6 +55,14 @@ export class HomeComponent implements OnInit {
     if (this.date.getMonth() === this.christmasMonth) {
       this.christmas = true;
       this.overviewTitle = 'Happy Holidays';
+    }
+
+    // birthday
+    const startDate = new Date(this.date.getFullYear(), 1, 16);
+    const endDate = new Date(this.date.getFullYear(), 1, 18);
+    if (this.date >= startDate && this.date <= endDate) {
+      this.isBirthday = true;
+      this.overviewTitle = 'Happy Birthday';
     }
   };
 
