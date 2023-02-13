@@ -22,6 +22,7 @@ import arrowRightCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowRig
 import arrowRightCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arrowRightCircleFilledColor';
 import checkCircleColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleColor';
 import checkCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleFilledColor';
+
 export interface CarouselItem {
   /**
    * @deprecated Deprecated in version 2.0.0. Use heading instead.
@@ -251,6 +252,9 @@ export const Carousel: FC<CarouselProps> = function ({
     <CarouselContainer
       className={className ?? ''}
       style={inlineStyle}
+      aria-roledescription="carousel"
+      aria-live="polite"
+      role="group"
       data-testid="carousel-container"
       id={id}
       {...rest}
