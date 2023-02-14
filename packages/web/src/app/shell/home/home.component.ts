@@ -58,8 +58,8 @@ export class HomeComponent implements OnInit {
     }
 
     // birthday
-    const startDate = new Date(this.date.getFullYear(), 1, 16);
-    const endDate = new Date(this.date.getFullYear(), 1, 18);
+    const startDate = new Date(this.date.getFullYear(), 1, 14);
+    const endDate = new Date(this.date.getFullYear(), 1, 20);
     if (this.date >= startDate && this.date <= endDate) {
       this.isBirthday = true;
       this.overviewTitle = 'Happy Birthday';
