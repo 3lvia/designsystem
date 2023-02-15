@@ -40,6 +40,12 @@ const iconLabelToColor: IconLabelToColor = {
  * E.g. `.e-icon--color-on` sets the color of the icon that is labeled with stroke to the `state-on` color.
  */
 const iconClassToThemeColor: IconClassToThemeColor = {
+  inverted: {
+    stroke: 'background-primary',
+    foreground: 'text-primary',
+    'filled-foreground': 'text-primary',
+    'filled-background': 'background-primary',
+  },
   disabled: { stroke: 'state-disabled', 'filled-background': 'state-disabled' },
   on: { stroke: 'state-on', 'filled-background': 'state-on' },
   green: { stroke: 'state-on', 'filled-background': 'state-on' },
@@ -65,7 +71,7 @@ const generateIconThemeVariablesMap = () => {
   return fileContent;
 };
 
-const getScssColors = (colors: { [label in keyof typeof iconLabelToColor]?: ColorLabel }) => {
+const getScssColors = (colors: { [label in IconLabels]?: ColorLabel }) => {
   let scssColors = '';
   for (const [label, color] of Object.entries(colors)) {
     scssColors += `'${label}': ${getThemeColor(color)}, `;
@@ -75,11 +81,12 @@ const getScssColors = (colors: { [label in keyof typeof iconLabelToColor]?: Colo
 
 const generateIconThemeClassesMap = () => {
   let fileContent = `$icon-theme-classes: (\n`;
-  fileContent += `\t'inverted': ( 'stroke': ${getThemeColor(
-    'background-primary',
-  )}, 'foreground': ${getThemeColor('text-primary')} ),\n`;
   for (const [label, colors] of Object.entries(iconClassToThemeColor)) {
-    fileContent += `\t'color-${label}': ( ${getScssColors(colors)} ),\n`;
+    if (label === 'inverted') {
+      fileContent += `\t'${label}': ( ${getScssColors(colors)} ),\n`;
+    } else {
+      fileContent += `\t'color-${label}': ( ${getScssColors(colors)} ),\n`;
+    }
   }
   fileContent += `);\n\n`;
 
