@@ -8,6 +8,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as sharp from 'sharp';
 import { getThemeColor } from '@elvia/elvis-colors';
+import type { IconLabels } from './iconsScss';
 
 // Delete unused icons + generated icons
 function clean() {
@@ -41,34 +42,39 @@ function optimizeSVG() {
   return gulp.src(iconsToInclude, { allowEmpty: true }).pipe(svgmin()).pipe(gulp.dest('icons/svg/dist'));
 }
 
+// The following is used to change icon colors to use css variables instead of hard coded colors.
+type FillVariablesUnion = `fill="var(--e-icon-color-${IconLabels}, ${ReturnType<typeof getThemeColor>})"`;
+export type FillVariables = { [label in IconLabels]: FillVariablesUnion };
+
+const fillVariables = {
+  stroke: `fill="var(--e-icon-color-stroke, ${getThemeColor('text-primary')})"`,
+  foreground: `fill="var(--e-icon-color-foreground, ${getThemeColor('text-primary')})"`,
+  'filled-foreground': `fill="var(--e-icon-color-filled-foreground, ${getThemeColor('background-primary')})"`,
+  'filled-background': `fill="var(--e-icon-color-filled-background, ${getThemeColor('text-primary')})"`,
+  on: `fill="var(--e-icon-color-on, ${getThemeColor('state-on')})"`,
+  caution: `fill="var(--e-icon-color-caution, ${getThemeColor('state-caution')})"`,
+  warning: `fill="var(--e-icon-color-warning, ${getThemeColor('state-warning')})"`,
+  error: `fill="var(--e-icon-color-error, ${getThemeColor('state-error')})"`,
+} as const satisfies FillVariables;
+
 function getIconWithCssVariables(icon: string, iconName: string) {
   const newIcon = icon
-    .replace(/fill="#29D305"/g, `fill="var(--e-icon-color-on, ${getThemeColor('state-on')})"`)
-    .replace(/fill="#FFFF00"/g, `fill="var(--e-icon-color-caution, ${getThemeColor('state-caution')})"`)
-    .replace(/fill="#FFA000"/g, `fill="var(--e-icon-color-warning, ${getThemeColor('state-warning')})"`)
-    .replace(/fill="#EE0701"/g, `fill="var(--e-icon-color-error, ${getThemeColor('state-error')})"`);
+    .replace(/fill="#29D305"/g, fillVariables.on)
+    .replace(/fill="#FFFF00"/g, fillVariables.caution)
+    .replace(/fill="#FFA000"/g, fillVariables.warning)
+    .replace(/fill="#EE0701"/g, fillVariables.error);
 
   if (iconName.includes('-filled-color')) {
     return newIcon.replace(
       /fill="#000"/g,
-      'fill="#000"',
-      // `fill="var(--e-icon-color-stroke, ${getThemeColor('text-primary')})"`,
+      'fill="#000"', // TODO: Get black -> black label
     );
   } else if (iconName.includes('-filled')) {
     return newIcon
-      .replace(
-        /fill="#fff"/g,
-        `fill="var(--e-icon-color-filled-foreground, ${getThemeColor('background-primary')})"`,
-      )
-      .replace(
-        /fill="#000"/g,
-        `fill="var(--e-icon-color-filled-background, ${getThemeColor('text-primary')})"`,
-      );
+      .replace(/fill="#fff"/g, fillVariables['filled-foreground'])
+      .replace(/fill="#000"/g, fillVariables['filled-background']);
   } else {
-    return newIcon.replace(
-      /fill="#000"/g,
-      `fill="var(--e-icon-color-stroke, ${getThemeColor('text-primary')})"`,
-    );
+    return newIcon.replace(/fill="#000"/g, fillVariables.stroke);
   }
 }
 
@@ -83,13 +89,9 @@ function createIconFileContent(icon: string, iconName: string) {
       return icon;
     }
     if (!color.startsWith('#') && !color.startsWith('var(--')) {
-      return icon.replaceAll('fill="var(--e-icon-color-stroke, ${getThemeColor(
-        'text-primary',
-      )})"', 'fill="' + getColor(color) + '"');
+      return icon.replaceAll('${fillVariables.stroke}', 'fill="' + getColor(color) + '"');
     }
-    return icon.replaceAll('fill="var(--e-icon-color-stroke, ${getThemeColor(
-      'text-primary',
-    )})"', 'fill="' + color + '"');
+    return icon.replaceAll('${fillVariables.stroke}', 'fill="' + color + '"');
   }`;
 }
 
