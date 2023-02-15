@@ -1,6 +1,16 @@
 {
   "content": [
     {
+      "version": "10.4.0",
+      "date": "February 15, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["e-accordion is now marked as deprecated. Use the accordion component instead."]
+        }
+      ]
+    },
+    {
       "version": "10.3.0",
       "date": "February 7, 2023",
       "changelog": [
