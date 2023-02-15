@@ -1,4 +1,6 @@
 @use 'sass:map';
+@use '@elvia/elvis-assets-icons/dist/scss/themeVariables' as IconMap;
+
 // Multiples of 8
 $sizes: (
   'xxs': 8px,
@@ -30,64 +32,39 @@ $sizes: (
   }
 }
 
-@mixin icon-variables() {
-  --e-icon-color-primary: var(--e-color-text-primary, #000);
-  --e-icon-color-secondary: var(--e-color-background-primary, #fff);
-  --e-icon-color-on: var(--e-color-state-on, #29d305);
-  --e-icon-color-caution: var(--e-color-state-caution, #ff0);
-  --e-icon-color-warning: var(--e-color-state-warning, #ffa000);
-  --e-icon-color-error: var(--e-color-state-error, #ee0701);
-}
-
 $default-size: 'md';
 
 .e-icon {
-  @include icon-variables();
   @include icon-size($default-size);
+  // Generate icon color variables
+  @each $label, $color in IconMap.$icon-variables {
+    --e-icon-color-#{$label}: #{$color};
+  }
   display: inline-block;
 
   &.e-icon-- {
-    &inverted {
-      --e-icon-color-primary: var(--e-color-background-primary, #fff);
-      --e-icon-color-secondary: var(--e-color-text-primary, #000);
+    @each $class, $colors in IconMap.$icon-theme-classes {
+      &#{$class} {
+        @each $label, $color in $colors {
+          --e-icon-color-#{$label}: #{$color};
+        }
+      }
     }
 
     // TODO: Generate from color labels in color package
     &color- {
-      &disabled,
       &gray {
-        --e-icon-color-primary: var(--e-color-state-disabled, #bdbdbd);
+        --e-icon-color-stroke: var(--e-color-state-disabled);
       }
 
       &disabled-light,
       &grey-30,
       &gray-light {
-        --e-icon-color-primary: var(--e-color-state-hover-grey, #f4f4f4); // TODO: is this the correct color?
-      }
-
-      &on,
-      &green {
-        --e-icon-color-primary: var(--e-icon-color-on);
-      }
-
-      &error,
-      &danger,
-      &red {
-        --e-icon-color-primary: var(--e-icon-color-error);
-      }
-
-      &caution,
-      &yellow {
-        --e-icon-color-primary: var(--e-icon-color-caution);
-      }
-
-      &warning,
-      &orange {
-        --e-icon-color-primary: var(--e-icon-color-warning);
+        --e-icon-color-stroke: var(--e-color-state-hover-grey); // TODO: is this the correct color?
       }
 
       &white {
-        --e-icon-color-primary: #fff; // TODO: Add label with white -> dark white
+        --e-icon-color-stroke: #fff; // TODO: Add label with white -> dark white
       }
     }
   }

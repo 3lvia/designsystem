@@ -5,6 +5,7 @@ const icons = require('../config/icons.config');
 const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
+const getThemeColor = require('@elvia/elvis-colors').getThemeColor;
 
 // Delete unused icons + generated icons
 function clean() {
@@ -31,28 +32,48 @@ function findUnusedIconFiles() {
   return remove;
 }
 
+function optimizeSVG() {
+  const iconsToInclude = icons.map((i) => {
+    return `icons/svg/src/${i.name}.svg`;
+  });
+  return gulp.src(iconsToInclude, { allowEmpty: true }).pipe(svgmin()).pipe(gulp.dest('icons/svg/dist'));
+}
+
 function getIconWithCssVariables(icon, iconName) {
   const iconWithCssVariables = icon
     .replace(
       /fill="#000"/g,
       iconName.includes('-filled-color')
         ? 'fill="#000"' // TODO: Label for black to black
-        : 'fill="var(--e-icon-color-primary, var(--e-color-text-primary, #000))"',
+        : `fill="var(--e-icon-color-stroke, ${getThemeColor('text-primary')})"`,
     )
-    .replace(/fill="#fff"/g, 'fill="var(--e-icon-color-secondary, var(--e-color-background-primary, #fff))"')
-    .replace(/fill="#29D305"/g, 'fill="var(--e-icon-color-on, var(--e-color-state-on, #29D305))"')
-    .replace(/fill="#FFFF00"/g, 'fill="var(--e-icon-color-caution, var(--e-color-state-caution, #FFFF00))"')
-    .replace(/fill="#FFA000"/g, 'fill="var(--e-icon-color-warning, var(--e-color-state-warning, #FFA000))"')
-    .replace(/fill="#EE0701"/g, 'fill="var(--e-icon-color-error, var(--e-color-state-error, #EE0701))"');
+    .replace(/fill="#fff"/g, `fill="var(--e-icon-color-foreground, ${getThemeColor('background-primary')})"`)
+    .replace(/fill="#29D305"/g, `fill="var(--e-icon-color-on, ${getThemeColor('state-on')})"`)
+    .replace(/fill="#FFFF00"/g, `fill="var(--e-icon-color-caution, ${getThemeColor('state-caution')})"`)
+    .replace(/fill="#FFA000"/g, `fill="var(--e-icon-color-warning, ${getThemeColor('state-warning')})"`)
+    .replace(/fill="#EE0701"/g, `fill="var(--e-icon-color-error, ${getThemeColor('state-error')})"`);
   return iconWithCssVariables;
 }
 
-// Optimize SVG icons
-function optimizeSVG() {
-  const iconsToInclude = icons.map((i) => {
-    return `icons/svg/src/${i.name}.svg`;
-  });
-  return gulp.src(iconsToInclude, { allowEmpty: true }).pipe(svgmin()).pipe(gulp.dest('icons/svg/dist'));
+function createIconFileContent(icon, iconName) {
+  const iconWithCssVariables = getIconWithCssVariables(icon, iconName).replace(
+    '<svg ',
+    '<svg viewBox="0 0 24 24" aria-hidden="true" ',
+  );
+  return `  getIcon: function (color) {
+    const icon = '${iconWithCssVariables}';
+    if (!color) {
+      return icon;
+    }
+    if (!color.startsWith('#') && !color.startsWith('var(--')) {
+      return icon.replaceAll('fill="var(--e-icon-color-stroke, ${getThemeColor(
+        'text-primary',
+      )})"', 'fill="' + getColor(color) + '"');
+    }
+    return icon.replaceAll('fill="var(--e-icon-color-stroke, ${getThemeColor(
+      'text-primary',
+    )})"', 'fill="' + color + '"');
+  }`;
 }
 
 // Create icon module in icons.js and icons.d.ts
@@ -89,38 +110,12 @@ export declare type IconName =`;
   for (const icon of iconsToInclude) {
     const fileContent = fs.readFileSync(icon.path).toString();
     const iconName = path.basename(icon.path, '.svg');
-    const iconWithCssVariables = getIconWithCssVariables(fileContent, iconName);
     jsModuleContents.push({
       name: createCamelCase(icon.name),
       content:
         jsModule +
         `export default {
-  getIcon: function (color) {
-    let icon =
-      '${iconWithCssVariables}';
-    let iconName = '${iconName}';
-    icon = icon.replace('<svg ', '<svg viewBox="0 0 24 24" aria-hidden="true" ');
-    if (!color) {
-      return icon;
-    }
-    if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
-        icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
-      }
-      // -full-color check can be removed when new icons have been added
-      if (iconName.indexOf('-filled-color') > -1 || iconName.indexOf('-full-color') > -1) {
-        icon = icon.replace(/fill="#000"/g, 'fillBlack');
-      }
-      icon = icon.replace(/fill="#fff"/g, 'fillBlack');
-      icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
-      icon = icon.replace(/fillBlack/g, "fill='black'");
-      icon = icon.replace(/fillGreen/g, "fill='#29D305'");
-      return icon;
-    } else if (!color.startsWith('#') && !color.startsWith('var(--')) {
-      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
-    }
-    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
-  },
+  ${createIconFileContent(fileContent, iconName)},
 };`,
     });
     iconTypeContents.push({
@@ -174,37 +169,12 @@ const getColor = require('@elvia/elvis-colors')['getColor'];
   for (const icon of iconsToInclude) {
     const fileContent = fs.readFileSync(icon.path).toString();
     const iconName = path.basename(icon.path, '.svg');
-    const iconWithCssVariables = getIconWithCssVariables(fileContent, iconName);
     jsModuleContents.push({
       name: createCamelCase(icon.name),
       content:
         jsModule +
         `module.exports = {
-  getIcon: function(color) {
-    let icon = '${iconWithCssVariables}'
-    let iconName = '${iconName}'
-    icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
-    if(!color) {
-      return icon;
-    }
-    if(color==='inverted') {
-      if ((iconName.indexOf("-color") > -1) && iconName.indexOf("-color-") <= -1) {
-        icon = icon.replace(/fill="#29D305"/g, "fillGreen");
-      }
-      // -full-color check can be removed when new icons have been added
-      if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
-        icon = icon.replace(/fill="#000"/g, "fillBlack'");
-      }
-      icon = icon.replace(/fill="#fff"/g, "fillBlack");
-      icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
-      icon = icon.replace(/fillBlack/g, "fill='black'");
-      icon = icon.replace(/fillGreen/g, "fill='#29D305'");
-      return icon;
-      } else if (!color.startsWith('#') && !color.startsWith('var(--')) {
-        return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
-    }
-    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
-  }
+  ${createIconFileContent(fileContent, iconName)}
 }`,
     });
     iconsIndexFile =
