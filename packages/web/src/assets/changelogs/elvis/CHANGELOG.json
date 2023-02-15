@@ -6,10 +6,7 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": [
-            "e-accordion is now marked as deprecated. Use the accordion component instead.",
-            "Hallo få SonarCloud til å rerunne dup testen sin"
-          ]
+          "changes": ["e-accordion is now marked as deprecated. Use the accordion component instead."]
         }
       ]
     },
