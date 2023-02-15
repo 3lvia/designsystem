@@ -2508,10 +2508,16 @@ __metadata:
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
     "@elvia/elvis-colors": ^1.5.0
+    "@types/gulp": ^4.0.10
+    "@types/gulp-svgmin": ^1.2.2
+    "@types/node": ^18.11.18
+    "@types/sharp": ^0.30.2
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-svgmin: ^4.1.0
     sharp: ^0.30.2
+    ts-node: ^10.9.1
+    typescript: ^4.9.4
   languageName: unknown
   linkType: soft
 
@@ -6582,6 +6588,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/gulp-svgmin@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "@types/gulp-svgmin@npm:1.2.2"
+  dependencies:
+    "@types/node": "*"
+    "@types/svgo": 1
+    "@types/vinyl": "*"
+  checksum: 1a0a7854eed6f6630723a7267fa5d3f26faab66802d31fcbdb30da352c5e99729ab425e7d4711d6997f67f08376cbcc1ba67ebbef225afe05023965786db75c5
+  languageName: node
+  linkType: hard
+
 "@types/gulp-tap@npm:^1.0.1":
   version: 1.0.1
   resolution: "@types/gulp-tap@npm:1.0.1"
@@ -6982,6 +6999,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/sharp@npm:^0.30.2":
+  version: 0.30.5
+  resolution: "@types/sharp@npm:0.30.5"
+  dependencies:
+    "@types/node": "*"
+  checksum: 8aa458d4c4187ae9a69894904832ecfe7533e0c405d1a7971a9984b0996eb6eb2ced103854b71199cf8df1350540bb4d3625c671a1946bd417b2bf4405c7292a
+  languageName: node
+  linkType: hard
+
 "@types/sockjs@npm:^0.3.33":
   version: 0.3.33
   resolution: "@types/sockjs@npm:0.3.33"
@@ -7013,6 +7039,13 @@ __metadata:
     "@types/react": "*"
     csstype: ^3.0.2
   checksum: 84f53b3101739b20d1731554fb7735bc2f3f5d050a8b392e9845403c8c8bbd729737d033978649f9195a97b557875b010d46e35a4538564a2d0dbcce661dbf76
+  languageName: node
+  linkType: hard
+
+"@types/svgo@npm:1":
+  version: 1.3.6
+  resolution: "@types/svgo@npm:1.3.6"
+  checksum: 46d648b51a9485eb129ba30da009bb3d6223434bbe224cb051351d9f6055f3c3688544dee5a200d007e993822a4ccec2d96fd13f7c04a2ac8495a602de028f04
   languageName: node
   linkType: hard
 

@@ -1,11 +1,13 @@
-const del = require('del');
-const gulp = require('gulp');
+import * as del from 'del';
+import * as gulp from 'gulp';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const svgmin = require('gulp-svgmin');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const icons = require('../config/icons.config');
-const path = require('path');
-const fs = require('fs');
-const sharp = require('sharp');
-const getThemeColor = require('@elvia/elvis-colors').getThemeColor;
+import * as path from 'path';
+import * as fs from 'fs';
+import * as sharp from 'sharp';
+import { getThemeColor } from '@elvia/elvis-colors';
 
 // Delete unused icons + generated icons
 function clean() {
@@ -20,7 +22,7 @@ function clean() {
 
 function findUnusedIconFiles() {
   const content = fs.readdirSync('./icons/svg/src/');
-  const remove = [];
+  const remove: string[] = [];
 
   content.forEach((icon) => {
     const filename = icon.substr(0, icon.length - 4);
@@ -33,29 +35,44 @@ function findUnusedIconFiles() {
 }
 
 function optimizeSVG() {
-  const iconsToInclude = icons.map((i) => {
+  const iconsToInclude = icons.map((i: any) => {
     return `icons/svg/src/${i.name}.svg`;
   });
   return gulp.src(iconsToInclude, { allowEmpty: true }).pipe(svgmin()).pipe(gulp.dest('icons/svg/dist'));
 }
 
-function getIconWithCssVariables(icon, iconName) {
-  const iconWithCssVariables = icon
-    .replace(
-      /fill="#000"/g,
-      iconName.includes('-filled-color')
-        ? 'fill="#000"' // TODO: Label for black to black
-        : `fill="var(--e-icon-color-stroke, ${getThemeColor('text-primary')})"`,
-    )
-    .replace(/fill="#fff"/g, `fill="var(--e-icon-color-foreground, ${getThemeColor('background-primary')})"`)
+function getIconWithCssVariables(icon: string, iconName: string) {
+  const newIcon = icon
     .replace(/fill="#29D305"/g, `fill="var(--e-icon-color-on, ${getThemeColor('state-on')})"`)
     .replace(/fill="#FFFF00"/g, `fill="var(--e-icon-color-caution, ${getThemeColor('state-caution')})"`)
     .replace(/fill="#FFA000"/g, `fill="var(--e-icon-color-warning, ${getThemeColor('state-warning')})"`)
     .replace(/fill="#EE0701"/g, `fill="var(--e-icon-color-error, ${getThemeColor('state-error')})"`);
-  return iconWithCssVariables;
+
+  if (iconName.includes('-filled-color')) {
+    return newIcon.replace(
+      /fill="#000"/g,
+      'fill="#000"',
+      // `fill="var(--e-icon-color-stroke, ${getThemeColor('text-primary')})"`,
+    );
+  } else if (iconName.includes('-filled')) {
+    return newIcon
+      .replace(
+        /fill="#fff"/g,
+        `fill="var(--e-icon-color-filled-foreground, ${getThemeColor('background-primary')})"`,
+      )
+      .replace(
+        /fill="#000"/g,
+        `fill="var(--e-icon-color-filled-background, ${getThemeColor('text-primary')})"`,
+      );
+  } else {
+    return newIcon.replace(
+      /fill="#000"/g,
+      `fill="var(--e-icon-color-stroke, ${getThemeColor('text-primary')})"`,
+    );
+  }
 }
 
-function createIconFileContent(icon, iconName) {
+function createIconFileContent(icon: string, iconName: string) {
   const iconWithCssVariables = getIconWithCssVariables(icon, iconName).replace(
     '<svg ',
     '<svg viewBox="0 0 24 24" aria-hidden="true" ',
@@ -78,7 +95,7 @@ function createIconFileContent(icon, iconName) {
 
 // Create icon module in icons.js and icons.d.ts
 async function createIconModule() {
-  const iconsToInclude = icons.map((i) => {
+  const iconsToInclude = icons.map((i: any) => {
     if (i.deprecated) {
       return {
         name: i.name,
@@ -144,7 +161,7 @@ export default ${createCamelCase(icon.name)};`,
 }
 
 async function createCommonJSIconModule() {
-  const iconsToInclude = icons.map((i) => {
+  const iconsToInclude = icons.map((i: any) => {
     if (i.deprecated) {
       return {
         name: i.name,
@@ -190,7 +207,7 @@ const getColor = require('@elvia/elvis-colors')['getColor'];
   return true;
 }
 
-function createCamelCase(original) {
+function createCamelCase(original: string) {
   const arr = original.split(/[_-]+/);
   let newText = '';
 
@@ -205,8 +222,8 @@ function createCamelCase(original) {
 }
 
 // Create png-files from svg-files
-async function createPNGs(done) {
-  const iconsToInclude = icons.map((i) => {
+async function createPNGs(done: () => void) {
+  const iconsToInclude = icons.map((i: any) => {
     if (i.deprecated) {
       return { name: i.name, path: `icons/svg/src/${i.newIconName}.svg` };
     }
@@ -214,7 +231,7 @@ async function createPNGs(done) {
   });
 
   for (const file of iconsToInclude) {
-    const density = parseInt((72 * 56) / 24);
+    const density = (72 * 56) / 24;
 
     await sharp(file.path, { density: density })
       .resize(56)
@@ -252,4 +269,4 @@ const generateIcons = gulp.series(
   createCommonJSIconModule,
   createPNGs,
 );
-exports.generateIcons = generateIcons;
+export { generateIcons };

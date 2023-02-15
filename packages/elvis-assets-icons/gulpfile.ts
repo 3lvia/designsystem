@@ -1,13 +1,11 @@
-'use strict';
-
-const icons = require('./tasks/icons.js');
-const iconThemeScss = require('./tasks/iconsScss.js');
-const gulp = require('gulp');
+import { generateIcons } from './tasks/icons';
+import { generateIconsScss } from './tasks/iconsScss';
+import * as gulp from 'gulp';
 
 // Run gulp tasks
 gulp.task(
   'default',
-  gulp.series(icons.generateIcons, iconThemeScss.generateIconsScss, function (done) {
+  gulp.series(generateIcons, generateIconsScss, function (done) {
     done();
     console.log('Elvis Icons built!');
   }),

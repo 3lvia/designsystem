@@ -1,6 +1,6 @@
-const fs = require('fs');
-const gulp = require('gulp');
-const getThemeColor = require('@elvia/elvis-colors').getThemeColor;
+import * as fs from 'fs';
+import * as gulp from 'gulp';
+import { getThemeColor, ColorLabel } from '@elvia/elvis-colors';
 
 /**
  * Corresponds to the css variables used for icon colors.
@@ -10,6 +10,8 @@ const getThemeColor = require('@elvia/elvis-colors').getThemeColor;
 const iconLabelToColor = {
   stroke: getThemeColor('text-primary'),
   foreground: getThemeColor('background-primary'),
+  'filled-foreground': getThemeColor('background-primary'),
+  'filled-background': getThemeColor('text-primary'),
   on: getThemeColor('state-on'),
   caution: getThemeColor('state-caution'),
   warning: getThemeColor('state-warning'),
@@ -21,7 +23,9 @@ const iconLabelToColor = {
  *
  * E.g. `.e-icon--color-on` sets the color of the icon to the `state-on` color.
  */
-const iconClassToThemeColor = {
+const iconClassToThemeColor: {
+  [key: string]: ColorLabel;
+} = {
   disabled: 'state-disabled',
   on: 'state-on',
   green: 'state-on',
@@ -49,9 +53,13 @@ const generateIconThemeVariablesMap = () => {
 
 const generateIconThemeClassesMap = () => {
   let fileContent = `$icon-theme-classes: (\n`;
-  fileContent += `\t'inverted': ( 'stroke': var(--e-color-background-primary, #fff), 'foreground': var(--e-color-text-primary, #000) ),\n`;
+  fileContent += `\t'inverted': ( 'stroke': ${getThemeColor(
+    'background-primary',
+  )}, 'foreground': ${getThemeColor('text-primary')} ),\n`;
   for (const [label, color] of Object.entries(iconClassToThemeColor)) {
-    fileContent += `\t'color-${label}': ( 'stroke': ${getThemeColor(color)} ),\n`;
+    fileContent += `\t'color-${label}': ( 'stroke': ${getThemeColor(
+      color,
+    )}, 'filled-background': ${getThemeColor(color)} ),\n`;
   }
   fileContent += `);\n\n`;
 
@@ -76,4 +84,4 @@ const makeDistFolder = async () => {
 
 const generateIconsScss = gulp.series(makeDistFolder, writeIconThemeVariables);
 
-exports.generateIconsScss = generateIconsScss;
+export { generateIconsScss };
