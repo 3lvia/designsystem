@@ -33,14 +33,15 @@ export type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
 export interface TooltipPopupProps {
   position: TooltipPosition;
   fadeOut: boolean;
-  theme: ThemeName;
+  theme?: ThemeName;
 }
 
 export const TooltipPopup = styled.div<TooltipPopupProps>`
   ${getTypographyCss('text-sm')}
   white-space: pre-wrap;
-  color: ${({ theme }) => getCustomThemeColor({ light: 'white', dark: 'white' }, theme)};
-  background: ${({ theme }) => getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme)};
+  color: ${({ theme }) => getCustomThemeColor({ light: 'white', dark: 'white' }, theme ? theme : 'light')};
+  background: ${({ theme }) =>
+    getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme ? theme : 'light')};
   display: grid;
   place-items: center;
   padding: 8px 10px;
@@ -70,7 +71,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
             border-left: ${arrowSize}px solid transparent;
             border-right: ${arrowSize}px solid transparent;
             border-top: ${arrowSize}px solid
-              ${getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme)};
+              ${getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme ? theme : 'light')};
             top: 100%;
           }
         `;
@@ -83,7 +84,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
             border-top: ${arrowSize}px solid transparent;
             border-bottom: ${arrowSize}px solid transparent;
             border-left: ${arrowSize}px solid
-              ${getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme)};
+              ${getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme ? theme : 'light')};
             left: 100%;
           }
         `;
@@ -96,7 +97,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
             border-top: ${arrowSize}px solid transparent;
             border-bottom: ${arrowSize}px solid transparent;
             border-right: ${arrowSize}px solid
-              ${getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme)};
+              ${getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme ? theme : 'light')};
             right: 100%;
           }
         `;
@@ -109,7 +110,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
             border-left: ${arrowSize}px solid transparent;
             border-right: ${arrowSize}px solid transparent;
             border-bottom: ${arrowSize}px solid
-              ${getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme)};
+              ${getCustomThemeColor({ light: 'grey-80', dark: 'grey-60' }, theme ? theme : 'light')};
             bottom: 100%;
           }
         `;
