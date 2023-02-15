@@ -5,7 +5,6 @@ import { MainComponent } from './shell/main/main.component';
 import { HomeComponent } from './shell/home/home.component';
 
 import { AccordionDocComponent } from './doc-pages/components/accordion-doc/accordion-doc.component';
-import { AccordionGroupDocComponent } from './doc-pages/components/accordion-group-doc/accordion-group-doc.component';
 import { AlertMessagesComponent } from './doc-pages/components/alert-messages/alert-messages.component';
 import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
 import { BadgeDocComponent } from './doc-pages/components/badge-doc/badge-doc.component';
@@ -155,8 +154,9 @@ const routes: Routes = [
         component: CMSPageComponent,
         children: [
           {
-            path: Pages.AccordionGroup,
-            component: AccordionGroupDocComponent,
+            path: 'accordion-group',
+            redirectTo: Pages.Accordion,
+            pathMatch: 'full',
           },
           {
             path: Pages.Accordion,
