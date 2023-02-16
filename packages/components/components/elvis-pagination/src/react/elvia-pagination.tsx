@@ -97,6 +97,9 @@ const Pagination: FC<PaginationProps> = function ({
 
   useEffect(() => {
     setNumberOfPages(Math.ceil(numberOfElements / selectedDropdownValue));
+    if (numberOfElements > 0 && Math.ceil(numberOfElements / selectedDropdownValue) < 2) {
+      setShowPaginationNumbers(false);
+    }
   }, [numberOfElements, selectedDropdownValue]);
 
   useEffect(() => {
@@ -196,17 +199,18 @@ const Pagination: FC<PaginationProps> = function ({
           {labelOptionsState.of} {numberOfElements.toLocaleString('nb-NO')} {labelOptionsState.label}
         </PaginatorInfoAmount>
       </PaginatorInfoContainer>
-      <PaginatorSelectorArea role="navigation" ref={listContainerRef}>
-        <PaginatorSelectorArrowBtn
-          visible={shouldHaveLeftArrow()}
-          aria-hidden={!shouldHaveLeftArrow()}
-          onClick={() => setSelectedPageNumber((previousPageNumber) => previousPageNumber - 1)}
-          data-testid="selector-arrow-btn-left"
-          aria-label="Forrige side"
-        >
-          <IconWrapper icon={arrowLongLeft} size="xs" />
-        </PaginatorSelectorArrowBtn>
-        {showPaginationNumbers && (
+      {showPaginationNumbers && (
+        <PaginatorSelectorArea role="navigation" ref={listContainerRef} data-testid="selector-area">
+          <PaginatorSelectorArrowBtn
+            visible={shouldHaveLeftArrow()}
+            aria-hidden={!shouldHaveLeftArrow()}
+            onClick={() => setSelectedPageNumber((previousPageNumber) => previousPageNumber - 1)}
+            data-testid="selector-arrow-btn-left"
+            aria-label="Forrige side"
+          >
+            <IconWrapper icon={arrowLongLeft} size="xs" />
+          </PaginatorSelectorArrowBtn>
+
           <PaginatorNumbersAndDots
             numberOfPages={numberOfPages}
             selectedPageNumber={selectedPageNumber}
@@ -214,17 +218,17 @@ const Pagination: FC<PaginationProps> = function ({
             numberOfElements={numberOfElements}
             lastNumberLimit={lastNumberLimit}
           />
-        )}
-        <PaginatorSelectorArrowBtn
-          visible={shouldHaveRightArrow()}
-          aria-hidden={!shouldHaveRightArrow()}
-          onClick={() => setSelectedPageNumber((previousPageNumber) => previousPageNumber + 1)}
-          data-testid="selector-arrow-btn-right"
-          aria-label="Neste side"
-        >
-          <IconWrapper icon={arrowLongRight} size="xs" />
-        </PaginatorSelectorArrowBtn>
-      </PaginatorSelectorArea>
+          <PaginatorSelectorArrowBtn
+            visible={shouldHaveRightArrow()}
+            aria-hidden={!shouldHaveRightArrow()}
+            onClick={() => setSelectedPageNumber((previousPageNumber) => previousPageNumber + 1)}
+            data-testid="selector-arrow-btn-right"
+            aria-label="Neste side"
+          >
+            <IconWrapper icon={arrowLongRight} size="xs" />
+          </PaginatorSelectorArrowBtn>
+        </PaginatorSelectorArea>
+      )}
     </Paginator>
   );
 };

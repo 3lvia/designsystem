@@ -496,7 +496,14 @@
   <!--Spotlight-->
   <div class="example-wrapper">
     <h3>Spotlight</h3>
-    <!-- <elvia-spotlight [position]="{ horizontal: 300, vertical: 300 }" [radius]="80"></elvia-spotlight> -->
+    <elvia-spotlight
+      *ngIf="showSpotlight"
+      [position]="{ horizontal: 450, vertical: 300 }"
+      [radius]="150"
+    ></elvia-spotlight>
+    <button class="e-btn" style="position: relative; z-index: 999999" (click)="toggleSpotlight()">
+      Toggle spotlight
+    </button>
   </div>
 
   <!--Tabs-->
