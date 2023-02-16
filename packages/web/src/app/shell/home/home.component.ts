@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   pages = homeMenu;
   fontLoaded = false;
   date = new Date();
+  currentYear = this.date.getFullYear();
   christmasMonth = 11;
   christmas = false;
   halloweenMonth = 9;
@@ -58,8 +59,8 @@ export class HomeComponent implements OnInit {
     }
 
     // birthday
-    const startDate = new Date(this.date.getFullYear(), 1, 14);
-    const endDate = new Date(this.date.getFullYear(), 1, 20);
+    const startDate = new Date(this.currentYear, 1, 14);
+    const endDate = new Date(this.currentYear, 1, 20);
     if (this.date >= startDate && this.date <= endDate) {
       this.isBirthday = true;
       this.overviewTitle = 'Happy Birthday';
