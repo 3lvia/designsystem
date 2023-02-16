@@ -30,14 +30,14 @@ $font-family-secondary: 'Red Hat Text', Verdana, sans-serif;
 }
 
 @mixin typography($name) {
+  color: getValue($name, color);
   font-family: getValue($name, family);
   font-size: getValue($name, size);
-  line-height: getValue($name, height);
-  font-weight: getValue($name, weight);
   font-style: getValue($name, style);
+  font-weight: getValue($name, weight);
   letter-spacing: getValue($name, letter-spacing);
+  line-height: getValue($name, height);
   text-transform: getValue($name, transform);
-  color: getValue($name, color);
   @include breakpoints.breakpoint-up(Mobile) {
     font-size: getValue($name, size-m);
     line-height: getValue($name, height-m);
@@ -45,8 +45,8 @@ $font-family-secondary: 'Red Hat Text', Verdana, sans-serif;
 }
 
 body {
+  color: var(--e-color-text-primary, #000);
   font-family: $font-family;
-  color: #000;
 }
 
 $typography: TypographyMap.$typography;

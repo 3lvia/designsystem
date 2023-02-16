@@ -1,5 +1,35 @@
 # Elvis-assets-icon
 
+## 2.9.0 (07.02.23)
+
+### New feature
+
+- New icons:
+  1. `cables_connected`.
+  2. `cables_connected-color`.
+  3. `cables_connecting-color`.
+  4. `cables_disconnected`.
+  5. `cables_disconnected-color`.
+  6. `community`.
+  7. `decent`.
+  8. `diversity`.
+  9. `health_safety_environment`.
+  10. `image-color`.
+  11. `open`.
+
+## 2.8.0 (01.02.23)
+
+### New feature
+
+- Added new icon `piggy_bank-color`.
+
+## 2.7.1 (30.01.23)
+
+### Patch
+
+- Added support for using css-variables to set the color of icons.
+- Bumped dependency on `@elvia/elvis-colors` to 1.5.0.
+
 ## 2.7.0 (04.01.23)
 
 ### New feature

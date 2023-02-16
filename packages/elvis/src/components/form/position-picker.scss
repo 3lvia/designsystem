@@ -1,6 +1,8 @@
+/* stylelint-disable */
 @use '../../variables/typography.scss';
 @use '../../variables/colors';
 
+//DEPRECATED
 .e-position-picker {
   display: flex;
   flex-wrap: wrap;

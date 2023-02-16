@@ -2,15 +2,6 @@ import styled from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
-const colors = {
-  elviaCharge: getColor('elvia-charge'),
-  elviaBlack: getColor('black'),
-};
-
-const typography = {
-  textSm: getTypographyCss('text-sm'),
-};
-
 type PaginatorProps = {
   isRightAligned: boolean;
 };
@@ -35,7 +26,7 @@ export const PaginatorInfoContainer = styled.div`
 `;
 
 export const PaginatorInfoText = styled.div`
-  ${typography.textSm}
+  ${getTypographyCss('text-sm')}
   font-style: normal;
   letter-spacing: 0.2px;
   text-align: left;
@@ -49,7 +40,7 @@ export const PaginatorInfoDropdown = styled.div`
 `;
 
 export const PaginatorInfoAmount = styled.div`
-  ${typography.textSm}
+  ${getTypographyCss('text-sm')}
   font-style: normal;
   text-align: left;
   white-space: nowrap;
@@ -83,7 +74,7 @@ export const PaginatorSelectorArrowBtn = styled.button<SelectorArrowBtnProps>`
 
   @media (hover: hover) {
     &:hover {
-      border: 1px solid ${colors.elviaCharge};
+      border: 1px solid ${getColor('elvia-charge')};
     }
   }
 
@@ -113,7 +104,7 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;
-  color: ${colors.elviaBlack};
+  color: ${getColor('black')};
 
   box-sizing: border-box;
 
@@ -121,7 +112,7 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
   justify-content: center;
   align-items: center;
   background: transparent;
-  border: ${(props) => (props.selected ? `1px solid ${colors.elviaBlack}` : 'none')};
+  border: ${(props) => (props.selected ? `1px solid ${getColor('black')}` : 'none')};
   border-radius: 50%;
   min-width: 36px;
   ${(props) => props.pageNumber.toString().length < 5 && 'width: 36px'};
@@ -135,7 +126,7 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
 
   @media (hover: hover) {
     &:hover {
-      border: 1px solid ${colors.elviaCharge};
+      border: 1px solid ${getColor('elvia-charge')};
       ${(props) =>
         (props.pageNumber.toString().length >= 5 ||
           (props.pageNumber.toString().length >= 5 && props.selected)) &&
@@ -148,11 +139,7 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
   }
 `;
 
-type PaginatorDotsProps = {
-  hide: boolean;
-};
-
-export const PaginatorDots = styled.div<PaginatorDotsProps>`
+export const PaginatorDots = styled.div`
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -160,11 +147,11 @@ export const PaginatorDots = styled.div<PaginatorDotsProps>`
   letter-spacing: 1.2px;
   line-height: 21px;
   text-align: center;
-  color: ${colors.elviaBlack};
+  color: ${getColor('black')};
 
   align-items: center;
-  display: ${(props) => (props.hide ? 'none' : 'flex')};
+  display: flex;
   height: 36px;
   justify-content: center;
-  width: ${(props) => (props.hide ? '0px' : '36px')};
+  width: 36px;
 `;

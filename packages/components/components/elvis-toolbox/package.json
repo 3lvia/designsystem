@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-toolbox",
-  "version": "7.5.0",
+  "version": "7.6.0",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -11,7 +11,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "@elvia/elvis-colors": "^1.4.3",
+    "@elvia/elvis-colors": "^1.5.0",
     "@elvia/elvis-component-wrapper": "^4.0.0",
     "@elvia/elvis-typography": "^2.3.1",
     "styled-components": "^5.3.6",
@@ -21,5 +21,16 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "react-is": {
+      "optional": true
+    }
   }
 }

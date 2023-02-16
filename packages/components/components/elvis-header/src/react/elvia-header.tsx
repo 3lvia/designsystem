@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HeaderProps } from './elviaHeader.types';
-import { useBreakpoint } from '@elvia/elvis-toolbox';
+import { useBreakpoint, useSlot } from '@elvia/elvis-toolbox';
 import {
   AppContent,
-  AppTitle,
   StyledHeader,
   Hr,
   IconButton,
@@ -14,6 +13,8 @@ import {
 import { MobileMenu } from './mobileMenu/mobileMenu';
 import { DesktopMenu } from './desktopMenu/desktopMenu';
 import { SideNav } from './sideNav/sideNav';
+import { AppDrawer } from './appDrawer/appDrawer';
+import { getActiveApp } from './elviaApps';
 
 export const Header: React.FC<HeaderProps> = ({
   appTitle,
@@ -30,10 +31,15 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const isGtMobile = useBreakpoint('gt-mobile');
   const isGtTablet = useBreakpoint('gt-tablet');
+  const [initialized, setInitialized] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const pageContainerElement = useRef<HTMLElement>(null);
-  const pageTitleRef = useRef<HTMLHeadingElement>(null);
-  const sidenavRef = useRef<HTMLElement>(null);
+  const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
+  const [desktopMenuIsOpen, setDesktopMenuIsOpen] = useState(false);
+  const [applicationTitle, setApplicationTitle] = useState('');
+
+  const { ref: pageContainerRef } = useSlot('appContent', webcomponent);
+  const { ref: pageTitleRef } = useSlot<HTMLHeadingElement>('pageTitle', webcomponent);
+  const { ref: sidenavRef } = useSlot('navItems', webcomponent);
 
   const hasNavItems = (): boolean => {
     return !!webcomponent?.getSlot('navItems') || !!navItems;
@@ -51,31 +57,19 @@ export const Header: React.FC<HeaderProps> = ({
     }
   };
 
-  /** Get app content slot */
   useEffect(() => {
-    if (!webcomponent) {
-      return;
-    }
-    if (pageContainerElement.current && webcomponent.getSlot('appContent')) {
-      pageContainerElement.current.innerHTML = '';
-      pageContainerElement.current.appendChild(webcomponent.getSlot('appContent'));
-    }
+    // This flag prevents animation of the page content padding on init
+    setTimeout(() => setInitialized(true), 1);
+  }, [isGtMobile]);
 
-    if (pageTitleRef.current && webcomponent.getSlot('pageTitle')) {
-      pageTitleRef.current.innerHTML = '';
-      pageTitleRef.current.appendChild(webcomponent.getSlot('pageTitle'));
-    }
-
-    if (sidenavRef.current && webcomponent.getSlot('navItems')) {
-      sidenavRef.current.innerHTML = '';
-      sidenavRef.current.appendChild(webcomponent.getSlot('navItems'));
-    }
-  }, [webcomponent]);
+  useEffect(() => {
+    setApplicationTitle(appTitle ?? getActiveApp('name'));
+  }, [appTitle]);
 
   return (
     <div className={className ?? ''} style={{ ...inlineStyle }}>
-      <StyledHeader isGtMobile={isGtMobile}>
-        <LogoContainer isGtMobile={isGtMobile}>
+      <StyledHeader isGtMobile={isGtMobile} menuIsOpen={desktopMenuIsOpen}>
+        <LogoContainer>
           <IconButton
             aria-label="logo"
             data-testid="header-logo"
@@ -104,19 +98,32 @@ export const Header: React.FC<HeaderProps> = ({
         </LogoContainer>
         {isGtMobile && (
           <>
-            <AppTitle data-testid="app-title">{appTitle}</AppTitle>
+            <AppDrawer appTitle={applicationTitle} onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)} />
             <Hr direction="vertical" isGtTablet={isGtTablet} />
           </>
         )}
-        <PageTitle data-testid="page-title" isGtMobile={isGtMobile} ref={pageTitleRef}>
+        <PageTitle data-testid="page-title" ref={pageTitleRef} isInvisible={mobileMenuIsOpen}>
           {pageTitle}
         </PageTitle>
         {!isGtMobile && (
           <SquareContainer>
-            <MobileMenu appTitle={appTitle} email={email} username={username} onSignOutClick={signOutClick} />
+            <MobileMenu
+              appTitle={applicationTitle}
+              email={email}
+              username={username}
+              onSignOutClick={signOutClick}
+              onMenuToggle={(isOpen) => setMobileMenuIsOpen(isOpen)}
+            />
           </SquareContainer>
         )}
-        {isGtMobile && <DesktopMenu email={email} username={username} onSignOutClick={signOutClick} />}
+        {isGtMobile && (
+          <DesktopMenu
+            email={email}
+            username={username}
+            onSignOutClick={signOutClick}
+            onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)}
+          />
+        )}
       </StyledHeader>
       {hasNavItems() && (
         <SideNav ref={sidenavRef} onSideNavToggle={() => setIsExpanded(!isExpanded)} isExpanded={isExpanded}>
@@ -124,8 +131,9 @@ export const Header: React.FC<HeaderProps> = ({
         </SideNav>
       )}
       <AppContent
-        ref={pageContainerElement}
+        ref={pageContainerRef}
         isGtMobile={isGtMobile}
+        initialized={initialized}
         sidenavPadding={hasNavItems()}
         hidden={!hasAppContent()}
         isExpanded={isExpanded}

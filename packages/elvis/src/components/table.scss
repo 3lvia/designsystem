@@ -13,97 +13,107 @@ $table-header-compact-height: 40px;
 $grey10: colors.color('grey-10');
 
 %header-style {
-  background: colors.color('white');
   width: 100%;
+  background: colors.color('white');
+
   th {
+    border-bottom: 1px solid colors.color('grey-10');
     color: colors.color('font-color');
     font-weight: 700;
-    border-bottom: 1px solid colors.color('grey-10');
   }
 }
 
 %checkbox-selected-style {
   position: relative;
+
   &::after {
-    content: '';
     position: absolute;
-    height: 100%;
-    width: 4px;
-    right: 0;
     top: 0;
-    background: colors.color('green');
+    right: 0;
+    width: 4px;
+    height: 100%;
     border-radius: 4px 0 0 4px;
+    background: colors.color('green');
+    content: '';
   }
 }
 
 .e-table-container {
-  width: 100%;
   overflow: auto;
+  width: 100%;
   border: 1px solid colors.color('grey-10');
   border-radius: $table-border-radius;
 }
+
 .e-table-footnote,
 .e-table__footnote {
   margin-top: 8px;
+  color: inherit;
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 16px;
   line-height: 26px;
-  color: inherit;
   text-align: left;
+
   &.e-table__footnote--compact {
     font-size: 14px;
   }
 }
+
 .e-table {
+  position: relative;
   display: table;
   overflow: auto;
-  text-align: left;
   width: 100%;
   box-sizing: border-box;
-  white-space: nowrap;
 
   // No spacing between table and container
   border-collapse: separate;
   border-spacing: 0;
-  position: relative;
+  text-align: left;
+  white-space: nowrap;
 
   thead {
     @extend %header-style;
+
     tr {
       height: $table-header-height;
     }
+
     th {
       @include typography.typography('title-xs');
     }
+
     th,
     td {
-      text-align: left;
       color: colors.color('font-color');
+      text-align: left;
     }
   }
 
   td,
   th {
     @include typography.typography('text-md');
-    text-align: left;
     padding: $table-padding;
     background: colors.color('white');
+    text-align: left;
+
     &.e-table__cell--multiline {
-      vertical-align: top;
-      white-space: pre-wrap;
       width: 450px;
       min-width: 450px;
       max-width: 450px;
       height: auto;
-    }
-    &.e-table__cell--multiline-small,
-    &.e-table__cell--multiline-sm {
       vertical-align: top;
       white-space: pre-wrap;
+    }
+
+    &.e-table__cell--multiline-small,
+    &.e-table__cell--multiline-sm {
       width: 250px;
       min-width: 250px;
       max-width: 250px;
       height: auto;
+      vertical-align: top;
+      white-space: pre-wrap;
     }
   }
 
@@ -111,9 +121,11 @@ $grey10: colors.color('grey-10');
     tr {
       background: colors.color('white');
     }
+
     tr:nth-of-type(odd) {
       background: colors.color('grey-05');
     }
+
     tr:nth-of-type(odd) th,
     tr:nth-of-type(odd) td {
       background: colors.color('grey-05');
@@ -134,14 +146,16 @@ $grey10: colors.color('grey-10');
     thead {
       @extend %header-style;
     }
+
     tr {
       height: $table-header-compact-height;
     }
+
     td,
     th {
       @include typography.typography('text-sm');
-      color: colors.color('font-color');
       padding: $table-compact-padding;
+      color: colors.color('font-color');
       line-height: 21px;
     }
   }
@@ -149,16 +163,17 @@ $grey10: colors.color('grey-10');
   &.e-table--sticky-header {
     thead {
       position: sticky;
-      top: 0;
       z-index: 10;
+      top: 0;
     }
   }
+
   &.e-table--sticky-column-header {
     thead th:first-of-type,
     th[scope='row'] {
       position: sticky;
-      left: 0;
       z-index: 1;
+      left: 0;
       border-right: 1px solid colors.color('grey-10');
     }
   }
@@ -168,27 +183,31 @@ $grey10: colors.color('grey-10');
 .e-table-container .e-table-mobile {
   box-shadow: none;
 }
+
 .e-table-mobile {
+  position: relative;
   display: table;
-  table-layout: auto;
-  width: 100%;
   overflow: hidden;
+  width: 100%;
   border-radius: $table-border-radius;
+  background: colors.color('elvia-on');
   border-spacing: 0;
   box-shadow: 0 0 0 1px $grey10;
-  background: colors.color('elvia-on');
-  position: relative;
+  table-layout: auto;
 
   thead {
+    @extend %header-style;
+
     tr {
       height: $table-header-height;
     }
+
     th,
     td {
-      text-align: left;
       color: colors.color('font-color');
+      text-align: left;
     }
-    @extend %header-style;
+
     th {
       @include typography.typography('title-xs');
       color: colors.color('font-color');
@@ -198,9 +217,9 @@ $grey10: colors.color('grey-10');
   th,
   td {
     @include typography.typography('text-md');
+    padding: $table-padding;
     color: colors.color('font-color');
     line-height: 27px;
-    padding: $table-padding;
     text-align: left;
   }
 
@@ -212,15 +231,17 @@ $grey10: colors.color('grey-10');
   tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) th {
     border-bottom: 1px solid colors.color('grey-10');
   }
+
   tbody:last-of-type tr:not(:last-of-type) td,
   tbody:last-of-type tr:not(:first-of-type):not(:last-of-type) th {
     border-bottom: 1px solid colors.color('grey-10');
   }
 
   tbody tr:first-of-type th {
-    background: colors.color('grey-05');
     @include typography.typography('text-md-strong');
+    background: colors.color('grey-05');
   }
+
   tbody th,
   tbody td {
     text-align: left;
@@ -230,6 +251,7 @@ $grey10: colors.color('grey-10');
   td:not(:first-of-type) {
     text-align: right;
   }
+
   th + th {
     text-align: right;
   }
@@ -239,20 +261,23 @@ $grey10: colors.color('grey-10');
       tr {
         height: $table-header-compact-height;
       }
+
       th {
         font-family: 'Red Hat Display', Verdana, sans-serif;
-        font-weight: 700;
         font-size: 15px;
+        font-weight: 700;
         line-height: 19px;
       }
     }
+
     td,
     th {
       @include typography.typography('text-sm');
-      color: colors.color('font-color');
       padding: $table-compact-padding;
+      color: colors.color('font-color');
       line-height: 21px;
     }
+
     tbody tr:first-of-type th {
       @include typography.typography('text-sm-strong');
       color: colors.color('font-color');
@@ -261,12 +286,14 @@ $grey10: colors.color('grey-10');
 
   &.e-table-mobile--sticky-header {
     overflow: auto;
+
     tbody {
       position: relative;
+
       tr:first-of-type {
         position: sticky;
         z-index: 10;
-        top: 0px;
+        top: 0;
       }
     }
   }
@@ -283,11 +310,13 @@ $grey10: colors.color('grey-10');
 .e-table .e-table__input,
 .e-table-mobile td.e-table-mobile__input {
   padding: 6px;
+
   .e-input {
     input {
-      background: transparent;
       border-color: colors.color('grey-60');
+      background: transparent;
     }
+
     .e-input---focus > input,
     .e-input---focus > textarea,
     > input:focus,
@@ -306,16 +335,20 @@ $grey10: colors.color('grey-10');
 .e-table .e-table__button {
   text-align: center;
 }
+
 .e-table .e-table__button,
 .e-table-mobile td.e-table-mobile__button {
   padding: 4px 16px;
+
   .e-btn:not(:last-of-type) {
     margin-right: 8px;
   }
+
   .e-btn.e-btn--icon {
     width: 40px;
     height: 40px;
     padding: 7px;
+
     .e-btn__icon {
       @include icons.icon-size('custom20');
     }
@@ -324,33 +357,38 @@ $grey10: colors.color('grey-10');
 // Compact
 .e-table.e-table--compact .e-table__button,
 .e-table-mobile.e-table-mobile--compact td.e-table-mobile__button {
-  padding: 0px 16px;
+  padding: 0 16px;
 }
 
 // Select
 .e-table .e-table__checkbox {
   th:first-of-type,
   td:first-of-type {
-    padding: 0px;
     width: 48px;
+    padding: 0;
+
     .e-checkbox {
       padding: $table-padding;
     }
   }
 }
+
 .e-table-mobile tr.e-table-mobile__checkbox {
   th:first-of-type,
   td:first-of-type {
     display: flex;
     align-items: center;
+
     .e-checkbox {
       margin-right: 10px;
     }
   }
 }
+
 .e-table .e-table__checkbox.e-table__checkbox--selected {
   @extend %checkbox-selected-style;
 }
+
 .e-table-mobile tr.e-table-mobile__checkbox.e-table-mobile__checkbox--selected {
   @extend %checkbox-selected-style;
 }
@@ -360,37 +398,42 @@ $grey10: colors.color('grey-10');
   .e-link__icon {
     @include icons.icon-size('custom20');
   }
+
   td:last-of-type {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
   }
+
   &:hover {
+    cursor: pointer;
+
     th:first-of-type,
     td:first-of-type {
       position: relative;
+
       &::before {
-        content: '';
         position: absolute;
-        height: 100%;
-        width: 4px;
-        left: 0;
         top: 0;
-        background: colors.color('green');
+        left: 0;
+        width: 4px;
+        height: 100%;
         border-radius: 0 4px 4px 0;
+        background: colors.color('green');
+        content: '';
       }
     }
+
     th + td {
       &::before {
         display: none;
       }
     }
-  }
-  &:hover {
-    cursor: pointer;
+
     .e-link__icon i[class*='filled-color'] {
       visibility: visible;
     }
+
     .e-link__icon i:not([class*='filled-color']) {
       visibility: hidden;
     }
@@ -451,4 +494,4 @@ $grey10: colors.color('grey-10');
     }
   }
 }
-/* stylelint-endabled */
+/* stylelint-enable */

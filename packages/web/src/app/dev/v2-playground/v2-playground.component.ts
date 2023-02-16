@@ -9,6 +9,11 @@ import { dropdownData } from './dropdown-data';
   styleUrls: ['./v2-playground.component.scss'],
 })
 export class v2PlaygroundComponent {
+  toggleTheme = () => {
+    const componentExamples = document.getElementById('dev-component-examples');
+    componentExamples.classList.toggle('e-theme-dark');
+    document.body.classList.toggle('e-theme-dark');
+  };
   // Accordion
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';
   accordionHtmlContent = `<div>HTML content<div>`;
@@ -140,6 +145,10 @@ export class v2PlaygroundComponent {
   progressValue = 0;
   progressError;
   indeterminate;
+
+  // Spotlight
+  showSpotlight = false;
+  toggleSpotlight = () => (this.showSpotlight = !this.showSpotlight);
 
   // Tabs
   items = [

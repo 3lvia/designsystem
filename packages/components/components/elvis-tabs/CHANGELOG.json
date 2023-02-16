@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.01.23",
+      "version": "2.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that could cause the <code>tabIdPrefix</code>-property to not properly change the IDs of the tabs."
+          ]
+        }
+      ]
+    },
+    {
       "date": "03.01.23",
       "version": "2.0.0",
       "changelog": [

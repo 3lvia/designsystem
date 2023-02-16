@@ -2,6 +2,20 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.02.23",
+      "version": "7.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for dark theme."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "23.12.22",
       "version": "7.0.7",
       "changelog": [
@@ -320,12 +334,12 @@
           "type": "breaking_changes",
           "changes": ["Renamed several props for more consistent naming conventions. "],
           "fixes": [
-            "Change prop <span class=\"code-text\">hasCloseBtn</span> => <span class=\"code-text\">hasCloseButton</span>.",
-            "Change prop <span class=\"code-text\">header</span> => <span class=\"code-text\">heading</span>.",
-            "Change prop <span class=\"code-text\">posX</span> => <span class=\"code-text\">horizontalPosition</span>.",
-            "Change prop <span class=\"code-text\">posY</span> => <span class=\"code-text\">verticalPosition</span>.",
-            "Change prop <span class=\"code-text\">selectable</span> => <span class=\"code-text\">isSelectable</span>.",
-            "Change prop <span class=\"code-text\">isShowingOnChange</span> => <span class=\"code-text\">onOpen</span> & <span class=\"code-text\">onClose</span>."
+            "Change prop <span class=\"code-text\">hasCloseBtn</span> to <span class=\"code-text\">hasCloseButton</span>.",
+            "Change prop <span class=\"code-text\">header</span> to <span class=\"code-text\">heading</span>.",
+            "Change prop <span class=\"code-text\">posX</span> to <span class=\"code-text\">horizontalPosition</span>.",
+            "Change prop <span class=\"code-text\">posY</span> to <span class=\"code-text\">verticalPosition</span>.",
+            "Change prop <span class=\"code-text\">selectable</span> to <span class=\"code-text\">isSelectable</span>.",
+            "Change prop <span class=\"code-text\">isShowingOnChange</span> to <span class=\"code-text\">onOpen</span> & <span class=\"code-text\">onClose</span>."
           ]
         }
       ]
@@ -576,9 +590,9 @@
       "version": "3.0.0 ",
       "changelog": [
         {
-          "type": "bug_fix",
+          "type": "breaking_changes",
           "changes": [
-            "Trigger now only takes up the space of it's content and the popover is now displayed as block and not  inline-block!"
+            "Trigger now only takes up the space of it's content and the popover is now displayed as block and not inline-block!"
           ]
         }
       ]
@@ -601,7 +615,7 @@
       "version": "2.0.0 ",
       "changelog": [
         {
-          "type": "bug_fix",
+          "type": "breaking_changes",
           "changes": ["Popover safari box-sizing bug", "Popover without shadow dom"]
         }
       ]

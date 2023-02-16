@@ -11,12 +11,12 @@ $label-colors: map-merge(colors.$just-colors, colors.$primary-colors);
   padding: 4px 8px 4px 24px;
 
   &::before {
+    position: absolute;
     left: 8px;
     display: inline-flex;
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    position: absolute;
     background-color: colors.color($color);
     content: ' ';
   }

@@ -39,16 +39,6 @@ describe('Elvis Pagination', () => {
       const pagination = screen.getByTestId('pagination');
       expect(pagination).toHaveStyle(`justify-content: flex-start`);
     });
-
-    it('should have hidden left arrow', () => {
-      const selectorArrowBtnLeft = screen.getByTestId('selector-arrow-btn-left');
-      expect(selectorArrowBtnLeft).toHaveStyle(`visibility: hidden`);
-    });
-
-    it('should have hidden right arrow', () => {
-      const selectorArrowBtnRight = screen.getByTestId('selector-arrow-btn-right');
-      expect(selectorArrowBtnRight).toHaveStyle(`visibility: hidden`);
-    });
   });
 
   describe('Custom values', () => {
@@ -77,6 +67,10 @@ describe('Elvis Pagination', () => {
       expect(pagination).toHaveStyle(`justify-content: flex-end`);
     });
 
+    it('should have selection area', () => {
+      expect(screen.queryByTestId('selector-area')).toBeInTheDocument();
+    });
+
     it('should have hidden left arrow', () => {
       const selectorArrowBtnLeft = screen.getByTestId('selector-arrow-btn-left');
       expect(selectorArrowBtnLeft).toHaveStyle(`visibility: hidden`);
@@ -99,7 +93,7 @@ describe('Elvis Pagination', () => {
     it('should have hidden right arrow after clicking last paginator number', async () => {
       const user = userEvent.setup();
 
-      const lastPageButton = screen.getByTestId('paginator-button-9');
+      const lastPageButton = screen.getByTestId('paginator-button-10');
       await user.click(lastPageButton);
       const selectorArrowBtnRight = screen.getByTestId('selector-arrow-btn-right');
       expect(selectorArrowBtnRight).toHaveStyle(`visibility: hidden`);
@@ -115,6 +109,21 @@ describe('Elvis Pagination', () => {
       expect(selectorArrowBtnRight).toHaveStyle(`visibility: visible`);
       const selectorArrowBtnLeft = screen.getByTestId('selector-arrow-btn-left');
       expect(selectorArrowBtnLeft).toHaveStyle(`visibility: visible`);
+    });
+  });
+  describe('All elements displayed', () => {
+    beforeEach(() => {
+      render(
+        <Pagination
+          numberOfElements={10}
+          alignment={'right'}
+          labelOptions={{ displaying: 'Showing', of: 'of', label: 'elements' }}
+        ></Pagination>,
+      );
+    });
+
+    it('should have no selection area when all elements are visible', () => {
+      expect(screen.queryByTestId('selector-area')).not.toBeInTheDocument();
     });
   });
   describe('className and inlineStyle passed to wrapper', () => {

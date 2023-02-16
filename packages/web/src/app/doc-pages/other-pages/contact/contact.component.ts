@@ -16,6 +16,7 @@ export class ContactComponent {
   loadedImgViljar = false;
   loadedImgTom = false;
   loadedImgErik = false;
+  loadedImgKari = false;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | ' + 'Elvia design system');
@@ -41,6 +42,9 @@ export class ContactComponent {
       }
       if (name === 'erik') {
         this.loadedImgErik = true;
+      }
+      if (name === 'kari') {
+        this.loadedImgKari = true;
       }
     }
   }

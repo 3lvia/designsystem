@@ -2,7 +2,46 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "05.01.22",
+      "date": "14.02.23",
+      "version": "3.3.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix that removes page-numbers when there is only one page"]
+        }
+      ]
+    },
+    {
+      "date": "01.02.23",
+      "version": "3.3.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Improved how the pagination handles changes in the dropdown when not on the 1st page.",
+            "The component has been refactored. This causes some changes to the DOM structure, but should not affect the styling or API."
+          ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that caused the pagination to not always dispatch an event when changing the value in the dropdown."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "17.01.23",
+      "version": "3.3.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Use newest version of <code>@elvia/elvis-dropdown</code>."]
+        }
+      ]
+    },
+    {
+      "date": "05.01.23",
       "version": "3.3.2",
       "changelog": [
         {
@@ -226,11 +265,11 @@
           "type": "breaking_changes",
           "changes": ["Renamed several props for more consistent naming conventions. "],
           "fixes": [
-            "Change prop <span class=\"code-text\">dropdownMenuPos</span> => <span class=\"code-text\">dropdownMenuPosition</span>.",
-            "Change prop <span class=\"code-text\">selectedDropdownItemIndex</span> => <span class=\"code-text\">dropdownSelectedItemIndex</span>.",
-            "Change event <span class=\"code-text\">selectedDropdownItemIndexOnChange</span> => <span class=\"code-text\">dropdownSelectedItemIndexOnChange</span>.",
+            "Change prop <span class=\"code-text\">dropdownMenuPos</span> to <span class=\"code-text\">dropdownMenuPosition</span>.",
+            "Change prop <span class=\"code-text\">selectedDropdownItemIndex</span> to <span class=\"code-text\">dropdownSelectedItemIndex</span>.",
+            "Change event <span class=\"code-text\">selectedDropdownItemIndexOnChange</span> to <span class=\"code-text\">dropdownSelectedItemIndexOnChange</span>.",
             "Combine the props <span class=\"code-text\">labelDisplaying</span>, <span class=\"code-text\">labelOf</span>, and <span class=\"code-text\">label</span> into the new <span class=\"code-text\">labelOptions</span> prop.",
-            "Change prop <span class=\"code-text\">isRightAligned</span> => <span class=\"code-text\">alignment</span>. No longer a boolean, but instead either <span class=\"code-text\">'left'</span> or <span class=\"code-text\">'right'</span>. "
+            "Change prop <span class=\"code-text\">isRightAligned</span> to <span class=\"code-text\">alignment</span>. No longer a boolean, but instead either <span class=\"code-text\">'left'</span> or <span class=\"code-text\">'right'</span>. "
           ]
         }
       ]

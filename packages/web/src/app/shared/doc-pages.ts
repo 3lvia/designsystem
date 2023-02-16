@@ -258,7 +258,7 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Header',
     description:
-      'Headers are used for navigation on the website and should be displayed at the top of the page. There are two types of headers available: one for external and one for internal systems.',
+      'Headers are used for navigation on the website and should be displayed at the top of the page.',
     docUrl: Pages.Header,
     absolutePath: '/components/' + Pages.Header,
     status: DocPageStatus.Done,

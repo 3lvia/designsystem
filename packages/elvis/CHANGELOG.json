@@ -1,6 +1,99 @@
 {
   "content": [
     {
+      "version": "10.3.0",
+      "date": "February 7, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add new icons: <code>cables_connected</code>, <code>cables_connected-color</code>, <code>cables_connecting-color</code>, <code>cables_disconnected</code>, <code>cables_disconnected-color</code>, <code>community</code>, <code>decent</code>, <code>diversity</code>, <code>health_safety_environment</code>, <code>image-color</code>, and <code>open</code>."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "10.2.0",
+      "date": "February 1, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Add new icon: <code>piggy_bank-color</code>."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "10.1.0",
+      "date": "January 26, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added <code>flex-wrap</code> classes in utilities."],
+          "pages": [
+            { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "10.0.0",
+      "date": "January 24, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The spacing between elements in the File Upload component has been changed from 22px to 8px. This changes the total height of the component.",
+            "Removed styles for the <code>:invalid</code> CSS pseudo-class for <code>e-input</code>."
+          ],
+          "fixes": [
+            "Adjust your design to accommodate for the new File Upload height.",
+            "Add the <code>e-input---invalid</code> class to your invalid <code>e-input</code> elements to get the styles for invalid inputs."
+          ],
+          "components": [
+            { "displayName": "File Upload", "url": "https://design.elvia.io/components/file-upload" },
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
+          ]
+        },
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added <code>:user-invalid</code> CSS pseudo-class for <code>e-input</code> (Firefox only)."
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where a step would get incorrect hover styles when disabled.",
+            "Fixed a bug where the step title would be misaligned with the step number.",
+            "Fixed a bug where the line connecting to a disabled step was displayed in the incorrect color.",
+            "Fixed a bug where if you put 'required' on an input field, it would automatically get the 'invalid' styles."
+          ],
+          "components": [
+            { "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" },
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Stepper now uses Elvis typography styles.",
+            "The Position Picker component is now marked as deprecated."
+          ],
+          "components": [
+            { "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" },
+            { "displayName": "Position Picker", "url": "https://design.elvia.io/components/position-picker" }
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Internal refactoring of Elvis styles with Stylelint."]
+        }
+      ]
+    },
+    {
       "version": "9.9.0",
       "date": "January 10, 2023",
       "changelog": [
@@ -16,7 +109,7 @@
             "Fixed a bug where the placeholder text of disabled inputs was too dark.",
             "Fixed a bug where the text inside a button wrapped onto a new line if too long."
           ],
-          "pages": [
+          "components": [
             { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },
             { "displayName": "Button", "url": "https://design.elvia.io/components/button" }
           ]
@@ -836,8 +929,8 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "Segmented controls are now in three sizes: <br />Small -> Medium <br />Medium -> Large <br />New Small size (smaller than the previous) <br />",
-            "Title xs on mobiles has been updated font-size from 18px -> 16px. This is done so that the difference between title sm and xs i more distinct.",
+            "Segmented controls are now in three sizes: <br />Small to Medium <br />Medium to Large <br />New Small size (smaller than the previous) <br />",
+            "Title xs on mobiles has been updated font-size from 18px to 16px. This is done so that the difference between title sm and xs i more distinct.",
             "Toggle has updated structure and now includes label and role. This is done for better accessibility."
           ],
           "fixes": [
@@ -1246,7 +1339,7 @@
           "type": "new_feature",
           "changes": [
             "Content loader has new modifier for grey backgrounds.",
-            "Red signal color has been updated, <code>#FF0000</code> -> <code>#EE0701</code>, for better contrast and validation against both black and white.",
+            "Red signal color has been updated, <code>#FF0000</code> to <code>#EE0701</code>, for better contrast and validation against both black and white.",
             "The danger button hover color has been changed and documentation for more use cases has been updated. Disabled states have also been added to documentation."
           ],
           "components": [
@@ -1583,10 +1676,10 @@
             "The <code>e-popover</code> alignments classes for left and right positions have been renamed and refactored."
           ],
           "fixes": [
-            "<code class=\"changelog-code\">e-popover--top--left</code> -> <code class=\"changelog-code\">e-popover--left</code>",
-            "<code class=\"changelog-code\">e-popover--bottom--left</code> -> <code class=\"changelog-code\">e-popover--bottom e-popover--left</code>",
-            "<code class=\"changelog-code\">e-popover--top--right</code> -> <code class=\"changelog-code\">e-popover--right</code>",
-            "<code class=\"changelog-code\">e-popover--bottom--right</code> -> <code class=\"changelog-code\">e-popover--bottom e-popover--right</code>"
+            "<code class=\"changelog-code\">e-popover--top--left</code> to <code class=\"changelog-code\">e-popover--left</code>",
+            "<code class=\"changelog-code\">e-popover--bottom--left</code> to <code class=\"changelog-code\">e-popover--bottom e-popover--left</code>",
+            "<code class=\"changelog-code\">e-popover--top--right</code> to <code class=\"changelog-code\">e-popover--right</code>",
+            "<code class=\"changelog-code\">e-popover--bottom--right</code> to <code class=\"changelog-code\">e-popover--bottom e-popover--right</code>"
           ],
           "components": [{ "displayName": "Popover", "url": "https://design.elvia.io/components/popover" }]
         },
@@ -1612,8 +1705,8 @@
             "The design and structure of tables have been updated. Tables with black headers have been removed and a wrapper class has been added."
           ],
           "fixes": [
-            "The easiest way to fix an existing header is to search and replace the classes listed here with the new classes.<ul class=\"e-list\"><li ddfdf><code class=\"changelog-code\">e-top-bar</code> -> <code class=\"changelog-code\">e-header__top-bar</code></li sdsd><li dfdfdf><code class=\"changelog-code\">e-sidebar</code> -> <code class=\"changelog-code\">e-header__sidebar</code></li sdsd><li dfdfdfd><code class=\"changelog-code\">top-bar__</code> -> <code class=\"changelog-code\">top-bar-desktop__</span></li sdsd></ul sdsd>",
-            "Add an element with the <code class=\"changelog-code\">e-table-container</code> class outside the element with the <code class=\"changelog-code\">e-table</code> class.<ul class=\"e-list\"><li ddfdf><code class=\"changelog-code\">e-table</code> -> <code class=\"changelog-code\">e-table-container e-table</code></li sdsdsd></ul>"
+            "The easiest way to fix an existing header is to search and replace the classes listed here with the new classes.<ul class=\"e-list\"><li ddfdf><code class=\"changelog-code\">e-top-bar</code> to <code class=\"changelog-code\">e-header__top-bar</code></li sdsd><li dfdfdf><code class=\"changelog-code\">e-sidebar</code> to <code class=\"changelog-code\">e-header__sidebar</code></li sdsd><li dfdfdfd><code class=\"changelog-code\">top-bar__</code> to <code class=\"changelog-code\">top-bar-desktop__</span></li sdsd></ul sdsd>",
+            "Add an element with the <code class=\"changelog-code\">e-table-container</code> class outside the element with the <code class=\"changelog-code\">e-table</code> class.<ul class=\"e-list\"><li ddfdf><code class=\"changelog-code\">e-table</code> to <code class=\"changelog-code\">e-table-container e-table</code></li sdsdsd></ul>"
           ],
           "components": [
             { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
@@ -1669,7 +1762,7 @@
             "All <code class=\"changelog-code\">---visible</code> classes for Modal and Popover components are removed. New utility classes are added instead for showing and hiding elements. If you are using the Modal or Popover components you now have to use the new utility classes for hiding and showing. Theses components are by default now always visible.<div class=\"e-mt-8\"></div>"
           ],
           "fixes": [
-            "Add the <code class=\"changelog-code\">e-none</code> or <code class=\"changelog-code\">e-invisble</code> utility classes to toggle the components.<ul><li><code class=\"changelog-code\">e-component---visible</code> -> <code class=\"changelog-code\">e-none</span> & <code class=\"changelog-code\">e-invisible</code></li></ul>"
+            "Add the <code class=\"changelog-code\">e-none</code> or <code class=\"changelog-code\">e-invisble</code> utility classes to toggle the components.<ul><li><code class=\"changelog-code\">e-component---visible</code> to <code class=\"changelog-code\">e-none</span> & <code class=\"changelog-code\">e-invisible</code></li></ul>"
           ],
           "components": [
             { "displayName": "Modal", "url": "https://design.elvia.io/components/modal" },
@@ -1690,7 +1783,7 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "If you are using the grid-classes some might have to be updated to work as usual. The classes that have changed / been added:<ul sdsd><li sdsd><code class=\"changelog-code\">e-grid-margin</code> -> <code class=\"changelog-code\">e-grid-margin-ext</code> + <code class=\"changelog-code\">e-grid-margin-int</code></li ssdsd><li sds><code class=\"changelog-code\">e-custom-gutters</code> -> <code class=\"changelog-code\">e-grid-gutters-ext</code> +<code class=\"changelog-code\">e-grid-gutters-int</code> + <code class=\"changelog-code\">e-grid-gutters-vertical</code></li sdd></ul sdsd>"
+            "If you are using the grid-classes some might have to be updated to work as usual. The classes that have changed / been added:<ul sdsd><li sdsd><code class=\"changelog-code\">e-grid-margin</code> to <code class=\"changelog-code\">e-grid-margin-ext</code> + <code class=\"changelog-code\">e-grid-margin-int</code></li ssdsd><li sds><code class=\"changelog-code\">e-custom-gutters</code> to <code class=\"changelog-code\">e-grid-gutters-ext</code> +<code class=\"changelog-code\">e-grid-gutters-int</code> + <code class=\"changelog-code\">e-grid-gutters-vertical</code></li sdd></ul sdsd>"
           ],
           "pages": [{ "displayName": "Grid", "url": "https://design.elvia.io/brand/grid" }]
         },

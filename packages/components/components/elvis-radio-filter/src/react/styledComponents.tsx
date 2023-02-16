@@ -1,11 +1,5 @@
 import styled from 'styled-components';
-import { getColor } from '@elvia/elvis-colors';
-
-const colors = {
-  elviaCharge: getColor('elvia-charge'),
-  elviaBlack: getColor('black'),
-  outline: getColor('focus-outline'),
-};
+import { getThemeColor } from '@elvia/elvis-colors';
 
 export const RadioFilterGroup = styled.div`
   display: flex;
@@ -17,21 +11,22 @@ export const RadioFilterGroup = styled.div`
   margin: 0;
 `;
 
-export const RadioFilterLabel = styled.label`
+interface RadioFilterLabelProps {
+  isSelected: boolean;
+}
+
+export const RadioFilterLabel = styled.label<RadioFilterLabelProps>`
+  display: grid;
+  place-items: center;
   border-radius: 32px;
   padding: 4px 12px;
-  border: ${(props: { isSelected: boolean }) =>
-    `1px solid ${props.isSelected ? colors.elviaBlack : 'transparent'}`};
+  border: ${({ isSelected }) => `1px solid ${isSelected ? getThemeColor('text-primary') : 'transparent'}`};
   cursor: pointer;
   position: relative;
 
   &:hover:not(:disabled) {
-    border: ${(props: { isSelected: boolean }) =>
-      `1px solid ${props.isSelected ? colors.elviaBlack : colors.elviaCharge}`};
-  }
-  &:focus-within {
-    outline: 2px solid ${colors.outline};
-    outline-offset: 2px;
+    border-color: ${({ isSelected }) =>
+      `${isSelected ? getThemeColor('text-primary') : getThemeColor('state-hover-green')}`};
   }
   white-space: nowrap;
   margin: 0;
@@ -55,4 +50,5 @@ export const RadioFilterTitle = styled.span`
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
+  color: ${getThemeColor('text-primary')};
 `;

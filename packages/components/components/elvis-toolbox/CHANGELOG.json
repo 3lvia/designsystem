@@ -2,7 +2,30 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "03.01.22",
+      "date": "30.01.23",
+      "version": "7.6.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Form field, button, icon button, and overlay now support dark theme.",
+            "Added new hook <code>useCurrentTheme</code>."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "16.01.23",
+      "version": "7.5.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Overlay not closing properly on localhost in React"]
+        }
+      ]
+    },
+    {
+      "date": "03.01.23",
       "version": "7.5.0",
       "changelog": [
         {
@@ -102,7 +125,7 @@
       "version": "7.0.0",
       "changelog": [
         {
-          "type": "patch",
+          "type": "breaking_changes",
           "changes": ["Deprecated warning function refactored and component config types added."]
         }
       ]

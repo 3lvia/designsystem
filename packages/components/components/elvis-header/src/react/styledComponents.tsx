@@ -1,51 +1,15 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import { TertiaryButton } from '@elvia/elvis-toolbox';
 
 export const toolbarHeight = '64px';
 export const headerZIndex = 109;
 export const sidebarMaxWidth = '280px';
 export const sidebarAnimation = '400ms cubic-bezier(0.71, 0, 0.31, 1)';
 
-const fadeIn = keyframes`
-  from { opacity: 0; }
-
-  to { opacity: 1; }
-`;
-
-const fadeOut = keyframes`
-  from { opacity: 1; }
-
-  to { opacity: 0; }
-`;
-
-interface BackdropProps {
-  transparent: boolean;
-  fadeOut: boolean;
-}
-
-interface ResponsiveProps {
-  isGtMobile: boolean;
-}
-
-export const Backdrop = styled.div<Partial<BackdropProps>>`
-  background: ${(props) => (props.transparent ? 'transparent' : 'rgba(0, 0, 0, 0.5)')};
-  position: fixed;
-  top: ${toolbarHeight};
-  bottom: 0;
-  right: 0;
-  left: 0;
-  animation: ${fadeIn} 300ms;
-
-  ${(props) =>
-    props.fadeOut &&
-    css`
-      animation: ${fadeOut} 200ms ease;
-    `}
-`;
-
-export const StyledHeader = styled.header<ResponsiveProps>`
+export const StyledHeader = styled.header<{ isGtMobile: boolean; menuIsOpen: boolean }>`
   background-color: ${getColor('elvia-on')};
   height: ${toolbarHeight};
   display: flex;
@@ -56,11 +20,26 @@ export const StyledHeader = styled.header<ResponsiveProps>`
   right: 0;
   z-index: ${headerZIndex};
 
-  ${(props) =>
-    props.isGtMobile &&
+  ${({ isGtMobile }) =>
+    isGtMobile &&
     css`
       border-bottom: 2px solid ${getColor('grey-05')};
-    `}
+
+      ${LogoContainer} {
+        width: unset;
+        padding: 19px 16px 19px 19px;
+      }
+
+      ${PageTitle} {
+        margin: 0 auto 0 0;
+      }
+    `};
+
+  ${({ menuIsOpen }) =>
+    menuIsOpen &&
+    css`
+      z-index: 999999;
+    `};
 `;
 
 export const SquareContainer = styled.div`
@@ -71,67 +50,55 @@ export const SquareContainer = styled.div`
   justify-content: center;
 `;
 
-export const LogoContainer = styled(SquareContainer)<ResponsiveProps>`
-  ${(props) => {
-    if (props.isGtMobile) {
-      return css`
-        width: unset;
-        padding: 19px 16px 19px 19px;
-      `;
-    }
-
-    return css`
-      padding: 19px 16px;
-    `;
-  }}
+export const LogoContainer = styled(SquareContainer)`
+  padding: 19px 16px;
 `;
 
-export const PageTitle = styled.h1<ResponsiveProps>`
+export const PageTitle = styled.h1<{ isInvisible: boolean }>`
   ${getTypographyCss('text-md')};
+  transition: opacity 150ms;
+  margin: 0 auto;
 
-  ${(props) => {
-    if (props.isGtMobile) {
-      return css`
-        margin: 0 auto 0 0;
-      `;
-    }
-
-    return css`
-      margin: 0 auto;
-    `;
-  }};
+  ${({ isInvisible }) =>
+    isInvisible &&
+    css`
+      opacity: 0;
+    `};
 `;
 
-export const TertiaryButton = styled.button`
-  ${getTypographyCss('text-sm')}
-  border: none;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
+export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
   position: relative;
+  height: calc(100% - 8px); // Shows the full keyboard-focus outline without clipping
+  font-weight: 400;
 
-  &:not(:last-of-type) {
-    margin-bottom: 16px;
-  }
-
-  &:after {
+  &::after {
     content: '';
-    display: block;
     position: absolute;
-    top: calc(100% + 2px);
     left: 0;
     right: 0;
+    top: calc(100% + 2px); // To revert the height-hack
     height: 2px;
-    background-color: transparent;
-    transition: background-color 100ms;
+    background-color: ${getColor('green')};
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+    transform-origin: center left;
   }
 
-  &:hover:not([disabled]):after {
-    background-color: ${getColor('green')};
+  &:last-child {
+    margin-right: 24px;
   }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      &::after {
+        transform: scaleX(1);
+      }
+    `}
 `;
 
 export const IconButton = styled.button`
@@ -144,12 +111,10 @@ export const IconButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
 
-export const AppTitle = styled.h1`
-  ${getTypographyCss('title-caps')}
-  margin: 0;
-  text-align: left;
+  svg {
+    width: 26px;
+  }
 `;
 
 export interface HrProps {
@@ -178,14 +143,17 @@ export const Hr = styled.hr<Partial<HrProps>>`
   }}
 `;
 
-interface AppContentProps extends ResponsiveProps {
+interface AppContentProps {
   sidenavPadding: boolean;
+  initialized: boolean;
   isExpanded: boolean;
+  isGtMobile: boolean;
 }
 
 export const AppContent = styled.main<AppContentProps>`
   padding-top: ${toolbarHeight};
   transition: padding-left ${sidebarAnimation};
+  transition-duration: ${(props) => (props.initialized ? '400ms' : '0ms')};
 
   ${(props) => {
     if (props.isGtMobile && props.sidenavPadding) {

@@ -35,6 +35,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() overflowX: string;
   @Input() alignedTop = false;
   @Input() height = '340';
+  @Input() tabIdPrefix = 'ceg';
 
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
@@ -256,9 +257,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
    * @returns
    */
   keepOriginalOrderInCustomTextPopover(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     left: KeyValue<string, typeof this.customTextProps[0]>,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     right: KeyValue<string, typeof this.customTextProps[0]>,
   ): number {
     return left.value.orderOfPropsDisplayed > right.value.orderOfPropsDisplayed ? 1 : -1;

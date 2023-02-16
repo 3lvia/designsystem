@@ -2,6 +2,26 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "30.01.23",
+      "version": "6.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for dark theme."]
+        }
+      ]
+    },
+    {
+      "date": "26.01.23",
+      "version": "6.1.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["<code>resetTime</code> prop not working as intended."]
+        }
+      ]
+    },
+    {
       "date": "11.01.23",
       "version": "6.1.3",
       "changelog": [
@@ -36,7 +56,7 @@
       ]
     },
     {
-      "date": "05.1.23",
+      "date": "05.01.23",
       "version": "6.1.0",
       "changelog": [
         {
@@ -559,7 +579,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added disableDate prop that allows disabling specific dates by sending in a function of the shape  `(day: Date) => boolean` that is true for dates that should be disabled."
+            "Added disableDate prop that allows disabling specific dates by sending in a function that returns true for dates that should be disabled."
           ]
         },
         {
@@ -732,7 +752,7 @@
       "version": "2.0.0 ",
       "changelog": [
         {
-          "type": "new_feature",
+          "type": "breaking_changes",
           "changes": ["Now sending events when no date, or invalid date, is selected"]
         }
       ]

@@ -1,4 +1,4 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
@@ -33,7 +33,7 @@ const getTypography = (size: Size) => {
 };
 
 const ButtonBase = styled.button.attrs(() => ({ type: 'button' }))<Partial<ButtonProps>>`
-  ${(props) => getTypography(props.size ?? 'md')};
+  ${({ size }) => getTypography(size ?? 'md')};
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -49,7 +49,7 @@ const ButtonBase = styled.button.attrs(() => ({ type: 'button' }))<Partial<Butto
     cursor: pointer;
 
     &::selection {
-      background-color: ${getColor('elvia-charge')};
+      background-color: ${getThemeColor('state-on')};
     }
   }
 `;
@@ -83,19 +83,21 @@ const getButtonPadding = (size?: Size) => {
 };
 
 export const PrimaryButton = styled(ButtonBase)`
-  height: ${(props) => getButtonHeight(props.size)};
-  border: 1px solid ${(props) => (props.isActive ? getColor('elvia-charge') : getColor('elvia-off'))};
-  padding: ${(props) => getButtonPadding(props.size)};
-  background-color: ${(props) => (props.isActive ? getColor('elvia-charge') : getColor('elvia-off'))};
-  color: ${(props) => (props.isActive ? getColor('elvia-off') : getColor('elvia-on'))};
+  height: ${({ size }) => getButtonHeight(size)};
+  border: 1px solid
+    ${({ isActive }) => (isActive ? getThemeColor('state-on') : getThemeColor('text-primary'))};
+  padding: ${({ size }) => getButtonPadding(size)};
+  background-color: ${({ isActive }) =>
+    isActive ? getThemeColor('state-on') : getThemeColor('text-primary')};
+  color: ${({ isActive }) => (isActive ? getThemeColor('text-primary') : getThemeColor('state-on'))};
   transition: transform 100ms;
   border-radius: 99px;
 
   &:not(:disabled) {
     &:hover {
-      background-color: ${getColor('elvia-charge')};
-      border-color: ${getColor('elvia-charge')};
-      color: ${getColor('elvia-off')};
+      background-color: ${getThemeColor('state-hover-green')};
+      border-color: ${getThemeColor('state-hover-green')};
+      color: ${getThemeColor('text-primary')};
     }
 
     &:active {
@@ -105,19 +107,19 @@ export const PrimaryButton = styled(ButtonBase)`
   }
 
   &:disabled {
-    border-color: ${getColor('disabled')};
-    background-color: ${getColor('disabled')};
+    border-color: ${getThemeColor('state-disabled')};
+    background-color: ${getThemeColor('state-disabled')};
   }
 `;
 
 export const SecondaryButton = styled(PrimaryButton)`
-  background-color: ${(props) => (props.isActive ? getColor('elvia-charge') : 'transparent')};
-  color: ${getColor('elvia-off')};
+  background-color: ${({ isActive }) => (isActive ? getThemeColor('state-on') : 'transparent')};
+  color: ${getThemeColor('text-primary')};
 
   &:disabled {
     background-color: transparent;
-    border-color: ${getColor('disabled')};
-    color: ${getColor('disabled')};
+    border-color: ${getThemeColor('state-disabled')};
+    color: ${getThemeColor('state-disabled')};
   }
 `;
 
@@ -126,7 +128,7 @@ export const TertiaryButton = styled(ButtonBase)`
   background: transparent;
   position: relative;
   padding: 0;
-  height: ${(props) => (props.size === 'sm' ? '1.5rem' : '2rem')};
+  height: ${({ size }) => (size === 'sm' ? '1.5rem' : '2rem')};
 
   &:after {
     content: '';
@@ -136,7 +138,7 @@ export const TertiaryButton = styled(ButtonBase)`
     left: 0;
     right: 0;
     height: 2px;
-    background-color: ${(props) => (props.isActive ? getColor('elvia-charge') : 'transparent')};
+    background-color: ${({ isActive }) => (isActive ? getThemeColor('state-on') : 'transparent')};
     transform: scaleY(1);
     transform-origin: center bottom;
     transition: background-color 60ms, transform 100ms;
@@ -144,7 +146,7 @@ export const TertiaryButton = styled(ButtonBase)`
 
   &:not(:disabled) {
     &:hover:after {
-      background-color: ${getColor('elvia-charge')};
+      background-color: ${getThemeColor('state-hover-green')};
     }
 
     &:active:after {
@@ -153,6 +155,6 @@ export const TertiaryButton = styled(ButtonBase)`
   }
 
   &:disabled {
-    color: ${getColor('disabled')};
+    color: ${getThemeColor('state-disabled')};
   }
 `;

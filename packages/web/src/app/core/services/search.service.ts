@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import Fuse from 'fuse.js';
 
-@Injectable({
-  providedIn: 'root',
-})
+/**
+ * **NB**: Remember to add `providers: [SearchService]` to the component using this service.
+ * This is necessary to ensure that the service is instantiated for each component (so that each search is separate).
+ */
+@Injectable()
 export class SearchService<T> {
   searchResults: Fuse.FuseResult<T>[];
   isInitialized = false;

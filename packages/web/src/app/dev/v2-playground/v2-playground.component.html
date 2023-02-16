@@ -1,21 +1,11 @@
 <h1>Angular Preview</h1>
-<div class="components-examples">
+<button class="e-btn theme-toggle-button" (click)="toggleTheme()">Toggle theme</button>
+<div class="components-examples" id="dev-component-examples">
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white">
-      <elvia-datepicker
-        (valueOnChange)="writeDate($event.detail.value)"
-        [isRequired]="false"
-      ></elvia-datepicker>
-      <span class="e-ml-16">
-        <elvia-datepicker
-          (valueOnChange)="writeDate($event.detail.value)"
-          [isRequired]="true"
-        ></elvia-datepicker>
-      </span>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -320,10 +310,11 @@
   <div class="example-wrapper">
     <h3>Paginator</h3>
     <elvia-pagination
-      numberOfElements="156"
+      numberOfElements="32"
       [value]="defaultPaginationValue"
       [alignment]="'right'"
       dropdownMenuPosition="top"
+      (valueOnChange)="logValue('Pagination', $event.detail.value)"
     ></elvia-pagination>
   </div>
 
@@ -476,7 +467,14 @@
   <!--Spotlight-->
   <div class="example-wrapper">
     <h3>Spotlight</h3>
-    <!-- <elvia-spotlight [position]="{ horizontal: 300, vertical: 300 }" [radius]="80"></elvia-spotlight> -->
+    <elvia-spotlight
+      *ngIf="showSpotlight"
+      [position]="{ horizontal: 450, vertical: 300 }"
+      [radius]="150"
+    ></elvia-spotlight>
+    <button class="e-btn" style="position: relative; z-index: 999999" (click)="toggleSpotlight()">
+      Toggle spotlight
+    </button>
   </div>
 
   <!--Tabs-->

@@ -33,6 +33,7 @@ export const DatepickerRangeWrapper = styled.div<DatepickerRangeWrapperProps>`
 
       ${RowContainer} {
         flex: 1;
+        width: 100%;
       }
     `};
 `;

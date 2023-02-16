@@ -99,7 +99,7 @@ export const DropdownInput: React.FC<Props> = ({
       {placeholderIcon && !inputValue && (
         <Icon name={placeholderIcon} size="xs" color={isDisabled ? 'disabled' : 'placeholder'} />
       )}
-      {!!currentValIcon && <Icon name={currentValIcon} color="elvia-off" />}
+      {!!currentValIcon && <Icon name={currentValIcon} color={isDisabled ? 'disabled' : 'elvia-off'} />}
       <Input
         aria-activedescendant={focusedItem ? getDropdownItemId(focusedItem.value) : undefined}
         disabled={isDisabled}

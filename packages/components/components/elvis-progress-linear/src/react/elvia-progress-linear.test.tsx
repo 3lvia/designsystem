@@ -2,6 +2,7 @@ import React from 'react';
 import ProgressLinear from './elvia-progress-linear';
 import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';
+import { getThemeColor } from '@elvia/elvis-colors';
 
 describe('Elvis Progress Linear', () => {
   describe('Value = 48', () => {
@@ -22,7 +23,7 @@ describe('Elvis Progress Linear', () => {
 
     it('should have color green', () => {
       const progressLinearProgress = screen.getByTestId('progress-linear-progress');
-      expect(progressLinearProgress).toHaveStyle('background-color: #29d305');
+      expect(progressLinearProgress).toHaveStyle(`background-color: ${getThemeColor('state-on')}`);
     });
   });
 
@@ -33,7 +34,7 @@ describe('Elvis Progress Linear', () => {
 
     it('should have color red', () => {
       const progressLinearProgress = screen.getByTestId('progress-linear-progress');
-      expect(progressLinearProgress).toHaveStyle('background-color: #ee0701');
+      expect(progressLinearProgress).toHaveStyle(`background-color: ${getThemeColor('state-error')}`);
     });
   });
 

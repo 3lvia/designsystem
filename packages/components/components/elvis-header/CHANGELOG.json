@@ -2,6 +2,34 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "25.01.23",
+      "version": "1.2.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Ensure Elvia logo has the right size.",
+            "Prevent sidenav item text from wrapping.",
+            "Show colored icon when active."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "16.01.23",
+      "version": "1.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Add full list of Elvia applications."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Remove page content slide on init."]
+        }
+      ]
+    },
+    {
       "date": "23.12.22",
       "version": "1.1.9",
       "changelog": [

@@ -1,7 +1,6 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages';
-import packageJson from '@elvia/elvis/package.json';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
@@ -17,10 +16,10 @@ import { Router } from '@angular/router';
   selector: 'app-search-menu',
   templateUrl: './search-menu.component.html',
   styleUrls: ['./search-menu.component.scss'],
+  providers: [SearchService],
 })
 export class SearchMenuComponent implements OnInit, OnDestroy {
   mainMenu: CMSMenu;
-  version = packageJson.version;
   showResults = false;
   resultOfMoreThanTwo = false;
   searchString = '';

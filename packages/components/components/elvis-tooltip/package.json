@@ -3,6 +3,7 @@
   "version": "1.1.7",
   "description": "",
   "license": "MIT",
+  "homepage": "https://design.elvia.io/components/tooltip",
   "author": "",
   "main": "web_component.js",
   "files": [
@@ -22,5 +23,16 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "react-is": {
+      "optional": true
+    }
   }
 }
