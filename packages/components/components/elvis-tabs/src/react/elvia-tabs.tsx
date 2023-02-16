@@ -1,5 +1,7 @@
 import React, { FC, useEffect, useState, useRef, CSSProperties } from 'react';
 import { IconWrapper, isSsr } from '@elvia/elvis-toolbox';
+import { getThemeColor } from '@elvia/elvis-colors';
+
 import {
   TabsContainer,
   ItemsContainer,
@@ -15,7 +17,6 @@ import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold'
 export interface TabsProps {
   items: string[];
   value?: number;
-  isInverted?: boolean;
   hasManualActivation?: boolean;
   ariaLabel?: string;
   tabIdPrefix?: string;
@@ -28,7 +29,6 @@ export interface TabsProps {
 const Tabs: FC<TabsProps> = ({
   items,
   value = 0,
-  isInverted,
   hasManualActivation = false,
   ariaLabel,
   tabIdPrefix,
@@ -206,7 +206,7 @@ const Tabs: FC<TabsProps> = ({
         <IconWrapper
           icon={arrowLeftBold}
           size="xxs"
-          color={isInverted ? 'white' : undefined}
+          color={getThemeColor('text-primary')}
           style={{
             position: 'absolute',
             top: '11px',
@@ -214,7 +214,7 @@ const Tabs: FC<TabsProps> = ({
           }}
         />
       </ArrowButton>
-      <ItemsContainer isInverted={isInverted} isOnLeftEnd={isOnLeftEnd} isOnRightEnd={isOnRightEnd}>
+      <ItemsContainer isOnLeftEnd={isOnLeftEnd} isOnRightEnd={isOnRightEnd}>
         <ScrollContainer ref={itemsRef} role="tablist" aria-label={ariaLabel}>
           {items &&
             items.map((item, i) => (
@@ -231,7 +231,7 @@ const Tabs: FC<TabsProps> = ({
                 }}
                 data-testid="tab-button"
               >
-                <TabLabel isSelected={currValue == i} isInverted={isInverted} data-testid="tab-label">
+                <TabLabel isSelected={currValue == i} data-testid="tab-label">
                   {item}
                 </TabLabel>
               </Tab>
@@ -248,7 +248,7 @@ const Tabs: FC<TabsProps> = ({
         <IconWrapper
           icon={arrowRightBold}
           size="xxs"
-          color={isInverted ? 'white' : undefined}
+          color={getThemeColor('text-primary')}
           style={{
             position: 'absolute',
             top: '11px',

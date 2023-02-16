@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 const iconButtonWidth = 24;
@@ -61,25 +61,15 @@ const decideFade = (isOnRightEnd: boolean, isOnLeftEnd: boolean): string => {
 type ItemsContainerProps = {
   isOnRightEnd: boolean;
   isOnLeftEnd: boolean;
-  isInverted?: boolean;
 };
 
 export const ItemsContainer = styled.div<ItemsContainerProps>`
-  ${({ isOnRightEnd, isOnLeftEnd, isInverted }) => css`
+  ${({ isOnRightEnd, isOnLeftEnd }) => css`
     position: relative;
     display: flex;
     user-select: none;
     mask: ${decideFade(isOnRightEnd, isOnLeftEnd)};
     width: ${!isOnLeftEnd || !isOnRightEnd ? `calc(100% - (2 * ${iconButtonWidth}px))` : '100%'};
-    ${isInverted &&
-    css`
-      &::before {
-        background-image: linear-gradient(to right, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
-      }
-      &::after {
-        background-image: linear-gradient(to left, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
-      }
-    `};
   `}
 `;
 
@@ -117,11 +107,9 @@ const Underline = css`
   border-radius: 50px;
 `;
 
-const decideLabelTextShadow = (isSelected: boolean, isInverted?: boolean): string => {
-  if (isSelected && !isInverted) {
-    return '0 0 0 black, 0 0 0.5px black';
-  } else if (isInverted && isSelected) {
-    return '0 0 0 white, 0 0 0.5px white';
+const decideLabelTextShadow = (isSelected: boolean) => {
+  if (isSelected) {
+    return `0 0 0 ${getThemeColor('text-primary')}, 0 0 0.5px ${getThemeColor('text-primary')}`;
   } else {
     return 'none';
   }
@@ -129,17 +117,15 @@ const decideLabelTextShadow = (isSelected: boolean, isInverted?: boolean): strin
 
 type TabLabelProps = {
   isSelected: boolean;
-  isInverted?: boolean;
 };
 
 export const TabLabel = styled.span<TabLabelProps>`
-  ${({ isSelected, isInverted }) => css`
+  ${({ isSelected }) => css`
     ${getTypographyCss('title-caps')}
     line-height: ${tabsLineHeight}px;
     font-weight: normal;
-    color: ${isInverted ? 'white' : 'black'};
-    text-shadow: ${decideLabelTextShadow(isSelected, isInverted)};
-
+    color: ${getThemeColor('text-primary')};
+    text-shadow: ${decideLabelTextShadow(isSelected)};
     display: block;
     position: relative;
     border: none;
@@ -150,23 +136,30 @@ export const TabLabel = styled.span<TabLabelProps>`
     &::before {
       ${Underline}
       width: 100%;
-      background-color: ${isInverted ? getColor('grey-80') : getColor('grey-10')};
+      background-color: ${getThemeColor('background-accent')};
     }
 
     &::after {
       ${Underline}
       display: block;
-      width: ${isSelected || (isInverted && isSelected) ? '100%' : '0'};
+      width: ${isSelected ? '100%' : '0'};
       transition: all 0.3s ease-in-out;
-      background-color: ${isSelected || (isInverted && isSelected) ? getColor('green') : 'transparent'};
     }
 
     &:hover {
       cursor: pointer;
       &::after {
-        background-color: ${getColor('green')};
+        background-color: ${getThemeColor('state-on')};
         width: 100%;
       }
     }
   `}
+
+  ${({ isSelected }) =>
+    isSelected &&
+    css`
+      &::after {
+        background-color: ${getThemeColor('state-on')};
+      }
+    `}
 `;
