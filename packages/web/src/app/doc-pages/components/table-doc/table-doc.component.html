@@ -136,9 +136,9 @@
               </li>
               <li>
                 <strong>Icons:&nbsp;</strong>
-                <span class="code-text">e-icon--expand_circle-color</span>
+                <code>e-icon--expand_circle-color</code>
                 &
-                <span class="code-text">e-icon--expand_circle-filled-color</span>
+                <code>e-icon--expand_circle-filled-color</code>
               </li>
             </ul>
             <app-component-subsubsection [sectionTitle]="'Desktop'">
@@ -181,10 +181,10 @@
             </div>
           </div>
           <div class="e-accordion__content">
-            The first column should always be left aligned no matter the content of that column. By default
-            all content is aligned to the left. There are however helper classes available for aligning
-            content to the center or to the right. The table header should always follow the alignment of the
-            column. Besides the first column, any type of content can be center aligned or right aligned.
+            The first column should always be left-aligned no matter the content of that column. By default
+            all content is left-aligned. There are however helper classes available for aligning content to
+            the center or to the right. The table header should always follow the alignment of the column.
+            Besides the first column, any type of content can be center-aligned or right-aligned.
             <app-component-example-v1 [codeHTML]="exampleAlignment"></app-component-example-v1>
           </div>
         </div>
@@ -225,16 +225,16 @@
           </div>
           <div class="e-accordion__content">
             <div>
-              Use checkboxes when you need to multiselect rows to perform actions. The first checkbox, in
-              table header, should check and uncheck all checkboxes that are in the same column. Read about
+              Use checkboxes when you need to multiselect rows to perform actions. The first checkbox, in the
+              table header should check and uncheck all checkboxes that are in the same column. Read about
               nested checkboxes and the indeterminate state in the
               <a class="e-link e-link--inline" [routerLink]="['/components/checkbox']" fragment="Type">
                 checkbox documentation
               </a>
               . Add the class
-              <span class="code-text">e-table__checkbox--selected</span>
+              <code>e-table__checkbox--selected</code>
               or
-              <span class="code-text">e-table-mobile__checkbox-selected</span>
+              <code>e-table-mobile__checkbox-selected</code>
               to all selected rows.
             </div>
             <app-component-subsubsection [sectionTitle]="'Desktop'">
@@ -266,8 +266,8 @@
             </div>
           </div>
           <div class="e-accordion__content">
-            Use a footnote when you need to clarify information. Use an asterix (*) to connect the data to the
-            description.
+            Use a footnote when you need to clarify information. Use an asterisk (*) to connect the data to
+            the description.
             <app-component-example-v1 [codeHTML]="exampleFootnote"></app-component-example-v1>
           </div>
         </div>
@@ -309,11 +309,11 @@
           <div class="e-accordion__content">
             <div>
               If the table requires scrolling the max-width for a column is 450px, the class
-              <span class="code-text">e-table__cell--multiline</span>
+              <code>e-table__cell--multiline</code>
               can then be added to ensure width of column and text wrap. Use
-              <span class="code-text">e-text-right</span>
+              <code>e-text-right</code>
               to align numbers to the right. The class
-              <span class="code-text">e-table__cell--multiline-sm</span>
+              <code>e-table__cell--multiline-sm</code>
               can be used when the column should have a max-width of 250px.
             </div>
             <app-component-example-v1 [codeHTML]="exampleLongColumn"></app-component-example-v1>
@@ -330,10 +330,10 @@
           </div>
           <div class="e-accordion__content">
             <div>
-              Sticky headers should primarily be used when there is a lot of information to scroll through, so
+              Sticky headers should primarily be used when there is a lot of information to scroll through so
               that the user can view the context at all times when scrolling. Optional sticky headers for both
               horizontal and vertical scroll. You can choose to have either row headers sticky, column headers
-              sticky or both.
+              sticky, or both.
             </div>
             <app-component-subsubsection [sectionTitle]="'Desktop'">
               <ng-container ngProjectAs="sectionContent">
@@ -368,9 +368,8 @@
           <div class="e-accordion__content">
             <div>
               Use the modifier class
-              <span class="code-text">e-table--no-stripes</span>
+              <code>e-table--no-stripes</code>
               to remove the grey colored stripes on the table body.
-
               <app-component-example-v1 [codeHTML]="exampleNoStripes"></app-component-example-v1>
             </div>
           </div>
@@ -387,7 +386,7 @@
           <div class="e-accordion__content">
             <div>
               Use the class
-              <span class="code-text">e-text-mono</span>
+              <code>e-text-mono</code>
               on the table cell, when comparing numbers in the table. Mono has equal width for each character,
               making comparing numbers easier than with Red Hat Text or Red Hat Display.
             </div>
@@ -432,9 +431,9 @@
           <div class="e-accordion__content">
             <div><label class="e-tag e-tag--orange e-mb-16">Figma only</label></div>
             <div>
-              Sorting is another way to ease user's search process in tables. The sorting functionality can
-              either be in a sorting dropdown outside of the table, or as a table sorting in the table header.
-              Here we provide the classes for table sorting, but the logic needs to be added.
+              Sorting is another way to ease the user's search process in tables. The sorting functionality
+              can either be in a sorting dropdown outside of the table, or as a table sorting in the table
+              header. Here we provide the classes for table sorting, but the logic needs to be added.
             </div>
             <ul class="e-list e-mt-24">
               <li>
@@ -452,11 +451,11 @@
               </li>
               <li>
                 <strong>Icons:&nbsp;</strong>
-                <span class="code-text">e-icon--sorting-bold</span>
+                <code>e-icon--sorting-bold</code>
                 &
-                <span class="code-text">e-icon--sorting_ascending-bold</span>
+                <code>e-icon--sorting_ascending-bold</code>
                 &
-                <span class="code-text">e-icon--sorting_descending-bold</span>
+                <code>e-icon--sorting_descending-bold</code>
               </li>
             </ul>
 
@@ -512,12 +511,12 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Caption'">
         <ng-container ngProjectAs="sectionContent">
-          Do not forget to include a
-          <span class="code-text">caption</span>
+          Include a
+          <code>caption</code>
           element as the
-          <span class="code-text">table</span>
+          <code>table</code>
           element's first child. Using the
-          <span class="code-text">e-sr-only</span>
+          <code>e-sr-only</code>
           class, you can visually hide the caption from the page while still enabling assistive technology
           users to read/hear it.
         </ng-container>
@@ -525,13 +524,25 @@
       <app-component-subsection [sectionTitle]="'Scope'">
         <ng-container ngProjectAs="sectionContent">
           The
-          <span class="code-text">scope</span>
+          <code>scope</code>
           attribute should be places on all table header elements to make it clear if the headers is a row or
           column header. Add
-          <span class="code-text">scope="row"</span>
+          <code>scope="row"</code>
           and the
-          <span class="code-text">th</span>
+          <code>th</code>
           element to the first cell on a row if this element acts as a header.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Sorting'">
+        <ng-container ngProjectAs="sectionContent">
+          Use the
+          <code>aria-sort</code>
+          attribute in the header cell for the currently sorted column or row. Set the attribute to
+          <code>ascending</code>
+          or
+          <code>descending</code>
+          , depending on the sort order. When the sort order is changed, update the attribute accordingly.
+          Also, move the attribute to the header cell for the newly sorted column or row.
         </ng-container>
       </app-component-subsection>
     </ng-container>
