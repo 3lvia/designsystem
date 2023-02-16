@@ -47,13 +47,12 @@ describe('Elvis Tabs', () => {
 
     it('should have black label', () => {
       const tabLabel = screen.getAllByTestId('tab-label');
-      screen.debug();
-      expect(tabLabel[0]).toHaveStyle(getThemeColor('text-primary'));
+      expect(tabLabel[0]).toHaveStyle(`color: ${getThemeColor('text-primary')}`);
     });
     it('should have black text-shadow when selected', () => {
       const tabLabel = screen.getAllByTestId('tab-label');
       expect(tabLabel[0]).toHaveStyle(
-        'text-shadow: 0 0 0 var(--e-color-text-primary,#000000),0 0 0.5px var(--e-color-text-primary,#000000);',
+        `text-shadow: 0 0 0 ${getThemeColor('text-primary')},0 0 0.5px ${getThemeColor('text-primary')};`,
       );
     });
   });
