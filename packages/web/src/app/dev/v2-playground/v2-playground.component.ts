@@ -146,6 +146,10 @@ export class v2PlaygroundComponent {
   progressError;
   indeterminate;
 
+  // Spotlight
+  showSpotlight = false;
+  toggleSpotlight = () => (this.showSpotlight = !this.showSpotlight);
+
   // Tabs
   items = [
     { label: 'Epler' },

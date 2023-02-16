@@ -2,7 +2,17 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "01.02.22",
+      "date": "14.02.23",
+      "version": "3.3.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix that removes page-numbers when there is only one page"]
+        }
+      ]
+    },
+    {
+      "date": "01.02.23",
       "version": "3.3.4",
       "changelog": [
         {
@@ -21,7 +31,7 @@
       ]
     },
     {
-      "date": "17.01.22",
+      "date": "17.01.23",
       "version": "3.3.3",
       "changelog": [
         {
@@ -31,7 +41,7 @@
       ]
     },
     {
-      "date": "05.01.22",
+      "date": "05.01.23",
       "version": "3.3.2",
       "changelog": [
         {
