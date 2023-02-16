@@ -215,7 +215,7 @@ Example of an update
 
 #### Step 7 - Deprecating old classes
 
-If the component you have created is a replacement for an component that allready existed in elvis (the style
+If the component you have created is a replacement for an component that already existed in elvis (the style
 library), this class needs to be deprecated.
 
 - To deprecate the class read the guidelines in the
@@ -251,7 +251,7 @@ library), this class needs to be deprecated.
 
 To deprecate a prop on a component you must define it in the component's `config.ts` located in
 `your-component/src/react/config.ts`. You should also refer to the relevant rule from the
-[naming convensions](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/309464209/Navnekonvensjoner). This
+[naming conventions](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/309464209/Navnekonvensjoner). This
 can for instance look like:
 
 ```typescript
