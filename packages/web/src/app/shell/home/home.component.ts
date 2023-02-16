@@ -14,10 +14,12 @@ export class HomeComponent implements OnInit {
   pages = homeMenu;
   fontLoaded = false;
   date = new Date();
+  currentYear = this.date.getFullYear();
   christmasMonth = 11;
   christmas = false;
   halloweenMonth = 9;
   halloween = false;
+  isBirthday = false;
   locale: string;
   changelog = changelogJson.content;
 
@@ -54,6 +56,14 @@ export class HomeComponent implements OnInit {
     if (this.date.getMonth() === this.christmasMonth) {
       this.christmas = true;
       this.overviewTitle = 'Happy Holidays';
+    }
+
+    // birthday
+    const startDate = new Date(this.currentYear, 1, 14);
+    const endDate = new Date(this.currentYear, 1, 20);
+    if (this.date >= startDate && this.date <= endDate) {
+      this.isBirthday = true;
+      this.overviewTitle = 'Happy Birthday';
     }
   };
 

@@ -36,3 +36,6 @@ export { useCurrentTheme } from './hooks/useCurrentTheme';
 export { BaseProps } from './prop-blocks/baseProps';
 export { ErrorOptions, HasError } from './prop-blocks/hasError';
 export { HasValue } from './prop-blocks/hasValue';
+
+/** Dev exports below */
+export { useEffectDebugger } from './dev/useEffectDebugger';
