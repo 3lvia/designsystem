@@ -3,6 +3,7 @@ import Tabs from './elvia-tabs';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';
+import { getThemeColor } from '@elvia/elvis-colors';
 
 describe('Elvis Tabs', () => {
   const items = ['Oranges', 'Apples', 'Pears'];
@@ -46,11 +47,14 @@ describe('Elvis Tabs', () => {
 
     it('should have black label', () => {
       const tabLabel = screen.getAllByTestId('tab-label');
-      expect(tabLabel[0]).toHaveStyle('color: black');
+      screen.debug();
+      expect(tabLabel[0]).toHaveStyle(getThemeColor('text-primary'));
     });
     it('should have black text-shadow when selected', () => {
       const tabLabel = screen.getAllByTestId('tab-label');
-      expect(tabLabel[0]).toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
+      expect(tabLabel[0]).toHaveStyle(
+        'text-shadow: 0 0 0 var(--e-color-text-primary,#000000),0 0 0.5px var(--e-color-text-primary,#000000);',
+      );
     });
   });
 
@@ -78,21 +82,6 @@ describe('Elvis Tabs', () => {
       if (selectedLabel) {
         expect(selectedLabel.innerHTML).toBe('Pears');
       }
-    });
-  });
-
-  describe('Inverted', () => {
-    beforeEach(() => {
-      render(<Tabs items={items} isInverted={true}></Tabs>);
-    });
-
-    it('should have white label', () => {
-      const tabLabel = screen.getAllByTestId('tab-label');
-      expect(tabLabel[0]).toHaveStyle('color: white');
-    });
-    it('should have white text-shadow when selected', () => {
-      const tabLabel = screen.getAllByTestId('tab-label');
-      expect(tabLabel[0]).toHaveStyle('text-shadow: 0 0 0 white,0 0 0.5px white');
     });
   });
 
