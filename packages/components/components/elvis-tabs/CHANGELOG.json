@@ -2,6 +2,24 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "??.02.23",
+      "version": "3.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Removed the <code>isInverted</code> prop in favour of proper dark theme support."],
+          "fixes": [
+            "Use the <code>e-theme-light</code> and <code>e-theme-dark</code> classes from Elvis to set the theme of the component."
+          ]
+        },
+
+        {
+          "type": "new_feature",
+          "changes": ["Added support for dark theme."]
+        }
+      ]
+    },
+    {
       "date": "23.01.23",
       "version": "2.0.1",
       "changelog": [
