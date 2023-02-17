@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "tsc && vite build",
+    "build:production": "yarn build && mv ./build ../web/dist/elvia-designsystem/react-preview",
     "preview": "vite preview"
   },
   "dependencies": {
