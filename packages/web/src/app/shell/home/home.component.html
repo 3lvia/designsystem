@@ -55,8 +55,8 @@
         <div class="col-lg-6">
           <div class="image-div home-image-animation">
             <img
-              *ngIf="isBirthday"
-              src="assets/BirthdayIllustration.png"
+              *ngIf="isBirthday && !christmas && !halloween"
+              src="assets/holidayIllustrations/Birthday.png"
               alt="Designsystem birthday illustration"
             />
             <img
@@ -82,17 +82,22 @@
         <div class="col-md-12">
           <div class="image-div home-image-animation">
             <img
-              *ngIf="christmas"
+              *ngIf="isBirthday && !christmas && !halloween"
+              src="assets/holidayIllustrations/Birthday.png"
+              alt="Designsystem birthday illustration"
+            />
+            <img
+              *ngIf="christmas && !halloween && !isBirthday"
               src="assets/holidayIllustrations/ChristmasIllustration.png"
               alt="Designsystem christmas illustration"
             />
             <img
-              *ngIf="halloween && !christmas"
+              *ngIf="halloween && !christmas && !isBirthday"
               src="assets/holidayIllustrations/Halloween.png"
               alt="Designsystem halloween illustration"
             />
             <img
-              *ngIf="!christmas && !halloween"
+              *ngIf="!christmas && !halloween && !isBirthday"
               src="assets/HomeIllustration.png"
               alt="Designsystem illustration"
             />
