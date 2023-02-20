@@ -9,7 +9,6 @@ import { RouterModule } from '@angular/router';
 import { ComponentsModule } from './doc-pages/components/components.module';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { HttpClientModule } from '@angular/common/http';
-import { APP_BASE_HREF } from '@angular/common';
 import { ErrorModule } from './shared/error/error.module';
 import { CMSPageModule } from './doc-pages/cms/cms-page/cms-page.module';
 import { MobileHeaderModule } from './shell/header/mobile-menu/mobile-menu.module';
@@ -34,7 +33,6 @@ import { OtherPagesModule } from './doc-pages/other-pages/other-pages.module';
     MobileHeaderModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/react-preview' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
