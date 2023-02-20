@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 
 import '@elvia/elvis/css/elvis.min.css';
-// import '@elvia/elvis/elvis.js';
+import '@elvia/elvis/elvis.js';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
