@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build --base=/react-preview/",
     "build:production": "yarn build && mv ./dist ../web/dist/elvia-designsystem/react-preview",
     "preview": "vite preview"
   },
