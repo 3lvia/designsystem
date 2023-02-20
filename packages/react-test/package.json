@@ -6,7 +6,7 @@
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
-    "build:production": "yarn build && mv ./build ../web/dist/elvia-designsystem/react-preview",
+    "build:production": "yarn build && mv ./dist ../web/dist/elvia-designsystem/react-preview",
     "preview": "vite preview"
   },
   "dependencies": {
