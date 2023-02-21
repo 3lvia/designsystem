@@ -4,7 +4,15 @@ import commonjs from '@rollup/plugin-commonjs';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag.startsWith('elvia-'),
+        },
+      },
+    }),
+  ],
   optimizeDeps: {
     include: [
       '@elvia/elvis-accordion/react',
