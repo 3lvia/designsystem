@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { AccordionDocModule } from './accordion-doc/accordion-doc.module';
-import { AccordionGroupDocModule } from './accordion-group-doc/accordion-group-doc.module';
 import { AlertMessagesModule } from './alert-messages/alert-messages.module';
 import { AutocompleteDocModule } from './autocomplete-doc/autocomplete-doc.module';
 import { BadgeDocModule } from './badge-doc/badge-doc.module';
@@ -40,7 +39,6 @@ import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
 @NgModule({
   imports: [
     AccordionDocModule,
-    AccordionGroupDocModule,
     AlertMessagesModule,
     AutocompleteDocModule,
     BadgeDocModule,

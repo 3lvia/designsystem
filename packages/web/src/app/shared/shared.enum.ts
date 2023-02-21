@@ -12,7 +12,6 @@ export enum Pages {
 
   // Component Pages
   Accordion = 'accordion',
-  AccordionGroup = 'accordion-group',
   Alert = 'alert',
   Autocomplete = 'autocomplete',
   Badge = 'badge',
