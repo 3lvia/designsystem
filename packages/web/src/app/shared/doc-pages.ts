@@ -352,17 +352,6 @@ export const componentsDocPages: DocPage[] = [
     ],
   },
   {
-    title: 'Position Picker',
-    description:
-      'Position Picker lets you select a position and gives you coordinates. You can choose either by clicking on a map or text input field.',
-    docUrl: Pages.PositionPicker,
-    absolutePath: '/components/' + Pages.PositionPicker,
-    status: DocPageStatus.Done,
-    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2506%3A17',
-    type: 'Component',
-    searchTerms: ['map', 'coordinates', 'position', 'location', 'lat', 'lng', 'latitude', 'longitude'],
-  },
-  {
     title: 'Progressbar',
     description: `Graphical indication of the progress of an operation.`,
     docUrl: Pages.Progressbar,
