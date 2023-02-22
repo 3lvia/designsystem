@@ -4,7 +4,9 @@
 
 ### New feature
 
-- Added new theme color labels: `state-selected-grey`, `static-black`, and `static-white`.
+- Added new theme color labels: `background-overlay-strong`, `state-selected-grey`, `static-black`, and
+  `static-white`.
+- Updated color of `background-accent-strong` in dark theme.
 
 ## 1.5.0 (30.01.23)
 
