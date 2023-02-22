@@ -23,7 +23,6 @@ import { OverviewModule } from './overview-comp/overview-comp.module';
 import { OutlineDocModule } from './outline-doc/outline-doc.module';
 import { PaginationDocModule } from './pagination-doc/pagination-doc.module';
 import { PopoverDocModule } from './popover-doc/popover-doc.module';
-import { PositionPickerDocModule } from './position-picker-doc/position-picker-doc.module';
 import { ProgressbarDocModule } from './progressbar-doc/progressbar-doc.module';
 import { RadioFilterDocModule } from './radio-filter-doc/radio-filter-doc.module';
 import { SliderDocModule } from './slider-doc/slider-doc.module';
@@ -62,7 +61,6 @@ import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
     OverviewModule,
     PaginationDocModule,
     PopoverDocModule,
-    PositionPickerDocModule,
     ProgressbarDocModule,
     RadioFilterDocModule,
     SliderDocModule,
