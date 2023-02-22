@@ -44,6 +44,7 @@ const iconClassToThemeColor: IconClassToThemeColor = {
     'filled-background': 'background-primary',
   },
   disabled: { stroke: 'state-disabled', 'filled-background': 'state-disabled' },
+  placeholder: { stroke: 'text-placeholder', 'filled-background': 'text-placeholder' },
   on: { stroke: 'state-on', 'filled-background': 'state-on' },
   green: { stroke: 'state-on', 'filled-background': 'state-on' },
   caution: { stroke: 'state-caution', 'filled-background': 'state-caution' },
