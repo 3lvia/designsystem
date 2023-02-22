@@ -26,6 +26,7 @@ type BackgroundLabels =
   | 'background-element'
   | 'background-element-zebra'
   | 'background-overlay'
+  | 'background-overlay-strong'
   | 'background-header'
   | 'background-accent'
   | 'background-accent-strong';
