@@ -40,14 +40,16 @@ type StateLabels =
   | 'state-disabled'
   | 'state-focus';
 type DataLabels = 'data-green' | 'data-violet' | 'data-blue' | 'data-purple' | 'data-orange' | 'data-red';
+type StaticLabels = 'static-white' | 'static-black';
 
-export type ColorLabel = BackgroundLabels | TextLabels | StateLabels | DataLabels;
+export type ColorLabel = BackgroundLabels | TextLabels | StateLabels | DataLabels | StaticLabels;
 
 export interface Theme {
   background: { [label in BackgroundLabels]: Color };
   text: { [label in TextLabels]: Color };
   state: { [label in StateLabels]: Color };
   data: { [label in DataLabels]: Color };
+  static: { [label in StaticLabels]: Color };
 }
 
 export type ThemeName = 'light' | 'dark';
