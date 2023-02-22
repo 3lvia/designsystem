@@ -173,6 +173,10 @@ export const darkTheme = {
       hex: darkThemeColors['grey-colors']['grey-60'].color,
       contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
     },
+    'state-selected-grey': {
+      hex: darkThemeColors['grey-colors']['grey-50'].color,
+      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
+    },
     'state-disabled': {
       hex: darkThemeColors['grey-colors']['grey-40'].color,
       contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
@@ -205,6 +209,16 @@ export const darkTheme = {
     'data-red': {
       hex: darkThemeColors['data-colors']['red-tomato'].color,
       contrast: darkThemeColors['data-colors']['red-tomato'].contrastText,
+    },
+  },
+  static: {
+    'static-white': {
+      hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
+    },
+    'static-black': {
+      hex: darkThemeColors['primary-colors'].black.color,
+      contrast: darkThemeColors['primary-colors'].black.contrastText,
     },
   },
 } as const satisfies Theme;
