@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 import { listButtonHeight } from './buttonHeight';
-import { getCustomThemeColor, getThemeColor, ThemeName } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 
 const typography = {
   numberPickerTitle: getTypographyCss('text-sm'),
@@ -71,7 +71,6 @@ export const ArrowButtonContainer = styled.div`
 
 interface NumberButtonProps {
   isSelected: boolean;
-  currentTheme: ThemeName;
 }
 
 export const NumberButton = styled.button<NumberButtonProps>`
@@ -83,12 +82,11 @@ export const NumberButton = styled.button<NumberButtonProps>`
   border: none;
   padding: 0;
   height: 48px;
-  background: ${(props) => (props.isSelected ? getThemeColor('background-accent') : 'transparent')};
+  background: ${(props) => (props.isSelected ? getThemeColor('state-selected-grey') : 'transparent')};
   scroll-snap-align: center;
   cursor: pointer;
 
   &:hover {
-    background: ${({ currentTheme }) =>
-      getCustomThemeColor({ light: 'grey-05', dark: 'grey-50' }, currentTheme)};
+    background: ${getThemeColor('state-hover-grey')};
   }
 `;

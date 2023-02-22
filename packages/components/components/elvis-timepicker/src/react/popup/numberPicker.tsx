@@ -1,6 +1,6 @@
 import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
 import { padDigit } from '../padDigit';
-import { IconButton, IconWrapper, useCurrentTheme } from '@elvia/elvis-toolbox';
+import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowUpBold from '@elvia/elvis-assets-icons/dist/icons/arrowUpBold';
 import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
 import {
@@ -22,7 +22,6 @@ interface Props {
 
 export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, onSelect }) => {
   const listRef = useRef<HTMLDivElement>(null);
-  const { currentTheme, updateCurrentTheme } = useCurrentTheme(listRef);
   const [loopedNumbers, setLoopedNumbers] = useState<number[]>([]);
 
   const loopScroll = () => {
@@ -97,7 +96,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
   }, []);
 
   return (
-    <NumberPickerContainer ref={(el) => el && updateCurrentTheme()} data-testid={`${title}-number-list`}>
+    <NumberPickerContainer data-testid={`${title}-number-list`}>
       <NumberPickerTitle data-testid="number-list-title">{title}</NumberPickerTitle>
       <HorizontalLine />
       <NumberList
@@ -120,7 +119,6 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
         </ArrowButtonContainer>
         {loopedNumbers.map((number, index) => (
           <NumberButton
-            currentTheme={currentTheme}
             tabIndex={-1}
             isSelected={number === currentValue}
             key={index}
