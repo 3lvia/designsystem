@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 1.6.0 (22.02.23)
+
+### New feature
+
+- Added new theme color labels: `state-selected-grey`, `static-black`, and `static-white`.
+
 ## 1.5.0 (30.01.23)
 
 ### New feature
