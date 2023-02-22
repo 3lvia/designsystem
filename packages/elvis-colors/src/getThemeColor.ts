@@ -20,6 +20,7 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName): Color | n
     theme.state[label as keyof typeof theme.state] ??
     theme.text[label as keyof typeof theme.text] ??
     theme.background[label as keyof typeof theme.background] ??
+    theme.static[label as keyof typeof theme.static] ??
     null;
   if (!color) {
     console.error(`Color ${label} not found.`);
@@ -91,10 +92,10 @@ export const getCustomThemeColor = (
   const colors = getBaseThemeColors(themeName);
   const label = colorNameToThemeMap[themeName];
   const color =
-    colors['primary-colors'][label as keyof typeof colors['primary-colors']] ??
-    colors['signal-colors'][label as keyof typeof colors['signal-colors']] ??
-    colors['data-colors'][label as keyof typeof colors['data-colors']] ??
-    colors['grey-colors'][label as keyof typeof colors['grey-colors']];
+    colors['primary-colors'][label as keyof (typeof colors)['primary-colors']] ??
+    colors['signal-colors'][label as keyof (typeof colors)['signal-colors']] ??
+    colors['data-colors'][label as keyof (typeof colors)['data-colors']] ??
+    colors['grey-colors'][label as keyof (typeof colors)['grey-colors']];
   if (!color) {
     console.error(`Color '${label}' for theme '${themeName}' not found.`);
     return '';
