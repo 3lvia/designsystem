@@ -5,9 +5,9 @@ import { getThemeColor, ColorLabel } from '@elvia/elvis-colors';
 /** All the possible labels that can be used as css variables for icon colors. */
 export type IconLabels =
   | 'stroke'
-  | 'foreground'
   | 'filled-foreground'
   | 'filled-background'
+  | 'filled-foreground-colored'
   | 'on'
   | 'caution'
   | 'warning'
@@ -22,9 +22,9 @@ type IconLabelCssVariables = { [label in IconLabels]: ReturnType<typeof getTheme
  */
 const iconLabelCssVariables: IconLabelCssVariables = {
   stroke: getThemeColor('text-primary'),
-  foreground: getThemeColor('background-primary'),
   'filled-foreground': getThemeColor('background-primary'),
   'filled-background': getThemeColor('text-primary'),
+  'filled-foreground-colored': getThemeColor('static-black'),
   on: getThemeColor('state-on'),
   caution: getThemeColor('state-caution'),
   warning: getThemeColor('state-warning'),
@@ -40,7 +40,6 @@ const iconLabelCssVariables: IconLabelCssVariables = {
 const iconClassToThemeColor: IconClassToThemeColor = {
   inverted: {
     stroke: 'background-primary',
-    foreground: 'text-primary',
     'filled-foreground': 'text-primary',
     'filled-background': 'background-primary',
   },

@@ -3,7 +3,16 @@ import * as gulp from 'gulp';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const svgmin = require('gulp-svgmin');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const icons = require('../config/icons.config');
+const icons = require('../config/icons.config') as {
+  name: string;
+  terms?: string[];
+  thirdparty?: {
+    name: string | string[];
+    duplicate?: string | string[];
+  };
+  deprecated?: boolean;
+  newIconName?: string;
+}[];
 import * as path from 'path';
 import * as fs from 'fs';
 import * as sharp from 'sharp';
@@ -36,7 +45,7 @@ function findUnusedIconFiles() {
 }
 
 function optimizeSVG() {
-  const iconsToInclude = icons.map((i: any) => {
+  const iconsToInclude = icons.map((i) => {
     return `icons/svg/src/${i.name}.svg`;
   });
   return gulp.src(iconsToInclude, { allowEmpty: true }).pipe(svgmin()).pipe(gulp.dest('icons/svg/dist'));
@@ -48,9 +57,11 @@ export type FillVariables = { [label in IconLabels]: FillVariablesUnion };
 
 const fillVariables = {
   stroke: `fill="var(--e-icon-color-stroke, ${getThemeColor('text-primary')})"`,
-  foreground: `fill="var(--e-icon-color-foreground, ${getThemeColor('text-primary')})"`,
   'filled-foreground': `fill="var(--e-icon-color-filled-foreground, ${getThemeColor('background-primary')})"`,
   'filled-background': `fill="var(--e-icon-color-filled-background, ${getThemeColor('text-primary')})"`,
+  'filled-foreground-colored': `fill="var(--e-icon-color-filled-foreground-colored, ${getThemeColor(
+    'static-black',
+  )})"`, // TODO: Get black -> black label
   on: `fill="var(--e-icon-color-on, ${getThemeColor('state-on')})"`,
   caution: `fill="var(--e-icon-color-caution, ${getThemeColor('state-caution')})"`,
   warning: `fill="var(--e-icon-color-warning, ${getThemeColor('state-warning')})"`,
@@ -63,12 +74,8 @@ function getIconWithCssVariables(icon: string, iconName: string) {
     .replace(/fill="#FFFF00"/g, fillVariables.caution)
     .replace(/fill="#FFA000"/g, fillVariables.warning)
     .replace(/fill="#EE0701"/g, fillVariables.error);
-
   if (iconName.includes('-filled-color')) {
-    return newIcon.replace(
-      /fill="#000"/g,
-      'fill="#000"', // TODO: Get black -> black label
-    );
+    return newIcon.replace(/fill="#000"/g, fillVariables['filled-foreground-colored']);
   } else if (iconName.includes('-filled')) {
     return newIcon
       .replace(/fill="#fff"/g, fillVariables['filled-foreground'])
@@ -97,7 +104,7 @@ function createIconFileContent(icon: string, iconName: string) {
 
 // Create icon module in icons.js and icons.d.ts
 async function createIconModule() {
-  const iconsToInclude = icons.map((i: any) => {
+  const iconsToInclude: { name: string; path: string }[] = icons.map((i) => {
     if (i.deprecated) {
       return {
         name: i.name,
@@ -163,7 +170,7 @@ export default ${createCamelCase(icon.name)};`,
 }
 
 async function createCommonJSIconModule() {
-  const iconsToInclude = icons.map((i: any) => {
+  const iconsToInclude = icons.map((i) => {
     if (i.deprecated) {
       return {
         name: i.name,
@@ -225,7 +232,7 @@ function createCamelCase(original: string) {
 
 // Create png-files from svg-files
 async function createPNGs(done: () => void) {
-  const iconsToInclude = icons.map((i: any) => {
+  const iconsToInclude = icons.map((i) => {
     if (i.deprecated) {
       return { name: i.name, path: `icons/svg/src/${i.newIconName}.svg` };
     }
