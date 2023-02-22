@@ -5,7 +5,6 @@ import { MainComponent } from './shell/main/main.component';
 import { HomeComponent } from './shell/home/home.component';
 
 import { AccordionDocComponent } from './doc-pages/components/accordion-doc/accordion-doc.component';
-import { AccordionGroupDocComponent } from './doc-pages/components/accordion-group-doc/accordion-group-doc.component';
 import { AlertMessagesComponent } from './doc-pages/components/alert-messages/alert-messages.component';
 import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
 import { BadgeDocComponent } from './doc-pages/components/badge-doc/badge-doc.component';
@@ -41,7 +40,6 @@ import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.compo
 import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
 import { PaginationDocComponent } from './doc-pages/components/pagination-doc/pagination-doc.component';
 import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-doc.component';
-import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
 import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
 import { RadioFilterDocComponent } from './doc-pages/components/radio-filter-doc/radio-filter-doc.component';
 import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
@@ -155,8 +153,9 @@ const routes: Routes = [
         component: CMSPageComponent,
         children: [
           {
-            path: Pages.AccordionGroup,
-            component: AccordionGroupDocComponent,
+            path: 'accordion-group',
+            redirectTo: Pages.Accordion,
+            pathMatch: 'full',
           },
           {
             path: Pages.Accordion,
@@ -285,10 +284,6 @@ const routes: Routes = [
           {
             path: Pages.Popover,
             component: PopoverDocComponent,
-          },
-          {
-            path: Pages.PositionPicker,
-            component: PositionPickerDocComponent,
           },
           {
             path: Pages.Radiobutton,

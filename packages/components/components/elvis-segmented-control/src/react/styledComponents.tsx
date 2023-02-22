@@ -1,8 +1,12 @@
 import styled, { css } from 'styled-components';
 
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import { SegmentedControlContainerProps, SegmentedControlLabelProps } from './elviaSegmentedControl.types';
+import {
+  SegmentedControlContainerProps,
+  SegmentedControlLabelProps,
+  Type,
+} from './elviaSegmentedControl.types';
 
 const controlPaddingXLarge = 40;
 const controlPaddingXMedium = 24;
@@ -18,7 +22,7 @@ const fontSizeMedium = '0.875rem';
 const fontSizeSmall = '0.875rem';
 const controlAnimation = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
-const getControlPadding = (size: string, scType: string) => {
+const getControlPadding = (size: string, scType: Type) => {
   if (scType === 'icon') {
     if (size === 'large') {
       return `${iconControlPaddingLarge - 1}px`;
@@ -48,11 +52,11 @@ const getFontSize = (size: string) => {
   }
 };
 
-const getControlBorder = (scType: string, isSelected: boolean, isHovering?: boolean): string => {
+const getControlBorder = (scType: Type, isSelected: boolean, isHovering?: boolean): string => {
   if (scType === 'icon' && isSelected) {
-    return '1px solid black';
+    return `1px solid ${getThemeColor('text-primary')}`;
   } else if (scType === 'icon' && isHovering) {
-    return '1px solid ' + getColor('green');
+    return `1px solid ${getThemeColor('state-on')}`;
   } else {
     return '1px solid transparent';
   }
@@ -64,24 +68,24 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
   grid-auto-flow: column;
   position: relative;
   width: max-content;
-  border: ${(props) => (props.scType === 'text' ? '1px solid black' : 'none')};
+  border: ${({ scType }) => (scType === 'text' ? `1px solid ${getThemeColor('text-primary')}` : 'none')};
   border-radius: 100px;
-  gap: ${(props) => (props.scType === 'text' ? '0' : '8px')};
-  background: ${(props) => (props.scType === 'text' ? getColor('white') : 'transparent')};
+  gap: ${({ scType }) => (scType === 'text' ? '0' : '8px')};
+  background: ${({ scType }) => (scType === 'text' ? getThemeColor('background-primary') : 'transparent')};
 
   // Selected control background
-  ${(props) =>
-    props.scType === 'text' &&
+  ${({ scType, numberOfControls, selectedIndex }) =>
+    scType === 'text' &&
     css`
       &::after {
         content: '';
         position: absolute;
-        width: ${100 / props.numberOfControls}%;
+        width: ${100 / numberOfControls}%;
         height: 100%;
         top: 0;
-        left: ${(100 / props.numberOfControls) * props.selectedIndex}%;
+        left: ${(100 / numberOfControls) * selectedIndex}%;
         border-radius: 100px;
-        background-color: ${getColor('black')};
+        background-color: ${getThemeColor('text-primary')};
         transition: left 250ms ${controlAnimation};
       }
     `}
@@ -91,23 +95,22 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   position: relative;
   white-space: nowrap;
   background-color: transparent;
-  padding: ${(props) => getControlPadding(props.size, props.scType)};
-  border: ${(props) => getControlBorder(props.scType, props.isSelected)};
+  padding: ${({ size, scType }) => getControlPadding(size, scType)};
+  border: ${({ isSelected, scType }) => getControlBorder(scType, isSelected)};
   border-radius: 100px;
   z-index: 10;
 
   ${getTypographyCss('text-md')}
-  font-size: ${(props) => getFontSize(props.size)};
+  font-size: ${({ size }) => getFontSize(size)};
   text-align: center;
-  color: ${(props) => (props.isSelected ? getColor('white') : getColor('black'))};
-  text-shadow: ${(props) => (props.isSelected ? '0 0 0 white, 0 0 0.5px white' : '0')};
+  color: ${({ isSelected }) =>
+    isSelected ? getThemeColor('background-primary') : getThemeColor('text-primary')};
+  text-shadow: ${({ isSelected }) => (isSelected ? `0 0 0 currentColor, 0 0 0.5px currentColor` : '0')};
 
-  transition: color 250ms ${controlAnimation}, border 200ms linear;
-
+  transition: color 250ms ${controlAnimation}, border 200ms linear, text-shadow 200ms ${controlAnimation};
   &:hover {
-    text-shadow: ${(props) =>
-      props.isSelected ? '0 0 0 white, 0 0 0.5px white' : '0 0 0 black, 0 0 0.5px black'};
-    border: ${(props) => getControlBorder(props.scType, props.isSelected, true)};
+    text-shadow: 0 0 0 currentColor, 0 0 0.5px currentColor;
+    border: ${({ scType, isSelected }) => getControlBorder(scType, isSelected, true)};
   }
 `;
 

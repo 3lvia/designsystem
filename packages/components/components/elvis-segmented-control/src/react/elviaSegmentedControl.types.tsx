@@ -28,7 +28,7 @@ export interface SegmentedControlContainerProps {
 }
 
 export interface SegmentedControlLabelProps {
-  scType: string;
+  scType: Type;
   size: string;
   isSelected: boolean;
 }
