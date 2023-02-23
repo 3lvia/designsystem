@@ -40,7 +40,6 @@ export enum Pages {
   OverviewComp = 'overview-comp',
   Pagination = 'pagination',
   Popover = 'popover',
-  PositionPicker = 'position-picker',
   Progressbar = 'progressbar',
   RadioFilter = 'radio-filter',
   Radiobutton = 'radiobutton',
