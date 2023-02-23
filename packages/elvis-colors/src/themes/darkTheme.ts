@@ -26,7 +26,7 @@ export const darkThemeColors = {
     },
     red: {
       color: '#C82520',
-      contrastText: '#171717',
+      contrastText: '#EDEDED',
     },
   },
   'data-colors': {
