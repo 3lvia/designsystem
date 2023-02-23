@@ -160,7 +160,12 @@ const getBaseColors = (colors: BaseColors, theme: ThemeName): Record<string, str
 const getThemedCssVariables = (theme: Theme) => {
   const variables: Record<string, string> = {};
   Object.values(theme).forEach((category) =>
-    Object.keys(category).forEach((label) => (variables[`--e-color-${label}`] = category[label].hex)),
+    Object.keys(category).forEach((label) => {
+      variables[`--e-color-${label}`] = category[label].hex;
+      if (category[label].contrast) {
+        variables[`--e-color-${label}-contrast`] = category[label].contrast;
+      }
+    }),
   );
   return variables;
 };
