@@ -1,5 +1,4 @@
-// @ts-check
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.scss';
 import { Accordion } from '@elvia/elvis-accordion/react';
 import { Badge } from '@elvia/elvis-badge/react';
@@ -27,7 +26,7 @@ import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 
 function App() {
-  const logValue = (component, value) => {
+  const logValue = (component: string, value: string | number) => {
     console.log(component, ': ', value);
   };
   const updateSpotlight = () => {
@@ -170,6 +169,7 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
+              <i className="e-icon e-icon--add_circle e-icon--sm"></i>
               <div className="e-bg-white"></div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
