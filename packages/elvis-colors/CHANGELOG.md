@@ -7,6 +7,8 @@
 - Added new theme color labels: `background-overlay-strong`, `state-selected-grey`, `static-black`, and
   `static-white`.
 - Updated color of `background-accent-strong` in dark theme.
+- Now generating css variables for contrast colors for each theme color.
+- Added new function `getThemeColorContrast()` to get the contrast color for a theme color label.
 
 ## 1.5.0 (30.01.23)
 
