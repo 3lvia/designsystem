@@ -163,7 +163,7 @@ const getThemedCssVariables = (theme: Theme) => {
     Object.keys(category).forEach((label) => {
       variables[`--e-color-${label}`] = category[label].hex;
       if (category[label].contrast) {
-        variables[`--e-color-${label}-contrast`] = category[label].contrast;
+        variables[`--e-color-${label}--contrast`] = category[label].contrast;
       }
     }),
   );

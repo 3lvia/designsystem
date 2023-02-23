@@ -68,7 +68,7 @@ export const getThemeColorContrast = (label: ColorLabel, themeName: ThemeName = 
     console.error(`Color '${label}' does not have a contrast color.`);
     return '';
   }
-  return `var(--e-color-${label}-contrast, ${color.contrast})`;
+  return `var(--e-color-${label}--contrast, ${color.contrast})`;
 };
 
 const getBaseThemeColors = <TThemeName extends ThemeName>(
