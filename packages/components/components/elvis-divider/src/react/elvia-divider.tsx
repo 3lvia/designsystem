@@ -41,7 +41,6 @@ export const Divider: React.FC<DividerProps> = ({
     <DividerArea
       type={type}
       orientation={orientation}
-      data-testid="divider-area"
       role="separator"
       className={className ? className : ''}
       style={inlineStyle}
