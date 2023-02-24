@@ -1,4 +1,4 @@
-import { getThemeColor, ThemeName } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
 
@@ -33,7 +33,6 @@ export type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
 export interface TooltipPopupProps {
   position: TooltipPosition;
   fadeOut: boolean;
-  theme?: ThemeName;
 }
 
 export const TooltipPopup = styled.div<TooltipPopupProps>`
