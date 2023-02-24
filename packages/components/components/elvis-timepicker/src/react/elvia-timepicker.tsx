@@ -177,7 +177,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           >
             <IconWrapper
               icon={clock}
-              color={isDisabled ? getThemeColor('state-disabled') : getThemeColor('text-primary')}
+              color={isDisabled ? getThemeColor('state-disabled-foreground') : getThemeColor('text-primary')}
               size={isCompact ? 'xs' : 'sm'}
             />
           </IconButton>
