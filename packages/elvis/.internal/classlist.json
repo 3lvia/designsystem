@@ -4,6 +4,7 @@
 			"modifier": {
 				"e-icon--inverted": {},
 				"e-icon--color-disabled": {},
+				"e-icon--color-placeholder": {},
 				"e-icon--color-on": {},
 				"e-icon--color-green": {},
 				"e-icon--color-caution": {},
@@ -1154,6 +1155,7 @@
 		"e-icon": {},
 		"e-icon--inverted": {},
 		"e-icon--color-disabled": {},
+		"e-icon--color-placeholder": {},
 		"e-icon--color-on": {},
 		"e-icon--color-green": {},
 		"e-icon--color-caution": {},

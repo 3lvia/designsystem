@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
+  //[[INJECT_ICONS]]
+  //[[INJECT_DEPRECATED_ELVIS_CLASSES]]
+
   let DEBUG = false;
   if (window.location.href.indexOf('#debug') > -1) {
     DEBUG = true;
@@ -190,8 +193,6 @@ document.addEventListener('DOMContentLoaded', function () {
     return document.querySelector(`.${ancestor} .${name}`);
   }
 
-  //[[INJECT_ICONS]]
-  //[[INJECT_DEPRECATED_ELVIS_CLASSES]]
 
   let lastReplace = 0;
   const throttleReplaceInterval = 500;
