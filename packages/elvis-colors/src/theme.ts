@@ -40,6 +40,10 @@ type StateLabels =
   | 'state-hover-grey'
   | 'state-selected-grey'
   | 'state-disabled'
+  | 'state-disabled-foreground'
+  | 'state-disabled-background'
+  | 'state-disabled-foreground-strong'
+  | 'state-disabled-background-strong'
   | 'state-focus';
 type DataLabels = 'data-green' | 'data-violet' | 'data-blue' | 'data-purple' | 'data-orange' | 'data-red';
 type StaticLabels = 'static-white' | 'static-black';

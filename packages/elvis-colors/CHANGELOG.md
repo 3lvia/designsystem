@@ -1,11 +1,12 @@
 # Elvia Colors Changelog
 
-## 1.6.0 (23.02.23)
+## 1.6.0 (24.02.23)
 
 ### New feature
 
-- Added new theme color labels: `background-overlay-strong`, `state-selected-grey`, `static-black`, and
-  `static-white`.
+- Added new theme color labels: `background-overlay-strong`, `state-selected-grey`,
+  `state-disabled-foreground`, `state-disabled-background`, `state-disabled-foreground-strong`,
+  `state-disabled-background-strong`, `static-black`, and `static-white`.
 - Updated color of `background-accent-strong` in dark theme.
 - Now generating css variables for contrast colors for each theme color.
 - Added new function `getThemeColorContrast()` to get the contrast color for a theme color label.

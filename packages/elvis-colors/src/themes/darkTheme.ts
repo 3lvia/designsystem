@@ -185,6 +185,22 @@ export const darkTheme = {
       hex: darkThemeColors['grey-colors']['grey-40'].color,
       contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
     },
+    'state-disabled-foreground': {
+      hex: darkThemeColors['grey-colors']['grey-40'].color,
+      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
+    },
+    'state-disabled-background': {
+      hex: darkThemeColors['grey-colors']['grey-60'].color,
+      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+    },
+    'state-disabled-foreground-strong': {
+      hex: darkThemeColors['grey-colors']['grey-60'].color,
+      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+    },
+    'state-disabled-background-strong': {
+      hex: darkThemeColors['grey-colors']['grey-40'].color,
+      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
+    },
     'state-focus': {
       hex: darkThemeColors['internal-colors']['focus-outline'].color,
     },

@@ -205,6 +205,22 @@ export const lightTheme = {
       hex: lightThemeColors['grey-colors']['grey-30'].color,
       contrast: lightThemeColors['grey-colors']['grey-30'].contrastText,
     },
+    'state-disabled-foreground': {
+      hex: lightThemeColors['grey-colors']['grey-30'].color,
+      contrast: lightThemeColors['grey-colors']['grey-30'].contrastText,
+    },
+    'state-disabled-background': {
+      hex: lightThemeColors['grey-colors']['grey-05'].color,
+      contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
+    },
+    'state-disabled-foreground-strong': {
+      hex: lightThemeColors['grey-colors']['grey-05'].color,
+      contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
+    },
+    'state-disabled-background-strong': {
+      hex: lightThemeColors['grey-colors']['grey-30'].color,
+      contrast: lightThemeColors['grey-colors']['grey-30'].contrastText,
+    },
     'state-focus': {
       hex: lightThemeColors['internal-colors']['focus-outline'].color,
     },
