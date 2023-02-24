@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "24.02.23",
+      "version": "6.2.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Updated the dark theme colors in the year view.",
+            "Updated dependency on <code>@elvia/elvis-colors</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "30.01.23",
       "version": "6.2.0",
       "changelog": [
