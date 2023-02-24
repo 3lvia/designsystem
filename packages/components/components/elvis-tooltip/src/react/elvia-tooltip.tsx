@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useConnectedOverlay, isSsr, TooltipPopup, useSlot, useCurrentTheme } from '@elvia/elvis-toolbox';
+import { useConnectedOverlay, isSsr, TooltipPopup, useSlot } from '@elvia/elvis-toolbox';
 import { TooltipPosition, TooltipProps } from './elviaTooltip.types';
 import { TriggerContainer } from './styledComponents';
 import { mapPositionToHorizontalPosition, mapPositionToVerticalPosition } from './mapPosition';
@@ -34,7 +34,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
     useEffectDependencies: [isShowing],
     ref: overlayRef,
   });
-  const { currentTheme } = useCurrentTheme(overlayRef);
 
   const onOpen = (delay = true): void => {
     if (isSsr()) {
@@ -148,7 +147,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
             fadeOut={fadeOut}
             onAnimationEnd={onAnimationEnd}
             aria-live="polite"
-            theme={currentTheme}
           >
             {content}
           </TooltipPopup>,
