@@ -39,17 +39,6 @@ export const homeMenu: DocPage[] = [
 
 export const componentsDocPages: DocPage[] = [
   {
-    title: 'Accordion Group',
-    description:
-      'A group accordion with titles. Can be used to organize a lot of content and are easy for the user to scan and select what’s relevant. Example of use is as a FAQ section.',
-    docUrl: Pages.AccordionGroup,
-    absolutePath: '/components/' + Pages.AccordionGroup,
-    status: DocPageStatus.Done,
-    figmaUrl: 'https://www.figma.com/file/CTFyTP4zr2KuVjSXsgZO1s/Accordion?node-id=72%3A491',
-    type: 'Component',
-    searchTerms: ['expandable', 'disclosure', 'pocket', 'collapse'],
-  },
-  {
     title: 'Accordion',
     description:
       'An accordion lets the user show and hide a section of content. It let us organize information and deliver a large amount of content in a small place.',
@@ -361,17 +350,6 @@ export const componentsDocPages: DocPage[] = [
       'overflow',
       'callout',
     ],
-  },
-  {
-    title: 'Position Picker',
-    description:
-      'Position Picker lets you select a position and gives you coordinates. You can choose either by clicking on a map or text input field.',
-    docUrl: Pages.PositionPicker,
-    absolutePath: '/components/' + Pages.PositionPicker,
-    status: DocPageStatus.Done,
-    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2506%3A17',
-    type: 'Component',
-    searchTerms: ['map', 'coordinates', 'position', 'location', 'lat', 'lng', 'latitude', 'longitude'],
   },
   {
     title: 'Progressbar',

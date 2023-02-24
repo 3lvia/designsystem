@@ -328,7 +328,7 @@ gulp.task(
     buildElviaComponentToJS,
     TSX_to_JS,
     copyChangelogs,
-    // reactTypescriptDeclarations, -- Currently disabled until we can make it take shorter time, remember to build before publish
+    reactTypescriptDeclarations,
     buildWebComponentsMagically,
     function (done) {
       done();
@@ -348,8 +348,8 @@ gulp.task('watch', function () {
       getComponentConfigs,
       buildElviaComponentToJS,
       TSX_to_JS,
-      reactTypescriptDeclarations,
       copyChangelogs,
+      reactTypescriptDeclarations,
       buildWebComponentsMagically,
       function (done) {
         done();
