@@ -821,6 +821,166 @@ document.addEventListener('DOMContentLoaded', function () {
   
   let deprecatedElvisClasses = [
   {
+    name: "e-accordion",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion__item",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion__title",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion__title--no-icon-hover",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion__icon",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion__content",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion__item--open",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion__label",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion--lg",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion--md",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion--sm",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion--single",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion--group",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion__item__row",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion--center",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
+    name: "e-accordion--end",
+    version: "10.4.0",
+    replacement: {
+      name: "Accordion",
+      type: "component",
+      documentation: "https://design.elvia.io/components/accordion"
+    },
+    sunset: "July 2023"
+  },
+  {
     name: "e-position-picker",
     version: "10.0.0",
     sunset: "July 2023"

@@ -1,6 +1,18 @@
 {
   "content": [
     {
+      "version": "10.4.0",
+      "date": "February 15, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "<code>e-accordion</code> is now marked as deprecated. Use the Elvia accordion component instead."
+          ]
+        }
+      ]
+    },
+    {
       "version": "10.3.0",
       "date": "February 7, 2023",
       "changelog": [
@@ -588,8 +600,7 @@
           "type": "bug_fix",
           "changes": ["Fixed a bug that was introduced in version 8.4.5 that broke group accordions."],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -604,8 +615,7 @@
             "Fixed a bug causing nested accordion icons to rotate along with the outermost accordion when opened."
           ],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -621,8 +631,7 @@
             "If you are using <code>flex-direction: row</code> inside the accordion group, this might break if you have not defined <code>display: flex</code> yourself."
           ],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -1242,8 +1251,7 @@
             "Now possible to disable hover on icons when hovering accordion title, by using the new modifier <code>e-accordion__title--no-icon-hover</code>."
           ],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         },
         {
@@ -1263,8 +1271,7 @@
           "type": "bug_fix",
           "changes": ["Now possible to use a single accordion inside a group accordion content area."],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -1361,8 +1368,7 @@
           "components": [
             { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
             { "displayName": "Button", "url": "https://design.elvia.io/components/button" },
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -1412,8 +1418,7 @@
             "Update to icons(from 32px to 24px), and font-size(18px to 20px) for large accordions."
           ],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -1710,7 +1715,6 @@
           ],
           "components": [
             { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" },
             { "displayName": "Header", "url": "https://design.elvia.io/components/header" },
             { "displayName": "Table", "url": "https://design.elvia.io/components/table" }
           ]

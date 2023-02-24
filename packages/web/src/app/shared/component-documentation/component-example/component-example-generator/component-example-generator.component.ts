@@ -16,6 +16,15 @@ import { KeyValue } from '@angular/common';
 import { CegCodeUpdaterService } from 'src/app/core/services/ceg-code-updater.service';
 import { ElviaDropdownItem } from '@elvia/elvis-dropdown';
 
+type CustomTextProps = {
+  [prop: string]: {
+    value: AttributeType['cegDefault'];
+    type: AttributeType['cegCustomTextType'];
+    active: boolean;
+    orderOfPropsDisplayed: number;
+  };
+};
+
 @Component({
   selector: 'app-component-example-generator',
   templateUrl: './component-example-generator.component.html',
@@ -44,14 +53,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   cegCodes: CegCodes;
   dynamicCode: SafeHtml;
 
-  customTextProps: {
-    [prop: string]: {
-      value: AttributeType['cegDefault'];
-      type: AttributeType['cegCustomTextType'];
-      active: boolean;
-      orderOfPropsDisplayed: number;
-    };
-  } = {};
+  customTextProps: CustomTextProps = {};
   hasCustomTextProps = false;
   showCustomTextPopover = false;
   customTextPopoverIsOpen = false;
@@ -257,8 +259,8 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
    * @returns
    */
   keepOriginalOrderInCustomTextPopover(
-    left: KeyValue<string, typeof this.customTextProps[0]>,
-    right: KeyValue<string, typeof this.customTextProps[0]>,
+    left: KeyValue<string, CustomTextProps[0]>,
+    right: KeyValue<string, CustomTextProps[0]>,
   ): number {
     return left.value.orderOfPropsDisplayed > right.value.orderOfPropsDisplayed ? 1 : -1;
   }
