@@ -144,6 +144,10 @@ export const lightTheme = {
       hex: lightThemeColors['primary-colors'].white.color,
       contrast: lightThemeColors['primary-colors'].white.contrastText,
     },
+    'background-overlay-strong': {
+      hex: lightThemeColors['grey-colors']['grey-80'].color,
+      contrast: lightThemeColors['grey-colors']['grey-80'].contrastText,
+    },
     'background-header': {
       hex: lightThemeColors['primary-colors'].white.color,
       contrast: lightThemeColors['primary-colors'].white.contrastText,
@@ -193,7 +197,27 @@ export const lightTheme = {
       hex: lightThemeColors['grey-colors']['grey-05'].color,
       contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
     },
+    'state-selected-grey': {
+      hex: lightThemeColors['grey-colors']['grey-10'].color,
+      contrast: lightThemeColors['grey-colors']['grey-10'].contrastText,
+    },
     'state-disabled': {
+      hex: lightThemeColors['grey-colors']['grey-30'].color,
+      contrast: lightThemeColors['grey-colors']['grey-30'].contrastText,
+    },
+    'state-disabled-foreground': {
+      hex: lightThemeColors['grey-colors']['grey-30'].color,
+      contrast: lightThemeColors['grey-colors']['grey-30'].contrastText,
+    },
+    'state-disabled-background': {
+      hex: lightThemeColors['grey-colors']['grey-05'].color,
+      contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
+    },
+    'state-disabled-foreground-strong': {
+      hex: lightThemeColors['grey-colors']['grey-05'].color,
+      contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
+    },
+    'state-disabled-background-strong': {
       hex: lightThemeColors['grey-colors']['grey-30'].color,
       contrast: lightThemeColors['grey-colors']['grey-30'].contrastText,
     },
@@ -225,6 +249,16 @@ export const lightTheme = {
     'data-red': {
       hex: lightThemeColors['data-colors']['red-tomato'].color,
       contrast: lightThemeColors['data-colors']['red-tomato'].contrastText,
+    },
+  },
+  static: {
+    'static-white': {
+      hex: lightThemeColors['primary-colors'].white.color,
+      contrast: lightThemeColors['primary-colors'].white.contrastText,
+    },
+    'static-black': {
+      hex: lightThemeColors['primary-colors'].black.color,
+      contrast: lightThemeColors['primary-colors'].black.contrastText,
     },
   },
 } as const satisfies Theme;
