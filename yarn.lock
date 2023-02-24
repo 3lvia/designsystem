@@ -2589,7 +2589,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-colors@^1.4.2, @elvia/elvis-colors@^1.4.3, @elvia/elvis-colors@^1.5.0, @elvia/elvis-colors@workspace:packages/elvis-colors":
+"@elvia/elvis-colors@^1.4.2, @elvia/elvis-colors@^1.4.3, @elvia/elvis-colors@^1.5.0, @elvia/elvis-colors@^1.6.0, @elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
@@ -3503,7 +3503,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
-    "@elvia/elvis-colors": ^1.5.0
+    "@elvia/elvis-colors": ^1.6.0
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.6
@@ -3526,7 +3526,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@portal:../components/components/elvis-toolbox::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-colors": ^1.5.0
+    "@elvia/elvis-colors": ^1.6.0
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.6
