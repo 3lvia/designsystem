@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 1.6.1 (24.02.23)
+
+### Patch
+
+- Added missing export for `getThemeColorContrast()`.
+
 ## 1.6.0 (24.02.23)
 
 ### New feature
