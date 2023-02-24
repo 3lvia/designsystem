@@ -222,7 +222,7 @@ function App() {
                 />
 
                 <Badge
-                  badgeColor={'black'}
+                  badgeColor={'neutral'}
                   count={101}
                   content={
                     <button
@@ -235,7 +235,7 @@ function App() {
                 />
 
                 <Badge
-                  badgeColor={'black'}
+                  badgeColor={'neutral'}
                   content={
                     <button
                       className="e-thumbnail"
