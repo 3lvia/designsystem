@@ -61,7 +61,7 @@ const fillVariables = {
   'filled-background': `fill="var(--e-icon-color-filled-background, ${getThemeColor('text-primary')})"`,
   'filled-foreground-colored': `fill="var(--e-icon-color-filled-foreground-colored, ${getThemeColor(
     'static-black',
-  )})"`, // TODO: Get black -> black label
+  )})"`,
   on: `fill="var(--e-icon-color-on, ${getThemeColor('state-on')})"`,
   caution: `fill="var(--e-icon-color-caution, ${getThemeColor('state-caution')})"`,
   warning: `fill="var(--e-icon-color-warning, ${getThemeColor('state-warning')})"`,
