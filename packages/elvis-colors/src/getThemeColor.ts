@@ -1,8 +1,8 @@
-import type { Color, ColorLabel, Theme, ThemeName } from './theme';
+import type { ColorLabel, ThemeName } from './theme';
 import { lightTheme, lightThemeColors, LightThemeColorName } from './themes/lightTheme';
 import { darkTheme, darkThemeColors, DarkThemeColorName } from './themes/darkTheme';
 
-const getTheme = (name: ThemeName): Theme => {
+const getTheme = (name: ThemeName) => {
   switch (name) {
     case 'dark':
       return darkTheme;
@@ -13,13 +13,14 @@ const getTheme = (name: ThemeName): Theme => {
   }
 };
 
-const getThemeColorObject = (label: ColorLabel, themeName: ThemeName): Color | null => {
+const getThemeColorObject = (label: ColorLabel, themeName: ThemeName) => {
   const theme = getTheme(themeName);
   const color =
     theme.data[label as keyof typeof theme.data] ??
     theme.state[label as keyof typeof theme.state] ??
     theme.text[label as keyof typeof theme.text] ??
     theme.background[label as keyof typeof theme.background] ??
+    theme.static[label as keyof typeof theme.static] ??
     null;
   if (!color) {
     console.error(`Color ${label} not found.`);
@@ -31,7 +32,7 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName): Color | n
 /**
  * Get a color from a theme by label.
  * @param label
- * @param themeName
+ * @param themeName The theme name. Defaults to `'light'`.
  * @returns CSS-variable for label, with fallback to the color hex.
  * @example
  * const color = getThemeColor('background-primary');
@@ -45,6 +46,29 @@ export const getThemeColor = (label: ColorLabel, themeName: ThemeName = 'light')
     return '';
   }
   return `var(--e-color-${label}, ${color.hex})`;
+};
+
+/**
+ * Get a contrast color from a theme by label.
+ * @param label
+ * @param themeName The theme name. Defaults to 'light'.
+ * @returns CSS-variable for label, with fallback to the contrast color hex.
+ * @example
+ * const contrastColor = getThemeColorContrast('background-primary');
+ *
+ * @since 1.6.0
+ */
+export const getThemeColorContrast = (label: ColorLabel, themeName: ThemeName = 'light'): string => {
+  const color = getThemeColorObject(label, themeName);
+  if (!color) {
+    console.error(`Color '${label}' not found.`);
+    return '';
+  }
+  if (!color.contrast) {
+    console.error(`Color '${label}' does not have a contrast color.`);
+    return '';
+  }
+  return `var(--e-color-${label}--contrast, ${color.contrast})`;
 };
 
 const getBaseThemeColors = <TThemeName extends ThemeName>(
