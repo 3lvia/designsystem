@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { BadgeCircle, BadgeContainer } from './styledComponents';
 import { BadgeProps } from './elvia-badge.types';
-import { useCurrentTheme } from '@elvia/elvis-toolbox';
 
 const Badge: React.FC<BadgeProps> = ({
   badgeColor = 'green',
@@ -13,7 +12,6 @@ const Badge: React.FC<BadgeProps> = ({
   ...rest
 }) => {
   const contentRef = useRef<HTMLDivElement>(null);
-  const { currentTheme } = useCurrentTheme(contentRef);
 
   useEffect(() => {
     if (!webcomponent) {
@@ -40,7 +38,7 @@ const Badge: React.FC<BadgeProps> = ({
   return (
     <BadgeContainer className={`${className ?? ''}`} style={{ ...inlineStyle }} {...rest}>
       <div ref={contentRef}>{content}</div>
-      <BadgeCircle count={getCount(count)} badgeColor={badgeColor} currentTheme={currentTheme} role="status">
+      <BadgeCircle count={getCount(count)} badgeColor={badgeColor} role="status">
         {getCount(count)}
       </BadgeCircle>
     </BadgeContainer>

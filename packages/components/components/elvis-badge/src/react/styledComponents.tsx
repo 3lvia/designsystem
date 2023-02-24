@@ -1,22 +1,15 @@
 import { BadgeColor } from './elvia-badge.types';
 import styled from 'styled-components';
-import { getCustomThemeColor, getThemeColor, ThemeName } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 interface BadgeCircleProps {
   readonly badgeColor: BadgeColor;
   readonly count: string | undefined;
-  currentTheme: ThemeName;
 }
 
-const getTextColor = (color: BadgeColor, theme: ThemeName) => {
+const getTextColor = (color: BadgeColor) => {
   switch (color) {
     case 'green':
-      return getCustomThemeColor(
-        {
-          light: 'black',
-          dark: 'black',
-        },
-        theme,
-      );
+      return getThemeColor('static-black');
     case 'red':
       return getThemeColor('text-primary');
     default:
@@ -43,13 +36,13 @@ export const BadgeContainer = styled.div`
 export const BadgeCircle = styled.div<BadgeCircleProps>`
   background-color: ${({ badgeColor }) => getBadgeColor(badgeColor)};
   border-radius: 50px;
-  color: ${({ badgeColor, currentTheme }) => getTextColor(badgeColor, currentTheme)};
+  color: ${({ badgeColor }) => getTextColor(badgeColor)};
   display: grid;
   font-size: 0.5625rem;
   font-weight: 600;
   height: 16px;
   line-height: 0.75rem;
-  padding: ${({ count }) => (count === '99+' ? '2px 4px' : '2px 0px')};
+  padding: ${({ count }) => (count === '99+' ? '2px 4px' : '2px 0')};
   place-items: center;
   position: absolute;
   right: 0;
