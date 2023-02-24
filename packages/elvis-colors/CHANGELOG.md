@@ -4,7 +4,7 @@
 
 ### New feature
 
-- Added new theme color labels: `state-selected-grey`, `static-black`, and `static-white`.
+- Added new theme color label: `state-selected-grey`.
 
 ## 1.5.0 (30.01.23)
 

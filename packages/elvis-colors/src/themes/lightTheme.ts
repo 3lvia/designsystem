@@ -231,14 +231,4 @@ export const lightTheme = {
       contrast: lightThemeColors['data-colors']['red-tomato'].contrastText,
     },
   },
-  static: {
-    'static-white': {
-      hex: lightThemeColors['primary-colors'].white.color,
-      contrast: lightThemeColors['primary-colors'].white.contrastText,
-    },
-    'static-black': {
-      hex: lightThemeColors['primary-colors'].black.color,
-      contrast: lightThemeColors['primary-colors'].black.contrastText,
-    },
-  },
 } as const satisfies Theme;
