@@ -52,20 +52,20 @@ function optimizeSVG() {
 }
 
 // The following is used to change icon colors to use css variables instead of hard coded colors.
-type FillVariablesUnion = `fill="var(--e-icon-color-${IconLabels}, ${ReturnType<typeof getThemeColor>})"`;
+type FillVariablesUnion = `fill="var(--e-color-icon-${IconLabels}, ${ReturnType<typeof getThemeColor>})"`;
 export type FillVariables = { [label in IconLabels]: FillVariablesUnion };
 
 const fillVariables = {
-  stroke: `fill="var(--e-icon-color-stroke, ${getThemeColor('text-primary')})"`,
-  'filled-foreground': `fill="var(--e-icon-color-filled-foreground, ${getThemeColor('background-primary')})"`,
-  'filled-background': `fill="var(--e-icon-color-filled-background, ${getThemeColor('text-primary')})"`,
-  'filled-foreground-colored': `fill="var(--e-icon-color-filled-foreground-colored, ${getThemeColor(
+  stroke: `fill="var(--e-color-icon-stroke, ${getThemeColor('text-primary')})"`,
+  'filled-foreground': `fill="var(--e-color-icon-filled-foreground, ${getThemeColor('background-primary')})"`,
+  'filled-background': `fill="var(--e-color-icon-filled-background, ${getThemeColor('text-primary')})"`,
+  'filled-foreground-colored': `fill="var(--e-color-icon-filled-foreground-colored, ${getThemeColor(
     'static-black',
   )})"`,
-  on: `fill="var(--e-icon-color-on, ${getThemeColor('state-on')})"`,
-  caution: `fill="var(--e-icon-color-caution, ${getThemeColor('state-caution')})"`,
-  warning: `fill="var(--e-icon-color-warning, ${getThemeColor('state-warning')})"`,
-  error: `fill="var(--e-icon-color-error, ${getThemeColor('state-error')})"`,
+  on: `fill="var(--e-color-icon-on, ${getThemeColor('state-on')})"`,
+  caution: `fill="var(--e-color-icon-caution, ${getThemeColor('state-caution')})"`,
+  warning: `fill="var(--e-color-icon-warning, ${getThemeColor('state-warning')})"`,
+  error: `fill="var(--e-color-icon-error, ${getThemeColor('state-error')})"`,
 } as const satisfies FillVariables;
 
 function getIconWithCssVariables(icon: string, iconName: string) {

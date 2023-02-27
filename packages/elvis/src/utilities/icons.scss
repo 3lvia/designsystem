@@ -42,7 +42,7 @@ $default-size: 'md';
     @each $class, $colors in IconMap.$icon-theme-classes {
       &#{$class} {
         @each $label, $color in $colors {
-          --e-icon-color-#{$label}: #{$color};
+          --e-color-icon-#{$label}: #{$color};
         }
       }
     }
@@ -52,7 +52,7 @@ $default-size: 'md';
       &disabled-light,
       &grey-30,
       &gray-light {
-        --e-icon-color-stroke: var(--e-color-state-hover-grey); // TODO: is this the correct color?
+        --e-color-icon-stroke: var(--e-color-state-hover-grey); // TODO: is this the correct color?
       }
     }
   }
