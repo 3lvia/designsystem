@@ -3499,11 +3499,11 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-toolbox@^7.0.0, @elvia/elvis-toolbox@^7.4.0, @elvia/elvis-toolbox@^7.4.1, @elvia/elvis-toolbox@^7.4.2, @elvia/elvis-toolbox@^7.4.3, @elvia/elvis-toolbox@^7.4.4, @elvia/elvis-toolbox@^7.5.0, @elvia/elvis-toolbox@^7.5.1, @elvia/elvis-toolbox@^7.6.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@^7.0.0, @elvia/elvis-toolbox@^7.4.0, @elvia/elvis-toolbox@^7.4.1, @elvia/elvis-toolbox@^7.4.2, @elvia/elvis-toolbox@^7.4.3, @elvia/elvis-toolbox@^7.4.4, @elvia/elvis-toolbox@^7.5.0, @elvia/elvis-toolbox@^7.5.1, @elvia/elvis-toolbox@^7.6.0, @elvia/elvis-toolbox@^7.7.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
-    "@elvia/elvis-colors": ^1.5.0
+    "@elvia/elvis-colors": ^1.6.0
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.6
@@ -3526,7 +3526,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@portal:../components/components/elvis-toolbox::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-colors": ^1.5.0
+    "@elvia/elvis-colors": ^1.6.0
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.6
@@ -3550,7 +3550,7 @@ __metadata:
   resolution: "@elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip"
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.3
+    "@elvia/elvis-toolbox": ^7.7.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -3571,7 +3571,7 @@ __metadata:
   resolution: "@elvia/elvis-tooltip@portal:../components/components/elvis-tooltip::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.3
+    "@elvia/elvis-toolbox": ^7.7.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
