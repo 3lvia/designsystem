@@ -35,7 +35,7 @@ function findUnusedIconFiles() {
   const remove: string[] = [];
 
   content.forEach((icon) => {
-    const filename = icon.substr(0, icon.length - 4);
+    const filename = icon.slice(0, -4);
     if (JSON.stringify(icons).indexOf(filename) === -1) {
       remove.push(icon);
     }
