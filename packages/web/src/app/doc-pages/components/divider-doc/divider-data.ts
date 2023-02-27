@@ -34,16 +34,6 @@ export const dividerData: ComponentData = {
       cegOptions: ['medium', 'caps'],
       cegDependency: [{ name: 'type', value: 'title' }],
     },
-    isInverted: {
-      isRequired: false,
-      type: 'boolean',
-      description: 'If the divider is on a dark grey background this prop should be set to true.',
-      default: 'false',
-      cegDefault: 0,
-      cegType: 'boolean',
-      cegFormType: 'background',
-      cegOptions: ['White', 'Dark grey'],
-    },
     orientation: {
       isRequired: false,
       type: 'horizontal | vertical',
