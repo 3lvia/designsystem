@@ -84,10 +84,6 @@ export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
     transform-origin: center left;
   }
 
-  &:last-child {
-    margin-right: 24px;
-  }
-
   &:hover::after {
     transform: scaleX(1);
   }
@@ -99,6 +95,10 @@ export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
         transform: scaleX(1);
       }
     `}
+`;
+
+export const ProfileButton = styled(TriggerButton)`
+  margin-right: 24px;
 `;
 
 export const IconButton = styled.button`
