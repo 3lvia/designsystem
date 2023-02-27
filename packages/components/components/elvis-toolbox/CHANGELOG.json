@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "27.02.23",
+      "version": "7.8.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added prop interface for transition duration."]
+        }
+      ]
+    },
+    {
+      "date": "27.02.23",
       "version": "7.7.0",
       "changelog": [
         {
