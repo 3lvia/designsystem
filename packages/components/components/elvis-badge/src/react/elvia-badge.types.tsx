@@ -1,11 +1,8 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { CSSProperties } from 'react';
-export type BadgeColor = 'red' | 'green' | 'black' | 'white';
-export interface BadgeProps {
+import { BaseProps } from '@elvia/elvis-toolbox';
+
+export type BadgeColor = 'red' | 'green' | 'neutral';
+export interface BadgeProps extends BaseProps {
   badgeColor?: BadgeColor;
-  className?: string;
   content?: JSX.Element;
   count?: number | string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
 }

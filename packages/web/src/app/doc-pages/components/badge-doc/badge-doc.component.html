@@ -15,11 +15,23 @@
       The badge component acts as a wrapper. You should only use badges on Icon Button or Thumbnails. Note how
       the badge places itself relative to its content, meaning you can place a badge component within other
       elements, such as the icon in an Icon Button element. Use slots to give the badge its content.
-      <!-- noe mer? -->
       <app-component-example-generator
         [componentData]="badgeIconCode"
         [inlineExample]="true"
       ></app-component-example-generator>
+    </ng-container>
+  </app-component-section>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Color'">
+        <ng-container ngProjectAs="sectionContent">
+          The
+          <code>neutral</code>
+          badge color adapts to user's color scheme, turning black in light mode and white in dark mode.
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
