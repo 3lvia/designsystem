@@ -24,7 +24,7 @@ export const BoxTitle = styled.div`
   ${getTypographyCss('title-caps')}
   font-style: normal;
   color: ${getThemeColor('text-primary')};
-  margin: 0px;
+  margin: 0;
   margin-left: 8px;
   margin-bottom: 8px;
   * {
