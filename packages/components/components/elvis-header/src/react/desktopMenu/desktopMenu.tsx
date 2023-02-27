@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { TriggerButton } from '../styledComponents';
 import { UserMenuProps } from '../elviaHeader.types';
 import {
@@ -31,7 +31,8 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
     alignWidths: false,
   });
 
-  useEffect(() => {
+  const togglePopupVisibility = (isShowing: boolean): void => {
+    setIsShowing(isShowing);
     onMenuToggle(isShowing);
 
     if (isShowing) {
@@ -40,13 +41,13 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
       releaseFocusTrap();
       connectedElementRef.current?.focus();
     }
-  }, [isShowing]);
+  };
 
   return (
     <>
       <TriggerButton
         size="sm"
-        onClick={() => setIsShowing(!isShowing)}
+        onClick={() => togglePopupVisibility(!isShowing)}
         type="button"
         aria-label="Åpne brukermeny"
         aria-expanded={isShowing}
@@ -61,7 +62,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
         {username}
       </TriggerButton>
       {isShowing && (
-        <Overlay ref={popoverRef} onClose={() => setIsShowing(false)}>
+        <Overlay ref={popoverRef} onClose={() => togglePopupVisibility(false)}>
           <MenuContainer data-testid="desktop-menu">
             <UserGrid>
               <ImageContainer>
