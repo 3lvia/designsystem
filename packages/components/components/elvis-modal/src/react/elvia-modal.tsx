@@ -14,7 +14,13 @@ import { useClickOutside } from './useClickOutside';
 import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { warnDeprecatedProps, useFocusTrap, useSlot, IconWrapper } from '@elvia/elvis-toolbox';
+import {
+  warnDeprecatedProps,
+  useFocusTrap,
+  useSlot,
+  IconWrapper,
+  useCurrentTheme,
+} from '@elvia/elvis-toolbox';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
 import { config } from './config';
 
@@ -81,6 +87,8 @@ export const ModalComponent: FC<ModalProps> = function ({
   const { ref: modalPrimaryBtn } = useSlot<HTMLDivElement>('primaryButton', webcomponent);
   const { ref: modalSecondaryBtn } = useSlot<HTMLDivElement>('secondaryButton', webcomponent);
 
+  const { currentTheme } = useCurrentTheme(modalIllustration);
+
   const hasIllustration = !!illustration || !!(webcomponent && !!webcomponent.getSlot('illustration'));
   const hasPrimaryButton = !!primaryButton || !!(webcomponent && !!webcomponent.getSlot('primaryButton'));
   const hasSecondaryButton =
@@ -137,7 +145,6 @@ export const ModalComponent: FC<ModalProps> = function ({
       aria-label={heading}
       isShowing={isShowing}
       disableBackdrop={disableBackdrop}
-      data-testid="modal-container"
       {...rest}
     >
       <ModalWrapper
@@ -148,17 +155,17 @@ export const ModalComponent: FC<ModalProps> = function ({
         maxWidth={maxWidth}
         data-testid="modal-wrapper"
       >
-        {illustration && (
-          <ModalIllustration data-testid="modal-illustration">{illustration}</ModalIllustration>
+        {illustration && <ModalIllustration theme={currentTheme}>{illustration}</ModalIllustration>}
+        {!illustration && hasIllustration && (
+          <ModalIllustration ref={modalIllustration} theme={currentTheme}></ModalIllustration>
         )}
-        {!illustration && hasIllustration && <ModalIllustration ref={modalIllustration}></ModalIllustration>}
         {hasCloseButton && (
           <ModalCloseButton
             onClick={() => handleOnClose()}
             onMouseEnter={() => setIsHoveringCloseButton(true)}
             onMouseLeave={() => setIsHoveringCloseButton(false)}
             aria-label="Lukk modal"
-            data-testid="modal-close-btn"
+            name="Lukk modal"
           >
             <IconWrapper
               icon={close}
@@ -169,18 +176,14 @@ export const ModalComponent: FC<ModalProps> = function ({
         )}
 
         <ModalContent hasIllustration={hasIllustration} hasPadding={hasPadding}>
-          {heading && (
-            <ModalHeading hasIllustration={hasIllustration} data-testid="modal-heading">
-              {heading}
-            </ModalHeading>
-          )}
+          {heading && <ModalHeading hasIllustration={hasIllustration}>{heading}</ModalHeading>}
           <ModalText data-testid="modal-content" ref={modalText}>
             {content}
           </ModalText>
           {(hasPrimaryButton || hasSecondaryButton) && (
             <ModalActions>
               {secondaryButton && (
-                <secondaryButton.type {...secondaryButton.props} data-testid="modal-secondary-btn">
+                <secondaryButton.type {...secondaryButton.props}>
                   {secondaryButton.props.children}
                 </secondaryButton.type>
               )}
@@ -188,7 +191,7 @@ export const ModalComponent: FC<ModalProps> = function ({
                 <div className="webComponentBtn" ref={modalSecondaryBtn}></div>
               )}
               {primaryButton ? (
-                <primaryButton.type {...primaryButton.props} data-testid="modal-primary-btn">
+                <primaryButton.type {...primaryButton.props}>
                   {primaryButton.props.children}
                 </primaryButton.type>
               ) : (

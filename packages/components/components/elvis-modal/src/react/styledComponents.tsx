@@ -1,17 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor, ThemeName } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-
-export const colors = {
-  elviaCharge: getColor('elvia-charge'),
-  elviaOn: getColor('white'),
-  elviaOff: getColor('black'),
-  grey: getColor('grey'),
-};
-export const typography = {
-  titleMd: getTypographyCss('title-md'),
-  textLg: getTypographyCss('text-lg'),
-};
 
 const mobileMax = '767px';
 const desktopMin = '1024px';
@@ -47,8 +36,26 @@ type ModalProps = {
   disableBackdrop: boolean;
 };
 
+type IllustrationProps = {
+  theme: ThemeName;
+};
+
+type WrapperProps = {
+  hasIllustration: boolean;
+  maxWidth?: string;
+};
+
+type ContentProps = {
+  hasIllustration: boolean;
+  hasPadding: boolean;
+};
+
+type HeadingProps = {
+  hasIllustration: boolean;
+};
+
 export const Modal = styled.div<ModalProps>`
-  display: ${(props) => (props.isShowing ? 'flex' : 'none')};
+  display: ${({ isShowing }) => (isShowing ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -57,37 +64,29 @@ export const Modal = styled.div<ModalProps>`
   bottom: 0;
   left: 0;
   text-align: left;
-  ${(props) => !props.disableBackdrop && 'background: rgba(0, 0, 0, 0.25);'}
+  ${({ disableBackdrop }) => !disableBackdrop && 'background: rgba(0, 0, 0, 0.25);'}
   z-index: 99999;
   pointer-events: auto;
   box-sizing: border-box;
   opacity: 1;
-  -o-animation: ${fadeIn} 300ms ease-in;
-  -moz-animation: ${fadeIn} 300ms ease-in;
-  -webkit-animation: ${fadeIn} 300ms ease-in;
   animation: ${fadeIn} 300ms ease-in;
 `;
-
-type WrapperProps = {
-  hasIllustration: boolean;
-  maxWidth?: string;
-};
 
 export const ModalWrapper = styled.div<WrapperProps>`
   position: relative;
   display: flex;
-  flex-direction: ${(props) => (props.hasIllustration ? 'row-reverse' : 'column')};
-  height: ${(props) => (props.hasIllustration ? '550px' : 'auto')};
-  width: ${(props) => (props.hasIllustration ? '1090px' : 'auto')};
-  max-width: ${(props) =>
-    props.maxWidth ? props.maxWidth : props.hasIllustration ? '1090px' : modalMaxWidth};
+  flex-direction: ${({ hasIllustration }) => (hasIllustration ? 'row-reverse' : 'column')};
+  height: ${({ hasIllustration }) => (hasIllustration ? '550px' : 'auto')};
+  width: ${({ hasIllustration }) => (hasIllustration ? '1090px' : 'auto')};
+  max-width: ${({ maxWidth, hasIllustration }) =>
+    maxWidth ? maxWidth : hasIllustration ? '1090px' : modalMaxWidth};
   border-radius: ${modalBorderRadius};
   overflow: hidden;
-  background: ${colors.elviaOn};
-  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
+  background: ${getThemeColor('background-element')};
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
 
-  ${(props) =>
-    props.hasIllustration &&
+  ${({ hasIllustration }) =>
+    hasIllustration &&
     css`
       @media (max-width: ${desktopMin}) {
         flex-direction: column;
@@ -100,7 +99,7 @@ export const ModalWrapper = styled.div<WrapperProps>`
 
   @media (max-width: ${mobileMax}) {
     flex-direction: column;
-    border-radius: 0px;
+    border-radius: 0;
     width: 100%;
     max-width: 100%;
     height: 100%;
@@ -110,7 +109,7 @@ export const ModalWrapper = styled.div<WrapperProps>`
 
 const decideContentPadding = (hasIllustration: boolean, hasPadding: boolean, padding: string): string => {
   if (!hasPadding) {
-    return '0px';
+    return '0';
   } else if (hasIllustration) {
     return modalDesktopWithIllustrationPadding;
   } else {
@@ -118,21 +117,17 @@ const decideContentPadding = (hasIllustration: boolean, hasPadding: boolean, pad
   }
 };
 
-type ModalContentProps = {
-  hasIllustration: boolean;
-  hasPadding: boolean;
-};
-
-export const ModalContent = styled.div<ModalContentProps>`
-  padding: ${(props) => decideContentPadding(props.hasIllustration, props.hasPadding, modalDesktopPadding)};
+export const ModalContent = styled.div<ContentProps>`
+  padding: ${({ hasIllustration, hasPadding }) =>
+    decideContentPadding(hasIllustration, hasPadding, modalDesktopPadding)};
   height: 100%;
-  width: ${(props) => (props.hasIllustration ? '620px' : 'auto')};
+  width: ${({ hasIllustration }) => (hasIllustration ? '620px' : 'auto')};
   display: flex;
   flex-direction: column;
   z-index: 1;
 
-  ${(props) =>
-    props.hasIllustration &&
+  ${({ hasIllustration }) =>
+    hasIllustration &&
     css`
       @media (max-width: ${desktopMin}) {
         padding: ${modalTabletPadding};
@@ -145,15 +140,18 @@ export const ModalContent = styled.div<ModalContentProps>`
     `}
 
   @media (max-width: ${mobileMax}) {
-    padding: ${(props) => decideContentPadding(false, props.hasPadding, modalMobilePadding)};
-    padding-top: ${(props) => props.hasIllustration && '24px'};
+    padding: ${({ hasPadding }) => decideContentPadding(false, hasPadding, modalMobilePadding)};
+    padding-top: ${({ hasIllustration }) => hasIllustration && '24px'};
     width: 100%;
-    height: ${(props) => (props.hasIllustration ? `calc(100% - ${modalMobileIllustrationHeight})` : '100%')};
+    height: ${({ hasIllustration }) =>
+      hasIllustration ? `calc(100% - ${modalMobileIllustrationHeight})` : '100%'};
   }
 `;
 
-export const ModalIllustration = styled.div`
-  background: ${colors.grey};
+export const ModalIllustration = styled.div.attrs(() => ({
+  role: 'presentation',
+}))<IllustrationProps>`
+  background: ${getThemeColor('background-tertiary')};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,8 +163,9 @@ export const ModalIllustration = styled.div`
 
   ::after {
     content: '';
-    background: ${colors.elviaOn};
+    background: ${getThemeColor('background-element')};
     border-radius: 100%;
+    border: ${({ theme }) => (theme === 'dark' ? `1px solid ${getThemeColor('background-accent')}` : 'none')};
     position: absolute;
     height: calc(550px * 6.85);
     width: calc(550px * 6.85);
@@ -195,25 +194,21 @@ export const ModalIllustration = styled.div`
   }
 `;
 
-type ModalHeadingProps = {
-  hasIllustration: boolean;
-};
-
-export const ModalHeading = styled.h2<ModalHeadingProps>`
+export const ModalHeading = styled.h2<HeadingProps>`
   margin: 0;
   padding: 0;
-  ${typography.titleMd}
-  font-size: ${(props) =>
-    props.hasIllustration ? modalDesktopWithIllustrationTitleFontSize : titleFontSize};
-  font-weight: ${(props) =>
-    props.hasIllustration ? modalDesktopWithIllustrationTitleFontWeight : titleFontWeight};
-  padding-bottom: ${(props) =>
-    props.hasIllustration ? modalDesktopWithIllustrationTitlePaddingBottom : modalDesktopTitlePaddingBottom};
+  ${getTypographyCss('title-md')}
+  font-size: ${({ hasIllustration }) =>
+    hasIllustration ? modalDesktopWithIllustrationTitleFontSize : titleFontSize};
+  font-weight: ${({ hasIllustration }) =>
+    hasIllustration ? modalDesktopWithIllustrationTitleFontWeight : titleFontWeight};
+  padding-bottom: ${({ hasIllustration }) =>
+    hasIllustration ? modalDesktopWithIllustrationTitlePaddingBottom : modalDesktopTitlePaddingBottom};
 
   @media (max-width: ${desktopMin}) {
-    ${typography.titleMd}
-    padding-bottom: ${(props) =>
-      props.hasIllustration ? modalTabletWithIllustrationTitlePaddingBottom : modalTabletTitlePaddingBottom};
+    ${getTypographyCss('title-md')}
+    padding-bottom: ${({ hasIllustration }) =>
+      hasIllustration ? modalTabletWithIllustrationTitlePaddingBottom : modalTabletTitlePaddingBottom};
   }
   @media (max-width: ${mobileMax}) {
     padding-top: ${modalMobileTitlePaddingTop};
@@ -222,7 +217,7 @@ export const ModalHeading = styled.h2<ModalHeadingProps>`
 `;
 
 export const ModalText = styled.div`
-  ${typography.textLg}
+  ${getTypographyCss('text-lg')}
   position: relative;
   overflow-y: auto;
   height: 100%;
@@ -283,7 +278,7 @@ export const ModalCloseButton = styled.button`
   }
 
   :hover {
-    background-color: ${colors.elviaCharge};
-    border-color: ${colors.elviaCharge};
+    background-color: ${getThemeColor('state-on')};
+    border-color: ${getThemeColor('state-on')};
   }
 `;
