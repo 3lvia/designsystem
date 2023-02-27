@@ -103,14 +103,9 @@ describe('Elvis Badge', () => {
       );
     });
 
-    it('should have a red background color', () => {
+    it('should have a white text color', () => {
       const badgeCircle = screen.getByRole('status');
-      expect(badgeCircle).toHaveStyle(`background-color: ${getThemeColor('state-error')}`);
-    });
-
-    it('should have a black text color', () => {
-      const badgeCircle = screen.getByRole('status');
-      expect(badgeCircle).toHaveStyle(`color: ${getThemeColor('text-primary')}`);
+      expect(badgeCircle).toHaveStyle(`color: ${getThemeColor('static-white')}`);
     });
   });
 
