@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "27.02.23",
+      "version": "7.7.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for dark theme to the tooltip component."]
+        }
+      ]
+    },
+    {
       "date": "30.01.23",
       "version": "7.6.0",
       "changelog": [

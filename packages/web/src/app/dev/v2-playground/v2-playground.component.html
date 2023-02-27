@@ -56,7 +56,7 @@
   <div class="example-wrapper">
     <h3>Badge</h3>
     <div style="display: flex; gap: 1rem">
-      <elvia-badge [count]="0">
+      <elvia-badge [count]="10">
         <button
           class="e-thumbnail"
           aria-label="Thumbnail button that opens the image in a larger view"
@@ -74,7 +74,7 @@
           <img src="https://picsum.photos/56" alt="Thumbnail example image" />
         </button>
       </elvia-badge>
-      <elvia-badge [count]="101" [badgeColor]="'black'">
+      <elvia-badge [count]="101" [badgeColor]="'neutral'">
         <button
           class="e-thumbnail"
           aria-label="Thumbnail button that opens the image in a larger view"
@@ -262,13 +262,16 @@
   <!--Divider-->
   <div class="example-wrapper">
     <h3>Divider</h3>
+    <h4>Title divider</h4>
     <elvia-divider type="title" typography="caps">
-      <h3 slot="title">Title</h3>
+      <h2 slot="title">Title with caps</h2>
     </elvia-divider>
-    <h3>Vertical divider</h3>
+    <h4>Vertical divider</h4>
     <div style="height: 100px">
       <elvia-divider type="simple" orientation="vertical"></elvia-divider>
     </div>
+    <h4>Curved divider</h4>
+    <elvia-divider type="curved"></elvia-divider>
   </div>
 
   <!--Dropdown-->
