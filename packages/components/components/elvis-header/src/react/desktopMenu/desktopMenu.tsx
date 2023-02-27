@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { TriggerButton } from '../styledComponents';
+import { ProfileButton } from '../styledComponents';
 import { UserMenuProps } from '../elviaHeader.types';
 import {
   Email,
@@ -45,7 +45,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
 
   return (
     <>
-      <TriggerButton
+      <ProfileButton
         size="sm"
         onClick={() => togglePopupVisibility(!isShowing)}
         type="button"
@@ -60,7 +60,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
           <ProfilePicture />
         </ImageContainer>
         {username}
-      </TriggerButton>
+      </ProfileButton>
       {isShowing && (
         <Overlay ref={popoverRef} onClose={() => togglePopupVisibility(false)}>
           <MenuContainer data-testid="desktop-menu">
