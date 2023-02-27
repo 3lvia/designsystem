@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 export const BoxArea = styled.div`
@@ -11,19 +11,19 @@ export const BoxArea = styled.div`
 
 export const BoxColoredLine = styled.div`
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 4px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background: ${getColor('elvia-charge')};
+  background: ${getThemeColor('state-on')};
 `;
 
 export const BoxTitle = styled.div`
   ${getTypographyCss('title-caps')}
   font-style: normal;
-  color: ${getColor('black')};
+  color: ${getThemeColor('text-primary')};
   margin: 0px;
   margin-left: 8px;
   margin-bottom: 8px;
@@ -45,10 +45,10 @@ export const BoxContent = styled.div<BoxContentProps>`
   width: 100%;
   box-sizing: border-box;
   border-radius: 5px;
-  border: ${(props) => (props.hasBorder ? `1px solid ${getColor('grey-10')}` : 'none')};
-  background: ${getColor('white')};
+  border: ${({ hasBorder }) => (hasBorder ? `1px solid ${getThemeColor('background-accent')}` : 'none')};
+  background: ${getThemeColor('background-overlay')};
   text-align: left;
-  color: ${getColor('black')};
+  color: ${getThemeColor('text-primary')};
   padding: 40px;
   @media (max-width: 767px) {
     padding: 24px;
