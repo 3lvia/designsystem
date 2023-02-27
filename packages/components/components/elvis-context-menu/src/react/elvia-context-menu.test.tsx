@@ -77,7 +77,6 @@ describe('Elvis Context Menu', () => {
     it('arrow up will focus the last item in the list', async () => {
       const user = userEvent.setup();
       await user.keyboard('{arrowup}');
-      screen.debug();
       const menu = screen.getByRole('menu');
       const buttons: NodeListOf<HTMLButtonElement | HTMLAnchorElement> = menu.querySelectorAll('button, a');
       expect(buttons.item(0).tabIndex).toBe(-1);
