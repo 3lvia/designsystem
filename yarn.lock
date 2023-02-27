@@ -2700,9 +2700,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-context-menu@workspace:packages/components/components/elvis-context-menu"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-colors": ^1.6.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.2
+    "@elvia/elvis-toolbox": ^7.7.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -2723,9 +2723,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-context-menu@portal:../components/components/elvis-context-menu::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-colors": ^1.6.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.2
+    "@elvia/elvis-toolbox": ^7.7.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
