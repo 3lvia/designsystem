@@ -11,6 +11,7 @@ export const config: ComponentConfig = {
     { name: 'ariaValueText', type: 'string' },
     { name: 'componentId', type: 'string' },
     { name: 'size', type: 'string' },
+    { name: 'transitionDuration', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
   ],
