@@ -46,14 +46,6 @@ $default-size: 'md';
         }
       }
     }
-
-    // TODO: Generate from color labels in color package
-    &color- {
-      &disabled-light,
-      &gray-light {
-        --e-color-icon-stroke: var(--e-color-state-hover-grey); // TODO: is this the correct color?
-      }
-    }
   }
 }
 
