@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect, useState, CSSProperties } from 'react';
+import React, { FC, useRef, useEffect, useState } from 'react';
 import { CardType, BorderColor, HeadingLevel } from './elvia-card.types';
 import {
   CardArea,
@@ -12,13 +12,12 @@ import {
   CardCornerIcon,
   CardColoredLineContainer,
 } from './styledComponents';
-import { warnDeprecatedProps, useIsOverflowing, IconWrapper } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, useIsOverflowing, IconWrapper, BaseProps } from '@elvia/elvis-toolbox';
 import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { config } from './config';
 
-export interface CardProps {
+export interface CardProps extends BaseProps {
   icon?: string | JSX.Element;
   iconHover?: string | JSX.Element;
   /**
@@ -47,9 +46,6 @@ export interface CardProps {
   label?: never;
   tag?: string;
   cornerIcon?: string | JSX.Element;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
 }
 
 const Card: FC<CardProps> = function ({
@@ -141,7 +137,6 @@ const Card: FC<CardProps> = function ({
       height={height}
       minWidth={minWidth}
       maxWidth={maxWidth}
-      data-testid="card-area"
       onPointerEnter={() => setIsHoveringArea(true)}
       onPointerLeave={() => setIsHoveringArea(false)}
       className={className ?? ''}
@@ -162,26 +157,18 @@ const Card: FC<CardProps> = function ({
         {!!heading && (
           <Tooltip
             trigger={
-              <CardHeading
-                as={headingLevel}
-                ref={headingRef}
-                type={type}
-                maxHeadingLines={maxHeadingLines}
-                data-testid="card-heading"
-              >
-                {heading}
-              </CardHeading>
+              <header>
+                <CardHeading as={headingLevel} ref={headingRef} type={type} maxHeadingLines={maxHeadingLines}>
+                  {heading}
+                </CardHeading>
+              </header>
             }
             content={heading}
             isDisabled={!headingIsOverflowing}
           />
         )}
         {!!description && (
-          <CardDescription
-            type={type}
-            maxDescriptionLines={type === 'simple' ? 1 : maxDescriptionLines}
-            data-testid="card-description"
-          >
+          <CardDescription type={type} maxDescriptionLines={type === 'simple' ? 1 : maxDescriptionLines}>
             {description}
           </CardDescription>
         )}
