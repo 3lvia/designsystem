@@ -96,9 +96,9 @@ function createIconFileContent(icon: string, iconName: string) {
       return icon;
     }
     if (!color.startsWith('#') && !color.startsWith('var(--')) {
-      return icon.replaceAll('${fillVariables.stroke}', 'fill="' + getColor(color) + '"');
+      return icon.replaceAll('${fillVariables.stroke}', 'fill="' + getColor(color) + '"').replaceAll('${fillVariables['filled-background']}', 'fill="' + getColor(color) + '"');
     }
-    return icon.replaceAll('${fillVariables.stroke}', 'fill="' + color + '"');
+    return icon.replaceAll('${fillVariables.stroke}', 'fill="' + color + '"').replaceAll('${fillVariables['filled-background']}', 'fill="' + color + '"');
   }`;
 }
 
