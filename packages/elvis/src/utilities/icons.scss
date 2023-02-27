@@ -54,10 +54,6 @@ $default-size: 'md';
       &gray-light {
         --e-icon-color-stroke: var(--e-color-state-hover-grey); // TODO: is this the correct color?
       }
-
-      &white {
-        --e-icon-color-stroke: var(--e-color-static-white, #fff); // TODO: Add label with white -> dark white
-      }
     }
   }
 }
