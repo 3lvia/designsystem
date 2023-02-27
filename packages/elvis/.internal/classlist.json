@@ -1,5 +1,7 @@
 {
 	"block": {
+		"e-theme-light": {},
+		"e-theme-dark": {},
 		"e-icon": {
 			"modifier": {
 				"e-icon--inverted": {},
@@ -1152,6 +1154,8 @@
 		"e-gap-40": {}
 	},
 	"flat": {
+		"e-theme-light": {},
+		"e-theme-dark": {},
 		"e-icon": {},
 		"e-icon--inverted": {},
 		"e-icon--color-disabled": {},
