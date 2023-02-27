@@ -1,6 +1,32 @@
 {
   "content": [
     {
+      "version": "11.0.0",
+      "date": "February 27, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Icons are now injected as SVG elements into the DOM, instead of the previous method of injecting them as background images. This changes the internal DOM structure of the icons, however it should not affect how icons are used or displayed. It also allows icons to be recolored using CSS-variables.",
+            "The classes to set colors of icons have been changed. Most color classes should still function the same way, but some have been renamed or removed. New color names prefer the use of semantic names. E.g.: if you have used <code>e-icon--color-grey-30</code>, you should now use <code>e-icon--color-disabled</code> instead."
+          ],
+          "fixes": [
+            "Check that the colors you use for icons are still working. If you need any icon colors that are not available, please contact the design system and we will help you."
+          ]
+        },
+        {
+          "type": "new_feature",
+          "changes": ["Icons now support theme functionality."]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "The <code>elvis.js</code> script is now minified by default. If you need the non-minified version, it is named <code>elvis.full.js</code>."
+          ]
+        }
+      ]
+    },
+    {
       "version": "10.4.0",
       "date": "February 15, 2023",
       "changelog": [

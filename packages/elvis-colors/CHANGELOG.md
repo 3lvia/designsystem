@@ -1,6 +1,10 @@
 # Elvia Colors Changelog
 
-## 1.6.1 (24.02.23)
+## 1.7.0 (27.02.23)
+
+### New feature
+
+- Added new theme color labels for icon colors.
 
 ### Patch
 
