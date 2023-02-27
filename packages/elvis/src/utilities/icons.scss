@@ -36,10 +36,6 @@ $default-size: 'md';
 
 .e-icon {
   @include icon-size($default-size);
-  // Generate icon color variables
-  @each $label, $color in IconMap.$icon-variables {
-    --e-icon-color-#{$label}: #{$color};
-  }
   display: inline-block;
 
   &.e-icon-- {
@@ -53,10 +49,6 @@ $default-size: 'md';
 
     // TODO: Generate from color labels in color package
     &color- {
-      &gray {
-        --e-icon-color-stroke: var(--e-color-state-disabled);
-      }
-
       &disabled-light,
       &grey-30,
       &gray-light {
@@ -64,7 +56,7 @@ $default-size: 'md';
       }
 
       &white {
-        --e-icon-color-stroke: #fff; // TODO: Add label with white -> dark white
+        --e-icon-color-stroke: var(--e-color-static-white, #fff); // TODO: Add label with white -> dark white
       }
     }
   }
