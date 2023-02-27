@@ -225,7 +225,7 @@ function createCamelCase(original: string) {
       newText += arr[i];
       continue;
     }
-    newText += arr[i][0].toUpperCase() + arr[i].substr(1, arr[i].length - 1);
+    newText += arr[i][0].toUpperCase() + arr[i].substring(1, arr[i].length);
   }
   return newText;
 }
