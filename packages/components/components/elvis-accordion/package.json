@@ -1,9 +1,7 @@
 {
   "name": "@elvia/elvis-accordion",
-  "version": "2.8.15",
-  "description": "",
+  "version": "2.9.0",
   "main": "web_component.js",
-  "author": "",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/accordion",
   "files": [
