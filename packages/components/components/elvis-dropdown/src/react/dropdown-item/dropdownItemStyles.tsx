@@ -1,4 +1,4 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { IconButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
@@ -60,7 +60,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   border: none;
   margin: 0;
   width: 100%;
-  color: ${getColor('elvia-off')};
+  color: ${getThemeColor('text-primary')};
   padding: 0 0 0 16px;
   align-items: center;
   cursor: pointer;
@@ -70,7 +70,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     isActive &&
     !isMulti &&
     css`
-      background-color: ${getColor('grey-10')};
+      background-color: ${getThemeColor('state-selected-grey')};
     `};
 
   ${({ isMulti, isGtMobile, isDisabled }) =>
@@ -80,7 +80,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     css`
       &:hover {
         ${OpenOverlayButton} {
-          background-color: ${getColor('elvia-charge')};
+          background-color: ${getThemeColor('state-on')};
         }
       }
     `};
@@ -105,15 +105,16 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     if (isDisabled) {
       return css`
         cursor: not-allowed;
-        color: ${getColor('disabled')};
+        color: ${getThemeColor('state-disabled-foreground')};
       `;
     }
     return css`
       &:hover {
-        background-color: ${getColor('grey-05')};
+        background-color: ${getThemeColor('state-hover-grey')};
 
         ${StyledCheckbox} {
-          background-color: ${getColor('elvia-charge')};
+          background-color: ${getThemeColor('state-on')};
+          border-color: ${getThemeColor('text-primary')};
         }
       }
     `;
@@ -123,7 +124,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     isFocused &&
     (!isActive || isMulti) &&
     css`
-      background-color: ${getColor('grey-05')};
+      background-color: ${getThemeColor('state-hover-grey')};
     `};
 `;
 
