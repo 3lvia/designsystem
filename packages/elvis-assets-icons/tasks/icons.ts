@@ -56,9 +56,13 @@ type FillVariablesUnion = `fill="var(--e-color-icon-${IconLabels}, ${ReturnType<
 export type FillVariables = { [label in IconLabels]: FillVariablesUnion };
 
 const fillVariables = {
-  stroke: `fill="var(--e-color-icon-stroke, ${getThemeColor('text-primary')})"`,
-  'filled-foreground': `fill="var(--e-color-icon-filled-foreground, ${getThemeColor('background-primary')})"`,
-  'filled-background': `fill="var(--e-color-icon-filled-background, ${getThemeColor('text-primary')})"`,
+  stroke: `fill="var(--e-color-icon-stroke, ${getThemeColor('icon-stroke')})"`,
+  'filled-foreground': `fill="var(--e-color-icon-filled-foreground, ${getThemeColor(
+    'icon-filled-foreground',
+  )})"`,
+  'filled-background': `fill="var(--e-color-icon-filled-background, ${getThemeColor(
+    'icon-filled-background',
+  )})"`,
   'filled-foreground-colored': `fill="var(--e-color-icon-filled-foreground-colored, ${getThemeColor(
     'static-black',
   )})"`,
