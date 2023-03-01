@@ -217,7 +217,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     } else {
       setMinDateWithoutTime(undefined);
     }
-    console.log('new min date', minDate);
 
     validateDate(date);
   }, [minDate]);
