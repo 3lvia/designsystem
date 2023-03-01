@@ -1,6 +1,5 @@
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-import { getTypographyCss } from '@elvia/elvis-typography';
 import { Title } from '@angular/platform-browser';
 
 @Component({
