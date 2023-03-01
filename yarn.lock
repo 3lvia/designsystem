@@ -2603,7 +2603,7 @@ __metadata:
     "@babel/register": ^7.18.9
     "@elvia/elvis-component-wrapper": "*"
     "@testing-library/dom": 8.19.0
-    "@testing-library/jest-dom": ^5.15.1
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": 13.4.0
     "@testing-library/user-event": 14.4.3
     "@types/gulp": ^4.0.9
@@ -5342,7 +5342,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^5.15.1":
+"@testing-library/jest-dom@npm:^5.16.5":
   version: 5.16.5
   resolution: "@testing-library/jest-dom@npm:5.16.5"
   dependencies:
