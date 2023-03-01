@@ -2606,7 +2606,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.15.1
     "@testing-library/react": 13.4.0
     "@testing-library/user-event": 14.4.3
-    "@types/gulp": ^4.0.9
+    "@types/gulp": ^4.0.10
     "@types/gulp-babel": ^6.1.30
     "@types/gulp-cached": ^0.0.32
     "@types/gulp-filter": ^3.0.34
@@ -5680,7 +5680,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp@npm:^4.0.10, @types/gulp@npm:^4.0.9":
+"@types/gulp@npm:^4.0.10":
   version: 4.0.10
   resolution: "@types/gulp@npm:4.0.10"
   dependencies:
