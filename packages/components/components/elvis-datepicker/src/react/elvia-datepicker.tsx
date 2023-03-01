@@ -161,7 +161,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       } else if (maxDate && d.getTime() > maxDate.getTime()) {
         onError('afterMaxDate');
       } else {
-        onError(undefined);
+        onError();
       }
     }
   };
