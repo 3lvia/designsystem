@@ -54,6 +54,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const popoverRef = useRef<HTMLDivElement>(null);
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
+  const [isInitialized, setIsInitialized] = useState(false);
   const { isShowing, setIsShowing, updatePreferredPosition } = useConnectedOverlay(
     connectedElementRef,
     popoverRef,
@@ -151,6 +152,10 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   };
 
   const validateDate = (d?: Date | null): void => {
+    if (!isInitialized) {
+      return;
+    }
+
     if (!d) {
       onError(isRequired ? 'required' : undefined);
     } else {
@@ -232,6 +237,10 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
     validateDate(date);
   }, [maxDate]);
+
+  // We flag when the component is initialized, so that we don't
+  // run validation on init.
+  useEffect(() => setIsInitialized(true), []);
 
   return (
     <>
