@@ -65,19 +65,6 @@ export class TypographyDocComponent {
   <span class="e-text-micro-light">Text Micro Light</span>
 </p>
 `;
-  exampleCss = `@use '@elvia/elvis-typography';`;
-  exampleCssLong = `@use '@elvia/elvis-typography/dist/elviaTypography.scss';`;
-  exampleImportFonts = `@import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500,600,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&display=swap");`;
-  exampleGetTypographyCssTS = `import { getTypographyCss } from '@elvia/elvis-typography';
-const titleMdCss = getTypographyCss('title-md');`;
-  exampleGetTypographyCssCSS = `// titleMdCss: \n` + getTypographyCss('title-md');
-  exampleStyledComponents = `import styled from 'styled-components';
-import { getTypographyCss } from '@elvia/elvis-typography';
-
-const typography = getTypographyCss('text-md');
-const MediumParagraph = styled.p'\${typography}';`;
 
   changeListView(): void {
     this.isDesktop = !this.isDesktop;
