@@ -11,6 +11,13 @@
             "Now getting shadow class values from token package."
           ],
           "pages": [{ "displayName": "Shadow", "url": "https://design.elvia.io/brand/shadow" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the spinbutton on a number input would still be visible when the input was disabled or readonly."
+          ],
+          "pages": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
         }
       ]
     },
