@@ -45,6 +45,7 @@ export class v2PlaygroundComponent {
 
   // Datepicker
   date = new Date(2022, 9, 10, 22, 42, 42, 42);
+  dateTo = new Date(2022, 9, 15, 22, 42, 42, 42);
   minDate = new Date(2022, 9, 5);
   maxDate = new Date(2023, 9, 25);
   errorOptions = { hasErrorPlaceholder: false, isErrorState: true, text: 'Hello' };
