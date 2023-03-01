@@ -107,6 +107,16 @@ $form-input-padding-compact-active: 3px 9px;
     cursor: not-allowed;
     opacity: 1;
 
+    &[type='number'] {
+      ::-webkit-outer-spin-button,
+      ::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      -moz-appearance: textfield;
+    }
+
     @include helpers.placeholder() {
       color: colors.color('grey-30');
     }
@@ -121,6 +131,16 @@ $form-input-padding-compact-active: 3px 9px;
       border: 1px solid transparent;
       background: colors.color('grey-02');
       color: colors.color('text-light');
+
+      &[type='number'] {
+        ::-webkit-outer-spin-button,
+        ::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        -moz-appearance: textfield;
+      }
     }
   }
 
