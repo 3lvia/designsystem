@@ -66,10 +66,10 @@ const fillVariables = {
   'filled-foreground-colored': `fill="var(--e-color-icon-filled-foreground-colored, ${getThemeColor(
     'static-black',
   )})"`,
-  on: `fill="var(--e-color-icon-on, ${getThemeColor('state-on')})"`,
-  caution: `fill="var(--e-color-icon-caution, ${getThemeColor('state-caution')})"`,
-  warning: `fill="var(--e-color-icon-warning, ${getThemeColor('state-warning')})"`,
-  error: `fill="var(--e-color-icon-error, ${getThemeColor('state-error')})"`,
+  on: `fill="var(--e-color-icon-on, ${getThemeColor('icon-on')})"`,
+  caution: `fill="var(--e-color-icon-caution, ${getThemeColor('icon-caution')})"`,
+  warning: `fill="var(--e-color-icon-warning, ${getThemeColor('icon-warning')})"`,
+  error: `fill="var(--e-color-icon-error, ${getThemeColor('icon-error')})"`,
 } as const satisfies FillVariables;
 
 function getIconWithCssVariables(icon: string, iconName: string) {
