@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { getThemeColor, ThemeName } from '@elvia/elvis-colors';
+import { getThemeColor, ThemeName, getShadow } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 const mobileMax = '767px';
@@ -83,7 +83,7 @@ export const ModalWrapper = styled.div<WrapperProps>`
   border-radius: ${modalBorderRadius};
   overflow: hidden;
   background: ${getThemeColor('background-element')};
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
+  box-shadow: ${getShadow('soft')};
 
   ${({ hasIllustration }) =>
     hasIllustration &&
