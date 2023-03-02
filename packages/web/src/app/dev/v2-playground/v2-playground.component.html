@@ -5,22 +5,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white">
-      <p class="e-text-sm-strong">From-value has a max date</p>
-      <elvia-datepicker
-        [value]="date"
-        [maxDate]="dateTo"
-        (valueOnChange)="date = $event.detail.value"
-      ></elvia-datepicker>
-      <elvia-datepicker [value]="dateTo" (valueOnChange)="dateTo = $event.detail.value"></elvia-datepicker>
-      <p class="e-text-sm-strong">To-value has a min date</p>
-      <elvia-datepicker [value]="date" (valueOnChange)="date = $event.detail.value"></elvia-datepicker>
-      <elvia-datepicker
-        [value]="dateTo"
-        [minDate]="date"
-        (valueOnChange)="dateTo = $event.detail.value"
-      ></elvia-datepicker>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -249,18 +234,11 @@
   <!--Datepicker-->
   <div class="example-wrapper">
     <h3>DatePicker</h3>
-    <elvia-datepicker [value]="date" (valueOnChange)="writeDate($event.detail.value)"></elvia-datepicker>
   </div>
 
   <!--Date range picker-->
   <div class="example-wrapper">
     <h3>Date range picker</h3>
-    <elvia-datepicker-range></elvia-datepicker-range>
-    <elvia-datepicker-range
-      hasTimepickers
-      [minDate]="minDateRange"
-      [maxDate]="maxDateRange"
-    ></elvia-datepicker-range>
   </div>
 
   <!--Divider-->
