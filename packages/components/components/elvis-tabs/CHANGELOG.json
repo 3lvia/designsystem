@@ -12,10 +12,13 @@
             "Use the <code>e-theme-light</code> and <code>e-theme-dark</code> classes from Elvis to set the theme of the component."
           ]
         },
-
         {
           "type": "new_feature",
           "changes": ["Added support for dark theme."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
         }
       ]
     },
