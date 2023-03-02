@@ -54,6 +54,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const popoverRef = useRef<HTMLDivElement>(null);
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
+  const [isInitialized, setIsInitialized] = useState(false);
   const { isShowing, setIsShowing, updatePreferredPosition } = useConnectedOverlay(
     connectedElementRef,
     popoverRef,
@@ -150,6 +151,26 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     trapFocus(popoverRef);
   };
 
+  const validateDate = (d?: Date | null): void => {
+    if (!isInitialized) {
+      return;
+    }
+
+    if (!d) {
+      onError(isRequired ? 'required' : undefined);
+    } else {
+      if (d.getFullYear() < 1800 || !isValidDate(d)) {
+        onError('invalidDate');
+      } else if (minDate && d.getTime() < minDate.getTime()) {
+        onError('beforeMinDate');
+      } else if (maxDate && d.getTime() > maxDate.getTime()) {
+        onError('afterMaxDate');
+      } else {
+        onError();
+      }
+    }
+  };
+
   useEffect(() => {
     if (!isShowing) {
       return;
@@ -178,7 +199,10 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   }, [isShowing]);
 
   // Needed for webcomponent -> To update the default value
-  useEffect(() => setDate(value), [value]);
+  useEffect(() => {
+    setDate(value);
+    validateDate(value);
+  }, [value]);
 
   // Allows app to open the datepicker programatically
   useEffect(() => {
@@ -198,6 +222,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     } else {
       setMinDateWithoutTime(undefined);
     }
+
+    validateDate(date);
   }, [minDate]);
 
   useEffect(() => {
@@ -208,7 +234,13 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     } else {
       setMaxDateWithoutTime(undefined);
     }
+
+    validateDate(date);
   }, [maxDate]);
+
+  // We flag when the component is initialized, so that we don't
+  // run validation on init.
+  useEffect(() => setIsInitialized(true), []);
 
   return (
     <>
