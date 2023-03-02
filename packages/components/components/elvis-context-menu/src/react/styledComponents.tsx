@@ -1,4 +1,4 @@
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor, getShadow } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
@@ -22,7 +22,7 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
   background-color: ${getThemeColor('background-overlay')};
   overflow: auto;
   border-radius: 8px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
+  box-shadow: ${getShadow('medium')};
 
   @supports (max-height: 50svh) {
     max-height: calc(50svh - 8px);
