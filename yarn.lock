@@ -3591,7 +3591,6 @@ __metadata:
     jquery: 1.9.1 - 3
     mini-svg-data-uri: ^1.1.3
     popper.js: ^1.16.1
-    postcss-css-variables: ^0.17.0
     resolve: ^1.20.0
     sass: ^1.33.0
     yargs-parser: ">=13.1.2"
@@ -8400,7 +8399,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^2.0.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
+"chalk@npm:^2.0.0, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
   dependencies:
@@ -11610,7 +11609,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"extend@npm:^3.0.0, extend@npm:^3.0.1":
+"extend@npm:^3.0.0":
   version: 3.0.2
   resolution: "extend@npm:3.0.2"
   checksum: a50a8309ca65ea5d426382ff09f33586527882cf532931cb08ca786ea3146c0553310bda688710ff61d7668eba9f96b923fe1420cdf56a2c3eaf30fcab87b515
@@ -17592,18 +17591,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-css-variables@npm:^0.17.0":
-  version: 0.17.0
-  resolution: "postcss-css-variables@npm:0.17.0"
-  dependencies:
-    balanced-match: ^1.0.0
-    escape-string-regexp: ^1.0.3
-    extend: ^3.0.1
-    postcss: ^6.0.8
-  checksum: 689c8a7892bdfe028317e56aab949bf7359353daceaa8a586539fbe307cd2b171eee71ac1b4fff828218ccba92bfdc55981f922eddf22e8c6b70553b25e80d78
-  languageName: node
-  linkType: hard
-
 "postcss-html@npm:^0.36.0":
   version: 0.36.0
   resolution: "postcss-html@npm:0.36.0"
@@ -17857,17 +17844,6 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: e39ac60ccd1542d4f9d93d894048aac0d686b3bb38e927d8386005718e6793dbbb46930f0a523fe382f1bbd843c6d980aaea791252bf5e176180e5a4336d9679
-  languageName: node
-  linkType: hard
-
-"postcss@npm:^6.0.8":
-  version: 6.0.23
-  resolution: "postcss@npm:6.0.23"
-  dependencies:
-    chalk: ^2.4.1
-    source-map: ^0.6.1
-    supports-color: ^5.4.0
-  checksum: cc6cb2c1dbcdefa6f57a71d67fe535c9e96543298bbe28f9a6a64c4f1e21b6127113890dd4cda8873d3f4e6613a0566b7b4bbb230204f3a9a309190bda065d81
   languageName: node
   linkType: hard
 
@@ -20433,7 +20409,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^5.3.0, supports-color@npm:^5.4.0, supports-color@npm:^5.5.0":
+"supports-color@npm:^5.3.0, supports-color@npm:^5.5.0":
   version: 5.5.0
   resolution: "supports-color@npm:5.5.0"
   dependencies:
