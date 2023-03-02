@@ -20,6 +20,7 @@ export const PopoverHeader = styled.div`
 
 export const SelectedDateName = styled.div`
   ${getTypographyCss('text-md')};
+  white-space: nowrap;
 
   &::first-letter {
     text-transform: capitalize;
