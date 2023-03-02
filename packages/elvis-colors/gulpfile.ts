@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as gulp from 'gulp';
 import * as typescript from 'gulp-typescript';
 import * as del from 'del';
-import { colors } from './src/elviaColors';
+import { colors, shadows } from './src/elviaColors';
 import { lightTheme, lightThemeColors } from './src/themes/lightTheme';
 import { darkTheme, darkThemeColors } from './src/themes/darkTheme';
 import { BaseColors, Theme, ThemeName } from './src/theme';
@@ -170,6 +170,18 @@ const getThemedCssVariables = (theme: Theme) => {
   return variables;
 };
 
+const generateElvisShadowMapScss = async () => {
+  let fileContent = WARNING;
+  fileContent += `$shadow: (\n`;
+  Object.entries(shadows).forEach(([name, shadow]) => {
+    fileContent += `\t'${name}': ${shadow.boxShadow},\n`;
+  });
+  fileContent += `);\n\n`;
+
+  fs.writeFileSync('./dist/elvisShadowMap.scss', fileContent);
+  return true;
+};
+
 gulp.task(
   'default',
   gulp.series(
@@ -178,6 +190,7 @@ gulp.task(
     generateElviaColorsJsonFile,
     generateElviaColorsScssFile,
     generateElvisColorMapScss,
+    generateElvisShadowMapScss,
     generateElviaColorsThemeVariablesScss,
     transpileElviaColors,
     function (done) {

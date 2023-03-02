@@ -156,7 +156,8 @@ const datepickerData: ComponentData = {
     errorOptions: {
       isRequired: false,
       type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
-      description: 'An object that allows for custom configuration of the error handling in the date picker.',
+      description:
+        'An object that allows for custom configuration of the error handling in the date picker. Setting "text" will always show the provided error message. "hideText" hides the default validation errors. "isErrorState" allows for manually activating the visual error UI. "hasErrorPlaceholder" allows you to remove the padding below the date picker.',
     },
     errorOnChange: {
       isRequired: false,
