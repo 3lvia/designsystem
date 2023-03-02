@@ -30,6 +30,27 @@
       ]
     },
     {
+      "version": "10.4.1",
+      "date": "March 1, 2023",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Shadow classes and css-variables will now automatically swap to <code>none</code> in dark theme.",
+            "Now getting shadow class values from token package."
+          ],
+          "pages": [{ "displayName": "Shadow", "url": "https://design.elvia.io/brand/shadow" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the spinbutton on a number input would still be visible when the input was disabled or readonly."
+          ],
+          "pages": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "10.4.0",
       "date": "February 15, 2023",
       "changelog": [
@@ -37,6 +58,9 @@
           "type": "new_feature",
           "changes": [
             "<code>e-accordion</code> is now marked as deprecated. Use the Elvia accordion component instead."
+          ],
+          "components": [
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]

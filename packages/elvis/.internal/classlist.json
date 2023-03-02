@@ -60,6 +60,8 @@
 			}
 		},
 		"e-shadow-none": {},
+		"e-theme-light": {},
+		"e-theme-dark": {},
 		"e-shadow-soft": {},
 		"e-shadow-medium": {},
 		"e-shadow-hard": {},
@@ -1198,6 +1200,8 @@
 		"e-accordion--center": {},
 		"e-accordion--end": {},
 		"e-shadow-none": {},
+		"e-theme-light": {},
+		"e-theme-dark": {},
 		"e-shadow-soft": {},
 		"e-shadow-medium": {},
 		"e-shadow-hard": {},
