@@ -99,10 +99,7 @@ const popoverData: ComponentData = {
     </button>
   }
   content={
-    <>
-      <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
-      <button class="e-btn" onClick={() => setIsPopoverShowing(!isPopoverShowing)}>Lukke popover</button>
-    </>
+    <p class="e-text-md e-m-0">Alle privatkunder må bruke BankID første gang.</p>
   }
 ></Popover>`,
   codeAngular: `<elvia-popover 
@@ -115,10 +112,7 @@ const popoverData: ComponentData = {
     </span>
   </button>
 
-  <div slot="content">
-    <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
-    <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
-  </div>
+  <p slot="content" class="e-text-md e-m-0">Alle privatkunder må bruke BankID første gang.</p>
 </elvia-popover>`,
   codeVue: `<elvia-popover 
   heading="BankID"
@@ -130,10 +124,7 @@ const popoverData: ComponentData = {
     </span>
   </button>
 
-  <div slot="content">
-    <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
-    <button class="e-btn" @click="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
-  </div>
+  <p slot="content" class="e-text-md e-m-0">Alle privatkunder må bruke BankID første gang.</p>
 </elvia-popover>`,
   codeNativeHTML: `<elvia-popover 
   id="example-elvia-popover"
@@ -147,10 +138,7 @@ const popoverData: ComponentData = {
     </span>
   </button>
 
-  <div slot="content">
-    <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
-    <button class="e-btn" id="popover-close-btn">Lukke popover</button>
-  </div>
+  <p slot="content" class="e-text-md e-m-0">Alle privatkunder må bruke BankID første gang.</p>
 </elvia-popover>`,
   codeNativeScript: `  const popover = document.getElementById('example-elvia-popover');
   const popoverTrigger = document.getElementById('popover-trigger-button');
@@ -158,11 +146,6 @@ const popoverData: ComponentData = {
     popover.setProps({isShowing: true});
     console.log('Do what you want when popover is opened.');
     popoverTrigger.classList.add('e-btn---selected');
-
-    const closeBtn = document.getElementById('popover-close-btn');
-    closeBtn.addEventListener('click', () => {
-      popover.setProps({isShowing: false});
-    });
   });
   popover.addEventListener('onClose', () => {
     console.log('Do what you want when popover is closed.');

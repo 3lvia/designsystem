@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as gulp from 'gulp';
 import * as typescript from 'gulp-typescript';
 import * as del from 'del';
-import { colors } from './src/elviaColors';
+import { colors, shadows } from './src/elviaColors';
 import { lightTheme, lightThemeColors } from './src/themes/lightTheme';
 import { darkTheme, darkThemeColors } from './src/themes/darkTheme';
 import { BaseColors, Theme, ThemeName } from './src/theme';
@@ -160,9 +160,26 @@ const getBaseColors = (colors: BaseColors, theme: ThemeName): Record<string, str
 const getThemedCssVariables = (theme: Theme) => {
   const variables: Record<string, string> = {};
   Object.values(theme).forEach((category) =>
-    Object.keys(category).forEach((label) => (variables[`--e-color-${label}`] = category[label].hex)),
+    Object.keys(category).forEach((label) => {
+      variables[`--e-color-${label}`] = category[label].hex;
+      if (category[label].contrast) {
+        variables[`--e-color-${label}--contrast`] = category[label].contrast;
+      }
+    }),
   );
   return variables;
+};
+
+const generateElvisShadowMapScss = async () => {
+  let fileContent = WARNING;
+  fileContent += `$shadow: (\n`;
+  Object.entries(shadows).forEach(([name, shadow]) => {
+    fileContent += `\t'${name}': ${shadow.boxShadow},\n`;
+  });
+  fileContent += `);\n\n`;
+
+  fs.writeFileSync('./dist/elvisShadowMap.scss', fileContent);
+  return true;
 };
 
 gulp.task(
@@ -173,6 +190,7 @@ gulp.task(
     generateElviaColorsJsonFile,
     generateElviaColorsScssFile,
     generateElvisColorMapScss,
+    generateElvisShadowMapScss,
     generateElviaColorsThemeVariablesScss,
     transpileElviaColors,
     function (done) {

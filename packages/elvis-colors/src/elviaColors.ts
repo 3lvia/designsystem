@@ -177,6 +177,8 @@ const getColorObject = (colorName: ElviaColor) => {
  * Get a color from elvis-colors.
  * @param colorName Name of color in elvis-colors package.
  * @returns Hex value of requested color, or an empty string if the color is not found.
+ *
+ * @deprecated Deprecated since 1.5.0. Use `getThemeColor()` instead.
  */
 export const getColor = (colorName: ElviaColor): string => {
   return getColorObject(colorName)?.color ?? '';
@@ -193,3 +195,5 @@ export const getContrastText = (colorName: ElviaColor): string => {
 
 export { getThemeColor, getCustomThemeColor } from './getThemeColor';
 export { ThemeName, ThemeClassName, ColorLabel } from './theme';
+
+export { shadows, getShadow } from './shadows';

@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.02.23",
+      "version": "3.3.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Bug fix for updating showing page-numbers"]
+        }
+      ]
+    },
+    {
       "date": "14.02.23",
       "version": "3.3.5",
       "changelog": [

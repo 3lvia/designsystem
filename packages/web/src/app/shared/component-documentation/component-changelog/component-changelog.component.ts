@@ -287,7 +287,7 @@ export class ComponentChangelogComponent implements OnInit {
     let numberOfReleasesSkipped = 0;
     elvisChangelogJson.content.forEach((elvisChangelogEntry) => {
       let wasSkipped = true;
-      elvisChangelogEntry.changelog.forEach((version: typeof elvisChangelogEntry.changelog[number]) => {
+      elvisChangelogEntry.changelog.forEach((version: (typeof elvisChangelogEntry.changelog)[number]) => {
         const components = 'components' in version ? version['components'] : undefined;
         if (!components) return;
         components.some(({ displayName }) => {

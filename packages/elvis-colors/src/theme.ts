@@ -26,6 +26,7 @@ type BackgroundLabels =
   | 'background-element'
   | 'background-element-zebra'
   | 'background-overlay'
+  | 'background-overlay-strong'
   | 'background-header'
   | 'background-accent'
   | 'background-accent-strong';
@@ -37,17 +38,24 @@ type StateLabels =
   | 'state-error'
   | 'state-hover-green'
   | 'state-hover-grey'
+  | 'state-selected-grey'
   | 'state-disabled'
+  | 'state-disabled-foreground'
+  | 'state-disabled-background'
+  | 'state-disabled-foreground-strong'
+  | 'state-disabled-background-strong'
   | 'state-focus';
 type DataLabels = 'data-green' | 'data-violet' | 'data-blue' | 'data-purple' | 'data-orange' | 'data-red';
+type StaticLabels = 'static-white' | 'static-black';
 
-export type ColorLabel = BackgroundLabels | TextLabels | StateLabels | DataLabels;
+export type ColorLabel = BackgroundLabels | TextLabels | StateLabels | DataLabels | StaticLabels;
 
 export interface Theme {
   background: { [label in BackgroundLabels]: Color };
   text: { [label in TextLabels]: Color };
   state: { [label in StateLabels]: Color };
   data: { [label in DataLabels]: Color };
+  static: { [label in StaticLabels]: Color };
 }
 
 export type ThemeName = 'light' | 'dark';

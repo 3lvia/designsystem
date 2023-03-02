@@ -1,14 +1,3 @@
-@use 'sass:map';
+@use '@elvia/elvis-colors/dist/elvisShadowMap.scss' as ShadowMap;
 
-$shadows: (
-  '3': 0 0 50px rgba(0, 0, 0, 0.03),
-  '6': 0 0 40px rgba(0, 0, 0, 0.06),
-  '8': 0 0 30px rgba(0, 0, 0, 0.08),
-);
-
-$shadowVariables: (
-  'none': 'none',
-  'soft': map.get($shadows, '3'),
-  'medium': map.get($shadows, '6'),
-  'hard': map.get($shadows, '8'),
-);
+$shadowVariables: ShadowMap.$shadow;
