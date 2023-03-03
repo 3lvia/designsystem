@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.03.23",
+      "version": "2.3.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Show time in min/max error if timepicker is present",
+            "Updated the <code>@elvia/elvis-datepicker</code> to <code>^6.2.2</code>"
+          ]
+        }
+      ]
+    },
+    {
       "date": "01.03.23",
       "version": "2.3.2",
       "changelog": [

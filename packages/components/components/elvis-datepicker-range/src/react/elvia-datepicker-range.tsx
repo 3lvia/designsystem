@@ -306,6 +306,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           dateRangeProps={{
             selectedDateRange: selectedDateRange,
             whichRangePicker: 'start',
+            showTimeInError: hasTimepickers,
           }}
           disableDate={disableDatesWrapper()?.start}
           errorOptions={errorOptions?.start}
@@ -357,6 +358,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           dateRangeProps={{
             selectedDateRange: selectedDateRange,
             whichRangePicker: 'end',
+            showTimeInError: hasTimepickers,
           }}
           disableDate={disableDatesWrapper()?.end}
           errorOptions={errorOptions?.end}
