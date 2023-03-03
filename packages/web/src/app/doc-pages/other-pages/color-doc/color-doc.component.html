@@ -521,56 +521,6 @@
           </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Token package'">
-        <ng-container ngProjectAs="sectionContent">
-          All colors can also be used through the package
-          <code class="code-text">@elvia/elvis-colors</code>
-          .
-          <app-component-subsubsection [sectionTitle]="'Using Javascript'">
-            <ng-container ngProjectAs="sectionContent">
-              <p>
-                The utility function
-                <code class="code-text">getColor(colorName)</code>
-                is provided to easily access a color hex value without having to manually traverse the
-                underlying colors object. The colors can be accessed through their names and labels.
-              </p>
-              <p>
-                <app-do-dont [do]="true" [codeTS]="doCodeTS"></app-do-dont>
-                <app-do-dont [do]="false" [codeTS]="dontCodeTS"></app-do-dont>
-              </p>
-              <p>
-                Likewise, the function
-                <code class="code-text">getContrastText(colorName)</code>
-                is provided to get a contrast text color corresponding to the requested color.
-              </p>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Using SCSS'">
-            <ng-container ngProjectAs="sectionContent">
-              <p>
-                <code class="code-text">@elvia/elvis-colors</code>
-                also provides all the Elvia colors (including labels) as SCSS-variables. All names are
-                prefixed with
-                <code class="code-text">Elvia</code>
-                , such as
-                <code class="code-text">ElviaGreen</code>
-                or
-                <code class="code-text">ElviaGrey30</code>
-                .
-              </p>
-              <app-component-example-code
-                [codeCSS]="exampleCss"
-                [noSubscriptions]="'true'"
-              ></app-component-example-code>
-              If this does not work for you, you may need to specify the exact file to include.
-              <app-component-example-code
-                [codeCSS]="exampleCssLong"
-                [noSubscriptions]="'true'"
-              ></app-component-example-code>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
     </ng-container>
   </app-component-section>
 </div>
