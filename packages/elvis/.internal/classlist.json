@@ -1,7 +1,5 @@
 {
 	"block": {
-		"e-theme-light": {},
-		"e-theme-dark": {},
 		"e-icon": {
 			"modifier": {
 				"e-icon--inverted": {},
@@ -62,6 +60,8 @@
 			}
 		},
 		"e-shadow-none": {},
+		"e-theme-light": {},
+		"e-theme-dark": {},
 		"e-shadow-soft": {},
 		"e-shadow-medium": {},
 		"e-shadow-hard": {},
@@ -1154,8 +1154,6 @@
 		"e-gap-40": {}
 	},
 	"flat": {
-		"e-theme-light": {},
-		"e-theme-dark": {},
 		"e-icon": {},
 		"e-icon--inverted": {},
 		"e-icon--color-default": {},
@@ -1202,6 +1200,8 @@
 		"e-accordion--center": {},
 		"e-accordion--end": {},
 		"e-shadow-none": {},
+		"e-theme-light": {},
+		"e-theme-dark": {},
 		"e-shadow-soft": {},
 		"e-shadow-medium": {},
 		"e-shadow-hard": {},
