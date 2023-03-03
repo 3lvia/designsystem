@@ -134,7 +134,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     }
     setError(newError);
 
-    const errorText = getErrorText(newError, minDate, maxDate);
+    const errorText = getErrorText(newError, minDate, maxDate, dateRangeProps?.showTimeInError);
 
     errorOnChange?.(errorText);
     webcomponent?.triggerEvent('errorOnChange', errorText);
@@ -294,7 +294,10 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           </IconButton>
         </FormFieldInputContainer>
         {((error && !errorOptions.hideText) || errorOptions.text) && (
-          <DatepickerError customText={errorOptions.text} errorText={getErrorText(error, minDate, maxDate)} />
+          <DatepickerError
+            customText={errorOptions.text}
+            errorText={getErrorText(error, minDate, maxDate, dateRangeProps?.showTimeInError)}
+          />
         )}
       </FormFieldContainer>
       {isShowing && (
