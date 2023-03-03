@@ -16,10 +16,7 @@
         },
         {
           "type": "new_feature",
-          "changes": [
-            "CSS-variables for theme colors are now available in Elvis. All variables are prefixed with <code>--e-color-</code>.",
-            "Icons now support theme functionality."
-          ]
+          "changes": ["Icons now support theme functionality."]
         },
         {
           "type": "patch",
