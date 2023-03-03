@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.03.23",
+      "version": "6.2.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Updating prop <code>minDate</code>, <code>maxDate</code> or <code>value</code> will now trigger validation."
+          ]
+        }
+      ]
+    },
+    {
       "date": "01.03.23",
       "version": "6.2.1",
       "changelog": [
