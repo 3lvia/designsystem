@@ -1,6 +1,6 @@
 # Elvis-assets-icon
 
-## 2.10.0 (02.03.23)
+## 2.11.0 (02.03.23)
 
 ### New feature
 
@@ -10,6 +10,17 @@
 ### Patch
 
 - Migrated the build system to Typescript.
+
+## 2.10.0 (06.03.23)
+
+### New feature
+
+- New icons:
+  1. `fearless`.
+  2. `link`.
+  3. `magic`.
+  4. `movie`.
+  5. `shortcut`.
 
 ## 2.9.0 (07.02.23)
 

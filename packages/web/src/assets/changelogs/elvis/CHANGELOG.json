@@ -27,6 +27,19 @@
       ]
     },
     {
+      "version": "10.5.0",
+      "date": "March 6, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add new icons: <code>fearless</code>, <code>link</code>, <code>magic</code>, <code>movie</code>, and <code>shortcut</code>."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "10.4.1",
       "date": "March 1, 2023",
       "changelog": [
