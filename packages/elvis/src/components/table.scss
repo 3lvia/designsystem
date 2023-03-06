@@ -6,8 +6,7 @@
 
 $table-padding: 10px 16px;
 $table-compact-padding: 9px 16px;
-$table-mobile-padding: calc((48px - 16px * 1.6) / 2) 16px; //text medium on mobile
-$table-mobile-padding-minus-border: calc((47px - 16px * 1.6) / 2) 16px;
+$table-phone-padding: 6px 8px;
 $table-border-radius: 8px;
 $table-header-height: 56px;
 $table-header-compact-height: 40px;
@@ -101,7 +100,7 @@ $grey10: colors.color('grey-10');
     text-align: left;
 
     @include breakpoints.breakpoint-up(Mobile) {
-      padding: $table-mobile-padding;
+      line-height: 28px;
     }
 
     &.e-table__cell--multiline {
@@ -230,7 +229,7 @@ $grey10: colors.color('grey-10');
     text-align: left;
 
     @include breakpoints.breakpoint-up(Mobile) {
-      padding: $table-mobile-padding;
+      line-height: 27px;
     }
   }
 
@@ -241,17 +240,11 @@ $grey10: colors.color('grey-10');
   tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) td,
   tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) th {
     border-bottom: 1px solid colors.color('grey-10');
-    @include breakpoints.breakpoint-up(Mobile) {
-      padding: $table-mobile-padding-minus-border;
-    }
   }
 
   tbody:last-of-type tr:not(:last-of-type) td,
   tbody:last-of-type tr:not(:first-of-type):not(:last-of-type) th {
     border-bottom: 1px solid colors.color('grey-10');
-    @include breakpoints.breakpoint-up(Mobile) {
-      padding: $table-mobile-padding-minus-border;
-    }
   }
 
   tbody tr:first-of-type th {
