@@ -11,6 +11,12 @@
 
 - Migrated the build system to Typescript.
 
+## 2.10.1 (06.03.23)
+
+### Patch
+
+- Renamed icon `movie` to `media-color`.
+
 ## 2.10.0 (06.03.23)
 
 ### New feature
