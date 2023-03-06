@@ -327,6 +327,7 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
     streamlineIcons: ['social-media-facebook', 'messages-bubble'],
   },
+  { name: 'fearless', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'feedback', terms: ['smiley'], thirdparty: { name: ['streamline'] } },
   { name: 'filter', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'filter-filled', terms: [], thirdparty: { name: ['streamline'], duplicate: ['filter'] } },
@@ -416,6 +417,7 @@ module.exports = [
   { name: 'laws', terms: ['paragraph', 'paper'] },
   { name: 'laws-color', terms: ['paragraph', 'paper'] },
   { name: 'lighting', terms: ['light', 'power'] },
+  { name: 'link', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'list', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'list_color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['list'] } },
   { name: 'list_bullets-bold', terms: [], thirdparty: { name: ['streamline'] } },
@@ -427,6 +429,7 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
   },
   { name: 'logout', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'magic', terms: ['wand', 'star'], thirdparty: { name: ['streamline'] } },
   { name: 'mail', terms: ['e-mail', 'post', 'letter', 'email'], thirdparty: { name: ['streamline'] } },
   {
     name: 'mail_error-color',
@@ -462,6 +465,7 @@ module.exports = [
   { name: 'more_menu', terms: ['actions', 'contextual', 'kebab', 'dots'] },
   { name: 'move_circle', terms: ['move', 'transfer'], thirdparty: { name: ['streamline'] } },
   { name: 'move_truck-color', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'movie', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'new_tab', terms: ['external', 'open', 'link'], thirdparty: { name: ['streamline'] } },
   {
     name: 'new_tab-bold',
@@ -695,6 +699,7 @@ module.exports = [
     deprecated: '7.14.1',
     newIconName: 'configurations',
   },
+  { name: 'shortcut', terms: ['keyboard'], thirdparty: { name: ['streamline'] } },
   { name: 'shovel', terms: ['scoop', 'dig'], thirdparty: { name: ['streamline'] } },
   {
     name: 'smart_city',
