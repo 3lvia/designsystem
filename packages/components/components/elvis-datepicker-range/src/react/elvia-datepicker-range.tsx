@@ -13,6 +13,7 @@ import {
   defaultLabelOptions,
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
+import { isAfter, isBefore } from './dateHelpers';
 
 type Picker = 'startDate' | 'startTime' | 'endDate' | 'endTime';
 
@@ -31,8 +32,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   timepickerInterval = '15',
   hasAutoOpenEndDatepicker,
   errorOptions = {
-    start: { hideText: false, isErrorState: false, text: '', hasErrorPlaceholder: true },
-    end: { hideText: false, isErrorState: false, text: '', hasErrorPlaceholder: true },
+    start: { hideText: false, text: '', hasErrorPlaceholder: true },
+    end: { hideText: false, text: '', hasErrorPlaceholder: true },
   },
   errorOnChange,
   minDate,
@@ -270,6 +271,14 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
+  const hasMinMaxError = (picker: Picker): boolean => {
+    if (picker === 'startDate' || picker === 'startTime') {
+      return isBefore(selectedDateRange.start, minDate);
+    } else {
+      return isAfter(selectedDateRange.end, maxDate);
+    }
+  };
+
   /** These props are passed through directly to both the underlying datepickers. */
   const passThroughProps: Partial<DatepickerProps> = {
     minDate,
@@ -327,7 +336,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             showTimeInError: hasTimepickers,
           }}
           disableDate={disableDatesWrapper()?.start}
-          errorOptions={errorOptions?.start}
+          errorOptions={{ isErrorState: hasMinMaxError('startDate'), ...errorOptions?.start }}
           errorOnChange={(error: string) =>
             setCurrentErrorMessages((current) => ({ ...current, start: error }))
           }
@@ -350,7 +359,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isOpen={openPicker === 'startTime'}
             errorOptions={{
               hideText: false,
-              isErrorState: false,
+              isErrorState: hasMinMaxError('startTime'),
               text: '',
               hasErrorPlaceholder: !!errorOptions?.start?.hasErrorPlaceholder || !!errorOptions?.start?.text,
             }}
@@ -379,7 +388,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             showTimeInError: hasTimepickers,
           }}
           disableDate={disableDatesWrapper()?.end}
-          errorOptions={errorOptions?.end}
+          errorOptions={{ isErrorState: hasMinMaxError('endDate'), ...errorOptions?.end }}
           errorOnChange={(error: string) =>
             setCurrentErrorMessages((current) => ({ ...current, end: error }))
           }
@@ -402,7 +411,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isOpen={openPicker === 'endTime'}
             errorOptions={{
               hideText: false,
-              isErrorState: false,
+              isErrorState: hasMinMaxError('endTime'),
               text: '',
               hasErrorPlaceholder: !!errorOptions?.end?.hasErrorPlaceholder || !!errorOptions?.end?.text,
             }}
