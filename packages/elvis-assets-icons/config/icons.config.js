@@ -449,6 +449,7 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
     streamlineIcons: ['video-player-movie-1'],
   },
+  { name: 'media-color', terms: ['tv', 'radio'], thirdparty: { name: ['streamline'], duplicate: ['media'] } },
   { name: 'menu', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'menu-bold', terms: [], thirdparty: { name: ['streamline'], duplicate: ['menu'] } },
   { name: 'minus', deprecated: '7.5.0', newIconName: 'minus-bold' },
@@ -465,7 +466,7 @@ module.exports = [
   { name: 'more_menu', terms: ['actions', 'contextual', 'kebab', 'dots'] },
   { name: 'move_circle', terms: ['move', 'transfer'], thirdparty: { name: ['streamline'] } },
   { name: 'move_truck-color', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'movie', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'movie', deprecated: '10.6.0', newIconName: 'media-color' },
   { name: 'new_tab', terms: ['external', 'open', 'link'], thirdparty: { name: ['streamline'] } },
   {
     name: 'new_tab-bold',
