@@ -93,13 +93,15 @@ $grey10: colors.color('grey-10');
 
   td,
   th {
-    @include breakpoints.breakpoint-up(Mobile) {
-      padding: $table-mobile-padding;
-    }
     @include typography.typography('text-md');
+
     padding: $table-padding;
     background: colors.color('white');
     text-align: left;
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      padding: $table-mobile-padding;
+    }
 
     &.e-table__cell--multiline {
       width: 450px;
