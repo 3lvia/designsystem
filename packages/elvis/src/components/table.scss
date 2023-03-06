@@ -227,6 +227,10 @@ $grey10: colors.color('grey-10');
     color: colors.color('font-color');
     line-height: 27px;
     text-align: left;
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      padding: $table-mobile-padding;
+    }
   }
 
   th[class*='e-table-mobile__cell'] {
