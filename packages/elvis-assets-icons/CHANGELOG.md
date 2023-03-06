@@ -1,5 +1,22 @@
 # Elvis-assets-icon
 
+## 2.10.1 (06.03.23)
+
+### Patch
+
+- Renamed icon `movie` to `media-color`.
+
+## 2.10.0 (06.03.23)
+
+### New feature
+
+- New icons:
+  1. `fearless`.
+  2. `link`.
+  3. `magic`.
+  4. `movie`.
+  5. `shortcut`.
+
 ## 2.9.0 (07.02.23)
 
 ### New feature

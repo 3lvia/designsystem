@@ -2756,7 +2756,7 @@ __metadata:
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
     "@elvia/elvis-assets-icons": ^2.7.1
-    "@elvia/elvis-colors": ^1.5.0
+    "@elvia/elvis-colors": ^1.7.0
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-toolbox": ^7.6.0
     "@elvia/elvis-typography": ^2.3.1
@@ -2780,7 +2780,7 @@ __metadata:
   resolution: "@elvia/elvis-datepicker@portal:../components/components/elvis-datepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-assets-icons": ^2.7.1
-    "@elvia/elvis-colors": ^1.5.0
+    "@elvia/elvis-colors": ^1.7.0
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-toolbox": ^7.6.0
     "@elvia/elvis-typography": ^2.3.1
@@ -3591,7 +3591,6 @@ __metadata:
     jquery: 1.9.1 - 3
     mini-svg-data-uri: ^1.1.3
     popper.js: ^1.16.1
-    postcss-css-variables: ^0.14.0
     resolve: ^1.20.0
     sass: ^1.33.0
     yargs-parser: ">=13.1.2"
@@ -8400,7 +8399,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^2.0.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
+"chalk@npm:^2.0.0, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
   dependencies:
@@ -11610,7 +11609,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"extend@npm:^3.0.0, extend@npm:^3.0.1":
+"extend@npm:^3.0.0":
   version: 3.0.2
   resolution: "extend@npm:3.0.2"
   checksum: a50a8309ca65ea5d426382ff09f33586527882cf532931cb08ca786ea3146c0553310bda688710ff61d7668eba9f96b923fe1420cdf56a2c3eaf30fcab87b515
@@ -16368,8 +16367,8 @@ __metadata:
   linkType: hard
 
 "ngx-markdown@npm:^15.1.0":
-  version: 15.1.0
-  resolution: "ngx-markdown@npm:15.1.0"
+  version: 15.1.1
+  resolution: "ngx-markdown@npm:15.1.1"
   dependencies:
     clipboard: ^2.0.11
     emoji-toolkit: ^7.0.0
@@ -16396,7 +16395,7 @@ __metadata:
       optional: true
     prismjs:
       optional: true
-  checksum: 7e3a1f01115c20d9697c8d12eb473c842eb5fc08db7bb4a0bb63a7a063e039a1ad8dbbbcbf05d5983bc268d38291dc16a11f409c2b5f279f441826d7c14c46a1
+  checksum: 1dc542984c2c3b35f51cde2dfa0b177734d04821878f259b802fbe672708a45f974ab668e3c34cbb386cbc50c0044416cee2a8efa239ef7c0ac08ef1d236c71e
   languageName: node
   linkType: hard
 
@@ -17592,18 +17591,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-css-variables@npm:^0.14.0":
-  version: 0.14.0
-  resolution: "postcss-css-variables@npm:0.14.0"
-  dependencies:
-    balanced-match: ^1.0.0
-    escape-string-regexp: ^1.0.3
-    extend: ^3.0.1
-    postcss: ^6.0.8
-  checksum: 0a5b46f1e5eed75ebec12c40fe0462f31dfb1444099d052159ae869c79e2d5d163ff1979932b49484049296d3cad1703b436f029a07c48e924c9f900b7317b02
-  languageName: node
-  linkType: hard
-
 "postcss-html@npm:^0.36.0":
   version: 0.36.0
   resolution: "postcss-html@npm:0.36.0"
@@ -17857,17 +17844,6 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: e39ac60ccd1542d4f9d93d894048aac0d686b3bb38e927d8386005718e6793dbbb46930f0a523fe382f1bbd843c6d980aaea791252bf5e176180e5a4336d9679
-  languageName: node
-  linkType: hard
-
-"postcss@npm:^6.0.8":
-  version: 6.0.23
-  resolution: "postcss@npm:6.0.23"
-  dependencies:
-    chalk: ^2.4.1
-    source-map: ^0.6.1
-    supports-color: ^5.4.0
-  checksum: cc6cb2c1dbcdefa6f57a71d67fe535c9e96543298bbe28f9a6a64c4f1e21b6127113890dd4cda8873d3f4e6613a0566b7b4bbb230204f3a9a309190bda065d81
   languageName: node
   linkType: hard
 
@@ -20433,7 +20409,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^5.3.0, supports-color@npm:^5.4.0, supports-color@npm:^5.5.0":
+"supports-color@npm:^5.3.0, supports-color@npm:^5.5.0":
   version: 5.5.0
   resolution: "supports-color@npm:5.5.0"
   dependencies:
