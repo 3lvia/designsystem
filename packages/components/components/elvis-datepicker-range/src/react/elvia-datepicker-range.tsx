@@ -228,7 +228,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     if (hasSelectDateOnOpen && !selectedDateRange.start) {
       const endDate = selectedDateRange.end?.getTime();
       const startDate =
-        endDate && endDate < Date.now()
+        endDate && !minDate && endDate < Date.now()
           ? setTime(endDate, 'startOfDay')
           : setTime(minDate || new Date(), 'startOfDay');
       setNewDateRange({ ...selectedDateRange, start: startDate });
@@ -241,7 +241,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     if (hasSelectDateOnOpen && !selectedDateRange.end) {
       const startDate = selectedDateRange.start?.getTime();
       const endDate =
-        startDate && Date.now() < startDate
+        startDate && !maxDate && Date.now() < startDate
           ? setTime(startDate, 'endOfDay')
           : setTime(maxDate || new Date(), 'endOfDay');
       setNewDateRange({ ...selectedDateRange, end: endDate });
