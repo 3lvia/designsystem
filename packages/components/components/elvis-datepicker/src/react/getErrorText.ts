@@ -5,7 +5,7 @@ export const getErrorText = (
   error?: ErrorType,
   minDate?: Date,
   maxDate?: Date,
-  addTime?: boolean,
+  withTime?: boolean,
 ): string => {
   switch (error) {
     case 'invalidDate': {
@@ -15,16 +15,10 @@ export const getErrorText = (
       return 'Velg dato';
     }
     case 'beforeMinDate': {
-      const dateError = `Kan ikke være før ${getFormattedDate(minDate)}`;
-      return addTime
-        ? `${dateError} kl. ${formatDate(minDate, { hour: '2-digit', minute: '2-digit' })}`
-        : dateError;
+      return `Kan ikke være før ${getFormattedDate(minDate, withTime)}`;
     }
     case 'afterMaxDate': {
-      const dateError = `Kan ikke være etter ${getFormattedDate(maxDate)}`;
-      return addTime
-        ? `${dateError} kl. ${formatDate(maxDate, { hour: '2-digit', minute: '2-digit' })}`
-        : dateError;
+      return `Kan ikke være etter ${getFormattedDate(maxDate, withTime)}`;
     }
     default: {
       return '';
@@ -32,9 +26,13 @@ export const getErrorText = (
   }
 };
 
-const getFormattedDate = (d?: Date) =>
-  formatDate(d, {
+const getFormattedDate = (d?: Date, withTime?: boolean) => {
+  const date = formatDate(d, {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
   });
+
+  const time = `${formatDate(d, { hour: '2-digit', minute: '2-digit' })}`;
+  return withTime ? `${date} kl. ${time}` : date;
+};

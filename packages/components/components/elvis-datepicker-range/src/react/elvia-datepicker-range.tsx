@@ -80,9 +80,27 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const setTime = (date: Date | number, when: 'startOfDay' | 'endOfDay'): Date => {
     const dateCopy = new Date(date);
     if (when === 'startOfDay') {
-      dateCopy.setHours(0, 0, 0, 0);
+      if (minDate) {
+        dateCopy.setHours(
+          minDate.getHours(),
+          minDate.getMinutes(),
+          minDate.getSeconds(),
+          minDate.getMilliseconds(),
+        );
+      } else {
+        dateCopy.setHours(0, 0, 0, 0);
+      }
     } else {
-      dateCopy.setHours(23, 59, 59, 59);
+      if (maxDate) {
+        dateCopy.setHours(
+          maxDate.getHours(),
+          maxDate.getMinutes(),
+          maxDate.getSeconds(),
+          maxDate.getMilliseconds(),
+        );
+      } else {
+        dateCopy.setHours(23, 59, 59, 59);
+      }
     }
 
     return dateCopy;
