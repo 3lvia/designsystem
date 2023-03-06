@@ -271,12 +271,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const hasMinMaxError = (picker: Picker): boolean => {
-    if (picker === 'startDate' || picker === 'startTime') {
-      return isBefore(selectedDateRange.start, minDate);
-    } else {
-      return isAfter(selectedDateRange.end, maxDate);
-    }
+  const isOutsideMinMaxBoundary = (d?: Date | null): boolean => {
+    return isBefore(d, minDate) || isAfter(d, maxDate);
   };
 
   /** These props are passed through directly to both the underlying datepickers. */
@@ -336,7 +332,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             showTimeInError: hasTimepickers,
           }}
           disableDate={disableDatesWrapper()?.start}
-          errorOptions={{ isErrorState: hasMinMaxError('startDate'), ...errorOptions?.start }}
+          errorOptions={{
+            isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start),
+            ...errorOptions?.start,
+          }}
           errorOnChange={(error: string) =>
             setCurrentErrorMessages((current) => ({ ...current, start: error }))
           }
@@ -359,7 +358,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isOpen={openPicker === 'startTime'}
             errorOptions={{
               hideText: false,
-              isErrorState: hasMinMaxError('startTime'),
+              isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start),
               text: '',
               hasErrorPlaceholder: !!errorOptions?.start?.hasErrorPlaceholder || !!errorOptions?.start?.text,
             }}
@@ -388,7 +387,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             showTimeInError: hasTimepickers,
           }}
           disableDate={disableDatesWrapper()?.end}
-          errorOptions={{ isErrorState: hasMinMaxError('endDate'), ...errorOptions?.end }}
+          errorOptions={{
+            isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end),
+            ...errorOptions?.end,
+          }}
           errorOnChange={(error: string) =>
             setCurrentErrorMessages((current) => ({ ...current, end: error }))
           }
@@ -411,7 +413,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isOpen={openPicker === 'endTime'}
             errorOptions={{
               hideText: false,
-              isErrorState: hasMinMaxError('endTime'),
+              isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end),
               text: '',
               hasErrorPlaceholder: !!errorOptions?.end?.hasErrorPlaceholder || !!errorOptions?.end?.text,
             }}
