@@ -699,7 +699,7 @@ module.exports = [
     deprecated: '7.14.1',
     newIconName: 'configurations',
   },
-  { name: 'shortcut', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'shortcut', terms: ['keyboard'], thirdparty: { name: ['streamline'] } },
   { name: 'shovel', terms: ['scoop', 'dig'], thirdparty: { name: ['streamline'] } },
   {
     name: 'smart_city',
