@@ -2,10 +2,11 @@
 @use '../variables/typography';
 @use '../utilities/icons';
 @use '../utilities/helpers';
+@use '../utilities/breakpoints.scss';
 
 $table-padding: 10px 16px;
 $table-compact-padding: 9px 16px;
-$table-phone-padding: 6px 8px;
+$table-mobile-padding: calc((48px - 16px * 1.6) / 2) 16px; //text medium on mobile
 $table-border-radius: 8px;
 $table-header-height: 56px;
 $table-header-compact-height: 40px;
@@ -92,6 +93,9 @@ $grey10: colors.color('grey-10');
 
   td,
   th {
+    @include breakpoints.breakpoint-up(Mobile) {
+      padding: $table-mobile-padding;
+    }
     @include typography.typography('text-md');
     padding: $table-padding;
     background: colors.color('white');
