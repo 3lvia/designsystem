@@ -16,6 +16,7 @@
     "icons.d.ts",
     "CHANGELOG.md",
     "README.md",
+    "config/icons.config.js",
     "dist/**/*",
     "icons/**/*"
   ],
