@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-assets-icons",
-  "version": "2.10.1",
+  "version": "2.10.2",
   "description": "Elvia icons",
   "license": "MIT",
   "author": "",
@@ -13,7 +13,7 @@
   "files": [
     "icons.js",
     "icons.cjs.js",
-    "icons.d.js",
+    "icons.d.ts",
     "CHANGELOG.md",
     "README.md",
     "dist/**/*",

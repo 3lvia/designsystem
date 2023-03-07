@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 2.10.2 (07.03.23)
+
+### Patch
+
+- Added missing file export for the Typescript declaration file.
+
 ## 2.10.1 (06.03.23)
 
 ### Patch
