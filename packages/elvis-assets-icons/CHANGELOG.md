@@ -11,6 +11,10 @@
 
 - Migrated the build system to Typescript.
 
+### Bug fix
+
+- Fixed an issue with the `step_` icons.
+
 ## 2.10.1 (06.03.23)
 
 ### Patch
