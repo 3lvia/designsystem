@@ -10,7 +10,7 @@
 <div class="body">
   <div
     class="alert-container e-none"
-    *ngFor="let icon of visibleIcons | iconSearchPipe: term"
+    *ngFor="let icon of visibleIcons | iconSearchPipe : term"
     [id]="icon.title"
   >
     <div class="e-alert e-alert--local e-alert--info" role="alert">
@@ -132,7 +132,7 @@
           #icons
         >
           <div
-            *ngFor="let icon of visibleIcons | iconSearchPipe: term; let i = index"
+            *ngFor="let icon of visibleIcons | iconSearchPipe : term; let i = index"
             [class.margin-auto]="icon === -1"
           >
             <div *ngIf="icon === -1" class="no-results" [class.e-text-white]="inverted">
@@ -322,6 +322,9 @@
             [codeHTML]="example2"
             [codeInverted]="example2Inverted"
           ></app-component-example-v1>
+
+          <p>The available color classes for icons can be seen below.</p>
+          <app-component-example-v1 [codeHTML]="iconColorClassExample"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 

@@ -4,6 +4,7 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { elvisIconData } from './icon-data';
 import { Title } from '@angular/platform-browser';
+import data from '@elvia/elvis/.internal/classlist.json';
 
 @Component({
   selector: 'app-icon-doc',
@@ -14,7 +15,7 @@ export class IconDocComponent implements OnInit {
   @ViewChild('accordionIconsDesktop') accordionIconsDesktop: ElementRef;
   @ViewChild('accordionIconsMobile') accordionIconsMobile: ElementRef;
   @ViewChild('icons') icons: ElementRef;
-  @Output() clickOutside: EventEmitter<any> = new EventEmitter();
+  @Output() clickOutside = new EventEmitter();
 
   componentData = elvisIconData;
   noSubs = true;
@@ -31,6 +32,16 @@ export class IconDocComponent implements OnInit {
   selected = 'all';
   latestIcon = '';
   copied = false;
+
+  iconColorClassesToIgnore = ['red', 'orange', 'yellow', 'green', 'danger'];
+  iconColorClasses = Object.keys(data.block['e-icon'].modifier).filter(
+    (name) =>
+      name.startsWith('e-icon--color-') &&
+      !this.iconColorClassesToIgnore.find((ignore) => name.includes(ignore)),
+  );
+  iconColorClassExample = this.iconColorClasses
+    .map((name) => `<i class="e-icon e-icon--chat ${name} e-mr-40" aria-hidden="true"></i>`)
+    .join('\n');
 
   example = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-mr-40" aria-hidden="true"></i>
 <i class="e-icon e-icon--move_truck-color e-icon--xs e-mr-40" aria-hidden="true"></i>
