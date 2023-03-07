@@ -2,13 +2,20 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "03.03.23",
+      "date": "07.03.23",
       "version": "6.2.2",
       "changelog": [
         {
           "type": "bug_fix",
           "changes": [
             "Updating prop <code>minDate</code>, <code>maxDate</code> or <code>value</code> will now trigger validation."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Add internal prop for showing time in min/max error when used in datepicker range.",
+            "Remove shadow when used with dark theme."
           ]
         }
       ]
