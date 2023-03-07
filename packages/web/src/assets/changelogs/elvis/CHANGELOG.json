@@ -1,17 +1,6 @@
 {
   "content": [
     {
-      "version": "10.6.1",
-      "date": "March 6, 2023",
-      "changelog": [
-        {
-          "type": "patch",
-          "changes": ["Updated internal <code>@elvia/elvis-typography</code> dependency to 2.3.2"],
-          "pages": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
-        }
-      ]
-    },
-    {
       "version": "10.6.0",
       "date": "March 6, 2023",
       "changelog": [
