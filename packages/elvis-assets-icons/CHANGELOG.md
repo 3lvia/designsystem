@@ -1,11 +1,11 @@
 # Elvis-assets-icon
 
-## 2.11.0 (02.03.23)
+## 2.11.0 (07.03.23)
 
 ### New feature
 
 - The color of the icons are now set using css-variables. The variables are defined in `@elvia/elvis`, but
-  have a fallback value in case Elvis is not present.
+  have a fallback value in case Elvis is not present. This introduces support for dark theme.
 
 ### Patch
 
