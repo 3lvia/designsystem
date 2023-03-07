@@ -1,6 +1,13 @@
 # Elvis-assets-icon
 
-## 2.11.0 (07.03.23)
+## 3.0.0 (07.03.23)
+
+### Breaking change
+
+- When setting the color of an icon by sending in a color name, the color is now set using `getThemeColor()`
+  from `@elvia/elvis-colors` instead of the deprecated `getColor()`. If you want to set the color to a
+  specific color, you need to send in the hex value of the color. This causes a breaking change to what color
+  names/labels that are available.
 
 ### New feature
 
