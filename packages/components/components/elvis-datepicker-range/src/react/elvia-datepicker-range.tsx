@@ -13,6 +13,7 @@ import {
   defaultLabelOptions,
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
+import { isAfter, isBefore } from './dateHelpers';
 
 type Picker = 'startDate' | 'startTime' | 'endDate' | 'endTime';
 
@@ -31,8 +32,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   timepickerInterval = '15',
   hasAutoOpenEndDatepicker,
   errorOptions = {
-    start: { hideText: false, isErrorState: false, text: '', hasErrorPlaceholder: true },
-    end: { hideText: false, isErrorState: false, text: '', hasErrorPlaceholder: true },
+    start: { hideText: false, text: '', hasErrorPlaceholder: true },
+    end: { hideText: false, text: '', hasErrorPlaceholder: true },
   },
   errorOnChange,
   minDate,
@@ -80,9 +81,27 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const setTime = (date: Date | number, when: 'startOfDay' | 'endOfDay'): Date => {
     const dateCopy = new Date(date);
     if (when === 'startOfDay') {
-      dateCopy.setHours(0, 0, 0, 0);
+      if (minDate) {
+        dateCopy.setHours(
+          minDate.getHours(),
+          minDate.getMinutes(),
+          minDate.getSeconds(),
+          minDate.getMilliseconds(),
+        );
+      } else {
+        dateCopy.setHours(0, 0, 0, 0);
+      }
     } else {
-      dateCopy.setHours(23, 59, 59, 59);
+      if (maxDate) {
+        dateCopy.setHours(
+          maxDate.getHours(),
+          maxDate.getMinutes(),
+          maxDate.getSeconds(),
+          maxDate.getMilliseconds(),
+        );
+      } else {
+        dateCopy.setHours(23, 59, 59, 59);
+      }
     }
 
     return dateCopy;
@@ -210,7 +229,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     if (hasSelectDateOnOpen && !selectedDateRange.start) {
       const endDate = selectedDateRange.end?.getTime();
       const startDate =
-        endDate && endDate < Date.now()
+        endDate && !minDate && endDate < Date.now()
           ? setTime(endDate, 'startOfDay')
           : setTime(minDate || new Date(), 'startOfDay');
       setNewDateRange({ ...selectedDateRange, start: startDate });
@@ -223,7 +242,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     if (hasSelectDateOnOpen && !selectedDateRange.end) {
       const startDate = selectedDateRange.start?.getTime();
       const endDate =
-        startDate && Date.now() < startDate
+        startDate && !maxDate && Date.now() < startDate
           ? setTime(startDate, 'endOfDay')
           : setTime(maxDate || new Date(), 'endOfDay');
       setNewDateRange({ ...selectedDateRange, end: endDate });
@@ -250,6 +269,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
       setOpenPicker(undefined);
       setShouldOpenNextPicker(false);
     }
+  };
+
+  const isOutsideMinMaxBoundary = (d?: Date | null): boolean => {
+    return isBefore(d, minDate) || isAfter(d, maxDate);
   };
 
   /** These props are passed through directly to both the underlying datepickers. */
@@ -306,9 +329,13 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           dateRangeProps={{
             selectedDateRange: selectedDateRange,
             whichRangePicker: 'start',
+            showTimeInError: hasTimepickers,
           }}
           disableDate={disableDatesWrapper()?.start}
-          errorOptions={errorOptions?.start}
+          errorOptions={{
+            isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start),
+            ...errorOptions?.start,
+          }}
           errorOnChange={(error: string) =>
             setCurrentErrorMessages((current) => ({ ...current, start: error }))
           }
@@ -331,7 +358,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isOpen={openPicker === 'startTime'}
             errorOptions={{
               hideText: false,
-              isErrorState: false,
+              isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start),
               text: '',
               hasErrorPlaceholder: !!errorOptions?.start?.hasErrorPlaceholder || !!errorOptions?.start?.text,
             }}
@@ -357,9 +384,13 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           dateRangeProps={{
             selectedDateRange: selectedDateRange,
             whichRangePicker: 'end',
+            showTimeInError: hasTimepickers,
           }}
           disableDate={disableDatesWrapper()?.end}
-          errorOptions={errorOptions?.end}
+          errorOptions={{
+            isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end),
+            ...errorOptions?.end,
+          }}
           errorOnChange={(error: string) =>
             setCurrentErrorMessages((current) => ({ ...current, end: error }))
           }
@@ -382,7 +413,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isOpen={openPicker === 'endTime'}
             errorOptions={{
               hideText: false,
-              isErrorState: false,
+              isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end),
               text: '',
               hasErrorPlaceholder: !!errorOptions?.end?.hasErrorPlaceholder || !!errorOptions?.end?.text,
             }}
