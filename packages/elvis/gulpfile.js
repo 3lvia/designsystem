@@ -24,10 +24,6 @@ function minifyElvisJs() {
     );
 }
 
-function copyElvisJsToWeb() {
-  return gulp.src('elvis.js').pipe(gulp.dest('../web/src/assets/js'));
-}
-
 // Run gulp tasks
 gulp.task(
   'default',
@@ -38,7 +34,6 @@ gulp.task(
     classList.injectDeprecatedElvisClasses,
     copyChangelogs,
     minifyElvisJs,
-    copyElvisJsToWeb,
     function (done) {
       done();
       console.log('Elvis - Successfully built Elvis!');
