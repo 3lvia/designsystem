@@ -4,8 +4,8 @@
   "description": "Elvia design system",
   "license": "ISC",
   "homepage": "https://design.elvia.io/",
-  "author": "",
-  "main": "",
+  "main": "elvis.js",
+  "style": "css/elvis.min.css",
   "scripts": {
     "build": "gulp",
     "build:production": "gulp",
@@ -16,7 +16,6 @@
     "elvis.full.js",
     "CHANGELOG.json",
     "README.md",
-    "npm-shrinkwrap.json",
     "css/**/*",
     "src/**/*"
   ],
@@ -31,7 +30,6 @@
   "devDependencies": {
     "del": "^6.0.0",
     "doiuse": "^4.4.0",
-    "express": "^4.17.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.2.0",
@@ -41,8 +39,7 @@
     "gulp-tap": "^2.0.0",
     "mini-svg-data-uri": "^1.1.3",
     "resolve": "^1.20.0",
-    "sass": "^1.33.0",
-    "yargs-parser": ">=13.1.2"
+    "sass": "^1.33.0"
   },
   "installConfig": {
     "hoistingLimits": "workspaces"
