@@ -31,7 +31,6 @@ const injectColors = async () => {
   const template = fs.readFileSync('elvis.js').toString();
   const newContent = template.replace('//[[INJECT_COLORS]]', embeddedJs);
   fs.writeFileSync('elvis.js', newContent);
-  fs.writeFileSync('../web/src/assets/js/elvis.js', newContent);
 
   return true;
 };

@@ -14,16 +14,6 @@ export class GetStartedDocComponent implements OnInit {
   loadedScript = false;
   loadedStyle = false;
   loadedFullExample = false;
-  cssVarsCode = `/* main.js/ts - file */
-
-import cssVars from 'css-vars-ponyfill';
-
-cssVars({
-  include: 'style',
-  onlyLegacy: true,
-  watch: true,
-});`;
-
   bodyScriptMessage = `<body><script src="assets/js/elvis.js"></script></body>`;
 
   constructor(private versionService: VersionService, private titleService: Title) {}
