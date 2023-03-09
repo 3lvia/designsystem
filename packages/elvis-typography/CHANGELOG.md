@@ -1,6 +1,6 @@
 # Elvia Typography Changelog
 
-## 2.3.2 (06.03.23)
+## 2.3.2 (09.03.23)
 
 ### Patch
 
