@@ -172,56 +172,6 @@
           <app-component-example-v1 [codeHTML]="alignmentOfText"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Without Elvis'">
-        <ng-container ngProjectAs="sectionContent">
-          <p>
-            To use the CSS typography classes without using Elvis, you need to import the
-            <code class="code-text">@elvia/elvis-typography</code>
-            package itself. It only provides SCSS-files, not CSS.
-          </p>
-          <app-component-example-code
-            [codeCSS]="exampleCss"
-            [noSubscriptions]="'true'"
-          ></app-component-example-code>
-          <p>If this import does not work, you may need to specify the file.</p>
-          <app-component-example-code
-            [codeCSS]="exampleCssLong"
-            [noSubscriptions]="'true'"
-          ></app-component-example-code>
-          <p>
-            It is important to remember to also import the fonts themselves, as this is not done automatically
-            by
-            <code class="code-text">@elvia/elvis-typography</code>
-            . To do this, you can add the following to your CSS file:
-          </p>
-          <app-component-example-code
-            [codeCSS]="exampleImportFonts"
-            [noSubscriptions]="'true'"
-          ></app-component-example-code>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Using Javascript package'">
-        <ng-container ngProjectAs="sectionContent">
-          <p>
-            All typographies can also be used through Javascript. To get a typography with breakpoints for
-            mobile font properties, the utility function
-            <code class="code-text">getTypographyCss()</code>
-            is provided. It returns a CSS string with all the properties of the typography.
-          </p>
-          <app-component-example-code
-            [codeTS]="exampleGetTypographyCssTS"
-            [codeCSS]="exampleGetTypographyCssCSS"
-            [noSubscriptions]="'true'"
-          ></app-component-example-code>
-          <p>To use a typography with styled-components you can simply do:</p>
-          <app-component-example-code
-            [codeTS]="exampleStyledComponents"
-            [noSubscriptions]="'true'"
-          ></app-component-example-code>
-        </ng-container>
-      </app-component-subsection>
     </ng-container>
   </app-component-section>
 </div>

@@ -12,7 +12,7 @@ export const badgeData: ComponentData = {
     },
     badgeColor: {
       isRequired: false,
-      type: '“red” | “green” | “white” | black',
+      type: '"red" | "green" | "neutral"',
       description: 'The background color of the badge',
       default: '"green"',
 
@@ -20,14 +20,13 @@ export const badgeData: ComponentData = {
       cegDefault: 'green',
       cegType: 'string',
       cegFormType: 'radio',
-      cegOptions: ['green', 'red', 'white', 'black'],
+      cegOptions: ['green', 'red', 'neutral'],
     },
     count: {
       isRequired: false,
       type: 'number | string | undefined',
       description: 'The number displayed inside the badge',
 
-      //To-do: fikse at denne oppretter count prop-en dersom den ikke finnes fra
       cegDisplayName: 'Count',
       cegType: 'number',
       cegFormType: 'counter',
@@ -40,12 +39,12 @@ export const badgeData: ComponentData = {
     className: {
       isRequired: false,
       type: 'string',
-      description: 'Custom CSS classes that can be added to the badge.' /* nødvendig? */,
+      description: 'Custom CSS classes that can be added to the badge.',
     },
     inlineStyle: {
       isRequired: false,
       type: '{[cssProperty: string]: string}',
-      description: 'Custom CSS style object that can be added to the badge.' /* nødvendig? */,
+      description: 'Custom CSS style object that can be added to the badge.',
     },
   },
   codeReact: `<Badge

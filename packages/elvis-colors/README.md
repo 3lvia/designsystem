@@ -1,5 +1,9 @@
 # Elvia colors
 
+**This package is meant for internal use only. All colors are available through
+[Elvis](https://www.npmjs.com/package/@elvia/elvis). This package should not be imported by an end-user
+directly.**
+
 Available colors reflect the colors illustrated at https://design.elvia.io/brand/color#Overview.
 
 All Color variables are named Elvia< Name > in CamelCase. Eg ElviaBlack, ElviaOrangeMango.
@@ -51,16 +55,26 @@ Example: <br>
 
 ## Usage Typescript/Javascript
 
-To use this package you can import the function getColor(). It takes the name of the requested color as input,
-and returns its hex value if it exists in the Elvia colors. <br>
+To use this package you can import the function `getThemeColor()`. It takes the label of the requested color
+as input, and returns a css variable with a fallback to its its hex value if it exists in the Elvia colors.
+<br>
+
+- ```typescript
+  import { getThemeColor } from '@elvia/elvis-colors';
+  const color = getThemeColor('state-on');
+  ```
+
+Likewise, the function `getThemeColorContrast()` is provided to get a contrast text color corresponding to the
+requested color.
+
+A previous version of this package provided the function `getColor()`. This function is now deprecated and
+will be removed in a future version. It takes the label of the requested color as input, and returns its hex
+value.
 
 - ```typescript
   import { getColor } from '@elvia/elvis-colors';
   const color = getColor('elvia-charge');
   ```
-
-Likewise, the function `getContrastText()` is provided to get a contrast text color corresponding to the
-requested color.
 
 ## Maintaining
 

@@ -6,7 +6,6 @@ export const config: ComponentConfig = {
     { name: 'type', type: 'string' },
     { name: 'title', type: 'string' },
     { name: 'typography', type: 'string' },
-    { name: 'isInverted', type: 'boolean' },
     { name: 'orientation', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },

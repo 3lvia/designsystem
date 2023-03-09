@@ -1,10 +1,23 @@
-const del = require('del');
-const gulp = require('gulp');
+import * as del from 'del';
+import * as gulp from 'gulp';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const svgmin = require('gulp-svgmin');
-const icons = require('../config/icons.config');
-const path = require('path');
-const fs = require('fs');
-const sharp = require('sharp');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const icons = require('../config/icons.config') as {
+  name: string;
+  terms?: string[];
+  thirdparty?: {
+    name: string | string[];
+    duplicate?: string | string[];
+  };
+  deprecated?: boolean;
+  newIconName?: string;
+}[];
+import * as path from 'path';
+import * as fs from 'fs';
+import * as sharp from 'sharp';
+import { getThemeColor } from '@elvia/elvis-colors';
+import type { IconLabels } from './iconsScss';
 
 // Delete unused icons + generated icons
 function clean() {
@@ -19,10 +32,10 @@ function clean() {
 
 function findUnusedIconFiles() {
   const content = fs.readdirSync('./icons/svg/src/');
-  const remove = [];
+  const remove: string[] = [];
 
   content.forEach((icon) => {
-    const filename = icon.substr(0, icon.length - 4);
+    const filename = icon.slice(0, -4);
     if (JSON.stringify(icons).indexOf(filename) === -1) {
       remove.push(icon);
     }
@@ -31,7 +44,6 @@ function findUnusedIconFiles() {
   return remove;
 }
 
-// Optimize SVG icons
 function optimizeSVG() {
   const iconsToInclude = icons.map((i) => {
     return `icons/svg/src/${i.name}.svg`;
@@ -39,8 +51,68 @@ function optimizeSVG() {
   return gulp.src(iconsToInclude, { allowEmpty: true }).pipe(svgmin()).pipe(gulp.dest('icons/svg/dist'));
 }
 
-// Create icon module in icons.js and icons.d.ts
-async function createIconModule() {
+// The following is used to change hard-coded icon colors to use css variables for theming support.
+type FillVariablesUnion = `fill="var(--e-color-icon-${IconLabels}, ${ReturnType<typeof getThemeColor>})"`;
+export type FillVariables = { [label in IconLabels]: FillVariablesUnion };
+
+/**
+ * These are the string-values that are inserted into the SVGs as replacements for the hard-coded colors.
+ */
+const fillVariables = {
+  stroke: `fill="var(--e-color-icon-stroke, ${getThemeColor('icon-stroke')})"`,
+  'filled-foreground': `fill="var(--e-color-icon-filled-foreground, ${getThemeColor(
+    'icon-filled-foreground',
+  )})"`,
+  'filled-background': `fill="var(--e-color-icon-filled-background, ${getThemeColor(
+    'icon-filled-background',
+  )})"`,
+  'filled-foreground-colored': `fill="var(--e-color-icon-filled-foreground-colored, ${getThemeColor(
+    'static-black',
+  )})"`,
+  on: `fill="var(--e-color-icon-on, ${getThemeColor('icon-on')})"`,
+  caution: `fill="var(--e-color-icon-caution, ${getThemeColor('icon-caution')})"`,
+  warning: `fill="var(--e-color-icon-warning, ${getThemeColor('icon-warning')})"`,
+  error: `fill="var(--e-color-icon-error, ${getThemeColor('icon-error')})"`,
+} as const satisfies FillVariables;
+
+/**
+ * Replace colors in a stringified SVG with css variables.
+ */
+function getIconWithCssVariables(icon: string, iconName: string) {
+  const newIcon = icon
+    .replace(/fill="#29D305"/g, fillVariables.on)
+    .replace(/fill="#FFFF00"/g, fillVariables.caution)
+    .replace(/fill="#FFA000"/g, fillVariables.warning)
+    .replace(/fill="#EE0701"/g, fillVariables.error);
+  if (iconName.includes('-filled-color')) {
+    return newIcon.replace(/fill="#000"/g, fillVariables['filled-foreground-colored']);
+  } else if (iconName.includes('-filled')) {
+    return newIcon
+      .replace(/fill="#fff"/g, fillVariables['filled-foreground'])
+      .replace(/fill="#000"/g, fillVariables['filled-background']);
+  } else {
+    return newIcon.replace(/fill="#000"/g, fillVariables.stroke);
+  }
+}
+
+function createIconFileContent(icon: string, iconName: string) {
+  const iconWithCssVariables = getIconWithCssVariables(icon, iconName).replace(
+    '<svg ',
+    '<svg viewBox="0 0 24 24" aria-hidden="true" ',
+  );
+  return `  getIcon: function (color) {
+    const icon = '${iconWithCssVariables}';
+    if (!color) {
+      return icon;
+    }
+    if (!color.startsWith('#') && !color.startsWith('var(--')) {
+      return icon.replaceAll('${fillVariables.stroke}', 'fill="' + getColor(color) + '"').replaceAll('${fillVariables['filled-background']}', 'fill="' + getColor(color) + '"');
+    }
+    return icon.replaceAll('${fillVariables.stroke}', 'fill="' + color + '"').replaceAll('${fillVariables['filled-background']}', 'fill="' + color + '"');
+  }`;
+}
+
+const getIconsNotDeprecated = () => {
   const iconsToInclude = icons.map((i) => {
     if (i.deprecated) {
       return {
@@ -54,6 +126,12 @@ async function createIconModule() {
       };
     }
   });
+  return iconsToInclude;
+};
+
+// Create icon module in icons.js and icons.d.ts
+async function createIconModule() {
+  const iconsToInclude = getIconsNotDeprecated();
   let iconsIndexFile = `// THIS FILE IS GENERATED BY GULP, DO NOT CHANGE THIS ICON MANUALLY.
 // ADD OR REMOVE ICONS IN icons.config.js
 `;
@@ -78,32 +156,7 @@ export declare type IconName =`;
       content:
         jsModule +
         `export default {
-  getIcon: function (color) {
-    let icon =
-      '${fileContent}';
-    let iconName = '${iconName}';
-    icon = icon.replace('<svg ', '<svg viewBox="0 0 24 24" aria-hidden="true" ');
-    if (!color) {
-      return icon;
-    }
-    if (color === 'inverted') {
-      if (iconName.indexOf('-color') > -1 && iconName.indexOf('-color-') <= -1) {
-        icon = icon.replace(/fill="#29D305"/g, 'fillGreen');
-      }
-      // -full-color check can be removed when new icons have been added
-      if (iconName.indexOf('-filled-color') > -1 || iconName.indexOf('-full-color') > -1) {
-        icon = icon.replace(/fill="#000"/g, 'fillBlack');
-      }
-      icon = icon.replace(/fill="#fff"/g, 'fillBlack');
-      icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
-      icon = icon.replace(/fillBlack/g, "fill='black'");
-      icon = icon.replace(/fillGreen/g, "fill='#29D305'");
-      return icon;
-    } else if (!color.startsWith('#') && !color.startsWith('var(--')) {
-      return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
-    }
-    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
-  },
+  ${createIconFileContent(fileContent, iconName)},
 };`,
     });
     iconTypeContents.push({
@@ -132,19 +185,7 @@ export default ${createCamelCase(icon.name)};`,
 }
 
 async function createCommonJSIconModule() {
-  const iconsToInclude = icons.map((i) => {
-    if (i.deprecated) {
-      return {
-        name: i.name,
-        path: `icons/svg/dist/${i.newIconName}.svg`,
-      };
-    } else {
-      return {
-        name: i.name,
-        path: `icons/svg/dist/${i.name}.svg`,
-      };
-    }
-  });
+  const iconsToInclude = getIconsNotDeprecated();
   let iconsIndexFile = `// THIS FILE IS GENERATED BY GULP, DO NOT CHANGE THIS ICON MANUALLY.
 // ADD OR REMOVE ICONS IN icons.config.js
 `;
@@ -162,31 +203,7 @@ const getColor = require('@elvia/elvis-colors')['getColor'];
       content:
         jsModule +
         `module.exports = {
-  getIcon: function(color) {
-    let icon = '${fileContent}'
-    let iconName = '${iconName}'
-    icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
-    if(!color) {
-      return icon;
-    }
-    if(color==='inverted') {
-      if ((iconName.indexOf("-color") > -1) && iconName.indexOf("-color-") <= -1) {
-        icon = icon.replace(/fill="#29D305"/g, "fillGreen");
-      }
-      // -full-color check can be removed when new icons have been added
-      if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
-        icon = icon.replace(/fill="#000"/g, "fillBlack'");
-      }
-      icon = icon.replace(/fill="#fff"/g, "fillBlack");
-      icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
-      icon = icon.replace(/fillBlack/g, "fill='black'");
-      icon = icon.replace(/fillGreen/g, "fill='#29D305'");
-      return icon;
-      } else if (!color.startsWith('#') && !color.startsWith('var(--')) {
-        return icon.replace(/fill="#000"/g, 'fill="' + getColor(color) + '"');
-    }
-    return icon.replace(/fill="#000"/g, 'fill="' + color + '"');
-  }
+  ${createIconFileContent(fileContent, iconName)}
 }`,
     });
     iconsIndexFile =
@@ -202,7 +219,7 @@ const getColor = require('@elvia/elvis-colors')['getColor'];
   return true;
 }
 
-function createCamelCase(original) {
+function createCamelCase(original: string) {
   const arr = original.split(/[_-]+/);
   let newText = '';
 
@@ -211,13 +228,13 @@ function createCamelCase(original) {
       newText += arr[i];
       continue;
     }
-    newText += arr[i][0].toUpperCase() + arr[i].substr(1, arr[i].length - 1);
+    newText += arr[i][0].toUpperCase() + arr[i].substring(1, arr[i].length);
   }
   return newText;
 }
 
 // Create png-files from svg-files
-async function createPNGs(done) {
+async function createPNGs(done: () => void) {
   const iconsToInclude = icons.map((i) => {
     if (i.deprecated) {
       return { name: i.name, path: `icons/svg/src/${i.newIconName}.svg` };
@@ -226,7 +243,7 @@ async function createPNGs(done) {
   });
 
   for (const file of iconsToInclude) {
-    const density = parseInt((72 * 56) / 24);
+    const density = (72 * 56) / 24;
 
     await sharp(file.path, { density: density })
       .resize(56)
@@ -239,9 +256,9 @@ async function createPNGs(done) {
 const makeIconTypeFile = async () => {
   const iconType = `// THIS FILE IS GENERATED BY GULP, DO NOT CHANGE THIS ICON MANUALLY.
 // ADD OR REMOVE ICONS IN icons.config.js
-import type { ElviaColor } from '@elvia/elvis-colors';
+import type { ColorLabel } from '@elvia/elvis-colors';
 export type IconType = {
-  getIcon: (color?: ElviaColor | 'inverted') => string;
+  getIcon: (color?: ColorLabel | (string & {})) => string;
 };
 `;
   fs.writeFileSync(`./dist/icons/_iconType.d.ts`, iconType + '\n');
@@ -264,4 +281,4 @@ const generateIcons = gulp.series(
   createCommonJSIconModule,
   createPNGs,
 );
-exports.generateIcons = generateIcons;
+export { generateIcons };
