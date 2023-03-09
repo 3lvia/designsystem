@@ -50,6 +50,7 @@ export const ToastContainer = styled.output<{
   padding: 16px;
   z-index: 99999;
   animation: ${fadeIn} ${animationDuration}ms;
+  box-shadow: 0 0 40px rgb(0 0 0 / 0.06);
 
   ${({ gtMobile }) =>
     gtMobile &&

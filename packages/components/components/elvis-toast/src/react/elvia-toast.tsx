@@ -65,7 +65,7 @@ export const Toast: React.FC<BaseProps> = ({ className, inlineStyle }) => {
             {config.body && <ToastBody>{config.body}</ToastBody>}
           </div>
           {config.closable && (
-            <CloseButton onClick={closeToast} size="sm">
+            <CloseButton onClick={fadeOut} size="sm">
               <IconWrapper icon={closeBold} size="xs" />
             </CloseButton>
           )}

@@ -26,8 +26,7 @@ export class v2PlaygroundComponent {
     openElviaToast({
       title: 'First title',
       body: 'First body. This is a long one though. It should probably wrap over several lines so that we can check how that looks.',
-      duration: 2000,
-      status: 'informative',
+      closable: true,
     });
   };
 
