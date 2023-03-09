@@ -42,7 +42,6 @@ export class IconDocComponent implements OnInit {
 <i class="e-icon e-icon--check_circle e-icon--color-on e-mr-40" aria-hidden="true"></i>
 <i class="e-icon e-icon--warning_circle e-icon--color-warning e-mr-40" aria-hidden="true"></i>
 <i class="e-icon e-icon--remove_circle e-icon--color-error e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--chat e-icon--color-caution e-mr-40" aria-hidden="true"></i>
 <h5>Static colors</h5>
 <i class="e-icon e-icon--chat e-icon--color-black e-mr-40" aria-hidden="true"></i>
 <i class="e-icon e-icon--chat e-icon--color-white e-mr-40" aria-hidden="true"></i>`;
