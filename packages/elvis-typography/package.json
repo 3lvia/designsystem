@@ -1,9 +1,8 @@
 {
   "name": "@elvia/elvis-typography",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "Elvia typography",
   "license": "MIT",
-  "author": "",
   "main": "dist/elviaTypography.js",
   "types": "dist/elviaTypography.d.ts",
   "style": "dist/elviaTypography.scss",
