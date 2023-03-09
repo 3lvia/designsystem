@@ -160,7 +160,6 @@ const CarouselButtonBase = styled.button`
   cursor: pointer;
   visibility: ${({ hidden }) => (hidden ? 'hidden' : 'visible')};
   i {
-    background-color: ${getThemeColor('background-primary')};
     display: inline-block;
   }
 `;
