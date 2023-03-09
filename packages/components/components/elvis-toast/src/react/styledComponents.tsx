@@ -8,7 +8,7 @@ export const animationDuration = 300;
 
 const fadeIn = keyframes`
   from {
-    transform: translateY(-8px);
+    transform: translateX(50%);
     opacity: 0;
   }
 
@@ -25,7 +25,7 @@ const fadeOut = keyframes`
   }
 
   to {
-    transform: translateY(-8px);
+    transform: translateX(50%);
     opacity: 0;
   }
 `;
@@ -62,7 +62,7 @@ export const ToastContainer = styled.output<{
   background: ${getThemeColor('background-primary')};
   text-align: left;
   padding: 16px;
-  animation: ${fadeIn} ${animationDuration}ms;
+  animation: ${fadeIn} ${animationDuration}ms cubic-bezier(0, 0.57, 0.31, 1);
   box-shadow: 0 0 40px rgb(0 0 0 / 0.06);
 
   ${({ toastType }) => {
@@ -78,7 +78,7 @@ export const ToastContainer = styled.output<{
   ${({ fade }) =>
     fade &&
     css`
-      animation: ${fadeOut} ${animationDuration}ms forwards;
+      animation: ${fadeOut} ${animationDuration}ms forwards cubic-bezier(0.6, 0, 1, 0.9);
     `}
 `;
 
