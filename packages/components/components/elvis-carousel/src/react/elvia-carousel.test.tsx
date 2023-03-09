@@ -148,7 +148,7 @@ describe('Elvis Carousel', () => {
     });
 
     it('should have className and inlineStyle', () => {
-      const carouselContainer = screen.getByTestId('carousel-container');
+      const carouselContainer = screen.getByRole('group');
       expect(carouselContainer).toHaveClass('test-class');
       expect(carouselContainer).toHaveStyle('margin: 24px');
     });
