@@ -311,19 +311,14 @@
             The green color on icons is typically used for the hover state, indicating that it is interactive.
             A small pop-of-green is also used to draw focus to the most important detail to better understand
             the significance of the icon. However, these icons are typically not interactive. The colors red
-            and orange are reserved to convey errors and warnings to the users.
-          </p>
-          <p>
-            Check out our
+            and orange are reserved to convey errors and warnings to the users. Check out our
             <a class="e-link e-link--inline" [routerLink]="['/brand/color']">color palette</a>
             for a more in-depth understanding of the Elvia colors and how to use them.
           </p>
-          <app-component-example-v1
-            [codeHTML]="example2"
-            [codeInverted]="example2Inverted"
-          ></app-component-example-v1>
-
-          <p>The available color classes for icons can be seen below.</p>
+          <p>
+            The available color classes for icons can be seen below. Note that the two static colors remain
+            black/white in dark theme, and should only be used in specific places.
+          </p>
           <app-component-example-v1 [codeHTML]="iconColorClassExample"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>

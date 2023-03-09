@@ -4,7 +4,6 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { elvisIconData } from './icon-data';
 import { Title } from '@angular/platform-browser';
-import data from '@elvia/elvis/.internal/classlist.json';
 
 @Component({
   selector: 'app-icon-doc',
@@ -33,15 +32,20 @@ export class IconDocComponent implements OnInit {
   latestIcon = '';
   copied = false;
 
-  iconColorClassesToIgnore = ['red', 'orange', 'yellow', 'green', 'danger'];
-  iconColorClasses = Object.keys(data.block['e-icon'].modifier).filter(
-    (name) =>
-      name.startsWith('e-icon--color-') &&
-      !this.iconColorClassesToIgnore.find((ignore) => name.includes(ignore)),
-  );
-  iconColorClassExample = this.iconColorClasses
-    .map((name) => `<i class="e-icon e-icon--chat ${name} e-mr-40" aria-hidden="true"></i>`)
-    .join('\n');
+  iconColorClassExample = `<h5>Default colors</h5>
+<i class="e-icon e-icon--chat e-icon--color-default e-mr-40" aria-hidden="true"></i>
+<h5>Disabled colors</h5>
+<i class="e-icon e-icon--chat e-icon--color-disabled e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--chat e-icon--color-disabled-light e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--chat e-icon--color-placeholder e-mr-40" aria-hidden="true"></i>
+<h5>Signal colors</h5>
+<i class="e-icon e-icon--check_circle e-icon--color-on e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--warning_circle e-icon--color-warning e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--remove_circle e-icon--color-error e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--chat e-icon--color-caution e-mr-40" aria-hidden="true"></i>
+<h5>Static colors</h5>
+<i class="e-icon e-icon--chat e-icon--color-black e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--chat e-icon--color-white e-mr-40" aria-hidden="true"></i>`;
 
   example = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-mr-40" aria-hidden="true"></i>
 <i class="e-icon e-icon--move_truck-color e-icon--xs e-mr-40" aria-hidden="true"></i>
@@ -61,10 +65,6 @@ export class IconDocComponent implements OnInit {
 `;
 
   example2 = `<i class="e-icon e-icon--remove_circle e-icon--color-red e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--warning_circle e-icon--color-orange e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--check_circle e-icon--color-green e-mr-40" aria-hidden="true"></i>
-`;
-  example2Inverted = `<i class="e-icon e-icon--remove_circle e-icon--color-red e-mr-40" aria-hidden="true"></i>
 <i class="e-icon e-icon--warning_circle e-icon--color-orange e-mr-40" aria-hidden="true"></i>
 <i class="e-icon e-icon--check_circle e-icon--color-green e-mr-40" aria-hidden="true"></i>
 `;
