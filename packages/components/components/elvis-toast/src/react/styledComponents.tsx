@@ -30,27 +30,12 @@ const fadeOut = keyframes`
   }
 `;
 
-export const ToastContainer = styled.output<{
-  gtMobile: boolean;
-  fade: boolean;
-  toastType: ToastType;
-}>`
+export const ToastPosition = styled.div<{ gtMobile: boolean }>`
   position: fixed;
   bottom: 16px;
   left: 16px;
   right: 16px;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  gap: 16px;
-  border: 2px solid ${getThemeColor('state-on')};
-  border-radius: 8px;
-  background: ${getThemeColor('background-primary')};
-  text-align: left;
-  padding: 16px;
   z-index: 99999;
-  animation: ${fadeIn} ${animationDuration}ms;
-  box-shadow: 0 0 40px rgb(0 0 0 / 0.06);
 
   ${({ gtMobile }) =>
     gtMobile &&
@@ -62,6 +47,23 @@ export const ToastContainer = styled.output<{
       min-width: 270px;
       max-width: 400px;
     `}
+`;
+
+export const ToastContainer = styled.output<{
+  fade: boolean;
+  toastType: ToastType;
+}>`
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 16px;
+  border: 2px solid ${getThemeColor('state-on')};
+  border-radius: 8px;
+  background: ${getThemeColor('background-primary')};
+  text-align: left;
+  padding: 16px;
+  animation: ${fadeIn} ${animationDuration}ms;
+  box-shadow: 0 0 40px rgb(0 0 0 / 0.06);
 
   ${({ toastType }) => {
     if (toastType === 'informative') {

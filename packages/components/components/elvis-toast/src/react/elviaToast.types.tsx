@@ -8,4 +8,5 @@ export interface ToastConfig {
   duration: number;
   closable: boolean;
   status: ToastType;
+  customIcon: string;
 }

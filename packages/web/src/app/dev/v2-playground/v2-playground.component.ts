@@ -20,13 +20,15 @@ export class v2PlaygroundComponent {
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';
   accordionHtmlContent = `<div>HTML content<div>`;
   isOpen = false;
+  toastIndex = 1;
 
   // Alert
   showToast = () => {
     openElviaToast({
-      title: 'First title',
+      title: `First title ${this.toastIndex++}`,
       body: 'First body. This is a long one though. It should probably wrap over several lines so that we can check how that looks.',
       closable: true,
+      duration: 2000,
     });
   };
 
