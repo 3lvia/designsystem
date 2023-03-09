@@ -14,6 +14,7 @@ import clock from '@elvia/elvis-assets-icons/dist/icons/clock';
 import { TimepickerInput } from './timepickerInput';
 import { TimepickerError } from './error/timepickerError';
 import { getErrorText } from './getErrorText';
+import { getThemeColor } from '@elvia/elvis-colors';
 
 export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   value,
@@ -176,7 +177,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           >
             <IconWrapper
               icon={clock}
-              color={isDisabled ? 'disabled' : 'black'}
+              color={isDisabled ? getThemeColor('state-disabled-foreground') : getThemeColor('text-primary')}
               size={isCompact ? 'xs' : 'sm'}
             />
           </IconButton>
