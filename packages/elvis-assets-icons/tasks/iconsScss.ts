@@ -39,9 +39,9 @@ const defaultLabeledIconWithContrast = (newClassName: ColorLabel): IconClassToTh
  */
 const iconClassToThemeColor = {
   inverted: {
-    stroke: 'icon-stroke--contrast',
-    'filled-background': 'icon-filled-background--contrast',
-    'filled-foreground': 'icon-filled-foreground--contrast',
+    stroke: 'static-white',
+    'filled-background': 'static-white',
+    'filled-foreground': 'static-black',
   },
   default: {
     stroke: 'icon-stroke',
