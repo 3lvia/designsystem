@@ -464,7 +464,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         };
         this.formGroupList.push(formGroupObject);
       } else if (formType === 'checkbox') {
-        const checkboxObject: typeof this.allCheckboxes[0] = {
+        const checkboxObject: (typeof this.allCheckboxes)[0] = {
           propName: propKey,
           ...prop,
         };

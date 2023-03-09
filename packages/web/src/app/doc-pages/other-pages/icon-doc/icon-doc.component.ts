@@ -14,7 +14,7 @@ export class IconDocComponent implements OnInit {
   @ViewChild('accordionIconsDesktop') accordionIconsDesktop: ElementRef;
   @ViewChild('accordionIconsMobile') accordionIconsMobile: ElementRef;
   @ViewChild('icons') icons: ElementRef;
-  @Output() clickOutside: EventEmitter<any> = new EventEmitter();
+  @Output() clickOutside = new EventEmitter();
 
   componentData = elvisIconData;
   noSubs = true;
@@ -31,6 +31,20 @@ export class IconDocComponent implements OnInit {
   selected = 'all';
   latestIcon = '';
   copied = false;
+
+  iconColorClassExample = `<h5>Default colors</h5>
+<i class="e-icon e-icon--chat e-icon--color-default e-mr-40" aria-hidden="true"></i>
+<h5>Disabled colors</h5>
+<i class="e-icon e-icon--chat e-icon--color-disabled e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--chat e-icon--color-disabled-light e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--chat e-icon--color-placeholder e-mr-40" aria-hidden="true"></i>
+<h5>Signal colors</h5>
+<i class="e-icon e-icon--check_circle e-icon--color-on e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--warning_circle e-icon--color-warning e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--remove_circle e-icon--color-error e-mr-40" aria-hidden="true"></i>
+<h5>Static colors</h5>
+<i class="e-icon e-icon--chat e-icon--color-black e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--chat e-icon--color-white e-mr-40" aria-hidden="true"></i>`;
 
   example = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-mr-40" aria-hidden="true"></i>
 <i class="e-icon e-icon--move_truck-color e-icon--xs e-mr-40" aria-hidden="true"></i>
@@ -50,10 +64,6 @@ export class IconDocComponent implements OnInit {
 `;
 
   example2 = `<i class="e-icon e-icon--remove_circle e-icon--color-red e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--warning_circle e-icon--color-orange e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--check_circle e-icon--color-green e-mr-40" aria-hidden="true"></i>
-`;
-  example2Inverted = `<i class="e-icon e-icon--remove_circle e-icon--color-red e-mr-40" aria-hidden="true"></i>
 <i class="e-icon e-icon--warning_circle e-icon--color-orange e-mr-40" aria-hidden="true"></i>
 <i class="e-icon e-icon--check_circle e-icon--color-green e-mr-40" aria-hidden="true"></i>
 `;

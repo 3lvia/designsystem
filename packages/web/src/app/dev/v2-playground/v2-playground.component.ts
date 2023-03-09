@@ -10,8 +10,6 @@ import { dropdownData } from './dropdown-data';
 })
 export class v2PlaygroundComponent {
   toggleTheme = () => {
-    const componentExamples = document.getElementById('dev-component-examples');
-    componentExamples.classList.toggle('e-theme-dark');
     document.body.classList.toggle('e-theme-dark');
   };
   // Accordion
@@ -62,8 +60,8 @@ export class v2PlaygroundComponent {
     end: { isErrorState: true, hasErrorPlaceholder: false },
   };
   labelOptions = { start: 'Start-dato', end: 'Sluttdato' };
-  minDateRange = new Date(2022, 6, 26);
-  maxDateRange = new Date(2022, 6, 30);
+  minDateRange = new Date(2022, 6, 26, 14, 0);
+  maxDateRange = new Date(2022, 6, 30, 23, 0);
   disableDates = {
     start: (date: Date) => date.getDate() % 3 === 0,
     end: (date: Date) => date.getDate() % 7 === 0,

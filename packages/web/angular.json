@@ -65,7 +65,7 @@
               }
             ],
             "styles": ["src/styles.scss"],
-            "scripts": [],
+            "scripts": ["./node_modules/@elvia/elvis/elvis.js"],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,

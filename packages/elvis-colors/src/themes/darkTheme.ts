@@ -241,4 +241,38 @@ export const darkTheme = {
       contrast: darkThemeColors['primary-colors'].black.contrastText,
     },
   },
+  icon: {
+    'icon-stroke': {
+      hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
+    },
+    'icon-filled-foreground': {
+      hex: darkThemeColors['primary-colors'].black.color,
+      contrast: darkThemeColors['primary-colors'].black.contrastText,
+    },
+    'icon-filled-background': {
+      hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
+    },
+    'icon-filled-foreground-colored': {
+      hex: darkThemeColors['primary-colors'].black.color,
+      contrast: darkThemeColors['primary-colors'].black.contrastText,
+    },
+    'icon-on': {
+      hex: darkThemeColors['primary-colors'].green.color,
+      contrast: darkThemeColors['primary-colors'].green.contrastText,
+    },
+    'icon-caution': {
+      hex: darkThemeColors['signal-colors'].yellow.color,
+      contrast: darkThemeColors['signal-colors'].yellow.contrastText,
+    },
+    'icon-warning': {
+      hex: darkThemeColors['signal-colors'].orange.color,
+      contrast: darkThemeColors['signal-colors'].orange.contrastText,
+    },
+    'icon-error': {
+      hex: darkThemeColors['signal-colors'].red.color,
+      contrast: darkThemeColors['signal-colors'].red.contrastText,
+    },
+  },
 } as const satisfies Theme;

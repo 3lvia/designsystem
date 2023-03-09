@@ -3,8 +3,8 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { ProgressLinearSize } from './elvia-progress-linear.types';
 
 const loading = keyframes`
-	0% { width: 0%; margin-left: 0%; }
-	15% { width: 15%; margin-left: 0%; }
+	0% { width: 0; margin-left: 0; }
+	15% { width: 15%; margin-left: 0; }
 	85% { width: 15%; }
 	100% { width: 0; margin-left: 100%; }
 `;
@@ -26,6 +26,7 @@ type ProgressLinearProgressProps = {
   isIndeterminate?: boolean;
   isError?: boolean;
   currSize?: ProgressLinearSize;
+  transitionDuration: string;
 };
 
 export const ProgressLinearProgress = styled.div<ProgressLinearProgressProps>`
@@ -34,7 +35,8 @@ export const ProgressLinearProgress = styled.div<ProgressLinearProgressProps>`
   height: ${({ currSize }) => (currSize === 'medium' ? '16px' : '8px')};
   margin-left: 0;
   background-color: ${({ isError }) => (isError ? getThemeColor('state-error') : getThemeColor('state-on'))};
-  transition: ${({ isIndeterminate }) => (isIndeterminate ? 'none' : 'width 0.3s ease-in;')};
+  transition: ${({ isIndeterminate, transitionDuration }) =>
+    isIndeterminate ? 'none' : `width ${transitionDuration} ease-in;`};
   ${({ isIndeterminate, isError }) => decideProgressValue(isIndeterminate, isError)};
   // Indeterminate
   ${({ isIndeterminate, isError }) =>

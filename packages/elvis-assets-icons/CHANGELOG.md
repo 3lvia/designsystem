@@ -1,5 +1,43 @@
 # Elvis-assets-icon
 
+## 2.11.0 (09.03.23)
+
+### New feature
+
+- The color of the icons are now set using css-variables. The variables are defined in `@elvia/elvis`, but
+  have a fallback value in case Elvis is not present. This introduces support for dark theme.
+
+### Patch
+
+- Migrated the build system to Typescript.
+
+### Bug fix
+
+- Fixed an issue with the `step_` icons.
+
+## 2.10.2 (07.03.23)
+
+### Patch
+
+- Added missing file export for the Typescript declaration file.
+
+## 2.10.1 (06.03.23)
+
+### Patch
+
+- Renamed icon `movie` to `media-color`.
+
+## 2.10.0 (06.03.23)
+
+### New feature
+
+- New icons:
+  1. `fearless`.
+  2. `link`.
+  3. `magic`.
+  4. `movie`.
+  5. `shortcut`.
+
 ## 2.9.0 (07.02.23)
 
 ### New feature

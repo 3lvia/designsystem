@@ -2,6 +2,7 @@
 @use '../variables/typography';
 @use '../utilities/icons';
 @use '../utilities/helpers';
+@use '../utilities/breakpoints.scss';
 
 $table-padding: 10px 16px;
 $table-compact-padding: 9px 16px;
@@ -93,9 +94,14 @@ $grey10: colors.color('grey-10');
   td,
   th {
     @include typography.typography('text-md');
+
     padding: $table-padding;
     background: colors.color('white');
     text-align: left;
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      line-height: 28px;
+    }
 
     &.e-table__cell--multiline {
       width: 450px;
@@ -221,6 +227,10 @@ $grey10: colors.color('grey-10');
     color: colors.color('font-color');
     line-height: 27px;
     text-align: left;
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      line-height: 27px;
+    }
   }
 
   th[class*='e-table-mobile__cell'] {

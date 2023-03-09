@@ -1,5 +1,23 @@
 # Elvia Colors Changelog
 
+## 1.8.0 (09.03.23)
+
+### New feature
+
+- Added new theme color labels for icon colors.
+
+### Patch
+
+- Added missing export for `getThemeColorContrast()`.
+
+## 1.7.0 (01.03.23)
+
+### New feature
+
+- Added functionality for getting shadows. This introduces a new function `getShadow()` that returns a
+  css-variable that can be used to set box-shadow.
+- Generating `elvisShadowMap.scss` with a scss-map of all the shadows for use in elvis.
+
 ## 1.6.0 (24.02.23)
 
 ### New feature

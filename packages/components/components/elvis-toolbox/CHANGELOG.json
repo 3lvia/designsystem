@@ -3,13 +3,33 @@
   "content": [
     {
       "date": "24.02.23",
-      "version": "7.6.1",
+      "version": "7.8.1",
       "changelog": [
         {
           "type": "patch",
           "changes": [
             "Added a way to manually trigger a recalculation of the <code>useCurrentTheme</code> hook."
           ]
+        }
+      ]
+    },
+    {
+      "date": "27.02.23",
+      "version": "7.8.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added prop interface for transition duration."]
+        }
+      ]
+    },
+    {
+      "date": "27.02.23",
+      "version": "7.7.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for dark theme to the tooltip component."]
         }
       ]
     },
