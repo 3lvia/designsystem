@@ -8,10 +8,11 @@ import { ToastIcon } from './toastIcon';
 
 interface Props extends BaseProps {
   toast: ToastConfig;
+  gtMobile: boolean;
   onClose: () => void;
 }
 
-export const ToastBox: React.FC<Props> = ({ toast, onClose, className, inlineStyle }) => {
+export const ToastBox: React.FC<Props> = ({ toast, gtMobile, onClose, className, inlineStyle }) => {
   const [startFade, setStartFade] = useState(false);
   const timeoutId = useRef(0);
 
@@ -39,6 +40,7 @@ export const ToastBox: React.FC<Props> = ({ toast, onClose, className, inlineSty
       className={className}
       style={inlineStyle}
       fade={startFade}
+      gtMobile={gtMobile}
       toastType={toast.status}
       role="status"
     >

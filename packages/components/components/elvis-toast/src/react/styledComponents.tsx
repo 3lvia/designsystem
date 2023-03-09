@@ -6,26 +6,24 @@ import { ToastType } from './elviaToast.types';
 
 export const animationDuration = 300;
 
-const fadeIn = keyframes`
+const fadeIn = (gtMobile: boolean) => keyframes`
   from {
-    transform: translateX(50%);
+    transform: ${gtMobile ? 'translateX(50%)' : 'translateY(50%)'};
     opacity: 0;
   }
-
+  
   to {
-    transform: translateY(0);
     opacity: 1;
   }
-`;
+  `;
 
-const fadeOut = keyframes`
+const fadeOut = (gtMobile: boolean) => keyframes`
   from {
-    transform: translateY(0);
     opacity: 1;
   }
-
+  
   to {
-    transform: translateX(50%);
+    transform: ${gtMobile ? 'translateX(50%)' : 'translateY(50%)'};
     opacity: 0;
   }
 `;
@@ -52,6 +50,7 @@ export const ToastPosition = styled.div<{ gtMobile: boolean }>`
 export const ToastContainer = styled.output<{
   fade: boolean;
   toastType: ToastType;
+  gtMobile: boolean;
 }>`
   display: flex;
   align-items: center;
@@ -62,7 +61,7 @@ export const ToastContainer = styled.output<{
   background: ${getThemeColor('background-primary')};
   text-align: left;
   padding: 16px;
-  animation: ${fadeIn} ${animationDuration}ms cubic-bezier(0, 0.57, 0.31, 1);
+  animation: ${({ gtMobile }) => fadeIn(gtMobile)} ${animationDuration}ms cubic-bezier(0, 0.57, 0.31, 1);
   box-shadow: 0 0 40px rgb(0 0 0 / 0.06);
 
   ${({ toastType }) => {
@@ -75,10 +74,10 @@ export const ToastContainer = styled.output<{
     return '';
   }}
 
-  ${({ fade }) =>
+  ${({ fade, gtMobile }) =>
     fade &&
     css`
-      animation: ${fadeOut} ${animationDuration}ms forwards cubic-bezier(0.6, 0, 1, 0.9);
+      animation: ${fadeOut(gtMobile)} ${animationDuration}ms forwards cubic-bezier(0.6, 0, 1, 0.9);
     `}
 `;
 

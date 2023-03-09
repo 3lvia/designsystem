@@ -35,6 +35,7 @@ export const Toast: React.FC<BaseProps> = ({ className, inlineStyle }) => {
         <ToastBox
           onClose={() => onClose()}
           toast={toastQueue[0]}
+          gtMobile={gtMobile}
           className={className}
           inlineStyle={inlineStyle}
         />
