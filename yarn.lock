@@ -3556,7 +3556,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-typography@*, @elvia/elvis-typography@^2.3.1, @elvia/elvis-typography@workspace:packages/elvis-typography":
+"@elvia/elvis-typography@*, @elvia/elvis-typography@^2.3.1, @elvia/elvis-typography@^2.3.2, @elvia/elvis-typography@workspace:packages/elvis-typography":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
@@ -3583,7 +3583,7 @@ __metadata:
   dependencies:
     "@elvia/elvis-assets-icons": "*"
     "@elvia/elvis-colors": ^1.8.0
-    "@elvia/elvis-typography": ^2.3.1
+    "@elvia/elvis-typography": ^2.3.2
     bootstrap: 4.6.1
     del: ^6.0.0
     doiuse: ^4.4.0
@@ -3608,7 +3608,7 @@ __metadata:
   dependencies:
     "@elvia/elvis-assets-icons": "*"
     "@elvia/elvis-colors": ^1.8.0
-    "@elvia/elvis-typography": ^2.3.1
+    "@elvia/elvis-typography": ^2.3.2
     bootstrap: 4.6.1
     jquery: 1.9.1 - 3
     popper.js: ^1.16.1
