@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ElviaDropdownItem } from '@elvia/elvis-dropdown';
+import { openElviaToast } from '@elvia/elvis-toast';
 import { dropdownData } from './dropdown-data';
 
 @Component({
@@ -14,10 +15,21 @@ export class v2PlaygroundComponent {
     componentExamples.classList.toggle('e-theme-dark');
     document.body.classList.toggle('e-theme-dark');
   };
+
   // Accordion
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';
   accordionHtmlContent = `<div>HTML content<div>`;
   isOpen = false;
+
+  // Alert
+  showToast = () => {
+    openElviaToast({
+      title: 'First title',
+      body: 'First body. This is a long one though. It should probably wrap over several lines so that we can check how that looks.',
+      duration: 2000,
+      status: 'informative',
+    });
+  };
 
   // Breadcrumb
   breadcrumbsTestNoUrl = [{ text: 'Elvia.no' }, { text: 'Nettleie' }, { text: 'Elvias leveringsplikt' }];
