@@ -10,8 +10,6 @@ import { dropdownData } from './dropdown-data';
 })
 export class v2PlaygroundComponent {
   toggleTheme = () => {
-    const componentExamples = document.getElementById('dev-component-examples');
-    componentExamples.classList.toggle('e-theme-dark');
     document.body.classList.toggle('e-theme-dark');
   };
   // Accordion
