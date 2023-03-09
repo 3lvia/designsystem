@@ -2246,11 +2246,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
-    "@elvia/elvis-colors": ^1.5.0
+    "@elvia/elvis-colors": ^1.8.0
+    "@types/gulp": ^4.0.10
+    "@types/gulp-svgmin": ^1.2.2
+    "@types/node": ^18.11.18
+    "@types/sharp": ^0.30.2
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-svgmin: ^4.1.0
     sharp: ^0.30.2
+    ts-node: ^10.9.1
+    typescript: ^4.9.4
   languageName: unknown
   linkType: soft
 
@@ -2258,7 +2264,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@portal:../elvis-assets-icons::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-colors": ^1.5.0
+    "@elvia/elvis-colors": ^1.8.0
   languageName: node
   linkType: soft
 
@@ -2552,7 +2558,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-colors@^1.4.2, @elvia/elvis-colors@^1.4.3, @elvia/elvis-colors@^1.5.0, @elvia/elvis-colors@^1.6.0, @elvia/elvis-colors@^1.7.0, @elvia/elvis-colors@workspace:packages/elvis-colors":
+"@elvia/elvis-colors@^1.4.2, @elvia/elvis-colors@^1.4.3, @elvia/elvis-colors@^1.5.0, @elvia/elvis-colors@^1.6.0, @elvia/elvis-colors@^1.7.0, @elvia/elvis-colors@^1.8.0, @elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
@@ -3576,7 +3582,7 @@ __metadata:
   resolution: "@elvia/elvis@workspace:packages/elvis"
   dependencies:
     "@elvia/elvis-assets-icons": "*"
-    "@elvia/elvis-colors": ^1.7.0
+    "@elvia/elvis-colors": ^1.8.0
     "@elvia/elvis-typography": ^2.3.2
     bootstrap: 4.6.1
     del: ^6.0.0
@@ -3584,6 +3590,7 @@ __metadata:
     gulp: ^4.0.2
     gulp-autoprefixer: ^8.0.0
     gulp-clean-css: ^4.2.0
+    gulp-minify: ^3.1.0
     gulp-postcss: ^8.0.0
     gulp-rename: ^2.0.0
     gulp-tap: ^2.0.0
@@ -3600,7 +3607,7 @@ __metadata:
   resolution: "@elvia/elvis@portal:../elvis::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-assets-icons": "*"
-    "@elvia/elvis-colors": ^1.7.0
+    "@elvia/elvis-colors": ^1.8.0
     "@elvia/elvis-typography": ^2.3.2
     bootstrap: 4.6.1
     jquery: 1.9.1 - 3
@@ -5658,6 +5665,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/gulp-svgmin@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "@types/gulp-svgmin@npm:1.2.2"
+  dependencies:
+    "@types/node": "*"
+    "@types/svgo": 1
+    "@types/vinyl": "*"
+  checksum: 1a0a7854eed6f6630723a7267fa5d3f26faab66802d31fcbdb30da352c5e99729ab425e7d4711d6997f67f08376cbcc1ba67ebbef225afe05023965786db75c5
+  languageName: node
+  linkType: hard
+
 "@types/gulp-tap@npm:^1.0.1":
   version: 1.0.1
   resolution: "@types/gulp-tap@npm:1.0.1"
@@ -6037,6 +6055,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/sharp@npm:^0.30.2":
+  version: 0.30.5
+  resolution: "@types/sharp@npm:0.30.5"
+  dependencies:
+    "@types/node": "*"
+  checksum: 8aa458d4c4187ae9a69894904832ecfe7533e0c405d1a7971a9984b0996eb6eb2ced103854b71199cf8df1350540bb4d3625c671a1946bd417b2bf4405c7292a
+  languageName: node
+  linkType: hard
+
 "@types/sockjs@npm:^0.3.33":
   version: 0.3.33
   resolution: "@types/sockjs@npm:0.3.33"
@@ -6061,6 +6088,13 @@ __metadata:
     "@types/react": "*"
     csstype: ^3.0.2
   checksum: 84f53b3101739b20d1731554fb7735bc2f3f5d050a8b392e9845403c8c8bbd729737d033978649f9195a97b557875b010d46e35a4538564a2d0dbcce661dbf76
+  languageName: node
+  linkType: hard
+
+"@types/svgo@npm:1":
+  version: 1.3.6
+  resolution: "@types/svgo@npm:1.3.6"
+  checksum: 46d648b51a9485eb129ba30da009bb3d6223434bbe224cb051351d9f6055f3c3688544dee5a200d007e993822a4ccec2d96fd13f7c04a2ac8495a602de028f04
   languageName: node
   linkType: hard
 
@@ -6992,6 +7026,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansi-cyan@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "ansi-cyan@npm:0.1.1"
+  dependencies:
+    ansi-wrap: 0.1.0
+  checksum: 5fb11d52bc4d7ab319913b56f876f8e7aff60edd1c119c3d754a33b14d126b7360df70b2d53c5967c29bae03e85149ebaa32f55c33e089e6d06330230983038e
+  languageName: node
+  linkType: hard
+
 "ansi-escapes@npm:^4.2.1, ansi-escapes@npm:^4.3.0":
   version: 4.3.2
   resolution: "ansi-escapes@npm:4.3.2"
@@ -7016,6 +7059,15 @@ __metadata:
   bin:
     ansi-html: bin/ansi-html
   checksum: 04c568e8348a636963f915e48eaa3e01218322e1169acafdd79c384f22e5558c003f79bbc480c1563865497482817c7eed025f0653ebc17642fededa5cb42089
+  languageName: node
+  linkType: hard
+
+"ansi-red@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "ansi-red@npm:0.1.1"
+  dependencies:
+    ansi-wrap: 0.1.0
+  checksum: 84442078e6ae34c79ada32d43d40956e0f953204626be4c562431761407b4388a573cfff950c78a6c8fa20e9eed12441ac8d1c89864d6a35df53e9ef7fce2b98
   languageName: node
   linkType: hard
 
@@ -7171,6 +7223,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"arr-diff@npm:^1.0.1":
+  version: 1.1.0
+  resolution: "arr-diff@npm:1.1.0"
+  dependencies:
+    arr-flatten: ^1.0.1
+    array-slice: ^0.2.3
+  checksum: 6fa5aade29ff80a8b704bcb6ae582ad718ea9dc31f213f616ba6185e2e033ce2082f9efead3ebc7d35a992852c74f052823c8a51248f15a535f84f346aa2f402
+  languageName: node
+  linkType: hard
+
 "arr-diff@npm:^4.0.0":
   version: 4.0.0
   resolution: "arr-diff@npm:4.0.0"
@@ -7200,6 +7262,13 @@ __metadata:
   dependencies:
     make-iterator: ^1.0.0
   checksum: 51861a8a10b3f9d417468154c0b43a1fd85bbccfeca365f3cafe9d8c81218dc9b5ea9f923f9417365deface95111b36d06d5f348d0214bc9e277dfd2802f3acc
+  languageName: node
+  linkType: hard
+
+"arr-union@npm:^2.0.1":
+  version: 2.1.0
+  resolution: "arr-union@npm:2.1.0"
+  checksum: 19e21d0a8d184eb86c597541eaf90d9912470ce311b9e14b7b3f1be4fd18535ba3511db046565fb190f8be4f7a9ad3216b670cded3c765e03a0e3928a72085ea
   languageName: node
   linkType: hard
 
@@ -7267,6 +7336,13 @@ __metadata:
   dependencies:
     is-number: ^4.0.0
   checksum: 7631c7df9b44ea26f49e2f6eeb7a7d4d95b3798586b917e1efae4a321b6362e449e00b011e88eb0260959fbfc940fbdfce1d2a35765ea080de6d71e3fc3cf1dd
+  languageName: node
+  linkType: hard
+
+"array-slice@npm:^0.2.3":
+  version: 0.2.3
+  resolution: "array-slice@npm:0.2.3"
+  checksum: e0d97e8a47e78f9311177d38099c59baba45699c07bd96fa4f19d4eb1e276b7447e7b55e0bc76c56c810caee427a5e29672308f4521b0d10ff0b1c207eeadd08
   languageName: node
   linkType: hard
 
@@ -8869,7 +8945,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:2, commander@npm:^2.20.0":
+"commander@npm:2, commander@npm:^2.19.0, commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: ab8c07884e42c3a8dbc5dd9592c606176c7eb5c1ca5ff274bcf907039b2c41de3626f684ea75ccf4d361ba004bbaff1f577d5384c155f3871e456bdf27becf9e
@@ -11588,6 +11664,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"extend-shallow@npm:^1.1.2":
+  version: 1.1.4
+  resolution: "extend-shallow@npm:1.1.4"
+  dependencies:
+    kind-of: ^1.1.0
+  checksum: 437ebb676d031cf98b9952220ef026593bde81f8f100b9f3793b4872a8cc6905d1ef9301c8f8958aed6bc0c5472872f96f43cf417b43446a84a28e67d984a0a6
+  languageName: node
+  linkType: hard
+
 "extend-shallow@npm:^2.0.1":
   version: 2.0.1
   resolution: "extend-shallow@npm:2.0.1"
@@ -12689,6 +12774,20 @@ __metadata:
     map-stream: 0.0.7
     through2: ^2.0.0
   checksum: c4f4329669055812c3b3f84840fd41c75cf07053e8e83816dbe77d2091679f22f7fe0679f11c060adaf857d9112bd8188708b5ef198fca06f46a296c0e31cb00
+  languageName: node
+  linkType: hard
+
+"gulp-minify@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "gulp-minify@npm:3.1.0"
+  dependencies:
+    ansi-colors: ^1.0.1
+    minimatch: ^3.0.2
+    plugin-error: ^0.1.2
+    terser: ^3.7.6
+    through2: ^2.0.3
+    vinyl: ^2.1.0
+  checksum: 214be44556afe1f0d963ab1bff5cd8a29708bb4a8b3ecc63e9da83f5bcb88d99d1a1f78da1476249be270b8206fc4de5ad6eb25e274e586f115e6bdfe00f561d
   languageName: node
   linkType: hard
 
@@ -14990,6 +15089,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"kind-of@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "kind-of@npm:1.1.0"
+  checksum: 29a95ed9d72d2bc8e3cc86dc461b5a61bde9e931f39158c183d76c5c9b83a0659766520f202473f45b06bce517eece7af061e04ba5fcdfbffe7eb80aedf4743a
+  languageName: node
+  linkType: hard
+
 "kind-of@npm:^3.0.2, kind-of@npm:^3.0.3, kind-of@npm:^3.2.0":
   version: 3.2.2
   resolution: "kind-of@npm:3.2.2"
@@ -16023,7 +16129,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^3.0.3, minimatch@npm:^3.0.4, minimatch@npm:^3.0.5, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
+"minimatch@npm:^3.0.2, minimatch@npm:^3.0.3, minimatch@npm:^3.0.4, minimatch@npm:^3.0.5, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
   version: 3.1.2
   resolution: "minimatch@npm:3.1.2"
   dependencies:
@@ -17561,6 +17667,19 @@ __metadata:
     arr-union: ^3.1.0
     extend-shallow: ^3.0.2
   checksum: 5cacd34372b909f07125829c2876707f4add64dcdf0dd8bd23d7ceac70eeb961c038a9707a998cc498bf8d478cc81f8d85b82584313926fe61a8fa294f79f3e4
+  languageName: node
+  linkType: hard
+
+"plugin-error@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "plugin-error@npm:0.1.2"
+  dependencies:
+    ansi-cyan: ^0.1.1
+    ansi-red: ^0.1.1
+    arr-diff: ^1.0.1
+    arr-union: ^2.0.1
+    extend-shallow: ^1.1.2
+  checksum: e363d3b644753ef468fc069fd8a76a67a077ece85320e434386e0889e10bbbc507d9733f8f6d6ef1cfda272a6c7f0d03cd70340a0a1f8014fe41a4d0d1ce59d0
   languageName: node
   linkType: hard
 
@@ -19569,7 +19688,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:0.5.21, source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.5, source-map-support@npm:~0.5.20":
+"source-map-support@npm:0.5.21, source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.5, source-map-support@npm:~0.5.10, source-map-support@npm:~0.5.20":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:
@@ -20625,6 +20744,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"terser@npm:^3.7.6":
+  version: 3.17.0
+  resolution: "terser@npm:3.17.0"
+  dependencies:
+    commander: ^2.19.0
+    source-map: ~0.6.1
+    source-map-support: ~0.5.10
+  bin:
+    terser: bin/uglifyjs
+  checksum: 4fed679470b65a3290b6b5c9b104fb5007aa195824e421d37c0a65656de927f55bf6b210c20b2dff5664101cbdd7c0f93daa03d4d0da7758e660c9716411d279
+  languageName: node
+  linkType: hard
+
 "terser@npm:^5.14.1":
   version: 5.15.1
   resolution: "terser@npm:5.15.1"
@@ -21118,7 +21250,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:~4.9.5":
+"typescript@npm:^4.9.4, typescript@npm:~4.9.5":
   version: 4.9.5
   resolution: "typescript@npm:4.9.5"
   bin:
@@ -21128,7 +21260,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@~4.9.5#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>, typescript@patch:typescript@~4.9.5#~builtin<compat/typescript>":
   version: 4.9.5
   resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"
   bin:

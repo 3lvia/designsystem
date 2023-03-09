@@ -21,6 +21,7 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName) => {
     theme.text[label as keyof typeof theme.text] ??
     theme.background[label as keyof typeof theme.background] ??
     theme.static[label as keyof typeof theme.static] ??
+    theme.icon[label as keyof typeof theme.icon] ??
     null;
   if (!color) {
     console.error(`Color ${label} not found.`);
