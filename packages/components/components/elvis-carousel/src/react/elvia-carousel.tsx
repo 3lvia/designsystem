@@ -255,7 +255,6 @@ export const Carousel: FC<CarouselProps> = function ({
       aria-roledescription="carousel"
       aria-live="polite"
       role="group"
-      data-testid="carousel-container"
       id={id}
       {...rest}
     >
