@@ -63,6 +63,7 @@ export const ToastContainer = styled.output<{
   padding: 16px;
   animation: ${({ gtMobile }) => fadeIn(gtMobile)} ${animationDuration}ms cubic-bezier(0, 0.57, 0.31, 1);
   box-shadow: 0 0 40px rgb(0 0 0 / 0.06);
+  color: ${getThemeColor('text-primary')};
 
   ${({ toastType }) => {
     if (toastType === 'informative') {
@@ -73,21 +74,22 @@ export const ToastContainer = styled.output<{
 
     return '';
   }}
-
   ${({ fade, gtMobile }) =>
     fade &&
     css`
       animation: ${fadeOut(gtMobile)} ${animationDuration}ms forwards cubic-bezier(0.6, 0, 1, 0.9);
-    `}
+    `};
 `;
 
 export const ToastTitle = styled.h1`
   ${getTypographyCss('text-sm-strong')};
   margin: 0;
+  text-align: left;
 `;
 
 export const ToastBody = styled.div`
   ${getTypographyCss('text-sm')};
+  text-align: left;
 `;
 
 export const CloseButton = styled(IconButton)`
