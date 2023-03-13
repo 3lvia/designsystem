@@ -32,6 +32,7 @@ export default defineConfig({
       '@elvia/elvis-spotlight/react',
       '@elvia/elvis-tabs/react',
       '@elvia/elvis-timepicker/react',
+      '@elvia/elvis-toast/react',
     ],
   },
   build: {

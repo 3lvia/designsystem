@@ -24,6 +24,7 @@ import { Slider } from '@elvia/elvis-slider/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
+import { Toast, openElviaToast } from '@elvia/elvis-toast/react';
 
 function App() {
   const logValue = (component: string, value: string | number) => {
@@ -132,6 +133,17 @@ function App() {
   const tabsItems = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const [isChipLoading, setIsChipLoading] = useState(false);
 
+  // Toast
+  const showToast = () => {
+    openElviaToast({
+      title: 'Test title',
+      body: 'This is an information toast',
+      status: 'informative',
+      closable: true,
+      duration: 2000000,
+    });
+  };
+
   return (
     <Header
       appTitle="Louvre"
@@ -162,6 +174,7 @@ function App() {
       pageTitle="Components"
       appContent={
         <div className="App e-pt-40">
+          <Toast />
           <h1 className="e-mt-0">React Preview</h1>
           <div className="components-examples">
             {/* CURRENTLY TESTING */}
@@ -170,7 +183,11 @@ function App() {
               <h3>Test your component here</h3>
               {/* Normal version */}
               <i className="e-icon e-icon--add_circle e-icon--sm"></i>
-              <div className="e-bg-white"></div>
+              <div className="e-bg-white">
+                <button className="e-btn" onClick={showToast}>
+                  Show toast
+                </button>
+              </div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>

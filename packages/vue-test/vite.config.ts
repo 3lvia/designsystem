@@ -40,6 +40,7 @@ export default defineConfig({
       '@elvia/elvis-spotlight',
       '@elvia/elvis-tabs',
       '@elvia/elvis-timepicker',
+      '@elvia/elvis-toast',
       '@elvia/elvis-tooltip',
     ],
   },
