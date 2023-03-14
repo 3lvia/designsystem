@@ -172,12 +172,12 @@ const decideContentOpacity = (contentOpen: boolean, type: AccordionType): string
   return '0';
 };
 
-const decideContentTransitionSpeed = (contentHeight: number): string => {
+const decideContentTransitionDuration = (contentHeight: number): string => {
   const pixelsPerSecond = 1000;
-  const minSpeed = 0.2;
-  const maxSpeed = 0.7;
-  const transitionSpeed = contentHeight / pixelsPerSecond;
-  return `${Math.max(minSpeed, Math.min(transitionSpeed, maxSpeed))}s`;
+  const minDuration = 0.2;
+  const maxDuration = 0.7;
+  const transitionDuration = contentHeight / pixelsPerSecond;
+  return `${Math.max(minDuration, Math.min(transitionDuration, maxDuration))}s`;
 };
 
 interface AccordionContentProps {
@@ -205,7 +205,7 @@ export const AccordionContent = styled.div<AccordionContentProps>`
   width: 100%;
   opacity: ${({ isOpenState, type }) => decideContentOpacity(isOpenState, type)};
   overflow-y: hidden;
-  transition: all ${({ contentHeight }) => decideContentTransitionSpeed(contentHeight)} ${bezierCurve};
+  transition: all ${({ contentHeight }) => decideContentTransitionDuration(contentHeight)} ${bezierCurve};
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
