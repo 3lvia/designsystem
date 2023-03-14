@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 import { listButtonHeight } from './buttonHeight';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 
 const typography = {
   numberPickerTitle: getTypographyCss('text-sm'),
@@ -10,7 +10,7 @@ const typography = {
 };
 
 export const OverlayContainer = styled.div`
-  background-color: ${getColor('elvia-on')};
+  background-color: ${getThemeColor('background-overlay')};
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   display: flex;
@@ -34,7 +34,7 @@ export const NumberPickerTitle = styled.h4`
 
 export const HorizontalLine = styled.hr`
   width: 100%;
-  border: 1px solid ${getColor('grey-05')};
+  border: 1px solid ${getThemeColor('background-accent')};
   border-width: 0 0 1px 0;
   margin: 0;
 `;
@@ -57,7 +57,7 @@ export const ArrowButtonContainer = styled.div`
   justify-content: center;
   height: ${listButtonHeight}px;
   position: sticky;
-  background: ${getColor('elvia-on')};
+  background: ${getThemeColor('background-overlay')};
   border-radius: 4px;
 
   &:first-of-type {
@@ -82,11 +82,11 @@ export const NumberButton = styled.button<NumberButtonProps>`
   border: none;
   padding: 0;
   height: 48px;
-  background: ${(props) => (props.isSelected ? getColor('grey-10') : 'transparent')};
+  background: ${(props) => (props.isSelected ? getThemeColor('state-selected-grey') : 'transparent')};
   scroll-snap-align: center;
   cursor: pointer;
 
   &:hover {
-    background: ${getColor('grey-05')};
+    background: ${getThemeColor('state-hover-grey')};
   }
 `;

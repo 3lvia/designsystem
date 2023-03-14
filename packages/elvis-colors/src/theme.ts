@@ -47,8 +47,17 @@ type StateLabels =
   | 'state-focus';
 type DataLabels = 'data-green' | 'data-violet' | 'data-blue' | 'data-purple' | 'data-orange' | 'data-red';
 type StaticLabels = 'static-white' | 'static-black';
+type IconColors =
+  | 'icon-stroke'
+  | 'icon-filled-foreground'
+  | 'icon-filled-background'
+  | 'icon-filled-foreground-colored'
+  | 'icon-on'
+  | 'icon-caution'
+  | 'icon-warning'
+  | 'icon-error';
 
-export type ColorLabel = BackgroundLabels | TextLabels | StateLabels | DataLabels | StaticLabels;
+export type ColorLabel = BackgroundLabels | TextLabels | StateLabels | DataLabels | StaticLabels | IconColors;
 
 export interface Theme {
   background: { [label in BackgroundLabels]: Color };
@@ -56,6 +65,7 @@ export interface Theme {
   state: { [label in StateLabels]: Color };
   data: { [label in DataLabels]: Color };
   static: { [label in StaticLabels]: Color };
+  icon: { [label in IconColors]: Color };
 }
 
 export type ThemeName = 'light' | 'dark';

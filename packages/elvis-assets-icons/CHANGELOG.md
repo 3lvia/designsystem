@@ -1,5 +1,20 @@
 # Elvis-assets-icon
 
+## 2.11.0 (09.03.23)
+
+### New feature
+
+- The color of the icons are now set using css-variables. The variables are defined in `@elvia/elvis`, but
+  have a fallback value in case Elvis is not present. This introduces support for dark theme.
+
+### Patch
+
+- Migrated the build system to Typescript.
+
+### Bug fix
+
+- Fixed an issue with the `step_` icons.
+
 ## 2.10.2 (07.03.23)
 
 ### Patch

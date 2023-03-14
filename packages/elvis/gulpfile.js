@@ -2,15 +2,26 @@
 
 const styles = require('./tasks/styles.js');
 const icons = require('./tasks/icons.js');
-const colors = require('./tasks/colors.js');
 const classList = require('./tasks/classlist.js');
 const gulp = require('gulp');
+const minify = require('gulp-minify');
 
 // Copies changelog to web dictionary
 function copyChangelogs() {
   const elvisSrc = 'CHANGELOG.json';
 
   return gulp.src(elvisSrc).pipe(gulp.dest('../web/src/assets/changelogs/elvis'));
+}
+
+function minifyElvisJs() {
+  return gulp
+    .src('elvis.js')
+    .pipe(minify({ ext: { min: '.js', src: '.full.js' } }))
+    .pipe(
+      gulp.dest('.', {
+        overwrite: true,
+      }),
+    );
 }
 
 // Run gulp tasks
@@ -20,10 +31,9 @@ gulp.task(
     styles.generateCSS,
     classList.createClassListOverview,
     icons.generateIcons,
-    // colors.injectColors must be called after icons.generateIcons
     classList.injectDeprecatedElvisClasses,
-    colors.injectColors,
     copyChangelogs,
+    minifyElvisJs,
     function (done) {
       done();
       console.log('Elvis - Successfully built Elvis!');

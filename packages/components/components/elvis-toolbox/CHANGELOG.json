@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.03.23",
+      "version": "7.8.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Added a way to manually trigger a recalculation of the <code>useCurrentTheme</code> hook."
+          ]
+        }
+      ]
+    },
+    {
       "date": "27.02.23",
       "version": "7.8.0",
       "changelog": [

@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
+  //[[INJECT_ICONS]]
+  //[[INJECT_DEPRECATED_ELVIS_CLASSES]]
+
   let DEBUG = false;
   if (window.location.href.indexOf('#debug') > -1) {
     DEBUG = true;
@@ -62,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
       for (let i = 0; i < node.classList.length; i++) {
         if (icons[node.classList[i]]) {
           if (iconHasMutated(node)) {
-            node.style.backgroundImage = 'url("' + getIcon(node.classList) + '")';
+            node.innerHTML = getIcon(node.classList);
             node.setAttribute('e-id', getUniqueIdentifier(node.classList));
           }
         }
@@ -97,8 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
         continue;
       }
       let icon = icons[classList[i]];
-
-      icon = setCorrectColor(classList, icon);
 
       checkDeprecatedIcon(classList[i]);
 
@@ -191,62 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function descendantCombinationExist({requiredAncestor: ancestor, name}) {
     return document.querySelector(`.${ancestor} .${name}`);
   }
-  
-  function setCorrectColor(classList, icon) {
-    let fill;
 
-    if (classList.contains('e-icon--inverted')) {
-      for (let i = 0; i < classList.length; i++) {
-        if (classList[i].indexOf('-color') > -1 && !(classList[i].indexOf('-color-') > -1)) {
-          icon = icon.replace(/fill='%2329D305'/g, 'fillGreen');
-        }
-        // -full-color check can be removed when new icons have been added
-        if (classList[i].indexOf('-filled-color') > -1 || classList[i].indexOf('-full-color') > -1) {
-          icon = icon.replace(/fill='black'/g, 'fillBlack');
-        }
-      }
-      icon = icon.replace(/fill='white'/g, 'fillBlack');
-      icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
-      icon = icon.replace(/fillBlack/g, "fill='black'");
-      icon = icon.replace(/fillGreen/g, "fill='%2329D305'");
-      return icon;
-    }
-
-    if (classList.contains('e-icon--color-disabled')) {
-      fill = colors['grey-30'].color;
-    }
-
-    if (classList.contains('e-icon--color-disabled-light')) {
-      fill = colors['grey-05'].color;
-    }
-
-    if (classList.contains('e-icon--inverted-disabled-grey')) {
-      fill = colors['grey'].color;
-    }
-    if (classList.contains('e-icon--inverted-disabled-grey-70')) {
-      fill = colors['grey-70'].color;
-    }
-
-    if (JSON.stringify(classList).indexOf('e-icon--color-') > -1) {
-      for (let i = 0; i < classList.length; i++) {
-        let color = classList[i].replace('e-icon--color-', '');
-        if (colors[color]) {
-          fill = colors[color].color;
-        }
-      }
-    }
-
-    if (fill) {
-      fill = fill.replace('#', '%23');
-      icon = icon.replace(/fill='black'/g, "fill='" + fill + "'");
-    }
-
-    return icon;
-  }
-
-  //[[INJECT_COLORS]]
-  //[[INJECT_ICONS]]
-  //[[INJECT_DEPRECATED_ELVIS_CLASSES]]
 
   let lastReplace = 0;
   const throttleReplaceInterval = 500;
@@ -261,9 +207,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let elements = window.document.querySelectorAll('[class*="e-icon"]');
     for (let i = 0; i < elements.length; i++) {
       let element = elements[i];
-      // Uses e-id to avoid unnessesary changes to the DOM
+      // Uses e-id to avoid unnecessary changes to the DOM
       if (iconHasMutated(element)) {
-        element.style.backgroundImage = 'url("' + getIcon(element.classList) + '")';
+        element.innerHTML = getIcon(element.classList);
         element.setAttribute('e-id', getUniqueIdentifier(element.classList));
       }
     }

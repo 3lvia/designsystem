@@ -1,5 +1,15 @@
 # Elvia Colors Changelog
 
+## 1.8.0 (09.03.23)
+
+### New feature
+
+- Added new theme color labels for icon colors.
+
+### Patch
+
+- Added missing export for `getThemeColorContrast()`.
+
 ## 1.7.0 (01.03.23)
 
 ### New feature
