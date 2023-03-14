@@ -30,19 +30,22 @@ const fadeOut = (gtMobile: boolean) => keyframes`
 
 export const ToastPosition = styled.div<{ gtMobile: boolean }>`
   position: fixed;
-  bottom: 16px;
-  left: 16px;
-  right: 16px;
-  z-index: 999999;
+  z-index: 99999;
 
-  ${({ gtMobile }) =>
-    gtMobile &&
-    css`
-      bottom: unset;
-      left: unset;
-      top: 16px;
+  ${({ gtMobile }) => {
+    if (gtMobile) {
+      return css`
+        top: 16px;
+        right: 16px;
+      `;
+    }
+
+    return css`
+      bottom: 16px;
+      left: 16px;
       right: 16px;
-    `}
+    `;
+  }};
 `;
 
 export const ToastContainer = styled.output<{
@@ -67,15 +70,11 @@ export const ToastContainer = styled.output<{
   transform-origin: bottom center;
   transition: all 300ms ease;
 
-  ${({ toastType }) => {
-    if (toastType === 'informative') {
-      return css`
-        border-color: ${getThemeColor('text-primary')};
-      `;
-    }
-
-    return '';
-  }};
+  ${({ toastType }) =>
+    toastType === 'informative' &&
+    css`
+      border-color: ${getThemeColor('text-primary')};
+    `};
 
   ${({ gtMobile }) => {
     if (gtMobile) {

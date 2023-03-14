@@ -28,15 +28,18 @@ export const toastData: ComponentData = {
   codeNativeScript: `  const trigger = document.getElementById('toast-trigger');
 
   trigger.addEventListener('click', () => {
-    // openElviaToast({
-    //   title: 'Short title',
-    //   body: 'A successful confirmation message.',
-    //   closable: true,
-    //   duration: 5000,
-    // });
-
-    // Note: Don't do this. Use the method "openElviaToast" instead.
-    // This is only for demo purposes.
+    /** 
+     * Note: Don't do this. This is only for demo purposes.
+     * Use the method "openElviaToast" instead:
+     * 
+     * import { openElviaToast } from '@elvia/elvis-toast';
+     * openElviaToast({
+     *    title: 'Short title',
+     *    body: 'A successful confirmation message',
+     *    duration: 7000,
+     *    closable: true, 
+     * });
+     **/
     document.dispatchEvent(new CustomEvent('elviaToastOpen', { detail: {
       title: 'Short title',
       body: 'A successful confirmation message',
