@@ -9,7 +9,17 @@
 <!--BODY-->
 <div class="page-body e-mt-72">
   <!--CEG-->
-  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+  <div class="e-my-48" class="component-preview-temp">
+    <elvia-toast></elvia-toast>
+    <button class="e-btn" (click)="showToast()">Show example toast</button>
+  </div>
+  <div class="e-w-100">
+    <app-component-example-v1
+      [showPreview]="false"
+      [codeHTML]="exampleInHTML"
+      [codeTS]="exampleInTS"
+    ></app-component-example-v1>
+  </div>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
@@ -21,77 +31,46 @@
   <!--ACCESSIBILITY-->
   <app-component-section sectionTitle="Accessibility">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection sectionTitle="Screen readers">
-        <ng-container ngProjectAs="sectionContent">
-          A toast will automatically be read by a screen reader in an assertive way.
-        </ng-container>
-      </app-component-subsection>
+      A toast will automatically be read by a screen reader in an assertive way.
     </ng-container>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
   <app-component-section sectionTitle="Implementation">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection sectionTitle="How to use">
-        <ng-container ngProjectAs="sectionContent">
-          There are two steps necessary to use the toast component:
-          <ol class="e-list e-list--numbers">
-            <li>
-              Add the
-              <code>&lt;elvia-toast&gt;&lt;/elvia-toast&gt;</code>
-              component to the root of your app, for example
-              <code>App.vue</code>
-              (Vue),
-              <code>App.component.ts</code>
-              (Angular), or
-              <code>App.tsx</code>
-              (React). This is the actual toast component, and will listen for events dispatched by the
-              <code>openElviaToast</code>
-              method.
-            </li>
-            <li>
-              Import the method
-              <code>openElviaToast</code>
-              from
-              <code>@elvia/elvis-toast</code>
-              where you want to dispatch a toast, and call it with the appropriate toast configuration.
-            </li>
-          </ol>
+      There are two steps necessary to use the toast component:
+      <ol class="e-list e-list--numbers">
+        <li>
+          Add the
+          <code>&lt;elvia-toast&gt;&lt;/elvia-toast&gt;</code>
+          component to the root of your app, for example
+          <code>App.vue</code>
+          (Vue),
+          <code>App.component.ts</code>
+          (Angular), or
+          <code>App.tsx</code>
+          (React). This is the actual toast component, and will listen for events dispatched by the
+          <code>openElviaToast</code>
+          method.
+        </li>
+        <li>
+          Import the method
+          <code>openElviaToast</code>
+          from
+          <code>@elvia/elvis-toast</code>
+          where you want to dispatch a toast, and call it with the appropriate toast configuration. The
+          different options for the toast configuration is displayed below.
+        </li>
+      </ol>
+    </ng-container>
+  </app-component-section>
 
-          The toast configuration has the following options:
-          <ul class="e-list">
-            <li>
-              <code>title: string</code>
-              : The title showed in the toast.
-            </li>
-            <li>
-              <code>body: string</code>
-              : The body showed in the toast.
-            </li>
-            <li>
-              <code>duration: number</code>
-              : How long the toast is visible, in milliseconds. Defaults to
-              <code>7000</code>
-              .
-            </li>
-            <li>
-              <code>closable: boolean</code>
-              : Whether the toast has a close button.
-            </li>
-            <li>
-              <code>status: "positive" | "informative"</code>
-              : The toast status, which changes its appearance. Defaults to
-              <code>"positive"</code>
-              .
-            </li>
-            <li>
-              <code>customIcon: string</code>
-              : Allows for writing inner HTML to replace the default icon. Example:
-              <code>&lt;i class="e-icon e-icon--crane"&gt;&lt;/i&gt;</code>
-            </li>
-          </ul>
-        </ng-container>
-      </app-component-subsection>
+  <!--PROPERTIES-->
+  <app-component-section sectionTitle="Toast configuration">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table
+        [componentData]="toastConfigurationProps"
+      ></app-component-properties-table>
     </ng-container>
   </app-component-section>
 

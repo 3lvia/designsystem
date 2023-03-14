@@ -64,6 +64,7 @@ export const ToastBox: React.FC<Props> = ({ toast, gtMobile, index, onClose, cla
       gtMobile={gtMobile}
       toastType={toast.status}
       role="status"
+      data-elvia-toast-id={toast.id}
     >
       <IconContainer>
         <ToastIcon toast={toast} />
