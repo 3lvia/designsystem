@@ -1,5 +1,6 @@
 import React from 'react';
 import Toast from './elvia-toast';
+import { axe } from 'jest-axe';
 import { act, render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 import { openElviaToast } from './publicApi';
 import { ToastConfig } from './elviaToast.types';
@@ -100,5 +101,14 @@ describe('Elvis Toast', () => {
       const element = screen.queryByTestId('custom-icon');
       expect(element).toBeInTheDocument();
     });
+  });
+
+  it('should have no axe violations', async () => {
+    openToast({ closable: true });
+
+    const toast = screen.getByRole('status');
+    const results = await axe(toast);
+
+    expect(results).toHaveNoViolations();
   });
 });

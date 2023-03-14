@@ -76,7 +76,7 @@ export const ToastBox: React.FC<Props> = ({ toast, gtMobile, index, onClose, cla
       </TextContent>
 
       {toast.closable && (
-        <CloseButton onClick={fadeOut} size="sm" data-testid="close-btn">
+        <CloseButton onClick={fadeOut} size="sm" data-testid="close-btn" aria-label="Lukk toast">
           <IconWrapper icon={closeBold} size="xs" />
         </CloseButton>
       )}
