@@ -45,14 +45,11 @@ showToast() {
 `;
 
   showToast() {
-    openElviaToast(
-      {
-        title: 'Short title',
-        body: 'A successful confirmation message.',
-        duration: 5000,
-        closable: true,
-      },
-      () => console.log('Closing toast'),
-    );
+    openElviaToast({
+      title: 'Short title',
+      body: 'A successful confirmation message.',
+      duration: 5000,
+      closable: true,
+    });
   }
 }

@@ -262,7 +262,7 @@
       <elvia-timepicker @value-on-change="onTimepickerChange($event.detail.value)" label="Vue timepicker" />
     </div>
 
-    <!--Timepicker-->
+    <!--Toast-->
     <div class="example-wrapper">
       <h3>Toast</h3>
       <button class="e-btn" @click="showToast">Show toast</button>

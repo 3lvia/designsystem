@@ -183,11 +183,7 @@ function App() {
               <h3>Test your component here</h3>
               {/* Normal version */}
               <i className="e-icon e-icon--add_circle e-icon--sm"></i>
-              <div className="e-bg-white">
-                <button className="e-btn" onClick={showToast}>
-                  Show toast
-                </button>
-              </div>
+              <div className="e-bg-white"></div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
@@ -525,10 +521,17 @@ function App() {
               <h3>Tabs</h3>
               <Tabs items={tabsItems} value={2} valueOnChange={(event) => logValue('Tabs', event)}></Tabs>
             </div>
+
+            {/* TIMEPICKER */}
             <div className="example-wrapper">
               <h3>Timepicker</h3>
               <Timepicker />
             </div>
+
+            {/* TOAST */}
+            <button className="e-btn" onClick={showToast}>
+              Show toast
+            </button>
           </div>
         </div>
       }
