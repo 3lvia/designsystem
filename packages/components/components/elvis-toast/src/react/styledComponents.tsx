@@ -1,4 +1,4 @@
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { IconButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
@@ -51,6 +51,7 @@ export const ToastContainer = styled.output<{
   gtMobile: boolean;
   index: number;
 }>`
+  ${getShadow('medium')};
   position: absolute;
   display: flex;
   align-items: center;
@@ -62,7 +63,6 @@ export const ToastContainer = styled.output<{
   text-align: left;
   padding: 8px;
   animation: ${({ gtMobile }) => fadeIn(gtMobile)} ${animationDuration}ms cubic-bezier(0, 0.57, 0.31, 1);
-  box-shadow: 0 0 40px rgb(0 0 0 / 0.06);
   color: ${getThemeColor('text-primary')};
   transform-origin: bottom center;
   transition: all 300ms ease;
