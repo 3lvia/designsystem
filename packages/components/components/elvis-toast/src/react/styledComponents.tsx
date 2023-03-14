@@ -4,7 +4,7 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
 import { ToastType } from './elviaToast.types';
 
-export const animationDuration = 300;
+export const animationDuration = 200;
 
 const fadeIn = (gtMobile: boolean) => keyframes`
   from {
@@ -33,7 +33,7 @@ export const ToastPosition = styled.div<{ gtMobile: boolean }>`
   bottom: 16px;
   left: 16px;
   right: 16px;
-  z-index: 99999;
+  z-index: 999999;
 
   ${({ gtMobile }) =>
     gtMobile &&
@@ -42,8 +42,6 @@ export const ToastPosition = styled.div<{ gtMobile: boolean }>`
       left: unset;
       top: 16px;
       right: 16px;
-      min-width: 270px;
-      max-width: 400px;
     `}
 `;
 
@@ -51,7 +49,9 @@ export const ToastContainer = styled.output<{
   fade: boolean;
   toastType: ToastType;
   gtMobile: boolean;
+  index: number;
 }>`
+  position: absolute;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -64,6 +64,8 @@ export const ToastContainer = styled.output<{
   animation: ${({ gtMobile }) => fadeIn(gtMobile)} ${animationDuration}ms cubic-bezier(0, 0.57, 0.31, 1);
   box-shadow: 0 0 40px rgb(0 0 0 / 0.06);
   color: ${getThemeColor('text-primary')};
+  transform-origin: bottom center;
+  transition: all 300ms ease;
 
   ${({ toastType }) => {
     if (toastType === 'informative') {
@@ -73,12 +75,41 @@ export const ToastContainer = styled.output<{
     }
 
     return '';
-  }}
+  }};
+
+  ${({ gtMobile }) => {
+    if (gtMobile) {
+      return css`
+        min-width: 270px;
+        max-width: 400px;
+        width: max-content;
+        right: 0;
+      `;
+    }
+
+    return css`
+      width: 100%;
+    `;
+  }};
+
   ${({ fade, gtMobile }) =>
     fade &&
     css`
       animation: ${fadeOut(gtMobile)} ${animationDuration}ms forwards cubic-bezier(0.6, 0, 1, 0.9);
     `};
+
+  ${({ index, gtMobile }) => {
+    return css`
+      top: ${gtMobile ? `${index * 3}px` : 'unset'};
+      bottom: ${gtMobile ? 'unset' : `${index * -3}px`};
+      scale: ${1 - index * 0.1};
+      z-index: ${5 - index};
+    `;
+  }};
+`;
+
+export const TextContent = styled.div`
+  flex: 1;
 `;
 
 export const ToastTitle = styled.h1`

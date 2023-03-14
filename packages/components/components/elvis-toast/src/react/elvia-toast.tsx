@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { BaseProps, useBreakpoint } from '@elvia/elvis-toolbox';
-import { ToastConfig, toastEventName } from './elviaToast.types';
+import { ToastConfig, toastEventName, ToastWithId } from './elviaToast.types';
 import { ToastPosition } from './styledComponents';
 
 import { ToastBox } from './toastBox';
 
+let toastId = 0;
+
 export const Toast: React.FC<BaseProps> = ({ className, inlineStyle }) => {
-  const [toastQueue, setToastQueue] = useState<ToastConfig[]>([]);
+  const [toastQueue, setToastQueue] = useState<ToastWithId[]>([]);
   const gtMobile = useBreakpoint('gt-mobile');
 
   const onClose = (): void => {
@@ -19,7 +21,7 @@ export const Toast: React.FC<BaseProps> = ({ className, inlineStyle }) => {
       setToastQueue((configs) => {
         const listClone = configs.slice();
 
-        listClone.push(ev.detail);
+        listClone.push({ ...ev.detail, id: toastId++ });
         return listClone;
       });
     };
@@ -31,15 +33,17 @@ export const Toast: React.FC<BaseProps> = ({ className, inlineStyle }) => {
 
   return createPortal(
     <ToastPosition gtMobile={gtMobile}>
-      {!!toastQueue.length && (
+      {toastQueue.slice(0, 4).map((toast, index) => (
         <ToastBox
-          onClose={() => onClose()}
-          toast={toastQueue[0]}
+          onClose={onClose}
+          toast={toast}
+          index={index}
+          key={toast.id}
           gtMobile={gtMobile}
           className={className}
           inlineStyle={inlineStyle}
         />
-      )}
+      ))}
     </ToastPosition>,
     document.body,
   );

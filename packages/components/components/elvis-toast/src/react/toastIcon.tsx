@@ -14,8 +14,8 @@ export const ToastIcon: React.FC<Props> = ({ toast }) => {
   if (toast.customIcon) {
     return <div dangerouslySetInnerHTML={{ __html: toast.customIcon }} />;
   } else if (toast.status === 'informative') {
-    return <IconWrapper icon={informationCircle} color={getThemeColor('text-primary')} size="md" />;
+    return <IconWrapper icon={informationCircle} color={getThemeColor('text-primary')} size="sm" />;
   } else {
-    return <IconWrapper icon={checkCircle} color={getThemeColor('state-on')} size="md" />;
+    return <IconWrapper icon={checkCircle} color={getThemeColor('state-on')} size="sm" />;
   }
 };

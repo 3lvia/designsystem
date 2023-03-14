@@ -20,17 +20,6 @@ export class v2PlaygroundComponent {
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';
   accordionHtmlContent = `<div>HTML content<div>`;
   isOpen = false;
-  toastIndex = 1;
-
-  // Alert
-  showToast = () => {
-    openElviaToast({
-      title: `First title ${this.toastIndex++}`,
-      body: 'First body. This is a long one though. It should probably wrap over several lines so that we can check how that looks.',
-      closable: true,
-      duration: 2000,
-    });
-  };
 
   // Breadcrumb
   breadcrumbsTestNoUrl = [{ text: 'Elvia.no' }, { text: 'Nettleie' }, { text: 'Elvias leveringsplikt' }];
@@ -174,6 +163,16 @@ export class v2PlaygroundComponent {
 
   // Timepicker
   timepickerValue = new Date();
+
+  // Toast
+  showToast = () => {
+    openElviaToast({
+      title: 'First title',
+      body: 'First body. This is a long one though. It should probably wrap over several lines so that we can check how that looks.',
+      closable: true,
+      duration: 4000,
+    });
+  };
 
   // Tooltip
   tooltipPosition: 'top' | 'bottom' | 'left' | 'right' = 'top';
