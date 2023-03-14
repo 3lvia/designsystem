@@ -35,15 +35,12 @@ export const ToastPosition = styled.div<{ gtMobile: boolean }>`
   ${({ gtMobile }) => {
     if (gtMobile) {
       return css`
-        top: 16px;
-        right: 16px;
+        inset: 16px 16px auto auto;
       `;
     }
 
     return css`
-      bottom: 16px;
-      left: 16px;
-      right: 16px;
+      inset: auto 16px 16px;
     `;
   }};
 `;

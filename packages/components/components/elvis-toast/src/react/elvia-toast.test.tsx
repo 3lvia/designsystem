@@ -67,7 +67,7 @@ describe('Elvis Toast', () => {
     openToast();
 
     await waitFor(() => {
-      const element = screen.queryByText('close-btn');
+      const element = screen.queryByTestId('close-btn');
       expect(element).not.toBeInTheDocument();
     });
   });
