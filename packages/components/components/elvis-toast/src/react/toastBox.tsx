@@ -71,8 +71,8 @@ export const ToastBox: React.FC<Props> = ({ toast, gtMobile, index, onClose, cla
       </IconContainer>
 
       <TextContent>
-        {toast.title && <ToastTitle>{toast.title}</ToastTitle>}
-        {toast.body && <ToastBody>{toast.body}</ToastBody>}
+        {!!toast.title && <ToastTitle>{toast.title}</ToastTitle>}
+        {!!toast.body && <ToastBody>{toast.body}</ToastBody>}
       </TextContent>
 
       {toast.closable && (
