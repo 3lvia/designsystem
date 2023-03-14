@@ -58,12 +58,12 @@ export const ToastContainer = styled.output<{
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  gap: 16px;
+  gap: 8px;
   border: 2px solid ${getThemeColor('state-on')};
   border-radius: 8px;
   background: ${getThemeColor('background-primary')};
   text-align: left;
-  padding: 16px;
+  padding: 8px;
   animation: ${({ gtMobile }) => fadeIn(gtMobile)} ${animationDuration}ms cubic-bezier(0, 0.57, 0.31, 1);
   box-shadow: 0 0 40px rgb(0 0 0 / 0.06);
   color: ${getThemeColor('text-primary')};
@@ -79,9 +79,7 @@ export const ToastContainer = styled.output<{
   ${({ gtMobile }) => {
     if (gtMobile) {
       return css`
-        min-width: 270px;
-        max-width: 400px;
-        width: max-content;
+        width: 350px;
         right: 0;
       `;
     }
@@ -109,6 +107,7 @@ export const ToastContainer = styled.output<{
 
 export const TextContent = styled.div`
   flex: 1;
+  margin: 8px 0;
 `;
 
 export const ToastTitle = styled.h1`
@@ -120,6 +119,10 @@ export const ToastTitle = styled.h1`
 export const ToastBody = styled.div`
   ${getTypographyCss('text-sm')};
   text-align: left;
+`;
+
+export const IconContainer = styled.div`
+  margin: 8px;
 `;
 
 export const CloseButton = styled(IconButton)`

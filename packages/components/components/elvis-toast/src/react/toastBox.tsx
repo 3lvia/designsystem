@@ -8,6 +8,7 @@ import {
   ToastBody,
   ToastContainer,
   ToastTitle,
+  IconContainer,
 } from './styledComponents';
 
 import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
@@ -64,7 +65,9 @@ export const ToastBox: React.FC<Props> = ({ toast, gtMobile, index, onClose, cla
       toastType={toast.status}
       role="status"
     >
-      <ToastIcon toast={toast} />
+      <IconContainer>
+        <ToastIcon toast={toast} />
+      </IconContainer>
 
       <TextContent>
         {toast.title && <ToastTitle>{toast.title}</ToastTitle>}
