@@ -37,21 +37,17 @@ export const ToastBox: React.FC<Props> = ({ toast, gtMobile, index, onClose, cla
     }, animationDuration);
   };
 
-  const isActiveToast = () => index === 0;
-
   const { start, resume, pause, clear } = usePauseableTimer(
     fadeOut,
     Math.max(toast.duration - animationDuration, 0),
   );
 
   useEffect(() => {
-    if (isActiveToast()) {
+    if (index === 0) {
       clearTimeout(openTimeoutId.current);
       setStartFade(false);
 
       start();
-    } else {
-      pause();
     }
   }, [index]);
 
@@ -73,8 +69,8 @@ export const ToastBox: React.FC<Props> = ({ toast, gtMobile, index, onClose, cla
       toastType={toast.status}
       role="status"
       data-elvia-toast-id={toast.id}
-      onMouseEnter={() => isActiveToast() && pause()}
-      onMouseLeave={() => isActiveToast() && resume()}
+      onMouseEnter={() => index === 0 && pause()}
+      onMouseLeave={() => index === 0 && resume()}
     >
       <IconContainer>
         <ToastIcon toast={toast} />
