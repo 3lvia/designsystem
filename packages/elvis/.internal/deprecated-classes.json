@@ -19,6 +19,15 @@
     "version": "9.9.0",
     "sunset": "July 2023"
   },
+  "e-alert--toast": {
+    "version": "11.1.0",
+    "sunset": "September 2023",
+    "replacement": {
+      "name": "Toast",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/toast"
+    }
+  },
   "e-link--shortcut": {
     "deprecateChildren": true,
     "version": "9.5.0",
