@@ -61,7 +61,7 @@ export const ToastContainer = styled.output<{
   border-radius: 8px;
   background: ${getThemeColor('background-primary')};
   text-align: left;
-  padding: 8px;
+  padding: 6px; // -2px because of border thickness
   animation: ${({ gtMobile }) => fadeIn(gtMobile)} ${animationDuration}ms cubic-bezier(0, 0.57, 0.31, 1);
   color: ${getThemeColor('text-primary')};
   transform-origin: bottom center;
