@@ -8,6 +8,7 @@ import { openElviaToast } from '@elvia/elvis-toast';
 @Component({
   selector: 'app-toast-doc',
   templateUrl: './toast-doc.component.html',
+  styleUrls: ['./toast-doc.component.scss'],
 })
 export class ToastDocComponent {
   componentData = toastData;
