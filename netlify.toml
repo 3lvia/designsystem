@@ -4,7 +4,4 @@
 
 [build.environment]
     YARN_VERSION = "3.4.1"
-
-[context.deploy-preview]
-    # ignore all PRs opened by `dependabot` (with last commit made by `dependabot`)
-    ignore = 'git log -1 --pretty=%B | grep dependabot'
+    
