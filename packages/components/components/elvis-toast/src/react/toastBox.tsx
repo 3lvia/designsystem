@@ -13,6 +13,7 @@ import {
 
 import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
 import { ToastIcon } from './toastIcon';
+import { usePauseableTimer } from './pauseableTimer';
 
 interface Props extends BaseProps {
   toast: ToastWithId;
@@ -36,20 +37,27 @@ export const ToastBox: React.FC<Props> = ({ toast, gtMobile, index, onClose, cla
     }, animationDuration);
   };
 
+  const isActiveToast = () => index === 0;
+
+  const { start, resume, pause, clear } = usePauseableTimer(
+    fadeOut,
+    Math.max(toast.duration - animationDuration, 0),
+  );
+
   useEffect(() => {
-    if (index === 0) {
+    if (isActiveToast()) {
       clearTimeout(openTimeoutId.current);
       setStartFade(false);
 
-      openTimeoutId.current = window?.setTimeout(() => {
-        fadeOut();
-      }, Math.max(toast.duration - animationDuration, 0));
+      start();
+    } else {
+      pause();
     }
   }, [index]);
 
   useEffect(
     () => () => {
-      clearTimeout(openTimeoutId.current);
+      clear();
       clearTimeout(fadeAnimationId.current);
     },
     [],
@@ -65,6 +73,8 @@ export const ToastBox: React.FC<Props> = ({ toast, gtMobile, index, onClose, cla
       toastType={toast.status}
       role="status"
       data-elvia-toast-id={toast.id}
+      onMouseEnter={() => isActiveToast() && pause()}
+      onMouseLeave={() => isActiveToast() && resume()}
     >
       <IconContainer>
         <ToastIcon toast={toast} />
