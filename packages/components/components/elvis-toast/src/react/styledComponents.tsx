@@ -51,7 +51,7 @@ export const ToastContainer = styled.output<{
   gtMobile: boolean;
   index: number;
 }>`
-  ${getShadow('medium')};
+  box-shadow: ${getShadow('medium')};
   position: absolute;
   display: flex;
   align-items: center;
