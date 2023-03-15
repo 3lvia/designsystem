@@ -2,7 +2,12 @@
 
 <div class="e-mb-48 e-mt-72" class="ceg-container">
   <div class="customize-text-btn">
-    <elvia-popover verticalPosition="below" horizontalPosition="right">
+    <elvia-popover
+      verticalPosition="below"
+      horizontalPosition="right"
+      (onOpen)="popoverIsOpen = true"
+      (onClose)="popoverIsOpen = false"
+    >
       <div slot="content" class="custom-text-popover-container">
         <div class="e-form-field e-mb-8">
           <label class="e-form-field__label" for="toast-title">Title</label>
@@ -26,7 +31,11 @@
         </button>
       </div>
 
-      <button slot="trigger" class="e-btn e-btn--tertiary e-btn--sm">
+      <button
+        slot="trigger"
+        class="e-btn e-btn--tertiary e-btn--sm"
+        [ngClass]="{ 'e-btn---active': popoverIsOpen }"
+      >
         <span class="e-btn__icon">
           <i class="e-icon e-icon--edit" aria-hidden="true"></i>
         </span>

@@ -11,6 +11,7 @@ export class ToastCegComponent {
   closable = false;
   title = 'Short title';
   body = 'A successful confirmation message.';
+  popoverIsOpen = false;
 
   exampleInHTML = `<!-- Place this element at the root of your app -->
 <elvia-toast></elvia-toast>
