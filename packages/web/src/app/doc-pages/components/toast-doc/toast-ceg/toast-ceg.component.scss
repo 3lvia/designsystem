@@ -1,0 +1,48 @@
+.ceg-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 24px;
+}
+
+.customize-text-btn {
+  justify-self: flex-end;
+}
+
+.component-example-container {
+  border: 1px solid var(--e-grey-10);
+  border-radius: 8px;
+  padding: 32px;
+  grid-row: 2;
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ceg-controls {
+  grid-row: 2;
+  grid-column: 2;
+  padding-bottom: 64px;
+  min-height: 300px;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+legend {
+  padding: 0;
+  border: none;
+}
+
+.custom-text-popover-container {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.reset-btn {
+  margin-left: auto;
+}
