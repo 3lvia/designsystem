@@ -44,8 +44,16 @@
     </elvia-popover>
   </div>
 
-  <div class="component-example-container">
-    <button class="e-btn" (click)="showToast()">Show example toast</button>
+  <div class="main-area">
+    <div class="component-example-container">
+      <button class="e-btn" (click)="showToast()">Show example toast</button>
+    </div>
+    <app-component-example-v1
+      [showPreview]="false"
+      [codeHTML]="exampleInHTML"
+      [codeTS]="exampleInTS"
+      noCodePenLink
+    ></app-component-example-v1>
   </div>
 
   <div class="ceg-controls">
@@ -76,13 +84,4 @@
       />
     </label>
   </div>
-</div>
-
-<div class="e-w-100">
-  <app-component-example-v1
-    [showPreview]="false"
-    [codeHTML]="exampleInHTML"
-    [codeTS]="exampleInTS"
-    noCodePenLink
-  ></app-component-example-v1>
 </div>
