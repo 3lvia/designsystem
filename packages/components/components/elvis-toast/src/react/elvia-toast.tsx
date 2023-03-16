@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { BaseProps, useBreakpoint } from '@elvia/elvis-toolbox';
+import { useBreakpoint } from '@elvia/elvis-toolbox';
 
-import { toastEventName, ToastWithId } from './elviaToast.types';
+import { toastEventName, ToastProps, ToastWithId } from './elviaToast.types';
 import { ToastPosition } from './styledComponents';
 import { ToastBox } from './toastBox';
 import { toastContainerId } from './publicApi';
 
-export const Toast: React.FC<BaseProps> = ({ className, inlineStyle }) => {
+export const Toast: React.FC<ToastProps> = ({ className, inlineStyle }) => {
   const [toastQueue, setToastQueue] = useState<ToastWithId[]>([]);
   const gtMobile = useBreakpoint('gt-mobile');
 
