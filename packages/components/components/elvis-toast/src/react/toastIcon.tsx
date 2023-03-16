@@ -1,4 +1,5 @@
 import React from 'react';
+import * as DOMPurify from 'dompurify';
 
 import { getThemeColor } from '@elvia/elvis-colors';
 import { IconWrapper } from '@elvia/elvis-toolbox';
@@ -12,7 +13,8 @@ interface Props {
 
 export const ToastIcon: React.FC<Props> = ({ toast }) => {
   if (toast.customIcon) {
-    return <div dangerouslySetInnerHTML={{ __html: toast.customIcon }} />;
+    const sanitizedDom = DOMPurify.sanitize(toast.customIcon);
+    return <div dangerouslySetInnerHTML={{ __html: sanitizedDom }} />;
   } else if (toast.status === 'informative') {
     return <IconWrapper icon={informationCircle} color={getThemeColor('text-primary')} size="sm" />;
   } else {

@@ -3470,6 +3470,8 @@ __metadata:
     "@elvia/elvis-component-wrapper": ^4.0.1
     "@elvia/elvis-toolbox": ^7.8.1
     "@elvia/elvis-typography": ^2.3.2
+    "@types/dompurify": ^3.0.0
+    dompurify: ^3.0.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -3494,6 +3496,7 @@ __metadata:
     "@elvia/elvis-component-wrapper": ^4.0.1
     "@elvia/elvis-toolbox": ^7.8.1
     "@elvia/elvis-typography": ^2.3.2
+    dompurify: ^3.0.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -5555,6 +5558,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/dompurify@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@types/dompurify@npm:3.0.0"
+  dependencies:
+    "@types/trusted-types": "*"
+  checksum: a0fdd7a1df1173da0d33bc47f24d2bea09440c8126b19d1d0d01c356d444905facb45a0ae2c6c216c1af9a7f07778d90535791d148228c84e53e942a3a568350
+  languageName: node
+  linkType: hard
+
 "@types/eslint-scope@npm:^3.7.3":
   version: 3.7.4
   resolution: "@types/eslint-scope@npm:3.7.4"
@@ -6145,6 +6157,13 @@ __metadata:
   version: 4.0.2
   resolution: "@types/tough-cookie@npm:4.0.2"
   checksum: e055556ffdaa39ad85ede0af192c93f93f986f4bd9e9426efdc2948e3e2632db3a4a584d4937dbf6d7620527419bc99e6182d3daf2b08685e710f2eda5291905
+  languageName: node
+  linkType: hard
+
+"@types/trusted-types@npm:*":
+  version: 2.0.3
+  resolution: "@types/trusted-types@npm:2.0.3"
+  checksum: 4794804bc4a4a173d589841b6d26cf455ff5dc4f3e704e847de7d65d215f2e7043d8757e4741ce3a823af3f08260a8d04a1a6e9c5ec9b20b7b04586956a6b005
   languageName: node
   linkType: hard
 
@@ -10015,6 +10034,13 @@ __metadata:
   dependencies:
     domelementtype: ^2.2.0
   checksum: 4c665ceed016e1911bf7d1dadc09dc888090b64dee7851cccd2fcf5442747ec39c647bb1cb8c8919f8bbdd0f0c625a6bafeeed4b2d656bbecdbae893f43ffaaa
+  languageName: node
+  linkType: hard
+
+"dompurify@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "dompurify@npm:3.0.1"
+  checksum: 19447e6d96415a8ad3a67bc9c76ffe671eb31cf7c1e0a538cbe5037c8b8b03afe144d64cf96c6e0f7fe63b83721a33b5b913394d20a85e96550e42e31f7c086b
   languageName: node
   linkType: hard
 

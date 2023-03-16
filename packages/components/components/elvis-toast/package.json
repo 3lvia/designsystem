@@ -19,7 +19,11 @@
     "@elvia/elvis-component-wrapper": "^4.0.1",
     "@elvia/elvis-toolbox": "^7.8.1",
     "@elvia/elvis-typography": "^2.3.2",
+    "dompurify": "^3.0.1",
     "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/dompurify": "^3.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
