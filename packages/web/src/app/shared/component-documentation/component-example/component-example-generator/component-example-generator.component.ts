@@ -86,12 +86,21 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   ) {}
 
   ngOnInit(): void {
-    this.cegCodes = {
-      angular: this.componentData.codeAngular ? this.componentData.codeAngular : '',
-      react: this.componentData.codeReact ? this.componentData.codeReact : '',
-      vue: this.componentData.codeVue ? this.componentData.codeVue : '',
-      native: this.componentData.codeNativeHTML ? this.componentData.codeNativeHTML : '',
-    };
+    if (this.typesData?.length > 0) {
+      this.cegCodes = {
+        angular: this.typesData[0].codeAngular ?? '',
+        react: this.typesData[0].codeReact ?? '',
+        vue: this.typesData[0].codeVue ?? '',
+        native: this.typesData[0].codeNativeHTML ?? '',
+      };
+    } else {
+      this.cegCodes = {
+        angular: this.componentData.codeAngular ?? '',
+        react: this.componentData.codeReact ?? '',
+        vue: this.componentData.codeVue ?? '',
+        native: this.componentData.codeNativeHTML ?? '',
+      };
+    }
     if (this.inlineExample) {
       return;
     }
@@ -121,7 +130,11 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       if (!this.hasPreview) {
         return;
       }
-      this.dynamicCode = this.domSanitizer.bypassSecurityTrustHtml(this.componentData.codeNativeHTML);
+      if (this.typesData?.length > 0) {
+        this.dynamicCode = this.domSanitizer.bypassSecurityTrustHtml(this.typesData[0].codeNativeHTML);
+      } else {
+        this.dynamicCode = this.domSanitizer.bypassSecurityTrustHtml(this.componentData.codeNativeHTML);
+      }
       if (this.componentData.codeNativeScript) {
         setTimeout(() => eval(this.componentData.codeNativeScript), 200);
       }
