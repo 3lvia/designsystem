@@ -15,7 +15,17 @@ export const Toast: React.FC<BaseProps> = ({ className, inlineStyle }) => {
     setToastQueue((queue) => queue.slice(1));
   };
 
+  const checkForMultipleToastComponents = (): void => {
+    if (document.querySelectorAll('[data-elvia-toast-container]').length > 1) {
+      console.error(
+        'Multiple <elvia-toast> elements has been detected in your DOM. You should only add the component once to your application, preferably at root level. See the docs for details https://design.elvia.io/components/toast.',
+      );
+    }
+  };
+
   useEffect(() => {
+    checkForMultipleToastComponents();
+
     const addToastToQueue = (ev: CustomEvent<ToastWithId>): void => {
       setToastQueue((configs) => {
         const listClone = configs.slice();
@@ -31,7 +41,7 @@ export const Toast: React.FC<BaseProps> = ({ className, inlineStyle }) => {
   }, []);
 
   return createPortal(
-    <ToastPosition gtMobile={gtMobile} id={toastContainerId}>
+    <ToastPosition gtMobile={gtMobile} id={toastContainerId} data-elvia-toast-container>
       {toastQueue.slice(0, 4).map((toast, index) => (
         <ToastBox
           onClose={onClose}
