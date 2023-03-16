@@ -22,7 +22,7 @@
     "start:components": "nx start @elvia/elvis-components",
     "start:web": "yarn contentful && nx start elvia-designsystem",
     "start:react": "nx start react-test",
-    "start:vue": "nx start vue-preview",
+    "start:vue": "nx start vue-test",
     "start:icons": "nx start @elvia/elvis-assets-icons",
     "contentful": "nx contentful elvia-designsystem",
     "contentful:production": "nx contentful:production elvia-designsystem --skip-nx-cache",

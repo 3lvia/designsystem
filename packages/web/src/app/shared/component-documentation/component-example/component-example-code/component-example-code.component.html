@@ -41,7 +41,7 @@
   </div>
 
   <!--Codepen-->
-  <div class="codepen-link" *ngIf="this.codeHTML !== ''">
+  <div class="codepen-link" *ngIf="this.codeHTML !== '' && noCodePenLink">
     <form class="codepen" #codepenForm action="https://codepen.io/pen/define" method="POST" target="_blank">
       <input type="hidden" name="data" [value]="codepen" />
       <a

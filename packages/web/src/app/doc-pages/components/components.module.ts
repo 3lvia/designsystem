@@ -34,6 +34,7 @@ import { TagDocModule } from './tag-doc/tag-doc.module';
 import { ThumbnailDocModule } from './thumbnail-doc/thumbnail-doc.module';
 import { TimepickerDocModule } from './forms/timepicker-doc/timepicker-doc.module';
 import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
+import { ToastDocModule } from './toast-doc/toast-doc.module';
 
 @NgModule({
   imports: [
@@ -72,6 +73,7 @@ import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
     ThumbnailDocModule,
     TimepickerDocModule,
     TooltipDocModule,
+    ToastDocModule,
   ],
 })
 export class ComponentsModule {}

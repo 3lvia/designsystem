@@ -32,13 +32,6 @@
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
-      <div class="e-w-100 alert-type-container-desktop">
-        <img
-          alt="Alert types - Global, local and toast"
-          class="e-w-100"
-          src="./../../../../assets/alert/alert-types-desktop.svg"
-        />
-      </div>
       <div class="alert-type-container">
         <div class="alert-type-item">
           <div class="e-title-caps">Global</div>
@@ -52,17 +45,6 @@
           <div class="type-images">
             <img alt="Alert types - Local" src="./../../../../assets/alert/local.svg" />
             <img alt="Alert types - Local" src="./../../../../assets/alert/local-mobile.svg" />
-          </div>
-        </div>
-        <div class="alert-type-item">
-          <div class="e-title-caps">Toast</div>
-          <div class="type-images">
-            <img alt="Alert types - Toast" src="./../../../../assets/alert/toast.svg" class="e-mr-n8" />
-            <img
-              alt="Alert types - Toast"
-              src="./../../../../assets/alert/toast-mobile.svg"
-              class="e-mr-n8"
-            />
           </div>
         </div>
       </div>
@@ -98,16 +80,6 @@
               <td>Informative, negative, warning</td>
               <td>Next to where the action occurred. Only visible on the current page.</td>
               <td>Permanent</td>
-            </tr>
-            <tr>
-              <th scope="row"><strong>Toast</strong></th>
-              <td>Specific to an user operation. Informational - brief feedback about an operation.</td>
-              <td>Low</td>
-              <td>Informative and positive</td>
-              <td>
-                Above all content - top right corner (Mobile: Bottom center) Only visible on the current page.
-              </td>
-              <td>Disappears after some seconds</td>
             </tr>
           </tbody>
         </table>
@@ -182,36 +154,6 @@
             <td class="e-table-mobile__cell">Permanent</td>
           </tr>
         </tbody>
-        <tbody>
-          <tr>
-            <th class="e-table-mobile__cell" scope="col">Toast</th>
-            <th class="e-table-mobile__cell" scope="col"></th>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">When to use</th>
-            <td class="e-table-mobile__cell">
-              Specific to an user operation. Informational - brief feedback about an operation.
-            </td>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">Urgency</th>
-            <td class="e-table-mobile__cell">Low</td>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">Skins</th>
-            <td class="e-table-mobile__cell">Informative and positive</td>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">Position / Location</th>
-            <td class="e-table-mobile__cell">
-              Above all content - top right corner (Mobile: Bottom center) Only visible on the current page.
-            </td>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">Duration</th>
-            <td class="e-table-mobile__cell">Disappears after some seconds</td>
-          </tr>
-        </tbody>
       </table>
 
       <app-component-subsection [sectionTitle]="'Global Alert'">
@@ -273,31 +215,6 @@
           </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Toast Alert'">
-        <ng-container ngProjectAs="sectionContent">
-          Toast alert should be used to provide short and simple feedback after a user action. Mostly used
-          when you want to confirm to the user after a user action (positive or informative). Toast pops up
-          the top right corner, above the content, and disappears after 7 seconds. On mobile, the toast will
-          show at the bottom center.
-          <app-component-example-v1 [codeHTML]="toastAlert"></app-component-example-v1>
-          <app-when-to-use [whens]="doesToastDefault" [whenNots]="dontsToastDefault"></app-when-to-use>
-
-          <app-component-subsubsection [sectionTitle]="'Closable'">
-            <ng-container ngProjectAs="sectionContent">
-              The close button can be used when you want to give the user the chance to close the alert before
-              7 seconds. Long messages are not recommended, but if necessary, the close button can be used to
-              close alerts that can't disappear after 7 seconds because of the length of message.
-              <app-component-example-v1 [codeHTML]="toastAlertClosable"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Without title'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="toastAlertNoTitle"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
@@ -350,27 +267,6 @@
             <strong>local</strong>
             and
             <strong>global alerts.</strong>
-          </div>
-        </div>
-      </div>
-      <div class="alert-status">
-        <div class="alert-icons">
-          <div class="e-bg-green e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
-          <div>
-            <i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xl" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div>
-          <div class="title e-title-caps">
-            positive
-            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
-              e-alert--toast
-            </span>
-          </div>
-          <div class="e-mt-8">
-            Provide a positive response to user actions, like a confirmation that an action is fully
-            completed. Example: save, edit and submit. This status can only be used with the
-            <strong>toast alerts.</strong>
           </div>
         </div>
       </div>

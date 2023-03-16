@@ -53,6 +53,7 @@ export enum Pages {
   Tag = 'tag',
   Thumbnail = 'thumbnail',
   Timepicker = 'timepicker',
+  Toast = 'toast',
   Toggle = 'toggle',
   Tooltip = 'tooltip',
 

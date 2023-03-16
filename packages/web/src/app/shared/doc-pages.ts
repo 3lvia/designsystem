@@ -504,6 +504,17 @@ export const componentsDocPages: DocPage[] = [
     searchTerms: ['image', 'preview', 'picture', 'photo', 'gallery'],
   },
   {
+    title: 'Toast',
+    description:
+      'Toast alert should be used to provide short and simple feedback after a user action (positive or informative). Toast appear in the top right corner, above the content, and disappears after 7 seconds by default. On mobile, the toast will show at the bottom center.',
+    docUrl: Pages.Toast,
+    absolutePath: '/components/' + Pages.Toast,
+    status: DocPageStatus.Done,
+    figmaUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-message?t=lWHxCnNZBJatqKnV-0',
+    type: 'Component',
+    searchTerms: ['notifications', 'feedback', 'flag', 'snackbar', 'message', 'confirmation'],
+  },
+  {
     title: 'Tooltip',
     description:
       'Tooltip is a light popover for showing additional information upon hover or focus. Keep tooltips short.',

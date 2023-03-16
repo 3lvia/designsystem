@@ -33,6 +33,7 @@
     "@elvia/elvis-spotlight": "*",
     "@elvia/elvis-tabs": "*",
     "@elvia/elvis-timepicker": "*",
+    "@elvia/elvis-toast": "*",
     "@elvia/elvis-tooltip": "*",
     "vue": "^3.2.45",
     "vue-router": "^4.1.5"

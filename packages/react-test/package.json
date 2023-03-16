@@ -32,6 +32,7 @@
     "@elvia/elvis-spotlight": "*",
     "@elvia/elvis-tabs": "*",
     "@elvia/elvis-timepicker": "*",
+    "@elvia/elvis-toast": "*",
     "@elvia/elvis-typography": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

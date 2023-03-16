@@ -20,6 +20,7 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   @Input() showIframeDesktop = false;
   @Input() interactable = true;
   @Input() isInverted = false;
+  @Input() noCodePenLink = false;
 
   code = '';
   desktopScreenWidth: boolean;
