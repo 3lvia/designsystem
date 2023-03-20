@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Checkbox } from '../../controlType';
 
 let CEG_CHECKBOX_ID = 0;
@@ -8,10 +8,16 @@ let CEG_CHECKBOX_ID = 0;
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
 })
-export class CheckboxComponent {
+export class CheckboxComponent implements OnInit {
   @Input() checkbox: Checkbox;
+  @Output() toggle = new EventEmitter<boolean>();
+  checkboxId = '';
 
-  get checkboxId() {
-    return `ceg-checkbox-${CEG_CHECKBOX_ID++}`;
+  ngOnInit(): void {
+    this.checkboxId = `ceg-checkbox-${CEG_CHECKBOX_ID++}`;
+  }
+
+  onChange(isChecked: boolean): void {
+    this.toggle.emit(isChecked);
   }
 }

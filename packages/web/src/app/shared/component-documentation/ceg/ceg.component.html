@@ -3,11 +3,11 @@
     <app-custom-text [cegContent]="cegContent" />
   </div>
 
-  <div class="component-example-container">
+  <div class="component-example-container" #componentContainer>
     <ng-content />
   </div>
 
-  <app-controls class="ceg-controls" [cegContent]="cegContent" />
+  <app-controls class="ceg-controls" [cegContent]="cegContent" (propChange)="setPropValue($event)" />
 
   <app-code-generator class="code-generator e-mt-8" [cegContent]="cegContent" />
 </div>

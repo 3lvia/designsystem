@@ -44,18 +44,18 @@ export class TimepickerCegComponent implements ComponentExample {
     state: {
       title: 'State',
       controls: {
-        disabled: { type: 'checkbox', label: 'Disabled' },
-        fullWidth: { type: 'checkbox', label: 'Full width' },
+        isDisabled: { type: 'checkbox', label: 'Disabled' },
+        isFullWidth: { type: 'checkbox', label: 'Full width' },
       },
     },
     size: {
       title: 'Size',
-      controls: { compact: { type: 'checkbox', label: 'Compact' } },
+      controls: { isCompact: { type: 'checkbox', label: 'Compact' } },
     },
     options: {
       title: 'Options',
       controls: {
-        required: { type: 'checkbox', label: 'Required' },
+        isRequired: { type: 'checkbox', label: 'Required' },
         selectNowOnOpen: { type: 'checkbox', label: 'Select Now on Open' },
       },
     },

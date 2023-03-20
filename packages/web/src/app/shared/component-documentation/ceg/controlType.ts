@@ -7,6 +7,8 @@ export interface CegControlGroup {
 
 export type CegControl = Checkbox | RadioGroup | Switch | Counter;
 
+export type ControlValue = string | number | boolean;
+
 interface CanBeDisabled {
   disabled?: () => boolean;
 }
@@ -39,6 +41,9 @@ export interface Counter {
   type: 'counter';
   postfix: string;
   value: number;
+  increment: number;
+  min?: number;
+  max?: number;
 }
 
 export interface CegCustomText {

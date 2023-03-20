@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RadioGroup } from '../../controlType';
 
 let CEG_RADIO_GROUP_ID = 0;
@@ -7,11 +7,18 @@ let CEG_RADIO_GROUP_ID = 0;
   selector: 'app-radio-group',
   templateUrl: './radio-group.component.html',
   styleUrls: ['./radio-group.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RadioGroupComponent {
+export class RadioGroupComponent implements OnInit {
   @Input() radioGroup: RadioGroup;
+  @Output() toggle = new EventEmitter<string | number>();
+  radioGroupId = '';
 
-  get radioGroupId() {
-    return `ceg-radio-group-${CEG_RADIO_GROUP_ID++}`;
+  ngOnInit(): void {
+    this.radioGroupId = `ceg-checkbox-${CEG_RADIO_GROUP_ID++}`;
+  }
+
+  onChange(newValue: string | number): void {
+    this.toggle.emit(newValue);
   }
 }

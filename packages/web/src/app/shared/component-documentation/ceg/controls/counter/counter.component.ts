@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Counter } from '../../controlType';
 
 @Component({
@@ -8,4 +8,13 @@ import { Counter } from '../../controlType';
 })
 export class CounterComponent {
   @Input() counter: Counter;
+  @Output() valueChange = new EventEmitter<number>();
+
+  updateValue(delta: number): void {
+    const newValue = this.counter.value + delta;
+    const lowSafeGuard = Math.max(this.counter.min, newValue);
+    const highSafeGuard = Math.min(lowSafeGuard, this.counter.max);
+
+    this.valueChange.emit(highSafeGuard);
+  }
 }

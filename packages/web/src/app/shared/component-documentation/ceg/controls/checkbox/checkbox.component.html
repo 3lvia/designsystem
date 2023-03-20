@@ -1,5 +1,11 @@
 <label class="e-checkbox e-checkbox--compact" [for]="checkboxId">
-  <input type="checkbox" [id]="checkboxId" [checked]="checkbox.value" />
+  <input
+    type="checkbox"
+    [id]="checkboxId"
+    [checked]="checkbox.value"
+    (change)="onChange(input.checked)"
+    #input
+  />
   <span class="e-checkbox__mark"></span>
   <span class="e-checkbox__label">{{ checkbox.label }}</span>
 </label>
