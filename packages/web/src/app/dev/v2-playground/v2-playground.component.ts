@@ -146,6 +146,14 @@ export class v2PlaygroundComponent {
   progressError;
   indeterminate;
 
+  // Radio filter
+  radioFilterValues = [
+    { label: 'All', value: 'all' },
+    { label: 'Read', value: 'read' },
+    { label: 'Unread', value: 'unread' },
+    { label: '<i class="e-icon e-icon--bookmark-filled e-icon--xs"></i>Flagged', value: 'flagged' },
+  ];
+
   // Spotlight
   showSpotlight = false;
   toggleSpotlight = () => (this.showSpotlight = !this.showSpotlight);
