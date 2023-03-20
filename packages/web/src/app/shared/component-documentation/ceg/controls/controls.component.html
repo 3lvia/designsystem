@@ -1,0 +1,17 @@
+<ng-container *ngFor="let control of controls | keyvalue">
+  <ng-container *ngIf="isGroup(control.value); else singleControl">
+    <fieldset class="e-strip-fieldset">
+      <legend class="e-text-sm-strong e-mb-8">{{ control.value.title }}</legend>
+      <ng-container *ngFor="let childControl of control.value.controls | keyvalue">
+        <ng-container [ngSwitch]="childControl.value.type">
+          <app-radio-group *ngSwitchCase="'radioGroup'" [radioGroup]="childControl.value" />
+          <app-checkbox *ngSwitchCase="'checkbox'" [checkbox]="childControl.value" />
+          <app-switch *ngSwitchCase="'switch'" [switch]="childControl.value" />
+          <app-counter *ngSwitchCase="'counter'" [counter]="childControl.value" />
+        </ng-container>
+      </ng-container>
+    </fieldset>
+  </ng-container>
+
+  <ng-template #singleControl>single control</ng-template>
+</ng-container>

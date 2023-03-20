@@ -1,0 +1,40 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
+.ceg-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 24px;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.customize-text-container {
+  justify-self: flex-end;
+}
+
+.component-example-container {
+  grid-row: 2;
+  grid-column: 1;
+  border: 1px solid var(--e-grey-10);
+  border-radius: 8px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+}
+
+.ceg-controls {
+  grid-row: 2;
+  grid-column: 2;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    display: none;
+  }
+}
+
+.code-generator {
+  grid-row: 3;
+}

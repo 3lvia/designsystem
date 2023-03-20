@@ -1,0 +1,13 @@
+<div class="e-mb-48 e-mt-72" class="ceg-container">
+  <div class="customize-text-container" *ngIf="cegContent.customText.length">
+    <app-custom-text [cegContent]="cegContent" />
+  </div>
+
+  <div class="component-example-container">
+    <ng-content />
+  </div>
+
+  <app-controls class="ceg-controls" [cegContent]="cegContent" />
+
+  <app-code-generator class="code-generator e-mt-8" [cegContent]="cegContent" />
+</div>
