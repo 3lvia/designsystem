@@ -4,7 +4,7 @@ const radioFilterIconCode = {
     { label: 'All', value: 'all'},
     { label: 'Read', value: 'read'},
     { label: 'Unread', value: 'unread'},
-    { label: '<i className="e-icon e-icon--bookmark-filled e-icon--xs"></i>Flagged', value: 'flagged' },
+    { label: '<i class="e-icon e-icon--bookmark-filled e-icon--xs"></i>Flagged', value: 'flagged' },
   ]}
   value={"read"}
   name={"readRadioFiltersIcon"}
