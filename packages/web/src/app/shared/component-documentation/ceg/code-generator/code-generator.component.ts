@@ -1,7 +1,8 @@
 import { OnInit, Component, Input } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
-import { ComponentExample } from '../componentExample';
-import { CegControl, CegControlGroup, Controls } from '../controlType';
+import { Controls } from '../controlType';
+import { isGroup } from '../helpers';
 
 interface Prop {
   name: string;
@@ -16,7 +17,8 @@ type Tab = 'Angular' | 'React' | 'Vue';
   styleUrls: ['./code-generator.component.scss'],
 })
 export class CodeGeneratorComponent implements OnInit {
-  @Input() cegContent: ComponentExample;
+  @Input() controls: BehaviorSubject<Controls>;
+  @Input() elementName = '';
   initialProps: Prop[] = [];
   activeTabIndex = 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
@@ -27,8 +29,8 @@ export class CodeGeneratorComponent implements OnInit {
   vueCode = '';
 
   ngOnInit() {
-    this.initialProps = this.getFlatPropList(this.cegContent.controls.value);
-    this.cegContent.controls.subscribe((content) => {
+    this.initialProps = this.getFlatPropList(this.controls.value);
+    this.controls.subscribe((content) => {
       const props = this.getFlatPropList(content);
 
       this.angularCode = this.createWebComponentCode(props, '[', ']');
@@ -47,13 +49,21 @@ export class CodeGeneratorComponent implements OnInit {
     }
   }
 
+  get reactElementName() {
+    const cmpName = this.elementName;
+    return cmpName
+      .split('-')
+      .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
+      .join('');
+  }
+
   private getFlatPropList(controls: Controls): Prop[] {
     const propList: Prop[] = [];
 
     for (let control of Object.keys(controls)) {
       const c = controls[control];
 
-      if (this.isGroup(c)) {
+      if (isGroup(c)) {
         propList.push(...this.getFlatPropList(c.controls));
       } else {
         propList.push({ name: control, value: c.value });
@@ -61,10 +71,6 @@ export class CodeGeneratorComponent implements OnInit {
     }
 
     return propList;
-  }
-
-  private isGroup(control: CegControlGroup | CegControl): control is CegControlGroup {
-    return 'title' in control;
   }
 
   private propShouldBeIncluded(prop: Prop): boolean {
@@ -78,35 +84,37 @@ export class CodeGeneratorComponent implements OnInit {
   }
 
   private createWebComponentCode(props: Prop[], attributePrefix = '', attributePostfix = ''): string {
-    return `<elvia-${this.cegContent.elementName}
-  ${props
-    .filter((prop) => this.propShouldBeIncluded(prop))
-    .map((prop) => {
-      const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
-      return `${attributePrefix}${prop.name}${attributePostfix}="${value}"`;
-    })
-    .map((prop, index) => (index === 0 ? prop : `  ${prop}`))
-    .join('\n')}
-></elvia-${this.cegContent.elementName}>`;
+    const propsToInclude = props.filter((prop) => this.propShouldBeIncluded(prop));
+
+    if (propsToInclude.length === 0) {
+      return `<elvia-${this.elementName}></elvia-${this.elementName}>`;
+    }
+
+    return `<elvia-${this.elementName}
+${propsToInclude
+  .map((prop) => {
+    const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
+    return `  ${attributePrefix}${prop.name}${attributePostfix}="${value}"`;
+  })
+  .join('\n')}
+></elvia-${this.elementName}>`;
   }
 
   private createReactCode(props: Prop[]): string {
-    const cmpName = this.cegContent.elementName;
-    const reactName = cmpName
-      .split('-')
-      .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
-      .join('');
+    const propsToInclude = props.filter((prop) => this.propShouldBeIncluded(prop));
 
-    return `<${reactName}
-  ${props
-    .filter((prop) => this.propShouldBeIncluded(prop))
-    .map((prop) => {
-      const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
-      return `${prop.name}={${value}}`;
-    })
-    .map((prop, index) => (index === 0 ? prop : `  ${prop}`))
-    .join('\n')}
-></${reactName}>`;
+    if (propsToInclude.length === 0) {
+      return `<${this.reactElementName}></${this.reactElementName}>`;
+    }
+
+    return `<${this.reactElementName}
+${propsToInclude
+  .map((prop) => {
+    const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
+    return `  ${prop.name}={${value}}`;
+  })
+  .join('\n')}
+></${this.reactElementName}>`;
   }
 
   copyCode() {

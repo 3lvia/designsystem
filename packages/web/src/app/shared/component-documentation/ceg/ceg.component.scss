@@ -3,11 +3,17 @@
 .ceg-container {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 8px 24px;
+  gap: 16px 24px;
 
   @include breakpoints.breakpoint-up(Mobile) {
     grid-template-columns: 1fr;
   }
+}
+
+.ceg-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .customize-text-container {

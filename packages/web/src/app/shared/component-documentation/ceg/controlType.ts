@@ -1,3 +1,8 @@
+export interface ControlConfiguration {
+  name: string;
+  controls: Controls;
+}
+
 export type Controls = { [key: string]: CegControlGroup | CegControl };
 
 export interface CegControlGroup {

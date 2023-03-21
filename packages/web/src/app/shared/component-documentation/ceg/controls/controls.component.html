@@ -1,7 +1,7 @@
-<ng-container *ngFor="let control of cegContent.controls | async | keyvalue : noSort">
+<ng-container *ngFor="let control of controls | async | keyvalue : noSort">
   <ng-container *ngIf="isGroup(control.value); else singleControl">
     <fieldset class="e-strip-fieldset">
-      <legend class="e-form-field__label e-mb-8">{{ control.value.title }}</legend>
+      <legend class="e-text-sm-strong e-mb-8">{{ control.value.title }}</legend>
 
       <ng-container *ngFor="let childControl of control.value.controls | keyvalue">
         <ng-container [ngSwitch]="childControl.value.type">

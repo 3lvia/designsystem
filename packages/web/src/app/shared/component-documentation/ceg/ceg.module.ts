@@ -10,6 +10,7 @@ import { RadioGroupComponent } from './controls/radio-group/radio-group.componen
 import { CheckboxComponent } from './controls/checkbox/checkbox.component';
 import { SwitchComponent } from './controls/switch/switch.component';
 import { CounterComponent } from './controls/counter/counter.component';
+import { TypeSwitcherComponent } from './type-switcher/type-switcher.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CounterComponent } from './controls/counter/counter.component';
     CheckboxComponent,
     SwitchComponent,
     CounterComponent,
+    TypeSwitcherComponent,
   ],
   exports: [CegComponent],
   imports: [CommonModule],
