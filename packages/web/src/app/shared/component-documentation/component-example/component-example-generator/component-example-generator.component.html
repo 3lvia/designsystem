@@ -18,7 +18,7 @@
           [errorOptions]="{ hasErrorPlaceholder: false }"
           label="Type"
           (valueOnChange)="
-            updateFormStates('type', typeOptions, $event); updateSelectedType($event, typeOptions)
+            updateFormStates('type', typeOptions, $any($event)); updateSelectedType($any($event), typeOptions)
           "
         ></elvia-dropdown>
       </div>
@@ -29,7 +29,8 @@
           [errorOptions]="{ hasErrorPlaceholder: false }"
           label="Icon name"
           (valueOnChange)="
-            updateFormStates('name', iconsOptions, $event); updateSelectedType($event, iconsOptions, true)
+            updateFormStates('name', iconsOptions, $any($event));
+            updateSelectedType($any($event), iconsOptions, true)
           "
         ></elvia-dropdown>
       </div>
@@ -40,7 +41,8 @@
           [errorOptions]="{ hasErrorPlaceholder: false }"
           label="Type"
           (valueOnChange)="
-            updateFormStates('type', typeOptions, $event); updateSelectedTypeCustom($event, typeOptions)
+            updateFormStates('type', typeOptions, $any($event));
+            updateSelectedTypeCustom($any($event), typeOptions)
           "
         ></elvia-dropdown>
       </div>
@@ -51,7 +53,8 @@
           [errorOptions]="{ hasErrorPlaceholder: false }"
           label="Background"
           (valueOnChange)="
-            updateFormStates(bgObj.propName, bgOptions, $event); updateSelectedBg($event, bgOptions)
+            updateFormStates(bgObj.propName, bgOptions, $any($event));
+            updateSelectedBg($any($event), bgOptions)
           "
         ></elvia-dropdown>
       </div>
@@ -74,7 +77,7 @@
         <div slot="content" className="ewc-popover__text">
           <div
             *ngFor="
-              let property of customTextProps | keyvalue: keepOriginalOrderInCustomTextPopover;
+              let property of customTextProps | keyvalue : keepOriginalOrderInCustomTextPopover;
               let last = last
             "
           >
@@ -145,8 +148,8 @@
         [componentData]="componentData"
         [formGroupList]="formGroupList"
         [topFilterFormStates]="topFilterFormStates"
-        (hasVisibleFilters)="hasSideFilters = $event"
-        (propValueChange)="updateSideFilter($event)"
+        (hasVisibleFilters)="hasSideFilters = $any($event)"
+        (propValueChange)="updateSideFilter($any($event))"
       ></app-ceg-filters>
     </div>
     <div class="ceg-customize-popover-mobile" *ngIf="hasCustomTextProps">
@@ -174,7 +177,7 @@
         <div slot="content" className="ewc-popover__text">
           <div
             *ngFor="
-              let property of customTextProps | keyvalue: keepOriginalOrderInCustomTextPopover;
+              let property of customTextProps | keyvalue : keepOriginalOrderInCustomTextPopover;
               let last = last
             "
           >
