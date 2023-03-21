@@ -377,11 +377,7 @@
   <div class="example-wrapper">
     <h3>Radio filter</h3>
     <elvia-radio-filter
-      [items]="[
-        { label: 'All', value: 'all' },
-        { label: 'Read', value: 'read' },
-        { label: 'Unread', value: 'unread' }
-      ]"
+      [items]="radioFilterValues"
       [value]="'read'"
       [name]="'readRadioFilters'"
       [ariaLabel]="'{value} filtrering valgt'"
