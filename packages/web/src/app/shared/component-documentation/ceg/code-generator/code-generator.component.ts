@@ -17,6 +17,7 @@ type Tab = 'Angular' | 'React' | 'Vue';
 })
 export class CodeGeneratorComponent implements OnInit {
   @Input() cegContent: ComponentExample;
+  initialProps: Prop[] = [];
   activeTabIndex = 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
 
@@ -26,6 +27,7 @@ export class CodeGeneratorComponent implements OnInit {
   vueCode = '';
 
   ngOnInit() {
+    this.initialProps = this.getFlatPropList(this.cegContent.controls.value);
     this.cegContent.controls.subscribe((content) => {
       const props = this.getFlatPropList(content);
 
@@ -65,10 +67,20 @@ export class CodeGeneratorComponent implements OnInit {
     return 'title' in control;
   }
 
+  private propShouldBeIncluded(prop: Prop): boolean {
+    const initialProp = this.initialProps.find((p) => p.name === prop.name);
+    // All values that are not boolean are always shown.
+    // If a boolean prop is undefined, we compare against 'false'
+    const valueIsDifferentFromInitialValue =
+      typeof prop.value !== 'boolean' || (initialProp.value || false) !== prop.value;
+
+    return prop.value != null && valueIsDifferentFromInitialValue;
+  }
+
   private createWebComponentCode(props: Prop[], attributePrefix = '', attributePostfix = ''): string {
     return `<elvia-${this.cegContent.elementName}
   ${props
-    .filter((prop) => prop.value != null)
+    .filter((prop) => this.propShouldBeIncluded(prop))
     .map((prop) => {
       const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
       return `${attributePrefix}${prop.name}${attributePostfix}="${value}"`;
@@ -87,7 +99,7 @@ export class CodeGeneratorComponent implements OnInit {
 
     return `<${reactName}
   ${props
-    .filter((prop) => prop.value != null)
+    .filter((prop) => this.propShouldBeIncluded(prop))
     .map((prop) => {
       const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
       return `${prop.name}={${value}}`;

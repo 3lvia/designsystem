@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { ComponentExample } from 'src/app/shared/component-documentation/ceg/componentExample';
 import { CegCustomText, Controls } from 'src/app/shared/component-documentation/ceg/controlType';
 
