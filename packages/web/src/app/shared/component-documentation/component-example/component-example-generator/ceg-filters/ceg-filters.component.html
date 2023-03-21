@@ -59,9 +59,7 @@
           type="checkbox"
           id="{{ formGroup.propName }}-{{ desktop }}"
           [checked]="formGroup.defaultValue"
-          (change)="
-            onInputValueChange(formGroup, $any($event), undefined); updateToggleCheckboxProp(formGroup)
-          "
+          (change)="onInputValueChange(formGroup, $event, undefined); updateToggleCheckboxProp(formGroup)"
           [disabled]="!(formGroup | visibleFields : formStates : true)"
         />
       </label>
@@ -79,8 +77,7 @@
         <label
           for="{{ formField.propName }}-{{ desktop }}"
           (change)="
-            onInputValueChange(formField, $any($event), undefined);
-            updateToggleCheckboxProp(formGroup, formField)
+            onInputValueChange(formField, $event, undefined); updateToggleCheckboxProp(formGroup, formField)
           "
           class="e-checkbox e-checkbox--compact"
           [ngClass]="{

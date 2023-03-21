@@ -246,8 +246,8 @@
               [formGroupList]="formGroupList"
               [desktop]="false"
               [topFilterFormStates]="topFilterFormStates"
-              (hasVisibleFilters)="hasSideFilters = $any($event)"
-              (propValueChange)="updateSideFilter($any($event))"
+              (hasVisibleFilters)="hasSideFilters = $event"
+              (propValueChange)="updateSideFilter($event)"
             ></app-ceg-filters>
           </div>
         </div>
