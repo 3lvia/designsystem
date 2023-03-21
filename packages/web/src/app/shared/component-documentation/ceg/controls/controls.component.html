@@ -1,4 +1,4 @@
-<ng-container *ngFor="let control of cegContent.controls | async | keyvalue">
+<ng-container *ngFor="let control of cegContent.controls | async | keyvalue : noSort">
   <ng-container *ngIf="isGroup(control.value); else singleControl">
     <fieldset class="e-strip-fieldset">
       <legend class="e-form-field__label e-mb-8">{{ control.value.title }}</legend>
@@ -6,25 +6,25 @@
       <ng-container *ngFor="let childControl of control.value.controls | keyvalue">
         <ng-container [ngSwitch]="childControl.value.type">
           <app-radio-group
-            *ngSwitchCase="'radioGroup'"
+            *ngIf="childControl.value.type === 'radioGroup'"
             [radioGroup]="childControl.value"
             (toggle)="updateValue(childControl.key, $event)"
           />
 
           <app-checkbox
-            *ngSwitchCase="'checkbox'"
+            *ngIf="childControl.value.type === 'checkbox'"
             [checkbox]="childControl.value"
             (toggle)="updateValue(childControl.key, $event)"
           />
 
           <app-switch
-            *ngSwitchCase="'switch'"
+            *ngIf="childControl.value.type === 'switch'"
             [switch]="childControl.value"
             (toggle)="updateValue(childControl.key, $event)"
           />
 
           <app-counter
-            *ngSwitchCase="'counter'"
+            *ngIf="childControl.value.type === 'counter'"
             [counter]="childControl.value"
             (valueChange)="updateValue(childControl.key, $event)"
           />

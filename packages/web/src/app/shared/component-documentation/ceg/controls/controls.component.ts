@@ -1,3 +1,4 @@
+import { KeyValue } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ComponentExample } from '../componentExample';
 import { CegControl, CegControlGroup, ControlValue } from '../controlType';
@@ -18,4 +19,10 @@ export class ControlsComponent {
   updateValue(key: string, value: ControlValue): void {
     this.propChange.emit({ key: key, value: value });
   }
+
+  // Reset the default sorting provided by the 'keyvalue' pipe.
+  noSort = (
+    a: KeyValue<string, CegControl | CegControlGroup>,
+    b: KeyValue<string, CegControl | CegControlGroup>,
+  ) => 0;
 }
