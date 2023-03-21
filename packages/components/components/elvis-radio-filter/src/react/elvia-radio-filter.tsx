@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useWebComponentState, BaseProps } from '@elvia/elvis-toolbox';
-import { sanitize } from 'dompurify';
-import { RadioFilterGroup, RadioFilterInput, RadioFilterLabel, RadioFilterTitle } from './styledComponents';
+import { RadioFilterGroup } from './styledComponents';
+import { RadioFilterItem } from './RadioFilterItem';
 
 export interface Option {
   label: string;
@@ -34,7 +34,7 @@ export const RadioFilter: FC<RadioFilterProps> = ({
   return (
     <RadioFilterGroup
       role="radiogroup"
-      className={className ?? ''}
+      className={className}
       style={inlineStyle}
       data-testid="radio-filter-group"
       aria-label={groupAriaLabel}
@@ -42,21 +42,15 @@ export const RadioFilter: FC<RadioFilterProps> = ({
     >
       {items &&
         items.map(({ label, value: optionsValue }) => (
-          <RadioFilterLabel
+          <RadioFilterItem
             key={optionsValue}
-            isSelected={optionsValue === selectedValue}
-            data-testid="radio-button"
-          >
-            <RadioFilterInput
-              type="radio"
-              name={name}
-              aria-label={ariaLabel ?? label + ' filtrering valgt'}
-              aria-checked={optionsValue === selectedValue}
-              checked={optionsValue === selectedValue}
-              onChange={() => setSelectedValue(optionsValue)}
-            />
-            <RadioFilterTitle dangerouslySetInnerHTML={{ __html: sanitize(label) }} />
-          </RadioFilterLabel>
+            label={label}
+            optionsValue={optionsValue}
+            selectedValue={selectedValue}
+            setSelectedValue={setSelectedValue}
+            name={name}
+            ariaLabel={ariaLabel}
+          />
         ))}
     </RadioFilterGroup>
   );
