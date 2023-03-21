@@ -1,7 +1,7 @@
 <div class="highlight-container" [ngClass]="{ 'do-dont-comp': doDontComp }">
   <div class="top-menu">
     <elvia-tabs
-      (valueOnChange)="changeTab($event.detail.value)"
+      (valueOnChange)="changeTab($any($event).detail.value)"
       [isInverted]="true"
       [value]="activeTab"
       [items]="tabs"

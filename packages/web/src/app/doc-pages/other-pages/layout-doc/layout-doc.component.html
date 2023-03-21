@@ -26,7 +26,7 @@
               id="egTabs"
               [items]="['Desktop', 'Tablet', 'Mobile']"
               [value]="0"
-              (valueOnChange)="egSelectedValue = $event.detail.value"
+              (valueOnChange)="egSelectedValue = $any($event).detail.value"
             ></elvia-tabs>
           </div>
           <app-component-subsubsection [sectionTitle]="'Desktop'" *ngIf="egSelectedValue === 0">
@@ -148,7 +148,7 @@
               id="igTabs"
               [items]="['Desktop', 'Tablet', 'Mobile']"
               [value]="0"
-              (valueOnChange)="igSelectedValue = $event.detail.value"
+              (valueOnChange)="igSelectedValue = $any($event).detail.value"
             ></elvia-tabs>
           </div>
           <app-component-subsubsection [sectionTitle]="'Desktop'" *ngIf="igSelectedValue === 0">

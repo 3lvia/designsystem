@@ -33,7 +33,7 @@
           [ngClass]="!loadedImg ? 'e-none' : ''"
           src="../../../../assets/doc-page-icons/pages-icons/RedHat.jpeg"
           alt="Confirmation page illustration"
-          (load)="hideContentLoader($event)"
+          (load)="hideContentLoader($any($event))"
         />
       </div>
     </ng-container>

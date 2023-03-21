@@ -22,7 +22,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, OnDestr
   @Input() isInverted = false;
   @Input() doDontComp = false;
   @Input() noSubscriptions = false;
-  @Input() tabIdPrefix: boolean;
+  @Input() tabIdPrefix: string;
   @Input() noCodePenLink = false;
 
   codeNative = '';

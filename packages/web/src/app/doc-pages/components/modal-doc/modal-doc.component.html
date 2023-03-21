@@ -48,7 +48,7 @@
           <a class="e-link e-link--inline" [routerLink]="['/components/carousel']">carousel</a>
           are added to navigate. A close icon button is then added to make it easy to escape the modal.
           <app-component-example-generator
-            [componentData]="modalMultipageCode"
+            [componentData]="$any(modalMultipageCode)"
             [inlineExample]="true"
           ></app-component-example-generator>
         </ng-container>

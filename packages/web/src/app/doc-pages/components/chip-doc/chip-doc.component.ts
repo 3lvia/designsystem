@@ -36,7 +36,7 @@ export class ChipDocComponent {
     { value: 2021, color: 'green', isDisabled: true },
   ];
 
-  colorChips = [
+  colorChips: { value: string; color: string; disabled?: boolean }[] = [
     { value: '2019', color: 'red' },
     { value: '2021', color: 'red' },
     { value: '1239840912', color: 'purple' },

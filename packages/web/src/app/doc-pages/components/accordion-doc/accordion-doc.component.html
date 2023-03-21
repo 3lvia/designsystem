@@ -11,10 +11,10 @@
   <!--CEG-->
   <app-component-example-generator
     [componentData]="componentData"
-    accordionCustom="true"
-    delayInnerHtml="true"
+    [accordionCustom]="true"
+    [delayInnerHtml]="true"
     overflowY="auto"
-    alignedTop="true"
+    [alignedTop]="true"
   ></app-component-example-generator>
 
   <!--Type-->
@@ -69,7 +69,7 @@
           <code>onClose</code>
           events to control the state of the accordions.
           <app-component-example-generator
-            [componentData]="accordionGroupData"
+            [componentData]="$any(accordionGroupData)"
             [inlineExample]="true"
             [tabIdPrefix]="'accordion-group'"
           ></app-component-example-generator>

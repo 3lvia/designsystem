@@ -119,7 +119,7 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
   onInputValueChange(
     formField: CegFormGroup | CegFormGroupOption,
     checkboxEvent?: Event,
-    currentValue?: string | number,
+    currentValue?: string | number | boolean,
   ): void {
     let value = currentValue;
     if (currentValue === undefined) {

@@ -115,7 +115,7 @@
           [name]="'iconRadioFilters'"
           [inlineStyle]="{ flexWrap: 'noWrap' }"
           [className]="'icons-doc-radio-filter'"
-          (valueOnChange)="selectFilter($event.detail.value)"
+          (valueOnChange)="selectFilter($any($event).detail.value)"
         ></elvia-radio-filter>
 
         <div class="dark-mode-toggle">
@@ -339,7 +339,7 @@
           <app-component-example-v1
             [codeHTML]="example3"
             [codeInverted]="example3Inverted"
-            [isInverted]="'true'"
+            [isInverted]="true"
           ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
@@ -496,7 +496,7 @@
           </p>
           <app-component-example-generator
             [componentData]="componentData"
-            delayInnerHtml="true"
+            [delayInnerHtml]="true"
           ></app-component-example-generator>
 
           <!--INSTALLATION-->

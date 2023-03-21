@@ -68,7 +68,7 @@
           Use icons to help users easily recognize known actions.
 
           <app-component-example-generator
-            [componentData]="contextMenuIconsCode"
+            [componentData]="$any(contextMenuIconsCode)"
             [inlineExample]="true"
           ></app-component-example-generator>
         </ng-container>
@@ -78,7 +78,7 @@
           Different actions can be separated by headings and provide more context to the actions.
 
           <app-component-example-generator
-            [componentData]="contextMenuHeadingsCode"
+            [componentData]="$any(contextMenuHeadingsCode)"
             [inlineExample]="true"
           ></app-component-example-generator>
         </ng-container>
@@ -88,7 +88,7 @@
           Always one alternative selected, works likes a radio button.
 
           <app-component-example-generator
-            [componentData]="contextMenuSelectableCode"
+            [componentData]="$any(contextMenuSelectableCode)"
             [inlineExample]="true"
           ></app-component-example-generator>
         </ng-container>
@@ -101,7 +101,7 @@
           yourself.
 
           <app-component-example-generator
-            [componentData]="contextMenuDisabledCode"
+            [componentData]="$any(contextMenuDisabledCode)"
             [inlineExample]="true"
           ></app-component-example-generator>
         </ng-container>
