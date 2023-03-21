@@ -27,6 +27,16 @@
           </div>
         </ng-container>
       </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Icons'">
+        <ng-container ngProjectAs="sectionContent">
+          <div>You can have an icon together with the text.</div>
+          <app-component-example-generator
+            [componentData]="$any(radioFilterIconCode)"
+            [inlineExample]="true"
+            [tabIdPrefix]="'radioFilterWithIcon'"
+          ></app-component-example-generator>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

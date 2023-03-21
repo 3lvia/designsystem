@@ -10,7 +10,7 @@ import { ChangelogTypePipe } from './component-changelog-pipe';
 
 // Extend the ComponentChangelog interface with a skipped property to be able to
 // show changelog entries that have been skipped in the elvis changelog
-type ChangelogEntry = ComponentChangelog | { skipped: number };
+type ChangelogEntry = Partial<ComponentChangelog> & { skipped?: number };
 type Changelog = ChangelogEntry[];
 type ChangelogRadioFilter = ComponentChangelog['changelog'][0]['type'] | 'all';
 

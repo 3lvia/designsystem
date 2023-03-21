@@ -9,7 +9,7 @@ const radioFilterData: ComponentData = {
       isRequired: true,
       type: 'Array<object>',
       description:
-        'Options available in the radio-filter component, set as array of objects with keys of :  {label: string, value: string} ',
+        'Options available in the radio-filter component, set as array of objects with keys: {label: string, value: string}. The label will be injected as innerHTML to allow support for icons.',
     },
     value: {
       isRequired: true,

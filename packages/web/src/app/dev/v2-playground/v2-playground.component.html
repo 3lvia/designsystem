@@ -176,8 +176,8 @@
           [color]="chip.color"
           [ariaLabel]="'Fjern filtrering for ' + chip.value"
           [isDisabled]="chip.isDisabled"
-          (onDelete)="handleOnDelete($event.detail.value)"
-          (isSelectedOnChange)="logValue('chip', $event.detail.value)"
+          (onDelete)="handleOnDelete($any($event).detail.value)"
+          (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
           [inlineStyle]="{ margin: '8px' }"
         ></elvia-chip>
       </div>
@@ -194,7 +194,7 @@
             [isSelected]="filteredValues[chip]"
             color="orange"
             type="legend"
-            (isSelectedOnChange)="handleOnChange($event)"
+            (isSelectedOnChange)="handleOnChange($any($event))"
           ></elvia-chip>
         </div>
       </div>
@@ -245,7 +245,10 @@
   <!--Datepicker-->
   <div class="example-wrapper">
     <h3>DatePicker</h3>
-    <elvia-datepicker [value]="date" (valueOnChange)="writeDate($event.detail.value)"></elvia-datepicker>
+    <elvia-datepicker
+      [value]="date"
+      (valueOnChange)="writeDate($any($event).detail.value)"
+    ></elvia-datepicker>
   </div>
 
   <!--Date range picker-->
@@ -280,13 +283,13 @@
     <elvia-dropdown
       [items]="dropdownItems"
       label="Select location"
-      (valueOnChange)="onDropdownSelect($event.detail.value)"
+      (valueOnChange)="onDropdownSelect($any($event).detail.value)"
     ></elvia-dropdown>
     <h3>Dropdown</h3>
     <elvia-dropdown
       [items]="dropdownItems"
       label="Select location"
-      (valueOnChange)="onDropdownSelect($event.detail.value)"
+      (valueOnChange)="onDropdownSelect($any($event).detail.value)"
       [errorOptions]="errorOptions"
     ></elvia-dropdown>
   </div>
@@ -328,7 +331,7 @@
       [value]="defaultPaginationValue"
       [alignment]="'right'"
       dropdownMenuPosition="top"
-      (valueOnChange)="logValue('Pagination', $event.detail.value)"
+      (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
     ></elvia-pagination>
   </div>
 
@@ -374,11 +377,7 @@
   <div class="example-wrapper">
     <h3>Radio filter</h3>
     <elvia-radio-filter
-      [items]="[
-        { label: 'All', value: 'all' },
-        { label: 'Read', value: 'read' },
-        { label: 'Unread', value: 'unread' }
-      ]"
+      [items]="radioFilterValues"
       [value]="'read'"
       [name]="'readRadioFilters'"
       [ariaLabel]="'{value} filtrering valgt'"
@@ -390,7 +389,7 @@
     <h3>Segmented control</h3>
     <elvia-segmented-control
       [items]="[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]"
-      (valueOnChange)="logValue('Segmented', $event.detail.value)"
+      (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
     ></elvia-segmented-control>
     <elvia-segmented-control
       [type]="'icon'"
@@ -398,7 +397,7 @@
         { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: 'Helo' },
         { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: 'HEElo' }
       ]"
-      (valueOnChange)="logValue('Segmented', $event.detail.value)"
+      (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
     ></elvia-segmented-control>
   </div>
 

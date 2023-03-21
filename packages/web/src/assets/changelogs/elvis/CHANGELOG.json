@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "11.1.0",
+      "date": "March 16, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "<code>e-alert--toast</code> is now marked as deprecated. Use the Elvia toast component instead."
+          ],
+          "components": [{ "displayName": "Toast", "url": "https://design.elvia.io/components/toast" }]
+        }
+      ]
+    },
+    {
       "version": "11.0.0",
       "date": "March 9, 2023",
       "changelog": [
