@@ -9,7 +9,7 @@ export interface Checkbox extends ControlBase {
   type: 'checkbox';
   label: string;
   value?: boolean;
-  children?: CegControl[];
+  children?: { [key: string]: Checkbox };
 }
 
 export interface RadioGroup extends ControlBase {

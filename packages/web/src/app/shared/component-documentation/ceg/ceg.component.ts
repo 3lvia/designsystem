@@ -1,6 +1,6 @@
 import { Component, ContentChild, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ComponentExample } from './componentExample';
-import { ControlConfiguration, ControlValue } from './controlType';
+import { CegControl, ControlConfiguration, ControlValue } from './controlType';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -39,13 +39,14 @@ export class CegComponent implements OnInit {
     if (customText && typeof event.value === 'string') {
       const existingText = this.selectedConfiguration.value.customText[event.key];
       existingText.value = event.value;
-
-      this.selectedConfiguration.next({ ...this.selectedConfiguration.value });
     } else {
-      const existingControl = this.selectedConfiguration.value.controls[event.key];
-      existingControl.value = event.value;
-      this.selectedConfiguration.next({ ...this.selectedConfiguration.value });
+      const existingControl = this.getControl(event.key);
+
+      if (existingControl) {
+        existingControl.value = event.value;
+      }
     }
+    this.selectedConfiguration.next({ ...this.selectedConfiguration.value });
 
     this.setPropOnWebComponent(event.key, event.value);
   }
@@ -62,6 +63,22 @@ export class CegComponent implements OnInit {
    */
   private clone<T>(controls: T): T {
     return JSON.parse(JSON.stringify(controls));
+  }
+
+  private getControl(name: string): CegControl | undefined {
+    const topLevelControl = this.selectedConfiguration.value.controls[name];
+    if (topLevelControl) {
+      return topLevelControl;
+    }
+
+    for (let control of Object.values(this.selectedConfiguration.value.controls)) {
+      if (control.type === 'checkbox') {
+        const child = Object.entries(control.children).find(([key]) => key === name);
+        if (child) {
+          return child[1];
+        }
+      }
+    }
   }
 
   private setPropOnWebComponent(key: string, value: ControlValue): void {

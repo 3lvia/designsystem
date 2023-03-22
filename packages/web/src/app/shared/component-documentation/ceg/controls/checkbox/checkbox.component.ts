@@ -10,6 +10,8 @@ let CEG_CHECKBOX_ID = 0;
 })
 export class CheckboxComponent implements OnInit {
   @Input() checkbox: Checkbox;
+  @Input() isChild = false;
+  @Input() disabled = false;
   @Output() toggle = new EventEmitter<boolean>();
   checkboxId = '';
 
