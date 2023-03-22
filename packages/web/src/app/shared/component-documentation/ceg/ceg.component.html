@@ -1,8 +1,8 @@
 <div class="e-mb-48 e-mt-72" class="ceg-container">
-  <div class="ceg-header e-mb-8" *ngIf="(controlsList | async).length > 1 || cegContent.customText?.length">
+  <div class="ceg-header e-mb-8" *ngIf="(hasMultipleConfigurations | async) || cegContent.customText?.length">
     <app-type-switcher
-      *ngIf="(controlsList | async).length > 1"
-      [controlOptions]="controlsList | async"
+      *ngIf="hasMultipleConfigurations | async"
+      [configurations]="cegContent.controls"
       (setControls)="setControls($event)"
     />
     <div class="customize-text-container" *ngIf="cegContent.customText.length">
@@ -14,11 +14,15 @@
     <ng-content />
   </div>
 
-  <app-controls class="ceg-controls" [controls]="selectedControls" (propChange)="setPropValue($event)" />
+  <app-controls
+    class="ceg-controls"
+    [configuration]="selectedConfiguration"
+    (propChange)="setPropValue($event)"
+  />
 
   <app-code-generator
     class="code-generator"
-    [controls]="selectedControls"
+    [configuration]="selectedConfiguration"
     [elementName]="cegContent.elementName"
   />
 </div>

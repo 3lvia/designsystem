@@ -1,8 +1,7 @@
 import { Component, ContentChild, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ComponentExample } from './componentExample';
-import { ControlConfiguration, Controls, ControlValue } from './controlType';
+import { ControlConfiguration, ControlValue } from './controlType';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { isControl, isGroup } from './helpers';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -14,30 +13,30 @@ import { map } from 'rxjs/operators';
 export class CegComponent implements OnInit {
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
   @ContentChild(ComponentExample, { static: true }) cegContent: ComponentExample;
-  selectedControls = new BehaviorSubject<Controls>({});
+  selectedConfiguration = new BehaviorSubject<ControlConfiguration>({
+    controls: {},
+    name: '',
+    groupOrder: [],
+  });
 
-  get controlsList() {
-    return this.cegContent.controls.pipe(map((controls) => (Array.isArray(controls) ? controls : [])));
+  get hasMultipleConfigurations() {
+    return this.cegContent.controls.pipe(map((configurations) => configurations.length > 1));
   }
 
   ngOnInit(): void {
-    if (Array.isArray(this.cegContent.controls.value)) {
-      const firstControls = this.cegContent.controls.value[0];
-      this.selectedControls.next(this.clone(firstControls.controls));
-    } else {
-      this.selectedControls.next(this.clone(this.cegContent.controls.value));
-    }
+    const firstControls = this.cegContent.controls.value[0];
+    this.selectedConfiguration.next(this.clone(firstControls));
   }
 
   setPropValue(event: { key: string; value: ControlValue }): void {
-    const updatedConfig = this.updateValue(this.selectedControls.value, event.key, event.value);
+    const existingControl = this.selectedConfiguration.value.controls[event.key];
+    existingControl.value = event.value;
 
-    this.selectedControls.next(updatedConfig);
     this.setPropOnWebComponent(event.key, event.value);
   }
 
   setControls(configuration: ControlConfiguration): void {
-    this.selectedControls.next(this.clone(configuration.controls));
+    this.selectedConfiguration.next(this.clone(configuration));
     this.cegContent.currentControl?.next(configuration.name);
   }
 
@@ -48,21 +47,6 @@ export class CegComponent implements OnInit {
    */
   private clone<T>(controls: T): T {
     return JSON.parse(JSON.stringify(controls));
-  }
-
-  private updateValue(controls: Controls, key: string, newValue: ControlValue): Controls {
-    for (let control of Object.keys(controls)) {
-      const c = controls[control];
-
-      if (control === key && isControl(c)) {
-        c.value = newValue;
-        return;
-      } else if (isGroup(c)) {
-        this.updateValue(c.controls, key, newValue);
-      }
-    }
-
-    return controls;
   }
 
   private setPropOnWebComponent(key: string, value: ControlValue): void {

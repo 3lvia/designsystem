@@ -1,8 +1,8 @@
-import { OnInit, Component, Input } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { OnInit, Component, Input, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
-import { Controls } from '../controlType';
-import { isGroup } from '../helpers';
+import { ControlConfiguration, Controls } from '../controlType';
 
 interface Prop {
   name: string;
@@ -16,9 +16,10 @@ type Tab = 'Angular' | 'React' | 'Vue';
   templateUrl: './code-generator.component.html',
   styleUrls: ['./code-generator.component.scss'],
 })
-export class CodeGeneratorComponent implements OnInit {
-  @Input() controls: BehaviorSubject<Controls>;
+export class CodeGeneratorComponent implements OnInit, OnDestroy {
+  @Input() configuration: BehaviorSubject<ControlConfiguration>;
   @Input() elementName = '';
+  unsubscriber = new Subject();
   initialProps: Prop[] = [];
   activeTabIndex = 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
@@ -29,14 +30,19 @@ export class CodeGeneratorComponent implements OnInit {
   vueCode = '';
 
   ngOnInit() {
-    this.initialProps = this.getFlatPropList(this.controls.value);
-    this.controls.subscribe((content) => {
-      const props = this.getFlatPropList(content);
+    this.initialProps = this.getFlatPropList(this.configuration.value.controls);
+    this.configuration.pipe(takeUntil(this.unsubscriber)).subscribe((configuration) => {
+      const props = this.getFlatPropList(configuration.controls);
 
       this.angularCode = this.createWebComponentCode(props, '[', ']');
       this.vueCode = this.createWebComponentCode(props, ':');
       this.reactCode = this.createReactCode(props);
     });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscriber.next();
+    this.unsubscriber.complete();
   }
 
   get activeCode() {
@@ -58,19 +64,9 @@ export class CodeGeneratorComponent implements OnInit {
   }
 
   private getFlatPropList(controls: Controls): Prop[] {
-    const propList: Prop[] = [];
-
-    for (let control of Object.keys(controls)) {
-      const c = controls[control];
-
-      if (isGroup(c)) {
-        propList.push(...this.getFlatPropList(c.controls));
-      } else {
-        propList.push({ name: control, value: c.value });
-      }
-    }
-
-    return propList;
+    return Object.entries(controls).map(([controlName, control]) => {
+      return { name: controlName, value: control.value } as Prop;
+    });
   }
 
   private propShouldBeIncluded(prop: Prop): boolean {

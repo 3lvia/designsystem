@@ -1,37 +1,31 @@
-<ng-container *ngFor="let control of controls | async | keyvalue : noSort">
-  <ng-container *ngIf="isGroup(control.value); else singleControl">
-    <fieldset class="e-strip-fieldset">
-      <legend class="e-text-sm-strong e-mb-8">{{ control.value.title }}</legend>
+<fieldset class="e-strip-fieldset" *ngFor="let group of groups">
+  <legend class="e-text-sm-strong e-mb-8">{{ group.name }}</legend>
 
-      <ng-container *ngFor="let childControl of control.value.controls | keyvalue">
-        <ng-container [ngSwitch]="childControl.value.type">
-          <app-radio-group
-            *ngIf="childControl.value.type === 'radioGroup'"
-            [radioGroup]="childControl.value"
-            (toggle)="updateValue(childControl.key, $event)"
-          />
+  <ng-container *ngFor="let control of group.controls | keyvalue">
+    <ng-container [ngSwitch]="control.value.type">
+      <app-radio-group
+        *ngIf="control.value.type === 'radioGroup'"
+        [radioGroup]="control.value"
+        (toggle)="updateValue(control.key, $event)"
+      />
 
-          <app-checkbox
-            *ngIf="childControl.value.type === 'checkbox'"
-            [checkbox]="childControl.value"
-            (toggle)="updateValue(childControl.key, $event)"
-          />
+      <app-checkbox
+        *ngIf="control.value.type === 'checkbox'"
+        [checkbox]="control.value"
+        (toggle)="updateValue(control.key, $event)"
+      />
 
-          <app-switch
-            *ngIf="childControl.value.type === 'switch'"
-            [switch]="childControl.value"
-            (toggle)="updateValue(childControl.key, $event)"
-          />
+      <app-switch
+        *ngIf="control.value.type === 'switch'"
+        [switch]="control.value"
+        (toggle)="updateValue(control.key, $event)"
+      />
 
-          <app-counter
-            *ngIf="childControl.value.type === 'counter'"
-            [counter]="childControl.value"
-            (valueChange)="updateValue(childControl.key, $event)"
-          />
-        </ng-container>
-      </ng-container>
-    </fieldset>
+      <app-counter
+        *ngIf="control.value.type === 'counter'"
+        [counter]="control.value"
+        (valueChange)="updateValue(control.key, $event)"
+      />
+    </ng-container>
   </ng-container>
-
-  <ng-template #singleControl>single control</ng-template>
-</ng-container>
+</fieldset>

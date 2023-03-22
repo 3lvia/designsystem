@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
-import { CegCustomText, ControlConfiguration, Controls } from './controlType';
+import { CegCustomText, ControlConfiguration } from './controlType';
 
 export abstract class ComponentExample {
   /**
@@ -15,7 +15,7 @@ export abstract class ComponentExample {
    * Can be defined as a single object (for components with a single type),
    * or as an array of configurations (for components with multiple CEG types).
    */
-  controls: BehaviorSubject<ControlConfiguration[] | Controls>;
+  controls: BehaviorSubject<ControlConfiguration[]>;
 
   /**
    * An array of custom texts. Omit if no custom texts are necessary.
