@@ -5,7 +5,7 @@ export interface TransformedDocPage {
   pageDescription: string;
   figmaUrl: string;
   content: string;
-  isMainPage: boolean | string;
+  isMainPage: boolean;
   docUrl: string;
   fullPath: string;
   lastUpdated: string;

@@ -62,19 +62,21 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   ngOnInit(): void {
     const localizationSubscriber = this.localizationService.listenLocalization();
     const routerSubscriber = this.router.events;
-    this.routerSubscription = combineLatest([localizationSubscriber, routerSubscriber]).subscribe((value) => {
-      if (value[1] instanceof NavigationEnd) {
-        this.setSubMenuRoute();
-        this.isLandingPage = this.router.url.split('/')[2] === undefined;
-        this.updateNavbarList(value[0]);
-        this.checkIfPageExistsInProject();
-        if (!this.isCmsPage) {
-          setTimeout(() => {
-            this.updateAnchorList();
-          }, 200);
+    this.routerSubscription = combineLatest([localizationSubscriber, routerSubscriber]).subscribe(
+      ([locale, routerEvent]) => {
+        if (routerEvent instanceof NavigationEnd) {
+          this.setSubMenuRoute();
+          this.isLandingPage = this.router.url.split('/')[2] === undefined;
+          this.updateNavbarList(locale);
+          this.checkIfPageExistsInProject();
+          if (!this.isCmsPage) {
+            setTimeout(() => {
+              this.updateAnchorList();
+            }, 200);
+          }
         }
-      }
-    });
+      },
+    );
     this.contentLoadedSubscription = this.cmsService.listenContentLoadedFromCMS().subscribe(() => {
       this.setNewActiveNavbarItem();
       setTimeout(() => {
@@ -108,7 +110,9 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     if (!isPageWithNavbar) {
       return;
     }
-    this.updateNavbarList(0);
+    this.localizationService.listenLocalization().subscribe((locale) => {
+      this.updateNavbarList(locale);
+    });
     setTimeout(() => {
       this.updateAnchorList();
     }, 200);

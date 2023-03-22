@@ -65,11 +65,7 @@ export class CMSTransformService {
     subMenu: CMSSubMenu[],
     localization: Locale,
   ): TransformedDocPage {
-    let locale = 'en-GB';
-    if (localization === Locale['nb-NO']) {
-      locale = 'nb-NO';
-    }
-
+    const locale = localization === Locale['nb-NO'] ? 'nb-NO' : 'en-GB';
     let subMenuRoute = '';
     if (this.router.url.split('/')[2]) {
       subMenuRoute = this.router.url.split('/')[1] + '/';
@@ -78,16 +74,13 @@ export class CMSTransformService {
       this.cmsTransformErrorsService.showErrorMessage('Documentation page', 'The page is missing a path.');
     }
 
-    const description = data.fields.pageDescription
-      ? this.getDocumentationPageHTML(data, locale, subMenu, 'pageDescription')
-      : '';
-    const content = data.fields.content
-      ? this.getDocumentationPageHTML(data, locale, subMenu, 'content')
-      : '';
-    const figmaUrl = data.fields.figmaUrl ? data.fields.figmaUrl[locale] : '';
-    const isMainPage = data.fields.isMainPage ? data.fields.isMainPage : '';
+    const description = this.getDocumentationPageHTML(data, locale, subMenu, 'pageDescription');
+    const content = this.getDocumentationPageHTML(data, locale, subMenu, 'content');
+    const title = data.fields.title?.[locale] ?? data.fields.title?.['en-GB'] ?? '';
+    const figmaUrl = data.fields.figmaUrl?.['en-GB'] ?? '';
+    const isMainPage = data.fields.isMainPage?.['en-GB'] ?? false;
     return {
-      title: data.fields.title[locale],
+      title: title,
       pageDescription: description,
       figmaUrl: figmaUrl,
       content: content,
@@ -111,14 +104,28 @@ export class CMSTransformService {
     data: IDocumentationPage,
     locale: string,
     subMenu: CMSSubMenu[],
-    model: string,
+    model: 'content' | 'pageDescription',
   ): string {
     this.subMenu = subMenu;
     this.locale = locale;
     if (model === 'content') {
-      return documentToHtmlString(data.fields.content[locale], this.options);
+      const contentHasCurrentLocale = !!data.fields.content?.[locale];
+      if (contentHasCurrentLocale) {
+        return documentToHtmlString(data.fields.content[locale], this.options);
+      } else if (data.fields.content?.['en-GB']) {
+        // Fallback to English if the current locale is not available
+        return documentToHtmlString(data.fields.content['en-GB'], this.options);
+      }
+      return '';
     } else if (model === 'pageDescription') {
-      return documentToHtmlString(data.fields.pageDescription[locale], this.options);
+      const descriptionHasCurrentLocale = !!data.fields.pageDescription?.[locale];
+      if (descriptionHasCurrentLocale) {
+        return documentToHtmlString(data.fields.pageDescription[locale], this.options);
+      } else if (data.fields.pageDescription?.['en-GB']) {
+        // Fallback to English if the current locale is not available
+        return documentToHtmlString(data.fields.pageDescription['en-GB'], this.options);
+      }
+      return '';
     }
   }
 

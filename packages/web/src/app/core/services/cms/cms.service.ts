@@ -114,11 +114,12 @@ export class CMSService {
         const localeKey = Object.keys(element.entry.fields.pages)[localization] ?? 'en-GB';
         const cmsPages: IDocumentationPage[] = element.entry.fields.pages[localeKey];
         cmsPages.forEach((cmsPage) => {
+          const innerLocaleKey = Object.keys(cmsPage.fields.title)[localization] ?? 'en-GB';
           const navbarItem: CMSNavbarItem = {
-            title: cmsPage.fields.title[localeKey],
+            title: cmsPage.fields.title[innerLocaleKey],
             isMainPage: cmsPage.fields.isMainPage,
-            docUrl: cmsPage.fields.path[localeKey],
-            fullPath: subMenuRoute + cmsPage.fields.path[localeKey],
+            docUrl: cmsPage.fields.path['en-GB'],
+            fullPath: subMenuRoute + cmsPage.fields.path['en-GB'],
           };
           subMenuList.push(navbarItem);
         });
