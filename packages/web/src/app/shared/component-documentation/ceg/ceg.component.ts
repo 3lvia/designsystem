@@ -4,6 +4,7 @@ import { CegControl, ControlConfiguration, ControlValue } from './controlType';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { clone } from './utils';
 
 @Component({
   selector: 'app-ceg',
@@ -26,13 +27,19 @@ export class CegComponent implements OnInit {
 
   get hasCustomText() {
     return this.selectedConfiguration.pipe(
-      map((configuration) => Object.keys(configuration.customText).length > 0),
+      map((configuration) => configuration.customText && Object.keys(configuration.customText).length > 0),
     );
   }
 
   ngOnInit(): void {
     const firstControls = this.cegContent.controls.value[0];
-    this.selectedConfiguration.next(this.clone(firstControls));
+
+    /**
+     * We clone the control objects to prevent mutating the original configuration.
+     * This allows us to reset the controls to the original state when the CEG
+     * type is changed.
+     */
+    this.selectedConfiguration.next(clone(firstControls));
   }
 
   setPropValue(event: { key: string; value: ControlValue }, customText = false): void {
@@ -52,17 +59,8 @@ export class CegComponent implements OnInit {
   }
 
   setControls(configuration: ControlConfiguration): void {
-    this.selectedConfiguration.next(this.clone(configuration));
+    this.selectedConfiguration.next(clone(configuration));
     this.cegContent.currentControl?.next(configuration.name);
-  }
-
-  /**
-   * We clone the control objects to prevent mutating the original configuration.
-   * This allows us to reset the controls to the original state when the CEG
-   * type is changed.
-   */
-  private clone<T>(controls: T): T {
-    return JSON.parse(JSON.stringify(controls));
   }
 
   private getControl(name: string): CegControl | undefined {

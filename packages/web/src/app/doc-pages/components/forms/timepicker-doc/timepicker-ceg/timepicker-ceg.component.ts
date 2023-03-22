@@ -26,25 +26,13 @@ export class TimepickerCegComponent implements ComponentExample {
           ],
           group: 'Minute interval',
         },
-        isDisabled: {
-          type: 'checkbox',
-          label: 'Disabled',
-          group: 'State',
-          children: {
-            isFullWidth: { type: 'checkbox', label: 'Full width', group: 'State' },
-          },
-        },
+        isDisabled: { type: 'checkbox', label: 'Disabled', group: 'State' },
+        isFullWidth: { type: 'checkbox', label: 'Full width', group: 'State' },
         isCompact: { type: 'checkbox', label: 'Compact', group: 'Size' },
         isRequired: { type: 'checkbox', label: 'Required', group: 'Options' },
         selectNowOnOpen: { type: 'checkbox', label: 'Select Now on Open', group: 'Options' },
       },
       groupOrder: ['Minute interval', 'State', 'Size', 'Options'],
-      customText: {
-        label: {
-          label: 'Timepicker label',
-          value: 'Custom tid',
-        },
-      },
     },
   ]);
 

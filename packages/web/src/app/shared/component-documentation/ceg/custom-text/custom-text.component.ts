@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CegCustomText, ControlConfiguration } from '../controlType';
+import { clone } from '../utils';
 
 @Component({
   selector: 'app-custom-text',
@@ -17,7 +18,7 @@ export class CustomTextComponent implements OnInit {
   popoverIsOpen = false;
 
   ngOnInit() {
-    this.initialTexts = JSON.parse(JSON.stringify(this.configuration.value.customText));
+    this.initialTexts = clone(this.configuration.value.customText);
     this.customText = this.configuration.pipe(map((config) => config.customText));
   }
 

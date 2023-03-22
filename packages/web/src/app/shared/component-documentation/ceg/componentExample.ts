@@ -14,6 +14,9 @@ export abstract class ComponentExample {
    *
    * Can be defined as a single object (for components with a single type),
    * or as an array of configurations (for components with multiple CEG types).
+   *
+   * NB: Remember to render separate component for each configuration to reset
+   * the component state.
    */
   controls: BehaviorSubject<ControlConfiguration[]>;
 
