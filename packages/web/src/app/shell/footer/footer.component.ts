@@ -13,7 +13,7 @@ export class FooterComponent implements OnInit {
 
   date = new Date();
   currentYear;
-  showLocaleToggle = window.location.href.indexOf('localhost') > -1 ? true : false;
+  showLocaleToggle = true;
 
   constructor(private router: Router, private localizationService: LocalizationService) {
     this.localizationService.listenLocalization().subscribe((locale) => {
