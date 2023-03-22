@@ -24,4 +24,9 @@ export abstract class ComponentExample {
    * with the different control-sets. Omit if the CEG only has one control-sets.
    */
   currentControl?: BehaviorSubject<ControlConfiguration['name']>;
+
+  /**
+   * Allows for setting a custom text in the "Customize text" trigger.
+   */
+  customizeTextTriggerName?: string;
 }

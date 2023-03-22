@@ -10,6 +10,7 @@ import { CegCustomText, ControlConfiguration } from '../controlType';
 })
 export class CustomTextComponent implements OnInit {
   @Input() configuration: BehaviorSubject<ControlConfiguration>;
+  @Input() customLabel = '';
   @Output() inputChange = new EventEmitter<{ key: string; value: string }>();
   customText: Observable<CegCustomText>;
   initialTexts: CegCustomText;
