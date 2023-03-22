@@ -15,12 +15,10 @@ export interface Checkbox extends ControlBase {
 export interface RadioGroup extends ControlBase {
   type: 'radioGroup';
   value: string | number;
-  radios: Radio[];
-}
-
-interface Radio {
-  label: string;
-  value: string | number;
+  radios: {
+    label: string;
+    value: string | number;
+  }[];
 }
 
 export interface Switch extends ControlBase {
@@ -39,18 +37,22 @@ export interface Counter extends ControlBase {
 }
 
 export interface CegCustomText {
-  label: string;
-  value: string;
+  [key: string]: {
+    label: string;
+    value: string;
+    type?: 'input' | 'textarea';
+  };
 }
+
+export type CegControl = Checkbox | RadioGroup | Switch | Counter;
+
+export type Controls = { [key: string]: CegControl };
 
 export interface ControlConfiguration {
   name: string;
   controls: Controls;
   groupOrder: string[];
+  customText?: CegCustomText;
 }
 
-export type Controls = { [key: string]: CegControl };
-
-export type CegControl = Checkbox | RadioGroup | Switch | Counter;
-
-export type ControlValue = string | number | boolean;
+export type ControlValue = CegControl['value'];

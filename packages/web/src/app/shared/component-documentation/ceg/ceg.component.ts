@@ -17,10 +17,17 @@ export class CegComponent implements OnInit {
     controls: {},
     name: '',
     groupOrder: [],
+    customText: {},
   });
 
   get hasMultipleConfigurations() {
     return this.cegContent.controls.pipe(map((configurations) => configurations.length > 1));
+  }
+
+  get hasCustomText() {
+    return this.selectedConfiguration.pipe(
+      map((configuration) => Object.keys(configuration.customText).length > 0),
+    );
   }
 
   ngOnInit(): void {
@@ -28,9 +35,17 @@ export class CegComponent implements OnInit {
     this.selectedConfiguration.next(this.clone(firstControls));
   }
 
-  setPropValue(event: { key: string; value: ControlValue }): void {
-    const existingControl = this.selectedConfiguration.value.controls[event.key];
-    existingControl.value = event.value;
+  setPropValue(event: { key: string; value: ControlValue }, customText = false): void {
+    if (customText && typeof event.value === 'string') {
+      const existingText = this.selectedConfiguration.value.customText[event.key];
+      existingText.value = event.value;
+
+      this.selectedConfiguration.next({ ...this.selectedConfiguration.value });
+    } else {
+      const existingControl = this.selectedConfiguration.value.controls[event.key];
+      existingControl.value = event.value;
+      this.selectedConfiguration.next({ ...this.selectedConfiguration.value });
+    }
 
     this.setPropOnWebComponent(event.key, event.value);
   }

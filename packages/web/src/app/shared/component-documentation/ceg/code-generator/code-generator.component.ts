@@ -2,7 +2,7 @@ import { OnInit, Component, Input, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { ControlConfiguration, Controls } from '../controlType';
+import { CegCustomText, ControlConfiguration, Controls } from '../controlType';
 
 interface Prop {
   name: string;
@@ -30,9 +30,13 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
   vueCode = '';
 
   ngOnInit() {
-    this.initialProps = this.getFlatPropList(this.configuration.value.controls);
+    this.initialProps = this.getFlatPropList(
+      this.configuration.value.controls,
+      this.configuration.value.customText,
+    );
+
     this.configuration.pipe(takeUntil(this.unsubscriber)).subscribe((configuration) => {
-      const props = this.getFlatPropList(configuration.controls);
+      const props = this.getFlatPropList(configuration.controls, configuration.customText);
 
       this.angularCode = this.createWebComponentCode(props, '[', ']');
       this.vueCode = this.createWebComponentCode(props, ':');
@@ -63,10 +67,16 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
       .join('');
   }
 
-  private getFlatPropList(controls: Controls): Prop[] {
-    return Object.entries(controls).map(([controlName, control]) => {
+  private getFlatPropList(controls: Controls, customText: CegCustomText): Prop[] {
+    const props = Object.entries(controls).map(([controlName, control]) => {
       return { name: controlName, value: control.value } as Prop;
     });
+
+    const texts = Object.entries(customText).map(([propName, control]) => {
+      return { name: propName, value: control.value } as Prop;
+    });
+
+    return props.concat(...texts);
   }
 
   private propShouldBeIncluded(prop: Prop): boolean {

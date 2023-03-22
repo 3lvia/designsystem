@@ -18,11 +18,6 @@ export abstract class ComponentExample {
   controls: BehaviorSubject<ControlConfiguration[]>;
 
   /**
-   * An array of custom texts. Omit if no custom texts are necessary.
-   */
-  customText?: CegCustomText[];
-
-  /**
    * The currently selected control-set from the `controls` property.
    *
    * This can be used to change what kind of content should be visible

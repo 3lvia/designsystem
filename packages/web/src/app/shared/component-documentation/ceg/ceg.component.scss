@@ -12,12 +12,12 @@
 
 .ceg-header {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 16px;
 }
 
 .customize-text-container {
-  justify-self: flex-end;
+  margin-left: auto;
 }
 
 .component-example-container {

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 import { ControlConfiguration, Controls, ControlValue } from '../controlType';
 
 interface Group {
@@ -21,7 +21,10 @@ export class ControlsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.configuration
-      .pipe(takeUntil(this.unsubscriber))
+      .pipe(
+        takeUntil(this.unsubscriber),
+        distinctUntilChanged((x, y) => x.controls === y.controls),
+      )
       .subscribe((controls) => this.createControlGroups(controls));
   }
 

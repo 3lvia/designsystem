@@ -1,12 +1,12 @@
 <div class="e-mb-48 e-mt-72" class="ceg-container">
-  <div class="ceg-header e-mb-8" *ngIf="(hasMultipleConfigurations | async) || cegContent.customText?.length">
+  <div class="ceg-header e-mb-8" *ngIf="(hasMultipleConfigurations | async) || (hasCustomText | async)">
     <app-type-switcher
       *ngIf="hasMultipleConfigurations | async"
       [configurations]="cegContent.controls"
       (setControls)="setControls($event)"
     />
-    <div class="customize-text-container" *ngIf="cegContent.customText.length">
-      <app-custom-text [cegContent]="cegContent" />
+    <div class="customize-text-container" *ngIf="hasCustomText | async">
+      <app-custom-text [configuration]="selectedConfiguration" (inputChange)="setPropValue($event, true)" />
     </div>
   </div>
 

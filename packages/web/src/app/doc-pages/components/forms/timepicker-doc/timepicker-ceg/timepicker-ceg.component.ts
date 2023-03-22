@@ -33,10 +33,15 @@ export class TimepickerCegComponent implements ComponentExample {
         selectNowOnOpen: { type: 'checkbox', label: 'Select Now on Open', group: 'Options' },
       },
       groupOrder: ['Minute interval', 'State', 'Size', 'Options'],
+      customText: {
+        label: {
+          label: 'Timepicker label',
+          value: 'Custom tid',
+        },
+      },
     },
   ]);
 
-  customText = [];
   elementName = 'timepicker';
 
   handleOnChange(time: Date): void {
