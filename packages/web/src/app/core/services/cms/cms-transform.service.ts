@@ -489,6 +489,7 @@ export class CMSTransformService {
   }
 
   private getGrid(data: IGrid, locale: string): string {
+    locale = 'en-GB';
     this.cmsTransformErrorsService.getGridErrors(data, locale);
     if (!data.fields.name || !data.fields.gridElements) {
       return;

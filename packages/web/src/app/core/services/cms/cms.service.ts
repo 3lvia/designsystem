@@ -42,7 +42,7 @@ export class CMSService {
     const urlWithoutAnchor = urlFull.split('/');
     let pageId = '';
     await this.getMenu(locale).then((menu) => {
-      const localeKey = Object.keys(menu['pages'][0].entry.fields.pages)[locale];
+      const localeKey = Object.keys(menu['pages'][0].entry.fields.pages)[locale] ?? 'en-GB';
       const subMenu = menu['pages'].find((subMenu) => subMenu.path === urlWithoutAnchor[1]);
       if (urlWithoutAnchor[1] === 'preview' && urlWithoutAnchor[2]) {
         pageId = urlWithoutAnchor[2];
@@ -78,7 +78,7 @@ export class CMSService {
    */
   async getTransformedDocPageByEntryId(entryId: string, localization: Locale): Promise<TransformedDocPage> {
     const subMenu = await this.getSubMenu(localization);
-    const cmsData: IDocumentationPage = await this.getEntry(entryId);
+    const cmsData = await this.getEntry<IDocumentationPage>(entryId);
     return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
@@ -111,7 +111,7 @@ export class CMSService {
         if (element.entry.fields.pages === undefined || element.entry.fields.pages === null) {
           return;
         }
-        const localeKey = Object.keys(element.entry.fields.pages)[localization];
+        const localeKey = Object.keys(element.entry.fields.pages)[localization] ?? 'en-GB';
         const cmsPages: IDocumentationPage[] = element.entry.fields.pages[localeKey];
         cmsPages.forEach((cmsPage) => {
           const navbarItem: CMSNavbarItem = {
@@ -132,11 +132,8 @@ export class CMSService {
     if (this.getMenuCache.has(localization)) {
       return this.getMenuCache.get(localization);
     }
-    let locale = 'en-GB';
-    if (localization === Locale['nb-NO']) {
-      locale = 'nb-NO';
-    }
-    const entryMenu: IMainMenu = await this.getEntry('4ufFZKPEou3mf9Tg05WZT3');
+    const locale = localization === Locale['nb-NO'] ? 'nb-NO' : 'en-GB';
+    const entryMenu = await this.getEntry<IMainMenu>('4ufFZKPEou3mf9Tg05WZT3');
     const menu: CMSMenu = {
       title: entryMenu.fields.title['en-GB'],
       pages: [],
@@ -214,7 +211,7 @@ export class CMSService {
    * @example
    * const entryMenu: IMainMenu = await this.getEntry('4ufFZKPEou3mf9Tg05WZT3');
    */
-  private async getEntry(entryId: string): Promise<any> {
+  private async getEntry<T = any>(entryId: string): Promise<T> {
     const url = `assets/contentful/dist/entries/${entryId}.json`;
     this.entries[entryId] = await this.http.get(url).toPromise();
 
