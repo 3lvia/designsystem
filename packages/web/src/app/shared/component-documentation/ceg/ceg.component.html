@@ -2,14 +2,13 @@
   <div class="ceg-header e-mb-8" *ngIf="(hasMultipleConfigurations | async) || (hasCustomText | async)">
     <app-type-switcher
       *ngIf="hasMultipleConfigurations | async"
-      [configurations]="cegContent.controls"
-      (setControls)="setControls($event)"
+      [controlManager]="componentExample.cegContent"
     />
     <div class="customize-text-container" *ngIf="hasCustomText | async">
       <app-custom-text
-        [configuration]="selectedConfiguration"
-        [customLabel]="cegContent.customizeTextTriggerName"
-        (inputChange)="setPropValue($event, true)"
+        [controlManager]="componentExample.cegContent"
+        [customLabel]="componentExample.customizeTextTriggerName"
+        (propChange)="setPropValue($event.propName, $event.value)"
       />
     </div>
   </div>
@@ -20,13 +19,13 @@
 
   <app-controls
     class="ceg-controls"
-    [configuration]="selectedConfiguration"
-    (propChange)="setPropValue($event)"
+    [controlManager]="componentExample.cegContent"
+    (propChange)="setPropValue($event.propName, $event.value)"
   />
 
   <app-code-generator
     class="code-generator"
-    [configuration]="selectedConfiguration"
-    [elementName]="cegContent.elementName"
+    [controlManager]="componentExample.cegContent"
+    [elementName]="componentExample.elementName"
   />
 </div>

@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { combineLatest, Subject } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
-import { ControlConfiguration, Controls, ControlValue } from '../controlType';
+import { CegControlManager } from '../cegControlManager';
+import { Controls, ControlValue } from '../controlType';
 
 interface Group {
   name: string;
@@ -14,28 +15,38 @@ interface Group {
   styleUrls: ['./controls.component.scss'],
 })
 export class ControlsComponent implements OnInit, OnDestroy {
-  @Input() configuration: BehaviorSubject<ControlConfiguration>;
-  @Output() propChange = new EventEmitter<{ key: string; value: ControlValue }>();
+  @Input() controlManager: CegControlManager;
+  @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
   unsubscriber = new Subject();
   groups: Group[] = [];
 
   ngOnInit() {
-    this.configuration
+    combineLatest([
+      this.controlManager.getCurrentControlGroupOrder(),
+      this.controlManager.getCurrentControls(),
+    ])
       .pipe(
         takeUntil(this.unsubscriber),
-        distinctUntilChanged((x, y) => x.controls === y.controls),
+        distinctUntilChanged(([prevGroupOrder], [currGroupOrder]) => {
+          /**
+           * We only want to re-create the controls when the entire list changes,
+           * to prevent all the controls re-rendering on each change.
+           **/
+          return JSON.stringify(prevGroupOrder) === JSON.stringify(currGroupOrder);
+        }),
       )
-      .subscribe((controls) => this.createControlGroups(controls));
+      .subscribe(([groupOrder, controls]) => this.createControlGroups(controls, groupOrder));
   }
 
-  private createControlGroups(config: ControlConfiguration) {
+  private createControlGroups(controls: Controls, groupOrder: string[]) {
+    console.log('Creating list');
     const newGroups: Group[] = [];
 
-    config.groupOrder.forEach((groupName) => {
+    groupOrder.forEach((groupName) => {
       const groupControls = {};
-      Object.entries(config.controls).forEach(([key, value]) => {
+      Object.entries(controls).forEach(([propName, value]) => {
         if (value.group === groupName) {
-          groupControls[key] = value;
+          groupControls[propName] = value;
         }
       });
 
@@ -51,7 +62,7 @@ export class ControlsComponent implements OnInit, OnDestroy {
   }
 
   updateValue(key: string, value: ControlValue): void {
-    this.propChange.emit({ key: key, value: value });
+    this.propChange.emit({ propName: key, value: value });
   }
 
   // Reset the default sorting provided by the 'keyvalue' pipe.

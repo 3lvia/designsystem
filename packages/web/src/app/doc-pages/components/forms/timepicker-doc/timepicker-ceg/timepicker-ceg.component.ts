@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { ComponentExample } from 'src/app/shared/component-documentation/ceg/componentExample';
-import { ControlConfiguration } from 'src/app/shared/component-documentation/ceg/controlType';
+import { CegControlManager } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-timepicker-ceg',
@@ -10,7 +9,8 @@ import { ControlConfiguration } from 'src/app/shared/component-documentation/ceg
   providers: [{ provide: ComponentExample, useExisting: TimepickerCegComponent }],
 })
 export class TimepickerCegComponent implements ComponentExample {
-  controls = new BehaviorSubject<ControlConfiguration[]>([
+  elementName = 'timepicker';
+  cegContent = new CegControlManager([
     {
       name: 'Default',
       controls: {
@@ -35,8 +35,6 @@ export class TimepickerCegComponent implements ComponentExample {
       groupOrder: ['Minute interval', 'State', 'Size', 'Options'],
     },
   ]);
-
-  elementName = 'timepicker';
 
   handleOnChange(time: Date): void {
     console.log('Selected time: ', time);

@@ -1,8 +1,9 @@
 import { OnInit, Component, Input, OnDestroy } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { combineLatest, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { CegControlManager } from '../cegControlManager';
 
-import { CegCustomText, ControlConfiguration, Controls } from '../controlType';
+import { CegCustomText, Controls } from '../controlType';
 
 interface Prop {
   name: string;
@@ -17,7 +18,7 @@ type Tab = 'Angular' | 'React' | 'Vue';
   styleUrls: ['./code-generator.component.scss'],
 })
 export class CodeGeneratorComponent implements OnInit, OnDestroy {
-  @Input() configuration: BehaviorSubject<ControlConfiguration>;
+  @Input() controlManager: CegControlManager;
   @Input() elementName = '';
   unsubscriber = new Subject();
   initialProps: Prop[] = [];
@@ -31,17 +32,19 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.initialProps = this.getFlatPropList(
-      this.configuration.value.controls,
-      this.configuration.value.customText,
+      this.controlManager.getControlSnapshot(),
+      this.controlManager.getCustomTextSnapshot(),
     );
 
-    this.configuration.pipe(takeUntil(this.unsubscriber)).subscribe((configuration) => {
-      const props = this.getFlatPropList(configuration.controls, configuration.customText);
+    combineLatest([this.controlManager.getCurrentControls(), this.controlManager.getCurrentCustomTexts()])
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe(([controls, customTexts]) => {
+        const props = this.getFlatPropList(controls, customTexts);
 
-      this.angularCode = this.createWebComponentCode(props, '[', ']');
-      this.vueCode = this.createWebComponentCode(props, ':');
-      this.reactCode = this.createReactCode(props);
-    });
+        this.angularCode = this.createWebComponentCode(props, '[', ']');
+        this.vueCode = this.createWebComponentCode(props, ':');
+        this.reactCode = this.createReactCode(props);
+      });
   }
 
   ngOnDestroy(): void {

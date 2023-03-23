@@ -1,4 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
+import { CegControlManager } from './cegControlManager';
 import { CegCustomText, ControlConfiguration } from './controlType';
 
 export abstract class ComponentExample {
@@ -10,15 +11,9 @@ export abstract class ComponentExample {
   elementName: string;
 
   /**
-   * The controls that appear in the side panel to control the component.
-   *
-   * Can be defined as a single object (for components with a single type),
-   * or as an array of configurations (for components with multiple CEG types).
-   *
-   * NB: Remember to render separate component for each configuration to reset
-   * the component state.
+   * The CEG content
    */
-  controls: BehaviorSubject<ControlConfiguration[]>;
+  cegContent: CegControlManager;
 
   /**
    * The currently selected control-set from the `controls` property.

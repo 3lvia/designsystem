@@ -11,6 +11,7 @@ import { CheckboxComponent } from './controls/checkbox/checkbox.component';
 import { SwitchComponent } from './controls/switch/switch.component';
 import { CounterComponent } from './controls/counter/counter.component';
 import { TypeSwitcherComponent } from './type-switcher/type-switcher.component';
+import { CegInnerHtmlComponent } from './ceg-inner-html/ceg-inner-html.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TypeSwitcherComponent } from './type-switcher/type-switcher.component';
     SwitchComponent,
     CounterComponent,
     TypeSwitcherComponent,
+    CegInnerHtmlComponent,
   ],
   exports: [CegComponent],
   imports: [CommonModule],

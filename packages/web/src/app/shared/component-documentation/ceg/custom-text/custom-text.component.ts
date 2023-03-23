@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { CegCustomText, ControlConfiguration } from '../controlType';
-import { clone } from '../utils';
+import { Observable } from 'rxjs';
+import { CegControlManager } from '../cegControlManager';
+import { CegCustomText } from '../controlType';
 
 @Component({
   selector: 'app-custom-text',
@@ -10,16 +9,14 @@ import { clone } from '../utils';
   styleUrls: ['./custom-text.component.scss'],
 })
 export class CustomTextComponent implements OnInit {
-  @Input() configuration: BehaviorSubject<ControlConfiguration>;
+  @Input() controlManager: CegControlManager;
   @Input() customLabel = '';
-  @Output() inputChange = new EventEmitter<{ key: string; value: string }>();
-  customText: Observable<CegCustomText>;
-  initialTexts: CegCustomText;
+  @Output() propChange = new EventEmitter<{ propName: string; value: string }>();
+  customText: Observable<CegCustomText | undefined>;
   popoverIsOpen = false;
 
   ngOnInit() {
-    this.initialTexts = clone(this.configuration.value.customText);
-    this.customText = this.configuration.pipe(map((config) => config.customText));
+    this.customText = this.controlManager.getCurrentCustomTexts();
   }
 
   getInputId(key: string): string {
@@ -27,11 +24,10 @@ export class CustomTextComponent implements OnInit {
   }
 
   onChange(key: string, value: string) {
-    this.inputChange.emit({ key: key, value: value });
+    this.propChange.emit({ propName: key, value: value });
   }
 
   resetText() {
-    const existingConfig = this.configuration.value;
-    this.configuration.next({ ...existingConfig, customText: this.initialTexts });
+    this.controlManager.resetCustomTexts();
   }
 }
