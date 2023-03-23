@@ -71,7 +71,7 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
    * Create a flat list of all props, both from the controls-object and the
    * customText object. We also include eventual children of checkbox-controls.
    */
-  private getFlatPropList(controls: Controls, customText: CegCustomText): Prop[] {
+  private getFlatPropList(controls: Controls, customText?: CegCustomText): Prop[] {
     const props = Object.entries(controls)
       .map(([controlName, control]) => {
         const props: Prop[] = [{ name: controlName, value: control.value }];
@@ -84,9 +84,11 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
       })
       .flat();
 
-    const texts = Object.entries(customText).map(([propName, control]) => {
-      return { name: propName, value: control.value } as Prop;
-    });
+    const texts = customText
+      ? Object.entries(customText).map(([propName, control]) => {
+          return { name: propName, value: control.value } as Prop;
+        })
+      : [];
 
     return props.concat(...texts);
   }
