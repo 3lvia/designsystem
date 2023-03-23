@@ -39,7 +39,6 @@ export class ControlsComponent implements OnInit, OnDestroy {
   }
 
   private createControlGroups(controls: Controls, groupOrder: string[]) {
-    console.log('Creating list');
     const newGroups: Group[] = [];
 
     groupOrder.forEach((groupName) => {
