@@ -48,7 +48,7 @@ export type CegControl = Checkbox | RadioGroup | Switch | Counter;
 
 export type Controls = { [key: string]: CegControl };
 
-export interface ControlConfiguration {
+export interface ComponentType {
   name: string;
   controls: Controls;
   groupOrder: string[];

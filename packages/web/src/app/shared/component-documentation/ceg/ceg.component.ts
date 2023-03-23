@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, ContentChild, ElementRef, ViewChild } from '@angular/core';
+import { map } from 'rxjs/operators';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './componentExample';
 import { ControlValue } from './controlType';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-ceg',
@@ -13,7 +13,7 @@ export class CegComponent implements AfterViewInit {
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
   @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
 
-  get hasMultipleConfigurations() {
+  get hasMultipleComponentTypes() {
     return this.componentExample.cegContent.configurations.pipe(
       map((configurations) => configurations.length > 1),
     );

@@ -34,6 +34,6 @@ export class TypeSwitcherComponent implements OnInit, OnDestroy {
   }
 
   onSelect(configurationName: string): void {
-    this.controlManager.setActiveConfigurationName(configurationName);
+    this.controlManager.setActiveComponentTypeName(configurationName);
   }
 }

@@ -1,13 +1,13 @@
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { distinctUntilChanged, map } from 'rxjs/operators';
-import { CegControl, CegCustomText, ControlConfiguration, Controls, ControlValue } from './controlType';
+import { map } from 'rxjs/operators';
+import { CegControl, CegCustomText, ComponentType, Controls, ControlValue } from './controlType';
 
 export class CegControlManager {
-  private _configurations = new BehaviorSubject<ControlConfiguration[]>([]);
+  private _configurations = new BehaviorSubject<ComponentType[]>([]);
   configurations = this._configurations.asObservable();
 
-  private _currentConfigurationName = new BehaviorSubject('');
-  currentConfigurationName = this._currentConfigurationName.asObservable();
+  private _currentComponentTypeName = new BehaviorSubject('');
+  currentComponentTypeName = this._currentComponentTypeName.asObservable();
 
   private initialTextValues: CegCustomText | undefined;
 
@@ -21,42 +21,42 @@ export class CegControlManager {
      * NB: Remember to render separate components for each configuration to reset
      * the component state.
      */
-    controls: ControlConfiguration[],
+    controls: ComponentType[],
   ) {
     this._configurations.next(controls);
-    this._currentConfigurationName.next(controls[0].name);
+    this._currentComponentTypeName.next(controls[0].name);
     this.initialTextValues = controls[0].customText ? this.clone(controls[0].customText) : undefined;
   }
 
   getCurrentControls(): Observable<Controls | undefined> {
-    return this.getCurrentConfiguration().pipe(map((configuration) => configuration?.controls));
+    return this.getCurrentComponentType().pipe(map((configuration) => configuration?.controls));
   }
 
   getControlSnapshot(): Controls | undefined {
-    const confIndex = this.getCurrentConfigurationIndex();
+    const confIndex = this.getCurrentComponentTypeIndex();
     return this._configurations.value[confIndex]?.controls;
   }
 
   getCurrentCustomTexts(): Observable<CegCustomText | undefined> {
-    return this.getCurrentConfiguration().pipe(map((configuration) => configuration?.customText));
+    return this.getCurrentComponentType().pipe(map((configuration) => configuration?.customText));
   }
 
   getCustomTextSnapshot(): CegCustomText | undefined {
-    const confIndex = this.getCurrentConfigurationIndex();
+    const confIndex = this.getCurrentComponentTypeIndex();
     return this._configurations.value[confIndex]?.customText;
   }
 
   getCurrentControlGroupOrder(): Observable<string[] | undefined> {
-    return this.getCurrentConfiguration().pipe(map((configuration) => configuration?.groupOrder));
+    return this.getCurrentComponentType().pipe(map((configuration) => configuration?.groupOrder));
   }
 
   getGroupOrderSnapshot(): string[] | undefined {
-    const confIndex = this.getCurrentConfigurationIndex();
+    const confIndex = this.getCurrentComponentTypeIndex();
     return this._configurations.value[confIndex]?.groupOrder;
   }
 
-  setActiveConfigurationName(name: string): void {
-    this._currentConfigurationName.next(name);
+  setActiveComponentTypeName(name: string): void {
+    this._currentComponentTypeName.next(name);
   }
 
   /**
@@ -68,7 +68,7 @@ export class CegControlManager {
   setPropValue(propName: string, value: ControlValue): boolean {
     console.log('Setting: ', propName, value);
     let propWasUpdated = false;
-    const confIndex = this.getCurrentConfigurationIndex();
+    const confIndex = this.getCurrentComponentTypeIndex();
     const listClone = this.clone(this._configurations.value);
 
     // First we check if the prop is in the props-array
@@ -94,16 +94,16 @@ export class CegControlManager {
 
   resetCustomTexts(): void {
     const configurationsClone = this.clone(this._configurations.value);
-    configurationsClone[this.getCurrentConfigurationIndex()].customText = this.clone(this.initialTextValues);
+    configurationsClone[this.getCurrentComponentTypeIndex()].customText = this.clone(this.initialTextValues);
 
     this._configurations.next(configurationsClone);
   }
 
-  private getCurrentConfigurationIndex(): number {
-    return this._configurations.value.findIndex((conf) => conf.name === this._currentConfigurationName.value);
+  private getCurrentComponentTypeIndex(): number {
+    return this._configurations.value.findIndex((conf) => conf.name === this._currentComponentTypeName.value);
   }
 
-  private getControl(configuration: ControlConfiguration, propName: string): CegControl | undefined {
+  private getControl(configuration: ComponentType, propName: string): CegControl | undefined {
     const topLevelControl = configuration.controls[propName];
     if (topLevelControl) {
       return topLevelControl;
@@ -120,8 +120,8 @@ export class CegControlManager {
     }
   }
 
-  private getCurrentConfiguration(): Observable<ControlConfiguration | undefined> {
-    return combineLatest([this.configurations, this.currentConfigurationName]).pipe(
+  private getCurrentComponentType(): Observable<ComponentType | undefined> {
+    return combineLatest([this.configurations, this.currentComponentTypeName]).pipe(
       map(([configurations, name]) => {
         return configurations.find((configuration) => configuration.name === name);
       }),

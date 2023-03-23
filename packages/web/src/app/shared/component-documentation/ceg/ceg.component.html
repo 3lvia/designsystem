@@ -1,7 +1,7 @@
 <div class="e-mb-48 e-mt-72" class="ceg-container">
-  <div class="ceg-header e-mb-8" *ngIf="(hasMultipleConfigurations | async) || (hasCustomText | async)">
+  <div class="ceg-header e-mb-8" *ngIf="(hasMultipleComponentTypes | async) || (hasCustomText | async)">
     <app-type-switcher
-      *ngIf="hasMultipleConfigurations | async"
+      *ngIf="hasMultipleComponentTypes | async"
       [controlManager]="componentExample.cegContent"
     />
     <div class="customize-text-container" *ngIf="hasCustomText | async">
