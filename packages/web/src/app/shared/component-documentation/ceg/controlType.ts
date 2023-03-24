@@ -2,7 +2,7 @@
 interface ControlBase {
   type: string;
   group: string;
-  disabled?: () => boolean;
+  disabledBy?: ControlNames<ComponentType>[];
 }
 
 export interface Checkbox extends ControlBase {
@@ -54,5 +54,8 @@ export interface ComponentType {
   groupOrder: string[];
   customText?: CegCustomText;
 }
+
+// TODO: Ensure that this type only returns keys in the controls object.
+type ControlNames<T extends { controls: Controls }> = keyof T['controls'];
 
 export type ControlValue = CegControl['value'];
