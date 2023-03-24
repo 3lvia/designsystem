@@ -15,9 +15,9 @@ interface Group {
   styleUrls: ['./controls.component.scss'],
 })
 export class ControlsComponent implements OnInit, OnDestroy {
+  private unsubscriber = new Subject();
   @Input() controlManager: CegControlManager;
   @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
-  unsubscriber = new Subject();
   groups: Group[] = [];
 
   ngOnInit() {

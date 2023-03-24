@@ -66,7 +66,6 @@ export class CegControlManager {
    * @returns true/false to indicate if the prop was updated or not.
    */
   setPropValue(propName: string, value: ControlValue): boolean {
-    console.log('Setting: ', propName, value);
     let propWasUpdated = false;
     const confIndex = this.getCurrentComponentTypeIndex();
     const listClone = this.clone(this._configurations.value);

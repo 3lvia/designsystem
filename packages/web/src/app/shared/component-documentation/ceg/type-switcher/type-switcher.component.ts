@@ -14,8 +14,8 @@ interface DropdownOption {
   styleUrls: ['./type-switcher.component.scss'],
 })
 export class TypeSwitcherComponent implements OnInit, OnDestroy {
+  private unsubscriber = new Subject();
   @Input() controlManager: CegControlManager;
-  unsubscriber = new Subject();
   dropdownOptions: DropdownOption[] = [];
   selectedOption = '';
 

@@ -1,16 +1,17 @@
-import { AfterViewInit, Component, ContentChild, ElementRef, ViewChild } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { AfterViewInit, Component, ContentChild, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { map, takeUntil } from 'rxjs/operators';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './componentExample';
 import { ControlValue } from './controlType';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-ceg',
   templateUrl: './ceg.component.html',
   styleUrls: ['./ceg.component.scss'],
 })
-export class CegComponent implements AfterViewInit {
+export class CegComponent implements AfterViewInit, OnDestroy {
+  private unsubscriber = new Subject();
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
   @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
   private _componentSlots = new BehaviorSubject<string[]>([]);
@@ -35,14 +36,17 @@ export class CegComponent implements AfterViewInit {
       );
     }
 
-    const component = this.componentContainer.nativeElement.querySelector(
-      `elvia-box`,
-    ) as ElvisComponentWrapper;
-    const slots = Object.values(component.getAllSlots()).map((slot) => slot.outerHTML);
+    this.componentExample.cegContent.currentComponentTypeName
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe(() => {
+        const slots = Object.values(this.getWebComponent().getAllSlots()).map((slot) => slot.outerHTML);
+        this._componentSlots.next(slots);
+      });
+  }
 
-    setTimeout(() => {
-      this._componentSlots.next(slots);
-    });
+  ngOnDestroy(): void {
+    this.unsubscriber.next();
+    this.unsubscriber.complete();
   }
 
   setPropValue(propName: string, value: ControlValue): void {
@@ -53,11 +57,13 @@ export class CegComponent implements AfterViewInit {
     }
   }
 
-  private setPropOnWebComponent(key: string, value: ControlValue): void {
-    const component = this.componentContainer.nativeElement.querySelector(
+  private getWebComponent() {
+    return this.componentContainer.nativeElement.querySelector(
       `elvia-${this.componentExample.elementName}`,
     ) as ElvisComponentWrapper;
+  }
 
-    component.setProps({ [key]: value });
+  private setPropOnWebComponent(key: string, value: ControlValue): void {
+    this.getWebComponent().setProps({ [key]: value });
   }
 }

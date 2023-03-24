@@ -20,10 +20,10 @@ type Tab = 'Angular' | 'React' | 'Vue';
   styleUrls: ['./code-generator.component.scss'],
 })
 export class CodeGeneratorComponent implements OnInit, OnDestroy {
+  private unsubscriber = new Subject();
   @Input() controlManager: CegControlManager;
   @Input() elementName = '';
   @Input() componentSlots: Observable<string[]>;
-  unsubscriber = new Subject();
   initialProps: Prop[] = [];
   activeTabIndex = 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
