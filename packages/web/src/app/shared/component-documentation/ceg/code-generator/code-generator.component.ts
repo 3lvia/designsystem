@@ -1,9 +1,11 @@
 import { OnInit, Component, Input, OnDestroy } from '@angular/core';
-import { combineLatest, Subject } from 'rxjs';
+import { combineLatest, Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CegControlManager } from '../cegControlManager';
 
+import { CegControlManager } from '../cegControlManager';
 import { CegCustomText, Controls } from '../controlType';
+import { FormatCodePipe } from './formatCode.pipe';
+import { Language } from './language';
 
 interface Prop {
   name: string;
@@ -20,6 +22,7 @@ type Tab = 'Angular' | 'React' | 'Vue';
 export class CodeGeneratorComponent implements OnInit, OnDestroy {
   @Input() controlManager: CegControlManager;
   @Input() elementName = '';
+  @Input() componentSlots: Observable<string[]>;
   unsubscriber = new Subject();
   initialProps: Prop[] = [];
   activeTabIndex = 0;
@@ -30,20 +33,26 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
   reactCode = '';
   vueCode = '';
 
+  constructor(private codeFormater: FormatCodePipe) {}
+
   ngOnInit() {
     this.initialProps = this.getFlatPropList(
       this.controlManager.getControlSnapshot(),
       this.controlManager.getCustomTextSnapshot(),
     );
 
-    combineLatest([this.controlManager.getCurrentControls(), this.controlManager.getCurrentCustomTexts()])
+    combineLatest([
+      this.controlManager.getCurrentControls(),
+      this.controlManager.getCurrentCustomTexts(),
+      this.componentSlots,
+    ])
       .pipe(takeUntil(this.unsubscriber))
-      .subscribe(([controls, customTexts]) => {
+      .subscribe(([controls, customTexts, slots]) => {
         const props = this.getFlatPropList(controls, customTexts);
 
-        this.angularCode = this.createWebComponentCode(props, '[', ']');
-        this.vueCode = this.createWebComponentCode(props, ':');
-        this.reactCode = this.createReactCode(props);
+        this.angularCode = this.createWebComponentCode(props, slots, '[', ']');
+        this.vueCode = this.createWebComponentCode(props, slots, ':');
+        this.reactCode = this.createReactCode(props, slots);
       });
   }
 
@@ -52,22 +61,22 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
     this.unsubscriber.complete();
   }
 
+  get language(): Language {
+    return this.activeTab === 'React' ? 'jsx' : 'html';
+  }
+
+  get activeTab() {
+    return this.tabs[this.activeTabIndex];
+  }
+
   get activeCode() {
-    if (this.tabs[this.activeTabIndex] === 'Angular') {
+    if (this.activeTab === 'Angular') {
       return this.angularCode;
-    } else if (this.tabs[this.activeTabIndex] === 'React') {
+    } else if (this.activeTab === 'React') {
       return this.reactCode;
     } else {
       return this.vueCode;
     }
-  }
-
-  get reactElementName() {
-    const cmpName = this.elementName;
-    return cmpName
-      .split('-')
-      .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
-      .join('');
   }
 
   /**
@@ -106,42 +115,59 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
     return prop.value != null && valueIsDifferentFromInitialValue;
   }
 
-  private createWebComponentCode(props: Prop[], attributePrefix = '', attributePostfix = ''): string {
-    const propsToInclude = props.filter((prop) => this.propShouldBeIncluded(prop));
+  private getWebComponentSlots(slots: string[]): string {
+    const sanitizedSlots = slots.map((slot) => slot.replace(/_ngcontent.{11}/g, '')).join('');
 
-    if (propsToInclude.length === 0) {
-      return `<elvia-${this.elementName}></elvia-${this.elementName}>`;
-    }
-
-    return `<elvia-${this.elementName}
-${propsToInclude
-  .map((prop) => {
-    const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
-    return `  ${attributePrefix}${prop.name}${attributePostfix}="${value}"`;
-  })
-  .join('\n')}
-></elvia-${this.elementName}>`;
+    return sanitizedSlots ? `\n${sanitizedSlots}\n` : '';
   }
 
-  private createReactCode(props: Prop[]): string {
+  private getReactSlots(slots: string[]): string {
+    const sanitizedSlots = slots
+      .map((slot) => {
+        const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
+        const slotContent = parsedSlot.querySelector('[slot]').innerHTML;
+        const slotName = parsedSlot.querySelector('[slot]').getAttribute('slot');
+        return `${slotName}={<>${slotContent}</>}`;
+      })
+      .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
+      .map((slot) => slot.replace(/class=/g, 'className='))
+      .join('');
+
+    return sanitizedSlots ? `${sanitizedSlots}\n` : '';
+  }
+
+  private createWebComponentCode(
+    props: Prop[],
+    slots: string[],
+    attributePrefix = '',
+    attributePostfix = '',
+  ): string {
     const propsToInclude = props.filter((prop) => this.propShouldBeIncluded(prop));
+    return `<elvia-${this.elementName} ${propsToInclude
+      .map((prop) => {
+        const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
+        return `${attributePrefix}${prop.name}${attributePostfix}="${value}"`;
+      })
+      .join('')}>${this.getWebComponentSlots(slots)}</elvia-${this.elementName}>`;
+  }
 
-    if (propsToInclude.length === 0) {
-      return `<${this.reactElementName}></${this.reactElementName}>`;
-    }
+  private createReactCode(props: Prop[], slots: string[]): string {
+    const propsToInclude = props.filter((prop) => this.propShouldBeIncluded(prop));
+    const elementName = this.elementName
+      .split('-')
+      .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
+      .join('');
 
-    return `<${this.reactElementName}
-${propsToInclude
-  .map((prop) => {
-    const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
-    return `  ${prop.name}={${value}}`;
-  })
-  .join('\n')}
-></${this.reactElementName}>`;
+    return `<${elementName} ${propsToInclude
+      .map((prop) => {
+        const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
+        return `${prop.name}={${value}}`;
+      })
+      .join('')} ${this.getReactSlots(slots)}></${elementName}>`;
   }
 
   copyCode() {
-    navigator.clipboard.writeText(this.activeCode).then(() => {
+    navigator.clipboard.writeText(this.codeFormater.transform(this.activeCode, this.language)).then(() => {
       this.copyMessage = 'Copied!';
       const copyTimeout = setTimeout(() => {
         this.copyMessage = '';

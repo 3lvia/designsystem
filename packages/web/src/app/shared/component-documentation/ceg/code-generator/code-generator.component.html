@@ -25,6 +25,6 @@
       </div>
     </div>
 
-    <pre><code [innerHtml]="activeCode | highlight:activeTabIndex === 1 ? 'jsx' : 'html'" class="active-code"></code></pre>
+    <pre><code [innerHtml]="activeCode | formatCode:language | highlighter:language" class="active-code"></code></pre>
   </div>
 </elvia-accordion>
