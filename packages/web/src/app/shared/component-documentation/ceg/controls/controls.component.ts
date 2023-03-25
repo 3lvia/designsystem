@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { combineLatest, Subject } from 'rxjs';
-import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
+
 import { CegControlManager } from '../cegControlManager';
 import { Controls, ControlValue } from '../controlType';
 
@@ -25,16 +26,7 @@ export class ControlsComponent implements OnInit, OnDestroy {
       this.controlManager.getCurrentControlGroupOrder(),
       this.controlManager.getCurrentControls(),
     ])
-      .pipe(
-        takeUntil(this.unsubscriber),
-        distinctUntilChanged(([prevGroupOrder], [currGroupOrder]) => {
-          /**
-           * We only want to re-create the controls when the entire list changes,
-           * to prevent all the controls re-rendering on each change.
-           **/
-          return JSON.stringify(prevGroupOrder) === JSON.stringify(currGroupOrder);
-        }),
-      )
+      .pipe(takeUntil(this.unsubscriber))
       .subscribe(([groupOrder, controls]) => this.createControlGroups(controls, groupOrder));
   }
 
@@ -52,7 +44,36 @@ export class ControlsComponent implements OnInit, OnDestroy {
       newGroups.push({ name: groupName, controls: groupControls });
     });
 
-    this.groups = newGroups;
+    if (this.groupListsAreAlike(this.groups, newGroups)) {
+      this.updateExistingControlValues(newGroups);
+    } else {
+      this.groups = newGroups;
+    }
+  }
+
+  private updateExistingControlValues(newGroups: Group[]): void {
+    this.groups.forEach((group, groupIndex) => {
+      Object.entries(group.controls).forEach(([controlName, control]) => {
+        /**
+         * We assume that the group lists are identical.
+         * This is considered safe, since both lists passed the groupListsAreAlike-check.
+         */
+        const newValue = newGroups[groupIndex].controls[controlName].value;
+        if (control.value !== newValue) {
+          control.value = newValue;
+        }
+      });
+    });
+  }
+
+  private groupListsAreAlike(listA: Group[], listB: Group[]): boolean {
+    const listAGroupNames = listA.map((group) => group.name).join('');
+    const listAControls = listA.flatMap((group) => Object.keys(group.controls)).join('');
+
+    const listBGroupNames = listB.map((group) => group.name).join('');
+    const listBControls = listB.flatMap((group) => Object.keys(group.controls)).join('');
+
+    return listAGroupNames === listBGroupNames && listAControls === listBControls;
   }
 
   ngOnDestroy(): void {

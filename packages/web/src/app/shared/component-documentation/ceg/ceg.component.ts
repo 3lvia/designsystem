@@ -30,12 +30,6 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    if (!this.componentExample) {
-      console.error(
-        'No CEG content found. Please create a component that extends the "ComponentExample" interface and provide it as a child to the <app-ceg> component.',
-      );
-    }
-
     this.componentExample.cegContent.currentComponentTypeName
       .pipe(takeUntil(this.unsubscriber))
       .subscribe(() => {
