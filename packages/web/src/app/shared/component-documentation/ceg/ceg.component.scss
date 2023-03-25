@@ -46,12 +46,11 @@
 .ceg-floating-toolbar {
   position: absolute;
   inset: 8px 8px auto auto;
-  display: flex;
   gap: 8px;
   display: none;
 
   @include breakpoints.breakpoint-up(Mobile) {
-    display: initial;
+    display: flex;
   }
 }
 

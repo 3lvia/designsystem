@@ -1,9 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import * as Prism from 'prismjs';
+import Prism from 'prismjs';
 
-import 'prismjs';
-import 'prismjs/components/prism-jsx';
-import 'prismjs/components/prism-markup';
 import { Language } from './language';
 
 @Pipe({

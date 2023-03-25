@@ -1,4 +1,3 @@
-// TODO: Ensure that we only can type groups that are in the Groups type
 interface ControlBase {
   type: string;
   group: string;
@@ -55,7 +54,7 @@ export interface ComponentType {
   customText?: CegCustomText;
 }
 
-// TODO: Ensure that this type only returns keys in the controls object.
+// Ensure that this type only returns keys in the controls object.
 type ControlNames<T extends { controls: Controls }> = keyof T['controls'];
 
 export type ControlValue = CegControl['value'];
