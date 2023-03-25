@@ -5,7 +5,6 @@ import { ControlValue } from '../controlType';
 @Component({
   selector: 'app-controls-popover',
   templateUrl: './controls-popover.component.html',
-  styleUrls: ['./controls-popover.component.scss'],
 })
 export class ControlsPopoverComponent {
   @Input() controlManager: CegControlManager;
