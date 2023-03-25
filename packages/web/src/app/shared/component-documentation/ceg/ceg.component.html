@@ -15,10 +15,17 @@
 
   <div class="component-example-container" #componentContainer>
     <ng-content />
+    <div class="ceg-floating-toolbar">
+      <app-controls-popover
+        class="controls-popover"
+        [controlManager]="componentExample.cegContent"
+        (propChange)="setPropValue($event.propName, $event.value)"
+      />
+    </div>
   </div>
 
   <app-controls
-    class="ceg-controls"
+    class="ceg-desktop-controls"
     [controlManager]="componentExample.cegContent"
     (propChange)="setPropValue($event.propName, $event.value)"
   />

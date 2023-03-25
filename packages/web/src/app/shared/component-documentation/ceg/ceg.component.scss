@@ -2,8 +2,9 @@
 
 .ceg-container {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 8fr 2fr;
   gap: 16px 24px;
+  overflow: auto;
 
   @include breakpoints.breakpoint-up(Mobile) {
     grid-template-columns: 1fr;
@@ -21,6 +22,7 @@
 }
 
 .component-example-container {
+  position: relative;
   grid-row: 2;
   grid-column: 1;
   border: 1px solid var(--e-grey-10);
@@ -32,12 +34,24 @@
   min-height: 340px;
 }
 
-.ceg-controls {
+.ceg-desktop-controls {
   grid-row: 2;
   grid-column: 2;
 
   @include breakpoints.breakpoint-up(Mobile) {
     display: none;
+  }
+}
+
+.ceg-floating-toolbar {
+  position: absolute;
+  inset: 8px 8px auto auto;
+  display: flex;
+  gap: 8px;
+  display: none;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    display: initial;
   }
 }
 

@@ -12,6 +12,7 @@ import { SwitchComponent } from './controls/switch/switch.component';
 import { CounterComponent } from './controls/counter/counter.component';
 import { TypeSwitcherComponent } from './type-switcher/type-switcher.component';
 import { HighlighterPipe } from './code-generator/highlighter.pipe';
+import { ControlsPopoverComponent } from './controls-popover/controls-popover.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HighlighterPipe } from './code-generator/highlighter.pipe';
     CounterComponent,
     TypeSwitcherComponent,
     HighlighterPipe,
+    ControlsPopoverComponent,
   ],
   exports: [CegComponent],
   imports: [CommonModule],

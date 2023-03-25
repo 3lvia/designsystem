@@ -25,6 +25,8 @@
       </div>
     </div>
 
-    <pre><code [innerHtml]="activeCode | formatCode:language | highlighter:language" class="active-code"></code></pre>
+    <div class="overflow-container">
+      <pre><code [innerHtml]="activeCode | formatCode:language | highlighter:language" class="active-code"></code></pre>
+    </div>
   </div>
 </elvia-accordion>
