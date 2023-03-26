@@ -23,12 +23,6 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     );
   }
 
-  get hasCustomText() {
-    return this.componentExample.cegContent
-      .getCurrentCustomTexts()
-      .pipe(map((customTexts) => customTexts && Object.keys(customTexts).length > 0));
-  }
-
   ngAfterViewInit(): void {
     this.componentExample.cegContent.currentComponentTypeName
       .pipe(takeUntil(this.unsubscriber))
@@ -36,6 +30,8 @@ export class CegComponent implements AfterViewInit, OnDestroy {
         const slots = Object.values(this.getWebComponent().getAllSlots()).map((slot) => slot.outerHTML);
         this._componentSlots.next(slots);
       });
+
+    this.setControlsToWebComponent();
   }
 
   ngOnDestroy(): void {
@@ -49,6 +45,13 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     if (propWasUpdated) {
       this.setPropOnWebComponent(propName, value);
     }
+  }
+
+  private setControlsToWebComponent(): void {
+    const controls = this.componentExample.cegContent.getControlSnapshot();
+    Object.entries(controls).forEach(([controlName, control]) => {
+      this.setPropOnWebComponent(controlName, control.value);
+    });
   }
 
   private getWebComponent() {

@@ -1,0 +1,30 @@
+<div
+  class="e-form-field e-form-field--compact ceg-input"
+  *ngIf="input.inputType === 'textarea'; else inputTemplate"
+>
+  <div class="e-input">
+    <textarea
+      [id]="inputId"
+      type="text"
+      #domTextarea
+      (input)="onChange(domTextarea.value)"
+      [attr.aria-label]="input.label"
+      >{{ input.value }}</textarea
+    >
+  </div>
+</div>
+
+<ng-template #inputTemplate>
+  <div class="e-form-field e-form-field--compact ceg-input">
+    <div class="e-input">
+      <input
+        [id]="inputId"
+        type="text"
+        [value]="input.value"
+        #domInput
+        (input)="onChange(domInput.value)"
+        [attr.aria-label]="input.label"
+      />
+    </div>
+  </div>
+</ng-template>

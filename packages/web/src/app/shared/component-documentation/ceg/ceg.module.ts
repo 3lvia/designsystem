@@ -5,7 +5,6 @@ import { CegComponent } from './ceg.component';
 import { CodeGeneratorComponent } from './code-generator/code-generator.component';
 import { ControlsComponent } from './controls/controls.component';
 import { FormatCodePipe } from './code-generator/formatCode.pipe';
-import { CustomTextComponent } from './custom-text/custom-text.component';
 import { RadioGroupComponent } from './controls/radio-group/radio-group.component';
 import { CheckboxComponent } from './controls/checkbox/checkbox.component';
 import { SwitchComponent } from './controls/switch/switch.component';
@@ -13,6 +12,7 @@ import { CounterComponent } from './controls/counter/counter.component';
 import { TypeSwitcherComponent } from './type-switcher/type-switcher.component';
 import { HighlighterPipe } from './code-generator/highlighter.pipe';
 import { ControlsPopoverComponent } from './controls-popover/controls-popover.component';
+import { TextComponent } from './controls/text/text.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,6 @@ import { ControlsPopoverComponent } from './controls-popover/controls-popover.co
     CodeGeneratorComponent,
     ControlsComponent,
     FormatCodePipe,
-    CustomTextComponent,
     RadioGroupComponent,
     CheckboxComponent,
     SwitchComponent,
@@ -28,6 +27,7 @@ import { ControlsPopoverComponent } from './controls-popover/controls-popover.co
     TypeSwitcherComponent,
     HighlighterPipe,
     ControlsPopoverComponent,
+    TextComponent,
   ],
   exports: [CegComponent],
   imports: [CommonModule],

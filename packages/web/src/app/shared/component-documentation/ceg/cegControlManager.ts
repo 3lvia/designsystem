@@ -1,6 +1,6 @@
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CegControl, CegCustomText, ComponentType, Controls, ControlValue } from './controlType';
+import { CegControl, ComponentType, Controls, ControlValue } from './controlType';
 
 export class CegControlManager {
   private _componentTypes = new BehaviorSubject<ComponentType[]>([]);
@@ -8,8 +8,6 @@ export class CegControlManager {
 
   private _currentComponentTypeName = new BehaviorSubject('');
   currentComponentTypeName = this._currentComponentTypeName.asObservable();
-
-  private initialTextValues: CegCustomText | undefined;
 
   constructor(
     /**
@@ -21,7 +19,6 @@ export class CegControlManager {
   ) {
     this._componentTypes.next(controls);
     this._currentComponentTypeName.next(controls[0].name);
-    this.initialTextValues = controls[0].customText ? this.clone(controls[0].customText) : undefined;
   }
 
   getCurrentControls(): Observable<Controls | undefined> {
@@ -31,15 +28,6 @@ export class CegControlManager {
   getControlSnapshot(): Controls | undefined {
     const confIndex = this.getCurrentComponentTypeIndex();
     return this._componentTypes.value[confIndex]?.controls;
-  }
-
-  getCurrentCustomTexts(): Observable<CegCustomText | undefined> {
-    return this.getCurrentComponentType().pipe(map((configuration) => configuration?.customText));
-  }
-
-  getCustomTextSnapshot(): CegCustomText | undefined {
-    const confIndex = this.getCurrentComponentTypeIndex();
-    return this._componentTypes.value[confIndex]?.customText;
   }
 
   getCurrentControlGroupOrder(): Observable<string[] | undefined> {
@@ -71,13 +59,6 @@ export class CegControlManager {
     if (prop) {
       prop.value = value;
       propWasUpdated = true;
-    } else {
-      // If not, then we check if it's a custom text
-      const customText = listClone[confIndex]?.customText?.[propName];
-      if (customText && typeof value === 'string') {
-        customText.value = value;
-        propWasUpdated = true;
-      }
     }
 
     if (propWasUpdated) {
@@ -85,13 +66,6 @@ export class CegControlManager {
     }
 
     return propWasUpdated;
-  }
-
-  resetCustomTexts(): void {
-    const componentTypesClone = this.clone(this._componentTypes.value);
-    componentTypesClone[this.getCurrentComponentTypeIndex()].customText = this.clone(this.initialTextValues);
-
-    this._componentTypes.next(componentTypesClone);
   }
 
   private getCurrentComponentTypeIndex(): number {

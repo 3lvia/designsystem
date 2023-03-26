@@ -15,7 +15,7 @@ export class TimepickerCegComponent implements ComponentExample {
       controls: {
         minuteInterval: {
           type: 'radioGroup',
-          value: '15',
+          value: '10',
           radios: [
             { label: '1', value: '1' },
             { label: '5', value: '5' },

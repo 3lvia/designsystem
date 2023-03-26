@@ -12,9 +12,4 @@ export abstract class ComponentExample {
    * The CEG configuration.
    */
   cegContent: CegControlManager;
-
-  /**
-   * Allows for setting a custom text on the "Customize text" trigger.
-   */
-  customizeTextTriggerName?: string;
 }

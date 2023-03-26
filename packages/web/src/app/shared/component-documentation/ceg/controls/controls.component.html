@@ -31,6 +31,12 @@
         [counter]="control.value"
         (valueChange)="updateValue(control.key, $event)"
       />
+
+      <app-text
+        *ngIf="control.value.type === 'text'"
+        [input]="control.value"
+        (valueChange)="updateValue(control.key, $event)"
+      />
     </ng-container>
   </ng-container>
 </fieldset>

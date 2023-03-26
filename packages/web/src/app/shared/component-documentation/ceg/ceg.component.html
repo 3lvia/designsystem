@@ -1,16 +1,6 @@
 <div class="e-mb-48 e-mt-72" class="ceg-container">
-  <div class="ceg-header e-mb-8" *ngIf="(hasMultipleComponentTypes | async) || (hasCustomText | async)">
-    <app-type-switcher
-      *ngIf="hasMultipleComponentTypes | async"
-      [controlManager]="componentExample.cegContent"
-    />
-    <div class="customize-text-container" *ngIf="hasCustomText | async">
-      <app-custom-text
-        [controlManager]="componentExample.cegContent"
-        [customLabel]="componentExample.customizeTextTriggerName"
-        (propChange)="setPropValue($event.propName, $event.value)"
-      />
-    </div>
+  <div class="ceg-header e-mb-8" *ngIf="hasMultipleComponentTypes | async">
+    <app-type-switcher [controlManager]="componentExample.cegContent" />
   </div>
 
   <div class="component-example-container" #componentContainer>

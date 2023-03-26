@@ -3,7 +3,7 @@ import { combineLatest, Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { CegControlManager } from '../cegControlManager';
-import { CegCustomText, Controls } from '../controlType';
+import { Controls } from '../controlType';
 import { FormatCodePipe } from './formatCode.pipe';
 import { Language } from './language';
 
@@ -36,19 +36,12 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
   constructor(private codeFormater: FormatCodePipe) {}
 
   ngOnInit() {
-    this.initialProps = this.getFlatPropList(
-      this.controlManager.getControlSnapshot(),
-      this.controlManager.getCustomTextSnapshot(),
-    );
+    this.initialProps = this.getFlatPropList(this.controlManager.getControlSnapshot());
 
-    combineLatest([
-      this.controlManager.getCurrentControls(),
-      this.controlManager.getCurrentCustomTexts(),
-      this.componentSlots,
-    ])
+    combineLatest([this.controlManager.getCurrentControls(), this.componentSlots])
       .pipe(takeUntil(this.unsubscriber))
-      .subscribe(([controls, customTexts, slots]) => {
-        const props = this.getFlatPropList(controls, customTexts);
+      .subscribe(([controls, slots]) => {
+        const props = this.getFlatPropList(controls);
 
         this.angularCode = this.createWebComponentCode(props, slots, '[', ']');
         this.vueCode = this.createWebComponentCode(props, slots, ':');
@@ -83,8 +76,8 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
    * Create a flat list of all props, both from the controls-object and the
    * customText object. We also include eventual children of checkbox-controls.
    */
-  private getFlatPropList(controls: Controls, customText?: CegCustomText): Prop[] {
-    const props = Object.entries(controls)
+  private getFlatPropList(controls: Controls): Prop[] {
+    return Object.entries(controls)
       .map(([controlName, control]) => {
         const props: Prop[] = [{ name: controlName, value: control.value }];
         if (control.type === 'checkbox' && control.children) {
@@ -95,14 +88,6 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
         return props;
       })
       .flat();
-
-    const texts = customText
-      ? Object.entries(customText).map(([propName, control]) => {
-          return { name: propName, value: control.value } as Prop;
-        })
-      : [];
-
-    return props.concat(...texts);
   }
 
   private propShouldBeIncluded(prop: Prop): boolean {
