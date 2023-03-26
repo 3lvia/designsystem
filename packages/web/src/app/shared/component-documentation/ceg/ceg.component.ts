@@ -18,8 +18,8 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   componentSlots = this._componentSlots.asObservable();
 
   get hasMultipleComponentTypes() {
-    return this.componentExample.cegContent.configurations.pipe(
-      map((configurations) => configurations.length > 1),
+    return this.componentExample.cegContent.componentTypes.pipe(
+      map((componentTypes) => componentTypes.length > 1),
     );
   }
 

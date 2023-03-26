@@ -3,8 +3,8 @@ import { map } from 'rxjs/operators';
 import { CegControl, CegCustomText, ComponentType, Controls, ControlValue } from './controlType';
 
 export class CegControlManager {
-  private _configurations = new BehaviorSubject<ComponentType[]>([]);
-  configurations = this._configurations.asObservable();
+  private _componentTypes = new BehaviorSubject<ComponentType[]>([]);
+  componentTypes = this._componentTypes.asObservable();
 
   private _currentComponentTypeName = new BehaviorSubject('');
   currentComponentTypeName = this._currentComponentTypeName.asObservable();
@@ -15,15 +15,11 @@ export class CegControlManager {
     /**
      * The controls that appear in the side panel to control the component.
      *
-     * Can be defined as a single object (for components with a single type),
-     * or as an array of configurations (for components with multiple CEG types).
-     *
-     * NB: Remember to render separate components for each configuration to reset
-     * the component state.
+     * Defined as an array of component types.
      */
     controls: ComponentType[],
   ) {
-    this._configurations.next(controls);
+    this._componentTypes.next(controls);
     this._currentComponentTypeName.next(controls[0].name);
     this.initialTextValues = controls[0].customText ? this.clone(controls[0].customText) : undefined;
   }
@@ -34,7 +30,7 @@ export class CegControlManager {
 
   getControlSnapshot(): Controls | undefined {
     const confIndex = this.getCurrentComponentTypeIndex();
-    return this._configurations.value[confIndex]?.controls;
+    return this._componentTypes.value[confIndex]?.controls;
   }
 
   getCurrentCustomTexts(): Observable<CegCustomText | undefined> {
@@ -43,7 +39,7 @@ export class CegControlManager {
 
   getCustomTextSnapshot(): CegCustomText | undefined {
     const confIndex = this.getCurrentComponentTypeIndex();
-    return this._configurations.value[confIndex]?.customText;
+    return this._componentTypes.value[confIndex]?.customText;
   }
 
   getCurrentControlGroupOrder(): Observable<string[] | undefined> {
@@ -52,7 +48,7 @@ export class CegControlManager {
 
   getGroupOrderSnapshot(): string[] | undefined {
     const confIndex = this.getCurrentComponentTypeIndex();
-    return this._configurations.value[confIndex]?.groupOrder;
+    return this._componentTypes.value[confIndex]?.groupOrder;
   }
 
   setActiveComponentTypeName(name: string): void {
@@ -68,7 +64,7 @@ export class CegControlManager {
   setPropValue(propName: string, value: ControlValue): boolean {
     let propWasUpdated = false;
     const confIndex = this.getCurrentComponentTypeIndex();
-    const listClone = this.clone(this._configurations.value);
+    const listClone = this.clone(this._componentTypes.value);
 
     // First we check if the prop is in the props-array
     const prop = this.getControl(listClone[confIndex], propName);
@@ -85,21 +81,21 @@ export class CegControlManager {
     }
 
     if (propWasUpdated) {
-      this._configurations.next(listClone);
+      this._componentTypes.next(listClone);
     }
 
     return propWasUpdated;
   }
 
   resetCustomTexts(): void {
-    const configurationsClone = this.clone(this._configurations.value);
-    configurationsClone[this.getCurrentComponentTypeIndex()].customText = this.clone(this.initialTextValues);
+    const componentTypesClone = this.clone(this._componentTypes.value);
+    componentTypesClone[this.getCurrentComponentTypeIndex()].customText = this.clone(this.initialTextValues);
 
-    this._configurations.next(configurationsClone);
+    this._componentTypes.next(componentTypesClone);
   }
 
   private getCurrentComponentTypeIndex(): number {
-    return this._configurations.value.findIndex((conf) => conf.name === this._currentComponentTypeName.value);
+    return this._componentTypes.value.findIndex((conf) => conf.name === this._currentComponentTypeName.value);
   }
 
   private getControl(configuration: ComponentType, propName: string): CegControl | undefined {
@@ -120,9 +116,9 @@ export class CegControlManager {
   }
 
   private getCurrentComponentType(): Observable<ComponentType | undefined> {
-    return combineLatest([this.configurations, this.currentComponentTypeName]).pipe(
-      map(([configurations, name]) => {
-        return configurations.find((configuration) => configuration.name === name);
+    return combineLatest([this.componentTypes, this.currentComponentTypeName]).pipe(
+      map(([componentTypes, name]) => {
+        return componentTypes.find((configuration) => configuration.name === name);
       }),
     );
   }
