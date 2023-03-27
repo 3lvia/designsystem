@@ -31,6 +31,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
         this._componentSlots.next(slots);
       });
 
+    this.setDisplayStyleOnExampleComponent();
     this.setAllPropsOnWebComponent();
   }
 
@@ -45,6 +46,12 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     if (propWasUpdated) {
       this.getWebComponent().setProps({ [propName]: value });
     }
+  }
+
+  private setDisplayStyleOnExampleComponent() {
+    // By setting "display: contents" on the host, isFullWidth works as expected.
+    const cegContent = this.componentContainer.nativeElement.firstChild as HTMLElement;
+    cegContent.style.display = 'contents';
   }
 
   private setAllPropsOnWebComponent(): void {
