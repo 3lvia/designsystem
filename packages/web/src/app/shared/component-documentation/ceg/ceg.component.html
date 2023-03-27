@@ -7,7 +7,6 @@
     <ng-content />
     <div class="ceg-floating-toolbar">
       <app-controls-popover
-        class="controls-popover"
         [controlManager]="componentExample.cegContent"
         (propChange)="setPropValue($event.propName, $event.value)"
       />

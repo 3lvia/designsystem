@@ -31,7 +31,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
         this._componentSlots.next(slots);
       });
 
-    this.setControlsToWebComponent();
+    this.setAllPropsOnWebComponent();
   }
 
   ngOnDestroy(): void {
@@ -43,14 +43,14 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     const propWasUpdated = this.componentExample.cegContent.setPropValue(propName, value);
 
     if (propWasUpdated) {
-      this.setPropOnWebComponent(propName, value);
+      this.getWebComponent().setProps({ [propName]: value });
     }
   }
 
-  private setControlsToWebComponent(): void {
+  private setAllPropsOnWebComponent(): void {
     const controls = this.componentExample.cegContent.getControlSnapshot();
     Object.entries(controls).forEach(([controlName, control]) => {
-      this.setPropOnWebComponent(controlName, control.value);
+      this.getWebComponent().setProps({ [controlName]: control.value });
     });
   }
 
@@ -58,9 +58,5 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     return this.componentContainer.nativeElement.querySelector(
       `elvia-${this.componentExample.elementName}`,
     ) as ElvisComponentWrapper;
-  }
-
-  private setPropOnWebComponent(key: string, value: ControlValue): void {
-    this.getWebComponent().setProps({ [key]: value });
   }
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ComponentExample } from 'src/app/shared/component-documentation/ceg/componentExample';
-import { CegControlManager } from 'src/app/shared/component-documentation/ceg';
+import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-timepicker-ceg',

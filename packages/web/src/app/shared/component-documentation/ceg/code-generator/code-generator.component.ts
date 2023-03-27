@@ -73,8 +73,8 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Create a flat list of all props, both from the controls-object and the
-   * customText object. We also include eventual children of checkbox-controls.
+   * Create a flat list of all props, which is easier to iterate.
+   * We also include eventual children of checkbox-controls.
    */
   private getFlatPropList(controls: Controls): Prop[] {
     return Object.entries(controls)
@@ -92,8 +92,8 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
 
   private propShouldBeIncluded(prop: Prop): boolean {
     const initialProp = this.initialProps.find((p) => p.name === prop.name);
-    // All values that are not boolean are always shown.
-    // If a boolean prop is undefined, we compare against 'false'
+    // All values that are not boolean are always included.
+    // If a boolean prop is undefined initially, we compare against 'false'
     const valueIsDifferentFromInitialValue =
       typeof prop.value !== 'boolean' || (initialProp.value || false) !== prop.value;
 
@@ -109,6 +109,7 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
   private getReactSlots(slots: string[]): string {
     const sanitizedSlots = slots
       .map((slot) => {
+        // Convert conventional slots to be a prop on the element.
         const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
         const slotContent = parsedSlot.querySelector('[slot]').innerHTML;
         const slotName = parsedSlot.querySelector('[slot]').getAttribute('slot');
