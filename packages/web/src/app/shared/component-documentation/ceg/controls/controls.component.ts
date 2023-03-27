@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { combineLatest, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 
 import { CegControlManager } from '../cegControlManager';
 import { Controls, ControlValue } from '../controlType';
@@ -23,11 +23,16 @@ export class ControlsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     combineLatest([
-      this.controlManager.getCurrentControlGroupOrder(),
       this.controlManager.getCurrentControls(),
+      this.controlManager.getCurrentControlGroupOrder(),
     ])
-      .pipe(takeUntil(this.unsubscriber))
-      .subscribe(([groupOrder, controls]) => this.createControlGroups(controls, groupOrder));
+      .pipe(
+        takeUntil(this.unsubscriber),
+        distinctUntilChanged(([prevControls], [currControls]) => {
+          return JSON.stringify(prevControls) === JSON.stringify(currControls);
+        }),
+      )
+      .subscribe(([controls, groupOrder]) => this.createControlGroups(controls, groupOrder));
   }
 
   private createControlGroups(controls: Controls, groupOrder: string[]) {
