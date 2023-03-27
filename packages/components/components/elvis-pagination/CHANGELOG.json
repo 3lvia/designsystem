@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "17.03.23",
+      "version": "3.3.7",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Long numbers doesn't fit in page dots."]
+        }
+      ]
+    },
+    {
       "date": "16.02.23",
       "version": "3.3.6",
       "changelog": [
