@@ -81,6 +81,7 @@
     "@types/lodash.debounce": "^4.0.6",
     "@types/natural-compare-lite": "^1.4.0",
     "@types/node": "16.11.7",
+    "@types/prismjs": "^1.26.0",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
     "babel-eslint": "^10.1.0",
