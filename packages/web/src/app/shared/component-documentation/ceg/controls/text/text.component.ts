@@ -10,14 +10,14 @@ let CEG_INPUT_ID = 0;
 })
 export class TextComponent implements OnInit {
   @Input() input: Text;
-  @Output() valueChange = new EventEmitter<string>();
+  @Output() valueChange = new EventEmitter<Text['value']>();
   inputId = '';
 
   ngOnInit(): void {
     this.inputId = `ceg-input-${CEG_INPUT_ID++}`;
   }
 
-  onChange(newValue: string): void {
+  onChange(newValue: Text['value']): void {
     this.valueChange.emit(newValue);
   }
 }

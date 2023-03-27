@@ -9,14 +9,14 @@ let CEG_RADIO_GROUP_ID = 0;
 })
 export class RadioGroupComponent implements OnInit {
   @Input() radioGroup: RadioGroup;
-  @Output() toggle = new EventEmitter<string | number>();
+  @Output() toggle = new EventEmitter<RadioGroup['value']>();
   radioGroupId = '';
 
   ngOnInit(): void {
     this.radioGroupId = `ceg-checkbox-${CEG_RADIO_GROUP_ID++}`;
   }
 
-  onChange(newValue: string | number): void {
+  onChange(newValue: RadioGroup['value']): void {
     this.toggle.emit(newValue);
   }
 }

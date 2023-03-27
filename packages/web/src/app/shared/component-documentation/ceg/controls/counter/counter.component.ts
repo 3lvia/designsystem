@@ -8,9 +8,9 @@ import { Counter } from '../../controlType';
 })
 export class CounterComponent {
   @Input() counter: Counter;
-  @Output() valueChange = new EventEmitter<number>();
+  @Output() valueChange = new EventEmitter<Counter['value']>();
 
-  updateValue(delta: number): void {
+  updateValue(delta: Counter['value']): void {
     const newValue = this.counter.value + delta;
     const lowSafeGuard = Math.max(this.counter.min, newValue);
     const highSafeGuard = Math.min(lowSafeGuard, this.counter.max);

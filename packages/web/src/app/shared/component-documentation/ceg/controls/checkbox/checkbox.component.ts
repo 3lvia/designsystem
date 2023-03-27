@@ -12,14 +12,14 @@ export class CheckboxComponent implements OnInit {
   @Input() checkbox: Checkbox;
   @Input() isChild = false;
   @Input() disabled = false;
-  @Output() toggle = new EventEmitter<boolean>();
+  @Output() toggle = new EventEmitter<Checkbox['value']>();
   checkboxId = '';
 
   ngOnInit(): void {
     this.checkboxId = `ceg-checkbox-${CEG_CHECKBOX_ID++}`;
   }
 
-  onChange(isChecked: boolean): void {
+  onChange(isChecked: Checkbox['value']): void {
     this.toggle.emit(isChecked);
   }
 }
