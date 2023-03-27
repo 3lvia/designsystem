@@ -115,21 +115,21 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
   border: ${(props) => (props.selected ? `1px solid ${getColor('black')}` : 'none')};
   border-radius: 50%;
   min-width: 36px;
-  ${(props) => props.pageNumber.toString().length < 5 && 'width: 36px'};
+  ${(props) => props.pageNumber.toString().length < 4 && 'width: 36px'};
   height: 36px;
 
   border-radius: 100px;
   cursor: pointer;
   padding: 0%;
-  ${(props) => props.pageNumber.toString().length >= 5 && `padding: 8px 16px;`};
-  ${(props) => props.pageNumber.toString().length >= 5 && props.selected && `padding: 8px 15px;`};
+  ${(props) => props.pageNumber.toString().length >= 4 && `padding: 8px 16px;`};
+  ${(props) => props.pageNumber.toString().length >= 4 && props.selected && `padding: 8px 15px;`};
 
   @media (hover: hover) {
     &:hover {
       border: 1px solid ${getColor('elvia-charge')};
       ${(props) =>
-        (props.pageNumber.toString().length >= 5 ||
-          (props.pageNumber.toString().length >= 5 && props.selected)) &&
+        (props.pageNumber.toString().length >= 4 ||
+          (props.pageNumber.toString().length >= 4 && props.selected)) &&
         `padding: 8px 15px;`};
     }
   }
