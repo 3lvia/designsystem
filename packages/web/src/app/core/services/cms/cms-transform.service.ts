@@ -106,7 +106,6 @@ export class CMSTransformService {
     model: 'content' | 'pageDescription',
   ): string {
     this.subMenu = subMenu;
-    // this.locale = locale;
     if (model === 'content') {
       const contentHasCurrentLocale = !!data.fields.content?.[this.locale];
       if (contentHasCurrentLocale) {
@@ -481,7 +480,7 @@ export class CMSTransformService {
   }
 
   private getGrid(data: IGrid): string {
-    // this.cmsTransformErrorsService.getGridErrors(data, this.locale);
+    this.cmsTransformErrorsService.getGridErrors(data, this.locale);
     if (!data.fields.name || !data.fields.gridElements) {
       return;
     }
