@@ -23,7 +23,7 @@ export class CMSService {
     private router: Router,
   ) {}
 
-  listenContentLoadedFromCMS(): Observable<any> {
+  listenContentLoadedFromCMS(): Observable<void> {
     return this.subjectAnchorsNew.asObservable();
   }
 
@@ -158,33 +158,6 @@ export class CMSService {
     return menu;
   }
 
-  async syncEntries(): Promise<void> {
-    while (this.entriesToSync.length > 0) {
-      const id = this.entriesToSync.pop();
-      await this.getEntry(id);
-    }
-  }
-
-  async findEntriesWithinNode(node: Record<string, any>): Promise<void> {
-    if (node.id && node.type === 'Entry') {
-      if (!this.entries[node.id]) {
-        this.entriesToSync.push(node.id);
-      }
-    }
-    if (node instanceof Array) {
-      node.forEach((item) => {
-        this.findEntriesWithinNode(item);
-      });
-      return;
-    }
-    const keys = Object.keys(node);
-    keys.forEach((key) => {
-      if (key === 'fields' || key === 'content' || key === 'data' || key === 'target' || key === 'sys') {
-        this.findEntriesWithinNode(node[key]);
-      }
-    });
-  }
-
   /**
    * Get an entry from Contentful (not locally cached).
    *
@@ -202,6 +175,33 @@ export class CMSService {
       .then((entry: any) => {
         return entry;
       });
+  }
+
+  private async syncEntries(): Promise<void> {
+    while (this.entriesToSync.length > 0) {
+      const id = this.entriesToSync.pop();
+      await this.getEntry(id);
+    }
+  }
+
+  private async findEntriesWithinNode(node: Record<string, any>): Promise<void> {
+    if (node.id && node.type === 'Entry') {
+      if (!this.entries[node.id]) {
+        this.entriesToSync.push(node.id);
+      }
+    }
+    if (node instanceof Array) {
+      node.forEach((item) => {
+        this.findEntriesWithinNode(item);
+      });
+      return;
+    }
+    const keys = Object.keys(node);
+    keys.forEach((key) => {
+      if (key === 'fields' || key === 'content' || key === 'data' || key === 'target' || key === 'sys') {
+        this.findEntriesWithinNode(node[key]);
+      }
+    });
   }
 
   /**
