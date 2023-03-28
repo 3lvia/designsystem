@@ -47,6 +47,26 @@
         ></div>
       </li>
     </ul>
+    <!-- TODO: Make sticky at bottom of navbar over blur -->
+    <div class="e-mb-24" *ngIf="showLocaleToggle">
+      <a
+        class="e-link e-link--sm"
+        (click)="setLocale('nb-NO')"
+        style="margin-right: 4px"
+        [ngClass]="{ 'e-link---hover': locale === 'nb-NO' }"
+      >
+        NO
+      </a>
+      <span class="e-text-sm">/</span>
+      <a
+        class="e-link e-link--sm"
+        (click)="setLocale('en-GB')"
+        style="margin-left: 4px"
+        [ngClass]="{ 'e-link---hover': locale === 'en-GB' }"
+      >
+        EN
+      </a>
+    </div>
   </nav>
 
   <nav class="navbar-phone" [ngClass]="{ 'show-block': isLandingPage }">

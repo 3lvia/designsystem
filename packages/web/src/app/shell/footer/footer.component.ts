@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { LOCALE_CODE } from 'contentful/types';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 
 @Component({
@@ -9,10 +10,10 @@ import { LocalizationService, Locale } from 'src/app/core/services/localization.
 })
 export class FooterComponent implements OnInit {
   bgClass = '';
-  locale: string;
+  locale: LOCALE_CODE = 'en-GB';
 
   date = new Date();
-  currentYear;
+  currentYear: number;
   showLocaleToggle = true;
 
   constructor(private router: Router, private localizationService: LocalizationService) {
@@ -43,7 +44,7 @@ export class FooterComponent implements OnInit {
     this.currentYear = this.date.getFullYear();
   }
 
-  setLocale(str: string): void {
+  setLocale(str: LOCALE_CODE): void {
     this.localizationService.setLocalization(Locale[str]);
   }
 }

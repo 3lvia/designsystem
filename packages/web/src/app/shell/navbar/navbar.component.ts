@@ -7,6 +7,7 @@ import { combineLatest, fromEvent, Subscription } from 'rxjs';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSNavbarItem } from 'src/app/core/services/cms/cms.interface';
+import { LOCALE_CODE } from 'contentful/types';
 
 @Component({
   selector: 'app-navbar',
@@ -40,6 +41,9 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   activeAnchor: NavbarAnchor;
   prevActiveAnchor: NavbarAnchor;
 
+  showLocaleToggle = true;
+  locale: LOCALE_CODE = 'en-GB';
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -64,6 +68,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     const routerSubscriber = this.router.events;
     this.routerSubscription = combineLatest([localizationSubscriber, routerSubscriber]).subscribe(
       ([locale, routerEvent]) => {
+        this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
         if (routerEvent instanceof NavigationEnd) {
           this.setSubMenuRoute();
           this.isLandingPage = this.router.url.split('/')[2] === undefined;
@@ -320,4 +325,8 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   findAnchorAtScrollPosition = (): void => {
     this.scrollService.findAnchorAtScrollPosition(this.visibleAnchors);
   };
+
+  setLocale(str: LOCALE_CODE): void {
+    this.localizationService.setLocalization(Locale[str]);
+  }
 }
