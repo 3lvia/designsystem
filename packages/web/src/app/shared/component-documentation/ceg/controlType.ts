@@ -1,7 +1,7 @@
 interface ControlBase {
   type: string;
   group: string;
-  disabledBy?: ControlNames<ComponentType>[];
+  disabledBy?: string[];
 }
 
 export interface Checkbox extends ControlBase {
@@ -14,10 +14,12 @@ export interface Checkbox extends ControlBase {
 export interface RadioGroup extends ControlBase {
   type: 'radioGroup';
   value: string | number;
-  radios: {
-    label: string;
-    value: string | number;
-  }[];
+  radios: Radio[];
+}
+
+export interface Radio {
+  label: string;
+  value: string | number;
 }
 
 export interface Switch extends ControlBase {
@@ -28,7 +30,7 @@ export interface Switch extends ControlBase {
 
 export interface Counter extends ControlBase {
   type: 'counter';
-  postfix: string;
+  postfix?: string;
   value: number;
   increment: number;
   min?: number;
@@ -38,7 +40,7 @@ export interface Counter extends ControlBase {
 export interface Text extends ControlBase {
   type: 'text';
   label: string;
-  value: string;
+  value?: string;
   inputType?: 'input' | 'textarea';
 }
 
@@ -52,7 +54,5 @@ export interface ComponentType {
   groupOrder: string[];
 }
 
-// Ensure that this type only returns keys in the controls object.
-type ControlNames<T extends { controls: Controls }> = keyof T['controls'];
-
 export type ControlValue = CegControl['value'];
+export type CegTypes = CegControl['type'];
