@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { IDocumentationPage, IEntry, IMainMenu, ISubMenu, LOCALE_CODE } from 'contentful/types';
 import { CMSMenu, CMSNavbarItem, CMSSubMenu, TransformedDocPage } from './cms.interface';
-import { cmsExtractLocale } from './cmsExtractLocale';
+import { extractLocale } from './extractLocale';
 
 @Injectable({
   providedIn: 'root',
@@ -55,10 +55,10 @@ export class CMSService {
           this.router.navigate(['not-found']);
         }
         if (!urlWithoutAnchor[2] && subMenu.entry.fields.landingPage) {
-          pageId = cmsExtractLocale(subMenu.entry.fields.landingPage, localeKey).sys.id;
+          pageId = extractLocale(subMenu.entry.fields.landingPage, localeKey).sys.id;
         } else if (subMenu.entry.fields.pages) {
-          const docPage = cmsExtractLocale(subMenu.entry.fields.pages, localeKey).find(
-            (page) => cmsExtractLocale(page.fields.path, localeKey) === urlWithoutAnchor[2],
+          const docPage = extractLocale(subMenu.entry.fields.pages, localeKey).find(
+            (page) => extractLocale(page.fields.path, localeKey) === urlWithoutAnchor[2],
           );
           if (!docPage) {
             console.error('Can´t find this docPage: ' + urlWithoutAnchor[2]);
@@ -96,7 +96,6 @@ export class CMSService {
     localization: Locale,
   ): Promise<TransformedDocPage> {
     const subMenu = await this.getSubMenu(localization);
-    console.log('cmsData', cmsData);
     return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
@@ -143,11 +142,11 @@ export class CMSService {
       title: entryMenu.fields.title['en-GB'],
       pages: [],
     };
-    const subMenuEntries = cmsExtractLocale(entryMenu.fields.submenus, locale);
+    const subMenuEntries = extractLocale(entryMenu.fields.submenus, locale);
     for (const subMenuEntry of subMenuEntries) {
       const subEntry = await this.getEntry<ISubMenu>(subMenuEntry.sys.id);
       const subMenu: CMSSubMenu = {
-        title: cmsExtractLocale(subMenuEntry.fields.title, locale),
+        title: extractLocale(subMenuEntry.fields.title, locale),
         entry_id: subMenuEntry.sys.id,
         entry: subEntry,
         path: subMenuEntry.fields.path['en-GB'], // url path - No localization on this field
