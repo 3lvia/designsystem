@@ -92,8 +92,8 @@ export class CMSPageComponent implements OnDestroy {
   async getDocPageFromCMS(locale: Locale, pageId?: string): Promise<void> {
     this.removeClickEventListenersForCopyPath();
 
-    const id = pageId ? pageId : await this.cmsService.getPageSysId(locale);
-    const entry: IDocumentationPage = await this.cmsService.getEntryFromCMS(id);
+    const id = pageId ?? (await this.cmsService.getPageSysId(locale));
+    const entry = (await this.cmsService.getEntryFromCMS(id)) as IDocumentationPage;
     const docPage = await this.cmsService.getTransformedDocPageByEntry(entry, locale);
     this.setInnerHTMLToCMSContent(docPage);
     this.titleService.setTitle(docPage.title + ' | ' + 'Elvia design system');
