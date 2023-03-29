@@ -5,7 +5,7 @@ import { LOCALE_CODE, LocalizedField } from 'contentful/types';
  */
 export function extractLocale<T extends LocalizedField<unknown>>(
   data: T,
-  locale: LOCALE_CODE,
+  locale: LOCALE_CODE = 'en-GB',
 ): T[LOCALE_CODE] {
   if (data?.[locale]) {
     return data[locale];

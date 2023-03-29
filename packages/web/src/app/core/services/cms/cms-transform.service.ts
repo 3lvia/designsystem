@@ -106,26 +106,21 @@ export class CMSTransformService {
     data: IDocumentationPage,
     subMenu: CMSSubMenu[],
     model: 'content' | 'pageDescription',
-  ): string {
+  ) {
     this.subMenu = subMenu;
     if (model === 'content') {
-      const contentHasCurrentLocale = !!data.fields.content?.[this.locale];
-      if (contentHasCurrentLocale) {
-        return documentToHtmlString(data.fields.content[this.locale], this.options);
-      } else if (data.fields.content?.['en-GB']) {
-        // Fallback to English if the current locale is not available
-        return documentToHtmlString(data.fields.content['en-GB'], this.options);
+      const content = extractLocale(data.fields.content, this.locale);
+      if (content) {
+        return documentToHtmlString(content, this.options);
       }
       return '';
     } else if (model === 'pageDescription') {
-      const descriptionHasCurrentLocale = !!data.fields.pageDescription?.[this.locale];
-      if (descriptionHasCurrentLocale) {
-        return documentToHtmlString(data.fields.pageDescription[this.locale], this.options);
-      } else if (data.fields.pageDescription?.['en-GB']) {
-        // Fallback to English if the current locale is not available
-        return documentToHtmlString(data.fields.pageDescription['en-GB'], this.options);
+      const description = extractLocale(data.fields.pageDescription, this.locale);
+      if (description) {
+        return documentToHtmlString(description, this.options);
+      } else {
+        return '';
       }
-      return '';
     }
   }
 
