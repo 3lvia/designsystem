@@ -166,6 +166,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     this.isLoaded = false;
     const routeWithoutAnchor = this.router.url.split('#')[0];
     this.navbarList = await this.cmsService.getSubMenuList(locale);
+    console.log(this.navbarList);
     this.navbarList.forEach((element) => {
       if (element.docUrl === routeWithoutAnchor.split('/')[2]) {
         this.markNewActiveNavbarItem(element);
