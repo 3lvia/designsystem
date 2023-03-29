@@ -47,8 +47,8 @@ export class CMSTransformService {
       [BLOCKS.QUOTE]: (node, next) => this.getQuote(next(node.content)),
       [BLOCKS.EMBEDDED_ASSET]: (node) =>
         this.getEmbeddedAsset(extractLocale(node.data.target.fields.file, this.locale).url),
-      [BLOCKS.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.subMenu)}`,
-      [INLINES.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.subMenu)}`,
+      [BLOCKS.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node)}`,
+      [INLINES.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node)}`,
     },
   };
 
@@ -76,9 +76,10 @@ export class CMSTransformService {
     if (!data.fields.path) {
       this.cmsTransformErrorsService.showErrorMessage('Documentation page', 'The page is missing a path.');
     }
+    this.subMenu = subMenu;
 
-    const description = this.getDocumentationPageHTML(data, subMenu, 'pageDescription');
-    const content = this.getDocumentationPageHTML(data, subMenu, 'content');
+    const description = this.getDocumentationPageHTML(data, 'pageDescription');
+    const content = this.getDocumentationPageHTML(data, 'content');
     const title = extractLocale(data.fields.title, this.locale) ?? '';
     const figmaUrl = extractLocale(data.fields.figmaUrl, this.locale) ?? '';
     const isMainPage = extractLocale(data.fields.isMainPage, this.locale) ?? false;
@@ -95,33 +96,18 @@ export class CMSTransformService {
     };
   }
 
-  private getHTML(data: Parameters<NodeRenderer>[0], subMenu?: CMSSubMenu[]): string {
-    this.subMenu = subMenu;
+  private getHTML(data: Parameters<NodeRenderer>[0]): string {
     if (data.nodeType === 'embedded-entry-block' || data.nodeType === 'embedded-entry-inline') {
       return this.embeddedEntryBlock(data, this.subMenu, data.nodeType === 'embedded-entry-inline');
     }
   }
 
-  private getDocumentationPageHTML(
-    data: IDocumentationPage,
-    subMenu: CMSSubMenu[],
-    model: 'content' | 'pageDescription',
-  ) {
-    this.subMenu = subMenu;
-    if (model === 'content') {
-      const content = extractLocale(data.fields.content, this.locale);
-      if (content) {
-        return documentToHtmlString(content, this.options);
-      }
+  private getDocumentationPageHTML(data: IDocumentationPage, model: 'content' | 'pageDescription') {
+    if (!(model in data.fields)) {
       return '';
-    } else if (model === 'pageDescription') {
-      const description = extractLocale(data.fields.pageDescription, this.locale);
-      if (description) {
-        return documentToHtmlString(description, this.options);
-      } else {
-        return '';
-      }
     }
+    const document = extractLocale(data.fields[model], this.locale);
+    return document ? documentToHtmlString(document, this.options) : '';
   }
 
   private embeddedEntryBlock(node: Parameters<NodeRenderer>[0], subMenu: CMSSubMenu[], inlineEntry: boolean) {
