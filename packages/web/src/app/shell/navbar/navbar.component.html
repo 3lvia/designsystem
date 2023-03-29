@@ -48,24 +48,23 @@
       </li>
     </ul>
     <!-- TODO: Make sticky at bottom of navbar over blur -->
-    <div class="e-mb-24" *ngIf="showLocaleToggle">
-      <a
-        class="e-link e-link--sm"
-        (click)="setLocale('nb-NO')"
-        style="margin-right: 4px"
-        [ngClass]="{ 'e-link---hover': locale === 'nb-NO' }"
-      >
-        NO
-      </a>
-      <span class="e-text-sm">/</span>
-      <a
-        class="e-link e-link--sm"
+    <elvia-divider className="e-mt-16" *ngIf="showLocaleToggle"></elvia-divider>
+    <div class="navbar-locale-toggle" *ngIf="showLocaleToggle">
+      <button
+        class="e-btn e-btn--tertiary"
         (click)="setLocale('en-GB')"
-        style="margin-left: 4px"
-        [ngClass]="{ 'e-link---hover': locale === 'en-GB' }"
+        [ngClass]="{ 'e-btn---active': locale === 'en-GB' }"
       >
-        EN
-      </a>
+        English
+      </button>
+      <div class="navbar-locale-toggle-divider" aria-hidden="true"></div>
+      <button
+        class="e-btn e-btn--tertiary"
+        (click)="setLocale('nb-NO')"
+        [ngClass]="{ 'e-btn---active': locale === 'nb-NO' }"
+      >
+        Norsk
+      </button>
     </div>
   </nav>
 

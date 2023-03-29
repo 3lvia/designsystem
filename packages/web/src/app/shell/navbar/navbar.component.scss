@@ -167,6 +167,24 @@ $text-line-height: 32px;
     }
     position: relative;
   }
+
+  .navbar-locale-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+    margin-top: 16px;
+
+    button.e-btn---active {
+      font-weight: 700;
+    }
+  }
+
+  .navbar-locale-toggle-divider {
+    width: 1px;
+    height: 1rem;
+    background: var(--e-grey-10);
+  }
 }
 
 :root {
