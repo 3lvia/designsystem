@@ -48,8 +48,8 @@
       </li>
     </ul>
     <!-- TODO: Make sticky at bottom of navbar over blur -->
-    <elvia-divider className="e-mt-16" *ngIf="showLocaleToggle"></elvia-divider>
-    <div class="navbar-locale-toggle" *ngIf="showLocaleToggle">
+    <elvia-divider className="e-mt-16" *ngIf="isLoaded && showLocaleToggle"></elvia-divider>
+    <div class="navbar-locale-toggle" *ngIf="isLoaded && showLocaleToggle">
       <button
         class="e-btn e-btn--tertiary"
         (click)="setLocale('en-GB')"
