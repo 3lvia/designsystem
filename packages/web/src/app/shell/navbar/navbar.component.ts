@@ -253,9 +253,9 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       const remainingHeight = heightOfNavbar - bottomOfNavbar;
       const remainingPercentage = (100 * remainingHeight) / heightOfNavbar;
       const blurAmount = `${100 - remainingPercentage * (1 - navbarBlurStartFraction) * 20}%`;
-      document.documentElement.style.setProperty('--navbar-blur-amount', blurAmount);
+      navbarElement.style.setProperty('--navbar-blur-amount', blurAmount);
     } else {
-      document.documentElement.style.setProperty('--navbar-blur-amount', '80%');
+      navbarElement.style.setProperty('--navbar-blur-amount', '80%');
     }
   }
 
