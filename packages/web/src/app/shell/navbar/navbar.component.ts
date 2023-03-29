@@ -64,6 +64,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   ngOnInit(): void {
     const localizationSubscriber = this.localizationService.listenLocalization();
     const routerSubscriber = this.router.events;
+    this.updateLocaleSwitchVisibility();
     this.routerSubscription = combineLatest([localizationSubscriber, routerSubscriber]).subscribe(
       ([locale, routerEvent]) => {
         this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
