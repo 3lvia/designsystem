@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ICenteredContent, IDownloadContent, IGrid, IImage, IWhenToUse } from 'contentful/types';
+import { ICenteredContent, IDownloadContent, IGrid, IImage, IWhenToUse, LOCALE_CODE } from 'contentful/types';
 import { CMSDocPageError } from './cms.interface';
+import { extractLocale } from './extractLocale';
 
 @Injectable({
   providedIn: 'root',
@@ -15,24 +16,24 @@ export class CMSTransformErrorsService {
     const newError = {
       name: model,
       message: errorMessage + (requiredText ? '\n   This field is required for the content to load.' : ''),
-    };
+    } satisfies CMSDocPageError;
     this.errorMessages.push(newError);
   }
 
-  getCenteredContentErrors(data: ICenteredContent, locale: string): void {
+  getCenteredContentErrors(data: ICenteredContent, locale: LOCALE_CODE): void {
     if (!data.fields.content) {
       this.showErrorMessage(
         'Centered content',
         `${
           data.fields.title
-            ? 'The "Centered content" "' + data.fields.title[locale] + '"'
+            ? 'The "Centered content" "' + extractLocale(data.fields.title, locale) + '"'
             : 'A "Centered content" on your page'
         } is missing content.`,
       );
     }
   }
 
-  getWhenToUseErrors(data: IWhenToUse, locale: string): void {
+  getWhenToUseErrors(data: IWhenToUse, locale: LOCALE_CODE): void {
     if (!data.fields.name) {
       this.showErrorMessage(
         'When & when not to use',
@@ -44,7 +45,7 @@ export class CMSTransformErrorsService {
         'When & when not to use',
         `${
           data.fields.name
-            ? 'The entry "' + data.fields.name[locale] + '"'
+            ? 'The entry "' + extractLocale(data.fields.name, locale) + '"'
             : 'A "When & when not to use" entry on your page'
         } is missing the "when to use" field.`,
       );
@@ -54,14 +55,14 @@ export class CMSTransformErrorsService {
         'When & when not to use',
         `${
           data.fields.name
-            ? 'The entry "' + data.fields.name[locale] + '"'
+            ? 'The entry "' + extractLocale(data.fields.name, locale) + '"'
             : 'A "When & when not to use" entry on your page'
         } is missing the "when not to use" field.`,
       );
     }
   }
 
-  getImageErrors(data: IImage, locale: string): void {
+  getImageErrors(data: IImage, locale: LOCALE_CODE): void {
     if (!data.fields.name) {
       this.showErrorMessage(
         'Image',
@@ -72,7 +73,9 @@ export class CMSTransformErrorsService {
       this.showErrorMessage(
         'Image',
         `${
-          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+          data.fields.name
+            ? 'The image "' + extractLocale(data.fields.name, locale) + '"'
+            : 'An image on your page'
         } is missing the image asset.`,
       );
     }
@@ -80,13 +83,15 @@ export class CMSTransformErrorsService {
       this.showErrorMessage(
         'Image',
         `${
-          data.fields.name ? 'The image "' + data.fields.name[locale] + '"' : 'An image on your page'
+          data.fields.name
+            ? 'The image "' + extractLocale(data.fields.name, locale) + '"'
+            : 'An image on your page'
         } is missing alt text.`,
       );
     }
   }
 
-  getDownloadContentErrors(data: IDownloadContent, locale: string): void {
+  getDownloadContentErrors(data: IDownloadContent, locale: LOCALE_CODE): void {
     if (!data.fields.name) {
       this.showErrorMessage(
         'Download content',
@@ -98,7 +103,7 @@ export class CMSTransformErrorsService {
         'Download content',
         `${
           data.fields.name
-            ? 'The "Display image" "' + data.fields.name[locale] + '"'
+            ? 'The "Display image" "' + extractLocale(data.fields.name, locale) + '"'
             : 'A "Display image" on your page'
         } is missing display image.`,
       );
@@ -108,14 +113,14 @@ export class CMSTransformErrorsService {
         'Download content',
         `${
           data.fields.name
-            ? 'The "Download content" "' + data.fields.name[locale] + '"'
+            ? 'The "Download content" "' + extractLocale(data.fields.name, locale) + '"'
             : 'A "Download content" on your page'
         } is missing download content.`,
       );
     }
   }
 
-  getGridErrors(data: IGrid, locale: string): void {
+  getGridErrors(data: IGrid, locale: LOCALE_CODE): void {
     if (!data.fields.name) {
       this.showErrorMessage(
         'Grid',
@@ -126,7 +131,9 @@ export class CMSTransformErrorsService {
       this.showErrorMessage(
         'Grid',
         `${
-          data.fields.name ? 'The "Grid" "' + data.fields.name[locale] + '"' : 'A "Grid" on your page'
+          data.fields.name
+            ? 'The "Grid" "' + extractLocale(data.fields.name, locale) + '"'
+            : 'A "Grid" on your page'
         } is missing grid elements.`,
       );
     }
