@@ -318,8 +318,8 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     this.scrollService.findAnchorAtScrollPosition(this.visibleAnchors);
   };
 
-  setLocale(str: LOCALE_CODE): void {
-    this.localizationService.setLocalization(Locale[str]);
+  setLocale(locale: LOCALE_CODE): void {
+    this.localizationService.setLocalization(Locale[locale]);
   }
 
   private updateLocaleSwitchVisibility(): void {
