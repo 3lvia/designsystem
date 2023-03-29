@@ -4,8 +4,8 @@ import { LOCALE_CODE } from 'contentful/types';
 import { BehaviorSubject } from 'rxjs';
 
 export enum Locale {
-  'en-GB' = 'en-GB',
-  'nb-NO' = 'nb-NO',
+  'en-GB' = 0,
+  'nb-NO' = 1,
 }
 
 @Injectable({
