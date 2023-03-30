@@ -17,7 +17,7 @@ interface Group {
 })
 export class ControlsComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject();
-  @Input() controlManager: CegControlManager;
+  @Input() controlManager: CegControlManager<any>;
   @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
   groups: Group[] = [];
 

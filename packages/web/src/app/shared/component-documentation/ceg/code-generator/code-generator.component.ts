@@ -21,7 +21,7 @@ type Tab = 'Angular' | 'React' | 'Vue';
 })
 export class CodeGeneratorComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject();
-  @Input() controlManager: CegControlManager;
+  @Input() controlManager: CegControlManager<any>;
   @Input() elementName = '';
   @Input() componentSlots: Observable<string[]>;
   initialProps: Prop[] = [];

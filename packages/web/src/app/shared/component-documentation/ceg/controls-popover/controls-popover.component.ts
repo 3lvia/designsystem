@@ -7,7 +7,7 @@ import { ControlValue } from '../controlType';
   templateUrl: './controls-popover.component.html',
 })
 export class ControlsPopoverComponent {
-  @Input() controlManager: CegControlManager;
+  @Input() controlManager: CegControlManager<any>;
   @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
   popoverIsOpen = false;
 
