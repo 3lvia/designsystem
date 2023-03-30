@@ -44,9 +44,15 @@ export interface Text extends ControlBase {
   inputType?: 'input' | 'textarea';
 }
 
-export type CegControl = Checkbox | RadioGroup | Switch | Counter | Text;
+export type CegControl = Checkbox | Switch | RadioGroup | Counter | Text;
 
-export type Controls<T> = Partial<Record<keyof T, CegControl>>;
+export type Controls<T> = Partial<{
+  [key in keyof T]: T[key] extends boolean
+    ? Checkbox | Switch
+    : T[key] extends string
+    ? RadioGroup | Text
+    : RadioGroup | Counter | Text;
+}>;
 
 export interface ComponentType<T> {
   name: string;
