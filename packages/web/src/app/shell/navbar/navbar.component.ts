@@ -51,11 +51,6 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     private localizationService: LocalizationService,
   ) {}
 
-  @HostListener('window:scroll', ['$event']) // for window scroll events
-  onScroll(): void {
-    this.updateNavbarHeight();
-  }
-
   @HostListener('window:popstate') // for updating side menu on changes to the history (clicking back-button)
   onPopstate(): void {
     setTimeout(() => this.updateNavbarList(Locale[this.locale]), 200);
@@ -224,6 +219,8 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     this.activeAnchor = anchor;
   }
 
+  @HostListener('window:resize', ['$event'])
+  @HostListener('window:scroll', ['$event'])
   private updateNavbarHeight(): void {
     const fromTop = document.documentElement.scrollTop + window.innerHeight + 200 + 60;
     const scrollHeight = document.documentElement.scrollHeight + 48;
@@ -238,12 +235,8 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   }
 
   updateNavbarBlur(): void {
-    const removePostfix = (value: string, postfix: string) => {
-      return value.substring(0, navbarElement.style.height.lastIndexOf(postfix));
-    };
-
-    const navbarElement = document.getElementById('side-navbar');
-    const clientHeight = Number(removePostfix(navbarElement.style.height, 'px'));
+    const navbarElement = document.getElementById('side-navbar').firstChild as HTMLElement;
+    const clientHeight = navbarElement.getBoundingClientRect().height;
     const bottomOfNavbar = clientHeight + navbarElement.scrollTop;
     const heightOfNavbar = navbarElement.scrollHeight;
 
