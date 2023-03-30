@@ -61,4 +61,3 @@ export interface ComponentType<T> {
 }
 
 export type ControlValue = CegControl['value'];
-export type CegTypes = CegControl['type'];
