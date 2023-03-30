@@ -17,7 +17,7 @@ export interface RadioGroup extends ControlBase {
   radios: Radio[];
 }
 
-export interface Radio {
+interface Radio {
   label: string;
   value: string | number;
 }
