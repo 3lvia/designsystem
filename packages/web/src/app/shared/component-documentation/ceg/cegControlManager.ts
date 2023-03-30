@@ -2,8 +2,8 @@ import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CegControl, ComponentType, Controls, ControlValue } from './controlType';
 
-export class CegControlManager<T> {
-  private _componentTypes = new BehaviorSubject<ComponentType<T>[]>([]);
+export class CegControlManager<TComponentProps> {
+  private _componentTypes = new BehaviorSubject<ComponentType<TComponentProps>[]>([]);
   componentTypes = this._componentTypes.asObservable();
 
   private _currentComponentTypeName = new BehaviorSubject('');
@@ -15,17 +15,17 @@ export class CegControlManager<T> {
      *
      * Defined as an array of component types.
      */
-    controls: ComponentType<T>[],
+    controls: ComponentType<TComponentProps>[],
   ) {
     this._componentTypes.next(controls);
     this._currentComponentTypeName.next(controls[0].name);
   }
 
-  getCurrentControls(): Observable<Controls<T> | undefined> {
+  getCurrentControls(): Observable<Controls<TComponentProps> | undefined> {
     return this.getCurrentComponentType().pipe(map((configuration) => configuration?.controls));
   }
 
-  getControlSnapshot(): Controls<T> | undefined {
+  getControlSnapshot(): Controls<TComponentProps> | undefined {
     const confIndex = this.getCurrentComponentTypeIndex();
     return this._componentTypes.value[confIndex]?.controls;
   }
@@ -49,7 +49,7 @@ export class CegControlManager<T> {
    * @param value The new value of the prop
    * @returns true/false to indicate if the prop was updated or not.
    */
-  setPropValue(propName: keyof T, value: ControlValue): boolean {
+  setPropValue(propName: keyof TComponentProps, value: ControlValue): boolean {
     let propWasUpdated = false;
     const confIndex = this.getCurrentComponentTypeIndex();
     const listClone = this.clone(this._componentTypes.value);
@@ -72,7 +72,10 @@ export class CegControlManager<T> {
     return this._componentTypes.value.findIndex((conf) => conf.name === this._currentComponentTypeName.value);
   }
 
-  private getControl(configuration: ComponentType<T>, propName: keyof T): CegControl | undefined {
+  private getControl(
+    configuration: ComponentType<TComponentProps>,
+    propName: keyof TComponentProps,
+  ): CegControl | undefined {
     const topLevelControl = configuration.controls[propName];
     if (topLevelControl) {
       return topLevelControl;
@@ -90,7 +93,7 @@ export class CegControlManager<T> {
     }
   }
 
-  private getCurrentComponentType(): Observable<ComponentType<T> | undefined> {
+  private getCurrentComponentType(): Observable<ComponentType<TComponentProps> | undefined> {
     return combineLatest([this.componentTypes, this.currentComponentTypeName]).pipe(
       map(([componentTypes, name]) => {
         return componentTypes.find((configuration) => configuration.name === name);
