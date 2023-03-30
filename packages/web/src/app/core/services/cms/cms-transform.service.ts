@@ -46,11 +46,15 @@ export class CMSTransformService {
       [BLOCKS.OL_LIST]: (node, next) => this.getNumberedList(next(node.content)),
       [BLOCKS.QUOTE]: (node, next) => this.getQuote(next(node.content)),
       [BLOCKS.EMBEDDED_ASSET]: (node) =>
-        this.getEmbeddedAsset(extractLocale(node.data.target.fields.file, this.locale).url),
+        this.getEmbeddedAsset(this.extractLocale(node.data.target.fields.file).url),
       [BLOCKS.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node)}`,
       [INLINES.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node)}`,
     },
   };
+
+  /** Wrap `extractLocale` to avoid having to pass the locale to it every time. */
+  private extractLocale = <T extends Parameters<typeof extractLocale>[0]>(data: T) =>
+    extractLocale(data, this.locale);
 
   constructor(private router: Router, private cmsTransformErrorsService: CMSTransformErrorsService) {}
 
@@ -80,17 +84,17 @@ export class CMSTransformService {
 
     const description = this.getDocumentationPageHTML(data, 'pageDescription');
     const content = this.getDocumentationPageHTML(data, 'content');
-    const title = extractLocale(data.fields.title, this.locale) ?? '';
-    const figmaUrl = extractLocale(data.fields.figmaUrl, this.locale) ?? '';
-    const isMainPage = extractLocale(data.fields.isMainPage, this.locale) ?? false;
+    const title = this.extractLocale(data.fields.title) ?? '';
+    const figmaUrl = this.extractLocale(data.fields.figmaUrl) ?? '';
+    const isMainPage = this.extractLocale(data.fields.isMainPage) ?? false;
     return {
       title: title,
       pageDescription: description,
       figmaUrl: figmaUrl,
       content: content,
       isMainPage: isMainPage,
-      docUrl: data.fields.path && extractLocale(data.fields.path, this.locale),
-      fullPath: data.fields.path && subMenuRoute + extractLocale(data.fields.path, this.locale),
+      docUrl: data.fields.path && this.extractLocale(data.fields.path),
+      fullPath: data.fields.path && subMenuRoute + this.extractLocale(data.fields.path),
       lastUpdated: data.sys.updatedAt,
       errorMessages: this.cmsTransformErrorsService.errorMessages,
     };
@@ -106,7 +110,7 @@ export class CMSTransformService {
     if (!(model in data.fields)) {
       return '';
     }
-    const document = extractLocale(data.fields[model], this.locale);
+    const document = this.extractLocale(data.fields[model]);
     return document ? documentToHtmlString(document, this.options) : '';
   }
 
@@ -154,7 +158,7 @@ export class CMSTransformService {
     }
     return `
       <div class="cms-centered-content">
-        ${documentToHtmlString(extractLocale(data.fields.content, this.locale), this.options)}
+        ${documentToHtmlString(this.extractLocale(data.fields.content), this.options)}
       </div>`;
   }
 
@@ -208,8 +212,8 @@ export class CMSTransformService {
       if (element.path === subPath) {
         fullPath = subPath;
       } else {
-        extractLocale(element.entry.fields.pages, this.locale).forEach((subElement) => {
-          if (extractLocale(subElement.fields.path, this.locale) === subPath) {
+        this.extractLocale(element.entry.fields.pages).forEach((subElement) => {
+          if (this.extractLocale(subElement.fields.path) === subPath) {
             fullPath = element.path + '/' + subPath;
           }
         });
@@ -224,7 +228,7 @@ export class CMSTransformService {
   private getLinkPath(data: IInternalLink, subMenu: CMSSubMenu[], paragraphTitle: string): string {
     let linkPath = '';
     if (data.fields.page) {
-      const subPath = extractLocale(extractLocale(data.fields.page, this.locale).fields.path, this.locale);
+      const subPath = this.extractLocale(this.extractLocale(data.fields.page).fields.path);
       linkPath = this.getFullPath(subPath, subMenu) + '#' + paragraphTitle;
       if (!linkPath) {
         this.cmsTransformErrorsService.showErrorMessage(
@@ -234,13 +238,13 @@ export class CMSTransformService {
         return undefined;
       }
     } else if (data.fields.urlNewTab) {
-      linkPath = extractLocale(data.fields.urlNewTab, this.locale);
+      linkPath = this.extractLocale(data.fields.urlNewTab);
     } else {
       this.cmsTransformErrorsService.showErrorMessage(
         'Link',
         `${
           data.fields.title
-            ? 'The link "' + extractLocale(data.fields.title, this.locale) + '"'
+            ? 'The link "' + this.extractLocale(data.fields.title) + '"'
             : 'A link on your page'
         } has no url, add either Url design.elvia.io or Url new tab / external.`,
       );
@@ -251,7 +255,7 @@ export class CMSTransformService {
 
   private getLink(data: IInternalLink, subMenu: CMSSubMenu[], inlineEntry: boolean): string {
     const paragraphTitle = data.fields.paragraph
-      ? extractLocale(data.fields.paragraph, this.locale).replace(/ /g, '-')
+      ? this.extractLocale(data.fields.paragraph).replace(/ /g, '-')
       : '';
     const linkPath = this.getLinkPath(data, subMenu, paragraphTitle);
     if (!data.fields.title) {
@@ -260,8 +264,8 @@ export class CMSTransformService {
     if (!data.fields.title || !linkPath) {
       return;
     }
-    const linkText = extractLocale(data.fields.title, this.locale);
-    const type = data.fields.type ? extractLocale(data.fields.type, this.locale) : '';
+    const linkText = this.extractLocale(data.fields.title);
+    const type = data.fields.type ? this.extractLocale(data.fields.type) : '';
     const isInline = inlineEntry;
     const isExternal = data.fields.urlNewTab !== undefined && data.fields.page === undefined;
     const isAction = type === 'Action' && !isExternal;
@@ -298,13 +302,10 @@ export class CMSTransformService {
     }
     let returnStringWhen = '';
     let returnStringWhenNot = '';
-    const whensList = documentToHtmlString(
-      extractLocale(data.fields.whenToUse, this.locale),
-      this.options,
-    ).split('<p');
-    const whenNotsList = documentToHtmlString(extractLocale(data.fields.whenNotToUse, this.locale)).split(
+    const whensList = documentToHtmlString(this.extractLocale(data.fields.whenToUse), this.options).split(
       '<p',
     );
+    const whenNotsList = documentToHtmlString(this.extractLocale(data.fields.whenNotToUse)).split('<p');
     whensList.forEach((when) => {
       returnStringWhen += `<li>${when
         .replace('class="cms-paragraph e-text-lg">', '')
@@ -351,14 +352,11 @@ export class CMSTransformService {
       return;
     }
     const hasInlineText = data.fields.inlineText !== undefined;
-    const imgSize = extractLocale(data.fields.size, this.locale);
-    const imgAlignment = extractLocale(data.fields.alignment, this.locale);
-    const description = data.fields.description
-      ? extractLocale(data.fields.description, this.locale)
-      : undefined;
-    const altText = data.fields.altText ? extractLocale(data.fields.altText, this.locale) : undefined;
-    const srcUrl =
-      'https:' + extractLocale(extractLocale(data.fields.image, this.locale).fields.file, this.locale).url;
+    const imgSize = this.extractLocale(data.fields.size);
+    const imgAlignment = this.extractLocale(data.fields.alignment);
+    const description = data.fields.description ? this.extractLocale(data.fields.description) : undefined;
+    const altText = data.fields.altText ? this.extractLocale(data.fields.altText) : undefined;
+    const srcUrl = 'https:' + this.extractLocale(this.extractLocale(data.fields.image).fields.file).url;
     return `<div class='${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
     <div
       style=' 
@@ -401,7 +399,7 @@ export class CMSTransformService {
       </div>
       ${
         hasInlineText
-          ? `${documentToHtmlString(extractLocale(data.fields.inlineText, this.locale), this.options)}`
+          ? `${documentToHtmlString(this.extractLocale(data.fields.inlineText), this.options)}`
           : ''
       }
       <div style="clear: ${imgAlignment}"></div>
@@ -415,24 +413,15 @@ export class CMSTransformService {
     if (!data.fields.name || !data.fields.displayImage || !data.fields.downloadableContent) {
       return;
     }
-    const assetName = extractLocale(data.fields.name, this.locale);
-    const displayTitle = data.fields.displayTitle
-      ? extractLocale(data.fields.displayTitle, this.locale)
-      : undefined;
-    const altText = extractLocale(
-      extractLocale(data.fields.displayImage, this.locale).fields.title,
-      this.locale,
-    );
-    const url = extractLocale(
-      extractLocale(data.fields.displayImage, this.locale).fields.file,
-      this.locale,
-    ).url;
+    const assetName = this.extractLocale(data.fields.name);
+    const displayTitle = data.fields.displayTitle ? this.extractLocale(data.fields.displayTitle) : undefined;
+    const altText = this.extractLocale(this.extractLocale(data.fields.displayImage).fields.title);
+    const url = this.extractLocale(this.extractLocale(data.fields.displayImage).fields.file).url;
     const displayImage = 'https:' + url + '?fm=jpg&fl=progressive';
     const displayImageWebp = 'https:' + url + '?fm=webp&q=75&w=720';
     const displayImageAvif = 'https:' + url + '?fm=avif&q=75&w=720';
     const asset =
-      'https:' +
-      extractLocale(extractLocale(data.fields.downloadableContent, this.locale).fields.file, this.locale).url;
+      'https:' + this.extractLocale(this.extractLocale(data.fields.downloadableContent).fields.file).url;
     const fileType = asset.split('.').pop();
     fetch(asset)
       .then((response) => response.blob())
@@ -482,8 +471,8 @@ export class CMSTransformService {
     if (!data.fields.name || !data.fields.gridElements) {
       return;
     }
-    const elements = extractLocale(data.fields.gridElements, this.locale);
-    const background = extractLocale(data.fields.background, this.locale);
+    const elements = this.extractLocale(data.fields.gridElements);
+    const background = this.extractLocale(data.fields.background);
     let returnString = '';
     if (
       elements.find((el) => el.sys.contentType.sys.id === 'image') &&
@@ -499,7 +488,7 @@ export class CMSTransformService {
     if (elements[0].sys.contentType.sys.id === 'downloadContent') {
       const nameArray = [];
       elements.forEach((element) => {
-        nameArray.push(extractLocale(element.fields.name, this.locale));
+        nameArray.push(this.extractLocale(element.fields.name));
       });
       if (new Set(nameArray).size !== nameArray.length) {
         this.cmsTransformErrorsService.showErrorMessage(
@@ -585,30 +574,25 @@ export class CMSTransformService {
 
   private getLandingPage(data: ILandingPage) {
     const srcUrl =
-      'https:' +
-      extractLocale(extractLocale(data.fields.overviewImage, this.locale).fields.file, this.locale).url;
+      'https:' + this.extractLocale(this.extractLocale(data.fields.overviewImage).fields.file).url;
     return `
       <div class="cms-landing-page">
-        <img class="cms-landing-page__img" src="${srcUrl}" alt="${extractLocale(
-      extractLocale(data.fields.overviewImage, this.locale).fields.title,
-      this.locale,
+        <img class="cms-landing-page__img" src="${srcUrl}" alt="${this.extractLocale(
+      this.extractLocale(data.fields.overviewImage).fields.title,
     )}"></img>
         <div class="cms-landing-page__description e-text-lg">
-          ${data.fields.description ? extractLocale(data.fields.description, this.locale) : ''}
+          ${data.fields.description ? this.extractLocale(data.fields.description) : ''}
         </div>
       </div>`;
   }
 
   private getLandingPageWithCards(data: ILandingPageWithCards, subMenu: CMSSubMenu[]) {
-    const cardList = extractLocale(data.fields.overviewCard, this.locale);
+    const cardList = this.extractLocale(data.fields.overviewCard);
     let returnString = '';
     cardList.forEach((card) => {
       let fullPath = '';
       if (card.fields.pageUrl) {
-        const subPath = extractLocale(
-          extractLocale(card.fields.pageUrl, this.locale).fields.path,
-          this.locale,
-        );
+        const subPath = this.extractLocale(this.extractLocale(card.fields.pageUrl).fields.path);
         fullPath = this.getFullPath(subPath, subMenu);
         if (!fullPath) {
           this.cmsTransformErrorsService.showErrorMessage(
@@ -622,10 +606,8 @@ export class CMSTransformService {
           `The card "${card.fields.title}" is missing page URL reference.`,
         );
       }
-      const iconUrl =
-        'https:' +
-        extractLocale(extractLocale(card.fields.pageIcon, this.locale).fields.file, this.locale).url;
-      const cardTitle = extractLocale(card.fields.title, this.locale);
+      const iconUrl = 'https:' + this.extractLocale(this.extractLocale(card.fields.pageIcon).fields.file).url;
+      const cardTitle = this.extractLocale(card.fields.title);
       returnString += `<div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
       <a href="${fullPath}">
         <elvia-card
