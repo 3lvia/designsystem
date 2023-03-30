@@ -12,7 +12,7 @@ export enum Locale {
   providedIn: 'root',
 })
 export class LocalizationService {
-  private defaultLocale = Locale['en-GB'];
+  private defaultLocale = Locale['nb-NO'];
   private localizationSubject = new BehaviorSubject<Locale>(this.defaultLocale);
 
   constructor(private router: Router) {
@@ -21,7 +21,7 @@ export class LocalizationService {
       if (event instanceof NavigationEnd) {
         const url = event.urlAfterRedirects;
         if (url.split('/')[1] !== 'brand') {
-          this.setLocalization(Locale['en-GB']);
+          this.setLocalization(Locale['nb-NO']);
         }
       }
     });
