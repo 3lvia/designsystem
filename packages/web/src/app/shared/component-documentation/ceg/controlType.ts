@@ -46,11 +46,11 @@ export interface Text extends ControlBase {
 
 export type CegControl = Checkbox | RadioGroup | Switch | Counter | Text;
 
-export type Controls = { [key: string]: CegControl };
+export type Controls<T> = Partial<Record<keyof T, CegControl>>;
 
-export interface ComponentType {
+export interface ComponentType<T> {
   name: string;
-  controls: Controls;
+  controls: Controls<T>;
   groupOrder: string[];
 }
 

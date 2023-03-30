@@ -2,8 +2,8 @@ import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CegControl, ComponentType, Controls, ControlValue } from './controlType';
 
-export class CegControlManager {
-  private _componentTypes = new BehaviorSubject<ComponentType[]>([]);
+export class CegControlManager<T> {
+  private _componentTypes = new BehaviorSubject<ComponentType<T>[]>([]);
   componentTypes = this._componentTypes.asObservable();
 
   private _currentComponentTypeName = new BehaviorSubject('');
@@ -15,17 +15,17 @@ export class CegControlManager {
      *
      * Defined as an array of component types.
      */
-    controls: ComponentType[],
+    controls: ComponentType<T>[],
   ) {
     this._componentTypes.next(controls);
     this._currentComponentTypeName.next(controls[0].name);
   }
 
-  getCurrentControls(): Observable<Controls | undefined> {
+  getCurrentControls(): Observable<Controls<T> | undefined> {
     return this.getCurrentComponentType().pipe(map((configuration) => configuration?.controls));
   }
 
-  getControlSnapshot(): Controls | undefined {
+  getControlSnapshot(): Controls<T> | undefined {
     const confIndex = this.getCurrentComponentTypeIndex();
     return this._componentTypes.value[confIndex]?.controls;
   }
@@ -49,7 +49,7 @@ export class CegControlManager {
    * @param value The new value of the prop
    * @returns true/false to indicate if the prop was updated or not.
    */
-  setPropValue(propName: string, value: ControlValue): boolean {
+  setPropValue(propName: keyof T, value: ControlValue): boolean {
     let propWasUpdated = false;
     const confIndex = this.getCurrentComponentTypeIndex();
     const listClone = this.clone(this._componentTypes.value);
@@ -72,13 +72,14 @@ export class CegControlManager {
     return this._componentTypes.value.findIndex((conf) => conf.name === this._currentComponentTypeName.value);
   }
 
-  private getControl(configuration: ComponentType, propName: string): CegControl | undefined {
+  private getControl(configuration: ComponentType<T>, propName: keyof T): CegControl | undefined {
     const topLevelControl = configuration.controls[propName];
     if (topLevelControl) {
       return topLevelControl;
     }
 
-    for (let control of Object.values(configuration.controls)) {
+    const controls = Object.values(configuration.controls) as CegControl[];
+    for (let control of controls) {
       if (control.type === 'checkbox' && control.children) {
         const child = Object.entries(control.children).find(([key]) => key === propName)?.[1];
 
@@ -89,7 +90,7 @@ export class CegControlManager {
     }
   }
 
-  private getCurrentComponentType(): Observable<ComponentType | undefined> {
+  private getCurrentComponentType(): Observable<ComponentType<T> | undefined> {
     return combineLatest([this.componentTypes, this.currentComponentTypeName]).pipe(
       map(([componentTypes, name]) => {
         return componentTypes.find((configuration) => configuration.name === name);
