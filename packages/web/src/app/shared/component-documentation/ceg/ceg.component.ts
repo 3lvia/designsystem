@@ -7,7 +7,7 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core';
-import { map, switchMap, takeUntil } from 'rxjs/operators';
+import { map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './componentExample';
 import { ControlValue } from './controlType';
@@ -37,12 +37,14 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     this.componentExample.cegContent.currentComponentTypeName
       .pipe(
         takeUntil(this.unsubscriber),
+        tap((type) => this.getWebComponent().setProps({ type: type.toLowerCase() })),
         /** We need to wait in order to prevent ExpressionChangeAfterChecked error  */
         switchMap(() => this.zone.onStable),
         map(() => Object.values(this.getWebComponent().getAllSlots()).map((slot) => slot.outerHTML)),
       )
       .subscribe((slots) => this._componentSlots.next(slots));
 
+    this.setUpStaticPropSubscription();
     this.setDisplayStyleOnExampleComponent();
     this.setAllPropsOnWebComponent();
   }
@@ -58,6 +60,21 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     if (propWasUpdated) {
       this.getWebComponent().setProps({ [propName]: value });
     }
+  }
+
+  private setUpStaticPropSubscription() {
+    this.componentExample.cegContent
+      .getStaticProps()
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe((props) => {
+        const propsToInclude = Object.entries(props).reduce((acc, [key, value]) => {
+          if (typeof value !== 'function') {
+            acc[key] = value;
+          }
+          return acc;
+        }, {});
+        this.getWebComponent().setProps(propsToInclude);
+      });
   }
 
   private setDisplayStyleOnExampleComponent() {

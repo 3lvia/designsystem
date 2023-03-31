@@ -11,7 +11,6 @@ export class TimepickerCegComponent implements ComponentExample {
   elementName = 'timepicker';
   cegContent = new CegControlManager<TimepickerProps>([
     {
-      name: 'Default',
       controls: {
         minuteInterval: {
           type: 'radioGroup',
