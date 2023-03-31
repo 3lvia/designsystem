@@ -16,8 +16,6 @@ export const segmentedControlData: ComponentData = {
       type: 'Number',
       description:
         'The selected value for the segmented control, which should be the index of the selected item.',
-      cegDisplayName: 'Value',
-      default: '0',
     },
     type: {
       isRequired: false,
@@ -30,11 +28,6 @@ export const segmentedControlData: ComponentData = {
       type: '“small” | “medium” | “large”',
       description: 'Size of the segmented control.',
       default: '"medium"',
-      cegDisplayName: 'Size',
-      cegDefault: 'medium',
-      cegType: 'string',
-      cegFormType: 'radio',
-      cegOptions: ['small', 'medium', 'large'],
     },
     valueOnChange: {
       isRequired: false,
