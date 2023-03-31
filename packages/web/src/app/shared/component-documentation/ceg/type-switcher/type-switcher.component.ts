@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CegControlManager } from '../cegControlManager';
+import { UnknownCegControlManager } from '../cegControlManager';
 
 interface DropdownOption {
   value: string;
@@ -15,7 +15,7 @@ interface DropdownOption {
 })
 export class TypeSwitcherComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject();
-  @Input() controlManager: CegControlManager;
+  @Input() controlManager: UnknownCegControlManager;
   dropdownOptions: DropdownOption[] = [];
   selectedOption = '';
 

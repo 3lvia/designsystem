@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CegControlManager } from '../cegControlManager';
+import { UnknownCegControlManager } from '../cegControlManager';
 import { ControlValue } from '../controlType';
 
 @Component({
@@ -7,7 +7,7 @@ import { ControlValue } from '../controlType';
   templateUrl: './controls-popover.component.html',
 })
 export class ControlsPopoverComponent {
-  @Input() controlManager: CegControlManager;
+  @Input() controlManager: UnknownCegControlManager;
   @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
   popoverIsOpen = false;
 

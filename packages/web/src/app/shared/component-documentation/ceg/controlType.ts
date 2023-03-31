@@ -1,7 +1,7 @@
 interface ControlBase {
   type: string;
   group: string;
-  disabledBy?: ControlNames<ComponentType>[];
+  disabledBy?: string[];
 }
 
 export interface Checkbox extends ControlBase {
@@ -14,10 +14,12 @@ export interface Checkbox extends ControlBase {
 export interface RadioGroup extends ControlBase {
   type: 'radioGroup';
   value: string | number;
-  radios: {
-    label: string;
-    value: string | number;
-  }[];
+  radios: Radio[];
+}
+
+interface Radio {
+  label: string;
+  value: string | number;
 }
 
 export interface Switch extends ControlBase {
@@ -28,7 +30,7 @@ export interface Switch extends ControlBase {
 
 export interface Counter extends ControlBase {
   type: 'counter';
-  postfix: string;
+  postfix?: string;
   value: number;
   increment: number;
   min?: number;
@@ -38,21 +40,24 @@ export interface Counter extends ControlBase {
 export interface Text extends ControlBase {
   type: 'text';
   label: string;
-  value: string;
+  value?: string;
   inputType?: 'input' | 'textarea';
 }
 
-export type CegControl = Checkbox | RadioGroup | Switch | Counter | Text;
+export type CegControl = Checkbox | Switch | RadioGroup | Counter | Text;
 
-export type Controls = { [key: string]: CegControl };
+export type Controls<T = Record<string, any>> = Partial<{
+  [key in keyof T]: T[key] extends boolean
+    ? Checkbox | Switch
+    : T[key] extends string
+    ? RadioGroup | Text
+    : RadioGroup | Counter | Text;
+}>;
 
-export interface ComponentType {
+export interface ComponentType<T> {
   name: string;
-  controls: Controls;
+  controls: Controls<T>;
   groupOrder: string[];
 }
-
-// Ensure that this type only returns keys in the controls object.
-type ControlNames<T extends { controls: Controls }> = keyof T['controls'];
 
 export type ControlValue = CegControl['value'];

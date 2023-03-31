@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
+import { TimepickerProps } from '@elvia/elvis-timepicker/react';
 
 @Component({
   selector: 'app-timepicker-ceg',
@@ -8,7 +9,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
 })
 export class TimepickerCegComponent implements ComponentExample {
   elementName = 'timepicker';
-  cegContent = new CegControlManager([
+  cegContent = new CegControlManager<TimepickerProps>([
     {
       name: 'Default',
       controls: {

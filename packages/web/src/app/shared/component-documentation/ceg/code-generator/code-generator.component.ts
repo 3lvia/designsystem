@@ -2,7 +2,7 @@ import { OnInit, Component, Input, OnDestroy } from '@angular/core';
 import { combineLatest, Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { CegControlManager } from '../cegControlManager';
+import { UnknownCegControlManager } from '../cegControlManager';
 import { Controls } from '../controlType';
 import { FormatCodePipe } from './formatCode.pipe';
 import { Language } from './language';
@@ -21,7 +21,7 @@ type Tab = 'Angular' | 'React' | 'Vue';
 })
 export class CodeGeneratorComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject();
-  @Input() controlManager: CegControlManager;
+  @Input() controlManager: UnknownCegControlManager;
   @Input() elementName = '';
   @Input() componentSlots: Observable<string[]>;
   initialProps: Prop[] = [];
