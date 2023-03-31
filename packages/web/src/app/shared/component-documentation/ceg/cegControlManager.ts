@@ -45,6 +45,10 @@ export class CegControlManager<TComponentProps> {
     return this._componentTypes.value[confIndex]?.staticProps;
   }
 
+  getCurrentComponentTypeNameSnapshot(): string {
+    return this._currentComponentTypeName.value;
+  }
+
   getGroupOrderSnapshot(): string[] | undefined {
     const confIndex = this.getCurrentComponentTypeIndex();
     return this._componentTypes.value[confIndex]?.groupOrder;
