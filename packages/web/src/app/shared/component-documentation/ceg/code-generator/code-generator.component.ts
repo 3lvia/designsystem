@@ -14,7 +14,7 @@ interface Prop {
 
 type Tab = 'Angular' | 'React' | 'Vue';
 
-const LANGUAGE_STORAGE_KEY = 'preferredLanguage';
+const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
 
 @Component({
   selector: 'app-code-generator',
