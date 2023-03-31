@@ -1,5 +1,13 @@
-import { AfterViewInit, Component, ContentChild, ElementRef, OnDestroy, ViewChild } from '@angular/core';
-import { map, takeUntil } from 'rxjs/operators';
+import {
+  AfterViewInit,
+  Component,
+  ContentChild,
+  ElementRef,
+  NgZone,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
+import { map, switchMap, takeUntil } from 'rxjs/operators';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './componentExample';
 import { ControlValue } from './controlType';
@@ -15,7 +23,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
   @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
   private _componentSlots = new BehaviorSubject<string[]>([]);
-  componentSlots = this._componentSlots.asObservable();
+  readonly componentSlots = this._componentSlots.asObservable();
 
   get hasMultipleComponentTypes() {
     return this.componentExample.cegContent.componentTypes.pipe(
@@ -23,13 +31,17 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     );
   }
 
+  constructor(private zone: NgZone) {}
+
   ngAfterViewInit(): void {
     this.componentExample.cegContent.currentComponentTypeName
-      .pipe(takeUntil(this.unsubscriber))
-      .subscribe(() => {
-        const slots = Object.values(this.getWebComponent().getAllSlots()).map((slot) => slot.outerHTML);
-        this._componentSlots.next(slots);
-      });
+      .pipe(
+        takeUntil(this.unsubscriber),
+        /** We need to wait in order to prevent ExpressionChangeAfterChecked error  */
+        switchMap(() => this.zone.onStable),
+        map(() => Object.values(this.getWebComponent().getAllSlots()).map((slot) => slot.outerHTML)),
+      )
+      .subscribe((slots) => this._componentSlots.next(slots));
 
     this.setDisplayStyleOnExampleComponent();
     this.setAllPropsOnWebComponent();
