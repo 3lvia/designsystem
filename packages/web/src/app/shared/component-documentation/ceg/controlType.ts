@@ -46,7 +46,7 @@ export interface Text extends ControlBase {
 
 export type CegControl = Checkbox | Switch | RadioGroup | Counter | Text;
 
-export type Controls<T = any> = Partial<{
+export type Controls<T = Record<string, any>> = Partial<{
   [key in keyof T]: T[key] extends boolean
     ? Checkbox | Switch
     : T[key] extends string

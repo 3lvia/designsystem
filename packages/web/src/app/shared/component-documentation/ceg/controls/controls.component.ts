@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
 import { combineLatest, Subject } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 
-import { CegControlManager } from '../cegControlManager';
+import { UnknownCegControlManager } from '../cegControlManager';
 import { Controls, ControlValue } from '../controlType';
 
 interface Group {
@@ -17,7 +17,7 @@ interface Group {
 })
 export class ControlsComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject();
-  @Input() controlManager: CegControlManager<any>;
+  @Input() controlManager: UnknownCegControlManager;
   @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
   groups: Group[] = [];
 

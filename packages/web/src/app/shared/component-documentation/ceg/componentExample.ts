@@ -1,6 +1,6 @@
 import { CegControlManager } from './cegControlManager';
 
-export abstract class ComponentExample<T = any> {
+export abstract class ComponentExample<T = unknown> {
   /**
    * The element name.
    *

@@ -2,6 +2,8 @@ import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CegControl, ComponentType, Controls, ControlValue } from './controlType';
 
+export type UnknownCegControlManager = CegControlManager<unknown>;
+
 export class CegControlManager<TComponentProps> {
   private _componentTypes = new BehaviorSubject<ComponentType<TComponentProps>[]>([]);
   componentTypes = this._componentTypes.asObservable();
