@@ -3,7 +3,7 @@ import { combineLatest, Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { UnknownCegControlManager } from '../cegControlManager';
-import { Controls } from '../controlType';
+import { Controls, StaticProps } from '../controlType';
 import { FormatCodePipe } from './formatCode.pipe';
 import { Language } from './language';
 
@@ -40,12 +40,21 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
   constructor(private codeFormatter: FormatCodePipe) {}
 
   ngOnInit() {
-    this.initialProps = this.getFlatPropList(this.controlManager.getControlSnapshot());
+    this.initialProps = this.getFlatPropList(
+      this.controlManager.getControlSnapshot(),
+      this.controlManager.getStaticPropsSnapshot(),
+      this.controlManager.getCurrentComponentTypeNameSnapshot(),
+    );
 
-    combineLatest([this.controlManager.getCurrentControls(), this.componentSlots])
+    combineLatest([
+      this.controlManager.getCurrentControls(),
+      this.componentSlots,
+      this.controlManager.currentComponentTypeName,
+      this.controlManager.getStaticProps(),
+    ])
       .pipe(takeUntil(this.unsubscriber))
-      .subscribe(([controls, slots]) => {
-        const props = this.getFlatPropList(controls);
+      .subscribe(([controls, slots, type, staticProps]) => {
+        const props = this.getFlatPropList(controls, staticProps, type);
 
         this.angularCode = this.createWebComponentCode(props, slots, '[', ']');
         this.vueCode = this.createWebComponentCode(props, slots, ':');
@@ -85,8 +94,8 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
    * Create a flat list of all props, which is easier to iterate.
    * We also include eventual children of checkbox-controls.
    */
-  private getFlatPropList(controls: Controls): Prop[] {
-    return Object.entries(controls)
+  private getFlatPropList(controls: Controls, staticProps: StaticProps<unknown>, type: string): Prop[] {
+    const props = Object.entries(controls)
       .map(([controlName, control]) => {
         const props: Prop[] = [{ name: controlName, value: control.value }];
         if (control.type === 'checkbox' && control.children) {
@@ -97,6 +106,15 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
         return props;
       })
       .flat();
+
+    if (staticProps) {
+      const staticPropsArray = Object.entries(staticProps).map(([name, value]) => ({ name, value }));
+      props.unshift(...(staticPropsArray as Prop[]));
+    }
+    if (type) {
+      props.unshift({ name: 'type', value: type.toLowerCase() });
+    }
+    return props;
   }
 
   private propShouldBeIncluded(prop: Prop): boolean {
@@ -106,7 +124,7 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
     const valueIsDifferentFromInitialValue =
       typeof prop.value !== 'boolean' || (initialProp.value || false) !== prop.value;
 
-    return prop.value != null && valueIsDifferentFromInitialValue;
+    return prop.value != null && valueIsDifferentFromInitialValue && typeof prop.value !== 'function';
   }
 
   private getWebComponentSlots(slots: string[]): string {
@@ -140,8 +158,15 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
     const propsToInclude = props.filter((prop) => this.propShouldBeIncluded(prop));
     return `<elvia-${this.elementName} ${propsToInclude
       .map((prop) => {
-        const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
-        return `${attributePrefix}${prop.name}${attributePostfix}="${value}"`;
+        const propName = `${attributePrefix}${prop.name}${attributePostfix}`;
+        switch (typeof prop.value) {
+          case 'string':
+            return `${propName}="'${prop.value}'" `;
+          default:
+            /** JSON.stringify gives us a string with double quotes for objects,
+             * which we need to replace with single quotes for the web components. */
+            return `${propName}="${JSON.stringify(prop.value).replace(/"/g, "'")}" `;
+        }
       })
       .join('')}>${this.getWebComponentSlots(slots)}</elvia-${this.elementName}>`;
   }
@@ -155,8 +180,12 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
 
     return `<${elementName} ${propsToInclude
       .map((prop) => {
-        const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
-        return `${prop.name}={${value}}`;
+        switch (typeof prop.value) {
+          case 'string':
+            return `${prop.name}={'${prop.value}'}`;
+          default:
+            return `${prop.name}={${JSON.stringify(prop.value)}}`;
+        }
       })
       .join('')} ${this.getReactSlots(slots)}></${elementName}>`;
   }

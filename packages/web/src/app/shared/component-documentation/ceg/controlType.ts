@@ -54,10 +54,15 @@ export type Controls<T = Record<string, any>> = Partial<{
     : RadioGroup | Counter | Text;
 }>;
 
+export type StaticProps<T> = {
+  [key in keyof T]: T[key];
+};
+
 export interface ComponentType<T> {
-  name: string;
+  name?: string;
   controls: Controls<T>;
   groupOrder: string[];
+  staticProps?: StaticProps<T>;
 }
 
 export type ControlValue = CegControl['value'];
