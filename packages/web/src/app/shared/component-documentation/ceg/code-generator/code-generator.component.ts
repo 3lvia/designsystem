@@ -37,7 +37,7 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
   reactCode = '';
   vueCode = '';
 
-  constructor(private codeFormater: FormatCodePipe) {}
+  constructor(private codeFormatter: FormatCodePipe) {}
 
   ngOnInit() {
     this.initialProps = this.getFlatPropList(this.controlManager.getControlSnapshot());
@@ -162,7 +162,7 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
   }
 
   copyCode() {
-    navigator.clipboard.writeText(this.codeFormater.transform(this.activeCode, this.language)).then(() => {
+    navigator.clipboard.writeText(this.codeFormatter.transform(this.activeCode, this.language)).then(() => {
       this.copyMessage = 'Copied!';
       const copyTimeout = setTimeout(() => {
         this.copyMessage = '';
