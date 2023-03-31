@@ -2,7 +2,7 @@
   <div slot="content" class="code-container">
     <div class="top-menu">
       <elvia-tabs
-        (valueOnChange)="activeTabIndex = $any($event).detail.value"
+        (valueOnChange)="setActiveTab($any($event).detail.value)"
         [isInverted]="true"
         [value]="activeTabIndex"
         [items]="tabs"

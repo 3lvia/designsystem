@@ -14,6 +14,8 @@ interface Prop {
 
 type Tab = 'Angular' | 'React' | 'Vue';
 
+const LANGUAGE_STORAGE_KEY = 'preferredLanguage';
+
 @Component({
   selector: 'app-code-generator',
   templateUrl: './code-generator.component.html',
@@ -25,7 +27,9 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
   @Input() elementName = '';
   @Input() componentSlots: Observable<string[]>;
   initialProps: Prop[] = [];
-  activeTabIndex = 0;
+  activeTabIndex = localStorage.getItem(LANGUAGE_STORAGE_KEY)
+    ? localStorage.getItem(LANGUAGE_STORAGE_KEY)
+    : 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
 
   copyMessage = '';
@@ -70,6 +74,11 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
     } else {
       return this.vueCode;
     }
+  }
+
+  setActiveTab(newIndex: number): void {
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, newIndex.toString());
+    this.activeTabIndex = newIndex;
   }
 
   /**
