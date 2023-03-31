@@ -1,6 +1,6 @@
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CegControl, ComponentType, Controls, ControlValue } from './controlType';
+import { CegControl, ComponentType, Controls, ControlValue, StaticProps } from './controlType';
 
 export type UnknownCegControlManager = CegControlManager<unknown>;
 
@@ -34,6 +34,15 @@ export class CegControlManager<TComponentProps> {
 
   getCurrentControlGroupOrder(): Observable<string[] | undefined> {
     return this.getCurrentComponentType().pipe(map((configuration) => configuration?.groupOrder));
+  }
+
+  getStaticProps(): Observable<StaticProps<TComponentProps> | undefined> {
+    return this.getCurrentComponentType().pipe(map((configuration) => configuration?.staticProps));
+  }
+
+  getStaticPropsSnapshot(): StaticProps<TComponentProps> | undefined {
+    const confIndex = this.getCurrentComponentTypeIndex();
+    return this._componentTypes.value[confIndex]?.staticProps;
   }
 
   getGroupOrderSnapshot(): string[] | undefined {

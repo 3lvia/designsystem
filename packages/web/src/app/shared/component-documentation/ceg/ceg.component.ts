@@ -26,9 +26,26 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.componentExample.cegContent.currentComponentTypeName
       .pipe(takeUntil(this.unsubscriber))
-      .subscribe(() => {
+      .subscribe((type) => {
         const slots = Object.values(this.getWebComponent().getAllSlots()).map((slot) => slot.outerHTML);
         this._componentSlots.next(slots);
+
+        if (type) {
+          this.getWebComponent().setProps({ type: type.toLowerCase() });
+        }
+      });
+
+    this.componentExample.cegContent
+      .getStaticProps()
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe((props) => {
+        const propsToInclude = Object.entries(props).reduce((acc, [key, value]) => {
+          if (typeof value !== 'function') {
+            acc[key] = value;
+          }
+          return acc;
+        }, {});
+        this.getWebComponent().setProps(propsToInclude);
       });
 
     this.setDisplayStyleOnExampleComponent();

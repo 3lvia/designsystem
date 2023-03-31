@@ -42,10 +42,22 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.initialProps = this.getFlatPropList(this.controlManager.getControlSnapshot());
 
-    combineLatest([this.controlManager.getCurrentControls(), this.componentSlots])
+    combineLatest([
+      this.controlManager.getCurrentControls(),
+      this.componentSlots,
+      this.controlManager.currentComponentTypeName,
+      this.controlManager.getStaticProps(),
+    ])
       .pipe(takeUntil(this.unsubscriber))
-      .subscribe(([controls, slots]) => {
+      .subscribe(([controls, slots, type, staticProps]) => {
         const props = this.getFlatPropList(controls);
+        if (staticProps) {
+          const staticPropsArray = Object.entries(staticProps).map(([name, value]) => ({ name, value }));
+          props.unshift(...(staticPropsArray as Prop[]));
+        }
+        if (type) {
+          props.unshift({ name: 'type', value: type.toLowerCase() });
+        }
 
         this.angularCode = this.createWebComponentCode(props, slots, '[', ']');
         this.vueCode = this.createWebComponentCode(props, slots, ':');
@@ -106,7 +118,7 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
     const valueIsDifferentFromInitialValue =
       typeof prop.value !== 'boolean' || (initialProp.value || false) !== prop.value;
 
-    return prop.value != null && valueIsDifferentFromInitialValue;
+    return prop.value != null && valueIsDifferentFromInitialValue && typeof prop.value !== 'function';
   }
 
   private getWebComponentSlots(slots: string[]): string {
@@ -140,8 +152,15 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
     const propsToInclude = props.filter((prop) => this.propShouldBeIncluded(prop));
     return `<elvia-${this.elementName} ${propsToInclude
       .map((prop) => {
-        const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
-        return `${attributePrefix}${prop.name}${attributePostfix}="${value}"`;
+        switch (typeof prop.value) {
+          case 'string':
+            return `${attributePrefix}${prop.name}${attributePostfix}="'${prop.value}'" `;
+          default:
+            return `${attributePrefix}${prop.name}${attributePostfix}="${JSON.stringify(prop.value).replace(
+              /"/g,
+              "'",
+            )}" `;
+        }
       })
       .join('')}>${this.getWebComponentSlots(slots)}</elvia-${this.elementName}>`;
   }
@@ -155,8 +174,12 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
 
     return `<${elementName} ${propsToInclude
       .map((prop) => {
-        const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
-        return `${prop.name}={${value}}`;
+        switch (typeof prop.value) {
+          case 'string':
+            return `${prop.name}={'${prop.value}'}`;
+          default:
+            return `${prop.name}={${JSON.stringify(prop.value)}}`;
+        }
       })
       .join('')} ${this.getReactSlots(slots)}></${elementName}>`;
   }
