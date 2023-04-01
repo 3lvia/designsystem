@@ -37,7 +37,11 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     this.componentExample.cegContent.currentComponentTypeName
       .pipe(
         takeUntil(this.unsubscriber),
-        tap((type) => this.getWebComponent().setProps({ type: type.toLowerCase() })),
+        tap((type) => {
+          if (type) {
+            this.getWebComponent().setProps({ type: type.toLowerCase() });
+          }
+        }),
         /** We need to wait in order to prevent ExpressionChangeAfterChecked error  */
         switchMap(() => this.zone.onStable),
         map(() => Object.values(this.getWebComponent().getAllSlots()).map((slot) => slot.outerHTML)),
@@ -67,6 +71,10 @@ export class CegComponent implements AfterViewInit, OnDestroy {
       .getStaticProps()
       .pipe(takeUntil(this.unsubscriber))
       .subscribe((props) => {
+        if (!props) {
+          return;
+        }
+
         const propsToInclude = Object.entries(props).reduce((acc, [key, value]) => {
           if (typeof value !== 'function') {
             acc[key] = value;

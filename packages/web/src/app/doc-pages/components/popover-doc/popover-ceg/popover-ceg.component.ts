@@ -11,7 +11,6 @@ export class PopoverCegComponent implements ComponentExample {
   elementName = 'popover';
   cegContent = new CegControlManager<PopoverProps>([
     {
-      name: 'Default',
       controls: {
         verticalPosition: {
           type: 'radioGroup',
