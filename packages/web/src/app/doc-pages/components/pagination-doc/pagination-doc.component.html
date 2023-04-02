@@ -8,12 +8,9 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-component-example-generator
-    overflowX="auto"
-    overflowy="auto"
-    [inlineExample]="true"
-    [componentData]="componentData"
-  ></app-component-example-generator>
+  <app-ceg>
+    <app-pagination-ceg />
+  </app-ceg>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
