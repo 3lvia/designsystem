@@ -46,11 +46,4 @@ export const segmentedControlData: ComponentData = {
         "Custom CSS style object that can be added to the segmented control. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-
-  // Not used here, as there are separate files with code for each component type.
-  codeReact: ``,
-  codeAngular: ``,
-  codeVue: ``,
-  codeNativeHTML: ``,
-  codeNativeScript: ``,
 };

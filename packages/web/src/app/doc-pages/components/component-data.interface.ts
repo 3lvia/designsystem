@@ -199,7 +199,7 @@ export interface ComponentChangelogChange {
 /**
  * Interface for component data for documentation pages.
  */
-export default interface ComponentData extends ComponentDataCode {
+export default interface ComponentData extends Partial<ComponentDataCode> {
   /**
    * Component name.
    * @example 'SegmentedControl'

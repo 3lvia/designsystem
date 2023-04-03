@@ -127,23 +127,39 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
     return prop.value != null && valueIsDifferentFromInitialValue && typeof prop.value !== 'function';
   }
 
-  private getWebComponentSlots(slots: string[]): string {
-    const sanitizedSlots = slots.map((slot) => slot.replace(/_ngcontent.{11}/g, '')).join('');
+  private getCleanSlot(slots: string[]): string[] {
+    return slots
+      .map((slot) => {
+        if (slot.includes('e-icon')) {
+          const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
+          const iconElements = parsedSlot.querySelectorAll('i.e-icon');
+          iconElements.forEach((icon) => {
+            icon.removeAttribute('e-id');
+            icon.childNodes.forEach((child) => icon.removeChild(child));
+          });
+          return parsedSlot.body.innerHTML;
+        }
+      })
+      .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
+      .map((slot) => slot.replace(/ng-reflect.*Object]"/g, ''));
+  }
 
+  private getWebComponentSlots(slots: string[]): string {
+    const sanitizedSlots = this.getCleanSlot(slots).join('');
     return sanitizedSlots ? `\n${sanitizedSlots}\n` : '';
   }
 
   private getReactSlots(slots: string[]): string {
-    const sanitizedSlots = slots
+    const sanitizedSlots = this.getCleanSlot(slots)
+      .map((slot) => slot.replace(/class=/g, 'className='))
       .map((slot) => {
         // Convert conventional slots to be a prop on the element.
         const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
-        const slotContent = parsedSlot.querySelector('[slot]').innerHTML;
-        const slotName = parsedSlot.querySelector('[slot]').getAttribute('slot');
-        return `${slotName}={<>${slotContent}</>}`;
+        const slotContent = parsedSlot.querySelector('[slot]');
+        const slotName = slotContent.getAttribute('slot');
+        slotContent.removeAttribute('slot');
+        return `${slotName}={<>${slotContent.outerHTML}</>}`;
       })
-      .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
-      .map((slot) => slot.replace(/class=/g, 'className='))
       .join('');
 
     return sanitizedSlots ? `${sanitizedSlots}\n` : '';
