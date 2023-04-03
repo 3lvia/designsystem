@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.04.23",
+      "version": "1.2.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix broken type export.", "Not possible to update delay time after init."]
+        }
+      ]
+    },
+    {
       "date": "27.02.23",
       "version": "1.2.0",
       "changelog": [
