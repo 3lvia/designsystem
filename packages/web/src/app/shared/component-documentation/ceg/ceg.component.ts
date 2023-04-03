@@ -7,11 +7,11 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core';
-import { map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { map, switchMap, takeUntil } from 'rxjs/operators';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './componentExample';
-import { ControlValue } from './controlType';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { Controls, ControlValue } from './controlType';
+import { BehaviorSubject, combineLatest, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-ceg',
@@ -34,23 +34,11 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   constructor(private zone: NgZone) {}
 
   ngAfterViewInit(): void {
-    this.componentExample.cegContent.currentComponentTypeName
-      .pipe(
-        takeUntil(this.unsubscriber),
-        tap((type) => {
-          if (type) {
-            this.getWebComponent().setProps({ type: type.toLowerCase() });
-          }
-        }),
-        /** We need to wait in order to prevent ExpressionChangeAfterChecked error  */
-        switchMap(() => this.zone.onStable),
-        map(() => Object.values(this.getWebComponent().getAllSlots()).map((slot) => slot.outerHTML)),
-      )
-      .subscribe((slots) => this._componentSlots.next(slots));
-
+    this.setUpSlotSubscription();
+    this.setUpTypeChangeSubscription();
     this.setUpStaticPropSubscription();
     this.setDisplayStyleOnExampleComponent();
-    this.setAllPropsOnWebComponent();
+    this.setAllPropsOnWebComponent(this.componentExample.cegContent.getControlSnapshot());
   }
 
   ngOnDestroy(): void {
@@ -64,6 +52,31 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     if (propWasUpdated) {
       this.getWebComponent().setProps({ [propName]: value });
     }
+  }
+
+  private setUpSlotSubscription() {
+    this.componentExample.cegContent.currentComponentTypeName
+      .pipe(
+        takeUntil(this.unsubscriber),
+        /** We need to wait in order to prevent ExpressionChangeAfterChecked error  */
+        switchMap(() => this.zone.onStable),
+        map(() => Object.values(this.getWebComponent().getAllSlots()).map((slot) => slot.outerHTML)),
+      )
+      .subscribe((slots) => this._componentSlots.next(slots));
+  }
+
+  private setUpTypeChangeSubscription() {
+    combineLatest([
+      this.componentExample.cegContent.currentComponentTypeName,
+      this.componentExample.cegContent.getCurrentControls(),
+    ])
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe(([type, controls]) => {
+        if (type) {
+          this.getWebComponent().setProps({ type: type.toLowerCase() });
+        }
+        this.setAllPropsOnWebComponent(controls);
+      });
   }
 
   private setUpStaticPropSubscription() {
@@ -91,8 +104,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     cegContent.style.display = 'contents';
   }
 
-  private setAllPropsOnWebComponent(): void {
-    const controls = this.componentExample.cegContent.getControlSnapshot();
+  private setAllPropsOnWebComponent(controls: Controls): void {
     Object.entries(controls).forEach(([controlName, control]) => {
       this.getWebComponent().setProps({ [controlName]: control.value });
     });
