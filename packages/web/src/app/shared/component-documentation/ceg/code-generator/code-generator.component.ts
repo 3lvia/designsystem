@@ -198,7 +198,7 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
       .map((prop) => {
         switch (typeof prop.value) {
           case 'string':
-            return `${prop.name}={'${prop.value}'}`;
+            return `${prop.name}={"${prop.value}"}`;
           default:
             return `${prop.name}={${JSON.stringify(prop.value)}}`;
         }
