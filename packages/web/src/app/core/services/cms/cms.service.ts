@@ -169,7 +169,7 @@ export class CMSService {
    */
   async getEntryFromCMS(pageId: string): Promise<any> {
     return this.http
-      .get('https://elvis-designsystem.netlify.app/.netlify/functions/services?id=' + pageId)
+      .get(`https://elvis-designsystem.netlify.app/.netlify/functions/services?id=${pageId}`)
       .toPromise()
       .then((entry: any) => {
         return entry;

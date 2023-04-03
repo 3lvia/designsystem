@@ -12,7 +12,7 @@ export enum Locale {
   providedIn: 'root',
 })
 export class LocalizationService {
-  private defaultLocale = Locale['en-GB'];
+  readonly defaultLocale = Locale['en-GB'];
   private localizationSubject = new BehaviorSubject<Locale>(this.defaultLocale);
 
   constructor(private router: Router) {

@@ -124,7 +124,7 @@ $text-line-height: 32px;
           .navbar-item-title::before {
             content: '';
             position: absolute;
-            left: 0px;
+            left: 0;
             top: calc((#{$text-line-height} / 2) - 8px - 4px);
             width: 8px;
             height: 8px;
