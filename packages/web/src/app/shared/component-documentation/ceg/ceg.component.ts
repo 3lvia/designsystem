@@ -38,7 +38,6 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     this.setUpTypeChangeSubscription();
     this.setUpStaticPropSubscription();
     this.setDisplayStyleOnExampleComponent();
-    this.setAllPropsOnWebComponent(this.componentExample.cegContent.getControlSnapshot());
   }
 
   ngOnDestroy(): void {
