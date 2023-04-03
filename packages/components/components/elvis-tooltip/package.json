@@ -1,10 +1,8 @@
 {
   "name": "@elvia/elvis-tooltip",
   "version": "1.2.1",
-  "description": "",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/tooltip",
-  "author": "",
   "main": "web_component.js",
   "files": [
     "web_component.js",
