@@ -91,9 +91,4 @@ export const paginationData: ComponentData = {
         "Custom CSS style object that can be added to the pagination. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeReact: ``,
-  codeAngular: ``,
-  codeVue: ``,
-  codeNativeHTML: ``,
-  codeNativeScript: ``,
 };
