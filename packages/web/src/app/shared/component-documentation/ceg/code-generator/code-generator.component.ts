@@ -139,6 +139,7 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
           });
           return parsedSlot.body.innerHTML;
         }
+        return slot;
       })
       .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
       .map((slot) => slot.replace(/ng-reflect.*Object]"/g, ''));
