@@ -2,8 +2,8 @@ import { OnInit, Component, Input, OnDestroy } from '@angular/core';
 import { combineLatest, Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { CegControlManager } from '../cegControlManager';
-import { Controls } from '../controlType';
+import { UnknownCegControlManager } from '../cegControlManager';
+import { Controls, StaticProps } from '../controlType';
 import { FormatCodePipe } from './formatCode.pipe';
 import { Language } from './language';
 
@@ -14,6 +14,8 @@ interface Prop {
 
 type Tab = 'Angular' | 'React' | 'Vue';
 
+const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
+
 @Component({
   selector: 'app-code-generator',
   templateUrl: './code-generator.component.html',
@@ -21,11 +23,13 @@ type Tab = 'Angular' | 'React' | 'Vue';
 })
 export class CodeGeneratorComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject();
-  @Input() controlManager: CegControlManager;
+  @Input() controlManager: UnknownCegControlManager;
   @Input() elementName = '';
   @Input() componentSlots: Observable<string[]>;
   initialProps: Prop[] = [];
-  activeTabIndex = 0;
+  activeTabIndex = localStorage.getItem(LANGUAGE_STORAGE_KEY)
+    ? localStorage.getItem(LANGUAGE_STORAGE_KEY)
+    : 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
 
   copyMessage = '';
@@ -33,15 +37,24 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
   reactCode = '';
   vueCode = '';
 
-  constructor(private codeFormater: FormatCodePipe) {}
+  constructor(private codeFormatter: FormatCodePipe) {}
 
   ngOnInit() {
-    this.initialProps = this.getFlatPropList(this.controlManager.getControlSnapshot());
+    this.initialProps = this.getFlatPropList(
+      this.controlManager.getControlSnapshot(),
+      this.controlManager.getStaticPropsSnapshot(),
+      this.controlManager.getCurrentComponentTypeNameSnapshot(),
+    );
 
-    combineLatest([this.controlManager.getCurrentControls(), this.componentSlots])
+    combineLatest([
+      this.controlManager.getCurrentControls(),
+      this.componentSlots,
+      this.controlManager.currentComponentTypeName,
+      this.controlManager.getStaticProps(),
+    ])
       .pipe(takeUntil(this.unsubscriber))
-      .subscribe(([controls, slots]) => {
-        const props = this.getFlatPropList(controls);
+      .subscribe(([controls, slots, type, staticProps]) => {
+        const props = this.getFlatPropList(controls, staticProps, type);
 
         this.angularCode = this.createWebComponentCode(props, slots, '[', ']');
         this.vueCode = this.createWebComponentCode(props, slots, ':');
@@ -72,12 +85,17 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
     }
   }
 
+  setActiveTab(newIndex: number): void {
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, newIndex.toString());
+    this.activeTabIndex = newIndex;
+  }
+
   /**
    * Create a flat list of all props, which is easier to iterate.
    * We also include eventual children of checkbox-controls.
    */
-  private getFlatPropList(controls: Controls): Prop[] {
-    return Object.entries(controls)
+  private getFlatPropList(controls: Controls, staticProps: StaticProps<unknown>, type: string): Prop[] {
+    const props = Object.entries(controls)
       .map(([controlName, control]) => {
         const props: Prop[] = [{ name: controlName, value: control.value }];
         if (control.type === 'checkbox' && control.children) {
@@ -88,6 +106,15 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
         return props;
       })
       .flat();
+
+    if (staticProps) {
+      const staticPropsArray = Object.entries(staticProps).map(([name, value]) => ({ name, value }));
+      props.unshift(...(staticPropsArray as Prop[]));
+    }
+    if (type) {
+      props.unshift({ name: 'type', value: type.toLowerCase() });
+    }
+    return props;
   }
 
   private propShouldBeIncluded(prop: Prop): boolean {
@@ -97,26 +124,42 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
     const valueIsDifferentFromInitialValue =
       typeof prop.value !== 'boolean' || (initialProp.value || false) !== prop.value;
 
-    return prop.value != null && valueIsDifferentFromInitialValue;
+    return prop.value != null && valueIsDifferentFromInitialValue && typeof prop.value !== 'function';
+  }
+
+  private getCleanSlot(slots: string[]): string[] {
+    return slots
+      .map((slot) => {
+        if (slot.includes('e-icon')) {
+          const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
+          const iconElements = parsedSlot.querySelectorAll('i.e-icon');
+          iconElements.forEach((icon) => {
+            icon.removeAttribute('e-id');
+            icon.childNodes.forEach((child) => icon.removeChild(child));
+          });
+          return parsedSlot.body.innerHTML;
+        }
+      })
+      .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
+      .map((slot) => slot.replace(/ng-reflect.*Object]"/g, ''));
   }
 
   private getWebComponentSlots(slots: string[]): string {
-    const sanitizedSlots = slots.map((slot) => slot.replace(/_ngcontent.{11}/g, '')).join('');
-
+    const sanitizedSlots = this.getCleanSlot(slots).join('');
     return sanitizedSlots ? `\n${sanitizedSlots}\n` : '';
   }
 
   private getReactSlots(slots: string[]): string {
-    const sanitizedSlots = slots
+    const sanitizedSlots = this.getCleanSlot(slots)
+      .map((slot) => slot.replace(/class=/g, 'className='))
       .map((slot) => {
         // Convert conventional slots to be a prop on the element.
         const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
-        const slotContent = parsedSlot.querySelector('[slot]').innerHTML;
-        const slotName = parsedSlot.querySelector('[slot]').getAttribute('slot');
-        return `${slotName}={<>${slotContent}</>}`;
+        const slotContent = parsedSlot.querySelector('[slot]');
+        const slotName = slotContent.getAttribute('slot');
+        slotContent.removeAttribute('slot');
+        return `${slotName}={<>${slotContent.outerHTML}</>}`;
       })
-      .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
-      .map((slot) => slot.replace(/class=/g, 'className='))
       .join('');
 
     return sanitizedSlots ? `${sanitizedSlots}\n` : '';
@@ -131,8 +174,15 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
     const propsToInclude = props.filter((prop) => this.propShouldBeIncluded(prop));
     return `<elvia-${this.elementName} ${propsToInclude
       .map((prop) => {
-        const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
-        return `${attributePrefix}${prop.name}${attributePostfix}="${value}"`;
+        const propName = `${attributePrefix}${prop.name}${attributePostfix}`;
+        switch (typeof prop.value) {
+          case 'string':
+            return `${propName}="'${prop.value}'" `;
+          default:
+            /** JSON.stringify gives us a string with double quotes for objects,
+             * which we need to replace with single quotes for the web components. */
+            return `${propName}="${JSON.stringify(prop.value).replace(/"/g, "'")}" `;
+        }
       })
       .join('')}>${this.getWebComponentSlots(slots)}</elvia-${this.elementName}>`;
   }
@@ -146,14 +196,18 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
 
     return `<${elementName} ${propsToInclude
       .map((prop) => {
-        const value = typeof prop.value === 'string' ? `'${prop.value}'` : prop.value;
-        return `${prop.name}={${value}}`;
+        switch (typeof prop.value) {
+          case 'string':
+            return `${prop.name}={'${prop.value}'}`;
+          default:
+            return `${prop.name}={${JSON.stringify(prop.value)}}`;
+        }
       })
       .join('')} ${this.getReactSlots(slots)}></${elementName}>`;
   }
 
   copyCode() {
-    navigator.clipboard.writeText(this.codeFormater.transform(this.activeCode, this.language)).then(() => {
+    navigator.clipboard.writeText(this.codeFormatter.transform(this.activeCode, this.language)).then(() => {
       this.copyMessage = 'Copied!';
       const copyTimeout = setTimeout(() => {
         this.copyMessage = '';

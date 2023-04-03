@@ -1,7 +1,7 @@
 interface ControlBase {
   type: string;
   group: string;
-  disabledBy?: ControlNames<ComponentType>[];
+  disabledBy?: string[];
 }
 
 export interface Checkbox extends ControlBase {
@@ -11,13 +11,15 @@ export interface Checkbox extends ControlBase {
   children?: { [key: string]: Checkbox };
 }
 
-export interface RadioGroup extends ControlBase {
+export interface RadioGroup<T = string | number> extends ControlBase {
   type: 'radioGroup';
-  value: string | number;
-  radios: {
-    label: string;
-    value: string | number;
-  }[];
+  value: T;
+  radios: Radio<T>[];
+}
+
+interface Radio<T> {
+  label: string;
+  value: T;
 }
 
 export interface Switch extends ControlBase {
@@ -28,7 +30,7 @@ export interface Switch extends ControlBase {
 
 export interface Counter extends ControlBase {
   type: 'counter';
-  postfix: string;
+  postfix?: string;
   value: number;
   increment: number;
   min?: number;
@@ -38,21 +40,29 @@ export interface Counter extends ControlBase {
 export interface Text extends ControlBase {
   type: 'text';
   label: string;
-  value: string;
+  value?: string;
   inputType?: 'input' | 'textarea';
 }
 
-export type CegControl = Checkbox | RadioGroup | Switch | Counter | Text;
+export type CegControl = Checkbox | Switch | RadioGroup | Counter | Text;
 
-export type Controls = { [key: string]: CegControl };
+export type Controls<T = Record<string, any>> = Partial<{
+  [key in keyof T]: T[key] extends boolean
+    ? Checkbox | Switch
+    : T[key] extends string
+    ? RadioGroup<T[key]> | Text
+    : RadioGroup | Counter | Text;
+}>;
 
-export interface ComponentType {
-  name: string;
-  controls: Controls;
+export type StaticProps<T> = {
+  [key in keyof T]: T[key];
+};
+
+export interface ComponentType<T> {
+  name?: string;
+  controls: Controls<T>;
   groupOrder: string[];
+  staticProps?: StaticProps<T>;
 }
-
-// Ensure that this type only returns keys in the controls object.
-type ControlNames<T extends { controls: Controls }> = keyof T['controls'];
 
 export type ControlValue = CegControl['value'];
