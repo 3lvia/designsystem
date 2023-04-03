@@ -11,15 +11,15 @@ export interface Checkbox extends ControlBase {
   children?: { [key: string]: Checkbox };
 }
 
-export interface RadioGroup extends ControlBase {
+export interface RadioGroup<T = string | number> extends ControlBase {
   type: 'radioGroup';
-  value: string | number;
-  radios: Radio[];
+  value: T;
+  radios: Radio<T>[];
 }
 
-interface Radio {
+interface Radio<T> {
   label: string;
-  value: string | number;
+  value: T;
 }
 
 export interface Switch extends ControlBase {
@@ -50,7 +50,7 @@ export type Controls<T = Record<string, any>> = Partial<{
   [key in keyof T]: T[key] extends boolean
     ? Checkbox | Switch
     : T[key] extends string
-    ? RadioGroup | Text
+    ? RadioGroup<T[key]> | Text
     : RadioGroup | Counter | Text;
 }>;
 
