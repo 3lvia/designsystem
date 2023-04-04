@@ -1,4 +1,3 @@
-import { exampleContents } from 'src/app/shared/example-contents';
 import changelogJson from 'src/assets/changelogs/elvis-box/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 

@@ -6,7 +6,6 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-box-doc',
   templateUrl: './box-doc.component.html',
-  styleUrls: ['./box-doc.component.scss'],
 })
 export class BoxDocComponent {
   componentData = boxData;
