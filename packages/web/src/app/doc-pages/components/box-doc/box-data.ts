@@ -24,7 +24,7 @@ const boxData: ComponentData = {
     hasBorder: {
       isRequired: false,
       type: 'boolean',
-      description: 'If the box is on a white background this prop should be used.',
+      description: 'Use this prop if the box is on a white background.',
       default: 'false',
       cegDefault: 1,
       cegType: 'boolean',
@@ -35,7 +35,7 @@ const boxData: ComponentData = {
       isRequired: false,
       type: 'boolean',
       description:
-        'Green line on top of box. The box with a colored line should be used if you want the box to take more attention, but not use multiple boxes with colored lines on the same page.',
+        'Green line on top of box. Use the green line to draw attention, but avoid using multiple boxes with green lines on the same page.',
       default: 'false',
       cegDisplayName: 'Colored',
       cegType: 'boolean',
