@@ -6,7 +6,6 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-spotlight-doc',
   templateUrl: './spotlight-doc.component.html',
-  styleUrls: ['./spotlight-doc.component.scss'],
 })
 export class SpotlightDocComponent {
   componentData = spotlightData;
