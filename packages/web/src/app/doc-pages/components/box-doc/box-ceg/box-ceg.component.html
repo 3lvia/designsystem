@@ -1,8 +1,15 @@
 <elvia-box>
   <div slot="content">
-    <elvia-tabs [items]="tabsItems"></elvia-tabs>
-    <div class="e-mt-16">
-      {{ exampleText }}
+    <i class="e-icon e-icon--powermeter-color e-icon--xxl" aria-hidden="true"></i>
+
+    <div class="e-form-field e-mt-32">
+      <label class="e-form-field__label" for="meter-reading">Målerstand</label>
+      <div class="e-input">
+        <input id="meter-reading" placeholder="Din siste målerstand" />
+      </div>
     </div>
+    <button class="e-btn e-w-100 e-mt-24">
+      <span class="e-btn__title">Send inn</span>
+    </button>
   </div>
 </elvia-box>
