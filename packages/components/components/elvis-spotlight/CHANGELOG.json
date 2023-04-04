@@ -2,7 +2,7 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "15.02.23",
+      "date": "04.04.23",
       "version": "1.5.0",
       "changelog": [
         {
@@ -12,6 +12,10 @@
         {
           "type": "patch",
           "changes": ["Updated internal dependencies."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the prop type exports for React."]
         }
       ]
     },
