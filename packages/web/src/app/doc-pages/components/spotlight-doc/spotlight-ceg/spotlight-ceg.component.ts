@@ -42,6 +42,7 @@ export class SpotlightCegComponent implements ComponentExample, AfterViewInit {
   toggleSpotlight() {
     const isHidden = this.spotlight.nativeElement.classList.toggle('e-none');
     this.spotlight.nativeElement.setProps({ hasLockBodyScroll: !isHidden });
+    this.updateSpotlightPosition();
   }
 
   @HostListener('window:resize')
