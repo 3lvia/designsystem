@@ -6,6 +6,7 @@ import { exampleContents } from 'src/app/shared/example-contents';
 @Component({
   selector: 'app-box-ceg',
   templateUrl: './box-ceg.component.html',
+  styleUrls: ['./box-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: BoxCegComponent }],
 })
 export class BoxCegComponent implements ComponentExample {
