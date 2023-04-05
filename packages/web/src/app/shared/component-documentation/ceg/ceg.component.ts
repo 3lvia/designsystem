@@ -7,7 +7,7 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core';
-import { map, switchMap, takeUntil } from 'rxjs/operators';
+import { first, map, switchMap, takeUntil } from 'rxjs/operators';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './componentExample';
 import { Controls, ControlValue } from './controlType';
@@ -16,7 +16,7 @@ import { BehaviorSubject, combineLatest, Subject } from 'rxjs';
 @Component({
   selector: 'app-ceg',
   templateUrl: './ceg.component.html',
-  styleUrls: ['./ceg.component.scss'],
+  styleUrls: ['./ceg.component.scss', './shared-styles.scss'],
 })
 export class CegComponent implements AfterViewInit, OnDestroy {
   private unsubscriber = new Subject();
@@ -59,6 +59,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
         takeUntil(this.unsubscriber),
         /** We need to wait in order to prevent ExpressionChangeAfterChecked error  */
         switchMap(() => this.zone.onStable),
+        first(),
         map(() => Object.values(this.getWebComponent().getAllSlots()).map((slot) => slot.outerHTML)),
       )
       .subscribe((slots) => this._componentSlots.next(slots));
