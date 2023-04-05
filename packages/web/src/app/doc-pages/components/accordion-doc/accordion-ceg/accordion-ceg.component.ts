@@ -81,10 +81,10 @@ export class AccordionCegComponent implements ComponentExample {
             { label: 'Large', value: 'large' },
           ],
         },
-        spacingAboveContent: {
+        spacingBelowContent: {
           type: 'radioGroup',
-          group: 'Spacing Above Content',
-          value: '8px',
+          group: 'Spacing Below Content',
+          value: '16px',
           radios: [
             { label: '8px', value: '8px' },
             { label: '16px', value: '16px' },
@@ -99,7 +99,7 @@ export class AccordionCegComponent implements ComponentExample {
       groupOrder: [
         'Position',
         'Size',
-        'Spacing Above Content',
+        'Spacing Below Content',
         'Options',
         'Label When Closed',
         'Label When Open',

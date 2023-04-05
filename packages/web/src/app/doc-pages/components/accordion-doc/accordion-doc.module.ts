@@ -11,6 +11,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
+import { AccordionGroupCegComponent } from './accordion-group-ceg/accordion-group-ceg.component';
 import '@elvia/elvis-accordion';
 
 @NgModule({
@@ -26,7 +27,7 @@ import '@elvia/elvis-accordion';
     ComponentChangelogModule,
     WhenToUseModule,
   ],
-  declarations: [AccordionDocComponent, AccordionCegComponent],
+  declarations: [AccordionDocComponent, AccordionCegComponent, AccordionGroupCegComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AccordionDocModule {}
