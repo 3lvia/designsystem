@@ -210,12 +210,30 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
     return s.substring(0, 1).toUpperCase() + s.substring(1);
   }
 
+  private convertSlotsIntoAttributes(code: string): string {
+    const parsedCode = new DOMParser().parseFromString(code, 'text/html');
+    parsedCode.querySelectorAll('[slot]').forEach((slotElement) => {
+      const slotName = slotElement.getAttribute('slot');
+      slotElement.removeAttribute('slot');
+      /**
+       * We add __ to identify the slots in the HTML so that we can remove the quotations
+       * that is added by the DOMParer.
+       **/
+      slotElement.parentElement.setAttribute(slotName, `__{<>${slotElement.outerHTML}</>}__`);
+      slotElement.parentElement.removeChild(slotElement);
+    });
+    // Remove quotes around curly braces and convert \&quot; to "
+    return parsedCode.body.innerHTML
+      .replace(/\&quot;/g, '"')
+      .replace(/"__{/g, '{')
+      .replace(/}__"/g, '}');
+  }
+
   private createReactCodeFromStaticContent(angularCode: string): string {
-    const out = angularCode
+    const out = this.convertSlotsIntoAttributes(angularCode)
       .replace(/class=/g, 'className=')
       .split(' ')
       .map((attribute) => {
-        console.log(attribute);
         if (attribute.startsWith('[')) {
           return this.transformAngularAttributeToReact(attribute);
         } else if (attribute.startsWith('<elvia-') || attribute.startsWith('</elvia-')) {
