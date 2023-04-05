@@ -23,6 +23,7 @@ const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
 })
 export class CodeGeneratorComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject();
+  @Input() staticContent: string;
   @Input() controlManager: UnknownCegControlManager;
   @Input() elementName = '';
   @Input() componentSlots: Observable<string[]>;
@@ -40,26 +41,32 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
   constructor(private codeFormatter: FormatCodePipe) {}
 
   ngOnInit() {
-    this.initialProps = this.getFlatPropList(
-      this.controlManager.getControlSnapshot(),
-      this.controlManager.getStaticPropsSnapshot(),
-      this.controlManager.getCurrentComponentTypeNameSnapshot(),
-    );
+    if (this.staticContent) {
+      this.angularCode = this.staticContent;
+      this.vueCode = this.staticContent.slice().replace(/\[/g, ':').replace(/]/g, '');
+      this.reactCode = this.createReactCodeFromStaticContent(this.staticContent);
+    } else if (this.controlManager) {
+      this.initialProps = this.getFlatPropList(
+        this.controlManager.getControlSnapshot(),
+        this.controlManager.getStaticPropsSnapshot(),
+        this.controlManager.getCurrentComponentTypeNameSnapshot(),
+      );
 
-    combineLatest([
-      this.controlManager.getCurrentControls(),
-      this.componentSlots,
-      this.controlManager.currentComponentTypeName,
-      this.controlManager.getStaticProps(),
-    ])
-      .pipe(takeUntil(this.unsubscriber))
-      .subscribe(([controls, slots, type, staticProps]) => {
-        const props = this.getFlatPropList(controls, staticProps, type);
+      combineLatest([
+        this.controlManager.getCurrentControls(),
+        this.componentSlots,
+        this.controlManager.currentComponentTypeName,
+        this.controlManager.getStaticProps(),
+      ])
+        .pipe(takeUntil(this.unsubscriber))
+        .subscribe(([controls, slots, type, staticProps]) => {
+          const props = this.getFlatPropList(controls, staticProps, type);
 
-        this.angularCode = this.createWebComponentCode(props, slots, '[', ']');
-        this.vueCode = this.createWebComponentCode(props, slots, ':');
-        this.reactCode = this.createReactCode(props, slots);
-      });
+          this.angularCode = this.createWebComponentCode(props, slots, '[', ']');
+          this.vueCode = this.createWebComponentCode(props, slots, ':');
+          this.reactCode = this.createReactCode(props, slots);
+        });
+    }
   }
 
   ngOnDestroy(): void {
@@ -186,6 +193,42 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
         }
       })
       .join('')}>${this.getWebComponentSlots(slots)}</elvia-${this.elementName}>`;
+  }
+
+  private transformAngularAttributeToReact(attribute: string): string {
+    const keyValue = attribute.split('=');
+    const key = keyValue[0].replace('[', '').replace(']', '');
+    const value = keyValue[1].trim().replace(/"/g, '').replace('>', '');
+    let output = `${key}={${value}}`;
+    if (attribute.trim().endsWith('>')) {
+      return `${output}>\n`;
+    }
+    return output;
+  }
+
+  private capitalize(s: string): string {
+    return s.substring(0, 1).toUpperCase() + s.substring(1);
+  }
+
+  private createReactCodeFromStaticContent(angularCode: string): string {
+    const out = angularCode
+      .replace(/class=/g, 'className=')
+      .split(' ')
+      .map((attribute) => {
+        console.log(attribute);
+        if (attribute.startsWith('[')) {
+          return this.transformAngularAttributeToReact(attribute);
+        } else if (attribute.startsWith('<elvia-') || attribute.startsWith('</elvia-')) {
+          const bracket = attribute.startsWith('</') ? '</' : '<';
+          const attributeParts = attribute.split('-');
+          attributeParts.shift();
+          return `${bracket}${attributeParts.map((part) => this.capitalize(part)).join('')}`;
+        }
+        return attribute;
+      })
+      .join(' ');
+
+    return out;
   }
 
   private createReactCode(props: Prop[], slots: string[]): string {

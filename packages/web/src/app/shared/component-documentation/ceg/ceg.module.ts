@@ -13,10 +13,12 @@ import { TypeSwitcherComponent } from './type-switcher/type-switcher.component';
 import { HighlighterPipe } from './code-generator/highlighter.pipe';
 import { ControlsPopoverComponent } from './controls-popover/controls-popover.component';
 import { TextComponent } from './controls/text/text.component';
+import { StaticCegComponent } from './static-ceg/static-ceg.component';
 
 @NgModule({
   declarations: [
     CegComponent,
+    StaticCegComponent,
     CodeGeneratorComponent,
     ControlsComponent,
     FormatCodePipe,
@@ -29,7 +31,7 @@ import { TextComponent } from './controls/text/text.component';
     ControlsPopoverComponent,
     TextComponent,
   ],
-  exports: [CegComponent],
+  exports: [CegComponent, StaticCegComponent],
   imports: [CommonModule],
   providers: [FormatCodePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
