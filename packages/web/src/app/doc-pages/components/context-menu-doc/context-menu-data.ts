@@ -19,7 +19,7 @@ const contextMenuData: ComponentData = {
     isShowing: {
       isRequired: false,
       type: 'boolean',
-      description: 'Determines whether the context menu is showing or not.',
+      description: 'Determines whether the context menu is showing.',
       default: 'false',
     },
     isSelectable: {
@@ -31,12 +31,12 @@ const contextMenuData: ComponentData = {
     onOpen: {
       isRequired: false,
       type: '() => void',
-      description: 'Callback for every time the context menu is being opened.',
+      description: 'Callback for every time the context menu is opened.',
     },
     onClose: {
       isRequired: false,
       type: '() => void',
-      description: 'Callback for every time the context menu is being closed.',
+      description: 'Callback for every time the context menu is closed.',
     },
     verticalPosition: {
       isRequired: false,
