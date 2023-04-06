@@ -6,6 +6,7 @@ import { Language } from './language';
 type Tab = 'Angular' | 'React' | 'Vue';
 
 const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
+let CODE_GENERATOR_TAB_ID = 0;
 
 @Component({
   selector: 'app-code-generator',
@@ -21,6 +22,7 @@ export class CodeGeneratorComponent {
     : 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
   copyMessage = '';
+  tabGroupId = `ceg-tabs-id-${CODE_GENERATOR_TAB_ID++}`;
 
   constructor(private codeFormatter: FormatCodePipe) {}
 

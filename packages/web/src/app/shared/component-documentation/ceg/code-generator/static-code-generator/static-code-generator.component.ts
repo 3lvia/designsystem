@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./static-code-generator.component.scss'],
 })
 export class StaticCodeGeneratorComponent implements OnInit {
-  @Input() staticContent: string;
+  @Input() staticContent = '';
 
   angularCode = '';
   reactCode = '';
@@ -29,11 +29,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
     return output;
   }
 
-  private capitalize(s: string): string {
-    return s.substring(0, 1).toUpperCase() + s.substring(1);
-  }
-
-  private convertSlotsIntoAttributes(code: string): string {
+  private transformSlotsIntoReactAttributes(code: string): string {
     const parsedCode = new DOMParser().parseFromString(code, 'text/html');
     parsedCode.querySelectorAll('[slot]').forEach((slotElement) => {
       const slotName = slotElement.getAttribute('slot');
@@ -52,24 +48,29 @@ export class StaticCodeGeneratorComponent implements OnInit {
       .replace(/}__"/g, '}');
   }
 
-  private createReactCodeFromStaticContent(angularCode: string): string {
-    const out = this.convertSlotsIntoAttributes(angularCode)
-      .replace(/class=/g, 'className=')
+  private transformTagsToReactStyle(code: string): string {
+    return code
+      .replace(/elvia/g, '')
+      .replace(/(^|-)([a-z])/g, (_match, _prefix, letter) => letter.toUpperCase());
+  }
+
+  private transformAttributesToReactStyle(code: string): string {
+    return code
       .split(' ')
       .map((attribute) => {
         if (attribute.startsWith('[')) {
           return this.transformAngularAttributeToReact(attribute);
-        } else if (attribute.startsWith('<elvia-') || attribute.startsWith('</elvia-')) {
-          const bracket = attribute.startsWith('</') ? '</' : '<';
-          const attributeParts = attribute.split('-');
-          attributeParts.shift();
-
-          return `${bracket}${attributeParts.map((part) => this.capitalize(part)).join('')}`;
         }
         return attribute;
       })
       .join(' ');
+  }
 
-    return out;
+  private createReactCodeFromStaticContent(angularCode: string): string {
+    let reactCode = this.transformSlotsIntoReactAttributes(angularCode);
+    reactCode = this.transformTagsToReactStyle(reactCode);
+    reactCode = this.transformAttributesToReactStyle(reactCode);
+
+    return reactCode;
   }
 }
