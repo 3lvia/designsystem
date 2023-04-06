@@ -14,6 +14,8 @@ import { HighlighterPipe } from './code-generator/highlighter.pipe';
 import { ControlsPopoverComponent } from './controls-popover/controls-popover.component';
 import { TextComponent } from './controls/text/text.component';
 import { StaticCegComponent } from './static-ceg/static-ceg.component';
+import { StaticCodeGeneratorComponent } from './code-generator/static-code-generator/static-code-generator.component';
+import { DynamicCodeGeneratorComponent } from './code-generator/dynamic-code-generator/dynamic-code-generator.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { StaticCegComponent } from './static-ceg/static-ceg.component';
     HighlighterPipe,
     ControlsPopoverComponent,
     TextComponent,
+    StaticCodeGeneratorComponent,
+    DynamicCodeGeneratorComponent,
   ],
   exports: [CegComponent, StaticCegComponent],
   imports: [CommonModule],
