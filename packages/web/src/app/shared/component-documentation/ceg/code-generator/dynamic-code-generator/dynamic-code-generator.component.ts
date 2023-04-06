@@ -114,7 +114,6 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
 
   private getReactSlots(slots: string[]): string {
     const sanitizedSlots = this.getCleanSlot(slots)
-      .map((slot) => slot.replace(/class=/g, 'className='))
       .map((slot) => {
         // Convert conventional slots to be a prop on the element.
         const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
@@ -123,6 +122,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
         slotContent.removeAttribute('slot');
         return `${slotName}={<>${slotContent.outerHTML}</>}`;
       })
+      .map((slot) => slot.replace(/class=/g, 'className='))
       .join('');
 
     return sanitizedSlots ? `${sanitizedSlots}\n` : '';
