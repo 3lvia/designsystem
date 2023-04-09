@@ -24,7 +24,6 @@ import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module
     WhenToUseModule,
     ComponentPropertiesTableModule,
     ComponentInstallationModule,
-    ComponentExampleGeneratorModule,
     CegModule,
   ],
   declarations: [TimepickerDocComponent, TimepickerCegComponent],
