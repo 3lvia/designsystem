@@ -49,9 +49,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private transformTagsToReactStyle(code: string): string {
-    return code
-      .replace(/elvia/g, '')
-      .replace(/(^|-)([a-z])/g, (_match, _prefix, letter) => letter.toUpperCase());
+    return code.replace(/elvia(^|-)([a-z])/g, (_match, _prefix, letter) => letter.toUpperCase());
   }
 
   private transformAttributesToReactStyle(code: string): string {
