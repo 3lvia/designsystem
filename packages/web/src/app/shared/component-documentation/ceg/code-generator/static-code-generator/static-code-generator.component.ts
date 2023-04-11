@@ -69,18 +69,14 @@ export class StaticCodeGeneratorComponent implements OnInit {
    * This leaves white space between elements which Prettier adds as a new line between elements.
    */
   private removeWhiteSpaceBetweenTags(code: string): string {
-    return code.replace(/> *</, '><');
+    return code.replace(/> *</g, '><');
   }
 
   private createReactCodeFromStaticContent(angularCode: string): string {
     let reactCode = this.transformSlotsIntoReactAttributes(angularCode);
-    console.log(reactCode);
     reactCode = this.transformTagsToReactStyle(reactCode);
-    console.log(reactCode);
     reactCode = this.transformAttributesToReactStyle(reactCode);
-    console.log(reactCode);
     reactCode = this.removeWhiteSpaceBetweenTags(reactCode);
-    console.log(reactCode);
 
     return reactCode;
   }
