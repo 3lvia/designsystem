@@ -2,12 +2,12 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "29.11.22",
-      "version": "1.4.5",
+      "date": "12.04.23",
+      "version": "1.4.6",
       "changelog": [
         {
-          "type": "patch",
-          "changes": ["The component config has been moved into each component."]
+          "type": "bug_fix",
+          "changes": ["Fix broken type export"]
         }
       ]
     },
