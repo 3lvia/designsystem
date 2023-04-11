@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { first, map, switchMap, takeUntil } from 'rxjs/operators';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { ComponentExample } from './componentExample';
+import { ComponentExample } from './component-example';
 import { Controls, ControlValue } from './controlType';
 import { BehaviorSubject, combineLatest, Subject } from 'rxjs';
 

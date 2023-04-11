@@ -1,5 +1,5 @@
 import { Component, ContentChild } from '@angular/core';
-import { StaticCegContent } from './static-ceg-content';
+import { StaticComponentExample } from './static-component-example';
 
 @Component({
   selector: 'app-static-ceg',
@@ -7,5 +7,5 @@ import { StaticCegContent } from './static-ceg-content';
   styleUrls: ['./static-ceg.component.scss', '../shared-styles.scss'],
 })
 export class StaticCegComponent {
-  @ContentChild(StaticCegContent, { static: true }) staticContent: StaticCegContent;
+  @ContentChild(StaticComponentExample, { static: true }) staticContent: StaticComponentExample;
 }
