@@ -41,9 +41,9 @@ export class StaticCodeGeneratorComponent implements OnInit {
       slotElement.parentElement.setAttribute(slotName, `__{<>${slotElement.outerHTML}</>}__`);
       slotElement.parentElement.removeChild(slotElement);
     });
-    // Remove quotes around curly braces and convert \&quot; to "
+    // Remove quotes around curly braces and convert &quot; to "
     return parsedCode.body.innerHTML
-      .replace(/\&quot;/g, '"')
+      .replace(/&quot;/g, '"')
       .replace(/"__{/g, '{')
       .replace(/}__"/g, '}');
   }
