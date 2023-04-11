@@ -4,7 +4,7 @@ import { CegControl, ComponentType, Controls, ControlValue, StaticProps } from '
 
 export type UnknownCegControlManager = CegControlManager<unknown>;
 
-export class CegControlManager<TComponentProps> {
+export class CegControlManager<TComponentProps extends Record<string, any>> {
   private _componentTypes = new BehaviorSubject<ComponentType<TComponentProps>[]>([]);
   componentTypes = this._componentTypes.asObservable();
 

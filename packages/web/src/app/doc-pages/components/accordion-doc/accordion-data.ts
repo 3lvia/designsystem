@@ -1,4 +1,3 @@
-import { exampleContents } from 'src/app/shared/example-contents';
 import changelogJson from 'src/assets/changelogs/elvis-accordion/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
@@ -11,34 +10,18 @@ const accordionData: ComponentData = {
       type: 'boolean',
       description: 'Determines if the accordion is open or closed.',
       default: 'false',
-      cegDisplayName: 'Open',
-      cegType: 'boolean',
-      cegFormType: 'toggle',
-      cegDefault: false,
-      cegOption: 'true',
-      cegDependency: [{ name: 'type', value: ['single'] }],
     },
     isHovering: {
       isRequired: false,
       type: 'boolean',
       description: 'Adds the hover style to the accordion button when set to true.',
       default: 'false',
-      cegDisplayName: 'Hovering',
-      cegType: 'boolean',
-      cegFormType: 'toggle',
-      cegDefault: false,
-      cegOption: 'true',
-      cegDependency: [{ name: 'type', value: ['single'] }],
     },
     type: {
       isRequired: false,
       type: '“normal” | “overflow” | “single”',
       description: 'Variants of accordion',
       default: '"normal"',
-      cegDefault: 0,
-      cegType: 'string',
-      cegFormType: 'type',
-      cegOptions: ['normal', 'overflow', 'single'],
     },
     overflowHeight: {
       isRequired: false,
@@ -55,38 +38,18 @@ const accordionData: ComponentData = {
       isRequired: false,
       type: `boolean`,
       description: `Determines if the accordion is full width.`,
-      cegDisplayName: 'Full width',
-      cegType: 'boolean',
-      cegFormType: 'toggle',
-      cegDefault: false,
-      cegOption: 'true',
-      cegDependency: [{ name: 'type', value: ['normal'] }],
     },
     labelPosition: {
       isRequired: false,
       type: '“left” | “center” | “right”',
       description: 'Horizontal position of label and button.',
       default: '"center"',
-      cegDisplayName: 'position',
-      cegDefault: 'center',
-      cegType: 'string',
-      cegFormType: 'radio',
-      cegOptions: ['left', 'center', 'right'],
-      cegDependency: [
-        { name: 'isFullWidth', value: 'false' },
-        { name: 'type', value: ['normal', 'overflow'] },
-      ],
     },
     size: {
       isRequired: false,
       type: '“small” | “medium” | “large”',
       description: 'Size of accordion label and button.',
       default: '"medium"',
-      cegDisplayName: 'Size',
-      cegDefault: 'medium',
-      cegType: 'string',
-      cegFormType: 'radio',
-      cegOptions: ['small', 'medium', 'large'],
     },
     typography: {
       isRequired: false,
@@ -100,12 +63,6 @@ const accordionData: ComponentData = {
       description:
         'For normal accordion, if you want to change det padding between the accordion button and the content below it, you can use this attribute. Example: spacingAboveContent: "16px".',
       default: '"8px"',
-      cegDisplayName: 'Spacing above content',
-      cegDefault: '8px',
-      cegType: 'string',
-      cegFormType: 'radio',
-      cegOptions: ['8px', '16px', '24px'],
-      cegDependency: [{ name: 'type', value: ['normal'] }],
     },
     spacingBelowContent: {
       isRequired: false,
@@ -113,30 +70,16 @@ const accordionData: ComponentData = {
       description:
         'For overflow accordion, if you want to change det padding between the accordion button and the content below it, you can use this attribute. Example: spacingBelowContent: "16px".',
       default: '"8px"',
-      cegDisplayName: 'Spacing below content',
-      cegDefault: '16px',
-      cegType: 'string',
-      cegFormType: 'radio',
-      cegOptions: ['8px', '16px', '24px'],
-      cegDependency: [{ name: 'type', value: ['overflow'] }],
     },
     openLabel: {
       isRequired: false,
       type: `string`,
       description: `Label for opening the accordion. Will also set the aria-label of the button opening the accordion. NB: the prop ariaLabelOpen has higher priority and will overwrite the aria-label.`,
-      cegFormType: 'custom-text',
-      cegCustomTextType: 'input',
-      cegDefault: 'Show',
-      cegDependency: [{ name: 'type', value: ['normal', 'overflow'] }],
     },
     closeLabel: {
       isRequired: false,
       type: `string`,
       description: `Label for closing the accordion. Will also set the aria-label of the button closing the accordion. NB: the prop ariaLabelClose has higher priority and will overwrite the aria-label.`,
-      cegFormType: 'custom-text',
-      cegCustomTextType: 'input',
-      cegDefault: 'Hide',
-      cegDependency: [{ name: 'type', value: ['normal', 'overflow'] }],
     },
     openAriaLabel: {
       isRequired: false,
@@ -162,15 +105,6 @@ const accordionData: ComponentData = {
       isRequired: false,
       type: `boolean`,
       description: `Determines if the accordion is full width.`,
-      cegDisplayName: 'Start aligned',
-      cegType: 'boolean',
-      cegFormType: 'toggle',
-      cegDefault: false,
-      cegOption: 'true',
-      cegDependency: [
-        { name: 'isFullWidth', value: 'false' },
-        { name: 'type', value: ['normal', 'overflow'] },
-      ],
     },
     className: {
       isRequired: false,
@@ -184,58 +118,6 @@ const accordionData: ComponentData = {
         "Custom CSS style object that can be added to the accordion. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeReact:
-    `<Accordion
-  type={"normal"}
-  labelPosition={"center"}
-  size={"medium"}
-  content={"` +
-    exampleContents.texts.lg['eng-GBR'].description +
-    `"}
-></Accordion>
-`,
-  codeAngular:
-    `<elvia-accordion
-  [type]="'normal'"
-  [labelPosition]="'center'"
-  [size]="'medium'"
->
-  <div slot="content">
-    ` +
-    exampleContents.texts.lg['eng-GBR'].description +
-    `
-  </div>
-</elvia-accordion>
-`,
-  codeVue:
-    `<elvia-accordion
-  :type="'normal'"
-  :labelPosition="'center'"
-  :size="'medium'"
->
-  <div slot="content">
-    ` +
-    exampleContents.texts.lg['eng-GBR'].description +
-    `
-  </div>
-</elvia-accordion>
-`,
-  codeNativeHTML:
-    `<elvia-accordion
-  type="normal"
-  labelPosition="center"
-  size="medium"
-  id="example-elvia-accordion"
->
-  <div slot="content">
-    ` +
-    exampleContents.texts.lg['eng-GBR'].description +
-    `
-  </div>
-</elvia-accordion>
-`,
-  codeNativeScript: `  const accordion = document.getElementById('example-elvia-accordion');
-`,
 };
 
 export { accordionData };

@@ -6,10 +6,10 @@ export abstract class ComponentExample<T = Record<string, any>> {
    *
    * For the component &lt;elvia-datepicker-range&gt;, this would be "datepicker-range".
    * */
-  elementName: string;
+  readonly elementName: string;
 
   /**
    * The CEG configuration.
    */
-  cegContent: CegControlManager<T>;
+  readonly cegContent: CegControlManager<T>;
 }
