@@ -24,7 +24,7 @@ export class ContextMenuDocComponent {
   title = getComponent('context-menu').title;
 
   does = ['Help user perform actions when space is limited'];
-  donts = ['When the actions are cruicial to complete a workflow'];
+  donts = ['When the actions are crucial to complete a workflow'];
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');
