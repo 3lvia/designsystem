@@ -20,6 +20,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   @Input() elementName = '';
   @Input() componentSlots: Observable<string[]>;
   initialProps: Prop[] = [];
+  staticProps: Prop[] = [];
   angularCode = '';
   reactCode = '';
   vueCode = '';
@@ -71,6 +72,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
 
     if (staticProps) {
       const staticPropsArray = Object.entries(staticProps).map(([name, value]) => ({ name, value }));
+      this.staticProps = staticPropsArray as Prop[];
       props.unshift(...(staticPropsArray as Prop[]));
     }
     if (type) {
@@ -81,12 +83,18 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
 
   private propShouldBeIncluded(prop: Prop): boolean {
     const initialProp = this.initialProps.find((p) => p.name === prop.name);
+    const staticProp = this.staticProps.find((p) => p.name === prop.name);
+
+    // Static props that are truthy are included.
     // All values that are not boolean are always included.
     // If a boolean prop is undefined initially, we compare against 'false'
     const valueIsDifferentFromInitialValue =
       typeof prop.value !== 'boolean' || (initialProp.value || false) !== prop.value;
 
-    return prop.value != null && valueIsDifferentFromInitialValue && typeof prop.value !== 'function';
+    return (
+      !!staticProp?.value ||
+      (prop.value != null && valueIsDifferentFromInitialValue && typeof prop.value !== 'function')
+    );
   }
 
   private getCleanSlot(slots: string[]): string[] {
