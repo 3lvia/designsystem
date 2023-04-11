@@ -34,7 +34,7 @@ export const Carousel: FC<CarouselProps> = function ({
   className,
   inlineStyle,
   webcomponent,
-  type = 'linear',
+  type = 'loop',
   ...rest
 }) {
   warnDeprecatedProps(config, arguments[0]);
