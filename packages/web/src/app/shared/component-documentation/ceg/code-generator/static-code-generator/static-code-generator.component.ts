@@ -74,9 +74,13 @@ export class StaticCodeGeneratorComponent implements OnInit {
 
   private createReactCodeFromStaticContent(angularCode: string): string {
     let reactCode = this.transformSlotsIntoReactAttributes(angularCode);
+    console.log(reactCode);
     reactCode = this.transformTagsToReactStyle(reactCode);
+    console.log(reactCode);
     reactCode = this.transformAttributesToReactStyle(reactCode);
+    console.log(reactCode);
     reactCode = this.removeWhiteSpaceBetweenTags(reactCode);
+    console.log(reactCode);
 
     return reactCode;
   }
