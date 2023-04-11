@@ -1,9 +1,7 @@
 {
   "name": "@elvia/elvis-box",
-  "version": "1.4.5",
-  "description": "",
+  "version": "1.4.6",
   "main": "web_component.js",
-  "author": "",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/box",
   "files": [
