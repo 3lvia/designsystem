@@ -1,8 +1,7 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
-import { accordionData } from './accodrion-data';
+import { accordionData } from './accordion-data';
 import { Title } from '@angular/platform-browser';
-import { accordionGroupData } from './accordion-group-data';
 
 @Component({
   selector: 'app-accordion-doc',
@@ -10,9 +9,7 @@ import { accordionGroupData } from './accordion-group-data';
   styleUrls: ['./accordion-doc.component.scss'],
 })
 export class AccordionDocComponent {
-  @ViewChild('accordionLiveExample') accordionLiveExample: ElementRef;
   componentData = accordionData;
-  accordionGroupData = accordionGroupData;
   figmaUrl = getComponent('accordion').figmaUrl;
   title = getComponent('accordion').title;
   description = getComponent('accordion').description;

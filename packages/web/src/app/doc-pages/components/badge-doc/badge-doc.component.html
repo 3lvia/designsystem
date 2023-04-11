@@ -17,10 +17,9 @@
       The badge component acts as a wrapper. You should only use badges on Icon Button or Thumbnails. Note how
       the badge places itself relative to its content, meaning you can place a badge component within other
       elements, such as the icon in an Icon Button element. Use slots to give the badge its content.
-      <app-component-example-generator
-        [componentData]="$any(badgeIconCode)"
-        [inlineExample]="true"
-      ></app-component-example-generator>
+      <app-static-ceg>
+        <app-button-badge-ceg />
+      </app-static-ceg>
     </ng-container>
   </app-component-section>
 
