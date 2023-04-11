@@ -15,10 +15,10 @@ export const carouselData: ComponentData = {
     },
     type: {
       isRequired: false,
-      type: "'linear' | 'loop'",
+      type: "'loop' | 'linear'",
       description:
         'The "loop" type allows the user to cycle through the carousel items endlessly, while the "linear" type allows the user to navigate the carousel items in a linear way, both forward and backwards.',
-      default: 'linear',
+      default: 'loop',
     },
     hasConfirmationCheckmark: {
       isRequired: false,
@@ -26,11 +26,6 @@ export const carouselData: ComponentData = {
       description:
         'Whether a checkmark button should be used for the last carousel-item. This requires the type to be "linear". This could be used in an onboarding situation.',
       default: 'false',
-      cegDisplayName: 'Confirm button',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Options',
     },
     onFinish: {
       isRequired: false,
@@ -68,140 +63,13 @@ export const carouselData: ComponentData = {
         "Custom CSS style object that can be added to the carousel. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeReact: `<Carousel
-  items={[
-    { 
-      heading: <h3 className="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>, 
-      item: <img 
-        alt="Carousel example image" 
-        src="../../../../assets/carousel/el1.jpeg"
-        style={{width: '100%', minWidth: '278px', borderRadius: '8px'}}
-      />
-    },
-    { 
-      heading: <h3 className="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>, 
-      item: <img 
-        alt="Carousel example image" 
-        src="../../../../assets/carousel/el2.jpeg"
-        style={{width: '100%', minWidth: '278px', borderRadius: '8px'}}
-      />
-    },
-    { 
-      heading: <h3 className="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>, 
-      item: <img 
-        alt="Carousel example image" 
-        src="../../../../assets/carousel/el3.jpeg"
-        style={{width: '100%', minWidth: '278px', borderRadius: '8px'}}
-      />
-    }
-  ]} 
-></Carousel>`,
-  codeAngular: `<elvia-carousel
->
-  <div slot="heading-1">
-    <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
-  </div>
-  <div slot="item-1">
-    <img 
-      alt="Carousel example image" 
-      src="../../../../assets/carousel/el1.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px;" 
-    />
-  </div>
-  <div slot="heading-2">
-    <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>
-  </div>
-  <div slot="item-2">
-    <img 
-      alt="Carousel example image" 
-      src="../../../../assets/carousel/el2.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px;" 
-    />
-  </div>
-  <div slot="heading-3">
-    <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>
-  </div>
-  <div slot="item-3">
-    <img 
-      alt="Carousel example image" 
-      src="../../../../assets/carousel/el3.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px;" 
-    />
-  </div>
-</elvia-carousel>`,
-  codeVue: `<elvia-carousel
->
-  <div slot="heading-1">
-    <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
-  </div>
-  <div slot="item-1">
-    <img 
-      alt="Carousel example image" 
-      src="../../../../assets/carousel/el1.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px;" 
-    />
-  </div>
-  <div slot="heading-2">
-    <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>
-  </div>
-  <div slot="item-2">
-    <img 
-      alt="Carousel example image" 
-      src="../../../../assets/carousel/el2.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px;" 
-    />
-  </div>
-  <div slot="heading-3">
-    <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>
-  </div>
-  <div slot="item-3">
-    <img 
-      alt="Carousel example image" 
-      src="../../../../assets/carousel/el3.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px;" 
-    />
-  </div>
-</elvia-carousel>`,
-  codeNativeHTML: `<elvia-carousel
->
-  <div slot="heading-1">
-    <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
-  </div>
-  <div slot="item-1">
-    <img 
-      alt="Carousel example image" 
-      src="../../../../assets/carousel/el1.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px;" 
-    />
-  </div>
-  <div slot="heading-2">
-    <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>
-  </div>
-  <div slot="item-2">
-    <img 
-      alt="Carousel example image" 
-      src="../../../../assets/carousel/el2.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px;" 
-    />
-  </div>
-  <div slot="heading-3">
-    <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>
-  </div>
-  <div slot="item-3">
-    <img 
-      alt="Carousel example image" 
-      src="../../../../assets/carousel/el3.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px;" 
-    />
-  </div>
-</elvia-carousel>`,
-  codeNativeScript: ``,
+
   does: [
     'Many items to display and the user only needs to focus on a few at once',
     'Collection of related items',
   ],
   donts: [
     'Should not be use on non-visual items such as links or paragraphs',
-    'More than 5 frames - It’s unlikely users will engage with more than that (Use a list instead)',
+    'More than five frames - It’s unlikely users will engage with more than that (Use a list instead)',
   ],
 };
