@@ -42,7 +42,7 @@ export const carouselData: ComponentData = {
       isRequired: false,
       type: '() => void',
       description:
-        'If loop is disabled and hasConfirmationButton is enbled you might want to do an action when you finish the iteration. When the checkmark is clicked this funtion will be triggered.',
+        'If loop is disabled and hasConfirmationButton is enabled you might want to do an action when you finish the iteration. When the checkmark is clicked this function will be triggered.',
       default: 'false',
     },
     value: {
