@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect, CSSProperties, TouchEvent, MouseEvent } from 'react';
+import React, { FC, useState, useRef, useEffect, TouchEvent, MouseEvent } from 'react';
 import {
   CarouselContainer,
   CarouselElements,
@@ -12,60 +12,15 @@ import {
   CarouselRightButton,
   CarouselCheckButton,
 } from './StyledComponents';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { config } from './config';
 import { warnDeprecatedProps, useRovingFocus, IconWrapper } from '@elvia/elvis-toolbox';
-
 import arrowLeftCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleColor';
 import arrowLeftCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleFilledColor';
 import arrowRightCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowRightCircleColor';
 import arrowRightCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arrowRightCircleFilledColor';
 import checkCircleColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleColor';
 import checkCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleFilledColor';
-
-export interface CarouselItem {
-  /**
-   * @deprecated Deprecated in version 2.0.0. Use heading instead.
-   */
-  title?: JSX.Element | string | HTMLElement;
-  /**
-   * @deprecated Deprecated in version 2.0.0. Use item instead.
-   */
-  element?: JSX.Element | string | HTMLElement;
-  heading?: JSX.Element | string;
-  item: JSX.Element | string;
-}
-export type SlideDirection = 'left' | 'right';
-
-export interface CarouselProps {
-  items: CarouselItem[] | number;
-  /**
-   * @deprecated Deprecated in version 2.0.0. Use items instead.
-   */
-  elements?: CarouselItem[] | number;
-  /**
-   *  @deprecated Deprecated in version 2.0.0.
-   * Use loop instead. Remember to invert boolean.
-   */
-  hideArrows?: boolean;
-  loop?: boolean;
-  onFinish?: () => void;
-  /**
-   *  @deprecated Deprecated in version 2.0.0. Use onFinish instead.
-   */
-  onHide?: () => void;
-  /**
-   *  @deprecated Deprecated in version 2.0.0. Use hasConfirmationCheckmark instead.
-   */
-  useOnboardingCheckmark?: boolean;
-  hasConfirmationCheckmark?: boolean;
-  value?: number;
-  valueOnChange?: (value: number) => void;
-  hasAnimation?: boolean;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
-}
+import { CarouselItem, CarouselProps, SlideDirection } from './elvia-carousel.types';
 
 let UNIQUE_CAROUSEL_ID = 0;
 
