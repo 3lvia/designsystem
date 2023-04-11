@@ -28,11 +28,15 @@ export class ControlsComponent implements OnInit, OnDestroy {
     ])
       .pipe(
         takeUntil(this.unsubscriber),
-        distinctUntilChanged(([prevControls], [currControls]) => {
-          return JSON.stringify(prevControls) === JSON.stringify(currControls);
+        distinctUntilChanged(([prevControls, prevGroupOrder], [currControls, currGroupOrder]) => {
+          const controlsNotChanged = JSON.stringify(prevControls) === JSON.stringify(currControls);
+          const groupOrderNotChanged = JSON.stringify(prevGroupOrder) === JSON.stringify(currGroupOrder);
+          return controlsNotChanged && groupOrderNotChanged;
         }),
       )
-      .subscribe(([controls, groupOrder]) => this.createControlGroups(controls, groupOrder));
+      .subscribe(([controls, groupOrder]) => {
+        this.createControlGroups(controls, groupOrder);
+      });
   }
 
   private createControlGroups(controls: Controls, groupOrder: string[]) {

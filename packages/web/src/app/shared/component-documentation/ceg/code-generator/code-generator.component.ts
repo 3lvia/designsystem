@@ -139,6 +139,7 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
           });
           return parsedSlot.body.innerHTML;
         }
+        return slot;
       })
       .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
       .map((slot) => slot.replace(/ng-reflect.*Object]"/g, ''));
@@ -151,7 +152,7 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
 
   private getReactSlots(slots: string[]): string {
     const sanitizedSlots = this.getCleanSlot(slots)
-      .map((slot) => slot.replace(/class=/g, 'className='))
+
       .map((slot) => {
         // Convert conventional slots to be a prop on the element.
         const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
@@ -160,6 +161,7 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
         slotContent.removeAttribute('slot');
         return `${slotName}={<>${slotContent.outerHTML}</>}`;
       })
+      .map((slot) => slot.replace(/class=/g, 'className='))
       .join('');
 
     return sanitizedSlots ? `${sanitizedSlots}\n` : '';
@@ -198,7 +200,7 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
       .map((prop) => {
         switch (typeof prop.value) {
           case 'string':
-            return `${prop.name}={'${prop.value}'}`;
+            return `${prop.name}={"${prop.value}"}`;
           default:
             return `${prop.name}={${JSON.stringify(prop.value)}}`;
         }
