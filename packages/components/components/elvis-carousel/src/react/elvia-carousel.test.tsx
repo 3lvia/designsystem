@@ -113,9 +113,9 @@ describe('Elvis Carousel', () => {
     });
   });
 
-  describe('Hide arrows = true', () => {
+  describe('Type = "linear"', () => {
     beforeEach(() => {
-      render(<Carousel items={items} loop={false} />);
+      render(<Carousel items={items} type="linear" />);
     });
 
     it('should hide arrow at the left end', () => {
@@ -154,9 +154,9 @@ describe('Elvis Carousel', () => {
     });
   });
 
-  describe.skip('Onboarding Checkmark  = true', () => {
+  describe('Onboarding Checkmark  = true', () => {
     beforeEach(() => {
-      render(<Carousel items={items} hideArrows hasConfirmationCheckmark={true} />);
+      render(<Carousel items={items} type="linear" hasConfirmationCheckmark={true} />);
     });
 
     it('should show onboarding checkmark at right end', async () => {
@@ -176,6 +176,7 @@ describe('Elvis Carousel', () => {
     it('should have no axe violations', async () => {
       render(
         <div data-testid="carousels">
+          <Carousel items={items} />
           <Carousel items={items} />
         </div>,
       );
