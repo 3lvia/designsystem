@@ -71,6 +71,7 @@
     "eslint-plugin-react": "^7.30.0",
     "express": "^4.17.1",
     "gulp-stylelint": "^13.0.0",
+    "html-loader": "^4.2.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.7",
     "nx": "15.0.4",
