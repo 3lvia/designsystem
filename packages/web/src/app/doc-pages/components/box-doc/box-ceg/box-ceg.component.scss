@@ -1,27 +1,11 @@
-i {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+@use '@elvia/elvis/src/variables/typography.scss' as typography;
 
 div {
-  /* rett fra figma, tester bare */
+  @include typography.typography('text-caps');
+  border: 2px dashed var(--e-grey-40);
+  color: var(--e-grey-40);
   display: grid;
-  place-items: center;
-
-  height: 100%;
   min-height: 100px;
   min-width: 100px;
-  /*   background: #fafafa;
- */
-  border: 2px dashed #a8a8a8;
-
-  font-family: 'Red Hat Text', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 120%;
-  color: #a8a8a8;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
+  place-items: center;
 }
