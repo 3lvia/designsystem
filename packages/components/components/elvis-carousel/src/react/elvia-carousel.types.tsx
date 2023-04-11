@@ -13,6 +13,7 @@ export interface CarouselItem {
   item: JSX.Element | string;
 }
 export type SlideDirection = 'left' | 'right';
+export type AccordionType = 'linear' | 'loop';
 
 export interface CarouselProps extends BaseProps {
   items: CarouselItem[] | number;
@@ -26,7 +27,7 @@ export interface CarouselProps extends BaseProps {
    */
   hideArrows?: boolean;
   /**
-   * @deprecated Deprecated in version 2.3.1.
+   * @deprecated Deprecated in version 3.0.0.
    * Use the `type` prop instead.
    */
   loop?: boolean;
@@ -43,5 +44,5 @@ export interface CarouselProps extends BaseProps {
   value?: number;
   valueOnChange?: (value: number) => void;
   hasAnimation?: boolean;
-  type?: 'normal | loop';
+  type?: AccordionType;
 }

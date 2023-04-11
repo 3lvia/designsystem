@@ -26,7 +26,6 @@ let UNIQUE_CAROUSEL_ID = 0;
 
 export const Carousel: FC<CarouselProps> = function ({
   items,
-  loop = true,
   onFinish,
   hasConfirmationCheckmark,
   value = 0,
@@ -35,6 +34,7 @@ export const Carousel: FC<CarouselProps> = function ({
   className,
   inlineStyle,
   webcomponent,
+  type = 'linear',
   ...rest
 }) {
   warnDeprecatedProps(config, arguments[0]);
@@ -53,8 +53,8 @@ export const Carousel: FC<CarouselProps> = function ({
   const itemsRef = useRef<HTMLDivElement>(null);
   const { ref: navigationElementsRef } = useRovingFocus<HTMLDivElement>({ dir: 'horizontal' });
 
-  const hideLeftArrow = !loop && index === 0;
-  const hideRightArrow = !loop && index === lengthOfItems - 1;
+  const hideLeftArrow = type === 'linear' && index === 0;
+  const hideRightArrow = type === 'linear' && index === lengthOfItems - 1;
   const showOnboardingCheckmark = hideRightArrow && hasConfirmationCheckmark;
 
   useEffect(() => {

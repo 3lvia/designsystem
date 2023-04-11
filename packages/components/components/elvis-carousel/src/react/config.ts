@@ -5,6 +5,7 @@ export const config: ComponentConfig = {
   attributes: [
     { name: 'items', type: 'string' },
     { name: 'loop', type: 'boolean' },
+    { name: 'type', type: 'string' },
     { name: 'hasConfirmationCheckmark', type: 'boolean' },
     { name: 'hasAnimation', type: 'boolean' },
     { name: 'value', type: 'number' },
@@ -20,6 +21,16 @@ export const config: ComponentConfig = {
         isDirectReplacement: false,
         explanation:
           "'elements' have been replaced by 'items'. The child-type CarouselElement has been renamed to CarouselItem.",
+      },
+    },
+    {
+      name: 'loop',
+      type: 'string',
+      deprecatedDetails: {
+        version: '3.0.0',
+        newProp: 'type',
+        isDirectReplacement: true,
+        explanation: "'loop' has been replaced by 'type'.",
       },
     },
     {
