@@ -313,6 +313,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
 
   setLocale(locale: LOCALE_CODE): void {
     this.localizationService.setLocalization(Locale[locale]);
+    this.localizationService.setPreferredLocalization(Locale[locale]);
   }
 
   private updateLocaleSwitchVisibility(): void {

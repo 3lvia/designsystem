@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { LOCALE_CODE } from 'contentful/types';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -8,6 +8,7 @@ export enum Locale {
   'nb-NO' = 1,
 }
 
+const LOCALIZATION_STORAGE_KEY = 'preferredDesignElviaIoLocale';
 @Injectable({
   providedIn: 'root',
 })
@@ -22,6 +23,12 @@ export class LocalizationService {
         const url = event.urlAfterRedirects;
         if (url.split('/')[1] !== 'brand') {
           this.setLocalization(Locale['en-GB']);
+        } else {
+          // On route change to brand, check if a preferred locale is set
+          const preferredLocale = localStorage.getItem(LOCALIZATION_STORAGE_KEY);
+          if (preferredLocale) {
+            this.setLocalization(Locale[preferredLocale]);
+          }
         }
       }
     });
@@ -31,11 +38,11 @@ export class LocalizationService {
     return this.localizationSubject.asObservable();
   }
 
-  setLocalization(locale: Locale | LOCALE_CODE): void {
-    if (typeof locale === 'string') {
-      this.localizationSubject.next(Locale[locale]);
-    } else {
-      this.localizationSubject.next(locale);
-    }
+  setLocalization(locale: Locale): void {
+    this.localizationSubject.next(locale);
+  }
+
+  setPreferredLocalization(locale: Locale): void {
+    localStorage.setItem(LOCALIZATION_STORAGE_KEY, Locale[locale]);
   }
 }
