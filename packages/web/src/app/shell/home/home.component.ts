@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { LOCALE_CODE } from 'contentful/types';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 import { homeMenu } from 'src/app/shared/doc-pages';
 import changelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
   halloweenMonth = 9;
   halloween = false;
   isBirthday = false;
-  locale: string;
+  locale: LOCALE_CODE;
   changelog = changelogJson.content;
 
   screenWidth: number;
