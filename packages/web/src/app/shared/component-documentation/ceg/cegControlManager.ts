@@ -1,5 +1,5 @@
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 import { CegControl, ComponentType, Controls, ControlValue, StaticProps } from './controlType';
 
 export type UnknownCegControlManager = CegControlManager<unknown>;
@@ -125,6 +125,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
       map(([componentTypes, name]) => {
         return componentTypes.find((configuration) => configuration.name === name);
       }),
+      distinctUntilChanged((a, b) => JSON.stringify(a) === JSON.stringify(b)),
     );
   }
 
