@@ -36,11 +36,11 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     return this.getCurrentComponentType().pipe(map((configuration) => configuration?.groupOrder));
   }
 
-  getStaticProps(): Observable<StaticProps<TComponentProps> | undefined> {
+  getStaticProps(): Observable<Partial<StaticProps<TComponentProps>> | undefined> {
     return this.getCurrentComponentType().pipe(map((configuration) => configuration?.staticProps));
   }
 
-  getStaticPropsSnapshot(): StaticProps<TComponentProps> | undefined {
+  getStaticPropsSnapshot(): Partial<StaticProps<TComponentProps>> | undefined {
     const confIndex = this.getCurrentComponentTypeIndex();
     return this._componentTypes.value[confIndex]?.staticProps;
   }
@@ -56,6 +56,18 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
 
   setActiveComponentTypeName(name: string): void {
     this._currentComponentTypeName.next(name);
+  }
+
+  getActiveSlots(): Observable<string[]> {
+    return this.getCurrentControls().pipe(
+      map((controls: Controls) => {
+        return Object.entries(controls)
+          .filter(([_, control]) => {
+            return control.type === 'slotToggle' && control.value;
+          })
+          .map(([controlName]) => controlName);
+      }),
+    );
   }
 
   /**

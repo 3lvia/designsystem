@@ -53,16 +53,16 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  toggleSlot(slotName: string, isVisible: boolean) {
+    this.componentExample.cegContent.setPropValue(slotName, isVisible);
+  }
+
   private setUpSlotSubscription() {
-    this.componentExample.cegContent.currentComponentTypeName
-      .pipe(
-        takeUntil(this.unsubscriber),
-        /** We need to wait in order to prevent ExpressionChangeAfterChecked error  */
-        switchMap(() => this.zone.onStable),
-        first(),
-        map(() => Object.values(this.getWebComponent().getAllSlots()).map((slot) => slot.outerHTML)),
-      )
-      .subscribe((slots) => this._componentSlots.next(slots));
+    const observer = new MutationObserver(() => {
+      const slots = Object.values(this.getWebComponent().getAllSlots()).map((html) => html.outerHTML);
+      this._componentSlots.next(slots.slice());
+    });
+    observer.observe(this.componentContainer.nativeElement, { childList: true, subtree: true });
   }
 
   private setUpTypeChangeSubscription() {

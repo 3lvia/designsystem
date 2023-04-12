@@ -21,9 +21,13 @@
       </ng-container>
 
       <app-switch
-        *ngIf="control.value.type === 'switch'"
+        *ngIf="control.value.type === 'switch' || control.value.type === 'slotToggle'"
         [switch]="control.value"
-        (toggle)="updateValue(control.key, $event)"
+        (toggle)="
+          control.value.type === 'switch'
+            ? updateValue(control.key, $event)
+            : slotToggleChange(control.key, $event)
+        "
       />
 
       <app-counter

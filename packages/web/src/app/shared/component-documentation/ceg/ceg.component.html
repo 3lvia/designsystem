@@ -17,6 +17,7 @@
     class="ceg-desktop-controls"
     [controlManager]="componentExample.cegContent"
     (propChange)="setPropValue($event.propName, $event.value)"
+    (slotToggle)="toggleSlot($event.slotName, $event.isVisible)"
   />
 
   <app-dynamic-code-generator

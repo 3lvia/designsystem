@@ -19,6 +19,7 @@ export class ControlsComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject();
   @Input() controlManager: UnknownCegControlManager;
   @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
+  @Output() slotToggle = new EventEmitter<{ slotName: string; isVisible: boolean }>();
   groups: Group[] = [];
 
   ngOnInit() {
@@ -92,6 +93,10 @@ export class ControlsComponent implements OnInit, OnDestroy {
 
   updateValue(key: string, value: ControlValue): void {
     this.propChange.emit({ propName: key, value: value });
+  }
+
+  slotToggleChange(slotName: string, isVisible: boolean): void {
+    this.slotToggle.emit({ slotName, isVisible });
   }
 
   // Reset the default sorting provided by the 'keyvalue' pipe.

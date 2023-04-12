@@ -59,6 +59,10 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   private getFlatPropList(controls: Controls, staticProps: StaticProps<unknown>, type: string): Prop[] {
     const props = Object.entries(controls)
       .map(([controlName, control]) => {
+        if (control.type === 'slotToggle') {
+          return [];
+        }
+
         const props: Prop[] = [{ name: controlName, value: control.value }];
         if (control.type === 'checkbox' && control.children) {
           Object.entries(control.children).forEach(([childName, child]) => {

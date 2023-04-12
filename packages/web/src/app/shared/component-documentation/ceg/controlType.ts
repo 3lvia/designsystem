@@ -28,6 +28,12 @@ export interface Switch extends ControlBase {
   value?: boolean;
 }
 
+export interface SlotToggle extends ControlBase {
+  readonly type: 'slotToggle';
+  readonly label: string;
+  value?: boolean;
+}
+
 export interface Counter extends ControlBase {
   readonly type: 'counter';
   readonly postfix?: string;
@@ -44,7 +50,7 @@ export interface Text extends ControlBase {
   readonly inputType?: 'input' | 'textarea';
 }
 
-export type CegControl = Checkbox | Switch | RadioGroup | Counter | Text;
+export type CegControl = Checkbox | Switch | SlotToggle | RadioGroup | Counter | Text;
 
 export type Controls<T = Record<string, any>> = Readonly<
   Partial<{
@@ -52,7 +58,7 @@ export type Controls<T = Record<string, any>> = Readonly<
       ? Checkbox | Switch
       : T[key] extends string
       ? RadioGroup<T[key]> | Text
-      : RadioGroup | Counter | Text;
+      : RadioGroup | Counter | Text | SlotToggle;
   }>
 >;
 
@@ -64,7 +70,7 @@ export interface ComponentType<T> {
   readonly name?: string;
   readonly controls: Controls<T>;
   readonly groupOrder: string[];
-  readonly staticProps?: StaticProps<T>;
+  readonly staticProps?: Partial<StaticProps<T>>;
 }
 
 export type ControlValue = CegControl['value'];
