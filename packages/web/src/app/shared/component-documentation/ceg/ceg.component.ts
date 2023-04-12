@@ -1,13 +1,5 @@
-import {
-  AfterViewInit,
-  Component,
-  ContentChild,
-  ElementRef,
-  NgZone,
-  OnDestroy,
-  ViewChild,
-} from '@angular/core';
-import { first, map, switchMap, takeUntil } from 'rxjs/operators';
+import { AfterViewInit, Component, ContentChild, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { map, takeUntil } from 'rxjs/operators';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './component-example';
 import { Controls, ControlValue } from './controlType';
@@ -19,9 +11,10 @@ import { BehaviorSubject, combineLatest, Subject } from 'rxjs';
   styleUrls: ['./ceg.component.scss', './shared-styles.scss'],
 })
 export class CegComponent implements AfterViewInit, OnDestroy {
-  private unsubscriber = new Subject();
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
   @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
+  private slotObserver: MutationObserver;
+  private unsubscriber = new Subject();
   private _componentSlots = new BehaviorSubject<string[]>([]);
   readonly componentSlots = this._componentSlots.asObservable();
 
@@ -31,18 +24,16 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     );
   }
 
-  constructor(private zone: NgZone) {}
-
   ngAfterViewInit(): void {
     this.setUpSlotSubscription();
     this.setUpTypeChangeSubscription();
     this.setUpStaticPropSubscription();
-    this.setDisplayStyleOnExampleComponent();
   }
 
   ngOnDestroy(): void {
     this.unsubscriber.next();
     this.unsubscriber.complete();
+    this.slotObserver.disconnect();
   }
 
   setPropValue(propName: string, value: ControlValue): void {
@@ -58,11 +49,11 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   }
 
   private setUpSlotSubscription() {
-    const observer = new MutationObserver(() => {
+    this.slotObserver = new MutationObserver(() => {
       const slots = Object.values(this.getWebComponent().getAllSlots()).map((html) => html.outerHTML);
       this._componentSlots.next(slots.slice());
     });
-    observer.observe(this.componentContainer.nativeElement, { childList: true, subtree: true });
+    this.slotObserver.observe(this.componentContainer.nativeElement, { childList: true, subtree: true });
   }
 
   private setUpTypeChangeSubscription() {
@@ -96,12 +87,6 @@ export class CegComponent implements AfterViewInit, OnDestroy {
         }, {});
         this.getWebComponent().setProps(propsToInclude);
       });
-  }
-
-  private setDisplayStyleOnExampleComponent() {
-    // By setting "display: contents" on the host, isFullWidth works as expected.
-    const cegContent = this.componentContainer.nativeElement.firstChild as HTMLElement;
-    cegContent.style.display = 'contents';
   }
 
   private setAllPropsOnWebComponent(controls: Controls): void {

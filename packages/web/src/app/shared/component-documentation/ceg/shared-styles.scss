@@ -10,3 +10,11 @@
   justify-content: center;
   min-height: 250px;
 }
+
+/** Even though ::ng-deep is deprecated, it's still the current
+ * recommended way of partially disabling view encapsulation.
+ * By setting "display: contents" on the child CEG component, isFullWidth works as expected.
+ **/
+.component-example-container ::ng-deep > :first-child {
+  display: contents;
+}
