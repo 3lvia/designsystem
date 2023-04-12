@@ -1,5 +1,6 @@
 <elvia-popover (onOpen)="isShowing = true" (onClose)="isShowing = false">
   <button
+    *ngIf="test"
     slot="trigger"
     class="e-btn e-btn--icon e-btn--circled"
     [ngClass]="{ 'e-btn---selected': isShowing }"
@@ -8,6 +9,18 @@
     <span class="e-btn__icon">
       <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
       <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
+    </span>
+  </button>
+  <button
+    *ngIf="!test"
+    slot="trigger"
+    class="e-btn e-btn--icon e-btn--circled"
+    [ngClass]="{ 'e-btn---selected': isShowing }"
+    aria-label="Popover trigger"
+  >
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--add_circle" aria-hidden="true"></i>
+      <i class="e-icon e-icon e-icon--add_circle-filled-color" aria-hidden="true"></i>
     </span>
   </button>
 </elvia-popover>

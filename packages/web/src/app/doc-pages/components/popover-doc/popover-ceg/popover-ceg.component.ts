@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { PopoverProps } from '@elvia/elvis-popover/react';
 
@@ -7,7 +7,7 @@ import { PopoverProps } from '@elvia/elvis-popover/react';
   templateUrl: './popover-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: PopoverCegComponent }],
 })
-export class PopoverCegComponent implements ComponentExample {
+export class PopoverCegComponent implements ComponentExample, OnInit {
   elementName = 'popover';
   cegContent = new CegControlManager<PopoverProps>([
     {
@@ -46,4 +46,9 @@ export class PopoverCegComponent implements ComponentExample {
   ]);
 
   isShowing = false;
+  test = true;
+
+  ngOnInit(): void {
+    document.addEventListener('toggleTest', () => (this.test = !this.test));
+  }
 }
