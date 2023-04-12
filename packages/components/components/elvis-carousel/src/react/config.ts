@@ -13,6 +13,16 @@ export const config: ComponentConfig = {
     { name: 'inlineStyle', type: 'object' },
     // Deprecated attributes
     {
+      name: 'loop',
+      type: 'string',
+      deprecatedDetails: {
+        version: '3.0.0',
+        newProp: 'type',
+        isDirectReplacement: false,
+        explanation: "'loop' has been replaced by 'type'.",
+      },
+    },
+    {
       name: 'elements',
       type: 'string',
       deprecatedDetails: {
@@ -21,16 +31,6 @@ export const config: ComponentConfig = {
         isDirectReplacement: false,
         explanation:
           "'elements' have been replaced by 'items'. The child-type CarouselElement has been renamed to CarouselItem.",
-      },
-    },
-    {
-      name: 'loop',
-      type: 'string',
-      deprecatedDetails: {
-        version: '3.0.0',
-        newProp: 'type',
-        isDirectReplacement: false,
-        explanation: "'loop' has been replaced by 'type'.",
       },
     },
     {
