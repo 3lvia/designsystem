@@ -1,6 +1,5 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { LOCALE_CODE } from 'contentful/types';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 export enum Locale {
