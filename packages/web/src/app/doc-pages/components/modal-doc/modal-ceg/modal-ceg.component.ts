@@ -15,7 +15,12 @@ export class ModalCegComponent implements ComponentExample, OnInit {
   cegContent = new CegControlManager<ModalProps>([
     {
       controls: {
-        illustration: { type: 'slotToggle', group: 'Options', label: 'Illustration', value: true },
+        illustration: {
+          type: 'slotToggle',
+          group: 'Options',
+          label: 'Illustration',
+          value: this.modalWithIllustration,
+        },
         hasCloseButton: { type: 'switch', group: 'Options', label: 'Close Button' },
       },
       staticProps: {
