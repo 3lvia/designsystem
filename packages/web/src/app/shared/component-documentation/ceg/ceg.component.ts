@@ -91,7 +91,9 @@ export class CegComponent implements AfterViewInit, OnDestroy {
 
   private setAllPropsOnWebComponent(controls: Controls): void {
     Object.entries(controls).forEach(([controlName, control]) => {
-      this.getWebComponent().setProps({ [controlName]: control.value });
+      if (control.type !== 'slotToggle') {
+        this.getWebComponent().setProps({ [controlName]: control.value }, true);
+      }
     });
   }
 
