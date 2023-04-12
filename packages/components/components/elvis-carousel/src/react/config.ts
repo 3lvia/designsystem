@@ -29,7 +29,7 @@ export const config: ComponentConfig = {
       deprecatedDetails: {
         version: '3.0.0',
         newProp: 'type',
-        isDirectReplacement: true,
+        isDirectReplacement: false,
         explanation: "'loop' has been replaced by 'type'.",
       },
     },
