@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "12.04.23",
+      "version": "4.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Now listening to changes to slots and updating the component when they change. "]
+        }
+      ]
+    },
+    {
       "date": "16.02.23",
       "version": "4.0.1",
       "changelog": [
