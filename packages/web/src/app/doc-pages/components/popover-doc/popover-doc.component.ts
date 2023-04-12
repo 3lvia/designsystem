@@ -31,8 +31,4 @@ export class PopoverDocComponent {
       this.loadedPopoverStructure = true;
     }
   }
-
-  dispatchToggleIconEvent(): void {
-    document.dispatchEvent(new Event('toggleTest'));
-  }
 }
