@@ -4,7 +4,6 @@ export const config: ComponentConfig = {
   name: 'Carousel',
   attributes: [
     { name: 'items', type: 'string' },
-    { name: 'loop', type: 'boolean' },
     { name: 'type', type: 'string' },
     { name: 'hasConfirmationCheckmark', type: 'boolean' },
     { name: 'hasAnimation', type: 'boolean' },
