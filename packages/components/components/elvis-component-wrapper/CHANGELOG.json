@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "13.04.23",
+      "version": "4.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Patch update slots in slot dictionary instead of repopulating entire object."]
+        }
+      ]
+    },
+    {
       "date": "12.04.23",
       "version": "4.1.0",
       "changelog": [
