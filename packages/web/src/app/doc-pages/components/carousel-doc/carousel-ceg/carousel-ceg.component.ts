@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { exampleContents } from 'src/app/shared/example-contents';
 import { CarouselProps } from '@elvia/elvis-carousel/react';
 
 @Component({
@@ -30,8 +29,4 @@ export class CarouselCegComponent implements ComponentExample {
       groupOrder: ['Options'],
     },
   ]);
-
-  get exampleContents() {
-    return exampleContents;
-  }
 }
