@@ -5,11 +5,10 @@
   <div class="e-input">
     <textarea
       [id]="inputId"
-      type="text"
       #domTextarea
       (input)="onChange(domTextarea.value)"
       [attr.aria-label]="input.label"
-      >{{ input.value }}</textarea
+      >{{ textValue }}</textarea
     >
   </div>
 </div>
@@ -19,8 +18,7 @@
     <div class="e-input">
       <input
         [id]="inputId"
-        type="text"
-        [value]="input.value"
+        [value]="textValue"
         #domInput
         (input)="onChange(domInput.value)"
         [attr.aria-label]="input.label"
