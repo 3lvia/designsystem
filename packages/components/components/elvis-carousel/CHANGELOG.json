@@ -2,7 +2,7 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "12.04.23",
+      "date": "13.04.23",
       "version": "3.0.0",
       "changelog": [
         {
@@ -11,6 +11,10 @@
           "fixes": [
             "Replace the <code>loop</code> prop with the <code>type</code> prop. The <code>type</code> prop can be set to <code>\"linear\"</code> or <code>\"loop\"</code>. (default)"
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Fixed broken type export"]
         }
       ]
     },
