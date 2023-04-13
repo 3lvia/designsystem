@@ -1,17 +1,7 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import React, { CSSProperties, FC } from 'react';
+import React, { FC } from 'react';
 import { BoxArea, BoxColoredLine, BoxTitle, BoxContent } from './styledComponents';
 import { useSlot } from '@elvia/elvis-toolbox';
-
-export interface BoxProps {
-  title?: string | JSX.Element;
-  content: string | JSX.Element;
-  isColored?: boolean;
-  hasBorder?: boolean;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
-}
+import { BoxProps } from './elvia-box.types';
 
 const Box: FC<BoxProps> = ({
   title,

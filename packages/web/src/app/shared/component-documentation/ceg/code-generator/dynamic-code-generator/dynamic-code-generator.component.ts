@@ -7,6 +7,7 @@ import { Controls, StaticProps } from '../../controlType';
 interface Prop {
   name: string;
   value: string | number | boolean;
+  isStatic?: boolean;
 }
 
 @Component({
@@ -70,7 +71,11 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
       .flat();
 
     if (staticProps) {
-      const staticPropsArray = Object.entries(staticProps).map(([name, value]) => ({ name, value }));
+      const staticPropsArray = Object.entries(staticProps).map(([name, value]) => ({
+        name,
+        value,
+        isStatic: true,
+      }));
       props.unshift(...(staticPropsArray as Prop[]));
     }
     if (type) {
@@ -80,13 +85,19 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   }
 
   private propShouldBeIncluded(prop: Prop): boolean {
-    const initialProp = this.initialProps.find((p) => p.name === prop.name);
+    if (prop.isStatic) {
+      return true;
+    }
+
     // All values that are not boolean are always included.
     // If a boolean prop is undefined initially, we compare against 'false'
+    const initialProp = this.initialProps.find((p) => p.name === prop.name);
     const valueIsDifferentFromInitialValue =
       typeof prop.value !== 'boolean' || (initialProp.value || false) !== prop.value;
 
-    return prop.value != null && valueIsDifferentFromInitialValue && typeof prop.value !== 'function';
+    const valueIsNotFunction = typeof prop.value !== 'function';
+
+    return prop.value != null && valueIsDifferentFromInitialValue && valueIsNotFunction;
   }
 
   private getCleanSlot(slots: string[]): string[] {

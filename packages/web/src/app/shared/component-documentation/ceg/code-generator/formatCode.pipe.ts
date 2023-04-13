@@ -9,7 +9,7 @@ import { Language } from './language';
 })
 export class FormatCodePipe implements PipeTransform {
   transform(code: string, language: Language): string {
-    const codeWithClosedTags = this.addSelfClosingTagsToImgTags(code);
+    const codeWithClosedTags = this.addClosingTagsToVoidElements(code);
     let formattedCode = Prettier.format(codeWithClosedTags, {
       parser: language === 'html' ? 'html' : 'babel',
       plugins: [parserHtml, parserBabel],
@@ -29,14 +29,17 @@ export class FormatCodePipe implements PipeTransform {
     return formattedCode;
   }
 
-  //Used to fixed inconsistent closing tag requirements in html and jsx.
-  private addSelfClosingTagsToImgTags = (code: string): string => {
-    const imgTags = code.match(/<img[^>]*>/g);
+  /**
+   * Adds a closing tag to void elements in the given HTML code.
+   * Needed for Prettier.
+   */
+  private addClosingTagsToVoidElements = (code: string): string => {
+    const tags = code.match(/<(img|input|hr)[^>]*>/g);
 
-    if (imgTags) {
-      imgTags.forEach((tag) => {
-        const imgTagWithClosingTag = tag.replace('>', '/>');
-        code = code.replace(tag, imgTagWithClosingTag);
+    if (tags) {
+      tags.forEach((tag) => {
+        const tagWithClosingTag = tag.replace('>', '/>');
+        code = code.replace(tag, tagWithClosingTag);
       });
     }
 
