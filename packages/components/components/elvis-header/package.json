@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-header",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/header",
   "main": "web_component.js",

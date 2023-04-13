@@ -4,15 +4,16 @@ import { CMSTransformService } from './cms-transform.service';
 import { Locale } from '../localization.service';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import { IDocumentationPage, IMainMenu, ISubMenu } from 'contentful/types';
+import { IDocumentationPage, IEntry, IMainMenu, ISubMenu, LOCALE_CODE } from 'contentful/types';
 import { CMSMenu, CMSNavbarItem, CMSSubMenu, TransformedDocPage } from './cms.interface';
+import { extractLocale } from './extractLocale';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CMSService {
   private entries = {};
-  private entriesToSync = [];
+  private entriesToSync: string[] = [];
   private subjectAnchorsNew = new Subject<void>();
   private getMenuCache = new Map<Locale, CMSMenu>();
 
@@ -22,7 +23,7 @@ export class CMSService {
     private router: Router,
   ) {}
 
-  listenContentLoadedFromCMS(): Observable<any> {
+  listenContentLoadedFromCMS(): Observable<void> {
     return this.subjectAnchorsNew.asObservable();
   }
 
@@ -34,15 +35,16 @@ export class CMSService {
    * Get the Contentful ID of the Contentful entry corresponding to the current path.
    *
    * If the page corresponding to the current path is not found, the client is rerouted to 'not-found' and an empty string is returned.
-   * @param locale Current locale (see localization.service.ts).
+   * @param localization Current locale (see localization.service.ts).
    * @returns Contentful ID of the current page.
    */
-  async getPageSysId(locale: number): Promise<string> {
+  async getPageSysId(localization: Locale): Promise<string> {
     const urlFull = this.router.url.split('#')[0];
     const urlWithoutAnchor = urlFull.split('/');
     let pageId = '';
-    await this.getMenu(locale).then((menu) => {
-      const localeKey = Object.keys(menu['pages'][0].entry.fields.pages)[locale];
+    await this.getMenu(localization).then((menu) => {
+      const localeKey = (Object.keys(menu['pages'][0].entry.fields.pages)[localization] ??
+        'en-GB') as LOCALE_CODE;
       const subMenu = menu['pages'].find((subMenu) => subMenu.path === urlWithoutAnchor[1]);
       if (urlWithoutAnchor[1] === 'preview' && urlWithoutAnchor[2]) {
         pageId = urlWithoutAnchor[2];
@@ -53,10 +55,10 @@ export class CMSService {
           this.router.navigate(['not-found']);
         }
         if (!urlWithoutAnchor[2] && subMenu.entry.fields.landingPage) {
-          pageId = subMenu.entry.fields.landingPage[localeKey].sys.id;
+          pageId = extractLocale(subMenu.entry.fields.landingPage, localeKey).sys.id;
         } else if (subMenu.entry.fields.pages) {
-          const docPage = subMenu.entry.fields.pages[localeKey].find(
-            (page) => page.fields.path[localeKey] === urlWithoutAnchor[2],
+          const docPage = extractLocale(subMenu.entry.fields.pages, localeKey).find(
+            (page) => extractLocale(page.fields.path, localeKey) === urlWithoutAnchor[2],
           );
           if (!docPage) {
             console.error('Can´t find this docPage: ' + urlWithoutAnchor[2]);
@@ -78,7 +80,7 @@ export class CMSService {
    */
   async getTransformedDocPageByEntryId(entryId: string, localization: Locale): Promise<TransformedDocPage> {
     const subMenu = await this.getSubMenu(localization);
-    const cmsData: IDocumentationPage = await this.getEntry(entryId);
+    const cmsData = await this.getEntry<IDocumentationPage>(entryId);
     return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
@@ -111,14 +113,15 @@ export class CMSService {
         if (element.entry.fields.pages === undefined || element.entry.fields.pages === null) {
           return;
         }
-        const localeKey = Object.keys(element.entry.fields.pages)[localization];
+        const localeKey = Object.keys(element.entry.fields.pages)[localization] ?? 'en-GB';
         const cmsPages: IDocumentationPage[] = element.entry.fields.pages[localeKey];
         cmsPages.forEach((cmsPage) => {
+          const innerLocaleKey = (Object.keys(cmsPage.fields.title)[localization] ?? 'en-GB') as LOCALE_CODE;
           const navbarItem: CMSNavbarItem = {
-            title: cmsPage.fields.title[localeKey],
-            isMainPage: cmsPage.fields.isMainPage,
-            docUrl: cmsPage.fields.path[localeKey],
-            fullPath: subMenuRoute + cmsPage.fields.path[localeKey],
+            title: extractLocale(cmsPage.fields.title, innerLocaleKey),
+            isMainPage: extractLocale(cmsPage.fields.isMainPage, innerLocaleKey),
+            docUrl: extractLocale(cmsPage.fields.path),
+            fullPath: subMenuRoute + extractLocale(cmsPage.fields.path),
           };
           subMenuList.push(navbarItem);
         });
@@ -132,20 +135,18 @@ export class CMSService {
     if (this.getMenuCache.has(localization)) {
       return this.getMenuCache.get(localization);
     }
-    let locale = 'en-GB';
-    if (localization === Locale['nb-NO']) {
-      locale = 'nb-NO';
-    }
-    const entryMenu: IMainMenu = await this.getEntry('4ufFZKPEou3mf9Tg05WZT3');
+    const locale = localization === Locale['nb-NO'] ? 'nb-NO' : 'en-GB';
+    const entryMenu = await this.getEntry('4ufFZKPEou3mf9Tg05WZT3');
+
     const menu: CMSMenu = {
       title: entryMenu.fields.title['en-GB'],
       pages: [],
     };
-    const subMenuEntries: ISubMenu[] = entryMenu.fields.submenus['en-GB'];
+    const subMenuEntries = extractLocale(entryMenu.fields.submenus, locale);
     for (const subMenuEntry of subMenuEntries) {
-      const subEntry = await this.getEntry(subMenuEntry.sys.id);
+      const subEntry = await this.getEntry<ISubMenu>(subMenuEntry.sys.id);
       const subMenu: CMSSubMenu = {
-        title: subMenuEntry.fields.title[locale],
+        title: extractLocale(subMenuEntry.fields.title, locale),
         entry_id: subMenuEntry.sys.id,
         entry: subEntry,
         path: subMenuEntry.fields.path['en-GB'], // url path - No localization on this field
@@ -156,14 +157,33 @@ export class CMSService {
     return menu;
   }
 
-  async syncEntries(): Promise<any> {
+  /**
+   * Get an entry from Contentful (not locally cached).
+   *
+   * The entry is given the type any by default, but should be treated as a Contentful type.
+   * See packages/web/contentful/types.d.ts for possible interfaces.
+   *
+   * The get request to Contentful is performed using a Netlify function.
+   * @param pageId
+   * @returns Object from Netlify.
+   */
+  async getEntryFromCMS(pageId: string): Promise<any> {
+    return this.http
+      .get(`https://elvis-designsystem.netlify.app/.netlify/functions/services?id=${pageId}`)
+      .toPromise()
+      .then((entry: any) => {
+        return entry;
+      });
+  }
+
+  private async syncEntries(): Promise<void> {
     while (this.entriesToSync.length > 0) {
       const id = this.entriesToSync.pop();
       await this.getEntry(id);
     }
   }
 
-  async findEntriesWithinNode(node: Record<string, any>): Promise<any> {
+  private async findEntriesWithinNode(node: Record<string, any>): Promise<void> {
     if (node.id && node.type === 'Entry') {
       if (!this.entries[node.id]) {
         this.entriesToSync.push(node.id);
@@ -184,25 +204,6 @@ export class CMSService {
   }
 
   /**
-   * Get an entry from Contentful (not locally cached).
-   *
-   * The entry is given the type any by default, but should be treated as a Contentful type.
-   * See packages/web/contentful/types.d.ts for possible interfaces.
-   *
-   * The get request to Contentful is performed using a Netlify function.
-   * @param pageId
-   * @returns Object from Netlify.
-   */
-  async getEntryFromCMS(pageId: string): Promise<any> {
-    return this.http
-      .get('https://elvis-designsystem.netlify.app/.netlify/functions/services?id=' + pageId)
-      .toPromise()
-      .then((entry: any) => {
-        return entry;
-      });
-  }
-
-  /**
    * Gets an entry from the locally cached Contentful entries.
    * To update the local Contentful cache, run yarn contentful in packages/web.
    *
@@ -212,14 +213,16 @@ export class CMSService {
    * @returns Object from Contentful.
    *
    * @example
-   * const entryMenu: IMainMenu = await this.getEntry('4ufFZKPEou3mf9Tg05WZT3');
+   * const entryMenu = await this.getEntry<IMainMenu>('4ufFZKPEou3mf9Tg05WZT3');
    */
+  private async getEntry<T extends IEntry = any>(entryId: string): Promise<T>;
+  private async getEntry(entryId: '4ufFZKPEou3mf9Tg05WZT3'): Promise<IMainMenu>;
   private async getEntry(entryId: string): Promise<any> {
     const url = `assets/contentful/dist/entries/${entryId}.json`;
     this.entries[entryId] = await this.http.get(url).toPromise();
 
     this.findEntriesWithinNode(this.entries[entryId]);
-    await this.syncEntries(); // getAllEntries();
+    await this.syncEntries();
 
     return this.entries[entryId];
   }

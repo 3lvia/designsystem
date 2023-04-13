@@ -4,7 +4,8 @@ import { OverlayRef } from '@angular/cdk/overlay';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import { SearchMenuComponent } from './search-menu/search-menu.component';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { LocalizationService } from 'src/app/core/services/localization.service';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ export class HeaderComponent {
   searchOverlay: OverlayRef;
   headerLogoLoaded = false;
   devMode = false;
-  mainMenu: any;
+  mainMenu: CMSMenu;
   menuContentLoader = true;
   isPrideMonth = false;
 
@@ -26,8 +27,9 @@ export class HeaderComponent {
     private cmsService: CMSService,
     private localizationService: LocalizationService,
   ) {
-    this.localizationService.listenLocalization().subscribe((locale) => {
-      this.cmsService.getMenu(locale).then((data) => {
+    this.localizationService.listenLocalization().subscribe(() => {
+      // The main menu is only available in english until more pages are translated
+      this.cmsService.getMenu(Locale['en-GB']).then((data) => {
         this.mainMenu = data;
         this.menuContentLoader = false;
       });
