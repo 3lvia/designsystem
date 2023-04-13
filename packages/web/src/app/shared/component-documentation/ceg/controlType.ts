@@ -62,8 +62,8 @@ export type StaticProps<T> = {
 
 export interface ComponentType<T> {
   readonly name?: string;
-  readonly controls: Controls<T>;
-  readonly groupOrder: string[];
+  readonly controls?: Controls<T>;
+  readonly groupOrder?: string[];
   readonly staticProps?: StaticProps<T>;
 }
 
