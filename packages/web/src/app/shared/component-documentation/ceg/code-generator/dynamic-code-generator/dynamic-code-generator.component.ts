@@ -85,14 +85,13 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   }
 
   private propShouldBeIncluded(prop: Prop): boolean {
-    const initialProp = this.initialProps.find((p) => p.name === prop.name);
-    // Static props that are truthy are included.
     if (prop.isStatic) {
       return true;
     }
 
     // All values that are not boolean are always included.
     // If a boolean prop is undefined initially, we compare against 'false'
+    const initialProp = this.initialProps.find((p) => p.name === prop.name);
     const valueIsDifferentFromInitialValue =
       typeof prop.value !== 'boolean' || (initialProp.value || false) !== prop.value;
 
