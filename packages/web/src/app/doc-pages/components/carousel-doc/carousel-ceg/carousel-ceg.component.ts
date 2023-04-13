@@ -13,6 +13,8 @@ export class CarouselCegComponent implements ComponentExample {
   cegContent = new CegControlManager<CarouselProps>([
     {
       name: 'Loop',
+      controls: {},
+      groupOrder: [''],
     },
     {
       name: 'Linear',
