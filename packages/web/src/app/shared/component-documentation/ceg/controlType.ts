@@ -57,7 +57,7 @@ export type Controls<T = Record<string, any>> = Readonly<
 >;
 
 export type StaticProps<T> = {
-  readonly [K in keyof T]: T[K];
+  readonly [K in keyof T]?: T[K];
 };
 
 export interface ComponentType<T> {

@@ -27,7 +27,6 @@ export class BoxCegComponent implements ComponentExample {
       groupOrder: ['Options', 'Title'],
       staticProps: {
         hasBorder: true,
-        content: undefined, //silly workaround satisfy required prop
       },
     },
   ]);
