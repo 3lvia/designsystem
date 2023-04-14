@@ -11,7 +11,7 @@ import { first, map, switchMap, takeUntil } from 'rxjs/operators';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './component-example';
 import { Controls, ControlValue } from './controlType';
-import { BehaviorSubject, combineLatest, Subject } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-ceg',
@@ -28,6 +28,13 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   get hasMultipleComponentTypes() {
     return this.componentExample.cegContent.componentTypes.pipe(
       map((componentTypes) => componentTypes.length > 1),
+    );
+  }
+
+  get hasControlsForType(): Observable<boolean> {
+    return this.componentExample.cegContent.getCurrentControls().pipe(
+      map((controls) => controls && Object.keys(controls).length > 0),
+      takeUntil(this.unsubscriber),
     );
   }
 

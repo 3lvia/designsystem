@@ -5,7 +5,7 @@
 
   <div class="component-example-container" #componentContainer>
     <ng-content />
-    <div class="ceg-floating-toolbar">
+    <div class="ceg-floating-toolbar" *ngIf="hasControlsForType | async">
       <app-controls-popover
         [controlManager]="componentExample.cegContent"
         (propChange)="setPropValue($event.propName, $event.value)"
