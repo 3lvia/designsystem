@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'ChangelogIdPipe' })
 export class ChangelogIdPipe implements PipeTransform {
-  transform(date: string, version: string, change: string, type: string): string {
+  transform(date?: string, version?: string, change?: string, type?: string): string {
     return 'changelog-' + this.encodeHTML(`${type} ${date} v${version} ${change}`);
   }
 

@@ -96,7 +96,9 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       });
     this.anchorChangeSubscription = this.route.fragment.subscribe((fragment) => {
       setTimeout(() => {
-        this.chooseAnchor(fragment);
+        if (fragment) {
+          this.chooseAnchor(fragment);
+        }
       }, 200);
     });
   }
@@ -145,9 +147,9 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     if (currentPathWithoutAnchor === '/components') {
       this.isCmsPage = false;
     } else if (currentPathWithoutAnchor.split('/')[2]) {
-      this.router.config[0].children.forEach((subRoute) => {
+      this.router.config[0].children?.forEach((subRoute) => {
         if (subRoute.path === currentPathWithoutAnchor.split('/')[1]) {
-          this.isCmsPage = !subRoute.children.some(
+          this.isCmsPage = !subRoute.children?.some(
             (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPathWithoutAnchor,
           );
         }
@@ -196,10 +198,12 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   }
 
   private updateAnchorList(): void {
-    this.visibleAnchors = this.scrollService.getVisibleAnchors();
-    if (!this.visibleAnchors) {
+    const newVisibleAnchors = this.scrollService.getVisibleAnchors();
+    if (!newVisibleAnchors) {
+      this.visibleAnchors = [];
       return;
     }
+    this.visibleAnchors = newVisibleAnchors;
     if (this.router.url.split('#')[1]) {
       this.chooseAnchor(this.router.url.split('#')[1]);
     } else {
@@ -235,7 +239,10 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   }
 
   updateNavbarBlur(): void {
-    const navbarElement = document.getElementById('side-navbar').firstChild as HTMLElement;
+    const navbarElement = document.getElementById('side-navbar')?.firstChild as HTMLElement | null;
+    if (!navbarElement) {
+      return;
+    }
     const clientHeight = navbarElement.getBoundingClientRect().height;
     const bottomOfNavbar = clientHeight + navbarElement.scrollTop;
     const heightOfNavbar = navbarElement.scrollHeight;

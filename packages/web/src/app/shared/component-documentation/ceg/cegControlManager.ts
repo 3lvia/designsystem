@@ -2,13 +2,13 @@ import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CegControl, ComponentType, Controls, ControlValue, StaticProps } from './controlType';
 
-export type UnknownCegControlManager = CegControlManager<unknown>;
+export type UnknownCegControlManager = CegControlManager<Record<string, any>>;
 
 export class CegControlManager<TComponentProps extends Record<string, any>> {
   private _componentTypes = new BehaviorSubject<ComponentType<TComponentProps>[]>([]);
   componentTypes = this._componentTypes.asObservable();
 
-  private _currentComponentTypeName = new BehaviorSubject('');
+  private _currentComponentTypeName = new BehaviorSubject<string | undefined>(undefined);
   currentComponentTypeName = this._currentComponentTypeName.asObservable();
 
   constructor(
@@ -45,7 +45,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     return this._componentTypes.value[confIndex]?.staticProps;
   }
 
-  getCurrentComponentTypeNameSnapshot(): string {
+  getCurrentComponentTypeNameSnapshot(): string | undefined {
     return this._currentComponentTypeName.value;
   }
 

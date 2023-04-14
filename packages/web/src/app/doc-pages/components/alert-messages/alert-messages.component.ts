@@ -9,9 +9,9 @@ import { Title } from '@angular/platform-browser';
 export class AlertMessagesComponent {
   @ViewChild('alertAccordionExample') alertAccordionExample: ElementRef;
 
-  figmaUrl = getComponent('alert').figmaUrl;
-  description = getComponent('alert').description;
-  title = getComponent('alert').title;
+  figmaUrl = getComponent('alert')?.figmaUrl;
+  description = getComponent('alert')?.description;
+  title = getComponent('alert')?.title;
 
   doesAlertDefault = [
     'Message related to the content of the page.',

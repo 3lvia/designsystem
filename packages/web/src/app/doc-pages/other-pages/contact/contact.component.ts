@@ -8,8 +8,8 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
-  description = getDocPagesNotFromCMS('contact').description;
-  title = getDocPagesNotFromCMS('contact').title;
+  description = getDocPagesNotFromCMS('contact')?.description;
+  title = getDocPagesNotFromCMS('contact')?.title;
   loadedImgFride = false;
   loadedImgTrygve = false;
   loadedImgHil = false;
@@ -51,6 +51,7 @@ export class ContactComponent {
 
   veryImportantFunction = (name: string, legacy: string): void => {
     const element = document.getElementById(name);
+    if (!element) return;
     element.classList.add('criticallyImportantStyle');
     setTimeout(() => {
       if (element.innerHTML === '🦩') {

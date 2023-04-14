@@ -9,9 +9,9 @@ import { Title } from '@angular/platform-browser';
 })
 export class SpotlightDocComponent {
   componentData = spotlightData;
-  figmaUrl = getComponent('spotlight').figmaUrl;
-  description = getComponent('spotlight').description;
-  title = getComponent('spotlight').title;
+  figmaUrl = getComponent('spotlight')?.figmaUrl;
+  description = getComponent('spotlight')?.description;
+  title = getComponent('spotlight')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

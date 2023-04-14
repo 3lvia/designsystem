@@ -2,8 +2,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'DocumentationDatePipe', standalone: true })
 export class ComponentDocumentationDatePipe implements PipeTransform {
-  transform(value: string): string {
+  transform(value?: string): string {
     try {
+      if (!value) {
+        return '';
+      }
       let date: Date;
       // Check if value is in format DD.MM.YY
       if (/\d\d\.\d\d\.\d\d/.test(value)) {
@@ -22,7 +25,7 @@ export class ComponentDocumentationDatePipe implements PipeTransform {
       console.warn(
         `"date": "${value}" in changelog is invalid. Should be "DD.MM.YY" or parsable by new Date()`,
       );
-      return value;
+      return value ?? '';
     }
   }
 }

@@ -75,7 +75,9 @@ export class CegComponent implements AfterViewInit, OnDestroy {
         if (type) {
           this.getWebComponent().setProps({ type: type.toLowerCase() });
         }
-        this.setAllPropsOnWebComponent(controls);
+        if (controls) {
+          this.setAllPropsOnWebComponent(controls);
+        }
       });
   }
 
@@ -106,7 +108,9 @@ export class CegComponent implements AfterViewInit, OnDestroy {
 
   private setAllPropsOnWebComponent(controls: Controls): void {
     Object.entries(controls).forEach(([controlName, control]) => {
-      this.getWebComponent().setProps({ [controlName]: control.value });
+      if (control) {
+        this.getWebComponent().setProps({ [controlName]: control.value });
+      }
     });
   }
 

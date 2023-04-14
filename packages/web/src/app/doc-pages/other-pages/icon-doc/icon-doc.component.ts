@@ -5,6 +5,8 @@ import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { elvisIconData } from './icon-data';
 import { Title } from '@angular/platform-browser';
 
+type IconArray = { pretty: string; title: string; terms: string[] }[];
+
 @Component({
   selector: 'app-icon-doc',
   templateUrl: './icon-doc.component.html',
@@ -19,14 +21,14 @@ export class IconDocComponent implements OnInit {
   componentData = elvisIconData;
   noSubs = true;
 
-  visibleIcons = [];
-  allIcons = [];
-  outlinedIcons = [];
-  filledIcons = [];
-  twoColoredIcons = [];
-  figmaUrl = getDocPagesNotFromCMS('icon').figmaUrl;
-  description = getDocPagesNotFromCMS('icon').description;
-  title = getDocPagesNotFromCMS('icon').title;
+  visibleIcons: IconArray = [];
+  allIcons: IconArray = [];
+  outlinedIcons: IconArray = [];
+  filledIcons: IconArray = [];
+  twoColoredIcons: IconArray = [];
+  figmaUrl = getDocPagesNotFromCMS('icon')?.figmaUrl;
+  description = getDocPagesNotFromCMS('icon')?.description;
+  title = getDocPagesNotFromCMS('icon')?.title;
   inverted = false;
   selected = 'all';
   latestIcon = '';
@@ -83,7 +85,9 @@ export class IconDocComponent implements OnInit {
   IconClassList: Icon[] = [];
 
   constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title);
+    if (this.title) {
+      this.titleService.setTitle(this.title);
+    }
   }
 
   @HostListener('document:click', ['$event', '$event.target'])
@@ -93,8 +97,8 @@ export class IconDocComponent implements OnInit {
     if (!alert && !iconContainer) {
       return;
     }
-    const alertClick = alert.contains(targetElement);
-    const iconContainerClick = iconContainer.contains(targetElement);
+    const alertClick = alert?.contains(targetElement);
+    const iconContainerClick = iconContainer?.contains(targetElement);
     if (!alertClick && !iconContainerClick) {
       this.closeLastAlert(this.latestIcon);
     }
@@ -180,9 +184,9 @@ export class IconDocComponent implements OnInit {
     this.closeLastAlert(this.latestIcon);
 
     const elementContainer = document.getElementById(iconTitle + '_container');
-    elementContainer.classList.add('selected');
+    elementContainer?.classList.add('selected');
     const element = document.getElementById(iconTitle);
-    element.classList.remove('e-none');
+    element?.classList.remove('e-none');
     this.latestIcon = iconTitle;
   }
 

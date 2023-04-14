@@ -48,7 +48,7 @@ export class ComponentChangelogComponent implements OnInit {
 
   searchValue = '';
   radioFilterValue: ChangelogRadioFilter = 'all';
-  filteredChangelog: Changelog = [];
+  filteredChangelog: Changelog | undefined = [];
   accordionIsOpen = false;
 
   changelogIdPipe = new ChangelogIdPipe();
@@ -85,10 +85,10 @@ export class ComponentChangelogComponent implements OnInit {
         ? this.searchService.search(this.searchValue.trim())
         : this.changelog;
     if (this.radioFilterValue !== 'all') {
-      this.filteredChangelog = this.filteredChangelog.filter((change) => {
+      this.filteredChangelog = this.filteredChangelog?.filter((change) => {
         return (
           'changelog' in change && // Filter out 'skipped entries' (for elvis changelogs)
-          change.changelog.some((changelogEntry) => {
+          change.changelog?.some((changelogEntry) => {
             return changelogEntry.type === this.radioFilterValue;
           })
         );
@@ -111,7 +111,7 @@ export class ComponentChangelogComponent implements OnInit {
   private highlightSearchMatches(): void {
     this.resetHighlighting();
     this.searchService.searchResults?.forEach((resultItem) => {
-      resultItem.matches.forEach((match) => {
+      resultItem.matches?.forEach((match) => {
         switch (match.key) {
           case 'changelog.changes': {
             const elementId = this.changelogIdPipe.transform(
@@ -168,6 +168,9 @@ export class ComponentChangelogComponent implements OnInit {
 
   private getHighlightedHTMLString(match: Fuse.FuseResultMatch): string {
     const { value, indices } = match;
+    if (!value) {
+      return '';
+    }
     // Add any part of the description that is before the first match
     let highlightedValue = value.substring(0, indices[0][0]);
 
@@ -207,9 +210,9 @@ export class ComponentChangelogComponent implements OnInit {
   }
 
   private resetHighlighting(): void {
-    this.filteredChangelog.forEach((changelogEntry) => {
+    this.filteredChangelog?.forEach((changelogEntry) => {
       if ('changelog' in changelogEntry) {
-        changelogEntry.changelog.forEach((entry) => {
+        changelogEntry.changelog?.forEach((entry) => {
           entry.changes.forEach((change) => {
             const elementId = this.changelogIdPipe.transform(
               changelogEntry.date,
@@ -258,6 +261,9 @@ export class ComponentChangelogComponent implements OnInit {
   }
 
   private initializeSearchService(): void {
+    if (!this.changelog) {
+      return;
+    }
     this.searchService.initializeSearch(this.changelog, {
       threshold: 0.2,
       includeMatches: true,

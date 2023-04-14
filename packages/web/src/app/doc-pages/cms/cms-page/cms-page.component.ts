@@ -27,7 +27,7 @@ export class CMSPageComponent implements OnDestroy {
   isCmsPage = true;
   landingPage = false;
   hasChecked = false;
-  activeEventListeners = [];
+  activeEventListeners: HTMLElement[] = [];
   errorMessages: CMSDocPageError[] = [];
 
   constructor(
@@ -131,7 +131,7 @@ export class CMSPageComponent implements OnDestroy {
         .querySelectorAll('.cms-section__title, .cms-heading1__title')
         .forEach((domElement: HTMLElement) => {
           const tooltip = domElement.querySelector('elvia-tooltip');
-          tooltip.addEventListener('click', () => this.copyAnchor(domElement['id']));
+          tooltip?.addEventListener('click', () => this.copyAnchor(domElement['id']));
           this.activeEventListeners.push(domElement);
         });
     });
@@ -150,9 +150,9 @@ export class CMSPageComponent implements OnDestroy {
   checkIfPageExistsInProject(): void {
     const currentPathWithoutAnchor = this.router.url.split('#')[0];
     if (currentPathWithoutAnchor.split('/')[2]) {
-      this.router.config[0].children.forEach((subRoute) => {
+      this.router.config[0].children?.forEach((subRoute) => {
         if (subRoute.path === currentPathWithoutAnchor.split('/')[1]) {
-          this.isCmsPage = !subRoute.children.some(
+          this.isCmsPage = !subRoute.children?.some(
             (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPathWithoutAnchor,
           );
         }
@@ -172,10 +172,10 @@ export class CMSPageComponent implements OnDestroy {
     const tooltipElement = document.getElementById(`elvia-tooltip-${id}`) as ElvisComponentWrapper;
     tooltipElement.setProps({ content: 'Copied!' });
 
-    anchorTitleElement.classList.add('anchor-copied');
+    anchorTitleElement?.classList.add('anchor-copied');
 
     setTimeout(() => {
-      anchorTitleElement.classList.remove('anchor-copied');
+      anchorTitleElement?.classList.remove('anchor-copied');
       tooltipElement.setProps({ content: 'Copy' });
     }, 800);
     const modifiedAnchor = id;

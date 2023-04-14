@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Injectable } from '@angular/core';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 import { CegCodes } from 'src/app/shared/component-documentation/component-example/component-example-generator/ceg.interface';
@@ -85,10 +86,10 @@ export class CegCodeUpdaterService {
     const elNameR = componentData.name;
     const elNameW = this.getWebComponentElementName(componentData.name);
     return {
-      react: this.cegService.removeSlotAndProp(cegCodes.react, attr, value, 'react', elNameR),
-      angular: this.cegService.removeSlotAndProp(cegCodes.angular, attr, value, 'angular', elNameW),
-      vue: this.cegService.removeSlotAndProp(cegCodes.vue, attr, value, 'vue', elNameW),
-      native: this.cegService.removeSlotAndProp(cegCodes.native, attr, value, 'native', elNameW),
+      react: this.cegService.removeSlotAndProp(cegCodes.react!, attr, value, 'react', elNameR),
+      angular: this.cegService.removeSlotAndProp(cegCodes.angular!, attr, value, 'angular', elNameW),
+      vue: this.cegService.removeSlotAndProp(cegCodes.vue!, attr, value, 'vue', elNameW),
+      native: this.cegService.removeSlotAndProp(cegCodes.native!, attr, value, 'native', elNameW),
     };
   }
 

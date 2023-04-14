@@ -107,11 +107,11 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
     };
     this.formGroupList.forEach((element) => {
       if (element.formType === 'checkbox') {
-        element.formGroupOptions.forEach((element) => {
-          this.updateFormStates(element.propName, element.defaultValue);
+        element.formGroupOptions?.forEach((element) => {
+          this.updateFormStates(element.propName!, element.defaultValue);
         });
       } else {
-        this.updateFormStates(element.propName, element.defaultValue);
+        this.updateFormStates(element.propName, element.defaultValue!);
       }
     });
   }
@@ -123,11 +123,11 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
   ): void {
     let value = currentValue;
     if (currentValue === undefined) {
-      value = (checkboxEvent.target as HTMLInputElement).checked.toString();
+      value = (checkboxEvent!.target as HTMLInputElement).checked.toString();
     }
-    this.updateFormStates(formField.propName, value);
-    this.propValueChange.emit({ name: formField.propName, value: value });
-    this.restoreDefaultStateIfDependent(formField, formField.propName);
+    this.updateFormStates(formField.propName!, value!);
+    this.propValueChange.emit({ name: formField.propName!, value: value! });
+    this.restoreDefaultStateIfDependent(formField, formField.propName!);
   }
 
   updateFormStates(key: string, value: string | number | boolean): void {
@@ -146,19 +146,19 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
     }
     dependentElements.forEach((element) => {
       const visibility = this.checkIfVisible(element);
-      if (!visibility && this.cegCodes.angular.includes(element.propName)) {
+      if (!visibility && this.cegCodes.angular?.includes(element.propName!)) {
         this.removePropFromCode(element);
       }
     });
   }
 
   removePropFromCode(element: CegFormGroup | CegFormGroupOption): void {
-    this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, element.propName);
+    this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, element.propName!);
     this.cegCodes = this.cegCodeUpdaterService.removeSlotAndProp(
       this.cegCodes,
       this.componentData,
-      element.propName,
-      'propSlot' in element ? element.propSlot : undefined,
+      element.propName!,
+      'propSlot' in element ? element.propSlot! : (undefined as any),
     );
     this.updateNewCode();
   }
@@ -172,16 +172,16 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
       if (element.formType !== 'checkbox' || formField.formType !== 'checkbox') {
         return;
       }
-      element.dependency.forEach((dependency) => {
+      element.dependency?.forEach((dependency) => {
         if (dependency.value.toString() !== this.formStates[propName].toString()) {
           const checkboxToUpdate = document.getElementById(
             element.propName + '-' + this.desktop,
           ) as HTMLInputElement;
           const defaultValue = element.defaultValue === 'true' || element.defaultValue === true;
           checkboxToUpdate.checked = defaultValue;
-          this.updateFormStates(element.propName, element.defaultValue);
+          this.updateFormStates(element.propName!, element.defaultValue!);
           this.removePropFromCode(element);
-          this.propValueChange.emit({ name: element.propName, value: defaultValue });
+          this.propValueChange.emit({ name: element.propName!, value: defaultValue });
         }
       });
     });
@@ -204,7 +204,7 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
     let dependentElements: (CegFormGroup | CegFormGroupOption)[] = [];
     this.formGroupList.forEach((element) => {
       if (!element.dependency && 'formGroupOptions' in element) {
-        element.formGroupOptions.forEach((el) => {
+        element.formGroupOptions?.forEach((el) => {
           if (el.dependency) {
             dependentElements = this.addDependentElements(dependentElements, el, propName);
           }
@@ -217,7 +217,7 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   getDependencyState(formField: CegFormGroup | CegFormGroupOption): boolean {
-    const visibility = formField.dependency.every((dependency) => {
+    const visibility = formField.dependency?.every((dependency) => {
       let visibility = false;
       if (typeof dependency.value === 'object') {
         visibility = dependency.value.some((element) => {
@@ -229,7 +229,7 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
       }
       return visibility;
     });
-    return visibility;
+    return !!visibility;
   }
 
   checkIfHasVisibleFilters(): void {
@@ -250,17 +250,17 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
   // CEG code-view updates
   updateNewCode(): void {
     this.cegService.updateAllCode(
-      this.cegCodes.react,
-      this.cegCodes.angular,
-      this.cegCodes.vue,
-      this.cegCodes.native,
+      this.cegCodes.react!,
+      this.cegCodes.angular!,
+      this.cegCodes.vue!,
+      this.cegCodes.native!,
     );
   }
 
   updateRadioProp(attr: string, newValue: string, type: string): void {
     if (newValue === 'none') {
       this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, attr);
-    } else if (this.cegCodes.angular.includes(attr)) {
+    } else if (this.cegCodes.angular?.includes(attr)) {
       this.cegCodes = this.cegCodeUpdaterService.replaceOldProps(this.cegCodes, attr, newValue, type);
     } else {
       this.cegCodes = this.cegCodeUpdaterService.addNewProps(
@@ -278,11 +278,11 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
     if (!(formGroup.formType === 'checkbox' || formGroup.formType === 'toggle')) {
       return;
     }
-    const attr = formGroupOption ? formGroupOption.propName : formGroup.propName;
-    const newValue = formGroupOption ? formGroupOption.propValue : formGroup.propValue;
+    const attr = formGroupOption ? formGroupOption.propName! : formGroup.propName;
+    const newValue = formGroupOption ? formGroupOption.propValue! : formGroup.propValue!;
     const slot = 'propSlot' in formGroup ? formGroup.propSlot : undefined;
     if (slot !== undefined) {
-      if (this.cegCodes.angular.includes(attr)) {
+      if (this.cegCodes.angular?.includes(attr)) {
         this.cegCodes = this.cegCodeUpdaterService.removeSlotAndProp(
           this.cegCodes,
           this.componentData,
@@ -298,7 +298,7 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
         );
       }
     } else {
-      if (this.cegCodes.angular.includes(attr)) {
+      if (this.cegCodes.angular?.includes(attr)) {
         this.cegCodes = this.cegCodeUpdaterService.removeProps(this.cegCodes, attr);
       } else {
         this.cegCodes = this.cegCodeUpdaterService.addNewProps(
@@ -306,7 +306,7 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
           this.componentData,
           attr,
           newValue.toString(),
-          formGroup.type,
+          formGroup.type!,
         );
       }
     }
@@ -320,12 +320,12 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
     } else {
       this.counterNumber = oldValue + stepValue;
     }
-    if (this.cegCodes.angular.includes(attr)) {
+    if (this.cegCodes.angular?.includes(attr)) {
       this.cegCodes = this.cegCodeUpdaterService.replaceOldProps(
         this.cegCodes,
         attr,
         this.counterNumber.toString(),
-        formGroup.type,
+        formGroup.type!,
       );
     } else {
       this.cegCodes = this.cegCodeUpdaterService.addNewProps(
@@ -333,7 +333,7 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
         this.componentData,
         attr,
         this.counterNumber.toString(),
-        formGroup.type,
+        formGroup.type!,
       );
     }
     this.updateNewCode();
@@ -346,11 +346,11 @@ export class CegFiltersComponent implements OnInit, OnDestroy, OnChanges {
 
   private isNotAcceptedCounterValue(newValue: number, formGroup: CegFormGroup, stepValue: number): boolean {
     if (formGroup.formType !== 'counter') {
-      return;
+      return undefined as any;
     }
     return (
       newValue !== undefined &&
-      (newValue + stepValue > formGroup.counterMax || newValue + stepValue < formGroup.counterMin)
+      (newValue + stepValue > formGroup.counterMax! || newValue + stepValue < formGroup.counterMin!)
     );
   }
 }

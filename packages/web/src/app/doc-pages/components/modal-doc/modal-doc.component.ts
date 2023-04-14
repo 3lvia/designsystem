@@ -19,9 +19,9 @@ export class ModalDocComponent {
   modalInfoCode = modalInfoCode;
   typesData = [modalActionsCode, modalDangerCode, modalInfoCode];
   modalMultipageCode = modalMultipageCode;
-  figmaUrl = getComponent('modal').figmaUrl;
-  description = getComponent('modal').description;
-  title = getComponent('modal').title;
+  figmaUrl = getComponent('modal')?.figmaUrl;
+  description = getComponent('modal')?.description;
+  title = getComponent('modal')?.title;
   does = [
     'Where we need the user to make an active choice before continuing, or when a wrong decision can be critical.',
   ];

@@ -9,9 +9,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./layout-doc.component.scss'],
 })
 export class LayoutDocComponent {
-  description = getDocPagesNotFromCMS('layout').description;
-  figmaUrl = getDocPagesNotFromCMS('layout').figmaUrl;
-  title = getDocPagesNotFromCMS('layout').title;
+  description = getDocPagesNotFromCMS('layout')?.description;
+  figmaUrl = getDocPagesNotFromCMS('layout')?.figmaUrl;
+  title = getDocPagesNotFromCMS('layout')?.title;
   spacingItems = spacingItems;
 
   constructor(private titleServcie: Title) {

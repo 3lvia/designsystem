@@ -33,13 +33,16 @@ export class StaticCodeGeneratorComponent implements OnInit {
     const parsedCode = new DOMParser().parseFromString(code, 'text/html');
     parsedCode.querySelectorAll('[slot]').forEach((slotElement) => {
       const slotName = slotElement.getAttribute('slot');
+      if (!slotName) {
+        return;
+      }
       slotElement.removeAttribute('slot');
       /**
        * We add __ to identify the slots in the HTML so that we can remove the quotations
        * that is added by the DOMParer.
        **/
-      slotElement.parentElement.setAttribute(slotName, `__{<>${slotElement.outerHTML}</>}__`);
-      slotElement.parentElement.removeChild(slotElement);
+      slotElement.parentElement?.setAttribute(slotName, `__{<>${slotElement.outerHTML}</>}__`);
+      slotElement.parentElement?.removeChild(slotElement);
     });
     // Remove quotes around curly braces and convert &quot; to "
     return parsedCode.body.innerHTML

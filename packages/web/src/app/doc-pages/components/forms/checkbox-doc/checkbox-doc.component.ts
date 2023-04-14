@@ -8,9 +8,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./checkbox-doc.component.scss'],
 })
 export class CheckboxDocComponent {
-  figmaUrl = getComponent('checkbox').figmaUrl;
-  description = getComponent('checkbox').description;
-  title = getComponent('checkbox').title;
+  figmaUrl = getComponent('checkbox')?.figmaUrl;
+  description = getComponent('checkbox')?.description;
+  title = getComponent('checkbox')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

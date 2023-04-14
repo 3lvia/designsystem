@@ -10,12 +10,12 @@ import deprecated from '@elvia/elvis/.internal/deprecated-classes.json';
 export class ComponentPropertiesComponent implements OnInit {
   @Input() componentName: string;
 
-  container;
-  elements = [];
-  modifiers = [];
-  psuedos = [];
-  allElementModifiers = [];
-  deprecatedClasses = [];
+  container: string;
+  elements: { name: string; elementModifiers: string[] }[] = [];
+  modifiers: string[] = [];
+  pseudos: string[] = [];
+  allElementModifiers: string[] = [];
+  deprecatedClasses: string[] = [];
 
   ngOnInit(): void {
     this.makePropertyLists();
@@ -30,9 +30,7 @@ export class ComponentPropertiesComponent implements OnInit {
   }
 
   getDeprecatedClasses(): void {
-    Object.keys(deprecated).forEach((key) => {
-      this.deprecatedClasses.push(key);
-    });
+    this.deprecatedClasses = Object.keys(deprecated);
   }
 
   makePropertyLists(): void {
@@ -58,7 +56,7 @@ export class ComponentPropertiesComponent implements OnInit {
   getAllElements(): void {
     if (data.block[this.componentName].element) {
       Object.keys(data.block[this.componentName].element).forEach((el) => {
-        const elementModifiers = [];
+        const elementModifiers: string[] = [];
         if (data.block[this.componentName].element[el].modifier) {
           Object.keys(data.block[this.componentName].element[el].modifier).forEach((el2) => {
             if (!this.isCustom(el2) && !this.isDeprecated(el2)) {
@@ -88,7 +86,7 @@ export class ComponentPropertiesComponent implements OnInit {
     if (data.block[this.componentName].psuedo) {
       Object.keys(data.block[this.componentName].psuedo).forEach((psu) => {
         if (!this.isCustom(psu) && !this.isDeprecated(psu)) {
-          this.psuedos.push(psu);
+          this.pseudos.push(psu);
         }
       });
     }
