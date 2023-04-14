@@ -11,9 +11,7 @@ $table-border-radius: 8px;
 $table-header-height: 56px;
 $table-header-compact-height: 40px;
 $table-invalid-border: 2px solid colors.color('red');
-$table-cell-invalid-padding: 8px 14px;
-$table-row-invalid-vertical-padding: 8px;
-$table-row-invalid-horizontal-padding: 16px;
+$table-invalid-padding: 8px 16px;
 
 $grey10: colors.color('grey-10');
 
@@ -108,7 +106,7 @@ $grey10: colors.color('grey-10');
     }
 
     &.e-table__cell--invalid {
-      padding: $table-cell-invalid-padding;
+      padding: $table-invalid-padding;
       border: $table-invalid-border;
     }
 
@@ -138,19 +136,16 @@ $grey10: colors.color('grey-10');
 
       &.e-table__row--invalid {
         td {
-          padding-top: $table-row-invalid-vertical-padding;
-          padding-bottom: $table-row-invalid-vertical-padding;
+          padding: $table-invalid-padding;
           border-top: $table-invalid-border;
           border-bottom: $table-invalid-border;
         }
 
         td:first-child {
-          padding-left: $table-row-invalid-horizontal-padding;
           border-left: $table-invalid-border;
         }
 
         td:last-child {
-          padding-right: $table-row-invalid-horizontal-padding;
           border-right: $table-invalid-border;
         }
       }
