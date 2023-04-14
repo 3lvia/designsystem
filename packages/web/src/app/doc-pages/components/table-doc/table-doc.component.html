@@ -495,6 +495,24 @@
             </app-component-subsubsection>
           </div>
         </div>
+
+        <div class="e-accordion__item" id="accordion-validation">
+          <div class="e-accordion__label" (click)="toggleAccordion('accordion-validation')">
+            <div class="e-accordion__title">Validation</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true" aria-hidden="true"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              A red border will be added around the cell or row to indicate validation in a table. Depending
+              on the case, you can have the validation text either below the table (if the table is small) or
+              a symbol together with a tooltip explanation.
+            </div>
+            <app-component-example-v1 [codeHTML]="exampleValidation"></app-component-example-v1>
+          </div>
+        </div>
       </div>
     </ng-container>
   </app-component-section>

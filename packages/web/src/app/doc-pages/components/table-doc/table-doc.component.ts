@@ -1128,6 +1128,58 @@ export class TableDocComponent {
 </div>
 `;
 
+  exampleValidation = `<div class="e-table-container overview-example">
+<table class="e-table" aria-label="Beskrivelse av tabellen">
+  <caption class="e-sr-only">Beskrivelse av tabellen</caption>
+  <thead>
+    <tr>
+      <th scope="col">Column 1</th>
+      <th scope="col">Column 2</th>
+      <th scope="col">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="e-table__cell--invalid">Row 1</td>
+      <td>Row 1</td>
+      <td>Row 1</td>
+    </tr>
+    <tr>
+      <td>Row 2</td>
+      <td>Row 2</td>
+      <td>Row 2</td>
+    </tr>
+    <tr class="e-table__row--invalid">
+      <td>Row 3</td>
+      <td>Row 3</td>
+      <td>Row 3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<br>
+<div class="e-table-container overview-example">
+<table class="e-table" aria-label="Beskrivelse av tabellen">
+  <caption class="e-sr-only">Beskrivelse av tabellen</caption>
+  <thead>
+    <tr>
+      <th scope="col">Column 1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="e-table__cell--invalid">Row 1</td>
+    </tr>
+    <tr>
+      <td>Row 2</td>
+    </tr>
+    <tr>
+      <td class="e-table__cell--invalid">Row 3</td>
+    </tr>
+  </tbody>
+</table>
+</div>`;
+
   toggleAccordion(id: string): void {
     const element = document.getElementById(id) as HTMLElement;
     if (element) {
