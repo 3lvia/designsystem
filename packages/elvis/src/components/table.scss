@@ -106,6 +106,7 @@ $grey10: colors.color('grey-10');
 
     &.e-table__cell--invalid {
       border: $table-border-error;
+      padding: 8px 14px;
     }
 
     &.e-table__cell--multiline {
@@ -136,14 +137,18 @@ $grey10: colors.color('grey-10');
         td {
           border-top: $table-border-error;
           border-bottom: $table-border-error;
+          padding-top: 8px;
+          padding-bottom: 8px;
         }
 
         td:first-child {
           border-left: $table-border-error;
+          padding-left: 14px;
         }
 
         td:last-child {
           border-right: $table-border-error;
+          padding-right: 14px;
         }
       }
     }
