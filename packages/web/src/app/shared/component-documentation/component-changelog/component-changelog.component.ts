@@ -10,7 +10,7 @@ import { ChangelogTypePipe } from './component-changelog-pipe';
 
 // Extend the ComponentChangelog interface with a skipped property to be able to
 // show changelog entries that have been skipped in the elvis changelog
-type ChangelogEntry = Partial<ComponentChangelog> & { skipped?: number };
+type ChangelogEntry = ComponentChangelog & { skipped?: number };
 type Changelog = ChangelogEntry[];
 type ChangelogRadioFilter = ComponentChangelog['changelog'][0]['type'] | 'all';
 
@@ -117,7 +117,7 @@ export class ComponentChangelogComponent implements OnInit {
             const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
               (resultItem.item as ComponentChangelog).version,
-              match.value,
+              match.value!,
               'entry',
             );
             this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
@@ -131,7 +131,7 @@ export class ComponentChangelogComponent implements OnInit {
             const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
               (resultItem.item as ComponentChangelog).version,
-              match.value,
+              match.value!,
               changelogType,
             );
             this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
@@ -145,7 +145,7 @@ export class ComponentChangelogComponent implements OnInit {
             const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
               (resultItem.item as ComponentChangelog).version,
-              match.value,
+              match.value!,
               changelogType,
             );
             this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
@@ -155,7 +155,7 @@ export class ComponentChangelogComponent implements OnInit {
             const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
               (resultItem.item as ComponentChangelog).version,
-              match.value,
+              match.value!,
               '',
             );
             this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
@@ -303,7 +303,7 @@ export class ComponentChangelogComponent implements OnInit {
           ) {
             wasSkipped = false;
             if (filteredElvisChangelog.length !== 0 && numberOfReleasesSkipped > 0) {
-              filteredElvisChangelog.push({ skipped: numberOfReleasesSkipped });
+              filteredElvisChangelog.push({ skipped: numberOfReleasesSkipped } as ChangelogEntry);
             }
             filteredElvisChangelog.push(elvisChangelogEntry);
             numberOfReleasesSkipped = 0;
