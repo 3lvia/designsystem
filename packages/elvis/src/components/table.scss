@@ -10,7 +10,10 @@ $table-phone-padding: 6px 8px;
 $table-border-radius: 8px;
 $table-header-height: 56px;
 $table-header-compact-height: 40px;
-$table-border-error: 2px solid colors.color('red');
+$table-invalid-border: 2px solid colors.color('red');
+$table-cell-invalid-padding: 8px 14px;
+$table-row-invalid-vertical-padding: 8px;
+$table-row-invalid-horizontal-padding: 16px;
 
 $grey10: colors.color('grey-10');
 
@@ -105,8 +108,8 @@ $grey10: colors.color('grey-10');
     }
 
     &.e-table__cell--invalid {
-      border: $table-border-error;
-      padding: 8px 14px;
+      border: $table-invalid-border;
+      padding: $table-cell-invalid-padding;
     }
 
     &.e-table__cell--multiline {
@@ -135,20 +138,20 @@ $grey10: colors.color('grey-10');
 
       &.e-table__row--invalid {
         td {
-          border-top: $table-border-error;
-          border-bottom: $table-border-error;
-          padding-top: 8px;
-          padding-bottom: 8px;
+          border-top: $table-invalid-border;
+          border-bottom: $table-invalid-border;
+          padding-top: $table-row-invalid-vertical-padding;
+          padding-bottom: $table-row-invalid-vertical-padding;
         }
 
         td:first-child {
-          border-left: $table-border-error;
-          padding-left: 14px;
+          border-left: $table-invalid-border;
+          padding-left: $table-row-invalid-horizontal-padding;
         }
 
         td:last-child {
-          border-right: $table-border-error;
-          padding-right: 14px;
+          border-right: $table-invalid-border;
+          padding-right: $table-row-invalid-horizontal-padding;
         }
       }
     }
