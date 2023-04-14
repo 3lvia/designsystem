@@ -93,7 +93,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
     // If a boolean prop is undefined initially, we compare against 'false'
     const initialProp = this.initialProps.find((p) => p.name === prop.name);
     const valueIsDifferentFromInitialValue =
-      typeof prop.value !== 'boolean' || (initialProp.value || false) !== prop.value;
+      typeof prop.value !== 'boolean' || (initialProp?.value || false) !== prop.value;
 
     const valueIsNotFunction = typeof prop.value !== 'function';
 
