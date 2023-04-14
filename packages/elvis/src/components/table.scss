@@ -108,8 +108,8 @@ $grey10: colors.color('grey-10');
     }
 
     &.e-table__cell--invalid {
-      border: $table-invalid-border;
       padding: $table-cell-invalid-padding;
+      border: $table-invalid-border;
     }
 
     &.e-table__cell--multiline {
@@ -138,20 +138,20 @@ $grey10: colors.color('grey-10');
 
       &.e-table__row--invalid {
         td {
-          border-top: $table-invalid-border;
-          border-bottom: $table-invalid-border;
           padding-top: $table-row-invalid-vertical-padding;
           padding-bottom: $table-row-invalid-vertical-padding;
+          border-top: $table-invalid-border;
+          border-bottom: $table-invalid-border;
         }
 
         td:first-child {
-          border-left: $table-invalid-border;
           padding-left: $table-row-invalid-horizontal-padding;
+          border-left: $table-invalid-border;
         }
 
         td:last-child {
-          border-right: $table-invalid-border;
           padding-right: $table-row-invalid-horizontal-padding;
+          border-right: $table-invalid-border;
         }
       }
     }

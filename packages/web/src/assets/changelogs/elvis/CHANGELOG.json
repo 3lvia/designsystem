@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "11.2.0",
+      "date": "April 17, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added new classes <code>e-table__cell--invalid</code> and <code>e-table__row--invalid</code> which can be used to show validation state in tables."
+          ],
+          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
+        }
+      ]
+    },
+    {
       "version": "11.1.0",
       "date": "March 16, 2023",
       "changelog": [
