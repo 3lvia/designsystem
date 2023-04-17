@@ -33,7 +33,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
 
   get hasControlsForType(): Observable<boolean> {
     return this.componentExample.cegContent.getCurrentControls().pipe(
-      map((controls) => controls && Object.keys(controls).length > 0),
+      map((controls) => !!(controls && Object.keys(controls).length > 0)),
       takeUntil(this.unsubscriber),
     );
   }
