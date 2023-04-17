@@ -7,9 +7,9 @@ import { SlotToggle, Switch } from '../../controlType';
 })
 export class SwitchComponent {
   @Input() switch: Switch | SlotToggle;
-  @Output() toggle = new EventEmitter<Switch['value']>();
+  @Output() toggle = new EventEmitter<boolean>();
 
-  onChange(isChecked: Switch['value']): void {
+  onChange(isChecked: boolean): void {
     this.toggle.emit(isChecked);
   }
 }

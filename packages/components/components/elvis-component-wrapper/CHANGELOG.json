@@ -7,7 +7,9 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Patch update slots in slot dictionary instead of repopulating entire object."]
+          "changes": [
+            "Revert slot change listening, and instead expose method to manually update slot content."
+          ]
         }
       ]
     },
