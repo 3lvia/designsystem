@@ -7,9 +7,9 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './badge-doc.component.html',
 })
 export class BadgeDocComponent {
-  figmaUrl = getComponent('badge').figmaUrl;
-  description = getComponent('badge').description;
-  title = getComponent('badge').title;
+  figmaUrl = getComponent('badge')?.figmaUrl;
+  description = getComponent('badge')?.description;
+  title = getComponent('badge')?.title;
   componentData = badgeData;
 
   constructor(private titleService: Title) {

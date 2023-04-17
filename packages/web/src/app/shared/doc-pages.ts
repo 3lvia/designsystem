@@ -683,9 +683,9 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
 ];
 
-export function getComponent(docUrl: string): DocPage {
+export function getComponent(docUrl: string): DocPage | undefined {
   return componentsDocPages.find((component) => component.docUrl === docUrl);
 }
-export function getDocPagesNotFromCMS(docUrl: string): DocPage {
+export function getDocPagesNotFromCMS(docUrl: string): DocPage | undefined {
   return docPagesNotFromCMS.find((component) => component.docUrl === docUrl);
 }

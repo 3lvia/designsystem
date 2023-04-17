@@ -25,10 +25,10 @@ export class HeaderCegComponent implements ComponentExample {
 
   toggleHeader() {
     const externalHeader = document.getElementById('header');
-    externalHeader.classList.toggle('e-none');
+    externalHeader?.classList.toggle('e-none');
 
     const mainElement = document.getElementById('main-content');
-    mainElement.classList.toggle('e-bg-grey-05');
+    mainElement?.classList.toggle('e-bg-grey-05');
 
     this.headerIsVisible = !this.headerIsVisible;
   }

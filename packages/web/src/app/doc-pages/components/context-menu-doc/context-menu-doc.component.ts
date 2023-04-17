@@ -19,9 +19,9 @@ export class ContextMenuDocComponent {
   contextMenuSelectableCode = contextMenuSelectableCode;
   contextMenuDisabledCode = contextMenuDisabledCode;
   loadedContextMenuStructure = false;
-  figmaUrl = getComponent('context-menu').figmaUrl;
-  description = getComponent('context-menu').description;
-  title = getComponent('context-menu').title;
+  figmaUrl = getComponent('context-menu')?.figmaUrl;
+  description = getComponent('context-menu')?.description;
+  title = getComponent('context-menu')?.title;
 
   does = ['Help user perform actions when space is limited'];
   donts = ['When the actions are crucial to complete a workflow'];

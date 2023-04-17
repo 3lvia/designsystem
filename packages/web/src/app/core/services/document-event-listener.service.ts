@@ -39,7 +39,7 @@ export class DocumentEventListenerService {
         if (keyPressed === 's') {
           const searchButton = document.getElementById('search-button');
           setTimeout(() => {
-            searchButton.click();
+            searchButton?.click();
           });
         } else {
           this.router.navigate([this.keyboardPaths[keyPressed]]);

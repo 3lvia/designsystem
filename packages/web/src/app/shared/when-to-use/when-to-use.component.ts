@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./when-to-use.component.scss'],
 })
 export class WhenToUseComponent {
-  @Input() whens = [''];
-  @Input() whenNots = [''];
+  @Input() whens? = [''];
+  @Input() whenNots? = [''];
 }

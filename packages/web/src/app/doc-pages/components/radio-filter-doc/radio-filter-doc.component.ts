@@ -14,9 +14,9 @@ export class RadioFilterDocComponent {
   componentData = radioFilterData;
   examples = exampleContents;
   radioFilterIconCode = radioFilterIconCode;
-  figmaUrl = getComponent('radio-filter').figmaUrl;
-  description = getComponent('radio-filter').description;
-  title = getComponent('radio-filter').title;
+  figmaUrl = getComponent('radio-filter')?.figmaUrl;
+  description = getComponent('radio-filter')?.description;
+  title = getComponent('radio-filter')?.title;
 
   whens = [
     'Filter/toggle between different views of same content',

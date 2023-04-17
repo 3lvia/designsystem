@@ -10,9 +10,9 @@ import { Title } from '@angular/platform-browser';
 })
 export class TimepickerDocComponent {
   componentData = timepickerData;
-  figmaUrl = getComponent('timepicker').figmaUrl;
-  description = getComponent('timepicker').description;
-  title = getComponent('timepicker').title;
+  figmaUrl = getComponent('timepicker')?.figmaUrl;
+  description = getComponent('timepicker')?.description;
+  title = getComponent('timepicker')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

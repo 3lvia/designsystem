@@ -12,7 +12,7 @@
     "noImplicitReturns": false, // TODO: Remove line -> fix errors
     "noImplicitThis": false, // TODO: Remove line -> fix errors
     "noImplicitAny": false, // TODO: Remove line -> fix errors
-    "strictNullChecks": false // TODO: Remove line -> fix errors
+    "strictNullChecks": true
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

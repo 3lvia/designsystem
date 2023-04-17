@@ -19,9 +19,9 @@ export class CardDocComponent {
   cardSimpleCode = cardSimpleCode;
   cardDetailCode = cardDetailCode;
   typesData = [cardSimpleCode, cardDetailCode];
-  title = getComponent('card').title;
-  figmaUrl = getComponent('card').figmaUrl;
-  description = getComponent('card').description;
+  title = getComponent('card')?.title;
+  figmaUrl = getComponent('card')?.figmaUrl;
+  description = getComponent('card')?.description;
   doesCard = [
     'When you want a more visual representation of content than a list view.',
     'When users need to browse through options.',

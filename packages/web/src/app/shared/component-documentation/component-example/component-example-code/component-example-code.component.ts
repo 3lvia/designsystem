@@ -104,7 +104,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, OnDestr
   }
 
   getTabs(): string[] {
-    const tabs = [];
+    const tabs: string[] = [];
     if (this.noSubscriptions === false) {
       if (this.codeAngular !== '') {
         tabs.push('Angular');

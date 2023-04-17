@@ -27,8 +27,8 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.initialProps = this.getFlatPropList(
-      this.controlManager.getControlSnapshot(),
-      this.controlManager.getStaticPropsSnapshot(),
+      this.controlManager.getControlSnapshot() ?? {},
+      this.controlManager.getStaticPropsSnapshot() ?? {},
       this.controlManager.getCurrentComponentTypeNameSnapshot(),
     );
 
@@ -40,7 +40,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
     ])
       .pipe(takeUntil(this.unsubscriber))
       .subscribe(([controls, slots, type, staticProps]) => {
-        const props = this.getFlatPropList(controls, staticProps, type);
+        const props = this.getFlatPropList(controls ?? {}, staticProps ?? {}, type);
 
         this.angularCode = this.createWebComponentCode(props, slots, '[', ']');
         this.vueCode = this.createWebComponentCode(props, slots, ':');
@@ -57,13 +57,17 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
    * Create a flat list of all props, which is easier to iterate.
    * We also include eventual children of checkbox-controls.
    */
-  private getFlatPropList(controls: Controls, staticProps: StaticProps<unknown>, type: string): Prop[] {
+  private getFlatPropList(
+    controls: Controls,
+    staticProps: StaticProps<unknown>,
+    type: string | undefined,
+  ): Prop[] {
     const props = Object.entries(controls)
       .map(([controlName, control]) => {
-        const props: Prop[] = [{ name: controlName, value: control.value }];
-        if (control.type === 'checkbox' && control.children) {
+        const props: Prop[] = [{ name: controlName, value: control?.value }];
+        if (control && control.type === 'checkbox' && control.children) {
           Object.entries(control.children).forEach(([childName, child]) => {
-            props.push({ name: childName, value: child.value });
+            props.push({ name: childName, value: child.value ?? false });
           });
         }
         return props;
@@ -129,9 +133,9 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
         // Convert conventional slots to be a prop on the element.
         const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
         const slotContent = parsedSlot.querySelector('[slot]');
-        const slotName = slotContent.getAttribute('slot');
-        slotContent.removeAttribute('slot');
-        return `${slotName}={<>${slotContent.outerHTML}</>}`;
+        const slotName = slotContent?.getAttribute('slot');
+        slotContent?.removeAttribute('slot');
+        return `${slotName}={<>${slotContent?.outerHTML}</>}`;
       })
       .map((slot) => slot.replace(/class=/g, 'className='))
       .join('');

@@ -14,7 +14,7 @@
         for="{{ formGroup.label }}-{{ formField.name }}-{{ desktop }}"
         (change)="
           onInputValueChange(formGroup, undefined, formField.name);
-          updateRadioProp(formGroup.propName, formField.name, formGroup.type)
+          updateRadioProp(formGroup.propName, formField.name, $any(formGroup.type))
         "
       >
         <input
@@ -124,7 +124,7 @@
             updateCounterProp(
               counterNumber ? counterNumber : $any(formGroup.defaultValue),
               formGroup,
-              -formGroup.counterStepValue
+              -$any(formGroup.counterStepValue)
             )
           "
           aria-label="Subtract from count"
@@ -144,7 +144,7 @@
         <span
           class="counter__number e-text-md"
           [ngClass]="{
-            small: formGroup.counterMax < 10,
+            small: $any(formGroup.counterMax) < 10,
             disabled: !(formGroup | visibleFields : formStates : true)
           }"
           *ngIf="counterNumber !== undefined"
@@ -154,7 +154,7 @@
         <span
           class="counter__number e-text-md"
           [ngClass]="{
-            small: formGroup.counterMax < 10,
+            small: $any(formGroup.counterMax) < 10,
             disabled: !(formGroup | visibleFields : formStates : true)
           }"
           *ngIf="counterNumber === undefined"
@@ -171,7 +171,7 @@
             updateCounterProp(
               counterNumber ? counterNumber : $any(formGroup.defaultValue),
               formGroup,
-              formGroup.counterStepValue
+              $any(formGroup.counterStepValue)
             )
           "
           aria-label="Add to count"

@@ -11,8 +11,8 @@ export class FaqDocComponent {
   @ViewChild('contribute') contribute: ElementRef;
   @ViewChild('bugs') bugs: ElementRef;
   @ViewChild('browsers') browsers: ElementRef;
-  description = getDocPagesNotFromCMS('faq').description;
-  title = getDocPagesNotFromCMS('faq').title;
+  description = getDocPagesNotFromCMS('faq')?.description;
+  title = getDocPagesNotFromCMS('faq')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | ' + 'Elvia design system');

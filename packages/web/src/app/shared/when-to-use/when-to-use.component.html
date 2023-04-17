@@ -1,5 +1,5 @@
 <div class="when e-mt-48 e-mb-n16">
-  <div class="when-to-use" *ngIf="whens[0] !== ''">
+  <div class="when-to-use" *ngIf="whens && whens[0] !== ''">
     <div class="e-title-caps" style="display: flex; flex-direction: row">
       <div class="e-mr-8">
         <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-green" aria-hidden="true"></i>
@@ -14,7 +14,7 @@
       </ul>
     </span>
   </div>
-  <div class="when-not-to-use" *ngIf="whenNots[0] !== ''">
+  <div class="when-not-to-use" *ngIf="whenNots && whenNots[0] !== ''">
     <div class="e-title-caps" style="display: flex; flex-direction: row">
       <div class="e-mr-8">
         <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-red" aria-hidden="true"></i>

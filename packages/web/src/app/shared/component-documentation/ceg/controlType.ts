@@ -33,8 +33,8 @@ export interface Counter extends ControlBase {
   readonly postfix?: string;
   value: number;
   readonly increment: number;
-  readonly min?: number;
-  readonly max?: number;
+  readonly min: number;
+  readonly max: number;
 }
 
 export interface Text extends ControlBase {
@@ -48,9 +48,9 @@ export type CegControl = Checkbox | Switch | RadioGroup | Counter | Text;
 
 export type Controls<T = Record<string, any>> = Readonly<
   Partial<{
-    [key in keyof T]: T[key] extends boolean
+    [key in keyof T]: NonNullable<T[key]> extends boolean
       ? Checkbox | Switch
-      : T[key] extends string
+      : NonNullable<T[key]> extends string
       ? RadioGroup<T[key]> | Text
       : RadioGroup | Counter | Text;
   }>
