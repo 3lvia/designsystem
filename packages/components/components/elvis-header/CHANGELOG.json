@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "17.04.23",
+      "version": "1.2.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where the page title was not in bold."]
+        }
+      ]
+    },
+    {
       "date": "12.04.23",
       "version": "1.2.3",
       "changelog": [
