@@ -4,7 +4,7 @@ import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
-import { IDocumentationPage, LOCALE_CODE } from 'contentful/types';
+import { LOCALE_CODE } from 'contentful/types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { SearchItem } from './search-menu.interface';
 import { SearchService } from '../../../core/services/search.service';
