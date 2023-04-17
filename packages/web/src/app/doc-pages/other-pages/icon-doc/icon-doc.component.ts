@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
 import { Icon } from './icon.interface';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+// @ts-ignore
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { elvisIconData } from './icon-data';
 import { Title } from '@angular/platform-browser';

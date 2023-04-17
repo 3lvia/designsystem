@@ -11,7 +11,7 @@ export class CopyComponent {
   @Input() smallElementAnimation = false;
 
   tooltipContent = 'Copy';
-  copyTimeout;
+  copyTimeout: any;
 
   copyMessage(copyMessage: string): void {
     navigator.clipboard.writeText(copyMessage);

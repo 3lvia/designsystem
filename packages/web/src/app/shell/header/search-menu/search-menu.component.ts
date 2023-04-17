@@ -4,7 +4,7 @@ import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
-import { IDocumentationPage } from 'contentful/types';
+import { LOCALE_CODE } from 'contentful/types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { SearchItem } from './search-menu.interface';
 import { SearchService } from '../../../core/services/search.service';
@@ -186,21 +186,26 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
 
     const mappedCMSItems: SearchItem[] = [];
     this.mainMenu.pages.forEach((subMenu) => {
-      subMenu.entry.fields.pages?.[Locale[this.locale]].forEach((documentationPage: IDocumentationPage) => {
+      subMenu.entry.fields.pages?.[Locale[this.locale] as LOCALE_CODE]?.forEach((documentationPage) => {
         let description: string | undefined;
         if (documentationPage.fields.pageDescription) {
-          description = documentToHtmlString(documentationPage.fields.pageDescription[Locale[this.locale]]);
+          description = documentToHtmlString(
+            documentationPage.fields.pageDescription[Locale[this.locale] as LOCALE_CODE]!,
+          );
           description = description.replace(/<.*?>/g, '');
         }
 
         if (
-          !mappedCMSItems.find((item) => item.title === documentationPage.fields.title[Locale[this.locale]])
+          !mappedCMSItems.find(
+            (item) => item.title === documentationPage.fields.title[Locale[this.locale] as LOCALE_CODE],
+          )
         ) {
           mappedCMSItems.push({
-            title: documentationPage.fields.title[Locale[this.locale]],
+            title: documentationPage.fields.title[Locale[this.locale] as LOCALE_CODE]!,
             description: description,
             type: subMenu.title.substring(0, subMenu.title.length - (subMenu.title.endsWith('s') ? 1 : 0)),
-            absolutePath: subMenu.path + '/' + documentationPage.fields.path[Locale[this.locale]],
+            absolutePath:
+              subMenu.path + '/' + documentationPage.fields.path[Locale[this.locale] as LOCALE_CODE],
           });
         }
       });
@@ -209,7 +214,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   }
 
   private removeDuplicateSearchItems(items: SearchItem[]): SearchItem[] {
-    const seen = {};
+    const seen: Record<string, boolean> = {};
     return items.filter((item) => {
       const title = item.title.replace(' ', '').toLocaleLowerCase();
       return seen[title] ? false : (seen[title] = true);
@@ -340,6 +345,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         } else if (this.searchString.length < 3) {
           return searchTerms?.includes(this.searchString.trim().toLowerCase());
         }
+        return false;
       });
       this.synonymComponents = this.synonymComponents.slice(0, 5);
     } else {

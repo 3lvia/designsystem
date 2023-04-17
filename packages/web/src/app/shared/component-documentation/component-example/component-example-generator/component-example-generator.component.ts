@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { AfterContentInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
@@ -74,7 +75,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   bgOptions: ElviaDropdownItem[] = [];
   bgObj: AttributeType & { propName: string };
   selectedBg: string;
-  defaultBg: string;
+  defaultBg: number;
 
   topFilterFormStates: { [key: string]: string } = {};
   sideFilterFormStates: { [key: string]: string | number | boolean } = {};

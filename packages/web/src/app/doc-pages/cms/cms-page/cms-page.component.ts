@@ -23,7 +23,7 @@ export class CMSPageComponent implements OnDestroy {
   showContentLoader = true;
   contentHTML: any = '';
   descriptionHTML: any = '';
-  lastUpdated;
+  lastUpdated: string;
   isCmsPage = true;
   landingPage = false;
   hasChecked = false;
@@ -113,9 +113,8 @@ export class CMSPageComponent implements OnDestroy {
     this.cmsContent = docPage;
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
-    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-    this.lastUpdated = new Date(this.cmsContent.lastUpdated);
-    this.lastUpdated = this.lastUpdated.toLocaleDateString('nb-NO', options).replace('/', '.');
+    const cmsLastUpdatedDate = new Date(this.cmsContent.lastUpdated);
+    this.lastUpdated = cmsLastUpdatedDate.toLocaleDateString('en-GB').replace('/', '.');
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
     this.addClickEventListenersForCopyPath();

@@ -35,8 +35,6 @@ export class DropdownDocComponent {
   isMulti = true;
   isSearchable = true;
 
-  isSelected;
-
   exampleOptions = [
     {
       value: 'Norge',

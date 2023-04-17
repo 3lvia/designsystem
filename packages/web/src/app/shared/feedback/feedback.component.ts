@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, RoutesRecognized } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-feedback',
@@ -14,7 +15,7 @@ export class FeedbackComponent implements OnInit, OnDestroy {
   isComment = false;
   isSent = false;
   currentEmoji: string;
-  routerSubscription;
+  routerSubscription: Subscription;
 
   constructor(private router: Router, private http: HttpClient) {}
 
