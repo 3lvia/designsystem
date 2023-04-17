@@ -14,9 +14,9 @@ export class TabsDocComponent {
   componentData = tabsData;
   does = tabsData.does;
   donts = tabsData.donts;
-  figmaUrl = getComponent('tabs').figmaUrl;
-  description = getComponent('tabs').description;
-  title = getComponent('tabs').title;
+  figmaUrl = getComponent('tabs')?.figmaUrl;
+  description = getComponent('tabs')?.description;
+  title = getComponent('tabs')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

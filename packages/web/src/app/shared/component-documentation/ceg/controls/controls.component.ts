@@ -36,6 +36,7 @@ export class ControlsComponent implements OnInit, OnDestroy {
         }),
       )
       .subscribe(([controls, groupOrder]) => {
+        if (!controls || !groupOrder) return;
         this.createControlGroups(controls, groupOrder);
       });
   }
@@ -44,9 +45,9 @@ export class ControlsComponent implements OnInit, OnDestroy {
     const newGroups: Group[] = [];
 
     groupOrder.forEach((groupName) => {
-      const groupControls = {};
+      const groupControls: Record<string, Controls[keyof Controls]> = {};
       Object.entries(controls).forEach(([propName, value]) => {
-        if (value.group === groupName) {
+        if (value?.group === groupName) {
           groupControls[propName] = value;
         }
       });
@@ -68,8 +69,8 @@ export class ControlsComponent implements OnInit, OnDestroy {
          * We assume that the group lists are identical.
          * This is considered safe, since both lists passed the groupListsAreAlike-check.
          */
-        const newValue = newGroups[groupIndex].controls[controlName].value;
-        if (control.value !== newValue) {
+        const newValue = newGroups[groupIndex].controls[controlName]?.value;
+        if (control && control.value !== newValue) {
           control.value = newValue;
         }
       });

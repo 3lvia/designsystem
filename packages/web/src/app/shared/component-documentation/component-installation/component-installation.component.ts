@@ -7,8 +7,8 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
 })
 export class ComponentInstallationComponent implements OnInit {
   @Input() componentData: ComponentData;
-  reactElementName;
-  packageName;
+  reactElementName: string;
+  packageName: string;
 
   ngOnInit() {
     this.reactElementName = this.componentData.name;

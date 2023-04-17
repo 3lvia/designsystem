@@ -8,9 +8,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./shadow-doc.component.scss'],
 })
 export class ShadowDocComponent {
-  description = getDocPagesNotFromCMS('shadow').description;
-  figmaUrl = getDocPagesNotFromCMS('shadow').figmaUrl;
-  title = getDocPagesNotFromCMS('shadow').title;
+  description = getDocPagesNotFromCMS('shadow')?.description;
+  figmaUrl = getDocPagesNotFromCMS('shadow')?.figmaUrl;
+  title = getDocPagesNotFromCMS('shadow')?.title;
   does = ['Behind overlays like popover and modal.'];
   donts = [
     'Should not be applied to typography or icons. ',

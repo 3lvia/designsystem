@@ -10,9 +10,9 @@ import { Title } from '@angular/platform-browser';
 })
 export class AccordionDocComponent {
   componentData = accordionData;
-  figmaUrl = getComponent('accordion').figmaUrl;
-  title = getComponent('accordion').title;
-  description = getComponent('accordion').description;
+  figmaUrl = getComponent('accordion')?.figmaUrl;
+  title = getComponent('accordion')?.title;
+  description = getComponent('accordion')?.description;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

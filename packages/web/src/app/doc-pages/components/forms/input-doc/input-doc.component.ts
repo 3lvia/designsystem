@@ -11,9 +11,9 @@ export class InputDocComponent {
   @ViewChild('validationExample') validationExample: ElementRef;
 
   showPassword = false;
-  figmaUrl = getComponent('input').figmaUrl;
-  description = getComponent('input').description;
-  title = getComponent('input').title;
+  figmaUrl = getComponent('input')?.figmaUrl;
+  description = getComponent('input')?.description;
+  title = getComponent('input')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

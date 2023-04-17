@@ -2,7 +2,7 @@
   <legend class="fieldset-legend e-text-sm-strong">{{ group.name }}</legend>
 
   <ng-container *ngFor="let control of group.controls | keyvalue : noSort">
-    <ng-container [ngSwitch]="control.value.type">
+    <ng-container *ngIf="control.value">
       <app-radio-group
         *ngIf="control.value.type === 'radioGroup'"
         [radioGroup]="control.value"

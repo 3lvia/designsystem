@@ -8,7 +8,7 @@ import naturalCompare from 'natural-compare-lite';
 })
 export class VersionService {
   private defaultVersion = 'please wait...';
-  private cdnVersion;
+  private cdnVersion: string;
   private latestVersion = new BehaviorSubject<string>(this.defaultVersion);
   private scriptFile = new BehaviorSubject<string>('');
   private styleFile = new BehaviorSubject<string>('');

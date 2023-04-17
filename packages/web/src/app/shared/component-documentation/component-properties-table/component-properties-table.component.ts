@@ -64,10 +64,15 @@ export class ComponentPropertiesTableComponent implements OnInit {
   private highlightSearchMatches(): void {
     this.resetHighlightedHTML();
     this.searchService.searchResults.forEach((resultItem) => {
-      resultItem.matches.forEach((match) => {
+      resultItem.matches?.forEach((match) => {
         try {
           const element = document.getElementById(`property-row-${resultItem.item.attribute}-${match.key}`);
-          element.innerHTML = this.getHighlightedHTMLString(match, resultItem.item[match.key]);
+          if (element && match.key && match.key in resultItem.item) {
+            element.innerHTML = this.getHighlightedHTMLString(
+              match,
+              resultItem.item[match.key as keyof ComponentProp] as string,
+            );
+          }
         } catch (error) {
           console.log('id:', `property-row-${resultItem.item.attribute}-${match.key}`, error);
         }
@@ -75,7 +80,12 @@ export class ComponentPropertiesTableComponent implements OnInit {
           const element = document.getElementById(
             `property-row-${resultItem.item.attribute}-${match.key}-mobile`,
           );
-          element.innerHTML = this.getHighlightedHTMLString(match, resultItem.item[match.key]);
+          if (element && match.key && match.key in resultItem.item) {
+            element.innerHTML = this.getHighlightedHTMLString(
+              match,
+              resultItem.item[match.key as keyof ComponentProp] as string,
+            );
+          }
         } catch (error) {
           console.log('id:', `property-row-${resultItem.item.attribute}-${match.key}-mobile`, error);
         }
@@ -84,9 +94,6 @@ export class ComponentPropertiesTableComponent implements OnInit {
   }
 
   private getHighlightedHTMLString(match: Fuse.FuseResultMatch, value: string): string {
-    if (!value) {
-      return;
-    }
     // Add any part of the description that is before the first match
     let highlightedValue = value.substring(0, match.indices[0][0]);
     // Add each match, and the part of the description between matches
@@ -123,11 +130,12 @@ export class ComponentPropertiesTableComponent implements OnInit {
         const element = document.getElementById(`property-row-${prop.attribute}-${key}`);
         const elementMobile = document.getElementById(`property-row-${prop.attribute}-${key}-mobile`);
         if (key === 'default') {
-          element.innerHTML = prop[key] ? this.encodeHTML(prop[key].toString()) : '-';
-          elementMobile.innerHTML = prop[key] ? this.encodeHTML(prop[key].toString()) : '-';
+          if (element) element.innerHTML = prop[key] ? this.encodeHTML(prop[key]!.toString()) : '-';
+          if (elementMobile)
+            elementMobile.innerHTML = prop[key] ? this.encodeHTML(prop[key]!.toString()) : '-';
         } else {
-          element.innerHTML = this.encodeHTML(prop[key]);
-          elementMobile.innerHTML = this.encodeHTML(prop[key]);
+          if (element) element.innerHTML = this.encodeHTML(prop[key]);
+          if (elementMobile) elementMobile.innerHTML = this.encodeHTML(prop[key]);
         }
       });
     });

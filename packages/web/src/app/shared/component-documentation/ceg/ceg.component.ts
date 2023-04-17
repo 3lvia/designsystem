@@ -11,12 +11,16 @@ import { first, map, switchMap, takeUntil } from 'rxjs/operators';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './component-example';
 import { Controls, ControlValue } from './controlType';
-import { BehaviorSubject, combineLatest, Subject } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 
 interface Slot {
   name: string;
   html: Element;
   isActive: boolean;
+}
+
+interface SlotMap {
+  [key: string]: Element;
 }
 
 @Component({
@@ -36,6 +40,13 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   get hasMultipleComponentTypes() {
     return this.componentExample.cegContent.componentTypes.pipe(
       map((componentTypes) => componentTypes.length > 1),
+    );
+  }
+
+  get hasControlsForType(): Observable<boolean> {
+    return this.componentExample.cegContent.getCurrentControls().pipe(
+      map((controls) => !!(controls && Object.keys(controls).length > 0)),
+      takeUntil(this.unsubscriber),
     );
   }
 
@@ -75,7 +86,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
         let slotObject = this.getWebComponent().getAllSlots();
 
         if (this._componentSlots.value.length) {
-          const existingSlotsToObject = {};
+          const existingSlotsToObject: SlotMap = {};
           this._componentSlots.value.forEach((slot) => {
             existingSlotsToObject[slot.name] = slot.html;
           });
@@ -86,11 +97,11 @@ export class CegComponent implements AfterViewInit, OnDestroy {
           html: slot,
           isActive:
             !slots.map((slot) => slot.slotName).includes(slotName) ||
-            slots.find((slot) => slot.slotName === slotName).isVisible,
+            !!slots.find((slot) => slot.slotName === slotName)?.isVisible,
           name: slotName,
         }));
 
-        const slotObj = {};
+        const slotObj: SlotMap = {};
         mappedSlots
           .filter((slot) => slot.isActive)
           .forEach((slot) => {
@@ -112,7 +123,9 @@ export class CegComponent implements AfterViewInit, OnDestroy {
         if (type) {
           this.getWebComponent().setProps({ type: type.toLowerCase() });
         }
-        this.setAllPropsOnWebComponent(controls);
+        if (controls) {
+          this.setAllPropsOnWebComponent(controls);
+        }
       });
   }
 
@@ -130,15 +143,15 @@ export class CegComponent implements AfterViewInit, OnDestroy {
             acc[key] = value;
           }
           return acc;
-        }, {});
+        }, {} as Record<string, any>);
         this.getWebComponent().setProps(propsToInclude);
       });
   }
 
   private setAllPropsOnWebComponent(controls: Controls): void {
     Object.entries(controls).forEach(([controlName, control]) => {
-      if (control.type !== 'slotToggle') {
-        this.getWebComponent().setProps({ [controlName]: control.value }, true);
+      if (control && control.type !== 'slotToggle') {
+        this.getWebComponent().setProps({ [controlName]: control.value });
       }
     });
   }

@@ -13,9 +13,9 @@ export class ColorDocComponent {
   signalColors = signalColors;
   dataColors = dataColors;
   greysColors = greysColors;
-  description = getDocPagesNotFromCMS('color').description;
-  figmaUrl = getDocPagesNotFromCMS('color').figmaUrl;
-  title = getDocPagesNotFromCMS('color').title;
+  description = getDocPagesNotFromCMS('color')?.description;
+  figmaUrl = getDocPagesNotFromCMS('color')?.figmaUrl;
+  title = getDocPagesNotFromCMS('color')?.title;
   colors: string[] = ['red', 'green'];
 
   doCode = `<div class="e-bg-green"></div>`;

@@ -6,9 +6,9 @@ import { NavbarAnchor } from 'src/app/shared/shared.interface';
   providedIn: 'root',
 })
 export class ScrollService {
-  private subjectAnchorScrollTo = new Subject<any>();
-  private subjectAnchorAtPositions = new Subject<any>();
-  private subjectAnchorsNew = new Subject<any>();
+  private subjectAnchorScrollTo = new Subject<NavbarAnchor>();
+  private subjectAnchorAtPositions = new Subject<NavbarAnchor>();
+  private subjectAnchorsNew = new Subject<NavbarAnchor[]>();
 
   listenAnchorToScrollTo(): Observable<any> {
     return this.subjectAnchorScrollTo.asObservable();
@@ -17,7 +17,7 @@ export class ScrollService {
     this.subjectAnchorScrollTo.next(anchorToScrollTo);
   }
 
-  listenAnchorAtCurrPos(): Observable<any> {
+  listenAnchorAtCurrPos(): Observable<NavbarAnchor> {
     return this.subjectAnchorAtPositions.asObservable();
   }
   newAnchorAtCurrPos(anchorAtPos: NavbarAnchor): void {
@@ -43,7 +43,7 @@ export class ScrollService {
     }
   }
 
-  getPageAnchors(): NodeListOf<Element> {
+  getPageAnchors(): NodeListOf<Element> | undefined {
     const elements = document.querySelectorAll('.elvis-anchor');
     if (elements.length === 0) {
       return;
@@ -51,7 +51,7 @@ export class ScrollService {
     return elements;
   }
 
-  getPageAnchorTitles(): NodeListOf<Element> {
+  getPageAnchorTitles(): NodeListOf<Element> | undefined {
     const elementTitles = document.querySelectorAll('.elvis-anchor-title');
     if (elementTitles.length === 0) {
       return;
@@ -59,7 +59,7 @@ export class ScrollService {
     return elementTitles;
   }
 
-  getVisibleAnchors(): NavbarAnchor[] {
+  getVisibleAnchors(): NavbarAnchor[] | undefined {
     const elements = this.getPageAnchors();
     const elementTitles = this.getPageAnchorTitles();
 
@@ -86,6 +86,7 @@ export class ScrollService {
       this.newAnchors(anchors);
       return anchors;
     }
+    return undefined;
   }
 
   // Checks for changes in position from top and navigates according to changes or initial list of anchor offset positions.
@@ -95,6 +96,9 @@ export class ScrollService {
 
     if (anchor.title === 'Overview') {
       this.newAnchorToScrollTo(anchor);
+      return;
+    }
+    if (!elements || !elementTitles) {
       return;
     }
     for (let i = 0; i < elements.length; i++) {

@@ -2,6 +2,23 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "14.04.23",
+      "version": "3.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Deprecated the <code>loop</code> prop. Use the new <code>type</code> prop instead."],
+          "fixes": [
+            "Replace the <code>loop</code> prop with the <code>type</code> prop. The <code>type</code> prop can be set to <code>\"linear\"</code> or <code>\"loop\"</code>. (default)"
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Fixed broken type export"]
+        }
+      ]
+    },
+    {
       "date": "09.03.23",
       "version": "2.3.0",
       "changelog": [

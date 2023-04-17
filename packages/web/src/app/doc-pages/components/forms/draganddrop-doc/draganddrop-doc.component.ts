@@ -8,9 +8,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./draganddrop-doc.component.scss'],
 })
 export class DraganddropDocComponent {
-  figmaUrl = getComponent('drag-and-drop').figmaUrl;
-  description = getComponent('drag-and-drop').description;
-  title = getComponent('drag-and-drop').title;
+  figmaUrl = getComponent('drag-and-drop')?.figmaUrl;
+  description = getComponent('drag-and-drop')?.description;
+  title = getComponent('drag-and-drop')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

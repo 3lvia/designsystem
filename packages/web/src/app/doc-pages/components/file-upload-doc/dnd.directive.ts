@@ -16,14 +16,14 @@ export class DndDirective {
   }
 
   // Dragleave listener
-  @HostListener('dragleave', ['$event']) public onDragLeave(evt): void {
+  @HostListener('dragleave', ['$event']) public onDragLeave(evt: Event): void {
     evt.preventDefault();
     evt.stopPropagation();
     this.fileOver = false;
   }
 
   // Drop listener
-  @HostListener('drop', ['$event']) public ondrop(evt): void {
+  @HostListener('drop', ['$event']) public ondrop(evt: Event): void {
     evt.preventDefault();
     evt.stopPropagation();
     this.fileOver = false;

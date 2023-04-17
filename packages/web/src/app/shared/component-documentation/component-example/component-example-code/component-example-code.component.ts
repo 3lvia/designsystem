@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./component-example-code.component.scss'],
 })
 export class ComponentExampleCodeComponent implements OnInit, OnChanges, OnDestroy {
+  // @ts-ignore
   @Input() componentData;
   @Input() inlineExample: boolean;
   @Input() codeTS = '';
@@ -104,7 +105,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, OnDestr
   }
 
   getTabs(): string[] {
-    const tabs = [];
+    const tabs: string[] = [];
     if (this.noSubscriptions === false) {
       if (this.codeAngular !== '') {
         tabs.push('Angular');

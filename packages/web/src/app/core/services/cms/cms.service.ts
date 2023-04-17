@@ -12,7 +12,7 @@ import { extractLocale } from './extractLocale';
   providedIn: 'root',
 })
 export class CMSService {
-  private entries = {};
+  private entries: Record<string, IEntry> = {};
   private entriesToSync: string[] = [];
   private subjectAnchorsNew = new Subject<void>();
   private getMenuCache = new Map<Locale, CMSMenu>();
@@ -43,28 +43,27 @@ export class CMSService {
     const urlWithoutAnchor = urlFull.split('/');
     let pageId = '';
     await this.getMenu(localization).then((menu) => {
-      const localeKey = (Object.keys(menu['pages'][0].entry.fields.pages)[localization] ??
-        'en-GB') as LOCALE_CODE;
+      const pages = menu['pages'][0].entry.fields.pages;
+      const localeKey = (Object.keys(pages!)[localization] ?? 'en-GB') as LOCALE_CODE;
       const subMenu = menu['pages'].find((subMenu) => subMenu.path === urlWithoutAnchor[1]);
       if (urlWithoutAnchor[1] === 'preview' && urlWithoutAnchor[2]) {
         pageId = urlWithoutAnchor[2];
-        return pageId;
       } else {
         if (!subMenu) {
           console.error('Can´t find this submenu: ' + urlWithoutAnchor[1]);
           this.router.navigate(['not-found']);
         }
-        if (!urlWithoutAnchor[2] && subMenu.entry.fields.landingPage) {
-          pageId = extractLocale(subMenu.entry.fields.landingPage, localeKey).sys.id;
-        } else if (subMenu.entry.fields.pages) {
-          const docPage = extractLocale(subMenu.entry.fields.pages, localeKey).find(
+        if (!urlWithoutAnchor[2] && subMenu?.entry.fields.landingPage) {
+          pageId = extractLocale(subMenu.entry.fields.landingPage, localeKey)?.sys.id ?? '';
+        } else if (subMenu?.entry.fields.pages) {
+          const docPage = extractLocale(subMenu.entry.fields.pages, localeKey)?.find(
             (page) => extractLocale(page.fields.path, localeKey) === urlWithoutAnchor[2],
           );
           if (!docPage) {
             console.error('Can´t find this docPage: ' + urlWithoutAnchor[2]);
             this.router.navigate(['not-found']);
           }
-          pageId = docPage.sys.id;
+          pageId = docPage!.sys.id;
         }
       }
     });
@@ -113,14 +112,16 @@ export class CMSService {
         if (element.entry.fields.pages === undefined || element.entry.fields.pages === null) {
           return;
         }
-        const localeKey = Object.keys(element.entry.fields.pages)[localization] ?? 'en-GB';
-        const cmsPages: IDocumentationPage[] = element.entry.fields.pages[localeKey];
-        cmsPages.forEach((cmsPage) => {
+        const localeKey = (Object.keys(element.entry.fields.pages)[localization] ?? 'en-GB') as LOCALE_CODE;
+        const cmsPages = element.entry.fields.pages[localeKey];
+        cmsPages?.forEach((cmsPage) => {
           const innerLocaleKey = (Object.keys(cmsPage.fields.title)[localization] ?? 'en-GB') as LOCALE_CODE;
           const navbarItem: CMSNavbarItem = {
-            title: extractLocale(cmsPage.fields.title, innerLocaleKey),
-            isMainPage: extractLocale(cmsPage.fields.isMainPage, innerLocaleKey),
-            docUrl: extractLocale(cmsPage.fields.path),
+            title: cmsPage.fields.title && extractLocale(cmsPage.fields.title, innerLocaleKey)!,
+            isMainPage: !!(
+              cmsPage.fields.isMainPage && extractLocale(cmsPage.fields.isMainPage, innerLocaleKey)
+            ),
+            docUrl: cmsPage.fields.path && extractLocale(cmsPage.fields.path)!,
             fullPath: subMenuRoute + extractLocale(cmsPage.fields.path),
           };
           subMenuList.push(navbarItem);
@@ -133,20 +134,23 @@ export class CMSService {
   async getMenu(localization: Locale): Promise<CMSMenu> {
     // Cache menu to avoid slow loading.
     if (this.getMenuCache.has(localization)) {
-      return this.getMenuCache.get(localization);
+      return this.getMenuCache.get(localization)!;
     }
     const locale = localization === Locale['nb-NO'] ? 'nb-NO' : 'en-GB';
     const entryMenu = await this.getEntry('4ufFZKPEou3mf9Tg05WZT3');
 
     const menu: CMSMenu = {
-      title: entryMenu.fields.title['en-GB'],
+      title: entryMenu.fields.title?.['en-GB']!,
       pages: [],
     };
-    const subMenuEntries = extractLocale(entryMenu.fields.submenus, locale);
+    const subMenuEntries = extractLocale(entryMenu.fields.submenus!, locale);
+    if (!subMenuEntries) {
+      throw new Error('No submenus found in CMS.service');
+    }
     for (const subMenuEntry of subMenuEntries) {
       const subEntry = await this.getEntry<ISubMenu>(subMenuEntry.sys.id);
       const subMenu: CMSSubMenu = {
-        title: extractLocale(subMenuEntry.fields.title, locale),
+        title: extractLocale(subMenuEntry.fields.title, locale) ?? '',
         entry_id: subMenuEntry.sys.id,
         entry: subEntry,
         path: subMenuEntry.fields.path['en-GB'], // url path - No localization on this field
@@ -178,7 +182,7 @@ export class CMSService {
 
   private async syncEntries(): Promise<void> {
     while (this.entriesToSync.length > 0) {
-      const id = this.entriesToSync.pop();
+      const id = this.entriesToSync.pop()!;
       await this.getEntry(id);
     }
   }
@@ -215,11 +219,12 @@ export class CMSService {
    * @example
    * const entryMenu = await this.getEntry<IMainMenu>('4ufFZKPEou3mf9Tg05WZT3');
    */
-  private async getEntry<T extends IEntry = any>(entryId: string): Promise<T>;
+  private async getEntry<T extends IEntry = IEntry>(entryId: string): Promise<T>;
   private async getEntry(entryId: '4ufFZKPEou3mf9Tg05WZT3'): Promise<IMainMenu>;
-  private async getEntry(entryId: string): Promise<any> {
+  private async getEntry(entryId: string): Promise<IEntry>;
+  private async getEntry(entryId: string): Promise<IEntry> {
     const url = `assets/contentful/dist/entries/${entryId}.json`;
-    this.entries[entryId] = await this.http.get(url).toPromise();
+    this.entries[entryId] = (await this.http.get(url).toPromise()) as IEntry;
 
     this.findEntriesWithinNode(this.entries[entryId]);
     await this.syncEntries();

@@ -18,7 +18,7 @@ export class CodeGeneratorComponent {
   @Input() reactCode = '';
   @Input() vueCode = '';
   activeTabIndex = localStorage.getItem(LANGUAGE_STORAGE_KEY)
-    ? localStorage.getItem(LANGUAGE_STORAGE_KEY)
+    ? parseInt(localStorage.getItem(LANGUAGE_STORAGE_KEY)!)
     : 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
   copyMessage = '';

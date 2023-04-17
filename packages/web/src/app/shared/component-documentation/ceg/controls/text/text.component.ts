@@ -13,6 +13,10 @@ export class TextComponent {
   @Output() valueChange = new EventEmitter<Text['value']>();
   readonly inputId = `ceg-input-${CEG_INPUT_ID++}`;
 
+  get textValue(): string | null {
+    return this.input.value ?? null;
+  }
+
   onChange(newValue: Text['value']): void {
     this.valueChange.emit(newValue);
   }

@@ -9,9 +9,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./chip-doc.component.scss'],
 })
 export class ChipDocComponent {
-  title = getComponent('chip').title;
-  figmaUrl = getComponent('chip').figmaUrl;
-  description = getComponent('chip').description;
+  title = getComponent('chip')?.title;
+  figmaUrl = getComponent('chip')?.figmaUrl;
+  description = getComponent('chip')?.description;
   does = chipData.does;
   donts = chipData.donts;
   componentData = chipData;

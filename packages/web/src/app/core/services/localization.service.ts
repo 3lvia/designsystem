@@ -25,7 +25,7 @@ export class LocalizationService {
         } else {
           // On route change to brand, check if a preferred locale is set
           const preferredLocale = localStorage.getItem(LOCALIZATION_STORAGE_KEY);
-          if (preferredLocale) {
+          if (this.isKeyofLocale(preferredLocale)) {
             this.setLocalization(Locale[preferredLocale]);
           }
         }
@@ -43,5 +43,9 @@ export class LocalizationService {
 
   setPreferredLocalization(locale: Locale): void {
     localStorage.setItem(LOCALIZATION_STORAGE_KEY, Locale[locale]);
+  }
+
+  private isKeyofLocale(key: unknown): key is keyof typeof Locale {
+    return typeof key === 'string' && key in Locale;
   }
 }
