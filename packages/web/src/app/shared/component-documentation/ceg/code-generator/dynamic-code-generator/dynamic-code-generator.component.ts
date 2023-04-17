@@ -111,19 +111,38 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   private getCleanSlot(slots: string[]): string[] {
     return slots
       .map((slot) => {
-        if (slot.includes('e-icon')) {
+        if (slot.includes('e-icon') || slot.includes('<elvia-')) {
           const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
-          const iconElements = parsedSlot.querySelectorAll('i.e-icon');
-          iconElements.forEach((icon) => {
-            icon.removeAttribute('e-id');
-            icon.childNodes.forEach((child) => icon.removeChild(child));
-          });
+
+          this.cleanIconsInSlot(parsedSlot);
+          this.cleanElviaComponentsInSlot(slot, parsedSlot);
           return parsedSlot.body.innerHTML;
         }
         return slot;
       })
       .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
       .map((slot) => slot.replace(/ng-reflect.*Object]"/g, ''));
+  }
+
+  private cleanIconsInSlot(parsedSlot: Document) {
+    const iconElements = parsedSlot.querySelectorAll('i.e-icon');
+    iconElements.forEach((icon) => {
+      icon.removeAttribute('e-id');
+      icon.childNodes.forEach((child) => icon.removeChild(child));
+    });
+  }
+
+  private cleanElviaComponentsInSlot(slotString: string, parsedSlot: Document) {
+    slotString.split('<').forEach((slotPart) => {
+      if (slotPart.startsWith('elvia-')) {
+        const elviaTag = slotPart.split(' ')[0];
+
+        Array.from(parsedSlot.getElementsByTagName(elviaTag)).forEach((elviaElement) => {
+          elviaElement.getAttributeNames().forEach((attribute) => elviaElement.removeAttribute(attribute));
+          elviaElement.innerHTML = 'Content removed for simplicity...';
+        });
+      }
+    });
   }
 
   private getWebComponentSlots(slots: string[]): string {

@@ -1,5 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import '@elvia/elvis-modal';
+import '@elvia/elvis-carousel';
 import { ModalDocComponent } from './modal-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
 import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
@@ -13,6 +15,7 @@ import { ComponentChangelogModule } from 'src/app/shared/component-documentation
 import { RouterModule } from '@angular/router';
 import { ModalCegComponent } from './modal-ceg/modal-ceg.component';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
+import { ModalMultiplePagesCegComponent } from './modal-multiple-pages-ceg/modal-multiple-pages-ceg.component';
 
 @NgModule({
   imports: [
@@ -29,7 +32,7 @@ import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module
     ComponentChangelogModule,
     CegModule,
   ],
-  declarations: [ModalDocComponent, ModalCegComponent],
+  declarations: [ModalDocComponent, ModalCegComponent, ModalMultiplePagesCegComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ModalDocModule {}

@@ -39,3 +39,10 @@
 .code-generator {
   grid-row: 3;
 }
+
+.component-example-container,
+.code-generator {
+  &.full-width-example {
+    grid-column: 1 / -1;
+  }
+}
