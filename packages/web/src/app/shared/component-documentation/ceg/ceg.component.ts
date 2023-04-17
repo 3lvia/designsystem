@@ -1,9 +1,23 @@
-import { AfterViewInit, Component, ContentChild, ElementRef, OnDestroy, ViewChild } from '@angular/core';
-import { map, takeUntil } from 'rxjs/operators';
+import {
+  AfterViewInit,
+  Component,
+  ContentChild,
+  ElementRef,
+  NgZone,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
+import { first, map, switchMap, takeUntil } from 'rxjs/operators';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './component-example';
 import { Controls, ControlValue } from './controlType';
 import { BehaviorSubject, combineLatest, Subject } from 'rxjs';
+
+interface Slot {
+  name: string;
+  html: Element;
+  isActive: boolean;
+}
 
 @Component({
   selector: 'app-ceg',
@@ -13,16 +27,19 @@ import { BehaviorSubject, combineLatest, Subject } from 'rxjs';
 export class CegComponent implements AfterViewInit, OnDestroy {
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
   @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
-  private slotObserver: MutationObserver;
   private unsubscriber = new Subject();
-  private _componentSlots = new BehaviorSubject<string[]>([]);
-  readonly componentSlots = this._componentSlots.asObservable();
+  private _componentSlots = new BehaviorSubject<Slot[]>([]);
+  readonly componentSlots = this._componentSlots
+    .asObservable()
+    .pipe(map((slots) => slots.filter((slot) => slot.isActive).map((slot) => slot.html.outerHTML)));
 
   get hasMultipleComponentTypes() {
     return this.componentExample.cegContent.componentTypes.pipe(
       map((componentTypes) => componentTypes.length > 1),
     );
   }
+
+  constructor(private zone: NgZone) {}
 
   ngAfterViewInit(): void {
     this.setUpSlotSubscription();
@@ -33,7 +50,6 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscriber.next();
     this.unsubscriber.complete();
-    this.slotObserver.disconnect();
   }
 
   setPropValue(propName: string, value: ControlValue): void {
@@ -49,11 +65,41 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   }
 
   private setUpSlotSubscription() {
-    this.slotObserver = new MutationObserver(() => {
-      const slots = Object.values(this.getWebComponent().getAllSlots()).map((html) => html.outerHTML);
-      this._componentSlots.next(slots.slice());
-    });
-    this.slotObserver.observe(this.componentContainer.nativeElement, { childList: true, subtree: true });
+    this.zone.onStable
+      .pipe(
+        takeUntil(this.unsubscriber),
+        first(),
+        switchMap(() => this.componentExample.cegContent.getSlotVisibility()),
+      )
+      .subscribe((slots) => {
+        let slotObject = this.getWebComponent().getAllSlots();
+
+        if (this._componentSlots.value.length) {
+          const existingSlotsToObject = {};
+          this._componentSlots.value.forEach((slot) => {
+            existingSlotsToObject[slot.name] = slot.html;
+          });
+          slotObject = existingSlotsToObject;
+        }
+
+        const mappedSlots: Slot[] = Object.entries(slotObject).map(([slotName, slot]) => ({
+          html: slot,
+          isActive:
+            !slots.map((slot) => slot.slotName).includes(slotName) ||
+            slots.find((slot) => slot.slotName === slotName).isVisible,
+          name: slotName,
+        }));
+
+        const slotObj = {};
+        mappedSlots
+          .filter((slot) => slot.isActive)
+          .forEach((slot) => {
+            slotObj[slot.name] = slot.html;
+          });
+        this.getWebComponent().setSlots(slotObj);
+
+        this._componentSlots.next(mappedSlots);
+      });
   }
 
   private setUpTypeChangeSubscription() {

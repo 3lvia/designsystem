@@ -58,14 +58,14 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     this._currentComponentTypeName.next(name);
   }
 
-  getActiveSlots(): Observable<string[]> {
+  getSlotVisibility(): Observable<{ slotName: string; isVisible: true }[]> {
     return this.getCurrentControls().pipe(
       map((controls: Controls) => {
-        return Object.entries(controls)
-          .filter(([_, control]) => {
-            return control.type === 'slotToggle' && control.value;
-          })
-          .map(([controlName]) => controlName);
+        const toggles = Object.entries(controls).filter(([_, control]) => control.type === 'slotToggle');
+        return toggles.map(([controlName, control]) => ({
+          slotName: controlName,
+          isVisible: control.value,
+        }));
       }),
     );
   }
@@ -125,7 +125,6 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
       map(([componentTypes, name]) => {
         return componentTypes.find((configuration) => configuration.name === name);
       }),
-      distinctUntilChanged((a, b) => JSON.stringify(a) === JSON.stringify(b)),
     );
   }
 

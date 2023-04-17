@@ -81,7 +81,6 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
     this.renderReactDOM();
     this.addDisplayStyleToCustomElement();
-    this.addMutationObserverForSlotChanges();
   }
 
   disconnectedCallback(): void {
@@ -130,6 +129,10 @@ export class ElvisComponentWrapper extends HTMLElement {
     if (!preventRerender) {
       this.throttleRenderReactDOM();
     }
+  }
+
+  setSlots(slots: { [slotName: string]: Element }): void {
+    this._slots = slots;
   }
 
   protected addDisplayStyleToCustomElement(): void {
@@ -222,34 +225,6 @@ export class ElvisComponentWrapper extends HTMLElement {
       }
       this._slots[slotName] = element;
       element.remove();
-    });
-  }
-
-  private setSlot(element: Element, deleteSlot = false): void {
-    // getAttribute does not exist on text nodes
-    const slotName = element.getAttribute?.('slot');
-    if (slotName) {
-      if (deleteSlot) {
-        delete this._slots[slotName];
-      } else {
-        this._slots[slotName] = element;
-      }
-    }
-  }
-
-  private addMutationObserverForSlotChanges(): void {
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'childList') {
-          mutation.addedNodes.forEach((node: Element) => this.setSlot(node));
-          mutation.removedNodes.forEach((node: Element) => this.setSlot(node, true));
-          this.throttleRenderReactDOM();
-        }
-      });
-    });
-    observer.observe(this, {
-      childList: true,
-      subtree: true,
     });
   }
 

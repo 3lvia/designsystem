@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { ModalProps } from '@elvia/elvis-modal/react';
@@ -8,8 +8,7 @@ import { ModalProps } from '@elvia/elvis-modal/react';
   templateUrl: './modal-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: ModalCegComponent }],
 })
-export class ModalCegComponent implements ComponentExample, OnInit {
-  modalWithIllustration = false;
+export class ModalCegComponent implements ComponentExample {
   isModalShowing = false;
   elementName = 'modal';
   cegContent = new CegControlManager<ModalProps>([
@@ -19,7 +18,7 @@ export class ModalCegComponent implements ComponentExample, OnInit {
           type: 'slotToggle',
           group: 'Options',
           label: 'Illustration',
-          value: this.modalWithIllustration,
+          value: false,
         },
         hasCloseButton: { type: 'switch', group: 'Options', label: 'Close Button' },
       },
@@ -29,10 +28,4 @@ export class ModalCegComponent implements ComponentExample, OnInit {
       groupOrder: ['Options'],
     },
   ]);
-
-  ngOnInit(): void {
-    this.cegContent.getActiveSlots().subscribe((slots) => {
-      this.modalWithIllustration = slots.includes('illustration');
-    });
-  }
 }
