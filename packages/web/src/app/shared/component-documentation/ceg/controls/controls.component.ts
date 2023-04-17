@@ -44,7 +44,7 @@ export class ControlsComponent implements OnInit, OnDestroy {
     const newGroups: Group[] = [];
 
     groupOrder.forEach((groupName) => {
-      const groupControls = {};
+      const groupControls: Record<string, Controls[keyof Controls]> = {};
       Object.entries(controls).forEach(([propName, value]) => {
         if (value?.group === groupName) {
           groupControls[propName] = value;

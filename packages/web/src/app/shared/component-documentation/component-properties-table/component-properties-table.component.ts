@@ -67,10 +67,12 @@ export class ComponentPropertiesTableComponent implements OnInit {
       resultItem.matches?.forEach((match) => {
         try {
           const element = document.getElementById(`property-row-${resultItem.item.attribute}-${match.key}`);
-          if (!(element && match.key && resultItem.item[match.key])) {
-            return;
+          if (element && match.key && match.key in resultItem.item) {
+            element.innerHTML = this.getHighlightedHTMLString(
+              match,
+              resultItem.item[match.key as keyof ComponentProp] as string,
+            );
           }
-          element.innerHTML = this.getHighlightedHTMLString(match, resultItem.item[match.key]);
         } catch (error) {
           console.log('id:', `property-row-${resultItem.item.attribute}-${match.key}`, error);
         }
@@ -78,10 +80,12 @@ export class ComponentPropertiesTableComponent implements OnInit {
           const element = document.getElementById(
             `property-row-${resultItem.item.attribute}-${match.key}-mobile`,
           );
-          if (!(element && match.key && resultItem.item[match.key])) {
-            return;
+          if (element && match.key && match.key in resultItem.item) {
+            element.innerHTML = this.getHighlightedHTMLString(
+              match,
+              resultItem.item[match.key as keyof ComponentProp] as string,
+            );
           }
-          element.innerHTML = this.getHighlightedHTMLString(match, resultItem.item[match.key]);
         } catch (error) {
           console.log('id:', `property-row-${resultItem.item.attribute}-${match.key}-mobile`, error);
         }

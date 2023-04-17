@@ -86,6 +86,7 @@ export class ScrollService {
       this.newAnchors(anchors);
       return anchors;
     }
+    return;
   }
 
   // Checks for changes in position from top and navigates according to changes or initial list of anchor offset positions.

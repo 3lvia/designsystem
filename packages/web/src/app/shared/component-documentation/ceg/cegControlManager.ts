@@ -106,6 +106,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
         }
       }
     }
+    return;
   }
 
   private getCurrentComponentType(): Observable<ComponentType<TComponentProps> | undefined> {

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ElviaDropdownItem } from '@elvia/elvis-dropdown';
 import { openElviaToast } from '@elvia/elvis-toast';
 import { dropdownData } from './dropdown-data';
 
@@ -32,7 +31,7 @@ export class v2PlaygroundComponent {
   // Chips
   deleteValue = 0;
   filteredValues = { 2021: false, 2022: true, 2023: true, 2024: true };
-  filteredKeys = Object.keys(this.filteredValues);
+  filteredKeys = Object.keys(this.filteredValues) as unknown as Array<keyof typeof this.filteredValues>;
   deletableChipsList = [
     { value: 2022, color: 'green' },
     { value: 2023, color: 'red' },
@@ -72,7 +71,7 @@ export class v2PlaygroundComponent {
   // Dropdown
   selectedDropdownItem = 'sverige';
   longDropdownList = dropdownData;
-  dropdownItems: ElviaDropdownItem[] = [
+  dropdownItems = [
     {
       value: 0,
       label: 'Norge',
@@ -143,8 +142,8 @@ export class v2PlaygroundComponent {
 
   // Progress linear
   progressValue = 0;
-  progressError;
-  indeterminate;
+  progressError = false;
+  indeterminate = false;
 
   // Radio filter
   radioFilterValues = [
@@ -221,9 +220,9 @@ export class v2PlaygroundComponent {
     this.filteredValues = { ...this.filteredValues, [event.target.value]: event.detail.value };
   };
   changeChipStates = (): void => {
-    Object.keys(this.filteredValues).forEach((key) => {
-      this.filteredValues[key] = !this.filteredValues[key];
-    });
+    this.filteredValues = Object.fromEntries(
+      Object.entries(this.filteredValues).map(([key, value]) => [key, !value]),
+    ) as typeof this.filteredValues;
   };
   handleOnDelete = (event: number): void => {
     this.deleteValue = event;

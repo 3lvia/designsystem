@@ -33,7 +33,7 @@ export class DocumentEventListenerService {
     if (keyPressed === 'g') {
       this.lastGPress = new Date().getTime();
     }
-    if (keyPressed in this.keyboardPaths) {
+    if (this.keyPressIsInShortcuts(keyPressed)) {
       const now = new Date().getTime();
       if (now - this.lastGPress <= 1000) {
         if (keyPressed === 's') {
@@ -46,5 +46,9 @@ export class DocumentEventListenerService {
         }
       }
     }
+  }
+
+  private keyPressIsInShortcuts(keyPressed: string): keyPressed is keyof typeof this.keyboardPaths {
+    return keyPressed in this.keyboardPaths;
   }
 }

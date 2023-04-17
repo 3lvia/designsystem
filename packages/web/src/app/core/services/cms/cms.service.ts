@@ -12,7 +12,7 @@ import { extractLocale } from './extractLocale';
   providedIn: 'root',
 })
 export class CMSService {
-  private entries = {};
+  private entries: Record<string, IEntry> = {};
   private entriesToSync: string[] = [];
   private subjectAnchorsNew = new Subject<void>();
   private getMenuCache = new Map<Locale, CMSMenu>();
@@ -48,7 +48,6 @@ export class CMSService {
       const subMenu = menu['pages'].find((subMenu) => subMenu.path === urlWithoutAnchor[1]);
       if (urlWithoutAnchor[1] === 'preview' && urlWithoutAnchor[2]) {
         pageId = urlWithoutAnchor[2];
-        return pageId;
       } else {
         if (!subMenu) {
           console.error('Can´t find this submenu: ' + urlWithoutAnchor[1]);
@@ -113,9 +112,9 @@ export class CMSService {
         if (element.entry.fields.pages === undefined || element.entry.fields.pages === null) {
           return;
         }
-        const localeKey = Object.keys(element.entry.fields.pages)[localization] ?? 'en-GB';
-        const cmsPages: IDocumentationPage[] = element.entry.fields.pages[localeKey];
-        cmsPages.forEach((cmsPage) => {
+        const localeKey = (Object.keys(element.entry.fields.pages)[localization] ?? 'en-GB') as LOCALE_CODE;
+        const cmsPages = element.entry.fields.pages[localeKey];
+        cmsPages?.forEach((cmsPage) => {
           const innerLocaleKey = (Object.keys(cmsPage.fields.title)[localization] ?? 'en-GB') as LOCALE_CODE;
           const navbarItem: CMSNavbarItem = {
             title: cmsPage.fields.title && extractLocale(cmsPage.fields.title, innerLocaleKey)!,
@@ -220,11 +219,12 @@ export class CMSService {
    * @example
    * const entryMenu = await this.getEntry<IMainMenu>('4ufFZKPEou3mf9Tg05WZT3');
    */
-  private async getEntry<T extends IEntry = any>(entryId: string): Promise<T>;
+  private async getEntry<T extends IEntry = IEntry>(entryId: string): Promise<T>;
   private async getEntry(entryId: '4ufFZKPEou3mf9Tg05WZT3'): Promise<IMainMenu>;
-  private async getEntry(entryId: string): Promise<any> {
+  private async getEntry(entryId: string): Promise<IEntry>;
+  private async getEntry(entryId: string): Promise<IEntry> {
     const url = `assets/contentful/dist/entries/${entryId}.json`;
-    this.entries[entryId] = await this.http.get(url).toPromise();
+    this.entries[entryId] = (await this.http.get(url).toPromise()) as IEntry;
 
     this.findEntriesWithinNode(this.entries[entryId]);
     await this.syncEntries();

@@ -102,7 +102,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
             acc[key] = value;
           }
           return acc;
-        }, {});
+        }, {} as Record<string, any>);
         this.getWebComponent().setProps(propsToInclude);
       });
   }
