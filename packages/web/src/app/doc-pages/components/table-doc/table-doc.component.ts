@@ -1157,9 +1157,9 @@ export class TableDocComponent {
     </tbody>
   </table>
 </div>
-<div style="display: flex; margin-top: 8px; font-size: 16px; line-height: 16px">
-<i class="e-icon e-icon--warning_circle e-icon--xs e-icon--color-error" style="margin-right: 8px"></i>
-<span>Her kommer feilmeldingen</span>
+<div style="display: flex; margin-top: 8px;">
+<i class="e-icon e-icon--warning_circle e-icon--xs e-icon--color-error" style="margin-right: 8px; line-height: 22px"></i>
+<span class="e-text-sm">Her kommer feilmeldingen</span>
 </div>`;
 
   exampleValidationCell = `<div class="e-table-container overview-example">
