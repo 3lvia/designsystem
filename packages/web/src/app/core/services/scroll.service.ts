@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { NavbarAnchor } from 'src/app/shared/shared.interface';
+import { Locale, LocalizationService } from './localization.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +10,24 @@ export class ScrollService {
   private subjectAnchorScrollTo = new Subject<NavbarAnchor>();
   private subjectAnchorAtPositions = new Subject<NavbarAnchor>();
   private subjectAnchorsNew = new Subject<NavbarAnchor[]>();
+
+  private localizedOverview = 'Overview';
+
+  constructor(private localizationService: LocalizationService) {
+    this.localizationService.listenLocalization().subscribe((localization) => {
+      switch (localization) {
+        case Locale['en-GB']:
+          this.localizedOverview = 'Overview';
+          break;
+        case Locale['nb-NO']:
+          this.localizedOverview = 'Oversikt';
+          break;
+        default:
+          this.localizedOverview = 'Overview';
+          break;
+      }
+    });
+  }
 
   listenAnchorToScrollTo(): Observable<any> {
     return this.subjectAnchorScrollTo.asObservable();
@@ -65,7 +84,7 @@ export class ScrollService {
 
     if (elements && elementTitles) {
       const firstItem = elements.item(0) as HTMLElement;
-      const anchors = [{ title: 'Overview', top: 0, height: firstItem.offsetTop }];
+      const anchors = [{ title: this.localizedOverview, top: 0, height: firstItem.offsetTop }];
       for (let i = 0; i < elements.length; i++) {
         const item = elements.item(i) as HTMLElement;
         const elementTitle = elementTitles.item(i) as HTMLElement;
