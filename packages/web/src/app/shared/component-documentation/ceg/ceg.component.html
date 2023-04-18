@@ -6,7 +6,7 @@
   <div
     class="component-example-container"
     #componentContainer
-    [ngClass]="{ 'full-width-example': (hasControlsForType | async) === false }"
+    [ngClass]="{ 'full-width-example': (hasControlsForType | async) === false && fullWidth }"
   >
     <ng-content />
     <div class="ceg-floating-toolbar" *ngIf="hasControlsForType | async">
@@ -26,7 +26,7 @@
 
   <app-dynamic-code-generator
     class="code-generator"
-    [ngClass]="{ 'full-width-example': (hasControlsForType | async) === false }"
+    [ngClass]="{ 'full-width-example': (hasControlsForType | async) === false && fullWidth }"
     [controlManager]="componentExample.cegContent"
     [elementName]="componentExample.elementName"
     [componentSlots]="componentSlots"
