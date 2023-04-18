@@ -76,6 +76,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   }
 
   private setUpSlotSubscription() {
+    /** We need to wait in order to prevent ExpressionChangeAfterChecked error */
     this.zone.onStable
       .pipe(
         takeUntil(this.unsubscriber),
@@ -85,12 +86,11 @@ export class CegComponent implements AfterViewInit, OnDestroy {
       .subscribe((slots) => {
         let slotObject = this.getWebComponent().getAllSlots();
 
+        // Use the existing list of slots, if we have it.
         if (this._componentSlots.value.length) {
-          const existingSlotsToObject: SlotMap = {};
-          this._componentSlots.value.forEach((slot) => {
-            existingSlotsToObject[slot.name] = slot.html;
-          });
-          slotObject = existingSlotsToObject;
+          const existingSlots: SlotMap = {};
+          this._componentSlots.value.forEach((slot) => (existingSlots[slot.name] = slot.html));
+          slotObject = existingSlots;
         }
 
         const mappedSlots: Slot[] = Object.entries(slotObject).map(([slotName, slot]) => ({
@@ -100,6 +100,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
             !!slots.find((slot) => slot.slotName === slotName)?.isVisible,
           name: slotName,
         }));
+        this._componentSlots.next(mappedSlots);
 
         const slotObj: SlotMap = {};
         mappedSlots
@@ -108,8 +109,6 @@ export class CegComponent implements AfterViewInit, OnDestroy {
             slotObj[slot.name] = slot.html;
           });
         this.getWebComponent().setSlots(slotObj);
-
-        this._componentSlots.next(mappedSlots);
       });
   }
 
