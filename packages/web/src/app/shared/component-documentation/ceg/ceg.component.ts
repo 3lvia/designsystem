@@ -13,17 +13,29 @@ import { ComponentExample } from './component-example';
 import { Controls, ControlValue } from './controlType';
 import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 
+interface Slot {
+  name: string;
+  html: Element;
+  isActive: boolean;
+}
+
+interface SlotMap {
+  [key: string]: Element;
+}
+
 @Component({
   selector: 'app-ceg',
   templateUrl: './ceg.component.html',
   styleUrls: ['./ceg.component.scss', './shared-styles.scss'],
 })
 export class CegComponent implements AfterViewInit, OnDestroy {
-  private unsubscriber = new Subject();
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
   @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
-  private _componentSlots = new BehaviorSubject<string[]>([]);
-  readonly componentSlots = this._componentSlots.asObservable();
+  private unsubscriber = new Subject();
+  private _componentSlots = new BehaviorSubject<Slot[]>([]);
+  readonly componentSlots = this._componentSlots
+    .asObservable()
+    .pipe(map((slots) => slots.filter((slot) => slot.isActive).map((slot) => slot.html.outerHTML)));
 
   get hasMultipleComponentTypes() {
     return this.componentExample.cegContent.componentTypes.pipe(
@@ -44,7 +56,6 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     this.setUpSlotSubscription();
     this.setUpTypeChangeSubscription();
     this.setUpStaticPropSubscription();
-    this.setDisplayStyleOnExampleComponent();
   }
 
   ngOnDestroy(): void {
@@ -60,16 +71,61 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  toggleSlot(slotName: string, isVisible: boolean) {
+    this.componentExample.cegContent.setPropValue(slotName, isVisible);
+  }
+
+  private getUpdatedSlotList(
+    slots: {
+      slotName: string;
+      isVisible: true;
+    }[],
+  ): Slot[] {
+    let slotList: Slot[] = [];
+
+    const slotIsActive = (slotName: string): boolean => {
+      return (
+        !slots.map((s) => s.slotName).includes(slotName) ||
+        !!slots.find((s) => s.slotName === slotName)?.isVisible
+      );
+    };
+
+    // Use the existing list of slots, if we have it.
+    if (this._componentSlots.value.length) {
+      slotList = this._componentSlots.value;
+      slotList.forEach((slot) => (slot.isActive = slotIsActive(slot.name)));
+    } else {
+      slotList = Object.entries(this.getWebComponent().getAllSlots()).map(([slotName, slot]) => ({
+        html: slot,
+        isActive: slotIsActive(slotName),
+        name: slotName,
+      }));
+    }
+
+    return slotList;
+  }
+
   private setUpSlotSubscription() {
-    this.componentExample.cegContent.currentComponentTypeName
+    /** We need to wait in order to prevent ExpressionChangeAfterChecked error */
+    this.zone.onStable
       .pipe(
         takeUntil(this.unsubscriber),
-        /** We need to wait in order to prevent ExpressionChangeAfterChecked error  */
-        switchMap(() => this.zone.onStable),
         first(),
-        map(() => Object.values(this.getWebComponent().getAllSlots()).map((slot) => slot.outerHTML)),
+        switchMap(() => this.componentExample.cegContent.getSlotVisibility()),
       )
-      .subscribe((slots) => this._componentSlots.next(slots));
+      .subscribe((slots) => {
+        const slotList = this.getUpdatedSlotList(slots);
+
+        this._componentSlots.next(slotList);
+
+        const slotObj: SlotMap = {};
+        slotList
+          .filter((slot) => slot.isActive)
+          .forEach((slot) => {
+            slotObj[slot.name] = slot.html;
+          });
+        this.getWebComponent().setSlots(slotObj);
+      });
   }
 
   private setUpTypeChangeSubscription() {
@@ -107,15 +163,9 @@ export class CegComponent implements AfterViewInit, OnDestroy {
       });
   }
 
-  private setDisplayStyleOnExampleComponent() {
-    // By setting "display: contents" on the host, isFullWidth works as expected.
-    const cegContent = this.componentContainer.nativeElement.firstChild as HTMLElement;
-    cegContent.style.display = 'contents';
-  }
-
   private setAllPropsOnWebComponent(controls: Controls): void {
     Object.entries(controls).forEach(([controlName, control]) => {
-      if (control) {
+      if (control && control.type !== 'slotToggle') {
         this.getWebComponent().setProps({ [controlName]: control.value });
       }
     });

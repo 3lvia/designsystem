@@ -81,7 +81,6 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
     this.renderReactDOM();
     this.addDisplayStyleToCustomElement();
-    this.addMutationObserverForSlotChanges();
   }
 
   disconnectedCallback(): void {
@@ -130,6 +129,10 @@ export class ElvisComponentWrapper extends HTMLElement {
     if (!preventRerender) {
       this.throttleRenderReactDOM();
     }
+  }
+
+  setSlots(slots: { [slotName: string]: Element }): void {
+    this._slots = slots;
   }
 
   protected addDisplayStyleToCustomElement(): void {
@@ -222,20 +225,6 @@ export class ElvisComponentWrapper extends HTMLElement {
       }
       this._slots[slotName] = element;
       element.remove();
-    });
-  }
-
-  private addMutationObserverForSlotChanges(): void {
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'childList') {
-          this.storeAllSlots();
-          this.throttleRenderReactDOM();
-        }
-      });
-    });
-    observer.observe(this, {
-      childList: true,
     });
   }
 

@@ -64,6 +64,10 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   ): Prop[] {
     const props = Object.entries(controls)
       .map(([controlName, control]) => {
+        if (control?.type === 'slotToggle') {
+          return [];
+        }
+
         const props: Prop[] = [{ name: controlName, value: control?.value }];
         if (control && control.type === 'checkbox' && control.children) {
           Object.entries(control.children).forEach(([childName, child]) => {
@@ -107,13 +111,11 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   private getCleanSlot(slots: string[]): string[] {
     return slots
       .map((slot) => {
-        if (slot.includes('e-icon')) {
+        if (slot.includes('e-icon') || slot.includes('<elvia-')) {
           const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
-          const iconElements = parsedSlot.querySelectorAll('i.e-icon');
-          iconElements.forEach((icon) => {
-            icon.removeAttribute('e-id');
-            icon.childNodes.forEach((child) => icon.removeChild(child));
-          });
+
+          this.cleanIconsInSlot(parsedSlot);
+          this.cleanElviaComponentsInSlot(slot, parsedSlot);
           return parsedSlot.body.innerHTML;
         }
         return slot;
@@ -122,9 +124,34 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
       .map((slot) => slot.replace(/ng-reflect.*Object]"/g, ''));
   }
 
+  private cleanIconsInSlot(parsedSlot: Document) {
+    const iconElements = parsedSlot.querySelectorAll('i.e-icon');
+    iconElements.forEach((icon) => {
+      icon.removeAttribute('e-id');
+      icon.childNodes.forEach((child) => icon.removeChild(child));
+    });
+  }
+
+  private cleanElviaComponentsInSlot(slotString: string, parsedSlot: Document) {
+    slotString.split('<').forEach((slotPart) => {
+      if (slotPart.startsWith('elvia-')) {
+        const elviaTag = slotPart.split(' ')[0];
+
+        Array.from(parsedSlot.getElementsByTagName(elviaTag)).forEach((elviaElement) => {
+          elviaElement.getAttributeNames().forEach((attribute) => elviaElement.removeAttribute(attribute));
+          elviaElement.innerHTML = 'Content removed for simplicity...';
+        });
+      }
+    });
+  }
+
   private getWebComponentSlots(slots: string[]): string {
     const sanitizedSlots = this.getCleanSlot(slots).join('');
     return sanitizedSlots ? `\n${sanitizedSlots}\n` : '';
+  }
+
+  private transformTagsToReactStyle(code: string): string {
+    return code.replace(/elvia(^|-)([a-z])/g, (_match, _prefix, letter) => letter.toUpperCase());
   }
 
   private getReactSlots(slots: string[]): string {
@@ -137,6 +164,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
         slotContent?.removeAttribute('slot');
         return `${slotName}={<>${slotContent?.outerHTML}</>}`;
       })
+      .map((slot) => this.transformTagsToReactStyle(slot))
       .map((slot) => slot.replace(/class=/g, 'className='))
       .join('');
 
