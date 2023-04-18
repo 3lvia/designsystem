@@ -3,6 +3,7 @@ import {
   Component,
   ContentChild,
   ElementRef,
+  Input,
   NgZone,
   OnDestroy,
   ViewChild,
@@ -29,6 +30,7 @@ interface SlotMap {
   styleUrls: ['./ceg.component.scss', './shared-styles.scss'],
 })
 export class CegComponent implements AfterViewInit, OnDestroy {
+  @Input() fullWidth = false;
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
   @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
   private unsubscriber = new Subject();
