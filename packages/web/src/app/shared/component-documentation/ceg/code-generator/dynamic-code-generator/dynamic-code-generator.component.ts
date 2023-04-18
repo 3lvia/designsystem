@@ -150,6 +150,10 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
     return sanitizedSlots ? `\n${sanitizedSlots}\n` : '';
   }
 
+  private transformTagsToReactStyle(code: string): string {
+    return code.replace(/elvia(^|-)([a-z])/g, (_match, _prefix, letter) => letter.toUpperCase());
+  }
+
   private getReactSlots(slots: string[]): string {
     const sanitizedSlots = this.getCleanSlot(slots)
       .map((slot) => {
@@ -160,6 +164,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
         slotContent?.removeAttribute('slot');
         return `${slotName}={<>${slotContent?.outerHTML}</>}`;
       })
+      .map((slot) => this.transformTagsToReactStyle(slot))
       .map((slot) => slot.replace(/class=/g, 'className='))
       .join('');
 

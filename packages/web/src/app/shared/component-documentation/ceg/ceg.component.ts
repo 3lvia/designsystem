@@ -75,6 +75,36 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     this.componentExample.cegContent.setPropValue(slotName, isVisible);
   }
 
+  private getUpdatedSlotList(
+    slots: {
+      slotName: string;
+      isVisible: true;
+    }[],
+  ): Slot[] {
+    let slotList: Slot[] = [];
+
+    const slotIsActive = (slotName: string): boolean => {
+      return (
+        !slots.map((s) => s.slotName).includes(slotName) ||
+        !!slots.find((s) => s.slotName === slotName)?.isVisible
+      );
+    };
+
+    // Use the existing list of slots, if we have it.
+    if (this._componentSlots.value.length) {
+      slotList = this._componentSlots.value;
+      slotList.forEach((slot) => (slot.isActive = slotIsActive(slot.name)));
+    } else {
+      slotList = Object.entries(this.getWebComponent().getAllSlots()).map(([slotName, slot]) => ({
+        html: slot,
+        isActive: slotIsActive(slotName),
+        name: slotName,
+      }));
+    }
+
+    return slotList;
+  }
+
   private setUpSlotSubscription() {
     /** We need to wait in order to prevent ExpressionChangeAfterChecked error */
     this.zone.onStable
@@ -84,26 +114,12 @@ export class CegComponent implements AfterViewInit, OnDestroy {
         switchMap(() => this.componentExample.cegContent.getSlotVisibility()),
       )
       .subscribe((slots) => {
-        let slotObject = this.getWebComponent().getAllSlots();
+        const slotList = this.getUpdatedSlotList(slots);
 
-        // Use the existing list of slots, if we have it.
-        if (this._componentSlots.value.length) {
-          const existingSlots: SlotMap = {};
-          this._componentSlots.value.forEach((slot) => (existingSlots[slot.name] = slot.html));
-          slotObject = existingSlots;
-        }
-
-        const mappedSlots: Slot[] = Object.entries(slotObject).map(([slotName, slot]) => ({
-          html: slot,
-          isActive:
-            !slots.map((slot) => slot.slotName).includes(slotName) ||
-            !!slots.find((slot) => slot.slotName === slotName)?.isVisible,
-          name: slotName,
-        }));
-        this._componentSlots.next(mappedSlots);
+        this._componentSlots.next(slotList);
 
         const slotObj: SlotMap = {};
-        mappedSlots
+        slotList
           .filter((slot) => slot.isActive)
           .forEach((slot) => {
             slotObj[slot.name] = slot.html;
