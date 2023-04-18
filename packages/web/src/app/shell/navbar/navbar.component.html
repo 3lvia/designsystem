@@ -77,7 +77,7 @@
 
 <ng-template #localeToggleTemplate let-divider="divider">
   <div class="navbar-locale-toggle" *ngIf="isLoaded && showLocaleToggle">
-    <elvia-divider *ngIf="divider" />
+    <elvia-divider *ngIf="divider" [inlineStyle]="{ marginTop: '16px' }" />
     <div class="navbar-locale-toggle-buttons">
       <button
         class="e-btn e-btn--tertiary"
