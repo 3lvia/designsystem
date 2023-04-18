@@ -511,6 +511,17 @@ export class CMSTransformService {
     if (!data.fields.name || !data.fields.gridElements) {
       return '';
     }
+
+    const gridElementsAreDownloadContent = (
+      elements?: (IImage | IDownloadContent)[],
+    ): elements is IDownloadContent[] => {
+      return !!elements?.every((element) => element.sys.contentType.sys.id === 'downloadContent');
+    };
+
+    const gridElementsAreImages = (elements?: (IImage | IDownloadContent)[]): elements is IImage[] => {
+      return !!elements?.every((element) => element.sys.contentType.sys.id === 'image');
+    };
+
     const elements = this.extractLocale(data.fields.gridElements);
     const background = this.extractLocale(data.fields.background);
     let returnString = '';
@@ -525,7 +536,7 @@ export class CMSTransformService {
       );
       return '';
     }
-    if (elements?.[0].sys.contentType.sys.id === 'downloadContent') {
+    if (gridElementsAreDownloadContent(elements)) {
       const nameArray: string[] = [];
       elements.forEach((element) => {
         nameArray.push(this.extractLocale(element.fields.name)!);
@@ -538,7 +549,7 @@ export class CMSTransformService {
         );
         return '';
       }
-      elements.forEach((element: IDownloadContent) => {
+      elements.forEach((element) => {
         if (background === 'Dark') {
           returnString +=
             '<div class="col-sm-6 col-md-4" style="display: flex; align-items: flex-end; justify-content: center">' +
@@ -551,8 +562,8 @@ export class CMSTransformService {
             '</div>';
         }
       });
-    } else if (elements?.[0].sys.contentType.sys.id === 'image') {
-      elements.forEach((element: IImage) => {
+    } else if (gridElementsAreImages(elements)) {
+      elements.forEach((element) => {
         returnString += '<div class="col-sm-6 col-md-4">' + this.getImage(element, true) + '</div>';
       });
     }
